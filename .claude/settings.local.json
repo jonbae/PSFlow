@@ -8,7 +8,8 @@
       "Bash(Get-ChildItem *)",
       "Bash(grep -E '\\\\.\\(md|txt\\)$')",
       "Bash(spago build *)",
-      "Bash(cmd *)"
+      "Bash(cmd *)",
+      "PowerShell(node --version)"
     ]
   }
 }

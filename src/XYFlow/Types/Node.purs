@@ -13,6 +13,9 @@ module XYFlow.Types.Node
   , ParentLookup
   , SetAttributesMode(..)
   , NodeChange(..)
+  , InternalNodeUpdate
+  , OnError
+  , ParentExpandChild
   ) where
 
 import Prelude
@@ -23,11 +26,14 @@ import Data.Generic.Rep (class Generic)
 import Data.Map (Map)
 import Data.Maybe (Maybe)
 import Data.Show.Generic (genericShow)
+import Effect (Effect)
+import Web.HTML.HTMLDivElement (HTMLDivElement)
 import XYFlow.Types.Geometry
   ( CoordinateExtent
   , Dimensions
   , NodeOrigin
   , Position
+  , Rect
   , XYPosition
   )
 import XYFlow.Types.Handle (Handle, HandleType)
@@ -258,3 +264,24 @@ data NodeChange nodeData
       { id :: String
       , item :: NodeBase nodeData
       }
+
+-- | Used by the store reconciliation pipeline to push a measured DOM element
+-- | back into a node. `force` opts out of the dimension-equality short-circuit.
+type InternalNodeUpdate =
+  { id :: String
+  , nodeElement :: HTMLDivElement
+  , force :: Boolean
+  }
+
+-- | Error reporting callback. Maps the TS `OnError = (id, msg) => void` to
+-- | a curried `Effect`-returning function. Callers wrap in `Maybe` when the
+-- | callback is optional.
+type OnError = String -> String -> Effect Unit
+
+-- | Records that a child node has expanded its parent. Consumed by
+-- | `handleExpandParent` and produced by `updateNodeInternals`.
+type ParentExpandChild =
+  { id :: String
+  , parentId :: String
+  , rect :: Rect
+  }

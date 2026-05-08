@@ -4,16 +4,27 @@ package:
     - aff
     - arrays
     - console
+    - control
     - effect
     - either
     - enums
     - foldable-traversable
     - foreign
+    - integers
     - lists
     - maybe
     - newtype
+    - nullable
+    - numbers
     - ordered-collections
+    - partial
     - prelude
+    - refs
+    - strings
+    - transformers
+    - tuples
+    - web-dom
+    - web-events
     - web-html
     - web-touchevents
     - web-uievents

@@ -11,14 +11,23 @@ import Effect.Class.Console (log)
 import Effect.Ref as Ref
 import Partial.Unsafe (unsafeCrashWith)
 import XYFlow.Constants (ErrorCode(..), defaultAriaLabelConfig, elementSelectionKeys, emptyAriaLabelConfigOverride, errorMessage, infiniteExtent, mergeAriaLabelConfig) as C
-import XYFlow.Types.Connection (ConnectionState(..), Padding(..), PaddingValue(..), noConnection)
-import XYFlow.Types.Edge (AlignX(..), AlignY(..), ConnectionLineType(..), EdgeChange(..), EdgeMarkerType(..), MarkerType(..))
+import XYFlow.Types.Connection (ConnectionState(..), Padding(..), PaddingValue(..), Viewport, ZIndexMode(..), noConnection)
+import XYFlow.Types.Edge (AlignX(..), AlignY(..), ConnectionLineType(..), EdgeBase, EdgeChange(..), EdgeMarkerType(..), MarkerType(..))
 import XYFlow.Types.Geometry (CoordinateExtent(..), NodeOrigin(..), Position(..), SnapGrid(..), Transform(..), mkCoordinateExtent, mkNodeOrigin, mkSnapGrid, mkTransform, oppositePosition)
 import XYFlow.Types.Handle (HandleProps, HandleType(..), defaultHandleProps)
-import XYFlow.Types.Node (Align(..), NodeChange(..), NodeExtent(..), SetAttributesMode(..))
+import XYFlow.Types.Node (Align(..), NodeBase, NodeChange(..), NodeExtent(..), SetAttributesMode(..))
 import XYFlow.Types.PanZoom (InterpolateMode(..), PanOnDrag(..)) as PZ
 import XYFlow.Utils.Connections (ConnectionStatus(..), areConnectionMapsEqual, getConnectionStatus, handleConnectionChange)
+import XYFlow.Utils.Edges.General (addEdge, getEdgeId)
+import XYFlow.Utils.Edges.Straight (getStraightPath)
+import XYFlow.Utils.General as G
+import XYFlow.Utils.Graph (calculateNodePosition, getIncomers, getNodesBounds, getOutgoers)
+import XYFlow.Utils.Marker (getMarkerId)
 import XYFlow.Utils.ShallowNodeData (NodeSummary, shallowNodeData, shallowNodeDataSingle)
+import XYFlow.Utils.Store (isManualZIndexMode)
+import XYFlow.Utils.Toolbar (getEdgeToolbarTransform, getNodeToolbarTransform)
+import Data.Either (Either(..))
+import Data.Number (abs) as Number
 
 assert :: String -> Boolean -> Effect Unit
 assert label cond =
@@ -359,5 +368,183 @@ main = do
     (shallowNodeDataSingle n1 n1diffType == false)
   assert "shallowNodeDataSingle differing id"
     (shallowNodeDataSingle n1 n1diffId == false)
+
+  -- 008: clamp / clamp01 cover the standard branches.
+  assert "clamp 5 0 1 == 1" (G.clamp 5.0 0.0 1.0 == 1.0)
+  assert "clamp 0.5 0 1 == 0.5" (G.clamp 0.5 0.0 1.0 == 0.5)
+  assert "clamp -1 0 1 == 0" (G.clamp (-1.0) 0.0 1.0 == 0.0)
+  assert "clamp01 1.5 == 1" (G.clamp01 1.5 == 1.0)
+
+  -- 008: pointToRendererPoint and rendererPointToPoint are inverses when
+  -- snap-to-grid is off.
+  let
+    transform = mkTransform 10.0 20.0 2.0
+    grid = mkSnapGrid 1.0 1.0
+    p0 = { x: 7.5, y: 12.0 }
+    pRoundtrip =
+      rendererPointToPointPure
+        (G.pointToRendererPoint p0 transform false grid) transform
+    rendererPointToPointPure = G.rendererPointToPoint
+  assert "pointToRendererPoint inverse"
+    (Number.abs (pRoundtrip.x - p0.x) < 0.0001
+      && Number.abs (pRoundtrip.y - p0.y) < 0.0001)
+
+  -- 008: getOverlappingArea returns 0 for disjoint rectangles.
+  assert "non-overlapping rects have zero overlap"
+    (G.getOverlappingArea
+       { x: 0.0, y: 0.0, width: 10.0, height: 10.0 }
+       { x: 100.0, y: 100.0, width: 10.0, height: 10.0 } == 0.0)
+
+  -- 008: snapPosition rounds to the grid.
+  let snapped = G.snapPosition { x: 7.4, y: 12.6 } (mkSnapGrid 5.0 5.0)
+  assert "snapPosition snaps to nearest grid cell"
+    (snapped.x == 5.0 && snapped.y == 15.0)
+
+  -- 008: isCoordinateExtent collapses ParentExtent to Nothing.
+  assert "isCoordinateExtent ParentExtent == Nothing"
+    (G.isCoordinateExtent (Just ParentExtent) == Nothing)
+  assert "isCoordinateExtent Nothing == Nothing"
+    (G.isCoordinateExtent Nothing == Nothing)
+  let coord = mkCoordinateExtent 0.0 0.0 10.0 10.0
+  assert "isCoordinateExtent (CoordExtent c) == Just c"
+    (G.isCoordinateExtent (Just (CoordExtent coord)) == Just coord)
+
+  -- 009: getOutgoers and getIncomers on a small fixture.
+  let
+    mkNode :: String -> NodeBase Unit
+    mkNode nid =
+      { id: nid
+      , position: { x: 0.0, y: 0.0 }
+      , data: unit
+      , sourcePosition: Nothing
+      , targetPosition: Nothing
+      , hidden: false
+      , selected: false
+      , dragging: false
+      , draggable: Nothing
+      , selectable: Nothing
+      , connectable: Nothing
+      , deletable: Nothing
+      , dragHandle: Nothing
+      , width: Just 50.0
+      , height: Just 25.0
+      , initialWidth: Nothing
+      , initialHeight: Nothing
+      , parentId: Nothing
+      , zIndex: Nothing
+      , extent: Nothing
+      , expandParent: false
+      , ariaLabel: Nothing
+      , origin: Nothing
+      , handles: Nothing
+      , measured: { width: Just 50.0, height: Just 25.0 }
+      , nodeType: Nothing
+      }
+    mkEdge :: String -> String -> String -> EdgeBase Unit
+    mkEdge eid src tgt =
+      { id: eid
+      , edgeType: Nothing
+      , source: src
+      , target: tgt
+      , sourceHandle: Nothing
+      , targetHandle: Nothing
+      , animated: false
+      , hidden: false
+      , deletable: Nothing
+      , selectable: Nothing
+      , data: Nothing
+      , selected: false
+      , markerStart: Nothing
+      , markerEnd: Nothing
+      , zIndex: Nothing
+      , ariaLabel: Nothing
+      , interactionWidth: Nothing
+      }
+    nA = mkNode "a"
+    nB = mkNode "b"
+    nC = mkNode "c"
+    eAB = mkEdge "e1" "a" "b"
+    eAC = mkEdge "e2" "a" "c"
+    eBC = mkEdge "e3" "b" "c"
+    threeNodes = [ nA, nB, nC ]
+    threeEdges = [ eAB, eAC, eBC ]
+    outsOfA = getOutgoers { id: "a" } threeNodes threeEdges
+    insOfC = getIncomers { id: "c" } threeNodes threeEdges
+  assert "getOutgoers a -> {b, c}" (Array.length outsOfA == 2)
+  assert "getIncomers c -> {a, b}" (Array.length insOfC == 2)
+
+  -- 009: getNodesBounds spans both unit nodes (each 50x25, 100 apart).
+  let
+    bounds =
+      getNodesBounds
+        [ nA, nB { position = { x: 100.0, y: 100.0 } } ]
+        Nothing
+        (mkNodeOrigin 0.0 0.0)
+  assert "getNodesBounds spans union"
+    (bounds.x == 0.0 && bounds.y == 0.0
+      && bounds.width == 150.0
+      && bounds.height == 125.0)
+
+  -- 009: calculateNodePosition returns Nothing for an unknown id.
+  assert "calculateNodePosition unknown id is Nothing"
+    ( calculateNodePosition
+        { nodeId: "missing"
+        , nextPosition: { x: 0.0, y: 0.0 }
+        , nodeLookup: Map.empty
+        , nodeOrigin: mkNodeOrigin 0.0 0.0
+        , nodeExtent: Nothing
+        , onError: Nothing
+        }
+        == Nothing
+    )
+
+  -- 010: isManualZIndexMode discriminates ZManual.
+  assert "isManualZIndexMode ZManual"
+    (isManualZIndexMode ZManual == true)
+  assert "isManualZIndexMode ZBasic"
+    (isManualZIndexMode ZBasic == false)
+
+  -- 013: getStraightPath produces the correct midpoint and SVG string.
+  let
+    sp = getStraightPath { sourceX: 0.0, sourceY: 0.0, targetX: 100.0, targetY: 100.0 }
+  assert "getStraightPath path"
+    (sp.path == "M 0,0L 100,100")
+  assert "getStraightPath label center"
+    (sp.labelX == 50.0 && sp.labelY == 50.0)
+
+  -- 013: getEdgeId is deterministic.
+  assert "getEdgeId stable"
+    (getEdgeId
+        { source: "a", target: "b"
+        , sourceHandle: Nothing, targetHandle: Nothing
+        }
+        == "xy-edge__a-b")
+
+  -- 013: addEdge with empty source returns Left.
+  let
+    badEdge = mkEdge "" "" "b"
+  assert "addEdge with empty source returns Left"
+    (case addEdge badEdge [] getEdgeId of
+      Left _ -> true
+      Right _ -> false)
+
+  -- 013: getMarkerId for Nothing / NamedMarker.
+  assert "getMarkerId Nothing == \"\"" (getMarkerId Nothing Nothing == "")
+  assert "getMarkerId NamedMarker"
+    (getMarkerId (Just (NamedMarker "arrowclosed")) Nothing == "arrowclosed")
+
+  -- 014: toolbar transforms produce predictable strings.
+  let
+    nodeRect = { x: 10.0, y: 20.0, width: 100.0, height: 50.0 }
+    viewport :: Viewport
+    viewport = { x: 0.0, y: 0.0, zoom: 1.0 }
+    nodeTopCenter = getNodeToolbarTransform nodeRect viewport PosTop 5.0 AlignCenter
+  assert "node toolbar TOP/CENTER format"
+    (nodeTopCenter == "translate(60px, 15px) translate(-50%, -100%)")
+
+  let
+    edgeT = getEdgeToolbarTransform 100.0 50.0 2.0 AlignXCenter AlignYCenter
+  assert "edge toolbar centred"
+    (edgeT == "translate(100px, 50px) scale(0.5) translate(-50%, -50%)")
 
   log "all tests passed"
