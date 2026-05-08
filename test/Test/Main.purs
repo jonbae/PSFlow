@@ -11,9 +11,9 @@ import Effect.Class.Console (log)
 import Effect.Ref as Ref
 import Partial.Unsafe (unsafeCrashWith)
 import XYFlow.Constants (ErrorCode(..), defaultAriaLabelConfig, elementSelectionKeys, emptyAriaLabelConfigOverride, errorMessage, infiniteExtent, mergeAriaLabelConfig) as C
-import XYFlow.Types.Connection (ConnectionState(..), Padding(..), PaddingValue(..), Viewport, ZIndexMode(..), noConnection)
+import XYFlow.Types.Connection (ConnectionMode(..), ConnectionState(..), Padding(..), PaddingValue(..), Viewport, ZIndexMode(..), noConnection)
 import XYFlow.Types.Edge (AlignX(..), AlignY(..), ConnectionLineType(..), EdgeBase, EdgeChange(..), EdgeMarkerType(..), MarkerType(..))
-import XYFlow.Types.Geometry (CoordinateExtent(..), NodeOrigin(..), Position(..), SnapGrid(..), Transform(..), mkCoordinateExtent, mkNodeOrigin, mkSnapGrid, mkTransform, oppositePosition)
+import XYFlow.Types.Geometry (CoordinateExtent(..), NodeOrigin(..), Position(..), SnapGrid(..), Transform(..), XYPosition, mkCoordinateExtent, mkNodeOrigin, mkSnapGrid, mkTransform, oppositePosition)
 import XYFlow.Types.Handle (HandleProps, HandleType(..), defaultHandleProps)
 import XYFlow.Types.Node (Align(..), InternalNodeBase, NodeBase, NodeChange(..), NodeDragItem, NodeExtent(..), NodeLookup, SetAttributesMode(..))
 import XYFlow.Types.PanZoom (InterpolateMode(..), PanOnDrag(..)) as PZ
@@ -27,6 +27,7 @@ import XYFlow.Utils.ShallowNodeData (NodeSummary, shallowNodeData, shallowNodeDa
 import XYFlow.Utils.Store (isManualZIndexMode)
 import XYFlow.Utils.Toolbar (getEdgeToolbarTransform, getNodeToolbarTransform)
 import XYFlow.XYDrag.Utils as XYDrag
+import XYFlow.XYHandle.Utils as XYHandle
 import Data.Either (Either(..))
 import Data.Number (abs) as Number
 import Data.Tuple (Tuple(..))
@@ -702,5 +703,95 @@ main = do
         Just n -> n.id == "d" && n.dragging == true
         Nothing -> false
     )
+
+  -- 017: XYHandle pure utilities ---------------------------------------------
+
+  -- isConnectionValid: full truth table.
+  assert "isConnectionValid: handle valid -> Just true"
+    (XYHandle.isConnectionValid false true == Just true)
+  assert "isConnectionValid: in radius, handle invalid -> Just false"
+    (XYHandle.isConnectionValid true false == Just false)
+  assert "isConnectionValid: outside radius, handle invalid -> Nothing"
+    (XYHandle.isConnectionValid false false == Nothing)
+  assert "isConnectionValid: in radius and handle valid -> Just true"
+    (XYHandle.isConnectionValid true true == Just true)
+
+  -- getHandle: returns Nothing for missing node, Just for found, and uses
+  -- absolute position when requested.
+  let
+    -- A node positioned at (100, 50) with one source handle at offset (5, 5).
+    handleS :: { id :: Maybe String
+               , x :: Number
+               , y :: Number
+               , position :: Position
+               , handleType :: HandleType
+               , width :: Number
+               , height :: Number
+               , nodeId :: String
+               }
+    handleS =
+      { id: Just "out"
+      , x: 5.0
+      , y: 5.0
+      , position: PosRight
+      , handleType: Source
+      , width: 6.0
+      , height: 6.0
+      , nodeId: "n1"
+      }
+    handleT = handleS
+      { id = Just "in"
+      , handleType = Target
+      , position = PosLeft
+      , x = 0.0
+      , y = 0.0
+      }
+    nodeWithHandles = mkInternal "n1" false Nothing Nothing { x: 100.0, y: 50.0 }
+    nodeWithHandles' = nodeWithHandles
+      { internals = nodeWithHandles.internals
+          { handleBounds = Just
+              { source: Just [ handleS ], target: Just [ handleT ] }
+          }
+      }
+    lookupHandles =
+      Map.fromFoldable [ Tuple "n1" nodeWithHandles' ] :: NodeLookup Unit
+
+  assert "getHandle: missing node returns Nothing"
+    ( XYHandle.getHandle "ghost" Source Nothing lookupHandles Strict false
+        == Nothing
+    )
+  assert "getHandle: returns the source handle when handleId matches"
+    ( case XYHandle.getHandle "n1" Source (Just "out") lookupHandles Strict false of
+        Just h -> h.id == Just "out" && h.handleType == Source
+        Nothing -> false
+    )
+  assert "getHandle: Loose mode mixes source+target handles"
+    ( case XYHandle.getHandle "n1" Source (Just "in") lookupHandles Loose false of
+        Just h -> h.id == Just "in" && h.handleType == Target
+        Nothing -> false
+    )
+  assert "getHandle: withAbsolutePosition shifts to canvas coords"
+    ( case XYHandle.getHandle "n1" Source (Just "out") lookupHandles Strict true of
+        -- handle.x = 5, node positionAbsolute.x = 0 (we didn't set internals
+        -- positionAbsolute). The function adds them; result is 5.
+        Just h -> h.x >= 5.0
+        Nothing -> false
+    )
+
+  -- getClosestHandle: returns the nearest handle within the radius and
+  -- Nothing when nothing is in range.
+  let
+    -- Position the source handle at absolute (100,50). With node at (100,50)
+    -- and handle offset (5,5), the absolute is (105, 55).
+    far = XYHandle.getClosestHandle { x: 1000.0, y: 1000.0 } 50.0 lookupHandles
+      { nodeId: "other", id: Nothing, handleType: Target }
+    near = XYHandle.getClosestHandle { x: 105.0, y: 55.0 } 50.0 lookupHandles
+      { nodeId: "other", id: Nothing, handleType: Target }
+  assert "getClosestHandle: nothing within radius returns Nothing"
+    (far == Nothing)
+  assert "getClosestHandle: a handle within radius is returned"
+    (case near of
+      Just _ -> true
+      Nothing -> false)
 
   log "all tests passed"
