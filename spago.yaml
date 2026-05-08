@@ -1,14 +1,27 @@
 package:
   name: ps-flow
   dependencies:
+    - aff
+    - arrays
     - console
     - effect
+    - either
+    - enums
     - foldable-traversable
+    - foreign
     - lists
+    - maybe
+    - newtype
+    - ordered-collections
     - prelude
+    - web-html
+    - web-touchevents
+    - web-uievents
   test:
     main: Test.Main
-    dependencies: []
+    dependencies:
+      - partial
+      - refs
 workspace:
   packageSet:
     registry: 76.2.1

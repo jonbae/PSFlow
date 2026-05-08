@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(spago install *)",
+      "PowerShell(spago install *)",
+      "PowerShell(spago build *)",
+      "PowerShell(spago test *)",
+      "Bash(Get-ChildItem *)",
+      "Bash(grep -E '\\\\.\\(md|txt\\)$')",
+      "Bash(spago build *)",
+      "Bash(cmd *)"
+    ]
+  }
+}
