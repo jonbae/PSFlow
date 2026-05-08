@@ -13,7 +13,7 @@ import Partial.Unsafe (unsafeCrashWith)
 import XYFlow.Constants (ErrorCode(..), defaultAriaLabelConfig, elementSelectionKeys, emptyAriaLabelConfigOverride, errorMessage, infiniteExtent, mergeAriaLabelConfig) as C
 import XYFlow.Types.Connection (ConnectionMode(..), ConnectionState(..), Padding(..), PaddingValue(..), Viewport, ZIndexMode(..), noConnection)
 import XYFlow.Types.Edge (AlignX(..), AlignY(..), ConnectionLineType(..), EdgeBase, EdgeChange(..), EdgeMarkerType(..), MarkerType(..))
-import XYFlow.Types.Geometry (CoordinateExtent(..), NodeOrigin(..), Position(..), SnapGrid(..), Transform(..), XYPosition, mkCoordinateExtent, mkNodeOrigin, mkSnapGrid, mkTransform, oppositePosition)
+import XYFlow.Types.Geometry (CoordinateExtent(..), NodeOrigin(..), Position(..), SnapGrid(..), Transform(..), mkCoordinateExtent, mkNodeOrigin, mkSnapGrid, mkTransform, oppositePosition, XYPosition)
 import XYFlow.Types.Handle (HandleProps, HandleType(..), defaultHandleProps)
 import XYFlow.Types.Node (Align(..), InternalNodeBase, NodeBase, NodeChange(..), NodeDragItem, NodeExtent(..), NodeLookup, SetAttributesMode(..))
 import XYFlow.Types.PanZoom (InterpolateMode(..), PanOnDrag(..)) as PZ
@@ -28,10 +28,10 @@ import XYFlow.Utils.Store (isManualZIndexMode)
 import XYFlow.Utils.Toolbar (getEdgeToolbarTransform, getNodeToolbarTransform)
 import XYFlow.XYDrag.Utils as XYDrag
 import XYFlow.XYHandle.Utils as XYHandle
+import XYFlow.XYPanZoom.Utils as XYPanZoom
 import Data.Either (Either(..))
 import Data.Number (abs) as Number
 import Data.Tuple (Tuple(..))
-import XYFlow.Types.Geometry (XYPosition)
 
 assert :: String -> Boolean -> Effect Unit
 assert label cond =
@@ -777,6 +777,33 @@ main = do
         Just h -> h.x >= 5.0
         Nothing -> false
     )
+
+  -- 018: XYPanZoom utils -----------------------------------------------------
+
+  -- transformToViewport / viewportToTransform round-trip the (x, y, zoom).
+  let
+    vp1 :: Viewport
+    vp1 = { x: 12.5, y: -3.0, zoom: 0.75 }
+    rt = XYPanZoom.transformToViewport
+      (XYPanZoom.viewportToTransform vp1)
+  assert "viewportToTransform/transformToViewport round-trip x"
+    (Number.abs (rt.x - vp1.x) < 0.0001)
+  assert "viewportToTransform/transformToViewport round-trip y"
+    (Number.abs (rt.y - vp1.y) < 0.0001)
+  assert "viewportToTransform/transformToViewport round-trip zoom"
+    (Number.abs (rt.zoom - vp1.zoom) < 0.0001)
+
+  -- isRightClickPan: the truth table.
+  assert "isRightClickPan: NoPan, button=2 -> false"
+    (XYPanZoom.isRightClickPan PZ.NoPan 2 == false)
+  assert "isRightClickPan: PanAlways, button=2 -> false"
+    (XYPanZoom.isRightClickPan PZ.PanAlways 2 == false)
+  assert "isRightClickPan: PanOnButtons[0], button=2 -> false"
+    (XYPanZoom.isRightClickPan (PZ.PanOnButtons (NEA.singleton 0)) 2 == false)
+  assert "isRightClickPan: PanOnButtons[2], button=2 -> true"
+    (XYPanZoom.isRightClickPan (PZ.PanOnButtons (NEA.singleton 2)) 2 == true)
+  assert "isRightClickPan: PanOnButtons[2], button=0 -> false"
+    (XYPanZoom.isRightClickPan (PZ.PanOnButtons (NEA.singleton 2)) 0 == false)
 
   -- getClosestHandle: returns the nearest handle within the radius and
   -- Nothing when nothing is in range.
