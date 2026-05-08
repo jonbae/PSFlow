@@ -1,0 +1,15 @@
+package:
+  name: ps-flow
+  dependencies:
+    - console
+    - effect
+    - foldable-traversable
+    - lists
+    - prelude
+  test:
+    main: Test.Main
+    dependencies: []
+workspace:
+  packageSet:
+    registry: 76.2.1
+  extraPackages: {}
