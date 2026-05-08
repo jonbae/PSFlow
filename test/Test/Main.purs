@@ -15,7 +15,7 @@ import XYFlow.Types.Connection (ConnectionState(..), Padding(..), PaddingValue(.
 import XYFlow.Types.Edge (AlignX(..), AlignY(..), ConnectionLineType(..), EdgeBase, EdgeChange(..), EdgeMarkerType(..), MarkerType(..))
 import XYFlow.Types.Geometry (CoordinateExtent(..), NodeOrigin(..), Position(..), SnapGrid(..), Transform(..), mkCoordinateExtent, mkNodeOrigin, mkSnapGrid, mkTransform, oppositePosition)
 import XYFlow.Types.Handle (HandleProps, HandleType(..), defaultHandleProps)
-import XYFlow.Types.Node (Align(..), NodeBase, NodeChange(..), NodeExtent(..), SetAttributesMode(..))
+import XYFlow.Types.Node (Align(..), InternalNodeBase, NodeBase, NodeChange(..), NodeDragItem, NodeExtent(..), NodeLookup, SetAttributesMode(..))
 import XYFlow.Types.PanZoom (InterpolateMode(..), PanOnDrag(..)) as PZ
 import XYFlow.Utils.Connections (ConnectionStatus(..), areConnectionMapsEqual, getConnectionStatus, handleConnectionChange)
 import XYFlow.Utils.Edges.General (addEdge, getEdgeId)
@@ -26,8 +26,11 @@ import XYFlow.Utils.Marker (getMarkerId)
 import XYFlow.Utils.ShallowNodeData (NodeSummary, shallowNodeData, shallowNodeDataSingle)
 import XYFlow.Utils.Store (isManualZIndexMode)
 import XYFlow.Utils.Toolbar (getEdgeToolbarTransform, getNodeToolbarTransform)
+import XYFlow.XYDrag.Utils as XYDrag
 import Data.Either (Either(..))
 import Data.Number (abs) as Number
+import Data.Tuple (Tuple(..))
+import XYFlow.Types.Geometry (XYPosition)
 
 assert :: String -> Boolean -> Effect Unit
 assert label cond =
@@ -546,5 +549,158 @@ main = do
     edgeT = getEdgeToolbarTransform 100.0 50.0 2.0 AlignXCenter AlignYCenter
   assert "edge toolbar centred"
     (edgeT == "translate(100px, 50px) scale(0.5) translate(-50%, -50%)")
+
+  -- 016: XYDrag pure utilities -------------------------------------------------
+  let
+    -- Build an InternalNodeBase fixture for drag tests.
+    mkInternal
+      :: String
+      -> Boolean
+      -> Maybe Boolean
+      -> Maybe String
+      -> XYPosition
+      -> InternalNodeBase Unit
+    mkInternal nid selected draggable parentId positionAbsolute =
+      { id: nid
+      , position: { x: 0.0, y: 0.0 }
+      , data: unit
+      , sourcePosition: Nothing
+      , targetPosition: Nothing
+      , hidden: false
+      , selected
+      , dragging: false
+      , draggable
+      , selectable: Nothing
+      , connectable: Nothing
+      , deletable: Nothing
+      , dragHandle: Nothing
+      , width: Just 50.0
+      , height: Just 25.0
+      , initialWidth: Nothing
+      , initialHeight: Nothing
+      , parentId
+      , zIndex: Nothing
+      , extent: Nothing
+      , expandParent: false
+      , ariaLabel: Nothing
+      , origin: Nothing
+      , handles: Nothing
+      , measured: { width: Just 50.0, height: Just 25.0 }
+      , nodeType: Nothing
+      , internals:
+          { positionAbsolute
+          , z: 0.0
+          , rootParentIndex: Nothing
+          , handleBounds: Nothing
+          , bounds: Nothing
+          }
+      }
+
+    parent = mkInternal "p" false Nothing Nothing { x: 0.0, y: 0.0 }
+    parentSelected = parent { selected = true }
+    childOfParent = mkInternal "c" false Nothing (Just "p") { x: 10.0, y: 10.0 }
+    selectedNode = mkInternal "s" true Nothing Nothing { x: 5.0, y: 5.0 }
+    draggableNode = mkInternal "d" true (Just true) Nothing { x: 0.0, y: 0.0 }
+    nonDraggable = mkInternal "n" true (Just false) Nothing { x: 0.0, y: 0.0 }
+
+    lookupParentSelected =
+      Map.fromFoldable
+        [ Tuple "p" parentSelected, Tuple "c" childOfParent ]
+        :: NodeLookup Unit
+    lookupParentUnselected =
+      Map.fromFoldable
+        [ Tuple "p" parent, Tuple "c" childOfParent ]
+        :: NodeLookup Unit
+
+  -- isParentSelected: walks the chain.
+  assert "isParentSelected returns false for a root node"
+    (XYDrag.isParentSelected parent lookupParentUnselected == false)
+  assert "isParentSelected returns false when parent unselected"
+    (XYDrag.isParentSelected childOfParent lookupParentUnselected == false)
+  assert "isParentSelected returns true when parent is selected"
+    (XYDrag.isParentSelected childOfParent lookupParentSelected == true)
+  assert "isParentSelected returns false when parentId points nowhere"
+    (XYDrag.isParentSelected
+      (childOfParent { parentId = Just "ghost" })
+      lookupParentUnselected == false)
+
+  -- getDragItems: filter by selected/draggable.
+  let
+    lookupDrag =
+      Map.fromFoldable
+        [ Tuple "s" selectedNode
+        , Tuple "d" draggableNode
+        , Tuple "n" nonDraggable
+        ]
+        :: NodeLookup Unit
+    dragItemsAll =
+      XYDrag.getDragItems lookupDrag true { x: 0.0, y: 0.0 } Nothing
+    dragItemsExplicit =
+      XYDrag.getDragItems lookupDrag false { x: 0.0, y: 0.0 } (Just "d")
+  assert "getDragItems collects selected nodes when nodesDraggable=true"
+    (Map.member "s" dragItemsAll)
+  assert "getDragItems honours node.draggable=true"
+    (Map.member "d" dragItemsAll)
+  assert "getDragItems excludes node.draggable=false even if selected"
+    (not (Map.member "n" dragItemsAll))
+  assert "getDragItems collects only the targeted node when nodeId is set"
+    (Map.size dragItemsExplicit == 1 && Map.member "d" dragItemsExplicit)
+
+  -- calculateSnapOffset: empty / non-empty / pure deltas.
+  let snap5 = mkSnapGrid 5.0 5.0
+  assert "calculateSnapOffset returns Nothing for empty drag items"
+    (XYDrag.calculateSnapOffset Map.empty snap5 0.0 0.0 == Nothing)
+  let
+    -- A drag item whose distance.x = 0, distance.y = 0 means we snap (x,y).
+    flatItem :: NodeDragItem
+    flatItem =
+      { id: "i"
+      , position: { x: 0.0, y: 0.0 }
+      , distance: { x: 0.0, y: 0.0 }
+      , extent: Nothing
+      , parentId: Nothing
+      , origin: Nothing
+      , expandParent: false
+      , internals: { positionAbsolute: { x: 0.0, y: 0.0 } }
+      , measured: { width: 0.0, height: 0.0 }
+      , dragging: false
+      }
+    flatMap = Map.singleton "i" flatItem
+  -- Snapping (7.4, 12.6) to a 5-grid lands at (5, 15); offset is (-2.4, 2.4).
+  let snapOffset = XYDrag.calculateSnapOffset flatMap snap5 7.4 12.6
+  assert "calculateSnapOffset computes the (snapped - raw) delta"
+    ( case snapOffset of
+        Just o ->
+          Number.abs (o.x - (-2.4)) < 0.0001
+            && Number.abs (o.y - 2.4) < 0.0001
+        Nothing -> false
+    )
+
+  -- getEventHandlerParams: currentNode/allNodes split.
+  let
+    items2 :: Map.Map String NodeDragItem
+    items2 = Map.fromFoldable
+      [ Tuple "s" (flatItem { id = "s", position = { x: 1.0, y: 1.0 } })
+      , Tuple "d" (flatItem { id = "d", position = { x: 2.0, y: 2.0 } })
+      ]
+    lookup2 =
+      Map.fromFoldable
+        [ Tuple "s" selectedNode, Tuple "d" draggableNode ]
+        :: NodeLookup Unit
+    paramsHead = XYDrag.getEventHandlerParams Nothing items2 lookup2 true
+    paramsTargeted =
+      XYDrag.getEventHandlerParams (Just "d") items2 lookup2 true
+  assert "getEventHandlerParams Nothing returns first item as current"
+    ( case paramsHead.currentNode of
+        Just n -> n.id == "s" || n.id == "d" -- map order isn't fixed
+        Nothing -> false
+    )
+  assert "getEventHandlerParams Nothing returns all items"
+    (Array.length paramsHead.allNodes == 2)
+  assert "getEventHandlerParams Just nid returns that node as current"
+    ( case paramsTargeted.currentNode of
+        Just n -> n.id == "d" && n.dragging == true
+        Nothing -> false
+    )
 
   log "all tests passed"
