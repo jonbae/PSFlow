@@ -18,6 +18,7 @@ import XYFlow.Types.Handle (HandleProps, HandleType(..), defaultHandleProps)
 import XYFlow.Types.Node (Align(..), NodeChange(..), NodeExtent(..), SetAttributesMode(..))
 import XYFlow.Types.PanZoom (InterpolateMode(..), PanOnDrag(..)) as PZ
 import XYFlow.Utils.Connections (ConnectionStatus(..), areConnectionMapsEqual, getConnectionStatus, handleConnectionChange)
+import XYFlow.Utils.ShallowNodeData (NodeSummary, shallowNodeData, shallowNodeDataSingle)
 
 assert :: String -> Boolean -> Effect Unit
 assert label cond =
@@ -319,5 +320,44 @@ main = do
   let im = PZ.Smooth
   assert "PanZoom InterpolateMode Smooth" (im == PZ.Smooth)
   assert "PanZoom InterpolateMode Smooth /= Linear" (im /= PZ.Linear)
+
+  -- 015: shallowNodeData covers Nothing/empty/length/match/mismatch cases.
+  let
+    mkSummary :: String -> Maybe String -> Int -> NodeSummary Int
+    mkSummary nid ntype d = { id: nid, nodeType: ntype, data: d }
+    n1 = mkSummary "1" (Just "input") 10
+    n1' = mkSummary "1" (Just "input") 10
+    n2 = mkSummary "2" Nothing 20
+    n1diffData = mkSummary "1" (Just "input") 99
+    n1diffType = mkSummary "1" (Just "default") 10
+    n1diffId = mkSummary "X" (Just "input") 10
+
+  assert "shallowNodeData Nothing/Nothing == false"
+    (shallowNodeData (Nothing :: Maybe (Array (NodeSummary Int))) Nothing == false)
+  assert "shallowNodeData Just/Nothing == false"
+    (shallowNodeData (Just [ n1 ]) Nothing == false)
+  assert "shallowNodeData Nothing/Just == false"
+    (shallowNodeData Nothing (Just [ n1 ]) == false)
+  assert "shallowNodeData empty/empty == true"
+    (shallowNodeData (Just ([] :: Array (NodeSummary Int))) (Just []) == true)
+  assert "shallowNodeData different lengths == false"
+    (shallowNodeData (Just [ n1 ]) (Just [ n1, n2 ]) == false)
+  assert "shallowNodeData matching arrays == true"
+    (shallowNodeData (Just [ n1, n2 ]) (Just [ n1', n2 ]) == true)
+  assert "shallowNodeData differing data == false"
+    (shallowNodeData (Just [ n1 ]) (Just [ n1diffData ]) == false)
+  assert "shallowNodeData differing type == false"
+    (shallowNodeData (Just [ n1 ]) (Just [ n1diffType ]) == false)
+  assert "shallowNodeData differing id == false"
+    (shallowNodeData (Just [ n1 ]) (Just [ n1diffId ]) == false)
+
+  -- 015: shallowNodeDataSingle compares one-to-one.
+  assert "shallowNodeDataSingle equal" (shallowNodeDataSingle n1 n1' == true)
+  assert "shallowNodeDataSingle differing data"
+    (shallowNodeDataSingle n1 n1diffData == false)
+  assert "shallowNodeDataSingle differing type"
+    (shallowNodeDataSingle n1 n1diffType == false)
+  assert "shallowNodeDataSingle differing id"
+    (shallowNodeDataSingle n1 n1diffId == false)
 
   log "all tests passed"
