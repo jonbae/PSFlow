@@ -31,6 +31,7 @@ import XYFlow.XYHandle.Utils as XYHandle
 import XYFlow.XYPanZoom.Utils as XYPanZoom
 import XYFlow.XYResizer (ControlLinePosition(..), ControlPosition(..), CornerPosition(..)) as Resizer
 import XYFlow.XYResizer.Utils as ResizerU
+import XYFlow.XYMinimap as XYMinimap
 import Data.Either (Either(..))
 import Data.Number (abs) as Number
 import Data.Tuple (Tuple(..))
@@ -959,5 +960,20 @@ main = do
   -- with keepAspectRatio, w/h should still be ≈ 2.0.
   assert "getDimensionsAfterResize: keepAspectRatio holds w/h ratio"
     (Number.abs (aspect.width / aspect.height - 2.0) < 0.0001)
+
+  -- 020: XYMinimap smoke check ----------------------------------------------
+  let
+    minimapDefaults = XYMinimap.defaultXYMinimapUpdate
+      (mkCoordinateExtent (-1000.0) (-1000.0) 1000.0 1000.0)
+      200.0
+      150.0
+  assert "defaultXYMinimapUpdate: width and height threaded"
+    (minimapDefaults.width == 200.0 && minimapDefaults.height == 150.0)
+  assert "defaultXYMinimapUpdate: zoomStep=1.0, pannable+zoomable=true"
+    ( minimapDefaults.zoomStep == 1.0
+        && minimapDefaults.pannable
+        && minimapDefaults.zoomable
+        && not minimapDefaults.inversePan
+    )
 
   log "all tests passed"
