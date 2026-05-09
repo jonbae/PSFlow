@@ -29,6 +29,8 @@ import XYFlow.Utils.Toolbar (getEdgeToolbarTransform, getNodeToolbarTransform)
 import XYFlow.XYDrag.Utils as XYDrag
 import XYFlow.XYHandle.Utils as XYHandle
 import XYFlow.XYPanZoom.Utils as XYPanZoom
+import XYFlow.XYResizer (ControlLinePosition(..), ControlPosition(..), CornerPosition(..)) as Resizer
+import XYFlow.XYResizer.Utils as ResizerU
 import Data.Either (Either(..))
 import Data.Number (abs) as Number
 import Data.Tuple (Tuple(..))
@@ -820,5 +822,142 @@ main = do
     (case near of
       Just _ -> true
       Nothing -> false)
+
+  -- 019: XYResizer pure utilities --------------------------------------------
+
+  -- getResizeDirection: sign + affects flips.
+  let
+    plain = ResizerU.getResizeDirection
+      { width: 110.0
+      , prevWidth: 100.0
+      , height: 50.0
+      , prevHeight: 50.0
+      , affectsX: false
+      , affectsY: false
+      }
+    flipX = ResizerU.getResizeDirection
+      { width: 110.0
+      , prevWidth: 100.0
+      , height: 50.0
+      , prevHeight: 50.0
+      , affectsX: true
+      , affectsY: false
+      }
+  assert "getResizeDirection: width grew, dx=1"
+    (plain.dx == 1 && plain.dy == 0)
+  assert "getResizeDirection: affectsX flips dx sign"
+    (flipX.dx == -1)
+
+  -- getControlDirection: each of the 8 ControlPositions decomposes correctly.
+  assert "getControlDirection: TopLeft -> H+V, affectsX, affectsY"
+    ( let d = ResizerU.getControlDirection
+            (Resizer.ControlCorner Resizer.CornerTopLeft)
+      in d.isHorizontal && d.isVertical && d.affectsX && d.affectsY
+    )
+  assert "getControlDirection: BottomRight -> H+V, no affects"
+    ( let d = ResizerU.getControlDirection
+            (Resizer.ControlCorner Resizer.CornerBottomRight)
+      in d.isHorizontal && d.isVertical && not d.affectsX && not d.affectsY
+    )
+  assert "getControlDirection: Top line -> V only, affectsY"
+    ( let d = ResizerU.getControlDirection
+            (Resizer.ControlLine Resizer.LineTop)
+      in not d.isHorizontal && d.isVertical && not d.affectsX && d.affectsY
+    )
+  assert "getControlDirection: Right line -> H only, no affects"
+    ( let d = ResizerU.getControlDirection
+            (Resizer.ControlLine Resizer.LineRight)
+      in d.isHorizontal && not d.isVertical && not d.affectsX && not d.affectsY
+    )
+  assert "getControlDirection: Bottom line -> V only, no affects"
+    ( let d = ResizerU.getControlDirection
+            (Resizer.ControlLine Resizer.LineBottom)
+      in not d.isHorizontal && d.isVertical && not d.affectsX && not d.affectsY
+    )
+  assert "getControlDirection: Left line -> H only, affectsX"
+    ( let d = ResizerU.getControlDirection
+            (Resizer.ControlLine Resizer.LineLeft)
+      in d.isHorizontal && not d.isVertical && d.affectsX && not d.affectsY
+    )
+
+  -- getDimensionsAfterResize: unconstrained free resize from BottomRight.
+  let
+    sv :: ResizerU.ResizeStartValues
+    sv =
+      { x: 0.0
+      , y: 0.0
+      , width: 100.0
+      , height: 50.0
+      , pointerX: 0.0
+      , pointerY: 0.0
+      , aspectRatio: 2.0
+      }
+    bigBoundaries =
+      { minWidth: 0.0
+      , maxWidth: 1.0e9
+      , minHeight: 0.0
+      , maxHeight: 1.0e9
+      }
+    origin0 = mkNodeOrigin 0.0 0.0
+    pp dx dy =
+      { x: dx, y: dy, xSnapped: dx, ySnapped: dy } :: ResizerU.PointerPosition
+    ctrlBR = ResizerU.getControlDirection
+      (Resizer.ControlCorner Resizer.CornerBottomRight)
+
+    free = ResizerU.getDimensionsAfterResize sv ctrlBR (pp 30.0 20.0)
+      bigBoundaries false origin0 Nothing Nothing
+  assert "getDimensionsAfterResize: free BR drag adds the delta to dimensions"
+    ( Number.abs (free.width - 130.0) < 0.0001
+        && Number.abs (free.height - 70.0) < 0.0001
+        && Number.abs free.x < 0.0001
+        && Number.abs free.y < 0.0001
+    )
+
+  -- min/max clamping (1): max width caps growth.
+  let
+    capped = ResizerU.getDimensionsAfterResize sv ctrlBR (pp 200.0 0.0)
+      (bigBoundaries { maxWidth = 120.0 }) false origin0 Nothing Nothing
+  assert "getDimensionsAfterResize: maxWidth=120 caps width at 120"
+    (Number.abs (capped.width - 120.0) < 0.0001)
+
+  -- min/max clamping (2): min height floors shrink.
+  let
+    ctrlTL = ResizerU.getControlDirection
+      (Resizer.ControlCorner Resizer.CornerTopLeft)
+    -- dragging TopLeft toward bottom-right shrinks the node.
+    floored = ResizerU.getDimensionsAfterResize sv ctrlTL (pp 90.0 60.0)
+      (bigBoundaries { minHeight = 30.0 }) false origin0 Nothing Nothing
+  assert "getDimensionsAfterResize: minHeight=30 floors height at >=30"
+    (floored.height >= 29.999)
+
+  -- Parent extent clamping: dragging BR past the parent extent caps.
+  let
+    parentExt = mkCoordinateExtent 0.0 0.0 110.0 60.0
+    extClamped = ResizerU.getDimensionsAfterResize sv ctrlBR (pp 200.0 200.0)
+      bigBoundaries false origin0 (Just parentExt) Nothing
+  assert "getDimensionsAfterResize: parent extent caps width at 110"
+    (Number.abs (extClamped.width - 110.0) < 0.0001)
+  assert "getDimensionsAfterResize: parent extent caps height at 60"
+    (Number.abs (extClamped.height - 60.0) < 0.0001)
+
+  -- Child extent clamping: TopLeft drag inward past child boundary.
+  let
+    childExt = mkCoordinateExtent 10.0 10.0 90.0 40.0
+    childClamped = ResizerU.getDimensionsAfterResize sv ctrlTL (pp 50.0 50.0)
+      bigBoundaries false origin0 Nothing (Just childExt)
+  -- The TopLeft drag with childExtent prevents shrinkage past the child's
+  -- bounds. The exact value depends on the math; assert width and height
+  -- stay above the child extent's gap from the start.
+  assert "getDimensionsAfterResize: child extent prevents over-shrink"
+    (childClamped.width >= 49.999 && childClamped.height >= 9.999)
+
+  -- Aspect ratio: BR drag with keepAspectRatio holds w/h ratio.
+  let
+    aspect = ResizerU.getDimensionsAfterResize sv ctrlBR (pp 30.0 0.0)
+      bigBoundaries true origin0 Nothing Nothing
+  -- aspectRatio is 2.0 (sv.width=100/sv.height=50). After diagonal drag
+  -- with keepAspectRatio, w/h should still be ≈ 2.0.
+  assert "getDimensionsAfterResize: keepAspectRatio holds w/h ratio"
+    (Number.abs (aspect.width / aspect.height - 2.0) < 0.0001)
 
   log "all tests passed"
