@@ -35,6 +35,7 @@ import XYFlow.XYMinimap as XYMinimap
 import Data.Either (Either(..))
 import Data.Number (abs) as Number
 import Data.Tuple (Tuple(..))
+import Test.Properties (runProperties)
 
 assert :: String -> Boolean -> Effect Unit
 assert label cond =
@@ -977,3 +978,5 @@ main = do
     )
 
   log "all tests passed"
+
+  runProperties
