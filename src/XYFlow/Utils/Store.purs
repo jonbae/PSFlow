@@ -19,7 +19,7 @@ module XYFlow.Utils.Store
 
 import Prelude
 
-import Data.Array (any, foldl, fromFoldable, length) as Array
+import Data.Array (any, foldl, fromFoldable, length, mapMaybe, snoc) as Array
 import Data.Either (Either(..))
 import Data.Foldable (foldM, foldl) as Foldable
 import Data.Int (toNumber) as Int
@@ -484,7 +484,7 @@ parseHandles userNode internalNode = case userNode.handles of
         Nothing -> Nothing
   Just handles ->
     let
-      empty :: { source :: Array Handle, target :: Array Handle }
+      empty :: NodeHandleBounds
       empty = { source: [], target: [] }
 
       go acc h =
@@ -502,12 +502,10 @@ parseHandles userNode internalNode = case userNode.handles of
             }
         in
           case h.handleType of
-            Source -> acc { source = acc.source <> [ bounds ] }
-            Target -> acc { target = acc.target <> [ bounds ] }
-
-      collected = Foldable.foldl go empty handles
+            Source -> acc { source = Array.snoc acc.source bounds }
+            Target -> acc { target = Array.snoc acc.target bounds }
     in
-      Just { source: Just collected.source, target: Just collected.target }
+      Just (Foldable.foldl go empty handles)
 
 handleExpandParent
   :: forall n
@@ -647,14 +645,10 @@ stepExpansion children parentLookup defaultOrigin changes (Tuple parentId rec) =
   in
     changes <> posChange <> childPosChanges <> dimChange
 
+-- Local alias kept for the readable `# filterMap` pipeline above; uses the
+-- standard library implementation (`Data.Array.mapMaybe`).
 filterMap :: forall a b. (a -> Maybe b) -> Array a -> Array b
-filterMap f =
-  Array.foldl
-    ( \acc x -> case f x of
-        Just b -> acc <> [ b ]
-        Nothing -> acc
-    )
-    []
+filterMap = Array.mapMaybe
 
 -- DOM-driven node-internals update -----------------------------------------
 
@@ -784,7 +778,9 @@ processUpdate update acc zoom origin extent zMode =
               , internals = node.internals
                   { positionAbsolute = positionAbsoluteAdjusted
                   , handleBounds = Just
-                      { source: sourceHandles, target: targetHandles }
+                      { source: fromMaybe [] sourceHandles
+                      , target: fromMaybe [] targetHandles
+                      }
                   }
               }
             nodeLookup1 = Map.insert node.id newNode acc.nodeLookup
