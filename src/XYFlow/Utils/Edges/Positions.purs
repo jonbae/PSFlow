@@ -144,7 +144,8 @@ getHandlePosition node handle fallbackPosition center =
     y = baseY + node.internals.positionAbsolute.y
     dim = case handle of
       Just h -> { width: h.width, height: h.height }
-      Nothing -> getNodeDimensions node
+      Nothing -> fromMaybe { width: 0.0, height: 0.0 }
+        (getNodeDimensions node)
     pos = case handle of
       Just h -> h.position
       Nothing -> fallbackPosition

@@ -175,7 +175,8 @@ calculateChildXYZ child parent origin extent selZ zMode =
   let
     parentX = parent.internals.positionAbsolute.x
     parentY = parent.internals.positionAbsolute.y
-    childDimensions = getNodeDimensions child
+    childDimensions =
+      fromMaybe { width: 0.0, height: 0.0 } (getNodeDimensions child)
     positionWithOrigin = getNodePositionWithOrigin (toBaseLike child) origin
     childExtent = isCoordinateExtent child.extent
     clampedRel = case childExtent of
@@ -332,7 +333,8 @@ updateAbsolutePositions nodeLookupRef parentLookupRef options = do
               ext = case isCoordinateExtent node.extent of
                 Just ce -> ce
                 Nothing -> options.nodeExtent
-              dims = getNodeDimensions node
+              dims = fromMaybe { width: 0.0, height: 0.0 }
+                (getNodeDimensions node)
               clamped = clampPosition positionWithOrigin ext
                 { width: Just dims.width, height: Just dims.height }
               updated = node
@@ -383,7 +385,8 @@ adoptUserNodes nodes nodeLookupRef parentLookupRef options = do
         extent = case isCoordinateExtent userNodeWithDefaults.extent of
           Just ce -> ce
           Nothing -> options.nodeExtent
-        dims = getNodeDimensions userNodeWithDefaults
+        dims = fromMaybe { width: 0.0, height: 0.0 }
+          (getNodeDimensions userNodeWithDefaults)
         clamped = clampPosition positionWithOrigin extent
           { width: Just dims.width, height: Just dims.height }
         oldInternal = Map.lookup userNodeWithDefaults.id prev
@@ -554,7 +557,8 @@ stepExpansion
 stepExpansion children parentLookup defaultOrigin changes (Tuple parentId rec) =
   let
     positionAbsolute = rec.parent.internals.positionAbsolute
-    dimensions = getNodeDimensions rec.parent
+    dimensions = fromMaybe { width: 0.0, height: 0.0 }
+      (getNodeDimensions rec.parent)
     NodeOrigin origin = fromMaybe defaultOrigin rec.parent.origin
 
     xChange =

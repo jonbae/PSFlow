@@ -52,7 +52,6 @@ import XYFlow.Types.Geometry
   ( Position(..)
   , Transform
   , XYPosition
-  , mkSnapGrid
   , oppositePosition
   )
 import XYFlow.Types.Handle (Handle, HandleType(..))
@@ -286,8 +285,7 @@ onPointerDown event params = do
                   curPos <- getEventPosition ev (Just bounds)
                   Ref.write curPos position
                   let
-                    rendererPos = pointToRendererPoint curPos transform false
-                      (mkSnapGrid 1.0 1.0)
+                    rendererPos = pointToRendererPoint curPos transform Nothing
                     fromHandleRef :: HandleRef
                     fromHandleRef =
                       { nodeId: params.nodeId

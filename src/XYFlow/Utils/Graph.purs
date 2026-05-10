@@ -48,7 +48,6 @@ import XYFlow.Types.Geometry
   , Transform(..)
   , XYPosition
   , mkNodeOrigin
-  , mkSnapGrid
   )
 import XYFlow.Types.Node
   ( InternalNodeBase
@@ -62,6 +61,7 @@ import XYFlow.Utils.General
   ( boxToRect
   , clampPosition
   , getBoundsOfBoxes
+  , getNodeDimensions
   , getNodePositionWithOrigin
   , getOverlappingArea
   , getViewportForBounds
@@ -207,8 +207,7 @@ getNodesInside nodes rect transform partially excludeNonSelectable =
       tl = G.pointToRendererPoint
         { x: rect.x, y: rect.y }
         transform
-        false
-        (mkSnapGrid 1.0 1.0)
+        Nothing
     in
       { x: tl.x
       , y: tl.y
@@ -226,13 +225,14 @@ getNodesInside nodes rect transform partially excludeNonSelectable =
       if (excludeNonSelectable && not selectable) || hidden then false
       else
         let
-          width = node.measured.width <|> node.width <|> node.initialWidth
-          height = node.measured.height <|> node.height <|> node.initialHeight
-          area = (fromMaybe 0.0 width) * (fromMaybe 0.0 height)
+          mDims = G.getNodeDimensions node
+          area = case mDims of
+            Just d -> d.width * d.height
+            Nothing -> 0.0
           overlapping = G.getOverlappingArea paneRect
             (G.nodeToRect (Right node) zeroOrigin)
           partiallyVisible = partially && overlapping > 0.0
-          forceInitialRender = isNothing node.internals.handleBounds
+          forceInitialRender = isNothing mDims
         in
           forceInitialRender || partiallyVisible || overlapping >= area
             || node.dragging
