@@ -14,10 +14,12 @@ module XYFlow.XYDrag.Utils
 
 import Prelude
 
-import Data.Array (foldl, head) as Array
+import Data.Array (foldl, head, snoc) as Array
 import Data.Map (Map)
 import Data.Map (empty, insert, lookup, toUnfoldable) as Map
 import Data.Maybe (Maybe(..), fromMaybe)
+import Data.Set (Set)
+import Data.Set (empty, insert, member) as Set
 import Data.Tuple (Tuple(..))
 import Effect (Effect)
 import Web.DOM.Element (Element)
@@ -31,20 +33,25 @@ import XYFlow.Types.Node
 import XYFlow.Utils.General (snapPosition)
 
 -- | Walk the parent chain via `parentId`. Returns `true` as soon as any
--- | ancestor is `selected`. Cycles in the lookup would make this loop, but
--- | `NodeLookup` is built from `Map` so they're impossible by construction.
+-- | ancestor is `selected`. The visited-id `Set` short-circuits cycles —
+-- | adoption code is supposed to enforce acyclicity, but `Map` does not,
+-- | and a malformed lookup would otherwise spin forever here.
 isParentSelected
   :: forall n a
    . { parentId :: Maybe String | a }
   -> NodeLookup n
   -> Boolean
-isParentSelected node lookup = case node.parentId of
-  Nothing -> false
-  Just pid -> case Map.lookup pid lookup of
-    Nothing -> false
-    Just parent ->
-      if parent.selected then true
-      else isParentSelected parent lookup
+isParentSelected node lookup = go Set.empty node.parentId
+  where
+  go :: Set String -> Maybe String -> Boolean
+  go _ Nothing = false
+  go visited (Just pid)
+    | Set.member pid visited = false
+    | otherwise = case Map.lookup pid lookup of
+        Nothing -> false
+        Just parent ->
+          if parent.selected then true
+          else go (Set.insert pid visited) parent.parentId
 
 -- | DOM walk: starting at `target`, climb `parentElement` until either the
 -- | element matches the CSS selector (return `true`) or we reach `domNode`
@@ -167,7 +174,7 @@ getEventHandlerParams mNodeId dragItems lookup dragging =
     allNodes = Array.foldl
       ( \acc (Tuple id item) ->
           case Map.lookup id lookup of
-            Just internal -> acc <> [ overlay internal item ]
+            Just internal -> Array.snoc acc (overlay internal item)
             Nothing -> acc
       )
       []
@@ -185,6 +192,13 @@ getEventHandlerParams mNodeId dragItems lookup dragging =
 -- | Snap-offset for a multi-selection drag: snap the *first* item's position
 -- | and return the delta as the offset to apply to the rest. Returns
 -- | `Nothing` when the drag-items map is empty.
+-- |
+-- | Divergence note: TS picks the user-clicked item as the reference (via
+-- | insertion order in the JS Map). PS picks the lowest-key item, because
+-- | `Map.toUnfoldable` orders by key. The visible difference is which item
+-- | snaps exactly to the grid in a multi-drag — others move by the delta
+-- | regardless. To restore TS parity, thread the click-target id through
+-- | the call chain and look it up here instead of taking the head.
 calculateSnapOffset
   :: Map String NodeDragItem
   -> SnapGrid

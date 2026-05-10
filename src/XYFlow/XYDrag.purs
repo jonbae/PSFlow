@@ -28,7 +28,8 @@ module XYFlow.XYDrag
 
 import Prelude
 
-import Data.Either (Either)
+import Control.Monad.Except (runExcept)
+import Data.Either (Either(..))
 import Data.Foldable (foldM, for_, traverse_)
 import Data.Map (Map)
 import Data.Map (empty, lookup, size, toUnfoldable) as Map
@@ -40,7 +41,7 @@ import Effect.Aff (Aff, launchAff_)
 import Effect.Class (liftEffect)
 import Effect.Ref (Ref)
 import Effect.Ref as Ref
-import Foreign (Foreign)
+import Foreign (Foreign, unsafeReadTagged)
 import Unsafe.Coerce (unsafeCoerce)
 import Web.DOM.Element (Element)
 import Web.TouchEvent.TouchEvent (TouchEvent)
@@ -84,7 +85,7 @@ import XYFlow.Utils.Dom
   , getEventPosition
   , getPointerPosition
   )
-import XYFlow.Utils.General (calcAutoPan, snapPosition)
+import XYFlow.Utils.General (calcAutoPan, roundHalfAwayFromZero, snapPosition)
 import XYFlow.Utils.Graph (calculateNodePosition)
 import XYFlow.XYDrag.Utils
   ( calculateSnapOffset
@@ -217,13 +218,21 @@ defaultDragState = do
     , dragEvent
     }
 
--- | The d3 source event is `Foreign`. The TS source narrows with
--- | `as MouseEvent`; PS does the same via `unsafeCoerce` at the boundary.
+-- | The d3 source event arrives as `Foreign`. We attempt a tag-check via
+-- | `Foreign.unsafeReadTagged` and only fall back to `unsafeCoerce` (the
+-- | original TS-equivalent pattern) when the runtime tag isn't a literal
+-- | match — `PointerEvent` and other MouseEvent subtypes that d3 forwards
+-- | won't read as exactly `"MouseEvent"`. The check is best-effort
+-- | telemetry rather than a hard refusal so the drag stays uninterrupted.
 foreignAsMouseEvent :: Foreign -> MouseEvent
-foreignAsMouseEvent = unsafeCoerce
+foreignAsMouseEvent f = case runExcept (unsafeReadTagged "MouseEvent" f) of
+  Right me -> me
+  Left _ -> unsafeCoerce f
 
 foreignAsTouchOrMouse :: Foreign -> Either MouseEvent TouchEvent
-foreignAsTouchOrMouse = unsafeCoerce
+foreignAsTouchOrMouse f = case runExcept (unsafeReadTagged "TouchEvent" f) of
+  Right te -> Right te
+  Left _ -> Left (foreignAsMouseEvent f)
 
 -- | TS `event.sourceEvent.type === 'touchmove' && event.sourceEvent.touches.length > 1`.
 -- | Implemented in JS because PS's `TouchEvent` binding doesn't expose
@@ -237,9 +246,9 @@ foreign import mouseButtonIsZero :: MouseEvent -> Effect Boolean
 -- | `event.target as Element`.
 foreign import mouseEventTarget :: MouseEvent -> Effect Element
 
--- | TS `Math.round` rounds half-away-from-zero; PS's `round` rounds to even.
--- | Used in `updateNodes` to mirror the TS exactly.
-foreign import roundHalfAway :: Number -> Number
+-- TS `Math.round` rounds half-away-from-zero; PS's `round` rounds to even.
+-- The pure equivalent lives in `XYFlow.Utils.General.roundHalfAwayFromZero`
+-- and is imported above.
 
 -- | Construct the controller. Allocates `Ref` cells for closure state and
 -- | returns the `update`/`destroy` interface. Subsequent `update` calls
@@ -552,8 +561,8 @@ updateNodes params state mUpd pos = do
         let
           stepNext = case multiSnap of
             Just off ->
-              { x: roundHalfAway ((pos.x - dragItem.distance.x) + off.x)
-              , y: roundHalfAway ((pos.y - dragItem.distance.y) + off.y)
+              { x: roundHalfAwayFromZero ((pos.x - dragItem.distance.x) + off.x)
+              , y: roundHalfAwayFromZero ((pos.y - dragItem.distance.y) + off.y)
               }
             Nothing ->
               if store.snapToGrid then
