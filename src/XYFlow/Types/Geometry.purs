@@ -4,6 +4,9 @@ module XYFlow.Types.Geometry
   , Dimensions
   , Rect
   , Box
+  , BoundingBox(..)
+  , fromBox
+  , toBox
   , Transform(..)
   , mkTransform
   , CoordinateExtent(..)
@@ -21,7 +24,8 @@ import Prelude
 import Data.Enum (class BoundedEnum, class Enum, Cardinality(..))
 import Data.Enum.Generic (genericFromEnum, genericPred, genericSucc, genericToEnum)
 import Data.Generic.Rep (class Generic)
-import Data.Newtype (class Newtype)
+import Data.Newtype (class Newtype, unwrap)
+import Data.Number (infinity) as Number
 import Data.Show.Generic (genericShow)
 
 type XYPosition = { x :: Number, y :: Number }
@@ -33,6 +37,40 @@ type Dimensions = { width :: Number, height :: Number }
 type Rect = { x :: Number, y :: Number, width :: Number, height :: Number }
 
 type Box = { x :: Number, y :: Number, x2 :: Number, y2 :: Number }
+
+-- | A `Box` wrapped so it can carry `Semigroup`/`Monoid` instances. The
+-- | semigroup `<>` is the bounding-box merge (min on x/y, max on x2/y2),
+-- | matching `XYFlow.Utils.General.getBoundsOfBoxes`. The monoid `mempty`
+-- | uses `+Infinity` for x/y and `-Infinity` for x2/y2, matching the
+-- | `posInf`/`negInf` initial values used in `XYFlow.Utils.Graph`.
+newtype BoundingBox = BoundingBox Box
+
+derive instance newtypeBoundingBox :: Newtype BoundingBox _
+derive newtype instance eqBoundingBox :: Eq BoundingBox
+derive newtype instance ordBoundingBox :: Ord BoundingBox
+derive newtype instance showBoundingBox :: Show BoundingBox
+
+instance semigroupBoundingBox :: Semigroup BoundingBox where
+  append (BoundingBox a) (BoundingBox b) = BoundingBox
+    { x: min a.x b.x
+    , y: min a.y b.y
+    , x2: max a.x2 b.x2
+    , y2: max a.y2 b.y2
+    }
+
+instance monoidBoundingBox :: Monoid BoundingBox where
+  mempty = BoundingBox
+    { x: Number.infinity
+    , y: Number.infinity
+    , x2: -Number.infinity
+    , y2: -Number.infinity
+    }
+
+fromBox :: Box -> BoundingBox
+fromBox = BoundingBox
+
+toBox :: BoundingBox -> Box
+toBox = unwrap
 
 newtype Transform = Transform { tx :: Number, ty :: Number, scale :: Number }
 
