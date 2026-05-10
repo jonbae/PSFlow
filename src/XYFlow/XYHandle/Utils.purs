@@ -17,7 +17,7 @@ import Prelude
 import Data.Array (concat, find, foldl, fromFoldable, head) as Array
 import Data.Either (Either(..))
 import Data.Map (lookup, values) as Map
-import Data.Maybe (Maybe(..), fromMaybe)
+import Data.Maybe (Maybe(..))
 import Data.Number (sqrt)
 import Data.Tuple (Tuple(..))
 import Effect (Effect)
