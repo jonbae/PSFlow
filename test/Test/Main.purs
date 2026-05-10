@@ -15,7 +15,7 @@ import XYFlow.Types.Connection (ConnectionMode(..), ConnectionState(..), Padding
 import XYFlow.Types.Edge (AlignX(..), AlignY(..), ConnectionLineType(..), EdgeBase, EdgeChange(..), EdgeMarkerType(..), MarkerType(..))
 import XYFlow.Types.Geometry (CoordinateExtent(..), NodeOrigin(..), Position(..), SnapGrid(..), Transform(..), mkCoordinateExtent, mkNodeOrigin, mkSnapGrid, mkTransform, oppositePosition, XYPosition)
 import XYFlow.Types.Handle (HandleProps, HandleType(..), defaultHandleProps)
-import XYFlow.Types.Node (Align(..), InternalNodeBase, NodeBase, NodeChange(..), NodeDragItem, NodeExtent(..), NodeLookup, SetAttributesMode(..))
+import XYFlow.Types.Node (Align(..), InternalNodeBase, NodeBase, NodeChange(..), NodeDragItem, NodeExtent(..), NodeLookup)
 import XYFlow.Types.PanZoom (InterpolateMode(..), PanOnDrag(..)) as PZ
 import XYFlow.Utils.Connections (ConnectionStatus(..), areConnectionMapsEqual, getConnectionStatus, handleConnectionChange)
 import XYFlow.Utils.Edges.General (addEdge, getEdgeId)
@@ -227,10 +227,12 @@ main = do
   assert "Align AlignCenter < AlignEnd" (AlignCenter < AlignEnd)
   assert "show AlignStart == \"AlignStart\"" (show AlignStart == "AlignStart")
 
-  -- 004: SetAttributesMode bounds.
-  assert "SetAttributesMode bottom" ((bottom :: SetAttributesMode) == SetBothDimensions)
-  assert "SetAttributesMode top" ((top :: SetAttributesMode) == NoSetAttributes)
-  assert "SetWidthOnly /= SetHeightOnly" (SetWidthOnly /= SetHeightOnly)
+  -- 004: SetAttributesMode is now Maybe { width, height } (ticket 021 #11).
+  assert "SetAttributesMode Nothing case"
+    ((Nothing :: Maybe { width :: Boolean, height :: Boolean })
+        == Nothing)
+  assert "SetAttributesMode width-only /= height-only"
+    (Just { width: true, height: false } /= Just { width: false, height: true })
 
   -- 004: NodeExtent constructs both variants and Eq distinguishes them.
   let parentE = ParentExtent
@@ -256,7 +258,7 @@ main = do
             { id: "1"
             , dimensions: Nothing
             , resizing: false
-            , setAttributes: NoSetAttributes
+            , setAttributes: Nothing
             }
         }
       , { tag: "pos"

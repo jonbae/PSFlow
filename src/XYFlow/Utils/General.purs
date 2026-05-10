@@ -406,8 +406,21 @@ areSetsEqual = (==)
 
 -- | Convert a node's logical position to its origin-corrected position.
 -- | TS uses a `[number, number]` origin tuple — we use the labelled
--- | `NodeOrigin` newtype.
-getNodePositionWithOrigin :: forall n. NodeBase n -> NodeOrigin -> XYPosition
+-- | `NodeOrigin` newtype. Row-polymorphic so InternalNodeBase callers
+-- | don't have to strip the `internals` field first.
+getNodePositionWithOrigin
+  :: forall r
+   . { position :: XYPosition
+     , origin :: Maybe NodeOrigin
+     , measured :: { width :: Maybe Number, height :: Maybe Number }
+     , width :: Maybe Number
+     , height :: Maybe Number
+     , initialWidth :: Maybe Number
+     , initialHeight :: Maybe Number
+     | r
+     }
+  -> NodeOrigin
+  -> XYPosition
 getNodePositionWithOrigin node defaultOrigin =
   let
     dims = getNodeDimensions node
