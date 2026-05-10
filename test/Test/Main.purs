@@ -753,7 +753,7 @@ main = do
     nodeWithHandles' = nodeWithHandles
       { internals = nodeWithHandles.internals
           { handleBounds = Just
-              { source: Just [ handleS ], target: Just [ handleT ] }
+              { source: [ handleS ], target: [ handleT ] }
           }
       }
     lookupHandles =

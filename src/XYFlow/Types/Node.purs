@@ -114,9 +114,14 @@ type InternalNodeBase nodeData =
   , internals :: NodeInternals
   }
 
+-- | Source/target handle bounds. The outer optionality on `NodeHandleBounds`
+-- | itself (`Maybe NodeHandleBounds`) carries the "not yet parsed"
+-- | distinction; the inner arrays use the empty case for "parsed, no
+-- | handles of this side". Three nesting levels of optionality collapsed
+-- | to one.
 type NodeHandleBounds =
-  { source :: Maybe (Array Handle)
-  , target :: Maybe (Array Handle)
+  { source :: Array Handle
+  , target :: Array Handle
   }
 
 type NodeBounds =

@@ -10,6 +10,7 @@ module XYFlow.Utils.Graph
   , getNodesBounds
   , GetInternalNodesBoundsParams
   , getInternalNodesBounds
+  , GetNodesInsideOptions
   , getNodesInside
   , getConnectedEdges
   , FitViewParams
@@ -25,12 +26,13 @@ module XYFlow.Utils.Graph
 import Prelude
 
 import Control.Alt ((<|>))
-import Data.Array (any, filter, foldl, fromFoldable, length) as Array
+import Data.Array (any, filter, foldl, fromFoldable, length, snoc) as Array
 import Data.Either (Either(..))
-import Data.Foldable (foldl) as Foldable
+import Data.Foldable (foldMap, foldl) as Foldable
 import Data.Map (Map)
 import Data.Map (filter, lookup, size, values) as Map
 import Data.Maybe (Maybe(..), fromMaybe, isJust, isNothing)
+import Data.Newtype (unwrap)
 import Data.Set (Set)
 import Data.Set (fromFoldable, member) as Set
 import Effect.Aff (Aff)
@@ -41,7 +43,7 @@ import XYFlow.Types.Connection
   )
 import XYFlow.Types.Edge (EdgeBase)
 import XYFlow.Types.Geometry
-  ( Box
+  ( BoundingBox(..)
   , CoordinateExtent(..)
   , NodeOrigin(..)
   , Rect
@@ -120,15 +122,12 @@ type GetNodesBoundsParams n =
   , nodeLookup :: Maybe (NodeLookup n)
   }
 
-posInf :: Number
-posInf = 1.0 / 0.0
-
-negInf :: Number
-negInf = -1.0 / 0.0
-
 -- | Compute the bounding rectangle for a list of nodes. The TS function
 -- | issues a `console.warn` when `nodeLookup` is missing; the PS port leaves
 -- | the choice explicit via `Maybe` and stays pure.
+-- |
+-- | Uses `Foldable.foldMap` over the `BoundingBox` monoid (whose `mempty`
+-- | is the (+Inf, -Inf) seed and whose `<>` is `getBoundsOfBoxes`).
 getNodesBounds
   :: forall n
    . Array (NodeBase n)
@@ -137,21 +136,17 @@ getNodesBounds
   -> Rect
 getNodesBounds nodes mLookup origin
   | Array.length nodes == 0 = { x: 0.0, y: 0.0, width: 0.0, height: 0.0 }
-  | otherwise = G.boxToRect (Foldable.foldl step initialBox nodes)
+  | otherwise = G.boxToRect (unwrap (Foldable.foldMap nodeBoundingBox nodes))
       where
-      initialBox :: Box
-      initialBox = { x: posInf, y: posInf, x2: negInf, y2: negInf }
-
-      step currBox node =
+      nodeBoundingBox node =
         let
           source = case mLookup of
             Just lookup -> case Map.lookup node.id lookup of
               Just internal -> Right internal
               Nothing -> Left node
             Nothing -> Left node
-          box = G.nodeToBox source origin
         in
-          G.getBoundsOfBoxes currBox box
+          BoundingBox (G.nodeToBox source origin)
 
 type GetInternalNodesBoundsParams n =
   { useRelativePosition :: Boolean
@@ -165,38 +160,37 @@ getInternalNodesBounds
   -> Rect
 getInternalNodesBounds nodeLookup mFilter =
   let
-    initial = { box: emptyBox, hasVisible: false }
+    keep node = case mFilter of
+      Nothing -> true
+      Just f -> f node
 
-    step acc node =
-      let
-        keep = case mFilter of
-          Nothing -> true
-          Just f -> f node
-      in
-        if keep then
-          { box: G.getBoundsOfBoxes acc.box (G.nodeToBox (Right node) zeroOrigin)
-          , hasVisible: true
-          }
-        else acc
-
-    final = Foldable.foldl step initial (Map.values nodeLookup)
+    kept = Array.filter keep (Array.fromFoldable (Map.values nodeLookup))
   in
-    if final.hasVisible then G.boxToRect final.box
-    else { x: 0.0, y: 0.0, width: 0.0, height: 0.0 }
+    if Array.length kept == 0
+      then { x: 0.0, y: 0.0, width: 0.0, height: 0.0 }
+      else
+        let
+          merged = Foldable.foldMap
+            (\n -> BoundingBox (G.nodeToBox (Right n) zeroOrigin))
+            kept
+        in
+          G.boxToRect (unwrap merged)
   where
-  emptyBox :: Box
-  emptyBox = { x: posInf, y: posInf, x2: negInf, y2: negInf }
   zeroOrigin = mkNodeOrigin 0.0 0.0
+
+type GetNodesInsideOptions =
+  { partially :: Boolean
+  , excludeNonSelectable :: Boolean
+  }
 
 getNodesInside
   :: forall n
    . NodeLookup n
   -> Rect
   -> Transform
-  -> Boolean
-  -> Boolean
+  -> GetNodesInsideOptions
   -> Array (InternalNodeBase n)
-getNodesInside nodes rect transform partially excludeNonSelectable =
+getNodesInside nodes rect transform opts =
   Array.filter visible (Array.fromFoldable (Map.values nodes))
   where
   Transform t = transform
@@ -223,7 +217,7 @@ getNodesInside nodes rect transform partially excludeNonSelectable =
       hidden = node.hidden
       selectable = fromMaybe true node.selectable
     in
-      if (excludeNonSelectable && not selectable) || hidden then false
+      if (opts.excludeNonSelectable && not selectable) || hidden then false
       else
         let
           width = node.measured.width <|> node.width <|> node.initialWidth
@@ -231,7 +225,7 @@ getNodesInside nodes rect transform partially excludeNonSelectable =
           area = (fromMaybe 0.0 width) * (fromMaybe 0.0 height)
           overlapping = G.getOverlappingArea paneRect
             (G.nodeToRect (Right node) zeroOrigin)
-          partiallyVisible = partially && overlapping > 0.0
+          partiallyVisible = opts.partially && overlapping > 0.0
           forceInitialRender = isNothing node.internals.handleBounds
         in
           forceInitialRender || partiallyVisible || overlapping >= area
@@ -461,7 +455,7 @@ getElementsToRemove p = do
       Array.foldl
         ( \acc edge ->
             if Set.member edge.id edgeIds
-              && not (Array.any (\e -> e.id == edge.id) acc) then acc <> [ edge ]
+              && not (Array.any (\e -> e.id == edge.id) acc) then Array.snoc acc edge
             else acc
         )
         connectedEdges
@@ -488,5 +482,5 @@ getElementsToRemove p = do
                 not isIncluded && Array.any (\n -> n.id == pid) acc
               Nothing -> false
           in
-            if isIncluded || parentHit then acc <> [ node ]
+            if isIncluded || parentHit then Array.snoc acc node
             else acc
