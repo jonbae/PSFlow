@@ -33,6 +33,7 @@ package:
     dependencies:
       - partial
       - refs
+      - quickcheck
 workspace:
   packageSet:
     registry: 76.2.1
