@@ -16,7 +16,7 @@ module XYFlow.Utils.Edges.General
 
 import Prelude
 
-import Data.Array (any, concat, filter) as Array
+import Data.Array (any, filter, snoc) as Array
 import Data.Either (Either(..))
 import Data.Int (floor) as Int
 import Data.Maybe (Maybe(..), fromMaybe, isJust)
@@ -175,7 +175,7 @@ addEdge edgeParams _ _
       Left (errorMessage E006)
 addEdge edgeParams edges _ =
   if connectionExists edgeParams edges then Right edges
-  else Right (Array.concat [ edges, [ edgeParams ] ])
+  else Right (Array.snoc edges edgeParams)
 
 reconnectEdge
   :: forall e
@@ -204,4 +204,4 @@ reconnectEdge oldEdge newConnection edges shouldReplaceId edgeIdGen =
           }
         without = Array.filter (\e -> e.id /= oldEdge.id) edges
       in
-        Right (Array.concat [ without, [ edge ] ])
+        Right (Array.snoc without edge)
