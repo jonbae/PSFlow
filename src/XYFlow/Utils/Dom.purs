@@ -150,7 +150,7 @@ getPointerPosition
 getPointerPosition ev params = do
   raw <- getEventPosition ev params.containerBounds
   let
-    pointerPos = pointToRendererPoint raw params.transform false params.snapGrid
+    pointerPos = pointToRendererPoint raw params.transform Nothing
     snapped =
       if params.snapToGrid then snapPosition pointerPos params.snapGrid
       else pointerPos

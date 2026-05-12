@@ -35,6 +35,7 @@ import XYFlow.XYMinimap as XYMinimap
 import Data.Either (Either(..))
 import Data.Number (abs) as Number
 import Data.Tuple (Tuple(..))
+import Test.Properties (runProperties)
 
 assert :: String -> Boolean -> Effect Unit
 assert label cond =
@@ -388,11 +389,10 @@ main = do
   -- snap-to-grid is off.
   let
     transform = mkTransform 10.0 20.0 2.0
-    grid = mkSnapGrid 1.0 1.0
     p0 = { x: 7.5, y: 12.0 }
     pRoundtrip =
       rendererPointToPointPure
-        (G.pointToRendererPoint p0 transform false grid) transform
+        (G.pointToRendererPoint p0 transform Nothing) transform
     rendererPointToPointPure = G.rendererPointToPoint
   assert "pointToRendererPoint inverse"
     (Number.abs (pRoundtrip.x - p0.x) < 0.0001
@@ -979,3 +979,5 @@ main = do
     )
 
   log "all tests passed"
+
+  runProperties

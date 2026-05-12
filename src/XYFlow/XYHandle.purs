@@ -21,14 +21,17 @@ module XYFlow.XYHandle
 
 import Prelude
 
+import Control.Monad.State (StateT, get, modify_, runStateT)
 import Data.Either (Either(..))
 import Data.Foldable (for_)
 import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe, isJust)
 import Data.Nullable (Nullable, toMaybe)
+import Data.Tuple (Tuple(..))
 import Effect (Effect)
 import Effect.Aff (Aff, launchAff_)
 import Effect.Class (liftEffect)
+import Effect.Ref (Ref)
 import Effect.Ref as Ref
 import Web.DOM.Document (Document)
 import Web.DOM.Element (Element)
@@ -52,7 +55,6 @@ import XYFlow.Types.Geometry
   ( Position(..)
   , Transform
   , XYPosition
-  , mkSnapGrid
   , oppositePosition
   )
 import XYFlow.Types.Handle (Handle, HandleType(..))
@@ -162,6 +164,44 @@ type XYHandleInstance =
 xyHandle :: XYHandleInstance
 xyHandle = { onPointerDown, isValid: isValidHandle }
 
+-- | Closure state for `onPointerDown`. The TS source threads these values
+-- | through nested handlers via captured locals; here the lifecycle handlers
+-- | run as `StateT HandleDragState Effect` and the only true `Effect`
+-- | boundary is the d3 callback registration, where a single outer
+-- | `Ref HandleDragState` carries the snapshot across calls.
+type HandleDragState =
+  { autoPanId :: Maybe RafHandle
+  , closestHandle :: Maybe Handle
+  , connectionStarted :: Boolean
+  , position :: XYPosition
+  , autoPanStarted :: Boolean
+  , connection :: Maybe Connection
+  , isValid :: Maybe Boolean
+  , resultHandleDomNode :: Maybe Element
+  }
+
+initialDragState :: XYPosition -> HandleDragState
+initialDragState startPos =
+  { autoPanId: Nothing
+  , closestHandle: Nothing
+  , connectionStarted: false
+  , position: startPos
+  , autoPanStarted: false
+  , connection: Nothing
+  , isValid: Nothing
+  , resultHandleDomNode: Nothing
+  }
+
+-- | Run a `StateT HandleDragState Effect a` against an outer `Ref` and write
+-- | the new state back. Forms the bridge from the d3-event `Effect` boundary
+-- | to the pure-state interior.
+runOnRef :: forall a. Ref HandleDragState -> StateT HandleDragState Effect a -> Effect a
+runOnRef ref st = do
+  s0 <- Ref.read ref
+  Tuple a s1 <- runStateT st s0
+  Ref.write s1 ref
+  pure a
+
 -- ----------------------------------------------------------------------------
 -- onPointerDown
 -- ----------------------------------------------------------------------------
@@ -202,14 +242,9 @@ onPointerDown event params = do
             Nothing -> pure unit
             Just fromInternalNode -> do
               startPos <- getEventPosition event (Just bounds)
-              autoPanId <- Ref.new (Nothing :: Maybe RafHandle)
-              closestHandle <- Ref.new (Nothing :: Maybe Handle)
-              connectionStarted <- Ref.new false
-              position <- Ref.new startPos
-              autoPanStarted <- Ref.new false
-              connectionRef <- Ref.new (Nothing :: Maybe Connection)
-              isValidRef <- Ref.new (Nothing :: Maybe Boolean)
-              resultHandleDomNode <- Ref.new (Nothing :: Maybe Element)
+              stateRef <- Ref.new (initialDragState startPos)
+              -- `previousConnection` stays in its own `Ref` because its type
+              -- is parametric in `nodeData`; `HandleDragState` is monomorphic.
 
               let
                 from = getHandlePosition fromInternalNode (Just fromHandle)
@@ -230,46 +265,56 @@ onPointerDown event params = do
               previousConnection <- Ref.new initialConnection
 
               let
+                startConnection :: StateT HandleDragState Effect Unit
                 startConnection = do
-                  Ref.write true connectionStarted
-                  prev <- Ref.read previousConnection
-                  params.updateConnection (ConnectionInProgress prev)
-                  for_ params.onConnectStart \cb -> cb event
+                  modify_ _ { connectionStarted = true }
+                  prev <- liftEffect (Ref.read previousConnection)
+                  liftEffect (params.updateConnection (ConnectionInProgress prev))
+                  liftEffect $ for_ params.onConnectStart \cb -> cb event
                     { nodeId: Just params.nodeId
                     , handleId: params.handleId
                     , handleType: Just handleType
                     }
 
-              when (params.dragThreshold == 0.0) startConnection
+              when (params.dragThreshold == 0.0)
+                (runOnRef stateRef startConnection)
 
               let
-                autoPan = do
-                  cBounds <- pure bounds
+                -- `requestAnimationFrame` takes `Effect Unit`, so the rAF
+                -- loop has to re-enter the StateT at each tick. Eta-expanded
+                -- to break the mutual-recursion-on-values cycle with
+                -- `autoPanStep`.
+                autoPan :: Unit -> Effect Unit
+                autoPan _ = runOnRef stateRef autoPanStep
+
+                autoPanStep :: StateT HandleDragState Effect Unit
+                autoPanStep =
                   if not params.autoPanOnConnect then pure unit
                   else do
-                    pos <- Ref.read position
+                    s <- get
                     let
                       speed = fromMaybe 15.0 params.autoPanSpeed
-                      mv = calcAutoPan pos
-                        { width: cBounds.width, height: cBounds.height }
+                      mv = calcAutoPan s.position
+                        { width: bounds.width, height: bounds.height }
                         speed
                         40.0
-                    launchAff_ do
+                    liftEffect $ launchAff_ do
                       _ <- params.panBy { x: mv.x, y: mv.y }
                       pure unit
-                    handle <- requestAnimationFrame autoPan
-                    Ref.write (Just handle) autoPanId
+                    handle <- liftEffect (requestAnimationFrame (autoPan unit))
+                    modify_ _ { autoPanId = Just handle }
 
+                onPointerMove :: Either MouseEvent TouchEvent -> Effect Unit
                 onPointerMove ev = do
-                  started <- Ref.read connectionStarted
                   evPos2 <- getEventPosition ev Nothing
-                  let
-                    dx = evPos2.x - evPos.x
-                    dy = evPos2.y - evPos.y
-                    threshold = params.dragThreshold
-                    moved = dx * dx + dy * dy >
-                      threshold * threshold
-                  proceed <- if started then pure true
+                  proceed <- runOnRef stateRef do
+                    s <- get
+                    let
+                      dx = evPos2.x - evPos.x
+                      dy = evPos2.y - evPos.y
+                      threshold = params.dragThreshold
+                      moved = dx * dx + dy * dy > threshold * threshold
+                    if s.connectionStarted then pure true
                     else if moved then do
                       startConnection
                       pure true
@@ -281,13 +326,12 @@ onPointerDown event params = do
                       Nothing -> onPointerUp ev
                       Just _ -> stepMove ev
 
+                stepMove :: Either MouseEvent TouchEvent -> Effect Unit
                 stepMove ev = do
                   transform <- params.getTransform
                   curPos <- getEventPosition ev (Just bounds)
-                  Ref.write curPos position
                   let
-                    rendererPos = pointToRendererPoint curPos transform false
-                      (mkSnapGrid 1.0 1.0)
+                    rendererPos = pointToRendererPoint curPos transform Nothing
                     fromHandleRef :: HandleRef
                     fromHandleRef =
                       { nodeId: params.nodeId
@@ -298,12 +342,6 @@ onPointerDown event params = do
                       params.connectionRadius
                       params.nodeLookup
                       fromHandleRef
-                  Ref.write closest closestHandle
-
-                  panStarted <- Ref.read autoPanStarted
-                  when (not panStarted) do
-                    autoPan
-                    Ref.write true autoPanStarted
 
                   result <- isValidHandle ev
                     { handle: case closest of
@@ -324,10 +362,20 @@ onPointerDown event params = do
                     , nodeLookup: params.nodeLookup
                     }
 
-                  Ref.write result.handleDomNode resultHandleDomNode
-                  Ref.write result.connection connectionRef
                   let validNow = isConnectionValid (isJust closest) result.isValid
-                  Ref.write validNow isValidRef
+
+                  runOnRef stateRef do
+                    modify_ _
+                      { position = curPos
+                      , closestHandle = closest
+                      , resultHandleDomNode = result.handleDomNode
+                      , connection = result.connection
+                      , isValid = validNow
+                      }
+                    s <- get
+                    when (not s.autoPanStarted) do
+                      liftEffect (autoPan unit)
+                      modify_ _ { autoPanStarted = true }
 
                   prev <- Ref.read previousConnection
                   let
@@ -362,48 +410,42 @@ onPointerDown event params = do
                   params.updateConnection (ConnectionInProgress next)
                   Ref.write next previousConnection
 
+                onPointerUp :: Either MouseEvent TouchEvent -> Effect Unit
                 onPointerUp ev = do
                   multi <- isMultiTouchEvent ev
-                  if multi then pure unit
-                  else do
-                    started <- Ref.read connectionStarted
-                    when started do
-                      mClosest <- Ref.read closestHandle
-                      mResultDom <- Ref.read resultHandleDomNode
-                      mConn <- Ref.read connectionRef
-                      mValid <- Ref.read isValidRef
-                      case mConn, mValid of
-                        Just conn, Just true | isJust mClosest || isJust mResultDom ->
-                          for_ params.onConnect \cb -> cb conn
+                  unless multi $ runOnRef stateRef do
+                    s <- get
+                    when s.connectionStarted do
+                      liftEffect $ case s.connection, s.isValid of
+                        Just conn, Just true
+                          | isJust s.closestHandle
+                              || isJust s.resultHandleDomNode ->
+                              for_ params.onConnect \cb -> cb conn
                         _, _ -> pure unit
 
-                      prev <- Ref.read previousConnection
+                      prev <- liftEffect (Ref.read previousConnection)
                       let
-                        finalToPosition = case prev.toHandle of
-                          Just _ -> prev.toPosition
-                          Nothing -> prev.toPosition
                         final :: FinalConnectionState (InternalNodeBase nodeData)
-                        final = Just (prev { toPosition = finalToPosition })
-                      for_ params.onConnectEnd \cb -> cb ev final
-                      when (isJust params.edgeUpdaterType) do
+                        final = Just prev
+                      liftEffect $ for_ params.onConnectEnd \cb -> cb ev final
+                      when (isJust params.edgeUpdaterType) $ liftEffect $
                         for_ params.onReconnectEnd \cb -> cb ev final
 
-                    params.cancelConnection
-                    mPan <- Ref.read autoPanId
-                    for_ mPan cancelAnimationFrame
-                    Ref.write Nothing autoPanId
-                    Ref.write false autoPanStarted
-                    Ref.write Nothing isValidRef
-                    Ref.write Nothing connectionRef
-                    Ref.write Nothing resultHandleDomNode
-                    removeDocListeners doc onPointerMove onPointerUp
+                    liftEffect params.cancelConnection
+                    liftEffect $ for_ s.autoPanId cancelAnimationFrame
+                    -- Clear the in-flight flags so a stale snapshot can't
+                    -- leak across a re-bound listener.
+                    modify_ _
+                      { autoPanId = Nothing
+                      , autoPanStarted = false
+                      , isValid = Nothing
+                      , connection = Nothing
+                      , resultHandleDomNode = Nothing
+                      }
+                    liftEffect $ removeDocListeners doc onPointerMove onPointerUp
 
               -- Wire listeners. The TS source casts both as `EventListener`.
               addDocListeners doc onPointerMove onPointerUp
-              -- Touch up unused refs to silence the compiler — every Ref is
-              -- read or written somewhere above.
-              _ <- liftEffect (pure unit :: Effect Unit)
-              pure unit
     _, _ -> pure unit
 
 -- ----------------------------------------------------------------------------
@@ -458,9 +500,7 @@ isValidHandle event p = do
               , targetHandle: if isTarget then p.fromHandleId else mHid
               }
             modeOk = case p.connectionMode of
-              Strict ->
-                (isTarget && hType == Source)
-                  || (not isTarget && hType == Target)
+              Strict -> isStrictlyOpposite p.fromType hType
               Loose ->
                 nid /= p.fromNodeId || mHid /= p.fromHandleId
             isConnectableNow = connectable && connectableEnd
