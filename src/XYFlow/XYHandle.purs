@@ -55,7 +55,6 @@ import XYFlow.Types.Geometry
   ( Position(..)
   , Transform
   , XYPosition
-  , mkSnapGrid
   , oppositePosition
   )
 import XYFlow.Types.Handle (Handle, HandleType(..))
@@ -332,8 +331,7 @@ onPointerDown event params = do
                   transform <- params.getTransform
                   curPos <- getEventPosition ev (Just bounds)
                   let
-                    rendererPos = pointToRendererPoint curPos transform false
-                      (mkSnapGrid 1.0 1.0)
+                    rendererPos = pointToRendererPoint curPos transform Nothing
                     fromHandleRef :: HandleRef
                     fromHandleRef =
                       { nodeId: params.nodeId
@@ -502,9 +500,7 @@ isValidHandle event p = do
               , targetHandle: if isTarget then p.fromHandleId else mHid
               }
             modeOk = case p.connectionMode of
-              Strict ->
-                (isTarget && hType == Source)
-                  || (not isTarget && hType == Target)
+              Strict -> isStrictlyOpposite p.fromType hType
               Loose ->
                 nid /= p.fromNodeId || mHid /= p.fromHandleId
             isConnectableNow = connectable && connectableEnd

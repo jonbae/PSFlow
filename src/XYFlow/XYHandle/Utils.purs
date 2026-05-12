@@ -17,7 +17,7 @@ import Prelude
 import Data.Array (concat, find, foldl, fromFoldable, head) as Array
 import Data.Either (Either(..))
 import Data.Map (lookup, values) as Map
-import Data.Maybe (Maybe(..), fromMaybe)
+import Data.Maybe (Maybe(..))
 import Data.Number (sqrt)
 import Data.Tuple (Tuple(..))
 import Effect (Effect)
@@ -104,10 +104,10 @@ getClosestHandle position connectionRadius lookup fromHandle =
       handlesOf node =
         let
           src = case node.internals.handleBounds of
-            Just hb -> fromMaybe [] hb.source
+            Just hb -> hb.source
             Nothing -> []
           tgt = case node.internals.handleBounds of
-            Just hb -> fromMaybe [] hb.target
+            Just hb -> hb.target
             Nothing -> []
         in
           map (Tuple node) (src <> tgt)
@@ -184,11 +184,11 @@ getHandle nodeId handleType handleId lookup mode withAbsolutePosition =
         handles = case mode of
           Strict -> case node.internals.handleBounds of
             Just hb -> case handleType of
-              Source -> fromMaybe [] hb.source
-              Target -> fromMaybe [] hb.target
+              Source -> hb.source
+              Target -> hb.target
             Nothing -> []
           Loose -> case node.internals.handleBounds of
-            Just hb -> fromMaybe [] hb.source <> fromMaybe [] hb.target
+            Just hb -> hb.source <> hb.target
             Nothing -> []
 
         match :: Maybe Handle

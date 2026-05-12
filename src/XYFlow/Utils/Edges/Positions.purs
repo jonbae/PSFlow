@@ -51,16 +51,10 @@ toHandleBounds node = case node.handles of
   Nothing -> Nothing
   Just handles ->
     Just
-      { source:
-          Just
-            ( map (\h -> nodeHandleToHandle h node.id)
-                (Array.filter (\h -> h.handleType == Source) handles)
-            )
-      , target:
-          Just
-            ( map (\h -> nodeHandleToHandle h node.id)
-                (Array.filter (\h -> h.handleType == Target) handles)
-            )
+      { source: map (\h -> nodeHandleToHandle h node.id)
+          (Array.filter (\h -> h.handleType == Source) handles)
+      , target: map (\h -> nodeHandleToHandle h node.id)
+          (Array.filter (\h -> h.handleType == Target) handles)
       }
 
 nodeHandleToHandle :: NodeHandle -> String -> Handle
@@ -96,18 +90,16 @@ getEdgePosition params =
         Just b -> Just b
         Nothing -> toHandleBounds params.targetNode
       sourceHandles = case sourceBounds of
-        Just b -> fromMaybe [] b.source
+        Just b -> b.source
         Nothing -> []
       targetHandlePool = case params.connectionMode of
         Strict ->
           case targetBounds of
-            Just b -> fromMaybe [] b.target
+            Just b -> b.target
             Nothing -> []
         Loose ->
           case targetBounds of
-            Just b ->
-              Array.concat
-                [ fromMaybe [] b.target, fromMaybe [] b.source ]
+            Just b -> Array.concat [ b.target, b.source ]
             Nothing -> []
     sh <- getHandle sourceHandles params.sourceHandle
     th <- getHandle targetHandlePool params.targetHandle
@@ -144,7 +136,8 @@ getHandlePosition node handle fallbackPosition center =
     y = baseY + node.internals.positionAbsolute.y
     dim = case handle of
       Just h -> { width: h.width, height: h.height }
-      Nothing -> getNodeDimensions node
+      Nothing -> fromMaybe { width: 0.0, height: 0.0 }
+        (getNodeDimensions node)
     pos = case handle of
       Just h -> h.position
       Nothing -> fallbackPosition

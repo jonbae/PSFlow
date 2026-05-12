@@ -19,7 +19,7 @@ module XYFlow.Utils.Store
 
 import Prelude
 
-import Data.Array (any, foldl, fromFoldable, length) as Array
+import Data.Array (any, foldl, fromFoldable, length, mapMaybe, snoc) as Array
 import Data.Either (Either(..))
 import Data.Foldable (foldM, foldl) as Foldable
 import Data.Int (toNumber) as Int
@@ -59,7 +59,6 @@ import XYFlow.Types.Node
   , NodeLookup
   , ParentExpandChild
   , ParentLookup
-  , SetAttributesMode(..)
   )
 import XYFlow.Types.PanZoom (PanZoomInstance)
 import XYFlow.Utils.Dom
@@ -117,7 +116,14 @@ isManualZIndexMode = case _ of
 
 -- Pure helpers --------------------------------------------------------------
 
-calculateZ :: forall n. NodeBase n -> Int -> ZIndexMode -> Number
+-- | Row-polymorphic so it accepts both NodeBase and InternalNodeBase
+-- | without going through `toBaseLike` (which is gone — see ticket 021 #1).
+calculateZ
+  :: forall r
+   . { zIndex :: Maybe Int, selected :: Boolean | r }
+  -> Int
+  -> ZIndexMode
+  -> Number
 calculateZ node selZ zMode =
   let
     zIndex = case node.zIndex of
@@ -129,38 +135,6 @@ calculateZ node selZ zMode =
       else 0.0
   in
     zIndex + bonus
-
--- | Strip the `internals` field so an InternalNodeBase can be passed to
--- | NodeBase-shaped helpers.
-toBaseLike :: forall n. InternalNodeBase n -> NodeBase n
-toBaseLike n =
-  { id: n.id
-  , position: n.position
-  , data: n.data
-  , sourcePosition: n.sourcePosition
-  , targetPosition: n.targetPosition
-  , hidden: n.hidden
-  , selected: n.selected
-  , dragging: n.dragging
-  , draggable: n.draggable
-  , selectable: n.selectable
-  , connectable: n.connectable
-  , deletable: n.deletable
-  , dragHandle: n.dragHandle
-  , width: n.width
-  , height: n.height
-  , initialWidth: n.initialWidth
-  , initialHeight: n.initialHeight
-  , parentId: n.parentId
-  , zIndex: n.zIndex
-  , extent: n.extent
-  , expandParent: n.expandParent
-  , ariaLabel: n.ariaLabel
-  , origin: n.origin
-  , handles: n.handles
-  , measured: n.measured
-  , nodeType: n.nodeType
-  }
 
 calculateChildXYZ
   :: forall n
@@ -175,8 +149,9 @@ calculateChildXYZ child parent origin extent selZ zMode =
   let
     parentX = parent.internals.positionAbsolute.x
     parentY = parent.internals.positionAbsolute.y
-    childDimensions = getNodeDimensions child
-    positionWithOrigin = getNodePositionWithOrigin (toBaseLike child) origin
+    childDimensions =
+      fromMaybe { width: 0.0, height: 0.0 } (getNodeDimensions child)
+    positionWithOrigin = getNodePositionWithOrigin child origin
     childExtent = isCoordinateExtent child.extent
     clampedRel = case childExtent of
       Just ce -> clampPosition positionWithOrigin ce
@@ -195,7 +170,7 @@ calculateChildXYZ child parent origin extent selZ zMode =
       Just ParentExtent ->
         clampPositionToParent absInitial childDimensions parent
       _ -> absInitial
-    childZ = calculateZ (toBaseLike child) selZ zMode
+    childZ = calculateZ child selZ zMode
     parentZ = parent.internals.z
   in
     { x: absoluteFinal.x
@@ -328,11 +303,12 @@ updateAbsolutePositions nodeLookupRef parentLookupRef options = do
           else
             let
               positionWithOrigin =
-                getNodePositionWithOrigin (toBaseLike node) options.nodeOrigin
+                getNodePositionWithOrigin node options.nodeOrigin
               ext = case isCoordinateExtent node.extent of
                 Just ce -> ce
                 Nothing -> options.nodeExtent
-              dims = getNodeDimensions node
+              dims = fromMaybe { width: 0.0, height: 0.0 }
+                (getNodeDimensions node)
               clamped = clampPosition positionWithOrigin ext
                 { width: Just dims.width, height: Just dims.height }
               updated = node
@@ -383,7 +359,8 @@ adoptUserNodes nodes nodeLookupRef parentLookupRef options = do
         extent = case isCoordinateExtent userNodeWithDefaults.extent of
           Just ce -> ce
           Nothing -> options.nodeExtent
-        dims = getNodeDimensions userNodeWithDefaults
+        dims = fromMaybe { width: 0.0, height: 0.0 }
+          (getNodeDimensions userNodeWithDefaults)
         clamped = clampPosition positionWithOrigin extent
           { width: Just dims.width, height: Just dims.height }
         oldInternal = Map.lookup userNodeWithDefaults.id prev
@@ -484,7 +461,7 @@ parseHandles userNode internalNode = case userNode.handles of
         Nothing -> Nothing
   Just handles ->
     let
-      empty :: { source :: Array Handle, target :: Array Handle }
+      empty :: NodeHandleBounds
       empty = { source: [], target: [] }
 
       go acc h =
@@ -502,12 +479,10 @@ parseHandles userNode internalNode = case userNode.handles of
             }
         in
           case h.handleType of
-            Source -> acc { source = acc.source <> [ bounds ] }
-            Target -> acc { target = acc.target <> [ bounds ] }
-
-      collected = Foldable.foldl go empty handles
+            Source -> acc { source = Array.snoc acc.source bounds }
+            Target -> acc { target = Array.snoc acc.target bounds }
     in
-      Just { source: Just collected.source, target: Just collected.target }
+      Just (Foldable.foldl go empty handles)
 
 handleExpandParent
   :: forall n
@@ -554,7 +529,8 @@ stepExpansion
 stepExpansion children parentLookup defaultOrigin changes (Tuple parentId rec) =
   let
     positionAbsolute = rec.parent.internals.positionAbsolute
-    dimensions = getNodeDimensions rec.parent
+    dimensions = fromMaybe { width: 0.0, height: 0.0 }
+      (getNodeDimensions rec.parent)
     NodeOrigin origin = fromMaybe defaultOrigin rec.parent.origin
 
     xChange =
@@ -640,21 +616,17 @@ stepExpansion children parentLookup defaultOrigin changes (Tuple parentId rec) =
                         )
                 }
             , resizing: false
-            , setAttributes: SetBothDimensions
+            , setAttributes: Just { width: true, height: true }
             }
         ]
       else []
   in
     changes <> posChange <> childPosChanges <> dimChange
 
+-- Local alias kept for the readable `# filterMap` pipeline above; uses the
+-- standard library implementation (`Data.Array.mapMaybe`).
 filterMap :: forall a b. (a -> Maybe b) -> Array a -> Array b
-filterMap f =
-  Array.foldl
-    ( \acc x -> case f x of
-        Just b -> acc <> [ b ]
-        Nothing -> acc
-    )
-    []
+filterMap = Array.mapMaybe
 
 -- DOM-driven node-internals update -----------------------------------------
 
@@ -784,7 +756,9 @@ processUpdate update acc zoom origin extent zMode =
               , internals = node.internals
                   { positionAbsolute = positionAbsoluteAdjusted
                   , handleBounds = Just
-                      { source: sourceHandles, target: targetHandles }
+                      { source: fromMaybe [] sourceHandles
+                      , target: fromMaybe [] targetHandles
+                      }
                   }
               }
             nodeLookup1 = Map.insert node.id newNode acc.nodeLookup
@@ -808,7 +782,7 @@ processUpdate update acc zoom origin extent zMode =
                     { id: node.id
                     , dimensions: Just dims
                     , resizing: false
-                    , setAttributes: SetBothDimensions
+                    , setAttributes: Just { width: true, height: true }
                     }
                 ]
               else []
