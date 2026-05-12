@@ -10,28 +10,28 @@ import Effect (Effect)
 import Effect.Class.Console (log)
 import Effect.Ref as Ref
 import Partial.Unsafe (unsafeCrashWith)
-import XYFlow.Constants (ErrorCode(..), defaultAriaLabelConfig, elementSelectionKeys, emptyAriaLabelConfigOverride, errorMessage, infiniteExtent, mergeAriaLabelConfig) as C
-import XYFlow.Types.Connection (ConnectionMode(..), ConnectionState(..), Padding(..), PaddingValue(..), Viewport, ZIndexMode(..), noConnection)
-import XYFlow.Types.Edge (AlignX(..), AlignY(..), ConnectionLineType(..), EdgeBase, EdgeChange(..), EdgeMarkerType(..), MarkerType(..))
-import XYFlow.Types.Geometry (CoordinateExtent(..), NodeOrigin(..), Position(..), SnapGrid(..), Transform(..), mkCoordinateExtent, mkNodeOrigin, mkSnapGrid, mkTransform, oppositePosition, XYPosition)
-import XYFlow.Types.Handle (HandleProps, HandleType(..), defaultHandleProps)
-import XYFlow.Types.Node (Align(..), InternalNodeBase, NodeBase, NodeChange(..), NodeDragItem, NodeExtent(..), NodeLookup)
-import XYFlow.Types.PanZoom (InterpolateMode(..), PanOnDrag(..)) as PZ
-import XYFlow.Utils.Connections (ConnectionStatus(..), areConnectionMapsEqual, getConnectionStatus, handleConnectionChange)
-import XYFlow.Utils.Edges.General (addEdge, getEdgeId)
-import XYFlow.Utils.Edges.Straight (getStraightPath)
-import XYFlow.Utils.General as G
-import XYFlow.Utils.Graph (calculateNodePosition, getIncomers, getNodesBounds, getOutgoers)
-import XYFlow.Utils.Marker (getMarkerId)
-import XYFlow.Utils.ShallowNodeData (NodeSummary, shallowNodeData, shallowNodeDataSingle)
-import XYFlow.Utils.Store (isManualZIndexMode)
-import XYFlow.Utils.Toolbar (getEdgeToolbarTransform, getNodeToolbarTransform)
-import XYFlow.XYDrag.Utils as XYDrag
-import XYFlow.XYHandle.Utils as XYHandle
-import XYFlow.XYPanZoom.Utils as XYPanZoom
-import XYFlow.XYResizer (ControlLinePosition(..), ControlPosition(..), CornerPosition(..)) as Resizer
-import XYFlow.XYResizer.Utils as ResizerU
-import XYFlow.XYMinimap as XYMinimap
+import System.Constants (ErrorCode(..), defaultAriaLabelConfig, elementSelectionKeys, emptyAriaLabelConfigOverride, errorMessage, infiniteExtent, mergeAriaLabelConfig) as C
+import System.Types.Connection (ConnectionMode(..), ConnectionState(..), Padding(..), PaddingValue(..), Viewport, ZIndexMode(..), noConnection)
+import System.Types.Edge (AlignX(..), AlignY(..), ConnectionLineType(..), EdgeBase, EdgeChange(..), EdgeMarkerType(..), MarkerType(..))
+import System.Types.Geometry (CoordinateExtent(..), NodeOrigin(..), Position(..), SnapGrid(..), Transform(..), mkCoordinateExtent, mkNodeOrigin, mkSnapGrid, mkTransform, oppositePosition, XYPosition)
+import System.Types.Handle (HandleProps, HandleType(..), defaultHandleProps)
+import System.Types.Node (Align(..), InternalNodeBase, NodeBase, NodeChange(..), NodeDragItem, NodeExtent(..), NodeLookup)
+import System.Types.PanZoom (InterpolateMode(..), PanOnDrag(..)) as PZ
+import System.Utils.Connections (ConnectionStatus(..), areConnectionMapsEqual, getConnectionStatus, handleConnectionChange)
+import System.Utils.Edges.General (addEdge, getEdgeId)
+import System.Utils.Edges.Straight (getStraightPath)
+import System.Utils.General as G
+import System.Utils.Graph (calculateNodePosition, getIncomers, getNodesBounds, getOutgoers)
+import System.Utils.Marker (getMarkerId)
+import System.Utils.ShallowNodeData (NodeSummary, shallowNodeData, shallowNodeDataSingle)
+import System.Utils.Store (isManualZIndexMode)
+import System.Utils.Toolbar (getEdgeToolbarTransform, getNodeToolbarTransform)
+import System.XYDrag.Utils as XYDrag
+import System.XYHandle.Utils as XYHandle
+import System.XYPanZoom.Utils as XYPanZoom
+import System.XYResizer (ControlLinePosition(..), ControlPosition(..), CornerPosition(..)) as Resizer
+import System.XYResizer.Utils as ResizerU
+import System.XYMinimap as XYMinimap
 import Data.Either (Either(..))
 import Data.Number (abs) as Number
 import Data.Tuple (Tuple(..))

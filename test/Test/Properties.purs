@@ -17,8 +17,8 @@ import Effect (Effect)
 import Effect.Class.Console (log)
 import Test.QuickCheck (quickCheck, (<?>))
 import Test.QuickCheck.Gen (Gen, chooseInt, elements, vectorOf)
-import XYFlow.Types.Edge (EdgeBase)
-import XYFlow.Types.Geometry
+import System.Types.Edge (EdgeBase)
+import System.Types.Geometry
   ( Box
   , Position(..)
   , Rect
@@ -27,8 +27,8 @@ import XYFlow.Types.Geometry
   , mkSnapGrid
   , oppositePosition
   )
-import XYFlow.Utils.Edges.General (addEdge, getEdgeId)
-import XYFlow.Utils.General
+import System.Utils.Edges.General (addEdge, getEdgeId)
+import System.Utils.General
   ( boxToRect
   , clamp
   , getBoundsOfBoxes
