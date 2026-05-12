@@ -1,5 +1,6 @@
 module XYFlow.Types.Node
-  ( NodeBase
+  ( NodeBaseRow
+  , NodeBase
   , InternalNodeBase
   , NodeInternals
   , NodeHandleBounds
@@ -11,7 +12,7 @@ module XYFlow.Types.Node
   , Align(..)
   , NodeLookup
   , ParentLookup
-  , SetAttributesMode(..)
+  , SetAttributesMode
   , NodeChange(..)
   , InternalNodeUpdate
   , OnError
@@ -38,11 +39,15 @@ import XYFlow.Types.Geometry
   )
 import XYFlow.Types.Handle (Handle, HandleType)
 
+-- | The shared row of `NodeBase` fields. `InternalNodeBase` extends this
+-- | with `internals`, so `toBaseLike`-style copies and the previously-
+-- | duplicated 26-field record literals are no longer needed.
+-- |
 -- | TS field `type` is renamed to `nodeType` because `type` is a PureScript
--- | keyword. The type tag is a runtime string (`Maybe String`) rather than a
--- | phantom type since node types are user-defined runtime values.
-type NodeBase nodeData =
-  { id :: String
+-- | keyword. The type tag is a runtime string (`Maybe String`) rather than
+-- | a phantom type since node types are user-defined runtime values.
+type NodeBaseRow nodeData =
+  ( id :: String
   , position :: XYPosition
   , data :: nodeData
   , sourcePosition :: Maybe Position
@@ -68,7 +73,9 @@ type NodeBase nodeData =
   , handles :: Maybe (Array NodeHandle)
   , measured :: { width :: Maybe Number, height :: Maybe Number }
   , nodeType :: Maybe String
-  }
+  )
+
+type NodeBase nodeData = { | NodeBaseRow nodeData }
 
 -- | The TS reference-equality `userNode` field is intentionally omitted —
 -- | PureScript has no reference equality. Functions that need the original
@@ -81,38 +88,11 @@ type NodeInternals =
   , bounds :: Maybe NodeBounds
   }
 
--- | Flat record duplicating all `NodeBase` fields plus `internals`.
--- | Modeled as a flat record (not a row-extension of `NodeBase`) so consumers
--- | aren't forced into row-polymorphic signatures.
+-- | The same shape as `NodeBase` plus an `internals` field. Defined as a
+-- | row-extension of `NodeBaseRow` to avoid the 26-field duplication that
+-- | the previous flat encoding required.
 type InternalNodeBase nodeData =
-  { id :: String
-  , position :: XYPosition
-  , data :: nodeData
-  , sourcePosition :: Maybe Position
-  , targetPosition :: Maybe Position
-  , hidden :: Boolean
-  , selected :: Boolean
-  , dragging :: Boolean
-  , draggable :: Maybe Boolean
-  , selectable :: Maybe Boolean
-  , connectable :: Maybe Boolean
-  , deletable :: Maybe Boolean
-  , dragHandle :: Maybe String
-  , width :: Maybe Number
-  , height :: Maybe Number
-  , initialWidth :: Maybe Number
-  , initialHeight :: Maybe Number
-  , parentId :: Maybe String
-  , zIndex :: Maybe Int
-  , extent :: Maybe NodeExtent
-  , expandParent :: Boolean
-  , ariaLabel :: Maybe String
-  , origin :: Maybe NodeOrigin
-  , handles :: Maybe (Array NodeHandle)
-  , measured :: { width :: Maybe Number, height :: Maybe Number }
-  , nodeType :: Maybe String
-  , internals :: NodeInternals
-  }
+  { internals :: NodeInternals | NodeBaseRow nodeData }
 
 -- | Source/target handle bounds. The outer optionality on `NodeHandleBounds`
 -- | itself (`Maybe NodeHandleBounds`) carries the "not yet parsed"
@@ -212,33 +192,11 @@ type NodeLookup nodeData = Map String (InternalNodeBase nodeData)
 
 type ParentLookup nodeData = Map String (Map String (InternalNodeBase nodeData))
 
--- | TS `boolean | 'width' | 'height'` is a 4-value type. Constructors are
--- | named to make intent explicit.
-data SetAttributesMode
-  = SetBothDimensions
-  | SetWidthOnly
-  | SetHeightOnly
-  | NoSetAttributes
-
-derive instance eqSetAttributesMode :: Eq SetAttributesMode
-derive instance ordSetAttributesMode :: Ord SetAttributesMode
-derive instance genericSetAttributesMode :: Generic SetAttributesMode _
-
-instance showSetAttributesMode :: Show SetAttributesMode where
-  show = genericShow
-
-instance boundedSetAttributesMode :: Bounded SetAttributesMode where
-  bottom = SetBothDimensions
-  top = NoSetAttributes
-
-instance enumSetAttributesMode :: Enum SetAttributesMode where
-  succ = genericSucc
-  pred = genericPred
-
-instance boundedEnumSetAttributesMode :: BoundedEnum SetAttributesMode where
-  cardinality = Cardinality 4
-  toEnum = genericToEnum
-  fromEnum = genericFromEnum
+-- | The TS `boolean | 'width' | 'height'` 4-value type collapses to a
+-- | `Maybe { width, height }` — `Nothing` means "no set", a `Just` carries
+-- | the per-axis flags. The previous `SetAttributesMode` 4-ctor data type
+-- | is gone (ticket 021 #11).
+type SetAttributesMode = Maybe { width :: Boolean, height :: Boolean }
 
 -- | The TS `type: 'dimensions' | 'position' | ...` discriminant disappears —
 -- | the constructor is the tag.

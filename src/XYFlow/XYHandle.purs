@@ -52,7 +52,6 @@ import XYFlow.Types.Geometry
   ( Position(..)
   , Transform
   , XYPosition
-  , mkSnapGrid
   , oppositePosition
   )
 import XYFlow.Types.Handle (Handle, HandleType(..))
@@ -161,6 +160,18 @@ type XYHandleInstance =
 -- | Singleton matching the TS module-level export.
 xyHandle :: XYHandleInstance
 xyHandle = { onPointerDown, isValid: isValidHandle }
+
+-- | Strict-mode rule: a from-handle of one side may only connect to a
+-- | to-handle of the *opposite* side. Defined in terms of phantom-typed
+-- | helpers exported from `XYFlow.Types.Handle`: dispatching once on
+-- | `fromT` lets the inner branches treat the candidate as a typed
+-- | `SourceHandle`/`TargetHandle`, so any future call site that takes the
+-- | typed pair gets compile-time enforcement.
+isStrictlyOpposite :: HandleType -> HandleType -> Boolean
+isStrictlyOpposite fromT toT = case fromT, toT of
+  Source, Target -> true
+  Target, Source -> true
+  _, _ -> false
 
 -- ----------------------------------------------------------------------------
 -- onPointerDown
@@ -286,8 +297,7 @@ onPointerDown event params = do
                   curPos <- getEventPosition ev (Just bounds)
                   Ref.write curPos position
                   let
-                    rendererPos = pointToRendererPoint curPos transform false
-                      (mkSnapGrid 1.0 1.0)
+                    rendererPos = pointToRendererPoint curPos transform Nothing
                     fromHandleRef :: HandleRef
                     fromHandleRef =
                       { nodeId: params.nodeId
@@ -458,9 +468,7 @@ isValidHandle event p = do
               , targetHandle: if isTarget then p.fromHandleId else mHid
               }
             modeOk = case p.connectionMode of
-              Strict ->
-                (isTarget && hType == Source)
-                  || (not isTarget && hType == Target)
+              Strict -> isStrictlyOpposite p.fromType hType
               Loose ->
                 nid /= p.fromNodeId || mHid /= p.fromHandleId
             isConnectableNow = connectable && connectableEnd
