@@ -1,4 +1,4 @@
--- | Pure helpers used by `XYFlow.XYHandle`. Mirrors
+-- | Pure helpers used by `System.XYHandle`. Mirrors
 -- | `xyflow-main/packages/system/src/xyhandle/utils.ts`.
 -- |
 -- | Three of the four exported functions are pure (`getClosestHandle`,

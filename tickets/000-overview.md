@@ -230,3 +230,7 @@ The following packages must be added to `spago.yaml` across the full port. The e
 9. **No type guards.** TS `isEdgeBase`, `isNodeBase`, `isInternalNodeBase` runtime guards are eliminated. PS's type system enforces structure statically.
 
 10. **Error-returning functions over throwing.** Any TS function that could throw (e.g. due to missing map entries) becomes a total `Maybe`-returning function in PS.
+
+---
+
+> Note (2026-05): the system port directory was renamed `src/XYFlow/` → `src/System/` in ticket 022 to match `xyflow-main/packages/system/`. Module paths in tickets 001–021 read `XYFlow.*` for historical accuracy; on disk they are `System.*`.

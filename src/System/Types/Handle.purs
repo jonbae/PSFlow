@@ -85,7 +85,7 @@ unTargetHandle (TargetHandle h) = h
 
 -- | `validate` is the type of the `isValidConnection` callback. The
 -- | downstream React layer specialises it to `IsValidConnection` from
--- | `XYFlow.Types.Connection`. Parameterising here breaks the otherwise
+-- | `System.Types.Connection`. Parameterising here breaks the otherwise
 -- | mutual-import cycle between the Handle and Connection modules.
 type HandleProps validate =
   { handleType :: HandleType

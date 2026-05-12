@@ -40,9 +40,9 @@ type Box = { x :: Number, y :: Number, x2 :: Number, y2 :: Number }
 
 -- | A `Box` wrapped so it can carry `Semigroup`/`Monoid` instances. The
 -- | semigroup `<>` is the bounding-box merge (min on x/y, max on x2/y2),
--- | matching `XYFlow.Utils.General.getBoundsOfBoxes`. The monoid `mempty`
+-- | matching `System.Utils.General.getBoundsOfBoxes`. The monoid `mempty`
 -- | uses `+Infinity` for x/y and `-Infinity` for x2/y2, matching the
--- | `posInf`/`negInf` initial values used in `XYFlow.Utils.Graph`.
+-- | `posInf`/`negInf` initial values used in `System.Utils.Graph`.
 newtype BoundingBox = BoundingBox Box
 
 derive instance newtypeBoundingBox :: Newtype BoundingBox _

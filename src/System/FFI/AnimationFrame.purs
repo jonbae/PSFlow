@@ -1,6 +1,6 @@
 -- | FFI wrappers for `window.requestAnimationFrame` and
 -- | `window.cancelAnimationFrame`. Used by the auto-pan loops in
--- | `XYFlow.XYDrag` and `XYFlow.XYHandle`.
+-- | `System.XYDrag` and `System.XYHandle`.
 module System.FFI.AnimationFrame
   ( RafHandle
   , requestAnimationFrame

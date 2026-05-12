@@ -1,5 +1,5 @@
 -- | Thin FFI wrapper around `d3-zoom` and `d3-interpolate`. Used by
--- | `XYFlow.XYPanZoom` and `XYFlow.XYMinimap`. Functions are exposed as
+-- | `System.XYPanZoom` and `System.XYMinimap`. Functions are exposed as
 -- | one-shot `Effect` actions; callers chain them in `do`-blocks.
 module System.FFI.D3Zoom
   ( ZoomTransform(..)
@@ -45,7 +45,7 @@ import Foreign (Foreign)
 import System.FFI.D3Selection (D3Selection)
 
 -- | Opaque `d3.ZoomTransform` value carrying `(x, y, k)` triples. Existing
--- | dependents (`XYFlow.Types.PanZoom`) re-export the constructor from this
+-- | dependents (`System.Types.PanZoom`) re-export the constructor from this
 -- | module, so we keep the newtype shape stable.
 newtype ZoomTransform = ZoomTransform Foreign
 

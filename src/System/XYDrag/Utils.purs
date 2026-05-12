@@ -1,4 +1,4 @@
--- | Pure helpers used by `XYFlow.XYDrag`. Mirrors
+-- | Pure helpers used by `System.XYDrag`. Mirrors
 -- | `xyflow-main/packages/system/src/xydrag/utils.ts`.
 -- |
 -- | `isParentSelected`, `getDragItems`, `getEventHandlerParams`, and

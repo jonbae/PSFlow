@@ -289,7 +289,7 @@ createPanZoomHandler p = pure \event -> do
     (zoomTransformK_ t)
 
 -- Local FFI accessors — read the (x, y, k) fields off a d3 ZoomTransform.
--- They duplicate the `XYFlow.FFI.D3Zoom` accessors but on `Foreign`-typed
+-- They duplicate the `System.FFI.D3Zoom` accessors but on `Foreign`-typed
 -- input, since `zoomEventTransform` here returns `ZoomTransform` opaquely.
 foreign import zoomTransformK_ :: forall a. a -> Number
 foreign import transformX_ :: forall a. a -> Number

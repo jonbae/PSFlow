@@ -4,7 +4,7 @@
 -- | Divergence note: the TypeScript module imports `getNodePositionWithOrigin`
 -- | from `utils/graph.ts`, while `graph.ts` re-imports ten functions from
 -- | `general.ts`. PureScript modules cannot be mutually recursive, so
--- | `getNodePositionWithOrigin` is colocated here. `XYFlow.Utils.Graph`
+-- | `getNodePositionWithOrigin` is colocated here. `System.Utils.Graph`
 -- | re-exports it for ticket-009 consumers.
 module System.Utils.General
   ( clamp

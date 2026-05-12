@@ -1,4 +1,4 @@
--- | Pure helpers used by `XYFlow.XYPanZoom`. Mirrors
+-- | Pure helpers used by `System.XYPanZoom`. Mirrors
 -- | `xyflow-main/packages/system/src/xypanzoom/utils.ts`.
 -- |
 -- | `transformToViewport` and `viewportToTransform` are pure conversions

@@ -1,4 +1,4 @@
--- | Pure helpers used by `XYFlow.XYResizer`. Mirrors
+-- | Pure helpers used by `System.XYResizer`. Mirrors
 -- | `xyflow-main/packages/system/src/xyresizer/utils.ts`.
 -- |
 -- | All three functions are pure. `getDimensionsAfterResize` is a 280-line
@@ -48,7 +48,7 @@ type ResizeStartValues =
   }
 
 -- | Pointer position with snapped axes — the shape produced by
--- | `XYFlow.Utils.Dom.getPointerPosition`.
+-- | `System.Utils.Dom.getPointerPosition`.
 type PointerPosition =
   { x :: Number, y :: Number, xSnapped :: Number, ySnapped :: Number }
 

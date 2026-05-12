@@ -1,5 +1,5 @@
 -- | FFI wrappers for `window.setTimeout` and `window.clearTimeout`. Used by
--- | `XYFlow.XYPanZoom`'s end-handler debouncing.
+-- | `System.XYPanZoom`'s end-handler debouncing.
 module System.FFI.Timer
   ( TimeoutId
   , setTimeout

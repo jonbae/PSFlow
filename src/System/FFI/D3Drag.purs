@@ -1,5 +1,5 @@
--- | Thin FFI wrapper around `d3-drag`. Used by `XYFlow.XYDrag` and
--- | `XYFlow.XYResizer`. The configuration functions are designed to chain
+-- | Thin FFI wrapper around `d3-drag`. Used by `System.XYDrag` and
+-- | `System.XYResizer`. The configuration functions are designed to chain
 -- | imperatively — each returns the same `D3DragBehavior` (post-mutation) so
 -- | callers can sequence them in `Effect`.
 module System.FFI.D3Drag
