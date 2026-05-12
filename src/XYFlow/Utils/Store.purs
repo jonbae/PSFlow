@@ -149,7 +149,11 @@ calculateChildXYZ child parent origin extent selZ zMode =
   let
     parentX = parent.internals.positionAbsolute.x
     parentY = parent.internals.positionAbsolute.y
-    childDimensions = getNodeDimensions child
+    -- Ticket 021 #8: getNodeDimensions returns Maybe Dimensions. When the
+    -- child is unmeasured we treat its size as 0×0 for clamping purposes,
+    -- matching the previous (pre-Maybe) behaviour at this call site.
+    childDimensions = fromMaybe { width: 0.0, height: 0.0 }
+      (getNodeDimensions child)
     positionWithOrigin = getNodePositionWithOrigin child origin
     childExtent = isCoordinateExtent child.extent
     clampedRel = case childExtent of

@@ -62,6 +62,7 @@ import XYFlow.Types.PanZoom (PanZoomInstance)
 import XYFlow.Utils.General
   ( boxToRect
   , clampPosition
+  , getNodeDimensions
   , getNodePositionWithOrigin
   , getOverlappingArea
   , getViewportForBounds

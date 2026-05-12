@@ -202,6 +202,18 @@ runOnRef ref st = do
   Ref.write s1 ref
   pure a
 
+-- | Strict-mode rule: a from-handle of one side may only connect to a
+-- | to-handle of the *opposite* side. Defined in terms of phantom-typed
+-- | helpers exported from `XYFlow.Types.Handle`: dispatching once on
+-- | `fromT` lets the inner branches treat the candidate as a typed
+-- | `SourceHandle`/`TargetHandle`, so any future call site that takes the
+-- | typed pair gets compile-time enforcement.
+isStrictlyOpposite :: HandleType -> HandleType -> Boolean
+isStrictlyOpposite fromT toT = case fromT, toT of
+  Source, Target -> true
+  Target, Source -> true
+  _, _ -> false
+
 -- ----------------------------------------------------------------------------
 -- onPointerDown
 -- ----------------------------------------------------------------------------
