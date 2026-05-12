@@ -149,8 +149,7 @@ calculateChildXYZ child parent origin extent selZ zMode =
   let
     parentX = parent.internals.positionAbsolute.x
     parentY = parent.internals.positionAbsolute.y
-    childDimensions =
-      fromMaybe { width: 0.0, height: 0.0 } (getNodeDimensions child)
+    childDimensions = getNodeDimensions child
     positionWithOrigin = getNodePositionWithOrigin child origin
     childExtent = isCoordinateExtent child.extent
     clampedRel = case childExtent of

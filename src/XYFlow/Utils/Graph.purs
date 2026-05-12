@@ -28,7 +28,7 @@ import Prelude
 import Control.Alt ((<|>))
 import Data.Array (any, filter, foldl, fromFoldable, length, snoc) as Array
 import Data.Either (Either(..))
-import Data.Foldable (foldMap, foldl) as Foldable
+import Data.Foldable (foldMap) as Foldable
 import Data.Map (Map)
 import Data.Map (filter, lookup, size, values) as Map
 import Data.Maybe (Maybe(..), fromMaybe, isJust, isNothing)
