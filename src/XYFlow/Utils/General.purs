@@ -22,6 +22,7 @@ module XYFlow.Utils.General
   , isNumeric
   , devWarn
   , snapPosition
+  , roundHalfAwayFromZero
   , pointToRendererPoint
   , rendererPointToPoint
   , getViewportForBounds
@@ -38,11 +39,10 @@ module XYFlow.Utils.General
 
 import Prelude hiding (clamp)
 
-import Control.Alt ((<|>))
-import Data.Array (foldr) as Array
 import Data.Either (Either(..))
+import Data.Foldable (any, oneOf) as Foldable
 import Data.Map (lookup) as Map
-import Data.Maybe (Maybe(..), fromMaybe)
+import Data.Maybe (Maybe(..), fromMaybe, isJust)
 import Data.Number (abs, floor, isFinite, isNaN) as Number
 import Data.Set (Set)
 import Effect (Effect)
@@ -97,7 +97,7 @@ clampPositionToParent
   -> XYPosition
 clampPositionToParent childPosition childDimensions parent =
   let
-    parentDims = getNodeDimensions parent
+    parentDims = fromMaybe { width: 0.0, height: 0.0 } (getNodeDimensions parent)
     parentX = parent.internals.positionAbsolute.x
     parentY = parent.internals.positionAbsolute.y
     extent = CoordinateExtent
@@ -154,7 +154,7 @@ nodeToRect en origin =
     pos = case en of
       Right internal -> internal.internals.positionAbsolute
       Left node -> getNodePositionWithOrigin node origin
-    dims = case en of
+    dims = fromMaybe { width: 0.0, height: 0.0 } case en of
       Right internal -> getNodeDimensions internal
       Left node -> getNodeDimensions node
   in
@@ -208,17 +208,21 @@ roundHalfAwayFromZero n =
   if n >= 0.0 then Number.floor (n + 0.5)
   else -(Number.floor ((-n) + 0.5))
 
+-- | TS exposes `(p, transform, snapToGrid?, snapGrid?)` — we collapse the
+-- | boolean+grid pair into `Maybe SnapGrid`. `Nothing` skips snapping;
+-- | `Just g` snaps to grid `g`.
 pointToRendererPoint
   :: XYPosition
   -> Transform
-  -> Boolean
-  -> SnapGrid
+  -> Maybe SnapGrid
   -> XYPosition
-pointToRendererPoint p (Transform t) snapToGrid grid =
+pointToRendererPoint p (Transform t) mGrid =
   let
     pos = { x: (p.x - t.tx) / t.scale, y: (p.y - t.ty) / t.scale }
   in
-    if snapToGrid then snapPosition pos grid else pos
+    case mGrid of
+      Just grid -> snapPosition pos grid
+      Nothing -> pos
 
 rendererPointToPoint :: XYPosition -> Transform -> XYPosition
 rendererPointToPoint p (Transform t) =
@@ -346,6 +350,12 @@ isCoordinateExtent = case _ of
 
 -- | Row-polymorphic so it accepts both `NodeBase` and `InternalNodeBase`
 -- | (which are flat records sharing the same dimension fields).
+-- |
+-- | Returns `Nothing` when *both* width and height resolve to absent —
+-- | i.e. all three of `measured`, `width`/`height`, and
+-- | `initialWidth`/`initialHeight` are `Nothing` for both axes. Callers that
+-- | previously defaulted to `0.0` should pattern-match (or use `fromMaybe
+-- | { width: 0.0, height: 0.0 }`) to make the absence explicit.
 getNodeDimensions
   :: forall r
    . { measured :: { width :: Maybe Number, height :: Maybe Number }
@@ -355,29 +365,21 @@ getNodeDimensions
      , initialHeight :: Maybe Number
      | r
      }
-  -> Dimensions
+  -> Maybe Dimensions
 getNodeDimensions node =
-  { width:
-      fromMaybe 0.0
-        (firstJust [ node.measured.width, node.width, node.initialWidth ])
-  , height:
-      fromMaybe 0.0
-        (firstJust [ node.measured.height, node.height, node.initialHeight ])
-  }
+  let
+    mw = Foldable.oneOf [ node.measured.width, node.width, node.initialWidth ]
+    mh = Foldable.oneOf [ node.measured.height, node.height, node.initialHeight ]
+  in
+    case mw, mh of
+      Nothing, Nothing -> Nothing
+      _, _ -> Just { width: fromMaybe 0.0 mw, height: fromMaybe 0.0 mh }
 
 nodeHasDimensions :: forall n. NodeBase n -> Boolean
 nodeHasDimensions node =
-  hasJust [ node.measured.width, node.width, node.initialWidth ]
-    && hasJust [ node.measured.height, node.height, node.initialHeight ]
-
--- | Mirror of TS `a ?? b ?? c`: pick the first `Just` in left-to-right order.
-firstJust :: forall a. Array (Maybe a) -> Maybe a
-firstJust = Array.foldr (<|>) Nothing
-
-hasJust :: forall a. Array (Maybe a) -> Boolean
-hasJust arr = case firstJust arr of
-  Just _ -> true
-  Nothing -> false
+  Foldable.any isJust [ node.measured.width, node.width, node.initialWidth ]
+    && Foldable.any isJust
+      [ node.measured.height, node.height, node.initialHeight ]
 
 -- | Pure version of TS `evaluateAbsolutePosition`. If the parent id is absent
 -- | from the lookup, the original position is returned unchanged.
@@ -411,7 +413,7 @@ areSetsEqual = (==)
 getNodePositionWithOrigin :: forall n. NodeBase n -> NodeOrigin -> XYPosition
 getNodePositionWithOrigin node defaultOrigin =
   let
-    dims = getNodeDimensions node
+    dims = fromMaybe { width: 0.0, height: 0.0 } (getNodeDimensions node)
     NodeOrigin origin = fromMaybe defaultOrigin node.origin
   in
     { x: node.position.x - dims.width * origin.ox
