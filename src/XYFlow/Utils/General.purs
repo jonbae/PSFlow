@@ -33,6 +33,7 @@ module XYFlow.Utils.General
   , areSetsEqual
   , getNodePositionWithOrigin
   , identityTransform
+  , roundHalfAwayFromZero
   ) where
 
 import Prelude hiding (clamp)
