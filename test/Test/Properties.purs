@@ -40,12 +40,15 @@ import XYFlow.Utils.General
 -- | values from `uniform` in `[0, 1]`, which is too narrow for the geometric
 -- | invariants under test. Going through `Int` also guarantees we never emit
 -- | NaN/Infinity, both of which would break `==` round-trip checks.
+-- |
+-- | Integer-valued so `(x + width) - x == width` exactly under IEEE-754 — the
+-- | rect/box round trip relies on that.
 genFiniteNumber :: Gen Number
-genFiniteNumber = (\i -> Int.toNumber i / 10.0) <$> chooseInt (-10000) 10000
+genFiniteNumber = Int.toNumber <$> chooseInt (-1000) 1000
 
 -- | Non-negative `Number` (0..1000), used for widths/heights.
 genNonNegNumber :: Gen Number
-genNonNegNumber = (\i -> Int.toNumber i / 10.0) <$> chooseInt 0 10000
+genNonNegNumber = Int.toNumber <$> chooseInt 0 1000
 
 -- | Generate a `Rect` with non-negative width/height. Negative dimensions
 -- | are not meaningful for the round-trip property.
