@@ -28,6 +28,10 @@ package:
     - web-html
     - web-touchevents
     - web-uievents
+    - avar
+    - exceptions
+    - react-basic
+    - react-basic-hooks
   test:
     main: Test.Main
     dependencies:

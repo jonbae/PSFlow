@@ -15,7 +15,21 @@
       "PowerShell(npm install *)",
       "Bash(npx spago *)",
       "PowerShell(npx spago test)",
-      "Bash(where purs *)"
+      "Bash(where purs *)",
+      "PowerShell(Get-Command purs -ErrorAction SilentlyContinue)",
+      "PowerShell(Get-Command spago -ErrorAction SilentlyContinue)",
+      "PowerShell($globs = @\\(\\); Get-ChildItem -Path \".spago\" -Recurse -Filter \"spago.yaml\" -ErrorAction SilentlyContinue | Select-Object -First 5 FullName; Get-ChildItem -Path \".spago/p\" -Directory -ErrorAction SilentlyContinue | Select-Object Name -First 10)",
+      "Bash(grep -E \"^System\\\\.Utils\\\\.Store$\")",
+      "Bash(ls /c/Users/jonbae/AppData/Roaming/npm/ | grep -iE \"^\\(purs|spago\\)\" 2>&1)",
+      "Bash(purs --version)",
+      "Bash(shopt -s globstar)",
+      "Bash(purs compile *)",
+      "Bash(ls /c/Users/jonbae/.claude/projects/C--Users-jonbae-Documents-repos-ps-flow/memory/ 2>&1 | head)",
+      "PowerShell(purs --version)",
+      "PowerShell(& \"$env:APPDATA\\\\npm\\\\purs.cmd\" --version)",
+      "PowerShell($env:NODE_OPTIONS=\"--no-deprecation\"; & spago.cmd build 2>&1 | Select-Object -Last 10)",
+      "Bash(grep -l \"exceptions\" C:\\\\\\\\Users\\\\\\\\jonbae\\\\\\\\Documents\\\\\\\\repos\\\\\\\\ps-flow\\\\\\\\spago.lock)",
+      "PowerShell(Get-ChildItem output -Directory | Where-Object { $_.Name -match \"^Test\" })"
     ]
   }
 }

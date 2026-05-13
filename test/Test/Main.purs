@@ -36,6 +36,8 @@ import Data.Either (Either(..))
 import Data.Number (abs) as Number
 import Data.Tuple (Tuple(..))
 import Test.Properties (runProperties)
+import Test.React.Store.Reduce (runReactStoreTests)
+import Test.System.Utils.Store (runStoreProperties)
 
 assert :: String -> Boolean -> Effect Unit
 assert label cond =
@@ -981,3 +983,5 @@ main = do
   log "all tests passed"
 
   runProperties
+  runStoreProperties
+  runReactStoreTests

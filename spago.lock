@@ -7,11 +7,13 @@
           "dependencies": [
             "aff",
             "arrays",
+            "avar",
             "console",
             "control",
             "effect",
             "either",
             "enums",
+            "exceptions",
             "foldable-traversable",
             "foreign",
             "integers",
@@ -23,6 +25,8 @@
             "ordered-collections",
             "partial",
             "prelude",
+            "react-basic",
+            "react-basic-hooks",
             "refs",
             "strings",
             "transformers",
@@ -709,6 +713,21 @@
         "unsafe-coerce"
       ]
     },
+    "aff-promise": {
+      "type": "registry",
+      "version": "4.0.0",
+      "integrity": "sha256-Jgp3y+NWuuAmwz2V3LlWoX+AvxqfVglY77N5zTw8xnI=",
+      "dependencies": [
+        "aff",
+        "control",
+        "effect",
+        "either",
+        "exceptions",
+        "foreign",
+        "prelude",
+        "transformers"
+      ]
+    },
     "arrays": {
       "type": "registry",
       "version": "7.3.0",
@@ -728,6 +747,20 @@
         "tuples",
         "unfoldable",
         "unsafe-coerce"
+      ]
+    },
+    "avar": {
+      "type": "registry",
+      "version": "5.0.1",
+      "integrity": "sha256-8V4SxF4TIWZ9Ik1P4lPzIRUAZeFBe8w5WA2VcCEKsIk=",
+      "dependencies": [
+        "aff",
+        "effect",
+        "either",
+        "exceptions",
+        "functions",
+        "maybe",
+        "prelude"
       ]
     },
     "bifunctors": {
@@ -906,6 +939,26 @@
         "unsafe-coerce"
       ]
     },
+    "foreign-object": {
+      "type": "registry",
+      "version": "4.1.0",
+      "integrity": "sha256-x/Q7r80z/vmHRKvPwhYmHP/DnJciPtsyGfRTMzayKIU=",
+      "dependencies": [
+        "arrays",
+        "foldable-traversable",
+        "functions",
+        "gen",
+        "lists",
+        "maybe",
+        "prelude",
+        "st",
+        "tailrec",
+        "tuples",
+        "typelevel-prelude",
+        "unfoldable",
+        "unsafe-coerce"
+      ]
+    },
     "functions": {
       "type": "registry",
       "version": "6.0.0",
@@ -958,6 +1011,15 @@
       "dependencies": [
         "control",
         "invariant",
+        "newtype",
+        "prelude"
+      ]
+    },
+    "indexed-monad": {
+      "type": "registry",
+      "version": "3.0.0",
+      "integrity": "sha256-84PslUkPKyrFUGeq981auE+zODsQO/g8rnqwgcN0zQM=",
+      "dependencies": [
         "newtype",
         "prelude"
       ]
@@ -1080,6 +1142,16 @@
         "prelude",
         "tuples",
         "unfoldable"
+      ]
+    },
+    "now": {
+      "type": "registry",
+      "version": "6.0.0",
+      "integrity": "sha256-mTyG4s8tps3XIf0jjV/lME2/QlwMzrQly2wqfSSUM3o=",
+      "dependencies": [
+        "datetime",
+        "effect",
+        "prelude"
       ]
     },
     "nullable": {
@@ -1220,6 +1292,50 @@
         "prelude"
       ]
     },
+    "react-basic": {
+      "type": "registry",
+      "version": "17.0.0",
+      "integrity": "sha256-RZA6jqfbrFHLXYD1ARlnfHp2YkT9IjUTkUwsk7Rqn8s=",
+      "dependencies": [
+        "effect",
+        "prelude",
+        "record"
+      ]
+    },
+    "react-basic-hooks": {
+      "type": "registry",
+      "version": "9.1.1",
+      "integrity": "sha256-wUZMNNivUj6yJDk3rbgeEgljfv2gq1bPHKHEJbkzyNQ=",
+      "dependencies": [
+        "aff",
+        "aff-promise",
+        "bifunctors",
+        "console",
+        "control",
+        "datetime",
+        "effect",
+        "either",
+        "exceptions",
+        "foldable-traversable",
+        "foreign-object",
+        "functions",
+        "indexed-monad",
+        "integers",
+        "maybe",
+        "newtype",
+        "now",
+        "nullable",
+        "ordered-collections",
+        "prelude",
+        "react-basic",
+        "refs",
+        "tuples",
+        "type-equality",
+        "unsafe-coerce",
+        "unsafe-reference",
+        "web-html"
+      ]
+    },
     "record": {
       "type": "registry",
       "version": "4.0.0",
@@ -1335,6 +1451,15 @@
       "integrity": "sha256-BBqYOSnAKmayRvR5mtZoCf4SlYs2ipatD/+5nQx73aw=",
       "dependencies": []
     },
+    "typelevel-prelude": {
+      "type": "registry",
+      "version": "7.0.0",
+      "integrity": "sha256-+pHi14/40mTj/+lmCWqL0T7iXIXD1+NSg/KItyyoB0A=",
+      "dependencies": [
+        "prelude",
+        "type-equality"
+      ]
+    },
     "unfoldable": {
       "type": "registry",
       "version": "6.0.0",
@@ -1352,6 +1477,14 @@
       "version": "6.0.0",
       "integrity": "sha256-0L1QsaY20OILjfU5TV72d3U/tSjhmL9hJ32WMp857Lk=",
       "dependencies": []
+    },
+    "unsafe-reference": {
+      "type": "registry",
+      "version": "5.0.0",
+      "integrity": "sha256-ttSJTQUnK8AK2eGOsfRxLUJEDPL6pnmExjbiOqfwC6I=",
+      "dependencies": [
+        "prelude"
+      ]
     },
     "web-dom": {
       "type": "registry",

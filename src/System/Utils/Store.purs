@@ -1,7 +1,12 @@
 -- | Store reconciliation utilities. Mirrors `utils/store.ts`. The TS code
--- | mutates `Map`s in place; the PS port wraps each lookup in `Effect.Ref`,
--- | reads, computes a new map, and writes back. Pure callers can use
--- | `handleExpandParent` directly without constructing Refs.
+-- | mutates `Map`s in place; this PS port takes Maps and returns Maps so
+-- | callers (e.g. the React reducer in ticket 026) can call these as pure
+-- | helpers. `updateNodeInternals` retains `Effect` because it reads the
+-- | DOM (`getDimensions`, `elementBoundingRect`, `getHandleBounds`,
+-- | `findViewportZoom`); `panBy` is `Aff` because viewport setters are
+-- | async. The remaining four functions — `adoptUserNodes`,
+-- | `updateAbsolutePositions`, `updateConnectionLookup`,
+-- | `handleExpandParent` — are pure value-in / value-out (ticket 022a).
 module System.Utils.Store
   ( UpdateNodesOptions
   , defaultUpdateNodesOptions
@@ -30,8 +35,6 @@ import Data.Number (abs, round) as Number
 import Data.Tuple (Tuple(..))
 import Effect (Effect)
 import Effect.Aff (Aff)
-import Effect.Ref (Ref)
-import Effect.Ref as Ref
 import Web.HTML.HTMLElement (HTMLElement)
 import System.Constants (infiniteExtent)
 import System.Types.Connection
@@ -283,13 +286,11 @@ updateChildNodePure node nodeLookup parentLookup options rootParentIndex =
 
 updateAbsolutePositions
   :: forall n
-   . Ref (NodeLookup n)
-  -> Ref (ParentLookup n)
+   . NodeLookup n
+  -> ParentLookup n
   -> UpdateNodesOptions n
-  -> Effect Unit
-updateAbsolutePositions nodeLookupRef parentLookupRef options = do
-  initial <- Ref.read nodeLookupRef
-  parents <- Ref.read parentLookupRef
+  -> { nodeLookup :: NodeLookup n, parentLookup :: ParentLookup n }
+updateAbsolutePositions initial parents options =
   let
     finalState = Foldable.foldl
       ( \st node ->
@@ -326,18 +327,23 @@ updateAbsolutePositions nodeLookupRef parentLookupRef options = do
       , rootParentIndex: Nothing :: Maybe Int
       }
       (Map.values initial)
-  Ref.write finalState.nodeLookup nodeLookupRef
-  Ref.write finalState.parentLookup parentLookupRef
+  in
+    { nodeLookup: finalState.nodeLookup
+    , parentLookup: finalState.parentLookup
+    }
 
 adoptUserNodes
   :: forall n
    . Array (NodeBase n)
-  -> Ref (NodeLookup n)
-  -> Ref (ParentLookup n)
+  -> NodeLookup n
+  -> ParentLookup n
   -> UpdateNodesOptions n
-  -> Effect AdoptUserNodesReturn
-adoptUserNodes nodes nodeLookupRef parentLookupRef options = do
-  prev <- Ref.read nodeLookupRef
+  -> { nodeLookup :: NodeLookup n
+     , parentLookup :: ParentLookup n
+     , nodesInitialized :: Boolean
+     , hasSelectedNodes :: Boolean
+     }
+adoptUserNodes nodes prev _prevParent options =
   let
     selZ =
       if options.elevateNodesOnSelect
@@ -442,10 +448,10 @@ adoptUserNodes nodes nodeLookupRef parentLookupRef options = do
           }
 
     final = Foldable.foldl step initial nodes
-  Ref.write final.nodeLookup nodeLookupRef
-  Ref.write final.parentLookup parentLookupRef
-  pure
-    { nodesInitialized: final.nodesInitialized
+  in
+    { nodeLookup: final.nodeLookup
+    , parentLookup: final.parentLookup
+    , nodesInitialized: final.nodesInitialized
     , hasSelectedNodes: final.hasSelectedNodes
     }
 
@@ -636,23 +642,36 @@ filterMap = Array.mapMaybe
 updateNodeInternals
   :: forall n
    . Map String InternalNodeUpdate
-  -> Ref (NodeLookup n)
-  -> Ref (ParentLookup n)
+  -> NodeLookup n
+  -> ParentLookup n
   -> Maybe HTMLElement
   -> NodeOrigin
   -> CoordinateExtent
   -> ZIndexMode
-  -> Effect { changes :: Array (NodeChange n), updatedInternals :: Boolean }
-updateNodeInternals updates nodeLookupRef parentLookupRef mDom origin extent zMode =
+  -> Effect
+       { nodeLookup :: NodeLookup n
+       , parentLookup :: ParentLookup n
+       , changes :: Array (NodeChange n)
+       , updatedInternals :: Boolean
+       }
+updateNodeInternals updates nodeLookup0 parentLookup0 mDom origin extent zMode =
   case mDom of
-    Nothing -> pure { changes: [], updatedInternals: false }
+    Nothing -> pure
+      { nodeLookup: nodeLookup0
+      , parentLookup: parentLookup0
+      , changes: []
+      , updatedInternals: false
+      }
     Just dom -> do
       mZoom <- findViewportZoom dom
       case mZoom of
-        Nothing -> pure { changes: [], updatedInternals: false }
+        Nothing -> pure
+          { nodeLookup: nodeLookup0
+          , parentLookup: parentLookup0
+          , changes: []
+          , updatedInternals: false
+          }
         Just zoom -> do
-          nodeLookup0 <- Ref.read nodeLookupRef
-          parentLookup0 <- Ref.read parentLookupRef
           let
             initial =
               { nodeLookup: nodeLookup0
@@ -666,8 +685,6 @@ updateNodeInternals updates nodeLookupRef parentLookupRef mDom origin extent zMo
               ( \acc u -> processUpdate u acc zoom origin extent zMode )
               initial
               (Map.values updates)
-          Ref.write result.nodeLookup nodeLookupRef
-          Ref.write result.parentLookup parentLookupRef
           let
             finalChanges =
               if Array.length result.parentExpandChildren > 0 then
@@ -678,7 +695,9 @@ updateNodeInternals updates nodeLookupRef parentLookupRef mDom origin extent zMo
                     origin
               else result.changes
           pure
-            { changes: finalChanges
+            { nodeLookup: result.nodeLookup
+            , parentLookup: result.parentLookup
+            , changes: finalChanges
             , updatedInternals: result.updatedInternals
             }
 
@@ -837,11 +856,9 @@ addConnectionToLookup typeStr connection connectionKey connectionLookup nodeId m
 
 updateConnectionLookup
   :: forall e
-   . Ref ConnectionLookup
-  -> Ref (EdgeLookup e)
-  -> Array (EdgeBase e)
-  -> Effect Unit
-updateConnectionLookup connRef edgeRef edges = do
+   . Array (EdgeBase e)
+  -> { connectionLookup :: ConnectionLookup, edgeLookup :: EdgeLookup e }
+updateConnectionLookup edges =
   let
     initial =
       { connectionLookup: (Map.empty :: ConnectionLookup)
@@ -887,8 +904,10 @@ updateConnectionLookup connRef edgeRef edges = do
       )
       initial
       edges
-  Ref.write final.connectionLookup connRef
-  Ref.write final.edgeLookup edgeRef
+  in
+    { connectionLookup: final.connectionLookup
+    , edgeLookup: final.edgeLookup
+    }
 
 -- Pan-by ------------------------------------------------------------------
 
