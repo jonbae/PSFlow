@@ -29,7 +29,11 @@
       "PowerShell(& \"$env:APPDATA\\\\npm\\\\purs.cmd\" --version)",
       "PowerShell($env:NODE_OPTIONS=\"--no-deprecation\"; & spago.cmd build 2>&1 | Select-Object -Last 10)",
       "Bash(grep -l \"exceptions\" C:\\\\\\\\Users\\\\\\\\jonbae\\\\\\\\Documents\\\\\\\\repos\\\\\\\\ps-flow\\\\\\\\spago.lock)",
-      "PowerShell(Get-ChildItem output -Directory | Where-Object { $_.Name -match \"^Test\" })"
+      "PowerShell(Get-ChildItem output -Directory | Where-Object { $_.Name -match \"^Test\" })",
+      "Bash(echo \"EXIT=$?\")",
+      "Bash(rm -rf output)",
+      "Read(//tmp/**)",
+      "Bash(node -e \"import\\('./output/Test.Main/index.js'\\).then\\(m => m.main\\(\\)\\)\")"
     ]
   }
 }
