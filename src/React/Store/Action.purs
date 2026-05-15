@@ -13,7 +13,6 @@ module React.Store.Action
   , NodeInternalsResult
   ) where
 
-import Prelude
 
 import Data.Map (Map)
 import Data.Maybe (Maybe)

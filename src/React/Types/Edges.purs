@@ -150,18 +150,21 @@ type EdgeProps e =
   }
 
 type BaseEdgeProps =
-  { interactionWidth :: Maybe Number
+  { id :: Maybe String
+  , path :: String
   , labelX :: Maybe Number
   , labelY :: Maybe Number
-  , path :: String
-  , markerStart :: Maybe String
-  , markerEnd :: Maybe String
   , label :: Maybe String
   , labelStyle :: Maybe Style
   , labelShowBg :: Maybe Boolean
   , labelBgStyle :: Maybe Style
   , labelBgPadding :: Maybe { x :: Number, y :: Number }
   , labelBgBorderRadius :: Maybe Number
+  , style :: Maybe Style
+  , markerEnd :: Maybe String
+  , markerStart :: Maybe String
+  , interactionWidth :: Maybe Number
+  , className :: Maybe String
   }
 
 type EdgeComponentProps =

@@ -16,6 +16,7 @@
             "exceptions",
             "foldable-traversable",
             "foreign",
+            "foreign-object",
             "integers",
             "lists",
             "maybe",

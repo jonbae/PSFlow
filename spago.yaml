@@ -10,6 +10,7 @@ package:
     - enums
     - foldable-traversable
     - foreign
+    - foreign-object
     - integers
     - lists
     - maybe

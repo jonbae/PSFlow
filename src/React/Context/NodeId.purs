@@ -8,7 +8,6 @@ module React.Context.NodeId
   , nodeIdProvider
   ) where
 
-import Prelude
 
 import Data.Maybe (Maybe(..))
 import Effect.Unsafe (unsafePerformEffect)

@@ -64,7 +64,7 @@ import System.Types.Connection
   , ZIndexMode
   )
 import System.Types.Edge (ConnectionLineType)
-import System.Types.Geometry (CoordinateExtent, NodeOrigin, SnapGrid)
+import System.Types.Geometry (CoordinateExtent, NodeOrigin, Position, SnapGrid)
 import System.Types.Handle (HandleType)
 import System.Types.Node (InternalNodeBase, OnError)
 import System.Types.PanZoom (PanOnDrag)
@@ -231,14 +231,25 @@ type ReactFlowProps n e =
 -- component definitions list. Implementation tickets will validate them.
 
 -- Ticket 034 — `<Handle />` component.
+-- |
+-- | NB: the TS source allows `children` (the handle can wrap an icon).
+-- | We omit it here for the initial port — `reactComponent` from
+-- | `react-basic-hooks` requires `Lacks "children"` on the props row,
+-- | and bridging through `reactComponentWithChildren` (which wraps
+-- | children in `ReactChildren JSX`) would force every call site to
+-- | construct a `ReactChildren` wrapper. Add back when a real use case
+-- | for handle children appears.
 type HandleProps =
   { handleType :: HandleType
-  , position :: { x :: Number, y :: Number }
+  , position :: Position
   , id :: Maybe String
   , isConnectable :: Maybe Boolean
+  , isConnectableStart :: Maybe Boolean
+  , isConnectableEnd :: Maybe Boolean
   , onConnect :: Maybe OnConnect
   , isValidConnection :: Maybe (IsValidConnection Unit)
-  , children :: Maybe JSX
+  , className :: Maybe String
+  , style :: Maybe Style
   }
 
 -- Ticket 042 — `<Panel />` (overlay panel positioned relative to viewport).

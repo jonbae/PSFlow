@@ -15,7 +15,6 @@ module React.Context.Store
   , storeProvider
   ) where
 
-import Prelude
 
 import Data.Maybe (Maybe(..))
 import Effect.Unsafe (unsafePerformEffect)

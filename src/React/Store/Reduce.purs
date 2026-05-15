@@ -35,9 +35,8 @@ import React.Types.General (UnselectNodesAndEdgesParams)
 import React.Types.Nodes (Node)
 import React.Types.Store (ReactFlowState)
 import System.Types.Connection (noConnection)
-import System.Types.Edge (EdgeChange(..))
+import System.Types.Edge (EdgeBase, EdgeChange(..))
 import System.Types.Geometry (CoordinateExtent)
-import System.Types.Edge (EdgeBase)
 import System.Types.Node (InternalNodeBase, NodeChange(..), NodeDragItem)
 import System.Utils.Store
   ( adoptUserNodes

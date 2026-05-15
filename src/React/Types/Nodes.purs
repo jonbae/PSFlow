@@ -6,6 +6,7 @@ module React.Types.Nodes
   ( Node
   , InternalNode
   , NodeMouseHandler
+  , NodeProps
   , SelectionDragHandler
   , OnNodeDrag
   , NodeWrapperProps
@@ -17,7 +18,7 @@ import Prelude
 
 import Data.Maybe (Maybe)
 import Effect (Effect)
-import System.Types.Geometry (CoordinateExtent)
+import System.Types.Geometry (CoordinateExtent, Position)
 import System.Types.Node (InternalNodeBase, NodeBase, OnError)
 import Web.UIEvent.MouseEvent (MouseEvent)
 
@@ -30,6 +31,28 @@ type Node n = NodeBase n
 type InternalNode n = InternalNodeBase n
 
 type NodeMouseHandler n = MouseEvent -> Node n -> Effect Unit
+
+-- | Props passed into a user-supplied node component (and the built-in
+-- | nodes in `React.Node.*`). Mirrors
+-- | `xyflow-main/packages/react/src/types/nodes.ts NodeProps`.
+-- |
+-- | `data` is left polymorphic (`n`) so the user's data row is preserved
+-- | end-to-end. Built-in node components instantiate this at
+-- | `Foreign` and decode `.label` on render.
+type NodeProps n =
+  { id :: String
+  , data :: n
+  , selected :: Boolean
+  , type :: String
+  , isConnectable :: Boolean
+  , xPos :: Number
+  , yPos :: Number
+  , zIndex :: Number
+  , dragging :: Boolean
+  , targetPosition :: Maybe Position
+  , sourcePosition :: Maybe Position
+  , dragHandle :: Maybe String
+  }
 
 type SelectionDragHandler n = MouseEvent -> Array (Node n) -> Effect Unit
 
