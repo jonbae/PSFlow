@@ -1,6 +1,13 @@
 -- | `ReactFlowInstance` — the rich object the hook `useReactFlow` returns
 -- | and that `onInit` callbacks receive. A record of `Effect`/`Aff`-typed
 -- | methods plus viewport helpers.
+-- |
+-- | **Return-type discipline.** Methods that animate (zoom/pan/fit) return
+-- | `Aff Boolean` — they resolve `true` when the animation completes, or
+-- | `false` when the underlying `panZoom` instance isn't available yet
+-- | (matches upstream's `Promise<boolean>`). Methods that simply read or
+-- | mutate state return `Effect _`. The split mirrors
+-- | `xyflow-main/packages/react/src/hooks/useViewportHelper.ts`.
 module React.Types.Instance
   ( ReactFlowInstance
   , ReactFlowJsonObject
@@ -10,6 +17,7 @@ module React.Types.Instance
   , NodeRefForBounds(..)
   , UpdateOptions
   , ZoomOptions
+  , FitBoundsOptions
   , ScreenToFlowOptions
   ) where
 
@@ -24,13 +32,13 @@ import React.Types.General (FitView)
 import React.Types.Nodes (InternalNode, Node)
 import System.Types.Connection
   ( HandleConnection
+  , InterpolateMode
   , NodeConnection
   , SetCenterOptions
   , Viewport
   )
 import System.Types.Geometry (Rect, XYPosition)
 import System.Types.Handle (HandleType)
-import System.Types.PanZoom (PanZoomTransformOptions)
 
 type ReactFlowJsonObject n e =
   { nodes :: Array (Node n)
@@ -60,7 +68,24 @@ data NodeRefForBounds n
 
 type UpdateOptions = { replace :: Boolean }
 
-type ZoomOptions = { duration :: Maybe Int }
+-- | Animation options accepted by every animated viewport helper
+-- | (`zoomIn`/`zoomOut`/`zoomTo`/`setViewport`). Mirrors upstream's
+-- | `ViewportHelperFunctionOptions` and matches `PanZoomTransformOptions`
+-- | shape field-for-field so the helpers can forward straight into
+-- | `panZoom.scaleBy` / `panZoom.setViewport`.
+type ZoomOptions =
+  { duration :: Maybe Int
+  , ease :: Maybe (Number -> Number)
+  , interpolate :: Maybe InterpolateMode
+  }
+
+-- | Options for `fitBounds`. TS `FitBoundsOptions = ViewportHelperFunctionOptions & { padding? }`.
+type FitBoundsOptions =
+  { padding :: Maybe Number
+  , duration :: Maybe Int
+  , ease :: Maybe (Number -> Number)
+  , interpolate :: Maybe InterpolateMode
+  }
 
 -- | TS `(clientPosition, options?: { snapToGrid?: boolean; snapGrid?: SnapGrid })`.
 -- | Flattened to a record.
@@ -71,18 +96,21 @@ type ScreenToFlowOptions =
 
 -- | The viewport-manipulation half of `ReactFlowInstance`. Mirrors
 -- | `xyflow-main/packages/react/src/types/general.ts ViewportHelperFunctions`.
+-- |
+-- | Every animated method returns `Aff Boolean` — `true` once the d3
+-- | transition resolves, `false` when there is no `panZoom` instance to
+-- | drive the animation. The non-animated readers (`getZoom`,
+-- | `getViewport`, `screenToFlowPosition`, `flowToScreenPosition`) stay
+-- | `Effect`.
 type ViewportHelperFunctions =
-  { zoomIn :: ZoomOptions -> Effect Unit
-  , zoomOut :: ZoomOptions -> Effect Unit
-  , zoomTo :: Number -> ZoomOptions -> Effect Unit
+  { zoomIn :: ZoomOptions -> Aff Boolean
+  , zoomOut :: ZoomOptions -> Aff Boolean
+  , zoomTo :: Number -> ZoomOptions -> Aff Boolean
   , getZoom :: Effect Number
-  , setViewport :: Viewport -> PanZoomTransformOptions -> Effect Unit
+  , setViewport :: Viewport -> ZoomOptions -> Aff Boolean
   , getViewport :: Effect Viewport
   , setCenter :: Number -> Number -> SetCenterOptions -> Aff Boolean
-  , fitBounds ::
-      Rect
-      -> { padding :: Maybe Number, duration :: Maybe Int, ease :: Maybe (Number -> Number) }
-      -> Effect Unit
+  , fitBounds :: Rect -> FitBoundsOptions -> Aff Boolean
   , screenToFlowPosition :: XYPosition -> ScreenToFlowOptions -> Effect XYPosition
   , flowToScreenPosition :: XYPosition -> Effect XYPosition
   }
@@ -123,17 +151,14 @@ type ReactFlowInstance n e =
       -> Effect (Array NodeConnection)
   , fitView :: FitView
   -- Viewport helpers (flattened into the same record per the TS intersection)
-  , zoomIn :: ZoomOptions -> Effect Unit
-  , zoomOut :: ZoomOptions -> Effect Unit
-  , zoomTo :: Number -> ZoomOptions -> Effect Unit
+  , zoomIn :: ZoomOptions -> Aff Boolean
+  , zoomOut :: ZoomOptions -> Aff Boolean
+  , zoomTo :: Number -> ZoomOptions -> Aff Boolean
   , getZoom :: Effect Number
-  , setViewport :: Viewport -> PanZoomTransformOptions -> Effect Unit
+  , setViewport :: Viewport -> ZoomOptions -> Aff Boolean
   , getViewport :: Effect Viewport
   , setCenter :: Number -> Number -> SetCenterOptions -> Aff Boolean
-  , fitBounds ::
-      Rect
-      -> { padding :: Maybe Number, duration :: Maybe Int, ease :: Maybe (Number -> Number) }
-      -> Effect Unit
+  , fitBounds :: Rect -> FitBoundsOptions -> Aff Boolean
   , screenToFlowPosition :: XYPosition -> ScreenToFlowOptions -> Effect XYPosition
   , flowToScreenPosition :: XYPosition -> Effect XYPosition
   , viewportInitialized :: Boolean

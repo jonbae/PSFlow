@@ -34,7 +34,13 @@
       "Bash(rm -rf output)",
       "Read(//tmp/**)",
       "Bash(node -e \"import\\('./output/Test.Main/index.js'\\).then\\(m => m.main\\(\\)\\)\")",
-      "Bash(sed -n '116695,116720p' /c/Users/jonbae/AppData/Roaming/npm/node_modules/spago/bin/bundle.js)"
+      "Bash(sed -n '116695,116720p' /c/Users/jonbae/AppData/Roaming/npm/node_modules/spago/bin/bundle.js)",
+      "Bash(spago test *)",
+      "Bash(curl -sL https://raw.githubusercontent.com/purescript/spago/master/src/Spago/Cmd.purs -o /tmp/spago-cmd-master.purs)",
+      "Bash(gh issue *)",
+      "Bash(gh release *)",
+      "Bash(gh search *)",
+      "Bash(curl -sL https://raw.githubusercontent.com/purescript/spago/master/src/Spago/Purs.purs -o /tmp/spago-purs.purs)"
     ]
   }
 }

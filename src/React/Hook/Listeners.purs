@@ -20,6 +20,7 @@ module React.Hook.Listeners
   ( UseOnViewportChangeOptions
   , UseOnSelectionChangeOptions
   , UseListenerEffect(..)
+  , UseOnInitHandler(..)
   , useOnViewportChange
   , useOnSelectionChange
   , useOnInitHandler
@@ -31,12 +32,16 @@ import Data.Array (filter, snoc) as Array
 import Data.Maybe (Maybe(..), maybe)
 import Data.Newtype (class Newtype)
 import Effect (Effect)
-import Effect.Exception.Unsafe (unsafeThrow)
-import React.Basic.Hooks (Hook, UnsafeReference(..), UseEffect, coerceHook, useEffect)
+import Effect.Ref as Ref
+import React.Basic (Ref)
+import React.Basic.Hooks (Hook, UnsafeReference(..), UseEffect, UseRef, coerceHook, useEffect, useRef)
 import React.Basic.Hooks as React
+import React.Hook.ReactFlow (UseReactFlow, useReactFlow)
 import React.Hook.Store (UseStoreApi, useStoreApi)
 import React.Store.Action (Action(..))
 import React.Types.General (OnSelectionChangeFunc, OnViewportChange)
+import React.Types.Instance (ReactFlowInstance)
+import Unsafe.Coerce (unsafeCoerce)
 import Unsafe.Reference (unsafeRefEq)
 
 -- | TS `UseOnViewportChangeOptions`.
@@ -140,19 +145,44 @@ useOnSelectionChange opts = coerceHook React.do
             )
 
 -- | Fires `onInit` exactly once when `viewportInitialized` flips to
--- | `true`. Subsequent transitions are ignored.
+-- | `true`. Subsequent transitions are ignored. The callback receives
+-- | the `ReactFlowInstance` so it can immediately drive viewport or
+-- | state-mutation methods.
 -- |
--- | **DEFERRED — body stub.** Needs `useReactFlow` (ticket 030) to
--- | obtain the `ReactFlowInstance` passed to the callback. The
--- | signature is stable; the body throws at render time so any
--- | accidental use before ticket 030 lands is caught loudly.
-useOnInitHandler
-  :: forall instance_
-   . Maybe (instance_ -> Effect Unit)
-  -> Hook UseStoreApi Unit
-useOnInitHandler _ = React.do
-  _ <- (useStoreApi :: Hook UseStoreApi _)
-  pure
-    ( unsafeThrow
-        "useOnInitHandler: implementation deferred to ticket 030 (useReactFlow)"
+-- | Mirrors `xyflow-main/packages/react/src/hooks/useOnInitHandler.ts`.
+-- | TS schedules the callback through `setTimeout(fn, 1)` to dodge a
+-- | corner-case where the instance is read mid-commit; the PS port
+-- | fires inside `useEffect`, which already runs post-commit, so the
+-- | extra microtask delay is unnecessary.
+newtype UseOnInitHandler n e hooks =
+  UseOnInitHandler
+    ( UseEffect (UnsafeReference Boolean)
+        ( UseRef Boolean
+            (UseReactFlow n e hooks)
+        )
     )
+
+derive instance newtypeUseOnInitHandler ::
+  Newtype (UseOnInitHandler n e hooks) _
+
+useOnInitHandler
+  :: forall n e
+   . Maybe (ReactFlowInstance n e -> Effect Unit)
+  -> Hook (UseOnInitHandler n e) Unit
+useOnInitHandler mOnInit = coerceHook React.do
+  rfInstance <- useReactFlow
+  initRef <- useRef false
+  useEffect (UnsafeReference rfInstance.viewportInitialized) do
+    initialized <- Ref.read (toEffectRef initRef)
+    when (not initialized && rfInstance.viewportInitialized) do
+      case mOnInit of
+        Just onInit -> do
+          onInit rfInstance
+          Ref.write true (toEffectRef initRef)
+        Nothing -> pure unit
+    pure (pure unit)
+
+-- | `react-basic`'s `Ref` and `effect-ref`'s `Ref` are the same JS cell.
+-- | Convention used elsewhere in `React.Hook.*`.
+toEffectRef :: forall a. Ref a -> Ref.Ref a
+toEffectRef = unsafeCoerce
