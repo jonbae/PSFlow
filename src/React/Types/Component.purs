@@ -5,6 +5,7 @@
 module React.Types.Component
   ( ReactFlowProps
   , HandleProps
+  , PaneProps
   , PanelProps
   , EdgeLabelRendererProps
   , ViewportPortalProps
@@ -25,6 +26,7 @@ import Prelude
 import Data.Maybe (Maybe)
 import Effect (Effect)
 import React.Basic (JSX)
+import React.Basic.Hooks (ReactChildren)
 import React.Types.Edges
   ( ConnectionLineComponentProps
   , DefaultEdgeOptions
@@ -252,6 +254,35 @@ type HandleProps =
   , isValidConnection :: Maybe (IsValidConnection Unit)
   , className :: Maybe String
   , style :: Maybe Style
+  }
+
+-- | Ticket 038 — `<Pane />`. The pan/select interaction surface that
+-- | hosts nodes, edges, and the user-selection lasso. Widened beyond
+-- | the ticket's scaffold to include `selectionKeyPressed`,
+-- | `paneClickDistance`, `autoPanOnSelection`, and `selectionOnDrag` so
+-- | the rAF auto-pan loop and first-move click-distance threshold can
+-- | be driven from the parent (matches upstream TS).
+-- |
+-- | The component is built via `reactComponentWithChildren`, so
+-- | `children` here is `ReactChildren JSX` rather than `Array JSX` —
+-- | call sites wrap an array via `reactChildrenFromArray`.
+type PaneProps =
+  { children :: ReactChildren JSX
+  , isSelecting :: Boolean
+  , selectionKeyPressed :: Boolean
+  , selectionMode :: SelectionMode
+  , panOnDrag :: PanOnDrag
+  , selectionOnDrag :: Boolean
+  , autoPanOnSelection :: Boolean
+  , paneClickDistance :: Number
+  , onSelectionStart :: Maybe (MouseEvent -> Effect Unit)
+  , onSelectionEnd :: Maybe (MouseEvent -> Effect Unit)
+  , onPaneClick :: Maybe (MouseEvent -> Effect Unit)
+  , onPaneContextMenu :: Maybe (MouseEvent -> Effect Unit)
+  , onPaneScroll :: Maybe (WheelEvent -> Effect Unit)
+  , onPaneMouseEnter :: Maybe (MouseEvent -> Effect Unit)
+  , onPaneMouseMove :: Maybe (MouseEvent -> Effect Unit)
+  , onPaneMouseLeave :: Maybe (MouseEvent -> Effect Unit)
   }
 
 -- Ticket 042 — `<Panel />` (overlay panel positioned relative to viewport).

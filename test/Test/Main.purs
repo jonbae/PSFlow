@@ -35,6 +35,7 @@ import System.XYMinimap as XYMinimap
 import Data.Either (Either(..))
 import Data.Number (abs) as Number
 import Data.Tuple (Tuple(..))
+import React.Container.Pane.Internal (buildPaneClass, paneIsDraggable)
 import Test.Properties (runProperties)
 import Test.React.Store.Reduce (runReactStoreTests)
 import Test.System.Utils.Store (runStoreProperties)
@@ -978,6 +979,34 @@ main = do
         && minimapDefaults.pannable
         && minimapDefaults.zoomable
         && not minimapDefaults.inversePan
+    )
+
+  -- 038: Pane draggable mapping covers all PanOnDrag cases.
+  assert "PanOnDrag NoPan -> not draggable"
+    (not (paneIsDraggable PZ.NoPan))
+  assert "PanOnDrag PanAlways -> draggable"
+    (paneIsDraggable PZ.PanAlways)
+  assert "PanOnDrag PanOnButtons [0] -> draggable"
+    (paneIsDraggable (PZ.PanOnButtons (NEA.singleton 0)))
+  assert "PanOnDrag PanOnButtons [2] -> not draggable"
+    (not (paneIsDraggable (PZ.PanOnButtons (NEA.singleton 2))))
+  assert "PanOnDrag PanOnButtons [0,1,2] -> draggable (contains 0)"
+    (case NEA.fromArray [ 0, 1, 2 ] of
+      Just buttons -> paneIsDraggable (PZ.PanOnButtons buttons)
+      Nothing -> false)
+
+  -- 038: Pane className composition.
+  assert "buildPaneClass: bare base class"
+    ( buildPaneClass { draggable: false, dragging: false, isSelecting: false }
+        == "react-flow__pane"
+    )
+  assert "buildPaneClass: draggable + selection"
+    ( buildPaneClass { draggable: true, dragging: false, isSelecting: true }
+        == "react-flow__pane draggable selection"
+    )
+  assert "buildPaneClass: all three modifiers"
+    ( buildPaneClass { draggable: true, dragging: true, isSelecting: true }
+        == "react-flow__pane draggable dragging selection"
     )
 
   log "all tests passed"
