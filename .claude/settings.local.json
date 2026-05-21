@@ -43,7 +43,8 @@
       "Bash(curl -sL https://raw.githubusercontent.com/purescript/spago/master/src/Spago/Purs.purs -o /tmp/spago-purs.purs)",
       "Bash(grep -r \"Web.UIEvent.MouseEvent\" /c/Users/jonbae/AppData/Local/Temp/spago-* 2>/dev/null | head -5; find C:/Users/jonbae/Documents/repos/ps-flow/.spago -name \"MouseEvent.purs\" 2>/dev/null | head -3)",
       "Bash(git stash *)",
-      "Bash(mv C:/Users/jonbae/Documents/repos/ps-flow/src/React/Container /tmp/Container.bak && git stash 2>&1 | tail -3 && spago test 2>&1 | tail -15 ; git stash pop 2>&1 | tail -3 && mv /tmp/Container.bak C:/Users/jonbae/Documents/repos/ps-flow/src/React/Container)"
+      "Bash(mv C:/Users/jonbae/Documents/repos/ps-flow/src/React/Container /tmp/Container.bak && git stash 2>&1 | tail -3 && spago test 2>&1 | tail -15 ; git stash pop 2>&1 | tail -3 && mv /tmp/Container.bak C:/Users/jonbae/Documents/repos/ps-flow/src/React/Container)",
+      "Bash(grep -rn \"toHTMLElement\" \"C:/Users/jonbae/AppData/Local/Packages/\" 2>/dev/null | head -5; echo \"---\"; find \"C:/Users/jonbae/Documents/repos/ps-flow/.spago\" -name \"HTMLDivElement.purs\" 2>/dev/null | head -3)"
     ]
   }
 }

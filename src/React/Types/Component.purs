@@ -9,6 +9,8 @@ module React.Types.Component
   , PanelProps
   , EdgeLabelRendererProps
   , ViewportPortalProps
+  , ViewportProps
+  , ZoomPaneProps
   , ConnectionLineProps
   , NodesSelectionProps
   , UserSelectionProps
@@ -299,6 +301,48 @@ type EdgeLabelRendererProps =
 -- Ticket 044 — `<ViewportPortal />` portal target.
 type ViewportPortalProps =
   { children :: Maybe JSX
+  }
+
+-- | Ticket 039 — `<Viewport />`. Thin transform container that applies
+-- | `state.transform` (`translate(x,y) scale(z)`) so children render in
+-- | flow coordinates. Built via `reactComponentWithChildren`, hence
+-- | `children :: ReactChildren JSX` (callers wrap an array via
+-- | `reactChildrenFromArray`).
+type ViewportProps =
+  { children :: ReactChildren JSX }
+
+-- | Ticket 039 — `<ZoomPane />`. Wraps the viewport in a pan/zoom
+-- | surface backed by `System.XYPanZoom`. The `onMove`/`onMoveStart`/
+-- | `onMoveEnd` fields are part of the external contract but read from
+-- | the store at fire time (upstream TS lines 79, 84, 89) — the parent
+-- | `<ReactFlow />` puts them into the store. `selectionOnDrag` is
+-- | added because `PanZoomUpdateOptions.selectionOnDrag` requires a
+-- | value at update time.
+type ZoomPaneProps =
+  { children :: ReactChildren JSX
+  , onPaneContextMenu :: Maybe (MouseEvent -> Effect Unit)
+  , zoomOnScroll :: Boolean
+  , zoomOnPinch :: Boolean
+  , zoomOnDoubleClick :: Boolean
+  , panOnScroll :: Boolean
+  , panOnScrollSpeed :: Number
+  , panOnScrollMode :: PanOnScrollMode
+  , panOnDrag :: PanOnDrag
+  , defaultViewport :: Viewport
+  , translateExtent :: CoordinateExtent
+  , minZoom :: Number
+  , maxZoom :: Number
+  , zoomActivationKeyCode :: Maybe KeyCode
+  , preventScrolling :: Boolean
+  , noWheelClassName :: String
+  , noPanClassName :: String
+  , onMove :: Maybe OnMove
+  , onMoveStart :: Maybe OnMoveStart
+  , onMoveEnd :: Maybe OnMoveEnd
+  , onViewportChange :: Maybe OnViewportChange
+  , isControlledViewport :: Boolean
+  , paneClickDistance :: Number
+  , selectionOnDrag :: Boolean
   }
 
 -- Ticket 036 — internal connection-line component props.
