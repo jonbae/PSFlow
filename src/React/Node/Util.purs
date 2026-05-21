@@ -1,17 +1,17 @@
 -- | Shared utilities for the React-side node layer.
 -- |
 -- | * `handleNodeClick` — selection-dispatch helper invoked from the
--- |   (future) `NodeWrapper` click path and from the drag-start branch
--- |   that wants single-click selection. Mirrors
+-- |   `NodeWrapper` click path and from the drag-start branch that
+-- |   wants single-click selection. Mirrors
 -- |   `xyflow-main/packages/react/src/components/Nodes/utils.ts`.
--- | * `builtinNodeTypes` — registry of the four built-in node component
--- |   types under the keys `input`, `default`, `output`, `group`.
--- |   Consumed by `NodeWrapper` (ticket 035) when resolving the user's
--- |   `nodeTypes` against the built-ins.
+-- |
+-- | The built-in node-type registry (`builtinNodeTypes`) lives in
+-- | `React.Component.NodeWrapper.Util`, where the wrapper's
+-- | lookup-with-fallback resolution path consumes it (matches the TS
+-- | source layout).
 module React.Node.Util
   ( HandleNodeClickArgs
   , handleNodeClick
-  , builtinNodeTypes
   ) where
 
 import Prelude
@@ -19,18 +19,9 @@ import Prelude
 import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..))
 import Effect (Effect)
-import Foreign (Foreign)
-import Foreign.Object (Object)
-import Foreign.Object (fromFoldable) as Object
-import Data.Tuple.Nested ((/\))
-import React.Basic (ReactComponent)
-import React.Node.Default (defaultNode)
-import React.Node.Group (groupNode)
-import React.Node.Input (inputNode)
-import React.Node.Output (outputNode)
 import React.Store.Action (Action(..))
 import React.Store.Shell (Store)
-import React.Types.Nodes (Node, NodeProps)
+import React.Types.Nodes (Node)
 import System.Constants (ErrorCode(..), errorMessage)
 import Unsafe.Coerce (unsafeCoerce)
 
@@ -67,17 +58,3 @@ handleNodeClick args = do
           (UnselectNodesAndEdges { nodes: Just [ asNode ], edges: Nothing })
       else
         pure unit
-
--- | Map from the TS built-in node-type keys to their PS components.
--- |
--- | The value row is `Foreign` because the registry erases the user
--- | data row (built-in nodes only read `.label`). Consumers that want
--- | the typed `NodeProps n` form should instantiate their own
--- | `nodeTypes` record.
-builtinNodeTypes :: Object (ReactComponent (NodeProps Foreign))
-builtinNodeTypes = Object.fromFoldable
-  [ "input" /\ inputNode
-  , "default" /\ defaultNode
-  , "output" /\ outputNode
-  , "group" /\ groupNode
-  ]

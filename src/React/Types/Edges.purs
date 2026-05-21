@@ -32,7 +32,7 @@ import Prelude
 import Data.Maybe (Maybe)
 import Effect (Effect)
 import React.Types.Nodes (InternalNode)
-import System.Types.Connection (Connection)
+import System.Types.Connection (Connection, FinalConnectionState)
 import System.Types.Edge
   ( BezierPathOptions
   , ConnectionLineType
@@ -42,7 +42,7 @@ import System.Types.Edge
   )
 import System.Types.Geometry (Position, XYPosition)
 import System.Types.Handle (Handle, HandleType)
-import System.Types.Node (OnError)
+import System.Types.Node (InternalNodeBase, OnError)
 import Web.UIEvent.MouseEvent (MouseEvent)
 
 -- | The React-layer alias for `System.Types.Edge.EdgeBase`. Polymorphic in
@@ -90,7 +90,7 @@ type DefaultEdgeOptions e =
 -- | Opaque placeholder for `Record<string, ComponentType<EdgeProps>>`.
 foreign import data EdgeTypesMap :: Type
 
-type EdgeWrapperProps e =
+type EdgeWrapperProps n e =
   { id :: String
   , edgesFocusable :: Boolean
   , edgesReconnectable :: Boolean
@@ -105,6 +105,14 @@ type EdgeWrapperProps e =
   , onMouseLeave :: Maybe (EdgeMouseHandler e)
   , reconnectRadius :: Maybe Number
   , onReconnectStart :: Maybe (MouseEvent -> Edge e -> HandleType -> Effect Unit)
+  , onReconnectEnd ::
+      Maybe
+        ( MouseEvent
+        -> Edge e
+        -> HandleType
+        -> FinalConnectionState (InternalNodeBase n)
+        -> Effect Unit
+        )
   , rfId :: Maybe String
   , edgeTypes :: Maybe EdgeTypesMap
   , onError :: Maybe OnError

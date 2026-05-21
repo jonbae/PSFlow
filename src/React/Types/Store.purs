@@ -37,6 +37,7 @@ import System.Types.Connection
   ( ConnectionLookup
   , ConnectionMode
   , ConnectionState
+  , SelectionRect
   , ZIndexMode
   )
 import System.Types.Edge (EdgeChange, EdgeLookup)
@@ -55,7 +56,6 @@ import System.Types.Node
   , ParentLookup
   )
 import System.Types.PanZoom (PanZoomInstance)
-import System.Types.Connection (SelectionRect)
 import System.XYDrag (OnNodeDrag, OnSelectionDrag)
 import System.XYHandle (OnConnect, OnConnectEnd, OnConnectStart)
 import Web.HTML.HTMLDivElement (HTMLDivElement)
