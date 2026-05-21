@@ -9,6 +9,8 @@ module React.Types.Component
   , EdgeLabelRendererProps
   , ViewportPortalProps
   , ConnectionLineProps
+  , NodesSelectionProps
+  , UserSelectionProps
   , BackgroundProps
   , ControlsProps
   , ControlButtonProps
@@ -274,6 +276,24 @@ type ConnectionLineProps n =
   , connectionLineStyle :: Maybe Style
   , connectionLineType :: Maybe ConnectionLineType
   , connectionLineContainerStyle :: Maybe Style
+  }
+
+-- Ticket 037 — `<NodesSelection />` (bounding box around selected nodes,
+-- draggable as a group). Mirrors
+-- `xyflow-main/packages/react/src/components/NodesSelection/index.tsx
+-- NodesSelectionProps`.
+type NodesSelectionProps n =
+  { onSelectionContextMenu :: Maybe (MouseEvent -> Array (Node n) -> Effect Unit)
+  , noPanClassName :: Maybe String
+  , disableKeyboardA11y :: Boolean
+  }
+
+-- Ticket 037 — `<UserSelection />` (the drag-lasso rectangle). The TS
+-- source takes no props; we keep a sentinel field so `reactComponent`'s
+-- row-kind constraints have something to chew on without forcing
+-- callers through a no-arg type.
+type UserSelectionProps =
+  { ignored :: Maybe Unit
   }
 
 -- Ticket 045 — `<Background />`.
