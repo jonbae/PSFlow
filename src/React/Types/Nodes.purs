@@ -18,6 +18,7 @@ import Prelude
 
 import Data.Maybe (Maybe)
 import Effect (Effect)
+import React.FFI.ResizeObserver (ResizeObserver) as RO
 import System.Types.Geometry (CoordinateExtent, Position)
 import System.Types.Node (InternalNodeBase, NodeBase, OnError)
 import Web.UIEvent.MouseEvent (MouseEvent)
@@ -58,10 +59,10 @@ type SelectionDragHandler n = MouseEvent -> Array (Node n) -> Effect Unit
 
 type OnNodeDrag n = MouseEvent -> Node n -> Array (Node n) -> Effect Unit
 
--- | Opaque placeholder for the DOM `ResizeObserver`. The real binding lands
--- | with ticket 031 (`useNodeObserver`). Until then prop records only need a
--- | type to mention.
-foreign import data ResizeObserver :: Type
+-- | Re-export of `React.FFI.ResizeObserver.ResizeObserver` (ticket 040).
+-- | Shared `ResizeObserver` instance threaded by `NodeRenderer` into each
+-- | `NodeWrapper` so all node measurements share one observer.
+type ResizeObserver = RO.ResizeObserver
 
 -- | Opaque placeholder for `Record<string, ComponentType<NodeProps>>`. The
 -- | renderer ticket (033) replaces it with a record of React components.

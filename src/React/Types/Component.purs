@@ -21,6 +21,10 @@ module React.Types.Component
   , NodeToolbarProps
   , NodeResizerProps
   , EdgeToolbarProps
+  , NodeRendererProps
+  , EdgeRendererProps
+  , MarkerDefinitionsProps
+  , FlowRendererProps
   ) where
 
 import Prelude
@@ -460,4 +464,113 @@ type EdgeToolbarProps =
   , isVisible :: Maybe Boolean
   , offset :: Maybe Number
   , children :: Maybe JSX
+  }
+
+-- | Ticket 040 — `<NodeRenderer />`. Mirrors
+-- | `xyflow-main/packages/react/src/container/NodeRenderer/index.tsx
+-- | NodeRendererProps`. The shared `ResizeObserver` is allocated inside
+-- | the renderer (not threaded in via props) — there is no `resizeObserver`
+-- | field on this record, matching TS.
+type NodeRendererProps n =
+  { onlyRenderVisibleElements :: Boolean
+  , noPanClassName :: String
+  , noDragClassName :: String
+  , rfId :: String
+  , disableKeyboardA11y :: Boolean
+  , nodeExtent :: Maybe CoordinateExtent
+  , nodeTypes :: Maybe NodeTypesMap
+  , nodeClickDistance :: Maybe Number
+  , onNodeClick :: Maybe (NodeMouseHandler n)
+  , onNodeDoubleClick :: Maybe (NodeMouseHandler n)
+  , onNodeMouseEnter :: Maybe (NodeMouseHandler n)
+  , onNodeMouseMove :: Maybe (NodeMouseHandler n)
+  , onNodeMouseLeave :: Maybe (NodeMouseHandler n)
+  , onNodeContextMenu :: Maybe (NodeMouseHandler n)
+  }
+
+-- | Ticket 040 — `<EdgeRenderer />`. Mirrors
+-- | `xyflow-main/packages/react/src/container/EdgeRenderer/index.tsx
+-- | EdgeRendererProps`. TS allows an optional `children` slot; PS omits
+-- | it for now (no in-tree caller needs it — add back when one appears).
+type EdgeRendererProps n e =
+  { onlyRenderVisibleElements :: Boolean
+  , defaultMarkerColor :: Maybe String
+  , rfId :: String
+  , noPanClassName :: String
+  , disableKeyboardA11y :: Boolean
+  , reconnectRadius :: Maybe Number
+  , edgeTypes :: Maybe EdgeTypesMap
+  , onEdgeClick :: Maybe (EdgeMouseHandler e)
+  , onEdgeDoubleClick :: Maybe (EdgeMouseHandler e)
+  , onEdgeContextMenu :: Maybe (EdgeMouseHandler e)
+  , onEdgeMouseEnter :: Maybe (EdgeMouseHandler e)
+  , onEdgeMouseMove :: Maybe (EdgeMouseHandler e)
+  , onEdgeMouseLeave :: Maybe (EdgeMouseHandler e)
+  , onReconnect :: Maybe (OnReconnect e)
+  , onReconnectStart ::
+      Maybe (MouseEvent -> Edge e -> HandleType -> Effect Unit)
+  , onReconnectEnd ::
+      Maybe
+        ( MouseEvent
+        -> Edge e
+        -> HandleType
+        -> FinalConnectionState (InternalNodeBase n)
+        -> Effect Unit
+        )
+  }
+
+-- | Ticket 040 — `<MarkerDefinitions />`. Mirrors
+-- | `xyflow-main/packages/react/src/container/EdgeRenderer/MarkerDefinitions.tsx`.
+type MarkerDefinitionsProps =
+  { defaultColor :: Maybe String
+  , rfId :: Maybe String
+  }
+
+-- | Ticket 040 — `<FlowRenderer />`. Mirrors
+-- | `xyflow-main/packages/react/src/container/FlowRenderer/index.tsx
+-- | FlowRendererProps`. Structural shell: hosts `ZoomPane` → `Pane` →
+-- | user children + `NodesSelection` overlay. Built via
+-- | `reactComponentWithChildren`, so `children :: ReactChildren JSX`.
+type FlowRendererProps n =
+  { children :: ReactChildren JSX
+  , isControlledViewport :: Boolean
+  -- Pane mouse / scroll
+  , onPaneClick :: Maybe (MouseEvent -> Effect Unit)
+  , onPaneMouseEnter :: Maybe (MouseEvent -> Effect Unit)
+  , onPaneMouseMove :: Maybe (MouseEvent -> Effect Unit)
+  , onPaneMouseLeave :: Maybe (MouseEvent -> Effect Unit)
+  , onPaneContextMenu :: Maybe (MouseEvent -> Effect Unit)
+  , onPaneScroll :: Maybe (WheelEvent -> Effect Unit)
+  , paneClickDistance :: Number
+  -- Selection
+  , deleteKeyCode :: Maybe KeyCode
+  , selectionKeyCode :: Maybe KeyCode
+  , selectionOnDrag :: Boolean
+  , selectionMode :: SelectionMode
+  , onSelectionStart :: Maybe (MouseEvent -> Effect Unit)
+  , onSelectionEnd :: Maybe (MouseEvent -> Effect Unit)
+  , onSelectionContextMenu :: Maybe (MouseEvent -> Array (Node n) -> Effect Unit)
+  , multiSelectionKeyCode :: Maybe KeyCode
+  , panActivationKeyCode :: Maybe KeyCode
+  , zoomActivationKeyCode :: Maybe KeyCode
+  , elementsSelectable :: Boolean
+  -- Zoom / pan
+  , zoomOnScroll :: Boolean
+  , zoomOnPinch :: Boolean
+  , panOnScroll :: Boolean
+  , panOnScrollSpeed :: Number
+  , panOnScrollMode :: PanOnScrollMode
+  , zoomOnDoubleClick :: Boolean
+  , panOnDrag :: PanOnDrag
+  , autoPanOnSelection :: Boolean
+  -- Viewport
+  , defaultViewport :: Viewport
+  , translateExtent :: CoordinateExtent
+  , minZoom :: Number
+  , maxZoom :: Number
+  , preventScrolling :: Boolean
+  , noWheelClassName :: String
+  , noPanClassName :: String
+  , disableKeyboardA11y :: Boolean
+  , onViewportChange :: Maybe OnViewportChange
   }

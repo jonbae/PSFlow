@@ -37,6 +37,7 @@ import Data.Number (abs) as Number
 import Data.Tuple (Tuple(..))
 import React.Container.Pane.Internal (buildPaneClass, paneIsDraggable)
 import Test.Properties (runProperties)
+import Test.React.Hook.VisibleIds (runVisibleIdsTests)
 import Test.React.Store.Reduce (runReactStoreTests)
 import Test.System.Utils.Store (runStoreProperties)
 
@@ -1014,3 +1015,4 @@ main = do
   runProperties
   runStoreProperties
   runReactStoreTests
+  runVisibleIdsTests

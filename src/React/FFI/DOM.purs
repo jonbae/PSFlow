@@ -17,6 +17,11 @@ module React.FFI.DOM
   , rect_
   , circle_
   , foreignObject_
+  , svg_
+  , defs_
+  , marker_
+  , polyline_
+  , symbol_
   , textContent
   , opt
   ) where
@@ -36,6 +41,11 @@ foreign import text_ :: forall p. Record p -> Array JSX -> JSX
 foreign import rect_ :: forall p. Record p -> Array JSX -> JSX
 foreign import circle_ :: forall p. Record p -> Array JSX -> JSX
 foreign import foreignObject_ :: forall p. Record p -> Array JSX -> JSX
+foreign import svg_ :: forall p. Record p -> Array JSX -> JSX
+foreign import defs_ :: forall p. Record p -> Array JSX -> JSX
+foreign import marker_ :: forall p. Record p -> Array JSX -> JSX
+foreign import polyline_ :: forall p. Record p -> Array JSX -> JSX
+foreign import symbol_ :: forall p. Record p -> Array JSX -> JSX
 
 -- | A bare string rendered as a React text child. React accepts strings
 -- | directly as JSX children, so the cast is sound.

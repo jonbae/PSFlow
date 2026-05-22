@@ -347,6 +347,7 @@ nodeWrapper =
         { nodeId: props.id
         , wrapperRef: nodeRef
         , force: false
+        , sharedObserver: props.resizeObserver
         }
 
       moveSelectedNodes <- useMoveSelectedNodes
