@@ -14,12 +14,19 @@ module React.Types.Component
   , ConnectionLineProps
   , NodesSelectionProps
   , UserSelectionProps
+  , BackgroundVariant(..)
   , BackgroundProps
+  , LinePatternProps
+  , DotPatternProps
+  , Orientation(..)
   , ControlsProps
   , ControlButtonProps
   , MiniMapProps
+  , MiniMapNodeProps
+  , MiniMapNodesProps
   , NodeToolbarProps
   , NodeResizerProps
+  , NodeResizeControlProps
   , EdgeToolbarProps
   , NodeRendererProps
   , EdgeRendererProps
@@ -36,9 +43,14 @@ module React.Types.Component
 
 import Prelude
 
+import Data.Either (Either)
+import Data.Generic.Rep (class Generic)
 import Data.Maybe (Maybe)
+import Data.Show.Generic (genericShow)
+import Data.Tuple (Tuple)
 import Effect (Effect)
-import React.Basic (JSX)
+import Foreign.Object (Object)
+import React.Basic (JSX, ReactComponent)
 import React.Basic.Hooks (ReactChildren)
 import React.Types.Edges
   ( ConnectionLineComponentProps
@@ -80,12 +92,13 @@ import System.Types.Connection
   , Viewport
   , ZIndexMode
   )
-import System.Types.Edge (ConnectionLineType)
-import System.Types.Geometry (CoordinateExtent, NodeOrigin, Position, SnapGrid)
+import System.Types.Edge (AlignX, AlignY, ConnectionLineType)
+import System.Types.Geometry (CoordinateExtent, NodeOrigin, Position, SnapGrid, XYPosition)
 import System.Types.Handle (HandleType)
-import System.Types.Node (InternalNodeBase, OnError)
+import System.Types.Node (Align, InternalNodeBase, OnError)
 import System.Types.PanZoom (PanOnDrag)
 import System.XYHandle (OnConnect, OnConnectEnd, OnConnectStart)
+import System.XYResizer (ControlPosition, OnResize, OnResizeEnd, OnResizeStart, ResizeControlDirection, ResizeControlVariant, ShouldResize)
 import Web.UIEvent.MouseEvent (MouseEvent)
 import Web.UIEvent.WheelEvent (WheelEvent)
 
@@ -298,20 +311,24 @@ type PaneProps =
   , onPaneMouseLeave :: Maybe (MouseEvent -> Effect Unit)
   }
 
--- Ticket 042 — `<Panel />` (overlay panel positioned relative to viewport).
+-- Ticket 044 — `<Panel />` (overlay panel positioned relative to viewport).
 type PanelProps =
   { position :: PanelPosition
-  , children :: Maybe JSX
+  , className :: Maybe String
+  , style :: Maybe (Object String)
+  , "aria-label" :: Maybe String
+  , "data-testid" :: Maybe String
+  , children :: ReactChildren JSX
   }
 
 -- Ticket 044 — `<EdgeLabelRenderer />` portal target.
 type EdgeLabelRendererProps =
-  { children :: Maybe JSX
+  { children :: ReactChildren JSX
   }
 
 -- Ticket 044 — `<ViewportPortal />` portal target.
 type ViewportPortalProps =
-  { children :: Maybe JSX
+  { children :: ReactChildren JSX
   }
 
 -- | Ticket 039 — `<Viewport />`. Thin transform container that applies
@@ -382,19 +399,52 @@ type UserSelectionProps =
   { ignored :: Maybe Unit
   }
 
--- Ticket 045 — `<Background />`.
+-- Ticket 045 — `<Background />` variant ADT and prop record.
+data BackgroundVariant = Lines | Dots | Cross
+
+derive instance eqBackgroundVariant :: Eq BackgroundVariant
+derive instance ordBackgroundVariant :: Ord BackgroundVariant
+derive instance genericBackgroundVariant :: Generic BackgroundVariant _
+
+instance showBackgroundVariant :: Show BackgroundVariant where
+  show = genericShow
+
 type BackgroundProps =
   { id :: Maybe String
   , color :: Maybe String
   , bgColor :: Maybe String
+  , className :: Maybe String
   , patternClassName :: Maybe String
-  , gap :: Maybe Number
+  , gap :: Maybe (Either Number (Tuple Number Number))
   , size :: Maybe Number
-  , offset :: Maybe Number
+  , offset :: Maybe (Either Number (Tuple Number Number))
   , lineWidth :: Maybe Number
-  , variant :: Maybe String
-  , children :: Maybe JSX
+  , variant :: Maybe BackgroundVariant
+  , style :: Maybe (Object String)
   }
+
+-- Ticket 045 — internal pattern child props.
+type LinePatternProps =
+  { dimensions :: Tuple Number Number
+  , variant :: BackgroundVariant
+  , lineWidth :: Maybe Number
+  , className :: Maybe String
+  }
+
+type DotPatternProps =
+  { radius :: Number
+  , className :: Maybe String
+  }
+
+-- Ticket 046 — Controls orientation ADT.
+data Orientation = Horizontal | Vertical
+
+derive instance eqOrientation :: Eq Orientation
+derive instance ordOrientation :: Ord Orientation
+derive instance genericOrientation :: Generic Orientation _
+
+instance showOrientation :: Show Orientation where
+  show = genericShow
 
 -- Ticket 046 — `<Controls />`.
 type ControlsProps =
@@ -407,14 +457,21 @@ type ControlsProps =
   , onFitView :: Maybe (Effect Unit)
   , onInteractiveChange :: Maybe (Boolean -> Effect Unit)
   , position :: Maybe PanelPosition
-  , children :: Maybe JSX
-  , orientation :: Maybe String
+  , children :: ReactChildren JSX
+  , style :: Maybe (Object String)
+  , className :: Maybe String
+  , "aria-label" :: Maybe String
+  , orientation :: Maybe Orientation
   }
 
 type ControlButtonProps =
   { onClick :: Maybe (Effect Unit)
   , disabled :: Maybe Boolean
-  , children :: Maybe JSX
+  , className :: Maybe String
+  , title :: Maybe String
+  , "aria-label" :: Maybe String
+  , style :: Maybe (Object String)
+  , children :: ReactChildren JSX
   }
 
 -- Ticket 047 — `<MiniMap />`.
@@ -424,28 +481,64 @@ type MiniMapProps n =
   , nodeClassName :: Maybe (Node n -> String)
   , nodeBorderRadius :: Maybe Number
   , nodeStrokeWidth :: Maybe Number
+  , nodeComponent :: Maybe (ReactComponent MiniMapNodeProps)
+  , bgColor :: Maybe String
   , maskColor :: Maybe String
   , maskStrokeColor :: Maybe String
   , maskStrokeWidth :: Maybe Number
   , position :: Maybe PanelPosition
-  , onClick :: Maybe (MouseEvent -> { x :: Number, y :: Number } -> Effect Unit)
+  , onClick :: Maybe (MouseEvent -> XYPosition -> Effect Unit)
   , onNodeClick :: Maybe (NodeMouseHandler n)
   , pannable :: Maybe Boolean
   , zoomable :: Maybe Boolean
-  , ariaLabel :: Maybe String
+  , "aria-label" :: Maybe String
   , inversePan :: Maybe Boolean
   , zoomStep :: Maybe Number
   , offsetScale :: Maybe Number
+  , children :: ReactChildren JSX
+  , style :: Maybe (Object String)
+  , className :: Maybe String
   }
 
--- Ticket 048 — `<NodeToolbar />`.
+-- Ticket 047 — per-node SVG shape inside the minimap.
+type MiniMapNodeProps =
+  { id :: String
+  , x :: Number
+  , y :: Number
+  , width :: Number
+  , height :: Number
+  , borderRadius :: Number
+  , className :: String
+  , color :: Maybe String
+  , shapeRendering :: String
+  , strokeColor :: Maybe String
+  , strokeWidth :: Maybe Number
+  , style :: Maybe (Object String)
+  , selected :: Boolean
+  , onClick :: Maybe (MouseEvent -> String -> Effect Unit)
+  }
+
+-- Ticket 047 — props for the inner mapping component.
+type MiniMapNodesProps n =
+  { nodeColor :: Maybe (Node n -> String)
+  , nodeStrokeColor :: Maybe (Node n -> String)
+  , nodeClassName :: Maybe (Node n -> String)
+  , nodeBorderRadius :: Number
+  , nodeStrokeWidth :: Maybe Number
+  , nodeComponent :: Maybe (ReactComponent MiniMapNodeProps)
+  , onClick :: Maybe (MouseEvent -> String -> Effect Unit)
+  }
+
+-- Ticket 048 — `<NodeToolbar />`. `nodeId` accepts a single id or an array.
 type NodeToolbarProps =
-  { nodeId :: Maybe String
+  { nodeId :: Maybe (Either String (Array String))
   , isVisible :: Maybe Boolean
-  , position :: Maybe { x :: Number, y :: Number }
+  , position :: Maybe Position
   , offset :: Maybe Number
-  , align :: Maybe String
-  , children :: Maybe JSX
+  , align :: Maybe Align
+  , style :: Maybe (Object String)
+  , className :: Maybe String
+  , children :: ReactChildren JSX
   }
 
 -- Ticket 048 — `<NodeResizer />`.
@@ -454,23 +547,54 @@ type NodeResizerProps =
   , isVisible :: Maybe Boolean
   , color :: Maybe String
   , handleClassName :: Maybe String
-  , handleStyle :: Maybe Style
+  , handleStyle :: Maybe (Object String)
   , lineClassName :: Maybe String
-  , lineStyle :: Maybe Style
+  , lineStyle :: Maybe (Object String)
   , minWidth :: Maybe Number
   , minHeight :: Maybe Number
   , maxWidth :: Maybe Number
   , maxHeight :: Maybe Number
   , keepAspectRatio :: Maybe Boolean
-  , shouldResize :: Maybe ({ width :: Number, height :: Number } -> Boolean)
+  , autoScale :: Maybe Boolean
+  , shouldResize :: Maybe ShouldResize
+  , onResizeStart :: Maybe OnResizeStart
+  , onResize :: Maybe OnResize
+  , onResizeEnd :: Maybe OnResizeEnd
   }
 
--- Ticket 048 — `<EdgeToolbar />`.
+-- Ticket 048 — single resize control (one of eight, internal but exported).
+type NodeResizeControlProps =
+  { nodeId :: Maybe String
+  , position :: Maybe ControlPosition
+  , variant :: Maybe ResizeControlVariant
+  , color :: Maybe String
+  , minWidth :: Maybe Number
+  , minHeight :: Maybe Number
+  , maxWidth :: Maybe Number
+  , maxHeight :: Maybe Number
+  , keepAspectRatio :: Maybe Boolean
+  , autoScale :: Maybe Boolean
+  , resizeDirection :: Maybe ResizeControlDirection
+  , shouldResize :: Maybe ShouldResize
+  , onResizeStart :: Maybe OnResizeStart
+  , onResize :: Maybe OnResize
+  , onResizeEnd :: Maybe OnResizeEnd
+  , className :: Maybe String
+  , style :: Maybe (Object String)
+  , children :: ReactChildren JSX
+  }
+
+-- Ticket 048 — `<EdgeToolbar />`. Anchors a portal to an edge midpoint.
 type EdgeToolbarProps =
-  { edgeId :: Maybe String
+  { edgeId :: String
+  , x :: Number
+  , y :: Number
   , isVisible :: Maybe Boolean
-  , offset :: Maybe Number
-  , children :: Maybe JSX
+  , alignX :: Maybe AlignX
+  , alignY :: Maybe AlignY
+  , style :: Maybe (Object String)
+  , className :: Maybe String
+  , children :: ReactChildren JSX
   }
 
 -- | Ticket 040 — `<NodeRenderer />`. Mirrors

@@ -11,6 +11,7 @@
 module React.FFI.DOM
   ( div_
   , span_
+  , button_
   , g_
   , path_
   , text_
@@ -20,8 +21,10 @@ module React.FFI.DOM
   , svg_
   , defs_
   , marker_
+  , pattern_
   , polyline_
   , symbol_
+  , title_
   , textContent
   , opt
   ) where
@@ -35,6 +38,7 @@ import Unsafe.Coerce (unsafeCoerce)
 
 foreign import div_ :: forall p. Record p -> Array JSX -> JSX
 foreign import span_ :: forall p. Record p -> Array JSX -> JSX
+foreign import button_ :: forall p. Record p -> Array JSX -> JSX
 foreign import g_ :: forall p. Record p -> Array JSX -> JSX
 foreign import path_ :: forall p. Record p -> Array JSX -> JSX
 foreign import text_ :: forall p. Record p -> Array JSX -> JSX
@@ -44,8 +48,10 @@ foreign import foreignObject_ :: forall p. Record p -> Array JSX -> JSX
 foreign import svg_ :: forall p. Record p -> Array JSX -> JSX
 foreign import defs_ :: forall p. Record p -> Array JSX -> JSX
 foreign import marker_ :: forall p. Record p -> Array JSX -> JSX
+foreign import pattern_ :: forall p. Record p -> Array JSX -> JSX
 foreign import polyline_ :: forall p. Record p -> Array JSX -> JSX
 foreign import symbol_ :: forall p. Record p -> Array JSX -> JSX
+foreign import title_ :: forall p. Record p -> Array JSX -> JSX
 
 -- | A bare string rendered as a React text child. React accepts strings
 -- | directly as JSX children, so the cast is sound.

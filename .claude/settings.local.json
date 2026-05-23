@@ -45,7 +45,9 @@
       "Bash(git stash *)",
       "Bash(mv C:/Users/jonbae/Documents/repos/ps-flow/src/React/Container /tmp/Container.bak && git stash 2>&1 | tail -3 && spago test 2>&1 | tail -15 ; git stash pop 2>&1 | tail -3 && mv /tmp/Container.bak C:/Users/jonbae/Documents/repos/ps-flow/src/React/Container)",
       "Bash(grep -rn \"toHTMLElement\" \"C:/Users/jonbae/AppData/Local/Packages/\" 2>/dev/null | head -5; echo \"---\"; find \"C:/Users/jonbae/Documents/repos/ps-flow/.spago\" -name \"HTMLDivElement.purs\" 2>/dev/null | head -3)",
-      "Bash(xargs grep -l \"useMemo\")"
+      "Bash(xargs grep -l \"useMemo\")",
+      "Bash(git -C \"C:\\\\Users\\\\jonbae\\\\Documents\\\\repos\\\\ps-flow\" log --oneline --max-count=10)",
+      "Bash(grep -E \"\\\\.\\(ts|tsx\\)$\")"
     ]
   }
 }

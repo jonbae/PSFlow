@@ -5,6 +5,7 @@ const mk = (tag) => (props) => (children) =>
 
 export const div_ = mk("div");
 export const span_ = mk("span");
+export const button_ = mk("button");
 export const g_ = mk("g");
 export const path_ = mk("path");
 export const text_ = mk("text");
@@ -14,5 +15,7 @@ export const foreignObject_ = mk("foreignObject");
 export const svg_ = mk("svg");
 export const defs_ = mk("defs");
 export const marker_ = mk("marker");
+export const pattern_ = mk("pattern");
 export const polyline_ = mk("polyline");
 export const symbol_ = mk("symbol");
+export const title_ = mk("title");
