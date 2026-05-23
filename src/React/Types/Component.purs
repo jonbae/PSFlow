@@ -25,6 +25,13 @@ module React.Types.Component
   , EdgeRendererProps
   , MarkerDefinitionsProps
   , FlowRendererProps
+  , GraphViewProps
+  , A11yDescriptionsProps
+  , AttributionProps
+  , ReactFlowProviderProps
+  , BatchProviderProps
+  , SelectionListenerProps
+  , StoreUpdaterProps
   ) where
 
 import Prelude
@@ -89,7 +96,7 @@ import Web.UIEvent.WheelEvent (WheelEvent)
 -- | underlying div.
 type ReactFlowProps n e =
   { -- Children / data inputs
-    children :: Maybe JSX
+    children :: ReactChildren JSX
   , nodes :: Maybe (Array (Node n))
   , edges :: Maybe (Array (Edge e))
   , defaultNodes :: Maybe (Array (Node n))
@@ -573,4 +580,203 @@ type FlowRendererProps n =
   , noPanClassName :: String
   , disableKeyboardA11y :: Boolean
   , onViewportChange :: Maybe OnViewportChange
+  }
+
+-- | Ticket 041 — `<GraphView />`. Pass-through orchestrator that lives
+-- | between `<ReactFlow />` and the rendering layer. Mirrors
+-- | `xyflow-main/packages/react/src/container/GraphView/index.tsx
+-- | GraphViewProps`. The fields that the upstream TS marks `Required<Pick
+-- | <…>>` are upgraded from `Maybe X` to `X` here (the parent `<ReactFlow
+-- | />` always supplies a default at the seam, see ticket 042).
+type GraphViewProps n e =
+  { rfId :: String
+  -- Required-with-defaults (upgraded from Maybe at the ReactFlow seam):
+  , connectionLineType :: ConnectionLineType
+  , onlyRenderVisibleElements :: Boolean
+  , translateExtent :: CoordinateExtent
+  , minZoom :: Number
+  , maxZoom :: Number
+  , defaultMarkerColor :: String
+  , noDragClassName :: String
+  , noWheelClassName :: String
+  , noPanClassName :: String
+  , defaultViewport :: Viewport
+  , disableKeyboardA11y :: Boolean
+  , paneClickDistance :: Number
+  , nodeClickDistance :: Number
+  , selectionMode :: SelectionMode
+  , selectionOnDrag :: Boolean
+  , panOnDrag :: PanOnDrag
+  , panOnScroll :: Boolean
+  , panOnScrollSpeed :: Number
+  , panOnScrollMode :: PanOnScrollMode
+  , zoomOnScroll :: Boolean
+  , zoomOnPinch :: Boolean
+  , zoomOnDoubleClick :: Boolean
+  , preventScrolling :: Boolean
+  , elementsSelectable :: Boolean
+  , autoPanOnSelection :: Boolean
+  -- Key codes (Maybe is intentional — null disables the key)
+  , selectionKeyCode :: Maybe KeyCode
+  , deleteKeyCode :: Maybe KeyCode
+  , multiSelectionKeyCode :: Maybe KeyCode
+  , panActivationKeyCode :: Maybe KeyCode
+  , zoomActivationKeyCode :: Maybe KeyCode
+  -- Pass-through fields keep Maybe-ness verbatim
+  , onInit :: Maybe (OnInit (ReactFlowInstance n e))
+  , viewport :: Maybe Viewport
+  , onViewportChange :: Maybe OnViewportChange
+  , nodeTypes :: Maybe NodeTypesMap
+  , edgeTypes :: Maybe EdgeTypesMap
+  , nodeExtent :: Maybe CoordinateExtent
+  , connectionLineStyle :: Maybe Style
+  , connectionLineComponent :: Maybe (ConnectionLineComponentProps n -> JSX)
+  , connectionLineContainerStyle :: Maybe Style
+  -- Node mouse events
+  , onNodeClick :: Maybe (NodeMouseHandler n)
+  , onNodeDoubleClick :: Maybe (NodeMouseHandler n)
+  , onNodeMouseEnter :: Maybe (NodeMouseHandler n)
+  , onNodeMouseMove :: Maybe (NodeMouseHandler n)
+  , onNodeMouseLeave :: Maybe (NodeMouseHandler n)
+  , onNodeContextMenu :: Maybe (NodeMouseHandler n)
+  -- Edge mouse events
+  , onEdgeClick :: Maybe (EdgeMouseHandler e)
+  , onEdgeDoubleClick :: Maybe (EdgeMouseHandler e)
+  , onEdgeContextMenu :: Maybe (EdgeMouseHandler e)
+  , onEdgeMouseEnter :: Maybe (EdgeMouseHandler e)
+  , onEdgeMouseMove :: Maybe (EdgeMouseHandler e)
+  , onEdgeMouseLeave :: Maybe (EdgeMouseHandler e)
+  -- Reconnect
+  , onReconnect :: Maybe (OnReconnect e)
+  , onReconnectStart :: Maybe (MouseEvent -> Edge e -> HandleType -> Effect Unit)
+  , onReconnectEnd ::
+      Maybe (MouseEvent -> Edge e -> HandleType -> FinalConnectionState (InternalNodeBase n) -> Effect Unit)
+  , reconnectRadius :: Maybe Number
+  -- Selection
+  , onSelectionContextMenu :: Maybe (MouseEvent -> Array (Node n) -> Effect Unit)
+  , onSelectionStart :: Maybe (MouseEvent -> Effect Unit)
+  , onSelectionEnd :: Maybe (MouseEvent -> Effect Unit)
+  -- Pane events
+  , onPaneClick :: Maybe (MouseEvent -> Effect Unit)
+  , onPaneMouseEnter :: Maybe (MouseEvent -> Effect Unit)
+  , onPaneMouseMove :: Maybe (MouseEvent -> Effect Unit)
+  , onPaneMouseLeave :: Maybe (MouseEvent -> Effect Unit)
+  , onPaneContextMenu :: Maybe (MouseEvent -> Effect Unit)
+  , onPaneScroll :: Maybe (Maybe WheelEvent -> Effect Unit)
+  }
+
+-- | Ticket 042 — `<A11yDescriptions />`. Mirrors
+-- | `xyflow-main/packages/react/src/components/A11yDescriptions/index.tsx`.
+type A11yDescriptionsProps =
+  { rfId :: String
+  , disableKeyboardA11y :: Boolean
+  }
+
+-- | Ticket 042 — `<Attribution />`. Mirrors
+-- | `xyflow-main/packages/react/src/components/Attribution/index.tsx`.
+type AttributionProps =
+  { proOptions :: Maybe ProOptions
+  , position :: Maybe PanelPosition
+  }
+
+-- | Ticket 043 — `<ReactFlowProvider />`. Mirrors
+-- | `xyflow-main/packages/react/src/components/ReactFlowProvider/index.tsx
+-- | ReactFlowProviderProps`. Same shape as the consumer-facing prop bundle
+-- | upstream: every field is `Maybe`, the provider falls back to the
+-- | initial-state defaults. `children` is a `ReactChildren JSX` because the
+-- | component is built via `reactComponentWithChildren`.
+type ReactFlowProviderProps n e =
+  { initialNodes :: Maybe (Array (Node n))
+  , initialEdges :: Maybe (Array (Edge e))
+  , defaultNodes :: Maybe (Array (Node n))
+  , defaultEdges :: Maybe (Array (Edge e))
+  , initialWidth :: Maybe Number
+  , initialHeight :: Maybe Number
+  , fitView :: Maybe Boolean
+  , initialFitViewOptions :: Maybe FitViewOptions
+  , initialMinZoom :: Maybe Number
+  , initialMaxZoom :: Maybe Number
+  , nodeOrigin :: Maybe NodeOrigin
+  , nodeExtent :: Maybe CoordinateExtent
+  , zIndexMode :: Maybe ZIndexMode
+  , children :: ReactChildren JSX
+  }
+
+-- | Ticket 043 — `<BatchProvider />`. No own props beyond `children`.
+type BatchProviderProps =
+  { children :: ReactChildren JSX
+  }
+
+-- | Ticket 043 — `<SelectionListener />`. Receives the user-supplied
+-- | callback; the component also reads `state.onSelectionChangeHandlers`
+-- | (set by the `useOnSelectionChange` hook from ticket 029) at fire time.
+type SelectionListenerProps n e =
+  { onSelectionChange :: Maybe (OnSelectionChangeFunc n e)
+  }
+
+-- | Ticket 043 — `<StoreUpdater />`. Mirrors the TS `reactFlowFieldsToTrack`
+-- | list at `xyflow-main/packages/react/src/components/StoreUpdater/index.tsx`
+-- | (lines 15-74) plus `rfId`. Each field is `Maybe X` because every
+-- | `ReactFlowProps` field on the upstream consumer side is optional, and
+-- | the StoreUpdater dispatches only when the prop is `Just`.
+type StoreUpdaterProps n e =
+  { rfId :: String
+  , nodes :: Maybe (Array (Node n))
+  , edges :: Maybe (Array (Edge e))
+  , defaultNodes :: Maybe (Array (Node n))
+  , defaultEdges :: Maybe (Array (Edge e))
+  , onConnect :: Maybe OnConnect
+  , onConnectStart :: Maybe OnConnectStart
+  , onConnectEnd :: Maybe (OnConnectEnd n)
+  , onClickConnectStart :: Maybe OnConnectStart
+  , onClickConnectEnd :: Maybe (OnConnectEnd n)
+  , nodesDraggable :: Maybe Boolean
+  , autoPanOnNodeFocus :: Maybe Boolean
+  , nodesConnectable :: Maybe Boolean
+  , nodesFocusable :: Maybe Boolean
+  , edgesFocusable :: Maybe Boolean
+  , edgesReconnectable :: Maybe Boolean
+  , elevateNodesOnSelect :: Maybe Boolean
+  , elevateEdgesOnSelect :: Maybe Boolean
+  , minZoom :: Maybe Number
+  , maxZoom :: Maybe Number
+  , nodeExtent :: Maybe CoordinateExtent
+  , onNodesChange :: Maybe (OnNodesChange n)
+  , onEdgesChange :: Maybe (OnEdgesChange e)
+  , elementsSelectable :: Maybe Boolean
+  , connectionMode :: Maybe ConnectionMode
+  , snapGrid :: Maybe SnapGrid
+  , snapToGrid :: Maybe Boolean
+  , translateExtent :: Maybe CoordinateExtent
+  , connectOnClick :: Maybe Boolean
+  , defaultEdgeOptions :: Maybe (DefaultEdgeOptions e)
+  , fitView :: Maybe Boolean
+  , fitViewOptions :: Maybe FitViewOptions
+  , onNodesDelete :: Maybe (OnNodesDelete n)
+  , onEdgesDelete :: Maybe (OnEdgesDelete e)
+  , onDelete :: Maybe (OnDelete n e)
+  , onNodeDrag :: Maybe (OnNodeDrag n)
+  , onNodeDragStart :: Maybe (OnNodeDrag n)
+  , onNodeDragStop :: Maybe (OnNodeDrag n)
+  , onSelectionDrag :: Maybe (SelectionDragHandler n)
+  , onSelectionDragStart :: Maybe (SelectionDragHandler n)
+  , onSelectionDragStop :: Maybe (SelectionDragHandler n)
+  , onMoveStart :: Maybe OnMoveStart
+  , onMove :: Maybe OnMove
+  , onMoveEnd :: Maybe OnMoveEnd
+  , noPanClassName :: Maybe String
+  , nodeOrigin :: Maybe NodeOrigin
+  , autoPanOnConnect :: Maybe Boolean
+  , autoPanOnNodeDrag :: Maybe Boolean
+  , onError :: Maybe OnError
+  , connectionRadius :: Maybe Number
+  , isValidConnection :: Maybe (IsValidConnection e)
+  , selectNodesOnDrag :: Maybe Boolean
+  , nodeDragThreshold :: Maybe Number
+  , connectionDragThreshold :: Maybe Number
+  , onBeforeDelete :: Maybe (OnBeforeDelete n e)
+  , debug :: Maybe Boolean
+  , autoPanSpeed :: Maybe Number
+  , ariaLabelConfig :: Maybe AriaLabelConfigOverride
+  , zIndexMode :: Maybe ZIndexMode
   }
