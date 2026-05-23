@@ -13,7 +13,11 @@
 module React.Hook.NodesEdgesState
   ( UseNodesEdgesState(..)
   , NodesEdgesState
+  , NodesStateBundle
+  , EdgesStateBundle
   , useNodesEdgesState
+  , useNodesState
+  , useEdgesState
   ) where
 
 import Prelude
@@ -64,5 +68,53 @@ useNodesEdgesState initialNodes initialEdges = coerceHook React.do
     , edges
     , setEdges: setEdgesState
     , onNodesChange: \changes -> setNodesState (applyNodeChanges changes)
+    , onEdgesChange: \changes -> setEdgesState (applyEdgeChanges changes)
+    }
+
+-- | Subset of `NodesEdgesState` returned by `useNodesState`. Mirrors the
+-- | TS 3-tuple `[nodes, setNodes, onNodesChange]` as a PS record.
+type NodesStateBundle n =
+  { nodes :: Array (Node n)
+  , setNodes :: (Array (Node n) -> Array (Node n)) -> Effect Unit
+  , onNodesChange :: Array (NodeChange n) -> Effect Unit
+  }
+
+-- | Subset of `NodesEdgesState` returned by `useEdgesState`. Mirrors the
+-- | TS 3-tuple `[edges, setEdges, onEdgesChange]` as a PS record.
+type EdgesStateBundle e =
+  { edges :: Array (Edge e)
+  , setEdges :: (Array (Edge e) -> Array (Edge e)) -> Effect Unit
+  , onEdgesChange :: Array (EdgeChange e) -> Effect Unit
+  }
+
+-- | TS public-API helper. Mirrors the TS `useNodesState` signature.
+-- | Allocates the edges-side `useState` slot with an empty array so the
+-- | hook-effect tag matches `useNodesEdgesState` and the two helpers
+-- | nest predictably under `coerceHook` from the same chain.
+useNodesState
+  :: forall n
+   . Array (Node n)
+  -> Hook (UseNodesEdgesState n Unit) (NodesStateBundle n)
+useNodesState initialNodes = coerceHook React.do
+  nodes /\ setNodesState <- useState initialNodes
+  _ <- (useState ([] :: Array (Edge Unit)) :: React.Hook (UseState (Array (Edge Unit))) _)
+  pure
+    { nodes
+    , setNodes: setNodesState
+    , onNodesChange: \changes -> setNodesState (applyNodeChanges changes)
+    }
+
+-- | TS public-API helper. Symmetric counterpart of `useNodesState` — see
+-- | the note there on the unused nodes slot.
+useEdgesState
+  :: forall e
+   . Array (Edge e)
+  -> Hook (UseNodesEdgesState Unit e) (EdgesStateBundle e)
+useEdgesState initialEdges = coerceHook React.do
+  _ <- (useState ([] :: Array (Node Unit)) :: React.Hook (UseState (Array (Node Unit))) _)
+  edges /\ setEdgesState <- useState initialEdges
+  pure
+    { edges
+    , setEdges: setEdgesState
     , onEdgesChange: \changes -> setEdgesState (applyEdgeChanges changes)
     }

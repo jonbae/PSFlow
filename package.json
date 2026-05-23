@@ -3,6 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js"
+  },
   "dependencies": {
     "d3-drag": "^3.0.0",
     "d3-interpolate": "^3.0.1",

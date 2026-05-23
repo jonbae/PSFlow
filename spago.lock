@@ -46,6 +46,26 @@
             "refs"
           ]
         }
+      },
+      "react-smoke": {
+        "path": "examples/react-smoke",
+        "core": {
+          "dependencies": [
+            "effect",
+            "foreign",
+            "foreign-object",
+            "maybe",
+            "prelude",
+            "ps-flow",
+            "react-basic",
+            "react-basic-hooks",
+            "web-dom",
+            "web-html"
+          ]
+        },
+        "test": {
+          "dependencies": []
+        }
       }
     },
     "package_set": {

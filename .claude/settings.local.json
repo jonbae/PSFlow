@@ -47,7 +47,9 @@
       "Bash(grep -rn \"toHTMLElement\" \"C:/Users/jonbae/AppData/Local/Packages/\" 2>/dev/null | head -5; echo \"---\"; find \"C:/Users/jonbae/Documents/repos/ps-flow/.spago\" -name \"HTMLDivElement.purs\" 2>/dev/null | head -3)",
       "Bash(xargs grep -l \"useMemo\")",
       "Bash(git -C \"C:\\\\Users\\\\jonbae\\\\Documents\\\\repos\\\\ps-flow\" log --oneline --max-count=10)",
-      "Bash(grep -E \"\\\\.\\(ts|tsx\\)$\")"
+      "Bash(grep -E \"\\\\.\\(ts|tsx\\)$\")",
+      "Bash(grep -i 'React.purs$')",
+      "Bash(git -C 'C:\\\\Users\\\\jonbae\\\\Documents\\\\repos\\\\ps-flow' log --oneline -20)"
     ]
   }
 }
