@@ -4,18 +4,11 @@
 -- | lifetime of the calling component. Mirrors
 -- | `xyflow-main/packages/react/src/hooks/useOn{Viewport,Selection,Init}Handler.ts`.
 -- |
--- | **Storage strategy: `PatchState` for now.** The store does not yet
--- | expose dedicated `Action` constructors for listener registration —
--- | we therefore reach into `s.onViewportChangeStart` /
--- | `s.onSelectionChangeHandlers` etc. directly via
--- | `dispatch (PatchState f)`. Ticket 051 tracks the follow-up that
--- | replaces this with named actions for a cleaner audit trail.
--- |
--- | **Reference-equality removal.** `useOnSelectionChange` appends a
--- | callback to an array and removes it again on unmount. We identify
--- | the registered entry by JS reference equality via
--- | `Unsafe.Reference.unsafeRefEq` — same approach the TS source uses
--- | (`filter(h => h !== cb)`).
+-- | Registration goes through named `Action` constructors
+-- | (`InstallViewportListeners`, `UninstallViewportListeners`,
+-- | `AddSelectionChangeHandler`, `RemoveSelectionChangeHandler`). The
+-- | atomic 3-slot patching and ref-equality clear logic for viewport
+-- | listeners lives in `React.Store.Reduce`.
 module React.Hook.Listeners
   ( UseOnViewportChangeOptions
   , UseOnSelectionChangeOptions
@@ -28,8 +21,7 @@ module React.Hook.Listeners
 
 import Prelude
 
-import Data.Array (filter, snoc) as Array
-import Data.Maybe (Maybe(..), maybe)
+import Data.Maybe (Maybe(..))
 import Data.Newtype (class Newtype)
 import Effect (Effect)
 import React.Basic.Hooks (Hook, UnsafeReference(..), UseEffect, UseRef, coerceHook, readRef, useEffect, useRef, writeRef)
@@ -39,7 +31,6 @@ import React.Hook.Store (UseStoreApi, useStoreApi)
 import React.Store.Action (Action(..))
 import React.Types.General (OnSelectionChangeFunc, OnViewportChange)
 import React.Types.Instance (ReactFlowInstance)
-import Unsafe.Reference (unsafeRefEq)
 
 -- | TS `UseOnViewportChangeOptions`.
 type UseOnViewportChangeOptions =
@@ -78,38 +69,20 @@ useOnViewportChange
 useOnViewportChange opts = coerceHook React.do
   store <- (useStoreApi :: Hook UseStoreApi _)
   useEffect (UnsafeReference opts) do
-    -- Install all three slots in one `PatchState` so they update
-    -- atomically.
-    let
-      install = \s -> s
-        { onViewportChangeStart =
-            maybe s.onViewportChangeStart Just opts.onStart
-        , onViewportChange =
-            maybe s.onViewportChange Just opts.onChange
-        , onViewportChangeEnd =
-            maybe s.onViewportChangeEnd Just opts.onEnd
-        }
-    store.dispatch (PatchState install)
-    pure do
-      -- On unmount: only clear the slots we set. We identify "we set
-      -- it" by reference-comparing the stored callback against the one
-      -- we installed. If the user has since installed another
-      -- listener (different reference) we leave it alone.
-      let
-        clearIf mInstalled mCurrent =
-          case mInstalled, mCurrent of
-            Just installed, Just current ->
-              if unsafeRefEq installed current then Nothing else mCurrent
-            _, _ -> mCurrent
-        uninstall = \s -> s
-          { onViewportChangeStart =
-              clearIf opts.onStart s.onViewportChangeStart
-          , onViewportChange =
-              clearIf opts.onChange s.onViewportChange
-          , onViewportChangeEnd =
-              clearIf opts.onEnd s.onViewportChangeEnd
+    store.dispatch
+      ( InstallViewportListeners
+          { onStart: opts.onStart
+          , onChange: opts.onChange
+          , onEnd: opts.onEnd
           }
-      store.dispatch (PatchState uninstall)
+      )
+    pure $ store.dispatch
+      ( UninstallViewportListeners
+          { onStart: opts.onStart
+          , onChange: opts.onChange
+          , onEnd: opts.onEnd
+          }
+      )
 
 -- | Append a selection-change handler to the store's handler list. On
 -- | unmount the handler is removed by JS reference identity. Multiple
@@ -126,20 +99,8 @@ useOnSelectionChange opts = coerceHook React.do
     case opts.onChange of
       Nothing -> pure (pure unit)
       Just cb -> do
-        store.dispatch
-          ( PatchState \s -> s
-              { onSelectionChangeHandlers =
-                  Array.snoc s.onSelectionChangeHandlers cb
-              }
-          )
-        pure do
-          store.dispatch
-            ( PatchState \s -> s
-                { onSelectionChangeHandlers =
-                    Array.filter (\h -> not (unsafeRefEq h cb))
-                      s.onSelectionChangeHandlers
-                }
-            )
+        store.dispatch (AddSelectionChangeHandler cb)
+        pure $ store.dispatch (RemoveSelectionChangeHandler cb)
 
 -- | Fires `onInit` exactly once when `viewportInitialized` flips to
 -- | `true`. Subsequent transitions are ignored. The callback receives

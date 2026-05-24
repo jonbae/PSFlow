@@ -8,13 +8,11 @@
 -- | and `useOnEdgesChangeMiddleware.ts`.
 -- |
 -- | **Storage strategy.** Each registration mints a fresh
--- | `MiddlewareKey` via `store.freshMiddlewareKey` and inserts the
--- | middleware function into the relevant map with `PatchState`. On
--- | unmount the same key is removed. The `MiddlewareKey` is captured
--- | in a `useRef` so unmount can find it again.
--- |
--- | Ticket 051 follow-up: replace the `PatchState` inserts with named
--- | `Action` constructors for cleaner audit semantics.
+-- | `MiddlewareKey` via `store.freshMiddlewareKey` and dispatches
+-- | `AddOnNodesChangeMiddleware key fn` (or the edge equivalent). On
+-- | unmount the same key is removed via `RemoveOnNodesChangeMiddleware`.
+-- | The `MiddlewareKey` is captured in a `useRef` so unmount can find
+-- | it again.
 module React.Hook.Middleware
   ( UseMiddlewareHook(..)
   , useOnNodesChangeMiddleware
@@ -23,7 +21,6 @@ module React.Hook.Middleware
 
 import Prelude
 
-import Data.Map (delete, insert) as Map
 import Data.Maybe (Maybe(..))
 import Data.Newtype (class Newtype)
 import React.Basic.Hooks (Hook, UnsafeReference(..), UseEffect, UseRef, coerceHook, readRef, useEffect, useRef, writeRef)
@@ -61,22 +58,11 @@ useOnNodesChangeMiddleware fn = coerceHook React.do
   useEffect (UnsafeReference fn) do
     key <- store.freshMiddlewareKey
     writeRef keyRef (Just key)
-    store.dispatch
-      ( PatchState \s -> s
-          { onNodesChangeMiddlewareMap =
-              Map.insert key fn s.onNodesChangeMiddlewareMap
-          }
-      )
+    store.dispatch (AddOnNodesChangeMiddleware key fn)
     pure do
       mKey <- readRef keyRef
       case mKey of
-        Just k ->
-          store.dispatch
-            ( PatchState \s -> s
-                { onNodesChangeMiddlewareMap =
-                    Map.delete k s.onNodesChangeMiddlewareMap
-                }
-            )
+        Just k -> store.dispatch (RemoveOnNodesChangeMiddleware k)
         Nothing -> pure unit
       writeRef keyRef Nothing
 
@@ -93,22 +79,11 @@ useOnEdgesChangeMiddleware fn = coerceHook React.do
   useEffect (UnsafeReference fn) do
     key <- store.freshMiddlewareKey
     writeRef keyRef (Just key)
-    store.dispatch
-      ( PatchState \s -> s
-          { onEdgesChangeMiddlewareMap =
-              Map.insert key fn s.onEdgesChangeMiddlewareMap
-          }
-      )
+    store.dispatch (AddOnEdgesChangeMiddleware key fn)
     pure do
       mKey <- readRef keyRef
       case mKey of
-        Just k ->
-          store.dispatch
-            ( PatchState \s -> s
-                { onEdgesChangeMiddlewareMap =
-                    Map.delete k s.onEdgesChangeMiddlewareMap
-                }
-            )
+        Just k -> store.dispatch (RemoveOnEdgesChangeMiddleware k)
         Nothing -> pure unit
       writeRef keyRef Nothing
 

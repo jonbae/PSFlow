@@ -50,7 +50,8 @@
       "Bash(grep -E \"\\\\.\\(ts|tsx\\)$\")",
       "Bash(grep -i 'React.purs$')",
       "Bash(git -C 'C:\\\\Users\\\\jonbae\\\\Documents\\\\repos\\\\ps-flow' log --oneline -20)",
-      "Bash(xargs grep -l \"forwardRef\")"
+      "Bash(xargs grep -l \"forwardRef\")",
+      "Bash(git ls-tree *)"
     ]
   }
 }

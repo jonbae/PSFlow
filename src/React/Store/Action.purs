@@ -17,9 +17,14 @@ module React.Store.Action
 import Data.Map (Map)
 import Data.Maybe (Maybe)
 import React.Types.Edges (Edge)
-import React.Types.General (OnSelectionChangeParams, UnselectNodesAndEdgesParams)
+import React.Types.General
+  ( OnSelectionChangeFunc
+  , OnSelectionChangeParams
+  , OnViewportChange
+  , UnselectNodesAndEdgesParams
+  )
 import React.Types.Nodes (InternalNode, Node)
-import React.Types.Store (ReactFlowState)
+import React.Types.Store (MiddlewareKey, ReactFlowState)
 import System.Constants (ErrorCode)
 import System.Types.Connection
   ( Connection
@@ -54,6 +59,11 @@ type NodeInternalsResult n =
 -- | method on the upstream Zustand store, with the addition of:
 -- |   * `MergeNodeInternalsResult` — the follow-up the shell dispatches
 -- |     after running the DOM-driven `updateNodeInternals` system helper.
+-- |   * The listener/middleware-registration constructors
+-- |     (`InstallViewportListeners`, `AddSelectionChangeHandler`,
+-- |     `AddOnNodesChangeMiddleware`, …) used by `React.Hook.Listeners`
+-- |     and `React.Hook.Middleware`. The atomicity and ref-equality
+-- |     clear logic for these lives in `React.Store.Reduce`.
 -- |   * `PatchState` — escape hatch for `useStoreApi().setState(fn)`.
 data Action n e
   = SetNodes (Array (Node n))
@@ -77,6 +87,28 @@ data Action n e
   | UpdateConnection (ConnectionState (InternalNodeBase n))
   | ResetSelectedElements
   | Reset
+  -- Atomic 3-slot install. A `Just` overwrites the slot; a `Nothing`
+  -- leaves it untouched. Mirrors the `maybe s.slot Just opts.slot`
+  -- pattern the hook used to apply via `PatchState`.
+  | InstallViewportListeners
+      { onStart :: Maybe OnViewportChange
+      , onChange :: Maybe OnViewportChange
+      , onEnd :: Maybe OnViewportChange
+      }
+  -- Atomic 3-slot uninstall. Each `Just cb` clears the corresponding
+  -- slot only when the currently-stored callback is reference-equal
+  -- to `cb`. A `Nothing` leaves the slot alone.
+  | UninstallViewportListeners
+      { onStart :: Maybe OnViewportChange
+      , onChange :: Maybe OnViewportChange
+      , onEnd :: Maybe OnViewportChange
+      }
+  | AddSelectionChangeHandler (OnSelectionChangeFunc n e)
+  | RemoveSelectionChangeHandler (OnSelectionChangeFunc n e)
+  | AddOnNodesChangeMiddleware MiddlewareKey (Array (NodeChange n) -> Array (NodeChange n))
+  | RemoveOnNodesChangeMiddleware MiddlewareKey
+  | AddOnEdgesChangeMiddleware MiddlewareKey (Array (EdgeChange e) -> Array (EdgeChange e))
+  | RemoveOnEdgesChangeMiddleware MiddlewareKey
   | PatchState (ReactFlowState n e -> ReactFlowState n e)
 
 -- | Effect descriptors. The reducer emits these as data; the shell

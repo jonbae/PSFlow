@@ -13,9 +13,9 @@ module React.Store.Reduce
 
 import Prelude
 
-import Data.Array (filter, mapMaybe, null) as Array
+import Data.Array (filter, mapMaybe, null, snoc) as Array
 import Data.Map as Map
-import Data.Maybe (Maybe(..))
+import Data.Maybe (Maybe(..), maybe)
 import Data.Set as Set
 import Data.Tuple (Tuple(..))
 import React.Store.Action
@@ -23,6 +23,7 @@ import React.Store.Action
   , Effect_(..)
   , NodeInternalsResult
   )
+import Unsafe.Reference (unsafeRefEq)
 import React.Store.Changes
   ( applyEdgeChanges
   , applyNodeChanges
@@ -31,7 +32,7 @@ import React.Store.Changes
   )
 import React.Store.InitialState (defaultInitialStateOptions, initialState)
 import React.Types.Edges (Edge)
-import React.Types.General (UnselectNodesAndEdgesParams)
+import React.Types.General (OnViewportChange, UnselectNodesAndEdgesParams)
 import React.Types.Nodes (Node)
 import React.Types.Store (ReactFlowState)
 import System.Types.Connection (noConnection)
@@ -79,6 +80,51 @@ reduce state = case _ of
   UpdateConnection c -> { state: state { connection = c }, effects: [] }
   ResetSelectedElements -> reduceResetSelectedElements state
   Reset -> { state: initialState defaultInitialStateOptions, effects: [] }
+  InstallViewportListeners opts -> reduceInstallViewportListeners state opts
+  UninstallViewportListeners opts -> reduceUninstallViewportListeners state opts
+  AddSelectionChangeHandler cb ->
+    { state: state
+        { onSelectionChangeHandlers =
+            Array.snoc state.onSelectionChangeHandlers cb
+        }
+    , effects: []
+    }
+  RemoveSelectionChangeHandler cb ->
+    { state: state
+        { onSelectionChangeHandlers =
+            Array.filter (\h -> not (unsafeRefEq h cb))
+              state.onSelectionChangeHandlers
+        }
+    , effects: []
+    }
+  AddOnNodesChangeMiddleware key fn ->
+    { state: state
+        { onNodesChangeMiddlewareMap =
+            Map.insert key fn state.onNodesChangeMiddlewareMap
+        }
+    , effects: []
+    }
+  RemoveOnNodesChangeMiddleware key ->
+    { state: state
+        { onNodesChangeMiddlewareMap =
+            Map.delete key state.onNodesChangeMiddlewareMap
+        }
+    , effects: []
+    }
+  AddOnEdgesChangeMiddleware key fn ->
+    { state: state
+        { onEdgesChangeMiddlewareMap =
+            Map.insert key fn state.onEdgesChangeMiddlewareMap
+        }
+    , effects: []
+    }
+  RemoveOnEdgesChangeMiddleware key ->
+    { state: state
+        { onEdgesChangeMiddlewareMap =
+            Map.delete key state.onEdgesChangeMiddlewareMap
+        }
+    , effects: []
+    }
   PatchState f -> { state: f state, effects: [] }
 
 -- SetNodes ---------------------------------------------------------------
@@ -336,6 +382,67 @@ reduceSetNodeExtent state ext =
         }
     , effects: []
     }
+
+-- InstallViewportListeners / UninstallViewportListeners ----------------
+--
+-- Atomic 3-slot patching. `Just cb` overwrites the slot; `Nothing`
+-- leaves it untouched. Uninstall additionally guards the clear with a
+-- reference-equality check against the installed callback, so a
+-- second hook that has since installed a different callback into the
+-- same slot is not disturbed. This was previously expressed inline in
+-- `React.Hook.Listeners` via `PatchState`.
+
+type ViewportSlots =
+  { onStart :: Maybe OnViewportChange
+  , onChange :: Maybe OnViewportChange
+  , onEnd :: Maybe OnViewportChange
+  }
+
+reduceInstallViewportListeners
+  :: forall n e
+   . ReactFlowState n e
+  -> ViewportSlots
+  -> ReduceResult n e
+reduceInstallViewportListeners state opts =
+  { state: state
+      { onViewportChangeStart =
+          maybe state.onViewportChangeStart Just opts.onStart
+      , onViewportChange =
+          maybe state.onViewportChange Just opts.onChange
+      , onViewportChangeEnd =
+          maybe state.onViewportChangeEnd Just opts.onEnd
+      }
+  , effects: []
+  }
+
+-- | If `installed` matches `current` by reference, clear the slot;
+-- | otherwise leave `current` alone. `Nothing` for `installed` means
+-- | "we did not set this slot, leave it untouched".
+clearIf
+  :: Maybe OnViewportChange
+  -> Maybe OnViewportChange
+  -> Maybe OnViewportChange
+clearIf installed current = case installed, current of
+  Just inst, Just curr ->
+    if unsafeRefEq inst curr then Nothing else current
+  _, _ -> current
+
+reduceUninstallViewportListeners
+  :: forall n e
+   . ReactFlowState n e
+  -> ViewportSlots
+  -> ReduceResult n e
+reduceUninstallViewportListeners state opts =
+  { state: state
+      { onViewportChangeStart =
+          clearIf opts.onStart state.onViewportChangeStart
+      , onViewportChange =
+          clearIf opts.onChange state.onViewportChange
+      , onViewportChangeEnd =
+          clearIf opts.onEnd state.onViewportChangeEnd
+      }
+  , effects: []
+  }
 
 -- ResetSelectedElements -------------------------------------------------
 
