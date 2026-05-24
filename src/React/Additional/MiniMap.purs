@@ -14,11 +14,10 @@ import Data.Newtype (class Newtype)
 import Data.Number.Format (toString) as NumberFormat
 import Data.Nullable (Nullable, toMaybe, toNullable)
 import Effect (Effect)
-import Effect.Ref as Ref
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign.Object (Object)
 import Foreign.Object as Object
-import React.Basic (Ref, ReactComponent, element)
+import React.Basic (ReactComponent, element)
 import React.Basic.Events (handler, handler_, syntheticEvent)
 import React.Basic.Hooks (UnsafeReference(..), memo, reactChildrenFromArray, reactChildrenToArray, reactComponentWithChildren, readRef, useEffect, useEffectAlways, useRef, writeRef)
 import React.Basic.Hooks as React
@@ -118,9 +117,6 @@ newtype UpdateDeps = UpdateDeps
 derive instance newtypeUpdateDeps :: Newtype UpdateDeps _
 derive newtype instance eqUpdateDeps :: Eq UpdateDeps
 
-toEffectRef :: forall a. Ref a -> Ref.Ref a
-toEffectRef = unsafeCoerce
-
 -- | Build the CSS-variable style record for the Panel wrapper. Each
 -- | optional prop maps to one `--xy-minimap-*-props` custom property.
 buildPanelStyle
@@ -218,7 +214,7 @@ miniMap =
               { domNode: svg
               , panZoom: pz
               , getTransform: _.transform <$> store.getState
-              , getViewScale: Ref.read (toEffectRef viewScaleRef)
+              , getViewScale: readRef viewScaleRef
               }
             writeRef instanceRef (toNullable (Just inst))
             pure do

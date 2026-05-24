@@ -7,10 +7,22 @@
   "exports": {
     ".": "./index.js"
   },
+  "scripts": {
+    "build:smoke": "spago build && esbuild examples/react-smoke/src/entry.js --bundle --format=esm --platform=browser --outfile=examples/react-smoke/dist/example.js",
+    "test:smoke": "playwright test --config examples/react-smoke/playwright.config.ts"
+  },
   "dependencies": {
     "d3-drag": "^3.0.0",
     "d3-interpolate": "^3.0.1",
     "d3-selection": "^3.0.0",
-    "d3-zoom": "^3.0.0"
+    "d3-zoom": "^3.0.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0",
+    "@xyflow/react": "^12.3.5",
+    "esbuild": "^0.24.0",
+    "http-server": "^14.1.1"
   }
 }

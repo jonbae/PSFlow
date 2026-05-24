@@ -3,11 +3,11 @@
 -- | between renders. Mirrors
 -- | `xyflow-main/packages/react/src/container/GraphView/useNodeOrEdgeTypesWarning.ts`.
 -- |
--- | **PS divergence: the gating flag.** TS uses
--- | `process.env.NODE_ENV === 'development'`. The PS port keys off the
--- | `state.debug :: Boolean` flag instead, set by the user on the
--- | provider — there is no `process.env` equivalent at compile time in
--- | the PureScript output we produce.
+-- | **The gating flag.** TS uses `process.env.NODE_ENV === 'development'`.
+-- | PS gates on `React.FFI.Env.isDevelopment` — a build-time `Boolean`
+-- | exposed via FFI that bundlers can constant-fold via `define`
+-- | (esbuild: `--define:IS_DEV=false`). Defaults to `true` so warnings
+-- | fire unless explicitly silenced, matching the TS upstream default.
 -- |
 -- | **One-shot per identity change.** TS holds the previous types record
 -- | in a `useRef`. We do the same. When the user passes the *same*
@@ -25,14 +25,12 @@ import Prelude
 import Data.Array (index) as Array
 import Data.Maybe (Maybe(..))
 import Data.Newtype (class Newtype)
-import Effect.Ref as Ref
 import Foreign (Foreign)
-import React.Basic (Ref)
-import React.Basic.Hooks (Hook, UnsafeReference(..), UseEffect, UseRef, coerceHook, useEffect, useRef)
+import React.Basic.Hooks (Hook, UnsafeReference(..), UseEffect, UseRef, coerceHook, readRef, useEffect, useRef, writeRef)
 import React.Basic.Hooks as React
+import React.FFI.Env (isDevelopment)
 import React.Hook.Store (UseStoreApi, useStoreApi)
 import System.Constants (ErrorCode(..), errorMessage)
-import Unsafe.Coerce (unsafeCoerce)
 
 -- | FFI: union of own enumerable keys.
 foreign import objectKeysUnion :: Foreign -> Foreign -> Array String
@@ -72,9 +70,9 @@ useNodeOrEdgeTypesWarning mTypes = coerceHook React.do
   store <- (useStoreApi :: Hook UseStoreApi _)
   typesRef <- useRef current
   useEffect (UnsafeReference current) do
-    s <- store.getState
-    when s.debug do
-      previous <- Ref.read (toEffectRef typesRef)
+    when isDevelopment do
+      s <- store.getState
+      previous <- readRef typesRef
       let
         keys = objectKeysUnion previous current
         anyDiffered = checkKeys keys previous current 0
@@ -82,7 +80,7 @@ useNodeOrEdgeTypesWarning mTypes = coerceHook React.do
         case s.onError of
           Just cb -> cb "002" (errorMessage E002)
           Nothing -> pure unit
-    Ref.write current (toEffectRef typesRef)
+    writeRef typesRef current
     pure (pure unit)
   where
   checkKeys :: Array String -> Foreign -> Foreign -> Int -> Boolean
@@ -93,6 +91,3 @@ useNodeOrEdgeTypesWarning mTypes = coerceHook React.do
         if not (referenceEqual (lookupKey prev k) (lookupKey curr k)) then true
         else checkKeys ks prev curr (i + 1)
 
--- | `react-basic`'s `Ref` and `effect-ref`'s `Ref` are the same JS cell.
-toEffectRef :: forall a. Ref a -> Ref.Ref a
-toEffectRef = unsafeCoerce

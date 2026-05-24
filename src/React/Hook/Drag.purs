@@ -30,9 +30,8 @@ import Data.Newtype (class Newtype)
 import Data.Nullable (Nullable, toMaybe)
 import Data.Tuple.Nested ((/\))
 import Effect (Effect)
-import Effect.Ref as Ref
 import React.Basic (Ref)
-import React.Basic.Hooks (Hook, UnsafeReference(..), UseEffect, UseRef, UseState, coerceHook, readRef, useEffect, useRef, useState)
+import React.Basic.Hooks (Hook, UnsafeReference(..), UseEffect, UseRef, UseState, coerceHook, readRef, useEffect, useRef, useState, writeRef)
 import React.Basic.Hooks as React
 import System.XYDrag (DragStoreItems, XYDragInstance, createXYDrag)
 import Unsafe.Coerce (unsafeCoerce)
@@ -87,7 +86,7 @@ useDrag opts = coerceHook React.do
     -- Lazily allocate the controller on first run. After that the
     -- ref keeps the same instance across re-renders so we only re-run
     -- `update`.
-    mController <- Ref.read (toEffectRef controllerRef)
+    mController <- readRef controllerRef
     controller <- case mController of
       Just c -> pure c
       Nothing -> do
@@ -107,7 +106,7 @@ useDrag opts = coerceHook React.do
           , onNodeMouseDown: Nothing
           , autoPanSpeed: opts.autoPanSpeed
           }
-        Ref.write (Just c) (toEffectRef controllerRef)
+        writeRef controllerRef (Just c)
         pure c
 
     -- Push the current per-render config into the controller.
@@ -130,11 +129,11 @@ useDrag opts = coerceHook React.do
       -- the next run will lazily re-create it — slightly wasteful on
       -- dep change but correct and simple. A more granular split can
       -- come later if profiling shows it matters.
-      mFinal <- Ref.read (toEffectRef controllerRef)
+      mFinal <- readRef controllerRef
       case mFinal of
         Just c -> do
           c.destroy
-          Ref.write Nothing (toEffectRef controllerRef)
+          writeRef controllerRef Nothing
         Nothing -> pure unit
   pure dragging
 
@@ -145,10 +144,3 @@ useDrag opts = coerceHook React.do
 asDeps :: forall nd ed. UseDragOptions nd ed -> DragDepsToken
 asDeps = unsafeCoerce
 
--- | `react-basic`'s `Ref a` and `effect-ref`'s `Ref a` are
--- | structurally identical at the FFI seam — both wrap a single JS
--- | mutable cell. `useRef` returns the former; we want to use
--- | `Effect.Ref` operations on it. The cast is sound and matches the
--- | convention used elsewhere in the project.
-toEffectRef :: forall a. Ref a -> Ref.Ref a
-toEffectRef = unsafeCoerce

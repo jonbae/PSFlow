@@ -4,7 +4,7 @@
 -- | Structure:
 -- |
 -- |   ```
--- |   <div className="react-flow ...">
+-- |   <div className="react-flow ..." onScroll={wrapperOnScroll}>
 -- |     <Wrapper>
 -- |       <StoreUpdater />
 -- |       <GraphView ... />
@@ -21,34 +21,51 @@
 -- | into the GraphView and provider call sites. The defaults match
 -- | `xyflow-main/.../ReactFlow/index.tsx` lines 64-152 exactly.
 -- |
--- | **Skipped from TS.**
--- |   * `fixedForwardRef` and the outer-div `ref` — PS doesn't have the
--- |     generics variance problem TS works around. The component is
--- |     exported directly; users cannot pass a ref to the outer div.
--- |   * `wrapperOnScroll` (focus-scroll-reset) — a DOM corner case not
--- |     covered by any acceptance criterion. Follow-up.
--- |   * The `id` prop: not present on `ReactFlowProps` in the PS port;
--- |     `rfId` is hard-coded to `"1"`. Add the field and `fromMaybe`
--- |     when a use case appears.
+-- | **Mac-aware default key codes.** `multiSelectionKeyCode` and
+-- | `zoomActivationKeyCode` default to `"Meta"` on macOS (`Cmd`-key) and
+-- | `"Control"` elsewhere. Detection runs once at module load via
+-- | `unsafePerformEffect isMacOs`; `navigator.userAgent` doesn't change
+-- | between page loads, so the constant is sound.
+-- |
+-- | **`reactFlowWithRef`.** TS exports `<ReactFlow>` wrapped in
+-- | `fixedForwardRef` so consumers can grab the outer-div ref. PS
+-- | exports two components: `reactFlow` (no ref slot, the common case)
+-- | and `reactFlowWithRef` (forwardRef-wrapped; the ref attaches to the
+-- | outer `<div>`). The split avoids forcing every caller through
+-- | `forwardRef` plumbing.
+-- |
+-- | **`wrapperOnScroll`.** The outer div installs a scroll handler that
+-- | immediately resets the wrapper's scroll position to `(0, 0)`. Without
+-- | this, browser tab-focus logic can scroll the wrapper when a focused
+-- | node is offscreen — leaving the canvas misaligned with its
+-- | transform. The user can observe the scroll via the optional
+-- | `onScroll :: Maybe (Effect Unit)` prop.
+-- |
+-- | **Skipped from TS.** The `id` prop: not present on `ReactFlowProps`
+-- | in the PS port; `rfId` is hard-coded to `"1"`. Add the field and
+-- | `fromMaybe` when a use case appears.
 module React.Container.ReactFlow
   ( reactFlow
+  , reactFlowWithRef
   ) where
 
 import Prelude
 
 import Control.Alt ((<|>))
 import Data.Maybe (Maybe(..), fromMaybe)
+import Data.Nullable (Nullable)
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign)
-import React.Basic (JSX, ReactComponent, element)
-import React.Basic.Hooks (reactChildrenFromArray, reactChildrenToArray, reactComponentWithChildren)
+import React.Basic (JSX, ReactComponent, Ref, element)
+import React.Basic.Hooks (ReactChildren, reactChildrenFromArray, reactChildrenToArray, reactComponentWithChildren)
 import React.Basic.Hooks as React
 import React.Container.A11yDescriptions (a11yDescriptions)
 import React.Container.Attribution (attribution)
 import React.Container.GraphView (graphView)
 import React.Container.InitValues (defaultNodeOrigin, defaultViewport) as Init
 import React.Container.Wrapper (wrapper)
-import React.FFI.DOM (div_)
+import React.FFI.DOM (div_, opt, scrollResetHandler)
+import React.FFI.ForwardRef (forwardRef)
 import React.Hook.ColorModeClass (useColorModeClass)
 import React.Provider.SelectionListener (selectionListener)
 import React.Provider.StoreUpdater (storeUpdater)
@@ -62,7 +79,9 @@ import System.Types.Connection
   )
 import System.Types.Edge (ConnectionLineType(..))
 import System.Types.PanZoom (PanOnDrag(..))
+import System.Utils.General (isMacOs)
 import Unsafe.Coerce (unsafeCoerce)
+import Web.HTML.HTMLDivElement (HTMLDivElement)
 
 -- | Stable outer-div style. Mirrors the inline `wrapperStyle` constant
 -- | in TS.
@@ -112,10 +131,36 @@ buildOuterClass cmc userClass =
 foreign import filterEmptyImpl :: Array String -> Array String
 foreign import joinWithSpaceImpl :: Array String -> String
 
-reactFlow :: forall n e. ReactComponent (ReactFlowProps n e)
-reactFlow =
-  unsafePerformEffect $ reactComponentWithChildren "ReactFlow"
-    \(props :: ReactFlowProps n e) -> React.do
+-- | `isMacOs` is `Effect Boolean` because it reads `navigator.userAgent`,
+-- | but the value is stable for the page lifetime. We cache it once at
+-- | module load so default key codes can be a pure constant.
+isMacOsCached :: Boolean
+isMacOsCached = unsafePerformEffect isMacOs
+
+defaultMultiSelKey :: KeyCode
+defaultMultiSelKey =
+  SingleKey (if isMacOsCached then "Meta" else "Control")
+
+-- ────────────────────────────────────────────────────────────────────────
+-- Inner component
+--
+-- Holds the entire render body. Accepts the user's `ReactFlowProps`
+-- nested under `rfProps` plus a `Maybe` outer-ref slot. Two top-level
+-- components delegate here: `reactFlow` (ref = Nothing) and
+-- `reactFlowWithRef` (ref = Just, threaded through `forwardRef`).
+-- ────────────────────────────────────────────────────────────────────────
+
+type ReactFlowInnerProps n e =
+  { children :: ReactChildren JSX
+  , rfProps :: ReactFlowProps n e
+  , outerRef :: Maybe (Ref (Nullable HTMLDivElement))
+  }
+
+reactFlowInner :: forall n e. ReactComponent (ReactFlowInnerProps n e)
+reactFlowInner =
+  unsafePerformEffect $ reactComponentWithChildren "ReactFlowInner"
+    \(p :: ReactFlowInnerProps n e) -> React.do
+      let props = p.rfProps
       colorModeCls <- useColorModeClass props.colorMode
       let
         rfId = "1"
@@ -126,14 +171,6 @@ reactFlow =
         selectionOnDrag = fromMaybe false props.selectionOnDrag
         selectionMode = fromMaybe Full props.selectionMode
         panActivationKeyCode = props.panActivationKeyCode <|> Just (SingleKey "Space")
-        -- TS defaults `multiSelectionKeyCode` to `isMacOs() ? 'Meta' :
-        -- 'Control'`. PS-side, `isMacOs` is `Effect Boolean` and we'd
-        -- need to plumb it through a hook to resolve before render.
-        -- Compromise: use `"Control"` as the default — users on macOS
-        -- can override via the prop. (Follow-up: wire through a
-        -- `useEffect`-resolved value or call `isMacOs` synchronously
-        -- via `unsafePerformEffect`.)
-        defaultMultiSelKey = SingleKey "Control"
         multiSelectionKeyCode = props.multiSelectionKeyCode <|> Just defaultMultiSelKey
         zoomActivationKeyCode = props.zoomActivationKeyCode <|> Just defaultMultiSelKey
         onlyRenderVisibleElements = fromMaybe false props.onlyRenderVisibleElements
@@ -329,11 +366,42 @@ reactFlow =
           , zIndexMode: props.zIndexMode
           , children: reactChildrenFromArray innerChildren
           }
+
+        wrapperOnScroll = scrollResetHandler (fromMaybe (pure unit) props.onScroll)
       pure $
         div_
           { "data-testid": "rf__wrapper"
           , style: mergeStyle Nothing
           , className: outerClass
           , role: "application"
+          , ref: opt p.outerRef
+          , onScroll: wrapperOnScroll
           }
           [ wrapperEl ]
+
+-- ────────────────────────────────────────────────────────────────────────
+-- Public components
+-- ────────────────────────────────────────────────────────────────────────
+
+reactFlow :: forall n e. ReactComponent (ReactFlowProps n e)
+reactFlow =
+  unsafePerformEffect $ reactComponentWithChildren "ReactFlow"
+    \(props :: ReactFlowProps n e) ->
+      pure $ element reactFlowInner
+        { rfProps: props
+        , outerRef: Nothing
+        , children: props.children
+        }
+
+-- | `reactFlow` wrapped in `React.forwardRef`. The ref attaches to the
+-- | outer wrapper `<div>`; the rest of the props are identical.
+reactFlowWithRef
+  :: forall n e
+   . ReactComponent
+       { props :: ReactFlowProps n e }
+reactFlowWithRef = forwardRef "ReactFlowWithRef" \p ref ->
+  element reactFlowInner
+    { rfProps: p.props
+    , outerRef: Just ref
+    , children: p.props.children
+    }

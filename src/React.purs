@@ -28,15 +28,12 @@
 -- |      internal `useNodesEdgesState` hook (see
 -- |      `React.Hook.NodesEdgesState`). Each returns the PS record shape
 -- |      `{ nodes/edges, set…, on…Change }` — the TS 3-tuple translated.
--- |   4. `ConnectionInProgress` is the type alias `ConnectionInProgressData`
--- |      in PS; `NoConnection` is the nullary constructor of
--- |      `ConnectionState`, not a standalone type. Re-exported under the
--- |      PS names; the TS-named view comes through the JS shim.
--- |   5. Symbols deferred by earlier porting tickets (`SetCenter`,
--- |      `SetViewport`, `FitBounds`, …) are tracked in
--- |      `tickets/054-react-public-api-missing-symbols.md`; this module
--- |      simply omits them. Adding them is a one-line edit once the
--- |      underlying type or function lands.
+-- |   4. `ConnectionInProgress` is exported as a type alias of
+-- |      `ConnectionInProgressData` (the canonical PS name). `NoConnection`
+-- |      is the nullary constructor of `ConnectionState`, not a standalone
+-- |      type — there is no payload to alias, so an alias would be
+-- |      misleading. Consumers pattern-match on `ConnectionState(..)` or
+-- |      use the `noConnection` helper. This is intentional and final.
 module React
   ( module ReExportComponents
   , module ReExportProvider
@@ -104,7 +101,7 @@ import System.Types.Node (NodeChange)
 -- Components
 -- ────────────────────────────────────────────────────────────────────────
 
-import React.Container.ReactFlow (reactFlow) as ReExportComponents
+import React.Container.ReactFlow (reactFlow, reactFlowWithRef) as ReExportComponents
 import React.Provider (reactFlowProvider) as ReExportProvider
 import React.Handle (handle) as ReExportHandle
 
@@ -247,6 +244,9 @@ import React.Types
   , UpdateOptions
   , ViewportHelperFunctions
   , ZoomOptions
+  , SetCenter
+  , SetViewport
+  , FitBounds
   , InternalNode
   , Node
   , NodeMouseHandler
@@ -296,6 +296,7 @@ import System.Types.Connection
   , FitBoundsOptions
   , ConnectionState(..)
   , ConnectionInProgressData
+  , ConnectionInProgress
   , FinalConnectionState
   ) as ReExportSystemConnection
 

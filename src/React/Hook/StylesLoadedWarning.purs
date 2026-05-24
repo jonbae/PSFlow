@@ -7,8 +7,10 @@
 -- | the user forgot to import `@xyflow/react/dist/style.css`, the rule
 -- | doesn't apply and the check fires E013.
 -- |
--- | **PS divergence: gate on `state.debug`** rather than
--- | `process.env.NODE_ENV === 'development'`. Same rationale as
+-- | **The gating flag** is `React.FFI.Env.isDevelopment` — a build-time
+-- | `Boolean` exposed via FFI that bundlers can constant-fold via
+-- | `define`. Defaults to `true` so the check fires unless explicitly
+-- | silenced. Same mechanism as
 -- | [React.Hook.NodeOrEdgeTypesWarning](src/React/Hook/NodeOrEdgeTypesWarning.purs).
 module React.Hook.StylesLoadedWarning
   ( UseStylesLoadedWarning(..)
@@ -21,13 +23,11 @@ import Data.Maybe (Maybe(..))
 import Data.Newtype (class Newtype)
 import Data.Nullable (Nullable, toMaybe)
 import Effect (Effect)
-import Effect.Ref as Ref
-import React.Basic (Ref)
-import React.Basic.Hooks (Hook, UseEffect, UseRef, coerceHook, useEffectOnce, useRef)
+import React.Basic.Hooks (Hook, UseEffect, UseRef, coerceHook, readRef, useEffectOnce, useRef, writeRef)
 import React.Basic.Hooks as React
+import React.FFI.Env (isDevelopment)
 import React.Hook.Store (UseStoreApi, useStoreApi)
 import System.Constants (ErrorCode(..), errorMessage)
-import Unsafe.Coerce (unsafeCoerce)
 
 -- | FFI: query `.react-flow__pane` and return its computed `z-index`
 -- | string, or `null` if no element matches. Used to decide whether the
@@ -51,9 +51,9 @@ useStylesLoadedWarning = coerceHook React.do
   store <- (useStoreApi :: Hook UseStoreApi _)
   checkedRef <- useRef false
   useEffectOnce do
-    s <- store.getState
-    when s.debug do
-      checked <- Ref.read (toEffectRef checkedRef)
+    when isDevelopment do
+      s <- store.getState
+      checked <- readRef checkedRef
       when (not checked) do
         mZIndex <- toMaybe <$> checkPaneZIndex
         case mZIndex of
@@ -61,9 +61,6 @@ useStylesLoadedWarning = coerceHook React.do
             Just cb -> cb "013" (errorMessage (E013 "react"))
             Nothing -> pure unit
           _ -> pure unit
-        Ref.write true (toEffectRef checkedRef)
+        writeRef checkedRef true
     pure (pure unit)
 
--- | `react-basic`'s `Ref` and `effect-ref`'s `Ref` are the same JS cell.
-toEffectRef :: forall a. Ref a -> Ref.Ref a
-toEffectRef = unsafeCoerce

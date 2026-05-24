@@ -90,7 +90,7 @@ export const findViewportZoomImpl = (host) => () => {
 
 // Reads `nodeElement.querySelectorAll('.<type>')` and synthesises a Handle
 // record for each match. Returns null if the selector matches nothing.
-export const getHandleBoundsImpl = (typeStr, nodeElement, nodeBounds, zoom, nodeId) => () => {
+export const getHandleBoundsImpl = (typeStr) => (nodeElement) => (nodeBounds) => (zoom) => (nodeId) => () => {
   const handles = nodeElement.querySelectorAll("." + typeStr);
   if (!handles || handles.length === 0) return null;
 

@@ -1,5 +1,7 @@
 # 000 — Project Overview: xyflow System Package → PureScript
 
+> React layer port complete (2026-05-23) — see ticket [053](053-react-runtime-verification.md). All non-blocked smoke-test items from the runtime checklist pass against a real browser; the remaining two items (node-drag, click-connect) are gated on the `<Handle>` connection-drag wiring tracked under [052](052-react-flow-divergences-followups.md).
+
 ## Summary
 
 This document is the root index for porting the `@xyflow/system` TypeScript package to idiomatic PureScript. The source monorepo lives at `xyflow-main/packages/system/src/`. The React-specific layer (`xyflow-main/packages/react/src/`) is not covered here — it requires a separate planning pass involving React FFI bindings and is out of scope for this phase.

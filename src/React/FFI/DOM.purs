@@ -27,13 +27,17 @@ module React.FFI.DOM
   , title_
   , textContent
   , opt
+  , scrollResetHandler
   ) where
 
 import Prelude
 
 import Data.Maybe (Maybe)
 import Data.Nullable (toNullable)
+import Effect (Effect)
+import Effect.Uncurried (EffectFn1, mkEffectFn1)
 import React.Basic (JSX)
+import React.Basic.Events (EventHandler)
 import Unsafe.Coerce (unsafeCoerce)
 
 foreign import div_ :: forall p. Record p -> Array JSX -> JSX
@@ -64,3 +68,13 @@ textContent = unsafeCoerce
 -- | by the built-in edge/node/handle components.
 opt :: forall a. Maybe a -> a
 opt = unsafeCoerce <<< toNullable
+
+-- | Build an `onScroll` handler that snaps the event's `currentTarget`
+-- | back to (0, 0) and then runs the user-supplied effect. Used by
+-- | `React.Container.ReactFlow` to undo browser tab-focus scrolling on
+-- | the outer wrapper.
+foreign import scrollResetHandlerImpl
+  :: EffectFn1 Unit Unit -> EventHandler
+
+scrollResetHandler :: Effect Unit -> EventHandler
+scrollResetHandler cb = scrollResetHandlerImpl (mkEffectFn1 (\_ -> cb))

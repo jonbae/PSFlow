@@ -22,6 +22,7 @@ module System.Types.Connection
   , ConnectionLookup
   , ConnectionState(..)
   , ConnectionInProgressData
+  , ConnectionInProgress
   , noConnection
   , FinalConnectionState
   ) where
@@ -329,6 +330,13 @@ type ConnectionInProgressData node =
   , toNode :: Maybe node
   , pointer :: XYPosition
   }
+
+-- | TS-name alias for `ConnectionInProgressData`. Upstream exports the
+-- | payload shape as `ConnectionInProgress`; PS keeps the longer name as
+-- | the canonical one (the bare name is already taken by the
+-- | `ConnectionState` constructor of the same name) and exposes this alias
+-- | for surface parity.
+type ConnectionInProgress node = ConnectionInProgressData node
 
 data ConnectionState node
   = NoConnection

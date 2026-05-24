@@ -161,6 +161,12 @@ type ReactFlowProps n e =
   , onMove :: Maybe OnMove
   , onMoveStart :: Maybe OnMoveStart
   , onMoveEnd :: Maybe OnMoveEnd
+  -- Outer wrapper handlers (whole `<div className="react-flow">`)
+  -- The wrapper installs a `scrollTo(0,0)` reset so browser tab-focus
+  -- doesn't scroll the flow into view; `onScroll` is the user's
+  -- post-reset hook. The SyntheticEvent is dropped to keep the prop
+  -- callable from PureScript without an FFI bridge.
+  , onScroll :: Maybe (Effect Unit)
   -- Pane handlers
   , onPaneScroll :: Maybe (Maybe WheelEvent -> Effect Unit)
   , onPaneClick :: Maybe (MouseEvent -> Effect Unit)

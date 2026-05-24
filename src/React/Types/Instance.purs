@@ -19,6 +19,9 @@ module React.Types.Instance
   , ZoomOptions
   , FitBoundsOptions
   , ScreenToFlowOptions
+  , SetCenter
+  , SetViewport
+  , FitBounds
   ) where
 
 import Prelude
@@ -87,6 +90,13 @@ type FitBoundsOptions =
   , interpolate :: Maybe InterpolateMode
   }
 
+-- | Standalone callback types lifted out of `ViewportHelperFunctions` so
+-- | downstream code can spell them by name (matches the TS surface, which
+-- | exports each as a top-level alias).
+type SetCenter = Number -> Number -> SetCenterOptions -> Aff Boolean
+type SetViewport = Viewport -> ZoomOptions -> Aff Boolean
+type FitBounds = Rect -> FitBoundsOptions -> Aff Boolean
+
 -- | TS `(clientPosition, options?: { snapToGrid?: boolean; snapGrid?: SnapGrid })`.
 -- | Flattened to a record.
 type ScreenToFlowOptions =
@@ -107,10 +117,10 @@ type ViewportHelperFunctions =
   , zoomOut :: ZoomOptions -> Aff Boolean
   , zoomTo :: Number -> ZoomOptions -> Aff Boolean
   , getZoom :: Effect Number
-  , setViewport :: Viewport -> ZoomOptions -> Aff Boolean
+  , setViewport :: SetViewport
   , getViewport :: Effect Viewport
-  , setCenter :: Number -> Number -> SetCenterOptions -> Aff Boolean
-  , fitBounds :: Rect -> FitBoundsOptions -> Aff Boolean
+  , setCenter :: SetCenter
+  , fitBounds :: FitBounds
   , screenToFlowPosition :: XYPosition -> ScreenToFlowOptions -> Effect XYPosition
   , flowToScreenPosition :: XYPosition -> Effect XYPosition
   }
@@ -155,10 +165,10 @@ type ReactFlowInstance n e =
   , zoomOut :: ZoomOptions -> Aff Boolean
   , zoomTo :: Number -> ZoomOptions -> Aff Boolean
   , getZoom :: Effect Number
-  , setViewport :: Viewport -> ZoomOptions -> Aff Boolean
+  , setViewport :: SetViewport
   , getViewport :: Effect Viewport
-  , setCenter :: Number -> Number -> SetCenterOptions -> Aff Boolean
-  , fitBounds :: Rect -> FitBoundsOptions -> Aff Boolean
+  , setCenter :: SetCenter
+  , fitBounds :: FitBounds
   , screenToFlowPosition :: XYPosition -> ScreenToFlowOptions -> Effect XYPosition
   , flowToScreenPosition :: XYPosition -> Effect XYPosition
   , viewportInitialized :: Boolean

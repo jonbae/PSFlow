@@ -71,11 +71,14 @@ import React.Types.General
   ) as ReexportGeneral
 import React.Types.Instance
   ( DeleteElementsOptions
+  , FitBounds
   , NodeOrIdOrRect(..)
   , NodeRefForBounds(..)
   , ReactFlowInstance
   , ReactFlowJsonObject
   , ScreenToFlowOptions
+  , SetCenter
+  , SetViewport
   , UpdateOptions
   , ViewportHelperFunctions
   , ZoomOptions

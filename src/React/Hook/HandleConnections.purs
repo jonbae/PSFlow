@@ -34,15 +34,12 @@ import Data.Map.Internal (values) as Map
 import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Newtype (class Newtype)
 import Effect (Effect)
-import Effect.Ref as Ref
-import React.Basic (Ref)
-import React.Basic.Hooks (Hook, UnsafeReference(..), UseContext, UseEffect, UseRef, coerceHook, useEffect, useRef)
+import React.Basic.Hooks (Hook, UnsafeReference(..), UseContext, UseEffect, UseRef, coerceHook, readRef, useEffect, useRef, writeRef)
 import React.Basic.Hooks as React
 import React.Context.NodeId (useNodeId)
 import React.Hook.Store (UseStore, useStore)
 import System.Types.Connection (Connection, HandleConnection)
 import System.Types.Handle (HandleType(..))
-import Unsafe.Coerce (unsafeCoerce)
 
 -- | Inputs to the hook. Matches TS `UseHandleConnectionsParams` field
 -- | for field except that the deprecated `id` (handle id) sits as the
@@ -104,7 +101,7 @@ useHandleConnections params = coerceHook React.do
   prevRef <- useRef ([] :: Array HandleConnection)
 
   useEffect (UnsafeReference connections) do
-    prev <- Ref.read (toEffectRef prevRef)
+    prev <- readRef prevRef
     let
       droppedConns = Array.filter (notIn connections) prev
       addedConns = Array.filter (notIn prev) connections
@@ -112,7 +109,7 @@ useHandleConnections params = coerceHook React.do
       for_ params.onDisconnect \cb -> cb (map toConnection droppedConns)
     when (not (Array.null addedConns)) do
       for_ params.onConnect \cb -> cb (map toConnection addedConns)
-    Ref.write connections (toEffectRef prevRef)
+    writeRef prevRef connections
     pure (pure unit)
 
   pure connections
@@ -132,7 +129,3 @@ toConnection c =
 notIn :: Array HandleConnection -> HandleConnection -> Boolean
 notIn xs x = not (Array.any (eq x) xs)
 
--- | Force `Ref` from `react-basic` into `effect-ref`'s `Ref`. Same JS
--- | cell underneath — convention used throughout the codebase.
-toEffectRef :: forall a. Ref a -> Ref.Ref a
-toEffectRef = unsafeCoerce

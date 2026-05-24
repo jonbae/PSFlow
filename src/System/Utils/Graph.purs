@@ -1,9 +1,13 @@
 -- | Graph traversal, node bounds, fit-view, and deletion utilities. Mirrors
--- | `xyflow-main/packages/system/src/utils/graph.ts` minus the runtime
--- | `is*Base` type guards (those are unnecessary in PS, where the type
--- | system enforces the shape statically).
+-- | `xyflow-main/packages/system/src/utils/graph.ts`.
+-- |
+-- | The runtime `is*Base` guards live here so they share the TS file
+-- | layout. The React layer re-exports them under the shorter `isNode` /
+-- | `isEdge` names that match the TS public API.
 module System.Utils.Graph
-  ( getNodePositionWithOrigin
+  ( isNodeBase
+  , isEdgeBase
+  , getNodePositionWithOrigin
   , getOutgoers
   , getIncomers
   , GetNodesBoundsParams
@@ -36,6 +40,8 @@ import Data.Newtype (unwrap)
 import Data.Set (Set)
 import Data.Set (fromFoldable, member) as Set
 import Effect.Aff (Aff)
+import Foreign (Foreign)
+import Unsafe.Coerce (unsafeCoerce)
 import System.Types.Connection
   ( InterpolateMode
   , Padding(..)
@@ -77,6 +83,23 @@ import System.Utils.General
 getNodePositionWithOrigin
   :: forall n. NodeBase n -> NodeOrigin -> XYPosition
 getNodePositionWithOrigin = G.getNodePositionWithOrigin
+
+-- Shape guards ------------------------------------------------------------
+--
+-- Both predicates inspect own-property names rather than the PS type, so
+-- they're useful at API boundaries where the input is `Foreign` (e.g.
+-- JSON revival, untyped consumer input).
+
+foreign import isNodeBaseImpl :: Foreign -> Boolean
+foreign import isEdgeBaseImpl :: Foreign -> Boolean
+
+-- | True iff the value has `id` + `position` and lacks `source` / `target`.
+isNodeBase :: forall a. a -> Boolean
+isNodeBase = isNodeBaseImpl <<< (unsafeCoerce :: a -> Foreign)
+
+-- | True iff the value has `id`, `source`, and `target`.
+isEdgeBase :: forall a. a -> Boolean
+isEdgeBase = isEdgeBaseImpl <<< (unsafeCoerce :: a -> Foreign)
 
 -- Outgoers / Incomers ------------------------------------------------------
 

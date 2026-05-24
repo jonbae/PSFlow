@@ -111,9 +111,14 @@ mouseFromEvt = case _ of
 -- | reference-equality target (same trick as `Drag.DragDepsToken`).
 foreign import data ZoomPaneDepsToken :: Type
 
+-- | Bundle the three deps into a record before erasing the type. A point-free
+-- | `unsafeCoerce` at this multi-arity does *not* work at runtime — PS curries
+-- | the call so `asUpdateDeps p s t` becomes `((id p) s) t`, which would try
+-- | to call `props` as a function. Threading through an explicit record sidesteps
+-- | the curry trap while preserving the reference-equality semantics.
 asUpdateDeps
   :: ZoomPaneProps -> ZoomPaneSlice -> Boolean -> ZoomPaneDepsToken
-asUpdateDeps = unsafeCoerce
+asUpdateDeps p s t = unsafeCoerce { p, s, t }
 
 -- ----------------------------------------------------------------------------
 -- Component

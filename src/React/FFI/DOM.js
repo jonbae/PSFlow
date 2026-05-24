@@ -19,3 +19,10 @@ export const pattern_ = mk("pattern");
 export const polyline_ = mk("polyline");
 export const symbol_ = mk("symbol");
 export const title_ = mk("title");
+
+export const scrollResetHandlerImpl = (cb) => (event) => {
+  if (event && event.currentTarget && event.currentTarget.scrollTo) {
+    event.currentTarget.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }
+  cb();
+};

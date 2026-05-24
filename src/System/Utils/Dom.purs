@@ -161,11 +161,14 @@ getPointerPosition ev params = do
     , ySnapped: snapped.y
     }
 
--- | Loose handle row coming back from JS. Position arrives as a plain string
--- | (the `data-handlepos` attribute) and is parsed into `Position` here.
+-- | Loose handle row coming back from JS. `id` and `handlePos` are
+-- | `Nullable String` because `Element.getAttribute` returns `string | null`
+-- | at the JS seam — they get converted to `Maybe` inside `toHandle`.
+-- | Position arrives as a plain string (the `data-handlepos` attribute)
+-- | and is parsed into `Position` here.
 type RawHandle =
-  { id :: Maybe String
-  , handlePos :: Maybe String
+  { id :: Nullable String
+  , handlePos :: Nullable String
   , x :: Number
   , y :: Number
   , width :: Number
@@ -178,7 +181,7 @@ foreign import getHandleBoundsImpl
   -> DOMRect
   -> Number
   -> String
-  -> Effect (Maybe (Array RawHandle))
+  -> Effect (Nullable (Array RawHandle))
 
 getHandleBounds
   :: HandleType
@@ -188,7 +191,7 @@ getHandleBounds
   -> String
   -> Effect (Maybe (Array Handle))
 getHandleBounds ht el bounds zoom nodeId = do
-  result <- getHandleBoundsImpl (handleTypeTag ht) el bounds zoom nodeId
+  result <- toMaybe <$> getHandleBoundsImpl (handleTypeTag ht) el bounds zoom nodeId
   pure (map (map (toHandle ht nodeId)) result)
   where
   handleTypeTag = case _ of
@@ -196,11 +199,11 @@ getHandleBounds ht el bounds zoom nodeId = do
     Target -> "target"
 
   toHandle handleType nid raw =
-    { id: raw.id
+    { id: toMaybe raw.id
     , nodeId: nid
     , x: raw.x
     , y: raw.y
-    , position: parsePosition (fromMaybe "" raw.handlePos)
+    , position: parsePosition (fromMaybe "" (toMaybe raw.handlePos))
     , handleType
     , width: raw.width
     , height: raw.height

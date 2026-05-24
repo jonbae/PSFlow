@@ -32,16 +32,13 @@ import Data.Array (filter, snoc) as Array
 import Data.Maybe (Maybe(..), maybe)
 import Data.Newtype (class Newtype)
 import Effect (Effect)
-import Effect.Ref as Ref
-import React.Basic (Ref)
-import React.Basic.Hooks (Hook, UnsafeReference(..), UseEffect, UseRef, coerceHook, useEffect, useRef)
+import React.Basic.Hooks (Hook, UnsafeReference(..), UseEffect, UseRef, coerceHook, readRef, useEffect, useRef, writeRef)
 import React.Basic.Hooks as React
 import React.Hook.ReactFlow (UseReactFlow, useReactFlow)
 import React.Hook.Store (UseStoreApi, useStoreApi)
 import React.Store.Action (Action(..))
 import React.Types.General (OnSelectionChangeFunc, OnViewportChange)
 import React.Types.Instance (ReactFlowInstance)
-import Unsafe.Coerce (unsafeCoerce)
 import Unsafe.Reference (unsafeRefEq)
 
 -- | TS `UseOnViewportChangeOptions`.
@@ -173,16 +170,12 @@ useOnInitHandler mOnInit = coerceHook React.do
   rfInstance <- useReactFlow
   initRef <- useRef false
   useEffect (UnsafeReference rfInstance.viewportInitialized) do
-    initialized <- Ref.read (toEffectRef initRef)
+    initialized <- readRef initRef
     when (not initialized && rfInstance.viewportInitialized) do
       case mOnInit of
         Just onInit -> do
           onInit rfInstance
-          Ref.write true (toEffectRef initRef)
+          writeRef initRef true
         Nothing -> pure unit
     pure (pure unit)
 
--- | `react-basic`'s `Ref` and `effect-ref`'s `Ref` are the same JS cell.
--- | Convention used elsewhere in `React.Hook.*`.
-toEffectRef :: forall a. Ref a -> Ref.Ref a
-toEffectRef = unsafeCoerce

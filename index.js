@@ -14,6 +14,7 @@ import * as PS from "./output/React/index.js";
 
 // ─── Components ──────────────────────────────────────────────────────────
 export const ReactFlow = PS.reactFlow;
+export const ReactFlowWithRef = PS.reactFlowWithRef;
 export const Handle = PS.handle;
 export const EdgeText = PS.edgeText;
 export const StraightEdge = PS.straightEdge;

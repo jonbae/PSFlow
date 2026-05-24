@@ -26,16 +26,13 @@ import Prelude
 import Data.Map (delete, insert) as Map
 import Data.Maybe (Maybe(..))
 import Data.Newtype (class Newtype)
-import Effect.Ref as Ref
-import React.Basic (Ref)
-import React.Basic.Hooks (Hook, UnsafeReference(..), UseEffect, UseRef, coerceHook, useEffect, useRef)
+import React.Basic.Hooks (Hook, UnsafeReference(..), UseEffect, UseRef, coerceHook, readRef, useEffect, useRef, writeRef)
 import React.Basic.Hooks as React
 import React.Hook.Store (UseStoreApi, useStoreApi)
 import React.Store.Action (Action(..))
 import React.Types.Store (MiddlewareKey)
 import System.Types.Edge (EdgeChange)
 import System.Types.Node (NodeChange)
-import Unsafe.Coerce (unsafeCoerce)
 
 newtype UseMiddlewareHook fn hooks =
   UseMiddlewareHook
@@ -63,7 +60,7 @@ useOnNodesChangeMiddleware fn = coerceHook React.do
   keyRef <- useRef (Nothing :: Maybe MiddlewareKey)
   useEffect (UnsafeReference fn) do
     key <- store.freshMiddlewareKey
-    Ref.write (Just key) (toEffectRef keyRef)
+    writeRef keyRef (Just key)
     store.dispatch
       ( PatchState \s -> s
           { onNodesChangeMiddlewareMap =
@@ -71,7 +68,7 @@ useOnNodesChangeMiddleware fn = coerceHook React.do
           }
       )
     pure do
-      mKey <- Ref.read (toEffectRef keyRef)
+      mKey <- readRef keyRef
       case mKey of
         Just k ->
           store.dispatch
@@ -81,7 +78,7 @@ useOnNodesChangeMiddleware fn = coerceHook React.do
                 }
             )
         Nothing -> pure unit
-      Ref.write Nothing (toEffectRef keyRef)
+      writeRef keyRef Nothing
 
 -- | Edge-change counterpart. See `useOnNodesChangeMiddleware`.
 useOnEdgesChangeMiddleware
@@ -95,7 +92,7 @@ useOnEdgesChangeMiddleware fn = coerceHook React.do
   keyRef <- useRef (Nothing :: Maybe MiddlewareKey)
   useEffect (UnsafeReference fn) do
     key <- store.freshMiddlewareKey
-    Ref.write (Just key) (toEffectRef keyRef)
+    writeRef keyRef (Just key)
     store.dispatch
       ( PatchState \s -> s
           { onEdgesChangeMiddlewareMap =
@@ -103,7 +100,7 @@ useOnEdgesChangeMiddleware fn = coerceHook React.do
           }
       )
     pure do
-      mKey <- Ref.read (toEffectRef keyRef)
+      mKey <- readRef keyRef
       case mKey of
         Just k ->
           store.dispatch
@@ -113,9 +110,5 @@ useOnEdgesChangeMiddleware fn = coerceHook React.do
                 }
             )
         Nothing -> pure unit
-      Ref.write Nothing (toEffectRef keyRef)
+      writeRef keyRef Nothing
 
--- | `react-basic`'s `Ref` and `effect-ref`'s `Ref` are the same JS
--- | cell; cast at the seam (same pattern as `React.Hook.Drag`).
-toEffectRef :: forall a. Ref a -> Ref.Ref a
-toEffectRef = unsafeCoerce

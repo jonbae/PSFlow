@@ -21,7 +21,7 @@ import System.Utils.Connections (ConnectionStatus(..), areConnectionMapsEqual, g
 import System.Utils.Edges.General (addEdge, getEdgeId)
 import System.Utils.Edges.Straight (getStraightPath)
 import System.Utils.General as G
-import System.Utils.Graph (calculateNodePosition, getIncomers, getNodesBounds, getOutgoers)
+import System.Utils.Graph (calculateNodePosition, getIncomers, getNodesBounds, getOutgoers, isEdgeBase, isNodeBase)
 import System.Utils.Marker (getMarkerId)
 import System.Utils.ShallowNodeData (NodeSummary, shallowNodeData, shallowNodeDataSingle)
 import System.Utils.Store (isManualZIndexMode)
@@ -497,6 +497,17 @@ main = do
     (bounds.x == 0.0 && bounds.y == 0.0
       && bounds.width == 150.0
       && bounds.height == 125.0)
+
+  -- 052 #2: isNodeBase / isEdgeBase shape guards (live in System.Utils.Graph,
+  -- re-exported as isNode / isEdge from React.Util.General).
+  assert "isNodeBase on a NodeBase fixture" (isNodeBase nA)
+  assert "isNodeBase rejects an EdgeBase" (not (isNodeBase eAB))
+  assert "isEdgeBase on an EdgeBase fixture" (isEdgeBase eAB)
+  assert "isEdgeBase rejects a NodeBase" (not (isEdgeBase nA))
+  assert "isNodeBase rejects a record with no position field"
+    (not (isNodeBase { id: "n1" }))
+  assert "isEdgeBase rejects a record missing target"
+    (not (isEdgeBase { id: "e1", source: "a" }))
 
   -- 009: calculateNodePosition returns Nothing for an unknown id.
   assert "calculateNodePosition unknown id is Nothing"

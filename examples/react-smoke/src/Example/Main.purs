@@ -213,6 +213,7 @@ reactFlowProps =
   , onMove: Nothing
   , onMoveStart: Nothing
   , onMoveEnd: Nothing
+  , onScroll: Nothing
   , onPaneScroll: Nothing
   , onPaneClick: Nothing
   , onPaneContextMenu: Nothing

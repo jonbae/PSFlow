@@ -33,16 +33,13 @@ import Data.Maybe (Maybe(..))
 import Data.Newtype (class Newtype)
 import Effect (Effect)
 import Effect.Exception.Unsafe (unsafeThrow)
-import Effect.Ref as Ref
-import React.Basic (Ref)
-import React.Basic.Hooks (Hook, UnsafeReference(..), UseContext, UseEffect, UseRef, coerceHook, useEffect, useRef)
+import React.Basic.Hooks (Hook, UnsafeReference(..), UseContext, UseEffect, UseRef, coerceHook, readRef, useEffect, useRef, writeRef)
 import React.Basic.Hooks as React
 import React.Context.NodeId (useNodeId)
 import React.Hook.Store (UseStore, useStore)
 import System.Constants (ErrorCode(..), errorMessage)
 import System.Types.Connection (NodeConnection)
 import System.Types.Handle (HandleType(..))
-import Unsafe.Coerce (unsafeCoerce)
 
 -- | Inputs. The optional `nodeId` (TS `id`) is renamed to clarify which
 -- | id this refers to.
@@ -98,7 +95,7 @@ useNodeConnections params = coerceHook React.do
   prevRef <- useRef ([] :: Array NodeConnection)
 
   useEffect (UnsafeReference connections) do
-    prev <- Ref.read (toEffectRef prevRef)
+    prev <- readRef prevRef
     let
       droppedConns = Array.filter (notIn connections) prev
       addedConns = Array.filter (notIn prev) connections
@@ -106,7 +103,7 @@ useNodeConnections params = coerceHook React.do
       for_ params.onDisconnect \cb -> cb droppedConns
     when (not (Array.null addedConns)) do
       for_ params.onConnect \cb -> cb addedConns
-    Ref.write connections (toEffectRef prevRef)
+    writeRef prevRef connections
     pure (pure unit)
 
   pure connections
@@ -114,5 +111,3 @@ useNodeConnections params = coerceHook React.do
 notIn :: Array NodeConnection -> NodeConnection -> Boolean
 notIn xs x = not (Array.any (eq x) xs)
 
-toEffectRef :: forall a. Ref a -> Ref.Ref a
-toEffectRef = unsafeCoerce
