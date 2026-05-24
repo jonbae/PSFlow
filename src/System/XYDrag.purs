@@ -29,6 +29,7 @@ module System.XYDrag
 import Prelude
 
 import Control.Monad.Except (runExcept)
+import Control.Monad.State (StateT, get, modify_, runStateT)
 import Data.Either (Either(..))
 import Data.Foldable (foldM, for_, traverse_)
 import Data.Map (Map)
@@ -175,48 +176,48 @@ type XYDragInstance =
   , destroy :: Effect Unit
   }
 
--- | Mutable closure state. Each field is a `Ref` so that nested handlers
--- | (start, drag, end, autoPan) share the same cell — exactly the TS pattern.
+-- | Plain-record closure state. Lifecycle handlers run as
+-- | `StateT DragState Effect` and a single outer `Ref DragState`
+-- | carries the snapshot across the d3-callback boundary via `runOnRef`.
+-- | Mirrors the shape `System.XYHandle` uses for its drag lifecycle.
 type DragState =
-  { lastPos :: Ref { x :: Maybe Number, y :: Maybe Number }
-  , autoPanId :: Ref (Maybe RafHandle)
-  , dragItems :: Ref (Map String NodeDragItem)
-  , autoPanStarted :: Ref Boolean
-  , mousePosition :: Ref XYPosition
-  , containerBounds :: Ref (Maybe DOMRect)
-  , dragStarted :: Ref Boolean
-  , d3Selection :: Ref (Maybe D3Selection)
-  , abortDrag :: Ref Boolean
-  , nodePositionsChanged :: Ref Boolean
-  , dragEvent :: Ref (Maybe MouseEvent)
+  { lastPos :: { x :: Maybe Number, y :: Maybe Number }
+  , autoPanId :: Maybe RafHandle
+  , dragItems :: Map String NodeDragItem
+  , autoPanStarted :: Boolean
+  , mousePosition :: XYPosition
+  , containerBounds :: Maybe DOMRect
+  , dragStarted :: Boolean
+  , d3Selection :: Maybe D3Selection
+  , abortDrag :: Boolean
+  , nodePositionsChanged :: Boolean
+  , dragEvent :: Maybe MouseEvent
   }
 
-defaultDragState :: Effect DragState
-defaultDragState = do
-  lastPos <- Ref.new { x: Nothing, y: Nothing }
-  autoPanId <- Ref.new Nothing
-  dragItems <- Ref.new (Map.empty :: Map String NodeDragItem)
-  autoPanStarted <- Ref.new false
-  mousePosition <- Ref.new { x: 0.0, y: 0.0 }
-  containerBounds <- Ref.new Nothing
-  dragStarted <- Ref.new false
-  d3Selection <- Ref.new Nothing
-  abortDrag <- Ref.new false
-  nodePositionsChanged <- Ref.new false
-  dragEvent <- Ref.new Nothing
-  pure
-    { lastPos
-    , autoPanId
-    , dragItems
-    , autoPanStarted
-    , mousePosition
-    , containerBounds
-    , dragStarted
-    , d3Selection
-    , abortDrag
-    , nodePositionsChanged
-    , dragEvent
-    }
+initialDragState :: DragState
+initialDragState =
+  { lastPos: { x: Nothing, y: Nothing }
+  , autoPanId: Nothing
+  , dragItems: Map.empty
+  , autoPanStarted: false
+  , mousePosition: { x: 0.0, y: 0.0 }
+  , containerBounds: Nothing
+  , dragStarted: false
+  , d3Selection: Nothing
+  , abortDrag: false
+  , nodePositionsChanged: false
+  , dragEvent: Nothing
+  }
+
+-- | Run a `StateT DragState Effect a` against an outer `Ref` and write
+-- | the new state back. Forms the bridge from the d3-event `Effect`
+-- | boundary (and rAF / aff callbacks) to the pure-state interior.
+runOnRef :: forall a. Ref DragState -> StateT DragState Effect a -> Effect a
+runOnRef ref st = do
+  s0 <- Ref.read ref
+  Tuple a s1 <- runStateT st s0
+  Ref.write s1 ref
+  pure a
 
 -- | The d3 source event arrives as `Foreign`. We attempt a tag-check via
 -- | `Foreign.unsafeReadTagged` and only fall back to `unsafeCoerce` (the
@@ -250,31 +251,32 @@ foreign import mouseEventTarget :: MouseEvent -> Effect Element
 -- The pure equivalent lives in `System.Utils.General.roundHalfAwayFromZero`
 -- and is imported above.
 
--- | Construct the controller. Allocates `Ref` cells for closure state and
+-- | Construct the controller. Allocates a single `Ref DragState` and
 -- | returns the `update`/`destroy` interface. Subsequent `update` calls
--- | re-bind the d3 drag behavior on a (possibly new) DOM node.
+-- | re-bind the d3 drag behavior on a (possibly new) DOM node. Each d3
+-- | callback enters the StateT interior via `runOnRef stateRef`.
 createXYDrag
   :: forall nodeData edgeData
    . XYDragParams nodeData edgeData
   -> Effect XYDragInstance
 createXYDrag params = do
-  state <- defaultDragState
+  stateRef <- Ref.new initialDragState
 
   let
     destroy :: Effect Unit
     destroy = do
-      mSel <- Ref.read state.d3Selection
-      for_ mSel \sel -> d3SelectionOnNull sel ".drag"
+      s <- Ref.read stateRef
+      for_ s.d3Selection \sel -> d3SelectionOnNull sel ".drag"
 
     update :: DragUpdateParams -> Effect Unit
     update upd = do
       sel <- d3Select upd.domNode
-      Ref.write (Just sel) state.d3Selection
+      Ref.modify_ (_ { d3Selection = Just sel }) stateRef
       behavior <- dragBehavior
       _ <- setDragClickDistance upd.nodeClickDistance behavior
-      _ <- setDragOn "start" (onStart params state upd) behavior
-      _ <- setDragOn "drag" (onDragHandler params state upd) behavior
-      _ <- setDragOn "end" (onEnd params state upd) behavior
+      _ <- setDragOn "start" (\ev -> runOnRef stateRef (onStart params upd ev)) behavior
+      _ <- setDragOn "drag" (\ev -> runOnRef stateRef (onDragHandler params stateRef upd ev)) behavior
+      _ <- setDragOn "end" (\ev -> runOnRef stateRef (onEnd params upd ev)) behavior
       _ <- setDragFilter (filterPredicate upd) behavior
       applyDrag sel behavior
 
@@ -287,119 +289,116 @@ createXYDrag params = do
 onStart
   :: forall n e
    . XYDragParams n e
-  -> DragState
   -> DragUpdateParams
   -> D3DragEvent
-  -> Effect Unit
-onStart params state upd ev = do
-  store <- params.getStoreItems
-  src <- dragSourceEvent ev
-  bounds <- case store.domNode of
+  -> StateT DragState Effect Unit
+onStart params upd ev = do
+  store <- liftEffect params.getStoreItems
+  src <- liftEffect (dragSourceEvent ev)
+  bounds <- liftEffect $ case store.domNode of
     Just el -> Just <$> elementBoundingRect el
     Nothing -> pure Nothing
-  Ref.write bounds state.containerBounds
-  Ref.write false state.abortDrag
-  Ref.write false state.nodePositionsChanged
-  Ref.write (Just (foreignAsMouseEvent src)) state.dragEvent
-  when (store.nodeDragThreshold == 0.0) (startDrag params state upd ev)
-  pp <- getPointerPosition (foreignAsTouchOrMouse src)
+  modify_ _
+    { containerBounds = bounds
+    , abortDrag = false
+    , nodePositionsChanged = false
+    , dragEvent = Just (foreignAsMouseEvent src)
+    }
+  when (store.nodeDragThreshold == 0.0) (startDrag params upd ev)
+  pp <- liftEffect $ getPointerPosition (foreignAsTouchOrMouse src)
     { transform: store.transform
     , snapGrid: store.snapGrid
     , snapToGrid: store.snapToGrid
     , containerBounds: bounds
     }
-  Ref.write { x: Just pp.x, y: Just pp.y } state.lastPos
-  mp <- getEventPosition (foreignAsTouchOrMouse src) bounds
-  Ref.write mp state.mousePosition
+  mp <- liftEffect $ getEventPosition (foreignAsTouchOrMouse src) bounds
+  modify_ _
+    { lastPos = { x: Just pp.x, y: Just pp.y }
+    , mousePosition = mp
+    }
 
 onDragHandler
   :: forall n e
    . XYDragParams n e
-  -> DragState
+  -> Ref DragState
   -> DragUpdateParams
   -> D3DragEvent
-  -> Effect Unit
-onDragHandler params state upd ev = do
-  store <- params.getStoreItems
-  src <- dragSourceEvent ev
-  bounds <- Ref.read state.containerBounds
-  pp <- getPointerPosition (foreignAsTouchOrMouse src)
+  -> StateT DragState Effect Unit
+onDragHandler params stateRef upd ev = do
+  store <- liftEffect params.getStoreItems
+  src <- liftEffect (dragSourceEvent ev)
+  s0 <- get
+  pp <- liftEffect $ getPointerPosition (foreignAsTouchOrMouse src)
     { transform: store.transform
     , snapGrid: store.snapGrid
     , snapToGrid: store.snapToGrid
-    , containerBounds: bounds
+    , containerBounds: s0.containerBounds
     }
-  Ref.write (Just (foreignAsMouseEvent src)) state.dragEvent
+  modify_ _ { dragEvent = Just (foreignAsMouseEvent src) }
 
-  multi <- isMultiTouchSourceEvent src
+  multi <- liftEffect (isMultiTouchSourceEvent src)
   let
     deletedDuringDrag = case upd.nodeId of
       Just nid -> isNothing (Map.lookup nid store.nodeLookup)
       Nothing -> false
-  when (multi || deletedDuringDrag) (Ref.write true state.abortDrag)
+  when (multi || deletedDuringDrag) (modify_ _ { abortDrag = true })
 
-  aborted <- Ref.read state.abortDrag
-  when (not aborted) do
-    panStarted <- Ref.read state.autoPanStarted
-    started <- Ref.read state.dragStarted
-    when (not panStarted && store.autoPanOnNodeDrag && started) do
-      Ref.write true state.autoPanStarted
-      autoPan params state
+  s1 <- get
+  when (not s1.abortDrag) do
+    when (not s1.autoPanStarted && store.autoPanOnNodeDrag && s1.dragStarted) do
+      modify_ _ { autoPanStarted = true }
+      autoPanStep params stateRef
 
-    when (not started) do
-      curMP <- getEventPosition (foreignAsTouchOrMouse src) bounds
-      origMP <- Ref.read state.mousePosition
+    when (not s1.dragStarted) do
+      curMP <- liftEffect $ getEventPosition (foreignAsTouchOrMouse src) s1.containerBounds
       let
-        dx = curMP.x - origMP.x
-        dy = curMP.y - origMP.y
+        dx = curMP.x - s1.mousePosition.x
+        dy = curMP.y - s1.mousePosition.y
         dist = sqrt (dx * dx + dy * dy)
-      when (dist > store.nodeDragThreshold) (startDrag params state upd ev)
+      when (dist > store.nodeDragThreshold) (startDrag params upd ev)
 
-    lp <- Ref.read state.lastPos
-    items <- Ref.read state.dragItems
-    started2 <- Ref.read state.dragStarted
-    let moved = lp.x /= Just pp.xSnapped || lp.y /= Just pp.ySnapped
-    when (moved && Map.size items > 0 && started2) do
-      mp <- getEventPosition (foreignAsTouchOrMouse src) bounds
-      Ref.write mp state.mousePosition
-      updateNodes params state (Just upd) { x: pp.x, y: pp.y }
+    s2 <- get
+    let moved = s2.lastPos.x /= Just pp.xSnapped || s2.lastPos.y /= Just pp.ySnapped
+    when (moved && Map.size s2.dragItems > 0 && s2.dragStarted) do
+      mp <- liftEffect $ getEventPosition (foreignAsTouchOrMouse src) s2.containerBounds
+      modify_ _ { mousePosition = mp }
+      updateNodes params (Just upd) { x: pp.x, y: pp.y }
 
 onEnd
   :: forall n e
    . XYDragParams n e
-  -> DragState
   -> DragUpdateParams
   -> D3DragEvent
-  -> Effect Unit
-onEnd params state upd ev = do
-  src <- dragSourceEvent ev
-  started <- Ref.read state.dragStarted
-  aborted <- Ref.read state.abortDrag
-  unless (not started || aborted) do
-    Ref.write false state.autoPanStarted
-    Ref.write false state.dragStarted
-    mPan <- Ref.read state.autoPanId
-    for_ mPan cancelAnimationFrame
-    Ref.write Nothing state.autoPanId
-    items <- Ref.read state.dragItems
-    when (Map.size items > 0) do
-      store <- params.getStoreItems
-      changed <- Ref.read state.nodePositionsChanged
-      when changed do
-        store.updateNodePositions items false
-        Ref.write false state.nodePositionsChanged
+  -> StateT DragState Effect Unit
+onEnd params upd ev = do
+  src <- liftEffect (dragSourceEvent ev)
+  s0 <- get
+  unless (not s0.dragStarted || s0.abortDrag) do
+    liftEffect (for_ s0.autoPanId cancelAnimationFrame)
+    modify_ _
+      { autoPanStarted = false
+      , dragStarted = false
+      , autoPanId = Nothing
+      }
+    when (Map.size s0.dragItems > 0) do
+      store <- liftEffect params.getStoreItems
+      when s0.nodePositionsChanged do
+        liftEffect (store.updateNodePositions s0.dragItems false)
+        modify_ _ { nodePositionsChanged = false }
       let
         mouseEv = foreignAsMouseEvent src
-        eventArgs = getEventHandlerParams upd.nodeId items store.nodeLookup
+        eventArgs = getEventHandlerParams upd.nodeId s0.dragItems
+          store.nodeLookup
           false
-      for_ eventArgs.currentNode \cn -> do
-        for_ params.onDragStop \cb ->
-          cb mouseEv items cn eventArgs.allNodes
-        for_ store.onNodeDragStop \cb ->
-          cb mouseEv cn eventArgs.allNodes
-      when (isNothing upd.nodeId) do
-        for_ store.onSelectionDragStop \cb ->
-          cb mouseEv eventArgs.allNodes
+      liftEffect do
+        for_ eventArgs.currentNode \cn -> do
+          for_ params.onDragStop \cb ->
+            cb mouseEv s0.dragItems cn eventArgs.allNodes
+          for_ store.onNodeDragStop \cb ->
+            cb mouseEv cn eventArgs.allNodes
+        when (isNothing upd.nodeId) do
+          for_ store.onSelectionDragStop \cb ->
+            cb mouseEv eventArgs.allNodes
 
 -- | The `.filter` predicate gating drag start. Mirrors TS:
 -- |   `!event.button && (no noDragClassName || !target.matches('.X'))
@@ -432,20 +431,19 @@ filterPredicate upd ev = do
 startDrag
   :: forall n e
    . XYDragParams n e
-  -> DragState
   -> DragUpdateParams
   -> D3DragEvent
-  -> Effect Unit
-startDrag params state upd ev = do
-  store <- params.getStoreItems
-  src <- dragSourceEvent ev
-  Ref.write true state.dragStarted
+  -> StateT DragState Effect Unit
+startDrag params upd ev = do
+  store <- liftEffect params.getStoreItems
+  src <- liftEffect (dragSourceEvent ev)
+  modify_ _ { dragStarted = true }
 
   let
     deselectFirst =
       (not store.selectNodesOnDrag || not upd.isSelectable)
         && not store.multiSelectionActive
-  case upd.nodeId of
+  liftEffect $ case upd.nodeId of
     Just nid | deselectFirst -> do
       let alreadySelected = case Map.lookup nid store.nodeLookup of
             Just n -> n.selected
@@ -453,79 +451,90 @@ startDrag params state upd ev = do
       when (not alreadySelected) store.unselectNodesAndEdges
     _ -> pure unit
 
-  case upd.nodeId of
+  liftEffect $ case upd.nodeId of
     Just nid | upd.isSelectable && store.selectNodesOnDrag ->
       for_ params.onNodeMouseDown \cb -> cb nid
     _ -> pure unit
 
-  bounds <- Ref.read state.containerBounds
-  pp <- getPointerPosition (foreignAsTouchOrMouse src)
+  s <- get
+  pp <- liftEffect $ getPointerPosition (foreignAsTouchOrMouse src)
     { transform: store.transform
     , snapGrid: store.snapGrid
     , snapToGrid: store.snapToGrid
-    , containerBounds: bounds
+    , containerBounds: s.containerBounds
     }
-  Ref.write { x: Just pp.x, y: Just pp.y } state.lastPos
 
   let
     items = getDragItems store.nodeLookup store.nodesDraggable
       { x: pp.x, y: pp.y } upd.nodeId
-  Ref.write items state.dragItems
+  modify_ _
+    { lastPos = { x: Just pp.x, y: Just pp.y }
+    , dragItems = items
+    }
 
   when (Map.size items > 0) do
     let
       eventArgs = getEventHandlerParams upd.nodeId items store.nodeLookup true
       mouseEv = foreignAsMouseEvent src
-    for_ eventArgs.currentNode \cn -> do
-      for_ params.onDragStart \cb ->
-        cb mouseEv items cn eventArgs.allNodes
-      for_ store.onNodeDragStart \cb ->
-        cb mouseEv cn eventArgs.allNodes
-    when (isNothing upd.nodeId) do
-      for_ store.onSelectionDragStart \cb ->
-        cb mouseEv eventArgs.allNodes
+    liftEffect do
+      for_ eventArgs.currentNode \cn -> do
+        for_ params.onDragStart \cb ->
+          cb mouseEv items cn eventArgs.allNodes
+        for_ store.onNodeDragStart \cb ->
+          cb mouseEv cn eventArgs.allNodes
+      when (isNothing upd.nodeId) do
+        for_ store.onSelectionDragStart \cb ->
+          cb mouseEv eventArgs.allNodes
 
--- | Recursive auto-pan loop. Reads container bounds and mouse position from
--- | `Ref`s, computes pan velocity via `calcAutoPan`, fires the async
--- | `panBy` and re-schedules itself on the next animation frame.
-autoPan
+-- | Recursive auto-pan loop. `autoPanStep` runs inside the StateT and
+-- | re-schedules itself via `autoPanLoop`, which re-enters the StateT
+-- | at each rAF tick. The launched `panBy` aff callback also re-enters
+-- | via `runOnRef` once `panBy` resolves.
+autoPanLoop
   :: forall n e
    . XYDragParams n e
-  -> DragState
+  -> Ref DragState
   -> Effect Unit
-autoPan params state = do
-  bounds <- Ref.read state.containerBounds
-  case bounds of
+autoPanLoop params stateRef = runOnRef stateRef (autoPanStep params stateRef)
+
+autoPanStep
+  :: forall n e
+   . XYDragParams n e
+  -> Ref DragState
+  -> StateT DragState Effect Unit
+autoPanStep params stateRef = do
+  s <- get
+  case s.containerBounds of
     Nothing -> pure unit
     Just b -> do
-      store <- params.getStoreItems
+      store <- liftEffect params.getStoreItems
       if not store.autoPanOnNodeDrag then do
-        Ref.write false state.autoPanStarted
-        mId <- Ref.read state.autoPanId
-        for_ mId cancelAnimationFrame
-        Ref.write Nothing state.autoPanId
+        liftEffect (for_ s.autoPanId cancelAnimationFrame)
+        modify_ _ { autoPanStarted = false, autoPanId = Nothing }
       else do
-        mp <- Ref.read state.mousePosition
         let
           speed = fromMaybe 15.0 store.autoPanSpeed
-          mv = calcAutoPan mp { width: b.width, height: b.height } speed 40.0
+          mv = calcAutoPan s.mousePosition
+            { width: b.width, height: b.height }
+            speed
+            40.0
           Transform t = store.transform
         when (mv.x /= 0.0 || mv.y /= 0.0) do
-          lp <- Ref.read state.lastPos
           let
             newLp =
-              { x: Just ((fromMaybe 0.0 lp.x) - mv.x / t.scale)
-              , y: Just ((fromMaybe 0.0 lp.y) - mv.y / t.scale)
+              { x: Just ((fromMaybe 0.0 s.lastPos.x) - mv.x / t.scale)
+              , y: Just ((fromMaybe 0.0 s.lastPos.y) - mv.y / t.scale)
               }
-          Ref.write newLp state.lastPos
-          launchAff_ do
+          modify_ _ { lastPos = newLp }
+          liftEffect $ launchAff_ do
             ok <- store.panBy { x: mv.x, y: mv.y }
-            liftEffect $ when ok do
-              lpCurrent <- Ref.read state.lastPos
-              for_ (xyOf lpCurrent) \xy ->
-                updateNodes params state Nothing xy
-        handle <- requestAnimationFrame (autoPan params state)
-        Ref.write (Just handle) state.autoPanId
+            liftEffect $ when ok $ runOnRef stateRef do
+              s2 <- get
+              case xyOf s2.lastPos of
+                Just xy -> updateNodes params Nothing xy
+                Nothing -> pure unit
+        handle <- liftEffect $ requestAnimationFrame (autoPanLoop params stateRef)
+        modify_ _ { autoPanId = Just handle }
   where
   xyOf r = case r.x, r.y of
     Just x, Just y -> Just { x, y }
@@ -534,16 +543,16 @@ autoPan params state = do
 updateNodes
   :: forall n e
    . XYDragParams n e
-  -> DragState
   -> Maybe DragUpdateParams
   -> XYPosition
-  -> Effect Unit
-updateNodes params state mUpd pos = do
-  store <- params.getStoreItems
-  Ref.write { x: Just pos.x, y: Just pos.y } state.lastPos
+  -> StateT DragState Effect Unit
+updateNodes params mUpd pos = do
+  store <- liftEffect params.getStoreItems
+  modify_ _ { lastPos = { x: Just pos.x, y: Just pos.y } }
 
-  items <- Ref.read state.dragItems
+  s <- get
   let
+    items = s.dragItems
     isMultiDrag = Map.size items > 1
     multiSnap =
       if isMultiDrag && store.snapToGrid then
@@ -555,6 +564,7 @@ updateNodes params state mUpd pos = do
 
     -- One iteration: compute next position via `calculateNodePosition` and
     -- thread a Boolean accumulator that records whether anything moved.
+    step :: Boolean -> Tuple String NodeDragItem -> StateT DragState Effect Boolean
     step acc (Tuple id dragItem) = case Map.lookup id store.nodeLookup of
       Nothing -> pure acc
       Just _ -> do
@@ -593,10 +603,10 @@ updateNodes params state mUpd pos = do
   hasChange <- foldM step false entries
 
   when hasChange do
-    Ref.write true state.nodePositionsChanged
-    store.updateNodePositions items true
-    mEv <- Ref.read state.dragEvent
-    traverse_
+    modify_ _ { nodePositionsChanged = true }
+    liftEffect (store.updateNodePositions items true)
+    s2 <- get
+    liftEffect $ traverse_
       ( \ev -> do
           let
             nodeId = case mUpd of
@@ -609,4 +619,4 @@ updateNodes params state mUpd pos = do
           when (isNothing nodeId) do
             for_ store.onSelectionDrag \cb -> cb ev eventArgs.allNodes
       )
-      mEv
+      s2.dragEvent
