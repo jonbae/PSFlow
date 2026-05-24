@@ -24,7 +24,7 @@ import Effect (Effect)
 import Web.DOM.Element (Element)
 import System.Types.Connection (ConnectionMode(..))
 import System.Types.Geometry (NodeOrigin, XYPosition, mkNodeOrigin)
-import System.Types.Handle (Handle, HandleType(..))
+import System.Types.Handle (Handle, HandleType(..), unSourceHandle, unTargetHandle)
 import System.Types.Node (InternalNodeBase, NodeLookup)
 import System.Utils.Edges.Positions (getHandlePosition)
 import System.Utils.General (getOverlappingArea, nodeToRect)
@@ -103,11 +103,14 @@ getClosestHandle position connectionRadius lookup fromHandle =
       where
       handlesOf node =
         let
+          -- The closest-handle search is intentionally side-agnostic
+          -- (it then prefers the *opposite* side at tie-break time), so
+          -- the typed source/target arrays are unwrapped and merged.
           src = case node.internals.handleBounds of
-            Just hb -> hb.source
+            Just hb -> map unSourceHandle hb.source
             Nothing -> []
           tgt = case node.internals.handleBounds of
-            Just hb -> hb.target
+            Just hb -> map unTargetHandle hb.target
             Nothing -> []
         in
           map (Tuple node) (src <> tgt)
@@ -184,11 +187,12 @@ getHandle nodeId handleType handleId lookup mode withAbsolutePosition =
         handles = case mode of
           Strict -> case node.internals.handleBounds of
             Just hb -> case handleType of
-              Source -> hb.source
-              Target -> hb.target
+              Source -> map unSourceHandle hb.source
+              Target -> map unTargetHandle hb.target
             Nothing -> []
           Loose -> case node.internals.handleBounds of
-            Just hb -> hb.source <> hb.target
+            Just hb -> map unSourceHandle hb.source
+              <> map unTargetHandle hb.target
             Nothing -> []
 
         match :: Maybe Handle

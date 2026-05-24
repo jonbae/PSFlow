@@ -37,7 +37,7 @@ import System.Types.Geometry
   , Rect
   , XYPosition
   )
-import System.Types.Handle (Handle, HandleType)
+import System.Types.Handle (HandleType, SourceHandle, TargetHandle)
 
 -- | The shared row of `NodeBase` fields. `InternalNodeBase` extends this
 -- | with `internals`, so `toBaseLike`-style copies and the previously-
@@ -99,9 +99,16 @@ type InternalNodeBase nodeData =
 -- | distinction; the inner arrays use the empty case for "parsed, no
 -- | handles of this side". Three nesting levels of optionality collapsed
 -- | to one.
+-- |
+-- | The inner arrays are typed with the phantom newtypes `SourceHandle` /
+-- | `TargetHandle` so that consumers can't accidentally pass the target
+-- | array where a source array is expected. Smart constructors
+-- | `mkSourceHandle` / `mkTargetHandle` validate at the construction
+-- | boundary (`parseHandles`, `toHandleBounds`, the DOM-driven
+-- | `processUpdate`).
 type NodeHandleBounds =
-  { source :: Array Handle
-  , target :: Array Handle
+  { source :: Array SourceHandle
+  , target :: Array TargetHandle
   }
 
 type NodeBounds =

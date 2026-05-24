@@ -14,12 +14,18 @@ module System.Utils.Edges.Positions
 
 import Prelude
 
-import Data.Array (concat, filter, find, length, (!!)) as Array
+import Data.Array (concat, find, length, mapMaybe, (!!)) as Array
 import Data.Maybe (Maybe(..), fromMaybe, isJust)
 import System.Types.Connection (ConnectionMode(..))
 import System.Types.Edge (EdgePosition)
 import System.Types.Geometry (Position(..), XYPosition)
-import System.Types.Handle (Handle, HandleType(..))
+import System.Types.Handle
+  ( Handle
+  , mkSourceHandle
+  , mkTargetHandle
+  , unSourceHandle
+  , unTargetHandle
+  )
 import System.Types.Node (InternalNodeBase, NodeHandle, NodeHandleBounds, OnError)
 import System.Utils.General (getNodeDimensions)
 
@@ -50,12 +56,13 @@ toHandleBounds :: forall n. InternalNodeBase n -> Maybe NodeHandleBounds
 toHandleBounds node = case node.handles of
   Nothing -> Nothing
   Just handles ->
-    Just
-      { source: map (\h -> nodeHandleToHandle h node.id)
-          (Array.filter (\h -> h.handleType == Source) handles)
-      , target: map (\h -> nodeHandleToHandle h node.id)
-          (Array.filter (\h -> h.handleType == Target) handles)
-      }
+    let
+      asHandles = map (\h -> nodeHandleToHandle h node.id) handles
+    in
+      Just
+        { source: Array.mapMaybe mkSourceHandle asHandles
+        , target: Array.mapMaybe mkTargetHandle asHandles
+        }
 
 nodeHandleToHandle :: NodeHandle -> String -> Handle
 nodeHandleToHandle h nodeId =
@@ -90,16 +97,19 @@ getEdgePosition params =
         Just b -> Just b
         Nothing -> toHandleBounds params.targetNode
       sourceHandles = case sourceBounds of
-        Just b -> b.source
+        Just b -> map unSourceHandle b.source
         Nothing -> []
       targetHandlePool = case params.connectionMode of
         Strict ->
           case targetBounds of
-            Just b -> b.target
+            Just b -> map unTargetHandle b.target
             Nothing -> []
         Loose ->
+          -- In Loose mode the target endpoint may also be a source
+          -- handle, so both arrays are unwrapped and merged.
           case targetBounds of
-            Just b -> Array.concat [ b.target, b.source ]
+            Just b -> Array.concat
+              [ map unTargetHandle b.target, map unSourceHandle b.source ]
             Nothing -> []
     sh <- getHandle sourceHandles params.sourceHandle
     th <- getHandle targetHandlePool params.targetHandle

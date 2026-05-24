@@ -14,7 +14,7 @@ import System.Constants (ErrorCode(..), defaultAriaLabelConfig, elementSelection
 import System.Types.Connection (ConnectionMode(..), ConnectionState(..), Padding(..), PaddingValue(..), Viewport, ZIndexMode(..), noConnection)
 import System.Types.Edge (AlignX(..), AlignY(..), ConnectionLineType(..), EdgeBase, EdgeChange(..), EdgeMarkerType(..), MarkerType(..))
 import System.Types.Geometry (CoordinateExtent(..), NodeOrigin(..), Position(..), SnapGrid(..), Transform(..), mkCoordinateExtent, mkNodeOrigin, mkSnapGrid, mkTransform, oppositePosition, XYPosition)
-import System.Types.Handle (HandleProps, HandleType(..), defaultHandleProps)
+import System.Types.Handle (HandleProps, HandleType(..), SourceHandle(..), TargetHandle(..), defaultHandleProps)
 import System.Types.Node (Align(..), InternalNodeBase, NodeBase, NodeChange(..), NodeDragItem, NodeExtent(..), NodeLookup)
 import System.Types.PanZoom (InterpolateMode(..), PanOnDrag(..)) as PZ
 import System.Utils.Connections (ConnectionStatus(..), areConnectionMapsEqual, getConnectionStatus, handleConnectionChange)
@@ -770,7 +770,9 @@ main = do
     nodeWithHandles' = nodeWithHandles
       { internals = nodeWithHandles.internals
           { handleBounds = Just
-              { source: [ handleS ], target: [ handleT ] }
+              { source: [ SourceHandle handleS ]
+              , target: [ TargetHandle handleT ]
+              }
           }
       }
     lookupHandles =

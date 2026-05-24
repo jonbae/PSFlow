@@ -30,7 +30,7 @@ import Data.Foldable (foldM, foldl) as Foldable
 import Data.Int (toNumber) as Int
 import Data.Map (Map)
 import Data.Map (empty, insert, lookup, toUnfoldable, values) as Map
-import Data.Maybe (Maybe(..), fromMaybe, isJust)
+import Data.Maybe (Maybe(..), fromMaybe, isJust, isNothing)
 import Data.Number (abs, round) as Number
 import Data.Tuple (Tuple(..))
 import Effect (Effect)
@@ -51,7 +51,7 @@ import System.Types.Geometry
   , XYPosition
   , mkNodeOrigin
   )
-import System.Types.Handle (Handle, HandleType(..))
+import System.Types.Handle (Handle, HandleType(..), SourceHandle(..), TargetHandle(..), mkSourceHandle, mkTargetHandle)
 import System.Types.Node
   ( InternalNodeBase
   , InternalNodeUpdate
@@ -487,9 +487,11 @@ parseHandles userNode internalNode = case userNode.handles of
             , handleType: h.handleType
             }
         in
+          -- The branch establishes `h.handleType`, so the data constructor
+          -- is sound here without going through `mkSourceHandle`/`mkTargetHandle`.
           case h.handleType of
-            Source -> acc { source = Array.snoc acc.source bounds }
-            Target -> acc { target = Array.snoc acc.target bounds }
+            Source -> acc { source = Array.snoc acc.source (SourceHandle bounds) }
+            Target -> acc { target = Array.snoc acc.target (TargetHandle bounds) }
     in
       Just (Foldable.foldl go empty handles)
 
@@ -744,7 +746,7 @@ processUpdate update acc zoom origin extent zMode =
             dims.width > 0.0 && dims.height > 0.0
               &&
                 ( dimensionChanged
-                    || node.internals.handleBounds == Nothing
+                    || isNothing node.internals.handleBounds
                     || update.force
                 )
         if not shouldUpdate then pure acc
@@ -773,13 +775,19 @@ processUpdate update acc zoom origin extent zMode =
             zoom
             node.id
           let
+            -- `getHandleBounds Source/Target` queries the DOM for handles
+            -- of the requested side; the smart constructors enforce the
+            -- invariant at the type-system boundary in case the DOM
+            -- yields a handle of the other type.
             newNode = node
               { measured = { width: Just dims.width, height: Just dims.height }
               , internals = node.internals
                   { positionAbsolute = positionAbsoluteAdjusted
                   , handleBounds = Just
-                      { source: fromMaybe [] sourceHandles
-                      , target: fromMaybe [] targetHandles
+                      { source: Array.mapMaybe mkSourceHandle
+                          (fromMaybe [] sourceHandles)
+                      , target: Array.mapMaybe mkTargetHandle
+                          (fromMaybe [] targetHandles)
                       }
                   }
               }

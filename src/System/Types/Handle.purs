@@ -63,9 +63,15 @@ type Handle =
 -- | runtime branch.
 newtype SourceHandle = SourceHandle Handle
 
+derive newtype instance eqSourceHandle :: Eq SourceHandle
+derive newtype instance showSourceHandle :: Show SourceHandle
+
 -- | A `Handle` whose value-level `handleType` has been verified to be
 -- | `Target`.
 newtype TargetHandle = TargetHandle Handle
+
+derive newtype instance eqTargetHandle :: Eq TargetHandle
+derive newtype instance showTargetHandle :: Show TargetHandle
 
 mkSourceHandle :: Handle -> Maybe SourceHandle
 mkSourceHandle h = case h.handleType of
