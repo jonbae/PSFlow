@@ -38,6 +38,7 @@ import System.Types.Geometry
   , XYPosition
   )
 import System.Types.Handle (HandleType, SourceHandle, TargetHandle)
+import System.Types.Ids (NodeId, ParentId)
 
 -- | The shared row of `NodeBase` fields. `InternalNodeBase` extends this
 -- | with `internals`, so `toBaseLike`-style copies and the previously-
@@ -47,7 +48,7 @@ import System.Types.Handle (HandleType, SourceHandle, TargetHandle)
 -- | keyword. The type tag is a runtime string (`Maybe String`) rather than
 -- | a phantom type since node types are user-defined runtime values.
 type NodeBaseRow nodeData =
-  ( id :: String
+  ( id :: NodeId
   , position :: XYPosition
   , data :: nodeData
   , sourcePosition :: Maybe Position
@@ -64,7 +65,7 @@ type NodeBaseRow nodeData =
   , height :: Maybe Number
   , initialWidth :: Maybe Number
   , initialHeight :: Maybe Number
-  , parentId :: Maybe String
+  , parentId :: Maybe ParentId
   , zIndex :: Maybe Int
   , extent :: Maybe NodeExtent
   , expandParent :: Boolean
@@ -119,27 +120,27 @@ type NodeBounds =
   }
 
 type NodeDragItem =
-  { id :: String
+  { id :: NodeId
   , position :: XYPosition
   , distance :: XYPosition
   , measured :: { width :: Number, height :: Number }
   , internals :: { positionAbsolute :: XYPosition }
   , extent :: Maybe NodeExtent
-  , parentId :: Maybe String
+  , parentId :: Maybe ParentId
   , origin :: Maybe NodeOrigin
   , expandParent :: Boolean
   , dragging :: Boolean
   }
 
 type NodeProps nodeData =
-  { id :: String
+  { id :: NodeId
   , data :: nodeData
   , width :: Maybe Number
   , height :: Maybe Number
   , sourcePosition :: Maybe Position
   , targetPosition :: Maybe Position
   , dragHandle :: Maybe String
-  , parentId :: Maybe String
+  , parentId :: Maybe ParentId
   , nodeType :: String
   , dragging :: Boolean
   , zIndex :: Int
@@ -195,9 +196,10 @@ instance boundedEnumAlign :: BoundedEnum Align where
   toEnum = genericToEnum
   fromEnum = genericFromEnum
 
-type NodeLookup nodeData = Map String (InternalNodeBase nodeData)
+type NodeLookup nodeData = Map NodeId (InternalNodeBase nodeData)
 
-type ParentLookup nodeData = Map String (Map String (InternalNodeBase nodeData))
+type ParentLookup nodeData =
+  Map ParentId (Map NodeId (InternalNodeBase nodeData))
 
 -- | The TS `boolean | 'width' | 'height'` 4-value type collapses to a
 -- | `Maybe { width, height }` — `Nothing` means "no set", a `Just` carries
@@ -209,36 +211,36 @@ type SetAttributesMode = Maybe { width :: Boolean, height :: Boolean }
 -- | the constructor is the tag.
 data NodeChange nodeData
   = NodeDimensionChange
-      { id :: String
+      { id :: NodeId
       , dimensions :: Maybe Dimensions
       , resizing :: Boolean
       , setAttributes :: SetAttributesMode
       }
   | NodePositionChange
-      { id :: String
+      { id :: NodeId
       , position :: Maybe XYPosition
       , positionAbsolute :: Maybe XYPosition
       , dragging :: Boolean
       }
   | NodeSelectionChange
-      { id :: String
+      { id :: NodeId
       , selected :: Boolean
       }
   | NodeRemoveChange
-      { id :: String }
+      { id :: NodeId }
   | NodeAddChange
       { item :: NodeBase nodeData
       , index :: Maybe Int
       }
   | NodeReplaceChange
-      { id :: String
+      { id :: NodeId
       , item :: NodeBase nodeData
       }
 
 -- | Used by the store reconciliation pipeline to push a measured DOM element
 -- | back into a node. `force` opts out of the dimension-equality short-circuit.
 type InternalNodeUpdate =
-  { id :: String
+  { id :: NodeId
   , nodeElement :: HTMLDivElement
   , force :: Boolean
   }
@@ -251,7 +253,7 @@ type OnError = String -> String -> Effect Unit
 -- | Records that a child node has expanded its parent. Consumed by
 -- | `handleExpandParent` and produced by `updateNodeInternals`.
 type ParentExpandChild =
-  { id :: String
-  , parentId :: String
+  { id :: NodeId
+  , parentId :: ParentId
   , rect :: Rect
   }

@@ -48,6 +48,7 @@ import System.Types.Connection
   , PaddingValue(..)
   )
 import System.Types.Edge (EdgeBase)
+import System.Types.Ids (NodeId(..), parentToNode)
 import System.Types.Geometry
   ( BoundingBox(..)
   , CoordinateExtent(..)
@@ -105,12 +106,12 @@ isEdgeBase = isEdgeBaseImpl <<< (unsafeCoerce :: a -> Foreign)
 
 getOutgoers
   :: forall n e r
-   . { id :: String | r }
+   . { id :: NodeId | r }
   -> Array (NodeBase n)
   -> Array (EdgeBase e)
   -> Array (NodeBase n)
 getOutgoers node nodes edges
-  | node.id == "" = []
+  | node.id == NodeId "" = []
   | otherwise =
       let
         ids = Set.fromFoldable
@@ -122,12 +123,12 @@ getOutgoers node nodes edges
 
 getIncomers
   :: forall n e r
-   . { id :: String | r }
+   . { id :: NodeId | r }
   -> Array (NodeBase n)
   -> Array (EdgeBase e)
   -> Array (NodeBase n)
 getIncomers node nodes edges
-  | node.id == "" = []
+  | node.id == NodeId "" = []
   | otherwise =
       let
         ids = Set.fromFoldable
@@ -177,7 +178,7 @@ type GetInternalNodesBoundsParams n =
 
 getInternalNodesBounds
   :: forall n
-   . Map String (InternalNodeBase n)
+   . Map NodeId (InternalNodeBase n)
   -> Maybe (InternalNodeBase n -> Boolean)
   -> Rect
 getInternalNodesBounds nodeLookup mFilter =
@@ -262,7 +263,7 @@ getConnectedEdges
   -> Array (EdgeBase e)
 getConnectedEdges nodes edges =
   let
-    ids :: Set String
+    ids :: Set NodeId
     ids = Set.fromFoldable (map _.id nodes)
   in
     Array.filter
@@ -291,7 +292,7 @@ type FitViewOptions =
   , duration :: Maybe Int
   , ease :: Maybe (Number -> Number)
   , interpolate :: Maybe InterpolateMode
-  , nodes :: Maybe (Array { id :: String })
+  , nodes :: Maybe (Array { id :: NodeId })
   }
 
 defaultFitViewOptions :: FitViewOptions
@@ -366,7 +367,7 @@ filterFitViewNodes nodes opts =
 -- Calculate node position --------------------------------------------------
 
 type CalculateNodePositionParams n =
-  { nodeId :: String
+  { nodeId :: NodeId
   , nextPosition :: XYPosition
   , nodeLookup :: NodeLookup n
   , nodeOrigin :: NodeOrigin
@@ -386,7 +387,7 @@ calculateNodePosition p = case Map.lookup p.nodeId p.nodeLookup of
   Just node ->
     let
       parentNode = case node.parentId of
-        Just pid -> Map.lookup pid p.nodeLookup
+        Just pid -> Map.lookup (parentToNode pid) p.nodeLookup
         Nothing -> Nothing
       parentX = case parentNode of
         Just pn -> pn.internals.positionAbsolute.x
@@ -454,7 +455,7 @@ type OnBeforeDelete n e =
        )
 
 type GetElementsToRemoveParams n e =
-  { nodesToRemove :: Array { id :: String }
+  { nodesToRemove :: Array { id :: NodeId }
   , edgesToRemove :: Array { id :: String }
   , nodes :: Array (NodeBase n)
   , edges :: Array (EdgeBase e)
@@ -467,7 +468,7 @@ getElementsToRemove
   -> Aff { nodes :: Array (NodeBase n), edges :: Array (EdgeBase e) }
 getElementsToRemove p = do
   let
-    nodeIds = Set.fromFoldable (map _.id p.nodesToRemove) :: Set String
+    nodeIds = Set.fromFoldable (map _.id p.nodesToRemove) :: Set NodeId
     matchingNodes = collectMatchingNodes nodeIds p.nodes
 
     edgeIds = Set.fromFoldable (map _.id p.edgesToRemove) :: Set String
@@ -501,7 +502,8 @@ getElementsToRemove p = do
             isIncluded = Set.member node.id nodeIds
             parentHit = case node.parentId of
               Just pid ->
-                not isIncluded && Array.any (\n -> n.id == pid) acc
+                not isIncluded
+                  && Array.any (\n -> n.id == parentToNode pid) acc
               Nothing -> false
           in
             if isIncluded || parentHit then Array.snoc acc node

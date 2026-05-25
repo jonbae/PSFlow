@@ -13,13 +13,14 @@ import Data.Array (fromFoldable, mapMaybe) as Array
 import Data.Map (keys, lookup) as Map
 import Data.Maybe (Maybe(..))
 import React.Types.Store (ReactFlowState)
+import System.Types.Ids (NodeId)
 import System.Utils.Edges.General (isEdgeVisible)
 import System.Utils.Graph (getNodesInside)
 
 -- | Pure selector. `onlyRenderVisible = false` returns every node ID;
 -- | `true` filters by viewport intersection (partially-visible counts).
 selectVisibleNodeIds
-  :: forall n e. Boolean -> ReactFlowState n e -> Array String
+  :: forall n e. Boolean -> ReactFlowState n e -> Array NodeId
 selectVisibleNodeIds onlyRenderVisible s =
   if onlyRenderVisible then
     map _.id

@@ -37,7 +37,9 @@ import System.Types.Geometry
   , Transform
   , XYPosition
   )
+import Data.Newtype (unwrap)
 import System.Types.Handle (Handle, HandleType(..))
+import System.Types.Ids (NodeId)
 import System.Utils.General (pointToRendererPoint, snapPosition)
 
 -- | Subset of a DOM `DOMRect` carried as a plain record so we don't depend on
@@ -188,10 +190,12 @@ getHandleBounds
   -> HTMLDivElement
   -> DOMRect
   -> Number
-  -> String
+  -> NodeId
   -> Effect (Maybe (Array Handle))
 getHandleBounds ht el bounds zoom nodeId = do
-  result <- toMaybe <$> getHandleBoundsImpl (handleTypeTag ht) el bounds zoom nodeId
+  -- The FFI takes a bare `String`; unwrap and re-tag so the returned
+  -- `Handle.nodeId` carries the `NodeId` newtype.
+  result <- toMaybe <$> getHandleBoundsImpl (handleTypeTag ht) el bounds zoom (unwrap nodeId)
   pure (map (map (toHandle ht nodeId)) result)
   where
   handleTypeTag = case _ of

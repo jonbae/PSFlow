@@ -38,17 +38,18 @@ import Data.Maybe (Maybe)
 import Data.Show.Generic (genericShow)
 import System.Types.Geometry (Position, XYPosition)
 import System.Types.Handle (Handle)
+import System.Types.Ids (NodeId)
 
 type Connection =
-  { source :: String
-  , target :: String
+  { source :: NodeId
+  , target :: NodeId
   , sourceHandle :: Maybe String
   , targetHandle :: Maybe String
   }
 
 type HandleConnection =
-  { source :: String
-  , target :: String
+  { source :: NodeId
+  , target :: NodeId
   , sourceHandle :: Maybe String
   , targetHandle :: Maybe String
   , edgeId :: String

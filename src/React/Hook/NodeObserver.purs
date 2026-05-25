@@ -31,13 +31,14 @@ import React.Basic.Hooks as React
 import React.FFI.ResizeObserver (ResizeObserver, createResizeObserver, disconnect, observe, unobserve)
 import React.Hook.Store (UseStoreApi, useStoreApi)
 import React.Store.Action (Action(..))
+import System.Types.Ids (NodeId)
 import Web.HTML.HTMLDivElement (HTMLDivElement, toElement)
 
 -- | Inputs the hook needs. `force` lets the consumer request a
 -- | remeasure even when the dimensions look unchanged (matches TS's
 -- | `force` flag). `sharedObserver` selects the shared/per-node mode.
 type UseNodeObserverParams =
-  { nodeId :: String
+  { nodeId :: NodeId
   , wrapperRef :: Ref (Nullable HTMLDivElement)
   , force :: Boolean
   , sharedObserver :: Maybe ResizeObserver

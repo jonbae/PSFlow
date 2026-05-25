@@ -26,6 +26,7 @@ import Data.Either (Either(..))
 import Data.Foldable (for_)
 import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe, isJust)
+import Data.Newtype (unwrap)
 import Data.Nullable (Nullable, toMaybe)
 import Data.Tuple (Tuple(..))
 import Effect (Effect)
@@ -58,6 +59,7 @@ import System.Types.Geometry
   , oppositePosition
   )
 import System.Types.Handle (Handle, HandleType(..))
+import System.Types.Ids (NodeId(..))
 import System.Types.Node (InternalNodeBase, NodeLookup)
 import System.Utils.Dom
   ( ShadowRoot
@@ -78,7 +80,7 @@ import System.XYHandle.Utils
 -- | TS `OnConnectStart` and friends are not yet defined in
 -- | `System.Types.Connection`. They are introduced here at first use.
 type OnConnectStartParams =
-  { nodeId :: Maybe String
+  { nodeId :: Maybe NodeId
   , handleId :: Maybe String
   , handleType :: Maybe HandleType
   }
@@ -106,7 +108,7 @@ type OnPointerDownParams nodeData =
   , connectionRadius :: Number
   , domNode :: Maybe HTMLDivElement
   , handleId :: Maybe String
-  , nodeId :: String
+  , nodeId :: NodeId
   , isTarget :: Boolean
   , nodeLookup :: NodeLookup nodeData
   , lib :: String
@@ -130,7 +132,7 @@ type OnPointerDownParams nodeData =
 type IsValidParams nodeData =
   { handle :: Maybe HandleRef
   , connectionMode :: ConnectionMode
-  , fromNodeId :: String
+  , fromNodeId :: NodeId
   , fromHandleId :: Maybe String
   , fromType :: HandleType
   , isValidConnection :: IsValidConnection
@@ -503,22 +505,23 @@ isValidHandle event p = do
       case mNid, mHandleType of
         Just nid, Just hType -> do
           let
+            nidN = NodeId nid
             isTarget = p.fromType == Target
             connection :: Connection
             connection =
-              { source: if isTarget then nid else p.fromNodeId
+              { source: if isTarget then nidN else p.fromNodeId
               , sourceHandle: if isTarget then mHid else p.fromHandleId
-              , target: if isTarget then p.fromNodeId else nid
+              , target: if isTarget then p.fromNodeId else nidN
               , targetHandle: if isTarget then p.fromHandleId else mHid
               }
             modeOk = case p.connectionMode of
               Strict -> isStrictlyOpposite p.fromType hType
               Loose ->
-                nid /= p.fromNodeId || mHid /= p.fromHandleId
+                nidN /= p.fromNodeId || mHid /= p.fromHandleId
             isConnectableNow = connectable && connectableEnd
             preIsValid = isConnectableNow && modeOk
             isValidNow = preIsValid && p.isValidConnection connection
-            mTo = getHandle nid hType mHid p.nodeLookup p.connectionMode true
+            mTo = getHandle nidN hType mHid p.nodeLookup p.connectionMode true
           pure
             { handleDomNode: handleToCheck
             , isValid: isValidNow
@@ -539,7 +542,7 @@ handleSelector lib flowId h =
   "." <> lib <> "-flow__handle[data-id=\""
     <> fromMaybe "" flowId
     <> "-"
-    <> h.nodeId
+    <> unwrap h.nodeId
     <> "-"
     <> fromMaybe "null" h.id
     <> "-"

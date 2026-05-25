@@ -42,6 +42,7 @@ import System.Types.Connection
   )
 import System.Types.Geometry (Rect, XYPosition)
 import System.Types.Handle (HandleType)
+import System.Types.Ids (NodeId)
 
 type ReactFlowJsonObject n e =
   { nodes :: Array (Node n)
@@ -60,14 +61,14 @@ type DeleteElementsOptions n e =
 -- | uses `NodeType | { id: string } | Rect`; we tag explicitly.
 data NodeOrIdOrRect n
   = NodeArg (Node n)
-  | IdArg String
+  | IdArg NodeId
   | RectArg Rect
 
 -- | For `getNodesBounds`. TS `(NodeType | InternalNode | string)[]`.
 data NodeRefForBounds n
   = BoundsNode (Node n)
   | BoundsInternal (InternalNode n)
-  | BoundsId String
+  | BoundsId NodeId
 
 type UpdateOptions = { replace :: Boolean }
 

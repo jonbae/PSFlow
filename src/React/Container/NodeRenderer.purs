@@ -32,7 +32,7 @@ import Data.Foldable (foldM)
 import Data.Map (Map)
 import Data.Map (empty, insert, isEmpty) as Map
 import Data.Maybe (Maybe(..))
-import Data.Newtype (class Newtype)
+import Data.Newtype (class Newtype, unwrap)
 import Effect (Effect)
 import Effect.Ref as Ref
 import Effect.Unsafe (unsafePerformEffect)
@@ -49,6 +49,7 @@ import React.Store.Action (Action(..))
 import React.Store.Shell (Store)
 import React.Types.Component (NodeRendererProps)
 import React.Types.Store (ReactFlowState)
+import System.Types.Ids (NodeId(..))
 import System.Types.Node (InternalNodeUpdate, OnError)
 import Unsafe.Coerce (unsafeCoerce)
 import Web.DOM.Element (getAttribute)
@@ -102,7 +103,7 @@ mkSharedObserver
   -> Effect ResizeObserver
 mkSharedObserver store =
   createResizeObserver \entries -> do
-    updatesRef <- Ref.new (Map.empty :: Map String InternalNodeUpdate)
+    updatesRef <- Ref.new (Map.empty :: Map NodeId InternalNodeUpdate)
     _ <- foldM
       ( \_ entry -> do
           mDataId <- getAttribute "data-id" entry.target
@@ -110,8 +111,8 @@ mkSharedObserver store =
           case mDataId, mDivEl of
             Just nodeId, Just divEl ->
               Ref.modify_
-                ( Map.insert nodeId
-                    { id: nodeId
+                ( Map.insert (NodeId nodeId)
+                    { id: NodeId nodeId
                     , nodeElement: divEl
                     , force: true
                     }
@@ -164,8 +165,9 @@ nodeRenderer =
         children :: Array JSX
         children = map
           ( \nodeId ->
-              keyed nodeId $ element nodeWrapper
-                { id: nodeId
+              let nodeIdStr = unwrap nodeId
+              in keyed nodeIdStr $ element nodeWrapper
+                { id: nodeIdStr
                 , nodeTypes: props.nodeTypes
                 , nodeExtent: props.nodeExtent
                 , onClick: props.onNodeClick

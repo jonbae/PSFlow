@@ -18,6 +18,7 @@ import Effect.Class.Console (log)
 import Test.QuickCheck (quickCheck, (<?>))
 import Test.QuickCheck.Gen (Gen, chooseInt, elements, vectorOf)
 import System.Types.Edge (EdgeBase)
+import System.Types.Ids (NodeId(..))
 import System.Types.Geometry
   ( Box
   , Position(..)
@@ -88,8 +89,8 @@ mkEdge :: String -> String -> String -> EdgeBase Unit
 mkEdge eid src tgt =
   { id: eid
   , edgeType: Nothing
-  , source: src
-  , target: tgt
+  , source: NodeId src
+  , target: NodeId tgt
   , sourceHandle: Nothing
   , targetHandle: Nothing
   , animated: false

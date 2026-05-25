@@ -19,6 +19,7 @@ import Data.Generic.Rep (class Generic)
 import Data.Maybe (Maybe(..))
 import Data.Show.Generic (genericShow)
 import System.Types.Geometry (Position(..))
+import System.Types.Ids (NodeId)
 
 data HandleType
   = Source
@@ -48,7 +49,7 @@ instance boundedEnumHandleType :: BoundedEnum HandleType where
 -- | PureScript keyword. All other fields match the TS shape.
 type Handle =
   { id :: Maybe String
-  , nodeId :: String
+  , nodeId :: NodeId
   , x :: Number
   , y :: Number
   , position :: Position

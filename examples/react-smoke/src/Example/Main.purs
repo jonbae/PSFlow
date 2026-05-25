@@ -37,6 +37,7 @@ import React
   , reactFlowProvider
   )
 import React.Types.Component (ReactFlowProps, ReactFlowProviderProps, BackgroundProps, ControlsProps, MiniMapProps)
+import System.Types.Ids (NodeId(..))
 
 foreign import mountAppImpl :: Element -> JSX -> Effect Unit
 
@@ -48,7 +49,7 @@ twoNodes =
   ]
   where
   mkNode nid x y =
-    { id: nid
+    { id: NodeId nid
     , position: { x, y }
     , data: unit
     , sourcePosition: Just PosRight
@@ -80,8 +81,8 @@ oneEdge :: Array (Edge Unit)
 oneEdge =
   [ { id: "e1-2"
     , edgeType: Nothing
-    , source: "n1"
-    , target: "n2"
+    , source: NodeId "n1"
+    , target: NodeId "n2"
     , sourceHandle: Nothing
     , targetHandle: Nothing
     , animated: false

@@ -37,6 +37,7 @@ import React.Types.Nodes (Node)
 import React.Types.Store (ReactFlowState)
 import System.Types.Connection (noConnection)
 import System.Types.Edge (EdgeBase, EdgeChange(..))
+import System.Types.Ids (NodeId)
 import System.Types.Geometry (CoordinateExtent)
 import System.Types.Node (InternalNodeBase, NodeChange(..), NodeDragItem)
 import System.Utils.Store
@@ -287,7 +288,7 @@ reduceTriggerEdgeChanges state changes =
 reduceAddSelectedNodes
   :: forall n e
    . ReactFlowState n e
-  -> Array String
+  -> Array NodeId
   -> ReduceResult n e
 reduceAddSelectedNodes state ids =
   let
@@ -452,7 +453,7 @@ reduceResetSelectedElements
   -> ReduceResult n e
 reduceResetSelectedElements state =
   let
-    nodePairs :: Array (Tuple String (InternalNodeBase n))
+    nodePairs :: Array (Tuple NodeId (InternalNodeBase n))
     nodePairs = Map.toUnfoldable state.nodeLookup
     edgePairs :: Array (Tuple String (EdgeBase e))
     edgePairs = Map.toUnfoldable state.edgeLookup

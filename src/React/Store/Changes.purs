@@ -31,6 +31,7 @@ import Data.Tuple (Tuple(..))
 import React.Types.Edges (Edge)
 import React.Types.Nodes (Node)
 import System.Types.Edge (EdgeChange(..), EdgeLookup)
+import System.Types.Ids (NodeId)
 import System.Types.Node
   ( InternalNodeBase
   , NodeChange(..)
@@ -49,7 +50,7 @@ createSelectionChangePayload id selected = { id, selected }
 -- | its own bucket because adds happen *after* the existing-elements
 -- | walk so indexed inserts land correctly.
 type NodeChangeBuckets n =
-  { byId :: Map String (Array (NodeChange n))
+  { byId :: Map NodeId (Array (NodeChange n))
   , adds :: Array (NodeChange n)
   }
 
@@ -197,19 +198,21 @@ applyEdgeChanges changes edges =
     EdgeAddChange { item } -> Array.snoc acc item
     _ -> acc
 
--- | Selection-diff helper. Row-polymorphic so it works for both
--- | `NodeLookup` and `EdgeLookup`.
+-- | Selection-diff helper. Polymorphic in the key type so it works
+-- | for both `NodeLookup` (keyed by `NodeId`) and `EdgeLookup`
+-- | (keyed by `String`).
 getSelectionChangesGeneric
-  :: forall r
-   . Map String { id :: String, selected :: Boolean | r }
-  -> Set String
+  :: forall k r
+   . Ord k
+  => Map k { id :: k, selected :: Boolean | r }
+  -> Set k
   -> Boolean
-  -> { changes :: Array SelectionChangePayload
-     , items :: Map String { id :: String, selected :: Boolean | r }
+  -> { changes :: Array { id :: k, selected :: Boolean }
+     , items :: Map k { id :: k, selected :: Boolean | r }
      }
 getSelectionChangesGeneric items selectedIds mutate =
   let
-    pairs :: Array (Tuple String { id :: String, selected :: Boolean | r })
+    pairs :: Array (Tuple k { id :: k, selected :: Boolean | r })
     pairs = Map.toUnfoldable items
     step acc (Tuple id item) =
       let
@@ -231,7 +234,7 @@ getSelectionChangesGeneric items selectedIds mutate =
 getNodeSelectionChanges
   :: forall n
    . NodeLookup n
-  -> Set String
+  -> Set NodeId
   -> Boolean
   -> { changes :: Array (NodeChange n)
      , items :: NodeLookup n
@@ -268,7 +271,7 @@ getNodeElementsDiffChanges mItems lookup =
     items = case mItems of
       Just xs -> xs
       Nothing -> []
-    itemsLookup :: Map String (Node n)
+    itemsLookup :: Map NodeId (Node n)
     itemsLookup = Map.fromFoldable (map (\n -> Tuple n.id n) items)
     forwardPass = foldl forwardStep { changes: [], index: 0 } items
     forwardStep acc item =
@@ -287,7 +290,7 @@ getNodeElementsDiffChanges mItems lookup =
             else Array.snoc acc (NodeRemoveChange { id })
         )
         []
-        (Map.toUnfoldable lookup :: Array (Tuple String (InternalNodeBase n)))
+        (Map.toUnfoldable lookup :: Array (Tuple NodeId (InternalNodeBase n)))
   in
     forwardPass.changes <> removes
 

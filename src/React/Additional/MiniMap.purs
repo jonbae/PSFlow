@@ -38,6 +38,7 @@ import System.Types.Geometry
   , Rect
   , Transform(..)
   )
+import System.Types.Ids (NodeId(..))
 import System.Types.PanZoom (PanZoomInstance)
 import System.Utils.General (getBoundsOfRects)
 import System.Utils.Graph (getInternalNodesBounds)
@@ -258,7 +259,7 @@ miniMap =
           Nothing -> Nothing
           Just cb -> Just \me nid -> do
             st <- store.getState
-            case Map.lookup nid st.nodeLookup of
+            case Map.lookup (NodeId nid) st.nodeLookup of
               Nothing -> pure unit
               Just internal -> cb me (unsafeCoerce internal)
 

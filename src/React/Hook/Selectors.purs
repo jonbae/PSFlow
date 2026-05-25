@@ -50,6 +50,7 @@ import React.Types.Edges (Edge)
 import React.Types.Nodes (InternalNode, Node)
 import React.Types.Store (ReactFlowState)
 import System.Types.Connection (ConnectionState, Viewport)
+import System.Types.Ids (NodeId)
 import System.Types.Node (InternalNodeBase)
 
 -- | Mirrors the TS `UseNodesInitializedOptions = { includeHiddenNodes?: boolean }`.
@@ -129,7 +130,7 @@ useConnectionWith selector = useStore selectConn
 useNodesData
   :: forall n
    . Eq n
-  => Array String
+  => Array NodeId
   -> Hook (UseStore (Array (InternalNode n))) (Array (InternalNode n))
 useNodesData ids = useStore selectNodesData
   where
@@ -150,7 +151,7 @@ useNodesData ids = useStore selectNodesData
 useInternalNode
   :: forall n
    . Eq n
-  => String
+  => NodeId
   -> Hook (UseStore (Maybe (InternalNode n))) (Maybe (InternalNode n))
 useInternalNode nodeId = useStore selectOne
   where

@@ -63,6 +63,7 @@ import System.Types.Connection (HandleConnection, NodeConnection)
 import System.Types.Edge (EdgeChange(..))
 import System.Types.Geometry (Rect, Transform(..))
 import System.Types.Handle (HandleType(..))
+import System.Types.Ids (NodeId(..), parentToNode)
 import System.Types.Node (NodeChange(..), NodeBase, InternalNodeBase, NodeLookup)
 import System.Utils.General (evaluateAbsolutePosition, getOverlappingArea, nodeToRect)
 import System.Utils.Graph (getElementsToRemove, getNodesBounds) as Graph
@@ -195,11 +196,11 @@ mkGeneralHelpers store batchContext =
 
   , getNode: \id -> do
       s <- store.getState
-      pure (Array.find (\n -> n.id == id) s.nodes)
+      pure (Array.find (\n -> n.id == NodeId id) s.nodes)
 
   , getInternalNode: \id -> do
       s <- store.getState
-      pure (Map.lookup id s.nodeLookup)
+      pure (Map.lookup (NodeId id) s.nodeLookup)
 
   , getEdges: do
       s <- store.getState
@@ -229,7 +230,7 @@ mkGeneralHelpers store batchContext =
       s <- liftEffect store.getState
       let
         nodesToRemove =
-          Array.mapMaybe toIdOnly (fromMaybe [] opts.nodes)
+          Array.mapMaybe toNodeIdOnly (fromMaybe [] opts.nodes)
         edgesToRemove =
           Array.mapMaybe toIdOnly (fromMaybe [] opts.edges)
       result <- Graph.getElementsToRemove
@@ -325,7 +326,7 @@ mkGeneralHelpers store batchContext =
       pushNodeQueue batchContext
         ( QueueUpdate
             ( coerceNodeFn \nodes ->
-                map (\n -> if n.id == id then updater n else n) nodes
+                map (\n -> if n.id == NodeId id then updater n else n) nodes
             )
         )
 
@@ -333,7 +334,7 @@ mkGeneralHelpers store batchContext =
       pushNodeQueue batchContext
         ( QueueUpdate
             ( coerceNodeFn \nodes ->
-                map (\n -> if n.id == id then updater n else n) nodes
+                map (\n -> if n.id == NodeId id then updater n else n) nodes
             )
         )
 
@@ -425,6 +426,18 @@ toIdOnly = case _ of
   Left s -> Just { id: s }
   Right r -> Just { id: r.id }
 
+-- | Same shape but tagged with `NodeId`, for the node side of
+-- | `deleteElements`. The public API's `Left String` carries a bare
+-- | node id (wrap with `NodeId`); the `Right (Node n)` side already
+-- | has `id :: NodeId` since the `NodeBaseRow` flip.
+toNodeIdOnly
+  :: forall r
+   . Either String { id :: NodeId | r }
+  -> Maybe { id :: NodeId }
+toNodeIdOnly = case _ of
+  Left s -> Just { id: NodeId s }
+  Right r -> Just { id: r.id }
+
 -- | Adapter: React's `OnBeforeDelete` returns
 -- | `Aff (OnBeforeDeleteResult n e)` whereas the System version
 -- | (`System.Utils.Graph.OnBeforeDelete`) returns
@@ -482,7 +495,9 @@ getNodeRect store = case _ of
         , height: fromMaybe 0.0 n.measured.height
         }
       pos = case n.parentId of
-        Just pid -> evaluateAbsolutePosition n.position dims pid s.nodeLookup
+        Just pid -> evaluateAbsolutePosition n.position dims
+          (parentToNode pid)
+          s.nodeLookup
           s.nodeOrigin
         Nothing -> n.position
       rect =

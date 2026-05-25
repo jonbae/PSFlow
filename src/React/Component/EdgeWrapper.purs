@@ -71,6 +71,8 @@ import React.Types.Store (ReactFlowState)
 import System.Constants (ErrorCode(..), elementSelectionKeys, errorMessage)
 import System.Types.Edge (EdgeMarkerType)
 import System.Types.Geometry (Position)
+import Data.Newtype (unwrap)
+import System.Types.Ids (NodeId(..))
 import System.Types.Node (OnError)
 import System.Utils.Edges.General (getElevatedEdgeZIndex)
 import System.Utils.Edges.Positions (getEdgePosition)
@@ -109,8 +111,8 @@ placeholderEdge :: forall e. String -> Edge e
 placeholderEdge edgeId =
   { id: edgeId
   , edgeType: Nothing
-  , source: ""
-  , target: ""
+  , source: NodeId ""
+  , target: NodeId ""
   , sourceHandle: Nothing
   , targetHandle: Nothing
   , animated: false
@@ -271,8 +273,8 @@ mkEdgeProps edge sx sy tx ty sp tp mStart mEnd =
   , data: (unsafeCoerce edge.data) :: Maybe Foreign
   , style: Nothing
   , selected: edge.selected
-  , source: edge.source
-  , target: edge.target
+  , source: unwrap edge.source
+  , target: unwrap edge.target
   , selectable: edge.selectable
   , deletable: edge.deletable
   , sourceX: sx

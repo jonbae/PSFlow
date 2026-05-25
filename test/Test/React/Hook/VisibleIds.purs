@@ -19,6 +19,7 @@ import React.Hook.VisibleIds.Pure (selectVisibleEdgeIds, selectVisibleNodeIds)
 import React.Store.InitialState (defaultInitialStateOptions, initialState)
 import React.Types.Store (ReactFlowState)
 import System.Types.Edge (EdgeBase)
+import System.Types.Ids (NodeId(..))
 import System.Types.Node (InternalNodeBase)
 
 assert :: String -> Boolean -> Effect Unit
@@ -31,7 +32,7 @@ assert label ok =
 -- | short-circuit via `forceInitialRender`.
 mkNode :: String -> Number -> Number -> Number -> Number -> InternalNodeBase Unit
 mkNode nodeId px py w h =
-  { id: nodeId
+  { id: NodeId nodeId
   , position: { x: px, y: py }
   , data: unit
   , sourcePosition: Nothing
@@ -70,8 +71,8 @@ mkEdge :: String -> String -> String -> EdgeBase Unit
 mkEdge edgeId src tgt =
   { id: edgeId
   , edgeType: Nothing
-  , source: src
-  , target: tgt
+  , source: NodeId src
+  , target: NodeId tgt
   , sourceHandle: Nothing
   , targetHandle: Nothing
   , animated: false
@@ -127,7 +128,7 @@ runVisibleIdsTests = do
   assert "selectVisibleNodeIds false returns 4 IDs"
     (Array.length nodesAll == 4)
   assert "selectVisibleNodeIds true keeps only a + c"
-    (nodesVisible == [ "a", "c" ])
+    (nodesVisible == [ NodeId "a", NodeId "c" ])
   -- edges: false returns every edge id; true keeps only the visible
   -- edge with both endpoints resolved.
   let

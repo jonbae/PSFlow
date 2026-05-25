@@ -34,6 +34,7 @@ import System.Types.Connection
   )
 import System.Types.Edge (EdgeChange)
 import System.Types.Geometry (CoordinateExtent, XYPosition)
+import System.Types.Ids (NodeId)
 import System.Types.Node
   ( InternalNodeBase
   , InternalNodeUpdate
@@ -69,12 +70,12 @@ data Action n e
   = SetNodes (Array (Node n))
   | SetEdges (Array (Edge e))
   | SetDefaultNodesAndEdges (Maybe (Array (Node n))) (Maybe (Array (Edge e)))
-  | UpdateNodeInternals (Map String InternalNodeUpdate) { triggerFitView :: Boolean }
+  | UpdateNodeInternals (Map NodeId InternalNodeUpdate) { triggerFitView :: Boolean }
   | MergeNodeInternalsResult (NodeInternalsResult n)
   | UpdateNodePositions (Array NodeDragItem) Boolean
   | TriggerNodeChanges (Array (NodeChange n))
   | TriggerEdgeChanges (Array (EdgeChange e))
-  | AddSelectedNodes (Array String)
+  | AddSelectedNodes (Array NodeId)
   | AddSelectedEdges (Array String)
   | UnselectNodesAndEdges (UnselectNodesAndEdgesParams n e)
   | SetMinZoom Number
@@ -123,7 +124,7 @@ data Effect_ n e
   | FireOnConnectEnd (FinalConnectionState (InternalNode n))
   -- Side-effecting system calls the shell must perform.
   | RunDomUpdateNodeInternals
-      (Map String InternalNodeUpdate)
+      (Map NodeId InternalNodeUpdate)
       { triggerFitView :: Boolean }
   | RunPanBy XYPosition
   | RunSetCenter Number Number SetCenterOptions

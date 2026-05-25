@@ -25,6 +25,7 @@ import Web.DOM.Element (Element)
 import System.Types.Connection (ConnectionMode(..))
 import System.Types.Geometry (NodeOrigin, XYPosition, mkNodeOrigin)
 import System.Types.Handle (Handle, HandleType(..), unSourceHandle, unTargetHandle)
+import System.Types.Ids (NodeId)
 import System.Types.Node (InternalNodeBase, NodeLookup)
 import System.Utils.Edges.Positions (getHandlePosition)
 import System.Utils.General (getOverlappingArea, nodeToRect)
@@ -32,7 +33,7 @@ import System.Utils.General (getOverlappingArea, nodeToRect)
 -- | The minimum identifying triple for a handle currently being dragged from.
 -- | TS uses `Pick<Handle, 'nodeId' | 'id' | 'type'>`.
 type HandleRef =
-  { nodeId :: String
+  { nodeId :: NodeId
   , id :: Maybe String
   , handleType :: HandleType
   }
@@ -171,7 +172,7 @@ getClosestHandle position connectionRadius lookup fromHandle =
 -- | are the node-relative offsets.
 getHandle
   :: forall n
-   . String
+   . NodeId
   -> HandleType
   -> Maybe String
   -> NodeLookup n

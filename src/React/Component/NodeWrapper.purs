@@ -49,6 +49,7 @@ import Data.Array (elem, fromFoldable, null) as Array
 import Data.Foldable (for_)
 import Data.Map (lookup, singleton, values) as Map
 import Data.Maybe (Maybe(..), fromMaybe, isJust)
+import Data.Newtype (unwrap)
 import Data.Nullable (Nullable, toNullable)
 import Effect (Effect)
 import Effect.Aff (Aff)
@@ -82,6 +83,7 @@ import React.Types.Nodes
 import React.Types.Store (ReactFlowState)
 import System.Constants (ErrorCode(..), elementSelectionKeys, errorMessage)
 import System.Types.Geometry (Transform(..))
+import System.Types.Ids (NodeId(..), nodeToParent)
 import System.Types.Node (OnError)
 import System.Utils.Dom (isInputDOMNode)
 import System.Utils.General (getNodeDimensions, nodeHasDimensions)
@@ -119,15 +121,15 @@ type NodeWrapperSlice n =
   }
 
 selectNodeSlice
-  :: forall n e. String -> ReactFlowState n e -> NodeWrapperSlice n
+  :: forall n e. NodeId -> ReactFlowState n e -> NodeWrapperSlice n
 selectNodeSlice nodeId state =
   { node: UnsafeReference (fromMaybe (placeholderNode nodeId) (Map.lookup nodeId state.nodeLookup))
-  , isParent: case Map.lookup nodeId state.parentLookup of
+  , isParent: case Map.lookup (nodeToParent nodeId) state.parentLookup of
       Just _ -> true
       Nothing -> false
   }
 
-placeholderNode :: forall n. String -> InternalNode n
+placeholderNode :: forall n. NodeId -> InternalNode n
 placeholderNode nodeId =
   { id: nodeId
   , position: { x: 0.0, y: 0.0 }
@@ -282,7 +284,7 @@ mkNodeProps
   -> Boolean
   -> NodeProps Foreign
 mkNodeProps node nodeType _selectable _draggable _connectable dragging =
-  { id: node.id
+  { id: unwrap node.id
   , data: (unsafeCoerce node.data) :: Foreign
   , selected: node.selected
   , type: nodeType
@@ -304,7 +306,7 @@ nodeWrapper :: forall n. ReactComponent (NodeWrapperProps n)
 nodeWrapper =
   unsafePerformEffect $ memo $ reactComponent "NodeWrapper"
     \(props :: NodeWrapperProps n) -> React.do
-      slice <- useStore (selectNodeSlice props.id)
+      slice <- useStore (selectNodeSlice (NodeId props.id))
       let
         UnsafeReference node = slice.node
         nodeTypeInit = fromMaybe "default" node.nodeType
@@ -332,7 +334,7 @@ nodeWrapper =
 
       dragging <- useDrag
         { wrapperRef: nodeRef
-        , nodeId: if node.hidden || not isDraggable then Nothing else Just props.id
+        , nodeId: if node.hidden || not isDraggable then Nothing else Just (NodeId props.id)
         , noDragClassName: Just props.noDragClassName
         , handleSelector: node.dragHandle
         , isSelectable
@@ -344,7 +346,7 @@ nodeWrapper =
         }
 
       _ <- useNodeObserver
-        { nodeId: props.id
+        { nodeId: NodeId props.id
         , wrapperRef: nodeRef
         , force: false
         , sharedObserver: props.resizeObserver
@@ -420,7 +422,7 @@ nodeWrapper =
                   )
             )
             do
-              handleNodeClick { id: props.id, store, unselect: false }
+              handleNodeClick { id: NodeId props.id, store, unselect: false }
           fireMouseHandler props.onClick me
 
         onKeyDownHandler :: KeyboardEvent -> Effect Unit
@@ -432,7 +434,7 @@ nodeWrapper =
               shift = KE.shiftKey ke
             if Array.elem k elementSelectionKeys && isSelectable then
               handleNodeClick
-                { id: props.id
+                { id: NodeId props.id
                 , store
                 , unselect: k == "Escape"
                 }
@@ -457,7 +459,7 @@ nodeWrapper =
                 paneRect =
                   { x: 0.0, y: 0.0, width: st.width, height: st.height }
                 visible = getNodesInside
-                  (Map.singleton props.id node)
+                  (Map.singleton (NodeId props.id) node)
                   paneRect
                   st.transform
                   { partially: true, excludeNonSelectable: false }

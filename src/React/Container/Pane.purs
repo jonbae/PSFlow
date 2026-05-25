@@ -43,6 +43,7 @@ import Data.Either (Either(..))
 import Data.Foldable (foldl, for_)
 import Data.Map (lookup, values) as Map
 import Data.Maybe (Maybe(..), fromMaybe)
+import Data.Newtype (unwrap)
 import Data.Number (sqrt)
 import Data.Nullable (Nullable, toMaybe, toNullable)
 import Data.Set (Set)
@@ -64,6 +65,7 @@ import React.Types.Component (PaneProps)
 import React.Types.Store (ReactFlowState)
 import System.FFI.AnimationFrame (RafHandle, cancelAnimationFrame, requestAnimationFrame)
 import System.Types.Connection (ConnectionState(..), SelectionMode(..))
+import System.Types.Ids (NodeId)
 import System.Types.PanZoom (PanOnDrag(..))
 import System.Utils.Dom (DOMRect, elementBoundingRect, getEventPosition)
 import System.Utils.General (areSetsEqual, calcAutoPan, pointToRendererPoint, rendererPointToPoint)
@@ -122,22 +124,24 @@ selectSlice s =
 collectIncidentEdgeIds
   :: forall n e
    . ReactFlowState n e
-  -> Set String
+  -> Set NodeId
   -> Set String
 collectIncidentEdgeIds state selectedNodeIds =
   let
     edgesSelectableDefault =
       fromMaybe true (state.defaultEdgeOptions >>= _.selectable)
-    addEdgesForNode acc nodeId = case Map.lookup nodeId state.connectionLookup of
+    -- connectionLookup is keyed by stringified node id (composite-key
+    -- index); convert at the lookup boundary.
+    addEdgesForNode acc nodeId = case Map.lookup (unwrap nodeId) state.connectionLookup of
       Nothing -> acc
       Just handleMap -> foldl (addEdgeIfSelectable edgesSelectableDefault) acc (Map.values handleMap)
   in
-    foldl addEdgesForNode Set.empty (Set.toUnfoldable selectedNodeIds :: Array String)
+    foldl addEdgesForNode Set.empty (Set.toUnfoldable selectedNodeIds :: Array NodeId)
   where
   addEdgeIfSelectable
     :: Boolean
     -> Set String
-    -> { edgeId :: String, source :: String, target :: String, sourceHandle :: Maybe String, targetHandle :: Maybe String }
+    -> { edgeId :: String, source :: NodeId, target :: NodeId, sourceHandle :: Maybe String, targetHandle :: Maybe String }
     -> Set String
   addEdgeIfSelectable dflt acc conn = case Map.lookup conn.edgeId state.edgeLookup of
     Nothing -> acc
@@ -190,7 +194,7 @@ pane =
 
       container              <- useRef (toNullable Nothing :: Nullable HTMLDivElement)
       containerBoundsRef     <- useRef (toNullable Nothing :: Nullable DOMRect)
-      selectedNodeIdsRef     <- useRef (Set.empty :: Set String)
+      selectedNodeIdsRef     <- useRef (Set.empty :: Set NodeId)
       selectedEdgeIdsRef     <- useRef (Set.empty :: Set String)
       selectionInProgressRef <- useRef false
       positionRef            <- useRef { x: 0.0, y: 0.0 }
@@ -237,7 +241,7 @@ pane =
                   { partially: props.selectionMode == Partial
                   , excludeNonSelectable: true
                   }
-                nextNodeIds :: Set String
+                nextNodeIds :: Set NodeId
                 nextNodeIds = Set.fromFoldable (map _.id nextNodes)
                 nextEdgeIds = collectIncidentEdgeIds st nextNodeIds
 

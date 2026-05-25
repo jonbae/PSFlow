@@ -47,6 +47,7 @@ import Data.Set (Set)
 import Effect (Effect)
 import Effect.Console (warn) as Console
 import System.Types.Connection (Padding(..), PaddingValue(..), Viewport)
+import System.Types.Ids (NodeId)
 import System.Types.Geometry
   ( Box
   , CoordinateExtent(..)
@@ -386,7 +387,7 @@ evaluateAbsolutePosition
   :: forall n
    . XYPosition
   -> Dimensions
-  -> String
+  -> NodeId
   -> NodeLookup n
   -> NodeOrigin
   -> XYPosition
@@ -403,7 +404,7 @@ evaluateAbsolutePosition position dimensions parentId lookup defaultOrigin =
         , y: position.y + parentY - dimensions.height * origin.oy
         }
 
-areSetsEqual :: Set String -> Set String -> Boolean
+areSetsEqual :: forall a. Eq a => Set a -> Set a -> Boolean
 areSetsEqual = (==)
 
 -- | Convert a node's logical position to its origin-corrected position.

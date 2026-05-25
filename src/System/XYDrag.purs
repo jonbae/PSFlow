@@ -74,6 +74,7 @@ import System.Types.Geometry
   , Transform(..)
   , XYPosition
   )
+import System.Types.Ids (NodeId)
 import System.Types.Node
   ( NodeBase
   , NodeDragItem
@@ -98,7 +99,7 @@ import System.XYDrag.Utils
 -- | TS `(event, dragItems, node, nodes) => void`.
 type OnDrag nodeData =
   MouseEvent
-  -> Map String NodeDragItem
+  -> Map NodeId NodeDragItem
   -> NodeBase nodeData
   -> Array (NodeBase nodeData)
   -> Effect Unit
@@ -120,14 +121,14 @@ type OnSelectionDrag nodeData =
 type PanBy = XYPosition -> Aff Boolean
 
 -- | TS `(items, dragging) => void`.
-type UpdateNodePositions = Map String NodeDragItem -> Boolean -> Effect Unit
+type UpdateNodePositions = Map NodeId NodeDragItem -> Boolean -> Effect Unit
 
 -- | Per-node-element configuration applied via `XYDragInstance.update`.
 type DragUpdateParams =
   { noDragClassName :: Maybe String
   , handleSelector :: Maybe String
   , isSelectable :: Boolean
-  , nodeId :: Maybe String
+  , nodeId :: Maybe NodeId
   , domNode :: Element
   , nodeClickDistance :: Number
   }
@@ -167,7 +168,7 @@ type XYDragParams nodeData edgeData =
   , onDragStart :: Maybe (OnDrag nodeData)
   , onDrag :: Maybe (OnDrag nodeData)
   , onDragStop :: Maybe (OnDrag nodeData)
-  , onNodeMouseDown :: Maybe (String -> Effect Unit)
+  , onNodeMouseDown :: Maybe (NodeId -> Effect Unit)
   , autoPanSpeed :: Maybe Number
   }
 
@@ -183,7 +184,7 @@ type XYDragInstance =
 type DragState =
   { lastPos :: { x :: Maybe Number, y :: Maybe Number }
   , autoPanId :: Maybe RafHandle
-  , dragItems :: Map String NodeDragItem
+  , dragItems :: Map NodeId NodeDragItem
   , autoPanStarted :: Boolean
   , mousePosition :: XYPosition
   , containerBounds :: Maybe DOMRect
@@ -559,12 +560,12 @@ updateNodes params mUpd pos = do
         calculateSnapOffset items store.snapGrid pos.x pos.y
       else Nothing
 
-    entries :: Array (Tuple String NodeDragItem)
+    entries :: Array (Tuple NodeId NodeDragItem)
     entries = Map.toUnfoldable items
 
     -- One iteration: compute next position via `calculateNodePosition` and
     -- thread a Boolean accumulator that records whether anything moved.
-    step :: Boolean -> Tuple String NodeDragItem -> StateT DragState Effect Boolean
+    step :: Boolean -> Tuple NodeId NodeDragItem -> StateT DragState Effect Boolean
     step acc (Tuple id dragItem) = case Map.lookup id store.nodeLookup of
       Nothing -> pure acc
       Just _ -> do

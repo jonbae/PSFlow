@@ -31,6 +31,7 @@ import React.Store.Shell (Store)
 import React.Types.Component (NodeResizeControlProps)
 import React.Types.Store (ReactFlowState)
 import System.Types.Geometry (NodeOrigin(..), Transform(..))
+import System.Types.Ids (NodeId(..), parentToNode)
 import System.Types.Node
   ( NodeChange(..)
   , ParentExpandChild
@@ -108,7 +109,7 @@ opaque = map unsafeCoerce
 buildChanges
   :: forall n e
    . Store n e
-  -> String
+  -> NodeId
   -> XYResizerChange
   -> Array XYResizerChildChange
   -> Maybe ResizeControlDirection
@@ -140,7 +141,7 @@ buildChanges store nid change childChanges resizeDirection = do
                 }
               absolute = evaluateAbsolutePosition fallbackPos
                 { width, height }
-                parentId
+                (parentToNode parentId)
                 st.nodeLookup
                 origin
               child :: ParentExpandChild
@@ -251,7 +252,7 @@ nodeResizeControl =
                   Nothing -> do
                     r <- createXYResizer
                       { domNode: dom
-                      , nodeId: nid
+                      , nodeId: NodeId nid
                       , getStoreItems: do
                           st <- store.getState
                           pure
@@ -263,12 +264,12 @@ nodeResizeControl =
                             , paneDomNode: st.domNode
                             }
                       , onChange: \change childChanges -> do
-                          changes <- buildChanges store nid change childChanges d.resizeDirection
+                          changes <- buildChanges store (NodeId nid) change childChanges d.resizeDirection
                           when (Array.length changes > 0) do
                             store.dispatch (TriggerNodeChanges changes)
                       , onEnd: Just \final -> do
                           let dimChange = NodeDimensionChange
-                                { id: nid
+                                { id: NodeId nid
                                 , dimensions: Just
                                     { width: final.width, height: final.height }
                                 , resizing: false

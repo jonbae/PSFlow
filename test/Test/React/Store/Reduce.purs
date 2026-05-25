@@ -24,6 +24,7 @@ import React.Store.InitialState (defaultInitialStateOptions, initialState)
 import React.Store.Reduce (reduce)
 import React.Types.Store (ReactFlowState)
 import System.Types.Edge (EdgeBase, EdgeChange(..))
+import System.Types.Ids (NodeId(..))
 import System.Types.Node (InternalNodeBase, NodeBase, NodeChange(..))
 
 assert :: String -> Boolean -> Effect Unit
@@ -33,7 +34,7 @@ assert label ok =
 
 sampleNode :: InternalNodeBase Unit
 sampleNode =
-  { id: "n1"
+  { id: NodeId "n1"
   , position: { x: 0.0, y: 0.0 }
   , data: unit
   , sourcePosition: Nothing
@@ -72,8 +73,8 @@ sampleEdge :: EdgeBase Unit
 sampleEdge =
   { id: "e1"
   , edgeType: Nothing
-  , source: "n1"
-  , target: "n2"
+  , source: NodeId "n1"
+  , target: NodeId "n2"
   , sourceHandle: Nothing
   , targetHandle: Nothing
   , animated: false
@@ -91,7 +92,7 @@ sampleEdge =
 
 freshNode :: NodeBase Unit
 freshNode =
-  { id: "n42"
+  { id: NodeId "n42"
   , position: { x: 1.0, y: 2.0 }
   , data: unit
   , sourcePosition: Nothing
@@ -123,8 +124,8 @@ freshEdge :: EdgeBase Unit
 freshEdge =
   { id: "e42"
   , edgeType: Nothing
-  , source: "a"
-  , target: "b"
+  , source: NodeId "a"
+  , target: NodeId "b"
   , sourceHandle: Nothing
   , targetHandle: Nothing
   , animated: false
@@ -147,7 +148,7 @@ sampleState =
     base = initialState defaultInitialStateOptions
   in
     base
-      { nodeLookup = Map.singleton "n1" sampleNode
+      { nodeLookup = Map.singleton (NodeId "n1") sampleNode
       , edgeLookup = Map.singleton "e1" sampleEdge
       }
 
@@ -184,7 +185,7 @@ testApplyNodeChangesRoundTrip =
       [ NodeAddChange { item: freshNode, index: Nothing } ]
       []
     removed = applyNodeChanges
-      [ NodeRemoveChange { id: "n42" } ]
+      [ NodeRemoveChange { id: NodeId "n42" } ]
       added
   in
     do

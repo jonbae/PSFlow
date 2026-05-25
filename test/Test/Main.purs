@@ -15,6 +15,7 @@ import System.Types.Connection (ConnectionMode(..), ConnectionState(..), Padding
 import System.Types.Edge (AlignX(..), AlignY(..), ConnectionLineType(..), EdgeBase, EdgeChange(..), EdgeMarkerType(..), MarkerType(..))
 import System.Types.Geometry (CoordinateExtent(..), NodeOrigin(..), Position(..), SnapGrid(..), Transform(..), mkCoordinateExtent, mkNodeOrigin, mkSnapGrid, mkTransform, oppositePosition, XYPosition)
 import System.Types.Handle (HandleProps, HandleType(..), SourceHandle(..), TargetHandle(..), defaultHandleProps)
+import System.Types.Ids (NodeId(..), ParentId(..))
 import System.Types.Node (Align(..), InternalNodeBase, NodeBase, NodeChange(..), NodeDragItem, NodeExtent(..), NodeLookup)
 import System.Types.PanZoom (InterpolateMode(..), PanOnDrag(..)) as PZ
 import System.Utils.Connections (ConnectionStatus(..), areConnectionMapsEqual, getConnectionStatus, handleConnectionChange)
@@ -133,8 +134,8 @@ main = do
   let
     hc :: String -> _
     hc edgeId =
-      { source: "n1"
-      , target: "n2"
+      { source: NodeId "n1"
+      , target: NodeId "n2"
       , sourceHandle: Nothing
       , targetHandle: Nothing
       , edgeId
@@ -260,7 +261,7 @@ main = do
     nodeChanges =
       [ { tag: "dim"
         , change: NodeDimensionChange
-            { id: "1"
+            { id: NodeId "1"
             , dimensions: Nothing
             , resizing: false
             , setAttributes: Nothing
@@ -268,14 +269,14 @@ main = do
         }
       , { tag: "pos"
         , change: NodePositionChange
-            { id: "2"
+            { id: NodeId "2"
             , position: Nothing
             , positionAbsolute: Nothing
             , dragging: false
             }
         }
-      , { tag: "sel", change: NodeSelectionChange { id: "3", selected: true } }
-      , { tag: "rem", change: NodeRemoveChange { id: "4" } }
+      , { tag: "sel", change: NodeSelectionChange { id: NodeId "3", selected: true } }
+      , { tag: "rem", change: NodeRemoveChange { id: NodeId "4" } }
       ]
   assert "NodeChange constructors classify"
     (map (\r -> classifyNode r.change == r.tag) nodeChanges
@@ -426,7 +427,7 @@ main = do
   let
     mkNode :: String -> NodeBase Unit
     mkNode nid =
-      { id: nid
+      { id: NodeId nid
       , position: { x: 0.0, y: 0.0 }
       , data: unit
       , sourcePosition: Nothing
@@ -457,8 +458,8 @@ main = do
     mkEdge eid src tgt =
       { id: eid
       , edgeType: Nothing
-      , source: src
-      , target: tgt
+      , source: NodeId src
+      , target: NodeId tgt
       , sourceHandle: Nothing
       , targetHandle: Nothing
       , animated: false
@@ -481,8 +482,8 @@ main = do
     eBC = mkEdge "e3" "b" "c"
     threeNodes = [ nA, nB, nC ]
     threeEdges = [ eAB, eAC, eBC ]
-    outsOfA = getOutgoers { id: "a" } threeNodes threeEdges
-    insOfC = getIncomers { id: "c" } threeNodes threeEdges
+    outsOfA = getOutgoers { id: NodeId "a" } threeNodes threeEdges
+    insOfC = getIncomers { id: NodeId "c" } threeNodes threeEdges
   assert "getOutgoers a -> {b, c}" (Array.length outsOfA == 2)
   assert "getIncomers c -> {a, b}" (Array.length insOfC == 2)
 
@@ -512,7 +513,7 @@ main = do
   -- 009: calculateNodePosition returns Nothing for an unknown id.
   assert "calculateNodePosition unknown id is Nothing"
     ( calculateNodePosition
-        { nodeId: "missing"
+        { nodeId: NodeId "missing"
         , nextPosition: { x: 0.0, y: 0.0 }
         , nodeLookup: Map.empty
         , nodeOrigin: mkNodeOrigin 0.0 0.0
@@ -539,7 +540,7 @@ main = do
   -- 013: getEdgeId is deterministic.
   assert "getEdgeId stable"
     (getEdgeId
-        { source: "a", target: "b"
+        { source: NodeId "a", target: NodeId "b"
         , sourceHandle: Nothing, targetHandle: Nothing
         }
         == "xy-edge__a-b")
@@ -578,11 +579,11 @@ main = do
       :: String
       -> Boolean
       -> Maybe Boolean
-      -> Maybe String
+      -> Maybe ParentId
       -> XYPosition
       -> InternalNodeBase Unit
     mkInternal nid selected draggable parentId positionAbsolute =
-      { id: nid
+      { id: NodeId nid
       , position: { x: 0.0, y: 0.0 }
       , data: unit
       , sourcePosition: Nothing
@@ -619,18 +620,18 @@ main = do
 
     parent = mkInternal "p" false Nothing Nothing { x: 0.0, y: 0.0 }
     parentSelected = parent { selected = true }
-    childOfParent = mkInternal "c" false Nothing (Just "p") { x: 10.0, y: 10.0 }
+    childOfParent = mkInternal "c" false Nothing (Just (ParentId "p")) { x: 10.0, y: 10.0 }
     selectedNode = mkInternal "s" true Nothing Nothing { x: 5.0, y: 5.0 }
     draggableNode = mkInternal "d" true (Just true) Nothing { x: 0.0, y: 0.0 }
     nonDraggable = mkInternal "n" true (Just false) Nothing { x: 0.0, y: 0.0 }
 
     lookupParentSelected =
       Map.fromFoldable
-        [ Tuple "p" parentSelected, Tuple "c" childOfParent ]
+        [ Tuple (NodeId "p") parentSelected, Tuple (NodeId "c") childOfParent ]
         :: NodeLookup Unit
     lookupParentUnselected =
       Map.fromFoldable
-        [ Tuple "p" parent, Tuple "c" childOfParent ]
+        [ Tuple (NodeId "p") parent, Tuple (NodeId "c") childOfParent ]
         :: NodeLookup Unit
 
   -- isParentSelected: walks the chain.
@@ -642,30 +643,30 @@ main = do
     (XYDrag.isParentSelected childOfParent lookupParentSelected == true)
   assert "isParentSelected returns false when parentId points nowhere"
     (XYDrag.isParentSelected
-      (childOfParent { parentId = Just "ghost" })
+      (childOfParent { parentId = Just (ParentId "ghost") })
       lookupParentUnselected == false)
 
   -- getDragItems: filter by selected/draggable.
   let
     lookupDrag =
       Map.fromFoldable
-        [ Tuple "s" selectedNode
-        , Tuple "d" draggableNode
-        , Tuple "n" nonDraggable
+        [ Tuple (NodeId "s") selectedNode
+        , Tuple (NodeId "d") draggableNode
+        , Tuple (NodeId "n") nonDraggable
         ]
         :: NodeLookup Unit
     dragItemsAll =
       XYDrag.getDragItems lookupDrag true { x: 0.0, y: 0.0 } Nothing
     dragItemsExplicit =
-      XYDrag.getDragItems lookupDrag false { x: 0.0, y: 0.0 } (Just "d")
+      XYDrag.getDragItems lookupDrag false { x: 0.0, y: 0.0 } (Just (NodeId "d"))
   assert "getDragItems collects selected nodes when nodesDraggable=true"
-    (Map.member "s" dragItemsAll)
+    (Map.member (NodeId "s") dragItemsAll)
   assert "getDragItems honours node.draggable=true"
-    (Map.member "d" dragItemsAll)
+    (Map.member (NodeId "d") dragItemsAll)
   assert "getDragItems excludes node.draggable=false even if selected"
-    (not (Map.member "n" dragItemsAll))
+    (not (Map.member (NodeId "n") dragItemsAll))
   assert "getDragItems collects only the targeted node when nodeId is set"
-    (Map.size dragItemsExplicit == 1 && Map.member "d" dragItemsExplicit)
+    (Map.size dragItemsExplicit == 1 && Map.member (NodeId "d") dragItemsExplicit)
 
   -- calculateSnapOffset: empty / non-empty / pure deltas.
   let snap5 = mkSnapGrid 5.0 5.0
@@ -675,7 +676,7 @@ main = do
     -- A drag item whose distance.x = 0, distance.y = 0 means we snap (x,y).
     flatItem :: NodeDragItem
     flatItem =
-      { id: "i"
+      { id: NodeId "i"
       , position: { x: 0.0, y: 0.0 }
       , distance: { x: 0.0, y: 0.0 }
       , extent: Nothing
@@ -686,7 +687,7 @@ main = do
       , measured: { width: 0.0, height: 0.0 }
       , dragging: false
       }
-    flatMap = Map.singleton "i" flatItem
+    flatMap = Map.singleton (NodeId "i") flatItem
   -- Snapping (7.4, 12.6) to a 5-grid lands at (5, 15); offset is (-2.4, 2.4).
   let snapOffset = XYDrag.calculateSnapOffset flatMap snap5 7.4 12.6
   assert "calculateSnapOffset computes the (snapped - raw) delta"
@@ -699,28 +700,28 @@ main = do
 
   -- getEventHandlerParams: currentNode/allNodes split.
   let
-    items2 :: Map.Map String NodeDragItem
+    items2 :: Map.Map NodeId NodeDragItem
     items2 = Map.fromFoldable
-      [ Tuple "s" (flatItem { id = "s", position = { x: 1.0, y: 1.0 } })
-      , Tuple "d" (flatItem { id = "d", position = { x: 2.0, y: 2.0 } })
+      [ Tuple (NodeId "s") (flatItem { id = NodeId "s", position = { x: 1.0, y: 1.0 } })
+      , Tuple (NodeId "d") (flatItem { id = NodeId "d", position = { x: 2.0, y: 2.0 } })
       ]
     lookup2 =
       Map.fromFoldable
-        [ Tuple "s" selectedNode, Tuple "d" draggableNode ]
+        [ Tuple (NodeId "s") selectedNode, Tuple (NodeId "d") draggableNode ]
         :: NodeLookup Unit
     paramsHead = XYDrag.getEventHandlerParams Nothing items2 lookup2 true
     paramsTargeted =
-      XYDrag.getEventHandlerParams (Just "d") items2 lookup2 true
+      XYDrag.getEventHandlerParams (Just (NodeId "d")) items2 lookup2 true
   assert "getEventHandlerParams Nothing returns first item as current"
     ( case paramsHead.currentNode of
-        Just n -> n.id == "s" || n.id == "d" -- map order isn't fixed
+        Just n -> n.id == NodeId "s" || n.id == NodeId "d" -- map order isn't fixed
         Nothing -> false
     )
   assert "getEventHandlerParams Nothing returns all items"
     (Array.length paramsHead.allNodes == 2)
   assert "getEventHandlerParams Just nid returns that node as current"
     ( case paramsTargeted.currentNode of
-        Just n -> n.id == "d" && n.dragging == true
+        Just n -> n.id == NodeId "d" && n.dragging == true
         Nothing -> false
     )
 
@@ -747,7 +748,7 @@ main = do
                , handleType :: HandleType
                , width :: Number
                , height :: Number
-               , nodeId :: String
+               , nodeId :: NodeId
                }
     handleS =
       { id: Just "out"
@@ -757,7 +758,7 @@ main = do
       , handleType: Source
       , width: 6.0
       , height: 6.0
-      , nodeId: "n1"
+      , nodeId: NodeId "n1"
       }
     handleT = handleS
       { id = Just "in"
@@ -776,24 +777,24 @@ main = do
           }
       }
     lookupHandles =
-      Map.fromFoldable [ Tuple "n1" nodeWithHandles' ] :: NodeLookup Unit
+      Map.fromFoldable [ Tuple (NodeId "n1") nodeWithHandles' ] :: NodeLookup Unit
 
   assert "getHandle: missing node returns Nothing"
-    ( XYHandle.getHandle "ghost" Source Nothing lookupHandles Strict false
+    ( XYHandle.getHandle (NodeId "ghost") Source Nothing lookupHandles Strict false
         == Nothing
     )
   assert "getHandle: returns the source handle when handleId matches"
-    ( case XYHandle.getHandle "n1" Source (Just "out") lookupHandles Strict false of
+    ( case XYHandle.getHandle (NodeId "n1") Source (Just "out") lookupHandles Strict false of
         Just h -> h.id == Just "out" && h.handleType == Source
         Nothing -> false
     )
   assert "getHandle: Loose mode mixes source+target handles"
-    ( case XYHandle.getHandle "n1" Source (Just "in") lookupHandles Loose false of
+    ( case XYHandle.getHandle (NodeId "n1") Source (Just "in") lookupHandles Loose false of
         Just h -> h.id == Just "in" && h.handleType == Target
         Nothing -> false
     )
   assert "getHandle: withAbsolutePosition shifts to canvas coords"
-    ( case XYHandle.getHandle "n1" Source (Just "out") lookupHandles Strict true of
+    ( case XYHandle.getHandle (NodeId "n1") Source (Just "out") lookupHandles Strict true of
         -- handle.x = 5, node positionAbsolute.x = 0 (we didn't set internals
         -- positionAbsolute). The function adds them; result is 5.
         Just h -> h.x >= 5.0
@@ -833,9 +834,9 @@ main = do
     -- Position the source handle at absolute (100,50). With node at (100,50)
     -- and handle offset (5,5), the absolute is (105, 55).
     far = XYHandle.getClosestHandle { x: 1000.0, y: 1000.0 } 50.0 lookupHandles
-      { nodeId: "other", id: Nothing, handleType: Target }
+      { nodeId: NodeId "other", id: Nothing, handleType: Target }
     near = XYHandle.getClosestHandle { x: 105.0, y: 55.0 } 50.0 lookupHandles
-      { nodeId: "other", id: Nothing, handleType: Target }
+      { nodeId: NodeId "other", id: Nothing, handleType: Target }
   assert "getClosestHandle: nothing within radius returns Nothing"
     (far == Nothing)
   assert "getClosestHandle: a handle within radius is returned"

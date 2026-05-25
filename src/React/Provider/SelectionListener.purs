@@ -23,6 +23,7 @@ import Data.Array (filter, fromFoldable, mapMaybe, null) as Array
 import Data.Foldable (for_)
 import Data.Map (values) as Map
 import Data.Maybe (Maybe(..), isJust)
+import Data.Newtype (unwrap)
 import Effect.Unsafe (unsafePerformEffect)
 import React.Basic (ReactComponent, element)
 import React.Basic.Hooks (UnsafeReference(..), reactComponent, useEffect)
@@ -36,7 +37,7 @@ import React.Types.Store (ReactFlowState)
 selectIds :: forall n e. ReactFlowState n e -> { nodes :: Array String, edges :: Array String }
 selectIds s =
   { nodes: Array.mapMaybe
-      (\n -> if n.selected then Just n.id else Nothing)
+      (\n -> if n.selected then Just (unwrap n.id) else Nothing)
       (Array.fromFoldable (Map.values s.nodeLookup))
   , edges: Array.mapMaybe
       (\e -> if e.selected then Just e.id else Nothing)

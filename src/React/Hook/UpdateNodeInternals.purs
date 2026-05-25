@@ -36,6 +36,7 @@ import React.Hook.Store (UseStoreApi, useStoreApi)
 import React.Store.Action (Action(..))
 import React.Store.Shell (Store)
 import System.FFI.AnimationFrame (requestAnimationFrame)
+import System.Types.Ids (NodeId(..))
 import System.Types.Node (InternalNodeUpdate)
 import Web.HTML.HTMLDivElement (HTMLDivElement)
 
@@ -85,11 +86,11 @@ mkFn store ids = do
 
   insertUpdate acc (Tuple nodeId mEl) = case mEl of
     Nothing -> acc
-    Just el -> Map.insert nodeId (mkUpdate nodeId el) acc
+    Just el -> Map.insert (NodeId nodeId) (mkUpdate nodeId el) acc
 
   mkUpdate :: String -> HTMLDivElement -> InternalNodeUpdate
   mkUpdate nodeId el =
-    { id: nodeId
+    { id: NodeId nodeId
     , nodeElement: el
     , force: true
     }

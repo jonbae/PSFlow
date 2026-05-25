@@ -21,12 +21,14 @@ import Data.Maybe (Maybe(..))
 import Effect (Effect)
 import React.Store.Action (Action(..))
 import React.Store.Shell (Store)
+import Data.Newtype (unwrap)
 import React.Types.Nodes (Node)
 import System.Constants (ErrorCode(..), errorMessage)
+import System.Types.Ids (NodeId)
 import Unsafe.Coerce (unsafeCoerce)
 
 type HandleNodeClickArgs n e =
-  { id :: String
+  { id :: NodeId
   , store :: Store n e
   , unselect :: Boolean
   }
@@ -42,7 +44,7 @@ handleNodeClick args = do
   state <- args.store.getState
   case Map.lookup args.id state.nodeLookup of
     Nothing -> case state.onError of
-      Just cb -> cb "012" (errorMessage (E012 args.id))
+      Just cb -> cb "012" (errorMessage (E012 (unwrap args.id)))
       Nothing -> pure unit
     Just node -> do
       -- `InternalNode n` carries the same `id`/`selected` fields as

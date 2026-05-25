@@ -24,6 +24,7 @@ import Data.Tuple (Tuple(..))
 import Effect (Effect)
 import Web.DOM.Element (Element)
 import System.Types.Geometry (SnapGrid, XYPosition)
+import System.Types.Ids (NodeId, ParentId, parentToNode, nodeToParent)
 import System.Types.Node
   ( InternalNodeBase
   , NodeBase
@@ -38,16 +39,16 @@ import System.Utils.General (snapPosition)
 -- | and a malformed lookup would otherwise spin forever here.
 isParentSelected
   :: forall n a
-   . { parentId :: Maybe String | a }
+   . { parentId :: Maybe ParentId | a }
   -> NodeLookup n
   -> Boolean
 isParentSelected node lookup = go Set.empty node.parentId
   where
-  go :: Set String -> Maybe String -> Boolean
+  go :: Set ParentId -> Maybe ParentId -> Boolean
   go _ Nothing = false
   go visited (Just pid)
     | Set.member pid visited = false
-    | otherwise = case Map.lookup pid lookup of
+    | otherwise = case Map.lookup (parentToNode pid) lookup of
         Nothing -> false
         Just parent ->
           if parent.selected then true
@@ -71,11 +72,11 @@ getDragItems
    . NodeLookup n
   -> Boolean
   -> XYPosition
-  -> Maybe String
-  -> Map String NodeDragItem
+  -> Maybe NodeId
+  -> Map NodeId NodeDragItem
 getDragItems lookup nodesDraggable mousePos mNodeId =
   let
-    entries :: Array (Tuple String (InternalNodeBase n))
+    entries :: Array (Tuple NodeId (InternalNodeBase n))
     entries = Map.toUnfoldable lookup
 
     isDraggable node = case node.draggable of
@@ -130,14 +131,14 @@ getDragItems lookup nodesDraggable mousePos mNodeId =
 -- | rewritten to mirror the TS spread.
 getEventHandlerParams
   :: forall n
-   . Maybe String
-  -> Map String NodeDragItem
+   . Maybe NodeId
+  -> Map NodeId NodeDragItem
   -> NodeLookup n
   -> Boolean
   -> { currentNode :: Maybe (NodeBase n), allNodes :: Array (NodeBase n) }
 getEventHandlerParams mNodeId dragItems lookup dragging =
   let
-    items :: Array (Tuple String NodeDragItem)
+    items :: Array (Tuple NodeId NodeDragItem)
     items = Map.toUnfoldable dragItems
 
     overlay :: InternalNodeBase n -> NodeDragItem -> NodeBase n
@@ -200,14 +201,14 @@ getEventHandlerParams mNodeId dragItems lookup dragging =
 -- | regardless. To restore TS parity, thread the click-target id through
 -- | the call chain and look it up here instead of taking the head.
 calculateSnapOffset
-  :: Map String NodeDragItem
+  :: Map NodeId NodeDragItem
   -> SnapGrid
   -> Number
   -> Number
   -> Maybe XYPosition
 calculateSnapOffset dragItems grid x y =
   let
-    items :: Array (Tuple String NodeDragItem)
+    items :: Array (Tuple NodeId NodeDragItem)
     items = Map.toUnfoldable dragItems
   in
     case Array.head items of

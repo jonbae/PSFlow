@@ -12,7 +12,7 @@ import Data.Either (Either(..))
 import Data.Map (Map)
 import Data.Map (empty, insert, isEmpty, lookup, values) as Map
 import Data.Maybe (Maybe(..), fromMaybe)
-import Data.Newtype (class Newtype)
+import Data.Newtype (class Newtype, unwrap)
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign)
 import Foreign.Object (Object)
@@ -28,6 +28,7 @@ import React.Types.Component (NodeToolbarProps)
 import React.Types.Nodes (InternalNode)
 import React.Types.Store (ReactFlowState)
 import System.Types.Geometry (Position(..), Transform(..))
+import System.Types.Ids (NodeId(..))
 import System.Types.Node (Align(..))
 import System.Utils.Graph (getInternalNodesBounds)
 import System.Utils.Toolbar (getNodeToolbarTransform)
@@ -44,7 +45,7 @@ newtype TbSlice n = TbSlice
   , y :: Number
   , zoom :: Number
   , selectedNodesCount :: Int
-  , nodes :: UnsafeReference (Map String (InternalNode n))
+  , nodes :: UnsafeReference (Map NodeId (InternalNode n))
   }
 
 derive instance newtypeTbSlice :: Newtype (TbSlice n) _
@@ -60,19 +61,19 @@ instance eqTbSlice :: Eq (TbSlice n) where
 idsFromProp
   :: Maybe (Either String (Array String))
   -> Maybe String
-  -> Array String
+  -> Array NodeId
 idsFromProp mProp ctxId = case mProp of
-  Just (Right arr) -> arr
-  Just (Left s) -> [ s ]
+  Just (Right arr) -> map NodeId arr
+  Just (Left s) -> [ NodeId s ]
   Nothing -> case ctxId of
-    Just s -> [ s ]
-    Nothing -> [ "" ]
+    Just s -> [ NodeId s ]
+    Nothing -> [ NodeId "" ]
 
 lookupNodes
   :: forall n e
-   . Array String
+   . Array NodeId
   -> ReactFlowState n e
-  -> Map String (InternalNode n)
+  -> Map NodeId (InternalNode n)
 lookupNodes ids s =
   Array.foldl
     ( \acc nid -> case Map.lookup nid s.nodeLookup of
@@ -84,7 +85,7 @@ lookupNodes ids s =
 
 selectorFor
   :: forall n e
-   . Array String
+   . Array NodeId
   -> ReactFlowState n e
   -> TbSlice n
 selectorFor ids s =
@@ -136,7 +137,7 @@ nodeToolbar =
           userClass = fromMaybe "" props.className
           className = "react-flow__node-toolbar"
             <> (if userClass == "" then "" else " " <> userClass)
-          dataIdStr = Array.foldl (\acc n -> acc <> n.id <> " ") "" nodesArr
+          dataIdStr = Array.foldl (\acc n -> acc <> unwrap n.id <> " ") "" nodesArr
           toolbarDiv = div_
             { style: toForeignStyle wrapperStyle
             , className

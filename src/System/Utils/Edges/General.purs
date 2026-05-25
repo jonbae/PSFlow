@@ -22,6 +22,7 @@ import Data.Int (floor) as Int
 import Data.Maybe (Maybe(..), fromMaybe, isJust)
 import Data.Number (abs) as Number
 import System.Constants (ErrorCode(..), errorMessage)
+import Data.Newtype (unwrap)
 import System.Types.Connection (Connection, ZIndexMode(..))
 import System.Types.Edge (EdgeBase)
 import System.Types.Geometry (Box, Rect, Transform(..), mkNodeOrigin)
@@ -141,10 +142,10 @@ type GetEdgeId = Connection -> String
 getEdgeId :: Connection -> String
 getEdgeId c =
   "xy-edge__"
-    <> c.source
+    <> unwrap c.source
     <> fromMaybe "" c.sourceHandle
     <> "-"
-    <> c.target
+    <> unwrap c.target
     <> fromMaybe "" c.targetHandle
 
 connectionExists :: forall e. EdgeBase e -> Array (EdgeBase e) -> Boolean
@@ -171,7 +172,7 @@ addEdge
   -> GetEdgeId
   -> Either String (Array (EdgeBase e))
 addEdge edgeParams _ _
-  | edgeParams.source == "" || edgeParams.target == "" =
+  | unwrap edgeParams.source == "" || unwrap edgeParams.target == "" =
       Left (errorMessage E006)
 addEdge edgeParams edges _ =
   if connectionExists edgeParams edges then Right edges
@@ -186,7 +187,7 @@ reconnectEdge
   -> GetEdgeId
   -> Either String (Array (EdgeBase e))
 reconnectEdge oldEdge newConnection edges shouldReplaceId edgeIdGen =
-  if newConnection.source == "" || newConnection.target == "" then
+  if unwrap newConnection.source == "" || unwrap newConnection.target == "" then
     Left (errorMessage E006)
   else case Array.filter (\e -> e.id == oldEdge.id) edges of
     [] -> Left (errorMessage (E007 oldEdge.id))

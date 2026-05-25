@@ -33,6 +33,7 @@ import Effect (Effect)
 import React.Basic (Ref)
 import React.Basic.Hooks (Hook, UnsafeReference(..), UseEffect, UseRef, UseState, coerceHook, readRef, useEffect, useRef, useState, writeRef)
 import React.Basic.Hooks as React
+import System.Types.Ids (NodeId)
 import System.XYDrag (DragStoreItems, XYDragInstance, createXYDrag)
 import Unsafe.Coerce (unsafeCoerce)
 import Web.HTML.HTMLDivElement (HTMLDivElement, toElement)
@@ -43,7 +44,7 @@ import Web.HTML.HTMLDivElement (HTMLDivElement, toElement)
 -- | sits here.
 type UseDragOptions nodeData edgeData =
   { wrapperRef :: Ref (Nullable HTMLDivElement)
-  , nodeId :: Maybe String
+  , nodeId :: Maybe NodeId
   , noDragClassName :: Maybe String
   , handleSelector :: Maybe String
   , isSelectable :: Boolean

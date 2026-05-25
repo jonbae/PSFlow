@@ -33,6 +33,7 @@ import React.Types.Edges (Edge)
 import React.Types.Nodes (Node)
 import System.Types.Connection (Viewport)
 import System.Types.Edge (EdgeChange)
+import System.Types.Ids (NodeId)
 import System.Types.Node (NodeChange)
 import System.Utils.Graph (FitViewOptions) as ReexportFitView
 import System.Utils.Graph (FitViewOptions)
@@ -86,8 +87,8 @@ type OnBeforeDelete n e =
 -- | `(edgeOrConnection) => boolean`; we pass the edge (when available) and
 -- | the raw connection candidate.
 type IsValidConnection e =
-  { source :: String
-  , target :: String
+  { source :: NodeId
+  , target :: NodeId
   , sourceHandle :: Maybe String
   , targetHandle :: Maybe String
   , edge :: Maybe (Edge e)

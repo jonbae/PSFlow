@@ -15,6 +15,7 @@ import Prelude
 import Data.Array (mapMaybe)
 import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe)
+import Data.Newtype (unwrap)
 import Effect.Unsafe (unsafePerformEffect)
 import React.Basic (JSX, ReactComponent, element, fragment)
 import React.Basic.Hooks (UnsafeReference(..), memo, reactComponent)
@@ -64,7 +65,7 @@ renderOne props internal =
           userComp = fromMaybe miniMapNode props.nodeComponent
         in
           Just $ element userComp
-            { id: internal.id
+            { id: unwrap internal.id
             , x: internal.internals.positionAbsolute.x
             , y: internal.internals.positionAbsolute.y
             , width: dims.width

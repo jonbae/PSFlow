@@ -25,6 +25,7 @@ import Data.Map (Map)
 import Data.Maybe (Maybe)
 import Data.Show.Generic (genericShow)
 import System.Types.Geometry (Position)
+import System.Types.Ids (NodeId)
 
 -- | TS field `type` is renamed to `edgeType`. `animated`, `hidden`, `selected`
 -- | have a clear `false` default and are plain `Boolean`. `deletable` and
@@ -33,8 +34,8 @@ import System.Types.Geometry (Position)
 type EdgeBase edgeData =
   { id :: String
   , edgeType :: Maybe String
-  , source :: String
-  , target :: String
+  , source :: NodeId
+  , target :: NodeId
   , sourceHandle :: Maybe String
   , targetHandle :: Maybe String
   , animated :: Boolean

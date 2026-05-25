@@ -31,6 +31,7 @@ import Data.Int (toNumber) as Int
 import Data.Map (Map)
 import Data.Map (empty, insert, lookup, toUnfoldable, values) as Map
 import Data.Maybe (Maybe(..), fromMaybe, isJust, isNothing)
+import Data.Newtype (unwrap)
 import Data.Number (abs, round) as Number
 import Data.Tuple (Tuple(..))
 import Effect (Effect)
@@ -52,6 +53,7 @@ import System.Types.Geometry
   , mkNodeOrigin
   )
 import System.Types.Handle (Handle, HandleType(..), SourceHandle(..), TargetHandle(..), mkSourceHandle, mkTargetHandle)
+import System.Types.Ids (NodeId, ParentId, parentToNode, nodeToParent)
 import System.Types.Node
   ( InternalNodeBase
   , InternalNodeUpdate
@@ -212,7 +214,7 @@ updateChildNodePure node nodeLookup parentLookup options rootParentIndex =
   case node.parentId of
     Nothing -> { node, nodeLookup, parentLookup, rootParentIndex }
     Just parentId ->
-      case Map.lookup parentId nodeLookup of
+      case Map.lookup (parentToNode parentId) nodeLookup of
         Nothing -> { node, nodeLookup, parentLookup, rootParentIndex }
         Just parentNode ->
           let
@@ -506,25 +508,26 @@ handleExpandParent children nodeLookup parentLookup defaultOrigin =
   let
     expansions =
       Foldable.foldl
-        ( \acc child -> case Map.lookup child.parentId nodeLookup of
-            Nothing -> acc
-            Just parent ->
-              let
-                prevRect = case Map.lookup child.parentId acc of
-                  Just r -> r.expandedRect
-                  Nothing -> nodeToRect (Right parent) defaultOrigin
-                expanded = getBoundsOfRects prevRect child.rect
-              in
-                Map.insert child.parentId
-                  { expandedRect: expanded, parent }
-                  acc
+        ( \acc child ->
+            case Map.lookup (parentToNode child.parentId) nodeLookup of
+              Nothing -> acc
+              Just parent ->
+                let
+                  prevRect = case Map.lookup child.parentId acc of
+                    Just r -> r.expandedRect
+                    Nothing -> nodeToRect (Right parent) defaultOrigin
+                  expanded = getBoundsOfRects prevRect child.rect
+                in
+                  Map.insert child.parentId
+                    { expandedRect: expanded, parent }
+                    acc
         )
         ( Map.empty ::
-            Map String { expandedRect :: Rect, parent :: InternalNodeBase n }
+            Map ParentId { expandedRect :: Rect, parent :: InternalNodeBase n }
         )
         children
 
-    pairs :: Array (Tuple String { expandedRect :: Rect, parent :: InternalNodeBase n })
+    pairs :: Array (Tuple ParentId { expandedRect :: Rect, parent :: InternalNodeBase n })
     pairs = Map.toUnfoldable expansions
   in
     Array.foldl (stepExpansion children parentLookup defaultOrigin) [] pairs
@@ -535,7 +538,7 @@ stepExpansion
   -> ParentLookup n
   -> NodeOrigin
   -> Array (NodeChange n)
-  -> Tuple String { expandedRect :: Rect, parent :: InternalNodeBase n }
+  -> Tuple ParentId { expandedRect :: Rect, parent :: InternalNodeBase n }
   -> Array (NodeChange n)
 stepExpansion children parentLookup defaultOrigin changes (Tuple parentId rec) =
   let
@@ -566,7 +569,7 @@ stepExpansion children parentLookup defaultOrigin changes (Tuple parentId rec) =
     posChange =
       if significantPositionChange then
         [ NodePositionChange
-            { id: parentId
+            { id: parentToNode parentId
             , position: Just
                 { x: rec.parent.position.x - xChange + widthChange
                 , y: rec.parent.position.y - yChange + heightChange
@@ -611,7 +614,7 @@ stepExpansion children parentLookup defaultOrigin changes (Tuple parentId rec) =
     dimChange =
       if significantDimensionChange then
         [ NodeDimensionChange
-            { id: parentId
+            { id: parentToNode parentId
             , dimensions: Just
                 { width:
                     newWidth
@@ -643,7 +646,7 @@ filterMap = Array.mapMaybe
 
 updateNodeInternals
   :: forall n
-   . Map String InternalNodeUpdate
+   . Map NodeId InternalNodeUpdate
   -> NodeLookup n
   -> ParentLookup n
   -> Maybe HTMLElement
@@ -758,7 +761,7 @@ processUpdate update acc zoom origin extent zMode =
               Nothing -> Just extent
             positionAbsoluteAdjusted = case node.parentId, node.extent of
               Just pid, Just ParentExtent ->
-                case Map.lookup pid acc.nodeLookup of
+                case Map.lookup (parentToNode pid) acc.nodeLookup of
                   Just parent ->
                     clampPositionToParent node.internals.positionAbsolute dims
                       parent
@@ -875,6 +878,11 @@ updateConnectionLookup edges =
     final = Foldable.foldl
       ( \st edge ->
           let
+            -- Connection composite keys are bare strings (internal
+            -- index shape); the typed NodeIds are unwrapped at this
+            -- boundary.
+            sourceStr = unwrap edge.source
+            targetStr = unwrap edge.target
             connection :: HandleConnection
             connection =
               { edgeId: edge.id
@@ -884,26 +892,26 @@ updateConnectionLookup edges =
               , targetHandle: edge.targetHandle
               }
             sourceKey =
-              edge.source <> "-" <> fromMaybe "null" edge.sourceHandle
+              sourceStr <> "-" <> fromMaybe "null" edge.sourceHandle
                 <> "--"
-                <> edge.target
+                <> targetStr
                 <> "-"
                 <> fromMaybe "null" edge.targetHandle
             targetKey =
-              edge.target <> "-" <> fromMaybe "null" edge.targetHandle
+              targetStr <> "-" <> fromMaybe "null" edge.targetHandle
                 <> "--"
-                <> edge.source
+                <> sourceStr
                 <> "-"
                 <> fromMaybe "null" edge.sourceHandle
             connLookup1 =
               addConnectionToLookup "source" connection targetKey
                 st.connectionLookup
-                edge.source
+                sourceStr
                 edge.sourceHandle
             connLookup2 =
               addConnectionToLookup "target" connection sourceKey
                 connLookup1
-                edge.target
+                targetStr
                 edge.targetHandle
           in
             { connectionLookup: connLookup2

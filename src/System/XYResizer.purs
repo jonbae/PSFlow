@@ -57,6 +57,7 @@ import System.Types.Geometry
   , Transform
   , XYPosition
   )
+import System.Types.Ids (NodeId)
 import System.Types.Node (NodeExtent, NodeLookup)
 
 -- | TS `ControlLinePosition = 'top' | 'bottom' | 'left' | 'right'`.
@@ -175,7 +176,7 @@ type XYResizerChange =
   }
 
 type XYResizerChildChange =
-  { id :: String
+  { id :: NodeId
   , position :: XYPosition
   , extent :: Maybe NodeExtent
   }
@@ -200,7 +201,7 @@ type ResizerStoreItems nodeData =
 
 type XYResizerParams nodeData =
   { domNode :: HTMLDivElement
-  , nodeId :: String
+  , nodeId :: NodeId
   , getStoreItems :: Effect (ResizerStoreItems nodeData)
   , onChange :: XYResizerChange -> Array XYResizerChildChange -> Effect Unit
   , onEnd :: Maybe (RequiredXYResizerChange -> Effect Unit)

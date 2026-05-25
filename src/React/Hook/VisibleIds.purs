@@ -20,9 +20,10 @@ module React.Hook.VisibleIds
 import React.Basic.Hooks (Hook)
 import React.Hook.Store (UseStore, useStore)
 import React.Hook.VisibleIds.Pure (selectVisibleEdgeIds, selectVisibleNodeIds)
+import System.Types.Ids (NodeId)
 
 useVisibleNodeIds
-  :: Boolean -> Hook (UseStore (Array String)) (Array String)
+  :: Boolean -> Hook (UseStore (Array NodeId)) (Array NodeId)
 useVisibleNodeIds onlyRenderVisible =
   useStore (selectVisibleNodeIds onlyRenderVisible)
 

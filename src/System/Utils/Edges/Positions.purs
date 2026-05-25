@@ -26,6 +26,7 @@ import System.Types.Handle
   , unSourceHandle
   , unTargetHandle
   )
+import System.Types.Ids (NodeId)
 import System.Types.Node (InternalNodeBase, NodeHandle, NodeHandleBounds, OnError)
 import System.Utils.General (getNodeDimensions)
 
@@ -64,7 +65,7 @@ toHandleBounds node = case node.handles of
         , target: Array.mapMaybe mkTargetHandle asHandles
         }
 
-nodeHandleToHandle :: NodeHandle -> String -> Handle
+nodeHandleToHandle :: NodeHandle -> NodeId -> Handle
 nodeHandleToHandle h nodeId =
   { id: h.id
   , nodeId

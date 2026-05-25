@@ -22,6 +22,7 @@ import Data.Set as Set
 import Effect (Effect)
 import Effect.Class.Console (log)
 import System.Types.Edge (EdgeBase)
+import System.Types.Ids (NodeId(..))
 import System.Types.Node (NodeBase)
 import System.Utils.Store
   ( UpdateNodesOptions
@@ -47,7 +48,7 @@ mkNode
      }
   -> NodeBase Unit
 mkNode r =
-  { id: r.id
+  { id: NodeId r.id
   , position: { x: r.x, y: r.y }
   , data: unit
   , sourcePosition: Nothing
@@ -111,8 +112,8 @@ mkEdge :: String -> String -> String -> EdgeBase Unit
 mkEdge eid src tgt =
   { id: eid
   , edgeType: Nothing
-  , source: src
-  , target: tgt
+  , source: NodeId src
+  , target: NodeId tgt
   , sourceHandle: Nothing
   , targetHandle: Nothing
   , animated: false

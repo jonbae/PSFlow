@@ -50,6 +50,7 @@ import System.Types.Connection
   )
 import System.Types.Geometry (Position)
 import System.Types.Handle (Handle, HandleType(..))
+import System.Types.Ids (NodeId)
 import System.Types.Node (InternalNodeBase)
 import System.XYHandle (xyHandle)
 import Unsafe.Coerce (unsafeCoerce)
@@ -87,7 +88,7 @@ type EdgeUpdateAnchorsProps e n =
 -- | endpoint and drags toward the *target* (the opposite handle); the
 -- | inverse holds for the target anchor.
 type OppositeHandle =
-  { nodeId :: String, id :: Maybe String, handleType :: HandleType }
+  { nodeId :: NodeId, id :: Maybe String, handleType :: HandleType }
 
 syntheticToMouse :: SyntheticEvent -> MouseEvent
 syntheticToMouse = unsafeCoerce
