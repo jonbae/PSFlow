@@ -2,10 +2,15 @@
 -- | `xyflow-main/packages/system/src/xyhandle/XYHandle.ts`.
 -- |
 -- | Exports a singleton `xyHandle :: XYHandleInstance` plus the parameter
--- | record types. `onPointerDown` is heavily effectful: it allocates `Ref`
--- | cells for closure state, registers DOM listeners on the document/host,
--- | and schedules an auto-pan rAF loop. `isValid` is `Effect`-typed because
--- | it queries the DOM via `querySelector`/`elementFromPoint`.
+-- | record types. `onPointerDown` collapses the TS closure state into a
+-- | plain `HandleDragState` record and runs its lifecycle handlers under
+-- | `StateT HandleDragState Effect`; a single outer `Ref HandleDragState`
+-- | carries the snapshot across d3 callbacks via `runOnRef`. (A second
+-- | `Ref` is kept for `previousConnection` only because its type doesn't
+-- | fold cleanly into the StateT.) `onPointerDown` is still `Effect`-shaped
+-- | at the boundary — it registers DOM listeners on the document/host and
+-- | schedules an auto-pan rAF loop. `isValid` is `Effect`-typed because it
+-- | queries the DOM via `querySelector`/`elementFromPoint`.
 module System.XYHandle
   ( OnPointerDownParams
   , IsValidParams

@@ -52,7 +52,11 @@
       "Bash(git -C 'C:\\\\Users\\\\jonbae\\\\Documents\\\\repos\\\\ps-flow' log --oneline -20)",
       "Bash(xargs grep -l \"forwardRef\")",
       "Bash(git ls-tree *)",
-      "Bash(grep -E \"^\\\\[ERROR|^Error|src\\\\\\\\\\\\\\\\\")"
+      "Bash(grep -E \"^\\\\[ERROR|^Error|src\\\\\\\\\\\\\\\\\")",
+      "Bash(sort -t: -k2 -rn)",
+      "Bash(grep -rn \"do$\" src --include='*.purs')",
+      "Bash(xargs grep -l \"onError\")",
+      "Bash(xargs grep -l \"calculateNodePosition\\\\|function calculateNode\")"
     ]
   }
 }

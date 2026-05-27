@@ -1,11 +1,12 @@
 -- | Edge endpoint resolution. Mirrors `utils/edges/positions.ts`.
 -- |
--- | Divergence note: the TS function calls `params.onError?.(...)` as a side
--- | effect when handle resolution fails, then returns `null`. The PS port
--- | keeps `getEdgePosition` total (`Maybe EdgePosition`) and lets callers
--- | observe `Nothing` plus the originating ids to surface the same error
--- | through their own `Effect` channel. The `onError` field is retained for
--- | API parity but is never invoked from this module.
+-- | Divergence note: the TS function calls `params.onError?.('008', …)` as a
+-- | side effect when handle resolution fails, then returns `null`. The PS
+-- | port keeps `getEdgePosition` total (`Maybe EdgePosition`) and leaves
+-- | warning emission to the caller's `Effect` boundary — given the
+-- | originating ids in `params`, callers can construct an `E008` value from
+-- | `System.Constants` and surface it through their own `OnError` channel
+-- | when they observe `Nothing`.
 module System.Utils.Edges.Positions
   ( GetEdgePositionParams
   , getEdgePosition
@@ -27,7 +28,7 @@ import System.Types.Handle
   , unTargetHandle
   )
 import System.Types.Ids (NodeId)
-import System.Types.Node (InternalNodeBase, NodeHandle, NodeHandleBounds, OnError)
+import System.Types.Node (InternalNodeBase, NodeHandle, NodeHandleBounds)
 import System.Utils.General (getNodeDimensions)
 
 type GetEdgePositionParams n =
@@ -37,7 +38,6 @@ type GetEdgePositionParams n =
   , targetNode :: InternalNodeBase n
   , targetHandle :: Maybe String
   , connectionMode :: ConnectionMode
-  , onError :: Maybe OnError
   }
 
 isNodeInitialized :: forall n. InternalNodeBase n -> Boolean

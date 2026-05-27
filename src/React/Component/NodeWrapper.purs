@@ -223,7 +223,6 @@ mkDragStoreItems store = do
     , unselectNodesAndEdges:
         store.dispatch
           (UnselectNodesAndEdges { nodes: Nothing, edges: Nothing })
-    , onError: s.onError
     , onNodeDragStart: s.onNodeDragStart
     , onNodeDrag: s.onNodeDrag
     , onNodeDragStop: s.onNodeDragStop

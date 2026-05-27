@@ -155,10 +155,9 @@ applyDefaults (Just defaults) edge =
 selectEdgePosition
   :: forall n e
    . String
-  -> Maybe OnError
   -> ReactFlowState n e
   -> EdgePositionSlice
-selectEdgePosition edgeId mOnError state =
+selectEdgePosition edgeId state =
   case Map.lookup edgeId state.edgeLookup of
     Nothing -> nullPosition
     Just edge ->
@@ -181,7 +180,6 @@ selectEdgePosition edgeId mOnError state =
               , sourceHandle: edge.sourceHandle
               , targetHandle: edge.targetHandle
               , connectionMode: state.connectionMode
-              , onError: mOnError
               }
           in
             case mPos of
@@ -323,7 +321,7 @@ edgeWrapper =
       updateHover /\ setUpdateHover <- useState false
       reconnecting /\ setReconnecting <- useState false
 
-      positionSlice <- useStore (selectEdgePosition props.id props.onError)
+      positionSlice <- useStore (selectEdgePosition props.id)
 
       let
         isFocusable = props.edgesFocusable

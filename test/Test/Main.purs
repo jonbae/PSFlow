@@ -518,7 +518,6 @@ main = do
         , nodeLookup: Map.empty
         , nodeOrigin: mkNodeOrigin 0.0 0.0
         , nodeExtent: Nothing
-        , onError: Nothing
         }
         == Nothing
     )

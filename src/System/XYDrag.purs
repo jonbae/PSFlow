@@ -3,9 +3,12 @@
 -- |
 -- | The TS `XYDrag` is a factory that captures mutable state (`lastPos`,
 -- | `dragItems`, `autoPanId`, …) in a closure and returns an object with
--- | `update`/`destroy` methods. The PS port uses `Ref` for that state and
--- | returns the controller in `Effect`. d3-drag wiring goes through
--- | `System.FFI.D3Drag`.
+-- | `update`/`destroy` methods. The PS port collapses that state into a
+-- | plain `DragState` record and lifts the lifecycle handlers (`onStart`,
+-- | `onDragHandler`, `onEnd`, `startDrag`, `autoPan`, `updateNodes`) to
+-- | `StateT DragState Effect`. A single outer `Ref DragState` carries the
+-- | snapshot across the d3-callback boundary via `runOnRef`. d3-drag
+-- | wiring goes through `System.FFI.D3Drag`.
 -- |
 -- | Type-parameter divergence from TS: the TS source has a single
 -- | `<OnNodeDrag>` parameter that abstracts the user callback shape.
@@ -79,7 +82,6 @@ import System.Types.Node
   ( NodeBase
   , NodeDragItem
   , NodeLookup
-  , OnError
   )
 import System.Utils.Dom
   ( DOMRect
@@ -152,7 +154,6 @@ type DragStoreItems nodeData edgeData =
   , nodeDragThreshold :: Number
   , panBy :: PanBy
   , unselectNodesAndEdges :: Effect Unit
-  , onError :: Maybe OnError
   , onNodeDragStart :: Maybe (OnNodeDrag nodeData)
   , onNodeDrag :: Maybe (OnNodeDrag nodeData)
   , onNodeDragStop :: Maybe (OnNodeDrag nodeData)
@@ -592,7 +593,6 @@ updateNodes params mUpd pos = do
           , nodeLookup: store.nodeLookup
           , nodeOrigin: store.nodeOrigin
           , nodeExtent: Just store.nodeExtent
-          , onError: store.onError
           } of
           Nothing -> pure acc
           Just r -> pure

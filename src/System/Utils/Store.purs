@@ -1,12 +1,16 @@
--- | Store reconciliation utilities. Mirrors `utils/store.ts`. The TS code
--- | mutates `Map`s in place; this PS port takes Maps and returns Maps so
--- | callers (e.g. the React reducer in ticket 026) can call these as pure
--- | helpers. `updateNodeInternals` retains `Effect` because it reads the
--- | DOM (`getDimensions`, `elementBoundingRect`, `getHandleBounds`,
--- | `findViewportZoom`); `panBy` is `Aff` because viewport setters are
--- | async. The remaining four functions — `adoptUserNodes`,
+-- | Store reconciliation utilities. Mirrors `utils/store.ts`.
+-- |
+-- | The four reconciliation functions — `adoptUserNodes`,
 -- | `updateAbsolutePositions`, `updateConnectionLookup`,
--- | `handleExpandParent` — are pure value-in / value-out (ticket 022a).
+-- | `handleExpandParent` — are pure (value-in / value-out). The React
+-- | reducer (ticket 026) calls them directly; the `Ref` shell that the TS
+-- | source uses to mutate `Map`s in place lives outside this module.
+-- |
+-- | The remaining two functions are effectful by necessity:
+-- | `updateNodeInternals` is `Effect` because it reads the DOM
+-- | (`getDimensions`, `elementBoundingRect`, `getHandleBounds`,
+-- | `findViewportZoom`); `panBy` is `Aff` because viewport setters are
+-- | async.
 module System.Utils.Store
   ( UpdateNodesOptions
   , defaultUpdateNodesOptions
@@ -284,7 +288,7 @@ updateChildNodePure node nodeLookup parentLookup options rootParentIndex =
             , rootParentIndex: nextRootIndex
             }
 
--- Public Effect functions --------------------------------------------------
+-- Public reconciliation functions (pure) -----------------------------------
 
 updateAbsolutePositions
   :: forall n

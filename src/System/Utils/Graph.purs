@@ -63,7 +63,6 @@ import System.Types.Node
   , NodeBase
   , NodeExtent(..)
   , NodeLookup
-  , OnError
   )
 import System.Types.PanZoom (PanZoomInstance)
 import System.Utils.General
@@ -372,12 +371,21 @@ type CalculateNodePositionParams n =
   , nodeLookup :: NodeLookup n
   , nodeOrigin :: NodeOrigin
   , nodeExtent :: Maybe CoordinateExtent
-  , onError :: Maybe OnError
   }
 
 -- | Returns `Nothing` when the node id is absent. The TS source uses the
 -- | non-null assertion `nodeLookup.get(nodeId)!`; we make the partiality
 -- | observable instead of crashing.
+-- |
+-- | Divergence note: the TS function calls `onError?.('005', …)` when a
+-- | `extent: 'parent'` node has no parent, and `onError?.('015', …)` when
+-- | the node has no measured width/height. Both are non-fatal — TS falls
+-- | through to default extents and `?? 0` defaults respectively. The PS
+-- | port uses the same fallback paths and leaves warning emission to the
+-- | caller's `Effect` boundary (mirrors the design documented on
+-- | `getEdgePosition`). Construct an `ErrorCode` from
+-- | `System.Constants` at the call seam if you want parity with the TS
+-- | warning surface.
 calculateNodePosition
   :: forall n
    . CalculateNodePositionParams n

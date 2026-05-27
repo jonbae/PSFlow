@@ -12,6 +12,8 @@ import Prelude hiding (clamp)
 import Data.Array.NonEmpty as NEA
 import Data.Either (Either(..))
 import Data.Int (toNumber) as Int
+import Data.Map (Map)
+import Data.Map (singleton) as Map
 import Data.Maybe (Maybe(..))
 import Effect (Effect)
 import Effect.Class.Console (log)
@@ -21,13 +23,17 @@ import System.Types.Edge (EdgeBase)
 import System.Types.Ids (NodeId(..))
 import System.Types.Geometry
   ( Box
+  , CoordinateExtent(..)
   , Position(..)
   , Rect
   , SnapGrid(..)
   , XYPosition
+  , mkCoordinateExtent
+  , mkNodeOrigin
   , mkSnapGrid
   , oppositePosition
   )
+import System.Types.Node (InternalNodeBase)
 import System.Utils.Edges.General (addEdge, getEdgeId)
 import System.Utils.General
   ( boxToRect
@@ -36,6 +42,7 @@ import System.Utils.General
   , rectToBox
   , snapPosition
   )
+import System.Utils.Graph (calculateNodePosition)
 
 -- | A finite `Number` generator. The default `Arbitrary Number` returns
 -- | values from `uniform` in `[0, 1]`, which is too narrow for the geometric
@@ -129,6 +136,59 @@ runAddEdge e edges = case addEdge e edges getEdgeId of
   Right xs -> xs
   Left _ -> edges
 
+-- | A minimal parent-less `InternalNodeBase Unit` with known measured
+-- | width/height. Used to exercise `calculateNodePosition`'s extent
+-- | clamping in isolation — the parent-chain, origin-offset, and
+-- | `extent == ParentExtent` branches are out of scope for this property.
+mkLeafInternalNode :: NodeId -> Number -> Number -> InternalNodeBase Unit
+mkLeafInternalNode nid width height =
+  { id: nid
+  , position: { x: 0.0, y: 0.0 }
+  , data: unit
+  , sourcePosition: Nothing
+  , targetPosition: Nothing
+  , hidden: false
+  , selected: false
+  , dragging: false
+  , draggable: Nothing
+  , selectable: Nothing
+  , connectable: Nothing
+  , deletable: Nothing
+  , dragHandle: Nothing
+  , width: Just width
+  , height: Just height
+  , initialWidth: Nothing
+  , initialHeight: Nothing
+  , parentId: Nothing
+  , zIndex: Nothing
+  , extent: Nothing
+  , expandParent: false
+  , ariaLabel: Nothing
+  , origin: Nothing
+  , handles: Nothing
+  , measured: { width: Just width, height: Just height }
+  , nodeType: Nothing
+  , internals:
+      { positionAbsolute: { x: 0.0, y: 0.0 }
+      , z: 0.0
+      , rootParentIndex: Nothing
+      , handleBounds: Nothing
+      , bounds: Nothing
+      }
+  }
+
+-- | Generate a `CoordinateExtent` whose `max` strictly exceeds `min`. The
+-- | spread is bounded so that `maxX - width` and `maxY - height` (the
+-- | upper clamp targets) stay finite and non-degenerate for the chosen
+-- | node dimensions.
+genCoordinateExtent :: Gen CoordinateExtent
+genCoordinateExtent = do
+  minX <- genFiniteNumber
+  minY <- genFiniteNumber
+  spreadX <- Int.toNumber <$> chooseInt 200 1000
+  spreadY <- Int.toNumber <$> chooseInt 200 1000
+  pure (mkCoordinateExtent minX minY (minX + spreadX) (minY + spreadY))
+
 runProperties :: Effect Unit
 runProperties = do
   log "running QuickCheck properties..."
@@ -200,5 +260,43 @@ runProperties = do
       snapped = snapPosition aligned g
     pure (snapped == aligned
             <?> "snapPosition not a fixed point on aligned input")
+
+  -- calculateNodePosition respects the supplied CoordinateExtent: for a
+  -- parent-less leaf node with known measured dims, the returned
+  -- `positionAbsolute` always lies inside the extent (clamped to leave
+  -- room for the node's width/height). Demonstrates that the function is
+  -- callable from a pure context — no `Effect` callback in scope.
+  quickCheck do
+    ext@(CoordinateExtent r) <- genCoordinateExtent
+    width <- Int.toNumber <$> chooseInt 0 100
+    height <- Int.toNumber <$> chooseInt 0 100
+    nextX <- genFiniteNumber
+    nextY <- genFiniteNumber
+    let
+      nid = NodeId "n1"
+      lookup :: Map NodeId (InternalNodeBase Unit)
+      lookup = Map.singleton nid (mkLeafInternalNode nid width height)
+      result = calculateNodePosition
+        { nodeId: nid
+        , nextPosition: { x: nextX, y: nextY }
+        , nodeLookup: lookup
+        , nodeOrigin: mkNodeOrigin 0.0 0.0
+        , nodeExtent: Just ext
+        }
+    pure case result of
+      Nothing ->
+        false <?> "calculateNodePosition returned Nothing for present node"
+      Just { positionAbsolute: pa } ->
+        ( pa.x >= r.minX
+            && pa.x <= r.maxX - width
+            && pa.y >= r.minY
+            && pa.y <= r.maxY - height
+        )
+          <?>
+            ( "positionAbsolute " <> show pa <> " outside extent ("
+                <> show r.minX <> "," <> show r.minY <> ")-("
+                <> show r.maxX <> "," <> show r.maxY <> ") for dims "
+                <> show width <> "x" <> show height
+            )
 
   log "all properties passed"
