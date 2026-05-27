@@ -38,23 +38,22 @@ export const elementFromPointOnDocImpl = (host) => (x) => (y) => () => {
 export const docCoerce = (doc) => doc;
 export const shadowCoerce = (sr) => sr;
 
-const wrapEither = (ev) => {
-  // The PS `Either MouseEvent TouchEvent` runtime constructors are
-  // `Data_Either.Left.create` / `Data_Either.Right.create`. We adapt by
-  // checking for the touches property — touch events go to Right.
-  if (ev && ev.touches) {
-    return { type: "Right", value0: ev };
-  }
-  return { type: "Left", value0: ev };
+// Build a proper PS `Either` runtime value from a native event. `left`
+// and `right` are the PS `Left` / `Right` data constructors threaded in
+// from the call site — using them ensures the value is `instanceof Left`
+// (or Right), which downstream pattern-matches require.
+const wrapEither = (left, right, ev) => {
+  if (ev && ev.touches) return right(ev);
+  return left(ev);
 };
 
-const wireListener = (host, moveCb, upCb, op) => {
+const wireListener = (host, left, right, moveCb, upCb, op) => {
   const root = host.value;
   if (!root || typeof root[op] !== "function") return;
   if (op === "addEventListener") {
     if (!root.__xyflowListeners) root.__xyflowListeners = new Map();
-    const moveAdapter = (ev) => moveCb(wrapEither(ev))();
-    const upAdapter = (ev) => upCb(wrapEither(ev))();
+    const moveAdapter = (ev) => moveCb(wrapEither(left, right, ev))();
+    const upAdapter = (ev) => upCb(wrapEither(left, right, ev))();
     root.__xyflowListeners.set(moveCb, moveAdapter);
     root.__xyflowListeners.set(upCb, upAdapter);
     root.addEventListener("mousemove", moveAdapter);
@@ -78,10 +77,13 @@ const wireListener = (host, moveCb, upCb, op) => {
   }
 };
 
-export const addDocListenersImpl = (host) => (move) => (up) => () => {
-  wireListener(host, move, up, "addEventListener");
+export const addDocListenersImpl = (host) => (left) => (right) => (move) => (up) => () => {
+  wireListener(host, left, right, move, up, "addEventListener");
 };
 
+// removeDocListenersImpl does not need the constructors — it only looks
+// up previously-registered adapter refs in the WeakMap and unregisters
+// them. Pass `null`s through to preserve the call signature.
 export const removeDocListenersImpl = (host) => (move) => (up) => () => {
-  wireListener(host, move, up, "removeEventListener");
+  wireListener(host, null, null, move, up, "removeEventListener");
 };

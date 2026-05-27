@@ -609,9 +609,14 @@ foreign import docCoerce :: Document -> Element
 foreign import shadowCoerce :: ShadowRoot -> Element
 
 -- | Listener wiring. We pass the handlers as unary `Effect`-returning
--- | callbacks; the JS layer adapts them to `EventListener`.
+-- | callbacks; the JS layer adapts them to `EventListener`. The `Left`
+-- | and `Right` constructors are threaded in explicitly so the JS layer
+-- | can build proper `Either` runtime values (an ad-hoc `{ type, value0 }`
+-- | object fails pattern-matches downstream).
 foreign import addDocListenersImpl
   :: { tag :: String, value :: Element }
+  -> (MouseEvent -> Either MouseEvent TouchEvent)
+  -> (TouchEvent -> Either MouseEvent TouchEvent)
   -> (Either MouseEvent TouchEvent -> Effect Unit)
   -> (Either MouseEvent TouchEvent -> Effect Unit)
   -> Effect Unit
@@ -627,7 +632,8 @@ addDocListeners
   -> (Either MouseEvent TouchEvent -> Effect Unit)
   -> (Either MouseEvent TouchEvent -> Effect Unit)
   -> Effect Unit
-addDocListeners d move up = addDocListenersImpl (docTag d) move up
+addDocListeners d move up =
+  addDocListenersImpl (docTag d) Left Right move up
 
 removeDocListeners
   :: Either Document ShadowRoot

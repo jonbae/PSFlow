@@ -98,13 +98,72 @@ test.describe("ps-flow smoke test", () => {
     expect(errors).toEqual([]);
   });
 
-  // Blocked: node drag requires <Handle> connection-drag wiring (currently
-  // a stub in src/React/Handle.purs). See ticket 052 / surrounding
-  // discussion before re-enabling.
-  test.skip("node drag fires onNodesChange (blocked by Handle wiring)", () => {});
+  // Node drag flows through `System.XYDrag`. The example app wires an
+  // `onNodesChange` callback that mirrors each change array to
+  // `window.__lastNodeChanges` so this test can observe the fact that
+  // changes fired without depending on the internal NodeChange shape.
+  test("node drag fires onNodesChange", async ({ page }) => {
+    const n1 = page.locator('.react-flow__node[data-id="n1"]');
+    const box = await n1.boundingBox();
+    if (!box) throw new Error("n1 has no bounding box");
+    const startX = box.x + box.width / 2;
+    const startY = box.y + box.height / 2;
+    await page.mouse.move(startX, startY);
+    await page.mouse.down();
+    await page.mouse.move(startX + 50, startY + 50, { steps: 10 });
+    await page.mouse.up();
+    await page.waitForTimeout(200);
+    const changesCount = await page.evaluate(
+      () => (window as unknown as { __lastNodeChangesCount?: number })
+        .__lastNodeChangesCount ?? 0
+    );
+    expect(changesCount).toBeGreaterThan(0);
+    const lastChanges = await page.evaluate(
+      () => (window as unknown as { __lastNodeChanges?: unknown[] })
+        .__lastNodeChanges ?? []
+    );
+    expect(Array.isArray(lastChanges)).toBe(true);
+    expect(lastChanges.length).toBeGreaterThan(0);
+  });
 
-  // Blocked: click-connect needs the same store helpers.
-  test.skip("click-connect creates an edge (blocked by Handle wiring)", () => {});
+  // Click-connect is gated on `connectOnClick: Just true` and uses the
+  // store's `hasDefaultEdges` branch in `Handle.onConnectExtended` to
+  // dispatch the new edge through `SetEdges`. We assert the visible edge
+  // count goes 1 → 2.
+  //
+  // We click n2.source → n1.target (the reverse of the seeded edge). The
+  // store's `connectionExists` predicate dedupes identical source/target
+  // pairs, so connecting in the same direction would silently no-op.
+  test("click-connect creates an edge", async ({ page }) => {
+    await expect(page.locator(".react-flow__edge")).toHaveCount(1);
+    const sourceHandle = page.locator(
+      '.react-flow__handle[data-nodeid="n2"][data-handlepos="right"]'
+    );
+    const targetHandle = page.locator(
+      '.react-flow__handle[data-nodeid="n1"][data-handlepos="left"]'
+    );
+    await sourceHandle.click();
+    await targetHandle.click();
+    await expect(page.locator(".react-flow__edge")).toHaveCount(2);
+  });
+
+  // Drag-connect visual classes. The source handle should pick up
+  // `connectingfrom` during a drag and lose it on drop.
+  test("connection-state classes flip during drag", async ({ page }) => {
+    const sourceHandle = page.locator(
+      '.react-flow__handle[data-nodeid="n1"][data-handlepos="right"]'
+    );
+    const box = await sourceHandle.boundingBox();
+    if (!box) throw new Error("source handle has no bounding box");
+    const startX = box.x + box.width / 2;
+    const startY = box.y + box.height / 2;
+    await page.mouse.move(startX, startY);
+    await page.mouse.down();
+    await page.mouse.move(startX + 80, startY + 40, { steps: 8 });
+    await expect(sourceHandle).toHaveClass(/connectingfrom/);
+    await page.mouse.up();
+    await expect(sourceHandle).not.toHaveClass(/connectingfrom/);
+  });
 });
 
 // Read the inline transform CSS applied to `.react-flow__viewport`. ReactFlow

@@ -37,9 +37,24 @@ import React
   , reactFlowProvider
   )
 import React.Types.Component (ReactFlowProps, ReactFlowProviderProps, BackgroundProps, ControlsProps, MiniMapProps)
+import System.Types.Connection (Connection)
 import System.Types.Ids (NodeId(..))
+import System.Types.Node (NodeChange)
 
 foreign import mountAppImpl :: Element -> JSX -> Effect Unit
+
+-- | Smoke-test observation FFIs. Each writes its argument to a `window`
+-- | slot so Playwright can inspect it via `page.evaluate`. Pure FFI; no
+-- | conversion happens — the JS side receives the raw PS representation
+-- | which is enough for length/membership assertions.
+foreign import recordNodesChangeImpl :: forall n. Array (NodeChange n) -> Effect Unit
+foreign import recordConnectImpl :: Connection -> Effect Unit
+
+recordNodesChange :: Array (NodeChange Unit) -> Effect Unit
+recordNodesChange = recordNodesChangeImpl
+
+recordConnect :: Connection -> Effect Unit
+recordConnect = recordConnectImpl
 
 -- | The example flow: two nodes 200×100 apart, one edge between them.
 twoNodes :: Array (Node Unit)
@@ -170,10 +185,14 @@ reactFlowProps =
       , element controls controlsProps
       , element miniMap miniMapProps
       ]
-  , nodes: Just twoNodes
-  , edges: Just oneEdge
-  , defaultNodes: Nothing
-  , defaultEdges: Nothing
+  -- Uncontrolled flow: hand the store ownership of the data so that
+  -- click-connect's `SetEdges` dispatch is visible in the DOM. Setting
+  -- `nodes`/`edges` would cause `StoreUpdater` to overwrite the store
+  -- every render and undo any in-flight edits.
+  , nodes: Nothing
+  , edges: Nothing
+  , defaultNodes: Just twoNodes
+  , defaultEdges: Just oneEdge
   , defaultEdgeOptions: Nothing
   , onNodeClick: Nothing
   , onNodeDoubleClick: Nothing
@@ -193,7 +212,7 @@ reactFlowProps =
   , onReconnect: Nothing
   , onReconnectStart: Nothing
   , onReconnectEnd: Nothing
-  , onNodesChange: Nothing
+  , onNodesChange: Just recordNodesChange
   , onEdgesChange: Nothing
   , onNodesDelete: Nothing
   , onEdgesDelete: Nothing
@@ -205,7 +224,7 @@ reactFlowProps =
   , onSelectionEnd: Nothing
   , onSelectionContextMenu: Nothing
   , onSelectionChange: Nothing
-  , onConnect: Nothing
+  , onConnect: Just recordConnect
   , onConnectStart: Nothing
   , onConnectEnd: Nothing
   , onClickConnectStart: Nothing
@@ -289,7 +308,7 @@ reactFlowProps =
   , autoPanOnConnect: Nothing
   , autoPanSpeed: Nothing
   , autoPanOnSelection: Nothing
-  , connectOnClick: Nothing
+  , connectOnClick: Just true
   , connectionRadius: Nothing
   , debug: Nothing
   , zIndexMode: Nothing

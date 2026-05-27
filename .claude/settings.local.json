@@ -56,7 +56,11 @@
       "Bash(sort -t: -k2 -rn)",
       "Bash(grep -rn \"do$\" src --include='*.purs')",
       "Bash(xargs grep -l \"onError\")",
-      "Bash(xargs grep -l \"calculateNodePosition\\\\|function calculateNode\")"
+      "Bash(xargs grep -l \"calculateNodePosition\\\\|function calculateNode\")",
+      "Bash(Select-Object -ExpandProperty Name)",
+      "Bash(grep -E \"\\\\.\\(purs|ts\\)$\")",
+      "Bash(awk '{print $NF}')",
+      "Bash(xargs basename -a)"
     ]
   }
 }
