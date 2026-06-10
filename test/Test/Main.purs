@@ -37,6 +37,8 @@ import Data.Either (Either(..))
 import Data.Number (abs) as Number
 import Data.Tuple (Tuple(..))
 import React.Container.Pane.Internal (buildPaneClass, paneIsDraggable)
+import Test.Parity.Edges (runEdgeParity)
+import Test.Parity.Geometry (runGeometryParity)
 import Test.Properties (runProperties)
 import Test.React.Hook.VisibleIds (runVisibleIdsTests)
 import Test.React.Store.Reduce (runReactStoreTests)
@@ -1029,3 +1031,8 @@ main = do
   runStoreProperties
   runReactStoreTests
   runVisibleIdsTests
+
+  -- Layer 1 — live parity against XYFlow (via the @psflow/oracle bundle).
+  -- Requires `npm run build:oracle` to have produced oracle/index.js.
+  runEdgeParity
+  runGeometryParity

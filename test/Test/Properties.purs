@@ -5,6 +5,12 @@
 -- | refactored. Run via `Test.Main` after the hand-written assertion list.
 module Test.Properties
   ( runProperties
+  , genFiniteNumber
+  , genNonNegNumber
+  , genRect
+  , genBox
+  , genSnapGrid
+  , genPosition
   ) where
 
 import Prelude hiding (clamp)
