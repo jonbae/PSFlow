@@ -37,8 +37,12 @@ import Data.Either (Either(..))
 import Data.Number (abs) as Number
 import Data.Tuple (Tuple(..))
 import React.Container.Pane.Internal (buildPaneClass, paneIsDraggable)
+import Test.Parity.Connections (runConnectionsParity)
 import Test.Parity.Edges (runEdgeParity)
 import Test.Parity.Geometry (runGeometryParity)
+import Test.Parity.Graph (runGraphParity)
+import Test.Parity.Marker (runMarkerParity)
+import Test.Parity.Toolbar (runToolbarParity)
 import Test.Properties (runProperties)
 import Test.React.Hook.VisibleIds (runVisibleIdsTests)
 import Test.React.Store.Reduce (runReactStoreTests)
@@ -1036,3 +1040,7 @@ main = do
   -- Requires `npm run build:oracle` to have produced oracle/index.js.
   runEdgeParity
   runGeometryParity
+  runToolbarParity
+  runMarkerParity
+  runConnectionsParity
+  runGraphParity

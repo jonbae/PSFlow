@@ -26,10 +26,22 @@ module Test.Oracle
   , clampPosition
   , pointToRendererPoint
   , rendererPointToPoint
+  , getNodeToolbarTransform
+  , getEdgeToolbarTransform
+  , getMarkerId
+  , getConnectionStatus
+  , OracleNode
+  , OracleEdge
+  , getOutgoers
+  , getIncomers
+  , getConnectedEdges
   ) where
 
-import Data.Maybe (Maybe(..))
-import Data.Nullable (Nullable, toNullable)
+import Data.Functor (map)
+import Data.Maybe (Maybe(..), fromMaybe)
+import Data.Nullable (Nullable, toMaybe, toNullable)
+import System.Types.Connection (Viewport)
+import System.Types.Edge (AlignX(..), AlignY(..), EdgeMarkerType(..), MarkerType(..))
 import System.Types.Geometry
   ( Box
   , CoordinateExtent(..)
@@ -39,6 +51,7 @@ import System.Types.Geometry
   , Transform(..)
   , XYPosition
   )
+import System.Types.Node (Align(..))
 import System.Utils.Edges.Bezier (BezierControlPoints, BezierPathParams)
 import System.Utils.Edges.General (EdgeCenter, EdgePathResult)
 import System.Utils.Edges.SimpleBezier (SimpleBezierPathParams)
@@ -53,6 +66,34 @@ posStr = case _ of
   PosTop -> "top"
   PosRight -> "right"
   PosBottom -> "bottom"
+
+-- | `Align` → XYFlow's `'start' | 'center' | 'end'`.
+alignStr :: Align -> String
+alignStr = case _ of
+  AlignStart -> "start"
+  AlignCenter -> "center"
+  AlignEnd -> "end"
+
+-- | `AlignX` → XYFlow's `'left' | 'center' | 'right'`.
+alignXStr :: AlignX -> String
+alignXStr = case _ of
+  AlignXLeft -> "left"
+  AlignXCenter -> "center"
+  AlignXRight -> "right"
+
+-- | `AlignY` → XYFlow's `'top' | 'center' | 'bottom'`.
+alignYStr :: AlignY -> String
+alignYStr = case _ of
+  AlignYTop -> "top"
+  AlignYCenter -> "center"
+  AlignYBottom -> "bottom"
+
+-- | `MarkerType` → XYFlow's `'arrow' | 'arrowclosed'` (the `type` field of a
+-- | custom `EdgeMarker`).
+markerTypeStr :: MarkerType -> String
+markerTypeStr = case _ of
+  Arrow -> "arrow"
+  ArrowClosed -> "arrowclosed"
 
 -- ─── Edge centers ─────────────────────────────────────────────────────────
 
@@ -215,3 +256,103 @@ foreign import rendererPointToPointImpl :: XYPosition -> Array Number -> XYPosit
 
 rendererPointToPoint :: XYPosition -> Transform -> XYPosition
 rendererPointToPoint p (Transform t) = rendererPointToPointImpl p [ t.tx, t.ty, t.scale ]
+
+-- ─── Toolbar transforms ───────────────────────────────────────────────────
+
+foreign import getNodeToolbarTransformImpl
+  :: Rect -> Viewport -> String -> Number -> String -> String
+
+getNodeToolbarTransform :: Rect -> Viewport -> Position -> Number -> Align -> String
+getNodeToolbarTransform rect viewport position offset align =
+  getNodeToolbarTransformImpl rect viewport (posStr position) offset (alignStr align)
+
+foreign import getEdgeToolbarTransformImpl
+  :: Number -> Number -> Number -> String -> String -> String
+
+getEdgeToolbarTransform :: Number -> Number -> Number -> AlignX -> AlignY -> String
+getEdgeToolbarTransform x y zoom alignX alignY =
+  getEdgeToolbarTransformImpl x y zoom (alignXStr alignX) (alignYStr alignY)
+
+-- ─── Markers ──────────────────────────────────────────────────────────────
+
+-- | Tagged carrier for an `EdgeMarkerType`. The JS side reconstructs upstream's
+-- | `EdgeMarkerType` (a bare string for a named marker, or an `EdgeMarker`
+-- | object with absent `Nothing` fields omitted so `Object.keys` matches).
+type MarkerArg =
+  { tag :: String
+  , named :: Nullable String
+  , markerType :: Nullable String
+  , color :: Nullable String
+  , width :: Nullable Number
+  , height :: Nullable Number
+  , markerUnits :: Nullable String
+  , orient :: Nullable String
+  , strokeWidth :: Nullable Number
+  }
+
+encMarker :: EdgeMarkerType -> MarkerArg
+encMarker = case _ of
+  NamedMarker s ->
+    { tag: "named"
+    , named: toNullable (Just s)
+    , markerType: toNullable (Nothing :: Maybe String)
+    , color: toNullable (Nothing :: Maybe String)
+    , width: toNullable (Nothing :: Maybe Number)
+    , height: toNullable (Nothing :: Maybe Number)
+    , markerUnits: toNullable (Nothing :: Maybe String)
+    , orient: toNullable (Nothing :: Maybe String)
+    , strokeWidth: toNullable (Nothing :: Maybe Number)
+    }
+  CustomMarker em ->
+    { tag: "custom"
+    , named: toNullable (Nothing :: Maybe String)
+    , markerType: toNullable (Just (markerTypeStr em.markerType))
+    , color: toNullable em.color
+    , width: toNullable em.width
+    , height: toNullable em.height
+    , markerUnits: toNullable em.markerUnits
+    , orient: toNullable em.orient
+    , strokeWidth: toNullable em.strokeWidth
+    }
+
+foreign import getMarkerIdImpl :: Nullable MarkerArg -> Nullable String -> String
+
+getMarkerId :: Maybe EdgeMarkerType -> Maybe String -> String
+getMarkerId marker mid =
+  getMarkerIdImpl (toNullable (map encMarker marker)) (toNullable mid)
+
+-- ─── Connections ──────────────────────────────────────────────────────────
+
+foreign import getConnectionStatusImpl :: Nullable Boolean -> Nullable String
+
+-- | XYFlow returns `'valid' | 'invalid' | null`; we surface `null` as `""` so
+-- | the property can compare against PSFlow's `Maybe ConnectionStatus` mapped
+-- | through the same projection.
+getConnectionStatus :: Maybe Boolean -> String
+getConnectionStatus mb =
+  fromMaybe "" (toMaybe (getConnectionStatusImpl (toNullable mb)))
+
+-- ─── Graph traversal ──────────────────────────────────────────────────────
+-- These read only string ids, so the oracle takes minimal shapes and the
+-- impls return just the matched ids (the parity property compares id sets).
+
+type OracleNode = { id :: String }
+type OracleEdge = { id :: String, source :: String, target :: String }
+
+foreign import getOutgoersImpl
+  :: OracleNode -> Array OracleNode -> Array OracleEdge -> Array String
+
+getOutgoers :: OracleNode -> Array OracleNode -> Array OracleEdge -> Array String
+getOutgoers = getOutgoersImpl
+
+foreign import getIncomersImpl
+  :: OracleNode -> Array OracleNode -> Array OracleEdge -> Array String
+
+getIncomers :: OracleNode -> Array OracleNode -> Array OracleEdge -> Array String
+getIncomers = getIncomersImpl
+
+foreign import getConnectedEdgesImpl
+  :: Array OracleNode -> Array OracleEdge -> Array String
+
+getConnectedEdges :: Array OracleNode -> Array OracleEdge -> Array String
+getConnectedEdges = getConnectedEdgesImpl

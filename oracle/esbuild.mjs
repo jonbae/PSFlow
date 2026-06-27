@@ -50,6 +50,11 @@ export {
   pointToRendererPoint,
   rendererPointToPoint
 } from "./xyflow/packages/system/src/utils/general";
+export { getNodeToolbarTransform } from "./xyflow/packages/system/src/utils/node-toolbar";
+export { getEdgeToolbarTransform } from "./xyflow/packages/system/src/utils/edge-toolbar";
+export { getMarkerId } from "./xyflow/packages/system/src/utils/marker";
+export { getConnectionStatus } from "./xyflow/packages/system/src/utils/connections";
+export { getOutgoers, getIncomers, getConnectedEdges } from "./xyflow/packages/system/src/utils/graph";
 `;
 
 await build({

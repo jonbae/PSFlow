@@ -17,11 +17,14 @@ module Test.Parity.Util
   , rectMatch
   , boxMatch
   , numMatch
+  , transformMatch
+  , strMatch
+  , strArrayMatch
   ) where
 
 import Prelude
 
-import Data.Array (all, catMaybes, foldl, length, snoc, zipWith) as Array
+import Data.Array (all, catMaybes, foldl, length, snoc, sort, zipWith) as Array
 import Data.Array.NonEmpty (toArray) as NEA
 import Data.Either (Either(..))
 import Data.Maybe (Maybe(..))
@@ -152,3 +155,27 @@ numMatch :: String -> Number -> Number -> Result
 numMatch ctx a b =
   approxEq a b <?>
     (ctx <> "\n  PSFlow=" <> show a <> "  XYFlow=" <> show b)
+
+-- | CSS-transform strings (`translate(60px, 15px) translate(-50%, -100%)`) are
+-- | compared with the same tokenize-then-epsilon contract as SVG paths: the
+-- | literal tokens (`translate`, `px`, `scale`, …) must match exactly and the
+-- | numeric operands within `epsilon`. This absorbs `Number.toString` vs `${n}`
+-- | formatting drift just like `pathsMatch`.
+transformMatch :: String -> String -> String -> Result
+transformMatch ctx ps xy =
+  pathsMatch ps xy <?>
+    (ctx <> "\n  PSFlow=" <> ps <> "\n  XYFlow=" <> xy)
+
+-- | Exact string equality, for outputs that carry no formatted floats (e.g.
+-- | marker ids whose numeric fields are integer-valued by construction).
+strMatch :: String -> String -> String -> Result
+strMatch ctx a b =
+  (a == b) <?>
+    (ctx <> "\n  PSFlow=" <> a <> "\n  XYFlow=" <> b)
+
+-- | Order-insensitive equality of two id sets (e.g. the node/edge ids returned
+-- | by graph traversal). Both sides are sorted before comparison.
+strArrayMatch :: String -> Array String -> Array String -> Result
+strArrayMatch ctx a b =
+  (Array.sort a == Array.sort b) <?>
+    (ctx <> "\n  PSFlow=" <> show (Array.sort a) <> "\n  XYFlow=" <> show (Array.sort b))

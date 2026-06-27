@@ -31,6 +31,13 @@ import {
   snapPosition,
   pointToRendererPoint,
   rendererPointToPoint,
+  getNodeToolbarTransform,
+  getEdgeToolbarTransform,
+  getMarkerId,
+  getConnectionStatus,
+  getOutgoers,
+  getIncomers,
+  getConnectedEdges,
 } from "@psflow/oracle";
 
 const pathResult = (t) => ({ path: t[0], labelX: t[1], labelY: t[2], offsetX: t[3], offsetY: t[4] });
@@ -71,3 +78,44 @@ export const clampPositionImpl = (pos) => (extent) => (dims) => clampPosition(po
 export const pointToRendererPointImpl = (pos) => (transform) => (snapToGrid) => (grid) =>
   pointToRendererPoint(pos, transform, snapToGrid, grid);
 export const rendererPointToPointImpl = (pos) => (transform) => rendererPointToPoint(pos, transform);
+
+// ─── Toolbar transforms (curried scalars/records, string out) ─────────────
+export const getNodeToolbarTransformImpl =
+  (rect) => (viewport) => (position) => (offset) => (align) =>
+    getNodeToolbarTransform(rect, viewport, position, offset, align);
+export const getEdgeToolbarTransformImpl =
+  (x) => (y) => (zoom) => (alignX) => (alignY) =>
+    getEdgeToolbarTransform(x, y, zoom, alignX, alignY);
+
+// ─── Markers ──────────────────────────────────────────────────────────────
+// Rebuild upstream's EdgeMarkerType from the tagged MarkerArg: a bare string
+// for a named marker, or an EdgeMarker object whose Nothing (null) fields are
+// OMITTED — `getMarkerId` enumerates `Object.keys(marker).sort()`, so a present
+// key with a null value would wrongly emit `key=null`.
+const buildMarker = (a) => {
+  const o = {};
+  if (a.color != null) o.color = a.color;
+  if (a.height != null) o.height = a.height;
+  if (a.markerUnits != null) o.markerUnits = a.markerUnits;
+  if (a.orient != null) o.orient = a.orient;
+  if (a.strokeWidth != null) o.strokeWidth = a.strokeWidth;
+  if (a.markerType != null) o.type = a.markerType;
+  if (a.width != null) o.width = a.width;
+  return o;
+};
+export const getMarkerIdImpl = (markerArg) => (id) => {
+  const marker =
+    markerArg == null ? undefined : markerArg.tag === "named" ? markerArg.named : buildMarker(markerArg);
+  return getMarkerId(marker, id == null ? undefined : id);
+};
+
+// ─── Connections ──────────────────────────────────────────────────────────
+export const getConnectionStatusImpl = (isValid) => getConnectionStatus(isValid == null ? null : isValid);
+
+// ─── Graph traversal (return only the matched ids) ────────────────────────
+export const getOutgoersImpl = (node) => (nodes) => (edges) =>
+  getOutgoers(node, nodes, edges).map((n) => n.id);
+export const getIncomersImpl = (node) => (nodes) => (edges) =>
+  getIncomers(node, nodes, edges).map((n) => n.id);
+export const getConnectedEdgesImpl = (nodes) => (edges) =>
+  getConnectedEdges(nodes, edges).map((e) => e.id);

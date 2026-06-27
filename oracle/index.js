@@ -3,6 +3,44 @@
 // Source: @xyflow/react 12.11.0 / @xyflow/system 0.0.77.
 // Rebuild: npm run build:oracle (re-run on every xyflow/ bump).
 
+// xyflow/packages/system/src/utils/connections.ts
+function getConnectionStatus(isValid) {
+  return isValid === null ? null : isValid ? "valid" : "invalid";
+}
+
+// xyflow/packages/system/src/utils/graph.ts
+var getOutgoers = (node, nodes, edges) => {
+  if (!node.id) {
+    return [];
+  }
+  const outgoerIds = /* @__PURE__ */ new Set();
+  edges.forEach((edge) => {
+    if (edge.source === node.id) {
+      outgoerIds.add(edge.target);
+    }
+  });
+  return nodes.filter((n) => outgoerIds.has(n.id));
+};
+var getIncomers = (node, nodes, edges) => {
+  if (!node.id) {
+    return [];
+  }
+  const incomersIds = /* @__PURE__ */ new Set();
+  edges.forEach((edge) => {
+    if (edge.target === node.id) {
+      incomersIds.add(edge.source);
+    }
+  });
+  return nodes.filter((n) => incomersIds.has(n.id));
+};
+var getConnectedEdges = (nodes, edges) => {
+  const nodeIds = /* @__PURE__ */ new Set();
+  nodes.forEach((node) => {
+    nodeIds.add(node.id);
+  });
+  return edges.filter((edge) => nodeIds.has(edge.source) || nodeIds.has(edge.target));
+};
+
 // xyflow/packages/system/src/utils/general.ts
 var clamp = (val, min = 0, max = 1) => Math.min(Math.max(val, min), max);
 var clampPosition = (position = { x: 0, y: 0 }, extent, dimensions) => ({
@@ -316,6 +354,69 @@ function getSmoothStepPath({
   return [path, labelX, labelY, offsetX, offsetY];
 }
 
+// xyflow/packages/system/src/utils/marker.ts
+function getMarkerId(marker, id) {
+  if (!marker) {
+    return "";
+  }
+  if (typeof marker === "string") {
+    return marker;
+  }
+  const idPrefix = id ? `${id}__` : "";
+  return `${idPrefix}${Object.keys(marker).sort().map((key) => `${key}=${marker[key]}`).join("&")}`;
+}
+
+// xyflow/packages/system/src/utils/node-toolbar.ts
+function getNodeToolbarTransform(nodeRect, viewport, position, offset, align) {
+  let alignmentOffset = 0.5;
+  if (align === "start") {
+    alignmentOffset = 0;
+  } else if (align === "end") {
+    alignmentOffset = 1;
+  }
+  let pos = [
+    (nodeRect.x + nodeRect.width * alignmentOffset) * viewport.zoom + viewport.x,
+    nodeRect.y * viewport.zoom + viewport.y - offset
+  ];
+  let shift = [-100 * alignmentOffset, -100];
+  switch (position) {
+    case "right" /* Right */:
+      pos = [
+        (nodeRect.x + nodeRect.width) * viewport.zoom + viewport.x + offset,
+        (nodeRect.y + nodeRect.height * alignmentOffset) * viewport.zoom + viewport.y
+      ];
+      shift = [0, -100 * alignmentOffset];
+      break;
+    case "bottom" /* Bottom */:
+      pos[1] = (nodeRect.y + nodeRect.height) * viewport.zoom + viewport.y + offset;
+      shift[1] = 0;
+      break;
+    case "left" /* Left */:
+      pos = [
+        nodeRect.x * viewport.zoom + viewport.x - offset,
+        (nodeRect.y + nodeRect.height * alignmentOffset) * viewport.zoom + viewport.y
+      ];
+      shift = [-100, -100 * alignmentOffset];
+      break;
+  }
+  return `translate(${pos[0]}px, ${pos[1]}px) translate(${shift[0]}%, ${shift[1]}%)`;
+}
+
+// xyflow/packages/system/src/utils/edge-toolbar.ts
+var alignXToPercent = {
+  left: 0,
+  center: 50,
+  right: 100
+};
+var alignYToPercent = {
+  top: 0,
+  center: 50,
+  bottom: 100
+};
+function getEdgeToolbarTransform(x, y, zoom, alignX = "center", alignY = "center") {
+  return `translate(${x}px, ${y}px) scale(${1 / zoom}) translate(${-(alignXToPercent[alignX] ?? 50)}%, ${-(alignYToPercent[alignY] ?? 50)}%)`;
+}
+
 // xyflow/packages/system/src/utils/edges/general.ts
 function getEdgeCenter({
   sourceX,
@@ -579,7 +680,14 @@ export {
   getBezierPath,
   getBoundsOfBoxes,
   getBoundsOfRects,
+  getConnectedEdges,
+  getConnectionStatus,
   getEdgeCenter,
+  getEdgeToolbarTransform,
+  getIncomers,
+  getMarkerId,
+  getNodeToolbarTransform,
+  getOutgoers,
   getOverlappingArea,
   getSimpleBezierPath,
   getSmoothStepPath,
