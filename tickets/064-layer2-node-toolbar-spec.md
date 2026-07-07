@@ -14,6 +14,31 @@ Route `#/tests/generic/node-toolbar/general`. Fixture `node-toolbar/general.ts`
 position×align permutations (`toolbarVisible:true`); 1 edge.
 `nodeTypes: { ToolbarNode }`.
 
+## Resolution (2026-07-07) — 2 / 2 pass, one-line source fix as predicted
+
+Went exactly as scoped — the confirmed one-line source fix plus the custom
+component port, no surprises:
+
+- **Source fix** — `src/React/Additional/NodeToolbar.purs`: wrapped the `data-id`
+  `foldl` in `String.trim` (mirrors upstream's `.reduce(…, '').trim()`), so the
+  spec's exact-match `[data-id="node-start-top"]` resolves. Toolbar Layer-1 parity
+  (`spago test`) stays green — the trim only touches the `data-id` string, not the
+  `getNodeToolbarTransform` math.
+- **New component** — `examples/react-smoke/src/Generic/ToolbarNode.purs`: renders
+  `<NodeToolbar isVisible position align>` (3 buttons) + a left `Target` / right
+  `Source` `Handle` (all from the public `React` barrel), reading a `ToolbarData`
+  record off the opaque `NodeProps Foreign` via `unsafeCoerce`. The PS `Position` /
+  `Align` ADTs round-trip fine (fixture stores the actual PS values; component
+  coerces them back — same runtime rep).
+- **Fixture** — `Generic.Fixture` gained `nodeToolbarGeneral` (1 `default-node`
+  with `toolbarVisible`/`toolbarAlign` = `Nothing` for selection-driven visibility
+  + 12 position×align permutations built via `Array.concatMap` + 1 edge) and a
+  route arm. `mkToolbarNode` stashes the richer `data` under the `Node Unit` `data`
+  field (typed `Unit`, runtime a record — the store treats `data` opaquely), so no
+  change to the `Fixture` type was needed.
+
+Full smoke 50/50; `spago test` green (incl. toolbar parity).
+
 ## Tests (2)
 
 - `all toolbars are positioned correctly` — for each of 12 permutations, assert

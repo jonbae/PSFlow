@@ -13,6 +13,7 @@ import Data.Map (Map)
 import Data.Map (empty, insert, isEmpty, lookup, values) as Map
 import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Newtype (class Newtype, unwrap)
+import Data.String (trim) as String
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign)
 import Foreign.Object (Object)
@@ -137,7 +138,11 @@ nodeToolbar =
           userClass = fromMaybe "" props.className
           className = "react-flow__node-toolbar"
             <> (if userClass == "" then "" else " " <> userClass)
-          dataIdStr = Array.foldl (\acc n -> acc <> unwrap n.id <> " ") "" nodesArr
+          -- TS `.reduce((acc, node) => `${acc}${node.id} `, '').trim()` — the
+          -- `.trim()` drops the trailing space so an exact-match `[data-id="…"]`
+          -- selector resolves (upstream NodeToolbar.tsx:136).
+          dataIdStr = String.trim
+            (Array.foldl (\acc n -> acc <> unwrap n.id <> " ") "" nodesArr)
           toolbarDiv = div_
             { style: toForeignStyle wrapperStyle
             , className

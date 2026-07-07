@@ -11,6 +11,30 @@ app. So this needs a bespoke example page and a non-generic router branch, not a
 
 Upstream spec: `xyflow/tests/playwright/e2e/props.spec.ts` (2 tests).
 
+## Resolution (2026-07-07) — 2 / 2 pass, minimal port, no source changes
+
+Chose the **minimal** port as planned — no `src/` changes, the feature already
+worked:
+
+- **New example** — `examples/react-smoke/src/Example/ColorMode.{purs,js}`:
+  `colorModeApp`, a stateful `reactComponent` holding a `ColorMode` (`useState
+  LightMode`) passed to `<ReactFlow colorMode=Just …>` (built by reusing
+  `Generic.Defaults.defaultReactFlowProps`, so no ~130-field record spelled out),
+  with a `<Panel top-right>` housing `<select data-testid="colormode-select">`
+  (light/dark/system). Bare `reactFlow` needs no explicit provider — `Wrapper`
+  self-provides one when absent. The `.js` companion supplies `select_`/`option_`
+  (absent from `React.FFI.DOM`) and an `onChange` reading `event.target.value`
+  (mapped to `ColorMode` via `parseMode`). `DarkMode` resolves to the `dark` class
+  synchronously (`useColorModeClass` `resolveStatic`), so no matchMedia flake.
+- **Router** — `Example.Main` gained a non-generic `#/examples/color-mode` branch
+  (matched before `fixtureForRoute`, since the `Fixture` model has no
+  `colorMode`/`Panel`/`select`).
+- **Spec** — `examples/react-smoke/tests/generic-props.spec.ts`, adopted with the
+  infra edits, `ROUTE` pointed at the hash route.
+
+Full smoke 52/52 — this completes the four Layer 2 spec ports (nodes/pane/edges/
+node-toolbar/props). No `spago test` needed (no source touched).
+
 ## Tests (2)
 
 - `colorMode > render default light color mode` — first `.react-flow__node`

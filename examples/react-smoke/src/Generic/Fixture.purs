@@ -9,19 +9,24 @@ module Generic.Fixture
   , paneGeneral
   , paneNonDefaults
   , edgesGeneral
+  , nodeToolbarGeneral
   , fixtureForRoute
   ) where
 
 import Prelude
 
+import Data.Array (concatMap) as Array
 import Data.Maybe (Maybe(..))
 import Data.String (Pattern(..), stripPrefix)
 import Foreign.Object as Object
 import Generic.DragHandleNode (dragHandleNode)
+import Generic.ToolbarNode (ToolbarData, toolbarNode)
 import React (Edge, Node, NodeTypesMap)
 import System.Types.Connection (KeyCode(..), Viewport)
 import System.Types.Edge (EdgeMarker, EdgeMarkerType(..), MarkerType(..))
+import System.Types.Geometry (Position(..))
 import System.Types.Ids (NodeId(..), ParentId(..))
+import System.Types.Node (Align(..))
 import Unsafe.Coerce (unsafeCoerce)
 
 -- | A fixture: the node/edge data plus the flow-prop overrides the upstream
@@ -285,6 +290,79 @@ edgesGeneral =
   , autoPanOnNodeDrag: Nothing
   }
 
+-- Position / align permutation tables for the node-toolbar fixture; `idx`
+-- reproduces upstream's `posIndex`/`alignIndex` grid layout.
+toolbarPositions :: Array { name :: String, idx :: Number, pos :: Position }
+toolbarPositions =
+  [ { name: "top", idx: 0.0, pos: PosTop }
+  , { name: "right", idx: 1.0, pos: PosRight }
+  , { name: "bottom", idx: 2.0, pos: PosBottom }
+  , { name: "left", idx: 3.0, pos: PosLeft }
+  ]
+
+toolbarAligns :: Array { name :: String, idx :: Number, align :: Align }
+toolbarAligns =
+  [ { name: "start", idx: 0.0, align: AlignStart }
+  , { name: "center", idx: 1.0, align: AlignCenter }
+  , { name: "end", idx: 2.0, align: AlignEnd }
+  ]
+
+-- | A ToolbarNode fixture node: default-styled, `type: "ToolbarNode"`, carrying a
+-- | coerced `ToolbarData` payload. The store treats `data` opaquely, so stashing
+-- | a richer record under the `Node Unit` `data` field (typed `Unit`, runtime a
+-- | record) survives to the custom component, which coerces it back.
+mkToolbarNode :: String -> Number -> Number -> ToolbarData -> Node Unit
+mkToolbarNode nid x y d =
+  (baseNode nid x y)
+    { nodeType = Just "ToolbarNode"
+    , className = Just "react-flow__node-default"
+    , data = unsafeCoerce d
+    }
+
+-- | Port of `generic-tests/node-toolbar/general.ts` — 1 `default-node` (toolbar
+-- | shown only when selected) + 12 position×align permutations
+-- | (`toolbarVisible: true`) + 1 edge. `nodeTypes: { ToolbarNode }`.
+nodeToolbarGeneral :: Fixture
+nodeToolbarGeneral =
+  { nodes:
+      [ mkToolbarNode "default-node" 0.0 (-200.0)
+          { label: "toolbar top"
+          , toolbarPosition: PosTop
+          , toolbarAlign: Nothing
+          , toolbarVisible: Nothing
+          }
+      ] <> toolbarPermutations
+  , edges: [ baseEdge "first-edge" "default-node" "node-start-top" ]
+  , deleteKeyCode: Nothing
+  , multiSelectionKeyCode: Nothing
+  , nodeDragThreshold: Nothing
+  , fitView: Just true
+  , nodeTypes: Just (unsafeCoerce (Object.singleton "ToolbarNode" toolbarNode) :: NodeTypesMap)
+  , minZoom: Nothing
+  , maxZoom: Nothing
+  , panOnScroll: Nothing
+  , defaultViewport: Nothing
+  , autoPanOnConnect: Nothing
+  , autoPanOnNodeDrag: Nothing
+  }
+  where
+  toolbarPermutations :: Array (Node Unit)
+  toolbarPermutations = Array.concatMap
+    ( \p -> map
+        ( \a -> mkToolbarNode
+            ("node-" <> a.name <> "-" <> p.name)
+            (p.idx * 300.0)
+            (a.idx * 100.0)
+            { label: "toolbar " <> p.name <> " " <> a.name
+            , toolbarPosition: p.pos
+            , toolbarAlign: Just a.align
+            , toolbarVisible: Just true
+            }
+        )
+        toolbarAligns
+    )
+    toolbarPositions
+
 -- | Map a hash route (`#/tests/generic/nodes/general`) to its fixture.
 fixtureForRoute :: String -> Maybe Fixture
 fixtureForRoute route =
@@ -293,6 +371,7 @@ fixtureForRoute route =
     "/tests/generic/pane/general" -> Just paneGeneral
     "/tests/generic/pane/non-defaults" -> Just paneNonDefaults
     "/tests/generic/edges/general" -> Just edgesGeneral
+    "/tests/generic/node-toolbar/general" -> Just nodeToolbarGeneral
     _ -> Nothing
   where
   dropHash r = case stripPrefix (Pattern "#") r of
