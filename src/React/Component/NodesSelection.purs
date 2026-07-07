@@ -200,6 +200,8 @@ nodesSelection =
         , getStoreItems: mkDragStoreItems store
         , onDragStart: Nothing
         , onDragEnd: Nothing
+        -- Selection drag has no single node to select on mouse-down.
+        , onNodeMouseDown: Nothing
         }
 
       let

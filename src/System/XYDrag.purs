@@ -36,7 +36,7 @@ import Control.Monad.State (StateT, get, modify_, runStateT)
 import Data.Either (Either(..))
 import Data.Foldable (foldM, for_, traverse_)
 import Data.Map (Map)
-import Data.Map (empty, lookup, size, toUnfoldable) as Map
+import Data.Map (empty, insert, lookup, size, toUnfoldable) as Map
 import Data.Maybe (Maybe(..), fromMaybe, isNothing)
 import Data.Number (sqrt)
 import Data.Tuple (Tuple(..))
@@ -595,27 +595,44 @@ updateNodes params mUpd pos = do
           , nodeExtent: Just store.nodeExtent
           } of
           Nothing -> pure acc
-          Just r -> pure
-            ( acc
-                || (r.position.x /= dragItem.position.x)
-                || (r.position.y /= dragItem.position.y)
-            )
+          Just r -> do
+            -- Persist the computed coordinates back into the drag item (TS mutates
+            -- `dragItem.position` / `dragItem.internals.positionAbsolute`); the
+            -- live store dispatch below and the drag-end commit read from
+            -- `dragItems`, so without this the node never actually moves.
+            modify_ \st ->
+              st
+                { dragItems =
+                    Map.insert id
+                      ( dragItem
+                          { position = r.position
+                          , internals = dragItem.internals
+                              { positionAbsolute = r.positionAbsolute }
+                          }
+                      )
+                      st.dragItems
+                }
+            pure
+              ( acc
+                  || (r.position.x /= dragItem.position.x)
+                  || (r.position.y /= dragItem.position.y)
+              )
 
   hasChange <- foldM step false entries
 
   when hasChange do
     modify_ _ { nodePositionsChanged = true }
-    liftEffect (store.updateNodePositions items true)
     s2 <- get
+    liftEffect (store.updateNodePositions s2.dragItems true)
     liftEffect $ traverse_
       ( \ev -> do
           let
             nodeId = case mUpd of
               Just u -> u.nodeId
               Nothing -> Nothing
-            eventArgs = getEventHandlerParams nodeId items store.nodeLookup true
+            eventArgs = getEventHandlerParams nodeId s2.dragItems store.nodeLookup true
           for_ eventArgs.currentNode \cn -> do
-            for_ params.onDrag \cb -> cb ev items cn eventArgs.allNodes
+            for_ params.onDrag \cb -> cb ev s2.dragItems cn eventArgs.allNodes
             for_ store.onNodeDrag \cb -> cb ev cn eventArgs.allNodes
           when (isNothing nodeId) do
             for_ store.onSelectionDrag \cb -> cb ev eventArgs.allNodes

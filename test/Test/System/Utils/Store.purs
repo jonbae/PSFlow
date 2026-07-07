@@ -74,6 +74,8 @@ mkNode r =
   , handles: Nothing
   , measured: r.measured
   , nodeType: Nothing
+  , className: Nothing
+  , style: Nothing
   }
 
 -- | Generate a node id from a small alphabet so duplicate ids occur often
@@ -127,6 +129,8 @@ mkEdge eid src tgt =
   , zIndex: Nothing
   , ariaLabel: Nothing
   , interactionWidth: Nothing
+  , className: Nothing
+  , style: Nothing
   }
 
 genEdge :: Gen (EdgeBase Unit)

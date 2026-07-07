@@ -27,6 +27,7 @@ import React.Store.InitialState (InitialStateOptions, initialState)
 import React.Store.Reduce (reduce)
 import React.Types.Store (MiddlewareKey(..), ReactFlowState)
 import System.Constants (errorMessage)
+import System.Utils.Graph (fitViewport)
 import System.Utils.Store (panBy, updateNodeInternals)
 import Web.HTML.HTMLDivElement (toHTMLElement)
 
@@ -125,10 +126,29 @@ createStore opts = do
         -- the intent.
         pure unit
       ResolveFitView b -> do
+        -- Mirror the React store's `resolveFitView`: apply the fitted
+        -- viewport via `panZoom.setViewport` (which fires d3's zoom event,
+        -- so `ZoomPane.onTransformChange` writes the new `state.transform`),
+        -- then resolve the awaiting `fitView()` AVar. No panZoom yet → just
+        -- resolve, matching upstream's early return.
         s <- Ref.read stateRef
-        case s.fitViewResolver of
-          Just avar -> launchAff_ (AffAVar.put b avar)
-          Nothing -> pure unit
+        let
+          resolveAVar = case s.fitViewResolver of
+            Just avar -> AffAVar.put b avar
+            Nothing -> pure unit
+        case s.panZoom of
+          Nothing -> launchAff_ resolveAVar
+          Just pz -> launchAff_ do
+            _ <- fitViewport
+              { nodes: s.nodeLookup
+              , width: s.width
+              , height: s.height
+              , panZoom: pz
+              , minZoom: s.minZoom
+              , maxZoom: s.maxZoom
+              }
+              s.fitViewOptions
+            resolveAVar
       LogError code -> do
         s <- Ref.read stateRef
         case s.onError of

@@ -1,0 +1,55 @@
+{
+  "_comment": "Documented intentional divergences subtracted from the Layer 0 diff buckets. `exports.missing` keys are upstream symbols knowingly absent from PSFlow's surface; `exports.extra` keys are PSFlow-only names that are intentional renames/idioms. Each value is the rationale shown in report.md. Genuine-but-tracked gaps reference a ticket. A NEW upstream symbol not listed here trips the parity gate.",
+  "exports": {
+    "missing": {
+      "NodeAddChange": "Constructor of the PS `NodeChange` sum type, reachable via `NodeChange(..)`. TS exports each change as a standalone type; PS models them as one sum type (intentional).",
+      "NodeRemoveChange": "Constructor of the PS `NodeChange` sum type, reachable via `NodeChange(..)`.",
+      "NodeReplaceChange": "Constructor of the PS `NodeChange` sum type, reachable via `NodeChange(..)`.",
+      "NodePositionChange": "Constructor of the PS `NodeChange` sum type, reachable via `NodeChange(..)`.",
+      "NodeDimensionChange": "Constructor of the PS `NodeChange` sum type, reachable via `NodeChange(..)`.",
+      "NodeSelectionChange": "Constructor of the PS `NodeChange` sum type, reachable via `NodeChange(..)`.",
+      "EdgeAddChange": "Constructor of the PS `EdgeChange` sum type, reachable via `EdgeChange(..)`.",
+      "EdgeRemoveChange": "Constructor of the PS `EdgeChange` sum type, reachable via `EdgeChange(..)`.",
+      "EdgeReplaceChange": "Constructor of the PS `EdgeChange` sum type, reachable via `EdgeChange(..)`.",
+      "EdgeSelectionChange": "Constructor of the PS `EdgeChange` sum type, reachable via `EdgeChange(..)`.",
+      "NodeTypes": "Renamed `NodeTypesMap` in PSFlow (see extras).",
+      "EdgeTypes": "Renamed `EdgeTypesMap` in PSFlow (see extras).",
+      "ControlProps": "Renamed `ControlsProps` in PSFlow (see extras).",
+      "GetBezierPathParams": "PS `BezierPathParams` (System.Utils.Edges.Bezier); `Get` prefix dropped, not re-exported via the React barrel — ticket 058.",
+      "GetStraightPathParams": "PS `StraightPathParams` (System.Utils.Edges.Straight); not surfaced — ticket 058.",
+      "GetSmoothStepPathParams": "PS `SmoothStepPathParams` (System.Utils.Edges.SmoothStep); not surfaced — ticket 058.",
+      "NoConnection": "Nullary constructor of PS `ConnectionState`, not a standalone type — documented in src/React.purs header & ticket 054.",
+      "NodeProps": "Record exists in src/React/Types/Nodes.purs but is not re-exported via the React barrel (EdgeProps is) — ticket 058.",
+      "BackgroundVariant": "Defined in src/React/Types/Component.purs; not surfaced via the React barrel — ticket 058.",
+      "NodeHandle": "Defined in src/System/Types/Node.purs; not surfaced — ticket 058.",
+      "MiniMapNode": "Component exists (src/React/Additional/MiniMap/Node.purs); not in the public barrel — ticket 058.",
+      "MiniMapNodes": "Component exists (src/React/Additional/MiniMap.purs); not in the public barrel — ticket 058.",
+      "MiniMapNodeProps": "Defined in src/React/Types/Component.purs; not surfaced — ticket 058.",
+      "ReactFlowStore": "Store type (src/React/Types/Store.purs); not surfaced — ticket 058.",
+      "ReactFlowActions": "Store type (src/React/Types/Store.purs); not surfaced — ticket 058.",
+      "GeneralHelpers": "Instance type (src/React/Types/Instance.purs); not surfaced — ticket 058.",
+      "FitViewParams": "Defined in src/System/Utils/Graph.purs; not surfaced — ticket 058.",
+      "UseNodeConnectionsParams": "Defined in src/React/Hook/NodeConnections.purs; not surfaced — ticket 058.",
+      "ConnectionLineComponent": "Upstream connection-line component type; PS surfaces ConnectionLineComponentProps but not the component-type alias — ticket 058.",
+      "EdgeComponentWithPathOptions": "Upstream-only edge component type; not modelled in PSFlow — ticket 058.",
+      "BuiltInEdge": "Upstream union of built-in edge variants; not modelled as a named export — ticket 058.",
+      "BuiltInNode": "Upstream union of built-in node variants; not modelled as a named export — ticket 058.",
+      "GetMiniMapNodeAttribute": "Upstream MiniMap internal accessor type; not modelled — ticket 058.",
+      "ResizeControlProps": "Upstream NodeResizeControl prop type; not modelled as a named export — ticket 058.",
+      "ResizeControlLineProps": "Upstream NodeResizeControl line-variant prop type; not modelled — ticket 058."
+    },
+    "extra": {
+      "NodeTypesMap": "PS rename of upstream `NodeTypes`.",
+      "EdgeTypesMap": "PS rename of upstream `EdgeTypes`.",
+      "ControlsProps": "PS rename of upstream `ControlProps`."
+    }
+  },
+  "props": {
+    "NodeProps": {
+      "drift": {
+        "positionAbsoluteX": "renamed from xPos since 12.3.5",
+        "positionAbsoluteY": "renamed from yPos since 12.3.5"
+      }
+    }
+  }
+}

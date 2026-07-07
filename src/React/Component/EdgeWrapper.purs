@@ -126,6 +126,8 @@ placeholderEdge edgeId =
   , zIndex: Nothing
   , ariaLabel: Nothing
   , interactionWidth: Nothing
+  , className: Nothing
+  , style: Nothing
   }
 
 -- | TS `edge = { ...defaultEdgeOptions, ...edge }`. Per-edge fields
@@ -226,7 +228,7 @@ resolveEdgeComponent mTypes mOnError edgeType = do
           , component: (unsafeCoerce bezierEdgeInternal) :: ReactComponent (EdgeProps Foreign)
           }
 
--- | TS `cc(['react-flow__edge', `react-flow__edge-${type}`, …flags])`.
+-- | TS `cc(['react-flow__edge', `react-flow__edge-${type}`, …flags, edge.className])`.
 buildEdgeClassName
   :: { edgeType :: String
      , noPanClassName :: String
@@ -235,6 +237,7 @@ buildEdgeClassName
      , selectable :: Boolean
      , inactive :: Boolean
      , updating :: Boolean
+     , className :: String
      }
   -> String
 buildEdgeClassName p = joinSpace
@@ -246,6 +249,7 @@ buildEdgeClassName p = joinSpace
   , if p.inactive then "inactive" else ""
   , if p.updating then "updating" else ""
   , if p.selectable then "selectable" else ""
+  , p.className
   ]
 
 -- | Concatenate the non-empty entries of `xs` with single-space
@@ -269,7 +273,10 @@ mkEdgeProps edge sx sy tx ty sp tp mStart mEnd =
   , edgeType: edge.edgeType
   , animated: edge.animated
   , data: (unsafeCoerce edge.data) :: Maybe Foreign
-  , style: Nothing
+  -- Thread the per-edge `style` (`Maybe (Object String)`) through to the
+  -- `.react-flow__edge-path` via `BaseEdge`'s `style`. The opaque `Style` and
+  -- `Object String` share a runtime rep (a plain CSS-prop object), so coerce.
+  , style: unsafeCoerce edge.style
   , selected: edge.selected
   , source: unwrap edge.source
   , target: unwrap edge.target
@@ -330,8 +337,11 @@ edgeWrapper =
           Nothing -> Nothing
           Just _ -> if props.edgesReconnectable then Just ReconnectAny else Nothing
 
-        isSelectable = props.elementsSelectable
-          || fromMaybe false edge.selectable
+        -- TS: `edge.selectable || (elementsSelectable && edge.selectable === undefined)`.
+        -- An explicit `selectable: false` wins over the global `elementsSelectable`
+        -- default; only an *absent* `selectable` inherits it.
+        isSelectable = fromMaybe false edge.selectable
+          || (props.elementsSelectable && isNothing edge.selectable)
 
         markerStartUrl = case edge.markerStart of
           Just m -> Just (markerUrl m props.rfId)
@@ -402,6 +412,7 @@ edgeWrapper =
                     , selectable: isSelectable
                     , inactive: not isSelectable && isNothing props.onClick
                     , updating: updateHover
+                    , className: fromMaybe "" edge.className
                     }
                 , onClick: onClickHandler
                 , onDoubleClick: onDoubleClickHandler
