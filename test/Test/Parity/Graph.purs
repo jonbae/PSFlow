@@ -54,6 +54,8 @@ mkNode nid =
   , handles: Nothing
   , measured: { width: Just 50.0, height: Just 25.0 }
   , nodeType: Nothing
+  , className: Nothing
+  , style: Nothing
   }
 
 mkEdge :: String -> String -> String -> EdgeBase Unit

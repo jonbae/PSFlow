@@ -459,6 +459,8 @@ main = do
       , handles: Nothing
       , measured: { width: Just 50.0, height: Just 25.0 }
       , nodeType: Nothing
+      , className: Nothing
+      , style: Nothing
       }
     mkEdge :: String -> String -> String -> EdgeBase Unit
     mkEdge eid src tgt =
@@ -614,6 +616,8 @@ main = do
       , handles: Nothing
       , measured: { width: Just 50.0, height: Just 25.0 }
       , nodeType: Nothing
+      , className: Nothing
+      , style: Nothing
       , internals:
           { positionAbsolute
           , z: 0.0

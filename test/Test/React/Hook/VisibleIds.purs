@@ -58,6 +58,8 @@ mkNode nodeId px py w h =
   , handles: Nothing
   , measured: { width: Just w, height: Just h }
   , nodeType: Nothing
+  , className: Nothing
+  , style: Nothing
   , internals:
       { positionAbsolute: { x: px, y: py }
       , z: 0.0

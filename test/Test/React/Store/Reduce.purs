@@ -60,6 +60,8 @@ sampleNode =
   , handles: Nothing
   , measured: { width: Nothing, height: Nothing }
   , nodeType: Nothing
+  , className: Nothing
+  , style: Nothing
   , internals:
       { positionAbsolute: { x: 0.0, y: 0.0 }
       , z: 0.0
@@ -118,6 +120,8 @@ freshNode =
   , handles: Nothing
   , measured: { width: Nothing, height: Nothing }
   , nodeType: Nothing
+  , className: Nothing
+  , style: Nothing
   }
 
 freshEdge :: EdgeBase Unit

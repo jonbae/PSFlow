@@ -30,8 +30,8 @@
 -- |   * `node.style.width` / `node.style.height` string fallbacks for
 -- |     inline dimensions are deferred (`Style` is `Foreign` with no
 -- |     typed accessor yet).
--- |   * `node.domAttributes` spread, `node.className`, `node.ariaRole`
--- |     aren't carried on `NodeBase` yet.
+-- |   * `node.domAttributes` spread and `node.ariaRole` aren't carried on
+-- |     `NodeBase` yet.
 -- |   * Keyboard `:focus-visible` guard is dropped (no PS Web binding);
 -- |     auto-pan fires on any focus when `autoPanOnNodeFocus` is on.
 -- |   * `ariaLiveMessage` on arrow-key nudges is deferred (the
@@ -55,7 +55,7 @@ import Effect (Effect)
 import Effect.Aff (Aff)
 import Effect.Class (liftEffect)
 import Effect.Unsafe (unsafePerformEffect)
-import Foreign (Foreign)
+import Foreign (Foreign, unsafeToForeign)
 import Foreign.Object (Object)
 import Foreign.Object (lookup) as Object
 import React.Basic (ReactComponent, element)
@@ -157,6 +157,8 @@ placeholderNode nodeId =
   , handles: Nothing
   , measured: { width: Nothing, height: Nothing }
   , nodeType: Nothing
+  , className: Nothing
+  , style: Nothing
   , internals:
       { positionAbsolute: { x: 0.0, y: 0.0 }
       , z: 0.0
@@ -253,6 +255,7 @@ panByAdapter store delta =
 buildNodeClassName
   :: { nodeType :: String
      , noPanClassName :: String
+     , className :: String
      , isDraggable :: Boolean
      , isSelectable :: Boolean
      , isParent :: Boolean
@@ -264,6 +267,7 @@ buildNodeClassName p = joinSpace
   [ "react-flow__node"
   , "react-flow__node-" <> p.nodeType
   , if p.isDraggable then p.noPanClassName else ""
+  , p.className
   , if p.selected then "selected" else ""
   , if p.isSelectable then "selectable" else ""
   , if p.isParent then "parent" else ""
@@ -378,12 +382,22 @@ nodeWrapper =
                 <> "px)"
           , pointerEvents: if hasPointerEvents then "all" else "none"
           , visibility: if hasDims then "visible" else "hidden"
-          , width: inlineDims.width
+          }
+
+        dimStyle :: Foreign
+        dimStyle = toForeignStyle
+          { width: inlineDims.width
           , height: inlineDims.height
           }
 
+        -- Matches upstream `{ ...base, ...node.style, ...inlineDimensions }`:
+        -- the user style overrides the base, and inline dimensions override
+        -- the user style.
         mergedStyle :: Foreign
-        mergedStyle = mergeStyles baseStyle emptyForeign
+        mergedStyle =
+          mergeStyles
+            (mergeStyles baseStyle (fromMaybe emptyForeign (unsafeToForeign <$> node.style)))
+            dimStyle
 
         fireMouseHandler :: Maybe (NodeMouseHandler n) -> MouseEvent -> Effect Unit
         fireMouseHandler mCb me = case mCb of
@@ -484,6 +498,7 @@ nodeWrapper =
             { className: buildNodeClassName
                 { nodeType
                 , noPanClassName: props.noPanClassName
+                , className: fromMaybe "" node.className
                 , isDraggable
                 , isSelectable
                 , isParent: slice.isParent

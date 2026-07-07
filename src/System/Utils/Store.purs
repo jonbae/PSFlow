@@ -407,6 +407,8 @@ adoptUserNodes nodes prev _prevParent options =
           , handles: userNodeWithDefaults.handles
           , measured: userNodeWithDefaults.measured
           , nodeType: userNodeWithDefaults.nodeType
+          , className: userNodeWithDefaults.className
+          , style: userNodeWithDefaults.style
           , internals:
               { positionAbsolute: clamped
               , z: calculateZ userNodeWithDefaults selZ options.zIndexMode

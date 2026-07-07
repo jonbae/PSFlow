@@ -174,6 +174,8 @@ mkLeafInternalNode nid width height =
   , handles: Nothing
   , measured: { width: Just width, height: Just height }
   , nodeType: Nothing
+  , className: Nothing
+  , style: Nothing
   , internals:
       { positionAbsolute: { x: 0.0, y: 0.0 }
       , z: 0.0

@@ -5,9 +5,6 @@
 //   2. the route is loaded via the static smoke server + hash router
 //      ('/examples/react-smoke/index.html#/tests/generic/nodes/general')
 //      instead of a vite path ('/tests/generic/nodes/general').
-// Known reds tracked elsewhere: "classes get applied" / "styles get applied"
-// (node className/style — ticket 060) and "custom drag handle works" (the
-// DragHandleNode custom component isn't ported yet).
 import { test, expect } from "@playwright/test";
 
 const FRAMEWORK = "react";

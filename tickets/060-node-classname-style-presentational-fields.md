@@ -1,5 +1,25 @@
 # 060 — Node `className` / `style` presentational fields not carried
 
+## Resolution (2026-07-07) — DONE (Option 1)
+
+Landed via ticket 061's gaps 6 & 7. `className` and `style` added to
+`NodeBaseRow` (`src/System/Types/Node.purs`); they ride through
+`adoptUserNodes`/`InternalNodeBase` to the wrapper. `buildNodeClassName` gained a
+user-class slot (interleaved at upstream's position) and `mergedStyle` now spreads
+`base → node.style → inlineDimensions` (matching `index.tsx:204-208`, inline dims
+win). Fixture `Node-1` carries the upstream `className`/`style`; both
+`nodes.spec.ts` assertions pass (generic-nodes now 13/13; full smoke 24/24).
+
+**One deviation from Option 1's wording:** `style` is `Maybe (Object String)`,
+**not** `Maybe Foreign`. `Foreign` has no `Eq`, and `InternalNode` records are
+`Eq`-compared by `useStore` memoization (`useNodesData`/`useInternalNode`) and by
+tests (`adoptUserNodes` idempotence). `Object String` gets structural `Eq`/`Show`
+for free and its runtime shape is already a plain JS style object
+(`{ backgroundColor: "red" }`), so it coerces straight into the `mergeStyles`
+spread via `unsafeToForeign`. Cost: CSS values are strings only (no bare numbers,
+e.g. write `"5"` not `5` for `zIndex`) — acceptable for a style bag and it covers
+the fixture. `domAttributes`/`ariaRole`/`focusable` remain out of scope.
+
 ## Context
 
 Surfaced during the Layer 2 DOM-contract audit (ticket [056]/[058] lineage, parity

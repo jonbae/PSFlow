@@ -3,10 +3,6 @@
 -- | declarative node/edge data + a few flow-prop overrides that the adopted
 -- | Playwright specs run against. `fixtureForRoute` maps a hash route
 -- | (`#/tests/generic/<area>/<name>`) to its fixture.
--- |
--- | NOTE: `Node-1`'s `className`/`style` from the upstream fixture are omitted —
--- | PSFlow's node type can't carry them yet (ticket 060), so the
--- | "classes/styles get applied" assertions stay red until that lands.
 module Generic.Fixture
   ( Fixture
   , nodesGeneral
@@ -68,6 +64,8 @@ baseNode nid x y =
   , handles: Nothing
   , measured: { width: Just 150.0, height: Just 40.0 }
   , nodeType: Nothing
+  , className: Nothing
+  , style: Nothing
   }
 
 baseEdge :: String -> String -> String -> Edge Unit
@@ -95,7 +93,11 @@ baseEdge eid src tgt =
 nodesGeneral :: Fixture
 nodesGeneral =
   { nodes:
-      [ (baseNode "Node-1" 0.0 0.0) { nodeType = Just "input" }
+      [ (baseNode "Node-1" 0.0 0.0)
+          { nodeType = Just "input"
+          , className = Just "playwright-test-class-123"
+          , style = Just (Object.singleton "backgroundColor" "red")
+          }
       , (baseNode "Node-2" (-100.0) 100.0) { nodeType = Just "output" }
       , baseNode "Node-3" 100.0 100.0
       , (baseNode "Node-4" 0.0 200.0) { nodeType = Just "output" }

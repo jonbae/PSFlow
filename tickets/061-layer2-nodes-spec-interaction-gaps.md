@@ -39,6 +39,14 @@ initial viewport, which then required a delete-prevention fix in
 keep `deletable=false prevents deletion` green. Only remaining reds: gaps 6/7
 (`classes`/`styles` — ticket 060).
 
+## Resolution (2026-07-07 #2) — now 13 / 13 pass
+
+Gaps **6 & 7 resolved** (ticket 060, Option 1). `generic-nodes.spec.ts` is fully
+green and the 11 other smoke tests stay green (full smoke suite 24/24). See
+finding 6 & 7 below and ticket 060's resolution note (incl. the
+`Maybe (Object String)` vs `Foreign` deviation, needed to keep `InternalNode`'s
+`Eq` instance).
+
 Gap 2 was *not* the test-only artifact it first looked like: the underlying
 cause is a real missing port (see below), and the delete test (gap 3) clicks-to-
 select before pressing the delete key, so gap 3 couldn't go green without it.
@@ -135,8 +143,13 @@ the node falls back to default and has no `.custom-drag-handle` element. **Fix:*
 port the small `DragHandleNode` custom node into the fixture app + register it via
 `nodeTypes`.
 
-### 6 & 7. `classes get applied` / `styles get applied`
-Node `className` / `style` not carried — **ticket 060**.
+### 6 & 7. `classes get applied` / `styles get applied` — RESOLVED
+Node `className` / `style` now carried (ticket 060, Option 1). Added
+`className`/`style` to `NodeBaseRow`, a user-class slot to `buildNodeClassName`,
+and a `base → node.style → inlineDimensions` merge in `mergedStyle`; fixture
+`Node-1` sets both. `style` is `Maybe (Object String)` (not `Foreign`) so
+`InternalNode` keeps its `Eq` for `useStore` memoization/tests — see ticket 060's
+resolution note.
 
 ## Acceptance criteria
 

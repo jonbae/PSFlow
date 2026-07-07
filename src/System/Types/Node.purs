@@ -28,6 +28,7 @@ import Data.Map (Map)
 import Data.Maybe (Maybe)
 import Data.Show.Generic (genericShow)
 import Effect (Effect)
+import Foreign.Object (Object)
 import Web.HTML.HTMLDivElement (HTMLDivElement)
 import System.Types.Geometry
   ( CoordinateExtent
@@ -74,6 +75,8 @@ type NodeBaseRow nodeData =
   , handles :: Maybe (Array NodeHandle)
   , measured :: { width :: Maybe Number, height :: Maybe Number }
   , nodeType :: Maybe String
+  , className :: Maybe String
+  , style :: Maybe (Object String)
   )
 
 type NodeBase nodeData = { | NodeBaseRow nodeData }

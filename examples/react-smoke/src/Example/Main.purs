@@ -96,6 +96,8 @@ twoNodes =
     , handles: Nothing
     , measured: { width: Just 100.0, height: Just 40.0 }
     , nodeType: Nothing
+    , className: Nothing
+    , style: Nothing
     }
 
 oneEdge :: Array (Edge Unit)
