@@ -25,6 +25,12 @@ flowView cfg = element reactFlowProvider providerProps
       , fitView = cfg.fitView
       , connectOnClick = Just true
       , nodeTypes = cfg.nodeTypes
+      , minZoom = cfg.minZoom
+      , maxZoom = cfg.maxZoom
+      , panOnScroll = cfg.panOnScroll
+      , defaultViewport = cfg.defaultViewport
+      , autoPanOnConnect = cfg.autoPanOnConnect
+      , autoPanOnNodeDrag = cfg.autoPanOnNodeDrag
       }
 
   -- Seed the store via `defaultNodes`/`defaultEdges` (not `initialNodes`): the

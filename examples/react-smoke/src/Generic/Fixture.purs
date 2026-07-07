@@ -6,6 +6,8 @@
 module Generic.Fixture
   ( Fixture
   , nodesGeneral
+  , paneGeneral
+  , paneNonDefaults
   , fixtureForRoute
   ) where
 
@@ -16,12 +18,14 @@ import Data.String (Pattern(..), stripPrefix)
 import Foreign.Object as Object
 import Generic.DragHandleNode (dragHandleNode)
 import React (Edge, Node, NodeTypesMap)
-import System.Types.Connection (KeyCode(..))
+import System.Types.Connection (KeyCode(..), Viewport)
 import System.Types.Ids (NodeId(..))
 import Unsafe.Coerce (unsafeCoerce)
 
 -- | A fixture: the node/edge data plus the flow-prop overrides the upstream
--- | fixture sets (`deleteKeyCode`, `multiSelectionKeyCode`, …).
+-- | fixture sets (`deleteKeyCode`, `multiSelectionKeyCode`, …). The pan/zoom
+-- | props (`minZoom` … `autoPanOnNodeDrag`) surface the `Nothing` defaults that
+-- | already exist in `Generic.Defaults` so the pane fixtures can override them.
 type Fixture =
   { nodes :: Array (Node Unit)
   , edges :: Array (Edge Unit)
@@ -30,6 +34,12 @@ type Fixture =
   , nodeDragThreshold :: Maybe Number
   , fitView :: Maybe Boolean
   , nodeTypes :: Maybe NodeTypesMap
+  , minZoom :: Maybe Number
+  , maxZoom :: Maybe Number
+  , panOnScroll :: Maybe Boolean
+  , defaultViewport :: Maybe Viewport
+  , autoPanOnConnect :: Maybe Boolean
+  , autoPanOnNodeDrag :: Maybe Boolean
   }
 
 -- | A node at `(x, y)` with the documented defaults; callers record-update the
@@ -122,6 +132,65 @@ nodesGeneral =
   -- treats it as an `Object` of components (cf. `builtinNodeTypes`), so a
   -- coerced single-entry object registers the custom node under its type key.
   , nodeTypes: Just (unsafeCoerce (Object.singleton "DragHandleNode" dragHandleNode) :: NodeTypesMap)
+  , minZoom: Nothing
+  , maxZoom: Nothing
+  , panOnScroll: Nothing
+  , defaultViewport: Nothing
+  , autoPanOnConnect: Nothing
+  , autoPanOnNodeDrag: Nothing
+  }
+
+-- | Shared node/edge data for both pane fixtures: 3 nodes (`1` = input, `2`/`3`
+-- | default) + 2 edges (`first-edge`, `second-edge`). Mirrors the `nodes`/`edges`
+-- | in both `generic-tests/pane/{general,non-defaults}.ts`.
+paneNodes :: Array (Node Unit)
+paneNodes =
+  [ (baseNode "1" 0.0 0.0) { nodeType = Just "input" }
+  , baseNode "2" (-100.0) 100.0
+  , baseNode "3" 100.0 100.0
+  ]
+
+paneEdges :: Array (Edge Unit)
+paneEdges =
+  [ baseEdge "first-edge" "1" "2"
+  , baseEdge "second-edge" "1" "3"
+  ]
+
+-- | Port of `generic-tests/pane/general.ts` — `minZoom:0.25, maxZoom:4, fitView`.
+paneGeneral :: Fixture
+paneGeneral =
+  { nodes: paneNodes
+  , edges: paneEdges
+  , deleteKeyCode: Nothing
+  , multiSelectionKeyCode: Nothing
+  , nodeDragThreshold: Nothing
+  , fitView: Just true
+  , nodeTypes: Nothing
+  , minZoom: Just 0.25
+  , maxZoom: Just 4.0
+  , panOnScroll: Nothing
+  , defaultViewport: Nothing
+  , autoPanOnConnect: Nothing
+  , autoPanOnNodeDrag: Nothing
+  }
+
+-- | Port of `generic-tests/pane/non-defaults.ts` — `panOnScroll:true`,
+-- | `defaultViewport:{1.23, 9.87, 1.234}`, `autoPanOnConnect/NodeDrag:false`.
+paneNonDefaults :: Fixture
+paneNonDefaults =
+  { nodes: paneNodes
+  , edges: paneEdges
+  , deleteKeyCode: Nothing
+  , multiSelectionKeyCode: Nothing
+  , nodeDragThreshold: Nothing
+  , fitView: Nothing
+  , nodeTypes: Nothing
+  , minZoom: Nothing
+  , maxZoom: Nothing
+  , panOnScroll: Just true
+  , defaultViewport: Just { x: 1.23, y: 9.87, zoom: 1.234 }
+  , autoPanOnConnect: Just false
+  , autoPanOnNodeDrag: Just false
   }
 
 -- | Map a hash route (`#/tests/generic/nodes/general`) to its fixture.
@@ -129,6 +198,8 @@ fixtureForRoute :: String -> Maybe Fixture
 fixtureForRoute route =
   case dropHash route of
     "/tests/generic/nodes/general" -> Just nodesGeneral
+    "/tests/generic/pane/general" -> Just paneGeneral
+    "/tests/generic/pane/non-defaults" -> Just paneNonDefaults
     _ -> Nothing
   where
   dropHash r = case stripPrefix (Pattern "#") r of

@@ -26389,6 +26389,41 @@ var baseNode = function(nid) {
     };
   };
 };
+var paneNodes = /* @__PURE__ */ function() {
+  return [function() {
+    var v = baseNode("1")(0)(0);
+    return {
+      id: v.id,
+      position: v.position,
+      data: v.data,
+      sourcePosition: v.sourcePosition,
+      targetPosition: v.targetPosition,
+      hidden: v.hidden,
+      selected: v.selected,
+      dragging: v.dragging,
+      draggable: v.draggable,
+      selectable: v.selectable,
+      connectable: v.connectable,
+      deletable: v.deletable,
+      dragHandle: v.dragHandle,
+      width: v.width,
+      height: v.height,
+      initialWidth: v.initialWidth,
+      initialHeight: v.initialHeight,
+      parentId: v.parentId,
+      zIndex: v.zIndex,
+      extent: v.extent,
+      expandParent: v.expandParent,
+      ariaLabel: v.ariaLabel,
+      origin: v.origin,
+      handles: v.handles,
+      measured: v.measured,
+      className: v.className,
+      style: v.style,
+      nodeType: new Just("input")
+    };
+  }(), baseNode("2")(-100)(100), baseNode("3")(100)(100)];
+}();
 var baseEdge = function(eid) {
   return function(src9) {
     return function(tgt) {
@@ -26710,7 +26745,52 @@ var nodesGeneral = /* @__PURE__ */ function() {
     multiSelectionKeyCode: new Just(new SingleKey("s")),
     nodeDragThreshold: new Just(0),
     fitView: new Just(true),
-    nodeTypes: new Just(singleton4("DragHandleNode")(dragHandleNode))
+    nodeTypes: new Just(singleton4("DragHandleNode")(dragHandleNode)),
+    minZoom: Nothing.value,
+    maxZoom: Nothing.value,
+    panOnScroll: Nothing.value,
+    defaultViewport: Nothing.value,
+    autoPanOnConnect: Nothing.value,
+    autoPanOnNodeDrag: Nothing.value
+  };
+}();
+var paneEdges = [/* @__PURE__ */ baseEdge("first-edge")("1")("2"), /* @__PURE__ */ baseEdge("second-edge")("1")("3")];
+var paneGeneral = /* @__PURE__ */ function() {
+  return {
+    nodes: paneNodes,
+    edges: paneEdges,
+    deleteKeyCode: Nothing.value,
+    multiSelectionKeyCode: Nothing.value,
+    nodeDragThreshold: Nothing.value,
+    fitView: new Just(true),
+    nodeTypes: Nothing.value,
+    minZoom: new Just(0.25),
+    maxZoom: new Just(4),
+    panOnScroll: Nothing.value,
+    defaultViewport: Nothing.value,
+    autoPanOnConnect: Nothing.value,
+    autoPanOnNodeDrag: Nothing.value
+  };
+}();
+var paneNonDefaults = /* @__PURE__ */ function() {
+  return {
+    nodes: paneNodes,
+    edges: paneEdges,
+    deleteKeyCode: Nothing.value,
+    multiSelectionKeyCode: Nothing.value,
+    nodeDragThreshold: Nothing.value,
+    fitView: Nothing.value,
+    nodeTypes: Nothing.value,
+    minZoom: Nothing.value,
+    maxZoom: Nothing.value,
+    panOnScroll: new Just(true),
+    defaultViewport: new Just({
+      x: 1.23,
+      y: 9.87,
+      zoom: 1.234
+    }),
+    autoPanOnConnect: new Just(false),
+    autoPanOnNodeDrag: new Just(false)
   };
 }();
 var fixtureForRoute = function(route) {
@@ -26724,11 +26804,19 @@ var fixtureForRoute = function(route) {
       return r;
     }
     ;
-    throw new Error("Failed pattern match at Generic.Fixture (line 134, column 16 - line 136, column 17): " + [v2.constructor.name]);
+    throw new Error("Failed pattern match at Generic.Fixture (line 205, column 16 - line 207, column 17): " + [v2.constructor.name]);
   };
   var v = dropHash(route);
   if (v === "/tests/generic/nodes/general") {
     return new Just(nodesGeneral);
+  }
+  ;
+  if (v === "/tests/generic/pane/general") {
+    return new Just(paneGeneral);
+  }
+  ;
+  if (v === "/tests/generic/pane/non-defaults") {
+    return new Just(paneNonDefaults);
   }
   ;
   return Nothing.value;
@@ -57463,8 +57551,6 @@ var flowView = function(cfg) {
   var rfProps = {
     ariaLabelConfig: defaultReactFlowProps.ariaLabelConfig,
     attributionPosition: defaultReactFlowProps.attributionPosition,
-    autoPanOnConnect: defaultReactFlowProps.autoPanOnConnect,
-    autoPanOnNodeDrag: defaultReactFlowProps.autoPanOnNodeDrag,
     autoPanOnNodeFocus: defaultReactFlowProps.autoPanOnNodeFocus,
     autoPanOnSelection: defaultReactFlowProps.autoPanOnSelection,
     autoPanSpeed: defaultReactFlowProps.autoPanSpeed,
@@ -57482,7 +57568,6 @@ var flowView = function(cfg) {
     defaultEdges: defaultReactFlowProps.defaultEdges,
     defaultMarkerColor: defaultReactFlowProps.defaultMarkerColor,
     defaultNodes: defaultReactFlowProps.defaultNodes,
-    defaultViewport: defaultReactFlowProps.defaultViewport,
     disableKeyboardA11y: defaultReactFlowProps.disableKeyboardA11y,
     edgeTypes: defaultReactFlowProps.edgeTypes,
     edges: defaultReactFlowProps.edges,
@@ -57494,8 +57579,6 @@ var flowView = function(cfg) {
     fitViewOptions: defaultReactFlowProps.fitViewOptions,
     height: defaultReactFlowProps.height,
     isValidConnection: defaultReactFlowProps.isValidConnection,
-    maxZoom: defaultReactFlowProps.maxZoom,
-    minZoom: defaultReactFlowProps.minZoom,
     noDragClassName: defaultReactFlowProps.noDragClassName,
     noPanClassName: defaultReactFlowProps.noPanClassName,
     noWheelClassName: defaultReactFlowProps.noWheelClassName,
@@ -57558,7 +57641,6 @@ var flowView = function(cfg) {
     onlyRenderVisibleElements: defaultReactFlowProps.onlyRenderVisibleElements,
     panActivationKeyCode: defaultReactFlowProps.panActivationKeyCode,
     panOnDrag: defaultReactFlowProps.panOnDrag,
-    panOnScroll: defaultReactFlowProps.panOnScroll,
     panOnScrollMode: defaultReactFlowProps.panOnScrollMode,
     panOnScrollSpeed: defaultReactFlowProps.panOnScrollSpeed,
     paneClickDistance: defaultReactFlowProps.paneClickDistance,
@@ -57584,7 +57666,13 @@ var flowView = function(cfg) {
     nodeDragThreshold: cfg.nodeDragThreshold,
     fitView: cfg.fitView,
     connectOnClick: new Just(true),
-    nodeTypes: cfg.nodeTypes
+    nodeTypes: cfg.nodeTypes,
+    minZoom: cfg.minZoom,
+    maxZoom: cfg.maxZoom,
+    panOnScroll: cfg.panOnScroll,
+    defaultViewport: cfg.defaultViewport,
+    autoPanOnConnect: cfg.autoPanOnConnect,
+    autoPanOnNodeDrag: cfg.autoPanOnNodeDrag
   };
   var providerProps2 = {
     initialEdges: defaultProviderProps.initialEdges,

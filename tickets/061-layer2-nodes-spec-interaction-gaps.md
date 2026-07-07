@@ -166,3 +166,14 @@ resolution note.
 - `src/React/Container/Pane*` — selection rectangle
 - `examples/react-smoke/tests/generic-nodes.spec.ts`, `examples/react-smoke/src/Generic/*`
 - Reference: `xyflow/tests/playwright/e2e/nodes.spec.ts`, `xyflow/examples/react/src/generic-tests/nodes/**`
+
+## Follow-up — remaining Layer 2 e2e specs
+
+`nodes.spec` is the first of xyflow's five e2e specs. The other four are tracked
+as one ticket each, ported one at a time using this ticket's recipe (sequence:
+pane → edges → node-toolbar → props):
+
+- [062](062-layer2-pane-spec.md) — `pane.spec` (pan/zoom/auto-pan; no expected source gaps)
+- [063](063-layer2-edges-spec.md) — `edges.spec` (edge `className`/`style` source gaps, cf. [060](060-node-classname-style-presentational-fields.md))
+- [064](064-layer2-node-toolbar-spec.md) — `node-toolbar.spec` (custom `ToolbarNode` + `NodeToolbar` data-id `.trim()` fix)
+- [065](065-layer2-props-colormode-spec.md) — `props.spec` (bespoke ColorMode page, minimal)
