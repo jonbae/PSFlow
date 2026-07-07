@@ -88,6 +88,8 @@ mkEdge edgeId src tgt =
   , zIndex: Nothing
   , ariaLabel: Nothing
   , interactionWidth: Nothing
+  , className: Nothing
+  , style: Nothing
   }
 
 -- | Viewport 0..100 × 0..100 at identity transform.

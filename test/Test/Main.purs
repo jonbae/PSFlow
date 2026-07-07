@@ -481,6 +481,8 @@ main = do
       , zIndex: Nothing
       , ariaLabel: Nothing
       , interactionWidth: Nothing
+      , className: Nothing
+      , style: Nothing
       }
     nA = mkNode "a"
     nB = mkNode "b"

@@ -305,7 +305,20 @@ reduceTriggerEdgeChanges state changes =
   let
     s1 =
       if state.hasDefaultEdges then
-        state { edges = applyEdgeChanges changes state.edges }
+        -- Uncontrolled mode: commit the change *and* rebuild `edgeLookup`
+        -- (+ `connectionLookup`) so the rendered edges reflect it — EdgeWrapper
+        -- reads `selected`/existence from `edgeLookup`, not the `edges` array.
+        -- Mirrors `reduceSetEdges` and the node side's `reduceTriggerNodeChanges`
+        -- re-adopt; without it uncontrolled edge select/delete never hit the DOM.
+        let
+          newEdges = applyEdgeChanges changes state.edges
+          r = updateConnectionLookup newEdges
+        in
+          state
+            { edges = newEdges
+            , edgeLookup = r.edgeLookup
+            , connectionLookup = r.connectionLookup
+            }
       else state
   in
     { state: s1, effects: [ FireOnEdgesChange changes ] }
@@ -340,20 +353,28 @@ reduceAddSelectedEdges
    . ReactFlowState n e
   -> Array String
   -> ReduceResult n e
-reduceAddSelectedEdges state ids =
-  let
-    selectedSet = Set.fromFoldable ids
-    edgeRes = getEdgeSelectionChanges state.edgeLookup selectedSet
-    nodeRes =
-      if Array.null ids then { changes: [], items: state.nodeLookup }
-      else getNodeSelectionChanges state.nodeLookup Set.empty true
-    s1 = state { nodeLookup = nodeRes.items }
-    afterEdges = reduceTriggerEdgeChanges s1 edgeRes.changes
-    afterNodes = reduceTriggerNodeChanges afterEdges.state nodeRes.changes
-  in
-    { state: afterNodes.state
-    , effects: afterEdges.effects <> afterNodes.effects
-    }
+reduceAddSelectedEdges state ids
+  -- TS `addSelectedEdges`: while multi-selection is active, just mark these
+  -- edges selected — keep the existing edge selection and leave nodes untouched.
+  | state.multiSelectionActive =
+      let
+        changes = map (\id -> EdgeSelectionChange { id, selected: true }) ids
+      in
+        reduceTriggerEdgeChanges state changes
+  | otherwise =
+      let
+        selectedSet = Set.fromFoldable ids
+        edgeRes = getEdgeSelectionChanges state.edgeLookup selectedSet
+        nodeRes =
+          if Array.null ids then { changes: [], items: state.nodeLookup }
+          else getNodeSelectionChanges state.nodeLookup Set.empty true
+        s1 = state { nodeLookup = nodeRes.items }
+        afterEdges = reduceTriggerEdgeChanges s1 edgeRes.changes
+        afterNodes = reduceTriggerNodeChanges afterEdges.state nodeRes.changes
+      in
+        { state: afterNodes.state
+        , effects: afterEdges.effects <> afterNodes.effects
+        }
 
 -- UnselectNodesAndEdges -------------------------------------------------
 

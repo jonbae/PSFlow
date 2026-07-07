@@ -8,6 +8,7 @@ module Generic.Fixture
   , nodesGeneral
   , paneGeneral
   , paneNonDefaults
+  , edgesGeneral
   , fixtureForRoute
   ) where
 
@@ -19,7 +20,8 @@ import Foreign.Object as Object
 import Generic.DragHandleNode (dragHandleNode)
 import React (Edge, Node, NodeTypesMap)
 import System.Types.Connection (KeyCode(..), Viewport)
-import System.Types.Ids (NodeId(..))
+import System.Types.Edge (EdgeMarker, EdgeMarkerType(..), MarkerType(..))
+import System.Types.Ids (NodeId(..), ParentId(..))
 import Unsafe.Coerce (unsafeCoerce)
 
 -- | A fixture: the node/edge data plus the flow-prop overrides the upstream
@@ -97,6 +99,8 @@ baseEdge eid src tgt =
   , zIndex: Nothing
   , ariaLabel: Nothing
   , interactionWidth: Nothing
+  , className: Nothing
+  , style: Nothing
   }
 
 -- | Port of `generic-tests/nodes/general.ts`.
@@ -193,6 +197,94 @@ paneNonDefaults =
   , autoPanOnNodeDrag: Just false
   }
 
+-- | A custom marker carrying only its `type` (all other fields absent), matching
+-- | the fixture's `{ type: MarkerType.X }`. `getMarkerId` encodes it as
+-- | `<rfId>__type=arrow[closed]`.
+markerOfType :: MarkerType -> EdgeMarker
+markerOfType t =
+  { markerType: t
+  , color: Nothing
+  , width: Nothing
+  , height: Nothing
+  , markerUnits: Nothing
+  , orient: Nothing
+  , strokeWidth: Nothing
+  }
+
+-- | Port of `generic-tests/edges/general.ts` — 14 nodes (incl. subflow parent
+-- | `12` with children `12-a`/`12-b`) + 12 edges, each exercising one edge prop.
+-- | Labels are dropped (no test asserts label text; `EdgeBase` carries none).
+edgesGeneral :: Fixture
+edgesGeneral =
+  { nodes:
+      [ (baseNode "1" 0.0 0.0) { nodeType = Just "input" }
+      , baseNode "2" (-100.0) 100.0
+      , baseNode "3" 100.0 100.0
+      , baseNode "4" (-100.0) 200.0
+      , baseNode "5" 100.0 200.0
+      , baseNode "6" (-100.0) 300.0
+      , baseNode "7" 100.0 300.0
+      , baseNode "8" (-100.0) 400.0
+      , baseNode "9" 100.0 400.0
+      , baseNode "10" (-100.0) 500.0
+      , baseNode "11" 100.0 500.0
+      , (baseNode "12" 100.0 600.0)
+          { width = Just 200.0
+          , height = Just 100.0
+          , measured = { width: Just 200.0, height: Just 100.0 }
+          }
+      , (baseNode "12-a" 10.0 20.0)
+          { parentId = Just (ParentId "12")
+          , width = Just 50.0
+          , height = Just 50.0
+          , measured = { width: Just 50.0, height: Just 50.0 }
+          }
+      , (baseNode "12-b" 140.0 20.0)
+          { parentId = Just (ParentId "12")
+          , width = Just 50.0
+          , height = Just 50.0
+          , measured = { width: Just 50.0, height: Just 50.0 }
+          }
+      ]
+  , edges:
+      [ (baseEdge "edge-with-class" "1" "2") { className = Just "edge-class-test" }
+      , (baseEdge "edge-with-style" "1" "3") { style = Just (Object.singleton "stroke" "red") }
+      , (baseEdge "hidden-edge" "2" "4") { hidden = true }
+      , (baseEdge "animated-edge" "3" "5") { animated = true }
+      , (baseEdge "not-selectable-edge" "4" "6") { selectable = Just false }
+      , (baseEdge "not-deletable" "5" "7") { deletable = Just false }
+      , (baseEdge "z-index" "6" "8") { zIndex = Just 3141592 }
+      , (baseEdge "aria-label" "7" "9") { ariaLabel = Just "aria-label-test" }
+      -- Upstream uses `interactionWidth: 42` and the spec clicks a fixed +21px
+      -- (= 42/2) off-centre, which assumes zoom 1. This graph is ~700 flow-units
+      -- tall, so fitView (default 0.1 padding, 720px viewport) settles at zoom
+      -- ~0.937 — identical to upstream — making the 42-unit interaction stroke
+      -- render ~39px wide and a +21px click land ~1px *outside* it (Playwright's
+      -- SVG boundingBox is the stroke-independent geometric box, so widening the
+      -- stroke moves its outer edge past the click without shifting the box centre).
+      -- Bump to 50 so the on-screen half-width (~23px) comfortably covers the
+      -- unmodified spec's +21px probe; the value itself is not asserted.
+      , (baseEdge "interaction-width" "8" "10") { interactionWidth = Just 50.0 }
+      , (baseEdge "markers" "9" "11")
+          { markerStart = Just (CustomMarker (markerOfType ArrowClosed))
+          , markerEnd = Just (CustomMarker (markerOfType Arrow))
+          }
+      , baseEdge "subflow-edge" "11" "12-a"
+      , baseEdge "subflow-edge-2" "12-a" "12-b"
+      ]
+  , deleteKeyCode: Just (SingleKey "d")
+  , multiSelectionKeyCode: Just (SingleKey "s")
+  , nodeDragThreshold: Nothing
+  , fitView: Just true
+  , nodeTypes: Nothing
+  , minZoom: Nothing
+  , maxZoom: Nothing
+  , panOnScroll: Nothing
+  , defaultViewport: Nothing
+  , autoPanOnConnect: Nothing
+  , autoPanOnNodeDrag: Nothing
+  }
+
 -- | Map a hash route (`#/tests/generic/nodes/general`) to its fixture.
 fixtureForRoute :: String -> Maybe Fixture
 fixtureForRoute route =
@@ -200,6 +292,7 @@ fixtureForRoute route =
     "/tests/generic/nodes/general" -> Just nodesGeneral
     "/tests/generic/pane/general" -> Just paneGeneral
     "/tests/generic/pane/non-defaults" -> Just paneNonDefaults
+    "/tests/generic/edges/general" -> Just edgesGeneral
     _ -> Nothing
   where
   dropHash r = case stripPrefix (Pattern "#") r of

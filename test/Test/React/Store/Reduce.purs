@@ -90,6 +90,8 @@ sampleEdge =
   , zIndex: Nothing
   , ariaLabel: Nothing
   , interactionWidth: Nothing
+  , className: Nothing
+  , style: Nothing
   }
 
 freshNode :: NodeBase Unit
@@ -143,6 +145,8 @@ freshEdge =
   , zIndex: Nothing
   , ariaLabel: Nothing
   , interactionWidth: Nothing
+  , className: Nothing
+  , style: Nothing
   }
 
 sampleState :: ReactFlowState Unit Unit

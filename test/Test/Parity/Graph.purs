@@ -77,6 +77,8 @@ mkEdge eid src tgt =
   , zIndex: Nothing
   , ariaLabel: Nothing
   , interactionWidth: Nothing
+  , className: Nothing
+  , style: Nothing
   }
 
 unId :: NodeId -> String

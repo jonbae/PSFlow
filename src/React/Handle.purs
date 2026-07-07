@@ -271,6 +271,8 @@ connectionToEdge mDefaults conn =
   , zIndex: _.zIndex =<< mDefaults
   , ariaLabel: _.ariaLabel =<< mDefaults
   , interactionWidth: _.interactionWidth =<< mDefaults
+  , className: Nothing
+  , style: Nothing
   }
 
 -- | The reusable "user dropped a valid connection" path. Used by both

@@ -117,6 +117,8 @@ mkEdge eid src tgt =
   , zIndex: Nothing
   , ariaLabel: Nothing
   , interactionWidth: Nothing
+  , className: Nothing
+  , style: Nothing
   }
 
 -- | An edge endpoint id is a small letter so we get a non-trivial chance of

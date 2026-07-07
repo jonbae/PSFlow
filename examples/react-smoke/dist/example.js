@@ -26346,7 +26346,129 @@ var eqColorMode = {
   }
 };
 
+// output/System.Types.Edge/index.js
+var Arrow = /* @__PURE__ */ function() {
+  function Arrow2() {
+  }
+  ;
+  Arrow2.value = new Arrow2();
+  return Arrow2;
+}();
+var ArrowClosed = /* @__PURE__ */ function() {
+  function ArrowClosed2() {
+  }
+  ;
+  ArrowClosed2.value = new ArrowClosed2();
+  return ArrowClosed2;
+}();
+var NamedMarker = /* @__PURE__ */ function() {
+  function NamedMarker2(value0) {
+    this.value0 = value0;
+  }
+  ;
+  NamedMarker2.create = function(value0) {
+    return new NamedMarker2(value0);
+  };
+  return NamedMarker2;
+}();
+var CustomMarker = /* @__PURE__ */ function() {
+  function CustomMarker2(value0) {
+    this.value0 = value0;
+  }
+  ;
+  CustomMarker2.create = function(value0) {
+    return new CustomMarker2(value0);
+  };
+  return CustomMarker2;
+}();
+var EdgeSelectionChange = /* @__PURE__ */ function() {
+  function EdgeSelectionChange2(value0) {
+    this.value0 = value0;
+  }
+  ;
+  EdgeSelectionChange2.create = function(value0) {
+    return new EdgeSelectionChange2(value0);
+  };
+  return EdgeSelectionChange2;
+}();
+var EdgeRemoveChange = /* @__PURE__ */ function() {
+  function EdgeRemoveChange2(value0) {
+    this.value0 = value0;
+  }
+  ;
+  EdgeRemoveChange2.create = function(value0) {
+    return new EdgeRemoveChange2(value0);
+  };
+  return EdgeRemoveChange2;
+}();
+var EdgeAddChange = /* @__PURE__ */ function() {
+  function EdgeAddChange2(value0) {
+    this.value0 = value0;
+  }
+  ;
+  EdgeAddChange2.create = function(value0) {
+    return new EdgeAddChange2(value0);
+  };
+  return EdgeAddChange2;
+}();
+var EdgeReplaceChange = /* @__PURE__ */ function() {
+  function EdgeReplaceChange2(value0) {
+    this.value0 = value0;
+  }
+  ;
+  EdgeReplaceChange2.create = function(value0) {
+    return new EdgeReplaceChange2(value0);
+  };
+  return EdgeReplaceChange2;
+}();
+var BezierLine = /* @__PURE__ */ function() {
+  function BezierLine2() {
+  }
+  ;
+  BezierLine2.value = new BezierLine2();
+  return BezierLine2;
+}();
+var StraightLine = /* @__PURE__ */ function() {
+  function StraightLine2() {
+  }
+  ;
+  StraightLine2.value = new StraightLine2();
+  return StraightLine2;
+}();
+var StepLine = /* @__PURE__ */ function() {
+  function StepLine2() {
+  }
+  ;
+  StepLine2.value = new StepLine2();
+  return StepLine2;
+}();
+var SmoothStepLine = /* @__PURE__ */ function() {
+  function SmoothStepLine2() {
+  }
+  ;
+  SmoothStepLine2.value = new SmoothStepLine2();
+  return SmoothStepLine2;
+}();
+var SimpleBezierLine = /* @__PURE__ */ function() {
+  function SimpleBezierLine2() {
+  }
+  ;
+  SimpleBezierLine2.value = new SimpleBezierLine2();
+  return SimpleBezierLine2;
+}();
+
 // output/Generic.Fixture/index.js
+var markerOfType = function(t) {
+  return {
+    markerType: t,
+    color: Nothing.value,
+    width: Nothing.value,
+    height: Nothing.value,
+    markerUnits: Nothing.value,
+    orient: Nothing.value,
+    strokeWidth: Nothing.value
+  };
+};
 var baseNode = function(nid) {
   return function(x) {
     return function(y) {
@@ -26444,11 +26566,397 @@ var baseEdge = function(eid) {
         markerEnd: Nothing.value,
         zIndex: Nothing.value,
         ariaLabel: Nothing.value,
-        interactionWidth: Nothing.value
+        interactionWidth: Nothing.value,
+        className: Nothing.value,
+        style: Nothing.value
       };
     };
   };
 };
+var edgesGeneral = /* @__PURE__ */ function() {
+  return {
+    nodes: [function() {
+      var v = baseNode("1")(0)(0);
+      return {
+        id: v.id,
+        position: v.position,
+        data: v.data,
+        sourcePosition: v.sourcePosition,
+        targetPosition: v.targetPosition,
+        hidden: v.hidden,
+        selected: v.selected,
+        dragging: v.dragging,
+        draggable: v.draggable,
+        selectable: v.selectable,
+        connectable: v.connectable,
+        deletable: v.deletable,
+        dragHandle: v.dragHandle,
+        width: v.width,
+        height: v.height,
+        initialWidth: v.initialWidth,
+        initialHeight: v.initialHeight,
+        parentId: v.parentId,
+        zIndex: v.zIndex,
+        extent: v.extent,
+        expandParent: v.expandParent,
+        ariaLabel: v.ariaLabel,
+        origin: v.origin,
+        handles: v.handles,
+        measured: v.measured,
+        className: v.className,
+        style: v.style,
+        nodeType: new Just("input")
+      };
+    }(), baseNode("2")(-100)(100), baseNode("3")(100)(100), baseNode("4")(-100)(200), baseNode("5")(100)(200), baseNode("6")(-100)(300), baseNode("7")(100)(300), baseNode("8")(-100)(400), baseNode("9")(100)(400), baseNode("10")(-100)(500), baseNode("11")(100)(500), function() {
+      var v = baseNode("12")(100)(600);
+      return {
+        id: v.id,
+        position: v.position,
+        data: v.data,
+        sourcePosition: v.sourcePosition,
+        targetPosition: v.targetPosition,
+        hidden: v.hidden,
+        selected: v.selected,
+        dragging: v.dragging,
+        draggable: v.draggable,
+        selectable: v.selectable,
+        connectable: v.connectable,
+        deletable: v.deletable,
+        dragHandle: v.dragHandle,
+        initialWidth: v.initialWidth,
+        initialHeight: v.initialHeight,
+        parentId: v.parentId,
+        zIndex: v.zIndex,
+        extent: v.extent,
+        expandParent: v.expandParent,
+        ariaLabel: v.ariaLabel,
+        origin: v.origin,
+        handles: v.handles,
+        nodeType: v.nodeType,
+        className: v.className,
+        style: v.style,
+        width: new Just(200),
+        height: new Just(100),
+        measured: {
+          width: new Just(200),
+          height: new Just(100)
+        }
+      };
+    }(), function() {
+      var v = baseNode("12-a")(10)(20);
+      return {
+        id: v.id,
+        position: v.position,
+        data: v.data,
+        sourcePosition: v.sourcePosition,
+        targetPosition: v.targetPosition,
+        hidden: v.hidden,
+        selected: v.selected,
+        dragging: v.dragging,
+        draggable: v.draggable,
+        selectable: v.selectable,
+        connectable: v.connectable,
+        deletable: v.deletable,
+        dragHandle: v.dragHandle,
+        initialWidth: v.initialWidth,
+        initialHeight: v.initialHeight,
+        zIndex: v.zIndex,
+        extent: v.extent,
+        expandParent: v.expandParent,
+        ariaLabel: v.ariaLabel,
+        origin: v.origin,
+        handles: v.handles,
+        nodeType: v.nodeType,
+        className: v.className,
+        style: v.style,
+        parentId: new Just("12"),
+        width: new Just(50),
+        height: new Just(50),
+        measured: {
+          width: new Just(50),
+          height: new Just(50)
+        }
+      };
+    }(), function() {
+      var v = baseNode("12-b")(140)(20);
+      return {
+        id: v.id,
+        position: v.position,
+        data: v.data,
+        sourcePosition: v.sourcePosition,
+        targetPosition: v.targetPosition,
+        hidden: v.hidden,
+        selected: v.selected,
+        dragging: v.dragging,
+        draggable: v.draggable,
+        selectable: v.selectable,
+        connectable: v.connectable,
+        deletable: v.deletable,
+        dragHandle: v.dragHandle,
+        initialWidth: v.initialWidth,
+        initialHeight: v.initialHeight,
+        zIndex: v.zIndex,
+        extent: v.extent,
+        expandParent: v.expandParent,
+        ariaLabel: v.ariaLabel,
+        origin: v.origin,
+        handles: v.handles,
+        nodeType: v.nodeType,
+        className: v.className,
+        style: v.style,
+        parentId: new Just("12"),
+        width: new Just(50),
+        height: new Just(50),
+        measured: {
+          width: new Just(50),
+          height: new Just(50)
+        }
+      };
+    }()],
+    edges: [function() {
+      var v = baseEdge("edge-with-class")("1")("2");
+      return {
+        id: v.id,
+        edgeType: v.edgeType,
+        source: v.source,
+        target: v.target,
+        sourceHandle: v.sourceHandle,
+        targetHandle: v.targetHandle,
+        animated: v.animated,
+        hidden: v.hidden,
+        deletable: v.deletable,
+        selectable: v.selectable,
+        data: v.data,
+        selected: v.selected,
+        markerStart: v.markerStart,
+        markerEnd: v.markerEnd,
+        zIndex: v.zIndex,
+        ariaLabel: v.ariaLabel,
+        interactionWidth: v.interactionWidth,
+        style: v.style,
+        className: new Just("edge-class-test")
+      };
+    }(), function() {
+      var v = baseEdge("edge-with-style")("1")("3");
+      return {
+        id: v.id,
+        edgeType: v.edgeType,
+        source: v.source,
+        target: v.target,
+        sourceHandle: v.sourceHandle,
+        targetHandle: v.targetHandle,
+        animated: v.animated,
+        hidden: v.hidden,
+        deletable: v.deletable,
+        selectable: v.selectable,
+        data: v.data,
+        selected: v.selected,
+        markerStart: v.markerStart,
+        markerEnd: v.markerEnd,
+        zIndex: v.zIndex,
+        ariaLabel: v.ariaLabel,
+        interactionWidth: v.interactionWidth,
+        className: v.className,
+        style: new Just(singleton4("stroke")("red"))
+      };
+    }(), function() {
+      var v = baseEdge("hidden-edge")("2")("4");
+      return {
+        id: v.id,
+        edgeType: v.edgeType,
+        source: v.source,
+        target: v.target,
+        sourceHandle: v.sourceHandle,
+        targetHandle: v.targetHandle,
+        animated: v.animated,
+        deletable: v.deletable,
+        selectable: v.selectable,
+        data: v.data,
+        selected: v.selected,
+        markerStart: v.markerStart,
+        markerEnd: v.markerEnd,
+        zIndex: v.zIndex,
+        ariaLabel: v.ariaLabel,
+        interactionWidth: v.interactionWidth,
+        className: v.className,
+        style: v.style,
+        hidden: true
+      };
+    }(), function() {
+      var v = baseEdge("animated-edge")("3")("5");
+      return {
+        id: v.id,
+        edgeType: v.edgeType,
+        source: v.source,
+        target: v.target,
+        sourceHandle: v.sourceHandle,
+        targetHandle: v.targetHandle,
+        hidden: v.hidden,
+        deletable: v.deletable,
+        selectable: v.selectable,
+        data: v.data,
+        selected: v.selected,
+        markerStart: v.markerStart,
+        markerEnd: v.markerEnd,
+        zIndex: v.zIndex,
+        ariaLabel: v.ariaLabel,
+        interactionWidth: v.interactionWidth,
+        className: v.className,
+        style: v.style,
+        animated: true
+      };
+    }(), function() {
+      var v = baseEdge("not-selectable-edge")("4")("6");
+      return {
+        id: v.id,
+        edgeType: v.edgeType,
+        source: v.source,
+        target: v.target,
+        sourceHandle: v.sourceHandle,
+        targetHandle: v.targetHandle,
+        animated: v.animated,
+        hidden: v.hidden,
+        deletable: v.deletable,
+        data: v.data,
+        selected: v.selected,
+        markerStart: v.markerStart,
+        markerEnd: v.markerEnd,
+        zIndex: v.zIndex,
+        ariaLabel: v.ariaLabel,
+        interactionWidth: v.interactionWidth,
+        className: v.className,
+        style: v.style,
+        selectable: new Just(false)
+      };
+    }(), function() {
+      var v = baseEdge("not-deletable")("5")("7");
+      return {
+        id: v.id,
+        edgeType: v.edgeType,
+        source: v.source,
+        target: v.target,
+        sourceHandle: v.sourceHandle,
+        targetHandle: v.targetHandle,
+        animated: v.animated,
+        hidden: v.hidden,
+        selectable: v.selectable,
+        data: v.data,
+        selected: v.selected,
+        markerStart: v.markerStart,
+        markerEnd: v.markerEnd,
+        zIndex: v.zIndex,
+        ariaLabel: v.ariaLabel,
+        interactionWidth: v.interactionWidth,
+        className: v.className,
+        style: v.style,
+        deletable: new Just(false)
+      };
+    }(), function() {
+      var v = baseEdge("z-index")("6")("8");
+      return {
+        id: v.id,
+        edgeType: v.edgeType,
+        source: v.source,
+        target: v.target,
+        sourceHandle: v.sourceHandle,
+        targetHandle: v.targetHandle,
+        animated: v.animated,
+        hidden: v.hidden,
+        deletable: v.deletable,
+        selectable: v.selectable,
+        data: v.data,
+        selected: v.selected,
+        markerStart: v.markerStart,
+        markerEnd: v.markerEnd,
+        ariaLabel: v.ariaLabel,
+        interactionWidth: v.interactionWidth,
+        className: v.className,
+        style: v.style,
+        zIndex: new Just(3141592)
+      };
+    }(), function() {
+      var v = baseEdge("aria-label")("7")("9");
+      return {
+        id: v.id,
+        edgeType: v.edgeType,
+        source: v.source,
+        target: v.target,
+        sourceHandle: v.sourceHandle,
+        targetHandle: v.targetHandle,
+        animated: v.animated,
+        hidden: v.hidden,
+        deletable: v.deletable,
+        selectable: v.selectable,
+        data: v.data,
+        selected: v.selected,
+        markerStart: v.markerStart,
+        markerEnd: v.markerEnd,
+        zIndex: v.zIndex,
+        interactionWidth: v.interactionWidth,
+        className: v.className,
+        style: v.style,
+        ariaLabel: new Just("aria-label-test")
+      };
+    }(), function() {
+      var v = baseEdge("interaction-width")("8")("10");
+      return {
+        id: v.id,
+        edgeType: v.edgeType,
+        source: v.source,
+        target: v.target,
+        sourceHandle: v.sourceHandle,
+        targetHandle: v.targetHandle,
+        animated: v.animated,
+        hidden: v.hidden,
+        deletable: v.deletable,
+        selectable: v.selectable,
+        data: v.data,
+        selected: v.selected,
+        markerStart: v.markerStart,
+        markerEnd: v.markerEnd,
+        zIndex: v.zIndex,
+        ariaLabel: v.ariaLabel,
+        className: v.className,
+        style: v.style,
+        interactionWidth: new Just(50)
+      };
+    }(), function() {
+      var v = baseEdge("markers")("9")("11");
+      return {
+        id: v.id,
+        edgeType: v.edgeType,
+        source: v.source,
+        target: v.target,
+        sourceHandle: v.sourceHandle,
+        targetHandle: v.targetHandle,
+        animated: v.animated,
+        hidden: v.hidden,
+        deletable: v.deletable,
+        selectable: v.selectable,
+        data: v.data,
+        selected: v.selected,
+        zIndex: v.zIndex,
+        ariaLabel: v.ariaLabel,
+        interactionWidth: v.interactionWidth,
+        className: v.className,
+        style: v.style,
+        markerStart: new Just(new CustomMarker(markerOfType(ArrowClosed.value))),
+        markerEnd: new Just(new CustomMarker(markerOfType(Arrow.value)))
+      };
+    }(), baseEdge("subflow-edge")("11")("12-a"), baseEdge("subflow-edge-2")("12-a")("12-b")],
+    deleteKeyCode: new Just(new SingleKey("d")),
+    multiSelectionKeyCode: new Just(new SingleKey("s")),
+    nodeDragThreshold: Nothing.value,
+    fitView: new Just(true),
+    nodeTypes: Nothing.value,
+    minZoom: Nothing.value,
+    maxZoom: Nothing.value,
+    panOnScroll: Nothing.value,
+    defaultViewport: Nothing.value,
+    autoPanOnConnect: Nothing.value,
+    autoPanOnNodeDrag: Nothing.value
+  };
+}();
 var nodesGeneral = /* @__PURE__ */ function() {
   return {
     nodes: [function() {
@@ -26804,7 +27312,7 @@ var fixtureForRoute = function(route) {
       return r;
     }
     ;
-    throw new Error("Failed pattern match at Generic.Fixture (line 205, column 16 - line 207, column 17): " + [v2.constructor.name]);
+    throw new Error("Failed pattern match at Generic.Fixture (line 298, column 16 - line 300, column 17): " + [v2.constructor.name]);
   };
   var v = dropHash(route);
   if (v === "/tests/generic/nodes/general") {
@@ -26817,6 +27325,10 @@ var fixtureForRoute = function(route) {
   ;
   if (v === "/tests/generic/pane/non-defaults") {
     return new Just(paneNonDefaults);
+  }
+  ;
+  if (v === "/tests/generic/edges/general") {
+    return new Just(edgesGeneral);
   }
   ;
   return Nothing.value;
@@ -27537,117 +28049,6 @@ var ConnectionInvalid = /* @__PURE__ */ function() {
   ;
   ConnectionInvalid2.value = new ConnectionInvalid2();
   return ConnectionInvalid2;
-}();
-
-// output/System.Types.Edge/index.js
-var Arrow = /* @__PURE__ */ function() {
-  function Arrow2() {
-  }
-  ;
-  Arrow2.value = new Arrow2();
-  return Arrow2;
-}();
-var ArrowClosed = /* @__PURE__ */ function() {
-  function ArrowClosed2() {
-  }
-  ;
-  ArrowClosed2.value = new ArrowClosed2();
-  return ArrowClosed2;
-}();
-var NamedMarker = /* @__PURE__ */ function() {
-  function NamedMarker2(value0) {
-    this.value0 = value0;
-  }
-  ;
-  NamedMarker2.create = function(value0) {
-    return new NamedMarker2(value0);
-  };
-  return NamedMarker2;
-}();
-var CustomMarker = /* @__PURE__ */ function() {
-  function CustomMarker2(value0) {
-    this.value0 = value0;
-  }
-  ;
-  CustomMarker2.create = function(value0) {
-    return new CustomMarker2(value0);
-  };
-  return CustomMarker2;
-}();
-var EdgeSelectionChange = /* @__PURE__ */ function() {
-  function EdgeSelectionChange2(value0) {
-    this.value0 = value0;
-  }
-  ;
-  EdgeSelectionChange2.create = function(value0) {
-    return new EdgeSelectionChange2(value0);
-  };
-  return EdgeSelectionChange2;
-}();
-var EdgeRemoveChange = /* @__PURE__ */ function() {
-  function EdgeRemoveChange2(value0) {
-    this.value0 = value0;
-  }
-  ;
-  EdgeRemoveChange2.create = function(value0) {
-    return new EdgeRemoveChange2(value0);
-  };
-  return EdgeRemoveChange2;
-}();
-var EdgeAddChange = /* @__PURE__ */ function() {
-  function EdgeAddChange2(value0) {
-    this.value0 = value0;
-  }
-  ;
-  EdgeAddChange2.create = function(value0) {
-    return new EdgeAddChange2(value0);
-  };
-  return EdgeAddChange2;
-}();
-var EdgeReplaceChange = /* @__PURE__ */ function() {
-  function EdgeReplaceChange2(value0) {
-    this.value0 = value0;
-  }
-  ;
-  EdgeReplaceChange2.create = function(value0) {
-    return new EdgeReplaceChange2(value0);
-  };
-  return EdgeReplaceChange2;
-}();
-var BezierLine = /* @__PURE__ */ function() {
-  function BezierLine2() {
-  }
-  ;
-  BezierLine2.value = new BezierLine2();
-  return BezierLine2;
-}();
-var StraightLine = /* @__PURE__ */ function() {
-  function StraightLine2() {
-  }
-  ;
-  StraightLine2.value = new StraightLine2();
-  return StraightLine2;
-}();
-var StepLine = /* @__PURE__ */ function() {
-  function StepLine2() {
-  }
-  ;
-  StepLine2.value = new StepLine2();
-  return StepLine2;
-}();
-var SmoothStepLine = /* @__PURE__ */ function() {
-  function SmoothStepLine2() {
-  }
-  ;
-  SmoothStepLine2.value = new SmoothStepLine2();
-  return SmoothStepLine2;
-}();
-var SimpleBezierLine = /* @__PURE__ */ function() {
-  function SimpleBezierLine2() {
-  }
-  ;
-  SimpleBezierLine2.value = new SimpleBezierLine2();
-  return SimpleBezierLine2;
 }();
 
 // output/System.Utils.Edges.Bezier/index.js
@@ -34627,7 +35028,7 @@ var selectEdgePosition = function(edgeId) {
           };
         }
         ;
-        throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 185, column 13 - line 195, column 53): " + [mPos.constructor.name]);
+        throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 187, column 13 - line 197, column 53): " + [mPos.constructor.name]);
       }
       ;
       return {
@@ -34641,7 +35042,7 @@ var selectEdgePosition = function(edgeId) {
       };
     }
     ;
-    throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 161, column 3 - line 196, column 66): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 163, column 3 - line 198, column 66): " + [v.constructor.name]);
   };
 };
 var placeholderEdge = function(edgeId) {
@@ -34662,7 +35063,9 @@ var placeholderEdge = function(edgeId) {
     markerEnd: Nothing.value,
     zIndex: Nothing.value,
     ariaLabel: Nothing.value,
-    interactionWidth: Nothing.value
+    interactionWidth: Nothing.value,
+    className: Nothing.value,
+    style: Nothing.value
   };
 };
 var selectEdgeSlice = function(edgeId) {
@@ -34687,7 +35090,7 @@ var mkEdgeProps = function(edge) {
                     edgeType: edge.edgeType,
                     animated: edge.animated,
                     data: edge.data,
-                    style: Nothing.value,
+                    style: edge.style,
                     selected: edge.selected,
                     source: unwrap5(edge.source),
                     target: unwrap5(edge.target),
@@ -34737,7 +35140,7 @@ var fireEdgeHandler = function(mCb) {
         return pure21(unit);
       }
       ;
-      throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 464, column 31 - line 466, column 23): " + [mCb.constructor.name]);
+      throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 475, column 31 - line 477, column 23): " + [mCb.constructor.name]);
     };
   };
 };
@@ -34752,7 +35155,7 @@ var edgeTypesAsObject = /* @__PURE__ */ function() {
       return v.value0;
     }
     ;
-    throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 201, column 21 - line 203, column 27): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 203, column 21 - line 205, column 27): " + [v.constructor.name]);
   };
 }();
 var resolveEdgeComponent = function(mTypes) {
@@ -34788,10 +35191,10 @@ var resolveEdgeComponent = function(mTypes) {
           };
         }
         ;
-        throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 220, column 16 - line 227, column 12): " + [v1.constructor.name]);
+        throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 222, column 16 - line 229, column 12): " + [v1.constructor.name]);
       }
       ;
-      throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 218, column 3 - line 227, column 12): " + [v.constructor.name]);
+      throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 220, column 3 - line 229, column 12): " + [v.constructor.name]);
     };
   };
 };
@@ -34826,7 +35229,7 @@ var buildEdgeClassName = function(p) {
     }
     ;
     return "";
-  }()]);
+  }(), p.className]);
 };
 var applyDefaults = function(v) {
   return function(v1) {
@@ -34845,7 +35248,7 @@ var applyDefaults = function(v) {
             return v3;
           }
           ;
-          throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 151, column 3 - line 151, column 52): " + [v2.constructor.name, v3.constructor.name]);
+          throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 153, column 3 - line 153, column 52): " + [v2.constructor.name, v3.constructor.name]);
         };
       };
       return {
@@ -34858,6 +35261,8 @@ var applyDefaults = function(v) {
         selected: v1.selected,
         markerStart: v1.markerStart,
         markerEnd: v1.markerEnd,
+        className: v1.className,
+        style: v1.style,
         animated: v1.animated || fromMaybe(false)(v.value0.animated),
         hidden: v1.hidden || fromMaybe(false)(v.value0.hidden),
         deletable: orElse(v1.deletable)(v.value0.deletable),
@@ -34869,7 +35274,7 @@ var applyDefaults = function(v) {
       };
     }
     ;
-    throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 133, column 1 - line 137, column 12): " + [v.constructor.name, v1.constructor.name]);
+    throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 135, column 1 - line 139, column 12): " + [v.constructor.name, v1.constructor.name]);
   };
 };
 var edgeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponent()()()("EdgeWrapper")(function(v) {
@@ -34905,7 +35310,7 @@ var edgeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                 return Nothing.value;
               }
               ;
-              throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 336, column 26 - line 338, column 29): " + [edge.markerStart.constructor.name]);
+              throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 346, column 26 - line 348, column 29): " + [edge.markerStart.constructor.name]);
             }();
             var markerEndUrl = function() {
               if (edge.markerEnd instanceof Just) {
@@ -34916,9 +35321,9 @@ var edgeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                 return Nothing.value;
               }
               ;
-              throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 339, column 24 - line 341, column 29): " + [edge.markerEnd.constructor.name]);
+              throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 349, column 24 - line 351, column 29): " + [edge.markerEnd.constructor.name]);
             }();
-            var isSelectable = v.elementsSelectable || fromMaybe(false)(edge.selectable);
+            var isSelectable = fromMaybe(false)(edge.selectable) || v.elementsSelectable && isNothing(edge.selectable);
             var onClickHandler = handler(syntheticEvent)(function(se) {
               return function __do3() {
                 var state3 = store.getState();
@@ -35052,7 +35457,7 @@ var edgeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                 return Nothing.value;
               }
               ;
-              throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 329, column 27 - line 331, column 84): " + [v.onReconnect.constructor.name]);
+              throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 336, column 27 - line 338, column 84): " + [v.onReconnect.constructor.name]);
             }();
             var hide = edge.hidden || (isNothing(positionSlice.sourceX) || (isNothing(positionSlice.sourceY) || (isNothing(positionSlice.targetX) || isNothing(positionSlice.targetY))));
             return pure110(function() {
@@ -35072,7 +35477,8 @@ var edgeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                   animated: edge.animated,
                   selectable: isSelectable,
                   inactive: !isSelectable && isNothing(v.onClick),
-                  updating: v1.value0
+                  updating: v1.value0,
+                  className: fromMaybe("")(edge.className)
                 }),
                 onClick: onClickHandler,
                 onDoubleClick: onDoubleClickHandler,
@@ -35142,7 +35548,7 @@ var edgeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                       return mempty7;
                     }
                     ;
-                    throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 434, column 35 - line 451, column 44): " + [isReconnectable.constructor.name]);
+                    throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 445, column 35 - line 462, column 44): " + [isReconnectable.constructor.name]);
                   }();
                   return [edgeBody, anchors];
                 }
@@ -36382,7 +36788,9 @@ var connectionToEdge = function(mDefaults) {
       })(mDefaults),
       interactionWidth: bindFlipped3(function(v) {
         return v.interactionWidth;
-      })(mDefaults)
+      })(mDefaults),
+      className: Nothing.value,
+      style: Nothing.value
     };
   };
 };
@@ -36402,7 +36810,7 @@ var onConnectExtended = function(store) {
             return pure111(unit);
           }
           ;
-          throw new Error("Failed pattern match at React.Handle (line 290, column 5 - line 292, column 26): " + [v.constructor.name]);
+          throw new Error("Failed pattern match at React.Handle (line 292, column 5 - line 294, column 26): " + [v.constructor.name]);
         }())();
         for_5(state3.onConnect)(function(cb) {
           return cb(conn);
@@ -36493,7 +36901,7 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
             return unsafeThrow(errorMessage(E010.value));
           }
           ;
-          throw new Error("Failed pattern match at React.Handle (line 306, column 17 - line 308, column 49): " + [nodeIdM.constructor.name]);
+          throw new Error("Failed pattern match at React.Handle (line 308, column 17 - line 310, column 49): " + [nodeIdM.constructor.name]);
         }();
         return bind15(useStore14(selectConnectingFlags(nodeIdStr)(v.id)(v.handleType)))(function(flags) {
           var isTarget = function() {
@@ -36505,7 +36913,7 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
               return false;
             }
             ;
-            throw new Error("Failed pattern match at React.Handle (line 317, column 16 - line 319, column 22): " + [v.handleType.constructor.name]);
+            throw new Error("Failed pattern match at React.Handle (line 319, column 16 - line 321, column 22): " + [v.handleType.constructor.name]);
           }();
           var isConnectableStart = fromMaybe(true)(v.isConnectableStart);
           var onClick = handler(syntheticEvent)(function(se) {
@@ -36648,10 +37056,10 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
                             };
                           }
                           ;
-                          throw new Error("Failed pattern match at React.Handle (line 418, column 30 - line 420, column 42): " + [state3.isValidConnection.constructor.name]);
+                          throw new Error("Failed pattern match at React.Handle (line 420, column 30 - line 422, column 42): " + [state3.isValidConnection.constructor.name]);
                         }
                         ;
-                        throw new Error("Failed pattern match at React.Handle (line 416, column 36 - line 420, column 42): " + [v.isValidConnection.constructor.name]);
+                        throw new Error("Failed pattern match at React.Handle (line 418, column 36 - line 422, column 42): " + [v.isValidConnection.constructor.name]);
                       }(),
                       doc: host3,
                       lib: state3.lib,
@@ -36674,7 +37082,7 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
                         return new Just(state3.connection.value0);
                       }
                       ;
-                      throw new Error("Failed pattern match at React.Handle (line 434, column 28 - line 436, column 49): " + [state3.connection.constructor.name]);
+                      throw new Error("Failed pattern match at React.Handle (line 436, column 28 - line 438, column 49): " + [state3.connection.constructor.name]);
                     }();
                     for_5(state3.onClickConnectEnd)(function(cb) {
                       return cb(new Left(me))(finalState);
@@ -36771,7 +37179,7 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
                   };
                 }
                 ;
-                throw new Error("Failed pattern match at React.Handle (line 386, column 9 - line 439, column 74): " + [state3.connectionClickStartHandle.constructor.name]);
+                throw new Error("Failed pattern match at React.Handle (line 388, column 9 - line 441, column 74): " + [state3.connectionClickStartHandle.constructor.name]);
               }())();
             };
           });
@@ -36821,10 +37229,10 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
                         };
                       }
                       ;
-                      throw new Error("Failed pattern match at React.Handle (line 365, column 28 - line 367, column 40): " + [state3.isValidConnection.constructor.name]);
+                      throw new Error("Failed pattern match at React.Handle (line 367, column 28 - line 369, column 40): " + [state3.isValidConnection.constructor.name]);
                     }
                     ;
-                    throw new Error("Failed pattern match at React.Handle (line 363, column 34 - line 367, column 40): " + [v.isValidConnection.constructor.name]);
+                    throw new Error("Failed pattern match at React.Handle (line 365, column 34 - line 369, column 40): " + [v.isValidConnection.constructor.name]);
                   }(),
                   onReconnectEnd: Nothing.value,
                   getTransform: map110(function(v2) {
@@ -36840,7 +37248,7 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
                 })();
               }
               ;
-              throw new Error("Failed pattern match at React.Handle (line 343, column 9 - line 376, column 14): " + [v1.constructor.name]);
+              throw new Error("Failed pattern match at React.Handle (line 345, column 9 - line 378, column 14): " + [v1.constructor.name]);
             });
           });
           var isConnectableEnd = fromMaybe(true)(v.isConnectableEnd);
@@ -42345,6 +42753,8 @@ var applySingleEdgeChange = function(c) {
         zIndex: edge.zIndex,
         ariaLabel: edge.ariaLabel,
         interactionWidth: edge.interactionWidth,
+        className: edge.className,
+        style: edge.style,
         selected: c.value0.selected
       };
     }
@@ -49487,17 +49897,19 @@ var ordMiddlewareKey = ordInt;
 
 // output/React.Store.Reduce/index.js
 var append17 = /* @__PURE__ */ append(semigroupArray);
+var map39 = /* @__PURE__ */ map(functorArray);
 var fromFoldable16 = /* @__PURE__ */ fromFoldable4(foldableArray);
 var fromFoldable17 = /* @__PURE__ */ fromFoldable16(ordString);
 var fromFoldable23 = /* @__PURE__ */ fromFoldable16(ordNodeId);
 var toUnfoldable11 = /* @__PURE__ */ toUnfoldable3(unfoldableArray);
-var map39 = /* @__PURE__ */ map(functorArray);
 var insert15 = /* @__PURE__ */ insert2(ordMiddlewareKey);
 var $$delete4 = /* @__PURE__ */ $$delete(ordMiddlewareKey);
 var reduceTriggerEdgeChanges = function(state3) {
   return function(changes) {
     var s1 = function() {
       if (state3.hasDefaultEdges) {
+        var newEdges = applyEdgeChanges(changes)(state3.edges);
+        var r = updateConnectionLookup(newEdges);
         return {
           ariaLabelConfig: state3.ariaLabelConfig,
           ariaLiveMessage: state3.ariaLiveMessage,
@@ -49509,13 +49921,11 @@ var reduceTriggerEdgeChanges = function(state3) {
           connection: state3.connection,
           connectionClickStartHandle: state3.connectionClickStartHandle,
           connectionDragThreshold: state3.connectionDragThreshold,
-          connectionLookup: state3.connectionLookup,
           connectionMode: state3.connectionMode,
           connectionRadius: state3.connectionRadius,
           debug: state3.debug,
           defaultEdgeOptions: state3.defaultEdgeOptions,
           domNode: state3.domNode,
-          edgeLookup: state3.edgeLookup,
           edgesFocusable: state3.edgesFocusable,
           edgesReconnectable: state3.edgesReconnectable,
           elementsSelectable: state3.elementsSelectable,
@@ -49583,7 +49993,9 @@ var reduceTriggerEdgeChanges = function(state3) {
           userSelectionRect: state3.userSelectionRect,
           width: state3.width,
           zIndexMode: state3.zIndexMode,
-          edges: applyEdgeChanges(changes)(state3.edges)
+          edges: newEdges,
+          edgeLookup: r.edgeLookup,
+          connectionLookup: r.connectionLookup
         };
       }
       ;
@@ -50430,112 +50842,126 @@ var reduceTriggerNodeChanges = function(state3) {
 };
 var reduceAddSelectedEdges = function(state3) {
   return function(ids) {
-    var selectedSet = fromFoldable17(ids);
-    var nodeRes = function() {
-      var $56 = $$null(ids);
-      if ($56) {
-        return {
-          changes: [],
-          items: state3.nodeLookup
-        };
-      }
-      ;
-      return getNodeSelectionChanges(state3.nodeLookup)(empty5)(true);
-    }();
-    var s1 = {
-      ariaLabelConfig: state3.ariaLabelConfig,
-      ariaLiveMessage: state3.ariaLiveMessage,
-      autoPanOnConnect: state3.autoPanOnConnect,
-      autoPanOnNodeDrag: state3.autoPanOnNodeDrag,
-      autoPanOnNodeFocus: state3.autoPanOnNodeFocus,
-      autoPanSpeed: state3.autoPanSpeed,
-      connectOnClick: state3.connectOnClick,
-      connection: state3.connection,
-      connectionClickStartHandle: state3.connectionClickStartHandle,
-      connectionDragThreshold: state3.connectionDragThreshold,
-      connectionLookup: state3.connectionLookup,
-      connectionMode: state3.connectionMode,
-      connectionRadius: state3.connectionRadius,
-      debug: state3.debug,
-      defaultEdgeOptions: state3.defaultEdgeOptions,
-      domNode: state3.domNode,
-      edgeLookup: state3.edgeLookup,
-      edges: state3.edges,
-      edgesFocusable: state3.edgesFocusable,
-      edgesReconnectable: state3.edgesReconnectable,
-      elementsSelectable: state3.elementsSelectable,
-      elevateEdgesOnSelect: state3.elevateEdgesOnSelect,
-      elevateNodesOnSelect: state3.elevateNodesOnSelect,
-      fitViewOptions: state3.fitViewOptions,
-      fitViewQueued: state3.fitViewQueued,
-      fitViewResolver: state3.fitViewResolver,
-      hasDefaultEdges: state3.hasDefaultEdges,
-      hasDefaultNodes: state3.hasDefaultNodes,
-      height: state3.height,
-      isValidConnection: state3.isValidConnection,
-      lib: state3.lib,
-      maxZoom: state3.maxZoom,
-      minZoom: state3.minZoom,
-      multiSelectionActive: state3.multiSelectionActive,
-      noPanClassName: state3.noPanClassName,
-      nodeDragThreshold: state3.nodeDragThreshold,
-      nodeExtent: state3.nodeExtent,
-      nodeOrigin: state3.nodeOrigin,
-      nodes: state3.nodes,
-      nodesConnectable: state3.nodesConnectable,
-      nodesDraggable: state3.nodesDraggable,
-      nodesFocusable: state3.nodesFocusable,
-      nodesInitialized: state3.nodesInitialized,
-      nodesSelectionActive: state3.nodesSelectionActive,
-      onBeforeDelete: state3.onBeforeDelete,
-      onClickConnectEnd: state3.onClickConnectEnd,
-      onClickConnectStart: state3.onClickConnectStart,
-      onConnect: state3.onConnect,
-      onConnectEnd: state3.onConnectEnd,
-      onConnectStart: state3.onConnectStart,
-      onDelete: state3.onDelete,
-      onEdgesChange: state3.onEdgesChange,
-      onEdgesChangeMiddlewareMap: state3.onEdgesChangeMiddlewareMap,
-      onEdgesDelete: state3.onEdgesDelete,
-      onError: state3.onError,
-      onMove: state3.onMove,
-      onMoveEnd: state3.onMoveEnd,
-      onMoveStart: state3.onMoveStart,
-      onNodeDrag: state3.onNodeDrag,
-      onNodeDragStart: state3.onNodeDragStart,
-      onNodeDragStop: state3.onNodeDragStop,
-      onNodesChange: state3.onNodesChange,
-      onNodesChangeMiddlewareMap: state3.onNodesChangeMiddlewareMap,
-      onNodesDelete: state3.onNodesDelete,
-      onSelectionChangeHandlers: state3.onSelectionChangeHandlers,
-      onSelectionDrag: state3.onSelectionDrag,
-      onSelectionDragStart: state3.onSelectionDragStart,
-      onSelectionDragStop: state3.onSelectionDragStop,
-      onViewportChange: state3.onViewportChange,
-      onViewportChangeEnd: state3.onViewportChangeEnd,
-      onViewportChangeStart: state3.onViewportChangeStart,
-      panZoom: state3.panZoom,
-      paneDragging: state3.paneDragging,
-      parentLookup: state3.parentLookup,
-      rfId: state3.rfId,
-      selectNodesOnDrag: state3.selectNodesOnDrag,
-      snapGrid: state3.snapGrid,
-      snapToGrid: state3.snapToGrid,
-      transform: state3.transform,
-      translateExtent: state3.translateExtent,
-      userSelectionActive: state3.userSelectionActive,
-      userSelectionRect: state3.userSelectionRect,
-      width: state3.width,
-      zIndexMode: state3.zIndexMode,
-      nodeLookup: nodeRes.items
-    };
-    var edgeRes = getEdgeSelectionChanges(state3.edgeLookup)(selectedSet);
-    var afterEdges = reduceTriggerEdgeChanges(s1)(edgeRes.changes);
-    var afterNodes = reduceTriggerNodeChanges(afterEdges.state)(nodeRes.changes);
-    return {
-      state: afterNodes.state,
-      effects: append17(afterEdges.effects)(afterNodes.effects)
-    };
+    if (state3.multiSelectionActive) {
+      var changes = map39(function(id3) {
+        return new EdgeSelectionChange({
+          id: id3,
+          selected: true
+        });
+      })(ids);
+      return reduceTriggerEdgeChanges(state3)(changes);
+    }
+    ;
+    if (otherwise) {
+      var selectedSet = fromFoldable17(ids);
+      var nodeRes = function() {
+        var $58 = $$null(ids);
+        if ($58) {
+          return {
+            changes: [],
+            items: state3.nodeLookup
+          };
+        }
+        ;
+        return getNodeSelectionChanges(state3.nodeLookup)(empty5)(true);
+      }();
+      var s1 = {
+        ariaLabelConfig: state3.ariaLabelConfig,
+        ariaLiveMessage: state3.ariaLiveMessage,
+        autoPanOnConnect: state3.autoPanOnConnect,
+        autoPanOnNodeDrag: state3.autoPanOnNodeDrag,
+        autoPanOnNodeFocus: state3.autoPanOnNodeFocus,
+        autoPanSpeed: state3.autoPanSpeed,
+        connectOnClick: state3.connectOnClick,
+        connection: state3.connection,
+        connectionClickStartHandle: state3.connectionClickStartHandle,
+        connectionDragThreshold: state3.connectionDragThreshold,
+        connectionLookup: state3.connectionLookup,
+        connectionMode: state3.connectionMode,
+        connectionRadius: state3.connectionRadius,
+        debug: state3.debug,
+        defaultEdgeOptions: state3.defaultEdgeOptions,
+        domNode: state3.domNode,
+        edgeLookup: state3.edgeLookup,
+        edges: state3.edges,
+        edgesFocusable: state3.edgesFocusable,
+        edgesReconnectable: state3.edgesReconnectable,
+        elementsSelectable: state3.elementsSelectable,
+        elevateEdgesOnSelect: state3.elevateEdgesOnSelect,
+        elevateNodesOnSelect: state3.elevateNodesOnSelect,
+        fitViewOptions: state3.fitViewOptions,
+        fitViewQueued: state3.fitViewQueued,
+        fitViewResolver: state3.fitViewResolver,
+        hasDefaultEdges: state3.hasDefaultEdges,
+        hasDefaultNodes: state3.hasDefaultNodes,
+        height: state3.height,
+        isValidConnection: state3.isValidConnection,
+        lib: state3.lib,
+        maxZoom: state3.maxZoom,
+        minZoom: state3.minZoom,
+        multiSelectionActive: state3.multiSelectionActive,
+        noPanClassName: state3.noPanClassName,
+        nodeDragThreshold: state3.nodeDragThreshold,
+        nodeExtent: state3.nodeExtent,
+        nodeOrigin: state3.nodeOrigin,
+        nodes: state3.nodes,
+        nodesConnectable: state3.nodesConnectable,
+        nodesDraggable: state3.nodesDraggable,
+        nodesFocusable: state3.nodesFocusable,
+        nodesInitialized: state3.nodesInitialized,
+        nodesSelectionActive: state3.nodesSelectionActive,
+        onBeforeDelete: state3.onBeforeDelete,
+        onClickConnectEnd: state3.onClickConnectEnd,
+        onClickConnectStart: state3.onClickConnectStart,
+        onConnect: state3.onConnect,
+        onConnectEnd: state3.onConnectEnd,
+        onConnectStart: state3.onConnectStart,
+        onDelete: state3.onDelete,
+        onEdgesChange: state3.onEdgesChange,
+        onEdgesChangeMiddlewareMap: state3.onEdgesChangeMiddlewareMap,
+        onEdgesDelete: state3.onEdgesDelete,
+        onError: state3.onError,
+        onMove: state3.onMove,
+        onMoveEnd: state3.onMoveEnd,
+        onMoveStart: state3.onMoveStart,
+        onNodeDrag: state3.onNodeDrag,
+        onNodeDragStart: state3.onNodeDragStart,
+        onNodeDragStop: state3.onNodeDragStop,
+        onNodesChange: state3.onNodesChange,
+        onNodesChangeMiddlewareMap: state3.onNodesChangeMiddlewareMap,
+        onNodesDelete: state3.onNodesDelete,
+        onSelectionChangeHandlers: state3.onSelectionChangeHandlers,
+        onSelectionDrag: state3.onSelectionDrag,
+        onSelectionDragStart: state3.onSelectionDragStart,
+        onSelectionDragStop: state3.onSelectionDragStop,
+        onViewportChange: state3.onViewportChange,
+        onViewportChangeEnd: state3.onViewportChangeEnd,
+        onViewportChangeStart: state3.onViewportChangeStart,
+        panZoom: state3.panZoom,
+        paneDragging: state3.paneDragging,
+        parentLookup: state3.parentLookup,
+        rfId: state3.rfId,
+        selectNodesOnDrag: state3.selectNodesOnDrag,
+        snapGrid: state3.snapGrid,
+        snapToGrid: state3.snapToGrid,
+        transform: state3.transform,
+        translateExtent: state3.translateExtent,
+        userSelectionActive: state3.userSelectionActive,
+        userSelectionRect: state3.userSelectionRect,
+        width: state3.width,
+        zIndexMode: state3.zIndexMode,
+        nodeLookup: nodeRes.items
+      };
+      var edgeRes = getEdgeSelectionChanges(state3.edgeLookup)(selectedSet);
+      var afterEdges = reduceTriggerEdgeChanges(s1)(edgeRes.changes);
+      var afterNodes = reduceTriggerNodeChanges(afterEdges.state)(nodeRes.changes);
+      return {
+        state: afterNodes.state,
+        effects: append17(afterEdges.effects)(afterNodes.effects)
+      };
+    }
+    ;
+    throw new Error("Failed pattern match at React.Store.Reduce (line 351, column 1 - line 355, column 22): " + [state3.constructor.name, ids.constructor.name]);
   };
 };
 var reduceAddSelectedNodes = function(state3) {
@@ -50630,8 +51056,8 @@ var reduceAddSelectedNodes = function(state3) {
       nodeLookup: nodeRes.items
     };
     var edgeRes = function() {
-      var $57 = $$null(ids);
-      if ($57) {
+      var $59 = $$null(ids);
+      if ($59) {
         return {
           changes: []
         };
@@ -50844,8 +51270,8 @@ var reduceMergeNodeInternals = function(state3) {
       return [];
     }();
     var afterChanges = function() {
-      var $61 = $$null(r.changes);
-      if ($61) {
+      var $63 = $$null(r.changes);
+      if ($63) {
         return {
           state: s2,
           effects: []
@@ -50901,7 +51327,7 @@ var reduceUnselectNodesAndEdges = function(state3) {
         return state3.nodes;
       }
       ;
-      throw new Error("Failed pattern match at React.Store.Reduce (line 367, column 19 - line 369, column 29): " + [params.nodes.constructor.name]);
+      throw new Error("Failed pattern match at React.Store.Reduce (line 388, column 19 - line 390, column 29): " + [params.nodes.constructor.name]);
     }();
     var targetEdges = function() {
       if (params.edges instanceof Just) {
@@ -50912,7 +51338,7 @@ var reduceUnselectNodesAndEdges = function(state3) {
         return state3.edges;
       }
       ;
-      throw new Error("Failed pattern match at React.Store.Reduce (line 370, column 19 - line 372, column 29): " + [params.edges.constructor.name]);
+      throw new Error("Failed pattern match at React.Store.Reduce (line 391, column 19 - line 393, column 29): " + [params.edges.constructor.name]);
     }();
     var nodeChanges = map39(function(n) {
       return new NodeSelectionChange({
@@ -59042,7 +59468,9 @@ var oneEdge = /* @__PURE__ */ function() {
     markerEnd: Nothing.value,
     zIndex: Nothing.value,
     ariaLabel: Nothing.value,
-    interactionWidth: Nothing.value
+    interactionWidth: Nothing.value,
+    className: Nothing.value,
+    style: Nothing.value
   }];
 }();
 var miniMapProps = /* @__PURE__ */ function() {
@@ -59269,7 +59697,7 @@ var main = function __do2() {
       return app;
     }
     ;
-    throw new Error("Failed pattern match at Example.Main (line 359, column 15 - line 361, column 21): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at Example.Main (line 361, column 15 - line 363, column 21): " + [v.constructor.name]);
   }();
   if (mEl instanceof Just) {
     return mountAppImpl(mEl.value0)(rootJsx)();
@@ -59279,7 +59707,7 @@ var main = function __do2() {
     return unit;
   }
   ;
-  throw new Error("Failed pattern match at Example.Main (line 362, column 3 - line 364, column 25): " + [mEl.constructor.name]);
+  throw new Error("Failed pattern match at Example.Main (line 364, column 3 - line 366, column 25): " + [mEl.constructor.name]);
 };
 
 // examples/react-smoke/src/entry.js

@@ -119,6 +119,8 @@ oneEdge =
     , zIndex: Nothing
     , ariaLabel: Nothing
     , interactionWidth: Nothing
+    , className: Nothing
+    , style: Nothing
     }
   ]
 
