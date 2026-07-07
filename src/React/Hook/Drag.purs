@@ -58,6 +58,11 @@ type UseDragOptions nodeData edgeData =
   -- | controller and also drive the `dragging` boolean flag.
   , onDragStart :: Maybe (Effect Unit)
   , onDragEnd :: Maybe (Effect Unit)
+  -- | Called by `XYDrag.startDrag` on drag start when the node is
+  -- | selectable and `selectNodesOnDrag` is on — the node wrapper wires
+  -- | this to `handleNodeClick` so a click (incl. a zero-distance drag)
+  -- | selects the node. Mirrors `useDrag.ts`'s `onNodeMouseDown`.
+  , onNodeMouseDown :: Maybe (NodeId -> Effect Unit)
   }
 
 newtype UseDragHook hooks =
@@ -104,7 +109,7 @@ useDrag opts = coerceHook React.do
               case opts.onDragEnd of
                 Just cb -> cb
                 Nothing -> pure unit
-          , onNodeMouseDown: Nothing
+          , onNodeMouseDown: opts.onNodeMouseDown
           , autoPanSpeed: opts.autoPanSpeed
           }
         writeRef controllerRef (Just c)

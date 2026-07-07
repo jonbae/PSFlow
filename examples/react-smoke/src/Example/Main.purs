@@ -40,8 +40,14 @@ import React.Types.Component (ReactFlowProps, ReactFlowProviderProps, Background
 import System.Types.Connection (Connection)
 import System.Types.Ids (NodeId(..))
 import System.Types.Node (NodeChange)
+import Generic.Fixture (fixtureForRoute)
+import Generic.Flow (flowView)
 
 foreign import mountAppImpl :: Element -> JSX -> Effect Unit
+
+-- | The current URL hash (`#/tests/generic/nodes/general` or `""`). Hash routing
+-- | keeps the static `http-server` serving one `index.html` for every route.
+foreign import getHashImpl :: Effect String
 
 -- | Smoke-test observation FFIs. Each writes its argument to a `window`
 -- | slot so Playwright can inspect it via `page.evaluate`. Pure FFI; no
@@ -343,6 +349,14 @@ main :: Effect Unit
 main = do
   doc <- window >>= document <#> HTMLDocument.toNonElementParentNode
   mEl <- getElementById "app" doc
+  hash <- getHashImpl
+  -- Route on the URL hash: a generic-test fixture if it matches, else the
+  -- original two-node smoke app (which the existing smoke.spec.ts targets at
+  -- the bare index.html, hash = "").
+  let
+    rootJsx = case fixtureForRoute hash of
+      Just fixture -> flowView fixture
+      Nothing -> app
   case mEl of
-    Just el -> mountAppImpl el app
+    Just el -> mountAppImpl el rootJsx
     Nothing -> pure unit

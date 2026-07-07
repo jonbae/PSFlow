@@ -342,6 +342,8 @@ nodeWrapper =
         , getStoreItems: mkDragStoreItems store
         , onDragStart: Nothing
         , onDragEnd: Nothing
+        , onNodeMouseDown: Just \nid ->
+            handleNodeClick { id: nid, store, unselect: false }
         }
 
       _ <- useNodeObserver

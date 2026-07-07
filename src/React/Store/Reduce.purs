@@ -137,6 +137,28 @@ reduceSetNodes
   -> ReduceResult n e
 reduceSetNodes state nodes =
   let
+    s1 = adoptNodesInto state nodes
+    fitViewNow = state.fitViewQueued && s1.nodesInitialized
+  in
+    { state: s1
+        { fitViewQueued = if fitViewNow then false else state.fitViewQueued }
+    , effects: if fitViewNow then [ ResolveFitView true ] else []
+    }
+
+-- | Re-adopt `nodes` into the lookups and write
+-- | `nodes`/`nodeLookup`/`parentLookup`/`nodesInitialized` back onto the
+-- | state. Shared by `reduceSetNodes` and the uncontrolled branch of
+-- | `reduceTriggerNodeChanges`: a committed change has to re-adopt so the
+-- | rendered nodes reflect it (`NodeWrapper` reads from `nodeLookup`, not
+-- | the `nodes` array). `prev = state.nodeLookup` preserves the measured
+-- | `handleBounds`/`bounds` of nodes that survive the change.
+adoptNodesInto
+  :: forall n e
+   . ReactFlowState n e
+  -> Array (Node n)
+  -> ReactFlowState n e
+adoptNodesInto state nodes =
+  let
     r = adoptUserNodes nodes state.nodeLookup state.parentLookup
       ( defaultUpdateNodesOptions
           { nodeOrigin = state.nodeOrigin
@@ -145,17 +167,13 @@ reduceSetNodes state nodes =
           , zIndexMode = state.zIndexMode
           }
       )
-    fitViewNow = state.fitViewQueued && r.nodesInitialized
   in
-    { state: state
-        { nodes = nodes
-        , nodeLookup = r.nodeLookup
-        , parentLookup = r.parentLookup
-        , nodesInitialized = r.nodesInitialized
-        , fitViewQueued = if fitViewNow then false else state.fitViewQueued
-        }
-    , effects: if fitViewNow then [ ResolveFitView true ] else []
-    }
+    state
+      { nodes = nodes
+      , nodeLookup = r.nodeLookup
+      , parentLookup = r.parentLookup
+      , nodesInitialized = r.nodesInitialized
+      }
 
 -- SetEdges ---------------------------------------------------------------
 
@@ -220,10 +238,16 @@ reduceMergeNodeInternals state r =
       , nodesInitialized =
           if r.updatedInternals then true else state.nodesInitialized
       }
+    -- Mirror the React store's `updateNodeInternals`: once internals have
+    -- been measured, if a fit was queued (e.g. the initial `fitView` flag),
+    -- resolve it now and clear the flag. `r.triggerFitView` stays an explicit
+    -- opt-in for imperative `updateNodeInternals` callers.
+    fitNow = (state.fitViewQueued && r.updatedInternals) || r.triggerFitView
+    s2 = if fitNow then s1 { fitViewQueued = false } else s1
     afterChanges =
-      if Array.null r.changes then { state: s1, effects: [] }
-      else reduceTriggerNodeChanges s1 r.changes
-    extra = if r.triggerFitView then [ ResolveFitView true ] else []
+      if Array.null r.changes then { state: s2, effects: [] }
+      else reduceTriggerNodeChanges s2 r.changes
+    extra = if fitNow then [ ResolveFitView true ] else []
   in
     afterChanges { effects = afterChanges.effects <> extra }
 
@@ -262,7 +286,10 @@ reduceTriggerNodeChanges state changes =
   let
     s1 =
       if state.hasDefaultNodes then
-        state { nodes = applyNodeChanges changes state.nodes }
+        -- Uncontrolled mode: commit the change *and* re-adopt so the lookup
+        -- (what NodeWrapper renders from) reflects it — fixes uncontrolled
+        -- drag and delete, which previously updated `nodes` but not the screen.
+        adoptNodesInto state (applyNodeChanges changes state.nodes)
       else state
   in
     { state: s1, effects: [ FireOnNodesChange changes ] }
