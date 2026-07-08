@@ -510,16 +510,18 @@ main = do
   assert "isEdgeBase rejects a record missing target"
     (not (isEdgeBase { id: "e1", source: "a" }))
 
-  -- 009: calculateNodePosition returns Nothing for an unknown id.
-  assert "calculateNodePosition unknown id is Nothing"
-    ( calculateNodePosition
+  -- 009 / 050 #3: calculateNodePosition returns Left (NodeNotFound _) for an
+  -- unknown id.
+  assert "calculateNodePosition unknown id is Left"
+    ( case calculateNodePosition
         { nodeId: NodeId "missing"
         , nextPosition: { x: 0.0, y: 0.0 }
         , nodeLookup: Map.empty
         , nodeOrigin: mkNodeOrigin 0.0 0.0
         , nodeExtent: Nothing
-        }
-        == Nothing
+        } of
+        Left _ -> true
+        Right _ -> false
     )
 
   -- 010: isManualZIndexMode discriminates ZManual.

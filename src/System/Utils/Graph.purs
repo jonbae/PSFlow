@@ -77,6 +77,7 @@ import System.Utils.General
   , nodeToRect
   , pointToRendererPoint
   ) as G
+import System.Utils.Graph.NodeError (NodeError(..))
 
 -- | Re-exported so ticket-009 consumers see this name in `Utils.Graph`,
 -- | even though the implementation lives in `Utils.General` (cycle break).
@@ -373,25 +374,25 @@ type CalculateNodePositionParams n =
   , nodeExtent :: Maybe CoordinateExtent
   }
 
--- | Returns `Nothing` when the node id is absent. The TS source uses the
--- | non-null assertion `nodeLookup.get(nodeId)!`; we make the partiality
--- | observable instead of crashing.
+-- | Compute a node's origin-adjusted `position` and clamped
+-- | `positionAbsolute`, or report why it cannot.
 -- |
--- | Divergence note: the TS function calls `onError?.('005', …)` when a
--- | `extent: 'parent'` node has no parent, and `onError?.('015', …)` when
--- | the node has no measured width/height. Both are non-fatal — TS falls
--- | through to default extents and `?? 0` defaults respectively. The PS
--- | port uses the same fallback paths and leaves warning emission to the
--- | caller's `Effect` boundary (mirrors the design documented on
--- | `getEdgePosition`). Construct an `ErrorCode` from
--- | `System.Constants` at the call seam if you want parity with the TS
--- | warning surface.
+-- | Returns `Left (NodeNotFound nodeId)` when the id is absent from
+-- | `nodeLookup` — the TS source uses the non-null assertion
+-- | `nodeLookup.get(nodeId)!` and would crash; we make the partiality
+-- | observable instead. This is the ONLY value-level failure.
+-- |
+-- | The `extent: 'parent'`-without-parent (E005) and missing-measured-dims
+-- | (E015) cases stay non-fatal: they still yield a `Right` position via the
+-- | same fallback paths the TS source uses. See
+-- | `System.Utils.Graph.NodeError` for the full contract rationale and how a
+-- | caller's `Effect` boundary can surface those non-fatal conditions.
 calculateNodePosition
   :: forall n
    . CalculateNodePositionParams n
-  -> Maybe { position :: XYPosition, positionAbsolute :: XYPosition }
+  -> Either NodeError { position :: XYPosition, positionAbsolute :: XYPosition }
 calculateNodePosition p = case Map.lookup p.nodeId p.nodeLookup of
-  Nothing -> Nothing
+  Nothing -> Left (NodeNotFound p.nodeId)
   Just node ->
     let
       parentNode = case node.parentId of
@@ -445,7 +446,7 @@ calculateNodePosition p = case Map.lookup p.nodeId p.nodeLookup of
       width = fromMaybe 0.0 node.measured.width
       height = fromMaybe 0.0 node.measured.height
     in
-      Just
+      Right
         { position:
             { x: positionAbsolute.x - parentX + width * origin.ox
             , y: positionAbsolute.y - parentY + height * origin.oy

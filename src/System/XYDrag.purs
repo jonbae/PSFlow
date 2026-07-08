@@ -594,8 +594,11 @@ updateNodes params mUpd pos = do
           , nodeOrigin: store.nodeOrigin
           , nodeExtent: Just store.nodeExtent
           } of
-          Nothing -> pure acc
-          Just r -> pure
+          -- `Left _` is `NodeNotFound` (see System.Utils.Graph.NodeError):
+          -- treat an absent node as "did not move", exactly as the previous
+          -- `Nothing` branch did.
+          Left _ -> pure acc
+          Right r -> pure
             ( acc
                 || (r.position.x /= dragItem.position.x)
                 || (r.position.y /= dragItem.position.y)
