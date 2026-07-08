@@ -10,6 +10,9 @@ export const mountAppImpl = (element) => (jsx) => () => {
   root.render(jsx);
 };
 
+// Current URL hash, e.g. "#/tests/generic/nodes/general" (or "" at the root).
+export const getHashImpl = () => window.location.hash;
+
 // Smoke-test observation hooks. PureScript ADTs (NodeChange, Connection)
 // arrive here as JS class instances; the tests rely only on length /
 // presence so the raw form is fine. Each call also bumps a counter so

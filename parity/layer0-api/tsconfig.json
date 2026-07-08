@@ -1,0 +1,22 @@
+{
+  "//": "Config for the Layer 0 upstream extractor. `extract-upstream.ts` passes equivalent options to ts.createProgram inline, so this file primarily documents the resolution setup and gives editors/`tsc --noEmit` the right view of the vendored xyflow sources. The `@xyflow/system` path mapping mirrors how the react package imports the system package.",
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "checkJs": false,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "strict": false,
+    "esModuleInterop": true,
+    "baseUrl": "../..",
+    "paths": {
+      "@xyflow/system": ["xyflow/packages/system/src/index.ts"],
+      "@xyflow/system/*": ["xyflow/packages/system/src/*"]
+    }
+  },
+  "include": ["extract-upstream.ts", "../../xyflow/packages/react/src/index.ts"]
+}

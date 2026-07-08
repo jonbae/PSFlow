@@ -69,11 +69,23 @@ useGlobalKeyHandler opts = coerceHook React.do
     if deletePressed then do
       st <- store.getState
       let
+        -- Only remove elements that are actually deletable — a
+        -- `deletable = Just false` node/edge is excluded, mirroring
+        -- `getElementsToRemove` (`System.Utils.Graph`) and upstream's
+        -- `deleteElements`.
         selectedNodeIds =
-          Array.mapMaybe (\n -> if n.selected then Just n.id else Nothing)
+          Array.mapMaybe
+            ( \n ->
+                if n.selected && n.deletable /= Just false then Just n.id
+                else Nothing
+            )
             st.nodes
         selectedEdgeIds =
-          Array.mapMaybe (\e -> if e.selected then Just e.id else Nothing)
+          Array.mapMaybe
+            ( \e ->
+                if e.selected && e.deletable /= Just false then Just e.id
+                else Nothing
+            )
             st.edges
       when (selectedNodeIds /= []) do
         store.dispatch

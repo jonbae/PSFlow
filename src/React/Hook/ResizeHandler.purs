@@ -22,6 +22,7 @@ import React.Basic.Hooks as React
 import React.FFI.ResizeObserver (createResizeObserver, disconnect, observe)
 import React.Hook.Store (UseStoreApi, useStoreApi)
 import React.Store.Action (Action(..))
+import System.Utils.Dom (getDimensions)
 import Web.HTML.HTMLDivElement (HTMLDivElement, toElement)
 
 newtype UseResizeHandlerHook hooks =
@@ -44,26 +45,26 @@ useResizeHandler divRef onResize = coerceHook React.do
     case mDiv of
       Nothing -> pure (pure unit)
       Just divEl -> do
-        observer <- createResizeObserver \entries ->
-          case entries of
-            [] -> pure unit
-            _ ->
-              -- Take the last entry (matches TS) — usually only one
-              -- since we observe a single element.
-              let
-                e = lastEntry entries
-                w = e.contentRect.width
-                h = e.contentRect.height
-              in do
-                store.dispatch (PatchState \s -> s { width = w, height = h })
-                case onResize of
-                  Just cb -> cb w h
-                  Nothing -> pure unit
+        let
+          -- Mirror upstream `getDimensions` + its `|| 500` fallback
+          -- (`useResizeHandler.ts`): read `offsetWidth/Height` and never
+          -- let a zero/unmeasured container reach the store, which would
+          -- otherwise produce a broken initial `fitView` viewport.
+          updateDimensions :: Effect Unit
+          updateDimensions = do
+            { width: w, height: h } <- getDimensions divEl
+            let
+              w' = if w == 0.0 then 500.0 else w
+              h' = if h == 0.0 then 500.0 else h
+            store.dispatch (PatchState \s -> s { width = w', height = h' })
+            case onResize of
+              Just cb -> cb w' h'
+              Nothing -> pure unit
+        -- Synchronous initial measurement on mount (upstream line 29):
+        -- seeds `width`/`height` *before* the node ResizeObservers fire
+        -- and resolve the queued initial `fitView`. Without this the fit
+        -- runs against a ~0 container and positions nodes off-screen.
+        updateDimensions
+        observer <- createResizeObserver \_ -> updateDimensions
         observe observer (toElement divEl)
         pure (disconnect observer)
-
--- | `Array.last`-equivalent. Inlined to avoid an extra import.
-lastEntry :: forall a. Array a -> a
-lastEntry xs = lastEntryImpl xs
-
-foreign import lastEntryImpl :: forall a. Array a -> a

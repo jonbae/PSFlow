@@ -37,6 +37,12 @@ import Data.Either (Either(..))
 import Data.Number (abs) as Number
 import Data.Tuple (Tuple(..))
 import React.Container.Pane.Internal (buildPaneClass, paneIsDraggable)
+import Test.Parity.Connections (runConnectionsParity)
+import Test.Parity.Edges (runEdgeParity)
+import Test.Parity.Geometry (runGeometryParity)
+import Test.Parity.Graph (runGraphParity)
+import Test.Parity.Marker (runMarkerParity)
+import Test.Parity.Toolbar (runToolbarParity)
 import Test.Properties (runProperties)
 import Test.React.Hook.VisibleIds (runVisibleIdsTests)
 import Test.React.Store.Reduce (runReactStoreTests)
@@ -453,6 +459,8 @@ main = do
       , handles: Nothing
       , measured: { width: Just 50.0, height: Just 25.0 }
       , nodeType: Nothing
+      , className: Nothing
+      , style: Nothing
       }
     mkEdge :: String -> String -> String -> EdgeBase Unit
     mkEdge eid src tgt =
@@ -473,6 +481,8 @@ main = do
       , zIndex: Nothing
       , ariaLabel: Nothing
       , interactionWidth: Nothing
+      , className: Nothing
+      , style: Nothing
       }
     nA = mkNode "a"
     nB = mkNode "b"
@@ -610,6 +620,8 @@ main = do
       , handles: Nothing
       , measured: { width: Just 50.0, height: Just 25.0 }
       , nodeType: Nothing
+      , className: Nothing
+      , style: Nothing
       , internals:
           { positionAbsolute
           , z: 0.0
@@ -1031,3 +1043,12 @@ main = do
   runStoreProperties
   runReactStoreTests
   runVisibleIdsTests
+
+  -- Layer 1 — live parity against XYFlow (via the @psflow/oracle bundle).
+  -- Requires `npm run build:oracle` to have produced oracle/index.js.
+  runEdgeParity
+  runGeometryParity
+  runToolbarParity
+  runMarkerParity
+  runConnectionsParity
+  runGraphParity

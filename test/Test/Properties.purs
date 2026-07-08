@@ -5,6 +5,12 @@
 -- | refactored. Run via `Test.Main` after the hand-written assertion list.
 module Test.Properties
   ( runProperties
+  , genFiniteNumber
+  , genNonNegNumber
+  , genRect
+  , genBox
+  , genSnapGrid
+  , genPosition
   ) where
 
 import Prelude hiding (clamp)
@@ -115,6 +121,8 @@ mkEdge eid src tgt =
   , zIndex: Nothing
   , ariaLabel: Nothing
   , interactionWidth: Nothing
+  , className: Nothing
+  , style: Nothing
   }
 
 -- | An edge endpoint id is a small letter so we get a non-trivial chance of
@@ -172,6 +180,8 @@ mkLeafInternalNode nid width height =
   , handles: Nothing
   , measured: { width: Just width, height: Just height }
   , nodeType: Nothing
+  , className: Nothing
+  , style: Nothing
   , internals:
       { positionAbsolute: { x: 0.0, y: 0.0 }
       , z: 0.0

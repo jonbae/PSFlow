@@ -169,6 +169,8 @@ getEventHandlerParams mNodeId dragItems lookup dragging =
       , handles: internal.handles
       , measured: internal.measured
       , nodeType: internal.nodeType
+      , className: internal.className
+      , style: internal.style
       }
 
     allNodes :: Array (NodeBase n)

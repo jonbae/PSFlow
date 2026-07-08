@@ -58,6 +58,8 @@ mkNode nodeId px py w h =
   , handles: Nothing
   , measured: { width: Just w, height: Just h }
   , nodeType: Nothing
+  , className: Nothing
+  , style: Nothing
   , internals:
       { positionAbsolute: { x: px, y: py }
       , z: 0.0
@@ -86,6 +88,8 @@ mkEdge edgeId src tgt =
   , zIndex: Nothing
   , ariaLabel: Nothing
   , interactionWidth: Nothing
+  , className: Nothing
+  , style: Nothing
   }
 
 -- | Viewport 0..100 × 0..100 at identity transform.

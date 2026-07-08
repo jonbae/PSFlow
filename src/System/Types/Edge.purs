@@ -24,6 +24,7 @@ import Data.Generic.Rep (class Generic)
 import Data.Map (Map)
 import Data.Maybe (Maybe)
 import Data.Show.Generic (genericShow)
+import Foreign.Object (Object)
 import System.Types.Geometry (Position)
 import System.Types.Ids (NodeId)
 
@@ -31,6 +32,11 @@ import System.Types.Ids (NodeId)
 -- | have a clear `false` default and are plain `Boolean`. `deletable` and
 -- | `selectable` keep their tri-state `Maybe Boolean` because absence means
 -- | "inherit from store default".
+-- |
+-- | `className` (rendered on the edge `<g>`) and `style` (rendered on the
+-- | `.react-flow__edge-path`) mirror the presentational fields carried by
+-- | `NodeBase` (ticket 060). `style` is `Maybe (Object String)` — not `Foreign`
+-- | — so the record keeps a derivable `Eq` for memoization/tests.
 type EdgeBase edgeData =
   { id :: String
   , edgeType :: Maybe String
@@ -49,6 +55,8 @@ type EdgeBase edgeData =
   , zIndex :: Maybe Int
   , ariaLabel :: Maybe String
   , interactionWidth :: Maybe Number
+  , className :: Maybe String
+  , style :: Maybe (Object String)
   }
 
 data ConnectionLineType
