@@ -20,7 +20,7 @@ import Data.Either (Either(..))
 import Data.Int (toNumber) as Int
 import Data.Map (Map)
 import Data.Map (singleton) as Map
-import Data.Maybe (Maybe(..))
+import Data.Maybe (Maybe(..), isJust)
 import Effect (Effect)
 import Effect.Class.Console (log)
 import Test.QuickCheck (quickCheck, (<?>))
@@ -49,6 +49,10 @@ import System.Utils.General
   , snapPosition
   )
 import System.Utils.Graph (calculateNodePosition)
+import System.Utils.Graph.NodeError
+  ( NodeError(..)
+  , nodeErrorCode
+  )
 
 -- | A finite `Number` generator. The default `Arbitrary Number` returns
 -- | values from `uniform` in `[0, 1]`, which is too narrow for the geometric
@@ -199,6 +203,18 @@ genCoordinateExtent = do
   spreadY <- Int.toNumber <$> chooseInt 200 1000
   pure (mkCoordinateExtent minX minY (minX + spreadX) (minY + spreadY))
 
+-- | Generate any `NodeError` constructor over a small pool of ids. Covers
+-- | the fatal (`NodeNotFound`) and both non-fatal variants.
+genNodeError :: Gen NodeError
+genNodeError = do
+  nid <- NodeId <$> elements (NEA.cons' "a" [ "b", "c" ])
+  elements
+    ( NEA.cons' (NodeNotFound nid)
+        [ ParentExtentWithoutParent nid
+        , NodeNotInitialized nid
+        ]
+    )
+
 runProperties :: Effect Unit
 runProperties = do
   log "running QuickCheck properties..."
@@ -294,9 +310,9 @@ runProperties = do
         , nodeExtent: Just ext
         }
     pure case result of
-      Nothing ->
-        false <?> "calculateNodePosition returned Nothing for present node"
-      Just { positionAbsolute: pa } ->
+      Left _ ->
+        false <?> "calculateNodePosition returned Left for present node"
+      Right { positionAbsolute: pa } ->
         ( pa.x >= r.minX
             && pa.x <= r.maxX - width
             && pa.y >= r.minY
@@ -308,5 +324,22 @@ runProperties = do
                 <> show r.maxX <> "," <> show r.maxY <> ") for dims "
                 <> show width <> "x" <> show height
             )
+
+  -- 050 #3: `nodeErrorCode` partitions `NodeError` into the fatal case (no
+  -- `ErrorCode`) and the non-fatal fallbacks (each carries one). The absent
+  -- node — the only value-level failure — is exactly the constructor without
+  -- a code. This pins down the contract the NodeError module documents.
+  quickCheck do
+    e <- genNodeError
+    let
+      hasCode = isJust (nodeErrorCode e)
+      shouldHaveCode = case e of
+        NodeNotFound _ -> false
+        ParentExtentWithoutParent _ -> true
+        NodeNotInitialized _ -> true
+    pure
+      ( hasCode == shouldHaveCode
+          <?> ("nodeErrorCode partition wrong for " <> show e)
+      )
 
   log "all properties passed"

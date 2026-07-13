@@ -594,8 +594,11 @@ updateNodes params mUpd pos = do
           , nodeOrigin: store.nodeOrigin
           , nodeExtent: Just store.nodeExtent
           } of
-          Nothing -> pure acc
-          Just r -> do
+          -- `Left _` is `NodeNotFound` (see System.Utils.Graph.NodeError):
+          -- treat an absent node as "did not move", exactly as the previous
+          -- `Nothing` branch did.
+          Left _ -> pure acc
+          Right r -> do
             -- Persist the computed coordinates back into the drag item (TS mutates
             -- `dragItem.position` / `dragItem.internals.positionAbsolute`); the
             -- live store dispatch below and the drag-end commit read from
