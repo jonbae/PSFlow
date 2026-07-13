@@ -20,7 +20,8 @@ import Data.Either (Either(..))
 import Data.Int (toNumber) as Int
 import Data.Map (Map)
 import Data.Map (singleton) as Map
-import Data.Maybe (Maybe(..))
+import Data.Maybe (Maybe(..), maybe)
+import Data.Number (floor) as Number
 import Effect (Effect)
 import Effect.Class.Console (log)
 import Test.QuickCheck (quickCheck, (<?>))
@@ -45,6 +46,8 @@ import System.Utils.General
   ( boxToRect
   , clamp
   , getBoundsOfBoxes
+  , getOverlappingArea
+  , rectIntersection
   , rectToBox
   , snapPosition
   )
@@ -308,5 +311,15 @@ runProperties = do
                 <> show r.maxX <> "," <> show r.maxY <> ") for dims "
                 <> show width <> "x" <> show height
             )
+
+  -- rectIntersection agrees with the getOverlappingArea oracle.
+  quickCheck do
+    a <- genRect
+    b <- genRect
+    let
+      ceilNum n = -(Number.floor (-n))
+      area = maybe 0.0 (\r -> r.width * r.height)
+    pure (ceilNum (area (rectIntersection a b)) == getOverlappingArea a b
+            <?> "rectIntersection disagrees with getOverlappingArea")
 
   log "all properties passed"

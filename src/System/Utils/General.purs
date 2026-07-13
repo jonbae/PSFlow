@@ -19,6 +19,7 @@ module System.Utils.General
   , nodeToBox
   , getBoundsOfRects
   , getOverlappingArea
+  , rectIntersection
   , isNumeric
   , devWarn
   , snapPosition
@@ -183,6 +184,21 @@ getOverlappingArea a b =
     ceilNum n = -(Number.floor (-n))
   in
     ceilNum (xOverlap * yOverlap)
+
+-- | The overlapping rectangle of two rects, or `Nothing` when they do not
+-- | overlap on a positive area (disjoint OR sharing only an edge/corner).
+-- | Companion to `getOverlappingArea`, which returns only the (ceil-ed) area.
+rectIntersection :: Rect -> Rect -> Maybe Rect
+rectIntersection a b =
+  let
+    x1 = max a.x b.x
+    y1 = max a.y b.y
+    w  = min (a.x + a.width)  (b.x + b.width)  - x1
+    h  = min (a.y + a.height) (b.y + b.height) - y1
+  in
+    if w > 0.0 && h > 0.0
+    then Just { x: x1, y: y1, width: w, height: h }
+    else Nothing
 
 isNumeric :: Number -> Boolean
 isNumeric n = not (Number.isNaN n) && Number.isFinite n

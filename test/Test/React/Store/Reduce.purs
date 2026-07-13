@@ -15,7 +15,8 @@ import Prelude
 
 import Data.Array (length, null) as Array
 import Data.Map as Map
-import Data.Maybe (Maybe(..))
+import Data.Maybe (Maybe(..), maybe)
+import Data.Tuple (Tuple(..))
 import Effect (Effect)
 import Effect.Class.Console (log)
 import React.Store.Action (Action(..))
@@ -160,6 +161,37 @@ sampleState =
       , edgeLookup = Map.singleton "e1" sampleEdge
       }
 
+-- Fixtures for the selection/lookup-sync cases (ticket 066) -----------
+--
+-- `sampleNode` (id n1, selected) doubles as the n1 lookup entry; `n2Internal`
+-- is the same shape with a fresh id and no selection. `n1Base`/`n2Base` are the
+-- matching user-facing `NodeBase` entries the uncontrolled adopt path rebuilds
+-- the lookup from. Same idea on the edge side with `sampleEdge`.
+
+n1Base :: NodeBase Unit
+n1Base = freshNode { id = NodeId "n1", selected = true }
+
+n2Base :: NodeBase Unit
+n2Base = freshNode { id = NodeId "n2", selected = false }
+
+n2Internal :: InternalNodeBase Unit
+n2Internal = sampleNode { id = NodeId "n2", selected = false }
+
+e1Unsel :: EdgeBase Unit
+e1Unsel = sampleEdge { selected = false }
+
+e2Unsel :: EdgeBase Unit
+e2Unsel = sampleEdge { id = "e2", selected = false }
+
+baseState :: ReactFlowState Unit Unit
+baseState = initialState defaultInitialStateOptions
+
+nodeSelected :: ReactFlowState Unit Unit -> String -> Boolean
+nodeSelected st nid = maybe false _.selected (Map.lookup (NodeId nid) st.nodeLookup)
+
+edgeSelected :: ReactFlowState Unit Unit -> String -> Boolean
+edgeSelected st eid = maybe false _.selected (Map.lookup eid st.edgeLookup)
+
 -- 1. ResetSelectedElements emits selection-change effects ------------
 
 testResetSelected :: Effect Unit
@@ -220,6 +252,85 @@ testApplyEdgeChangesRoundTrip =
       assert "applyEdgeChanges EdgeRemoveChange drops it"
         (Array.length removed == 0)
 
+-- 5. AddSelectedNodes honors multiSelectionActive (ticket 066 item 1) ---
+--
+-- Meta-click multi-select: with a node already selected, selecting *another*
+-- node must keep the first selected. The pre-fix reducer ran the "replace" path
+-- unconditionally and deselected n1.
+
+testAddSelectedNodesMultiSelect :: Effect Unit
+testAddSelectedNodesMultiSelect =
+  let
+    st = baseState
+      { hasDefaultNodes = true
+      , multiSelectionActive = true
+      , nodes = [ n1Base, n2Base ]
+      , nodeLookup = Map.fromFoldable
+          [ Tuple (NodeId "n1") sampleNode
+          , Tuple (NodeId "n2") n2Internal
+          ]
+      }
+    r = reduce st (AddSelectedNodes [ NodeId "n2" ])
+  in
+    do
+      assert "AddSelectedNodes (multi) keeps previously-selected n1"
+        (nodeSelected r.state "n1")
+      assert "AddSelectedNodes (multi) selects n2"
+        (nodeSelected r.state "n2")
+
+-- 6. AddSelectedEdges select reaches the edgeLookup (063 fix) -----------
+
+testAddSelectedEdgesReachesLookup :: Effect Unit
+testAddSelectedEdgesReachesLookup =
+  let
+    st = baseState
+      { hasDefaultEdges = true
+      , multiSelectionActive = false
+      , edges = [ e1Unsel ]
+      , edgeLookup = Map.singleton "e1" e1Unsel
+      }
+    r = reduce st (AddSelectedEdges [ "e1" ])
+  in
+    assert "AddSelectedEdges marks e1 selected in edgeLookup"
+      (edgeSelected r.state "e1")
+
+-- 7. AddSelectedEdges honors multiSelectionActive (063 fix) -------------
+
+testAddSelectedEdgesMultiSelect :: Effect Unit
+testAddSelectedEdgesMultiSelect =
+  let
+    st = baseState
+      { hasDefaultEdges = true
+      , multiSelectionActive = true
+      , edges = [ sampleEdge, e2Unsel ]
+      , edgeLookup = Map.fromFoldable
+          [ Tuple "e1" sampleEdge
+          , Tuple "e2" e2Unsel
+          ]
+      }
+    r = reduce st (AddSelectedEdges [ "e2" ])
+  in
+    do
+      assert "AddSelectedEdges (multi) keeps previously-selected e1"
+        (edgeSelected r.state "e1")
+      assert "AddSelectedEdges (multi) selects e2"
+        (edgeSelected r.state "e2")
+
+-- 8. TriggerEdgeChanges remove drops from edgeLookup (063 fix) ----------
+
+testTriggerEdgeRemoveDropsLookup :: Effect Unit
+testTriggerEdgeRemoveDropsLookup =
+  let
+    st = baseState
+      { hasDefaultEdges = true
+      , edges = [ sampleEdge ]
+      , edgeLookup = Map.singleton "e1" sampleEdge
+      }
+    r = reduce st (TriggerEdgeChanges [ EdgeRemoveChange { id: "e1" } ])
+  in
+    assert "TriggerEdgeChanges EdgeRemoveChange drops e1 from edgeLookup"
+      (not (Map.member "e1" r.state.edgeLookup))
+
 runReactStoreTests :: Effect Unit
 runReactStoreTests = do
   log ""
@@ -228,4 +339,8 @@ runReactStoreTests = do
   testPatchStateIdentity
   testApplyNodeChangesRoundTrip
   testApplyEdgeChangesRoundTrip
+  testAddSelectedNodesMultiSelect
+  testAddSelectedEdgesReachesLookup
+  testAddSelectedEdgesMultiSelect
+  testTriggerEdgeRemoveDropsLookup
   log ""

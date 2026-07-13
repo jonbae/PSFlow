@@ -27,31 +27,28 @@ striking it here.
 
 ## Remaining work (priority order)
 
-### 1. Genuine behavioral divergence — [066](066-edge-parity-followups-deferred.md) item 1
+### ~~1. Genuine behavioral divergence~~ — [066](066-edge-parity-followups-deferred.md) item 1 ✅ RESOLVED (2026-07-10)
 
-The **only** item that is an actual behavior bug rather than test/polish.
+The **only** item that was an actual behavior bug rather than test/polish.
 
-- `reduceAddSelectedNodes` (`src/React/Store/Reduce.purs` ~333) never checks
-  `state.multiSelectionActive`, so a **meta-click multi-select of nodes
-  deselects the previously-selected node** instead of adding to the selection.
-  It is the exact symmetric bug already fixed for edges in
-  [063](063-layer2-edges-spec.md) (`reduceAddSelectedEdges`, ~356); the node
-  side never got the branch. ~5-line fix, mirroring the edge side.
-- **Latent**: no upstream test exercises it (upstream `nodes.spec.ts` has no
-  node meta-click multi-select case), which is why it slipped through.
+- `reduceAddSelectedNodes` (`src/React/Store/Reduce.purs` ~333) now guards on
+  `state.multiSelectionActive`, mirroring the edge side
+  ([063](063-layer2-edges-spec.md) `reduceAddSelectedEdges`), so a meta-click
+  multi-select of nodes adds to the selection instead of deselecting the
+  previously-selected node. Guarded by a new `spago test` case (fails if the fix
+  is reverted).
 
-### 2. Test coverage — [066](066-edge-parity-followups-deferred.md) item 2
+### ~~2. Test coverage~~ — [066](066-edge-parity-followups-deferred.md) item 2 ✅ RESOLVED (2026-07-10)
 
-Unit coverage (`spago test`) for the three 063 edge fixes, currently validated
-**only** by the e2e smoke suite:
+`test/Test/React/Store/Reduce.purs` now has unit coverage for the node
+multi-select fix plus two of the three 063 edge fixes:
 
 1. `reduceTriggerEdgeChanges` uncontrolled `edgeLookup`/`connectionLookup`
-   rebuild (`Reduce.purs` ~304).
-2. `reduceAddSelectedEdges` `multiSelectionActive` branch (`Reduce.purs` ~356).
-3. `EdgeWrapper` `isSelectable` form (`EdgeWrapper.purs` ~343).
-
-Home: `test/Test/React/Store/Reduce.purs` (already exercises the reducers). Add
-the analogous node case if item 1 lands.
+   rebuild (`Reduce.purs` ~304) — covered (`EdgeRemoveChange` drops from lookup).
+2. `reduceAddSelectedEdges` `multiSelectionActive` branch (`Reduce.purs` ~356) —
+   covered (select-reaches-lookup + keep-prior-selection).
+3. `EdgeWrapper` `isSelectable` form (`EdgeWrapper.purs` ~343) — stays covered by
+   e2e only (render concern, no reducer-test home).
 
 ### 3. Differential-parity depth — [059](059-layer1-behavioral-parity-coverage.md)
 
@@ -85,9 +82,10 @@ Only matters for nodes sitting exactly on a negative snap-grid half-boundary.
 
 ## Recommendation
 
-- For **"true parity"**: do item 1 (the real divergence), then decide whether
-  2–5 are worth closing — they are tracked precisely *because* they are
-  intentional, non-blocking gaps.
+- For **"true parity"**: item 1 (the real divergence) and item 2 (its unit
+  coverage) are now resolved (2026-07-10). The remaining rows 3–5 are tracked
+  precisely *because* they are intentional, non-blocking gaps; decide per-row
+  whether they are worth closing.
 - For **"can I claim parity"**: effectively already yes — the objective gate
   (Layer 0 diff against 12.11.0) is green and every remaining item is documented
   and allowlisted.

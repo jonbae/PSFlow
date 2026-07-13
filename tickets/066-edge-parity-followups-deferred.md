@@ -9,7 +9,18 @@ smoke suite is 52/52. This ticket **defers** two real-but-non-blocking items tha
 surfaced during that work. Both are optional: the Layer 2 e2e series is
 functionally complete without them.
 
-## Item 1 — `reduceAddSelectedNodes` is missing the `multiSelectionActive` branch (latent parity bug)
+## ✅ RESOLVED (2026-07-10)
+
+Both items landed together: `reduceAddSelectedNodes` now guards on
+`multiSelectionActive` (mirroring the edge side), and
+`test/Test/React/Store/Reduce.purs` gained four unit cases covering the node
+multi-select path plus the three 063 edge fixes. `spago test` green (the node
+case fails if the fix is reverted, confirming it guards the bug);
+`generic-nodes.spec.ts` 13/13 and `generic-edges.spec.ts` 16/16 stay green.
+The `EdgeWrapper` `isSelectable` bullet stays covered by e2e (render concern,
+no reducer-test home).
+
+## ~~Item 1~~ — `reduceAddSelectedNodes` is missing the `multiSelectionActive` branch (latent parity bug)
 
 `src/React/Store/Reduce.purs` `reduceAddSelectedNodes` (~line 333) unconditionally
 does the "replace" selection path (`getNodeSelectionChanges … selectedSet true`,
@@ -39,7 +50,7 @@ mirroring `reduceAddSelectedEdges` — when active, emit
 13/13). Optionally add a `Test/React/Store/Reduce.purs` case (see Item 2) and/or a
 node meta-click e2e case to lock it in.
 
-## Item 2 — no unit coverage for the three edge fixes
+## ~~Item 2~~ — no unit coverage for the three edge fixes
 
 The three 063 fixes are validated **only** by the e2e smoke suite
 (`generic-edges.spec.ts`), not by `spago test`:

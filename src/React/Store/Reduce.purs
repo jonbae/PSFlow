@@ -330,21 +330,29 @@ reduceAddSelectedNodes
    . ReactFlowState n e
   -> Array NodeId
   -> ReduceResult n e
-reduceAddSelectedNodes state ids =
-  let
-    selectedSet = Set.fromFoldable ids
-    nodeRes = getNodeSelectionChanges state.nodeLookup selectedSet true
-    -- TS behaviour: when selecting any nodes, deselect all edges.
-    edgeRes =
-      if Array.null ids then { changes: [] }
-      else getEdgeSelectionChanges state.edgeLookup Set.empty
-    s1 = state { nodeLookup = nodeRes.items }
-    afterNodes = reduceTriggerNodeChanges s1 nodeRes.changes
-    afterEdges = reduceTriggerEdgeChanges afterNodes.state edgeRes.changes
-  in
-    { state: afterEdges.state
-    , effects: afterNodes.effects <> afterEdges.effects
-    }
+reduceAddSelectedNodes state ids
+  -- TS `addSelectedNodes`: while multi-selection is active, just mark these
+  -- nodes selected — keep the existing node selection and leave edges untouched.
+  | state.multiSelectionActive =
+      let
+        changes = map (\id -> NodeSelectionChange { id, selected: true }) ids
+      in
+        reduceTriggerNodeChanges state changes
+  | otherwise =
+      let
+        selectedSet = Set.fromFoldable ids
+        nodeRes = getNodeSelectionChanges state.nodeLookup selectedSet true
+        -- TS behaviour: when selecting any nodes, deselect all edges.
+        edgeRes =
+          if Array.null ids then { changes: [] }
+          else getEdgeSelectionChanges state.edgeLookup Set.empty
+        s1 = state { nodeLookup = nodeRes.items }
+        afterNodes = reduceTriggerNodeChanges s1 nodeRes.changes
+        afterEdges = reduceTriggerEdgeChanges afterNodes.state edgeRes.changes
+      in
+        { state: afterEdges.state
+        , effects: afterNodes.effects <> afterEdges.effects
+        }
 
 -- AddSelectedEdges ------------------------------------------------------
 
