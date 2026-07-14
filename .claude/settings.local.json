@@ -66,7 +66,8 @@
       "Bash(/Users/jonathanbae/.nvm/versions/node/v22.18.0/bin/npm install *)",
       "Read(//Users/jonathanbae/.nvm/versions/node/v22.18.0/bin/**)",
       "Read(//Users/jonathanbae/.nvm/versions/node/v16.13.1/lib/node_modules/purescript/**)",
-      "Bash(git check-ignore *)"
+      "Bash(git check-ignore *)",
+      "Bash(python3 -)"
     ]
   }
 }
