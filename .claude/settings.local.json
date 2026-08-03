@@ -67,7 +67,10 @@
       "Read(//Users/jonathanbae/.nvm/versions/node/v22.18.0/bin/**)",
       "Read(//Users/jonathanbae/.nvm/versions/node/v16.13.1/lib/node_modules/purescript/**)",
       "Bash(git check-ignore *)",
-      "Bash(python3 -)"
+      "Bash(python3 -)",
+      "Bash(node parity/layer0-api/extract-upstream.ts)",
+      "Bash(node parity/layer0-api/extract-psflow.mjs)",
+      "Bash(node parity/layer0-api/diff.mjs)"
     ]
   }
 }
