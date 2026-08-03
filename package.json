@@ -24,7 +24,8 @@
   "devDependencies": {
     "@playwright/test": "^1.48.0",
     "@psflow/oracle": "file:./oracle",
-    "@xyflow/react": "^12.3.5",
+    "@xyflow/react": "12.11.0",
+    "@xyflow/system": "0.0.77",
     "esbuild": "^0.24.0",
     "http-server": "^14.1.1",
     "typescript": "^5.6.0"
