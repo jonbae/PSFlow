@@ -9,8 +9,11 @@ suggests:
 - **Export surface** — `parity:api` verified against the vendored **12.11.0**
   (0 missing).
 - **Numeric behavior** — the Layer 1 differential property tests run against the
-  **installed** `@xyflow/react` **12.10.2** / `@xyflow/system` **0.0.76**
-  (`node_modules`), not the 12.3.5 floor.
+  **vendored** `@xyflow/react` **12.11.0** / `@xyflow/system` **0.0.77**, not the
+  12.3.5 floor and not `node_modules`. `oracle/esbuild.mjs` resolves every oracle
+  entry against `xyflow/`, and `oracle/index.js` banners those versions; nothing
+  in the repo imports `@xyflow/*` from `node_modules`. Layer 0 and Layer 1 share
+  one baseline, and `package.json` exact-pins both packages to it.
 
 So the drift risk is **not** open-ended. It is bounded to: behavior that changed
 *inside* functions between 12.3.5→12.11 that is **neither** (a) pure-math covered
@@ -60,5 +63,6 @@ sweep for the rest.
 - [059](059-layer1-behavioral-parity-coverage.md) — what Layer 1 does/doesn't
   cover (bucket (a))
 - `examples/react-smoke/tests/` — the 5 e2e specs (bucket (b))
-- Vendored `xyflow/` 12.11.0 + installed `node_modules/@xyflow/*` 12.10.2/0.0.76
+- Vendored `xyflow/` 12.11.0 / 0.0.77 — the single baseline for Layer 0 *and*
+  Layer 1; `package.json` exact-pins the devDeps to match
 - [069](069-nodeprops-prop-member-gap.md) — first confirmed instance

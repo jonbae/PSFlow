@@ -100,8 +100,9 @@ under `positionAbsoluteX` wired to raw `position`.
 
 ### 7. Behavioral-drift audit 12.3.5→12.11 — [071](071-version-drift-audit-12-3-to-12-11.md)
 
-Port floor is 12.3.5; surface is gated at 12.11.0 and numeric behavior tested
-at 12.10.2. Bounded sweep of changelog entries not covered by Layer 1 or the 5
+Port floor is 12.3.5; both the surface gate and the Layer 1 numeric tests
+baseline at the vendored 12.11.0 / 0.0.77 (the oracle bundles from `xyflow/`,
+not `node_modules`). Bounded sweep of changelog entries not covered by Layer 1 or the 5
 e2e specs. Item 6 is the first instance it would catch (now fixed). A second
 candidate is already visible in the Layer 0 report: *Edge* props still show 1
 missing member — upstream's `type` vs PSFlow's `edgeType`.

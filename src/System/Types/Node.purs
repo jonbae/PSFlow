@@ -45,9 +45,14 @@ import System.Types.Ids (NodeId, ParentId)
 -- | with `internals`, so `toBaseLike`-style copies and the previously-
 -- | duplicated 26-field record literals are no longer needed.
 -- |
--- | TS field `type` is renamed to `nodeType` because `type` is a PureScript
--- | keyword. The type tag is a runtime string (`Maybe String`) rather than
--- | a phantom type since node types are user-defined runtime values.
+-- | TS field `type` is renamed to `nodeType` for internal consistency with the
+-- | `nodeTypes` lookup map it indexes into — *not* because `type` is unusable:
+-- | PureScript accepts `type` as a record label (see `React.Types.Nodes`,
+-- | whose `NodeProps` declares `type :: String`). Realigning this field with
+-- | upstream behind a marshalling layer is ticket 072.
+-- |
+-- | The type tag is a runtime string (`Maybe String`) rather than a phantom
+-- | type since node types are user-defined runtime values.
 type NodeBaseRow nodeData =
   ( id :: NodeId
   , position :: XYPosition
