@@ -16,6 +16,7 @@
 import { fileURLToPath } from "node:url";
 import { dirname, resolve, join } from "node:path";
 import { readFileSync, writeFileSync } from "node:fs";
+import { PROP_TYPES } from "./prop-types.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(here, "..", "..");
@@ -54,15 +55,25 @@ const typeExports = [...typeSet];
 // Walk the record body tracking brace/paren depth; a `<ident> ::` at the
 // outer record level (braceDepth === 1, parenDepth === 0) is a field. This
 // skips identifiers inside nested record/function types.
-function recordFields(src, typeName) {
+function recordFields(src, typeName, pursFile) {
   const headerRe = new RegExp(`type\\s+${typeName}\\b[^=]*=`);
   const hm = headerRe.exec(src);
+  // Hard failure, not a warning. With the props gate on, returning [] for a
+  // renamed or moved PureScript record would report that record's *entire*
+  // member set as missing from PSFlow — a wall of false gaps that buries the
+  // real cause (the record is no longer where prop-types.mjs says it is).
   if (!hm) {
-    console.warn(`[extract-psflow] record type not found: ${typeName}`);
-    return [];
+    throw new Error(
+      `[extract-psflow] record type not found: \`type ${typeName} = { … }\` in ${pursFile}. ` +
+        `If the record was renamed or moved, update parity/layer0-api/prop-types.mjs.`
+    );
   }
   let i = src.indexOf("{", hm.index + hm[0].length);
-  if (i < 0) return [];
+  if (i < 0) {
+    throw new Error(
+      `[extract-psflow] found \`type ${typeName}\` in ${pursFile} but no record body \`{ … }\` follows it.`
+    );
+  }
 
   // Strip line comments so a stray `name ::` in prose can't be picked up.
   const region = src.slice(i).replace(/--[^\n]*/g, "");
@@ -102,11 +113,12 @@ function recordFields(src, typeName) {
   return [...new Set(fields)];
 }
 
-const props = {
-  ReactFlowProps: recordFields(read("src/React/Types/Component.purs"), "ReactFlowProps").sort(),
-  NodeProps: recordFields(read("src/React/Types/Nodes.purs"), "NodeProps").sort(),
-  EdgeProps: recordFields(read("src/React/Types/Edges.purs"), "EdgeProps").sort(),
-};
+const props = Object.fromEntries(
+  PROP_TYPES.map((p) => [
+    p.name,
+    recordFields(read(p.pursFile), p.name, p.pursFile).sort(),
+  ])
+);
 
 const output = {
   valueExports: [...new Set(valueExports)].sort(),
@@ -120,7 +132,9 @@ const output = {
 const outPath = join(here, "psflow.json");
 writeFileSync(outPath, JSON.stringify(output, null, 2) + "\n");
 
+const propSummary = PROP_TYPES.map((p) => `${p.name}=${props[p.name].length}`).join(" ");
+
 console.log(
   `[extract-psflow] ${output.valueExports.length} value + ${output.typeExports.length} type exports, ` +
-    `props RF=${props.ReactFlowProps.length} Node=${props.NodeProps.length} Edge=${props.EdgeProps.length} → ${outPath}`
+    `props ${propSummary} → ${outPath}`
 );

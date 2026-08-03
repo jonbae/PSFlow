@@ -101,19 +101,29 @@ _none — full parity (modulo the allowlist below)._
 | `EdgeTypesMap` | PS rename of upstream `EdgeTypes`. |
 | `NodeTypesMap` | PS rename of upstream `NodeTypes`. |
 
-## Prop-member parity (informational)
+## Prop-member parity (gates CI)
 
 Members are restricted to those declared in the xyflow sources (inherited React
-DOM attributes are excluded on both sides). The `xPos`/`yPos` →
-`positionAbsoluteX`/`positionAbsoluteY` rename that this section surfaced was
-closed by ticket 069; the remaining annotations below record which upstream
-name a PSFlow member corresponds to.
+DOM attributes are excluded on both sides). Divergence must be declared in
+`allowlist.json` under `props.<Type>` — as a `rename` (an upstream member
+PSFlow surfaces under another name, cancelled on both sides by one entry) or as
+a `missing`/`extra` entry with a rationale. Anything else fails the gate. The
+`xPos`/`yPos` → `positionAbsoluteX`/`positionAbsoluteY` rename that this
+section once merely printed was closed by ticket 069.
+
+**Limit of this comparison: it is name-only.** Neither `upstream.json` nor
+`psflow.json` carries member *types*, so a member whose type or arity changed
+upstream while keeping its name still passes. That is an accepted limit, not an
+oversight — making it type-aware needs a PureScript type printer, since today's
+PS extraction is a brace-depth scan over `type X = { … }` synonyms. Tracked
+separately; do not read a passing prop gate as a guarantee of type parity.
 
 ### ReactFlowProps
 
 - upstream members: 122, PSFlow members: 124
 - **missing in PSFlow** (0): _none_
-- **extra in PSFlow** (2): `children`, `onScroll`
+- **extra in PSFlow** (0): _none_
+- allowlisted extra: `children` _(React children are an explicit record field in PureScript rather than an implicit JSX slot; upstream gets them from React.PropsWithChildren, which the TS extractor does not attribute to the xyflow sources.)_, `onScroll` _(Inherited by upstream from HTMLAttributes<HTMLDivElement>, which the extractor excludes on both sides by design; PSFlow must declare it explicitly to expose it at all.)_
 
 ### NodeProps
 
@@ -126,4 +136,3 @@ name a PSFlow member corresponds to.
 - upstream members: 28, PSFlow members: 28
 - **missing in PSFlow** (0): _none_
 - **extra in PSFlow** (0): _none_
-

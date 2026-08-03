@@ -2,14 +2,21 @@
 // surfaces extracted by the sibling scripts, subtracts the documented
 // divergence allowlist, and writes `report.md` (a committed parity snapshot).
 //
-// Gate: a non-empty "missing in PSFlow" export bucket *after* allowlisting is
-// a parity gap → non-zero exit, so `npm run parity:api` can fail CI. Prop and
-// extra buckets are reported but informational (the prop surface carries a lot
-// of legitimate version drift and React-ism differences).
+// Gates (all accumulate into `process.exitCode`, so one pass reports every
+// failing bucket rather than stopping at the first):
+//
+//   * a non-empty "missing in PSFlow" *export* bucket after allowlisting;
+//   * a non-empty missing/extra *prop-member* bucket after allowlisting.
+//
+// The prop buckets used to be informational — they printed divergence while
+// the script still exited 0, which is exactly how the xPos/yPos rename
+// (ticket 069) survived for months. They now gate. Legitimate divergence is
+// expressed in allowlist.json rather than tolerated silently.
 
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { PROP_TYPES } from "./prop-types.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const load = (name) => JSON.parse(readFileSync(join(here, name), "utf8"));
@@ -51,17 +58,32 @@ const partition = (names, allowMap) => {
 const missing = partition(missingRaw, allowMissing);
 const extra = partition(extraRaw, allowExtra);
 
-// ─── Prop diffs (informational) ───────────────────────────────────────────
+// ─── Prop diffs (gated) ───────────────────────────────────────────────────
+// `props.<Type>.rename` maps an upstream member name to the PSFlow name that
+// stands in for it. It is applied to the *upstream* set before diffing, so an
+// intentional rename cancels on both sides from a single entry instead of
+// surfacing as two rows (one missing, one extra) that can drift apart later.
+// This is how 069's xPos → positionAbsoluteX should have been expressible.
 const propDiff = (name) => {
-  const up = setOf(upstream.props[name] ?? []);
+  const cfg = allow.props?.[name] ?? {};
+  const renames = cfg.rename ?? {};
+  const up = setOf((upstream.props[name] ?? []).map((m) => renames[m] ?? m));
   const ps = setOf(psflow.props[name] ?? []);
-  return { missing: diff(up, ps), extra: diff(ps, up) };
+  const rawMissing = diff(up, ps);
+  const rawExtra = diff(ps, up);
+  return {
+    missing: partition(rawMissing, cfg.missing ?? {}),
+    extra: partition(rawExtra, cfg.extra ?? {}),
+    renames,
+  };
 };
-const propResults = {
-  ReactFlowProps: propDiff("ReactFlowProps"),
-  NodeProps: propDiff("NodeProps"),
-  EdgeProps: propDiff("EdgeProps"),
-};
+const propResults = Object.fromEntries(PROP_TYPES.map((p) => [p.name, propDiff(p.name)]));
+
+const propFailures = PROP_TYPES.filter(
+  (p) =>
+    propResults[p.name].missing.unexpected.length > 0 ||
+    propResults[p.name].extra.unexpected.length > 0
+).map((p) => p.name);
 
 // ─── Report ───────────────────────────────────────────────────────────────
 const now = new Date().toISOString().slice(0, 10);
@@ -72,16 +94,31 @@ const knownTable = (names, allowMap) =>
     : "| _none_ | |";
 
 const propSection = (name, r) => {
-  const drift = (allow.props?.[name]?.drift) ?? {};
+  const cfg = allow.props?.[name] ?? {};
+  const drift = cfg.drift ?? {};
   const annotate = (x) => (drift[x] ? `\`${x}\` _(${drift[x]})_` : `\`${x}\``);
+  const renameRows = Object.entries(r.renames);
   return [
     `### ${name}`,
     "",
-    `- upstream members: ${upstream.props[name].length}, PSFlow members: ${psflow.props[name].length}`,
-    `- **missing in PSFlow** (${r.missing.length}): ${r.missing.length ? r.missing.map(annotate).join(", ") : "_none_"}`,
-    `- **extra in PSFlow** (${r.extra.length}): ${list(r.extra)}`,
+    `- upstream members: ${(upstream.props[name] ?? []).length}, PSFlow members: ${(psflow.props[name] ?? []).length}`,
+    `- **missing in PSFlow** (${r.missing.unexpected.length}): ${
+      r.missing.unexpected.length ? r.missing.unexpected.map(annotate).join(", ") : "_none_"
+    }`,
+    `- **extra in PSFlow** (${r.extra.unexpected.length}): ${list(r.extra.unexpected)}`,
+    renameRows.length
+      ? `- allowlisted renames: ${renameRows.map(([u, p]) => `\`${u}\` → \`${p}\``).join(", ")}`
+      : null,
+    r.missing.known.length
+      ? `- allowlisted missing: ${r.missing.known.map((n) => `\`${n}\` _(${cfg.missing[n]})_`).join(", ")}`
+      : null,
+    r.extra.known.length
+      ? `- allowlisted extra: ${r.extra.known.map((n) => `\`${n}\` _(${cfg.extra[n]})_`).join(", ")}`
+      : null,
     "",
-  ].join("\n");
+  ]
+    .filter((l) => l !== null)
+    .join("\n");
 };
 
 const report = `# Layer 0 — API-surface parity report
@@ -128,32 +165,61 @@ ${knownTable(missing.known, allowMissing)}
 |--------|-----------|
 ${knownTable(extra.known, allowExtra)}
 
-## Prop-member parity (informational)
+## Prop-member parity (gates CI)
 
 Members are restricted to those declared in the xyflow sources (inherited React
-DOM attributes are excluded on both sides). The \`xPos\`/\`yPos\` →
-\`positionAbsoluteX\`/\`positionAbsoluteY\` rename that this section surfaced was
-closed by ticket 069; the remaining annotations below record which upstream
-name a PSFlow member corresponds to.
+DOM attributes are excluded on both sides). Divergence must be declared in
+\`allowlist.json\` under \`props.<Type>\` — as a \`rename\` (an upstream member
+PSFlow surfaces under another name, cancelled on both sides by one entry) or as
+a \`missing\`/\`extra\` entry with a rationale. Anything else fails the gate. The
+\`xPos\`/\`yPos\` → \`positionAbsoluteX\`/\`positionAbsoluteY\` rename that this
+section once merely printed was closed by ticket 069.
 
-${propSection("ReactFlowProps", propResults.ReactFlowProps)}
-${propSection("NodeProps", propResults.NodeProps)}
-${propSection("EdgeProps", propResults.EdgeProps)}
-`;
+**Limit of this comparison: it is name-only.** Neither \`upstream.json\` nor
+\`psflow.json\` carries member *types*, so a member whose type or arity changed
+upstream while keeping its name still passes. That is an accepted limit, not an
+oversight — making it type-aware needs a PureScript type printer, since today's
+PS extraction is a brace-depth scan over \`type X = { … }\` synonyms. Tracked
+separately; do not read a passing prop gate as a guarantee of type parity.
+
+${PROP_TYPES.map((p) => propSection(p.name, propResults[p.name])).join("\n")}`;
 
 writeFileSync(join(here, "report.md"), report);
 
-// ─── Console summary + gate ───────────────────────────────────────────────
+// ─── Console summary + gates ──────────────────────────────────────────────
 console.log(`[diff] missing(gap)=${missing.unexpected.length} extra=${extra.unexpected.length} ` +
   `allowlisted(missing)=${missing.known.length} allowlisted(extra)=${extra.known.length}`);
-console.log(`[diff] props missing: RF=${propResults.ReactFlowProps.missing.length} ` +
-  `Node=${propResults.NodeProps.missing.length} Edge=${propResults.EdgeProps.missing.length}`);
+console.log(
+  `[diff] props ` +
+    PROP_TYPES.map(
+      (p) =>
+        `${p.name}=${propResults[p.name].missing.unexpected.length}/${propResults[p.name].extra.unexpected.length}`
+    ).join(" ") +
+    " (missing/extra, after allowlist)"
+);
 console.log(`[diff] report → ${join(here, "report.md")}`);
 
 if (missing.unexpected.length > 0) {
   console.error(`\n[diff] FAIL: ${missing.unexpected.length} upstream export(s) missing from PSFlow and not allowlisted:`);
   for (const n of missing.unexpected) console.error(`  - ${n}`);
   console.error("Triage into a ticket and add to allowlist.json, or surface the gap.");
-  process.exit(1);
+  process.exitCode = 1;
 }
-console.log("[diff] OK: no un-allowlisted missing exports.");
+
+if (propFailures.length > 0) {
+  console.error(`\n[diff] FAIL: prop-member divergence not allowlisted in ${propFailures.length} record(s):`);
+  for (const name of propFailures) {
+    const r = propResults[name];
+    for (const m of r.missing.unexpected) console.error(`  - ${name}: missing in PSFlow: ${m}`);
+    for (const e of r.extra.unexpected) console.error(`  - ${name}: extra in PSFlow: ${e}`);
+  }
+  console.error(
+    "Add the member to the PS record, or declare it in allowlist.json under\n" +
+      "props.<Type>.rename (upstream name → PSFlow name) or props.<Type>.{missing,extra}."
+  );
+  process.exitCode = 1;
+}
+
+if (!missing.unexpected.length && !propFailures.length) {
+  console.log("[diff] OK: no un-allowlisted missing exports, no un-allowlisted prop divergence.");
+}
