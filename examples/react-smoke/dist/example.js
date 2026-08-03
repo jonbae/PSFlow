@@ -34209,7 +34209,7 @@ var mkEdgeProps = function(edge) {
                 return function(mEnd) {
                   return {
                     id: edge.id,
-                    edgeType: edge.edgeType,
+                    type: edge.edgeType,
                     animated: edge.animated,
                     data: edge.data,
                     style: edge.style,
