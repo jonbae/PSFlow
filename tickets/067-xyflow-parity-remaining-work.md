@@ -80,6 +80,35 @@ Allowlisted, so `parity:api` stays green. Completeness only.
 `Math.round`, so it is under Layer 1 parity only for the non-negative domain.
 Only matters for nodes sitting exactly on a negative snap-grid half-boundary.
 
+### ~~6. `NodeProps` prop-member gap~~ — [069](069-nodeprops-prop-member-gap.md) ✅ RESOLVED (2026-08-03)
+
+All 8 members now reach custom node components: `React.Types.Nodes` gained
+`width`/`height`/`parentId`/`selectable`/`deletable`/`draggable` and the
+`xPos`/`yPos` → `positionAbsoluteX`/`positionAbsoluteY` rename, and
+`mkNodeProps` threads them (it already received `selectable`/`draggable` and
+discarded them). `parity:api` reports *NodeProps* 0 missing / 0 extra.
+
+Because the Layer 0 prop-member diff is informational rather than a gate — which
+is how this drift survived from 12.3.5 — the fix is guarded by e2e:
+`examples/react-smoke/tests/node-props.spec.ts` (PSFlow-specific, not an
+upstream port) asserts every threaded field off a probe node component at
+`#/examples/node-props`. Confirmed to fail under a reverted `selectable` and
+under `positionAbsoluteX` wired to raw `position`.
+
+### 7. Behavioral-drift audit 12.3.5→12.11 — [071](071-version-drift-audit-12-3-to-12-11.md)
+
+Port floor is 12.3.5; surface is gated at 12.11.0 and numeric behavior tested
+at 12.10.2. Bounded sweep of changelog entries not covered by Layer 1 or the 5
+e2e specs. Item 6 is the first instance it would catch (now fixed). A second
+candidate is already visible in the Layer 0 report: *Edge* props still show 1
+missing member — upstream's `type` vs PSFlow's `edgeType`.
+
+### 8. TypeScript declaration surface — [070](070-typescript-declaration-surface.md)
+
+No `.d.ts`; TS consumers get `any` for the public surface. Largest drop-in item
+but purely additive and partly generatable from the Layer 0 parity artifacts.
+Depends on item 6.
+
 ## Recommendation
 
 - For **"true parity"**: item 1 (the real divergence) and item 2 (its unit

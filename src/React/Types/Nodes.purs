@@ -43,16 +43,22 @@ type NodeMouseHandler n = MouseEvent -> Node n -> Effect Unit
 type NodeProps n =
   { id :: String
   , data :: n
-  , selected :: Boolean
-  , type :: String
-  , isConnectable :: Boolean
-  , xPos :: Number
-  , yPos :: Number
-  , zIndex :: Number
-  , dragging :: Boolean
-  , targetPosition :: Maybe Position
+  , width :: Maybe Number
+  , height :: Maybe Number
   , sourcePosition :: Maybe Position
+  , targetPosition :: Maybe Position
   , dragHandle :: Maybe String
+  , parentId :: Maybe String
+  , type :: String
+  , dragging :: Boolean
+  , zIndex :: Number
+  , selectable :: Boolean
+  , deletable :: Boolean
+  , selected :: Boolean
+  , draggable :: Boolean
+  , isConnectable :: Boolean
+  , positionAbsoluteX :: Number
+  , positionAbsoluteY :: Number
   }
 
 type SelectionDragHandler n = MouseEvent -> Array (Node n) -> Effect Unit

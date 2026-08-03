@@ -41,6 +41,7 @@ import System.Types.Connection (Connection)
 import System.Types.Ids (NodeId(..))
 import System.Types.Node (NodeChange)
 import Example.ColorMode (colorModeApp)
+import Example.NodePropsProbe (nodePropsProbeFixture)
 import Generic.Fixture (fixtureForRoute)
 import Generic.Flow (flowView)
 
@@ -356,12 +357,15 @@ main = do
   mEl <- getElementById "app" doc
   hash <- getHashImpl
   -- Route on the URL hash: the bespoke ColorMode page (ticket 065, non-generic —
-  -- carries `colorMode`/`Panel`/`select`, so it bypasses `fixtureForRoute`), then
-  -- a generic-test fixture if it matches, else the original two-node smoke app
-  -- (which the existing smoke.spec.ts targets at the bare index.html, hash = "").
+  -- carries `colorMode`/`Panel`/`select`, so it bypasses `fixtureForRoute`) and
+  -- the NodeProps probe page (ticket 069, a PSFlow-only parity guard kept out of
+  -- the ported `Generic.Fixture` routes), then a generic-test fixture if it
+  -- matches, else the original two-node smoke app (which the existing
+  -- smoke.spec.ts targets at the bare index.html, hash = "").
   let
     rootJsx = case hash of
       "#/examples/color-mode" -> colorModeApp
+      "#/examples/node-props" -> flowView nodePropsProbeFixture
       _ -> case fixtureForRoute hash of
         Just fixture -> flowView fixture
         Nothing -> app
