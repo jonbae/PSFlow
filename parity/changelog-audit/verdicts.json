@@ -50,7 +50,7 @@
     "title": "Support passing `path` element attributes to `BaseEdge` component.",
     "bucket": "ported-ungated",
     "evidence": "",
-    "ticket": "080",
+    "ticket": "079",
     "note": "src/React/Edge/Base.purs path attributes; untested."
   },
   "4862": {
@@ -104,7 +104,7 @@
     "title": "Add type check for all event targets",
     "bucket": "ported-ungated",
     "evidence": "",
-    "ticket": "080",
+    "ticket": "077",
     "note": "event-target type checks in src/System/Utils/Dom.purs; untested."
   },
   "4929": {
@@ -266,7 +266,7 @@
     "title": "Show an error if user drags uninitialized node",
     "bucket": "ported-ungated",
     "evidence": "",
-    "ticket": "080",
+    "ticket": "076",
     "note": "uninitialized-node drag — src/System/XYDrag.purs; the error path is untested."
   },
   "5053": {
@@ -1148,7 +1148,7 @@
     "title": "Call onNodeDrag while autopan is ongoing",
     "bucket": "ported-ungated",
     "evidence": "",
-    "ticket": "080",
+    "ticket": "076",
     "note": "onNodeDrag during autopan — src/System/XYDrag.purs autoPanStep at :350-352; untested."
   },
   "5453": {

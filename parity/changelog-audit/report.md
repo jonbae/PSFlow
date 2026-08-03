@@ -48,17 +48,17 @@ design (as `parity:api` does).
 | [#4826](https://github.com/xyflow/xyflow/pull/4826) | react | 12.3.6 | Forward ref of the div inside Panel components. | ticket 079 |
 | [#4844](https://github.com/xyflow/xyflow/pull/4844) | react | 12.3.6 | Allow custom data-testid for ReactFlow component | ticket 079 |
 | [#4846](https://github.com/xyflow/xyflow/pull/4846) | react | 12.3.6 | Make it possible to use expandParent with immer and other immutable helpers | ticket 076 |
-| [#4855](https://github.com/xyflow/xyflow/pull/4855) | react | 12.3.6 | Support passing `path` element attributes to `BaseEdge` component. | ticket 080 |
+| [#4855](https://github.com/xyflow/xyflow/pull/4855) | react | 12.3.6 | Support passing `path` element attributes to `BaseEdge` component. | ticket 079 |
 | [#4862](https://github.com/xyflow/xyflow/pull/4862) | react | 12.3.6 | Prevent default scrolling behavior when nodes or a selection is moved with an arrow key press. | ticket 076 |
 | [#4875](https://github.com/xyflow/xyflow/pull/4875) | react | 12.3.6 | Prevent unnecessary rerenders of edges when resizing the flow. | ticket 078 |
-| [#4880](https://github.com/xyflow/xyflow/pull/4880) | react | 12.4.0 | Add type check for all event targets | ticket 080 |
+| [#4880](https://github.com/xyflow/xyflow/pull/4880) | react | 12.4.0 | Add type check for all event targets | ticket 077 |
 | [#4929](https://github.com/xyflow/xyflow/pull/4929) | react | 12.4.0 | Optimize selections and take into account if edges connected to selected nodes are actually selectable. | ticket 076 |
 | [#4949](https://github.com/xyflow/xyflow/pull/4949) | react | 12.4.1 | Fix useNodeConnection hook not returning all connected edges. | ticket 077 |
 | [#4991](https://github.com/xyflow/xyflow/pull/4991) | react | 12.4.3 | Fix viewport shifting on node focus | ticket 078 |
 | [#5012](https://github.com/xyflow/xyflow/pull/5012) | react | 12.4.3 | Add snapGrid option to screenToFlowPosition and set snapToGrid to false | ticket 078 |
 | [#5042](https://github.com/xyflow/xyflow/pull/5042) | react | 12.4.4 | Allow click connections when target sets `isConnectableStart` | ticket 077 |
 | [#5043](https://github.com/xyflow/xyflow/pull/5043) | react | 12.4.4 | Use current expandParent value on drag to be able to update it while dragging | ticket 076 |
-| [#5052](https://github.com/xyflow/xyflow/pull/5052) | react | 12.4.4 | Show an error if user drags uninitialized node | ticket 080 |
+| [#5052](https://github.com/xyflow/xyflow/pull/5052) | react | 12.4.4 | Show an error if user drags uninitialized node | ticket 076 |
 | [#5090](https://github.com/xyflow/xyflow/pull/5090) | react | 12.5.0 | Release key even when an inout field is focused | ticket 077 |
 | [#5118](https://github.com/xyflow/xyflow/pull/5118) | system | 0.0.53 | Do not swallow key events when a button is focused | ticket 077 |
 | [#5120](https://github.com/xyflow/xyflow/pull/5120) | react | 12.5.1 | Handle fitView for uncontrolled flows | ticket 078 |
@@ -76,7 +76,7 @@ design (as `parity:api` does).
 | [#5362](https://github.com/xyflow/xyflow/pull/5362) | react | 12.8.0 | Remove pointer events from Panel via CSS while a selection gets dragged | ticket 079 |
 | [#5368](https://github.com/xyflow/xyflow/pull/5368) | react | 12.8.0 | Cleanup store updater | ticket 076 |
 | [#5428](https://github.com/xyflow/xyflow/pull/5428) | react | 12.8.3 | Fix clicking on detached handle elements not initiating drawing of connections | ticket 077 |
-| [#5450](https://github.com/xyflow/xyflow/pull/5450) | system | 0.0.67 | Call onNodeDrag while autopan is ongoing | ticket 080 |
+| [#5450](https://github.com/xyflow/xyflow/pull/5450) | system | 0.0.67 | Call onNodeDrag while autopan is ongoing | ticket 076 |
 | [#5455](https://github.com/xyflow/xyflow/pull/5455) | react | 12.8.5 | Fix warning when display is set to none on the wrapper div | ticket 079 |
 | [#5472](https://github.com/xyflow/xyflow/pull/5472) | react | 12.8.4 | Remove dangerouslySetInnerHTML from domAttributes | ticket 079 |
 | [#5480](https://github.com/xyflow/xyflow/pull/5480) | react | 12.8.5 | Prevent multi-touch events while making a new connection | ticket 077 |

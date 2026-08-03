@@ -1,5 +1,72 @@
 # 071 — Behavioral-drift audit: 12.3.5 → 12.11.0
 
+## ✅ RESOLVED (2026-08-03)
+
+Both acceptance criteria met, plus the standing gate the criteria implied but
+did not require.
+
+1. **The written pass exists.** All **180 in-range PRs** (154 react + 85 system
+   entries, deduped) are bucketed in `parity/changelog-audit/verdicts.json` and
+   rendered to `parity/changelog-audit/report.md`: **113 covered, 66 silent
+   gaps, 1 n/a**. Every covered row cites a specific artifact — all 154 file
+   citations were verified to resolve, and ten covered rows were spot-checked
+   against the cited source.
+
+2. **Every silent gap is fixed or ticketed.** Mechanically checkable: all 66 gap
+   rows carry a `ticket` value. Two are known-wrong behavior
+   ([073](073-xyresizer-drag-lifecycle-scaffold.md),
+   [075](075-custom-default-node-type-fallback.md)); the rest are missing
+   features ([074](074-node-edge-domattributes-ariarole.md)) or test debt
+   ([076](076-test-debt-drag-selection-store.md)–[079](079-test-debt-component-chrome.md)).
+
+3. **The devDependency floor was corrected** — and the reason it understated
+   parity turned out to be worse than "the floor is stale": see correction 2
+   below.
+
+**Yield was low, as the plan predicted.** The five behavioral entries
+spot-checked during planning were all already correct. The lasting output is the
+gate, not the sweep:
+
+- `npm run parity:changelog` fails on any in-range PR without a verdict, and on
+  any covered verdict without evidence. This is what catches the *next* bump.
+- `npm run parity:api` now **gates** prop-member divergence instead of printing
+  it. That printing-not-failing behavior is precisely how the `xPos`/`yPos`
+  rename survived from 12.3.5 to 12.11.0 for months
+  ([069](069-nodeprops-prop-member-gap.md)).
+
+### Two established "facts" that were wrong
+
+Both were corrected in this ticket's first commit, since both shaped how the
+work was reasoned about:
+
+1. **Layer 1 does not test against `node_modules`.** `oracle/esbuild.mjs`
+   resolves every oracle entry against the vendored tree and `oracle/index.js`
+   banners 12.11.0 / 0.0.77. Nothing in the repo imports `@xyflow/*` from
+   `node_modules`, so Layer 0 and Layer 1 share **one** baseline and the
+   installed 12.10.2 was dead weight. This ticket and 067 both claimed numeric
+   behavior was tested at 12.10.2.
+
+2. **The `type` keyword rationale was false.** `System/Types/Node.purs` and
+   `System/Types/Edge.purs` claimed `type` was renamed because it is a
+   PureScript keyword. It is not — `React/Types/Nodes.purs` has declared
+   `type :: String` all along. The real reason is consistency with the
+   `nodeTypes`/`edgeTypes` lookup maps; realigning the data records is
+   [072](072-node-edge-data-record-type-field.md).
+
+### Scope notes
+
+`EdgeProps.edgeType` → `type` (upstream #5531) landed here, taking all three
+prop records to 0 missing / 0 extra. **Zero inline fixes** were taken from the
+sweep: the one tempting candidate (#5384, a genuine one-line divergence) failed
+the triage rule's gate criterion, so it became
+[075](075-custom-default-node-type-fallback.md). The cap of 5 was never
+approached.
+
+Known limits, stated rather than implied: the prop gate is **name-only** (a
+changed member type or arity still passes), and it does not cover the
+`Node`/`Edge` data records at all — which is why
+[074](074-node-edge-domattributes-ariarole.md) was invisible to it.
+
 ## Context
 
 PSFlow was originally ported against `@xyflow/react@^12.3.5`. The current parity
