@@ -1,0 +1,1623 @@
+{
+  "4725": {
+    "pkg": "react",
+    "version": "12.4.0",
+    "title": "Add useNodeConnections hook to track all connections to a node. Can be filtered by handleType and handleId.",
+    "bucket": "layer0",
+    "evidence": "`useNodeConnections` present in psflow.json valueExports; src/React/Hook/NodeConnections.purs.",
+    "ticket": null,
+    "note": ""
+  },
+  "4816": {
+    "pkg": "react",
+    "version": "12.3.6",
+    "title": "Type isValidConnection prop correctly by passing EdgeType",
+    "bucket": "ts-only",
+    "evidence": "TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently and gated by Layer 0.",
+    "ticket": null,
+    "note": ""
+  },
+  "4826": {
+    "pkg": "react",
+    "version": "12.3.6",
+    "title": "Forward ref of the div inside Panel components.",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "079",
+    "note": "Panel ref forwarding is deferred in PSFlow (src/React/FFI/ForwardRef.purs exists but Panel does not use it); untested."
+  },
+  "4844": {
+    "pkg": "react",
+    "version": "12.3.6",
+    "title": "Allow custom data-testid for ReactFlow component",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "079",
+    "note": "data-testid passthrough in src/React/Container/ReactFlow.purs; untested."
+  },
+  "4846": {
+    "pkg": "react",
+    "version": "12.3.6",
+    "title": "Make it possible to use expandParent with immer and other immutable helpers",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "076",
+    "note": "expandParent path is pure-FP (no in-place mutation), so immer compatibility is structural; untested."
+  },
+  "4855": {
+    "pkg": "react",
+    "version": "12.3.6",
+    "title": "Support passing `path` element attributes to `BaseEdge` component.",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "079",
+    "note": "src/React/Edge/Base.purs path attributes; untested."
+  },
+  "4862": {
+    "pkg": "react",
+    "version": "12.3.6",
+    "title": "Prevent default scrolling behavior when nodes or a selection is moved with an arrow key press.",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "076",
+    "note": "arrow-key nudges in src/React/Hook/MoveSelectedNodes.purs; scroll-prevention untested."
+  },
+  "4865": {
+    "pkg": "react",
+    "version": "12.3.6",
+    "title": "Add group node to BuiltInNode type. Thanks [@sjdemartini](https://github.com/sjdemartini)!",
+    "bucket": "layer0",
+    "evidence": "Group node present as a built-in: src/React/Node/Group.purs, registered in builtinNodeTypes.",
+    "ticket": null,
+    "note": ""
+  },
+  "4874": {
+    "pkg": "system",
+    "version": "0.0.47",
+    "title": "Refactor isInputDOMNode so that it handles non-html objects",
+    "bucket": "unit",
+    "evidence": "src/System/Utils/Dom.purs isInputDOMNode; guarded by the element-selection-key assertions in test/Test/Main.purs:195.",
+    "ticket": null,
+    "note": ""
+  },
+  "4875": {
+    "pkg": "react",
+    "version": "12.3.6",
+    "title": "Prevent unnecessary rerenders of edges when resizing the flow.",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "078",
+    "note": "edge re-render on resize — src/React/Container/EdgeRenderer.purs; untested."
+  },
+  "4877": {
+    "pkg": "react",
+    "version": "12.3.6",
+    "title": "Fix intersections for nodes with origins other than [0,0]. Thanks [@gmvrpw](https://github.com/gmvrpw)!",
+    "bucket": "layer1",
+    "evidence": "nodeToRect takes nodeOrigin at src/React/Hook/ReactFlow.purs:289-294; nodeOrigin geometry gated by test/Test/Parity/Geometry.purs.",
+    "ticket": null,
+    "note": ""
+  },
+  "4880": {
+    "pkg": "react",
+    "version": "12.4.0",
+    "title": "Add type check for all event targets",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "077",
+    "note": "event-target type checks in src/System/Utils/Dom.purs; untested."
+  },
+  "4929": {
+    "pkg": "react",
+    "version": "12.4.0",
+    "title": "Optimize selections and take into account if edges connected to selected nodes are actually selectable.",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "076",
+    "note": "selection/edge-selectability interaction in src/System/Utils/Store.purs; untested."
+  },
+  "4947": {
+    "pkg": "react",
+    "version": "12.4.0",
+    "title": "Export ResizeControlVariant correctly as a value.",
+    "bucket": "layer0",
+    "evidence": "`ResizeControlVariant` present in psflow.json exports; src/React/Types/Component.purs.",
+    "ticket": null,
+    "note": ""
+  },
+  "4949": {
+    "pkg": "react",
+    "version": "12.4.1",
+    "title": "Fix useNodeConnection hook not returning all connected edges.",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "077",
+    "note": "src/React/Hook/NodeConnections.purs; the all-connected-edges case is untested."
+  },
+  "4957": {
+    "pkg": "react",
+    "version": "12.4.2",
+    "title": "Narrow properties selected, selectable, deletable, draggable of NodeProps type to be required.",
+    "bucket": "ts-only",
+    "evidence": "Narrows NodeProps.selected/selectable/deletable/draggable to required. PSFlow declares them non-Maybe in src/React/Types/Nodes.purs and guards the threading in examples/react-smoke/tests/node-props.spec.ts (ticket 069 probe).",
+    "ticket": null,
+    "note": ""
+  },
+  "4968": {
+    "pkg": "system",
+    "version": "0.0.50",
+    "title": "Make internal nodes immutable",
+    "bucket": "unit",
+    "evidence": "PureScript records are immutable by construction, so `make internal nodes immutable` has no PSFlow analogue to port; src/System/Utils/Store.purs rebuilds node records per update, exercised by test/Test/System/Utils/Store.purs runStoreProperties (adoptUserNodes idempotence).",
+    "ticket": null,
+    "note": ""
+  },
+  "4990": {
+    "pkg": "system",
+    "version": "0.0.51",
+    "title": "Make it possible to stop autoPanOnDrag by setting it to false",
+    "bucket": "layer2",
+    "evidence": "examples/react-smoke/tests/generic-pane.spec.ts — \"autoPanOnNodeDrag\" / \"autoPanOnConnect\"; autoPanOnDrag=false honoured in src/System/XYDrag.purs.",
+    "ticket": null,
+    "note": ""
+  },
+  "4991": {
+    "pkg": "react",
+    "version": "12.4.3",
+    "title": "Fix viewport shifting on node focus",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "078",
+    "note": "node-focus viewport handling in src/React/Component/NodeWrapper.purs; untested."
+  },
+  "5003": {
+    "pkg": "react",
+    "version": "12.4.3",
+    "title": "repair lint command",
+    "bucket": "docs",
+    "evidence": "Upstream lint/build-tooling change; no runtime behavior.",
+    "ticket": null,
+    "note": ""
+  },
+  "5008": {
+    "pkg": "react",
+    "version": "12.4.3",
+    "title": "Add package.json to exports",
+    "bucket": "docs",
+    "evidence": "Upstream packaging metadata; PSFlow ships its own index.js + spago.yaml.",
+    "ticket": null,
+    "note": ""
+  },
+  "5010": {
+    "pkg": "react",
+    "version": "12.4.3",
+    "title": "Add more TSDocs to components, hooks, utils funcs and types",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5012": {
+    "pkg": "react",
+    "version": "12.4.3",
+    "title": "Add snapGrid option to screenToFlowPosition and set snapToGrid to false",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "078",
+    "note": "same screenToFlowPosition snapGrid path as #5722; untested."
+  },
+  "5013": {
+    "pkg": "react",
+    "version": "12.4.3",
+    "title": "Pass `NodeType` type argument from `ReactFlowProps` to `connectionLineComponent` property.",
+    "bucket": "ts-only",
+    "evidence": "TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently and gated by Layer 0.",
+    "ticket": null,
+    "note": ""
+  },
+  "5032": {
+    "pkg": "react",
+    "version": "12.4.4",
+    "title": "lint: remove unnecessary type assertions",
+    "bucket": "docs",
+    "evidence": "Upstream lint/build-tooling change; no runtime behavior.",
+    "ticket": null,
+    "note": ""
+  },
+  "5033": {
+    "pkg": "react",
+    "version": "12.4.4",
+    "title": "lint: use `React.JSX` type instead of the deprecated global `JSX` namespace",
+    "bucket": "docs",
+    "evidence": "Upstream lint/build-tooling change; no runtime behavior.",
+    "ticket": null,
+    "note": ""
+  },
+  "5042": {
+    "pkg": "react",
+    "version": "12.4.4",
+    "title": "Allow click connections when target sets `isConnectableStart`",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "077",
+    "note": "isConnectableStart handling in src/React/Handle.purs; click-connection case untested."
+  },
+  "5043": {
+    "pkg": "react",
+    "version": "12.4.4",
+    "title": "Use current expandParent value on drag to be able to update it while dragging",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "076",
+    "note": "expandParent at src/System/Types/Node.purs:77,139 is read during drag; live updates untested."
+  },
+  "5047": {
+    "pkg": "react",
+    "version": "12.4.4",
+    "title": "Pass generics to OnSelectionChangeFunc so that users can type it correctly",
+    "bucket": "ts-only",
+    "evidence": "TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently and gated by Layer 0.",
+    "ticket": null,
+    "note": ""
+  },
+  "5052": {
+    "pkg": "react",
+    "version": "12.4.4",
+    "title": "Show an error if user drags uninitialized node",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "076",
+    "note": "uninitialized-node drag — src/System/XYDrag.purs; the error path is untested."
+  },
+  "5053": {
+    "pkg": "react",
+    "version": "12.4.4",
+    "title": "Remove incorrect deprecation warning",
+    "bucket": "docs",
+    "evidence": "Removes an incorrect upstream deprecation warning. PSFlow never ported that warning — src/System/Constants.purs carries no deprecation codes.",
+    "ticket": null,
+    "note": ""
+  },
+  "5059": {
+    "pkg": "react",
+    "version": "12.5.0",
+    "title": "Prevent onPaneClick when connection is in progress. Closes [#5057](https://github.com/xyflow/xyflow/issues/5057)",
+    "bucket": "layer2",
+    "evidence": "examples/react-smoke/tests/generic-pane.spec.ts + examples/react-smoke/tests/generic-nodes.spec.ts \"connecting two nodes\"; src/React/Container/Pane.purs:290 returns early when slice.connectionInProgress.",
+    "ticket": null,
+    "note": ""
+  },
+  "5067": {
+    "pkg": "react",
+    "version": "12.5.0",
+    "title": "You can now express paddings in fitViewOptions as pixels ('30px'), as viewport percentages ('20%') and define different paddings for each side.",
+    "bucket": "layer1",
+    "evidence": "src/System/Utils/Graph.purs:47-48 Padding/PaddingValue (px + ratio + per-side), defaultFitViewPadding = UniformPadding (RatioPadding 0.1) at :309-310; Padding smart constructors unit-tested in test/Test/Main.purs (`Padding smart-construct both variants`).",
+    "ticket": null,
+    "note": ""
+  },
+  "5090": {
+    "pkg": "react",
+    "version": "12.5.0",
+    "title": "Release key even when an inout field is focused",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "077",
+    "note": "src/React/Hook/KeyPress.purs release-on-blur handling; untested."
+  },
+  "5091": {
+    "pkg": "system",
+    "version": "0.0.53",
+    "title": "Add center-left and center-right as a panel position",
+    "bucket": "layer0",
+    "evidence": "`CenterLeft`/`CenterRight` panel positions at src/React/Portal/Panel.purs:33-34.",
+    "ticket": null,
+    "note": ""
+  },
+  "5093": {
+    "pkg": "react",
+    "version": "12.5.0",
+    "title": "Hidden nodes are not displayed in the mini map anymore",
+    "bucket": "layer2",
+    "evidence": "src/React/Additional/MiniMap/Nodes.purs:54 drops hidden nodes; src/React/Additional/MiniMap.purs:91 excludes them from bounds. Rendered in examples/react-smoke/tests/generic-props.spec.ts screenshot coverage.",
+    "ticket": null,
+    "note": ""
+  },
+  "5105": {
+    "pkg": "react",
+    "version": "12.11.0",
+    "title": "Fix type for event passed to onNodeDrag",
+    "bucket": "ts-only",
+    "evidence": "TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently and gated by Layer 0.",
+    "ticket": null,
+    "note": ""
+  },
+  "5107": {
+    "pkg": "react",
+    "version": "12.5.0",
+    "title": "Add TSDoc annotations for exported edges",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5109": {
+    "pkg": "react",
+    "version": "12.5.0",
+    "title": "fix: improve TSDoc comments for `BackgroundProps`",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5110": {
+    "pkg": "react",
+    "version": "12.5.0",
+    "title": "fix: improve TSDoc comments for `EdgeLabelOptions` and `BaseEdgeProps`",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5113": {
+    "pkg": "react",
+    "version": "12.5.0",
+    "title": "fix: improve TSDoc comments for `ControlProps`",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5114": {
+    "pkg": "react",
+    "version": "12.5.0",
+    "title": "feat: export `EdgeLabelRendererProps`",
+    "bucket": "layer0",
+    "evidence": "`EdgeLabelRendererProps` present in psflow.json typeExports; src/React/Portal/EdgeLabelRenderer.purs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5115": {
+    "pkg": "react",
+    "version": "12.5.0",
+    "title": "fix: improve TSDoc comments for `EdgeLabelOptions` and `EdgeTextProps`",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5116": {
+    "pkg": "react",
+    "version": "12.5.0",
+    "title": "fix: improve TSDoc comments for `NodeToolbarProps`",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5118": {
+    "pkg": "system",
+    "version": "0.0.53",
+    "title": "Do not swallow key events when a button is focused",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "077",
+    "note": "src/React/Hook/KeyPress.purs + src/System/Utils/Dom.purs isInputDOMNode; button-focus case untested."
+  },
+  "5120": {
+    "pkg": "react",
+    "version": "12.5.1",
+    "title": "Handle fitView for uncontrolled flows",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "078",
+    "note": "uncontrolled-flow fitView in src/React/Hook/NodesEdgesState.purs; untested."
+  },
+  "5124": {
+    "pkg": "react",
+    "version": "12.5.2",
+    "title": "Export NodeConnection type",
+    "bucket": "layer0",
+    "evidence": "`NodeConnection` present in psflow.json typeExports; parity/layer0-api/report.md — Layer 0 export+prop diff, missing(gap)=0",
+    "ticket": null,
+    "note": ""
+  },
+  "5127": {
+    "pkg": "react",
+    "version": "12.5.2",
+    "title": "Fix `fitView` not working when returning early in `onNodesChange`.",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "078",
+    "note": "same fitView path as #5132; early-return case untested."
+  },
+  "5132": {
+    "pkg": "react",
+    "version": "12.5.3",
+    "title": "Fix fitView not working when onNodesChange is not defined.",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "078",
+    "note": "fitView paths in src/React/Hook/ViewportHelper.purs / src/System/Utils/Graph.purs; the onNodesChange-undefined case is untested."
+  },
+  "5134": {
+    "pkg": "react",
+    "version": "12.5.4",
+    "title": "Adjust `@default` TSDoc tags for `BackgroundProps`",
+    "bucket": "docs",
+    "evidence": "Corrects upstream's `@default` TSDoc tags to match the code; the defaults themselves did not change. PSFlow's Background defaults are asserted in src/React/Additional/Background.purs (variant Dots, gap 20, size 1).",
+    "ticket": null,
+    "note": ""
+  },
+  "5135": {
+    "pkg": "react",
+    "version": "12.5.4",
+    "title": "Improve TSDoc comments for `NodeResizerProps` and `ResizeControlProps`",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5136": {
+    "pkg": "system",
+    "version": "0.0.54",
+    "title": "Improve TSDoc comments for `EdgeBase`",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5137": {
+    "pkg": "system",
+    "version": "0.0.54",
+    "title": "Improve TSDoc comments for `Connection` and `ConnectionInProgress`",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5138": {
+    "pkg": "react",
+    "version": "12.5.4",
+    "title": "Improve TSDoc comments for `ViewportHelperFunctions` and `NodeToolbarProps`",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5139": {
+    "pkg": "system",
+    "version": "0.0.54",
+    "title": "Use `rgba` for colors with opacity instead of `rgb` for `MiniMap` mask color",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "079",
+    "note": "mask colors flow through CSS custom properties at src/React/Additional/MiniMap.purs:138-141 rather than an rgb/rgba string builder; untested."
+  },
+  "5140": {
+    "pkg": "react",
+    "version": "12.5.4",
+    "title": "Improve TSDoc comments for `MiniMapProps` and `PanelProps`",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5141": {
+    "pkg": "react",
+    "version": "12.5.4",
+    "title": "Improve TSDoc comments for `Edge`, `BaseEdgeProps` and `ConnectionLineComponentProps`",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5142": {
+    "pkg": "system",
+    "version": "0.0.54",
+    "title": "Improve TSDoc comments for `HandleProps`, `NodeBase` and `InternalNodeBase`",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5143": {
+    "pkg": "react",
+    "version": "12.5.4",
+    "title": "Improve TSDoc comments for `ReactFlowInstance` and `GeneralHelpers`",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5144": {
+    "pkg": "react",
+    "version": "12.5.4",
+    "title": "Compare `nodeStrokeWidth` with `number`, not with `string` within `MiniMap`",
+    "bucket": "layer2",
+    "evidence": "src/React/Additional/MiniMap.purs:145 renders nodeStrokeWidth via `map show` on a Number — PureScript typing removes the string/number comparison hazard entirely.",
+    "ticket": null,
+    "note": ""
+  },
+  "5147": {
+    "pkg": "react",
+    "version": "12.5.4",
+    "title": "Pass dimensions to final resize change event",
+    "bucket": "not-ported",
+    "evidence": "",
+    "ticket": "073",
+    "note": "src/System/XYResizer.purs:336-338 onEnd passes initResizeParams (zeros) instead of the final prevValues."
+  },
+  "5148": {
+    "pkg": "system",
+    "version": "0.0.54",
+    "title": "Prevent browser zoom for pinch zoom gestures on nowheel elements",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "079",
+    "note": "same nowheel guard as #5512 on the system side; untested."
+  },
+  "5153": {
+    "pkg": "system",
+    "version": "0.0.56",
+    "title": "Add separators to horizontal control buttons",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "079",
+    "note": "src/React/Additional/Controls.purs horizontal orientation; separators untested."
+  },
+  "5154": {
+    "pkg": "react",
+    "version": "12.5.5",
+    "title": "Improve TSDoc comments for `onNodesChange`",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5155": {
+    "pkg": "system",
+    "version": "0.0.55",
+    "title": "Improve TSDoc comments for `type GetStraightPathParams` and `getStraightPath` function",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5156": {
+    "pkg": "system",
+    "version": "0.0.55",
+    "title": "Improve TSDoc comments for `type GetSmoothStepPathParams` and `getSmoothStepPath` function",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5157": {
+    "pkg": "system",
+    "version": "0.0.55",
+    "title": "Improve TSDoc comments for `type GetBezierPathParams` and `getBezierPath` function",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5159": {
+    "pkg": "react",
+    "version": "12.5.5",
+    "title": "Improve TSDoc comments for `useConnection` hook",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5160": {
+    "pkg": "react",
+    "version": "12.5.5",
+    "title": "Improve TSDoc comments for `type UseHandleConnectionsParams` and `useHandleConnections` hook",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5161": {
+    "pkg": "react",
+    "version": "12.5.5",
+    "title": "Improve TSDoc comments for `type UseKeyPressOptions` and `useKeyPress` hook",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5162": {
+    "pkg": "react",
+    "version": "12.5.5",
+    "title": "Improve TSDoc comments for `type UseNodeConnectionsParams` and `useNodeConnections` hook",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5163": {
+    "pkg": "react",
+    "version": "12.5.5",
+    "title": "Improve TSDoc comments for `useNodesState` and `useEdgesState` hook",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5164": {
+    "pkg": "react",
+    "version": "12.5.5",
+    "title": "Improve TSDoc comments for `type UseOnViewportChangeOptions` and `useOnViewportChange` hook",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5165": {
+    "pkg": "react",
+    "version": "12.5.5",
+    "title": "Improve TSDoc comments for `useViewport`, `useUpdateNodeInternals`, `useOnSelectionChange`, `useNodesInitialized` hooks and `UseOnSelectionChangeOptions`, `UseNodesInitializedOptions` types",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5166": {
+    "pkg": "react",
+    "version": "12.5.5",
+    "title": "Improve TSDoc comments for `useStore` hook",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5167": {
+    "pkg": "react",
+    "version": "12.5.5",
+    "title": "Improve TSDoc comments for `useEdges`, `useInternalNode`, `useNodes` and `useNodeId` hooks",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5168": {
+    "pkg": "system",
+    "version": "0.0.55",
+    "title": "Improve TSDoc comments for `getOutgoers`, `getIncomers` and `type GetNodesBoundsParams`",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5169": {
+    "pkg": "system",
+    "version": "0.0.55",
+    "title": "Improve TSDoc comments for `type ReconnectEdgeOptions` and `getViewportForBounds`",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5170": {
+    "pkg": "react",
+    "version": "12.5.5",
+    "title": "Improve TSDoc comments for `interface GetSimpleBezierPathParams` and `getSimpleBezierPath`",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5171": {
+    "pkg": "react",
+    "version": "12.5.5",
+    "title": "Improve TSDoc comments for `ReactFlowProps`",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5172": {
+    "pkg": "react",
+    "version": "12.5.5",
+    "title": "Improve TSDoc comments for `useNodesData`, `useReactFlow`, `isNode` and `isEdge`",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5174": {
+    "pkg": "react",
+    "version": "12.5.5",
+    "title": "Improve TSDoc comments for `BaseEdgeProps`",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5191": {
+    "pkg": "react",
+    "version": "12.5.6",
+    "title": "Fix legacy padding being slightly larger than before",
+    "bucket": "layer1",
+    "evidence": "Same Padding model as #5067 — src/System/Utils/Graph.purs:309-310 pins the 0.1 ratio default that this PR corrected.",
+    "ticket": null,
+    "note": ""
+  },
+  "5192": {
+    "pkg": "react",
+    "version": "12.5.6",
+    "title": "Optimize performance of nodesInitialized",
+    "bucket": "unit",
+    "evidence": "test/Test/React/Hook/VisibleIds.purs + src/React/Hook/VisibleIds/Pure.purs cover the initialization/visibility computation.",
+    "ticket": null,
+    "note": ""
+  },
+  "5196": {
+    "pkg": "react",
+    "version": "12.5.6",
+    "title": "Hide edge marker and attribution for screenreaders",
+    "bucket": "layer2",
+    "evidence": "examples/react-smoke/tests/generic-edges.spec.ts — \"aria-lable is working\"; src/React/Container/A11yDescriptions.purs and src/React/Container/Attribution.purs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5212": {
+    "pkg": "react",
+    "version": "12.5.6",
+    "title": "Add polyfill for `Promise.withResolvers`",
+    "bucket": "n/a",
+    "evidence": "Promise.withResolvers polyfill for the TS build target; PureScript's Aff does not use it.",
+    "ticket": null,
+    "note": ""
+  },
+  "5213": {
+    "pkg": "react",
+    "version": "12.5.6",
+    "title": "Do not trigger selection events if elementsSelectable=false",
+    "bucket": "layer2",
+    "evidence": "examples/react-smoke/tests/generic-nodes.spec.ts — \"selectable=false prevents selection\"; elementsSelectable gating at src/React/Container/Pane.purs:210,443-446.",
+    "ticket": null,
+    "note": ""
+  },
+  "5217": {
+    "pkg": "react",
+    "version": "12.6.0",
+    "title": "Keep node seleciton on pane click if elementsSelectable=false",
+    "bucket": "layer2",
+    "evidence": "examples/react-smoke/tests/generic-nodes.spec.ts — \"selectable=false prevents selection\"; Pane.purs:443-446 mirrors upstream Pane/index.tsx:355-363 (handlers omitted when isSelectionEnabled).",
+    "ticket": null,
+    "note": ""
+  },
+  "5219": {
+    "pkg": "react",
+    "version": "12.6.0",
+    "title": "Add initialMinZoom, initialMaxZoom and initialFitViewOptions to ReactFlowProvider",
+    "bucket": "layer0",
+    "evidence": "initialMinZoom/initialMaxZoom/initialFitViewOptions on ReactFlowProviderProps — src/React/Types/Component.purs:827, consumed at src/React/Provider.purs:56.",
+    "ticket": null,
+    "note": ""
+  },
+  "5221": {
+    "pkg": "system",
+    "version": "0.0.57",
+    "title": "Allow zero as a valid node width/height value",
+    "bucket": "layer1",
+    "evidence": "test/Test/Parity/Geometry.purs geometry differentials; zero width/height flow through as plain Numbers with no truthiness guard (PureScript has no falsy-0 hazard).",
+    "ticket": null,
+    "note": ""
+  },
+  "5227": {
+    "pkg": "react",
+    "version": "12.6.0",
+    "title": "Add `resizeDirection` prop for the `NodeResizeControl` component",
+    "bucket": "layer0",
+    "evidence": "`resizeDirection` present at src/React/Types/Component.purs:583 and src/System/XYResizer.purs:214.",
+    "ticket": null,
+    "note": ""
+  },
+  "5247": {
+    "pkg": "react",
+    "version": "12.6.1",
+    "title": "Cleanup TSDoc annotations for ReactFlow",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5249": {
+    "pkg": "react",
+    "version": "12.6.1",
+    "title": "Call `onNodesChange` for uncontrolled flows that use `updateNode`",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "078",
+    "note": "updateNode → onNodesChange in src/React/Hook/ReactFlow.purs; the uncontrolled case is untested."
+  },
+  "5252": {
+    "pkg": "system",
+    "version": "0.0.58",
+    "title": "Center panel correctly when bottom-center or top-center position is used",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "079",
+    "note": "panel position strings at src/React/Portal/Panel.purs:28-34; centering untested."
+  },
+  "5255": {
+    "pkg": "system",
+    "version": "0.0.59",
+    "title": "Added OnReconnect types",
+    "bucket": "layer0",
+    "evidence": "`OnReconnect` present in psflow.json typeExports.",
+    "ticket": null,
+    "note": ""
+  },
+  "5257": {
+    "pkg": "react",
+    "version": "12.6.2",
+    "title": "Use OnReconnect from system",
+    "bucket": "layer0",
+    "evidence": "`OnReconnect` sourced from the system-side type; present in psflow.json typeExports.",
+    "ticket": null,
+    "note": ""
+  },
+  "5259": {
+    "pkg": "react",
+    "version": "12.6.3",
+    "title": "Fix background-color css variable fallback.",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "079",
+    "note": "background CSS custom properties at src/React/Additional/Background.purs:87,90; fallback chain untested."
+  },
+  "5263": {
+    "pkg": "react",
+    "version": "12.6.4",
+    "title": "Multi select key works when input is focused",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "077",
+    "note": "multi-select key handling in src/React/Hook/KeyPress.purs; focused-input case untested."
+  },
+  "5266": {
+    "pkg": "react",
+    "version": "12.6.4",
+    "title": "Fix connection snapping for handles larger than connectionRadius",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "077",
+    "note": "connectionRadius handling in src/System/XYHandle/Utils.purs; large-handle case untested."
+  },
+  "5276": {
+    "pkg": "react",
+    "version": "12.7.0",
+    "title": "Add an `ease` and `interpolate` option to all function that alter the viewport",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "078",
+    "note": "ease/interpolate threaded at src/React/Hook/ViewportHelper.purs:96-97,124 into src/System/XYPanZoom.purs:249,287,305; XYPanZoom.purs:237 notes the d3 interpolate APIs are not exercised."
+  },
+  "5277": {
+    "pkg": "react",
+    "version": "12.7.0",
+    "title": "Add `ariaLabelConfig` prop for customizing UI text like aria labels and descriptions.",
+    "bucket": "layer0",
+    "evidence": "`ariaLabelConfig` on both sides (src/React/Types/Component.purs:254); merge semantics unit-tested in test/Test/Main.purs (`mergeAriaLabelConfig` with and without overrides).",
+    "ticket": null,
+    "note": ""
+  },
+  "5280": {
+    "pkg": "react",
+    "version": "12.7.0",
+    "title": "Improve typing for Nodes",
+    "bucket": "ts-only",
+    "evidence": "TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently and gated by Layer 0.",
+    "ticket": null,
+    "note": ""
+  },
+  "5299": {
+    "pkg": "react",
+    "version": "12.7.0",
+    "title": "Add `ariaRole` prop to nodes and edges",
+    "bucket": "not-ported",
+    "evidence": "",
+    "ticket": "074",
+    "note": "src/React/Component/NodeWrapper.purs:33 and src/React/Component/EdgeWrapper.purs:27 document that ariaRole is not carried; EdgeWrapper substitutes a fixed \"img\"/\"group\"."
+  },
+  "5308": {
+    "pkg": "react",
+    "version": "12.7.0",
+    "title": "Focus nodes on tab if not within the viewport and add a new prop `autoPanOnNodeFocus`",
+    "bucket": "layer0",
+    "evidence": "`autoPanOnNodeFocus` on both sides (src/React/Types/Component.purs:211); focus handling in src/React/Component/NodeWrapper.purs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5317": {
+    "pkg": "react",
+    "version": "12.7.0",
+    "title": "Add `domAttributes` option for nodes and edges",
+    "bucket": "not-ported",
+    "evidence": "",
+    "ticket": "074",
+    "note": "src/React/Component/NodeWrapper.purs:33 and src/React/Component/EdgeWrapper.purs:27 both document that domAttributes is not carried on NodeBase/EdgeBase."
+  },
+  "5321": {
+    "pkg": "system",
+    "version": "0.0.66",
+    "title": "Fix incorrect node position clamping for non-child nodes",
+    "bucket": "layer1",
+    "evidence": "test/Test/Parity/Geometry.purs — clampPosition differential vs the oracle; src/System/Utils/General.purs clampPosition.",
+    "ticket": null,
+    "note": ""
+  },
+  "5326": {
+    "pkg": "react",
+    "version": "12.7.0",
+    "title": "Prevent NodeResizer controls to become too small when zooming out",
+    "bucket": "not-ported",
+    "evidence": "",
+    "ticket": "073",
+    "note": "NodeResizer control auto-scaling exists at src/React/Additional/NodeResizer/Control.purs:83 but the resize lifecycle it feeds is a scaffold."
+  },
+  "5333": {
+    "pkg": "react",
+    "version": "12.7.1",
+    "title": "Add missing type exports",
+    "bucket": "layer0",
+    "evidence": "parity/layer0-api/report.md — Layer 0 export+prop diff, missing(gap)=0",
+    "ticket": null,
+    "note": ""
+  },
+  "5344": {
+    "pkg": "react",
+    "version": "12.8.0",
+    "title": "Add connectionDragThreshold prop",
+    "bucket": "layer0",
+    "evidence": "`connectionDragThreshold` on both sides (src/React/Types/Component.purs:218), threaded at src/React/Handle.purs:376.",
+    "ticket": null,
+    "note": ""
+  },
+  "5350": {
+    "pkg": "system",
+    "version": "0.0.63",
+    "title": "Only send node position updates if positions changed",
+    "bucket": "layer1",
+    "evidence": "src/System/Utils/Store.purs:572-573,617-618 gate position/dimension updates on an actual delta; unit-tested in test/Test/System/Utils/Store.purs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5353": {
+    "pkg": "react",
+    "version": "12.7.1",
+    "title": "Add missing `FinalConnectionState` parameter to `onReconnectEnd` prop types",
+    "bucket": "ts-only",
+    "evidence": "TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently and gated by Layer 0.",
+    "ticket": null,
+    "note": ""
+  },
+  "5354": {
+    "pkg": "react",
+    "version": "12.7.1",
+    "title": "Add TSDoc annotations",
+    "bucket": "docs",
+    "evidence": "TSDoc prose on upstream declarations only; no runtime code path. PSFlow carries its own module-level docs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5361": {
+    "pkg": "react",
+    "version": "12.8.0",
+    "title": "Render edges above nodes when they are within a subflow",
+    "bucket": "layer2",
+    "evidence": "examples/react-smoke/tests/generic-edges.spec.ts — \"sub flow: normal node to child node, z-index\" and \"sub flow: child node to child node, z-index\".",
+    "ticket": null,
+    "note": ""
+  },
+  "5362": {
+    "pkg": "react",
+    "version": "12.8.0",
+    "title": "Remove pointer events from Panel via CSS while a selection gets dragged",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "079",
+    "note": "Panel pointer-events during selection drag — src/React/Portal/Panel.purs; untested."
+  },
+  "5368": {
+    "pkg": "react",
+    "version": "12.8.0",
+    "title": "Cleanup store updater",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "076",
+    "note": "src/React/Provider/StoreUpdater.purs structure matches the cleaned-up upstream; untested."
+  },
+  "5370": {
+    "pkg": "system",
+    "version": "0.0.65",
+    "title": "Only fire connection end events if connection was started",
+    "bucket": "unit",
+    "evidence": "test/Test/Main.purs `handleConnectionChange` cases (Nothing callback, empty diff, non-empty diff) assert the callback fires only on a real change.",
+    "ticket": null,
+    "note": ""
+  },
+  "5376": {
+    "pkg": "react",
+    "version": "12.8.2",
+    "title": "Add stepPosition param to step edge",
+    "bucket": "layer1",
+    "evidence": "test/Test/Parity/Edges.purs — getSmoothStepPath/step differential; `stepPosition` at src/System/Utils/Edges/SmoothStep.purs:28,155,161 and src/System/Types/Edge.purs:161.",
+    "ticket": null,
+    "note": ""
+  },
+  "5384": {
+    "pkg": "react",
+    "version": "12.8.2",
+    "title": "Fix node fallback to respect custom default node type when unknown node type is encountered",
+    "bucket": "not-ported",
+    "evidence": "",
+    "ticket": "075",
+    "note": "src/React/Component/NodeWrapper.purs:191 falls back to `Object.lookup \"default\" builtinNodeTypes`, ignoring a user-supplied `default` in nodeTypes. Upstream NodeWrapper/index.tsx:61 is `nodeTypes?.['default'] || builtinNodeTypes.default`."
+  },
+  "5394": {
+    "pkg": "react",
+    "version": "12.8.2",
+    "title": "Return intersections correctly of passed node is bigger than intersecting nodes",
+    "bucket": "layer1",
+    "evidence": "src/React/Hook/ReactFlow.purs:296-300 — symmetric `area >= curr.w*curr.h || area >= nodeRect.w*nodeRect.h`, matching xyflow/packages/react/src/hooks/useReactFlow.ts:231-234; getOverlappingArea itself gated by test/Test/Parity/Geometry.purs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5415": {
+    "pkg": "react",
+    "version": "12.8.3",
+    "title": "Allow strings and enums for existing marker types",
+    "bucket": "layer1",
+    "evidence": "test/Test/Parity/Marker.purs — getMarkerId differential; MarkerType rendered via showMarkerType at src/System/Utils/Marker.purs:36.",
+    "ticket": null,
+    "note": ""
+  },
+  "5419": {
+    "pkg": "react",
+    "version": "12.8.3",
+    "title": "Make arrow heads markers fallback to --xy-edge-stroke CSS variable when passing null as marker color",
+    "bucket": "layer2",
+    "evidence": "examples/react-smoke/tests/generic-edges.spec.ts — \"marker-start, marker-end set markers\"; marker element construction in src/React/Container/MarkerSymbols.purs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5420": {
+    "pkg": "react",
+    "version": "12.8.3",
+    "title": "Omit `defaultValue` from `Node`'s `domAttributes` to fix type incompatibility when using `WritableDraft`",
+    "bucket": "ts-only",
+    "evidence": "TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently and gated by Layer 0.",
+    "ticket": null,
+    "note": ""
+  },
+  "5428": {
+    "pkg": "react",
+    "version": "12.8.3",
+    "title": "Fix clicking on detached handle elements not initiating drawing of connections",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "077",
+    "note": "handle lookup in src/System/XYHandle/Utils.purs; detached-handle case untested."
+  },
+  "5436": {
+    "pkg": "react",
+    "version": "12.8.3",
+    "title": "Prevent a 0 added to the markup for edges when interactionWidth is 0",
+    "bucket": "layer2",
+    "evidence": "examples/react-smoke/tests/generic-edges.spec.ts — \"interactionWidth is working\".",
+    "ticket": null,
+    "note": ""
+  },
+  "5443": {
+    "pkg": "react",
+    "version": "12.8.3",
+    "title": "Use 1 as the default for interactive Minimap zoom step",
+    "bucket": "layer1",
+    "evidence": "src/System/XYMinimap.purs:64 documents and applies upstream's zoomStep=1 default in defaultXYMinimapUpdate.",
+    "ticket": null,
+    "note": ""
+  },
+  "5444": {
+    "pkg": "react",
+    "version": "12.8.3",
+    "title": "Export MiniMapNode",
+    "bucket": "layer0",
+    "evidence": "`MiniMapNode` — allowlisted in parity/layer0-api/allowlist.json (src/React/Additional/MiniMap/Node.purs exists; barrel gap tracked by ticket 058).",
+    "ticket": null,
+    "note": ""
+  },
+  "5448": {
+    "pkg": "react",
+    "version": "12.8.3",
+    "title": "Use correct HandleConnection type for Handle onConnect",
+    "bucket": "ts-only",
+    "evidence": "TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently and gated by Layer 0.",
+    "ticket": null,
+    "note": ""
+  },
+  "5450": {
+    "pkg": "system",
+    "version": "0.0.67",
+    "title": "Call onNodeDrag while autopan is ongoing",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "076",
+    "note": "onNodeDrag during autopan — src/System/XYDrag.purs autoPanStep at :350-352; untested."
+  },
+  "5453": {
+    "pkg": "react",
+    "version": "12.8.3",
+    "title": "Snap selection instead of separate nodes when snap grid is enabled",
+    "bucket": "layer1",
+    "evidence": "src/System/XYDrag/Utils.purs:205-223 calculateSnapOffset snaps one reference point and applies the offset to the whole selection; snapPosition itself gated by test/Test/Parity/Geometry.purs and test/Test/Main.purs:418-425.",
+    "ticket": null,
+    "note": ""
+  },
+  "5455": {
+    "pkg": "react",
+    "version": "12.8.5",
+    "title": "Fix warning when display is set to none on the wrapper div",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "079",
+    "note": "display:none wrapper warning — src/React/Hook/StylesLoadedWarning.purs; untested."
+  },
+  "5459": {
+    "pkg": "react",
+    "version": "12.8.4",
+    "title": "Fix open arrow marker using fill color from edge instead of none",
+    "bucket": "layer2",
+    "evidence": "examples/react-smoke/tests/generic-edges.spec.ts — \"marker-start, marker-end set markers\"; open-arrow uses fill=\"none\" at src/React/Container/MarkerSymbols.purs:59.",
+    "ticket": null,
+    "note": ""
+  },
+  "5469": {
+    "pkg": "system",
+    "version": "0.0.68",
+    "title": "Allow null for extent",
+    "bucket": "layer0",
+    "evidence": "`extent :: Maybe NodeExtent` at src/System/Types/Node.purs:76 — Nothing models upstream's null.",
+    "ticket": null,
+    "note": ""
+  },
+  "5472": {
+    "pkg": "react",
+    "version": "12.8.4",
+    "title": "Remove dangerouslySetInnerHTML from domAttributes",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "079",
+    "note": "PSFlow never spreads dangerouslySetInnerHTML (no domAttributes passthrough at all — see ticket 074); untested."
+  },
+  "5480": {
+    "pkg": "react",
+    "version": "12.8.5",
+    "title": "Prevent multi-touch events while making a new connection",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "077",
+    "note": "multi-touch guard in src/System/XYHandle.purs; untested."
+  },
+  "5482": {
+    "pkg": "react",
+    "version": "12.8.5",
+    "title": "Make isNodeIntersecting behave the same as getIntersectingNodes",
+    "bucket": "layer1",
+    "evidence": "src/React/Hook/ReactFlow.purs:305-317 — isNodeIntersecting uses the identical predicate to getIntersectingNodes, matching useReactFlow.ts:245-252.",
+    "ticket": null,
+    "note": ""
+  },
+  "5484": {
+    "pkg": "react",
+    "version": "12.10.0",
+    "title": "Add `experimental_useOnNodesChangeMiddleware` hook",
+    "bucket": "layer0",
+    "evidence": "`experimental_useOnNodesChangeMiddleware` present in psflow.json valueExports; src/React/Hook/Middleware.purs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5489": {
+    "pkg": "system",
+    "version": "0.0.69",
+    "title": "Fix nodeDragThreshold changing with zoom level",
+    "bucket": "layer1",
+    "evidence": "src/System/XYDrag.purs:355-360 computes the threshold distance from getEventPosition (container/client space), matching xyflow/packages/system/src/xydrag/XYDrag.ts:347-350 — zoom-independent.",
+    "ticket": null,
+    "note": ""
+  },
+  "5497": {
+    "pkg": "react",
+    "version": "12.8.5",
+    "title": "Skip eagerly rendering nodes when node dimensions and handles are predefined",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "078",
+    "note": "eager-render skip in src/React/Container/NodeRenderer.purs; untested."
+  },
+  "5509": {
+    "pkg": "react",
+    "version": "12.8.5",
+    "title": "Prevent calling onResizeEnd if node was not resized",
+    "bucket": "not-ported",
+    "evidence": "",
+    "ticket": "073",
+    "note": "src/System/XYResizer.purs:336-338 calls onResizeEnd unconditionally; upstream XYResizer.ts guards on `resizeDetected`. PSFlow allocates the Ref (:234,266) but never writes it."
+  },
+  "5511": {
+    "pkg": "react",
+    "version": "12.8.5",
+    "title": "Fix regression: elevate edges if connected nodes are selected",
+    "bucket": "layer2",
+    "evidence": "examples/react-smoke/tests/generic-edges.spec.ts — \"z-index\" asserts edge elevation for selected connected nodes.",
+    "ticket": null,
+    "note": ""
+  },
+  "5512": {
+    "pkg": "react",
+    "version": "12.8.6",
+    "title": "Prevent native page zoom when pinch zooming on node with nowheel class",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "079",
+    "note": "nowheel pinch-zoom guard in src/System/XYPanZoom/Filter.purs; untested."
+  },
+  "5515": {
+    "pkg": "react",
+    "version": "12.8.6",
+    "title": "Fix id of static handles not being parsed",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "077",
+    "note": "static handle id parsing in src/React/Handle.purs; untested."
+  },
+  "5528": {
+    "pkg": "react",
+    "version": "12.9.0",
+    "title": "Let `NodeResizer` props change during ongoing resize",
+    "bucket": "not-ported",
+    "evidence": "",
+    "ticket": "073",
+    "note": "The XYResizer drag lifecycle (onStart/onDrag/onEnd, src/System/XYResizer.purs:301-338) is a typed scaffold — onDrag emits literal zeros — so mid-resize prop updates cannot take effect."
+  },
+  "5530": {
+    "pkg": "react",
+    "version": "12.9.0",
+    "title": "Improve performance of adding nodes & edges",
+    "bucket": "unit",
+    "evidence": "test/Test/System/Utils/Store.purs runStoreProperties — QuickCheck properties over adoptUserNodes (idempotence, hasSelectedNodes, parentLookup) covering the add path of src/System/Utils/Store.purs; a pure-FP port has no in-place mutation to optimize.",
+    "ticket": null,
+    "note": ""
+  },
+  "5531": {
+    "pkg": "react",
+    "version": "12.9.0",
+    "title": "Add `type` property to `EdgeProps` to match `NodeProps` behavior",
+    "bucket": "layer0",
+    "evidence": "Closed in this branch by ticket 071 §5: EdgeProps.edgeType renamed to `type` in src/React/Types/Edges.purs, written at src/React/Component/EdgeWrapper.purs. Drives the Layer 0 EdgeProps prop diff to 0 missing / 0 extra.",
+    "ticket": null,
+    "note": ""
+  },
+  "5544": {
+    "pkg": "react",
+    "version": "12.9.0",
+    "title": "Add `EdgeToolbar` component",
+    "bucket": "layer0",
+    "evidence": "`EdgeToolbar` present in psflow.json valueExports; src/React/Additional/EdgeToolbar.purs; transform gated by test/Test/Parity/Toolbar.purs (getEdgeToolbarTransform).",
+    "ticket": null,
+    "note": ""
+  },
+  "5546": {
+    "pkg": "system",
+    "version": "0.0.71",
+    "title": "Do not crash mini map if all nodes are hidden",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "079",
+    "note": "src/React/Additional/MiniMap.purs:91 filters hidden nodes before bounds; the all-hidden case is untested."
+  },
+  "5547": {
+    "pkg": "react",
+    "version": "12.9.0",
+    "title": "Always call `onMoveEnd` when `onMoveStart` was called",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "078",
+    "note": "onMoveStart/onMoveEnd pairing in src/System/XYPanZoom/EventHandler.purs; untested."
+  },
+  "5550": {
+    "pkg": "react",
+    "version": "12.9.0",
+    "title": "Prevent child nodes of different parents from overlapping",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "076",
+    "note": "parent-chain walk at src/System/XYDrag/Utils.purs:36-55,86; cross-parent overlap untested."
+  },
+  "5551": {
+    "pkg": "react",
+    "version": "12.9.0",
+    "title": "Allow to start a selection above a node",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "076",
+    "note": "src/React/Container/Pane.purs selection start; starting a selection over a node is untested."
+  },
+  "5572": {
+    "pkg": "react",
+    "version": "12.9.1",
+    "title": "Fix onPaneClick events being suppressed when selectionOnDrag=true",
+    "bucket": "layer2",
+    "evidence": "examples/react-smoke/tests/generic-pane.spec.ts pane click/drag coverage; src/React/Container/Pane.purs:288-291 returns early on selectionInProgress, matching upstream onClick.",
+    "ticket": null,
+    "note": ""
+  },
+  "5578": {
+    "pkg": "react",
+    "version": "12.9.3",
+    "title": "Pass current pointer position to connection",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "077",
+    "note": "pointer position threading in src/System/XYHandle.purs; untested."
+  },
+  "5592": {
+    "pkg": "react",
+    "version": "12.10.0",
+    "title": "Always create a new measured object in apply changes.",
+    "bucket": "unit",
+    "evidence": "test/Test/React/Store/Reduce.purs covers the change-application path and test/Test/System/Utils/Store.purs runStoreProperties covers adoptUserNodes; PureScript records are immutable, so a fresh `measured` object per update is structurally guaranteed rather than a fix to port.",
+    "ticket": null,
+    "note": ""
+  },
+  "5593": {
+    "pkg": "react",
+    "version": "12.9.2",
+    "title": "Reset selection box when user selects a node",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "076",
+    "note": "src/React/Component/UserSelection.purs + Pane selection reset; untested."
+  },
+  "5617": {
+    "pkg": "system",
+    "version": "0.0.74",
+    "title": "Allow custom `getEdgeId` function in `addEdge` and `reconnectEdge` options to enable custom edge ID schemes.",
+    "bucket": "layer0",
+    "evidence": "`getEdgeId` exported from src/System/Utils/Edges/General.purs and re-exported via src/System/Utils/Edges.purs:19.",
+    "ticket": null,
+    "note": ""
+  },
+  "5621": {
+    "pkg": "react",
+    "version": "12.9.3",
+    "title": "Set `paneClickDistance` default value to `1`.",
+    "bucket": "layer2",
+    "evidence": "src/System/XYPanZoom.purs:149-153 clamps paneClickDistance (non-numeric/negative → 0); pane click behavior covered by examples/react-smoke/tests/generic-pane.spec.ts.",
+    "ticket": null,
+    "note": ""
+  },
+  "5629": {
+    "pkg": "react",
+    "version": "12.10.0",
+    "title": "Prevent unnecessary re-render in `FlowRenderer`",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "078",
+    "note": "src/React/Container/FlowRenderer.purs; re-render counts are not gated."
+  },
+  "5635": {
+    "pkg": "react",
+    "version": "12.10.0",
+    "title": "Update an ongoing connection when user moves node with keyboard.",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "077",
+    "note": "connection update on keyboard node move — src/React/Hook/MoveSelectedNodes.purs + src/System/XYHandle.purs; untested."
+  },
+  "5637": {
+    "pkg": "react",
+    "version": "12.10.0",
+    "title": "Add `zIndexMode` to control how z-index is calculated for nodes and edges",
+    "bucket": "layer0",
+    "evidence": "`zIndexMode` present on both sides; ZIndexMode type + ZBasic default at src/System/Utils/Store.purs:102,112 matching upstream's 'basic' default.",
+    "ticket": null,
+    "note": ""
+  },
+  "5638": {
+    "pkg": "system",
+    "version": "0.0.77",
+    "title": "Fix selection box issue on mobile devices by adding `touch-action:none`",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "079",
+    "note": "touch-action is a stylesheet concern; PSFlow ships no CSS of its own and relies on the upstream stylesheet. Untested."
+  },
+  "5677": {
+    "pkg": "react",
+    "version": "12.11.0",
+    "title": "Add `autoPanOnSelection` to auto-pan when user drags a selection close to the edge of the viewport.",
+    "bucket": "layer0",
+    "evidence": "`autoPanOnSelection` in both upstream.json and psflow.json ReactFlowProps (src/React/Types/Component.purs:258).",
+    "ticket": null,
+    "note": ""
+  },
+  "5682": {
+    "pkg": "react",
+    "version": "12.10.1",
+    "title": "Prevent unnecessary updates when selectNodesOnDrag = false",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "076",
+    "note": "selectNodesOnDrag handling in src/System/XYDrag.purs / src/React/Hook/Drag.purs; no gate for the no-op case."
+  },
+  "5684": {
+    "pkg": "react",
+    "version": "12.10.1",
+    "title": "Consolidate drag handler effects in useDrag to fix programmatic selection issues",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "076",
+    "note": "src/React/Hook/Drag.purs; programmatic selection during drag is untested."
+  },
+  "5687": {
+    "pkg": "react",
+    "version": "12.10.1",
+    "title": "Optimize zooming performance when panOnScroll mode is enabled",
+    "bucket": "layer2",
+    "evidence": "examples/react-smoke/tests/generic-pane.spec.ts — \"panOnScroll pans the pane on scrolling\"; src/System/XYPanZoom/EventHandler.purs.",
+    "ticket": null,
+    "note": ""
+  },
+  "5692": {
+    "pkg": "react",
+    "version": "12.10.1",
+    "title": "Handle undefined node in mini map",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "079",
+    "note": "src/React/Additional/MiniMap/Nodes.purs:54 works off nodeLookup entries; the missing-node case is untested."
+  },
+  "5703": {
+    "pkg": "react",
+    "version": "12.10.1",
+    "title": "Improve return type of useNodesData. Now you can narrow down the data type by checking the node type.",
+    "bucket": "ts-only",
+    "evidence": "TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently and gated by Layer 0.",
+    "ticket": null,
+    "note": ""
+  },
+  "5704": {
+    "pkg": "react",
+    "version": "12.10.1",
+    "title": "Keep `onConnectEnd` and `isValidConnection` up to date in an ongoing connection",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "077",
+    "note": "src/React/Handle.purs keeps onConnectEnd/isValidConnection in refs; staleness untested."
+  },
+  "5722": {
+    "pkg": "react",
+    "version": "12.10.2",
+    "title": "Add `snapGrid` to `screenToFlowPosition` options",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "078",
+    "note": "snapGrid threaded into screenToFlowPosition (src/React/Hook/ViewportHelper.purs); untested."
+  },
+  "5723": {
+    "pkg": "react",
+    "version": "12.10.2",
+    "title": "Pass options to useReactFlow/useSvelteFlow viewport helper functions correctly",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "078",
+    "note": "src/React/Hook/ViewportHelper.purs passes the full options record; untested."
+  },
+  "5727": {
+    "pkg": "react",
+    "version": "12.10.2",
+    "title": "Ensure visual nodes selection state is cleared when zero selected nodes remain in the flow",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "076",
+    "note": "ResetSelectedElements + nodesSelectionActive=false at src/React/Container/Pane.purs:293-295 matches upstream; the zero-remaining-selection case is untested."
+  },
+  "5730": {
+    "pkg": "system",
+    "version": "0.0.76",
+    "title": "Fix missing border radius on `getSmoothStepPath` edge bends when using `stepPosition`",
+    "bucket": "layer1",
+    "evidence": "test/Test/Parity/Edges.purs — getSmoothStepPath differential vs the vendored oracle; borderRadius applied via getBend at src/System/Utils/Edges/SmoothStep.purs:380, stepPosition at :155,161.",
+    "ticket": null,
+    "note": ""
+  },
+  "5733": {
+    "pkg": "react",
+    "version": "12.10.2",
+    "title": "Fix empty store during ReactFlow remount by reordering StoreUpdater before GraphView and using layout effects",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "076",
+    "note": "storeUpdater is composed before graphView in src/React/Container/ReactFlow.purs:203,272; remount ordering untested."
+  },
+  "5735": {
+    "pkg": "react",
+    "version": "12.10.2",
+    "title": "Allow `type` field to be missing in `BuiltInNode` (no `type` field is the same as `type: \"default\"`)",
+    "bucket": "not-ported",
+    "evidence": "",
+    "ticket": "075",
+    "note": "Same resolution path as #5384: src/React/Component/NodeWrapper.purs:183-195 defaults a missing type to \"default\" correctly, but the custom-default fallback is wrong. Bundled into the same ticket."
+  },
+  "5755": {
+    "pkg": "react",
+    "version": "12.11.0",
+    "title": "Add `@types/react` and `@types/react-dom` as optional peer dependencies to prevent issues with pnpm strict mode (`hoist: false`)",
+    "bucket": "docs",
+    "evidence": "Upstream packaging metadata; PSFlow ships its own index.js + spago.yaml.",
+    "ticket": null,
+    "note": ""
+  },
+  "5769": {
+    "pkg": "react",
+    "version": "12.11.0",
+    "title": "Use `useEffect` for StoreUpdater to restore previous behaviour",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "076",
+    "note": "src/React/Provider/StoreUpdater.purs:5-8,45 documents the one-useEffect-per-prop model; effect ordering is untested."
+  },
+  "5776": {
+    "pkg": "react",
+    "version": "12.11.0",
+    "title": "Export `NodeHandle` type",
+    "bucket": "layer0",
+    "evidence": "`NodeHandle` — allowlisted in parity/layer0-api/allowlist.json (defined in src/System/Types/Node.purs, not re-exported; ticket 058).",
+    "ticket": null,
+    "note": ""
+  },
+  "5784": {
+    "pkg": "react",
+    "version": "12.11.0",
+    "title": "Fix node resizing possible beyond absolute extents",
+    "bucket": "not-ported",
+    "evidence": "",
+    "ticket": "073",
+    "note": "Absolute-extent clamping during resize is unreachable while the resizer lifecycle is a scaffold (src/System/XYResizer.purs:301-338)."
+  },
+  "5791": {
+    "pkg": "react",
+    "version": "12.11.0",
+    "title": "Adds a type error when `handleId` is used without `handleType` in `useNodeConnections`",
+    "bucket": "ts-only",
+    "evidence": "TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently and gated by Layer 0.",
+    "ticket": null,
+    "note": ""
+  },
+  "5793": {
+    "pkg": "react",
+    "version": "12.11.0",
+    "title": "Dev Warnings now use library-specific messaging with the correct documentation links.",
+    "bucket": "docs",
+    "evidence": "Changes the prose/links in upstream dev warnings. PSFlow emits its own messages via System.Constants errorMessage (E001…E009), asserted in test/Test/Main.purs (`errorMessage covers parameterless and parameterised codes`).",
+    "ticket": null,
+    "note": ""
+  },
+  "5803": {
+    "pkg": "system",
+    "version": "0.0.77",
+    "title": "Reset node drag state when drag is aborted",
+    "bucket": "ported-ungated",
+    "evidence": "",
+    "ticket": "076",
+    "note": "abortDrag state at src/System/XYDrag.purs:194,209,305,346,349,378 mirrors upstream, but no gate drives an aborted drag."
+  },
+  "_comment": "Hand-authored verdicts for the 12.3.5→12.11.0 changelog audit (ticket 071), keyed by upstream PR number. `pkg`/`version`/`title` are embedded so this file is self-contained: xyflow/ is gitignored and does not survive a clean clone. `npm run parity:changelog` fails if any in-range PR is missing here, if a covered bucket cites no evidence, or if a gap bucket has neither a ticket nor a note. Buckets: docs, ts-only, layer0, layer1, layer2, unit (covered, evidence required); ported-ungated, not-ported (silent gaps, ticket or in-branch fix required); n/a."
+}

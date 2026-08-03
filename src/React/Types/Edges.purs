@@ -128,7 +128,12 @@ foreign import data PathOptions :: Type
 
 type EdgeProps e =
   { id :: String
-  , edgeType :: Maybe String
+  -- | Matches upstream's `EdgeProps['type']` verbatim. The `Edge` *data*
+  -- | record still calls this `edgeType` (see `System.Types.Edge`); the
+  -- | props record is the JS-facing boundary, so it uses upstream's name —
+  -- | exactly as `NodeProps` already does. Ticket 072 realigns the data
+  -- | records behind a marshalling layer.
+  , type :: Maybe String
   , animated :: Boolean
   , data :: Maybe e
   , style :: Maybe Style

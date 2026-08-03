@@ -5,6 +5,7 @@
 -- | (`#/tests/generic/<area>/<name>`) to its fixture.
 module Generic.Fixture
   ( Fixture
+  , baseNode
   , nodesGeneral
   , paneGeneral
   , paneNonDefaults

@@ -2,12 +2,9 @@
 -- | `System.Utils.General`. Same shape as the edge-path parity: generate an
 -- | input, run PSFlow and live XYFlow over it, compare within epsilon.
 -- |
--- | One documented divergence is excluded by generator construction:
--- | `snapPosition` (and therefore `pointToRendererPoint` *with* a grid) uses
--- | PSFlow's `roundHalfAwayFromZero`, which disagrees with JS `Math.round`
--- | on negative exact-half multiples — see ticket 057. The `snapPosition`
--- | property below stays on the non-negative domain where the two agree;
--- | `pointToRendererPoint` is tested with `Nothing` (no snap).
+-- | `snapPosition` (and `pointToRendererPoint` *with* a grid) runs over the
+-- | full signed domain, including the exact-half multiples that ticket 057
+-- | had excluded — `roundHalfUp` now matches JS `Math.round` there.
 module Test.Parity.Geometry
   ( runGeometryParity
   ) where
@@ -21,9 +18,11 @@ import Effect (Effect)
 import Effect.Class.Console (log)
 import System.Types.Geometry
   ( CoordinateExtent
+  , SnapGrid
   , Transform
   , XYPosition
   , mkCoordinateExtent
+  , mkSnapGrid
   , mkTransform
   )
 import System.Utils.General
@@ -50,11 +49,21 @@ genXY = do
   y <- genFiniteNumber
   pure { x, y }
 
-genNonNegXY :: Gen XYPosition
-genNonNegXY = do
-  x <- genNonNegNumber
-  y <- genNonNegNumber
-  pure { x, y }
+-- | Positions sitting *exactly* on a half-multiple of the grid — the rounding
+-- | tie-break, and the only place PSFlow and JS `Math.round` ever disagreed
+-- | (ticket 057). `genXY`/`genSnapGrid` reach this case only by coincidence
+-- | (~1% of draws), so construct it directly: every draw is a tie, half of
+-- | them on the negative axis where the old rounding was wrong.
+genHalfCell :: Gen { pos :: XYPosition, grid :: SnapGrid }
+genHalfCell = do
+  gx <- Int.toNumber <$> chooseInt 1 200
+  gy <- Int.toNumber <$> chooseInt 1 200
+  kx <- Int.toNumber <$> chooseInt (-20) 20
+  ky <- Int.toNumber <$> chooseInt (-20) 20
+  pure
+    { pos: { x: gx * (kx + 0.5), y: gy * (ky + 0.5) }
+    , grid: mkSnapGrid gx gy
+    }
 
 -- | A `Transform` with a non-zero scale (division by scale sits in
 -- | `pointToRendererPoint`).
@@ -131,15 +140,21 @@ runGeometryParity = do
           (Oracle.clampPosition pos ext dims)
       )
 
-  -- Non-negative domain only: PSFlow and XYFlow rounding agree there (the
-  -- negative exact-half divergence is ticket 057).
   quickCheck do
-    pos <- genNonNegXY
+    pos <- genXY
     g <- genSnapGrid
     pure
-      ( xyMatch "snapPosition (non-negative domain — ticket 057)"
+      ( xyMatch "snapPosition"
           (PS.snapPosition pos g)
           (Oracle.snapPosition pos g)
+      )
+
+  quickCheck do
+    { pos, grid } <- genHalfCell
+    pure
+      ( xyMatch "snapPosition (exact half-cell tie-break — ticket 057)"
+          (PS.snapPosition pos grid)
+          (Oracle.snapPosition pos grid)
       )
 
   quickCheck do
@@ -149,6 +164,16 @@ runGeometryParity = do
       ( xyMatch "pointToRendererPoint (no snap)"
           (PS.pointToRendererPoint pos t Nothing)
           (Oracle.pointToRendererPoint pos t Nothing)
+      )
+
+  quickCheck do
+    pos <- genXY
+    t <- genTransform
+    g <- genSnapGrid
+    pure
+      ( xyMatch "pointToRendererPoint (snap to grid)"
+          (PS.pointToRendererPoint pos t (Just g))
+          (Oracle.pointToRendererPoint pos t (Just g))
       )
 
   quickCheck do

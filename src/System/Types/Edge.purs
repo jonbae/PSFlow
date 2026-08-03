@@ -28,7 +28,11 @@ import Foreign.Object (Object)
 import System.Types.Geometry (Position)
 import System.Types.Ids (NodeId)
 
--- | TS field `type` is renamed to `edgeType`. `animated`, `hidden`, `selected`
+-- | TS field `type` is renamed to `edgeType` for internal consistency with the
+-- | `edgeTypes` lookup map it indexes into — *not* because `type` is unusable
+-- | as a label: PureScript accepts it (`React.Types.Edges.EdgeProps` declares
+-- | `type :: String`). Realigning this field with upstream behind a marshalling
+-- | layer is ticket 072. `animated`, `hidden`, `selected`
 -- | have a clear `false` default and are plain `Boolean`. `deletable` and
 -- | `selectable` keep their tri-state `Maybe Boolean` because absence means
 -- | "inherit from store default".

@@ -15,6 +15,7 @@ import ts from "typescript";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve, join } from "node:path";
 import { readFileSync, writeFileSync } from "node:fs";
+import { PROP_TYPES } from "./prop-types.mjs";
 
 const here: string = dirname(fileURLToPath(import.meta.url));
 const repoRoot: string = resolve(here, "..", "..");
@@ -93,9 +94,16 @@ const declaredInXyflow = (prop: ts.Symbol): boolean => {
 
 const propMembers = (typeName: string): string[] => {
   const sym = byName.get(typeName);
+  // Hard failure, not a warning. Returning [] here would make the type look
+  // like it has no members, so the diff would report the *entire* PSFlow
+  // record as "extra" (and, with the gate on, fail for the wrong reason).
+  // A prop type vanishing from the upstream exports is itself a finding.
   if (!sym) {
-    console.warn(`[extract-upstream] prop type not found in exports: ${typeName}`);
-    return [];
+    throw new Error(
+      `[extract-upstream] prop type not found in upstream exports: ${typeName}. ` +
+        `Either upstream renamed/removed it (a genuine parity finding) or ` +
+        `parity/layer0-api/prop-types.mjs is stale.`
+    );
   }
   const type = checker.getDeclaredTypeOfSymbol(deAlias(sym));
   const members = checker
@@ -105,11 +113,9 @@ const propMembers = (typeName: string): string[] => {
   return Array.from(new Set(members)).sort();
 };
 
-const props = {
-  ReactFlowProps: propMembers("ReactFlowProps"),
-  NodeProps: propMembers("NodeProps"),
-  EdgeProps: propMembers("EdgeProps"),
-};
+const props: Record<string, string[]> = Object.fromEntries(
+  PROP_TYPES.map((p) => [p.name, propMembers(p.name)])
+);
 
 const output = {
   reactVersion,
@@ -122,8 +128,10 @@ const output = {
 const outPath: string = join(here, "upstream.json");
 writeFileSync(outPath, JSON.stringify(output, null, 2) + "\n");
 
+const propSummary: string = PROP_TYPES.map((p) => `${p.name}=${props[p.name].length}`).join(" ");
+
 console.log(
   `[extract-upstream] react ${reactVersion} / system ${systemVersion}: ` +
     `${output.valueExports.length} value + ${output.typeExports.length} type exports, ` +
-    `props RF=${props.ReactFlowProps.length} Node=${props.NodeProps.length} Edge=${props.EdgeProps.length} → ${outPath}`
+    `props ${propSummary} → ${outPath}`
 );

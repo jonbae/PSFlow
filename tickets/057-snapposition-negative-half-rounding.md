@@ -1,5 +1,34 @@
 # 057 — `snapPosition` rounds negative half-multiples the wrong way
 
+## ✅ RESOLVED (2026-08-03)
+
+`roundHalfAwayFromZero` is gone, replaced by `roundHalfUp` in
+[General.purs](../src/System/Utils/General.purs), which matches JS `Math.round`
+across the full signed domain. Both call sites were affected and both are fixed:
+`snapPosition` and — not noted at filing — `XYDrag.purs`'s multi-drag snap
+offset (`~576`), which mirrors upstream `XYDrag.ts:170-171`'s `Math.round`.
+
+Implementation deviates slightly from the fix proposed below: the prescribed
+`floor (n + 0.5)` is itself wrong for `0.49999999999999994` (the largest double
+under one half — `n + 0.5` rounds up to `1.0`, yielding `1.0` where
+`Math.round` gives `0`). `roundHalfUp` compares the fractional part instead,
+which is exact.
+
+Guarded at two levels, both confirmed to fail under a reverted helper:
+
+- **Unit** ([Test/Main.purs](../test/Test/Main.purs)) — the spot-check below
+  plus `roundHalfUp` on `-1.5` / `-0.5` / `1.5` / `0.49999999999999994`.
+  Deterministic; fails on every run.
+- **Layer 1 parity** ([Test/Parity/Geometry.purs](../test/Test/Parity/Geometry.purs))
+  — the `snapPosition` generator is widened to the full signed domain and the
+  ticket caveat dropped, `pointToRendererPoint` gains a `Just grid` property,
+  and a new `genHalfCell` generator puts *every* draw exactly on a half-multiple.
+  That last one matters: under the plain widened generator alone, exact halves
+  are rare enough (~1% of draws) that a reverted fix still passed roughly 1 run
+  in 14.
+
+`spago test` green; full smoke suite 54/54.
+
 ## Context
 
 Discovered by the **Layer 1 live parity harness** (`test/Test/Parity/*`,

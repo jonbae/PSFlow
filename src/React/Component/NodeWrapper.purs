@@ -286,19 +286,25 @@ mkNodeProps
   -> Boolean
   -> Boolean
   -> NodeProps Foreign
-mkNodeProps node nodeType _selectable _draggable _connectable dragging =
+mkNodeProps node nodeType selectable draggable connectable dragging =
   { id: unwrap node.id
   , data: (unsafeCoerce node.data) :: Foreign
-  , selected: node.selected
-  , type: nodeType
-  , isConnectable: _connectable
-  , xPos: node.internals.positionAbsolute.x
-  , yPos: node.internals.positionAbsolute.y
-  , zIndex: node.internals.z
-  , dragging
-  , targetPosition: node.targetPosition
+  , width: node.width
+  , height: node.height
   , sourcePosition: node.sourcePosition
+  , targetPosition: node.targetPosition
   , dragHandle: node.dragHandle
+  , parentId: map unwrap node.parentId
+  , type: nodeType
+  , dragging
+  , zIndex: node.internals.z
+  , selectable
+  , deletable: fromMaybe true node.deletable
+  , selected: node.selected
+  , draggable
+  , isConnectable: connectable
+  , positionAbsoluteX: node.internals.positionAbsolute.x
+  , positionAbsoluteY: node.internals.positionAbsolute.y
   }
 
 -- ----------------------------------------------------------------------------
