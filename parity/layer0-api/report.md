@@ -124,6 +124,6 @@ name a PSFlow member corresponds to.
 ### EdgeProps
 
 - upstream members: 28, PSFlow members: 28
-- **missing in PSFlow** (1): `type`
-- **extra in PSFlow** (1): `edgeType`
+- **missing in PSFlow** (0): _none_
+- **extra in PSFlow** (0): _none_
 

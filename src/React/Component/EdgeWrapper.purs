@@ -270,7 +270,7 @@ mkEdgeProps
   -> EdgeProps Foreign
 mkEdgeProps edge sx sy tx ty sp tp mStart mEnd =
   { id: edge.id
-  , edgeType: edge.edgeType
+  , type: edge.edgeType
   , animated: edge.animated
   , data: (unsafeCoerce edge.data) :: Maybe Foreign
   -- Thread the per-edge `style` (`Maybe (Object String)`) through to the
