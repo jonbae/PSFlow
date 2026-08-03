@@ -74,11 +74,14 @@ Allowlisted, so `parity:api` stays green. Completeness only.
   `ResizeControlLineProps`). Decide per-row: model or document as intentional
   divergence.
 
-### 5. Numeric edge case — [057](057-snapposition-negative-half-rounding.md)
+### ~~5. Numeric edge case~~ — [057](057-snapposition-negative-half-rounding.md) ✅ RESOLVED (2026-08-03)
 
-`snapPosition` rounds negative half-multiples the opposite way from JS's
-`Math.round`, so it is under Layer 1 parity only for the non-negative domain.
-Only matters for nodes sitting exactly on a negative snap-grid half-boundary.
+`roundHalfAwayFromZero` → `roundHalfUp`, matching JS `Math.round` across the
+full signed domain. Fixed at both call sites — `snapPosition` and `XYDrag`'s
+multi-drag snap offset. Layer 1 now runs `snapPosition` (and
+`pointToRendererPoint` *with* a grid) over the full domain, plus a dedicated
+half-multiple generator so the tie-break is hit on every draw rather than ~1%
+of them. Deterministic unit assertions in `Test/Main.purs` back it up.
 
 ### ~~6. `NodeProps` prop-member gap~~ — [069](069-nodeprops-prop-member-gap.md) ✅ RESOLVED (2026-08-03)
 
@@ -111,10 +114,11 @@ Depends on item 6.
 
 ## Recommendation
 
-- For **"true parity"**: item 1 (the real divergence) and item 2 (its unit
-  coverage) are now resolved (2026-07-10). The remaining rows 3–5 are tracked
-  precisely *because* they are intentional, non-blocking gaps; decide per-row
-  whether they are worth closing.
+- For **"true parity"**: every known behavioral divergence is now closed — items
+  1–2 (node multi-select + unit coverage, 2026-07-10), item 6 (`NodeProps`,
+  2026-08-03) and item 5 (`snapPosition` rounding, 2026-08-03). The remaining
+  rows 3, 4, 7 and 8 are tracked precisely *because* they are intentional,
+  non-blocking gaps; decide per-row whether they are worth closing.
 - For **"can I claim parity"**: effectively already yes — the objective gate
   (Layer 0 diff against 12.11.0) is green and every remaining item is documented
   and allowlisted.

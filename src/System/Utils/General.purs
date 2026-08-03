@@ -23,7 +23,7 @@ module System.Utils.General
   , isNumeric
   , devWarn
   , snapPosition
-  , roundHalfAwayFromZero
+  , roundHalfUp
   , pointToRendererPoint
   , rendererPointToPoint
   , getViewportForBounds
@@ -213,16 +213,24 @@ devWarn isDev id message =
 
 snapPosition :: XYPosition -> SnapGrid -> XYPosition
 snapPosition position (SnapGrid g) =
-  { x: g.gx * roundHalfAwayFromZero (position.x / g.gx)
-  , y: g.gy * roundHalfAwayFromZero (position.y / g.gy)
+  { x: g.gx * roundHalfUp (position.x / g.gx)
+  , y: g.gy * roundHalfUp (position.y / g.gy)
   }
 
--- | TS uses `Math.round`, which rounds half away from zero (banker's rounding
--- | is `Data.Int.round`). Match TS by hand.
-roundHalfAwayFromZero :: Number -> Number
-roundHalfAwayFromZero n =
-  if n >= 0.0 then Number.floor (n + 0.5)
-  else -(Number.floor ((-n) + 0.5))
+-- | TS uses `Math.round`, which rounds halves toward `+∞` (`-1.5` → `-1`) —
+-- | neither away from zero nor to even (that's PS's `Data.Int.round`). Match
+-- | it by hand.
+-- |
+-- | The obvious `floor (n + 0.5)` form is wrong for the largest double below
+-- | one half: `0.49999999999999994 + 0.5` rounds up to `1.0`, so it would
+-- | yield `1.0` where `Math.round` gives `0`. Comparing the fractional part
+-- | avoids that — `n - floor n` is exact.
+roundHalfUp :: Number -> Number
+roundHalfUp n =
+  let
+    f = Number.floor n
+  in
+    if n - f >= 0.5 then f + 1.0 else f
 
 -- | TS exposes `(p, transform, snapToGrid?, snapGrid?)` — we collapse the
 -- | boolean+grid pair into `Maybe SnapGrid`. `Nothing` skips snapping;

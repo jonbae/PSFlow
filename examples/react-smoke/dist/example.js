@@ -28445,19 +28445,20 @@ var min4 = /* @__PURE__ */ min(ordNumber);
 var any3 = /* @__PURE__ */ any(foldableArray)(heytingAlgebraBoolean);
 var oneOf2 = /* @__PURE__ */ oneOf(foldableArray)(plusMaybe);
 var lookup2 = /* @__PURE__ */ lookup(ordNodeId);
-var roundHalfAwayFromZero = function(n) {
-  var $30 = n >= 0;
+var roundHalfUp = function(n) {
+  var f = floor(n);
+  var $30 = n - f >= 0.5;
   if ($30) {
-    return floor(n + 0.5);
+    return f + 1;
   }
   ;
-  return -floor(-n + 0.5);
+  return f;
 };
 var snapPosition = function(position2) {
   return function(v) {
     return {
-      x: v.gx * roundHalfAwayFromZero(position2.x / v.gx),
-      y: v.gy * roundHalfAwayFromZero(position2.y / v.gy)
+      x: v.gx * roundHalfUp(position2.x / v.gx),
+      y: v.gy * roundHalfUp(position2.y / v.gy)
     };
   };
 };
@@ -28492,7 +28493,7 @@ var pointToRendererPoint = function(p) {
         return pos;
       }
       ;
-      throw new Error("Failed pattern match at System.Utils.General (line 239, column 5 - line 241, column 21): " + [mGrid.constructor.name]);
+      throw new Error("Failed pattern match at System.Utils.General (line 247, column 5 - line 249, column 21): " + [mGrid.constructor.name]);
     };
   };
 };
@@ -28510,7 +28511,7 @@ var parsePadding = function(pv) {
       return floor(viewport2 * pv.value0 * 0.01);
     }
     ;
-    throw new Error("Failed pattern match at System.Utils.General (line 282, column 28 - line 285, column 57): " + [pv.constructor.name]);
+    throw new Error("Failed pattern match at System.Utils.General (line 290, column 28 - line 293, column 57): " + [pv.constructor.name]);
   };
 };
 var parsePaddings = function(padding) {
@@ -28545,10 +28546,10 @@ var parsePaddings = function(padding) {
                 return 0;
               }
               ;
-              throw new Error("Failed pattern match at System.Utils.General (line 315, column 22 - line 317, column 27): " + [padding.value0.y.constructor.name]);
+              throw new Error("Failed pattern match at System.Utils.General (line 323, column 22 - line 325, column 27): " + [padding.value0.y.constructor.name]);
             }
             ;
-            throw new Error("Failed pattern match at System.Utils.General (line 313, column 9 - line 317, column 27): " + [side.constructor.name]);
+            throw new Error("Failed pattern match at System.Utils.General (line 321, column 9 - line 325, column 27): " + [side.constructor.name]);
           };
         };
         var top3 = pickV(padding.value0.top)(height8);
@@ -28567,10 +28568,10 @@ var parsePaddings = function(padding) {
                 return 0;
               }
               ;
-              throw new Error("Failed pattern match at System.Utils.General (line 321, column 22 - line 323, column 27): " + [padding.value0.x.constructor.name]);
+              throw new Error("Failed pattern match at System.Utils.General (line 329, column 22 - line 331, column 27): " + [padding.value0.x.constructor.name]);
             }
             ;
-            throw new Error("Failed pattern match at System.Utils.General (line 319, column 9 - line 323, column 27): " + [side.constructor.name]);
+            throw new Error("Failed pattern match at System.Utils.General (line 327, column 9 - line 331, column 27): " + [side.constructor.name]);
           };
         };
         var right = pickH(padding.value0.right)(width8);
@@ -28586,7 +28587,7 @@ var parsePaddings = function(padding) {
         };
       }
       ;
-      throw new Error("Failed pattern match at System.Utils.General (line 297, column 38 - line 329, column 69): " + [padding.constructor.name]);
+      throw new Error("Failed pattern match at System.Utils.General (line 305, column 38 - line 337, column 69): " + [padding.constructor.name]);
     };
   };
 };
@@ -28714,7 +28715,7 @@ var evaluateAbsolutePosition = function(position2) {
             };
           }
           ;
-          throw new Error("Failed pattern match at System.Utils.General (line 411, column 3 - line 421, column 10): " + [v.constructor.name]);
+          throw new Error("Failed pattern match at System.Utils.General (line 419, column 3 - line 429, column 10): " + [v.constructor.name]);
         };
       };
     };
@@ -38074,8 +38075,8 @@ var updateNodes = function(params) {
                   var stepNext = function() {
                     if (multiSnap instanceof Just) {
                       return {
-                        x: roundHalfAwayFromZero(pos.x - v.value1.distance.x + multiSnap.value0.x),
-                        y: roundHalfAwayFromZero(pos.y - v.value1.distance.y + multiSnap.value0.y)
+                        x: roundHalfUp(pos.x - v.value1.distance.x + multiSnap.value0.x),
+                        y: roundHalfUp(pos.y - v.value1.distance.y + multiSnap.value0.y)
                       };
                     }
                     ;

@@ -420,6 +420,20 @@ main = do
   assert "snapPosition snaps to nearest grid cell"
     (snapped.x == 5.0 && snapped.y == 15.0)
 
+  -- 057: exact half-multiples break the tie toward +∞, matching JS
+  -- `Math.round` — so -2.5 cells snaps to -4, not -6.
+  let snappedHalf = G.snapPosition { x: -5.0, y: 5.0 } (mkSnapGrid 2.0 2.0)
+  assert "snapPosition breaks negative half-cell ties toward +infinity"
+    (snappedHalf.x == -4.0 && snappedHalf.y == 6.0)
+
+  -- 057: `roundHalfUp` matches JS `Math.round` on the tie-break and on the
+  -- largest double below one half (where `floor (n + 0.5)` would give 1.0).
+  assert "roundHalfUp -1.5 == -1.0" (G.roundHalfUp (-1.5) == -1.0)
+  assert "roundHalfUp -0.5 == 0.0" (G.roundHalfUp (-0.5) == 0.0)
+  assert "roundHalfUp 1.5 == 2.0" (G.roundHalfUp 1.5 == 2.0)
+  assert "roundHalfUp 0.49999999999999994 == 0.0"
+    (G.roundHalfUp 0.49999999999999994 == 0.0)
+
   -- 008: isCoordinateExtent collapses ParentExtent to Nothing.
   assert "isCoordinateExtent ParentExtent == Nothing"
     (G.isCoordinateExtent (Just ParentExtent) == Nothing)

@@ -19,8 +19,9 @@ comparators, and call `run<Group>Parity` from `test/Test/Main.purs`.
   `getStraightPath`, `getBezierPath`, `getSimpleBezierPath`, `getSmoothStepPath`.
 - **Geometry** (`Test.Parity.Geometry`): `clamp`, `getBoundsOfBoxes`, `rectToBox`,
   `boxToRect`, `getBoundsOfRects`, `getOverlappingArea`, `snapPosition`
-  (non-negative domain — ticket 057), `clampPosition`, `pointToRendererPoint`
-  (no snap), `rendererPointToPoint`.
+  (full signed domain, plus a dedicated exact-half-multiple generator — ticket
+  057), `clampPosition`, `pointToRendererPoint` (with and without a snap grid),
+  `rendererPointToPoint`.
 - **Toolbar** (`Test.Parity.Toolbar`): `getNodeToolbarTransform`,
   `getEdgeToolbarTransform` (CSS-transform strings, tokenized compare).
 - **Marker** (`Test.Parity.Marker`): `getMarkerId` (named + custom; numeric

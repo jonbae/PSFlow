@@ -89,7 +89,7 @@ import System.Utils.Dom
   , getEventPosition
   , getPointerPosition
   )
-import System.Utils.General (calcAutoPan, roundHalfAwayFromZero, snapPosition)
+import System.Utils.General (calcAutoPan, roundHalfUp, snapPosition)
 import System.Utils.Graph (calculateNodePosition)
 import System.XYDrag.Utils
   ( calculateSnapOffset
@@ -249,9 +249,9 @@ foreign import mouseButtonIsZero :: MouseEvent -> Effect Boolean
 -- | `event.target as Element`.
 foreign import mouseEventTarget :: MouseEvent -> Effect Element
 
--- TS `Math.round` rounds half-away-from-zero; PS's `round` rounds to even.
--- The pure equivalent lives in `System.Utils.General.roundHalfAwayFromZero`
--- and is imported above.
+-- TS `Math.round` rounds halves toward +∞; PS's `round` rounds to even.
+-- The pure equivalent lives in `System.Utils.General.roundHalfUp` and is
+-- imported above.
 
 -- | Construct the controller. Allocates a single `Ref DragState` and
 -- | returns the `update`/`destroy` interface. Subsequent `update` calls
@@ -573,8 +573,8 @@ updateNodes params mUpd pos = do
         let
           stepNext = case multiSnap of
             Just off ->
-              { x: roundHalfAwayFromZero ((pos.x - dragItem.distance.x) + off.x)
-              , y: roundHalfAwayFromZero ((pos.y - dragItem.distance.y) + off.y)
+              { x: roundHalfUp ((pos.x - dragItem.distance.x) + off.x)
+              , y: roundHalfUp ((pos.y - dragItem.distance.y) + off.y)
               }
             Nothing ->
               if store.snapToGrid then
