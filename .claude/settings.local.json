@@ -70,7 +70,8 @@
       "Bash(python3 -)",
       "Bash(node parity/layer0-api/extract-upstream.ts)",
       "Bash(node parity/layer0-api/extract-psflow.mjs)",
-      "Bash(node parity/layer0-api/diff.mjs)"
+      "Bash(node parity/layer0-api/diff.mjs)",
+      "Bash(gh api *)"
     ]
   }
 }
