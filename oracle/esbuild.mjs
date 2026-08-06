@@ -48,7 +48,8 @@ export {
   getOverlappingArea,
   snapPosition,
   pointToRendererPoint,
-  rendererPointToPoint
+  rendererPointToPoint,
+  getViewportForBounds
 } from "./xyflow/packages/system/src/utils/general";
 export { getNodeToolbarTransform } from "./xyflow/packages/system/src/utils/node-toolbar";
 export { getEdgeToolbarTransform } from "./xyflow/packages/system/src/utils/edge-toolbar";

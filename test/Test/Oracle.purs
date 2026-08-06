@@ -26,6 +26,7 @@ module Test.Oracle
   , clampPosition
   , pointToRendererPoint
   , rendererPointToPoint
+  , getViewportForBounds
   , getNodeToolbarTransform
   , getEdgeToolbarTransform
   , getMarkerId
@@ -40,7 +41,7 @@ module Test.Oracle
 import Data.Functor (map)
 import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Nullable (Nullable, toMaybe, toNullable)
-import System.Types.Connection (Viewport)
+import System.Types.Connection (Padding(..), PaddingValue(..), Viewport)
 import System.Types.Edge (AlignX(..), AlignY(..), EdgeMarkerType(..), MarkerType(..))
 import System.Types.Geometry
   ( Box
@@ -256,6 +257,60 @@ foreign import rendererPointToPointImpl :: XYPosition -> Array Number -> XYPosit
 
 rendererPointToPoint :: XYPosition -> Transform -> XYPosition
 rendererPointToPoint p (Transform t) = rendererPointToPointImpl p [ t.tx, t.ty, t.scale ]
+
+-- ─── fitView viewport ─────────────────────────────────────────────────────
+
+-- | Upstream's `PaddingWithUnit` (`number | \`${number}px\` | \`${number}%\``)
+-- | and `Padding` (a `PaddingWithUnit` or a per-side record), opaque here
+-- | because neither is expressible as a PureScript type. The third piece of
+-- | XYFlow-shape knowledge in this module, alongside `posStr` and the
+-- | newtype→array translations.
+foreign import data JsPaddingValue :: Type
+foreign import data JsPadding :: Type
+
+foreign import paddingValueImpl :: String -> Number -> JsPaddingValue
+foreign import uniformPaddingImpl :: JsPaddingValue -> JsPadding
+
+type DirectionalArg =
+  { top :: Nullable JsPaddingValue
+  , right :: Nullable JsPaddingValue
+  , bottom :: Nullable JsPaddingValue
+  , left :: Nullable JsPaddingValue
+  , x :: Nullable JsPaddingValue
+  , y :: Nullable JsPaddingValue
+  }
+
+foreign import directionalPaddingImpl :: DirectionalArg -> JsPadding
+
+-- | `PaddingValue` → `PaddingWithUnit`. The *bare number* form is upstream's
+-- | ratio padding (`(viewport - viewport / (1 + p)) * 0.5`); `px` and `%` are
+-- | strings it re-parses with `parseFloat`, so the empty unit means "leave it
+-- | a number".
+paddingValue :: PaddingValue -> JsPaddingValue
+paddingValue = case _ of
+  RatioPadding r -> paddingValueImpl "" r
+  PxPadding px -> paddingValueImpl "px" px
+  PctPadding pct -> paddingValueImpl "%" pct
+
+padding :: Padding -> JsPadding
+padding = case _ of
+  UniformPadding pv -> uniformPaddingImpl (paddingValue pv)
+  DirectionalPadding d -> directionalPaddingImpl
+    { top: toNullable (map paddingValue d.top)
+    , right: toNullable (map paddingValue d.right)
+    , bottom: toNullable (map paddingValue d.bottom)
+    , left: toNullable (map paddingValue d.left)
+    , x: toNullable (map paddingValue d.x)
+    , y: toNullable (map paddingValue d.y)
+    }
+
+foreign import getViewportForBoundsImpl
+  :: Rect -> Number -> Number -> Number -> Number -> JsPadding -> Viewport
+
+getViewportForBounds
+  :: Rect -> Number -> Number -> Number -> Number -> Padding -> Viewport
+getViewportForBounds bounds width height minZoom maxZoom p =
+  getViewportForBoundsImpl bounds width height minZoom maxZoom (padding p)
 
 -- ─── Toolbar transforms ───────────────────────────────────────────────────
 
