@@ -5,7 +5,8 @@
 //   * value names  ← `index.js` (the JS surface). It re-exports the compiled
 //     boundary module under TS-identical PascalCase names (`ReactFlow`,
 //     `MiniMap`, …), so it already encodes the camelCase↔PascalCase mapping
-//     the diff needs. Cross-checked against the boundary manifest, below.
+//     the diff needs. Cross-checked below against both of the other places
+//     that list the same surface: the boundary manifest and `Boundary.purs`.
 //   * type names   ← `src/React.purs` re-export groups (`import … ( … ) as
 //     ReExport*`). PureScript types are PascalCase; values are lowercase.
 //     We keep the PascalCase tokens (stripping any `(..)` constructor marker).
@@ -31,7 +32,7 @@ const indexJs = read("index.js");
 const exportBlocks = [
   ...indexJs.matchAll(/export\s*\{([\s\S]*?)\}\s*from\s*["'][^"']+["']/g),
 ];
-const valueExports = exportBlocks.flatMap((block) =>
+const specifiers = exportBlocks.flatMap((block) =>
   block[1]
     .replace(/\/\/[^\n]*/g, "") // section comments
     .split(",")
@@ -45,9 +46,10 @@ const valueExports = exportBlocks.flatMap((block) =>
             `index.js must stay a bare re-export — \`name\` or \`name as Public\`, nothing else.`
         );
       }
-      return m[2] ?? m[1];
+      return { local: m[1], public: m[2] ?? m[1] };
     })
 );
+const valueExports = specifiers.map((s) => s.public);
 
 if (valueExports.length === 0) {
   throw new Error(
@@ -78,6 +80,44 @@ if (notInManifest.length || notInIndex.length) {
         ? `\n  in the manifest but not exported: ${notInIndex.join(", ")}`
         : "") +
       `\nUpdate \`manifest.crossed\` / \`manifest.passthrough\` in src/Boundary.js.`
+  );
+}
+
+// ─── Cross-check against the boundary module's own export list ────────────
+// The check above ties index.js to the manifest, and both are JavaScript. The
+// third list is `src/Boundary.purs` — and a name in index.js that the boundary
+// module does not export is an *ESM link error*, the exact failure that put
+// `Position` and `MarkerType` out of reach in the first place. Nothing here
+// imports index.js (that is surface parity's own next step), so check it
+// textually, the way React.purs is read below.
+const boundaryPurs = read("src/Boundary.purs");
+const pursBlock = (re, what) => {
+  const m = re.exec(boundaryPurs);
+  if (!m) {
+    throw new Error(
+      `[extract-psflow] could not find the ${what} in src/Boundary.purs. ` +
+        `If the module was restructured, update this extractor — silently skipping ` +
+        `the check would leave index.js free to name a binding that does not exist.`
+    );
+  }
+  return m[1]
+    .split(/[\n,]/)
+    .map((s) => s.trim())
+    .filter((s) => /^[a-z]\w*'?$/.test(s));
+};
+const boundaryValues = new Set([
+  ...pursBlock(/^module\s+Boundary\s*\(([\s\S]*?)\)\s*where/m, "module export list"),
+  ...pursBlock(/import\s+React\s*\(([\s\S]*?)\)\s*as\s+PublicSurface/, "`as PublicSurface` import block"),
+]);
+const unresolved = specifiers
+  .filter((s) => !boundaryValues.has(s.local))
+  .map((s) => (s.local === s.public ? s.local : `${s.local} (as ${s.public})`));
+if (unresolved.length) {
+  throw new Error(
+    `[extract-psflow] index.js re-exports ${unresolved.length} name(s) the boundary ` +
+      `module does not export: ${unresolved.join(", ")}.\n` +
+      `Importing index.js would fail to link. Add them to Boundary.purs's export ` +
+      `list or its \`as PublicSurface\` import block.`
   );
 }
 

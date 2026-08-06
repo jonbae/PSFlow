@@ -1,8 +1,8 @@
 -- | The **boundary module** — ps-flow's JS surface, in PureScript.
 -- |
 -- | `index.js` is the door the audience comes through, and until now it
--- | re-exported the `React` barrel raw: idiomatic PureScript representations
--- | reached JavaScript unconverted. This module is where that conversion goes.
+-- | re-exported the `React` barrel raw, so idiomatic PureScript representations
+-- | reached JavaScript untranslated. This module is where the crossing happens.
 -- | Written in PureScript against the real types, so every conversion is
 -- | compiler-checked; `index.js` becomes a bare re-export of the compiled
 -- | output, doing nothing but restore the PascalCase names PureScript's grammar
@@ -18,7 +18,7 @@
 -- | ## Staging
 -- |
 -- | The surface crosses in four stages, ordered by how detectable a mistake in
--- | each is. Everything not yet converted is re-exported **unchanged** — it
+-- | each is. Everything that has not yet crossed is re-exported **unchanged** — it
 -- | resolves, but its shape is still the PureScript one. The `manifest` says
 -- | which is which, and is the only place that answer is written down.
 -- |
@@ -60,7 +60,7 @@ module Boundary
   , manifest
   ) where
 
--- The 60 symbols of the public surface, passing through unconverted. Ordered
+-- The 60 symbols of the public surface, passing through raw. Ordered
 -- to mirror `xyflow/packages/react/src/index.ts`, as `index.js` is, so future
 -- audits stay mechanical.
 import React
@@ -267,14 +267,12 @@ backgroundVariant = freeze
 -- | What has crossed, and what is still passing through raw.
 -- |
 -- | `crossed` and `passthrough` together name every export on the JS surface,
--- | so a gate can scope itself to the converted set without a hand-maintained
+-- | so a gate can scope itself to the crossed set without a hand-maintained
 -- | list of its own, and grows with the staging rather than being rewritten by
 -- | it. Defined in `Boundary.js` as dependency-free data: a gate reads it by
 -- | importing that file directly, with no build step.
 type Manifest =
-  { schema :: Int
-  , stage :: Int
-  , doc :: String
+  { stage :: Int
   , crossed :: Array String
   , passthrough :: Array String
   }

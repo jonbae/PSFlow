@@ -1,9 +1,9 @@
--- | The public-API barrel for `ps-flow`. Mirrors
--- | `xyflow-main/packages/react/src/index.ts` one-for-one — every TS symbol
+-- | The **PureScript surface** of `ps-flow`. Mirrors
+-- | `xyflow/packages/react/src/index.ts` one-for-one — every TS symbol
 -- | the upstream package exports is re-surfaced here (modulo PS-idiom
 -- | translations called out below).
 -- |
--- | Two consumer audiences:
+-- | Two consumer audiences, and they no longer come through the same door:
 -- |
 -- |   * **PureScript users** import from this module. PS values must start
 -- |     with a lowercase letter (grammar), so component names are
@@ -11,15 +11,15 @@
 -- |     Types and values are in separate namespaces, so the TS `Handle as
 -- |     HandleBound` workaround is unnecessary.
 -- |
--- |   * **JavaScript users** import the hand-written `index.js` shim at
--- |     the repo root, which re-exports the compiled output of this
--- |     module under TS-identical PascalCase names (`ReactFlow`,
--- |     `MiniMap`, …). That shim is the escape hatch for the
--- |     PS-can't-uppercase-values constraint.
+-- |   * **JavaScript users** come through `index.js`, which is a bare
+-- |     re-export of the **boundary module** (`Boundary`) rather than of
+-- |     this one. That module re-exports everything below and crosses it
+-- |     into JS-native shapes stage by stage. Nothing here knows it
+-- |     exists, and nothing here changes to serve it.
 -- |
 -- | **Documented divergences from TS:**
 -- |
--- |   1. Value-level identifiers are camelCase (PS grammar). The JS shim
+-- |   1. Value-level identifiers are camelCase (PS grammar). `index.js`
 -- |      restores TS-identical PascalCase names for JavaScript consumers.
 -- |   2. `useConnection` is split into `useConnection` (no-arg) and
 -- |      `useConnectionWith` (selector + Eq instance). The TS overload-set

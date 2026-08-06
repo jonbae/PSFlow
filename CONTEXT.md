@@ -20,7 +20,7 @@ _Avoid_: incidental surface, the barrel, the internals
 
 **Boundary module**:
 `src/Boundary.purs`, the single PureScript module standing between the internals
-and the JS surface. It re-exports all 60 public symbols, converting each to a
+and the JS surface. It re-exports all 60 public symbols, crossing each into a
 JS-native shape as the staging reaches it, and `index.js` is a bare re-export of
 its compiled output. The conversion lives in PureScript so the compiler checks
 it; the internals and the PureScript surface are untouched by it.
@@ -41,7 +41,7 @@ _Avoid_: converted, wrapped, adapted
 **Manifest**:
 The boundary module's machine-readable record of which exports have **crossed**
 and which are still passing through raw, in `src/Boundary.js`. It exists so a
-gate can scope itself to the converted set and grow with the staging instead of
+gate can scope itself to the crossed set and grow with the staging instead of
 carrying a hand-maintained list of its own.
 _Avoid_: the export list, the crossing table
 
