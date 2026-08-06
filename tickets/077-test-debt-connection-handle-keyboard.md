@@ -1,5 +1,13 @@
 # 077 — Test debt: connection, handle and keyboard behavior
 
+> **Fates decided.** [Fate of the 57 test-debt rows under the
+> net](https://github.com/jonbae/PSFlow/issues/21) assigned every row in this
+> ticket a disposition — see `tickets/080-test-debt-dispositions.md`. Read that
+> before writing any test here; most of these rows are covered by a shared
+> scenario rather than a per-row assertion, and the acceptance criteria below
+> are superseded by it. The research notes in this ticket still stand.
+
+
 ## Context
 
 One of four test-debt tickets from the [071](071-version-drift-audit-12-3-to-12-11.md)
