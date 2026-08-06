@@ -31,6 +31,7 @@ import {
   snapPosition,
   pointToRendererPoint,
   rendererPointToPoint,
+  getViewportForBounds,
   getNodeToolbarTransform,
   getEdgeToolbarTransform,
   getMarkerId,
@@ -78,6 +79,26 @@ export const clampPositionImpl = (pos) => (extent) => (dims) => clampPosition(po
 export const pointToRendererPointImpl = (pos) => (transform) => (snapToGrid) => (grid) =>
   pointToRendererPoint(pos, transform, snapToGrid, grid);
 export const rendererPointToPointImpl = (pos) => (transform) => rendererPointToPoint(pos, transform);
+
+// ─── fitView viewport (Padding ADT → upstream's `Padding` union) ──────────
+// PSFlow models padding as a sum type; upstream models it as
+// `PaddingWithUnit | { top?, right?, bottom?, left?, x?, y? }` where
+// `PaddingWithUnit = \`${number}${'px' | '%'}\` | number`. The unit forms are
+// built here with the same template interpolation upstream's own type is
+// written in, so no PureScript number formatting sits in the round-trip —
+// upstream recovers the double with `parseFloat`.
+export const paddingValueImpl = (unit) => (n) => (unit === "" ? n : `${n}${unit}`);
+// A bare `PaddingWithUnit` *is* a `Padding`; the lift is upstream's union, not
+// a conversion.
+export const uniformPaddingImpl = (value) => value;
+// Absent sides arrive as `null`. Upstream reads them with `??`
+// (`padding.top ?? padding.y ?? 0`), which treats null exactly as absent, so
+// the record passes through unchanged.
+export const directionalPaddingImpl = (sides) => sides;
+
+export const getViewportForBoundsImpl =
+  (bounds) => (width) => (height) => (minZoom) => (maxZoom) => (padding) =>
+    getViewportForBounds(bounds, width, height, minZoom, maxZoom, padding);
 
 // ─── Toolbar transforms (curried scalars/records, string out) ─────────────
 export const getNodeToolbarTransformImpl =
