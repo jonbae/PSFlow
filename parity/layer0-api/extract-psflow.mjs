@@ -2,9 +2,10 @@
 // already written down in two hand-maintained barrels, so we read those
 // directly rather than compile PureScript.
 //
-//   * value names  ← `index.js` (the JS shim). It re-exports every PS value
-//     under its TS-identical PascalCase name (`ReactFlow`, `MiniMap`, …), so
-//     it already encodes the camelCase↔PascalCase mapping the diff needs.
+//   * value names  ← `index.js` (the JS surface). It re-exports the compiled
+//     boundary module under TS-identical PascalCase names (`ReactFlow`,
+//     `MiniMap`, …), so it already encodes the camelCase↔PascalCase mapping
+//     the diff needs. Cross-checked against the boundary manifest, below.
 //   * type names   ← `src/React.purs` re-export groups (`import … ( … ) as
 //     ReExport*`). PureScript types are PascalCase; values are lowercase.
 //     We keep the PascalCase tokens (stripping any `(..)` constructor marker).
@@ -13,7 +14,7 @@
 //
 // Emits `psflow.json` with the same shape as `upstream.json`.
 
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import { dirname, resolve, join } from "node:path";
 import { readFileSync, writeFileSync } from "node:fs";
 import { PROP_TYPES } from "./prop-types.mjs";
@@ -23,8 +24,62 @@ const repoRoot = resolve(here, "..", "..");
 const read = (p) => readFileSync(join(repoRoot, p), "utf8");
 
 // ─── Value names from index.js ────────────────────────────────────────────
+// `index.js` is a bare `export { … } from "./output/Boundary/index.js"`, so
+// each entry is either `local as Public` or a bare name that needs no rename.
+// The *public* name is what upstream is compared against.
 const indexJs = read("index.js");
-const valueExports = [...indexJs.matchAll(/export const (\w+)\s*=/g)].map((m) => m[1]);
+const exportBlocks = [
+  ...indexJs.matchAll(/export\s*\{([\s\S]*?)\}\s*from\s*["'][^"']+["']/g),
+];
+const valueExports = exportBlocks.flatMap((block) =>
+  block[1]
+    .replace(/\/\/[^\n]*/g, "") // section comments
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean)
+    .map((entry) => {
+      const m = /^(\w+)(?:\s+as\s+(\w+))?$/.exec(entry);
+      if (!m) {
+        throw new Error(
+          `[extract-psflow] unparsable export specifier in index.js: \`${entry}\`. ` +
+            `index.js must stay a bare re-export — \`name\` or \`name as Public\`, nothing else.`
+        );
+      }
+      return m[2] ?? m[1];
+    })
+);
+
+if (valueExports.length === 0) {
+  throw new Error(
+    "[extract-psflow] index.js yielded no value exports. Either the file stopped " +
+      "being a bare `export { … } from …` re-export, or this extractor no longer " +
+      "matches its shape — reporting the whole surface as missing would bury that."
+  );
+}
+
+// ─── Cross-check against the boundary manifest ────────────────────────────
+// The manifest (`src/Boundary.js`) is what other gates scope themselves to, so
+// it has to name the same surface index.js publishes. Read from the FFI file
+// directly: it is dependency-free data, so this needs no `spago build`.
+const { manifest } = await import(
+  pathToFileURL(join(repoRoot, "src", "Boundary.js")).href
+);
+const manifestNames = new Set([...manifest.crossed, ...manifest.passthrough]);
+const published = new Set(valueExports);
+const notInManifest = [...published].filter((n) => !manifestNames.has(n)).sort();
+const notInIndex = [...manifestNames].filter((n) => !published.has(n)).sort();
+if (notInManifest.length || notInIndex.length) {
+  throw new Error(
+    `[extract-psflow] boundary manifest is out of step with index.js.` +
+      (notInManifest.length
+        ? `\n  exported but not in the manifest: ${notInManifest.join(", ")}`
+        : "") +
+      (notInIndex.length
+        ? `\n  in the manifest but not exported: ${notInIndex.join(", ")}`
+        : "") +
+      `\nUpdate \`manifest.crossed\` / \`manifest.passthrough\` in src/Boundary.js.`
+  );
+}
 
 // ─── Type names from React.purs re-export groups ──────────────────────────
 const reactPurs = read("src/React.purs");
@@ -135,6 +190,7 @@ writeFileSync(outPath, JSON.stringify(output, null, 2) + "\n");
 const propSummary = PROP_TYPES.map((p) => `${p.name}=${props[p.name].length}`).join(" ");
 
 console.log(
-  `[extract-psflow] ${output.valueExports.length} value + ${output.typeExports.length} type exports, ` +
-    `props ${propSummary} → ${outPath}`
+  `[extract-psflow] ${output.valueExports.length} value ` +
+    `(${manifest.crossed.length} crossed, ${manifest.passthrough.length} passthrough — boundary stage ${manifest.stage}) ` +
+    `+ ${output.typeExports.length} type exports, props ${propSummary} → ${outPath}`
 );
