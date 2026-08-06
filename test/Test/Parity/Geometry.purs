@@ -16,8 +16,10 @@ import Data.Int (toNumber) as Int
 import Data.Maybe (Maybe(..))
 import Effect (Effect)
 import Effect.Class.Console (log)
+import System.Types.Connection (Padding(..), PaddingValue(..))
 import System.Types.Geometry
   ( CoordinateExtent
+  , Rect
   , SnapGrid
   , Transform
   , XYPosition
@@ -32,15 +34,16 @@ import System.Utils.General
   , getBoundsOfBoxes
   , getBoundsOfRects
   , getOverlappingArea
+  , getViewportForBounds
   , pointToRendererPoint
   , rectToBox
   , rendererPointToPoint
   , snapPosition
   ) as PS
 import Test.Oracle as Oracle
-import Test.Parity.Util (boxMatch, numMatch, rectMatch, xyMatch)
+import Test.Parity.Util (boxMatch, numMatch, rectMatch, viewportMatch, xyMatch)
 import Test.Properties (genBox, genFiniteNumber, genNonNegNumber, genRect, genSnapGrid)
-import Test.QuickCheck (quickCheck)
+import Test.QuickCheck (Result, quickCheck)
 import Test.QuickCheck.Gen (Gen, chooseInt, elements)
 
 genXY :: Gen XYPosition
@@ -92,6 +95,78 @@ genDims = do
   width <- genMaybeDim
   height <- genMaybeDim
   pure { width, height }
+
+-- | All three `PaddingValue` forms. The ranges are per-constructor because the
+-- | constructors are not interchangeable: a ratio of `200` is nonsense where
+-- | `200px` is ordinary. `0.1` — fitView's default — sits inside the ratio
+-- | range.
+genPaddingValue :: Gen PaddingValue
+genPaddingValue = do
+  ctor <- chooseInt 0 2
+  case ctor of
+    0 -> PxPadding <<< Int.toNumber <$> chooseInt 0 200
+    1 -> PctPadding <<< (\n -> Int.toNumber n / 10.0) <$> chooseInt 0 400
+    _ -> RatioPadding <<< (\n -> Int.toNumber n / 100.0) <$> chooseInt 0 100
+
+genMaybePaddingValue :: Gen (Maybe PaddingValue)
+genMaybePaddingValue = do
+  present <- elements (NEA.cons' true [ false ])
+  if present then Just <$> genPaddingValue else pure Nothing
+
+-- | Both `Padding` shapes. The directional case leaves sides absent at random,
+-- | which is the point: upstream resolves an absent side through
+-- | `padding.top ?? padding.y ?? 0` and PSFlow through a nested `case`, and
+-- | those two fallback chains are only compared when sides go missing.
+genPadding :: Gen Padding
+genPadding = do
+  uniform <- elements (NEA.cons' true [ false ])
+  if uniform then UniformPadding <$> genPaddingValue
+  else do
+    top <- genMaybePaddingValue
+    right <- genMaybePaddingValue
+    bottom <- genMaybePaddingValue
+    left <- genMaybePaddingValue
+    x <- genMaybePaddingValue
+    y <- genMaybePaddingValue
+    pure (DirectionalPadding { top, right, bottom, left, x, y })
+
+type FitViewInput =
+  { bounds :: Rect
+  , width :: Number
+  , height :: Number
+  , minZoom :: Number
+  , maxZoom :: Number
+  }
+
+-- | Inputs for `getViewportForBounds`. `bounds.width`/`bounds.height` are
+-- | divisors and the viewport dimensions are the numerator, so all four are
+-- | strictly positive — a zero-area bounds or viewport asks both
+-- | implementations about `Infinity`, which is a different question than
+-- | whether the fitView math agrees.
+genFitViewInput :: Gen FitViewInput
+genFitViewInput = do
+  x <- genFiniteNumber
+  y <- genFiniteNumber
+  boundsWidth <- Int.toNumber <$> chooseInt 1 2000
+  boundsHeight <- Int.toNumber <$> chooseInt 1 2000
+  width <- Int.toNumber <$> chooseInt 1 1600
+  height <- Int.toNumber <$> chooseInt 1 1200
+  lo <- chooseInt 1 100
+  hi <- chooseInt lo 400
+  pure
+    { bounds: { x, y, width: boundsWidth, height: boundsHeight }
+    , width
+    , height
+    , minZoom: Int.toNumber lo / 100.0
+    , maxZoom: Int.toNumber hi / 100.0
+    }
+
+fitViewMatch :: String -> FitViewInput -> Padding -> Result
+fitViewMatch ctx i p =
+  viewportMatch
+    (ctx <> "\n  bounds=" <> show i.bounds <> " viewport=" <> show i.width <> "x" <> show i.height <> " zoom=[" <> show i.minZoom <> "," <> show i.maxZoom <> "] padding=" <> show p)
+    (PS.getViewportForBounds i.bounds i.width i.height i.minZoom i.maxZoom p)
+    (Oracle.getViewportForBounds i.bounds i.width i.height i.minZoom i.maxZoom p)
 
 runGeometryParity :: Effect Unit
 runGeometryParity = do
@@ -183,6 +258,24 @@ runGeometryParity = do
       ( xyMatch "rendererPointToPoint"
           (PS.rendererPointToPoint pos t)
           (Oracle.rendererPointToPoint pos t)
+      )
+
+  quickCheck do
+    i <- genFitViewInput
+    p <- genPadding
+    pure (fitViewMatch "getViewportForBounds" i p)
+
+  -- The configuration the dual-run spike actually ran: `fitView` with no
+  -- options, whose padding defaults to the ratio `0.1`. The spike saw the two
+  -- sides disagree on zoom (1.03145 vs 1.05466) and could not separate a math
+  -- divergence from fixture skew; this property answers that half directly,
+  -- with no fixture involved.
+  quickCheck do
+    i <- genFitViewInput
+    pure
+      ( fitViewMatch "getViewportForBounds (fitView default padding — ticket 030)"
+          i
+          (UniformPadding (RatioPadding 0.1))
       )
 
   log "geometry parity passed"

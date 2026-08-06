@@ -16,6 +16,7 @@ module Test.Parity.Util
   , xyMatch
   , rectMatch
   , boxMatch
+  , viewportMatch
   , numMatch
   , transformMatch
   , strMatch
@@ -32,6 +33,7 @@ import Data.Number (abs, fromString) as Number
 import Data.String.Regex (Regex, match, regex) as Re
 import Data.String.Regex.Flags (global) as ReFlags
 import Partial.Unsafe (unsafeCrashWith)
+import System.Types.Connection (Viewport)
 import System.Types.Geometry (Box, Rect, XYPosition)
 import System.Utils.Edges.General (EdgeCenter, EdgePathResult)
 import Test.QuickCheck (Result, (<?>))
@@ -149,6 +151,14 @@ boxMatch ctx a b =
     ( ctx
         <> "\n  PSFlow=(" <> show a.x <> "," <> show a.y <> ")-(" <> show a.x2 <> "," <> show a.y2 <> ")"
         <> "\n  XYFlow=(" <> show b.x <> "," <> show b.y <> ")-(" <> show b.x2 <> "," <> show b.y2 <> ")"
+    )
+
+viewportMatch :: String -> Viewport -> Viewport -> Result
+viewportMatch ctx a b =
+  (approxEq a.x b.x && approxEq a.y b.y && approxEq a.zoom b.zoom) <?>
+    ( ctx
+        <> "\n  PSFlow=(" <> show a.x <> "," <> show a.y <> ") zoom=" <> show a.zoom
+        <> "\n  XYFlow=(" <> show b.x <> "," <> show b.y <> ") zoom=" <> show b.zoom
     )
 
 numMatch :: String -> Number -> Number -> Result

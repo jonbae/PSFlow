@@ -91,6 +91,87 @@ var rendererPointToPoint = ({ x, y }, [tx, ty, tScale]) => {
     y: y * tScale + ty
   };
 };
+function parsePadding(padding, viewport) {
+  if (typeof padding === "number") {
+    return Math.floor((viewport - viewport / (1 + padding)) * 0.5);
+  }
+  if (typeof padding === "string" && padding.endsWith("px")) {
+    const paddingValue = parseFloat(padding);
+    if (!Number.isNaN(paddingValue)) {
+      return Math.floor(paddingValue);
+    }
+  }
+  if (typeof padding === "string" && padding.endsWith("%")) {
+    const paddingValue = parseFloat(padding);
+    if (!Number.isNaN(paddingValue)) {
+      return Math.floor(viewport * paddingValue * 0.01);
+    }
+  }
+  console.error(
+    `The padding value "${padding}" is invalid. Please provide a number or a string with a valid unit (px or %).`
+  );
+  return 0;
+}
+function parsePaddings(padding, width, height) {
+  if (typeof padding === "string" || typeof padding === "number") {
+    const paddingY = parsePadding(padding, height);
+    const paddingX = parsePadding(padding, width);
+    return {
+      top: paddingY,
+      right: paddingX,
+      bottom: paddingY,
+      left: paddingX,
+      x: paddingX * 2,
+      y: paddingY * 2
+    };
+  }
+  if (typeof padding === "object") {
+    const top = parsePadding(padding.top ?? padding.y ?? 0, height);
+    const bottom = parsePadding(padding.bottom ?? padding.y ?? 0, height);
+    const left = parsePadding(padding.left ?? padding.x ?? 0, width);
+    const right = parsePadding(padding.right ?? padding.x ?? 0, width);
+    return { top, right, bottom, left, x: left + right, y: top + bottom };
+  }
+  return { top: 0, right: 0, bottom: 0, left: 0, x: 0, y: 0 };
+}
+function calculateAppliedPaddings(bounds, x, y, zoom, width, height) {
+  const { x: left, y: top } = rendererPointToPoint(bounds, [x, y, zoom]);
+  const { x: boundRight, y: boundBottom } = rendererPointToPoint(
+    { x: bounds.x + bounds.width, y: bounds.y + bounds.height },
+    [x, y, zoom]
+  );
+  const right = width - boundRight;
+  const bottom = height - boundBottom;
+  return {
+    left: Math.floor(left),
+    top: Math.floor(top),
+    right: Math.floor(right),
+    bottom: Math.floor(bottom)
+  };
+}
+var getViewportForBounds = (bounds, width, height, minZoom, maxZoom, padding) => {
+  const p = parsePaddings(padding, width, height);
+  const xZoom = (width - p.x) / bounds.width;
+  const yZoom = (height - p.y) / bounds.height;
+  const zoom = Math.min(xZoom, yZoom);
+  const clampedZoom = clamp(zoom, minZoom, maxZoom);
+  const boundsCenterX = bounds.x + bounds.width / 2;
+  const boundsCenterY = bounds.y + bounds.height / 2;
+  const x = width / 2 - boundsCenterX * clampedZoom;
+  const y = height / 2 - boundsCenterY * clampedZoom;
+  const newPadding = calculateAppliedPaddings(bounds, x, y, clampedZoom, width, height);
+  const offset = {
+    left: Math.min(newPadding.left - p.left, 0),
+    top: Math.min(newPadding.top - p.top, 0),
+    right: Math.min(newPadding.right - p.right, 0),
+    bottom: Math.min(newPadding.bottom - p.bottom, 0)
+  };
+  return {
+    x: x - offset.left + offset.right,
+    y: y - offset.top + offset.bottom,
+    zoom: clampedZoom
+  };
+};
 
 // xyflow/packages/system/src/utils/edges/bezier-edge.ts
 function getBezierEdgeCenter({
@@ -692,6 +773,7 @@ export {
   getSimpleBezierPath,
   getSmoothStepPath,
   getStraightPath,
+  getViewportForBounds,
   pointToRendererPoint,
   rectToBox,
   rendererPointToPoint,
