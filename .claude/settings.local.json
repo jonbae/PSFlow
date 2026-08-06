@@ -71,7 +71,11 @@
       "Bash(node parity/layer0-api/extract-upstream.ts)",
       "Bash(node parity/layer0-api/extract-psflow.mjs)",
       "Bash(node parity/layer0-api/diff.mjs)",
-      "Bash(gh api *)"
+      "Bash(gh api *)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d.get\\('scripts',{}\\),indent=1\\)\\)\")",
+      "Read(//Users/jonathanbae/.claude/plugins/**)",
+      "WebSearch",
+      "Bash(python3 -c ' *)"
     ]
   }
 }
