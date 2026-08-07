@@ -74,14 +74,15 @@ module Boundary
   , manifest
   ) where
 
--- The 60 symbols of the public surface, passing through raw. Ordered
--- to mirror `xyflow/packages/react/src/index.ts`, as `index.js` is, so future
--- audits stay mechanical.
--- The exports that have crossed and so are *not* the barrel's. `reactFlow` is
--- the JS-facing component from `Boundary.Flow`, which converts a JavaScript
--- props object and renders `React.Container.ReactFlow`'s component with it.
+-- The exports that have crossed. `reactFlow` is the JS-facing component from
+-- `Boundary.Flow`, which converts a JavaScript props object and renders
+-- `React.Container.ReactFlow`'s component with it — so it comes from there and
+-- not from the PureScript surface, which still has the unconverted one.
 import Boundary.Flow (reactFlow) as CrossedSurface
 
+-- The other 59 symbols of the public surface, passing through raw. Ordered to
+-- mirror `xyflow/packages/react/src/index.ts`, as `index.js` is, so future
+-- audits stay mechanical.
 import React
   ( -- Components
     reactFlowWithRef

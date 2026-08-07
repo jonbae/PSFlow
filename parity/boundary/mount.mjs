@@ -1,10 +1,10 @@
 // The boundary module, mounted through `index.js`.
 //
-// The boundary module is tested only through `index.js` — never through the
+// The boundary module is gated on the JS surface only — never through the
 // PureScript module it wraps — because `index.js` is the door the audience
 // comes through and the whole point of this apparatus is that no gate should
-// enter by a different one. That normally means a browser, but the two claims
-// this ticket has to stand behind are reachable from a server render:
+// enter by a different one. That normally means a browser, but the claims this
+// ticket has to stand behind are reachable from a server render:
 //
 //   1. **Every deferred prop throws at mount.** A prop the boundary has not
 //      converted must fail loudly rather than be ignored, because a prop that
@@ -189,9 +189,10 @@ check("node props arrive JS-shaped, not PureScript-shaped", () => {
 
 // ── 2. Every deferred prop throws ───────────────────────────────────────
 
+const flowText = readFileSync(flowSource, "utf8");
 const flowFields = new Set(recordFields(flowSource, "JsFlowProps"));
 const deferredPattern = /^\s*[[,]?\s*(?:callbackProp|componentProp)\s+"([^"]+)"/gm;
-const deferred = [...readFileSync(flowSource, "utf8").matchAll(deferredPattern)].map((m) => m[1]);
+const deferred = [...flowText.matchAll(deferredPattern)].map((m) => m[1]);
 
 // The list is read, not restated, so an empty read is a broken parser rather
 // than a boundary with nothing left to defer — and a broken parser here would
@@ -200,11 +201,34 @@ if (deferred.length < 40) {
   fail(`read only ${deferred.length} deferred props from ${flowSource} — the parse is wrong`);
 }
 
-check(`every deferred prop is a real ${"JsFlowProps"} field`, () => {
+check("every deferred prop is a real JsFlowProps field", () => {
   const unknown = deferred.filter((name) => !flowFields.has(name));
   assert(
     unknown.length === 0,
     `deferred entries naming no such prop: ${unknown.join(", ")} — stale entries in Boundary.Flow`
+  );
+});
+
+// The other direction, and the one that can go wrong quietly. `convertProps`
+// hands the PureScript component a literal `Nothing` for every prop that has
+// not crossed; the deferred table is what turns that into an error. A prop
+// wired to `Nothing` with no table entry is ignored in silence — the exact
+// failure the table exists to prevent, one field along.
+check("every prop wired to `Nothing` has a deferred entry", () => {
+  const convertProps = /^convertProps p =\n([\s\S]*?)\n  \}$/m.exec(flowText);
+  assert(convertProps !== null, "cannot find `convertProps` in Boundary.Flow — the parse is wrong");
+  const wiredToNothing = [...convertProps[1].matchAll(/^\s*[,{]\s*(\w+): Nothing$/gm)].map(
+    (m) => m[1]
+  );
+  assert(
+    wiredToNothing.length > 0,
+    "found no props wired to `Nothing` — the parse is wrong, and it would pass anything"
+  );
+  const deferredSet = new Set(deferred);
+  const unguarded = wiredToNothing.filter((name) => !deferredSet.has(name));
+  assert(
+    unguarded.length === 0,
+    `props wired to \`Nothing\` with no deferred entry, so they are silently ignored: ${unguarded.join(", ")}`
   );
 });
 
@@ -261,6 +285,24 @@ refuses(
 refuses("a null key code is refused rather than defaulted", { deleteKeyCode: null }, "deleteKeyCode", "null");
 
 refuses("a key code of the wrong type is refused", { selectionKeyCode: 42 }, "selectionKeyCode");
+
+// `defaultEdgeOptions` is upstream's `Edge` minus its identity fields; ps-flow's
+// own record carries ten of those 23. The other thirteen would be dropped on the
+// floor, so the boundary refuses them one by one.
+const refusedOptionsPattern = /^\s*[[,]?\s*(?:droppedOption|unmodelledOption)\s+"([^"]+)"/gm;
+const refusedOptions = [...flowText.matchAll(refusedOptionsPattern)].map((m) => m[1]);
+
+if (refusedOptions.length === 0) {
+  fail(`read no refused defaultEdgeOptions members from ${flowSource} — the parse is wrong`);
+}
+
+for (const name of refusedOptions) {
+  refuses(
+    `\`defaultEdgeOptions.${name}\` is refused at mount`,
+    { defaultEdgeOptions: { ...convertedProps.defaultEdgeOptions, [name]: "probe" } },
+    `defaultEdgeOptions.${name}`
+  );
+}
 
 // ── Report ──────────────────────────────────────────────────────────────
 

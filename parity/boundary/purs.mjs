@@ -38,16 +38,12 @@ export function stripComments(source) {
 const OPEN = { "{": "}", "(": ")", "[": "]" };
 const CLOSE = new Set(["}", ")", "]"]);
 
-// The balanced text between the first delimiter after `type <Name> … =` and its
-// match. Closed records are `{ … }` and open rows are `( … )`; both occur.
-function declarationBody(source, typeName, where) {
-  const header = new RegExp(`^type\\s+${typeName}(?:\\s+[A-Za-z0-9_' ]+)?\\s*=`, "m");
-  const match = header.exec(source);
-  if (!match) fail(`cannot find \`type ${typeName}\` in ${where}`);
-
-  let i = match.index + match[0].length;
+// The balanced text inside the delimiter at or after `from`. Closed records are
+// `{ … }` and open rows are `( … )`; both occur.
+function balancedFrom(source, from, what) {
+  let i = from;
   while (i < source.length && !(source[i] in OPEN)) i++;
-  if (i >= source.length) fail(`\`type ${typeName}\` in ${where} has no record or row body`);
+  if (i >= source.length) fail(`${what} has no record or row body`);
 
   const start = i;
   let depth = 0;
@@ -62,7 +58,24 @@ function declarationBody(source, typeName, where) {
       if (depth === 0) return source.slice(start + 1, i);
     }
   }
-  fail(`\`type ${typeName}\` in ${where} is not balanced`);
+  fail(`${what} is not balanced`);
+}
+
+function declarationBody(source, typeName, where) {
+  const header = new RegExp(`^type\\s+${typeName}(?:\\s+[A-Za-z0-9_' ]+)?\\s*=`, "m");
+  const match = header.exec(source);
+  if (!match) fail(`cannot find \`type ${typeName}\` in ${where}`);
+  return balancedFrom(source, match.index + match[0].length, `\`type ${typeName}\` in ${where}`);
+}
+
+// The text of a `data <Name> … = … | …` declaration: everything from its header
+// up to the next declaration starting in column 1.
+function dataBody(source, typeName, where) {
+  const header = new RegExp(`^data\\s+${typeName}\\b`, "m").exec(source);
+  if (!header) fail(`cannot find \`data ${typeName}\` in ${where}`);
+  const rest = source.slice(header.index);
+  const end = /\n(?=\S)/.exec(rest.slice(1));
+  return end ? rest.slice(0, end.index + 1) : rest;
 }
 
 // Top-level labels only: a comma inside a nested record or a type application
@@ -110,4 +123,26 @@ export function readSource(path) {
 export function recordFields(path, typeName) {
   const source = readSource(path);
   return labelsOf(declarationBody(source, typeName, path), typeName, path);
+}
+
+// The constructor names of a sum type, in declaration order. Used to catch a
+// member added to `NodeChange` or `EdgeChange` that the crossing never learned
+// about — the union's equivalent of a record gaining a field.
+export function dataConstructors(path, typeName) {
+  const body = dataBody(readSource(path), typeName, path);
+  const names = [...body.matchAll(/[=|]\s*([A-Z][A-Za-z0-9_']*)/g)].map((m) => m[1]);
+  if (names.length === 0) {
+    fail(`\`data ${typeName}\` in ${path} yielded no constructors — the parse is wrong`);
+  }
+  return names;
+}
+
+// The labels of the record a single constructor carries.
+export function constructorFields(path, typeName, ctorName) {
+  const source = readSource(path);
+  const body = dataBody(source, typeName, path);
+  const ctor = new RegExp(`\\b${ctorName}\\b`).exec(body);
+  if (!ctor) fail(`\`data ${typeName}\` in ${path} has no constructor ${ctorName}`);
+  const where = `${typeName}.${ctorName} in ${path}`;
+  return labelsOf(balancedFrom(body, ctor.index + ctorName.length, where), where, path);
 }

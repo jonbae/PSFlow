@@ -29,11 +29,11 @@ export const manifest = Object.freeze({
 
   // The eight TS enums are plain data on both sides, so crossing them was the
   // whole conversion: no wrapper, no arity change, no representation to
-  // translate. `ReactFlow` is the opposite — 124 props, of which 74 convert,
-  // three callbacks convert, and 49 are refused outright until the stage that
-  // lands them (see `Boundary.Flow`). It is listed as crossed because a
-  // JavaScript caller now gets upstream's prop shapes or an error, never
-  // silence.
+  // translate. `ReactFlow` is the opposite — 124 props, of which 75 convert
+  // (72 non-callback fields plus the three change callbacks) and 49 are
+  // refused outright until the stage that lands them (see `Boundary.Flow`).
+  // It is listed as crossed because a JavaScript caller now gets upstream's
+  // prop shapes or an error, never silence.
   crossed: Object.freeze([
     "BackgroundVariant",
     "ConnectionLineType",

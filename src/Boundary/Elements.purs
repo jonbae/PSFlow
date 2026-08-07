@@ -79,6 +79,7 @@ import Boundary.Enums
   )
 import Boundary.Undefined (Undefinable, fromUndefinable, isNull, toUndefinable, undefined)
 import Boundary.Untagged (asArray, asString, typeName)
+import Data.Array (length) as Array
 import Data.Array.NonEmpty (fromArray) as NEA
 import Data.Int (round, toNumber) as Int
 import Data.Maybe (Maybe(..), fromMaybe, maybe)
@@ -302,9 +303,12 @@ coordinateExtentOut e =
   , [ (unwrap e).maxX, (unwrap e).maxY ]
   ]
 
-pairError :: forall a. String -> String -> Array a -> String
-pairError field shape _ =
-  "ps-flow: `" <> field <> "` must be " <> shape <> " — exactly two numbers."
+pairError :: String -> String -> Array Number -> String
+pairError field shape got =
+  "ps-flow: `" <> field <> "` must be " <> shape
+    <> " — exactly two numbers, got "
+    <> show (Array.length got)
+    <> "."
 
 -- | Upstream `KeyCode` is `string | string[]`, and the prop is typed
 -- | `KeyCode | null` — three states, because `null` **disables the key** while
@@ -384,7 +388,7 @@ nodeIn n =
   , measured: maybe emptyMeasured measuredIn (fromUndefinable n.measured)
   , nodeType: fromUndefinable n.type
   , className: fromUndefinable n.className
-  , style: map asStyle (fromUndefinable n.style)
+  , style: map asCssObject (fromUndefinable n.style)
   }
 
 nodeOut :: NodeBase Foreign -> JsNode
@@ -416,7 +420,7 @@ nodeOut n =
   , handles: toUndefinable (map (map nodeHandleOut) n.handles)
   , measured: toUndefinable (Just (measuredOut n.measured))
   , className: toUndefinable n.className
-  , style: toUndefinable (map fromStyle n.style)
+  , style: toUndefinable (map fromCssObject n.style)
   }
 
 emptyMeasured :: { width :: Maybe Number, height :: Maybe Number }
@@ -479,14 +483,16 @@ nodeHandleOut h =
   , height: toUndefinable h.height
   }
 
--- `CSSProperties` in both directions. PureScript's `Object String` is the same
--- runtime object; the coercion is where the type stops being true about
--- numeric CSS values, and it is confined to these two lines.
-asStyle :: Foreign -> Object String
-asStyle = unsafeCoerce
+-- `CSSProperties` in both directions, for the `style` field a node or an edge
+-- carries. PureScript's `Object String` is the same runtime object; the
+-- coercion is where the type stops being true about numeric CSS values.
+-- `Boundary.Flow` has its own pair of these for the connection-line styles,
+-- because those are typed with the opaque `React.Types.Edges.Style` instead.
+asCssObject :: Foreign -> Object String
+asCssObject = unsafeCoerce
 
-fromStyle :: Object String -> Foreign
-fromStyle = unsafeCoerce
+fromCssObject :: Object String -> Foreign
+fromCssObject = unsafeCoerce
 
 -- ────────────────────────────────────────────────────────────────────────
 -- Edge
@@ -512,7 +518,7 @@ edgeIn e =
   , ariaLabel: fromUndefinable e.ariaLabel
   , interactionWidth: fromUndefinable e.interactionWidth
   , className: fromUndefinable e.className
-  , style: map asStyle (fromUndefinable e.style)
+  , style: map asCssObject (fromUndefinable e.style)
   }
 
 edgeOut :: EdgeBase Foreign -> JsEdge
@@ -535,7 +541,7 @@ edgeOut e =
   , ariaLabel: toUndefinable e.ariaLabel
   , interactionWidth: toUndefinable e.interactionWidth
   , className: toUndefinable e.className
-  , style: toUndefinable (map fromStyle e.style)
+  , style: toUndefinable (map fromCssObject e.style)
   }
 
 -- | `string | EdgeMarker`: the string names a built-in marker, the object
@@ -614,16 +620,19 @@ wrapNodeComponent
   :: ReactComponent JsNodeProps
   -> ReactComponent (NodeProps Foreign)
 wrapNodeComponent userComponent =
-  mkNodeComponentWrapper
+  mkNodeComponentWrapper userComponent
     (mkEffectFn1 \psProps -> pure (element userComponent (nodePropsOut psProps)))
 
--- | React reads `displayName`, `defaultProps` and the component's identity off
--- | the function it is handed, so the wrapper has to be a real component
--- | rather than a call to the user's one. One line of FFI, because
--- | `react-basic`'s `reactComponent` is in `Effect` and this is called from
--- | the pure prop conversion.
+-- | React reads `displayName` and the component's identity off the function it
+-- | is handed, so the wrapper has to be a real component rather than a call to
+-- | the user's one — and it takes the wrapped component along so it can keep
+-- | that name rather than replacing every custom node type in the React tree
+-- | with one shared boundary name. One line of FFI, because `react-basic`'s
+-- | `reactComponent` is in `Effect` and this is called from the pure prop
+-- | conversion.
 foreign import mkNodeComponentWrapper
-  :: EffectFn1 (NodeProps Foreign) JSX
+  :: ReactComponent JsNodeProps
+  -> EffectFn1 (NodeProps Foreign) JSX
   -> ReactComponent (NodeProps Foreign)
 
 -- ────────────────────────────────────────────────────────────────────────

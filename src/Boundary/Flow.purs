@@ -35,8 +35,6 @@ module Boundary.Flow
   , JsFlowProps
   , JsProOptions
   , JsViewport
-  , deferredProps
-  , flowPropsIn
   , reactFlow
   ) where
 
@@ -119,11 +117,20 @@ type JsFitViewOptions =
   , nodes :: Undefinable (Array { id :: String })
   }
 
--- | The fields of `System.Types.Edge.DefaultEdgeOptions`. Upstream's type is
--- | `Edge` minus its identity fields, so it also carries the label options,
--- | `style`, `className`, `focusable`, `ariaRole` and `domAttributes` that
--- | PSFlow's `Edge` does not model yet; those are census rows, not boundary
--- | work, and a consumer setting one gets upstream's own silence.
+-- | Upstream's `DefaultEdgeOptions` is `Edge` minus its identity fields — 23
+-- | of them. `React.Types.Edges.DefaultEdgeOptions` carries ten. The other
+-- | thirteen are named here anyway, and **refused**, because dropping them is
+-- | the same silence the deferred props exist to prevent: a consumer writing
+-- | `defaultEdgeOptions={{ type: 'smoothstep' }}` would get straight edges and
+-- | no indication why.
+-- |
+-- | The thirteen split two ways, and the message says which:
+-- |
+-- |   * `type`, `markerStart`, `markerEnd`, `style` and `className` are fields
+-- |     `Edge` itself has — so the value has somewhere to go, just not through
+-- |     this record, and setting it per edge works today.
+-- |   * the six label options, `ariaRole` and `domAttributes` are fields
+-- |     ps-flow does not model anywhere yet. Those are census rows.
 type JsDefaultEdgeOptions =
   { animated :: Undefinable Boolean
   , hidden :: Undefinable Boolean
@@ -135,6 +142,20 @@ type JsDefaultEdgeOptions =
   , ariaLabel :: Undefinable String
   , interactionWidth :: Undefinable Number
   , reconnectable :: Undefinable Foreign
+  -- Refused. Present so they can be seen and rejected, never read.
+  , type :: Undefinable Foreign
+  , markerStart :: Undefinable Foreign
+  , markerEnd :: Undefinable Foreign
+  , style :: Undefinable Foreign
+  , className :: Undefinable Foreign
+  , label :: Undefinable Foreign
+  , labelStyle :: Undefinable Foreign
+  , labelShowBg :: Undefinable Foreign
+  , labelBgStyle :: Undefinable Foreign
+  , labelBgPadding :: Undefinable Foreign
+  , labelBgBorderRadius :: Undefinable Foreign
+  , ariaRole :: Undefinable Foreign
+  , domAttributes :: Undefinable Foreign
   }
 
 -- | Upstream keys this record by dotted path — `'node.a11yDescription.default'`
@@ -297,14 +318,16 @@ type JsFlowProps =
 -- The deferred-prop guard
 -- ────────────────────────────────────────────────────────────────────────
 
-type Deferred =
+-- | One prop, or one member of one prop, that resolves on the JS surface and
+-- | does not cross. `props` is whichever record it sits on.
+type Refusal props =
   { name :: String
   , stage :: Int
   , note :: String
-  , supplied :: JsFlowProps -> Boolean
+  , supplied :: props -> Boolean
   }
 
-callbackProp :: forall a. String -> (JsFlowProps -> Undefinable a) -> Deferred
+callbackProp :: forall a. String -> (JsFlowProps -> Undefinable a) -> Refusal JsFlowProps
 callbackProp name get =
   { name
   , stage: 2
@@ -312,7 +335,7 @@ callbackProp name get =
   , supplied: \p -> isDefined (get p)
   }
 
-componentProp :: forall a. String -> (JsFlowProps -> Undefinable a) -> Deferred
+componentProp :: forall a. String -> (JsFlowProps -> Undefinable a) -> Refusal JsFlowProps
 componentProp name get =
   { name
   , stage: 4
@@ -322,7 +345,7 @@ componentProp name get =
 
 -- | Every prop that resolves on the JS surface but does not yet cross. Named
 -- | rather than counted, because the count is the thing that drifts.
-deferredProps :: Array Deferred
+deferredProps :: Array (Refusal JsFlowProps)
 deferredProps =
   [ callbackProp "onNodeClick" _.onNodeClick
   , callbackProp "onNodeDoubleClick" _.onNodeDoubleClick
@@ -466,10 +489,10 @@ convertProps p =
   , connectionLineType:
       map (connectionLineTypeIn "connectionLineType")
         (fromUndefinable p.connectionLineType)
-  , connectionLineStyle: map asStyle (fromUndefinable p.connectionLineStyle)
+  , connectionLineStyle: map asCssStyle (fromUndefinable p.connectionLineStyle)
   , connectionLineComponent: Nothing
   , connectionLineContainerStyle:
-      map asStyle (fromUndefinable p.connectionLineContainerStyle)
+      map asCssStyle (fromUndefinable p.connectionLineContainerStyle)
   , connectionMode: map (connectionModeIn "connectionMode") (fromUndefinable p.connectionMode)
   , deleteKeyCode: keyCodeIn "deleteKeyCode" p.deleteKeyCode
   , selectionKeyCode: keyCodeIn "selectionKeyCode" p.selectionKeyCode
@@ -537,12 +560,16 @@ convertProps p =
   }
 
 -- `Viewport` is `{ x, y, zoom }` on both sides, so this is the identity — but
--- writing it out keeps the drift gate able to see the field.
+-- writing the fields out rather than coercing is what gives the drift gate a
+-- `JsViewport` declaration to compare `Viewport` against.
 viewportIn :: Maybe JsViewport -> Maybe Viewport
 viewportIn = map \v -> { x: v.x, y: v.y, zoom: v.zoom }
 
-asStyle :: Foreign -> Style
-asStyle = unsafeCoerce
+-- The connection-line styles, which PureScript types with the opaque
+-- `React.Types.Edges.Style` rather than the `Object String` a node or edge
+-- carries. `Boundary.Elements` has the other pair for those.
+asCssStyle :: Foreign -> Style
+asCssStyle = unsafeCoerce
 
 onNodesChangeIn :: EffectFn1 (Array JsNodeChange) Unit -> OnNodesChange Foreign
 onNodesChangeIn f = \changes -> runEffectFn1 f (map nodeChangeOut changes)
@@ -553,8 +580,59 @@ onEdgesChangeIn f = \changes -> runEffectFn1 f (map edgeChangeOut changes)
 onConnectIn :: EffectFn1 JsConnection Unit -> OnConnect
 onConnectIn f = \connection -> runEffectFn1 f (connectionOut connection)
 
+-- | The thirteen `defaultEdgeOptions` members ps-flow's own record has no room
+-- | for. Same shape as `deferredProps` and for the same reason — the guard has
+-- | to name them, because nothing about writing the conversion would.
+refusedEdgeOptions :: Array (Refusal JsDefaultEdgeOptions)
+refusedEdgeOptions =
+  [ droppedOption "type" _.type
+  , droppedOption "markerStart" _.markerStart
+  , droppedOption "markerEnd" _.markerEnd
+  , droppedOption "style" _.style
+  , droppedOption "className" _.className
+  , unmodelledOption "label" _.label
+  , unmodelledOption "labelStyle" _.labelStyle
+  , unmodelledOption "labelShowBg" _.labelShowBg
+  , unmodelledOption "labelBgStyle" _.labelBgStyle
+  , unmodelledOption "labelBgPadding" _.labelBgPadding
+  , unmodelledOption "labelBgBorderRadius" _.labelBgBorderRadius
+  , unmodelledOption "ariaRole" _.ariaRole
+  , unmodelledOption "domAttributes" _.domAttributes
+  ]
+
+droppedOption :: forall a. String -> (JsDefaultEdgeOptions -> Undefinable a) -> Refusal JsDefaultEdgeOptions
+droppedOption name get =
+  { name
+  , stage: 1
+  , note:
+      "ps-flow's `DefaultEdgeOptions` has no such member, though `Edge` does — \
+      \set it on each edge instead"
+  , supplied: \p -> isDefined (get p)
+  }
+
+unmodelledOption :: forall a. String -> (JsDefaultEdgeOptions -> Undefinable a) -> Refusal JsDefaultEdgeOptions
+unmodelledOption name get =
+  { name
+  , stage: 1
+  , note: "ps-flow does not model this edge field yet, on any record"
+  , supplied: \p -> isDefined (get p)
+  }
+
+guardEdgeOptions :: JsDefaultEdgeOptions -> JsDefaultEdgeOptions
+guardEdgeOptions o = case find (\d -> d.supplied o) refusedEdgeOptions of
+  Nothing -> o
+  Just d ->
+    unsafeThrow $
+      "ps-flow: `defaultEdgeOptions." <> d.name
+        <> "` is refused rather than ignored — "
+        <> d.note
+        <> ". Dropping it silently would look exactly like never having set it."
+
 defaultEdgeOptionsIn :: JsDefaultEdgeOptions -> DefaultEdgeOptions Foreign
-defaultEdgeOptionsIn o =
+defaultEdgeOptionsIn = convertEdgeOptions <<< guardEdgeOptions
+
+convertEdgeOptions :: JsDefaultEdgeOptions -> DefaultEdgeOptions Foreign
+convertEdgeOptions o =
   { animated: fromUndefinable o.animated
   , hidden: fromUndefinable o.hidden
   , deletable: fromUndefinable o.deletable
@@ -608,40 +686,32 @@ paddingIn :: String -> Foreign -> Padding
 paddingIn field raw = case paddingValueIn field raw of
   Just v -> UniformPadding v
   Nothing -> DirectionalPadding
-    { top: side "top"
-    , right: side "right"
-    , bottom: side "bottom"
-    , left: side "left"
-    , x: side "x"
-    , y: side "y"
+    { top: side "top" sides.top
+    , right: side "right" sides.right
+    , bottom: side "bottom" sides.bottom
+    , left: side "left" sides.left
+    , x: side "x" sides.x
+    , y: side "y" sides.y
     }
   where
-  sides :: { top :: Undefinable Foreign
-           , right :: Undefinable Foreign
-           , bottom :: Undefinable Foreign
-           , left :: Undefinable Foreign
-           , x :: Undefinable Foreign
-           , y :: Undefinable Foreign
-           }
+  sides
+    :: { top :: Undefinable Foreign
+       , right :: Undefinable Foreign
+       , bottom :: Undefinable Foreign
+       , left :: Undefinable Foreign
+       , x :: Undefinable Foreign
+       , y :: Undefinable Foreign
+       }
   sides = unsafeCoerce raw
 
-  side :: String -> Maybe PaddingValue
-  side name = fromUndefinable (readSide name) >>= \v ->
+  -- The side is passed in, not looked up by name: a name-keyed lookup needs a
+  -- fallback branch, and the fallback would answer a misspelled side with some
+  -- other side's value rather than failing.
+  side :: String -> Undefinable Foreign -> Maybe PaddingValue
+  side name value = fromUndefinable value >>= \v ->
     case paddingValueIn (field <> "." <> name) v of
       Just pv -> Just pv
-      Nothing ->
-        unsafeThrow $
-          "ps-flow: `" <> field <> "." <> name
-            <> "` must be a number, \"<n>px\" or \"<n>%\"."
-
-  readSide :: String -> Undefinable Foreign
-  readSide = case _ of
-    "top" -> sides.top
-    "right" -> sides.right
-    "bottom" -> sides.bottom
-    "left" -> sides.left
-    "x" -> sides.x
-    _ -> sides.y
+      Nothing -> badPadding (field <> "." <> name) (typeName v)
 
 paddingValueIn :: String -> Foreign -> Maybe PaddingValue
 paddingValueIn field raw = case asNumber raw of

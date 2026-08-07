@@ -1,13 +1,14 @@
--- | String literals in, sum-type constructors out — and back.
+-- | String literals in, sum-type constructors out — and, for three of them,
+-- | back.
 -- |
 -- | Upstream's enums are TS enums, which are string-valued at runtime, and its
 -- | unions are string literals. A JavaScript consumer writes `'left'` or
--- | `Position.Left`, which are the same value; they never write
--- | `PosLeft`, which is not reachable from JavaScript at all. `Boundary`
--- | publishes the runtime enum objects (`position`, `markerType`, …) so
--- | `Position.Left` resolves; this module is the other half — the codec that
--- | turns the string those objects hold into the PureScript constructor the
--- | internals are written against, and back out again.
+-- | `Position.Left`, which are the same value; they never write `PosLeft`,
+-- | which is not reachable from JavaScript at all. `Boundary` publishes the
+-- | runtime enum objects (`position`, `markerType`, …) so `Position.Left`
+-- | resolves; this module is the other half — the codec that turns the string
+-- | those objects hold into the PureScript constructor the internals are
+-- | written against.
 -- |
 -- | **A string that is not a member throws.** Upstream would fall through its
 -- | `switch` and render something arbitrary; here it is a consumer error with
@@ -16,33 +17,33 @@
 -- | names the field, the value and the members, because a caller who typo'd
 -- | `'smoothStep'` needs to see `'smoothstep'`.
 -- |
+-- | **Only three cross outbound**, because only three are on a value that
+-- | leaves: `Position` on node props and node handles, `MarkerType` on an edge
+-- | marker, `HandleType` on a node handle. The rest are inbound-only in stage
+-- | 1, and an unused outbound codec is a converter nobody has been able to get
+-- | wrong yet. The three that do exist are written as `case` expressions
+-- | rather than as lookups in the member table below, so that a constructor
+-- | added to one of those sum types fails the build instead of throwing on the
+-- | first value that reaches it.
+-- |
 -- | The string values are upstream's verbatim. Two are worth reading twice:
 -- | `ConnectionLineType.Bezier` is `"default"`, not `"bezier"`, and
 -- | `MarkerType.ArrowClosed` is `"arrowclosed"`, all lowercase.
 module Boundary.Enums
-  ( fromEnumString
-  , colorModeIn
-  , colorModeOut
+  ( colorModeIn
   , connectionLineTypeIn
-  , connectionLineTypeOut
   , connectionModeIn
-  , connectionModeOut
   , handleTypeIn
   , handleTypeOut
   , interpolateModeIn
-  , interpolateModeOut
   , markerTypeIn
   , markerTypeOut
   , panOnScrollModeIn
-  , panOnScrollModeOut
   , panelPositionIn
-  , panelPositionOut
   , positionIn
   , positionOut
   , selectionModeIn
-  , selectionModeOut
   , zIndexModeIn
-  , zIndexModeOut
   ) where
 
 import Prelude
@@ -80,76 +81,69 @@ fromEnumString field members value =
           <> intercalate ", " (map (show <<< fst) members)
           <> "."
 
--- | The outbound half. Total by construction: the constructor list is closed,
--- | so the compiler catches a member added upstream and mirrored into the sum
--- | type but forgotten here.
-toEnumString :: forall a. Eq a => Array (Tuple String a) -> a -> String
-toEnumString members value =
-  case find (\m -> snd m == value) members of
-    Just m -> fst m
-    Nothing ->
-      -- Unreachable while the table below names every constructor, which the
-      -- inbound direction's `case` exhaustiveness check enforces.
-      unsafeThrow "ps-flow: internal error — enum member missing from its table."
-
 -- ────────────────────────────────────────────────────────────────────────
 -- Position — `@xyflow/system`, on `Node.sourcePosition`/`targetPosition`,
 -- `Handle.position`, and the node props a custom component receives.
 -- ────────────────────────────────────────────────────────────────────────
 
-positionMembers :: Array (Tuple String Position)
-positionMembers =
+positionIn :: String -> String -> Position
+positionIn field = fromEnumString field
   [ Tuple "left" PosLeft
   , Tuple "top" PosTop
   , Tuple "right" PosRight
   , Tuple "bottom" PosBottom
   ]
 
-positionIn :: String -> String -> Position
-positionIn field = fromEnumString field positionMembers
-
 positionOut :: Position -> String
-positionOut = toEnumString positionMembers
+positionOut = case _ of
+  PosLeft -> "left"
+  PosTop -> "top"
+  PosRight -> "right"
+  PosBottom -> "bottom"
 
 -- ────────────────────────────────────────────────────────────────────────
 -- MarkerType — the `type` field of an `EdgeMarker`.
 -- ────────────────────────────────────────────────────────────────────────
 
-markerTypeMembers :: Array (Tuple String MarkerType)
-markerTypeMembers =
+markerTypeIn :: String -> String -> MarkerType
+markerTypeIn field = fromEnumString field
   [ Tuple "arrow" Arrow
   , Tuple "arrowclosed" ArrowClosed
   ]
 
-markerTypeIn :: String -> String -> MarkerType
-markerTypeIn field = fromEnumString field markerTypeMembers
-
 markerTypeOut :: MarkerType -> String
-markerTypeOut = toEnumString markerTypeMembers
+markerTypeOut = case _ of
+  Arrow -> "arrow"
+  ArrowClosed -> "arrowclosed"
 
 -- ────────────────────────────────────────────────────────────────────────
--- ConnectionMode
+-- HandleType — on a node handle, and the string half of
+-- `DefaultEdgeOptions.reconnectable`'s `boolean | HandleType`.
 -- ────────────────────────────────────────────────────────────────────────
 
-connectionModeMembers :: Array (Tuple String ConnectionMode)
-connectionModeMembers =
+handleTypeIn :: String -> String -> HandleType
+handleTypeIn field = fromEnumString field
+  [ Tuple "source" Source
+  , Tuple "target" Target
+  ]
+
+handleTypeOut :: HandleType -> String
+handleTypeOut = case _ of
+  Source -> "source"
+  Target -> "target"
+
+-- ────────────────────────────────────────────────────────────────────────
+-- Inbound only — nothing in stage 1 hands one of these back out.
+-- ────────────────────────────────────────────────────────────────────────
+
+connectionModeIn :: String -> String -> ConnectionMode
+connectionModeIn field = fromEnumString field
   [ Tuple "strict" Strict
   , Tuple "loose" Loose
   ]
 
-connectionModeIn :: String -> String -> ConnectionMode
-connectionModeIn field = fromEnumString field connectionModeMembers
-
-connectionModeOut :: ConnectionMode -> String
-connectionModeOut = toEnumString connectionModeMembers
-
--- ────────────────────────────────────────────────────────────────────────
--- ConnectionLineType. `Bezier` is `"default"`, and that is upstream's, not a
--- transcription slip.
--- ────────────────────────────────────────────────────────────────────────
-
-connectionLineTypeMembers :: Array (Tuple String ConnectionLineType)
-connectionLineTypeMembers =
+connectionLineTypeIn :: String -> String -> ConnectionLineType
+connectionLineTypeIn field = fromEnumString field
   [ Tuple "default" BezierLine
   , Tuple "straight" StraightLine
   , Tuple "step" StepLine
@@ -157,52 +151,23 @@ connectionLineTypeMembers =
   , Tuple "simplebezier" SimpleBezierLine
   ]
 
-connectionLineTypeIn :: String -> String -> ConnectionLineType
-connectionLineTypeIn field = fromEnumString field connectionLineTypeMembers
-
-connectionLineTypeOut :: ConnectionLineType -> String
-connectionLineTypeOut = toEnumString connectionLineTypeMembers
-
--- ────────────────────────────────────────────────────────────────────────
--- PanOnScrollMode
--- ────────────────────────────────────────────────────────────────────────
-
-panOnScrollModeMembers :: Array (Tuple String PanOnScrollMode)
-panOnScrollModeMembers =
+panOnScrollModeIn :: String -> String -> PanOnScrollMode
+panOnScrollModeIn field = fromEnumString field
   [ Tuple "free" Free
   , Tuple "vertical" Vertical
   , Tuple "horizontal" Horizontal
   ]
 
-panOnScrollModeIn :: String -> String -> PanOnScrollMode
-panOnScrollModeIn field = fromEnumString field panOnScrollModeMembers
-
-panOnScrollModeOut :: PanOnScrollMode -> String
-panOnScrollModeOut = toEnumString panOnScrollModeMembers
-
--- ────────────────────────────────────────────────────────────────────────
--- SelectionMode
--- ────────────────────────────────────────────────────────────────────────
-
-selectionModeMembers :: Array (Tuple String SelectionMode)
-selectionModeMembers =
+selectionModeIn :: String -> String -> SelectionMode
+selectionModeIn field = fromEnumString field
   [ Tuple "partial" Partial
   , Tuple "full" Full
   ]
 
-selectionModeIn :: String -> String -> SelectionMode
-selectionModeIn field = fromEnumString field selectionModeMembers
-
-selectionModeOut :: SelectionMode -> String
-selectionModeOut = toEnumString selectionModeMembers
-
--- ────────────────────────────────────────────────────────────────────────
--- PanelPosition — a string union upstream, not an enum, so there is no
--- runtime object for it and a consumer always writes the literal.
--- ────────────────────────────────────────────────────────────────────────
-
-panelPositionMembers :: Array (Tuple String PanelPosition)
-panelPositionMembers =
+-- | A string union upstream rather than an enum, so there is no runtime object
+-- | for it and a consumer always writes the literal.
+panelPositionIn :: String -> String -> PanelPosition
+panelPositionIn field = fromEnumString field
   [ Tuple "top-left" TopLeft
   , Tuple "top-center" TopCenter
   , Tuple "top-right" TopRight
@@ -213,75 +178,23 @@ panelPositionMembers =
   , Tuple "center-right" CenterRight
   ]
 
-panelPositionIn :: String -> String -> PanelPosition
-panelPositionIn field = fromEnumString field panelPositionMembers
-
-panelPositionOut :: PanelPosition -> String
-panelPositionOut = toEnumString panelPositionMembers
-
--- ────────────────────────────────────────────────────────────────────────
--- ColorMode
--- ────────────────────────────────────────────────────────────────────────
-
-colorModeMembers :: Array (Tuple String ColorMode)
-colorModeMembers =
+colorModeIn :: String -> String -> ColorMode
+colorModeIn field = fromEnumString field
   [ Tuple "light" LightMode
   , Tuple "dark" DarkMode
   , Tuple "system" SystemMode
   ]
 
-colorModeIn :: String -> String -> ColorMode
-colorModeIn field = fromEnumString field colorModeMembers
-
-colorModeOut :: ColorMode -> String
-colorModeOut = toEnumString colorModeMembers
-
--- ────────────────────────────────────────────────────────────────────────
--- ZIndexMode
--- ────────────────────────────────────────────────────────────────────────
-
-zIndexModeMembers :: Array (Tuple String ZIndexMode)
-zIndexModeMembers =
+zIndexModeIn :: String -> String -> ZIndexMode
+zIndexModeIn field = fromEnumString field
   [ Tuple "auto" ZAuto
   , Tuple "basic" ZBasic
   , Tuple "manual" ZManual
   ]
 
-zIndexModeIn :: String -> String -> ZIndexMode
-zIndexModeIn field = fromEnumString field zIndexModeMembers
-
-zIndexModeOut :: ZIndexMode -> String
-zIndexModeOut = toEnumString zIndexModeMembers
-
--- ────────────────────────────────────────────────────────────────────────
--- InterpolateMode — `FitViewOptions.interpolate`.
--- ────────────────────────────────────────────────────────────────────────
-
-interpolateModeMembers :: Array (Tuple String InterpolateMode)
-interpolateModeMembers =
+-- | `FitViewOptions.interpolate`.
+interpolateModeIn :: String -> String -> InterpolateMode
+interpolateModeIn field = fromEnumString field
   [ Tuple "smooth" Smooth
   , Tuple "linear" Linear
   ]
-
-interpolateModeIn :: String -> String -> InterpolateMode
-interpolateModeIn field = fromEnumString field interpolateModeMembers
-
-interpolateModeOut :: InterpolateMode -> String
-interpolateModeOut = toEnumString interpolateModeMembers
-
--- ────────────────────────────────────────────────────────────────────────
--- HandleType — the string half of `Edge.reconnectable`'s
--- `boolean | HandleType`.
--- ────────────────────────────────────────────────────────────────────────
-
-handleTypeMembers :: Array (Tuple String HandleType)
-handleTypeMembers =
-  [ Tuple "source" Source
-  , Tuple "target" Target
-  ]
-
-handleTypeIn :: String -> String -> HandleType
-handleTypeIn field = fromEnumString field handleTypeMembers
-
-handleTypeOut :: HandleType -> String
-handleTypeOut = toEnumString handleTypeMembers
