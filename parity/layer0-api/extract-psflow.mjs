@@ -91,24 +91,59 @@ if (notInManifest.length || notInIndex.length) {
 // imports index.js (that is surface parity's own next step), so check it
 // textually, the way React.purs is read below.
 const boundaryPurs = read("src/Boundary.purs");
-const pursBlock = (re, what) => {
-  const m = re.exec(boundaryPurs);
-  if (!m) {
-    throw new Error(
-      `[extract-psflow] could not find the ${what} in src/Boundary.purs. ` +
-        `If the module was restructured, update this extractor — silently skipping ` +
-        `the check would leave index.js free to name a binding that does not exist.`
-    );
-  }
-  return m[1]
+const lowercaseNames = (block) =>
+  block
     .split(/[\n,]/)
     .map((s) => s.trim())
     .filter((s) => /^[a-z]\w*'?$/.test(s));
-};
-const boundaryValues = new Set([
-  ...pursBlock(/^module\s+Boundary\s*\(([\s\S]*?)\)\s*where/m, "module export list"),
-  ...pursBlock(/import\s+React\s*\(([\s\S]*?)\)\s*as\s+PublicSurface/, "`as PublicSurface` import block"),
-]);
+
+const exportList = /^module\s+Boundary\s*\(([\s\S]*?)\)\s*where/m.exec(boundaryPurs);
+if (!exportList) {
+  throw new Error(
+    `[extract-psflow] could not find the module export list in src/Boundary.purs. ` +
+      `If the module was restructured, update this extractor — silently skipping ` +
+      `the check would leave index.js free to name a binding that does not exist.`
+  );
+}
+
+const exportEntries = exportList[1]
+  .split(/[\n,]/)
+  .map((s) => s.trim())
+  .filter(Boolean);
+
+// PureScript can only re-export an imported name through a `module <Alias>`
+// entry, so every alias in the export list is resolved back to its import
+// block. Resolving them all rather than naming `PublicSurface` is what keeps
+// this check working as each stage moves exports out of the passthrough block
+// into a crossed one of its own.
+const reExportAliases = exportEntries
+  .map((entry) => /^module\s+(\w+)$/.exec(entry))
+  .filter(Boolean)
+  .map((m) => m[1]);
+
+if (reExportAliases.length === 0) {
+  throw new Error(
+    `[extract-psflow] src/Boundary.purs's export list names no \`module <Alias>\` ` +
+      `re-export groups. Every public value reaches index.js through one, so finding ` +
+      `none means this extractor no longer matches the module — which would report ` +
+      `the whole surface as unresolved.`
+  );
+}
+
+const boundaryValues = new Set(exportEntries.filter((s) => /^[a-z]\w*'?$/.test(s)));
+for (const alias of reExportAliases) {
+  const block = new RegExp(`import\\s+[\\w.]+\\s*\\(([\\s\\S]*?)\\)\\s*as\\s+${alias}\\b`).exec(
+    boundaryPurs
+  );
+  if (!block) {
+    throw new Error(
+      `[extract-psflow] src/Boundary.purs re-exports \`module ${alias}\` but has no ` +
+        `matching \`import … ( … ) as ${alias}\` block.`
+    );
+  }
+  for (const name of lowercaseNames(block[1])) boundaryValues.add(name);
+}
+
 const unresolved = specifiers
   .filter((s) => !boundaryValues.has(s.local))
   .map((s) => (s.local === s.public ? s.local : `${s.local} (as ${s.public})`));
@@ -117,7 +152,7 @@ if (unresolved.length) {
     `[extract-psflow] index.js re-exports ${unresolved.length} name(s) the boundary ` +
       `module does not export: ${unresolved.join(", ")}.\n` +
       `Importing index.js would fail to link. Add them to Boundary.purs's export ` +
-      `list or its \`as PublicSurface\` import block.`
+      `list or to one of its \`module <Alias>\` re-export blocks.`
   );
 }
 

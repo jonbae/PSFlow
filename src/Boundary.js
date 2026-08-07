@@ -27,8 +27,13 @@ export const manifest = Object.freeze({
   // the components no fixture mounts. See the spec's staging table.
   stage: 1,
 
-  // The eight TS enums. Plain data on both sides, so crossing them is the whole
-  // conversion: no wrapper, no arity change, no representation to translate.
+  // The eight TS enums are plain data on both sides, so crossing them was the
+  // whole conversion: no wrapper, no arity change, no representation to
+  // translate. `ReactFlow` is the opposite — 124 props, of which 74 convert,
+  // three callbacks convert, and 49 are refused outright until the stage that
+  // lands them (see `Boundary.Flow`). It is listed as crossed because a
+  // JavaScript caller now gets upstream's prop shapes or an error, never
+  // silence.
   crossed: Object.freeze([
     "BackgroundVariant",
     "ConnectionLineType",
@@ -36,6 +41,7 @@ export const manifest = Object.freeze({
     "MarkerType",
     "PanOnScrollMode",
     "Position",
+    "ReactFlow",
     "ResizeControlVariant",
     "SelectionMode",
   ]),
@@ -55,7 +61,6 @@ export const manifest = Object.freeze({
     "NodeResizer",
     "NodeToolbar",
     "Panel",
-    "ReactFlow",
     "ReactFlowProvider",
     "ReactFlowWithRef",
     "SimpleBezierEdge",

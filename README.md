@@ -6,8 +6,19 @@ npm run test:smoke     # playwright runs examples/react-smoke/tests/*.spec.ts
 ## Parity
 
 npm run parity:api        # Layer 0 — export + prop-member surface diff vs upstream
+npm run parity:boundary   # boundary module — outbound drift + deferred props refused
 npm run parity:changelog  # 12.3.5→12.11.0 changelog audit; gates on unbucketed PRs
 npm run build:oracle      # regenerate oracle/index.js (Layer 1 differential oracle)
+
+`parity:boundary` is two staleness checks over `src/Boundary/`. `drift.mjs`
+compares each crossed record's PureScript label set against its JS-shaped one,
+live from source, because the outbound direction has no compiler check and the
+repo's generators vary too few fields for a round-trip property to find an
+omission. `mount.mjs` renders `ReactFlow` through `index.js` — the only door the
+boundary module is ever tested through — asserting that a fully converted prop
+set mounts and arrives JS-shaped, and that every prop the boundary has not
+crossed yet is refused rather than ignored. It needs `spago build` first and
+hard-fails on missing compiled output.
 
 The parity baseline is the **vendored** `xyflow/` checkout — currently
 `@xyflow/react` 12.11.0 / `@xyflow/system` 0.0.77. Both Layer 0 (surface) and
