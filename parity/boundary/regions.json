@@ -1,0 +1,90 @@
+{
+  "note": [
+    "Regions claim a known, accepted difference between ps-flow and upstream, and",
+    "carry the written reason for it plus a ticket when it is a known bug. This",
+    "file is where the boundary module's own regions are recorded as they are",
+    "created; the gate that consumes them — with the rule that an empty region",
+    "fails as stale, so a region outlives its cause by exactly one run — lands with",
+    "the net's comparison core (issue #40) and its self-consistency and driving-log",
+    "checks (issue #43). Recording them at the moment the divergence is introduced",
+    "rather than when the reader exists is the point: a region is someone's stated",
+    "decision, and the person who can state it is the one making the change.",
+    "",
+    "`fields` is a list of paths into an observed value. It is deliberately not a",
+    "trace-section pattern yet — the trace's seven-section shape is issue #40's to",
+    "define, and inventing half of it here would give that ticket a schema to work",
+    "around rather than one to fill in."
+  ],
+  "regions": [
+    {
+      "id": "boundary-required-booleans",
+      "sections": ["props", "callbacks", "api", "hooks"],
+      "fields": [
+        "node.hidden",
+        "node.selected",
+        "node.dragging",
+        "node.expandParent",
+        "edge.animated",
+        "edge.hidden",
+        "edge.selected"
+      ],
+      "reason": [
+        "ps-flow's internal Node and Edge records make these seven Booleans",
+        "required where upstream leaves them optional, so the boundary emits them",
+        "on every node and edge it hands back. Upstream passes the consumer's own",
+        "object through and simply has no such key. The values are never wrong —",
+        "an unset Boolean crosses as `false`, which is what upstream's own readers",
+        "default it to — so this is a shape difference, not a behaviour one.",
+        "",
+        "The ordering was settled deliberately: `Maybe`-ifying the seven is an",
+        "internals refactor, and doing it before the boundary lands puts churn",
+        "ahead of the first green signal on the JS surface. It happens once the",
+        "net's `props` and `dom` sections are green, and the stale-region rule is",
+        "what forces it — this entry fails the run after the fix lands."
+      ],
+      "ticket": "https://github.com/jonbae/PSFlow/issues/22",
+      "retires_when": "System.Types.Node.NodeBaseRow and System.Types.Edge.EdgeBase make these seven fields Maybe"
+    },
+    {
+      "id": "boundary-required-measured",
+      "sections": ["props", "callbacks", "api", "hooks"],
+      "fields": ["node.measured"],
+      "reason": [
+        "The same shape as the seven Booleans, one field along: `NodeBaseRow`'s",
+        "`measured` is a required record, so a node crossing outbound always",
+        "carries `measured: { width, height }` with both members possibly",
+        "`undefined`, where upstream's node has no `measured` key until the node",
+        "has actually been measured.",
+        "",
+        "Recorded separately from the Booleans because it retires separately: the",
+        "fix is `Maybe` on the record rather than on its members, and a reader who",
+        "sees one region fail should not have to work out which half of it moved."
+      ],
+      "ticket": "https://github.com/jonbae/PSFlow/issues/22",
+      "retires_when": "System.Types.Node.NodeBaseRow makes `measured` Maybe"
+    },
+    {
+      "id": "boundary-absent-optionals-are-undefined-keys",
+      "sections": ["props", "callbacks", "api", "hooks"],
+      "fields": ["node.*", "edge.*", "nodeProps.*", "change.*"],
+      "reason": [
+        "An optional field the consumer did not set crosses outbound as the key",
+        "present with the value `undefined`, not as an absent key. Upstream's node",
+        "and edge objects are the consumer's own, passed through untouched, so an",
+        "unset field is genuinely not there.",
+        "",
+        "Deleting the undefined keys in the converter was rejected: it is a",
+        "content-aware filter, and the spec keeps those out of capture and in",
+        "normalization where they are visible. Normalization may delete by name,",
+        "which is exactly the right instrument if the maintainer decides these are",
+        "noise; until then they are a claimed difference rather than a hidden one.",
+        "",
+        "`undefined` and not `null` is deliberate and is the closer of the two:",
+        "the prop objects upstream builds itself — `NodeProps` above all — do have",
+        "every key present with `undefined` for the unset ones."
+      ],
+      "ticket": null,
+      "retires_when": "normalization deletes undefined-valued keys by name, or the records become Maybe-free"
+    }
+  ]
+}

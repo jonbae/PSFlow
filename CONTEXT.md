@@ -45,6 +45,19 @@ gate can scope itself to the crossed set and grow with the staging instead of
 carrying a hand-maintained list of its own.
 _Avoid_: the export list, the crossing table
 
+**Converter**:
+One translation between a PureScript type and its JS-native shape, in
+`src/Boundary/`. The **unit of work** in the boundary staging — the 60 exports
+collapse onto a handful of shared types, and the flow-props record is largely
+indivisible, so a stage is measured in converters and not in exports.
+_Avoid_: adapter, marshaller, codec (reserved for the enum string tables)
+
+**Deferred prop**:
+A prop that resolves on the JS surface but whose converter has not landed. It
+**throws at mount**, naming the stage that will land it, because a prop that was
+silently ignored would be indistinguishable from a prop the consumer never set.
+_Avoid_: unsupported prop, unimplemented prop, TODO prop
+
 ### The changelog audit
 
 **Row**:
@@ -207,3 +220,12 @@ _Avoid_: matcher, assertion, expectation
 An export the corpus does not drive, recorded with a written reason. A hole is a
 legitimate resting state; an *undeclared* hole fails.
 _Avoid_: gap (reserved for audit buckets), uncovered, todo
+
+**Region**:
+A claimed difference between ps-flow and upstream: a pattern, a written reason,
+and a ticket when it is a known bug. Re-recording values is cheap but **cannot
+create a region**, and an **empty region fails as stale**, so a region outlives
+its cause by exactly one run. The boundary module's own are in
+`parity/boundary/regions.json`; surface parity's allowlist is the same concept
+with a second implementation, and the stale rule applies to it too.
+_Avoid_: exception, waiver, known-issue, allowlist (when the net is meant)

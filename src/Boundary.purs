@@ -22,13 +22,26 @@
 -- | resolves, but its shape is still the PureScript one. The `manifest` says
 -- | which is which, and is the only place that answer is written down.
 -- |
--- | What has landed so far is this skeleton plus the eight TS enum objects
--- | below — the part of stage 1 that needs no converter. They are plain data on
--- | both sides, `{ Left: "left", … }` against `{ Left: "left", … }`, so there is
--- | nothing to get wrong but member names, which the record types check. The
--- | rest of stage 1 is the converters: `Node` and `Edge` both directions, node
--- | props outbound, key codes inbound, node-type wrapping, and the flow-props
--- | fields.
+-- | What has landed so far is this skeleton, the eight TS enum objects below,
+-- | and the converters. The enums needed no converter at all — they are plain
+-- | data on both sides, `{ Left: "left", … }` against `{ Left: "left", … }`, so
+-- | there is nothing to get wrong but member names, which the record types
+-- | check.
+-- |
+-- | The converters are the rest, and they live in four modules beneath this
+-- | one, none of them on the PureScript surface:
+-- |
+-- |   * `Boundary.Undefined` — `undefined`, which is what a JavaScript caller
+-- |     means by a prop they did not set.
+-- |   * `Boundary.Untagged` — the runtime narrowing TypeScript does at the use
+-- |     site for unions like `string | string[]` and erases.
+-- |   * `Boundary.Enums` — string literals in, sum-type constructors out.
+-- |   * `Boundary.Elements` — `Node`, `Edge`, node props, the change objects
+-- |     and `Connection`.
+-- |   * `Boundary.Flow` — the 124 flow props, and `ReactFlow` itself.
+-- |
+-- | `ReactFlow` is therefore the first *component* to cross. The twelve other
+-- | exports upstream's fixtures import cross with their fixtures.
 -- |
 -- | The enums are not a consumer nit. `Position` and `MarkerType` were not on
 -- | the JS surface at all, and two of upstream's five test fixtures import
@@ -40,6 +53,7 @@
 -- | reasoning assumes these are immutable.
 module Boundary
   ( module PublicSurface
+  , module CrossedSurface
   , BackgroundVariantEnum
   , ConnectionLineTypeEnum
   , ConnectionModeEnum
@@ -60,13 +74,18 @@ module Boundary
   , manifest
   ) where
 
--- The 60 symbols of the public surface, passing through raw. Ordered
--- to mirror `xyflow/packages/react/src/index.ts`, as `index.js` is, so future
+-- The exports that have crossed. `reactFlow` is the JS-facing component from
+-- `Boundary.Flow`, which converts a JavaScript props object and renders
+-- `React.Container.ReactFlow`'s component with it — so it comes from there and
+-- not from the PureScript surface, which still has the unconverted one.
+import Boundary.Flow (reactFlow) as CrossedSurface
+
+-- The other 59 symbols of the public surface, passing through raw. Ordered to
+-- mirror `xyflow/packages/react/src/index.ts`, as `index.js` is, so future
 -- audits stay mechanical.
 import React
   ( -- Components
-    reactFlow
-  , reactFlowWithRef
+    reactFlowWithRef
   , handle
   , edgeText
   , straightEdge
