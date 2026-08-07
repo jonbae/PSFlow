@@ -1,0 +1,174 @@
+{
+  "traceFormat": 1,
+  "scenario": "mount-baseline--nodes-general",
+  "side": "psflow",
+  "capture": 1,
+  "baseline": "12.11.0",
+  "sections": {
+    "dom": {
+      "page": {
+        "scrollX": 0,
+        "scrollY": 0,
+        "visualViewportScale": 1
+      },
+      "root": {
+        "tag": "div",
+        "attrs": {
+          "class": "react-flow",
+          "data-testid": "rf__wrapper"
+        },
+        "children": [
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "react-flow__viewport react-flow__container",
+              "style": "transform: translate(0px, 0px) scale(1); transform-origin: 0 0;"
+            },
+            "children": [
+              {
+                "tag": "div",
+                "attrs": {
+                  "class": "react-flow__node react-flow__node-input",
+                  "data-id": "1",
+                  "style": "z-index: 0; transform: translate(75px, 25px); pointer-events: all; visibility: visible;"
+                },
+                "children": [
+                  {
+                    "tag": "div",
+                    "attrs": {
+                      "class": "react-flow__handle react-flow__handle-bottom",
+                      "data-handleid": "a"
+                    },
+                    "children": []
+                  }
+                ],
+                "text": "Node 1"
+              },
+              {
+                "tag": "div",
+                "attrs": {
+                  "class": "react-flow__node react-flow__node-default",
+                  "data-id": "2",
+                  "style": "z-index: 0; transform: translate(100px, 125px); pointer-events: all; visibility: visible;"
+                },
+                "children": [
+                  {
+                    "tag": "div",
+                    "attrs": {
+                      "class": "react-flow__handle react-flow__handle-top",
+                      "data-handleid": "b"
+                    },
+                    "children": []
+                  }
+                ],
+                "text": "Node 2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "callbacks": [
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "id": "1",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 36
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "id": "2",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 36
+              }
+            }
+          ]
+        ]
+      }
+    ],
+    "hooks": {
+      "flow-probe": {
+        "useViewport": {
+          "x": 0,
+          "y": 0,
+          "zoom": 1
+        },
+        "useNodesInitialized": true
+      }
+    },
+    "api": {
+      "queries": {
+        "toObject": {
+          "nodes": [
+            {
+              "id": "1",
+              "position": {
+                "x": 75,
+                "y": 25
+              },
+              "measured": {
+                "width": 150,
+                "height": 36
+              }
+            },
+            {
+              "id": "2",
+              "position": {
+                "x": 100,
+                "y": 125
+              },
+              "measured": {
+                "width": 150,
+                "height": 36
+              }
+            }
+          ],
+          "edges": [],
+          "viewport": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          }
+        },
+        "screenToFlowPosition@(0,0)": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "calls": []
+    },
+    "props": {
+      "node-probe#1": {
+        "id": "1",
+        "type": "probe",
+        "selected": false,
+        "dragging": false
+      }
+    },
+    "console": [],
+    "driving": [
+      {
+        "index": 0,
+        "action": "mount",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": null
+      }
+    ]
+  }
+}

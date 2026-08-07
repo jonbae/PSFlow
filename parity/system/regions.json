@@ -1,0 +1,17 @@
+{
+  "_comment": [
+    "The region register (#19 §2, #40). Every difference normalization does not claim must be claimed",
+    "here, by a pattern carrying a written reason — plus a ticket where the difference is a known bug.",
+    "",
+    "  intentional       permanent, carries a reason",
+    "  known-divergence  carries a reason and a ticket",
+    "",
+    "An empty region fails as stale, so an entry bites the run after its cause is fixed rather than",
+    "rotting silently. `compare.mjs --record` refreshes the recorded values of a region whose content",
+    "moved, and stamps it with the baseline it was affirmed against — it cannot create a region.",
+    "Claiming a new class of difference is a reviewed change to this file.",
+    "",
+    "Empty until the net captures its first traces (#51)."
+  ],
+  "regions": []
+}

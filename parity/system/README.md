@@ -1,0 +1,265 @@
+# System parity — the trace format and the comparison core
+
+**System parity** is the dual-run net: it mounts upstream `@xyflow/react` and
+PSFlow side by side, drives both through one identical scripted corpus, and
+diffs the results. Neither side is a hand-written expectation, which is what
+makes it prove xyflow rather than a reading of it.
+
+The net has two halves, and they are deliberately separate steps:
+
+| Step | What it does | Where it is |
+|---|---|---|
+| **capture** | drives a scenario against one side and writes a trace to disk | not built yet — [net harness #35](https://github.com/jonbae/PSFlow/issues/35), [first dom diff #51](https://github.com/jonbae/PSFlow/issues/51) |
+| **compare** | reads two stored traces and reports what differs | this directory |
+
+Capture records **everything** observable; everything the noise policy forgives
+lives in compare. That keeps a capture whitelist from smuggling hand-authored
+assertions into the recording — deciding in advance which of xyflow's behaviours
+are allowed to be a bug is the failure this whole effort exists to avoid. It also
+means revising the noise policy re-runs the comparison in seconds against every
+trace ever captured, and that a bumped baseline re-diffs stored traces into a
+behavioural changelog.
+
+Vocabulary is `CONTEXT.md`. Terms in **bold** below are defined there.
+
+---
+
+## The trace format
+
+A **trace** is everything one run of one side recorded, as JSON. One trace per
+side per **scenario** per capture. The shape was decided across four closed
+issues ([#18](https://github.com/jonbae/PSFlow/issues/18) observation,
+[#19](https://github.com/jonbae/PSFlow/issues/19) noise policy,
+[#21](https://github.com/jonbae/PSFlow/issues/21) test debt,
+[#26](https://github.com/jonbae/PSFlow/issues/26) corpus) and is written out
+here so nobody has to reconstruct it from them. It is enforced by
+`trace-format.mjs`, which hard-fails on anything it does not recognise.
+
+### Envelope
+
+```jsonc
+{
+  "traceFormat": 1,                            // bumped when the shape changes
+  "scenario": "mount-baseline--nodes-general", // semantic id, never a number
+  "side": "upstream" | "psflow",
+  "capture": 1,                                // each side is captured twice (#19 §8)
+  "baseline": "12.11.0",                       // the vendored upstream version
+  "sections": { … }                            // all seven, always
+}
+```
+
+The envelope is not compared — it identifies the run. Comparing two traces of
+different scenarios is a hard error rather than a difference: two scenarios are
+not two runs of one experiment.
+
+There is no timestamp anywhere in a trace. The net is deliberately blind to
+performance (each side settles on its own clock), and a recorded time would
+break self-consistency on every run.
+
+### The seven sections
+
+Five carry exports, totalling 156; two carry none. A section is **always
+present** — an absent section would otherwise compare as "nothing differed
+there", which is the print-instead-of-fail mistake this repo has already paid
+for twice.
+
+| Section | Exports | Contents |
+|---|---:|---|
+| `dom` | 64 | the full subtree under `.react-flow`, plus enumerated page-level state |
+| `callbacks` | 47 | every handler firing, in order, with serialized arguments |
+| `hooks` | 27 | what each **probe** saw its hooks return |
+| `api` | 14 | imperative queries called during capture, and mutator returns |
+| `props` | 4 | the props object each node/edge probe was handed |
+| `console` | 0 | what the page printed |
+| `driving` | 0 | the **driving log**: what was done *to* the page |
+
+```jsonc
+{
+  // ── dom ──────────────────────────────────────────────────────────────────
+  // A nested element tree, recorded positionally and *compared* by key.
+  // `page` is enumerated page-level state: two upstream behaviours turn on a
+  // browser default (scroll, pinch-zoom) *not* happening, and that is only
+  // observable here.
+  "dom": {
+    "page": { "scrollX": 0, "scrollY": 0, "visualViewportScale": 1 },
+    "root": {
+      "tag": "div",
+      "attrs": { "class": "react-flow", "data-id": "…" },  // every attribute, values always strings
+      "text": "Node 1",                                    // this element's own text, optional
+      "children": [ /* elements */ ]
+    }
+  },
+
+  // ── callbacks ────────────────────────────────────────────────────────────
+  // An exact sequence: order, count and interleaving all compare (#19 §5).
+  // Arguments serialize every enumerable own property, blacklisting only
+  // reference-typed fields (#19 §6) — issue #44 builds that serializer.
+  "callbacks": [ { "name": "onNodesChange", "args": [ [ { "id": "1", "type": "dimensions" } ] ] } ],
+
+  // ── hooks ────────────────────────────────────────────────────────────────
+  // Keyed by probe id, then by hook name.
+  "hooks": { "flow-probe": { "useViewport": { "x": 0, "y": 0, "zoom": 1 } } },
+
+  // ── api ──────────────────────────────────────────────────────────────────
+  // Queries are trace content; mutators are driving actions whose return
+  // value is recorded. `toObject()` is the richest single observation the net
+  // has — the library's own serialisation of the whole flow.
+  "api": {
+    "queries": { "toObject": { "nodes": [], "edges": [], "viewport": {} } },
+    "calls": [ { "method": "zoomIn", "args": [], "result": null } ]
+  },
+
+  // ── props ────────────────────────────────────────────────────────────────
+  "props": { "node-probe#1": { "id": "1", "type": "probe", "selected": false } },
+
+  // ── console ──────────────────────────────────────────────────────────────
+  "console": [ { "level": "warn", "text": "…" } ],
+
+  // ── driving ──────────────────────────────────────────────────────────────
+  // The receipt for the input side. Targets resolve against each side's own
+  // render, so the pointer *follows* a divergence; this is what recovers it.
+  // An unresolved target is recorded and skipped, never thrown.
+  // All five fields are required — `target`, `box` and `dispatched` nullable,
+  // since an imperative call has no target and an unresolved one has no box.
+  "driving": [
+    { "index": 0, "action": "pointerDown", "target": ".react-flow__node[data-id='1']",
+      "resolved": true, "box": { "x": 75, "y": 25, "width": 150, "height": 36 },
+      "dispatched": { "x": 150, "y": 43 } }
+  ]
+}
+```
+
+---
+
+## How comparison works
+
+`compare/index.mjs` runs five steps, and the order is the design.
+
+**1. Validate the envelopes.** Both traces must be the same scenario.
+
+**2. Normalize both sides** with one content-blind ruleset
+(`normalization.json`).
+
+**3. Check nothing collapsed.** A value that differed before normalization and
+agrees after it fails the run, unless the two were reorderings of one another.
+
+**4. Diff section by section**, keyed rather than positional.
+
+**5. Claim what is left** with hand-written regions (`regions.json`). Anything
+unclaimed fails.
+
+### Keyed, never positional
+
+DOM children are paired by their own identity — `data-id` where the element
+carries one, `id` otherwise, and `tag[n]` among like-tagged siblings that carry
+neither. The spike hit the reason: one node-ordering difference shifted ~30
+lines by itself, drowning the real differences underneath.
+
+Ordering stays observable. Pairing by key is not ignoring order: a keyed pairing
+that finds the same keys in a different sequence reports exactly one `order`
+difference at the parent, carrying both sequences.
+
+Everything else compares positionally, which is what `callbacks` needs — there,
+position *is* the identity.
+
+### Normalization — may delete or reorder, may never collapse
+
+The test is **content-blindness**: a rule may consult a field's name and its
+position, never its value.
+
+- **`delete`** removes a named field from both sides regardless of value. A
+  deleted field counts as **unobserved** in coverage, not as passing, and the
+  report says so. The list is near-empty: the spike went looking for
+  React-internal churn and found none.
+- **`sort`** reorders `tokens` (whitespace-separated, e.g. `class`) or
+  `declarations` (`;`-separated, e.g. `style`). Tokenizing means separator
+  whitespace stops being content — `class="a  b"` and `class="a b"` compare
+  equal, and that is the one thing sorting costs. Nothing inside a token is
+  touched. A `style` whose property list repeats a name is left **unsorted**,
+  because there the later declaration wins and order is semantic.
+
+There is no third rule kind, and an unknown kind is a hard error. That is
+deliberate: a tolerance rule cannot distinguish "upstream rounded its output"
+from "PSFlow computed a different number" — both look like digits differing. The
+spike's `75` against `75.00017302302994` is exactly that case, and it is not
+float formatting: upstream's x really is 75 and PSFlow's layout math really
+accumulated 1.7e-4 of error. A `±0.001` rule would not answer that question, it
+would delete it, for every coordinate, permanently, in a config nobody re-reads.
+
+`assertNoCollapse` is the backstop that keeps this true of the *implementation*
+rather than only of the config: on every run, any value pair that differed before
+normalization and agrees after it must be a reordering **under the rule that
+touched it**, judged with that rule's own tokenizer — so two values that merely
+happen to be anagrams, `translate(75px, 25px)` and `translate(25px, 75px)`, do
+not pass for one another, and a value no rule touched can never legally agree.
+
+### Regions — everything normalization does not claim
+
+A region is a pattern carrying a written reason, and a ticket where the
+difference is a known bug.
+
+| Field | |
+|---|---|
+| `id` | unique, cited by reports |
+| `kind` | `intentional` (permanent) or `known-divergence` (needs `ticket`) |
+| `reason` | required — an unexplained region is a dumping ground |
+| `ticket` | required for `known-divergence` |
+| `path` | path pattern; `*` is one segment, `**` is any number |
+| `scenario` | scenario the region applies to, `*` for all |
+| `affirmedAgainst` | the baseline version it was last affirmed against |
+| `recorded` | the differences it claimed when last recorded |
+
+A difference is claimed by the **first** region whose pattern matches it, so no
+two regions can share one justification.
+
+Three outcomes per region, and two of them fail:
+
+- **rides free** — it claimed what it recorded.
+- **stale** — it claimed nothing. Someone fixed the divergence and left the
+  entry behind, or the scenario stopped exercising it. Entries bite when they
+  stop corresponding to reality rather than accumulating silently.
+- **moved** — it claimed different values than it recorded. Re-affirm it: look
+  at the new values and decide they are still the same cause. On a baseline bump
+  the set of moved regions **is** the behavioural changelog, and its size is the
+  bump's measured cost.
+
+**Re-recording is cheap; re-recording cannot create a region.** `--record`
+refreshes the values of regions that moved and stamps them with this run's
+baseline. It never adds one — an unclaimed difference is still unclaimed after
+recording, and still fails. Claiming a new *class* of difference is a reviewed
+change to `regions.json`.
+
+---
+
+## Commands
+
+```sh
+node parity/system/compare.mjs <left-trace.json> <right-trace.json> [--out report.md] [--record]
+npm run test:compare      # the comparison core's own unit tests — no browser
+```
+
+Exit codes: `0` clean, `1` differences the noise policy does not claim (or a
+region gone stale), `2` a run that could not be interpreted at all — a malformed
+trace, an illegal normalization rule, a region missing its reason. A run that
+cannot be interpreted is never a pass.
+
+`parity:system` — the gate that captures and then compares — arrives with the
+capture half.
+
+## Tested at this seam
+
+Trace files on disk are the highest seam at which the net's own logic can be
+tested, and the whole comparison core is plain functions over stored traces. The
+unit tests run against hand-written fixture traces in `compare/fixtures/` with
+no browser, no boundary module and no driver. They are the one place in this
+effort where hand-authored expectations are correct: the subject under test is
+the comparison logic, not xyflow.
+
+## Not built here
+
+- **Self-consistency**, and the driving log's framing of the other sections as
+  consequences — [#43](https://github.com/jonbae/PSFlow/issues/43).
+- **Callback sequence comparison** and argument serialization —
+  [#44](https://github.com/jonbae/PSFlow/issues/44).
+- **Witnesses, holes and the coverage artifact** —
+  [#57](https://github.com/jonbae/PSFlow/issues/57).

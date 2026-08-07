@@ -1,0 +1,25 @@
+{
+  "_comment": [
+    "The normalization ruleset (#19 §1, #40). May delete by name or reorder; may NEVER collapse two",
+    "distinct values into one. The rule kinds are closed at `delete` and `sort` precisely so that a",
+    "tolerance rule cannot be written here at all — a difference that needs judgement is a region in",
+    "regions.json, where it carries a name and a reason.",
+    "",
+    "The delete list is near-empty on purpose: the spike (#16) went looking for React-internal churn",
+    "and found none. A deleted field counts as unobserved in coverage, not as passing."
+  ],
+  "rules": [
+    {
+      "kind": "sort",
+      "at": "dom/**/attrs/class",
+      "as": "tokens",
+      "reason": "class token order never affects CSS matching, and React emits them in composition order"
+    },
+    {
+      "kind": "sort",
+      "at": "dom/**/attrs/style",
+      "as": "declarations",
+      "reason": "declaration order is not semantic unless a property repeats, which the sort refuses to touch"
+    }
+  ]
+}
