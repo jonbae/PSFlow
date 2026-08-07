@@ -1,13 +1,15 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
-import { mkdtempSync, readFileSync } from "node:fs";
+import { mkdtempSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
 import { SECTIONS, readTrace } from "../trace-format.mjs";
 import { REPORT_ORDER, compareTraces } from "./index.mjs";
+import { validateRules } from "./normalize.mjs";
+import { validateRegions } from "./regions.mjs";
 import { renderReport } from "./report.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -15,11 +17,8 @@ const fixturePath = (name) => join(here, "fixtures", name);
 const fixture = (name) => readTrace(fixturePath(name));
 
 const CLI = join(here, "..", "compare.mjs");
-
-const SORT_RULES = [
-  { kind: "sort", at: "dom/**/attrs/class", as: "tokens", reason: "class token order is not semantic" },
-  { kind: "sort", at: "dom/**/attrs/style", as: "declarations", reason: "declaration order is not semantic" },
-];
+const committed = (name) => JSON.parse(readFileSync(join(here, "..", name), "utf8"));
+const SORT_RULES = committed("normalization.json").rules;
 
 test("the report leads with the driving log, because inputs that differed frame everything after", () => {
   assert.equal(REPORT_ORDER[0], "driving");
@@ -127,4 +126,21 @@ test("the CLI exits non-zero on an unclaimed difference", () => {
       }),
     (e) => e.status === 1
   );
+});
+
+test("the CLI exits 2 on a trace it cannot interpret, rather than comparing what is left", () => {
+  const broken = join(mkdtempSync(join(tmpdir(), "psflow-compare-")), "broken.json");
+  const trace = fixture("baseline.psflow.json");
+  delete trace.sections.console;
+  writeFileSync(broken, JSON.stringify(trace));
+
+  assert.throws(
+    () => execFileSync(process.execPath, [CLI, fixturePath("baseline.upstream.json"), broken], { stdio: "pipe" }),
+    (e) => e.status === 2 && /sections\/console is missing/.test(String(e.stderr))
+  );
+});
+
+test("the committed ruleset and region register are themselves legal", () => {
+  assert.doesNotThrow(() => validateRules(committed("normalization.json").rules));
+  assert.doesNotThrow(() => validateRegions(committed("regions.json").regions));
 });

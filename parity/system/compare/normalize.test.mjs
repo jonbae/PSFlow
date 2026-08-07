@@ -3,17 +3,19 @@ import assert from "node:assert/strict";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
+import { readFileSync } from "node:fs";
+
 import { readTrace } from "../trace-format.mjs";
-import { diffValues, formatPath } from "./diff.mjs";
+import { diffValues } from "./diff.mjs";
+import { formatPath } from "./paths.mjs";
 import { assertNoCollapse, normalize, validateRules } from "./normalize.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const fixture = (name) => readTrace(join(here, "fixtures", name));
 
-const SORT_RULES = [
-  { kind: "sort", at: "dom/**/attrs/class", as: "tokens", reason: "class token order is not semantic" },
-  { kind: "sort", at: "dom/**/attrs/style", as: "declarations", reason: "declaration order is not semantic" },
-];
+// The committed ruleset, not a copy of it: the rules the net actually runs are
+// what the "cannot collapse" criterion has to hold against.
+const SORT_RULES = JSON.parse(readFileSync(join(here, "../normalization.json"), "utf8")).rules;
 
 const sectionsOf = (trace) => trace.sections;
 
@@ -90,12 +92,34 @@ test("the collapse guard rejects a normalizer that made two distinct values agre
   const before = { left: { api: { queries: { zoom: 1.03145 } } }, right: { api: { queries: { zoom: 1.05466 } } } };
   const after = { left: { api: { queries: { zoom: 1.03 } } }, right: { api: { queries: { zoom: 1.03 } } } };
 
-  assert.throws(() => assertNoCollapse(before, after), /api\/queries\/zoom/);
+  assert.throws(() => assertNoCollapse(before, after, SORT_RULES), /api\/queries\/zoom/);
 });
 
 test("the collapse guard accepts a reorder, which is what makes it a permutation and not a collapse", () => {
+  const rules = [{ kind: "sort", at: "props/**/class", as: "tokens", reason: "test" }];
   const before = { left: { props: { p: { class: "a b" } } }, right: { props: { p: { class: "b a" } } } };
   const after = { left: { props: { p: { class: "a b" } } }, right: { props: { p: { class: "a b" } } } };
 
-  assert.doesNotThrow(() => assertNoCollapse(before, after));
+  assert.doesNotThrow(() => assertNoCollapse(before, after, rules));
+});
+
+test("the collapse guard is not fooled by two values that are merely anagrams", () => {
+  const rules = [{ kind: "sort", at: "props/**/style", as: "declarations", reason: "test" }];
+  const before = {
+    left: { props: { p: { style: "transform: translate(75px, 25px);" } } },
+    right: { props: { p: { style: "transform: translate(25px, 75px);" } } },
+  };
+  const after = {
+    left: { props: { p: { style: "transform: translate(0px, 0px);" } } },
+    right: { props: { p: { style: "transform: translate(0px, 0px);" } } },
+  };
+
+  assert.throws(() => assertNoCollapse(before, after, rules), /props\/p\/style/);
+});
+
+test("a value no rule touched cannot legally agree after normalization", () => {
+  const before = { left: { api: { queries: { zoom: 1.03145 } } }, right: { api: { queries: { zoom: 1.05466 } } } };
+  const after = { left: { api: { queries: { zoom: 1.03145 } } }, right: { api: { queries: { zoom: 1.03145 } } } };
+
+  assert.throws(() => assertNoCollapse(before, after, []), /collapsed/);
 });

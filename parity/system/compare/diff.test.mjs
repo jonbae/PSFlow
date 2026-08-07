@@ -4,7 +4,8 @@ import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
 import { readTrace } from "../trace-format.mjs";
-import { diffValues, formatPath } from "./diff.mjs";
+import { diffValues } from "./diff.mjs";
+import { formatPath } from "./paths.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const fixture = (name) => readTrace(join(here, "fixtures", name));

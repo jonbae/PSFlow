@@ -51,10 +51,20 @@ const checkElement = (el, path, problems) => {
   el.children.forEach((child, i) => checkElement(child, `${path}/children/${i}`, problems));
 };
 
+// Page-level state is enumerated rather than open: two upstream behaviours turn
+// on a browser default *not* happening, and a capture that quietly stopped
+// recording one of them would compare clean on both sides.
+const PAGE_STATE = ["scrollX", "scrollY", "visualViewportScale"];
+
 const SECTION_CHECKS = {
   dom: (dom, path, problems) => {
     if (!isPlainObject(dom)) return void problems.push(`${path} must be an object`);
     if (!isPlainObject(dom.page)) problems.push(`${path}/page must be an object`);
+    else {
+      for (const field of PAGE_STATE) {
+        if (typeof dom.page[field] !== "number") problems.push(`${path}/page/${field} must be a number`);
+      }
+    }
     if (dom.root !== null) checkElement(dom.root, `${path}/root`, problems);
   },
   callbacks: (callbacks, path, problems) => {
@@ -84,12 +94,26 @@ const SECTION_CHECKS = {
       if (typeof entry.text !== "string") problems.push(`${path}/${i}/text must be a string`);
     });
   },
+  // The driving log is the receipt for the input side, and every field of it is
+  // load-bearing: the box is the sub-pixel measurement the whole self-consistency
+  // check turns on, and `resolved: false` is how a missing element reads as a
+  // finding instead of as a Playwright timeout. A capture that stopped writing
+  // one of them would compare clean on both sides, so all five are required —
+  // `target`, `box` and `dispatched` nullable, because an imperative call has no
+  // target and an unresolved one has no box.
   driving: (actions, path, problems) => {
     if (!Array.isArray(actions)) return void problems.push(`${path} must be an array`);
     actions.forEach((action, i) => {
       if (!isPlainObject(action)) return void problems.push(`${path}/${i} must be an object`);
+      if (!Number.isInteger(action.index)) problems.push(`${path}/${i}/index must be an integer`);
       if (typeof action.action !== "string") problems.push(`${path}/${i}/action must be a string`);
       if (typeof action.resolved !== "boolean") problems.push(`${path}/${i}/resolved must be a boolean`);
+      if (action.target !== null && typeof action.target !== "string") {
+        problems.push(`${path}/${i}/target must be a selector or null`);
+      }
+      if (action.box !== null && !isPlainObject(action.box)) problems.push(`${path}/${i}/box must be an object or null`);
+      if (action.resolved && action.box === undefined) problems.push(`${path}/${i}/box is missing`);
+      if (!("dispatched" in action)) problems.push(`${path}/${i}/dispatched is missing`);
     });
   },
 };

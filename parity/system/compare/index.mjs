@@ -11,16 +11,16 @@
 //   4. **Diff section by section**, keyed rather than positional (`diff.mjs`).
 //   5. **Claim what is left** with hand-written regions (`regions.mjs`).
 //
-// Capture and compare are separate steps by design (#18): snapshots record
-// everything and persist to disk, and *all* filtering lives here. That keeps a
-// capture whitelist from smuggling hand-authored assertions into the recording,
-// and it means revising the noise policy re-runs this step in seconds rather
-// than re-running a browser.
+// Capture and compare are separate steps by design (#18): a trace records
+// everything observable and persists to disk, and *everything the noise policy
+// forgives* lives here. That keeps a capture whitelist from smuggling
+// hand-authored assertions into the recording, and it means revising the noise
+// policy re-runs this step in seconds rather than re-running a browser.
 
 import { SECTIONS, validateTrace } from "../trace-format.mjs";
 import { diffValues } from "./diff.mjs";
 import { assertNoCollapse, normalize } from "./normalize.mjs";
-import { claimDifferences } from "./regions.mjs";
+import { claimDifferences, passes } from "./regions.mjs";
 
 // The driving log is compared ahead of the other sections as its own class:
 // if the inputs differed, the outputs differing tells you nothing new (#26).
@@ -62,23 +62,25 @@ export const compareTraces = (leftTrace, rightTrace, { rules = [], regions = [] 
 
   const left = normalize(leftTrace.sections, rules);
   const right = normalize(rightTrace.sections, rules);
-  assertNoCollapse({ left: leftTrace.sections, right: rightTrace.sections }, { left: left.value, right: right.value });
+  assertNoCollapse(
+    { left: leftTrace.sections, right: rightTrace.sections },
+    { left: left.value, right: right.value },
+    rules
+  );
 
   const differences = REPORT_ORDER.flatMap((section) =>
     diffValues(left.value[section], right.value[section], [section])
   );
 
-  const { claims, unclaimed, outcomes } = claimDifferences(differences, regions, { scenario: leftTrace.scenario });
+  const claimed = claimDifferences(differences, regions, { scenario: leftTrace.scenario });
 
   return {
     scenario: leftTrace.scenario,
     left: identity(leftTrace),
     right: identity(rightTrace),
     differences,
-    claims,
-    unclaimed,
-    outcomes,
+    ...claimed,
     deleted: { left: left.deleted, right: right.deleted },
-    ok: unclaimed.length === 0 && outcomes.every((o) => o.status === "rides-free"),
+    ok: passes(claimed),
   };
 };

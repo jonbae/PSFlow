@@ -155,19 +155,29 @@ The content-blind half of the noise policy: rules that may delete a field by nam
 or reorder one, and may never collapse two distinct values into one. A rule
 consults a field's name and position, never its value — which is why no tolerance
 rule can be written as one. A deleted field is unobserved, not passing.
-_Avoid_: filtering, cleaning, canonicalization
+_Avoid_: cleaning, canonicalization, tolerance
 
 **Region**:
 A claim over the differences normalization does not touch: a pattern carrying a
-written reason, plus a ticket where the difference is a known bug. Recording
-values under one is cheap, but recording cannot create one, and a region that
-claims nothing fails as stale.
+written reason, plus a ticket where the difference is a known bug. Its three
+outcomes are *rides free* (it claimed what it recorded), *moved* (it claimed
+different values, and someone must re-affirm that they are still the same cause)
+and *stale*. Recording values under a region is cheap; recording cannot create
+one.
 _Avoid_: waiver, exception, allowlist entry (when a region is meant)
 
 **Claimed**:
 Of a difference: some region's pattern covers it, so it is someone's stated
 decision rather than a failure. An unclaimed difference fails the run.
 _Avoid_: allowed, ignored, expected
+
+**Stale**:
+Of an entry in any register — region, allowlist entry, witness, hole, census
+entry, manifest — it no longer corresponds to anything real, and therefore fails.
+The inversion is deliberate and repo-wide: entries bite when they stop being true
+instead of accumulating silently, which is what makes a register a gate rather
+than a record.
+_Avoid_: outdated, unused, orphaned
 
 **Reachable**:
 Of a behavior: it lands in one of the snapshot's sections, so the net is capable

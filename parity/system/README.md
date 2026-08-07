@@ -12,12 +12,13 @@ The net has two halves, and they are deliberately separate steps:
 | **capture** | drives a scenario against one side and writes a trace to disk | not built yet — [net harness #35](https://github.com/jonbae/PSFlow/issues/35), [first dom diff #51](https://github.com/jonbae/PSFlow/issues/51) |
 | **compare** | reads two stored traces and reports what differs | this directory |
 
-Capture records **everything** observable; **all** filtering lives in compare.
-That keeps a capture whitelist from smuggling hand-authored assertions into the
-recording — deciding in advance which of xyflow's behaviours are allowed to be a
-bug is the failure this whole effort exists to avoid. It also means revising the
-noise policy re-runs the comparison in seconds against every trace ever captured,
-and that a bumped baseline re-diffs stored traces into a behavioural changelog.
+Capture records **everything** observable; everything the noise policy forgives
+lives in compare. That keeps a capture whitelist from smuggling hand-authored
+assertions into the recording — deciding in advance which of xyflow's behaviours
+are allowed to be a bug is the failure this whole effort exists to avoid. It also
+means revising the noise policy re-runs the comparison in seconds against every
+trace ever captured, and that a bumped baseline re-diffs stored traces into a
+behavioural changelog.
 
 Vocabulary is `CONTEXT.md`. Terms in **bold** below are defined there.
 
@@ -100,7 +101,7 @@ for twice.
   "hooks": { "flow-probe": { "useViewport": { "x": 0, "y": 0, "zoom": 1 } } },
 
   // ── api ──────────────────────────────────────────────────────────────────
-  // Queries are snapshot content; mutators are driving actions whose return
+  // Queries are trace content; mutators are driving actions whose return
   // value is recorded. `toObject()` is the richest single observation the net
   // has — the library's own serialisation of the whole flow.
   "api": {
@@ -118,6 +119,8 @@ for twice.
   // The receipt for the input side. Targets resolve against each side's own
   // render, so the pointer *follows* a divergence; this is what recovers it.
   // An unresolved target is recorded and skipped, never thrown.
+  // All five fields are required — `target`, `box` and `dispatched` nullable,
+  // since an imperative call has no target and an unresolved one has no box.
   "driving": [
     { "index": 0, "action": "pointerDown", "target": ".react-flow__node[data-id='1']",
       "resolved": true, "box": { "x": 75, "y": 25, "width": 150, "height": 36 },
@@ -170,9 +173,10 @@ position, never its value.
   React-internal churn and found none.
 - **`sort`** reorders `tokens` (whitespace-separated, e.g. `class`) or
   `declarations` (`;`-separated, e.g. `style`). Tokenizing means separator
-  whitespace stops being content; nothing inside a token is touched. A
-  `style` whose property list repeats a name is left **unsorted**, because
-  there the later declaration wins and order is semantic.
+  whitespace stops being content — `class="a  b"` and `class="a b"` compare
+  equal, and that is the one thing sorting costs. Nothing inside a token is
+  touched. A `style` whose property list repeats a name is left **unsorted**,
+  because there the later declaration wins and order is semantic.
 
 There is no third rule kind, and an unknown kind is a hard error. That is
 deliberate: a tolerance rule cannot distinguish "upstream rounded its output"
@@ -183,8 +187,11 @@ accumulated 1.7e-4 of error. A `±0.001` rule would not answer that question, it
 would delete it, for every coordinate, permanently, in a config nobody re-reads.
 
 `assertNoCollapse` is the backstop that keeps this true of the *implementation*
-rather than only of the config: on every run, any value pair that differed
-before normalization and agrees after it must be a reordering, or the run fails.
+rather than only of the config: on every run, any value pair that differed before
+normalization and agrees after it must be a reordering **under the rule that
+touched it**, judged with that rule's own tokenizer — so two values that merely
+happen to be anagrams, `translate(75px, 25px)` and `translate(25px, 75px)`, do
+not pass for one another, and a value no rule touched can never legally agree.
 
 ### Regions — everything normalization does not claim
 

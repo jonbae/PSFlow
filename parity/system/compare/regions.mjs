@@ -2,8 +2,8 @@
 //
 // Normalization claims what a content-blind rule can claim. A region claims
 // everything else: a pattern carrying a written reason, plus a ticket where the
-// difference is a known bug. That split is the whole answer to "what stops the
-// allowlist becoming a dumping ground" — the baseline is *recorded*, the
+// difference is a known bug. That split is the whole answer to "what stops
+// accepted noise becoming a dumping ground" — the baseline is *recorded*, the
 // justification is *hand-written*, and the two cannot be produced by the same
 // act:
 //
@@ -21,6 +21,13 @@
 import { formatPath, matchPath } from "./paths.mjs";
 
 const REGION_KINDS = ["intentional", "known-divergence"];
+
+/** What a region did this run. Only `ridesFree` passes. */
+export const OUTCOME = Object.freeze({
+  ridesFree: "rides-free",
+  stale: "stale",
+  moved: "moved",
+});
 
 export class RegionError extends Error {
   constructor(message) {
@@ -100,12 +107,21 @@ export const claimDifferences = (differences, regions, { scenario }) => {
   const outcomes = regions.map((region) => {
     const claimed = claims.get(region.id);
     const recording = claimed.map(recordedForm);
-    const status = claimed.length === 0 ? "stale" : sameRecording(recording, region.recorded) ? "rides-free" : "moved";
+    const status =
+      claimed.length === 0
+        ? OUTCOME.stale
+        : sameRecording(recording, region.recorded)
+          ? OUTCOME.ridesFree
+          : OUTCOME.moved;
     return { region, status, claimed, recording };
   });
 
   return { claims, unclaimed, outcomes };
 };
+
+/** A comparison passes when nothing is unclaimed and every region rode free. */
+export const passes = ({ unclaimed, outcomes }) =>
+  unclaimed.length === 0 && outcomes.every((o) => o.status === OUTCOME.ridesFree);
 
 /**
  * Refreshes the recorded values of regions that claimed something, and stamps
@@ -119,7 +135,7 @@ export const recordRegions = (regions, { outcomes }, { baseline }) => {
   const byId = new Map(outcomes.map((o) => [o.region.id, o]));
   return regions.map((region) => {
     const outcome = byId.get(region.id);
-    if (!outcome || outcome.status !== "moved") return region;
+    if (!outcome || outcome.status !== OUTCOME.moved) return region;
     return { ...region, affirmedAgainst: baseline, recorded: outcome.recording };
   });
 };

@@ -47,6 +47,24 @@ test("a malformed dom element names its own path", () => {
   assert.throws(() => validateTrace(trace, "t.json"), /dom\/root\/children\/.*children/);
 });
 
+test("a driving action that stopped recording its box fails", () => {
+  const trace = valid();
+  delete trace.sections.driving[0].box;
+  assert.throws(() => validateTrace(trace, "t.json"), /driving\/0\/box is missing/);
+});
+
+test("a driving action that stopped recording what it dispatched fails", () => {
+  const trace = valid();
+  delete trace.sections.driving[0].dispatched;
+  assert.throws(() => validateTrace(trace, "t.json"), /driving\/0\/dispatched is missing/);
+});
+
+test("page-level state is enumerated, so dropping one of the three fails", () => {
+  const trace = valid();
+  delete trace.sections.dom.page.visualViewportScale;
+  assert.throws(() => validateTrace(trace, "t.json"), /dom\/page\/visualViewportScale/);
+});
+
 test("every problem is reported at once rather than the first", () => {
   const trace = valid();
   delete trace.sections.console;

@@ -7,6 +7,7 @@
 
 import { REPORT_ORDER } from "./index.mjs";
 import { formatPath } from "./paths.mjs";
+import { OUTCOME } from "./regions.mjs";
 
 const MAX_VALUE = 160;
 
@@ -43,11 +44,16 @@ export const renderReport = (result) => {
     "",
   ];
 
-  const stale = outcomes.filter((o) => o.status === "stale");
-  const moved = outcomes.filter((o) => o.status === "moved");
+  const stale = outcomes.filter((o) => o.status === OUTCOME.stale);
+  const moved = outcomes.filter((o) => o.status === OUTCOME.moved);
 
   if (result.ok) {
-    lines.push("**No unclaimed differences.** Every difference the run found is claimed by a region.", "");
+    lines.push(
+      result.differences.length
+        ? `**No unclaimed differences.** All ${result.differences.length} the run found are claimed by a region.`
+        : "**No unclaimed differences.** The two traces agree everywhere.",
+      ""
+    );
   } else {
     const parts = [];
     if (unclaimed.length) parts.push(`${unclaimed.length} unclaimed difference(s)`);
