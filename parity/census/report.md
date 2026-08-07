@@ -15,7 +15,7 @@ it would not fail if the behaviour diverged.
 |---|---:|---:|---:|---:|
 | `component` | 22 | 12 | 3 | 7 |
 | `hook` | 21 | 0 | 0 | 21 |
-| `pure-fn` | 17 | 9 | 1 | 7 |
+| `pure-fn` | 17 | 10 | 0 | 7 |
 | `enum-value` | 8 | 0 | 0 | 8 |
 | `props` | 30 | 5 | 3 | 22 |
 | `callback` | 26 | 1 | 1 | 24 |
@@ -25,7 +25,7 @@ it would not fail if the behaviour diverged.
 | `instance-api` | 7 | 0 | 1 | 6 |
 | `store` | 3 | 0 | 0 | 3 |
 | `internal-type` | 1 | 0 | 0 | 1 |
-| **total** | **210** | **46** | **14** | **150** |
+| **total** | **210** | **47** | **13** | **150** |
 
 ## Summary by mechanism
 
@@ -40,7 +40,7 @@ What *could* prove each export, if the dual-run net were built to reach it.
 | `dual-run-props` | 4 | 2 |
 | `dual-run-value` | 8 | 0 |
 | `none` | 20 | 0 |
-| `oracle` | 26 | 18 |
+| `oracle` | 26 | 19 |
 
 ## Upstream values with no PSFlow runtime counterpart
 
@@ -51,14 +51,6 @@ consumer — the audience this repo exists for — the import is `undefined`.
 | Export | PSFlow surfaces | Reachable by |
 |---|---|---|
 | `MiniMapNode` | nothing | — |
-| `BackgroundVariant` | nothing | — |
-| `ConnectionLineType` | PureScript type only | — |
-| `ConnectionMode` | PureScript type only | — |
-| `MarkerType` | PureScript type only | — |
-| `PanOnScrollMode` | PureScript type only | — |
-| `Position` | PureScript type only | — |
-| `ResizeControlVariant` | PureScript type only | — |
-| `SelectionMode` | PureScript type only | — |
 
 ## Full census
 
@@ -120,18 +112,18 @@ consumer — the audience this repo exists for — the import is `undefined`.
 | `getSimpleBezierPath` | pure-fn | `oracle` | L1 |  |
 | `getSmoothStepPath` | pure-fn | `oracle` | L1 |  |
 | `getStraightPath` | pure-fn | `oracle` | L1 |  |
-| `getViewportForBounds` | pure-fn | `oracle` | L2-indirect | Deferred by ticket 059. Traversed by fitView in the smoke fixtures, but nothing about its result is asserted — and the spike's 1.03145-vs-1.05466 fitView zoom gap is exactly this function's output. |
+| `getViewportForBounds` | pure-fn | `oracle` | L1 + L2-indirect | Oracled by ticket 030: the fitView zoom formula agrees with upstream, so the spike's 1.03145-vs-1.05466 gap came from the inputs, not the arithmetic. Also traversed by fitView in the smoke fixtures, where nothing about its result is asserted. |
 | `isEdge` | pure-fn | `oracle` | — | Pure and oracle-able today. Listed in no ticket. |
 | `isNode` | pure-fn | `oracle` | — | Pure and oracle-able today. Listed in no ticket. |
 | `reconnectEdge` | pure-fn | `oracle` | — | Pure and oracle-able today. Listed in no ticket. |
-| `BackgroundVariant` | enum-value | `dual-run-value` | — | Upstream runtime enum object. PSFlow surfaces neither a value nor a type — allowlisted absent. |
-| `ConnectionLineType` | enum-value | `dual-run-value` | — | Upstream runtime enum object; PSFlow surfaces a PureScript type only. Layer 0's value-union-type comparison neutralises this by design. |
-| `ConnectionMode` | enum-value | `dual-run-value` | — | Upstream runtime enum object; PSFlow surfaces a PureScript type only. |
-| `MarkerType` | enum-value | `dual-run-value` | — | Upstream runtime enum object; PSFlow surfaces a PureScript type only. The marker *strings* are gated (getMarkerId under L1, marker-start/end under L2) but the exported object is not. |
-| `PanOnScrollMode` | enum-value | `dual-run-value` | — | Upstream runtime enum object; PSFlow surfaces a PureScript type only. |
-| `Position` | enum-value | `dual-run-value` | — | Upstream runtime enum object; PSFlow surfaces a PureScript type only. |
-| `ResizeControlVariant` | enum-value | `dual-run-value` | — | Upstream runtime enum object; PSFlow surfaces a PureScript type only. |
-| `SelectionMode` | enum-value | `dual-run-value` | — | Upstream runtime enum object; PSFlow surfaces a PureScript type only. |
+| `BackgroundVariant` | enum-value | `dual-run-value` | — | Upstream runtime enum object, from @xyflow/react rather than @xyflow/system. Crossed by the boundary module (stage 1) as a frozen object; nothing gates the value yet — surface parity's deep-equal against upstream is the plan. |
+| `ConnectionLineType` | enum-value | `dual-run-value` | — | Upstream runtime enum object. Crossed by the boundary module (stage 1); nothing gates the value yet. Note Bezier is the string "default", not "bezier" — the one member here a hand-written expectation would plausibly get wrong. |
+| `ConnectionMode` | enum-value | `dual-run-value` | — | Upstream runtime enum object. Crossed by the boundary module (stage 1); nothing gates the value yet. |
+| `MarkerType` | enum-value | `dual-run-value` | — | Upstream runtime enum object. Crossed by the boundary module (stage 1); nothing gates the value yet. The marker *strings* are gated (getMarkerId under L1, marker-start/end under L2) but the exported object is not. |
+| `PanOnScrollMode` | enum-value | `dual-run-value` | — | Upstream runtime enum object. Crossed by the boundary module (stage 1); nothing gates the value yet. |
+| `Position` | enum-value | `dual-run-value` | — | Upstream runtime enum object. Crossed by the boundary module (stage 1); nothing gates the value yet. |
+| `ResizeControlVariant` | enum-value | `dual-run-value` | — | Upstream runtime enum object. Crossed by the boundary module (stage 1); nothing gates the value yet. |
+| `SelectionMode` | enum-value | `dual-run-value` | — | Upstream runtime enum object. Crossed by the boundary module (stage 1); nothing gates the value yet. |
 | `BackgroundProps` | props | `dual-run-dom` | — |  |
 | `BaseEdgeProps` | props | `dual-run-dom` | L2-indirect | interactionWidth and path exercised via the fixture edges. |
 | `BezierEdgeProps` | props | `dual-run-dom` | — |  |

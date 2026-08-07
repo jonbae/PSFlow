@@ -18,6 +18,14 @@ The public API as reached through the `React` module — the door PureScript
 consumers come through. Supported, but incidental to the destination.
 _Avoid_: incidental surface, the barrel, the internals
 
+**Boundary module**:
+`src/Boundary.purs`, the single PureScript module standing between the internals
+and the JS surface. It re-exports all 60 public symbols, crossing each into a
+JS-native shape as the staging reaches it, and `index.js` is a bare re-export of
+its compiled output. The conversion lives in PureScript so the compiler checks
+it; the internals and the PureScript surface are untouched by it.
+_Avoid_: the adapter, the wrapper layer, the shim
+
 **Gated**:
 Of an export, always relative to one named surface: some gate would go red if
 that export's behavior on that surface broke. Never write "gated" unqualified —
@@ -29,6 +37,13 @@ Of an export: a JS-shaped wrapper for it exists, so it is callable from
 JavaScript. Independent of gated — an export can be crossed with nothing proving
 the conversion is right.
 _Avoid_: converted, wrapped, adapted
+
+**Manifest**:
+The boundary module's machine-readable record of which exports have **crossed**
+and which are still passing through raw, in `src/Boundary.js`. It exists so a
+gate can scope itself to the crossed set and grow with the staging instead of
+carrying a hand-maintained list of its own.
+_Avoid_: the export list, the crossing table
 
 ### The changelog audit
 

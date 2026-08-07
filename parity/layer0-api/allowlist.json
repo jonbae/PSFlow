@@ -21,7 +21,6 @@
       "GetSmoothStepPathParams": "PS `SmoothStepPathParams` (System.Utils.Edges.SmoothStep); not surfaced — ticket 058.",
       "NoConnection": "Nullary constructor of PS `ConnectionState`, not a standalone type — documented in src/React.purs header & ticket 054.",
       "NodeProps": "Record exists in src/React/Types/Nodes.purs but is not re-exported via the React barrel (EdgeProps is) — ticket 058.",
-      "BackgroundVariant": "Defined in src/React/Types/Component.purs; not surfaced via the React barrel — ticket 058.",
       "NodeHandle": "Defined in src/System/Types/Node.purs; not surfaced — ticket 058.",
       "MiniMapNode": "Component exists (src/React/Additional/MiniMap/Node.purs); not in the public barrel — ticket 058.",
       "MiniMapNodes": "Component exists (src/React/Additional/MiniMap.purs); not in the public barrel — ticket 058.",
