@@ -150,6 +150,25 @@ what props it was handed. A node-level probe replaces a node type rather than
 wrapping it.
 _Avoid_: spy, instrument, shim
 
+**Normalization**:
+The content-blind half of the noise policy: rules that may delete a field by name
+or reorder one, and may never collapse two distinct values into one. A rule
+consults a field's name and position, never its value — which is why no tolerance
+rule can be written as one. A deleted field is unobserved, not passing.
+_Avoid_: filtering, cleaning, canonicalization
+
+**Region**:
+A claim over the differences normalization does not touch: a pattern carrying a
+written reason, plus a ticket where the difference is a known bug. Recording
+values under one is cheap, but recording cannot create one, and a region that
+claims nothing fails as stale.
+_Avoid_: waiver, exception, allowlist entry (when a region is meant)
+
+**Claimed**:
+Of a difference: some region's pattern covers it, so it is someone's stated
+decision rather than a failure. An unclaimed difference fails the run.
+_Avoid_: allowed, ignored, expected
+
 **Reachable**:
 Of a behavior: it lands in one of the snapshot's sections, so the net is capable
 of observing it.
