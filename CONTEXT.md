@@ -176,7 +176,9 @@ written reason, plus a ticket where the difference is a known bug. Its three
 outcomes are *rides free* (it claimed what it recorded), *moved* (it claimed
 different values, and someone must re-affirm that they are still the same cause)
 and *stale*. Recording values under a region is cheap; recording cannot create
-one.
+one. The register is `parity/system/regions.json`; surface parity's allowlist is
+the same concept with a second implementation, and the stale rule applies to it
+too.
 _Avoid_: waiver, exception, allowlist entry (when a region is meant)
 
 **Claimed**:
@@ -220,12 +222,3 @@ _Avoid_: matcher, assertion, expectation
 An export the corpus does not drive, recorded with a written reason. A hole is a
 legitimate resting state; an *undeclared* hole fails.
 _Avoid_: gap (reserved for audit buckets), uncovered, todo
-
-**Region**:
-A claimed difference between ps-flow and upstream: a pattern, a written reason,
-and a ticket when it is a known bug. Re-recording values is cheap but **cannot
-create a region**, and an **empty region fails as stale**, so a region outlives
-its cause by exactly one run. The boundary module's own are in
-`parity/boundary/regions.json`; surface parity's allowlist is the same concept
-with a second implementation, and the stale rule applies to it too.
-_Avoid_: exception, waiver, known-issue, allowlist (when the net is meant)
