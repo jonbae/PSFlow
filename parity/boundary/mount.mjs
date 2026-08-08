@@ -20,6 +20,13 @@
 //      unions, the node and edge records, and the node-type wrapping — and
 //      then reads the props a consumer's own node component actually received.
 //
+//   3. **The graph utilities are callable, and their round trip closes.** A
+//      controlled flow's own change handlers call `applyNodeChanges`,
+//      `applyEdgeChanges` and `addEdge` with every argument at once and put
+//      what comes back into `nodes` / `edges`. What that section claims is the
+//      calling convention and the branches the crossing itself introduces —
+//      never upstream's semantics, which is call-and-compare's to prove.
+//
 // The deferred list is read live out of `src/Boundary/Flow.purs` rather than
 // restated here. A second copy of that list is a second thing to go stale, and
 // this file checks the one copy against `JsFlowProps` instead.
@@ -58,6 +65,7 @@ const { renderToStaticMarkup } = await import("react-dom/server");
 const psflow = await import(join(repoRoot, "index.js"));
 
 const { ReactFlow, Position, MarkerType, ConnectionLineType } = psflow;
+const { applyNodeChanges, applyEdgeChanges, addEdge } = psflow;
 
 let failures = 0;
 const notes = [];
@@ -254,15 +262,18 @@ for (const name of deferred) {
 
 // ── 3. Values a converter cannot represent are refused ──────────────────
 
-function refuses(what, props, ...mustMention) {
+// The shape every refusal is checked with: it threw, and the message named the
+// thing it refused. `refuses` is the prop-shaped case; section 4 refuses things
+// that are not props, so the thunk form is the one both are built on.
+function throws(what, run, ...mustMention) {
   check(what, () => {
     let threw = null;
     try {
-      renderToStaticMarkup(createElement(ReactFlow, { ...convertedProps, ...props }));
+      run();
     } catch (e) {
       threw = e;
     }
-    assert(threw !== null, "mounted without complaint");
+    assert(threw !== null, "did not complain — the value is being silently ignored");
     for (const fragment of mustMention) {
       assert(
         threw.message.includes(fragment),
@@ -270,6 +281,14 @@ function refuses(what, props, ...mustMention) {
       );
     }
   });
+}
+
+function refuses(what, props, ...mustMention) {
+  throws(
+    what,
+    () => renderToStaticMarkup(createElement(ReactFlow, { ...convertedProps, ...props })),
+    ...mustMention
+  );
 }
 
 refuses(
@@ -303,6 +322,127 @@ for (const name of refusedOptions) {
     `defaultEdgeOptions.${name}`
   );
 }
+
+// ── 4. The utilities a driver calls ─────────────────────────────────────
+//
+// A driver twinning upstream's `Flow.tsx` wires `onNodesChange` to
+// `applyNodeChanges(changes, nodes)`, `onEdgesChange` to `applyEdgeChanges`
+// and `onConnect` to `addEdge(connection, edges)`. Each is handed the JS
+// shapes the other half of this boundary produced, and each result goes
+// straight back into `<ReactFlow nodes={…}>` — so the round trip has to close,
+// and it has to close in **one call**. A curried PureScript function of three
+// arguments returns a function here, and `setNodes(that)` is the silent no-op
+// this whole effort started from.
+//
+// Every check below is about something **this crossing decided**: the calling
+// convention, the round trip, the narrowing of `Edge | Connection`, the two
+// refusals, and the one path that hands the caller's own array straight back.
+// None of them assert xyflow's semantics — not the id `getEdgeId` builds, not
+// which duplicates `addEdge` suppresses, not what a `position` change does to a
+// node. Those belong to surface parity's call-and-compare, which derives them
+// by running upstream over all seventeen pure functions at once; restating any
+// of them here would be a hand-authored expectation of xyflow competing with a
+// differential one, and retirement debt filed the day it was written.
+
+const jsNodes = [
+  { id: "a", type: "custom", position: { x: 10, y: 20 }, data: { label: "A" }, style: { background: "red" } },
+  { id: "b", position: { x: 0, y: 0 }, data: {} },
+];
+const jsEdges = [{ id: "a-b", source: "a", target: "b" }];
+
+function uncurried(what, fn, arity) {
+  check(what, () => {
+    assert(typeof fn === "function", `${JSON.stringify(fn)} is not a function`);
+    assert(
+      fn.length === arity,
+      `takes ${fn.length} argument(s) in one call, not ${arity} — a curried function ` +
+        `returns a function where a consumer expects a result`
+    );
+  });
+}
+
+uncurried("`applyNodeChanges` takes both arguments in one call", applyNodeChanges, 2);
+uncurried("`applyEdgeChanges` takes both arguments in one call", applyEdgeChanges, 2);
+// Upstream's third parameter has a default, so its own arity is two.
+uncurried("`addEdge` takes its arguments in one call", addEdge, 2);
+
+check("`applyNodeChanges` returns nodes rather than a thunk", () => {
+  const out = applyNodeChanges([{ type: "select", id: "a", selected: true }], jsNodes);
+  assert(Array.isArray(out), `returned ${typeof out} rather than an array of nodes`);
+  assert(out.length === jsNodes.length, `returned ${out.length} nodes, not ${jsNodes.length}`);
+});
+
+check("`applyEdgeChanges` returns edges rather than a thunk", () => {
+  const out = applyEdgeChanges([{ type: "select", id: "a-b", selected: true }], jsEdges);
+  assert(Array.isArray(out), `returned ${typeof out} rather than an array of edges`);
+  assert(out.length === jsEdges.length, `returned ${out.length} edges, not ${jsEdges.length}`);
+});
+
+// The round trip. Whatever the change did, what comes back has to be something
+// `<ReactFlow nodes={…}>` can be handed again — which is the half of this that
+// no comparison against upstream could ever catch, because upstream's nodes go
+// in and out of its own functions unconverted.
+check("nodes come back JS-shaped, so they can go straight back into `nodes`", () => {
+  const [a] = applyNodeChanges([{ type: "select", id: "a", selected: true }], jsNodes);
+  assert(a.type === "custom", `\`type\` was ${JSON.stringify(a.type)} — a consumer never reads \`nodeType\``);
+  assert(!("nodeType" in a), "the node still carries `nodeType`");
+  assert(a.data.label === "A", "`data` did not survive the round trip");
+  assert(a.style?.background === "red", "`style` did not survive the round trip");
+});
+
+check("edges come back JS-shaped, so they can go straight back into `edges`", () => {
+  const [e] = applyEdgeChanges([{ type: "select", id: "a-b", selected: true }], jsEdges);
+  assert(e.id === "a-b", "the edge lost its id in the round trip");
+  assert(e.source === "a" && e.target === "b", "the edge lost its endpoints in the round trip");
+  assert(!("edgeType" in e), "the edge still carries `edgeType`");
+});
+
+throws(
+  "a change whose type nothing knows is refused, not dropped",
+  () => applyNodeChanges([{ type: "nonsense", id: "a" }], jsNodes),
+  "nonsense"
+);
+
+// `Edge | Connection` is untagged, and the narrowing is this module's: an
+// `Edge` keeps the id it arrived with, a `Connection` is handed to the id
+// generator. Checking the second with a *custom* generator proves the whole
+// path — the value was narrowed as a connection, `options.getEdgeId` was
+// honoured, the connection reached it JS-shaped, and the id it returned landed
+// on the edge — without asserting anything about the generator upstream ships.
+check("an `Edge` argument keeps the id it arrived with", () => {
+  const out = addEdge({ id: "custom", source: "b", target: "a" }, jsEdges);
+  assert(Array.isArray(out), `returned ${typeof out} rather than an array of edges`);
+  assert(out.at(-1).id === "custom", `the id became ${JSON.stringify(out.at(-1).id)}`);
+});
+
+check("a `Connection` argument is handed to `options.getEdgeId`", () => {
+  let saw = null;
+  const out = addEdge({ source: "b", target: "a" }, jsEdges, {
+    getEdgeId: (connection) => {
+      saw = connection;
+      return `mine__${connection.source}__${connection.target}`;
+    },
+  });
+  assert(saw !== null, "the custom generator was never called");
+  assert(saw.source === "b" && saw.target === "a", `it was handed ${JSON.stringify(saw)}`);
+  assert(out.at(-1).id === "mine__b__a", `the id it returned did not land: ${JSON.stringify(out.at(-1).id)}`);
+});
+
+// Upstream reports an empty endpoint through `options.onError` and hands back
+// the array it was given. With `onError` refused there is nobody to report to,
+// so this path returns the caller's own array — the identity is the claim, and
+// it is this module's decision rather than upstream's behaviour.
+check("a connection with no endpoints hands the caller's own array back", () => {
+  const out = addEdge({ source: "", target: "a" }, jsEdges);
+  assert(out === jsEdges, "returned a copy — the untouched array should come back as it was");
+});
+
+throws(
+  "`addEdge` refuses `options.onError`",
+  () => addEdge({ source: "b", target: "a" }, jsEdges, { onError: () => {} }),
+  "onError",
+  "boundary stage 2"
+);
 
 // ── Report ──────────────────────────────────────────────────────────────
 

@@ -23,12 +23,12 @@
 -- | which is which, and is the only place that answer is written down.
 -- |
 -- | What has landed so far is this skeleton, the eight TS enum objects below,
--- | and the converters. The enums needed no converter at all — they are plain
--- | data on both sides, `{ Left: "left", … }` against `{ Left: "left", … }`, so
--- | there is nothing to get wrong but member names, which the record types
--- | check.
+-- | the converters, and the three graph utilities a driver calls. The enums
+-- | needed no converter at all — they are plain data on both sides,
+-- | `{ Left: "left", … }` against `{ Left: "left", … }`, so there is nothing to
+-- | get wrong but member names, which the record types check.
 -- |
--- | The converters are the rest, and they live in four modules beneath this
+-- | The converters are the rest, and they live in five modules beneath this
 -- | one, none of them on the PureScript surface:
 -- |
 -- |   * `Boundary.Undefined` — `undefined`, which is what a JavaScript caller
@@ -39,8 +39,11 @@
 -- |   * `Boundary.Elements` — `Node`, `Edge`, node props, the change objects
 -- |     and `Connection`.
 -- |   * `Boundary.Flow` — the 124 flow props, and `ReactFlow` itself.
+-- |   * `Boundary.Utils` — `applyNodeChanges`, `applyEdgeChanges` and
+-- |     `addEdge`, which a controlled flow's own change handlers call, so a
+-- |     driver reaches them on the first interaction.
 -- |
--- | `ReactFlow` is therefore the first *component* to cross. The twelve other
+-- | `ReactFlow` is therefore the first *component* to cross. The remaining
 -- | exports upstream's fixtures import cross with their fixtures.
 -- |
 -- | The enums are not a consumer nit. `Position` and `MarkerType` were not on
@@ -77,10 +80,14 @@ module Boundary
 -- The exports that have crossed. `reactFlow` is the JS-facing component from
 -- `Boundary.Flow`, which converts a JavaScript props object and renders
 -- `React.Container.ReactFlow`'s component with it — so it comes from there and
--- not from the PureScript surface, which still has the unconverted one.
+-- not from the PureScript surface, which still has the unconverted one. The
+-- three utilities come from `Boundary.Utils` for the same reason: a driver
+-- calls them with every argument at once, which a curried PureScript function
+-- is not.
 import Boundary.Flow (reactFlow) as CrossedSurface
+import Boundary.Utils (addEdge, applyEdgeChanges, applyNodeChanges) as CrossedSurface
 
--- The other 59 symbols of the public surface, passing through raw. Ordered to
+-- The other 56 symbols of the public surface, passing through raw. Ordered to
 -- mirror `xyflow/packages/react/src/index.ts`, as `index.js` is, so future
 -- audits stay mechanical.
 import React
@@ -121,8 +128,6 @@ import React
   , experimental_useOnNodesChangeMiddleware
   , experimental_useOnEdgesChangeMiddleware
   -- Utilities
-  , applyNodeChanges
-  , applyEdgeChanges
   , isNode
   , isEdge
   -- System functions
@@ -135,7 +140,6 @@ import React
   , getNodesBounds
   , getIncomers
   , getOutgoers
-  , addEdge
   , reconnectEdge
   , getConnectedEdges
   , getSimpleBezierPath

@@ -1,14 +1,19 @@
-// Adopted from xyflow/tests/playwright/e2e/nodes.spec.ts (Layer 2 parity).
-// Faithful copy of upstream's framework-parameterized e2e suite; the ONLY
-// changes are the two infrastructure bits that differ for PSFlow:
+// Adopted from xyflow/tests/playwright/e2e/nodes.spec.ts.
+// Faithful copy of upstream's framework-parameterized e2e suite; the
+// ONLY changes are the two infrastructure bits that differ for PSFlow:
 //   1. FRAMEWORK is hard-set to 'react' (upstream reads process.env.FRAMEWORK).
-//   2. the route is loaded via the static smoke server + hash router
-//      ('/examples/react-smoke/index.html#/tests/generic/nodes/general')
+//   2. the route is loaded via the static server + hash router
+//      ('/parity/driver/index.html#/tests/generic/nodes/general')
 //      instead of a vite path ('/tests/generic/nodes/general').
+//
+// The page is the TSX driver, with `@xyflow/react` aliased to `index.js` — so
+// this spec enters through the JS surface, the door the audience comes
+// through, and it mounts upstream's own `nodes/general.ts` unmodified. Run
+// `npm run build:driver` after changing `src/` or re-vendoring `xyflow/`.
 import { test, expect } from "@playwright/test";
 
 const FRAMEWORK = "react";
-const ROUTE = "/examples/react-smoke/index.html#/tests/generic/nodes/general";
+const ROUTE = "/parity/driver/index.html#/tests/generic/nodes/general";
 
 test.describe("Nodes", () => {
   test.beforeEach(async ({ page }) => {

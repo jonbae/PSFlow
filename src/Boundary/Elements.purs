@@ -52,13 +52,16 @@ module Boundary.Elements
   , JsXYPosition
   , coordinateExtentIn
   , coordinateExtentOut
+  , connectionIn
   , connectionOut
   , edgeIn
   , edgeOut
+  , edgeChangeIn
   , edgeChangeOut
   , keyCodeIn
   , nodeIn
   , nodeOut
+  , nodeChangeIn
   , nodeChangeOut
   , nodeOriginIn
   , nodeOriginOut
@@ -78,13 +81,13 @@ import Boundary.Enums
   , positionOut
   )
 import Boundary.Undefined (Undefinable, fromUndefinable, isNull, toUndefinable, undefined)
-import Boundary.Untagged (asArray, asString, typeName)
+import Boundary.Untagged (asArray, asBoolean, asString, typeName)
 import Data.Array (length) as Array
 import Data.Array.NonEmpty (fromArray) as NEA
 import Data.Int (round, toNumber) as Int
-import Data.Maybe (Maybe(..), fromMaybe, maybe)
+import Data.Maybe (Maybe(..), fromMaybe, fromMaybe', maybe)
 import Data.Newtype (unwrap, wrap)
-import Data.Nullable (Nullable, toNullable)
+import Data.Nullable (Nullable, toMaybe, toNullable)
 import Effect.Exception.Unsafe (unsafeThrow)
 import Effect.Uncurried (EffectFn1, mkEffectFn1)
 import Foreign (Foreign)
@@ -639,6 +642,66 @@ foreign import mkNodeComponentWrapper
 -- Changes, and connections
 -- ────────────────────────────────────────────────────────────────────────
 
+-- | The tag a change arrived with names no variant. Refused rather than
+-- | dropped: a change ps-flow discarded in silence is indistinguishable from a
+-- | change the library looked at and decided made no difference, and upstream
+-- | gains change kinds between releases.
+-- |
+-- | The message names the tag it got and not the tags it knows. A written-out
+-- | list is one more thing to go stale, and this one would go stale *silently*:
+-- | the match below is on a `String` with a catch-all, so a seventh member
+-- | added to the sum reaches this branch instead of failing to compile, and the
+-- | list would then be wrong at exactly the moment someone read it.
+unknownChange :: forall a. String -> String -> a
+unknownChange what tag =
+  unsafeThrow $
+    "ps-flow: `" <> tag <> "` is not a " <> what <> "-change type."
+
+-- | A member the change's own kind must carry — the id of the node a `select`
+-- | selects, the item an `add` adds. Absent, there is nothing to apply, and
+-- | filling it in with a default would act on the wrong element rather than
+-- | say so.
+requiredMember :: forall a. String -> String -> Undefinable a -> a
+requiredMember tag member = fromMaybe' throw <<< fromUndefinable
+  where
+  throw _ =
+    unsafeThrow $
+      "ps-flow: a `" <> tag <> "` change must carry `" <> member <> "`."
+
+-- | Inbound, for `applyNodeChanges`. The tag is a field on the way in and the
+-- | constructor on the way out, so this is `nodeChangeOut` read backwards —
+-- | with the difference that the JS side's `Undefinable` members are only
+-- | optional *across* the union, and each variant needs its own.
+nodeChangeIn :: JsNodeChange -> NodeChange Foreign
+nodeChangeIn c = case c.type of
+  "dimensions" -> NodeDimensionChange
+    { id: wrap (requiredMember c.type "id" c.id)
+    , dimensions: fromUndefinable c.dimensions
+    , resizing: fromMaybe false (fromUndefinable c.resizing)
+    , setAttributes: map setAttributesIn (fromUndefinable c.setAttributes)
+    }
+  "position" -> NodePositionChange
+    { id: wrap (requiredMember c.type "id" c.id)
+    , position: fromUndefinable c.position
+    , positionAbsolute: fromUndefinable c.positionAbsolute
+    , dragging: fromMaybe false (fromUndefinable c.dragging)
+    }
+  "select" -> NodeSelectionChange
+    { id: wrap (requiredMember c.type "id" c.id)
+    , selected: requiredMember c.type "selected" c.selected
+    }
+  "remove" -> NodeRemoveChange
+    { id: wrap (requiredMember c.type "id" c.id) }
+  "add" -> NodeAddChange
+    { item: nodeIn (requiredMember c.type "item" c.item)
+    , index: map Int.round (fromUndefinable c.index)
+    }
+  "replace" -> NodeReplaceChange
+    { id: wrap (requiredMember c.type "id" c.id)
+    , item: nodeIn (requiredMember c.type "item" c.item)
+    }
+  other -> unknownChange "node" other
+
 -- | The six-member node-change union. `type` carries the tag a consumer
 -- | switches on; every other field is present only on the members that have
 -- | it, which is what `Undefinable` says.
@@ -704,6 +767,37 @@ setAttributesOut m = case m.width, m.height of
   false, true -> unsafeCoerce "height"
   false, false -> unsafeCoerce false
 
+setAttributesIn :: Foreign -> { width :: Boolean, height :: Boolean }
+setAttributesIn raw = case asBoolean raw of
+  Just b -> { width: b, height: b }
+  Nothing -> case asString raw of
+    Just "width" -> { width: true, height: false }
+    Just "height" -> { width: false, height: true }
+    _ ->
+      unsafeThrow $
+        "ps-flow: a dimension change's `setAttributes` must be a boolean, "
+          <> "\"width\" or \"height\", got "
+          <> typeName raw
+          <> "."
+
+edgeChangeIn :: JsEdgeChange -> EdgeChange Foreign
+edgeChangeIn c = case c.type of
+  "select" -> EdgeSelectionChange
+    { id: requiredMember c.type "id" c.id
+    , selected: requiredMember c.type "selected" c.selected
+    }
+  "remove" -> EdgeRemoveChange
+    { id: requiredMember c.type "id" c.id }
+  "add" -> EdgeAddChange
+    { item: edgeIn (requiredMember c.type "item" c.item)
+    , index: map Int.round (fromUndefinable c.index)
+    }
+  "replace" -> EdgeReplaceChange
+    { id: requiredMember c.type "id" c.id
+    , item: edgeIn (requiredMember c.type "item" c.item)
+    }
+  other -> unknownChange "edge" other
+
 edgeChangeOut :: EdgeChange Foreign -> JsEdgeChange
 edgeChangeOut = case _ of
   EdgeSelectionChange c -> emptyEdgeChange
@@ -733,6 +827,17 @@ emptyEdgeChange =
   , selected: undefined
   , item: undefined
   , index: undefined
+  }
+
+-- | `toMaybe` reads `undefined` as absent as well as `null`, which is what a
+-- | consumer hand-writing a connection gives — upstream's own `addEdge`
+-- | deletes a null handle on the way in for the same reason.
+connectionIn :: JsConnection -> Connection
+connectionIn c =
+  { source: wrap c.source
+  , target: wrap c.target
+  , sourceHandle: toMaybe c.sourceHandle
+  , targetHandle: toMaybe c.targetHandle
   }
 
 connectionOut :: Connection -> JsConnection
