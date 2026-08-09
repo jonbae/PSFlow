@@ -21,6 +21,10 @@ module Test.Parity.Util
   , transformMatch
   , strMatch
   , strArrayMatch
+  , strSeqMatch
+  , allGreen
+  , expectGreen
+  , falsify
   ) where
 
 import Prelude
@@ -32,11 +36,13 @@ import Data.Maybe (Maybe(..))
 import Data.Number (abs, fromString) as Number
 import Data.String.Regex (Regex, match, regex) as Re
 import Data.String.Regex.Flags (global) as ReFlags
+import Effect (Effect)
+import Effect.Class.Console (log)
 import Partial.Unsafe (unsafeCrashWith)
 import System.Types.Connection (Viewport)
 import System.Types.Geometry (Box, Rect, XYPosition)
 import System.Utils.Edges.General (EdgeCenter, EdgePathResult)
-import Test.QuickCheck (Result, (<?>))
+import Test.QuickCheck (Result(..), (<?>))
 
 -- | Numbers in path strings and label coordinates are compared up to this
 -- | tolerance. Both libraries run the *same* IEEE-754 ops on the same inputs,
@@ -189,3 +195,52 @@ strArrayMatch :: String -> Array String -> Array String -> Result
 strArrayMatch ctx a b =
   (Array.sort a == Array.sort b) <?>
     (ctx <> "\n  PSFlow=" <> show (Array.sort a) <> "\n  XYFlow=" <> show (Array.sort b))
+
+-- | Order-**sensitive** equality of two rendered sequences, for the functions
+-- | that return an element array whose ordering is part of the result
+-- | (`applyNodeChanges`, `addEdge`, `reconnectEdge`). Each element is rendered
+-- | to a string by the caller, on both sides, so the two never meet a
+-- | JS-vs-PureScript number formatter — and none of these functions does
+-- | arithmetic, so the contract is exact equality rather than `epsilon`.
+strSeqMatch :: String -> Array String -> Array String -> Result
+strSeqMatch ctx a b =
+  (a == b) <?>
+    (ctx <> "\n  PSFlow=" <> show a <> "\n  XYFlow=" <> show b)
+
+-- ─── Running a comparison ─────────────────────────────────────────────────
+
+-- | Conjoin a batch of comparisons, keeping the first failure's message. For
+-- | the exhausted domains, where every case is checked on every run and the
+-- | one that broke is the one worth printing.
+allGreen :: Array Result -> Result
+allGreen = Array.foldl step Success
+  where
+  step acc r = case acc of
+    Failed _ -> acc
+    Success -> r
+
+-- | Assert a comparison came out green. For the differential claims whose
+-- | input domain is small enough to **exhaust** rather than sample, where a
+-- | `quickCheck` over the same finite generator would leave a case unvisited
+-- | some fraction of runs — and the unvisited case is exactly the one that
+-- | would have diverged.
+expectGreen :: String -> Result -> Effect Unit
+expectGreen label = case _ of
+  Success -> log ("ok  " <> label)
+  Failed msg -> unsafeCrashWith ("FAIL " <> label <> "\n" <> msg)
+
+-- | A **falsification probe**: assert that a comparison which *must* differ
+-- | does report `Failed`. A green differential result proves nothing on its
+-- | own — it is equally what a comparator that inspects nothing, an oracle
+-- | wired to the wrong export, or a projection that discards the interesting
+-- | field would produce. Each probe perturbs one input to one side and states
+-- | in its label what the perturbation was, so the green run above it is
+-- | backed by a live demonstration that the same machinery goes red.
+-- |
+-- | Distinct from the dual-run net's **probe** (a component reporting what its
+-- | hooks returned); nothing is rendered here.
+falsify :: String -> Result -> Effect Unit
+falsify label = case _ of
+  Failed _ -> log ("ok  falsified: " <> label)
+  Success -> unsafeCrashWith
+    ("FAIL falsification probe stayed green: " <> label)

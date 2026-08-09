@@ -157,10 +157,15 @@ connectionExists edge edges = Array.any matches edges
       && handleMatches el.sourceHandle edge.sourceHandle
       && handleMatches el.targetHandle edge.targetHandle
 
-  handleMatches a b = case a, b of
-    Just x, Just y -> x == y
-    Nothing, Nothing -> true
-    _, _ -> false
+  -- TS: `el.sourceHandle === edge.sourceHandle || (!el.sourceHandle &&
+  -- !edge.sourceHandle)`. The second disjunct is why this is not plain `==`:
+  -- a handle id of `""` is falsy, so upstream reads it as *no handle* and an
+  -- edge carrying one is a duplicate of the same edge carrying none.
+  handleMatches a b = a == b || (blank a && blank b)
+
+  blank = case _ of
+    Nothing -> true
+    Just h -> h == ""
 
 -- | TS returns the original array on bad input and emits a console warning.
 -- | PS exposes the failure via `Either String`, so callers can choose to

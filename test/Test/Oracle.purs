@@ -6,9 +6,16 @@
 -- |
 -- | The only XYFlow-shape knowledge expressible in PureScript lives here: the
 -- | `posStr` translation of the `Position` sum type into XYFlow's lowercase
--- | string, and the newtype→plain-array translations (`Transform`,
--- | `SnapGrid`, `CoordinateExtent`). These are stable; an upstream change to
--- | the math touches the bundle, not this file.
+-- | string, the newtype→plain-array translations (`Transform`, `SnapGrid`,
+-- | `CoordinateExtent`, `NodeOrigin`), and the `Oracle*` records naming the
+-- | fields upstream reads off a node, an edge or a change. These are stable;
+-- | an upstream change to the math touches the bundle, not this file.
+-- |
+-- | Where a PSFlow type collapses onto a small XYFlow shape the wrapper takes
+-- | the PSFlow type directly (`getMarkerId`, `snapPosition`). Where it does not
+-- | — a `NodeBase` is thirty fields of which upstream reads seven — the wrapper
+-- | takes an `Oracle*` record and the property module builds both sides from
+-- | one generated description, as `Test.Parity.Graph` already does.
 module Test.Oracle
   ( getEdgeCenter
   , getBezierEdgeCenter
@@ -36,23 +43,42 @@ module Test.Oracle
   , getOutgoers
   , getIncomers
   , getConnectedEdges
+  , OracleBoundsNode
+  , getNodesBounds
+  , isNode
+  , isEdge
+  , OracleEdgeShape
+  , OracleConnection
+  , OracleEdgeResult
+  , addEdge
+  , reconnectEdge
+  , OracleChangeNode
+  , OracleChangeEdge
+  , OracleNodeChange
+  , OracleEdgeChange
+  , setAttributesArg
+  , applyNodeChanges
+  , applyEdgeChanges
   ) where
 
 import Data.Functor (map)
 import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Nullable (Nullable, toMaybe, toNullable)
+import Foreign (Foreign)
 import System.Types.Connection (Padding(..), PaddingValue(..), Viewport)
 import System.Types.Edge (AlignX(..), AlignY(..), EdgeMarkerType(..), MarkerType(..))
 import System.Types.Geometry
   ( Box
   , CoordinateExtent(..)
+  , Dimensions
+  , NodeOrigin(..)
   , Position(..)
   , Rect
   , SnapGrid(..)
   , Transform(..)
   , XYPosition
   )
-import System.Types.Node (Align(..))
+import System.Types.Node (Align(..), SetAttributesMode)
 import System.Utils.Edges.Bezier (BezierControlPoints, BezierPathParams)
 import System.Utils.Edges.General (EdgeCenter, EdgePathResult)
 import System.Utils.Edges.SimpleBezier (SimpleBezierPathParams)
@@ -411,3 +437,164 @@ foreign import getConnectedEdgesImpl
 
 getConnectedEdges :: Array OracleNode -> Array OracleEdge -> Array String
 getConnectedEdges = getConnectedEdgesImpl
+
+-- ─── Node bounds ──────────────────────────────────────────────────────────
+
+-- | Upstream's `NodeBase` as far as `getNodesBounds` reads it: a position, the
+-- | three-deep dimension fallback (`measured` → `width`/`height` →
+-- | `initialWidth`/`initialHeight`), and a per-node origin override. Every
+-- | optional field is `Nullable` because upstream reads all of them with `??`.
+type OracleBoundsNode =
+  { id :: String
+  , position :: XYPosition
+  , width :: Nullable Number
+  , height :: Nullable Number
+  , initialWidth :: Nullable Number
+  , initialHeight :: Nullable Number
+  , measured :: { width :: Nullable Number, height :: Nullable Number }
+  , origin :: Nullable (Array Number)
+  }
+
+foreign import getNodesBoundsImpl :: Array OracleBoundsNode -> Array Number -> Rect
+
+getNodesBounds :: Array OracleBoundsNode -> NodeOrigin -> Rect
+getNodesBounds nodes (NodeOrigin o) = getNodesBoundsImpl nodes [ o.ox, o.oy ]
+
+-- ─── Shape guards ─────────────────────────────────────────────────────────
+
+-- | `isNode` / `isEdge` read own-property *names*, so the argument is the one
+-- | thing in this module that carries no PSFlow type: whatever the property
+-- | built, handed to both sides unchanged.
+foreign import isNodeImpl :: Foreign -> Boolean
+
+isNode :: Foreign -> Boolean
+isNode = isNodeImpl
+
+foreign import isEdgeImpl :: Foreign -> Boolean
+
+isEdge :: Foreign -> Boolean
+isEdge = isEdgeImpl
+
+-- ─── Edge list mutation ───────────────────────────────────────────────────
+
+-- | Upstream's `EdgeBase` as far as `addEdge` / `reconnectEdge` read it, plus
+-- | `animated` — a field neither function touches, carried so the property can
+-- | witness that the rest of the edge survives the rebuild.
+type OracleEdgeShape =
+  { id :: String
+  , source :: String
+  , target :: String
+  , sourceHandle :: Nullable String
+  , targetHandle :: Nullable String
+  , animated :: Boolean
+  }
+
+type OracleConnection =
+  { source :: String
+  , target :: String
+  , sourceHandle :: Nullable String
+  , targetHandle :: Nullable String
+  }
+
+-- | `errored` is upstream's `onError` callback turned into a value. PSFlow
+-- | reports the same refusals as `Left`, so the property can compare the two
+-- | channels as well as the returned arrays.
+type OracleEdgeResult = { edges :: Array OracleEdgeShape, errored :: Boolean }
+
+foreign import addEdgeImpl
+  :: OracleEdgeShape -> Array OracleEdgeShape -> OracleEdgeResult
+
+addEdge :: OracleEdgeShape -> Array OracleEdgeShape -> OracleEdgeResult
+addEdge = addEdgeImpl
+
+foreign import reconnectEdgeImpl
+  :: OracleEdgeShape
+  -> OracleConnection
+  -> Array OracleEdgeShape
+  -> Boolean
+  -> OracleEdgeResult
+
+reconnectEdge
+  :: OracleEdgeShape
+  -> OracleConnection
+  -> Array OracleEdgeShape
+  -> Boolean
+  -> OracleEdgeResult
+reconnectEdge = reconnectEdgeImpl
+
+-- ─── Changes ──────────────────────────────────────────────────────────────
+
+-- | The node fields `applyChange` writes, plus the id it dispatches on.
+-- | `resizing` is absent: upstream's dimensions branch sets it and PSFlow's
+-- | does not, because `NodeBase` has no such field — so it is unobserved here
+-- | rather than compared and passing.
+type OracleChangeNode =
+  { id :: String
+  , position :: XYPosition
+  , selected :: Boolean
+  , dragging :: Boolean
+  , width :: Nullable Number
+  , height :: Nullable Number
+  , measured :: { width :: Nullable Number, height :: Nullable Number }
+  }
+
+type OracleChangeEdge = { id :: String, selected :: Boolean, animated :: Boolean }
+
+-- | Tagged carrier for a `NodeChange`. `tag` names upstream's `type`
+-- | discriminant, which PSFlow spends a constructor on instead.
+-- |
+-- | `dragging` and `resizing` are total because PSFlow models them that way;
+-- | the `Nullable` fields are the ones upstream itself guards with `typeof …
+-- | !== 'undefined'`, and the JS side omits them rather than passing null.
+-- | `setAttributes` carries upstream's `boolean | 'width' | 'height'` as one of
+-- | `"true" | "false" | "width" | "height"` — see `setAttributesArg`.
+type OracleNodeChange =
+  { tag :: String
+  , id :: String
+  , selected :: Boolean
+  , position :: Nullable XYPosition
+  , dragging :: Boolean
+  , dimensions :: Nullable Dimensions
+  , setAttributes :: Nullable String
+  , resizing :: Boolean
+  , item :: Nullable OracleChangeNode
+  , index :: Nullable Int
+  }
+
+type OracleEdgeChange =
+  { tag :: String
+  , id :: String
+  , selected :: Boolean
+  , item :: Nullable OracleChangeEdge
+  , index :: Nullable Int
+  }
+
+-- | `SetAttributesMode` → upstream's `boolean | 'width' | 'height'`, as the
+-- | string tag the JS side turns back into the union. PSFlow's fourth case —
+-- | both axes off — is upstream's plain `false`, which its `if
+-- | (change.setAttributes)` guard treats exactly like an absent field.
+setAttributesArg :: SetAttributesMode -> Nullable String
+setAttributesArg mode = toNullable
+  ( map
+      ( \sa -> case sa.width, sa.height of
+          true, true -> "true"
+          true, false -> "width"
+          false, true -> "height"
+          false, false -> "false"
+      )
+      mode
+  )
+
+foreign import applyNodeChangesImpl
+  :: Array OracleNodeChange -> Array OracleChangeNode -> Array OracleChangeNode
+
+applyNodeChanges
+  :: Array OracleNodeChange -> Array OracleChangeNode -> Array OracleChangeNode
+applyNodeChanges = applyNodeChangesImpl
+
+foreign import applyEdgeChangesImpl
+  :: Array OracleEdgeChange -> Array OracleChangeEdge -> Array OracleChangeEdge
+
+applyEdgeChanges
+  :: Array OracleEdgeChange -> Array OracleChangeEdge -> Array OracleChangeEdge
+applyEdgeChanges = applyEdgeChangesImpl

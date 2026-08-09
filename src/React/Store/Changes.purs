@@ -20,11 +20,11 @@ module React.Store.Changes
 
 import Prelude
 
-import Data.Array (snoc) as Array
+import Data.Array (insertAt, length, snoc, uncons) as Array
 import Data.Foldable (foldl)
 import Data.Map (Map)
 import Data.Map as Map
-import Data.Maybe (Maybe(..))
+import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Set (Set)
 import Data.Set as Set
 import Data.Tuple (Tuple(..))
@@ -131,27 +131,30 @@ applySingleEdgeChange c edge = case c of
 
 -- | Apply all queued changes for one node id. Returns `Nothing` if the
 -- | element should be dropped (remove change present).
+-- |
+-- | TS inspects `changes[0]` alone for `remove` and `replace` and then
+-- | `continue`s the element loop, so anything queued *behind* either one is
+-- | dropped — a replace hands over a whole new element, and a partial update
+-- | computed against the old one has nothing left to say. Both can only ever
+-- | be the head: bucketing a remove or a replace overwrites the id's list
+-- | rather than appending to it.
 applyChangesForNode
   :: forall n. Node n -> Array (NodeChange n) -> Maybe (Node n)
-applyChangesForNode node changes = foldl step (Just node) changes
-  where
-  step acc c = case acc of
-    Nothing -> Nothing -- a remove earlier in the list dominates
-    Just curr -> case c of
-      NodeRemoveChange _ -> Nothing
-      NodeReplaceChange { item } -> Just item
-      _ -> Just (applySingleNodeChange c curr)
+applyChangesForNode node changes = case Array.uncons changes of
+  Nothing -> Just node
+  Just { head } -> case head of
+    NodeRemoveChange _ -> Nothing
+    NodeReplaceChange { item } -> Just item
+    _ -> Just (foldl (\curr c -> applySingleNodeChange c curr) node changes)
 
 applyChangesForEdge
   :: forall e. Edge e -> Array (EdgeChange e) -> Maybe (Edge e)
-applyChangesForEdge edge changes = foldl step (Just edge) changes
-  where
-  step acc c = case acc of
-    Nothing -> Nothing
-    Just curr -> case c of
-      EdgeRemoveChange _ -> Nothing
-      EdgeReplaceChange { item } -> Just item
-      _ -> Just (applySingleEdgeChange c curr)
+applyChangesForEdge edge changes = case Array.uncons changes of
+  Nothing -> Just edge
+  Just { head } -> case head of
+    EdgeRemoveChange _ -> Nothing
+    EdgeReplaceChange { item } -> Just item
+    _ -> Just (foldl (\curr c -> applySingleEdgeChange c curr) edge changes)
 
 -- | Public: apply an array of `NodeChange`s to an array of nodes.
 applyNodeChanges
@@ -173,7 +176,7 @@ applyNodeChanges changes nodes =
     foldl applyNodeAdd afterUpdates buckets.adds
   where
   applyNodeAdd acc c = case c of
-    NodeAddChange { item } -> Array.snoc acc item
+    NodeAddChange { item, index } -> insertAdd index item acc
     _ -> acc
 
 applyEdgeChanges
@@ -195,8 +198,24 @@ applyEdgeChanges changes edges =
     foldl applyEdgeAdd afterUpdates buckets.adds
   where
   applyEdgeAdd acc c = case c of
-    EdgeAddChange { item } -> Array.snoc acc item
+    EdgeAddChange { item, index } -> insertAdd index item acc
     _ -> acc
+
+-- | Place an `add` change's item. TS runs the adds after the existing-elements
+-- | walk so an index lands against the final array, then
+-- | `updatedElements.splice(change.index, 0, item)` — and `splice` *clamps*
+-- | its start rather than refusing: past the end appends, and a negative
+-- | counts back from the end, bottoming out at 0. `Array.insertAt` rejects
+-- | both, so the clamp is spelled out here.
+insertAdd :: forall a. Maybe Int -> a -> Array a -> Array a
+insertAdd mIndex item arr = case mIndex of
+  Nothing -> Array.snoc arr item
+  Just i ->
+    let
+      len = Array.length arr
+      at = if i < 0 then max 0 (len + i) else min i len
+    in
+      fromMaybe (Array.snoc arr item) (Array.insertAt at item arr)
 
 -- | Selection-diff helper. Polymorphic in the key type so it works
 -- | for both `NodeLookup` (keyed by `NodeId`) and `EdgeLookup`

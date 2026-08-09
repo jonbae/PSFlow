@@ -52,13 +52,15 @@ multi-select fix plus two of the three 063 edge fixes:
 
 ### 3. Differential-parity depth — [059](059-layer1-behavioral-parity-coverage.md)
 
-Six pure node-bounds/viewport functions are **implemented and exercised
-end-to-end by Layer 2**, but not yet under the Layer 1 oracle differential
-harness: `getNodesBounds`, `getInternalNodesBounds`, `getNodesInside`,
-`getViewportForBounds`, `nodeToRect`/`nodeToBox`, `getNodePositionWithOrigin`.
-Deferred because each needs richer oracle translation (measured dims / origin /
-`NodeLookup` / `InternalNodeBase`). This tightens numeric-parity confidence; it
-does not add a feature.
+Four pure node-bounds functions are **implemented and exercised end-to-end by
+Layer 2**, but not yet under the Layer 1 oracle differential harness:
+`getInternalNodesBounds`, `getNodesInside`, `nodeToRect`/`nodeToBox`,
+`getNodePositionWithOrigin`. Deferred because each needs richer oracle
+translation (`NodeLookup` / `InternalNodeBase`). This tightens numeric-parity
+confidence; it does not add a feature.
+
+`getViewportForBounds` came under the harness with ticket 030 and
+`getNodesBounds` with ticket 039; both are struck from 059's deferred table.
 
 ### 4. API-surface cosmetics — [058](058-layer0-api-surface-gaps.md)
 

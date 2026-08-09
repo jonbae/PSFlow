@@ -37,6 +37,7 @@ import Data.Either (Either(..))
 import Data.Number (abs) as Number
 import Data.Tuple (Tuple(..))
 import React.Container.Pane.Internal (buildPaneClass, paneIsDraggable)
+import Test.Parity.Changes (runChangesParity)
 import Test.Parity.Connections (runConnectionsParity)
 import Test.Parity.Edges (runEdgeParity)
 import Test.Parity.Geometry (runGeometryParity)
@@ -1064,3 +1065,4 @@ main = do
   runMarkerParity
   runConnectionsParity
   runGraphParity
+  runChangesParity

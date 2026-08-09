@@ -3,12 +3,39 @@
 // Source: @xyflow/react 12.11.0 / @xyflow/system 0.0.77.
 // Rebuild: npm run build:oracle (re-run on every xyflow/ bump).
 
+// xyflow/packages/system/src/constants.ts
+var errorMessages = {
+  error001: (lib = "react") => `Seems like you have not used zustand provider as an ancestor. Help: https://${lib}flow.dev/error#001`,
+  error002: () => "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them.",
+  error003: (nodeType) => `Node type "${nodeType}" not found. Using fallback type "default".`,
+  error004: () => "The parent container needs a width and a height to render the graph.",
+  error005: () => "Only child nodes can use a parent extent.",
+  error006: () => "Can't create edge. An edge needs a source and a target.",
+  error007: (id) => `The old edge with id=${id} does not exist.`,
+  error009: (type) => `Marker type "${type}" doesn't exist.`,
+  error008: (handleType, { id, sourceHandle, targetHandle }) => `Couldn't create edge for ${handleType} handle id: "${handleType === "source" ? sourceHandle : targetHandle}", edge id: ${id}.`,
+  error010: () => "Handle: No node id found. Make sure to only use a Handle inside a custom Node.",
+  error011: (edgeType) => `Edge type "${edgeType}" not found. Using fallback type "default".`,
+  error012: (id) => `Node with id "${id}" does not exist, it may have been removed. This can happen when a node is deleted before the "onNodeClick" handler is called.`,
+  error013: (lib = "react") => `It seems that you haven't loaded the styles. Please import '@xyflow/${lib}/dist/style.css' or base.css to make sure everything is working properly.`,
+  error014: () => "useNodeConnections: No node ID found. Call useNodeConnections inside a custom Node or provide a node ID.",
+  error015: () => "It seems that you are trying to drag a node that is not initialized. Please use onNodesChange as explained in the docs.",
+  error016: (id) => `Edge with id "${id}" does not exist, it may have been removed. This can happen when an edge is deleted before the "onEdgeClick" handler is called.`
+};
+var infiniteExtent = [
+  [Number.NEGATIVE_INFINITY, Number.NEGATIVE_INFINITY],
+  [Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY]
+];
+
 // xyflow/packages/system/src/utils/connections.ts
 function getConnectionStatus(isValid) {
   return isValid === null ? null : isValid ? "valid" : "invalid";
 }
 
 // xyflow/packages/system/src/utils/graph.ts
+var isEdgeBase = (element) => "id" in element && "source" in element && "target" in element;
+var isNodeBase = (element) => "id" in element && "position" in element && !("source" in element) && !("target" in element);
+var isInternalNodeBase = (element) => "id" in element && "internals" in element && !("source" in element) && !("target" in element);
 var getOutgoers = (node, nodes, edges) => {
   if (!node.id) {
     return [];
@@ -32,6 +59,39 @@ var getIncomers = (node, nodes, edges) => {
     }
   });
   return nodes.filter((n) => incomersIds.has(n.id));
+};
+var getNodePositionWithOrigin = (node, nodeOrigin = [0, 0]) => {
+  const { width, height } = getNodeDimensions(node);
+  const origin = node.origin ?? nodeOrigin;
+  const offsetX = width * origin[0];
+  const offsetY = height * origin[1];
+  return {
+    x: node.position.x - offsetX,
+    y: node.position.y - offsetY
+  };
+};
+var getNodesBounds = (nodes, params = { nodeOrigin: [0, 0] }) => {
+  if (false) {
+    console.warn(
+      "Please use `getNodesBounds` from `useReactFlow`/`useSvelteFlow` hook to ensure correct values for sub flows. If not possible, you have to provide a nodeLookup to support sub flows."
+    );
+  }
+  if (nodes.length === 0) {
+    return { x: 0, y: 0, width: 0, height: 0 };
+  }
+  const box = nodes.reduce(
+    (currBox, nodeOrId) => {
+      const isId = typeof nodeOrId === "string";
+      let currentNode = !params.nodeLookup && !isId ? nodeOrId : void 0;
+      if (params.nodeLookup) {
+        currentNode = isId ? params.nodeLookup.get(nodeOrId) : !isInternalNodeBase(nodeOrId) ? params.nodeLookup.get(nodeOrId.id) : nodeOrId;
+      }
+      const nodeBox = currentNode ? nodeToBox(currentNode, params.nodeOrigin) : { x: 0, y: 0, x2: 0, y2: 0 };
+      return getBoundsOfBoxes(currBox, nodeBox);
+    },
+    { x: Infinity, y: Infinity, x2: -Infinity, y2: -Infinity }
+  );
+  return boxToRect(box);
 };
 var getConnectedEdges = (nodes, edges) => {
   const nodeIds = /* @__PURE__ */ new Set();
@@ -65,6 +125,15 @@ var boxToRect = ({ x, y, x2, y2 }) => ({
   width: x2 - x,
   height: y2 - y
 });
+var nodeToBox = (node, nodeOrigin = [0, 0]) => {
+  const { x, y } = isInternalNodeBase(node) ? node.internals.positionAbsolute : getNodePositionWithOrigin(node, nodeOrigin);
+  return {
+    x,
+    y,
+    x2: x + (node.measured?.width ?? node.width ?? node.initialWidth ?? 0),
+    y2: y + (node.measured?.height ?? node.height ?? node.initialHeight ?? 0)
+  };
+};
 var getBoundsOfRects = (rect1, rect2) => boxToRect(getBoundsOfBoxes(rectToBox(rect1), rectToBox(rect2)));
 var getOverlappingArea = (rectA, rectB) => {
   const xOverlap = Math.max(0, Math.min(rectA.x + rectA.width, rectB.x + rectB.width) - Math.max(rectA.x, rectB.x));
@@ -72,6 +141,11 @@ var getOverlappingArea = (rectA, rectB) => {
   return Math.ceil(xOverlap * yOverlap);
 };
 var isNumeric = (n) => !isNaN(n) && isFinite(n);
+var createDevWarn = (lib, helpUrl) => (id, message) => {
+  if (false) {
+    console.warn(`[${lib}]: ${message} Help: ${helpUrl}error#${id}`);
+  }
+};
 var snapPosition = (position, snapGrid = [1, 1]) => {
   return {
     x: snapGrid[0] * Math.round(position.x / snapGrid[0]),
@@ -172,6 +246,12 @@ var getViewportForBounds = (bounds, width, height, minZoom, maxZoom, padding) =>
     zoom: clampedZoom
   };
 };
+function getNodeDimensions(node) {
+  return {
+    width: node.measured?.width ?? node.width ?? node.initialWidth ?? 0,
+    height: node.measured?.height ?? node.height ?? node.initialHeight ?? 0
+  };
+}
 
 // xyflow/packages/system/src/utils/edges/bezier-edge.ts
 function getBezierEdgeCenter({
@@ -511,6 +591,60 @@ function getEdgeCenter({
   const centerY = targetY < sourceY ? targetY + yOffset : targetY - yOffset;
   return [centerX, centerY, xOffset, yOffset];
 }
+var getEdgeId = ({ source, sourceHandle, target, targetHandle }) => `xy-edge__${source}${sourceHandle || ""}-${target}${targetHandle || ""}`;
+var connectionExists = (edge, edges) => {
+  return edges.some(
+    (el) => el.source === edge.source && el.target === edge.target && (el.sourceHandle === edge.sourceHandle || !el.sourceHandle && !edge.sourceHandle) && (el.targetHandle === edge.targetHandle || !el.targetHandle && !edge.targetHandle)
+  );
+};
+var addEdge = (edgeParams, edges, options = {}) => {
+  if (!edgeParams.source || !edgeParams.target) {
+    options.onError?.("006", errorMessages["error006"]());
+    return edges;
+  }
+  const edgeIdGenerator = options.getEdgeId || getEdgeId;
+  let edge;
+  if (isEdgeBase(edgeParams)) {
+    edge = { ...edgeParams };
+  } else {
+    edge = {
+      ...edgeParams,
+      id: edgeIdGenerator(edgeParams)
+    };
+  }
+  if (connectionExists(edge, edges)) {
+    return edges;
+  }
+  if (edge.sourceHandle === null) {
+    delete edge.sourceHandle;
+  }
+  if (edge.targetHandle === null) {
+    delete edge.targetHandle;
+  }
+  return edges.concat(edge);
+};
+var reconnectEdge = (oldEdge, newConnection, edges, options = { shouldReplaceId: true }) => {
+  const { id: oldEdgeId, ...rest } = oldEdge;
+  if (!newConnection.source || !newConnection.target) {
+    options.onError?.("006", errorMessages["error006"]());
+    return edges;
+  }
+  const foundEdge = edges.find((e) => e.id === oldEdge.id);
+  if (!foundEdge) {
+    options.onError?.("007", errorMessages["error007"](oldEdgeId));
+    return edges;
+  }
+  const edgeIdGenerator = options.getEdgeId || getEdgeId;
+  const edge = {
+    ...rest,
+    id: options.shouldReplaceId ? edgeIdGenerator(newConnection) : oldEdgeId,
+    source: newConnection.source,
+    target: newConnection.target,
+    sourceHandle: newConnection.sourceHandle,
+    targetHandle: newConnection.targetHandle
+  };
+  return edges.filter((e) => e.id !== oldEdgeId).concat(edge);
+};
 
 // xyflow/packages/react/src/components/Edges/SimpleBezierEdge.tsx
 import { memo as memo2 } from "react";
@@ -753,7 +887,123 @@ var SimpleBezierEdge = createSimpleBezierEdge({ isInternal: false });
 var SimpleBezierEdgeInternal = createSimpleBezierEdge({ isInternal: true });
 SimpleBezierEdge.displayName = "SimpleBezierEdge";
 SimpleBezierEdgeInternal.displayName = "SimpleBezierEdgeInternal";
+
+// xyflow/packages/react/src/utils/changes.ts
+function applyChanges(changes, elements) {
+  const updatedElements = [];
+  const changesMap = /* @__PURE__ */ new Map();
+  const addItemChanges = [];
+  for (const change of changes) {
+    if (change.type === "add") {
+      addItemChanges.push(change);
+      continue;
+    } else if (change.type === "remove" || change.type === "replace") {
+      changesMap.set(change.id, [change]);
+    } else {
+      const elementChanges = changesMap.get(change.id);
+      if (elementChanges) {
+        elementChanges.push(change);
+      } else {
+        changesMap.set(change.id, [change]);
+      }
+    }
+  }
+  for (const element of elements) {
+    const changes2 = changesMap.get(element.id);
+    if (!changes2) {
+      updatedElements.push(element);
+      continue;
+    }
+    if (changes2[0].type === "remove") {
+      continue;
+    }
+    if (changes2[0].type === "replace") {
+      updatedElements.push({ ...changes2[0].item });
+      continue;
+    }
+    const updatedElement = { ...element };
+    for (const change of changes2) {
+      applyChange(change, updatedElement);
+    }
+    updatedElements.push(updatedElement);
+  }
+  if (addItemChanges.length) {
+    addItemChanges.forEach((change) => {
+      if (change.index !== void 0) {
+        updatedElements.splice(change.index, 0, { ...change.item });
+      } else {
+        updatedElements.push({ ...change.item });
+      }
+    });
+  }
+  return updatedElements;
+}
+function applyChange(change, element) {
+  switch (change.type) {
+    case "select": {
+      element.selected = change.selected;
+      break;
+    }
+    case "position": {
+      if (typeof change.position !== "undefined") {
+        element.position = change.position;
+      }
+      if (typeof change.dragging !== "undefined") {
+        element.dragging = change.dragging;
+      }
+      break;
+    }
+    case "dimensions": {
+      if (typeof change.dimensions !== "undefined") {
+        element.measured = {
+          ...change.dimensions
+        };
+        if (change.setAttributes) {
+          if (change.setAttributes === true || change.setAttributes === "width") {
+            element.width = change.dimensions.width;
+          }
+          if (change.setAttributes === true || change.setAttributes === "height") {
+            element.height = change.dimensions.height;
+          }
+        }
+      }
+      if (typeof change.resizing === "boolean") {
+        element.resizing = change.resizing;
+      }
+      break;
+    }
+  }
+}
+function applyNodeChanges(changes, nodes) {
+  return applyChanges(changes, nodes);
+}
+function applyEdgeChanges(changes, edges) {
+  return applyChanges(changes, edges);
+}
+
+// xyflow/packages/react/src/utils/edges.ts
+var defaultOnError = createDevWarn("React Flow", "https://reactflow.dev/");
+function addEdge2(edgeParams, edges, options = {}) {
+  return addEdge(edgeParams, edges, {
+    ...options,
+    onError: options.onError ?? defaultOnError
+  });
+}
+function reconnectEdge2(oldEdge, newConnection, edges, options = { shouldReplaceId: true }) {
+  return reconnectEdge(oldEdge, newConnection, edges, {
+    ...options,
+    onError: options.onError ?? defaultOnError
+  });
+}
+
+// xyflow/packages/react/src/utils/general.ts
+import { forwardRef } from "react";
+var isNode = (element) => isNodeBase(element);
+var isEdge = (element) => isEdgeBase(element);
 export {
+  addEdge2 as addEdge,
+  applyEdgeChanges,
+  applyNodeChanges,
   boxToRect,
   clamp,
   clampPosition,
@@ -768,13 +1018,17 @@ export {
   getIncomers,
   getMarkerId,
   getNodeToolbarTransform,
+  getNodesBounds,
   getOutgoers,
   getOverlappingArea,
   getSimpleBezierPath,
   getSmoothStepPath,
   getStraightPath,
   getViewportForBounds,
+  isEdge,
+  isNode,
   pointToRendererPoint,
+  reconnectEdge2 as reconnectEdge,
   rectToBox,
   rendererPointToPoint,
   snapPosition

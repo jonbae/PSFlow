@@ -39,6 +39,13 @@ import {
   getOutgoers,
   getIncomers,
   getConnectedEdges,
+  getNodesBounds,
+  isNode,
+  isEdge,
+  addEdge,
+  reconnectEdge,
+  applyNodeChanges,
+  applyEdgeChanges,
 } from "@psflow/oracle";
 
 const pathResult = (t) => ({ path: t[0], labelX: t[1], labelY: t[2], offsetX: t[3], offsetY: t[4] });
@@ -140,3 +147,131 @@ export const getIncomersImpl = (node) => (nodes) => (edges) =>
   getIncomers(node, nodes, edges).map((n) => n.id);
 export const getConnectedEdgesImpl = (nodes) => (edges) =>
   getConnectedEdges(nodes, edges).map((e) => e.id);
+
+// ─── Node bounds ──────────────────────────────────────────────────────────
+// The nodes arrive already shaped like upstream's `NodeBase`: `measured` is
+// always present (its two fields may be null) and `width`/`height`/
+// `initialWidth`/`initialHeight`/`origin` may be null. Upstream reads every one
+// of them with `??`, which treats null exactly as absent, so nothing needs
+// converting. No `nodeLookup` is passed — the sub-flow resolution it enables is
+// a store concern, not arithmetic, and this property's claim is the bounds math.
+export const getNodesBoundsImpl = (nodes) => (nodeOrigin) => getNodesBounds(nodes, { nodeOrigin });
+
+// ─── Shape guards ─────────────────────────────────────────────────────────
+// Both take the candidate straight through: the value the property builds is
+// the value both sides see.
+export const isNodeImpl = (element) => isNode(element);
+export const isEdgeImpl = (element) => isEdge(element);
+
+// ─── Edge list mutation ───────────────────────────────────────────────────
+// `addEdge` and `reconnectEdge` report a rejected input by *calling* `onError`
+// and returning the input array; PSFlow reports it by returning `Left`. Passing
+// our own `onError` both silences upstream's console warning and turns that
+// channel into a value the property can compare against `isLeft`.
+const edgeOut = (e) => ({
+  id: e.id,
+  source: e.source,
+  target: e.target,
+  // Upstream *deletes* a null handle rather than keeping it; `toMaybe` reads
+  // deleted and null alike as `Nothing`, which is what PSFlow's `Maybe` holds.
+  sourceHandle: e.sourceHandle ?? null,
+  targetHandle: e.targetHandle ?? null,
+  // Carried through untouched by both sides — a witness that the rest of the
+  // edge record survives the rebuild.
+  animated: e.animated,
+});
+
+export const addEdgeImpl = (edgeParams) => (edges) => {
+  let errored = false;
+  const result = addEdge(edgeParams, edges, { onError: () => (errored = true) });
+  return { edges: result.map(edgeOut), errored };
+};
+
+export const reconnectEdgeImpl = (oldEdge) => (newConnection) => (edges) => (shouldReplaceId) => {
+  let errored = false;
+  const result = reconnectEdge(oldEdge, newConnection, edges, {
+    shouldReplaceId,
+    onError: () => (errored = true),
+  });
+  return { edges: result.map(edgeOut), errored };
+};
+
+// ─── Changes ──────────────────────────────────────────────────────────────
+// Rebuild upstream's `NodeChange` / `EdgeChange` from the tagged carrier. Every
+// optional field is OMITTED rather than set to null: `applyChange` guards on
+// `typeof change.position !== 'undefined'`, and a present-but-null field would
+// pass that guard and overwrite with null.
+//
+// `setAttributes` is upstream's `boolean | 'width' | 'height'`, which PSFlow
+// models as `Maybe { width :: Boolean, height :: Boolean }`. The carrier names
+// the upstream value directly so the mapping is written once, on the PureScript
+// side, where the `Maybe` lives.
+const setAttributesOut = (s) => (s === "true" ? true : s === "false" ? false : s);
+
+const nodeChangeOut = (c) => {
+  switch (c.tag) {
+    case "select":
+      return { type: "select", id: c.id, selected: c.selected };
+    case "position": {
+      const change = { type: "position", id: c.id, dragging: c.dragging };
+      if (c.position != null) change.position = c.position;
+      return change;
+    }
+    case "dimensions": {
+      const change = { type: "dimensions", id: c.id, resizing: c.resizing };
+      if (c.dimensions != null) change.dimensions = c.dimensions;
+      if (c.setAttributes != null) change.setAttributes = setAttributesOut(c.setAttributes);
+      return change;
+    }
+    case "remove":
+      return { type: "remove", id: c.id };
+    case "replace":
+      return { type: "replace", id: c.id, item: c.item };
+    case "add": {
+      const change = { type: "add", item: c.item };
+      if (c.index != null) change.index = c.index;
+      return change;
+    }
+    default:
+      throw new Error(`Test.Oracle: unknown node change tag ${c.tag}`);
+  }
+};
+
+const edgeChangeOut = (c) => {
+  switch (c.tag) {
+    case "select":
+      return { type: "select", id: c.id, selected: c.selected };
+    case "remove":
+      return { type: "remove", id: c.id };
+    case "replace":
+      return { type: "replace", id: c.id, item: c.item };
+    case "add": {
+      const change = { type: "add", item: c.item };
+      if (c.index != null) change.index = c.index;
+      return change;
+    }
+    default:
+      throw new Error(`Test.Oracle: unknown edge change tag ${c.tag}`);
+  }
+};
+
+// `resizing` is set by upstream's dimensions branch and dropped by PSFlow's —
+// `NodeBase` has no such field (React.Store.Changes says so). It is therefore
+// absent from what comes back, and unobserved rather than passing.
+const changeNodeOut = (n) => ({
+  id: n.id,
+  position: n.position,
+  selected: n.selected,
+  dragging: n.dragging,
+  width: n.width ?? null,
+  height: n.height ?? null,
+  measured: { width: n.measured?.width ?? null, height: n.measured?.height ?? null },
+});
+
+const changeEdgeOut = (e) => ({ id: e.id, selected: e.selected, animated: e.animated });
+
+export const applyNodeChangesImpl = (changes) => (nodes) =>
+  applyNodeChanges(changes.map(nodeChangeOut), nodes).map(changeNodeOut);
+
+export const applyEdgeChangesImpl = (changes) => (edges) =>
+  applyEdgeChanges(changes.map(edgeChangeOut), edges).map(changeEdgeOut);

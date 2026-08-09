@@ -30,6 +30,11 @@ const oracleExports = new Set(
   (oracleSrc.match(/export \{([\s\S]*?)\};/)?.[1] ?? "")
     .split(",")
     .map((s) => s.trim())
+    // Two of the entry list's names exist in both upstream packages — the
+    // React `addEdge` wraps the system one — so esbuild renames the local and
+    // re-exports it as `addEdge2 as addEdge`. The half after `as` is the name
+    // an importer writes, which is what an L1 claim is about.
+    .map((s) => s.split(/\s+as\s+/).pop())
     .filter(Boolean)
 );
 
