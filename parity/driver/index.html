@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ps-flow conformance driver</title>
+    <!--
+      Upstream's own stylesheets, from the exact-pinned devDependency that
+      matches the vendored tree. The flow's layout is read by half these
+      specs — a bounding box, a transform, a `visibility` — so the styles are
+      not decoration here, they are part of what is being compared.
+    -->
+    <link rel="stylesheet" href="../../node_modules/@xyflow/react/dist/style.css" />
+    <link rel="stylesheet" href="../../node_modules/@xyflow/react/dist/base.css" />
+    <style>
+      /*
+        The container's box feeds `fitView`, which feeds the viewport
+        transform, which feeds everything downstream of it. Both of the net's
+        runs load this page, so the box is identical on both sides by
+        construction rather than by two apps happening to agree.
+      */
+      html, body, #app {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="./dist/psflow.js"></script>
+  </body>
+</html>

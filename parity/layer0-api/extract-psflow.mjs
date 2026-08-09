@@ -130,18 +130,26 @@ if (reExportAliases.length === 0) {
   );
 }
 
+// One alias can be fed by *several* import blocks — a crossed export lives in
+// whichever converter module owns it, and PureScript needs one `import` line
+// per module. So every block is collected, not the first: reading only the
+// first would report the rest of the group as names index.js cannot link to.
 const boundaryValues = new Set(exportEntries.filter((s) => /^[a-z]\w*'?$/.test(s)));
 for (const alias of reExportAliases) {
-  const block = new RegExp(`import\\s+[\\w.]+\\s*\\(([\\s\\S]*?)\\)\\s*as\\s+${alias}\\b`).exec(
-    boundaryPurs
-  );
-  if (!block) {
+  const blocks = [
+    ...boundaryPurs.matchAll(
+      new RegExp(`import\\s+[\\w.]+\\s*\\(([\\s\\S]*?)\\)\\s*as\\s+${alias}\\b`, "g")
+    ),
+  ];
+  if (blocks.length === 0) {
     throw new Error(
       `[extract-psflow] src/Boundary.purs re-exports \`module ${alias}\` but has no ` +
         `matching \`import … ( … ) as ${alias}\` block.`
     );
   }
-  for (const name of lowercaseNames(block[1])) boundaryValues.add(name);
+  for (const block of blocks) {
+    for (const name of lowercaseNames(block[1])) boundaryValues.add(name);
+  }
 }
 
 const unresolved = specifiers

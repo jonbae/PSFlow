@@ -34,6 +34,10 @@ export const manifest = Object.freeze({
   // refused outright until the stage that lands them (see `Boundary.Flow`).
   // It is listed as crossed because a JavaScript caller now gets upstream's
   // prop shapes or an error, never silence.
+  //
+  // The three utilities are what a controlled flow's own change handlers call,
+  // so they cross with `ReactFlow` rather than after it: `onNodesChange` is
+  // useless if `applyNodeChanges(changes, nodes)` returns a function.
   crossed: Object.freeze([
     "BackgroundVariant",
     "ConnectionLineType",
@@ -44,6 +48,9 @@ export const manifest = Object.freeze({
     "ReactFlow",
     "ResizeControlVariant",
     "SelectionMode",
+    "addEdge",
+    "applyEdgeChanges",
+    "applyNodeChanges",
   ]),
 
   passthrough: Object.freeze([
@@ -68,9 +75,6 @@ export const manifest = Object.freeze({
     "StepEdge",
     "StraightEdge",
     "ViewportPortal",
-    "addEdge",
-    "applyEdgeChanges",
-    "applyNodeChanges",
     "experimental_useOnEdgesChangeMiddleware",
     "experimental_useOnNodesChangeMiddleware",
     "getBezierEdgeCenter",
