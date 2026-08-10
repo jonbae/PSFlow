@@ -1,4 +1,4 @@
-// Layer 0 — the single source of truth for which prop records are compared.
+// Surface parity — the single source of truth for which prop records are compared.
 //
 // This list used to be hardcoded at five sites across three files
 // (extract-upstream.ts, extract-psflow.mjs, diff.mjs x3). Adding a fourth

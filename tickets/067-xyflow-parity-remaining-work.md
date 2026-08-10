@@ -203,7 +203,7 @@ Depends on item 6.
   [077](077-test-debt-connection-handle-keyboard.md),
   [078](078-test-debt-viewport-fitview-rendering.md),
   [079](079-test-debt-component-chrome.md) (items 9–13)
-- `parity/layer0-api/report.md` — generated full-parity snapshot
+- `parity/surface/report.md` — generated full-parity snapshot
 - `parity/changelog-audit/report.md` — the 180-PR drift audit; its
   `verdicts.json` is the per-PR record, cross-linked to the tickets above
 - Vendored upstream baseline: `xyflow/packages/react` 12.11.0 /

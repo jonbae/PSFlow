@@ -3,7 +3,7 @@
     "pkg": "react",
     "version": "12.4.0",
     "title": "Add useNodeConnections hook to track all connections to a node. Can be filtered by handleType and handleId.",
-    "bucket": "layer0",
+    "bucket": "surface",
     "evidence": "`useNodeConnections` present in psflow.json valueExports; src/React/Hook/NodeConnections.purs.",
     "ticket": null,
     "note": ""
@@ -13,7 +13,7 @@
     "version": "12.3.6",
     "title": "Type isValidConnection prop correctly by passing EdgeType",
     "bucket": "ts-only",
-    "evidence": "TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently and gated by Layer 0.",
+    "evidence": "TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently, and their names are gated on the PureScript surface by surface parity.",
     "ticket": null,
     "note": ""
   },
@@ -66,7 +66,7 @@
     "pkg": "react",
     "version": "12.3.6",
     "title": "Add group node to BuiltInNode type. Thanks [@sjdemartini](https://github.com/sjdemartini)!",
-    "bucket": "layer0",
+    "bucket": "surface",
     "evidence": "Group node present as a built-in: src/React/Node/Group.purs, registered in builtinNodeTypes.",
     "ticket": null,
     "note": ""
@@ -93,7 +93,7 @@
     "pkg": "react",
     "version": "12.3.6",
     "title": "Fix intersections for nodes with origins other than [0,0]. Thanks [@gmvrpw](https://github.com/gmvrpw)!",
-    "bucket": "layer1",
+    "bucket": "function",
     "evidence": "nodeToRect takes nodeOrigin at src/React/Hook/ReactFlow.purs:289-294; nodeOrigin geometry gated by test/Test/Parity/Geometry.purs.",
     "ticket": null,
     "note": ""
@@ -120,7 +120,7 @@
     "pkg": "react",
     "version": "12.4.0",
     "title": "Export ResizeControlVariant correctly as a value.",
-    "bucket": "layer0",
+    "bucket": "surface",
     "evidence": "`ResizeControlVariant` present in psflow.json exports; src/React/Types/Component.purs.",
     "ticket": null,
     "note": ""
@@ -156,7 +156,7 @@
     "pkg": "system",
     "version": "0.0.51",
     "title": "Make it possible to stop autoPanOnDrag by setting it to false",
-    "bucket": "layer2",
+    "bucket": "conformance",
     "evidence": "examples/react-smoke/tests/generic-pane.spec.ts — \"autoPanOnNodeDrag\" / \"autoPanOnConnect\"; autoPanOnDrag=false honoured in src/System/XYDrag.purs.",
     "ticket": null,
     "note": ""
@@ -211,7 +211,7 @@
     "version": "12.4.3",
     "title": "Pass `NodeType` type argument from `ReactFlowProps` to `connectionLineComponent` property.",
     "bucket": "ts-only",
-    "evidence": "TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently and gated by Layer 0.",
+    "evidence": "TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently, and their names are gated on the PureScript surface by surface parity.",
     "ticket": null,
     "note": ""
   },
@@ -256,7 +256,7 @@
     "version": "12.4.4",
     "title": "Pass generics to OnSelectionChangeFunc so that users can type it correctly",
     "bucket": "ts-only",
-    "evidence": "TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently and gated by Layer 0.",
+    "evidence": "TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently, and their names are gated on the PureScript surface by surface parity.",
     "ticket": null,
     "note": ""
   },
@@ -282,7 +282,7 @@
     "pkg": "react",
     "version": "12.5.0",
     "title": "Prevent onPaneClick when connection is in progress. Closes [#5057](https://github.com/xyflow/xyflow/issues/5057)",
-    "bucket": "layer2",
+    "bucket": "conformance",
     "evidence": "examples/react-smoke/tests/generic-pane.spec.ts + examples/react-smoke/tests/generic-nodes.spec.ts \"connecting two nodes\"; src/React/Container/Pane.purs:290 returns early when slice.connectionInProgress.",
     "ticket": null,
     "note": ""
@@ -291,7 +291,7 @@
     "pkg": "react",
     "version": "12.5.0",
     "title": "You can now express paddings in fitViewOptions as pixels ('30px'), as viewport percentages ('20%') and define different paddings for each side.",
-    "bucket": "layer1",
+    "bucket": "function",
     "evidence": "src/System/Utils/Graph.purs:47-48 Padding/PaddingValue (px + ratio + per-side), defaultFitViewPadding = UniformPadding (RatioPadding 0.1) at :309-310; Padding smart constructors unit-tested in test/Test/Main.purs (`Padding smart-construct both variants`).",
     "ticket": null,
     "note": ""
@@ -309,7 +309,7 @@
     "pkg": "system",
     "version": "0.0.53",
     "title": "Add center-left and center-right as a panel position",
-    "bucket": "layer0",
+    "bucket": "surface",
     "evidence": "`CenterLeft`/`CenterRight` panel positions at src/React/Portal/Panel.purs:33-34.",
     "ticket": null,
     "note": ""
@@ -318,7 +318,7 @@
     "pkg": "react",
     "version": "12.5.0",
     "title": "Hidden nodes are not displayed in the mini map anymore",
-    "bucket": "layer2",
+    "bucket": "conformance",
     "evidence": "src/React/Additional/MiniMap/Nodes.purs:54 drops hidden nodes; src/React/Additional/MiniMap.purs:91 excludes them from bounds. Rendered in examples/react-smoke/tests/generic-props.spec.ts screenshot coverage.",
     "ticket": null,
     "note": ""
@@ -328,7 +328,7 @@
     "version": "12.11.0",
     "title": "Fix type for event passed to onNodeDrag",
     "bucket": "ts-only",
-    "evidence": "TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently and gated by Layer 0.",
+    "evidence": "TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently, and their names are gated on the PureScript surface by surface parity.",
     "ticket": null,
     "note": ""
   },
@@ -372,7 +372,7 @@
     "pkg": "react",
     "version": "12.5.0",
     "title": "feat: export `EdgeLabelRendererProps`",
-    "bucket": "layer0",
+    "bucket": "surface",
     "evidence": "`EdgeLabelRendererProps` present in psflow.json typeExports; src/React/Portal/EdgeLabelRenderer.purs.",
     "ticket": null,
     "note": ""
@@ -417,8 +417,8 @@
     "pkg": "react",
     "version": "12.5.2",
     "title": "Export NodeConnection type",
-    "bucket": "layer0",
-    "evidence": "`NodeConnection` present in psflow.json typeExports; parity/layer0-api/report.md — Layer 0 export+prop diff, missing(gap)=0",
+    "bucket": "surface",
+    "evidence": "`NodeConnection` present in psflow.json typeExports; parity/surface/report.md — surface-parity export+prop diff, missing(gap)=0",
     "ticket": null,
     "note": ""
   },
@@ -534,7 +534,7 @@
     "pkg": "react",
     "version": "12.5.4",
     "title": "Compare `nodeStrokeWidth` with `number`, not with `string` within `MiniMap`",
-    "bucket": "layer2",
+    "bucket": "conformance",
     "evidence": "src/React/Additional/MiniMap.purs:145 renders nodeStrokeWidth via `map show` on a Number — PureScript typing removes the string/number comparison hazard entirely.",
     "ticket": null,
     "note": ""
@@ -741,7 +741,7 @@
     "pkg": "react",
     "version": "12.5.6",
     "title": "Fix legacy padding being slightly larger than before",
-    "bucket": "layer1",
+    "bucket": "function",
     "evidence": "Same Padding model as #5067 — src/System/Utils/Graph.purs:309-310 pins the 0.1 ratio default that this PR corrected.",
     "ticket": null,
     "note": ""
@@ -759,7 +759,7 @@
     "pkg": "react",
     "version": "12.5.6",
     "title": "Hide edge marker and attribution for screenreaders",
-    "bucket": "layer2",
+    "bucket": "conformance",
     "evidence": "examples/react-smoke/tests/generic-edges.spec.ts — \"aria-lable is working\"; src/React/Container/A11yDescriptions.purs and src/React/Container/Attribution.purs.",
     "ticket": null,
     "note": ""
@@ -777,7 +777,7 @@
     "pkg": "react",
     "version": "12.5.6",
     "title": "Do not trigger selection events if elementsSelectable=false",
-    "bucket": "layer2",
+    "bucket": "conformance",
     "evidence": "examples/react-smoke/tests/generic-nodes.spec.ts — \"selectable=false prevents selection\"; elementsSelectable gating at src/React/Container/Pane.purs:210,443-446.",
     "ticket": null,
     "note": ""
@@ -786,7 +786,7 @@
     "pkg": "react",
     "version": "12.6.0",
     "title": "Keep node seleciton on pane click if elementsSelectable=false",
-    "bucket": "layer2",
+    "bucket": "conformance",
     "evidence": "examples/react-smoke/tests/generic-nodes.spec.ts — \"selectable=false prevents selection\"; Pane.purs:443-446 mirrors upstream Pane/index.tsx:355-363 (handlers omitted when isSelectionEnabled).",
     "ticket": null,
     "note": ""
@@ -795,7 +795,7 @@
     "pkg": "react",
     "version": "12.6.0",
     "title": "Add initialMinZoom, initialMaxZoom and initialFitViewOptions to ReactFlowProvider",
-    "bucket": "layer0",
+    "bucket": "surface",
     "evidence": "initialMinZoom/initialMaxZoom/initialFitViewOptions on ReactFlowProviderProps — src/React/Types/Component.purs:827, consumed at src/React/Provider.purs:56.",
     "ticket": null,
     "note": ""
@@ -804,7 +804,7 @@
     "pkg": "system",
     "version": "0.0.57",
     "title": "Allow zero as a valid node width/height value",
-    "bucket": "layer1",
+    "bucket": "function",
     "evidence": "test/Test/Parity/Geometry.purs geometry differentials; zero width/height flow through as plain Numbers with no truthiness guard (PureScript has no falsy-0 hazard).",
     "ticket": null,
     "note": ""
@@ -813,7 +813,7 @@
     "pkg": "react",
     "version": "12.6.0",
     "title": "Add `resizeDirection` prop for the `NodeResizeControl` component",
-    "bucket": "layer0",
+    "bucket": "surface",
     "evidence": "`resizeDirection` present at src/React/Types/Component.purs:583 and src/System/XYResizer.purs:214.",
     "ticket": null,
     "note": ""
@@ -849,7 +849,7 @@
     "pkg": "system",
     "version": "0.0.59",
     "title": "Added OnReconnect types",
-    "bucket": "layer0",
+    "bucket": "surface",
     "evidence": "`OnReconnect` present in psflow.json typeExports.",
     "ticket": null,
     "note": ""
@@ -858,7 +858,7 @@
     "pkg": "react",
     "version": "12.6.2",
     "title": "Use OnReconnect from system",
-    "bucket": "layer0",
+    "bucket": "surface",
     "evidence": "`OnReconnect` sourced from the system-side type; present in psflow.json typeExports.",
     "ticket": null,
     "note": ""
@@ -903,7 +903,7 @@
     "pkg": "react",
     "version": "12.7.0",
     "title": "Add `ariaLabelConfig` prop for customizing UI text like aria labels and descriptions.",
-    "bucket": "layer0",
+    "bucket": "surface",
     "evidence": "`ariaLabelConfig` on both sides (src/React/Types/Component.purs:254); merge semantics unit-tested in test/Test/Main.purs (`mergeAriaLabelConfig` with and without overrides).",
     "ticket": null,
     "note": ""
@@ -913,7 +913,7 @@
     "version": "12.7.0",
     "title": "Improve typing for Nodes",
     "bucket": "ts-only",
-    "evidence": "TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently and gated by Layer 0.",
+    "evidence": "TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently, and their names are gated on the PureScript surface by surface parity.",
     "ticket": null,
     "note": ""
   },
@@ -930,7 +930,7 @@
     "pkg": "react",
     "version": "12.7.0",
     "title": "Focus nodes on tab if not within the viewport and add a new prop `autoPanOnNodeFocus`",
-    "bucket": "layer0",
+    "bucket": "surface",
     "evidence": "`autoPanOnNodeFocus` on both sides (src/React/Types/Component.purs:211); focus handling in src/React/Component/NodeWrapper.purs.",
     "ticket": null,
     "note": ""
@@ -948,8 +948,8 @@
     "pkg": "system",
     "version": "0.0.66",
     "title": "Fix incorrect node position clamping for non-child nodes",
-    "bucket": "layer1",
-    "evidence": "test/Test/Parity/Geometry.purs — clampPosition differential vs the oracle; src/System/Utils/General.purs clampPosition.",
+    "bucket": "function",
+    "evidence": "test/Test/Parity/Geometry.purs — clampPosition differential vs the @psflow/oracle bundle; src/System/Utils/General.purs clampPosition.",
     "ticket": null,
     "note": ""
   },
@@ -966,8 +966,8 @@
     "pkg": "react",
     "version": "12.7.1",
     "title": "Add missing type exports",
-    "bucket": "layer0",
-    "evidence": "parity/layer0-api/report.md — Layer 0 export+prop diff, missing(gap)=0",
+    "bucket": "surface",
+    "evidence": "parity/surface/report.md — surface-parity export+prop diff, missing(gap)=0",
     "ticket": null,
     "note": ""
   },
@@ -975,7 +975,7 @@
     "pkg": "react",
     "version": "12.8.0",
     "title": "Add connectionDragThreshold prop",
-    "bucket": "layer0",
+    "bucket": "surface",
     "evidence": "`connectionDragThreshold` on both sides (src/React/Types/Component.purs:218), threaded at src/React/Handle.purs:376.",
     "ticket": null,
     "note": ""
@@ -984,7 +984,7 @@
     "pkg": "system",
     "version": "0.0.63",
     "title": "Only send node position updates if positions changed",
-    "bucket": "layer1",
+    "bucket": "function",
     "evidence": "src/System/Utils/Store.purs:572-573,617-618 gate position/dimension updates on an actual delta; unit-tested in test/Test/System/Utils/Store.purs.",
     "ticket": null,
     "note": ""
@@ -994,7 +994,7 @@
     "version": "12.7.1",
     "title": "Add missing `FinalConnectionState` parameter to `onReconnectEnd` prop types",
     "bucket": "ts-only",
-    "evidence": "TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently and gated by Layer 0.",
+    "evidence": "TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently, and their names are gated on the PureScript surface by surface parity.",
     "ticket": null,
     "note": ""
   },
@@ -1011,7 +1011,7 @@
     "pkg": "react",
     "version": "12.8.0",
     "title": "Render edges above nodes when they are within a subflow",
-    "bucket": "layer2",
+    "bucket": "conformance",
     "evidence": "examples/react-smoke/tests/generic-edges.spec.ts — \"sub flow: normal node to child node, z-index\" and \"sub flow: child node to child node, z-index\".",
     "ticket": null,
     "note": ""
@@ -1047,7 +1047,7 @@
     "pkg": "react",
     "version": "12.8.2",
     "title": "Add stepPosition param to step edge",
-    "bucket": "layer1",
+    "bucket": "function",
     "evidence": "test/Test/Parity/Edges.purs — getSmoothStepPath/step differential; `stepPosition` at src/System/Utils/Edges/SmoothStep.purs:28,155,161 and src/System/Types/Edge.purs:161.",
     "ticket": null,
     "note": ""
@@ -1065,7 +1065,7 @@
     "pkg": "react",
     "version": "12.8.2",
     "title": "Return intersections correctly of passed node is bigger than intersecting nodes",
-    "bucket": "layer1",
+    "bucket": "function",
     "evidence": "src/React/Hook/ReactFlow.purs:296-300 — symmetric `area >= curr.w*curr.h || area >= nodeRect.w*nodeRect.h`, matching xyflow/packages/react/src/hooks/useReactFlow.ts:231-234; getOverlappingArea itself gated by test/Test/Parity/Geometry.purs.",
     "ticket": null,
     "note": ""
@@ -1074,7 +1074,7 @@
     "pkg": "react",
     "version": "12.8.3",
     "title": "Allow strings and enums for existing marker types",
-    "bucket": "layer1",
+    "bucket": "function",
     "evidence": "test/Test/Parity/Marker.purs — getMarkerId differential; MarkerType rendered via showMarkerType at src/System/Utils/Marker.purs:36.",
     "ticket": null,
     "note": ""
@@ -1083,7 +1083,7 @@
     "pkg": "react",
     "version": "12.8.3",
     "title": "Make arrow heads markers fallback to --xy-edge-stroke CSS variable when passing null as marker color",
-    "bucket": "layer2",
+    "bucket": "conformance",
     "evidence": "examples/react-smoke/tests/generic-edges.spec.ts — \"marker-start, marker-end set markers\"; marker element construction in src/React/Container/MarkerSymbols.purs.",
     "ticket": null,
     "note": ""
@@ -1093,7 +1093,7 @@
     "version": "12.8.3",
     "title": "Omit `defaultValue` from `Node`'s `domAttributes` to fix type incompatibility when using `WritableDraft`",
     "bucket": "ts-only",
-    "evidence": "TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently and gated by Layer 0.",
+    "evidence": "TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently, and their names are gated on the PureScript surface by surface parity.",
     "ticket": null,
     "note": ""
   },
@@ -1110,7 +1110,7 @@
     "pkg": "react",
     "version": "12.8.3",
     "title": "Prevent a 0 added to the markup for edges when interactionWidth is 0",
-    "bucket": "layer2",
+    "bucket": "conformance",
     "evidence": "examples/react-smoke/tests/generic-edges.spec.ts — \"interactionWidth is working\".",
     "ticket": null,
     "note": ""
@@ -1119,7 +1119,7 @@
     "pkg": "react",
     "version": "12.8.3",
     "title": "Use 1 as the default for interactive Minimap zoom step",
-    "bucket": "layer1",
+    "bucket": "function",
     "evidence": "src/System/XYMinimap.purs:64 documents and applies upstream's zoomStep=1 default in defaultXYMinimapUpdate.",
     "ticket": null,
     "note": ""
@@ -1128,8 +1128,8 @@
     "pkg": "react",
     "version": "12.8.3",
     "title": "Export MiniMapNode",
-    "bucket": "layer0",
-    "evidence": "`MiniMapNode` — allowlisted in parity/layer0-api/allowlist.json (src/React/Additional/MiniMap/Node.purs exists; barrel gap tracked by ticket 058).",
+    "bucket": "surface",
+    "evidence": "`MiniMapNode` — allowlisted in parity/surface/allowlist.json (src/React/Additional/MiniMap/Node.purs exists; barrel gap tracked by ticket 058).",
     "ticket": null,
     "note": ""
   },
@@ -1138,7 +1138,7 @@
     "version": "12.8.3",
     "title": "Use correct HandleConnection type for Handle onConnect",
     "bucket": "ts-only",
-    "evidence": "TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently and gated by Layer 0.",
+    "evidence": "TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently, and their names are gated on the PureScript surface by surface parity.",
     "ticket": null,
     "note": ""
   },
@@ -1155,7 +1155,7 @@
     "pkg": "react",
     "version": "12.8.3",
     "title": "Snap selection instead of separate nodes when snap grid is enabled",
-    "bucket": "layer1",
+    "bucket": "function",
     "evidence": "src/System/XYDrag/Utils.purs:205-223 calculateSnapOffset snaps one reference point and applies the offset to the whole selection; snapPosition itself gated by test/Test/Parity/Geometry.purs and test/Test/Main.purs:418-425.",
     "ticket": null,
     "note": ""
@@ -1173,7 +1173,7 @@
     "pkg": "react",
     "version": "12.8.4",
     "title": "Fix open arrow marker using fill color from edge instead of none",
-    "bucket": "layer2",
+    "bucket": "conformance",
     "evidence": "examples/react-smoke/tests/generic-edges.spec.ts — \"marker-start, marker-end set markers\"; open-arrow uses fill=\"none\" at src/React/Container/MarkerSymbols.purs:59.",
     "ticket": null,
     "note": ""
@@ -1182,7 +1182,7 @@
     "pkg": "system",
     "version": "0.0.68",
     "title": "Allow null for extent",
-    "bucket": "layer0",
+    "bucket": "surface",
     "evidence": "`extent :: Maybe NodeExtent` at src/System/Types/Node.purs:76 — Nothing models upstream's null.",
     "ticket": null,
     "note": ""
@@ -1209,7 +1209,7 @@
     "pkg": "react",
     "version": "12.8.5",
     "title": "Make isNodeIntersecting behave the same as getIntersectingNodes",
-    "bucket": "layer1",
+    "bucket": "function",
     "evidence": "src/React/Hook/ReactFlow.purs:305-317 — isNodeIntersecting uses the identical predicate to getIntersectingNodes, matching useReactFlow.ts:245-252.",
     "ticket": null,
     "note": ""
@@ -1218,7 +1218,7 @@
     "pkg": "react",
     "version": "12.10.0",
     "title": "Add `experimental_useOnNodesChangeMiddleware` hook",
-    "bucket": "layer0",
+    "bucket": "surface",
     "evidence": "`experimental_useOnNodesChangeMiddleware` present in psflow.json valueExports; src/React/Hook/Middleware.purs.",
     "ticket": null,
     "note": ""
@@ -1227,7 +1227,7 @@
     "pkg": "system",
     "version": "0.0.69",
     "title": "Fix nodeDragThreshold changing with zoom level",
-    "bucket": "layer1",
+    "bucket": "function",
     "evidence": "src/System/XYDrag.purs:355-360 computes the threshold distance from getEventPosition (container/client space), matching xyflow/packages/system/src/xydrag/XYDrag.ts:347-350 — zoom-independent.",
     "ticket": null,
     "note": ""
@@ -1254,7 +1254,7 @@
     "pkg": "react",
     "version": "12.8.5",
     "title": "Fix regression: elevate edges if connected nodes are selected",
-    "bucket": "layer2",
+    "bucket": "conformance",
     "evidence": "examples/react-smoke/tests/generic-edges.spec.ts — \"z-index\" asserts edge elevation for selected connected nodes.",
     "ticket": null,
     "note": ""
@@ -1299,8 +1299,8 @@
     "pkg": "react",
     "version": "12.9.0",
     "title": "Add `type` property to `EdgeProps` to match `NodeProps` behavior",
-    "bucket": "layer0",
-    "evidence": "Closed in this branch by ticket 071 §5: EdgeProps.edgeType renamed to `type` in src/React/Types/Edges.purs, written at src/React/Component/EdgeWrapper.purs. Drives the Layer 0 EdgeProps prop diff to 0 missing / 0 extra.",
+    "bucket": "surface",
+    "evidence": "Closed in this branch by ticket 071 §5: EdgeProps.edgeType renamed to `type` in src/React/Types/Edges.purs, written at src/React/Component/EdgeWrapper.purs. Drives the surface-parity EdgeProps prop diff to 0 missing / 0 extra.",
     "ticket": null,
     "note": ""
   },
@@ -1308,7 +1308,7 @@
     "pkg": "react",
     "version": "12.9.0",
     "title": "Add `EdgeToolbar` component",
-    "bucket": "layer0",
+    "bucket": "surface",
     "evidence": "`EdgeToolbar` present in psflow.json valueExports; src/React/Additional/EdgeToolbar.purs; transform gated by test/Test/Parity/Toolbar.purs (getEdgeToolbarTransform).",
     "ticket": null,
     "note": ""
@@ -1353,7 +1353,7 @@
     "pkg": "react",
     "version": "12.9.1",
     "title": "Fix onPaneClick events being suppressed when selectionOnDrag=true",
-    "bucket": "layer2",
+    "bucket": "conformance",
     "evidence": "examples/react-smoke/tests/generic-pane.spec.ts pane click/drag coverage; src/React/Container/Pane.purs:288-291 returns early on selectionInProgress, matching upstream onClick.",
     "ticket": null,
     "note": ""
@@ -1389,7 +1389,7 @@
     "pkg": "system",
     "version": "0.0.74",
     "title": "Allow custom `getEdgeId` function in `addEdge` and `reconnectEdge` options to enable custom edge ID schemes.",
-    "bucket": "layer0",
+    "bucket": "surface",
     "evidence": "`getEdgeId` exported from src/System/Utils/Edges/General.purs and re-exported via src/System/Utils/Edges.purs:19.",
     "ticket": null,
     "note": ""
@@ -1398,7 +1398,7 @@
     "pkg": "react",
     "version": "12.9.3",
     "title": "Set `paneClickDistance` default value to `1`.",
-    "bucket": "layer2",
+    "bucket": "conformance",
     "evidence": "src/System/XYPanZoom.purs:149-153 clamps paneClickDistance (non-numeric/negative → 0); pane click behavior covered by examples/react-smoke/tests/generic-pane.spec.ts.",
     "ticket": null,
     "note": ""
@@ -1425,7 +1425,7 @@
     "pkg": "react",
     "version": "12.10.0",
     "title": "Add `zIndexMode` to control how z-index is calculated for nodes and edges",
-    "bucket": "layer0",
+    "bucket": "surface",
     "evidence": "`zIndexMode` present on both sides; ZIndexMode type + ZBasic default at src/System/Utils/Store.purs:102,112 matching upstream's 'basic' default.",
     "ticket": null,
     "note": ""
@@ -1443,7 +1443,7 @@
     "pkg": "react",
     "version": "12.11.0",
     "title": "Add `autoPanOnSelection` to auto-pan when user drags a selection close to the edge of the viewport.",
-    "bucket": "layer0",
+    "bucket": "surface",
     "evidence": "`autoPanOnSelection` in both upstream.json and psflow.json ReactFlowProps (src/React/Types/Component.purs:258).",
     "ticket": null,
     "note": ""
@@ -1470,7 +1470,7 @@
     "pkg": "react",
     "version": "12.10.1",
     "title": "Optimize zooming performance when panOnScroll mode is enabled",
-    "bucket": "layer2",
+    "bucket": "conformance",
     "evidence": "examples/react-smoke/tests/generic-pane.spec.ts — \"panOnScroll pans the pane on scrolling\"; src/System/XYPanZoom/EventHandler.purs.",
     "ticket": null,
     "note": ""
@@ -1489,7 +1489,7 @@
     "version": "12.10.1",
     "title": "Improve return type of useNodesData. Now you can narrow down the data type by checking the node type.",
     "bucket": "ts-only",
-    "evidence": "TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently and gated by Layer 0.",
+    "evidence": "TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently, and their names are gated on the PureScript surface by surface parity.",
     "ticket": null,
     "note": ""
   },
@@ -1533,7 +1533,7 @@
     "pkg": "system",
     "version": "0.0.76",
     "title": "Fix missing border radius on `getSmoothStepPath` edge bends when using `stepPosition`",
-    "bucket": "layer1",
+    "bucket": "function",
     "evidence": "test/Test/Parity/Edges.purs — getSmoothStepPath differential vs the vendored oracle; borderRadius applied via getBend at src/System/Utils/Edges/SmoothStep.purs:380, stepPosition at :155,161.",
     "ticket": null,
     "note": ""
@@ -1578,8 +1578,8 @@
     "pkg": "react",
     "version": "12.11.0",
     "title": "Export `NodeHandle` type",
-    "bucket": "layer0",
-    "evidence": "`NodeHandle` — allowlisted in parity/layer0-api/allowlist.json (defined in src/System/Types/Node.purs, not re-exported; ticket 058).",
+    "bucket": "surface",
+    "evidence": "`NodeHandle` — allowlisted in parity/surface/allowlist.json (defined in src/System/Types/Node.purs, not re-exported; ticket 058).",
     "ticket": null,
     "note": ""
   },
@@ -1597,7 +1597,7 @@
     "version": "12.11.0",
     "title": "Adds a type error when `handleId` is used without `handleType` in `useNodeConnections`",
     "bucket": "ts-only",
-    "evidence": "TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently and gated by Layer 0.",
+    "evidence": "TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently, and their names are gated on the PureScript surface by surface parity.",
     "ticket": null,
     "note": ""
   },
@@ -1619,5 +1619,5 @@
     "ticket": "076",
     "note": "abortDrag state at src/System/XYDrag.purs:194,209,305,346,349,378 mirrors upstream, but no gate drives an aborted drag."
   },
-  "_comment": "Hand-authored verdicts for the 12.3.5→12.11.0 changelog audit (ticket 071), keyed by upstream PR number. `pkg`/`version`/`title` are embedded so this file is self-contained: xyflow/ is gitignored and does not survive a clean clone. `npm run parity:changelog` fails if any in-range PR is missing here, if a covered bucket cites no evidence, or if a gap bucket has neither a ticket nor a note. Buckets: docs, ts-only, layer0, layer1, layer2, unit (covered, evidence required); ported-ungated, not-ported (silent gaps, ticket or in-branch fix required); n/a."
+  "_comment": "Hand-authored verdicts for the 12.3.5→12.11.0 changelog audit (ticket 071), keyed by upstream PR number. `pkg`/`version`/`title` are embedded so this file is self-contained: xyflow/ is gitignored and does not survive a clean clone. `npm run parity:changelog` fails if any in-range PR is missing here, if a covered bucket cites no evidence, or if a gap bucket has neither a ticket nor a note. Buckets: docs, ts-only, surface, function, conformance, unit (covered, evidence required); ported-ungated, not-ported (silent gaps, ticket or in-branch fix required); n/a."
 }

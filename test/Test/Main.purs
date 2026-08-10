@@ -1057,7 +1057,7 @@ main = do
   runReactStoreTests
   runVisibleIdsTests
 
-  -- Layer 1 — live parity against XYFlow (via the @psflow/oracle bundle).
+  -- Function parity — live differential against XYFlow (via the @psflow/oracle bundle).
   -- Requires `npm run build:oracle` to have produced oracle/index.js.
   runEdgeParity
   runGeometryParity

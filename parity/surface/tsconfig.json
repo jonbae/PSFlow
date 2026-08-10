@@ -1,5 +1,5 @@
 {
-  "//": "Config for the Layer 0 upstream extractor. `extract-upstream.ts` passes equivalent options to ts.createProgram inline, so this file primarily documents the resolution setup and gives editors/`tsc --noEmit` the right view of the vendored xyflow sources. The `@xyflow/system` path mapping mirrors how the react package imports the system package.",
+  "//": "Config for the surface-parity upstream extractor. `extract-upstream.ts` passes equivalent options to ts.createProgram inline, so this file primarily documents the resolution setup and gives editors/`tsc --noEmit` the right view of the vendored xyflow sources. The `@xyflow/system` path mapping mirrors how the react package imports the system package.",
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",

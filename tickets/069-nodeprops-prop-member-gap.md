@@ -45,7 +45,7 @@ Layer 0 report still shows *Edge* props 1 missing — upstream's `type` vs PSFlo
 
 ## Context
 
-Layer 0's prop-member diff (`parity/layer0-api/report.md` → *NodeProps*) reports
+Layer 0's prop-member diff (`parity/surface/report.md` → *NodeProps*) reports
 **8 members missing** on the props object PSFlow passes into a user's custom node
 component, plus a rename PSFlow has not tracked. This is distinct from
 [058](058-layer0-api-surface-gaps.md) Group A, which only tracks re-exporting the
@@ -102,7 +102,7 @@ No new logic — wiring existing values through.
 
 ## Acceptance Criteria
 
-- `parity/layer0-api/report.md` *NodeProps* section shows **0 missing**, and the
+- `parity/surface/report.md` *NodeProps* section shows **0 missing**, and the
   `xPos`/`yPos` extras are gone (or the extras list is empty).
 - `spago test` and `npm run test:smoke` stay green.
 - A smoke/e2e assertion reads at least one newly-threaded field (e.g. a custom
@@ -113,6 +113,6 @@ No new logic — wiring existing values through.
 - [src/React/Types/Nodes.purs](../src/React/Types/Nodes.purs) — the record (`:43`)
 - [src/React/Component/NodeWrapper.purs](../src/React/Component/NodeWrapper.purs)
   — `mkNodeProps` (`:289`)
-- [parity/layer0-api/report.md](../parity/layer0-api/report.md) — prop-member diff
+- [parity/surface/report.md](../parity/surface/report.md) — prop-member diff
 - [058](058-layer0-api-surface-gaps.md) — the *type*-export side (Group A)
 - [071](071-version-drift-audit-12-3-to-12-11.md) — broader drift this is part of

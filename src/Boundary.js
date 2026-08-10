@@ -15,7 +15,7 @@
 //     It is deliberately dependency-free plain data so a gate can read it with
 //     a bare `import` of *this* file: no `spago build`, no PureScript runtime,
 //     no compiled `output/`. Consumers should treat `crossed ∪ passthrough` as
-//     the full JS surface; `parity/layer0-api/extract-psflow.mjs` fails if that
+//     the full JS surface; `parity/surface/extract-psflow.mjs` fails if that
 //     union stops matching `index.js`.
 
 export const freeze = (record) => Object.freeze(record);

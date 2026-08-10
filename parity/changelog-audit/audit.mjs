@@ -7,7 +7,7 @@
 //   1. Coverage — every PR in `entries.json` must have a `verdicts.json` key.
 //      This is what catches the *next* version bump: bumping `xyflow/` surfaces
 //      new PRs, and each one fails the build until it is bucketed. Same
-//      key-presence mechanism as `partition()` in ../layer0-api/diff.mjs.
+//      key-presence mechanism as `partition()` in ../surface/diff.mjs.
 //
 //   2. Evidence — every verdict in a "covered" bucket must cite non-empty
 //      evidence. Without this the audit degrades into a wall of unfalsifiable
@@ -39,12 +39,15 @@ const verdicts = load("verdicts.json");
 // `covered` buckets assert the change needs no action *and* name the artifact
 // that makes that true. `gap` buckets are the two silent-gap outcomes. `n/a`
 // is for changes with no possible PSFlow analogue.
+// Bucket keys are the gate names, deliberately: a covered bucket says which
+// gate would go red. `smoke` is absent because no in-range PR is covered by
+// `smoke.spec.ts` — add it when one is, rather than carrying an empty bucket.
 const BUCKETS = {
   docs: { kind: "covered", label: "Docs / types / tooling only — no runtime behavior" },
   "ts-only": { kind: "covered", label: "TypeScript-only (type signature, generics, inference)" },
-  layer0: { kind: "covered", label: "Surface change — gated by parity:api" },
-  layer1: { kind: "covered", label: "Pure-math change — gated by the Layer 1 differential oracle" },
-  layer2: { kind: "covered", label: "Behavior covered by a Layer 2 e2e spec" },
+  surface: { kind: "covered", label: "Surface change — gated by parity:surface" },
+  function: { kind: "covered", label: "Pure-math change — gated by function parity, differential against the @psflow/oracle bundle" },
+  conformance: { kind: "covered", label: "Behavior covered by a spec in the conformance test suite" },
   unit: { kind: "covered", label: "Behavior covered by a PureScript unit/property test" },
   "ported-ungated": { kind: "gap", label: "Ported and correct, but no gate exercises it (test debt)" },
   "not-ported": { kind: "gap", label: "Behavior not present in PSFlow" },
@@ -146,7 +149,7 @@ an audit rather than a list of assertions.
 Note that \`verdicts.json\` embeds each PR's title alongside the verdict, so the
 committed half of this audit is self-contained: \`xyflow/\` is gitignored and
 does not survive a clean clone, where \`npm run parity:changelog\` hard-fails by
-design (as \`parity:api\` does).
+design (as \`parity:surface\` does).
 
 ## Summary
 
@@ -164,9 +167,9 @@ ${section("ported-ungated")}
 ${section("not-ported")}
 ## Covered
 
-${section("layer0")}
-${section("layer1")}
-${section("layer2")}
+${section("surface")}
+${section("function")}
+${section("conformance")}
 ${section("unit")}
 ${section("ts-only")}
 ${section("docs")}

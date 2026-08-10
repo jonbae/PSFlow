@@ -1,10 +1,10 @@
-// Adopted from xyflow/tests/playwright/e2e/props.spec.ts (Layer 2 parity).
+// Adopted from xyflow/tests/playwright/e2e/props.spec.ts (the conformance test suite).
 // Faithful copy of upstream's framework-parameterized e2e suite; the ONLY
 // changes are the infrastructure bits that differ for PSFlow:
 //   1. FRAMEWORK is hard-set to 'react' (upstream reads process.env.FRAMEWORK).
 //   2. the route is loaded via the static smoke server + hash router
 //      ('/examples/react-smoke/index.html#/examples/color-mode') instead of the
-//      vite path ('/examples/color-mode'). Unlike the other Layer 2 specs this
+//      vite path ('/examples/color-mode'). Unlike the other conformance specs this
 //      one hits a bespoke example page, not a generic-test fixture.
 import { test, expect } from "@playwright/test";
 

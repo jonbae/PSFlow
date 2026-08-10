@@ -14,8 +14,8 @@
 // Maintenance: ordered to mirror `xyflow/packages/react/src/index.ts` so
 // future audits are mechanical. `src/Boundary.js`'s `manifest` records which
 // of these have *crossed* — have a JS-shaped wrapper — and which are still
-// passing through as raw PureScript values; `npm run parity:api` fails if it
-// stops matching the list below.
+// passing through as raw PureScript values; `npm run parity:surface` fails if
+// it stops matching the list below.
 
 export {
   // ─── Components ────────────────────────────────────────────────────────

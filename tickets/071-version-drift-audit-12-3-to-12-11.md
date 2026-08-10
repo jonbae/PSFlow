@@ -125,7 +125,7 @@ sweep for the rest.
 
 ## Source Files
 
-- [parity/layer0-api/report.md](../parity/layer0-api/report.md) — surface +
+- [parity/surface/report.md](../parity/surface/report.md) — surface +
   prop-member baseline (notes the 12.3.5 origin)
 - [059](059-layer1-behavioral-parity-coverage.md) — what Layer 1 does/doesn't
   cover (bucket (a))

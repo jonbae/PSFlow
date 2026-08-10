@@ -1,4 +1,4 @@
-// Layer 0 — upstream extractor. Uses the TypeScript compiler API (the
+// Surface parity — upstream extractor. Uses the TypeScript compiler API (the
 // authoritative source: it resolves `export *`, renamed re-exports, and
 // type-only exports that a regex would miss) to read the full public API
 // surface of the vendored `@xyflow/react` entry point.
@@ -102,7 +102,7 @@ const propMembers = (typeName: string): string[] => {
     throw new Error(
       `[extract-upstream] prop type not found in upstream exports: ${typeName}. ` +
         `Either upstream renamed/removed it (a genuine parity finding) or ` +
-        `parity/layer0-api/prop-types.mjs is stale.`
+        `parity/surface/prop-types.mjs is stale.`
     );
   }
   const type = checker.getDeclaredTypeOfSymbol(deAlias(sym));
