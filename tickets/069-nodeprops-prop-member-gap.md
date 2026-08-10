@@ -9,7 +9,7 @@ All three acceptance criteria met.
    `positionAbsoluteX`/`positionAbsoluteY`. `mkNodeProps`
    (`src/React/Component/NodeWrapper.purs`) stopped discarding its `selectable`/
    `draggable` parameters and threads all eight values through. No new logic.
-   `npm run parity:api` now reports `props missing: … Node=0` (was 8 missing +
+   `npm run parity:surface` now reports `props missing: … Node=0` (was 8 missing +
    2 extra).
 
 2. **Suites stay green** — `spago test` green; `npm run test:smoke` 54/54 (the

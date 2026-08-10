@@ -12,7 +12,7 @@ largest remaining item for literal drop-in consumption; it is purely additive
 ## Leverage
 
 Layer 0 already **guarantees the export-name set matches upstream by
-construction** (`npm run parity:api` → 0 missing), and the extractor emits the
+construction** (`npm run parity:surface` → 0 missing), and the extractor emits the
 full upstream type inventory: `parity/surface/upstream.json` holds all 142
 type exports + prop members, pulled via the TS compiler API from the vendored
 `@xyflow/react` 12.11.0 / `@xyflow/system` 0.0.77.
@@ -39,7 +39,7 @@ So the surface splits cleanly:
 1. Add a `types/ps-flow.d.ts`, point `package.json#types` at it.
 2. Generate the identical-surface rows from `upstream.json` (re-export or inline).
 3. Hand-author the allowlisted divergent rows.
-4. Extend `parity:api` (or add a `parity:types` step) with a `tsc --noEmit`
+4. Extend `parity:surface` (or add a `parity:types` step) with a `tsc --noEmit`
    type-check of a fixture that imports the public surface, so the `.d.ts` cannot
    silently drift from `index.js`.
 

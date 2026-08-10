@@ -6,7 +6,7 @@ The **Layer 0 API-surface parity check** (`parity/surface/`, added
 alongside this ticket) diffs the upstream `@xyflow/react` public export set
 (extracted via the TypeScript compiler API) against PSFlow's surfaced API
 (`index.js` values + `src/React.purs` type re-exports). Run it with
-`npm run parity:api`; the generated snapshot is
+`npm run parity:surface`; the generated snapshot is
 [`parity/surface/report.md`](../parity/surface/report.md).
 
 Most upstream symbols map cleanly. This ticket tracks the residual **missing
@@ -62,7 +62,7 @@ the divergence (cf. ticket 054's `NoConnection` precedent).
 
 - Each row above is either surfaced (and struck) or converted into a documented
   intentional divergence in the `src/React.purs` header + allowlist.
-- `npm run parity:api` stays green (no un-allowlisted missing exports).
+- `npm run parity:surface` stays green (no un-allowlisted missing exports).
 
 ## Source Files
 

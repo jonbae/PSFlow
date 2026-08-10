@@ -42,6 +42,8 @@ const verdicts = load("verdicts.json");
 // Bucket keys are the gate names, deliberately: a covered bucket says which
 // gate would go red. `smoke` is absent because no in-range PR is covered by
 // `smoke.spec.ts` — add it when one is, rather than carrying an empty bucket.
+// `system`, `gate-pending` and `accepted-ungated` are named in the glossary but
+// not implemented here; adding and validating them is issue #58.
 const BUCKETS = {
   docs: { kind: "covered", label: "Docs / types / tooling only — no runtime behavior" },
   "ts-only": { kind: "covered", label: "TypeScript-only (type signature, generics, inference)" },

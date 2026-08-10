@@ -57,6 +57,12 @@ const FLAT_GATES = {
   "surface-props": "ps",
 };
 
+// The suites a `<suite>:<spec>` token may name. Closed, because the whole
+// point of this ticket is that the retired names must not survive anywhere:
+// without this, `L2:generic-edges.spec.ts` would parse, print, and keep the
+// numbering alive in the register that is supposed to have shed it.
+const SPEC_SUITES = new Set(["conformance", "smoke", "node-props"]);
+
 // A spec enters through the JS surface iff it loads the conformance driver
 // page, which is bundled with `@xyflow/react` aliased to `index.js`. Every
 // other spec loads the compiled `Example.Main` page — the PureScript surface.
@@ -107,15 +113,18 @@ const parseGate = (name, token) => {
     }
     return { suite: token, spec: null, indirect: false, surface };
   }
-  const suite = token.slice(0, colon);
+  const tagged = token.slice(0, colon);
   const spec = token.slice(colon + 1);
-  const indirect = suite.endsWith("-indirect");
-  return {
-    suite: indirect ? suite.slice(0, -"-indirect".length) : suite,
-    spec,
-    indirect,
-    surface: surfaceOfSpec(spec),
-  };
+  const indirect = tagged.endsWith("-indirect");
+  const suite = indirect ? tagged.slice(0, -"-indirect".length) : tagged;
+  if (!SPEC_SUITES.has(suite)) {
+    specErrors.push(
+      `${name}: unknown suite \`${suite}\` in gate \`${token}\` ` +
+        `(known: ${[...SPEC_SUITES].join(", ")})`
+    );
+    return { suite, spec, indirect, surface: null };
+  }
+  return { suite, spec, indirect, surface: surfaceOfSpec(spec) };
 };
 
 // ── Consistency gates ──────────────────────────────────────────────────────
@@ -229,10 +238,10 @@ out.push(`Surface: \`@xyflow/react\` **${upstream.reactVersion}** / \`@xyflow/sy
   `${upstreamNames.length} top-level exports (${upstream.valueExports.length} value + ${upstream.typeExports.length} type), ` +
   "as enumerated by `parity/surface/upstream.json`.");
 out.push("");
-out.push("Every row is covered by surface parity (`npm run parity:surface`) for **name");
-out.push("presence**. The `Gates today` columns list only what reaches further than that,");
-out.push("and a trailing `~` marks a gate that mounts or traverses the export without");
-out.push("asserting anything specific to it — it would not fail if the behaviour diverged.");
+out.push("Surface parity (`npm run parity:surface`) checks **name presence** for every row.");
+out.push("The `Gates today` columns list only what reaches further than that, and a trailing");
+out.push("`~` marks a gate that mounts or traverses the export without asserting anything");
+out.push("specific to it — it would not fail if the behaviour diverged.");
 out.push("");
 out.push("**Gated is always relative to one surface**, so the question is asked twice and");
 out.push("the two counts are never summed. Which column a browser gate lands in is derived,");

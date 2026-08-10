@@ -59,7 +59,7 @@ sequence.
   reach the DOM, and that `dangerouslySetInnerHTML` does not.
 - Consider extending the Layer 0 prop diff to cover the `Node`/`Edge` data
   records, which is what would have caught this mechanically.
-- `npm run parity:api`, `spago test`, `npm run test:smoke` stay green.
+- `npm run parity:surface`, `spago test`, `npm run test:smoke` stay green.
 - PRs #5317 and #5299 flip from `not-ported` to a covered bucket in
   `parity/changelog-audit/verdicts.json`.
 

@@ -62,14 +62,21 @@ _Avoid_: unsupported prop, unimplemented prop, TODO prop
 
 **Gate**:
 Something that goes red. There are five, and each is named for what its red
-means. Never numbered — see *Layer* below.
+means. Never numbered — see *Layer* below. Other things in this repo also go
+red without being one of the five: `parity:boundary`, `parity:changelog`,
+`test:compare`, `test:node-props`, and the **unit tests**. Each entry below
+says where it sits.
 _Avoid_: layer, check, suite (when a gate is meant)
 
 **Parity gate**:
 One of the three gates that compares PSFlow against **executing** upstream, so
 neither side is a hand-authored reading of xyflow: **surface parity**,
 **function parity**, **system parity**. That is what the word `parity` marks in
-a gate name, and it is the sense the common noun *oracle* used to carry.
+a gate name, and it is the sense the common noun *oracle* used to carry. The
+script *prefix* is looser than the term: `parity:boundary` is a staleness check
+over `src/Boundary/` and `parity:changelog` measures what a baseline bump costs,
+and neither is a parity gate. Renaming them was ruled out of scope; read the
+prefix as "lives under `parity/`".
 
 **The delete-`xyflow/` test**:
 What decides membership of the parity gates. Delete the vendored checkout from
@@ -93,10 +100,9 @@ explores inputs no fixture will produce, which is why the net does not subsume
 it.
 _Avoid_: Layer 1, the oracle tests, the numeric gate
 
-**System parity** (`npm run parity:system`):
-The parity gate at the grain of a whole mounted app — the **net**. Does not
-exist yet. The audit bucket named `system` and this gate name coincide
-deliberately.
+**System parity** (`parity:system` — the script does not exist yet):
+The parity gate at the grain of a whole mounted app — the **net**. The audit
+bucket named `system` and this gate name coincide deliberately.
 _Avoid_: Layer 2, the e2e gate
 
 **Conformance test suite** (`npm run test:conformance`):
@@ -110,9 +116,23 @@ _Avoid_: Layer 2, the generic specs, e2e
 **Smoke test suite** (`npm run test:smoke`):
 `smoke.spec.ts`: liveness — the `pageerror` trap and the no-console-errors
 session — plus the hand-authored interaction assertions that have not been
-retired yet. Each doomed test carries a header comment naming the exact
-condition that retires it.
+retired yet. Retirement is recorded **per test**, as a header comment naming
+the exact condition, rather than per file: four of its tests retire on the
+net's `dom` section and `node drag fires onNodesChange` retires on
+`callbacks`, and not before — it is the repo's only callback assertion.
+Writing those comments is part of the retirement work
+([#61](https://github.com/jonbae/PSFlow/issues/61)); the file does not carry
+them yet.
 _Avoid_: Layer 2, the e2e suite
+
+**Outside the scheme**:
+Two browser specs are not gates in the five-gate sense and get their own
+Playwright projects rather than a home inside one. `node-props.spec.ts`
+(`npm run test:node-props`) is a PSFlow-specific guard on the `NodeProps`
+record, and retires when the net's `props` section is green (#61).
+`screenshot.spec.ts` asserts nothing at all and only writes an artifact. The
+census names them as gates on individual rows because *something* would go red;
+neither is one of the five.
 
 **Unit tests**:
 The PSFlow-only modules under `spago test` — `Test.Properties`,
@@ -137,6 +157,7 @@ is the mapping.
 | Layer 2, `smoke.spec.ts` | smoke test suite | `test:smoke` |
 | the net | system parity | `parity:system`, not yet built |
 | audit buckets `layer0` / `layer1` / `layer2` | `surface` / `function` / `conformance` | — |
+| audit bucket `system` | unchanged — it already named the gate | — |
 | census gates `L0` / `L0-props` / `L1` | `surface` / `surface-props` / `function` | — |
 | census gates `L2` / `L2-indirect` | `<suite>:<spec>` / `<suite>-indirect:<spec>` | — |
 

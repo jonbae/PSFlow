@@ -52,7 +52,7 @@ fixtures at all.
 ```sh
 npm run parity:boundary   # boundary module — outbound drift + deferred props refused
 npm run parity:changelog  # 12.3.5→12.11.0 changelog audit; gates on unbucketed PRs
-npm run test:compare      # unit tests for the system-parity comparison core
+npm run test:compare      # node --test over the system-parity comparison core
 ```
 
 `parity:boundary` is two staleness checks over `src/Boundary/`. `drift.mjs`

@@ -49,7 +49,7 @@ single source of truth for "what does this field look like on each side".
   `nodeType` / `edgeType`.
 - The rationale comments in `System/Types/Node.purs` and `System/Types/Edge.purs`
   are updated to describe the marshalling boundary rather than pointing here.
-- `npm run parity:api`, `spago test` and `npm run test:smoke` stay green.
+- `npm run parity:surface`, `spago test` and `npm run test:smoke` stay green.
 
 ## Source files
 

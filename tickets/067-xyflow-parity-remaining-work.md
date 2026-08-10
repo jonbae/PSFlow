@@ -9,7 +9,7 @@ cosmetic completeness, not missing features.**
 
 Evidence of completeness at filing (2026-07-07):
 
-- **Layer 0 (API surface)** — `npm run parity:api` reports *"Missing in PSFlow:
+- **Layer 0 (API surface)** — `npm run parity:surface` reports *"Missing in PSFlow:
   none — full parity"* against 12.11.0. All residual rows are allowlisted
   documented divergences (see [058](058-layer0-api-surface-gaps.md)).
 - **Layer 2 (e2e)** — all 5 upstream specs ported and green: `nodes`, `pane`,
@@ -64,7 +64,7 @@ confidence; it does not add a feature.
 
 ### 4. API-surface cosmetics — [058](058-layer0-api-surface-gaps.md)
 
-Allowlisted, so `parity:api` stays green. Completeness only.
+Allowlisted, so `parity:surface` stays green. Completeness only.
 
 - **Group A (~14 symbols)** exist in the code but are not re-exported through the
   `src/React.purs` barrel (e.g. `NodeProps`, `BackgroundVariant`, `NodeHandle`,
@@ -91,7 +91,7 @@ All 8 members now reach custom node components: `React.Types.Nodes` gained
 `width`/`height`/`parentId`/`selectable`/`deletable`/`draggable` and the
 `xPos`/`yPos` → `positionAbsoluteX`/`positionAbsoluteY` rename, and
 `mkNodeProps` threads them (it already received `selectable`/`draggable` and
-discarded them). `parity:api` reports *NodeProps* 0 missing / 0 extra.
+discarded them). `parity:surface` reports *NodeProps* 0 missing / 0 extra.
 
 Because the Layer 0 prop-member diff is informational rather than a gate — which
 is how this drift survived from 12.3.5 — the fix is guarded by e2e:
@@ -174,7 +174,7 @@ Depends on item 6.
   (item 13). "Parity is gated" is true; "parity is proven" is not.
 - **Bumping the baseline** is now one procedure, documented in the README parity
   section: update `xyflow/`, re-pin the exact devDependencies, rebuild the
-  oracle, then run `parity:api` and `parity:changelog` together. The changelog
+  oracle, then run `parity:surface` and `parity:changelog` together. The changelog
   audit will fail on every PR the bump introduces until each is bucketed.
 
 ## Acceptance criteria
@@ -182,7 +182,7 @@ Depends on item 6.
 - This ticket stays accurate as the parity index: each row is either resolved
   (and struck, with its linked ticket closed) or remains a documented,
   allowlisted divergence.
-- `npm run parity:api` (Layer 0) and `spago test` / `npm run test:smoke` stay
+- `npm run parity:surface` (Layer 0) and `spago test` / `npm run test:smoke` stay
   green as rows are closed.
 
 ## Source files / references

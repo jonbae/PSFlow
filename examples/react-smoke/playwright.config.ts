@@ -1,6 +1,7 @@
 import { defineConfig, devices } from "@playwright/test";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { readdirSync } from "node:fs";
 
 // Resolve to the repo root so the static server serves
 // `node_modules/@xyflow/react/dist/style.css` (referenced by index.html)
@@ -8,6 +9,41 @@ import { fileURLToPath } from "node:url";
 // ESM modules — recover it from `import.meta.url`.
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "..", "..");
+const testDir = path.join(__dirname, "tests");
+
+// One project per suite rather than one `chromium` project, because the specs
+// in this directory are not one gate. `--project` is what the split npm
+// scripts select on.
+const chrome = { ...devices["Desktop Chrome"] };
+const suites = [
+  // The conformance test suite — upstream's own framework-parameterized e2e
+  // specs, ported. `npm run test:conformance`.
+  { name: "conformance", testMatch: /generic-[\w-]+\.spec\.ts$/, use: chrome },
+  // The smoke test suite — liveness plus the hand-authored interaction
+  // assertions that have not been retired yet. `npm run test:smoke`.
+  { name: "smoke", testMatch: /(^|[\\/])smoke\.spec\.ts$/, use: chrome },
+  // Outside the five-gate scheme. `node-props` is a PSFlow-specific guard that
+  // retires when the net's `props` section is green (issue #61);
+  // `screenshot` never was a gate and only writes an artifact.
+  { name: "node-props", testMatch: /node-props\.spec\.ts$/, use: chrome },
+  { name: "screenshot", testMatch: /screenshot\.spec\.ts$/, use: chrome },
+];
+
+// A spec matched by no project silently stops running, and one matched by two
+// runs twice — both of which a green report is indistinguishable from. Neither
+// Playwright nor any other gate would say so, and the split above is exactly
+// the edit that introduces the risk, so it checks itself. This throws before
+// any suite starts, which is the loud failure the alternative lacks.
+for (const spec of readdirSync(testDir).filter((f) => f.endsWith(".spec.ts"))) {
+  const hits = suites.filter((s) => s.testMatch.test(path.join(testDir, spec)));
+  if (hits.length !== 1) {
+    throw new Error(
+      `playwright.config.ts: ${spec} is matched by ${hits.length} projects` +
+        (hits.length ? ` (${hits.map((h) => h.name).join(", ")})` : "") +
+        `; every spec must belong to exactly one.`
+    );
+  }
+}
 
 export default defineConfig({
   testDir: "./tests",
@@ -21,39 +57,7 @@ export default defineConfig({
     trace: "retain-on-failure",
     screenshot: "only-on-failure",
   },
-  // One project per suite rather than one `chromium` project, because the
-  // suites in this directory are not one gate. `--project` is what the split
-  // npm scripts select on; every spec file must be matched by exactly one
-  // project, or it silently stops running.
-  projects: [
-    // The conformance test suite — upstream's own framework-parameterized e2e
-    // specs, ported. `npm run test:conformance`.
-    {
-      name: "conformance",
-      testMatch: /generic-[\w-]+\.spec\.ts$/,
-      use: { ...devices["Desktop Chrome"] },
-    },
-    // The smoke test suite — liveness plus the hand-authored interaction
-    // assertions that have not been retired yet. `npm run test:smoke`.
-    {
-      name: "smoke",
-      testMatch: /(^|[\\/])smoke\.spec\.ts$/,
-      use: { ...devices["Desktop Chrome"] },
-    },
-    // Outside the five-gate scheme. `node-props` is a PSFlow-specific guard
-    // that retires when the net's `props` section is green (issue #61);
-    // `screenshot` never was a gate and only writes an artifact.
-    {
-      name: "node-props",
-      testMatch: /node-props\.spec\.ts$/,
-      use: { ...devices["Desktop Chrome"] },
-    },
-    {
-      name: "screenshot",
-      testMatch: /screenshot\.spec\.ts$/,
-      use: { ...devices["Desktop Chrome"] },
-    },
-  ],
+  projects: suites,
   webServer: {
     command: `npx http-server "${repoRoot}" -p 5173 -c-1 --silent`,
     url: "http://127.0.0.1:5173/examples/react-smoke/index.html",
