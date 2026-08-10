@@ -2,12 +2,12 @@
 
 ## Context
 
-The **Layer 0 API-surface parity check** (`parity/layer0-api/`, added
+The **Layer 0 API-surface parity check** (`parity/surface/`, added
 alongside this ticket) diffs the upstream `@xyflow/react` public export set
 (extracted via the TypeScript compiler API) against PSFlow's surfaced API
 (`index.js` values + `src/React.purs` type re-exports). Run it with
-`npm run parity:api`; the generated snapshot is
-[`parity/layer0-api/report.md`](../parity/layer0-api/report.md).
+`npm run parity:surface`; the generated snapshot is
+[`parity/surface/report.md`](../parity/surface/report.md).
 
 Most upstream symbols map cleanly. This ticket tracks the residual **missing
 in PSFlow** symbols that are *not* intentional modelling divergences (those —
@@ -62,11 +62,11 @@ the divergence (cf. ticket 054's `NoConnection` precedent).
 
 - Each row above is either surfaced (and struck) or converted into a documented
   intentional divergence in the `src/React.purs` header + allowlist.
-- `npm run parity:api` stays green (no un-allowlisted missing exports).
+- `npm run parity:surface` stays green (no un-allowlisted missing exports).
 
 ## Source Files
 
-- [parity/layer0-api/report.md](../parity/layer0-api/report.md) — generated snapshot
-- [parity/layer0-api/allowlist.json](../parity/layer0-api/allowlist.json) — divergence allowlist
+- [parity/surface/report.md](../parity/surface/report.md) — generated snapshot
+- [parity/surface/allowlist.json](../parity/surface/allowlist.json) — divergence allowlist
 - [src/React.purs](../src/React.purs) — the public-API barrel
 - [tickets/054-react-public-api-missing-symbols.md](054-react-public-api-missing-symbols.md) — related surface-gap tracker

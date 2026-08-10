@@ -1,4 +1,4 @@
--- | Bespoke ColorMode example page for the Layer 2 `props.spec` port (ticket
+-- | Bespoke ColorMode example page for the conformance suite's `props.spec` port (ticket
 -- | 065). A **minimal** stand-in for xyflow's `examples/ColorMode` example: a
 -- | stateful flow holding a `ColorMode`, passed to `<ReactFlow colorMode=…>`,
 -- | with a `<Panel top-right>` housing a `<select data-testid="colormode-select">`

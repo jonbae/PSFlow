@@ -1,5 +1,5 @@
-// Layer 0 — PSFlow extractor. No new dependency: PSFlow's surfaced API is
-// already written down in two hand-maintained barrels, so we read those
+// Surface parity — PSFlow extractor. No new dependency: PSFlow's surfaced API
+// is already written down in two hand-maintained barrels, so we read those
 // directly rather than compile PureScript.
 //
 //   * value names  ← `index.js` (the JS surface). It re-exports the compiled
@@ -203,7 +203,7 @@ function recordFields(src, typeName, pursFile) {
   if (!hm) {
     throw new Error(
       `[extract-psflow] record type not found: \`type ${typeName} = { … }\` in ${pursFile}. ` +
-        `If the record was renamed or moved, update parity/layer0-api/prop-types.mjs.`
+        `If the record was renamed or moved, update parity/surface/prop-types.mjs.`
     );
   }
   let i = src.indexOf("{", hm.index + hm[0].length);

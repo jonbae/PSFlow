@@ -68,7 +68,7 @@ structurally identical and likely needs the same fix for `edgeTypes`.
 - The edge path is checked and fixed if it shares the defect.
 - A fixture registering a custom `default` node type, plus a spec asserting an
   unknown-typed node renders it. Reverting the fix fails that spec.
-- `npm run parity:api`, `spago test`, `npm run test:smoke` stay green.
+- `npm run parity:surface`, `spago test`, `npm run test:smoke` stay green.
 - PRs #5384 and #5735 flip from `not-ported` to a covered bucket in
   `parity/changelog-audit/verdicts.json`.
 

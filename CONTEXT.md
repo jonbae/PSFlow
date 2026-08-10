@@ -58,6 +58,160 @@ A prop that resolves on the JS surface but whose converter has not landed. It
 silently ignored would be indistinguishable from a prop the consumer never set.
 _Avoid_: unsupported prop, unimplemented prop, TODO prop
 
+### The gates
+
+**Gate**:
+Something that goes red. There are five, and each is named for what its red
+means. Never numbered — see *Layer* below. Other things in this repo also go
+red without being one of the five: `parity:boundary`, `parity:changelog`,
+`test:compare`, `test:node-props`, and the **unit tests**. Each entry below
+says where it sits.
+_Avoid_: layer, check, suite (when a gate is meant)
+
+**Parity gate**:
+One of the three gates that compares PSFlow against **executing** upstream, so
+neither side is a hand-authored reading of xyflow: **surface parity**,
+**function parity**, **system parity**. That is what the word `parity` marks in
+a gate name, and it is the sense the common noun *oracle* used to carry. The
+script *prefix* is looser than the term: `parity:boundary` is a staleness check
+over `src/Boundary/` and `parity:changelog` measures what a baseline bump costs,
+and neither is a parity gate. Renaming them was ruled out of scope; read the
+prefix as "lives under `parity/`".
+
+**The delete-`xyflow/` test**:
+What decides membership of the parity gates. Delete the vendored checkout from
+the machine: all three become impossible, having nothing left to compare
+against. Conformance and smoke still run and still mean something. The same
+test decides membership inside `spago test` — `Test.Parity.*` imports
+`Test.Oracle` and cannot run without the checkout; the **unit tests** can.
+QuickCheck is *not* the criterion: `Test.System.Utils.Store` runs properties
+with no upstream at all.
+
+**Surface parity** (`npm run parity:surface`):
+The parity gate at the grain of one name: export names and prop members,
+compared against the vendored upstream's TypeScript. Reads `index.js` for
+PSFlow's value names and `src/React.purs` for its type names.
+_Avoid_: Layer 0, the API diff, `parity:api`
+
+**Function parity** (the `Test.Parity.*` modules under `spago test`):
+The parity gate at the grain of one call: a pure function's return value,
+against the `@psflow/oracle` bundle, over QuickCheck-generated inputs. It
+explores inputs no fixture will produce, which is why the net does not subsume
+it.
+_Avoid_: Layer 1, the oracle tests, the numeric gate
+
+**System parity** (`parity:system` — the script does not exist yet):
+The parity gate at the grain of a whole mounted app — the **net**. The audit
+bucket named `system` and this gate name coincide deliberately.
+_Avoid_: Layer 2, the e2e gate
+
+**Conformance test suite** (`npm run test:conformance`):
+The five `generic-*.spec.ts` files: upstream's own framework-parameterized e2e
+specs, ported. Not a coarser rung of the parity ladder but a different
+instrument — it encodes upstream's **asserted intent**, a different source of
+truth from upstream's behaviour, which is why a net covering the same fixtures
+does not retire it.
+_Avoid_: Layer 2, the generic specs, e2e
+
+**Smoke test suite** (`npm run test:smoke`):
+`smoke.spec.ts`: liveness — the `pageerror` trap and the no-console-errors
+session — plus the hand-authored interaction assertions that have not been
+retired yet. Retirement is recorded **per test**, as a header comment naming
+the exact condition, rather than per file: four of its tests retire on the
+net's `dom` section and `node drag fires onNodesChange` retires on
+`callbacks`, and not before — it is the repo's only callback assertion.
+Writing those comments is part of the retirement work
+([#61](https://github.com/jonbae/PSFlow/issues/61)); the file does not carry
+them yet.
+_Avoid_: Layer 2, the e2e suite
+
+**Outside the scheme**:
+Two browser specs are not gates in the five-gate sense and get their own
+Playwright projects rather than a home inside one. `node-props.spec.ts`
+(`npm run test:node-props`) is a PSFlow-specific guard on the `NodeProps`
+record, and retires when the net's `props` section is green (#61).
+`screenshot.spec.ts` asserts nothing at all and only writes an artifact. The
+census names them as gates on individual rows because *something* would go red;
+neither is one of the five.
+
+**Unit tests**:
+The PSFlow-only modules under `spago test` — `Test.Properties`,
+`Test.System.Utils.Store`, `Test.React.Store.Reduce`,
+`Test.React.Hook.VisibleIds`, and `Test.Main`'s inline assertions. Recorded
+explicitly as **outside the gate scheme**: they prove PSFlow's internals are
+self-consistent, which is a different claim from "PSFlow matches xyflow".
+_Avoid_: the test suite, the PureScript tests
+
+**Layer**:
+Retired. The numbering encoded concentric containment (Layer 2 ⊃ Layer 1 ⊃
+Layer 0) that the census disproved — function parity proves 26 exports system
+parity never observes — and it collapsed two different orderings, granularity
+and cost, onto one axis. Closed tickets keep their original wording; this table
+is the mapping.
+
+| was | is | script |
+|---|---|---|
+| Layer 0 | surface parity | `parity:api` → `parity:surface` |
+| Layer 1 (`Test.Parity.*` only) | function parity | `spago test`, unchanged |
+| Layer 2, the five `generic-*` specs | conformance test suite | `test:smoke` → `test:conformance` |
+| Layer 2, `smoke.spec.ts` | smoke test suite | `test:smoke` |
+| the net | system parity | `parity:system`, not yet built |
+| audit buckets `layer0` / `layer1` / `layer2` | `surface` / `function` / `conformance` | — |
+| audit bucket `system` | unchanged — it already named the gate | — |
+| census gates `L0` / `L0-props` / `L1` | `surface` / `surface-props` / `function` | — |
+| census gates `L2` / `L2-indirect` | `<suite>:<spec>` / `<suite>-indirect:<spec>` | — |
+
+`build:oracle` is unchanged and `@psflow/oracle` stays a proper noun: renaming
+the package would churn FFI imports for no clarity gain.
+
+**Stage**:
+A step of the boundary staging (1–4), counted in **converters**. Orthogonal to
+gates, not a synonym: a stage says how much of the surface has **crossed**, a
+gate says what would go red. Stages 2–4 deliberately open a
+crossed-but-ungated window, and saying "stage" where "layer" used to appear
+does not fix anything.
+_Avoid_: layer, phase, tier
+
+### Baselines and upstream
+
+**Baseline** / **parity baseline**:
+The vendored `xyflow/` checkout plus the exact-pinned `@xyflow/*`
+devDependencies. Unqualified "baseline" always means this one. Bumping it is
+the atomic procedure in README.
+_Avoid_: the vendored tree (when the pin is also meant), the pin
+
+**Trace baseline**:
+The persisted recorded values a system-parity run diffs against. Always
+written in full — never bare "baseline". Both baselines get bumped, both get
+re-recorded, and both **fail stale**; they are otherwise unrelated.
+_Avoid_: baseline, golden, snapshot
+
+**Upstream**:
+Four senses, and a sentence must make clear which. Conflating them is how the
+dual-run spike came to measure the published build against source-derived
+findings without anyone noticing.
+
+| sense | is | who reads it |
+|---|---|---|
+| vendored source | the `xyflow/` checkout | all three parity gates |
+| published build | `node_modules/@xyflow/*` | nothing — a version pin the repo must not import |
+| running behaviour | the vendored source, mounted and driven | system parity |
+| asserted intent | `xyflow/examples/react/src/generic-tests/` | the conformance test suite |
+
+**System parity runs vendored source**, which is what keeps all three parity
+gates on one artifact with one bump procedure.
+
+**Oracle**:
+Not a common noun. `@psflow/oracle` is the bundle — a proper noun, and the
+`build:oracle` script's object; "the oracle bundle" and "the oracle's shape"
+refer to it and are fine. "Differential oracle" is the technique. What is
+dropped is the **role**-sense — *the thing whose answer is taken as correct* —
+which is now carried by **parity**, said explicitly by three gate names.
+Without that written down, the next reader sees two suites over one fixture set
+and deletes one.
+_Avoid_: the oracle gate, oracle tests, oracled (as a verb for "gated by
+function parity")
+
 ### The changelog audit
 
 **Row**:
@@ -76,7 +230,10 @@ _Avoid_: census row, coverage row
 The label a row carries, naming what proves that behavior — or, for the ungated
 buckets, what does not. Every bucket is one of three kinds: **covered**, which
 must cite evidence; **gap**, which must name a ticket or a plan; and
-**accepted**, which must give a reason.
+**accepted**, which must give a reason. A covered bucket that names a gate uses
+the gate's own name — `surface`, `function`, `conformance`, `system` — because
+the bucket key and the gate name are deliberately the same word. The remaining
+covered buckets (`docs`, `ts-only`, `unit`) name something other than a gate.
 _Avoid_: verdict, status, category
 
 **Ported-ungated**:
@@ -99,7 +256,8 @@ A gap bucket: the behavior is absent from PSFlow, wholly or in the part that
 matters.
 
 **System**:
-A covered bucket: the dual-run net proves the behavior. Cites the test.
+A covered bucket: the dual-run net proves the behavior. Cites the test. Same
+word as the **system parity** gate, on purpose.
 
 ### The dual-run net
 
@@ -160,8 +318,11 @@ _Avoid_: stimulus, input, actions
 **Probe**:
 A component that renders nothing and exists only to report what hooks return and
 what props it was handed. A node-level probe replaces a node type rather than
-wrapping it.
-_Avoid_: spy, instrument, shim
+wrapping it. In parity prose a bare "probe" is always this component — never the
+throwaway investigative script the hole-driven-development agents run to falsify
+an assumption about the domain, which is a **scratch script** and lives in
+`.hdd/scratch/`, not in the repo.
+_Avoid_: spy, instrument, shim; and "probe" for a one-off investigative script
 
 **Falsification probe**:
 Always written in full, because a bare "probe" is the component above. A check
@@ -193,6 +354,14 @@ one. The register is `parity/system/regions.json`; surface parity's allowlist is
 the same concept with a second implementation, and the stale rule applies to it
 too.
 _Avoid_: waiver, exception, allowlist entry (when a region is meant)
+
+**Allowlist**:
+The second implementation of **Region**, in `parity/surface/allowlist.json`:
+one concept, two files, because both turn a known difference from a failure
+into a recorded, reviewed fact so that red stays reserved for what is new. Say
+which one is meant — an allowlist entry is not a region. The stale rule holds
+on both: an entry that no longer corresponds to a real difference fails.
+_Avoid_: region (when the surface-parity file is meant), waiver, exception
 
 **Claimed**:
 Of a difference: some region's pattern covers it, so it is someone's stated

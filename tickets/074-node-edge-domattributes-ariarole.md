@@ -31,7 +31,7 @@ These do not appear in the Layer 0 prop diff because they live on the `Node` /
 `Edge` data records, which that diff does not compare — it covers
 `ReactFlowProps`, `NodeProps` and `EdgeProps` only. Worth noting as a real
 blind spot in the current gate, distinct from the name-only limit already
-documented in `parity/layer0-api/report.md`.
+documented in `parity/surface/report.md`.
 
 ## Related
 
@@ -59,7 +59,7 @@ sequence.
   reach the DOM, and that `dangerouslySetInnerHTML` does not.
 - Consider extending the Layer 0 prop diff to cover the `Node`/`Edge` data
   records, which is what would have caught this mechanically.
-- `npm run parity:api`, `spago test`, `npm run test:smoke` stay green.
+- `npm run parity:surface`, `spago test`, `npm run test:smoke` stay green.
 - PRs #5317 and #5299 flip from `not-ported` to a covered bucket in
   `parity/changelog-audit/verdicts.json`.
 
@@ -67,4 +67,4 @@ sequence.
 
 - `src/System/Types/Node.purs`, `src/System/Types/Edge.purs`
 - `src/React/Component/NodeWrapper.purs:33`, `src/React/Component/EdgeWrapper.purs:27`
-- `parity/layer0-api/prop-types.mjs` — where data-record coverage would be added
+- `parity/surface/prop-types.mjs` — where data-record coverage would be added

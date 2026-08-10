@@ -1,4 +1,4 @@
-// Adopted from xyflow/tests/playwright/e2e/node-toolbar.spec.ts (Layer 2 parity).
+// Adopted from xyflow/tests/playwright/e2e/node-toolbar.spec.ts (the conformance test suite).
 // Faithful copy of upstream's framework-parameterized e2e suite; the ONLY
 // changes are the infrastructure bits that differ for PSFlow:
 //   1. FRAMEWORK is hard-set to 'react' (upstream reads process.env.FRAMEWORK).

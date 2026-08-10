@@ -10,8 +10,10 @@
   "scripts": {
     "build:smoke": "spago build && esbuild examples/react-smoke/src/entry.js --bundle --format=esm --platform=browser --outfile=examples/react-smoke/dist/example.js",
     "build:driver": "spago build && node parity/driver/build.mjs",
-    "test:smoke": "playwright test --config examples/react-smoke/playwright.config.ts",
-    "parity:api": "node parity/layer0-api/extract-upstream.ts && node parity/layer0-api/extract-psflow.mjs && node parity/layer0-api/diff.mjs",
+    "test:conformance": "playwright test --config examples/react-smoke/playwright.config.ts --project=conformance",
+    "test:smoke": "playwright test --config examples/react-smoke/playwright.config.ts --project=smoke",
+    "test:node-props": "playwright test --config examples/react-smoke/playwright.config.ts --project=node-props",
+    "parity:surface": "node parity/surface/extract-upstream.ts && node parity/surface/extract-psflow.mjs && node parity/surface/diff.mjs",
     "parity:boundary": "node parity/boundary/drift.mjs && node parity/boundary/mount.mjs",
     "parity:changelog": "node parity/changelog-audit/extract-entries.mjs && node parity/changelog-audit/audit.mjs",
     "test:compare": "node --test \"parity/system/**/*.test.mjs\"",

@@ -29,7 +29,7 @@ gate, not the sweep:
 
 - `npm run parity:changelog` fails on any in-range PR without a verdict, and on
   any covered verdict without evidence. This is what catches the *next* bump.
-- `npm run parity:api` now **gates** prop-member divergence instead of printing
+- `npm run parity:surface` now **gates** prop-member divergence instead of printing
   it. That printing-not-failing behavior is precisely how the `xPos`/`yPos`
   rename survived from 12.3.5 to 12.11.0 for months
   ([069](069-nodeprops-prop-member-gap.md)).
@@ -73,7 +73,7 @@ PSFlow was originally ported against `@xyflow/react@^12.3.5`. The current parity
 gates pin the surface and numeric behavior much closer to head than that floor
 suggests:
 
-- **Export surface** — `parity:api` verified against the vendored **12.11.0**
+- **Export surface** — `parity:surface` verified against the vendored **12.11.0**
   (0 missing).
 - **Numeric behavior** — the Layer 1 differential property tests run against the
   **vendored** `@xyflow/react` **12.11.0** / `@xyflow/system` **0.0.77**, not the
@@ -125,7 +125,7 @@ sweep for the rest.
 
 ## Source Files
 
-- [parity/layer0-api/report.md](../parity/layer0-api/report.md) — surface +
+- [parity/surface/report.md](../parity/surface/report.md) — surface +
   prop-member baseline (notes the 12.3.5 origin)
 - [059](059-layer1-behavioral-parity-coverage.md) — what Layer 1 does/doesn't
   cover (bucket (a))

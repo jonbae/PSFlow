@@ -67,7 +67,7 @@ fixture + spec to be gated at all.
 - Extent clamping applies during resize (#5784).
 - A Layer 2 spec drives a real resize and asserts the emitted dimensions;
   reverting the `resizeDetected` guard fails it.
-- `npm run parity:api`, `spago test`, `npm run test:smoke` stay green.
+- `npm run parity:surface`, `spago test`, `npm run test:smoke` stay green.
 - The five rows above flip from `not-ported` to a covered bucket in
   `parity/changelog-audit/verdicts.json`.
 

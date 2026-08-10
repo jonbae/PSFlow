@@ -4,9 +4,12 @@
 // framework-parameterized e2e suite), this spec exists only to pin the
 // `NodeProps` record PSFlow hands to a user's custom node component. Ticket 069
 // added `width`/`height`/`parentId`/`selectable`/`deletable`/`draggable` and
-// renamed `xPos`/`yPos` → `positionAbsoluteX`/`positionAbsoluteY`; the Layer 0
-// prop-member diff that caught the gap is informational, not a gate, which is
-// how the drift survived from 12.3.5 in the first place. This is the gate.
+// renamed `xPos`/`yPos` → `positionAbsoluteX`/`positionAbsoluteY`; the
+// surface-parity prop-member diff that caught the gap was informational, not a
+// gate, which is how the drift survived from 12.3.5 in the first place. This is
+// the gate. It sits outside the five-gate scheme and retires when the net's
+// `props` section is green ([#61](https://github.com/jonbae/PSFlow/issues/61));
+// `npm run test:node-props` is its runner.
 //
 // The page (`Example.NodePropsProbe`, route `#/examples/node-props`) renders each
 // of those fields as a `data-*` attribute on a `.node-props-probe` div. The

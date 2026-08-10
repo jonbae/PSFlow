@@ -12,8 +12,8 @@ largest remaining item for literal drop-in consumption; it is purely additive
 ## Leverage
 
 Layer 0 already **guarantees the export-name set matches upstream by
-construction** (`npm run parity:api` → 0 missing), and the extractor emits the
-full upstream type inventory: `parity/layer0-api/upstream.json` holds all 142
+construction** (`npm run parity:surface` → 0 missing), and the extractor emits the
+full upstream type inventory: `parity/surface/upstream.json` holds all 142
 type exports + prop members, pulled via the TS compiler API from the vendored
 `@xyflow/react` 12.11.0 / `@xyflow/system` 0.0.77.
 
@@ -23,7 +23,7 @@ So the surface splits cleanly:
   `.d.ts` types under the PSFlow export names. Names line up because Layer 0
   enforces it.
 - **PS-idiom divergences (~35 rows, the allowlist in
-  `parity/layer0-api/allowlist.json`)** — hand-author these; a blind copy of
+  `parity/surface/allowlist.json`)** — hand-author these; a blind copy of
   upstream's `.d.ts` would **over-promise**. Key cases:
   - `NodeChange` / `EdgeChange` are single ADTs in PS, not N standalone change
     types (`NodeAddChange`, `EdgeRemoveChange`, …). Model as a discriminated
@@ -39,7 +39,7 @@ So the surface splits cleanly:
 1. Add a `types/ps-flow.d.ts`, point `package.json#types` at it.
 2. Generate the identical-surface rows from `upstream.json` (re-export or inline).
 3. Hand-author the allowlisted divergent rows.
-4. Extend `parity:api` (or add a `parity:types` step) with a `tsc --noEmit`
+4. Extend `parity:surface` (or add a `parity:types` step) with a `tsc --noEmit`
    type-check of a fixture that imports the public surface, so the `.d.ts` cannot
    silently drift from `index.js`.
 
@@ -59,8 +59,8 @@ wrong shape.
 ## Source Files
 
 - [index.js](../index.js) — the value surface the `.d.ts` must mirror
-- [parity/layer0-api/upstream.json] — extracted upstream type inventory (generated)
-- [parity/layer0-api/allowlist.json](../parity/layer0-api/allowlist.json) — the
+- [parity/surface/upstream.json] — extracted upstream type inventory (generated)
+- [parity/surface/allowlist.json](../parity/surface/allowlist.json) — the
   divergent rows to hand-author
 - [src/React.purs](../src/React.purs) — PS-side type re-export barrel / divergence
   header

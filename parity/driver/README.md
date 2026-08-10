@@ -5,9 +5,8 @@ in PSFlow's tree, and it is bundled twice: the two bundles differ in exactly
 one thing, what `@xyflow/react` resolves to. A driver difference can therefore
 never be mistaken for a library difference.
 
-Vocabulary is `CONTEXT.md`; **driver** and **fixture** are defined there. The
-gate names below are not — the ladder is still numbered in the glossary, and
-renaming it is [gate vocabulary #31](https://github.com/jonbae/PSFlow/issues/31).
+Vocabulary is `CONTEXT.md`; **driver**, **fixture** and the gate names below are
+all defined there.
 
 | | |
 |---|---|
