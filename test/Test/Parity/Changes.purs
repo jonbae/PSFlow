@@ -22,6 +22,7 @@ import Data.Array (mapWithIndex) as Array
 import Data.Array.NonEmpty as NEA
 import Data.Int (toNumber) as Int
 import Data.Maybe (Maybe(..))
+import Data.Newtype (unwrap)
 import Data.Nullable (toMaybe, toNullable)
 import Effect (Effect)
 import Effect.Class.Console (log)
@@ -32,15 +33,13 @@ import System.Types.Ids (NodeId(..))
 import System.Types.Node (NodeBase, NodeChange(..))
 import Test.Oracle (OracleChangeEdge, OracleChangeNode, OracleEdgeChange, OracleNodeChange)
 import Test.Oracle (applyEdgeChanges, applyNodeChanges, setAttributesArg) as Oracle
-import Test.Parity.Fixtures (mkEdge, mkNode)
-import Test.Parity.Util (falsify, strSeqMatch)
+import Test.Parity.Builders (mkEdge, mkNode)
+import Test.Parity.Util (expectGreen, falsify, strSeqMatch)
+import Test.Properties (coin)
 import Test.QuickCheck (Result, quickCheck)
 import Test.QuickCheck.Gen (Gen, chooseInt, elements, vectorOf)
 
 -- ─── Nodes ────────────────────────────────────────────────────────────────
-
-unId :: NodeId -> String
-unId (NodeId s) = s
 
 -- | The node fields `applyChange` writes, plus the id it dispatches on. The
 -- | oracle's `OracleChangeNode` names the same set, so it doubles as the
@@ -60,7 +59,7 @@ toPSNode s = (mkNode s.id)
 
 psNodeShape :: NodeBase Unit -> OracleChangeNode
 psNodeShape n =
-  { id: unId n.id
+  { id: unwrap n.id
   , position: n.position
   , selected: n.selected
   , dragging: n.dragging
@@ -104,29 +103,29 @@ emptyNodeChange =
 toOracleNodeChange :: NodeChange Unit -> OracleNodeChange
 toOracleNodeChange = case _ of
   NodeSelectionChange c ->
-    emptyNodeChange { tag = "select", id = unId c.id, selected = c.selected }
+    emptyNodeChange { tag = "select", id = unwrap c.id, selected = c.selected }
   NodePositionChange c -> emptyNodeChange
     { tag = "position"
-    , id = unId c.id
+    , id = unwrap c.id
     , position = toNullable c.position
     , dragging = c.dragging
     }
   NodeDimensionChange c -> emptyNodeChange
     { tag = "dimensions"
-    , id = unId c.id
+    , id = unwrap c.id
     , dimensions = toNullable c.dimensions
     , setAttributes = Oracle.setAttributesArg c.setAttributes
     , resizing = c.resizing
     }
-  NodeRemoveChange c -> emptyNodeChange { tag = "remove", id = unId c.id }
+  NodeRemoveChange c -> emptyNodeChange { tag = "remove", id = unwrap c.id }
   NodeReplaceChange c -> emptyNodeChange
     { tag = "replace"
-    , id = unId c.id
+    , id = unwrap c.id
     , item = toNullable (Just (psNodeShape c.item))
     }
   NodeAddChange c -> emptyNodeChange
     { tag = "add"
-    , id = unId c.item.id
+    , id = unwrap c.item.id
     , item = toNullable (Just (psNodeShape c.item))
     , index = toNullable c.index
     }
@@ -172,9 +171,6 @@ toOracleEdgeChange = case _ of
 -- | only that both sides can copy an array.
 idPool :: Gen String
 idPool = elements (NEA.cons' "a" [ "b", "c" ])
-
-coin :: Gen Boolean
-coin = elements (NEA.cons' true [ false ])
 
 genCoord :: Gen Number
 genCoord = Int.toNumber <$> chooseInt (-200) 200
@@ -283,12 +279,13 @@ genNodeChange nodes = do
       index <- genIndex
       pure (NodeAddChange { item: toPSNode item, index })
 
--- | `add` with an index splices; without one it appends. Indices reach past
--- | the end of a three-element array, where `splice` clamps.
+-- | `add` with an index splices; without one it appends. The range reaches
+-- | past the end of a three-element array and below zero, the two directions
+-- | `splice` clamps in — a JS consumer can hand either through the boundary.
 genIndex :: Gen (Maybe Int)
 genIndex = do
   present <- coin
-  if present then Just <$> chooseInt 0 4 else pure Nothing
+  if present then Just <$> chooseInt (-2) 4 else pure Nothing
 
 genNodeChanges :: Array OracleChangeNode -> Gen (Array (NodeChange Unit))
 genNodeChanges nodes = do
@@ -393,6 +390,54 @@ runChangesParity :: Effect Unit
 runChangesParity = do
   log "running change-application parity properties (PSFlow vs live XYFlow)..."
 
+  -- The two divergences the properties below found, pinned — and run ahead of
+  -- them, because a named deterministic case says which behaviour broke where a
+  -- random abort only says that something did. Both need a particular change
+  -- *sequence* against a particular id, which the generator reaches only
+  -- occasionally, so a fix that rotted back out would otherwise show up as an
+  -- intermittent red rather than a standing one.
+  expectGreen "applyNodeChanges: a change queued behind a replace is dropped"
+    ( let
+        nodes = [ plainNode "n0" ]
+        replacement = (plainNode "n0") { position = { x: 7.0, y: 9.0 } }
+        changes =
+          [ NodeReplaceChange { id: NodeId "n0", item: toPSNode replacement }
+          , NodeSelectionChange { id: NodeId "n0", selected: true }
+          ]
+        carried = map toOracleNodeChange changes
+      in
+        nodesMatch "applyNodeChanges over [replace, select]" carried
+          (PS.applyNodeChanges changes (map toPSNode nodes))
+          (Oracle.applyNodeChanges carried nodes)
+    )
+
+  expectGreen "applyNodeChanges: an add change lands at its index"
+    ( let
+        nodes = [ plainNode "n0", plainNode "n1" ]
+        changes = [ NodeAddChange { item: toPSNode (plainNode "n2"), index: Just 1 } ]
+        carried = map toOracleNodeChange changes
+      in
+        nodesMatch "applyNodeChanges over [add at 1]" carried
+          (PS.applyNodeChanges changes (map toPSNode nodes))
+          (Oracle.applyNodeChanges carried nodes)
+    )
+
+  expectGreen "applyEdgeChanges: the same two, on the edge side"
+    ( let
+        edges = [ plainEdge "e0", plainEdge "e1" ]
+        changes =
+          [ EdgeReplaceChange
+              { id: "e0", item: toPSEdge ((plainEdge "e0") { animated = true }) }
+          , EdgeSelectionChange { id: "e0", selected: true }
+          , EdgeAddChange { item: toPSEdge (plainEdge "e2"), index: Just 0 }
+          ]
+        carried = map toOracleEdgeChange changes
+      in
+        edgesMatch "applyEdgeChanges over [replace, select, add at 0]" carried
+          (PS.applyEdgeChanges changes (map toPSEdge edges))
+          (Oracle.applyEdgeChanges carried edges)
+    )
+
   quickCheck do
     nodes <- genNodes
     changes <- genNodeChanges nodes
@@ -419,7 +464,7 @@ runChangesParity = do
         nodes = [ plainNode "n0" ]
         select v = [ NodeSelectionChange { id: NodeId "n0", selected: v } ]
       in
-        nodesMatch "applyNodeChanges probe" (map toOracleNodeChange (select false))
+        nodesMatch "applyNodeChanges falsification probe" (map toOracleNodeChange (select false))
           (PS.applyNodeChanges (select true) (map toPSNode nodes))
           (Oracle.applyNodeChanges (map toOracleNodeChange (select false)) nodes)
     )
@@ -429,7 +474,7 @@ runChangesParity = do
         nodes = [ plainNode "n0" ]
         add = [ NodeAddChange { item: toPSNode (plainNode "n1"), index: Nothing } ]
       in
-        nodesMatch "applyNodeChanges probe" (map toOracleNodeChange add)
+        nodesMatch "applyNodeChanges falsification probe" (map toOracleNodeChange add)
           (PS.applyNodeChanges [] (map toPSNode nodes))
           (Oracle.applyNodeChanges (map toOracleNodeChange add) nodes)
     )
@@ -440,7 +485,7 @@ runChangesParity = do
         select = [ EdgeSelectionChange { id: "e0", selected: true } ]
         remove = [ EdgeRemoveChange { id: "e0" } ]
       in
-        edgesMatch "applyEdgeChanges probe" (map toOracleEdgeChange remove)
+        edgesMatch "applyEdgeChanges falsification probe" (map toOracleEdgeChange remove)
           (PS.applyEdgeChanges select (map toPSEdge edges))
           (Oracle.applyEdgeChanges (map toOracleEdgeChange remove) edges)
     )

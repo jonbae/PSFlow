@@ -21,6 +21,7 @@ import Data.Array (catMaybes, filterA, mapWithIndex) as Array
 import Data.Array.NonEmpty as NEA
 import Data.Int (toNumber) as Int
 import Data.Maybe (Maybe(..))
+import Data.Newtype (unwrap)
 import Data.Nullable (toNullable)
 import Data.Tuple (Tuple(..))
 import Effect (Effect)
@@ -35,16 +36,13 @@ import System.Types.Node (NodeBase)
 import System.Utils.Graph (getConnectedEdges, getIncomers, getNodesBounds, getOutgoers) as PS
 import Test.Oracle (OracleBoundsNode, OracleEdge, OracleNode)
 import Test.Oracle (getConnectedEdges, getIncomers, getNodesBounds, getOutgoers, isEdge, isNode) as Oracle
-import Test.Parity.Fixtures (mkEdge, mkNode)
+import Test.Parity.Builders (mkEdge, mkNode)
 import Test.Parity.Util (allGreen, expectGreen, falsify, rectMatch, strArrayMatch)
-import Test.Properties (genFiniteNumber)
+import Test.Properties (coin, genFiniteNumber)
 import Test.QuickCheck (Result, quickCheck, (<?>))
 import Test.QuickCheck.Gen (Gen, chooseInt, elements, vectorOf)
 
--- ─── Fixtures ─────────────────────────────────────────────────────────────
-
-unId :: NodeId -> String
-unId (NodeId s) = s
+-- ─── Traversal ────────────────────────────────────────────────────────────
 
 toPSNodes :: Array String -> Array (NodeBase Unit)
 toPSNodes = map mkNode
@@ -62,9 +60,6 @@ pool = [ "a", "b", "c", "d" ]
 
 poolElem :: Gen String
 poolElem = elements (NEA.cons' "a" [ "b", "c", "d" ])
-
-coin :: Gen Boolean
-coin = elements (NEA.cons' true [ false ])
 
 -- | A unique subset of the id pool (distinct nodes — no duplicate ids).
 genNodeSubset :: Gen (Array String)
@@ -129,8 +124,10 @@ genDimension = Int.toNumber <$> chooseInt 0 400
 -- | Absent about a third of the time, so every rung of upstream's
 -- | `measured ?? width ?? initialWidth ?? 0` fallback is reached — including
 -- | the bottom one, where a node contributes a zero-size box at its position.
-genMaybeDimension :: Gen (Maybe Number)
-genMaybeDimension = do
+-- | Deliberately more often absent than a fair coin: three independent fair
+-- | draws would leave the bottom rung at one node in eight.
+genFallbackDimension :: Gen (Maybe Number)
+genFallbackDimension = do
   present <- elements (NEA.cons' true [ true, false ])
   if present then Just <$> genDimension else pure Nothing
 
@@ -146,12 +143,12 @@ genBoundsNodeSpec :: Gen BoundsNodeSpec
 genBoundsNodeSpec = do
   x <- genFiniteNumber
   y <- genFiniteNumber
-  width <- genMaybeDimension
-  height <- genMaybeDimension
-  initialWidth <- genMaybeDimension
-  initialHeight <- genMaybeDimension
-  measuredWidth <- genMaybeDimension
-  measuredHeight <- genMaybeDimension
+  width <- genFallbackDimension
+  height <- genFallbackDimension
+  initialWidth <- genFallbackDimension
+  initialHeight <- genFallbackDimension
+  measuredWidth <- genFallbackDimension
+  measuredHeight <- genFallbackDimension
   -- A per-node origin overrides the shared one; most nodes leave it unset.
   overrides <- elements (NEA.cons' false [ false, true ])
   origin <- if overrides then Just <$> genOrigin else pure Nothing
@@ -209,19 +206,24 @@ candidate keys = unsafeToForeign (FO.fromFoldable (Array.catMaybes entries))
     , entry keys.target "target" (unsafeToForeign "b")
     ]
 
-guardsMatch :: KeySet -> Result
-guardsMatch keys =
+-- | Takes a key set *per side* so the falsification probe can drive this same
+-- | comparator with two different candidates. A probe that hand-rolled its own
+-- | conjunction would leave the one thing it exists to exclude — this function
+-- | wired to the wrong export, or comparing a side against itself —
+-- | undemonstrated.
+guardsMatch :: KeySet -> KeySet -> Result
+guardsMatch psKeys xyKeys =
   let
-    el = candidate keys
-    psNode = PS.isNode el
-    psEdge = PS.isEdge el
-    xyNode = Oracle.isNode el
-    xyEdge = Oracle.isEdge el
+    psNode = PS.isNode (candidate psKeys)
+    psEdge = PS.isEdge (candidate psKeys)
+    xyNode = Oracle.isNode (candidate xyKeys)
+    xyEdge = Oracle.isEdge (candidate xyKeys)
   in
     (psNode == xyNode && psEdge == xyEdge) <?>
-      ( "shape guards on keys " <> show keys
-          <> "\n  PSFlow: isNode=" <> show psNode <> " isEdge=" <> show psEdge
-          <> "\n  XYFlow: isNode=" <> show xyNode <> " isEdge=" <> show xyEdge
+      ( "shape guards\n  PSFlow on keys " <> show psKeys
+          <> ": isNode=" <> show psNode <> " isEdge=" <> show psEdge
+          <> "\n  XYFlow on keys " <> show xyKeys
+          <> ": isNode=" <> show xyNode <> " isEdge=" <> show xyEdge
       )
 
 runGraphParity :: Effect Unit
@@ -233,7 +235,7 @@ runGraphParity = do
     edges <- genEdges
     target <- poolElem
     let
-      ps = map (unId <<< _.id)
+      ps = map (unwrap <<< _.id)
         (PS.getOutgoers { id: NodeId target } (toPSNodes nodeIds) (toPSEdges edges))
       xy = Oracle.getOutgoers { id: target } (toONodes nodeIds) edges
     pure (strArrayMatch "getOutgoers" ps xy)
@@ -243,7 +245,7 @@ runGraphParity = do
     edges <- genEdges
     target <- poolElem
     let
-      ps = map (unId <<< _.id)
+      ps = map (unwrap <<< _.id)
         (PS.getIncomers { id: NodeId target } (toPSNodes nodeIds) (toPSEdges edges))
       xy = Oracle.getIncomers { id: target } (toONodes nodeIds) edges
     pure (strArrayMatch "getIncomers" ps xy)
@@ -270,7 +272,7 @@ runGraphParity = do
     pure (rectMatch "getNodesBounds" ps xy)
 
   expectGreen "isNode / isEdge agree across all 16 key combinations"
-    (allGreen (map guardsMatch allKeySets))
+    (allGreen (map (\keys -> guardsMatch keys keys) allKeySets))
 
   -- Falsification probes.
   falsify "getNodesBounds: XYFlow given a centre origin, PSFlow a corner one"
@@ -279,7 +281,7 @@ runGraphParity = do
         corner = NodeOrigin { ox: 0.0, oy: 0.0 }
         centre = NodeOrigin { ox: 0.5, oy: 0.5 }
       in
-        rectMatch "getNodesBounds probe"
+        rectMatch "getNodesBounds falsification probe"
           (PS.getNodesBounds (map toPSBoundsNode specs) Nothing corner)
           (Oracle.getNodesBounds (map toOracleBoundsNode specs) centre)
     )
@@ -292,21 +294,18 @@ runGraphParity = do
           ]
         origin = NodeOrigin { ox: 0.0, oy: 0.0 }
       in
-        rectMatch "getNodesBounds probe"
+        rectMatch "getNodesBounds falsification probe"
           (PS.getNodesBounds (map toPSBoundsNode specs) Nothing origin)
           (Oracle.getNodesBounds (map toOracleBoundsNode [ boundsSpec "n0" 0.0 0.0 10.0 10.0 ]) origin)
     )
 
-  -- The guards return a `Boolean`, so a probe cannot perturb magnitudes — it
-  -- has to hand the two sides different objects. A node shape against an edge
-  -- shape is the pair whose four answers all disagree.
+  -- The guards return a `Boolean`, so nothing can be perturbed by a margin —
+  -- the two sides have to be handed different objects. A node shape against an
+  -- edge shape is the pair whose four answers all disagree.
   falsify "isNode / isEdge: XYFlow given an edge where PSFlow got a node"
-    ( let
-        node = candidate { id: true, position: true, source: false, target: false }
-        edge = candidate { id: true, position: false, source: true, target: true }
-      in
-        (PS.isNode node == Oracle.isNode edge && PS.isEdge node == Oracle.isEdge edge) <?>
-          "isNode / isEdge probe: a node and an edge compared equal"
+    ( guardsMatch
+        { id: true, position: true, source: false, target: false }
+        { id: true, position: false, source: true, target: true }
     )
 
   log "graph parity passed"

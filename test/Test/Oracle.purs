@@ -478,8 +478,8 @@ isEdge = isEdgeImpl
 -- ─── Edge list mutation ───────────────────────────────────────────────────
 
 -- | Upstream's `EdgeBase` as far as `addEdge` / `reconnectEdge` read it, plus
--- | `animated` — a field neither function touches, carried so the property can
--- | witness that the rest of the edge survives the rebuild.
+-- | `animated` — a field neither function touches, carried so a rebuild that
+-- | dropped the rest of the edge would show up in the comparison.
 type OracleEdgeShape =
   { id :: String
   , source :: String

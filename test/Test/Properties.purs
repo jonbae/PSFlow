@@ -5,6 +5,7 @@
 -- | refactored. Run via `Test.Main` after the hand-written assertion list.
 module Test.Properties
   ( runProperties
+  , coin
   , genFiniteNumber
   , genNonNegNumber
   , genRect
@@ -52,6 +53,11 @@ import System.Utils.General
   , snapPosition
   )
 import System.Utils.Graph (calculateNodePosition)
+
+-- | An even `Boolean`. Named for the coin rather than for any one field, since
+-- | every caller wants the same fair draw under a different name.
+coin :: Gen Boolean
+coin = elements (NEA.cons' true [ false ])
 
 -- | A finite `Number` generator. The default `Arbitrary Number` returns
 -- | values from `uniform` in `[0, 1]`, which is too narrow for the geometric

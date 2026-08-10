@@ -176,8 +176,8 @@ const edgeOut = (e) => ({
   // deleted and null alike as `Nothing`, which is what PSFlow's `Maybe` holds.
   sourceHandle: e.sourceHandle ?? null,
   targetHandle: e.targetHandle ?? null,
-  // Carried through untouched by both sides — a witness that the rest of the
-  // edge record survives the rebuild.
+  // Carried through untouched by both sides, so a rebuild that dropped the
+  // rest of the edge record would show up in the comparison.
   animated: e.animated,
 });
 
@@ -258,7 +258,7 @@ const edgeChangeOut = (c) => {
 // `resizing` is set by upstream's dimensions branch and dropped by PSFlow's —
 // `NodeBase` has no such field (React.Store.Changes says so). It is therefore
 // absent from what comes back, and unobserved rather than passing.
-const changeNodeOut = (n) => ({
+const appliedNodeOut = (n) => ({
   id: n.id,
   position: n.position,
   selected: n.selected,
@@ -268,10 +268,10 @@ const changeNodeOut = (n) => ({
   measured: { width: n.measured?.width ?? null, height: n.measured?.height ?? null },
 });
 
-const changeEdgeOut = (e) => ({ id: e.id, selected: e.selected, animated: e.animated });
+const appliedEdgeOut = (e) => ({ id: e.id, selected: e.selected, animated: e.animated });
 
 export const applyNodeChangesImpl = (changes) => (nodes) =>
-  applyNodeChanges(changes.map(nodeChangeOut), nodes).map(changeNodeOut);
+  applyNodeChanges(changes.map(nodeChangeOut), nodes).map(appliedNodeOut);
 
 export const applyEdgeChangesImpl = (changes) => (edges) =>
-  applyEdgeChanges(changes.map(edgeChangeOut), edges).map(changeEdgeOut);
+  applyEdgeChanges(changes.map(edgeChangeOut), edges).map(appliedEdgeOut);

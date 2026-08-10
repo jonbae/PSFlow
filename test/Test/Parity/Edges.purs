@@ -40,9 +40,16 @@ import System.Utils.Edges.Straight (StraightPathParams)
 import System.Utils.Edges.Straight (getStraightPath) as PS
 import Test.Oracle (OracleConnection, OracleEdgeResult, OracleEdgeShape)
 import Test.Oracle as Oracle
-import Test.Parity.Fixtures (mkEdge)
-import Test.Parity.Util (allGreen, edgeCenterMatch, edgeResultsMatch, falsify, strSeqMatch)
-import Test.Properties (genFiniteNumber, genPosition)
+import Test.Parity.Builders (mkEdge)
+import Test.Parity.Util
+  ( allGreen
+  , edgeCenterMatch
+  , edgeResultsMatch
+  , expectGreen
+  , falsify
+  , strSeqMatch
+  )
+import Test.Properties (coin, genFiniteNumber, genPosition)
 import Test.QuickCheck (Result, quickCheck, (<?>))
 import Test.QuickCheck.Gen (Gen, chooseInt, elements, vectorOf)
 
@@ -128,8 +135,8 @@ genSmoothStepParams = do
 -- ─── Edge-list mutation ───────────────────────────────────────────────────
 
 -- | One generated edge, in the terms `addEdge` and `reconnectEdge` read.
--- | `animated` is read by neither and carried by both — a witness that the
--- | rest of the edge record survives.
+-- | `animated` is read by neither and carried by both, so a rebuild that
+-- | dropped the rest of the edge record would show up here.
 type EdgeSpec =
   { id :: String
   , source :: String
@@ -272,9 +279,6 @@ genEdgeList = do
   specs <- vectorOf n genEdgeSpec
   pure (Array.mapWithIndex (\i s -> s { id = "e" <> show i }) specs)
 
-coin :: Gen Boolean
-coin = elements (NEA.cons' true [ false ])
-
 runEdgeParity :: Effect Unit
 runEdgeParity = do
   log "running edge parity properties (PSFlow vs live XYFlow)..."
@@ -314,6 +318,23 @@ runEdgeParity = do
           (PS.getSmoothStepPath p)
           (Oracle.getSmoothStepPath p)
       )
+
+  -- The divergence the addEdge property below found, pinned — and run ahead of
+  -- it, because a named deterministic case says which behaviour broke where a
+  -- random abort only says that something did. The generator reaches this one
+  -- only when source and target both match and exactly one handle pair is
+  -- `(Nothing, Just "")`, well under a percent of draws, so sampling alone
+  -- would let the fix rot back out without a standing red to say so.
+  expectGreen "addEdge: an empty-string handle duplicates a missing one"
+    ( let
+        existing = edgeSpec "e1" "a" "b"
+        blankHandled = (edgeSpec "e2" "a" "b") { sourceHandle = Just "" }
+      in
+        edgeListMatch "addEdge with a blank source handle"
+          [ toPSEdge existing ]
+          (PS.addEdge (toPSEdge blankHandled) [ toPSEdge existing ] PS.getEdgeId)
+          (Oracle.addEdge (toOracleEdge blankHandled) [ toOracleEdge existing ])
+    )
 
   -- addEdge. PSFlow's signature takes an `EdgeBase`, never upstream's
   -- `Edge | Connection` union, so the id-generating branch of upstream's
@@ -356,7 +377,7 @@ runEdgeParity = do
         existing = edgeSpec "e1" "a" "b"
         fresh = edgeSpec "e2" "c" "d"
       in
-        edgeListMatch "addEdge probe"
+        edgeListMatch "addEdge falsification probe"
           [ toPSEdge existing ]
           (PS.addEdge (toPSEdge fresh) [ toPSEdge existing ] PS.getEdgeId)
           (Oracle.addEdge (toOracleEdge existing) [ toOracleEdge existing ])
@@ -367,7 +388,7 @@ runEdgeParity = do
         refused = (edgeSpec "e1" "a" "b") { source = "" }
         accepted = edgeSpec "e1" "a" "b"
       in
-        edgeListMatch "addEdge probe"
+        edgeListMatch "addEdge falsification probe"
           []
           (PS.addEdge (toPSEdge refused) [] PS.getEdgeId)
           (Oracle.addEdge (toOracleEdge accepted) [])
@@ -378,7 +399,7 @@ runEdgeParity = do
         old = edgeSpec "e1" "a" "b"
         connection = { source: "a", target: "c", sourceHandle: Nothing, targetHandle: Nothing }
       in
-        edgeListMatch "reconnectEdge probe"
+        edgeListMatch "reconnectEdge falsification probe"
           [ toPSEdge old ]
           ( PS.reconnectEdge (toPSEdge old) (toPSConnection connection) [ toPSEdge old ]
               true

@@ -1,4 +1,7 @@
--- | The PSFlow-side node and edge values the parity properties run through.
+-- | Builders for the PSFlow-side node and edge values the parity properties
+-- | run through. Deliberately not called fixtures: a **fixture** in this repo
+-- | is a flow definition both implementations import and holds no code, and
+-- | this is PSFlow-only code.
 -- |
 -- | `NodeBase` is thirty fields and `EdgeBase` seventeen, of which any one
 -- | property reads a handful; these builders fill in the rest once so a
@@ -9,7 +12,7 @@
 -- | Nothing here is XYFlow-shaped — that translation is `Test.Oracle`'s. These
 -- | are PSFlow values, and a property builds its oracle argument from the same
 -- | generated description rather than from these.
-module Test.Parity.Fixtures
+module Test.Parity.Builders
   ( mkNode
   , mkEdge
   ) where

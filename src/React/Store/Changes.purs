@@ -176,7 +176,7 @@ applyNodeChanges changes nodes =
     foldl applyNodeAdd afterUpdates buckets.adds
   where
   applyNodeAdd acc c = case c of
-    NodeAddChange { item, index } -> insertAdd index item acc
+    NodeAddChange { item, index } -> insertItemAt index item acc
     _ -> acc
 
 applyEdgeChanges
@@ -198,7 +198,7 @@ applyEdgeChanges changes edges =
     foldl applyEdgeAdd afterUpdates buckets.adds
   where
   applyEdgeAdd acc c = case c of
-    EdgeAddChange { item, index } -> insertAdd index item acc
+    EdgeAddChange { item, index } -> insertItemAt index item acc
     _ -> acc
 
 -- | Place an `add` change's item. TS runs the adds after the existing-elements
@@ -207,8 +207,8 @@ applyEdgeChanges changes edges =
 -- | its start rather than refusing: past the end appends, and a negative
 -- | counts back from the end, bottoming out at 0. `Array.insertAt` rejects
 -- | both, so the clamp is spelled out here.
-insertAdd :: forall a. Maybe Int -> a -> Array a -> Array a
-insertAdd mIndex item arr = case mIndex of
+insertItemAt :: forall a. Maybe Int -> a -> Array a -> Array a
+insertItemAt mIndex item arr = case mIndex of
   Nothing -> Array.snoc arr item
   Just i ->
     let

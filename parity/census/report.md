@@ -99,7 +99,7 @@ consumer — the audience this repo exists for — the import is `undefined`.
 | `useStoreApi` | hook | `dual-run-hook` | — |  |
 | `useUpdateNodeInternals` | hook | `dual-run-hook` | — |  |
 | `useViewport` | hook | `dual-run-hook` | — |  |
-| `addEdge` | pure-fn | `oracle` | L1 | Oracled by ticket 039, on both channels — the resulting edges in order, and the refusal upstream reports through onError against PSFlow's Left. Found the falsy-handle gap in connectionExists. PSFlow's signature takes an EdgeBase, so upstream's Connection branch is the boundary module's to pick and parity:boundary's to gate. |
+| `addEdge` | pure-fn | `oracle` | L1 | Oracled by ticket 039, on both channels — the resulting edges in order, and the refusal upstream reports through onError against PSFlow's Left. Found the falsy-handle divergence in connectionExists. PSFlow's signature takes an EdgeBase, so upstream's Connection branch is the boundary module's to pick and parity:boundary's to gate. |
 | `applyEdgeChanges` | pure-fn | `oracle` | L1 | Oracled by ticket 039, which found the same two divergences as applyNodeChanges. |
 | `applyNodeChanges` | pure-fn | `oracle` | L1 | Oracled by ticket 039. Found two divergences: add changes ignored their index, and changes queued behind a replace were applied where upstream drops them. The dimensions branch's resizing flag is unobserved — NodeBase has no such field. |
 | `getBezierEdgeCenter` | pure-fn | `oracle` | L1 |  |
