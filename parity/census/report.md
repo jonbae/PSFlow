@@ -15,7 +15,7 @@ it would not fail if the behaviour diverged.
 |---|---:|---:|---:|---:|
 | `component` | 22 | 12 | 3 | 7 |
 | `hook` | 21 | 0 | 0 | 21 |
-| `pure-fn` | 17 | 10 | 0 | 7 |
+| `pure-fn` | 17 | 17 | 0 | 0 |
 | `enum-value` | 8 | 0 | 0 | 8 |
 | `props` | 30 | 5 | 3 | 22 |
 | `callback` | 26 | 1 | 1 | 24 |
@@ -25,7 +25,7 @@ it would not fail if the behaviour diverged.
 | `instance-api` | 7 | 0 | 1 | 6 |
 | `store` | 3 | 0 | 0 | 3 |
 | `internal-type` | 1 | 0 | 0 | 1 |
-| **total** | **210** | **47** | **13** | **150** |
+| **total** | **210** | **54** | **13** | **143** |
 
 ## Summary by mechanism
 
@@ -40,7 +40,7 @@ What *could* prove each export, if the dual-run net were built to reach it.
 | `dual-run-props` | 4 | 2 |
 | `dual-run-value` | 8 | 0 |
 | `none` | 20 | 0 |
-| `oracle` | 26 | 19 |
+| `oracle` | 26 | 26 |
 
 ## Upstream values with no PSFlow runtime counterpart
 
@@ -99,23 +99,23 @@ consumer — the audience this repo exists for — the import is `undefined`.
 | `useStoreApi` | hook | `dual-run-hook` | — |  |
 | `useUpdateNodeInternals` | hook | `dual-run-hook` | — |  |
 | `useViewport` | hook | `dual-run-hook` | — |  |
-| `addEdge` | pure-fn | `oracle` | — | Pure, and oracle-able today with the OracleEdge translation that already exists. Listed in no ticket — not in 059's covered, deferred, or out-of-scope sets. |
-| `applyEdgeChanges` | pure-fn | `oracle` | — | Pure and oracle-able today. Listed in no ticket. |
-| `applyNodeChanges` | pure-fn | `oracle` | — | Pure and oracle-able today. Listed in no ticket. |
+| `addEdge` | pure-fn | `oracle` | L1 | Oracled by ticket 039, on both channels — the resulting edges in order, and the refusal upstream reports through onError against PSFlow's Left. Found the falsy-handle divergence in connectionExists. PSFlow's signature takes an EdgeBase, so upstream's Connection branch is the boundary module's to pick and parity:boundary's to gate. |
+| `applyEdgeChanges` | pure-fn | `oracle` | L1 | Oracled by ticket 039, which found the same two divergences as applyNodeChanges. |
+| `applyNodeChanges` | pure-fn | `oracle` | L1 | Oracled by ticket 039. Found two divergences: add changes ignored their index, and changes queued behind a replace were applied where upstream drops them. The dimensions branch's resizing flag is unobserved — NodeBase has no such field. |
 | `getBezierEdgeCenter` | pure-fn | `oracle` | L1 |  |
 | `getBezierPath` | pure-fn | `oracle` | L1 |  |
 | `getConnectedEdges` | pure-fn | `oracle` | L1 |  |
 | `getEdgeCenter` | pure-fn | `oracle` | L1 |  |
 | `getIncomers` | pure-fn | `oracle` | L1 |  |
-| `getNodesBounds` | pure-fn | `oracle` | — | Deferred by ticket 059 — needs node dimensions + optional NodeLookup translation. |
+| `getNodesBounds` | pure-fn | `oracle` | L1 | Oracled by ticket 039. Bounded claim: the arithmetic from positions and dimensions to a rect, with no nodeLookup on either side. The measured DOM dimensions that feed it stay out of reach of any oracle, so this does not close the Measurement and rounding question. |
 | `getOutgoers` | pure-fn | `oracle` | L1 |  |
 | `getSimpleBezierPath` | pure-fn | `oracle` | L1 |  |
 | `getSmoothStepPath` | pure-fn | `oracle` | L1 |  |
 | `getStraightPath` | pure-fn | `oracle` | L1 |  |
 | `getViewportForBounds` | pure-fn | `oracle` | L1 + L2-indirect | Oracled by ticket 030: the fitView zoom formula agrees with upstream, so the spike's 1.03145-vs-1.05466 gap came from the inputs, not the arithmetic. Also traversed by fitView in the smoke fixtures, where nothing about its result is asserted. |
-| `isEdge` | pure-fn | `oracle` | — | Pure and oracle-able today. Listed in no ticket. |
-| `isNode` | pure-fn | `oracle` | — | Pure and oracle-able today. Listed in no ticket. |
-| `reconnectEdge` | pure-fn | `oracle` | — | Pure and oracle-able today. Listed in no ticket. |
+| `isEdge` | pure-fn | `oracle` | L1 | Oracled by ticket 039 over all 16 key combinations — the guard's whole input domain, exhausted rather than sampled. Objects only: upstream's `in` test throws on a primitive where PSFlow answers false. |
+| `isNode` | pure-fn | `oracle` | L1 | Oracled by ticket 039 over all 16 key combinations — the guard's whole input domain, exhausted rather than sampled. Objects only: upstream's `in` test throws on a primitive where PSFlow answers false. |
+| `reconnectEdge` | pure-fn | `oracle` | L1 | Oracled by ticket 039, on both channels, across both shouldReplaceId settings. |
 | `BackgroundVariant` | enum-value | `dual-run-value` | — | Upstream runtime enum object, from @xyflow/react rather than @xyflow/system. Crossed by the boundary module (stage 1) as a frozen object; nothing gates the value yet — surface parity's deep-equal against upstream is the plan. |
 | `ConnectionLineType` | enum-value | `dual-run-value` | — | Upstream runtime enum object. Crossed by the boundary module (stage 1); nothing gates the value yet. Note Bezier is the string "default", not "bezier" — the one member here a hand-written expectation would plausibly get wrong. |
 | `ConnectionMode` | enum-value | `dual-run-value` | — | Upstream runtime enum object. Crossed by the boundary module (stage 1); nothing gates the value yet. |

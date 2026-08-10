@@ -163,6 +163,19 @@ what props it was handed. A node-level probe replaces a node type rather than
 wrapping it.
 _Avoid_: spy, instrument, shim
 
+**Falsification probe**:
+Always written in full, because a bare "probe" is the component above. A check
+that feeds one side of a comparison a deliberately wrong input and asserts the
+comparison reports a difference. It ships beside the green claim it backs, runs
+with it, and drives **the same comparator** — a probe that hand-rolls its own
+comparison proves that comparison and not the one in service. A green
+differential result is equally what a comparator that inspects nothing, an
+oracle wired to the wrong export, or a projection that discarded the
+interesting field would produce, so the green means nothing until the same
+machinery has been shown to go red. `parity/boundary/drift.mjs` and
+`Test.Parity.Util` each name their runner `falsify`.
+_Avoid_: negative test, sanity check, canary
+
 **Normalization**:
 The content-blind half of the noise policy: rules that may delete a field by name
 or reorder one, and may never collapse two distinct values into one. A rule
