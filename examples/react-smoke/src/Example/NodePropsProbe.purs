@@ -8,7 +8,8 @@
 -- | It lives on its own route (`#/examples/node-props`, wired in `Example.Main`)
 -- | rather than inside a `Generic.*` fixture because those are faithful ports of
 -- | upstream's e2e suite — a PSFlow-only assertion there would break that
--- | invariant. Same reasoning as `Example.ColorMode`.
+-- | invariant. It is now the only route `Example.Main` serves beyond the
+-- | generic ones, and the last reason this page exists at all (#50).
 module Example.NodePropsProbe
   ( nodePropsProbe
   , nodePropsProbeFixture

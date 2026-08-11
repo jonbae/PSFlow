@@ -60,11 +60,13 @@ compares each crossed record's PureScript label set against its JS-shaped one,
 live from source, because the outbound direction has no compiler check and the
 repo's generators vary too few fields for a round-trip property to find an
 omission. `mount.mjs` enters through `index.js` — the only door the boundary
-module is gated on — and makes three claims: that a fully converted prop set
+module is gated on — and makes five claims: that a fully converted prop set
 mounts and arrives JS-shaped, that every prop the boundary has not crossed yet
-is refused rather than ignored, and that the graph utilities a driver calls are
-callable from JavaScript with their round trip closing. It needs `spago build`
-first and hard-fails on missing compiled output.
+is refused rather than ignored, that the graph utilities a driver calls are
+callable from JavaScript with their round trip closing, that the four chrome
+components mount with no props at all, and that `useNodesState` /
+`useEdgesState` return upstream's 3-tuple with a setter that runs. It needs
+`spago build` first and hard-fails on missing compiled output.
 
 `parity:changelog` measures what a baseline bump costs, not what detects a
 divergence.
@@ -90,7 +92,8 @@ Bumping the baseline is one atomic change:
 2. re-pin both devDependencies to the new versions,
 3. `npm run build:oracle` (commit the regenerated `oracle/index.js`),
 4. `npm run build:driver` (commit the regenerated `parity/driver/dist/psflow.js`
-   — it inlines upstream's fixture files, so a bump changes it),
+   — it inlines upstream's fixture files and the ColorMode example, so a bump
+   changes it),
 5. `npm run parity:surface` and `npm run parity:changelog` — the audit will fail
    on every PR the bump introduced until each is bucketed in
    `parity/changelog-audit/verdicts.json`.

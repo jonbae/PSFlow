@@ -121,6 +121,36 @@ const pairs = [
     js: { file: "src/Boundary/Flow.purs", type: "JsViewport" },
     renames: {},
   },
+  // The four chrome components. Their crossings are inbound-only — nothing
+  // hands a `PanelProps` back to a JavaScript caller — so the compiler already
+  // forces every PureScript field to be constructed. What it does not force is
+  // the other direction: a field *removed* from the PureScript record leaves
+  // an orphan on the JS side that a consumer can still set and nothing reads,
+  // which is the silent-drop failure wearing the other hat.
+  {
+    what: "PanelProps",
+    ps: { file: "src/React/Types/Component.purs", type: "PanelProps" },
+    js: { file: "src/Boundary/Chrome.purs", type: "JsPanelProps" },
+    renames: {},
+  },
+  {
+    what: "BackgroundProps",
+    ps: { file: "src/React/Types/Component.purs", type: "BackgroundProps" },
+    js: { file: "src/Boundary/Chrome.purs", type: "JsBackgroundProps" },
+    renames: {},
+  },
+  {
+    what: "ControlsProps",
+    ps: { file: "src/React/Types/Component.purs", type: "ControlsProps" },
+    js: { file: "src/Boundary/Chrome.purs", type: "JsControlsProps" },
+    renames: {},
+  },
+  {
+    what: "MiniMapProps",
+    ps: { file: "src/React/Types/Component.purs", type: "MiniMapProps" },
+    js: { file: "src/Boundary/Chrome.purs", type: "JsMiniMapProps" },
+    renames: {},
+  },
   {
     what: "FitViewOptions",
     ps: { file: "src/System/Utils/Graph.purs", type: "FitViewOptions" },

@@ -35,6 +35,7 @@ module Boundary.Flow
   , JsFlowProps
   , JsProOptions
   , JsViewport
+  , fitViewOptionsIn
   , reactFlow
   ) where
 
@@ -69,9 +70,9 @@ import Boundary.Enums
   , selectionModeIn
   , zIndexModeIn
   )
+import Boundary.Refusal (Refusal, refuseFirst)
 import Boundary.Undefined (Undefinable, fromUndefinable, isDefined)
 import Boundary.Untagged (asArray, asBoolean, asNumber, asString, typeName)
-import Data.Array (find)
 import Data.Array.NonEmpty (fromArray) as NEA
 import Data.Int (round) as Int
 import Data.Maybe (Maybe(..), fromMaybe, fromMaybe')
@@ -318,15 +319,6 @@ type JsFlowProps =
 -- The deferred-prop guard
 -- ────────────────────────────────────────────────────────────────────────
 
--- | One prop, or one member of one prop, that resolves on the JS surface and
--- | does not cross. `props` is whichever record it sits on.
-type Refusal props =
-  { name :: String
-  , stage :: Int
-  , note :: String
-  , supplied :: props -> Boolean
-  }
-
 callbackProp :: forall a. String -> (JsFlowProps -> Undefinable a) -> Refusal JsFlowProps
 callbackProp name get =
   { name
@@ -399,24 +391,20 @@ deferredProps =
   ]
 
 -- | Throws on the first deferred prop the consumer supplied, and otherwise
--- | hands the props straight back. Returning the record rather than `Unit` is
--- | what makes the guard unskippable: the conversion is written as
--- | `convertProps <<< guardDeferred`, so there is no way to reach a converted
--- | field without having gone through here first.
+-- | hands the props straight back.
 guardDeferred :: JsFlowProps -> JsFlowProps
-guardDeferred p = case find (\d -> d.supplied p) deferredProps of
-  Nothing -> p
-  Just d ->
-    unsafeThrow $
-      "ps-flow: the `" <> d.name
-        <> "` prop has not crossed the JavaScript boundary yet — it lands in "
-        <> "boundary stage "
-        <> show d.stage
-        <> " ("
-        <> d.note
-        <> "). It is refused rather than ignored so that a prop ps-flow has "
-        <> "not implemented fails loudly instead of looking like a prop you "
-        <> "did not set."
+guardDeferred = refuseFirst message deferredProps
+  where
+  message d =
+    "ps-flow: the `" <> d.name
+      <> "` prop has not crossed the JavaScript boundary yet — it lands in "
+      <> "boundary stage "
+      <> show d.stage
+      <> " ("
+      <> d.note
+      <> "). It is refused rather than ignored so that a prop ps-flow has "
+      <> "not implemented fails loudly instead of looking like a prop you "
+      <> "did not set."
 
 -- ────────────────────────────────────────────────────────────────────────
 -- The conversion
@@ -619,14 +607,13 @@ unmodelledOption name get =
   }
 
 guardEdgeOptions :: JsDefaultEdgeOptions -> JsDefaultEdgeOptions
-guardEdgeOptions o = case find (\d -> d.supplied o) refusedEdgeOptions of
-  Nothing -> o
-  Just d ->
-    unsafeThrow $
-      "ps-flow: `defaultEdgeOptions." <> d.name
-        <> "` is refused rather than ignored — "
-        <> d.note
-        <> ". Dropping it silently would look exactly like never having set it."
+guardEdgeOptions = refuseFirst message refusedEdgeOptions
+  where
+  message d =
+    "ps-flow: `defaultEdgeOptions." <> d.name
+      <> "` is refused rather than ignored — "
+      <> d.note
+      <> ". Dropping it silently would look exactly like never having set it."
 
 defaultEdgeOptionsIn :: JsDefaultEdgeOptions -> DefaultEdgeOptions Foreign
 defaultEdgeOptionsIn = convertEdgeOptions <<< guardEdgeOptions
@@ -666,6 +653,8 @@ proOptionsIn o =
   , account: fromUndefinable o.account
   }
 
+-- | Exported because `<Controls />` takes the same options bag, and a second
+-- | copy of a nine-field conversion is a second thing to drift.
 fitViewOptionsIn :: JsFitViewOptions -> FitViewOptions
 fitViewOptionsIn o =
   { padding: map (paddingIn "fitViewOptions.padding") (fromUndefinable o.padding)

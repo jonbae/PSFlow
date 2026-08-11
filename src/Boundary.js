@@ -21,10 +21,11 @@
 export const freeze = (record) => Object.freeze(record);
 
 export const manifest = Object.freeze({
-  // The highest boundary stage that has landed. Stage 1 crosses the twelve
-  // exports upstream's fixtures and driver import plus the eight enum objects;
-  // stages 2-4 are the callbacks, the imperative instance with the hooks, and
-  // the components no fixture mounts. See the spec's staging table.
+  // The highest boundary stage that has landed. Stage 1 crosses the exports
+  // upstream's fixtures and the two drivers import plus the eight enum
+  // objects; stages 2-4 are the callbacks, the imperative instance with the
+  // remaining hooks, and the components no fixture mounts. See the spec's
+  // staging table.
   stage: 1,
 
   // The eight TS enums are plain data on both sides, so crossing them was the
@@ -38,12 +39,22 @@ export const manifest = Object.freeze({
   // The three utilities are what a controlled flow's own change handlers call,
   // so they cross with `ReactFlow` rather than after it: `onNodesChange` is
   // useless if `applyNodeChanges(changes, nodes)` returns a function.
+  //
+  // The four chrome components were in stage 1's set from the start —
+  // upstream's `Flow.tsx` mounts each of them — and crossed when a driver
+  // first rendered one. `useNodesState` and `useEdgesState` are the two
+  // exceptions to the hooks being stage 3: they return their own bundles and
+  // touch no `ReactFlowInstance`, so they do not wait for its converter.
   crossed: Object.freeze([
+    "Background",
     "BackgroundVariant",
     "ConnectionLineType",
     "ConnectionMode",
+    "Controls",
     "MarkerType",
+    "MiniMap",
     "PanOnScrollMode",
+    "Panel",
     "Position",
     "ReactFlow",
     "ResizeControlVariant",
@@ -51,23 +62,21 @@ export const manifest = Object.freeze({
     "addEdge",
     "applyEdgeChanges",
     "applyNodeChanges",
+    "useEdgesState",
+    "useNodesState",
   ]),
 
   passthrough: Object.freeze([
-    "Background",
     "BaseEdge",
     "BezierEdge",
     "ControlButton",
-    "Controls",
     "EdgeLabelRenderer",
     "EdgeText",
     "EdgeToolbar",
     "Handle",
-    "MiniMap",
     "NodeResizeControl",
     "NodeResizer",
     "NodeToolbar",
-    "Panel",
     "ReactFlowProvider",
     "ReactFlowWithRef",
     "SimpleBezierEdge",
@@ -93,7 +102,6 @@ export const manifest = Object.freeze({
     "reconnectEdge",
     "useConnection",
     "useEdges",
-    "useEdgesState",
     "useHandleConnections",
     "useInternalNode",
     "useKeyPress",
@@ -102,7 +110,6 @@ export const manifest = Object.freeze({
     "useNodes",
     "useNodesData",
     "useNodesInitialized",
-    "useNodesState",
     "useOnSelectionChange",
     "useOnViewportChange",
     "useReactFlow",

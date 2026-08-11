@@ -16,6 +16,7 @@
 module Boundary.Untagged
   ( asArray
   , asBoolean
+  , asFunction
   , asNumber
   , asString
   , typeName
@@ -29,6 +30,7 @@ foreign import asStringImpl :: forall r. Fn3 r (String -> r) Foreign r
 foreign import asNumberImpl :: forall r. Fn3 r (Number -> r) Foreign r
 foreign import asBooleanImpl :: forall r. Fn3 r (Boolean -> r) Foreign r
 foreign import asArrayImpl :: forall r. Fn3 r (Array Foreign -> r) Foreign r
+foreign import asFunctionImpl :: forall r. Fn3 r ((Foreign -> Foreign) -> r) Foreign r
 
 asString :: Foreign -> Maybe String
 asString = runFn3 asStringImpl Nothing Just
@@ -41,6 +43,13 @@ asBoolean = runFn3 asBooleanImpl Nothing Just
 
 asArray :: Foreign -> Maybe (Array Foreign)
 asArray = runFn3 asArrayImpl Nothing Just
+
+-- | The other half of React's `SetStateAction<T>`: `T | ((prev: T) => T)`. A
+-- | JavaScript unary function *is* a `Foreign -> Foreign`, so nothing is
+-- | wrapped here — the branch exists so the caller can tell the two forms
+-- | apart before coercing either.
+asFunction :: Foreign -> Maybe (Foreign -> Foreign)
+asFunction = runFn3 asFunctionImpl Nothing Just
 
 -- | What the value actually is, for the "expected one of" half of an error
 -- | message. `"array"` and `"null"` are separated out of `typeof`'s `"object"`

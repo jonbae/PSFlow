@@ -30,7 +30,8 @@
 -- | `ConnectionLineType.Bezier` is `"default"`, not `"bezier"`, and
 -- | `MarkerType.ArrowClosed` is `"arrowclosed"`, all lowercase.
 module Boundary.Enums
-  ( colorModeIn
+  ( backgroundVariantIn
+  , colorModeIn
   , connectionLineTypeIn
   , connectionModeIn
   , handleTypeIn
@@ -38,6 +39,7 @@ module Boundary.Enums
   , interpolateModeIn
   , markerTypeIn
   , markerTypeOut
+  , orientationIn
   , panOnScrollModeIn
   , panelPositionIn
   , positionIn
@@ -62,6 +64,10 @@ import System.Types.Connection
   , SelectionMode(..)
   , ZIndexMode(..)
   )
+import React.Types.Component (BackgroundVariant(..))
+-- Qualified: `Orientation`'s two constructors are spelled the same as two of
+-- `PanOnScrollMode`'s, and both codecs live in this module.
+import React.Types.Component (Orientation(..)) as Chrome
 import System.Types.Edge (ConnectionLineType(..), MarkerType(..))
 import System.Types.Geometry (Position(..))
 import System.Types.Handle (HandleType(..))
@@ -190,6 +196,23 @@ zIndexModeIn field = fromEnumString field
   [ Tuple "auto" ZAuto
   , Tuple "basic" ZBasic
   , Tuple "manual" ZManual
+  ]
+
+-- | `BackgroundVariant` — a TS enum, and the one that lives in
+-- | `@xyflow/react` rather than `@xyflow/system`. `Boundary` publishes its
+-- | runtime object; this is the codec for the string that object holds.
+backgroundVariantIn :: String -> String -> BackgroundVariant
+backgroundVariantIn field = fromEnumString field
+  [ Tuple "lines" Lines
+  , Tuple "dots" Dots
+  , Tuple "cross" Cross
+  ]
+
+-- | `Controls.orientation`. A string union upstream, with no runtime object.
+orientationIn :: String -> String -> Chrome.Orientation
+orientationIn field = fromEnumString field
+  [ Tuple "horizontal" Chrome.Horizontal
+  , Tuple "vertical" Chrome.Vertical
   ]
 
 -- | `FitViewOptions.interpolate`.

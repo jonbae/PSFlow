@@ -32,18 +32,18 @@ about the shape a JavaScript caller receives.
 | Kind | Total | Gated — PureScript surface | Gated — JS surface | Indirect only | Nothing but the name |
 |---|---:|---:|---:|---:|---:|
 | `component` | 22 | 12 | 2 | 3 | 7 |
-| `hook` | 21 | 0 | 0 | 0 | 21 |
+| `hook` | 21 | 0 | 0 | 2 | 19 |
 | `pure-fn` | 17 | 17 | 0 | 0 | 0 |
 | `enum-value` | 8 | 0 | 0 | 0 | 8 |
-| `props` | 30 | 5 | 2 | 3 | 22 |
+| `props` | 30 | 5 | 2 | 5 | 20 |
 | `callback` | 26 | 1 | 0 | 1 | 24 |
 | `change` | 12 | 0 | 0 | 0 | 12 |
-| `data` | 43 | 15 | 4 | 5 | 21 |
+| `data` | 43 | 13 | 6 | 5 | 21 |
 | `options` | 20 | 2 | 0 | 0 | 18 |
 | `instance-api` | 7 | 0 | 0 | 1 | 6 |
 | `store` | 3 | 0 | 0 | 0 | 3 |
 | `internal-type` | 1 | 0 | 0 | 0 | 1 |
-| **total** | **210** | **52** | **8** | **13** | **143** |
+| **total** | **210** | **50** | **10** | **17** | **139** |
 
 ## Summary by mechanism
 
@@ -75,22 +75,22 @@ JS/TS consumer — the audience this repo exists for — the import is `undefine
 
 | Export | Kind | Mechanism that could prove it | Gates today (PureScript surface) | Gates today (JS surface) | Notes |
 |---|---|---|---|---|---|
-| `Background` | component | `dual-run-dom` | smoke | — | Renders-behind assertion only; no variant/gap/size/offset coverage. |
+| `Background` | component | `dual-run-dom` | smoke | conformance (generic-props) ~ | Renders-behind assertion only; no variant/gap/size/offset coverage. Also mounted, unasserted, by the ColorMode driver on the JS surface. |
 | `BaseEdge` | component | `dual-run-dom` | conformance (generic-edges) | — | path, interactionWidth and markers asserted by generic-edges. |
 | `BezierEdge` | component | `dual-run-dom` | function + conformance (generic-edges) ~ | — | getBezierPath has function parity; the component is only rendered as the fixture's default edge type. |
 | `ControlButton` | component | `dual-run-dom` | smoke ~ | — | Rendered inside Controls; the exported component with custom children is never mounted. |
-| `Controls` | component | `dual-run-dom` | smoke | — | Renders + zoom-in click changes the transform. |
+| `Controls` | component | `dual-run-dom` | smoke | conformance (generic-props) ~ | Renders + zoom-in click changes the transform. Also mounted, unasserted, by the ColorMode driver on the JS surface. |
 | `EdgeLabelRenderer` | component | `dual-run-dom` | — | — | Never mounted. |
 | `EdgeText` | component | `dual-run-dom` | — | — | Never mounted. The dual-run spike found EdgeLabelOptions entirely absent from PSFlow — this component is the surface that gap lands on. |
 | `EdgeToolbar` | component | `dual-run-dom` | — | — | getEdgeToolbarTransform has function parity; the component is never mounted. |
 | `Handle` | component | `dual-run-dom` | smoke | conformance (generic-nodes) | connect/connectable=false/connectingfrom class asserted. |
-| `MiniMap` | component | `dual-run-dom` | smoke | — | Renders + clickable only; no node-rendering, mask or pan/zoom coverage. |
+| `MiniMap` | component | `dual-run-dom` | smoke | conformance (generic-props) ~ | Renders + clickable only; no node-rendering, mask or pan/zoom coverage. The ColorMode driver mounts it on the JS surface with no props at all, which is the case its crossing exists for, and asserts nothing about it. |
 | `MiniMapNode` | component | `dual-run-dom` | — | — | Not exported by PSFlow at all (allowlisted). A JS consumer importing it gets undefined. |
 | `NodeResizeControl` | component | `dual-run-dom` | — | — | Never mounted. Known-wrong — ticket 073 (XYResizer drag lifecycle). |
 | `NodeResizer` | component | `dual-run-dom` | — | — | Never mounted. Known-wrong — ticket 073. |
 | `NodeToolbar` | component | `dual-run-dom` | function + conformance (generic-node-toolbar) | — | getNodeToolbarTransform has function parity; positioning and default behaviour asserted by generic-node-toolbar. |
-| `Panel` | component | `dual-run-dom` | conformance (generic-props) ~ | — | Mounted by the ColorMode fixture; only the colorMode class on the wrapper is asserted, nothing about Panel itself. |
-| `ReactFlow` | component | `dual-run-dom` | conformance (generic-edges) + conformance (generic-props) + smoke | conformance (generic-nodes) + conformance (generic-pane) | More gates touch this than any other export — the nodes, edges, pane and props specs all drive it. |
+| `Panel` | component | `dual-run-dom` | — | conformance (generic-props) ~ | Mounted by the ColorMode driver; only the colorMode class on the wrapper is asserted, nothing about Panel itself. |
+| `ReactFlow` | component | `dual-run-dom` | conformance (generic-edges) + smoke | conformance (generic-nodes) + conformance (generic-pane) + conformance (generic-props) | More gates touch this than any other export — the nodes, edges, pane and props specs all drive it. |
 | `ReactFlowProvider` | component | `dual-run-dom` | smoke ~ | — | Mounted; no assertion is specific to it. |
 | `SimpleBezierEdge` | component | `dual-run-dom` | function | — | getSimpleBezierPath has function parity; component never mounted. |
 | `SmoothStepEdge` | component | `dual-run-dom` | function | — | getSmoothStepPath has function parity; component never mounted. |
@@ -101,7 +101,7 @@ JS/TS consumer — the audience this repo exists for — the import is `undefine
 | `experimental_useOnNodesChangeMiddleware` | hook | `dual-run-hook` | — | — |  |
 | `useConnection` | hook | `dual-run-hook` | — | — |  |
 | `useEdges` | hook | `dual-run-hook` | — | — |  |
-| `useEdgesState` | hook | `dual-run-hook` | — | — |  |
+| `useEdgesState` | hook | `dual-run-hook` | — | conformance (generic-props) ~ | Same as useNodesState. Its setter is the one the ColorMode driver calls with a function, which is the shape that used to store an unrun thunk — parity:boundary holds that; no browser gate does. |
 | `useHandleConnections` | hook | `dual-run-hook` | — | — |  |
 | `useInternalNode` | hook | `dual-run-hook` | — | — |  |
 | `useKeyPress` | hook | `dual-run-hook` | — | — | Four test-debt rows (077: #5090, #5118, #5263, #4880) land on this hook's focus handling. |
@@ -110,7 +110,7 @@ JS/TS consumer — the audience this repo exists for — the import is `undefine
 | `useNodes` | hook | `dual-run-hook` | — | — |  |
 | `useNodesData` | hook | `dual-run-hook` | — | — |  |
 | `useNodesInitialized` | hook | `dual-run-hook` | — | — |  |
-| `useNodesState` | hook | `dual-run-hook` | — | — | One test-debt row (078: #5120, fitView for uncontrolled flows). |
+| `useNodesState` | hook | `dual-run-hook` | — | conformance (generic-props) ~ | The ColorMode driver destructures it, so the nodes the spec sees arrived through it — but nothing specific to the hook is asserted: not the third slot, not the setter. One test-debt row (078: #5120, fitView for uncontrolled flows). |
 | `useOnSelectionChange` | hook | `dual-run-hook` | — | — |  |
 | `useOnViewportChange` | hook | `dual-run-hook` | — | — |  |
 | `useReactFlow` | hook | `dual-run-hook` | — | — | The whole imperative API hangs off this hook; four test-debt rows (078: #5276, #5723, #5722, #5012) land on it. |
@@ -143,7 +143,7 @@ JS/TS consumer — the audience this repo exists for — the import is `undefine
 | `Position` | enum-value | `dual-run-value` | — | — | Upstream runtime enum object. Crossed by the boundary module (stage 1); nothing gates the value yet. |
 | `ResizeControlVariant` | enum-value | `dual-run-value` | — | — | Upstream runtime enum object. Crossed by the boundary module (stage 1); nothing gates the value yet. |
 | `SelectionMode` | enum-value | `dual-run-value` | — | — | Upstream runtime enum object. Crossed by the boundary module (stage 1); nothing gates the value yet. |
-| `BackgroundProps` | props | `dual-run-dom` | — | — |  |
+| `BackgroundProps` | props | `dual-run-dom` | — | conformance (generic-props) ~ | Background is mounted with every prop unset on both surfaces; no prop is asserted. |
 | `BaseEdgeProps` | props | `dual-run-dom` | conformance (generic-edges) ~ | — | interactionWidth and path exercised via the fixture edges. |
 | `BezierEdgeProps` | props | `dual-run-dom` | — | — |  |
 | `ConnectionLineComponent` | props | `none` | — | — | Upstream component-type alias; PSFlow does not model it (allowlisted). Out of scope — issue #17. |
@@ -160,13 +160,13 @@ JS/TS consumer — the audience this repo exists for — the import is `undefine
 | `HandleProps` | props | `dual-run-dom` | smoke | conformance (generic-nodes) | connectable=false and handle position attributes asserted. |
 | `MiniMapNodeProps` | props | `none` | — | — | Not surfaced by PSFlow (allowlisted, ticket 058). |
 | `MiniMapNodes` | props | `none` | — | — | Component exists in PSFlow but is not in the public barrel (allowlisted, ticket 058). |
-| `MiniMapProps` | props | `dual-run-dom` | — | — | MiniMap is mounted with every prop Nothing; no prop is asserted. |
+| `MiniMapProps` | props | `dual-run-dom` | — | conformance (generic-props) ~ | MiniMap is mounted with every prop unset on both surfaces; no prop is asserted. |
 | `NodeProps` | props | `dual-run-props` | surface-props + node-props | — | The one type with a real runtime probe: node-props.spec.ts mounts a custom node and reads the props object. Ticket 069 closed the xPos/yPos rename here after it survived from 12.3.5 as a printed-not-failed diff. |
 | `NodeResizerProps` | props | `dual-run-dom` | — | — | NodeResizer is never mounted and is known-wrong (073). |
 | `NodeToolbarProps` | props | `dual-run-dom` | conformance (generic-node-toolbar) | — | position, align and offset all driven by generic-node-toolbar. |
 | `NodeWrapperProps` | props | `dual-run-dom` | — | conformance (generic-nodes) ~ | Internal wrapper; observable as the .react-flow__node DOM the node specs assert on. |
-| `PanelProps` | props | `dual-run-dom` | conformance (generic-props) ~ | — | See PanelPosition. |
-| `ReactFlowProps` | props | `dual-run-dom` | surface-props + conformance (generic-edges) + conformance (generic-props) | conformance (generic-nodes) + conformance (generic-pane) | Prop-member names gated on the PureScript surface by the surface-parity prop diff; a minority of members (selectable/draggable/deletable/connectable/minZoom/maxZoom/panOnScroll/defaultViewport/autoPan*/colorMode/nodeTypes) are driven by the conformance specs. The gate is name-only — a member whose type changed upstream still passes. |
+| `PanelProps` | props | `dual-run-dom` | — | conformance (generic-props) ~ | See PanelPosition. |
+| `ReactFlowProps` | props | `dual-run-dom` | surface-props + conformance (generic-edges) | conformance (generic-nodes) + conformance (generic-pane) + conformance (generic-props) | Prop-member names gated on the PureScript surface by the surface-parity prop diff; a minority of members (selectable/draggable/deletable/connectable/minZoom/maxZoom/panOnScroll/defaultViewport/autoPan*/colorMode/nodeTypes) are driven by the conformance specs. The gate is name-only — a member whose type changed upstream still passes. |
 | `ResizeControlLineProps` | props | `none` | — | — | Not modelled by PSFlow (allowlisted). Out of scope — issue #17. |
 | `ResizeControlProps` | props | `none` | — | — | Not modelled by PSFlow (allowlisted). Out of scope — issue #17. |
 | `SimpleBezierEdgeProps` | props | `dual-run-dom` | — | — |  |
@@ -215,8 +215,8 @@ JS/TS consumer — the audience this repo exists for — the import is `undefine
 | `Box` | data | `oracle` | function | — | Shape marshalled by rectToBox/boxToRect/getBoundsOfBoxes properties. |
 | `BuiltInEdge` | data | `none` | — | — | Type-only both sides; PSFlow does not model it (allowlisted). Ruled out of scope on the map — issue #17. |
 | `BuiltInNode` | data | `none` | — | — | Type-only both sides; PSFlow does not model it (allowlisted). Ruled out of scope on the map — issue #17. |
-| `ColorMode` | data | `dual-run-dom` | conformance (generic-props) | — | generic-props asserts the light and dark wrapper classes. |
-| `ColorModeClass` | data | `dual-run-dom` | conformance (generic-props) | — | Same assertion as ColorMode. |
+| `ColorMode` | data | `dual-run-dom` | — | conformance (generic-props) | generic-props asserts the light and dark wrapper classes. |
+| `ColorModeClass` | data | `dual-run-dom` | — | conformance (generic-props) | Same assertion as ColorMode. |
 | `Connection` | data | `dual-run-callback` | smoke ~ | conformance (generic-nodes) ~ | click-connect asserts an edge appears; the onConnect payload shape is never inspected. |
 | `ConnectionInProgress` | data | `dual-run-hook` | — | — |  |
 | `ConnectionState` | data | `dual-run-hook` | — | — | useConnection's return value. |
@@ -241,7 +241,7 @@ JS/TS consumer — the audience this repo exists for — the import is `undefine
 | `NodeTypes` | data | `dual-run-dom` | node-props ~ | — | PSFlow renames it NodeTypesMap. A custom nodeTypes map is mounted by the NodeProps probe; the custom-default fallback is known-wrong (ticket 075). |
 | `OnConnectStartParams` | data | `dual-run-callback` | — | — |  |
 | `OnSelectionChangeParams` | data | `dual-run-callback` | — | — |  |
-| `PanelPosition` | data | `dual-run-dom` | conformance (generic-props) ~ | — | The ColorMode fixture mounts a TopRight panel; position is not asserted. Two test-debt rows (079: #5252, #5362). |
+| `PanelPosition` | data | `dual-run-dom` | — | conformance (generic-props) ~ | The ColorMode driver mounts a top-right panel; position is not asserted. Two test-debt rows (079: #5252, #5362). |
 | `ReactFlowJsonObject` | data | `dual-run-api` | — | — | toObject output; never compared. |
 | `Rect` | data | `oracle` | function | — | Shape marshalled by the geometry properties. |
 | `ResizeDragEvent` | data | `dual-run-callback` | — | — | Resizer surface — known-wrong (073). |

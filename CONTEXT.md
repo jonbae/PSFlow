@@ -269,13 +269,18 @@ _Avoid_: the harness, the diff suite
 
 **Fixture**:
 One flow definition — nodes, edges, and the props handed to `ReactFlow` — as a
-data file both implementations import. Never contains test code.
+data file both implementations import. Never contains test code. An **example
+driver** is the exception that proves the rule: its flow is declared inside the
+component, which is why it is imported unmodified rather than twinned.
 _Avoid_: test data, flow config, page
 
 **Driver**:
-The React component that mounts a fixture. One driver serves both sides, bundled
-twice; only the import target differs, so a driver difference can never be
-mistaken for a library difference.
+The React component that mounts a fixture. Each driver serves both sides,
+bundled twice; only the import target differs, so a driver difference can never
+be mistaken for a library difference. There are two: `parity/driver/src/Flow.tsx`,
+which takes a fixture as data, and upstream's `examples/ColorMode/index.tsx`,
+imported unmodified — an **example driver**, which declares its own flow inline
+and so is its own fixture. One page routes to both.
 _Avoid_: harness, wrapper, app
 
 **Corpus**:

@@ -1,9 +1,9 @@
 # The driver — one page, bundled once per side
 
-The **driver** is the React component that mounts a **fixture**. There is one,
-in PSFlow's tree, and it is bundled twice: the two bundles differ in exactly
-one thing, what `@xyflow/react` resolves to. A driver difference can therefore
-never be mistaken for a library difference.
+A **driver** is the React component that mounts a **fixture**. There are two,
+and the page below serves both; it is bundled twice, and the two bundles differ
+in exactly one thing, what `@xyflow/react` resolves to. A driver difference can
+therefore never be mistaken for a library difference.
 
 Vocabulary is `CONTEXT.md`; **driver**, **fixture** and the gate names below are
 all defined there.
@@ -11,9 +11,9 @@ all defined there.
 | | |
 |---|---|
 | `src/Flow.tsx` | the driver: a twin of upstream's `generic-tests/Flow.tsx` |
-| `src/entry.tsx` | the page: route → fixture, a twin of upstream's `generic-tests/index.tsx` |
+| `src/entry.tsx` | the page: route → fixture or example driver, a twin of upstream's `generic-tests/index.tsx` |
 | `index.html` | the container, whose box feeds `fitView` |
-| `build.mjs` | the bundle, the alias, and the provenance check |
+| `build.mjs` | the two registries, the bundle, the alias, and the provenance check |
 | `dist/psflow.js` | generated, and committed — see below |
 
 ```sh
@@ -21,15 +21,34 @@ npm run build:driver                        # spago build, then the psflow bundl
 node parity/driver/build.mjs --side upstream   # the net's other run
 ```
 
+## Two kinds of route
+
+`#/tests/generic/…` is a **fixture**: data, handed to `Flow.tsx`. That is what
+upstream's `generic-tests/index.tsx` serves and what four of the five
+conformance specs drive.
+
+`#/examples/…` is an **example driver**: a whole component of upstream's,
+imported unmodified and mounted as it stands. `generic-props.spec.ts` needs
+one, because upstream has no props fixture to twin — its own props spec drives
+its `examples/ColorMode` page, so PSFlow's port drives upstream's own
+`examples/ColorMode/index.tsx`, through this page, on the JS surface. Written
+down in `build.mjs` rather than globbed: `examples/` holds 65 directories, and
+one unresolved import among them is a link error that stops the page building
+for every route at once.
+
+That import list is not free. `ColorMode/index.tsx` pulls `useNodesState` and
+`useEdgesState` into boundary stage 1 from stage 3, and it is the first gate
+ever to execute `setEdges(eds => …)` — the unrun-thunk shape the whole boundary
+effort started from.
+
 ## Who uses it
 
-Today, the conformance suite — upstream's own e2e specs, ported. Two of them
-(`generic-nodes`, `generic-pane`) run against this page and therefore enter
-through **the JS surface**; the rest still enter through the compiled
-`Example.Main`, and move over with their fixtures
+Today, the conformance suite — upstream's own e2e specs, ported. Three of them
+(`generic-nodes`, `generic-pane`, `generic-props`) run against this page and
+therefore enter through **the JS surface**; the rest still enter through the
+compiled `Example.Main`, and move over with their fixtures
 ([node-toolbar #47](https://github.com/jonbae/PSFlow/issues/47),
-[edges #48](https://github.com/jonbae/PSFlow/issues/48),
-[ColorMode #34](https://github.com/jonbae/PSFlow/issues/34)). The old door is
+[edges #48](https://github.com/jonbae/PSFlow/issues/48)). The old door is
 deleted once they all have
 ([#50](https://github.com/jonbae/PSFlow/issues/50)).
 
@@ -38,26 +57,29 @@ Next, **the net**, which drives this same page on both sides
 `--side upstream` bundle is for. Upstream's own vendored `Flow.tsx` and
 `index.tsx` become reference material that never executes.
 
-## Why the driver is ours and the fixtures are not
+## Why one driver is ours and the other is not
 
 The bar that governs **fixtures** is *make hand-translation impossible*, and it
 is absolute: hand-translating them is what poisoned the dual-run spike's diff.
 So the fixture files are imported **byte-unmodified** from the vendored tree —
 `build.mjs` globs them, nothing rewrites them, and a baseline bump stays a
-delete and re-vendor.
+delete and re-vendor. The ColorMode driver is imported the same way and for the
+same reason: it *is* its own fixture, with the flow's nodes and edges declared
+inside it, so translating it by hand would be translating a fixture by hand.
 
-That bar does **not** govern the driver. A driver mistake shows up identically
+That bar does **not** govern `Flow.tsx`. A driver mistake shows up identically
 on both sides; a **boundary module** mistake is a real bug the net exists to
-catch. Which is why generating the driver would be over-engineering, and why
-this one is hand-written against upstream's file with its differences named in
-its header.
+catch. Which is why generating that driver would be over-engineering, and why
+it is hand-written against upstream's file with its differences named in its
+header.
 
 Upstream cannot supply the page either way. Its `index.tsx` globs only beneath
-its own tree, so it structurally cannot see a PSFlow-authored fixture; and its
-app is vite plus a path router where this is a static server plus a hash
-router. That last one is not cosmetic — the container's box feeds `fitView`,
-which feeds the viewport transform, which feeds everything — so both of the
-net's runs load *this* page rather than one of them loading upstream's app.
+its own tree, so it structurally cannot see a PSFlow-authored fixture, and it
+cannot see upstream's own `examples/` either; and its app is vite plus a path
+router where this is a static server plus a hash router. That last one is not
+cosmetic — the container's box feeds `fitView`, which feeds the viewport
+transform, which feeds everything — so both of the net's runs load *this* page
+rather than one of them loading upstream's app.
 
 ## The alias, and why the build checks its own output
 
@@ -83,10 +105,11 @@ clone — the same reason `oracle/index.js` is committed.
 Rebuild it after changing `src/`, after re-vendoring `xyflow/`, and before
 reading a conformance failure as a real one.
 
-**Nothing fails when you don't.** A bundle that predates `output/` leaves both
-specs green about code that is gone, which is a **stale** register in every
-sense the glossary means — and unlike the allowlists and regions, this one has
-no gate behind it. Its banner records the baseline and the fixture count, so a
-bundle left behind by a bump *says* so to a reader, but saying is not failing.
+**Nothing fails when you don't.** A bundle that predates `output/` leaves every
+spec that loads it green about code that is gone, which is a **stale** register
+in every sense the glossary means — and unlike the allowlists and regions, this
+one has no gate behind it. Its banner records the baseline and the two
+registries' sizes, so a bundle left behind by a bump *says* so to a reader, but
+saying is not failing.
 `oracle/index.js` carries the identical gap, which is why closing it is one
 mechanism for both rather than something to bolt onto this directory.
