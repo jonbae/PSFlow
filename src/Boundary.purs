@@ -23,18 +23,21 @@
 -- | which is which, and is the only place that answer is written down.
 -- |
 -- | What has landed so far is this skeleton, the eight TS enum objects below,
--- | the converters, and the three graph utilities a driver calls. The enums
--- | needed no converter at all — they are plain data on both sides,
--- | `{ Left: "left", … }` against `{ Left: "left", … }`, so there is nothing to
--- | get wrong but member names, which the record types check.
+-- | the converters, the three graph utilities a driver calls, the four chrome
+-- | components a driver mounts, and two of the 21 hooks. The enums needed no
+-- | converter at all — they are plain data on both sides, `{ Left: "left", … }`
+-- | against `{ Left: "left", … }`, so there is nothing to get wrong but member
+-- | names, which the record types check.
 -- |
--- | The converters are the rest, and they live in five modules beneath this
+-- | The converters are the rest, and they live in eight modules beneath this
 -- | one, none of them on the PureScript surface:
 -- |
 -- |   * `Boundary.Undefined` — `undefined`, which is what a JavaScript caller
 -- |     means by a prop they did not set.
 -- |   * `Boundary.Untagged` — the runtime narrowing TypeScript does at the use
 -- |     site for unions like `string | string[]` and erases.
+-- |   * `Boundary.Refusal` — the shape of a prop that resolves and does not
+-- |     cross, and the guard that throws on one.
 -- |   * `Boundary.Enums` — string literals in, sum-type constructors out.
 -- |   * `Boundary.Elements` — `Node`, `Edge`, node props, the change objects
 -- |     and `Connection`.
@@ -42,6 +45,10 @@
 -- |   * `Boundary.Utils` — `applyNodeChanges`, `applyEdgeChanges` and
 -- |     `addEdge`, which a controlled flow's own change handlers call, so a
 -- |     driver reaches them on the first interaction.
+-- |   * `Boundary.Chrome` — `Panel`, `Background`, `Controls` and `MiniMap`,
+-- |     which a driver mounts inside the flow.
+-- |   * `Boundary.Hooks` — `useNodesState` and `useEdgesState`, the two of the
+-- |     21 hooks that do not have to wait for stage 3's instance converter.
 -- |
 -- | `ReactFlow` is therefore the first *component* to cross. The remaining
 -- | exports upstream's fixtures import cross with their fixtures.
@@ -87,7 +94,15 @@ module Boundary
 import Boundary.Flow (reactFlow) as CrossedSurface
 import Boundary.Utils (addEdge, applyEdgeChanges, applyNodeChanges) as CrossedSurface
 
--- The other 56 symbols of the public surface, passing through raw. Ordered to
+-- The four chrome components upstream's drivers mount, and the two hooks the
+-- second driver calls. `Boundary.Chrome` and `Boundary.Hooks` say why each
+-- needed a wrapper at all; the short version is that a JavaScript caller
+-- reaches all six with no props and no `Effect`, and a PureScript value of
+-- either shape answers that with a pattern-match failure or a thunk.
+import Boundary.Chrome (background, controls, miniMap, panel) as CrossedSurface
+import Boundary.Hooks (useEdgesState, useNodesState) as CrossedSurface
+
+-- The other 50 symbols of the public surface, passing through raw. Ordered to
 -- mirror `xyflow/packages/react/src/index.ts`, as `index.js` is, so future
 -- audits stay mechanical.
 import React
@@ -102,7 +117,6 @@ import React
   , smoothStepEdge
   , baseEdge
   , reactFlowProvider
-  , panel
   , edgeLabelRenderer
   , viewportPortal
   -- Hooks
@@ -112,8 +126,6 @@ import React
   , useEdges
   , useViewport
   , useKeyPress
-  , useNodesState
-  , useEdgesState
   , useStore
   , useStoreApi
   , useOnViewportChange
@@ -144,10 +156,7 @@ import React
   , getConnectedEdges
   , getSimpleBezierPath
   -- Additional components
-  , background
-  , controls
   , controlButton
-  , miniMap
   , nodeToolbar
   , nodeResizer
   , nodeResizeControl

@@ -13,10 +13,19 @@
 // feeds the viewport transform, which feeds everything — which is exactly why
 // *both* of the net's runs use this page rather than one of them using
 // upstream's app.
+//
+// The page also serves a second kind of route, which upstream's does not: an
+// **example driver**, a component of upstream's imported unmodified and
+// mounted as it stands rather than handed to `Flow`. Upstream reaches those
+// through its own app router; this page carries both because the conformance
+// suite needs one of them (`#/examples/color-mode`) and every gate must enter
+// through the same door.
 import { createRoot, type Root } from 'react-dom/client';
+import type { ComponentType } from 'react';
 
 import Flow, { type FlowConfig } from './Flow';
 import fixtures from 'psflow:fixtures';
+import drivers from 'psflow:drivers';
 
 // `#/tests/generic/nodes/general` names `./nodes/general.ts`, the same key
 // upstream's path router derives. The prefix is upstream's route, kept so that
@@ -34,6 +43,18 @@ if (!container) {
 const root: Root = createRoot(container);
 
 function render() {
+  const hash = window.location.hash;
+
+  // Example drivers are matched on the whole hash, before the fixture lookup:
+  // their routes are upstream's own (`#/examples/color-mode`) and share no
+  // prefix with the generic ones, so a fixture key derived from one would be
+  // nonsense rather than a miss.
+  const ExampleDriver: ComponentType | undefined = drivers[hash];
+  if (ExampleDriver) {
+    root.render(<ExampleDriver key={hash} />);
+    return;
+  }
+
   const key = routeKey();
   const flowConfig: FlowConfig | undefined = fixtures[key];
 

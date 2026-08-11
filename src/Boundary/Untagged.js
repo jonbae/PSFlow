@@ -9,6 +9,8 @@ export const asBooleanImpl = (nothing, just, x) => (typeof x === "boolean" ? jus
 
 export const asArrayImpl = (nothing, just, x) => (Array.isArray(x) ? just(x) : nothing);
 
+export const asFunctionImpl = (nothing, just, x) => (typeof x === "function" ? just(x) : nothing);
+
 export const typeName = (x) => {
   if (x === null) return "null";
   if (Array.isArray(x)) return "array";

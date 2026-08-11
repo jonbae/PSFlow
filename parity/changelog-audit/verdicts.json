@@ -319,7 +319,7 @@
     "version": "12.5.0",
     "title": "Hidden nodes are not displayed in the mini map anymore",
     "bucket": "conformance",
-    "evidence": "src/React/Additional/MiniMap/Nodes.purs:54 drops hidden nodes; src/React/Additional/MiniMap.purs:91 excludes them from bounds. Rendered in examples/react-smoke/tests/generic-props.spec.ts screenshot coverage.",
+    "evidence": "src/React/Additional/MiniMap/Nodes.purs:54 drops hidden nodes; src/React/Additional/MiniMap.purs:91 excludes them from bounds. Mounted by examples/react-smoke/tests/generic-props.spec.ts, whose ColorMode driver renders a MiniMap; no assertion is specific to hidden nodes.",
     "ticket": null,
     "note": ""
   },

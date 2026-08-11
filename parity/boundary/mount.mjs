@@ -27,14 +27,26 @@
 //      calling convention and the branches the crossing itself introduces —
 //      never upstream's semantics, which is call-and-compare's to prove.
 //
-// The deferred list is read live out of `src/Boundary/Flow.purs` rather than
-// restated here. A second copy of that list is a second thing to go stale, and
-// this file checks the one copy against `JsFlowProps` instead.
+//   4. **Three of the four chrome components mount with no props at all**, and
+//      the fourth names the one prop upstream declares required. That is the
+//      dull case and the one that used to crash: React hands a component `{}`,
+//      every `Maybe` field of the PureScript record arrives `undefined`, and
+//      the first `case` over one falls off the end of its pattern match.
+//
+//   5. **`useNodesState` and `useEdgesState` return upstream's 3-tuple, and
+//      their setters run.** Both were unreachable from JavaScript — a hook is
+//      an unrun `Effect`, and `setEdges(fn)` built a second one — and both are
+//      destructured by the ColorMode driver.
+//
+// The deferred lists are read live out of `src/Boundary/Flow.purs` and
+// `src/Boundary/Chrome.purs` rather than restated here. A second copy of
+// either is a second thing to go stale, and this file checks the one copy
+// against the record it belongs to instead.
 //
 // Usage: node parity/boundary/mount.mjs   (requires `spago build`)
 
 import { existsSync, readFileSync } from "node:fs";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import { dirname, join } from "node:path";
 
 import { fail, recordFields } from "./purs.mjs";
@@ -62,7 +74,9 @@ if (!existsSync(compiled)) {
 
 const { createElement } = await import("react");
 const { renderToStaticMarkup } = await import("react-dom/server");
-const psflow = await import(join(repoRoot, "index.js"));
+// `pathToFileURL`, not the bare path: a Windows absolute path begins `C:\`,
+// which the ESM loader reads as an unknown URL scheme and refuses.
+const psflow = await import(pathToFileURL(join(repoRoot, "index.js")).href);
 
 const { ReactFlow, Position, MarkerType, ConnectionLineType } = psflow;
 const { applyNodeChanges, applyEdgeChanges, addEdge } = psflow;
@@ -197,10 +211,21 @@ check("node props arrive JS-shaped, not PureScript-shaped", () => {
 
 // ── 2. Every deferred prop throws ───────────────────────────────────────
 
-const flowText = readFileSync(flowSource, "utf8");
+// Line endings normalised: the repo stores LF and checks out CRLF on Windows,
+// and every pattern below anchors on `\n`. Without this the parse finds
+// nothing on a Windows checkout, which is a loud failure rather than a quiet
+// one — but a loud failure on the wrong thing is still the wrong report.
+const readModule = (path) => readFileSync(path, "utf8").replace(/\r\n/g, "\n");
+
+// The one shape a deferred entry is written in, wherever the table lives.
+// `Boundary.Refusal` owns both constructors, so both converter modules are
+// read with this.
+const deferredEntries = (text) =>
+  [...text.matchAll(/^\s*[[,]?\s*(?:callbackProp|componentProp)\s+"([^"]+)"/gm)].map((m) => m[1]);
+
+const flowText = readModule(flowSource);
 const flowFields = new Set(recordFields(flowSource, "JsFlowProps"));
-const deferredPattern = /^\s*[[,]?\s*(?:callbackProp|componentProp)\s+"([^"]+)"/gm;
-const deferred = [...flowText.matchAll(deferredPattern)].map((m) => m[1]);
+const deferred = deferredEntries(flowText);
 
 // The list is read, not restated, so an empty read is a broken parser rather
 // than a boundary with nothing left to defer — and a broken parser here would
@@ -443,6 +468,266 @@ throws(
   "onError",
   "boundary stage 2"
 );
+
+// ── 5. The chrome components ────────────────────────────────────────────
+//
+// `<Panel />`, `<Background />`, `<Controls />` and `<MiniMap />`, mounted as
+// children of the flow the way a driver mounts them. The claim that matters
+// most is the dullest one: **with no props at all**. Three of the four take
+// none in upstream's ColorMode example, and before they crossed, a `{}` props
+// object gave every `Maybe` field `undefined` and the first `case` over one
+// fell off the end of its pattern match.
+//
+// Nothing here asserts what the components *render*. Their DOM is the
+// conformance suite's and the net's; what this section holds is that the
+// crossing converts, refuses what it cannot, and passes children through.
+
+const chromeSource = join(repoRoot, "src/Boundary/Chrome.purs");
+const chromeText = readModule(chromeSource);
+
+const inFlow = (...children) =>
+  renderToStaticMarkup(createElement(ReactFlow, convertedProps, ...children));
+
+function mounts(what, element, ...mustContain) {
+  check(what, () => {
+    const html = inFlow(element);
+    for (const fragment of mustContain) {
+      assert(html.includes(fragment), `rendered without ${JSON.stringify(fragment)}`);
+    }
+  });
+}
+
+const { Panel, Background, Controls, MiniMap } = psflow;
+
+mounts(
+  "`<Panel />` converts its position and passes its children through",
+  createElement(Panel, { position: "top-right" }, "panel-child"),
+  "react-flow__panel top right",
+  "panel-child"
+);
+mounts("`<Background />` mounts with no props", createElement(Background, {}), "react-flow__background");
+mounts("`<Controls />` mounts with no props", createElement(Controls, {}), "react-flow__controls");
+mounts("`<MiniMap />` mounts with no props", createElement(MiniMap, {}), "react-flow__minimap");
+
+mounts(
+  "`<Background />` narrows `gap`'s number and pair forms",
+  createElement(Background, { variant: "cross", gap: [10, 20], offset: 3 }),
+  "react-flow__background"
+);
+mounts(
+  "`<Controls />` converts its position and orientation",
+  createElement(Controls, { position: "top-left", orientation: "horizontal" }),
+  "react-flow__panel top left",
+  "horizontal"
+);
+
+function chromeThrows(what, element, ...mustMention) {
+  throws(what, () => inFlow(element), ...mustMention);
+}
+
+chromeThrows(
+  "`<Panel />` without a position says so rather than failing a pattern match",
+  createElement(Panel, {}, "x"),
+  "Panel.position",
+  "required"
+);
+chromeThrows(
+  "an enum member that does not exist is refused, with the component named",
+  createElement(Panel, { position: "topright" }, "x"),
+  "Panel.position",
+  "top-right"
+);
+chromeThrows(
+  "`<Background />`'s variant is refused by the same table",
+  createElement(Background, { variant: "crosses" }),
+  "Background.variant",
+  "cross"
+);
+chromeThrows(
+  "`<Background />` refuses a gap that is neither a number nor a pair",
+  createElement(Background, { gap: "wide" }),
+  "Background.gap"
+);
+
+// The refused list is read out of the module, never restated: a second copy is
+// a second thing to go stale, and this file already checks the one copy.
+const chromeDeferred = deferredEntries(chromeText);
+
+if (chromeDeferred.length === 0) {
+  fail(`read no deferred props from ${chromeSource} — the parse is wrong`);
+}
+
+const chromeComponents = { Panel, Background, Controls, MiniMap };
+
+for (const qualified of chromeDeferred) {
+  const [component, prop] = qualified.split(".");
+  check(`\`${qualified}\` is refused at mount`, () => {
+    assert(
+      Object.hasOwn(chromeComponents, component),
+      `names \`${component}\`, which is not one of ${Object.keys(chromeComponents).join(", ")} ` +
+        `— a deferred entry must be written \`<Component>.<prop>\``
+    );
+    let threw = null;
+    try {
+      inFlow(createElement(chromeComponents[component], { [prop]: () => {} }));
+    } catch (e) {
+      threw = e;
+    }
+    assert(threw !== null, "mounted without complaint — the prop is being silently ignored");
+    assert(
+      threw.message.includes(`\`${qualified}\``),
+      `threw, but the message does not name the prop: ${threw.message}`
+    );
+    assert(
+      /boundary stage \d/.test(threw.message),
+      `threw, but the message does not name the stage that lands it: ${threw.message}`
+    );
+  });
+}
+
+// The other direction, exactly as for the flow props: a chrome prop handed
+// `Nothing` with no table entry is ignored in silence.
+//
+// The converters are found by name — `convert<Component>`, which is why all
+// four are spelled that way — rather than listed, so a fifth component
+// crossing is picked up here instead of waiting for someone to extend a list.
+// The component half of the name is what qualifies the lookup: an unqualified
+// match would let `Controls.onFitView` cover `MiniMap`'s.
+const chromeConverters = [...chromeText.matchAll(/^convert(\w+) p =$/gm)].map((m) => m[1]);
+
+if (chromeConverters.length === 0) {
+  fail(`found no \`convert<Component>\` converters in ${chromeSource} — the parse is wrong`);
+}
+
+check("every chrome prop wired to `Nothing` has a deferred entry", () => {
+  const deferredSet = new Set(chromeDeferred);
+  const unguarded = [];
+  for (const component of chromeConverters) {
+    assert(
+      Object.hasOwn(chromeComponents, component),
+      `\`convert${component}\` names no exported component — a converter must be ` +
+        `\`convert<Component>\`, or the qualified lookup below cannot find its refusals`
+    );
+    const body = new RegExp(`^convert${component} p =\\n([\\s\\S]*?)\\n  \\}$`, "m").exec(chromeText);
+    assert(body !== null, `cannot read \`convert${component}\`'s body — the parse is wrong`);
+    for (const [, name] of body[1].matchAll(/^\s*[,{]\s*(\w+): Nothing$/gm)) {
+      if (!deferredSet.has(`${component}.${name}`)) unguarded.push(`${component}.${name}`);
+    }
+  }
+  assert(
+    unguarded.length === 0,
+    `chrome props wired to \`Nothing\` with no deferred entry, so they are silently ` +
+      `ignored: ${unguarded.join(", ")}`
+  );
+});
+
+// `nodeColor` and its two siblings are `string | ((node) => string)` upstream.
+// The function half is the one place a chrome component hands the consumer a
+// value ps-flow built, so it goes out through the same `nodeOut` that
+// `applyNodeChanges` returns nodes through. The string half has nowhere to go.
+check("`MiniMap.nodeColor` is called with a JS-shaped node", () => {
+  const seen = [];
+  inFlow(createElement(MiniMap, { nodeColor: (node) => (seen.push(node), "#f00") }));
+  assert(seen.length > 0, "the node-colour function was never called");
+  const a = seen.find((n) => n.id === "a");
+  assert(a !== undefined, `it never saw node \`a\`: ${JSON.stringify(seen.map((n) => n.id))}`);
+  assert(a.type === "custom", `\`type\` was ${JSON.stringify(a.type)} — a consumer never reads \`nodeType\``);
+  assert(!("nodeType" in a), "the node still carries `nodeType`");
+});
+
+chromeThrows(
+  "`MiniMap.nodeColor`'s string form is refused rather than guessed at",
+  createElement(MiniMap, { nodeColor: "#f00" }),
+  "MiniMap.nodeColor",
+  "string form"
+);
+
+// ── 6. The two hooks ────────────────────────────────────────────────────
+//
+// `useNodesState` and `useEdgesState` are the whole reason the second driver
+// costs anything: upstream's `ColorMode/index.tsx` destructures both, and
+// before this crossing the call returned an unrun `Effect` thunk, so
+// `const [nodes, , onNodesChange] = useNodesState(…)` bound `undefined` three
+// times and `setEdges(eds => …)` mutated nothing.
+//
+// The updater is exercised with a **render-phase update** — a setter called
+// during the component's own render, which React re-renders in place. That is
+// what makes the round trip observable from a server render at all: outside a
+// render, `react-dom/server`'s dispatch is a no-op, which would prove only
+// that nothing crashed.
+
+const { useNodesState, useEdgesState } = psflow;
+
+// Renders a probe that calls `hook(initial)` and hands the tuple to `act` with
+// the render count. Returns every tuple the probe saw, newest last.
+function hookProbe(hook, initial, act = () => {}) {
+  const seen = [];
+  function Probe() {
+    const tuple = hook(initial);
+    seen.push(tuple);
+    act(tuple, seen.length - 1);
+    return null;
+  }
+  renderToStaticMarkup(createElement(Probe));
+  return seen;
+}
+
+const hooks = [
+  { name: "useNodesState", setter: "setNodes", hook: useNodesState, initial: jsNodes, shaped: "nodeType" },
+  { name: "useEdgesState", setter: "setEdges", hook: useEdgesState, initial: jsEdges, shaped: "edgeType" },
+];
+
+for (const { name, setter: setterName, hook, initial, shaped } of hooks) {
+  check(`\`${name}\` returns upstream's three-slot array, not a thunk`, () => {
+    const [tuple] = hookProbe(hook, initial);
+    assert(Array.isArray(tuple), `returned ${typeof tuple} — a consumer destructures an array`);
+    assert(tuple.length === 3, `returned ${tuple.length} slots, not 3`);
+    const [current, setter, onChange] = tuple;
+    assert(Array.isArray(current), `slot 0 is ${typeof current}, not the current array`);
+    assert(current.length === initial.length, `slot 0 has ${current.length} entries, not ${initial.length}`);
+    assert(typeof setter === "function", `slot 1 is ${typeof setter}, not the setter`);
+    assert(setter.length === 1, `the setter takes ${setter.length} arguments, not 1`);
+    assert(typeof onChange === "function", `slot 2 is ${typeof onChange}, not the change handler`);
+    assert(onChange.length === 1, `the change handler takes ${onChange.length} arguments, not 1`);
+    assert(!(shaped in current[0]), `slot 0 still carries \`${shaped}\``);
+  });
+
+  check(`\`${name}\`'s setter runs rather than returning an unrun thunk`, () => {
+    let returned = "never called";
+    let handed = null;
+    const seen = hookProbe(hook, initial, ([, set], pass) => {
+      if (pass === 0) {
+        returned = set((previous) => {
+          handed = previous;
+          return previous.slice(0, 1);
+        });
+      }
+    });
+    assert(
+      returned === undefined,
+      `the setter returned ${typeof returned} — a PureScript \`Effect\` nobody runs looks ` +
+        `exactly like this, and it is the failure this whole boundary exists to remove`
+    );
+    assert(handed !== null, "the updater was never called");
+    assert(!(shaped in handed[0]), `the updater was handed a value still carrying \`${shaped}\``);
+    assert(seen.length > 1, "the update did not re-render the probe");
+    assert(seen.at(-1)[0].length === 1, `the updated array has ${seen.at(-1)[0].length} entries, not 1`);
+  });
+
+  check(`\`${name}\`'s setter also takes the plain array React's contract allows`, () => {
+    const seen = hookProbe(hook, initial, ([, set], pass) => {
+      if (pass === 0) set([]);
+    });
+    assert(seen.length > 1, "the update did not re-render the probe");
+    assert(seen.at(-1)[0].length === 0, `the array did not land: ${JSON.stringify(seen.at(-1)[0])}`);
+  });
+
+  throws(
+    `\`${name}\`'s setter refuses an argument that is neither`,
+    () => hookProbe(hook, initial, ([, set], pass) => pass === 0 && set(42)),
+    setterName
+  );
+}
 
 // ── Report ──────────────────────────────────────────────────────────────
 

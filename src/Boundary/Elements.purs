@@ -50,6 +50,8 @@ module Boundary.Elements
   , JsEdgeChange
   , JsConnection
   , JsXYPosition
+  , asCssObject
+  , fromCssObject
   , coordinateExtentIn
   , coordinateExtentOut
   , connectionIn
@@ -487,8 +489,9 @@ nodeHandleOut h =
   }
 
 -- `CSSProperties` in both directions, for the `style` field a node or an edge
--- carries. PureScript's `Object String` is the same runtime object; the
--- coercion is where the type stops being true about numeric CSS values.
+-- carries — and, through `Boundary.Chrome`, the one each of the four chrome
+-- components carries. PureScript's `Object String` is the same runtime object;
+-- the coercion is where the type stops being true about numeric CSS values.
 -- `Boundary.Flow` has its own pair of these for the connection-line styles,
 -- because those are typed with the opaque `React.Types.Edges.Style` instead.
 asCssObject :: Foreign -> Object String
