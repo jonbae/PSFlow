@@ -1,4 +1,4 @@
-# The driver — one page, bundled once per side
+# The drivers — one page, bundled once per side
 
 A **driver** is the React component that mounts a **fixture**. There are two,
 and the page below serves both; it is bundled twice, and the two bundles differ
@@ -10,7 +10,7 @@ all defined there.
 
 | | |
 |---|---|
-| `src/Flow.tsx` | the driver: a twin of upstream's `generic-tests/Flow.tsx` |
+| `src/Flow.tsx` | the fixture driver: a twin of upstream's `generic-tests/Flow.tsx` |
 | `src/entry.tsx` | the page: route → fixture or example driver, a twin of upstream's `generic-tests/index.tsx` |
 | `index.html` | the container, whose box feeds `fitView` |
 | `build.mjs` | the two registries, the bundle, the alias, and the provenance check |
@@ -31,15 +31,23 @@ conformance specs drive.
 imported unmodified and mounted as it stands. `generic-props.spec.ts` needs
 one, because upstream has no props fixture to twin — its own props spec drives
 its `examples/ColorMode` page, so PSFlow's port drives upstream's own
-`examples/ColorMode/index.tsx`, through this page, on the JS surface. Written
-down in `build.mjs` rather than globbed: `examples/` holds 65 directories, and
-one unresolved import among them is a link error that stops the page building
-for every route at once.
+`examples/ColorMode/index.tsx`, through this page, on the JS surface.
+
+Example drivers are **written down** in `build.mjs` rather than globbed, unlike
+the fixtures. Upstream's `examples/` holds dozens of directories, most of them
+importing exports that have not crossed, and one unresolved import is a link
+error that stops the page building for every route at once. Adding an entry is
+therefore a decision about the crossing set, not a discovery — which is why
+`build.mjs` states the count it is refusing to glob rather than this file
+repeating it.
 
 That import list is not free. `ColorMode/index.tsx` pulls `useNodesState` and
-`useEdgesState` into boundary stage 1 from stage 3, and it is the first gate
-ever to execute `setEdges(eds => …)` — the unrun-thunk shape the whole boundary
-effort started from.
+`useEdgesState` into boundary stage 1 from stage 3, and its line 56 is
+`setEdges(eds => addEdge(params, eds))` — the unrun-thunk shape the whole
+boundary effort started from. Nothing in a browser executes that line yet: the
+props spec never draws a connection, so what holds the fix is `parity:boundary`,
+which calls the setter itself. The driver is why the crossing had to happen, not
+what proves it.
 
 ## Who uses it
 

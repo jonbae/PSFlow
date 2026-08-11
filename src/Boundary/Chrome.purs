@@ -50,8 +50,8 @@ import Prelude
 import Boundary.Elements (asCssObject, nodeOut)
 import Boundary.Enums (backgroundVariantIn, orientationIn, panelPositionIn)
 import Boundary.Flow (JsFitViewOptions, fitViewOptionsIn)
-import Boundary.Refusal (Refusal, refuseFirst)
-import Boundary.Undefined (Undefinable, fromUndefinable, isDefined)
+import Boundary.Refusal (Refusal, callbackProp, componentProp, deferredMessage, refuseFirst)
+import Boundary.Undefined (Undefinable, fromUndefinable)
 import Boundary.Untagged (asArray, asFunction, asNumber, asString, typeName)
 import Data.Either (Either(..))
 import Data.Maybe (Maybe(..))
@@ -73,37 +73,10 @@ import Unsafe.Coerce (unsafeCoerce)
 -- Shared
 -- ────────────────────────────────────────────────────────────────────────
 
--- | The deferred-prop message, with the component named. `MiniMap.onClick`
--- | and `Controls.onZoomIn` are different props that a bare `onClick` /
--- | `onZoomIn` would not tell apart, and `ReactFlow` has props of its own by
--- | some of those names.
-deferredMessage :: forall props. Refusal props -> String
-deferredMessage d =
-  "ps-flow: the `" <> d.name
-    <> "` prop has not crossed the JavaScript boundary yet — it lands in "
-    <> "boundary stage "
-    <> show d.stage
-    <> " ("
-    <> d.note
-    <> "). It is refused rather than ignored so that a prop ps-flow has not "
-    <> "implemented fails loudly instead of looking like a prop you did not "
-    <> "set."
-
-callbackProp :: forall props a. String -> (props -> Undefinable a) -> Refusal props
-callbackProp name get =
-  { name
-  , stage: 2
-  , note: "the callback props"
-  , supplied: \p -> isDefined (get p)
-  }
-
-componentProp :: forall props a. String -> (props -> Undefinable a) -> Refusal props
-componentProp name get =
-  { name
-  , stage: 4
-  , note: "the props that hand a consumer's own component its props record"
-  , supplied: \p -> isDefined (get p)
-  }
+-- | Every refusal below names its component — `MiniMap.onClick`, not
+-- | `onClick`. Four records meet here, `ReactFlow` has props of its own by
+-- | some of the same names, and the message is the only thing that says which
+-- | element the consumer has to go and look at.
 
 -- | A prop upstream declares required. It is typed `Undefinable` here anyway,
 -- | because a JavaScript caller can always omit it and TypeScript is not
@@ -133,8 +106,8 @@ type JsPanelProps =
   , children :: ReactChildren JSX
   }
 
-panelPropsIn :: JsPanelProps -> PanelProps
-panelPropsIn p =
+convertPanel :: JsPanelProps -> PanelProps
+convertPanel p =
   { position: panelPositionIn "Panel.position" (requiredProp "Panel.position" p.position)
   , className: fromUndefinable p.className
   , style: map asCssObject (fromUndefinable p.style)
@@ -146,7 +119,7 @@ panelPropsIn p =
 panel :: ReactComponent JsPanelProps
 panel =
   unsafePerformEffect $ reactComponentWithChildren "Panel"
-    \(props :: JsPanelProps) -> pure (element PS.panel (panelPropsIn props))
+    \(props :: JsPanelProps) -> pure (element PS.panel (convertPanel props))
 
 -- ────────────────────────────────────────────────────────────────────────
 -- Background
@@ -168,8 +141,8 @@ type JsBackgroundProps =
   , style :: Undefinable Foreign
   }
 
-backgroundPropsIn :: JsBackgroundProps -> BackgroundProps
-backgroundPropsIn p =
+convertBackground :: JsBackgroundProps -> BackgroundProps
+convertBackground p =
   { id: fromUndefinable p.id
   , color: fromUndefinable p.color
   , bgColor: fromUndefinable p.bgColor
@@ -206,7 +179,7 @@ numberPairIn field raw = case asNumber raw of
 background :: ReactComponent JsBackgroundProps
 background =
   unsafePerformEffect $ reactComponent "Background"
-    \(props :: JsBackgroundProps) -> pure (element PS.background (backgroundPropsIn props))
+    \(props :: JsBackgroundProps) -> pure (element PS.background (convertBackground props))
 
 -- ────────────────────────────────────────────────────────────────────────
 -- Controls

@@ -55,6 +55,10 @@ import Data.Foldable (intercalate)
 import Data.Maybe (Maybe(..))
 import Data.Tuple (Tuple(..), fst, snd)
 import Effect.Exception.Unsafe (unsafeThrow)
+import React.Types.Component (BackgroundVariant(..))
+-- Qualified: `Orientation`'s two constructors are spelled the same as two of
+-- `PanOnScrollMode`'s, and both codecs live in this module.
+import React.Types.Component (Orientation(..)) as Chrome
 import System.Types.Connection
   ( ColorMode(..)
   , ConnectionMode(..)
@@ -64,10 +68,6 @@ import System.Types.Connection
   , SelectionMode(..)
   , ZIndexMode(..)
   )
-import React.Types.Component (BackgroundVariant(..))
--- Qualified: `Orientation`'s two constructors are spelled the same as two of
--- `PanOnScrollMode`'s, and both codecs live in this module.
-import React.Types.Component (Orientation(..)) as Chrome
 import System.Types.Edge (ConnectionLineType(..), MarkerType(..))
 import System.Types.Geometry (Position(..))
 import System.Types.Handle (HandleType(..))

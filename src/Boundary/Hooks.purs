@@ -5,7 +5,8 @@
 -- | That argument is specific to `useReactFlow`. These two return their own
 -- | bundles and touch no instance, so they cross alone, in stage 1, pulled
 -- | forward by upstream's `examples/ColorMode/index.tsx` — the second driver,
--- | which is the first gate to execute either of them.
+-- | which is the first thing in the repo to call either of them from
+-- | JavaScript.
 -- |
 -- | Both were **broken from JavaScript** before this, in two ways that a
 -- | consumer sees and no PureScript test could:
@@ -19,6 +20,11 @@
 -- |     `setEdges(eds => …)` built another unrun thunk and mutated nothing.
 -- |     That is the `setNodes(fn)` silent no-op the whole boundary effort
 -- |     started from, and this is the first place it is fixed.
+-- |
+-- | What holds the third one is `parity/boundary/mount.mjs`, which calls the
+-- | setter itself. No browser gate does: the ColorMode driver's own
+-- | `setEdges(eds => addEdge(params, eds))` runs on connect, and
+-- | `generic-props.spec.ts` never draws one.
 -- |
 -- | ## The array, and what checks it
 -- |

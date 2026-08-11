@@ -270,18 +270,26 @@ _Avoid_: the harness, the diff suite
 **Fixture**:
 One flow definition — nodes, edges, and the props handed to `ReactFlow` — as a
 data file both implementations import. Never contains test code. An **example
-driver** is the exception that proves the rule: its flow is declared inside the
-component, which is why it is imported unmodified rather than twinned.
+driver** carries its fixture inside the component instead, which is why it is
+imported unmodified rather than twinned.
 _Avoid_: test data, flow config, page
 
 **Driver**:
 The React component that mounts a fixture. Each driver serves both sides,
 bundled twice; only the import target differs, so a driver difference can never
-be mistaken for a library difference. There are two: `parity/driver/src/Flow.tsx`,
-which takes a fixture as data, and upstream's `examples/ColorMode/index.tsx`,
-imported unmodified — an **example driver**, which declares its own flow inline
-and so is its own fixture. One page routes to both.
+be mistaken for a library difference. There are two, and one page routes to
+both: `parity/driver/src/Flow.tsx`, which takes a fixture as data, and one
+**example driver**.
 _Avoid_: harness, wrapper, app
+
+**Example driver**:
+A driver imported **unmodified** from upstream's `examples/`, rather than
+twinned. It declares its own flow inline, so it is its own **fixture** — which
+is what puts it under the make-hand-translation-impossible bar that `Flow.tsx`
+escapes. There is one, `examples/ColorMode/index.tsx`, and it exists because
+upstream has no props fixture for the conformance suite's props spec to drive.
+Its route is upstream's own (`#/examples/color-mode`), never a fixture route.
+_Avoid_: example page, bespoke page, example fixture
 
 **Corpus**:
 The complete set of scenarios the net drives.

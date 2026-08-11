@@ -24502,6 +24502,10 @@ var manifest = Object.freeze({
   // objects; stages 2-4 are the callbacks, the imperative instance with the
   // remaining hooks, and the components no fixture mounts. See the spec's
   // staging table.
+  //
+  // Stage 1's set is twenty. Eighteen of them are below; `Handle` and
+  // `NodeToolbar` are the two outstanding, and they belong to the node-toolbar
+  // fixture rather than to either driver, so they cross when it does (#47).
   stage: 1,
   // The eight TS enums are plain data on both sides, so crossing them was the
   // whole conversion: no wrapper, no arity change, no representation to
@@ -28310,6 +28314,7 @@ var nodeChangeIn = function(c) {
 };
 
 // output/Boundary.Refusal/index.js
+var show4 = /* @__PURE__ */ show(showInt);
 var refuseFirst = function(message2) {
   return function(refusals) {
     return function(p) {
@@ -28324,7 +28329,34 @@ var refuseFirst = function(message2) {
         return unsafeThrow(message2(v.value0));
       }
       ;
-      throw new Error("Failed pattern match at Boundary.Refusal (line 41, column 34 - line 43, column 36): " + [v.constructor.name]);
+      throw new Error("Failed pattern match at Boundary.Refusal (line 87, column 34 - line 89, column 36): " + [v.constructor.name]);
+    };
+  };
+};
+var deferredMessage = function(d) {
+  return "ps-flow: the `" + (d.name + ("` prop has not crossed the JavaScript boundary yet \u2014 it lands in " + ("boundary stage " + (show4(d.stage) + (" (" + (d.note + "). It is refused rather than ignored so that a prop ps-flow has not implemented fails loudly instead of looking like a prop you did not set."))))));
+};
+var componentProp = function(name15) {
+  return function(get7) {
+    return {
+      name: name15,
+      stage: 4,
+      note: "the props that hand a consumer's own component its props record",
+      supplied: function(p) {
+        return isDefined(get7(p));
+      }
+    };
+  };
+};
+var callbackProp = function(name15) {
+  return function(get7) {
+    return {
+      name: name15,
+      stage: 2,
+      note: "the callback props",
+      supplied: function(p) {
+        return isDefined(get7(p));
+      }
     };
   };
 };
@@ -28678,7 +28710,7 @@ var storeProvider = function(value12) {
 };
 
 // output/System.Constants/index.js
-var show4 = /* @__PURE__ */ show(showNumber);
+var show5 = /* @__PURE__ */ show(showNumber);
 var E001 = /* @__PURE__ */ function() {
   function E0012() {
   }
@@ -28901,7 +28933,7 @@ var defaultAriaLabelConfig = {
   nodeA11yDescriptionDefault: "Press enter or space to select a node. Press delete to remove it and escape to cancel.",
   nodeA11yDescriptionKeyboardDisabled: "Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel.",
   nodeA11yDescriptionAriaLiveMessage: function(v) {
-    return "Moved selected node " + (v.direction + (". New position, x: " + (show4(v.x) + (", y: " + show4(v.y)))));
+    return "Moved selected node " + (v.direction + (". New position, x: " + (show5(v.x) + (", y: " + show5(v.y)))));
   },
   edgeA11yDescriptionDefault: "Press enter or space to select an edge. You can then press delete to remove it or escape to cancel.",
   controlsAriaLabel: "Control Panel",
@@ -35429,7 +35461,7 @@ var edgeUpdateAnchors = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reac
 // output/React.Edge.Text/index.js
 var pure14 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty5 = /* @__PURE__ */ mempty(monoidJSX);
-var show5 = /* @__PURE__ */ show(showNumber);
+var show6 = /* @__PURE__ */ show(showNumber);
 var defaultPadding = {
   x: 2,
   y: 4
@@ -35441,7 +35473,7 @@ var edgeText = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponen
     }
     ;
     if (v.label instanceof Just) {
-      var transform2 = "translate(" + (show5(v.x) + (" " + (show5(v.y) + ")")));
+      var transform2 = "translate(" + (show6(v.x) + (" " + (show6(v.y) + ")")));
       var showBg = fromMaybe(true)(v.labelShowBg);
       var pad = fromMaybe(defaultPadding)(v.labelBgPadding);
       var labelText = text_({
@@ -47038,7 +47070,7 @@ var unless6 = /* @__PURE__ */ unless(applicativeEffect);
 var elem9 = /* @__PURE__ */ elem2(eqString);
 var lookup22 = /* @__PURE__ */ lookup2(ordString);
 var when13 = /* @__PURE__ */ when(applicativeEffect);
-var show6 = /* @__PURE__ */ show(showNumber);
+var show7 = /* @__PURE__ */ show(showNumber);
 var pure211 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty15 = /* @__PURE__ */ mempty(monoidJSX);
 var toForeignStyle8 = unsafeCoerce2;
@@ -47472,7 +47504,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
               });
               var baseStyle = toForeignStyle8({
                 zIndex: slice3.node.internals.z,
-                transform: "translate(" + (show6(slice3.node.internals.positionAbsolute.x) + ("px," + (show6(slice3.node.internals.positionAbsolute.y) + "px)"))),
+                transform: "translate(" + (show7(slice3.node.internals.positionAbsolute.x) + ("px," + (show7(slice3.node.internals.positionAbsolute.y) + "px)"))),
                 pointerEvents: function() {
                   if (hasPointerEvents) {
                     return "all";
@@ -47723,7 +47755,7 @@ var nodeRenderer = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @
 // output/React.Container.Viewport/index.js
 var bind32 = /* @__PURE__ */ bind3(ixBindRender);
 var useStore19 = /* @__PURE__ */ useStore(eqTransform);
-var show7 = /* @__PURE__ */ show(showNumber);
+var show8 = /* @__PURE__ */ show(showNumber);
 var pure48 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var toForeignStyle10 = unsafeCoerce2;
 var selectTransform = function(v) {
@@ -47731,7 +47763,7 @@ var selectTransform = function(v) {
 };
 var viewport = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponentWithChildren()()("Viewport")(function(v) {
   return bind32(useStore19(selectTransform))(function(v1) {
-    var transformStr = "translate(" + (show7(v1.tx) + ("px," + (show7(v1.ty) + ("px) scale(" + (show7(v1.scale) + ")")))));
+    var transformStr = "translate(" + (show8(v1.tx) + ("px," + (show8(v1.ty) + ("px) scale(" + (show8(v1.scale) + ")")))));
     var styleObj = toForeignStyle10({
       transform: transformStr
     });
@@ -58985,8 +59017,7 @@ var reactFlow = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompone
 var map44 = /* @__PURE__ */ map(functorMaybe);
 var map113 = /* @__PURE__ */ map(functorArray);
 var bind46 = /* @__PURE__ */ bind(bindMaybe);
-var show8 = /* @__PURE__ */ show(showInt);
-var show12 = /* @__PURE__ */ show(showString);
+var show9 = /* @__PURE__ */ show(showString);
 var wrap5 = /* @__PURE__ */ wrap();
 var pure65 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var viewportIn = /* @__PURE__ */ map44(function(v) {
@@ -59028,10 +59059,10 @@ var reconnectableIn = function(raw) {
       return unsafeThrow("ps-flow: `defaultEdgeOptions.reconnectable` must be a boolean, " + ('"source" or "target", got ' + (typeName(raw) + ".")));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Flow (line 641, column 14 - line 648, column 17): " + [v1.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Flow (line 614, column 14 - line 621, column 17): " + [v1.constructor.name]);
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Flow (line 638, column 23 - line 648, column 17): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Flow (line 611, column 23 - line 621, column 17): " + [v.constructor.name]);
 };
 var proOptionsIn = function(o) {
   return {
@@ -59050,7 +59081,7 @@ var panOnDragIn = function(raw) {
       return unsafeThrow("ps-flow: every entry of `panOnDrag` must be a mouse-button number, got " + (typeName(b) + "."));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Flow (line 750, column 18 - line 756, column 17): " + [v3.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Flow (line 723, column 18 - line 729, column 17): " + [v3.constructor.name]);
   };
   var v = asBoolean(raw);
   if (v instanceof Just && v.value0) {
@@ -59073,17 +59104,17 @@ var panOnDragIn = function(raw) {
         return NoPan.value;
       }
       ;
-      throw new Error("Failed pattern match at Boundary.Flow (line 740, column 7 - line 742, column 25): " + [v2.constructor.name]);
+      throw new Error("Failed pattern match at Boundary.Flow (line 713, column 7 - line 715, column 25): " + [v2.constructor.name]);
     }
     ;
     if (v1 instanceof Nothing) {
       return unsafeThrow("ps-flow: `panOnDrag` must be a boolean or an array of mouse-button " + ("numbers, got " + (typeName(raw) + ".")));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Flow (line 738, column 14 - line 748, column 17): " + [v1.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Flow (line 711, column 14 - line 721, column 17): " + [v1.constructor.name]);
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Flow (line 735, column 19 - line 748, column 17): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Flow (line 708, column 19 - line 721, column 17): " + [v.constructor.name]);
 };
 var onNodesChangeIn = function(f) {
   return function(changes) {
@@ -59151,47 +59182,6 @@ var guardEdgeOptions = /* @__PURE__ */ function() {
   };
   return refuseFirst(message2)(refusedEdgeOptions);
 }();
-var convertEdgeOptions = function(o) {
-  return {
-    animated: fromUndefinable(o.animated),
-    hidden: fromUndefinable(o.hidden),
-    deletable: fromUndefinable(o.deletable),
-    selectable: fromUndefinable(o.selectable),
-    focusable: fromUndefinable(o.focusable),
-    data: fromUndefinable(o.data),
-    zIndex: map44(round2)(fromUndefinable(o.zIndex)),
-    ariaLabel: fromUndefinable(o.ariaLabel),
-    interactionWidth: fromUndefinable(o.interactionWidth),
-    reconnectable: bind46(fromUndefinable(o.reconnectable))(reconnectableIn)
-  };
-};
-var defaultEdgeOptionsIn = function($115) {
-  return convertEdgeOptions(guardEdgeOptions($115));
-};
-var componentProp = function(name15) {
-  return function(get7) {
-    return {
-      name: name15,
-      stage: 4,
-      note: "the props that hand a consumer's own component its props record",
-      supplied: function(p) {
-        return isDefined(get7(p));
-      }
-    };
-  };
-};
-var callbackProp = function(name15) {
-  return function(get7) {
-    return {
-      name: name15,
-      stage: 2,
-      note: "the callback props",
-      supplied: function(p) {
-        return isDefined(get7(p));
-      }
-    };
-  };
-};
 var deferredProps = [/* @__PURE__ */ callbackProp("onNodeClick")(function(v) {
   return v.onNodeClick;
 }), /* @__PURE__ */ callbackProp("onNodeDoubleClick")(function(v) {
@@ -59291,15 +59281,27 @@ var deferredProps = [/* @__PURE__ */ callbackProp("onNodeClick")(function(v) {
 }), /* @__PURE__ */ componentProp("connectionLineComponent")(function(v) {
   return v.connectionLineComponent;
 })];
-var guardDeferred = /* @__PURE__ */ function() {
-  var message2 = function(d) {
-    return "ps-flow: the `" + (d.name + ("` prop has not crossed the JavaScript boundary yet \u2014 it lands in " + ("boundary stage " + (show8(d.stage) + (" (" + (d.note + "). It is refused rather than ignored so that a prop ps-flow has not implemented fails loudly instead of looking like a prop you did not set."))))));
+var guardDeferred = /* @__PURE__ */ refuseFirst(deferredMessage)(deferredProps);
+var convertEdgeOptions = function(o) {
+  return {
+    animated: fromUndefinable(o.animated),
+    hidden: fromUndefinable(o.hidden),
+    deletable: fromUndefinable(o.deletable),
+    selectable: fromUndefinable(o.selectable),
+    focusable: fromUndefinable(o.focusable),
+    data: fromUndefinable(o.data),
+    zIndex: map44(round2)(fromUndefinable(o.zIndex)),
+    ariaLabel: fromUndefinable(o.ariaLabel),
+    interactionWidth: fromUndefinable(o.interactionWidth),
+    reconnectable: bind46(fromUndefinable(o.reconnectable))(reconnectableIn)
   };
-  return refuseFirst(message2)(deferredProps);
-}();
+};
+var defaultEdgeOptionsIn = function($114) {
+  return convertEdgeOptions(guardEdgeOptions($114));
+};
 var badPadding = function(field) {
   return function(s) {
-    return unsafeThrow("ps-flow: `" + (field + ('` must be a number, "<n>px" or "<n>%", got ' + (show12(s) + "."))));
+    return unsafeThrow("ps-flow: `" + (field + ('` must be a number, "<n>px" or "<n>%", got ' + (show9(s) + "."))));
   };
 };
 var paddingStringIn = function(field) {
@@ -59324,10 +59326,10 @@ var paddingStringIn = function(field) {
         return badPadding(field)(s);
       }
       ;
-      throw new Error("Failed pattern match at Boundary.Flow (line 716, column 16 - line 718, column 36): " + [v1.constructor.name]);
+      throw new Error("Failed pattern match at Boundary.Flow (line 689, column 16 - line 691, column 36): " + [v1.constructor.name]);
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Flow (line 714, column 3 - line 718, column 36): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Flow (line 687, column 3 - line 691, column 36): " + [v.constructor.name]);
   };
 };
 var paddingValueIn = function(field) {
@@ -59347,10 +59349,10 @@ var paddingValueIn = function(field) {
         return Nothing.value;
       }
       ;
-      throw new Error("Failed pattern match at Boundary.Flow (line 708, column 14 - line 710, column 23): " + [v1.constructor.name]);
+      throw new Error("Failed pattern match at Boundary.Flow (line 681, column 14 - line 683, column 23): " + [v1.constructor.name]);
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Flow (line 706, column 28 - line 710, column 23): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Flow (line 679, column 28 - line 683, column 23): " + [v.constructor.name]);
   };
 };
 var paddingIn = function(field) {
@@ -59367,7 +59369,7 @@ var paddingIn = function(field) {
             return badPadding(field + ("." + name15))(typeName(v2));
           }
           ;
-          throw new Error("Failed pattern match at Boundary.Flow (line 701, column 5 - line 703, column 64): " + [v1.constructor.name]);
+          throw new Error("Failed pattern match at Boundary.Flow (line 674, column 5 - line 676, column 64): " + [v1.constructor.name]);
         });
       };
     };
@@ -59387,7 +59389,7 @@ var paddingIn = function(field) {
       });
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Flow (line 675, column 23 - line 684, column 6): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Flow (line 648, column 23 - line 657, column 6): " + [v.constructor.name]);
   };
 };
 var fitViewOptionsIn = function(o) {
@@ -59550,8 +59552,8 @@ var convertProps = function(p) {
     zIndexMode: map44(zIndexModeIn("zIndexMode"))(fromUndefinable(p.zIndexMode))
   };
 };
-var flowPropsIn = function($116) {
-  return convertProps(guardDeferred($116));
+var flowPropsIn = function($115) {
+  return convertProps(guardDeferred($115));
 };
 var reactFlow2 = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponentWithChildren()()("ReactFlow")(function(v) {
   return pure65(element(reactFlow)(flowPropsIn(v)));
@@ -60118,7 +60120,7 @@ var controls2 = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__P
 
 // output/React.Additional.MiniMap.Node/index.js
 var map45 = /* @__PURE__ */ map(functorMaybe);
-var show9 = /* @__PURE__ */ show(showNumber);
+var show10 = /* @__PURE__ */ show(showNumber);
 var pure70 = /* @__PURE__ */ pure(applicativeEffect);
 var pure128 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var toForeignStyle12 = unsafeCoerce2;
@@ -60168,7 +60170,7 @@ var maybeInsert = function(k) {
   };
 };
 var miniMapNode = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponent()()()("MiniMapNode")(function(v) {
-  var styleObj = maybeInsert("strokeWidth")(map45(show9)(v.strokeWidth))(maybeInsert("stroke")(v.strokeColor)(maybeInsert("fill")(pickFill(v.color)(v.style))(empty2)));
+  var styleObj = maybeInsert("strokeWidth")(map45(show10)(v.strokeWidth))(maybeInsert("stroke")(v.strokeColor)(maybeInsert("fill")(pickFill(v.color)(v.style))(empty2)));
   var onClickHandler = function() {
     if (v.onClick instanceof Nothing) {
       return handler_(pure70(unit));
@@ -60495,7 +60497,7 @@ var eqRec1 = /* @__PURE__ */ eqRec7(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eq
   }
 })(eqNumber));
 var map47 = /* @__PURE__ */ map(functorMaybe);
-var show10 = /* @__PURE__ */ show(showNumber);
+var show11 = /* @__PURE__ */ show(showNumber);
 var bind50 = /* @__PURE__ */ bind3(ixBindRender);
 var max13 = /* @__PURE__ */ max(ordNumber);
 var discard20 = /* @__PURE__ */ discard2(ixBindRender);
@@ -60606,8 +60608,8 @@ var buildPanelStyle = function(userStyle) {
               return function(nodeStrokeWidth) {
                 return function(viewScale) {
                   var base = fromMaybe(empty2)(userStyle);
-                  return maybeInsert2("--xy-minimap-node-stroke-width-props")(map47(show10)(nodeStrokeWidth))(maybeInsert2("--xy-minimap-node-stroke-color-props")(nodeStrokeColor)(maybeInsert2("--xy-minimap-node-background-color-props")(nodeColor)(maybeInsert2("--xy-minimap-mask-stroke-width-props")(map47(function(w) {
-                    return show10(w * viewScale);
+                  return maybeInsert2("--xy-minimap-node-stroke-width-props")(map47(show11)(nodeStrokeWidth))(maybeInsert2("--xy-minimap-node-stroke-color-props")(nodeStrokeColor)(maybeInsert2("--xy-minimap-node-background-color-props")(nodeColor)(maybeInsert2("--xy-minimap-mask-stroke-width-props")(map47(function(w) {
+                    return show11(w * viewScale);
                   })(maskStrokeWidth))(maybeInsert2("--xy-minimap-mask-stroke-color-props")(maskStrokeColor)(maybeInsert2("--xy-minimap-mask-background-color-props")(maskColor)(maybeInsert2("--xy-minimap-background-color-props")(bgColor)(base)))))));
                 };
               };
@@ -60824,7 +60826,6 @@ var miniMap = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PUR
 var map48 = /* @__PURE__ */ map(functorMaybe);
 var reactComponentWithChildren3 = /* @__PURE__ */ reactComponentWithChildren()();
 var pure74 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
-var show11 = /* @__PURE__ */ show(showInt);
 var requiredProp = function(field) {
   return function(u) {
     var v = fromUndefinable(u);
@@ -60836,22 +60837,9 @@ var requiredProp = function(field) {
       return unsafeThrow("ps-flow: `" + (field + "` is required and was not supplied."));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Chrome (line 112, column 24 - line 116, column 69): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Chrome (line 85, column 24 - line 89, column 69): " + [v.constructor.name]);
   };
 };
-var panelPropsIn = function(p) {
-  return {
-    position: panelPositionIn("Panel.position")(requiredProp("Panel.position")(p.position)),
-    className: fromUndefinable(p.className),
-    style: map48(asCssObject)(fromUndefinable(p.style)),
-    "aria-label": fromUndefinable(p["aria-label"]),
-    "data-testid": fromUndefinable(p["data-testid"]),
-    children: p.children
-  };
-};
-var panel2 = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponentWithChildren3("Panel")(function(v) {
-  return pure74(element(panel)(panelPropsIn(v)));
-}));
 var numberPairIn = function(field) {
   return function(raw) {
     var axis = function(name15) {
@@ -60865,7 +60853,7 @@ var numberPairIn = function(field) {
           return unsafeThrow("ps-flow: the " + (name15 + (" entry of `" + (field + ("` must be a number, got " + (typeName(value12) + "."))))));
         }
         ;
-        throw new Error("Failed pattern match at Boundary.Chrome (line 198, column 21 - line 204, column 17): " + [v2.constructor.name]);
+        throw new Error("Failed pattern match at Boundary.Chrome (line 171, column 21 - line 177, column 17): " + [v2.constructor.name]);
       };
     };
     var v = asNumber(raw);
@@ -60882,7 +60870,7 @@ var numberPairIn = function(field) {
       return unsafeThrow("ps-flow: `" + (field + ("` must be a number or a pair of numbers, got " + (typeName(raw) + "."))));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Chrome (line 188, column 26 - line 196, column 17): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Chrome (line 161, column 26 - line 169, column 17): " + [v.constructor.name]);
   };
 };
 var nodeAttributeIn = function(field) {
@@ -60897,7 +60885,7 @@ var nodeAttributeIn = function(field) {
         return unsafeThrow("ps-flow: `" + (field + ("` returned " + (typeName(value12) + ", not a string."))));
       }
       ;
-      throw new Error("Failed pattern match at Boundary.Chrome (line 361, column 22 - line 365, column 86): " + [v2.constructor.name]);
+      throw new Error("Failed pattern match at Boundary.Chrome (line 334, column 22 - line 338, column 86): " + [v2.constructor.name]);
     };
     var v = asFunction(raw);
     if (v instanceof Just) {
@@ -60916,15 +60904,41 @@ var nodeAttributeIn = function(field) {
         return unsafeThrow("ps-flow: `" + (field + ("` must be a function of a node, got " + (typeName(raw) + "."))));
       }
       ;
-      throw new Error("Failed pattern match at Boundary.Chrome (line 349, column 14 - line 359, column 17): " + [v1.constructor.name]);
+      throw new Error("Failed pattern match at Boundary.Chrome (line 322, column 14 - line 332, column 17): " + [v1.constructor.name]);
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Chrome (line 347, column 29 - line 359, column 17): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Chrome (line 320, column 29 - line 332, column 17): " + [v.constructor.name]);
   };
 };
-var deferredMessage = function(d) {
-  return "ps-flow: the `" + (d.name + ("` prop has not crossed the JavaScript boundary yet \u2014 it lands in " + ("boundary stage " + (show11(d.stage) + (" (" + (d.note + "). It is refused rather than ignored so that a prop ps-flow has not implemented fails loudly instead of looking like a prop you did not set."))))));
+var deferredMiniMapProps = [/* @__PURE__ */ callbackProp("MiniMap.onClick")(function(v) {
+  return v.onClick;
+}), /* @__PURE__ */ callbackProp("MiniMap.onNodeClick")(function(v) {
+  return v.onNodeClick;
+}), /* @__PURE__ */ componentProp("MiniMap.nodeComponent")(function(v) {
+  return v.nodeComponent;
+})];
+var deferredControlsProps = [/* @__PURE__ */ callbackProp("Controls.onZoomIn")(function(v) {
+  return v.onZoomIn;
+}), /* @__PURE__ */ callbackProp("Controls.onZoomOut")(function(v) {
+  return v.onZoomOut;
+}), /* @__PURE__ */ callbackProp("Controls.onFitView")(function(v) {
+  return v.onFitView;
+}), /* @__PURE__ */ callbackProp("Controls.onInteractiveChange")(function(v) {
+  return v.onInteractiveChange;
+})];
+var convertPanel = function(p) {
+  return {
+    position: panelPositionIn("Panel.position")(requiredProp("Panel.position")(p.position)),
+    className: fromUndefinable(p.className),
+    style: map48(asCssObject)(fromUndefinable(p.style)),
+    "aria-label": fromUndefinable(p["aria-label"]),
+    "data-testid": fromUndefinable(p["data-testid"]),
+    children: p.children
+  };
 };
+var panel2 = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponentWithChildren3("Panel")(function(v) {
+  return pure74(element(panel)(convertPanel(v)));
+}));
 var convertMiniMap = function(p) {
   return {
     nodeColor: map48(nodeAttributeIn("MiniMap.nodeColor"))(fromUndefinable(p.nodeColor)),
@@ -60951,6 +60965,15 @@ var convertMiniMap = function(p) {
     className: fromUndefinable(p.className)
   };
 };
+var miniMapPropsIn = /* @__PURE__ */ function() {
+  var $48 = refuseFirst(deferredMessage)(deferredMiniMapProps);
+  return function($49) {
+    return convertMiniMap($48($49));
+  };
+}();
+var miniMap2 = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponentWithChildren3("MiniMap")(function(v) {
+  return pure74(element(miniMap)(miniMapPropsIn(v)));
+}));
 var convertControls = function(p) {
   return {
     showZoom: fromUndefinable(p.showZoom),
@@ -60969,65 +60992,7 @@ var convertControls = function(p) {
     orientation: map48(orientationIn("Controls.orientation"))(fromUndefinable(p.orientation))
   };
 };
-var componentProp2 = function(name15) {
-  return function(get7) {
-    return {
-      name: name15,
-      stage: 4,
-      note: "the props that hand a consumer's own component its props record",
-      supplied: function(p) {
-        return isDefined(get7(p));
-      }
-    };
-  };
-};
-var callbackProp2 = function(name15) {
-  return function(get7) {
-    return {
-      name: name15,
-      stage: 2,
-      note: "the callback props",
-      supplied: function(p) {
-        return isDefined(get7(p));
-      }
-    };
-  };
-};
-var deferredControlsProps = [/* @__PURE__ */ callbackProp2("Controls.onZoomIn")(function(v) {
-  return v.onZoomIn;
-}), /* @__PURE__ */ callbackProp2("Controls.onZoomOut")(function(v) {
-  return v.onZoomOut;
-}), /* @__PURE__ */ callbackProp2("Controls.onFitView")(function(v) {
-  return v.onFitView;
-}), /* @__PURE__ */ callbackProp2("Controls.onInteractiveChange")(function(v) {
-  return v.onInteractiveChange;
-})];
-var controlsPropsIn = /* @__PURE__ */ function() {
-  var $49 = refuseFirst(deferredMessage)(deferredControlsProps);
-  return function($50) {
-    return convertControls($49($50));
-  };
-}();
-var controls3 = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponentWithChildren3("Controls")(function(v) {
-  return pure74(element(controls2)(controlsPropsIn(v)));
-}));
-var deferredMiniMapProps = [/* @__PURE__ */ callbackProp2("MiniMap.onClick")(function(v) {
-  return v.onClick;
-}), /* @__PURE__ */ callbackProp2("MiniMap.onNodeClick")(function(v) {
-  return v.onNodeClick;
-}), /* @__PURE__ */ componentProp2("MiniMap.nodeComponent")(function(v) {
-  return v.nodeComponent;
-})];
-var miniMapPropsIn = /* @__PURE__ */ function() {
-  var $51 = refuseFirst(deferredMessage)(deferredMiniMapProps);
-  return function($52) {
-    return convertMiniMap($51($52));
-  };
-}();
-var miniMap2 = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponentWithChildren3("MiniMap")(function(v) {
-  return pure74(element(miniMap)(miniMapPropsIn(v)));
-}));
-var backgroundPropsIn = function(p) {
+var convertBackground = function(p) {
   return {
     id: fromUndefinable(p.id),
     color: fromUndefinable(p.color),
@@ -61042,8 +61007,17 @@ var backgroundPropsIn = function(p) {
     style: map48(asCssObject)(fromUndefinable(p.style))
   };
 };
+var controlsPropsIn = /* @__PURE__ */ function() {
+  var $50 = refuseFirst(deferredMessage)(deferredControlsProps);
+  return function($51) {
+    return convertControls($50($51));
+  };
+}();
+var controls3 = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponentWithChildren3("Controls")(function(v) {
+  return pure74(element(controls2)(controlsPropsIn(v)));
+}));
 var background2 = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponent()()()("Background")(function(v) {
-  return pure74(element(background)(backgroundPropsIn(v)));
+  return pure74(element(background)(convertBackground(v)));
 }));
 
 // output/Boundary.Hooks/foreign.js
@@ -61098,7 +61072,7 @@ var setStateOut = function(name15) {
               return unsafeThrow("ps-flow: `" + (name15 + ("` " + (what + (" " + (typeName(raw) + " \u2014 it takes the next array, or a function of the previous one."))))));
             }
             ;
-            throw new Error("Failed pattern match at Boundary.Hooks (line 171, column 21 - line 176, column 78): " + [v.constructor.name]);
+            throw new Error("Failed pattern match at Boundary.Hooks (line 177, column 21 - line 182, column 78): " + [v.constructor.name]);
           };
         };
         return function(action2) {
@@ -61115,7 +61089,7 @@ var setStateOut = function(name15) {
             })();
           }
           ;
-          throw new Error("Failed pattern match at Boundary.Hooks (line 166, column 3 - line 169, column 70): " + [v.constructor.name]);
+          throw new Error("Failed pattern match at Boundary.Hooks (line 172, column 3 - line 175, column 70): " + [v.constructor.name]);
         };
       };
     };
@@ -61349,7 +61323,7 @@ var pure77 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty20 = /* @__PURE__ */ mempty(monoidJSX);
 var max14 = /* @__PURE__ */ max(ordNumber);
 var unwrap18 = /* @__PURE__ */ unwrap();
-var show13 = /* @__PURE__ */ show(showNumber);
+var show12 = /* @__PURE__ */ show(showNumber);
 var toForeignStyle13 = unsafeCoerce2;
 var lookupNodes = function(ids) {
   return function(s) {
@@ -61472,7 +61446,7 @@ var nodeToolbar = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompo
       var baseStyle = fromMaybe(empty2)(v.style);
       var align = fromMaybe(AlignCenter.value)(v.align);
       var transformStr = getNodeToolbarTransform(nodeRect)(viewport2)(position3)(offset)(align);
-      var wrapperStyle2 = insert2("zIndex")(show13(maxZ))(insert2("transform")(transformStr)(insert2("position")("absolute")(baseStyle)));
+      var wrapperStyle2 = insert2("zIndex")(show12(maxZ))(insert2("transform")(transformStr)(insert2("position")("absolute")(baseStyle)));
       var toolbarDiv = div_({
         style: toForeignStyle13(wrapperStyle2),
         className: className2,

@@ -109,12 +109,9 @@ if (fixtures.length === 0) {
 // generic-test fixture, because there is no props fixture to twin — upstream's
 // `generic-tests/` holds exactly `edges`, `node-toolbar`, `nodes` and `pane`.
 //
-// Written down rather than globbed, unlike the fixtures. `examples/` holds 65
-// directories, most of them importing exports that have not crossed; a glob
-// would bundle all 65, and one unresolved import is an esbuild link error that
-// stops the page building for every route at once. Adding an entry here is
-// what pulls its imports into the crossing set, which is a decision and not a
-// discovery.
+// Written down rather than globbed, unlike the fixtures — `README.md`, next to
+// this file, says why. The count it turns on: upstream ships 65 example
+// directories, and a glob would bundle all 65.
 const exampleDrivers = [
   {
     route: "#/examples/color-mode",

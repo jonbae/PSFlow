@@ -26,6 +26,10 @@ export const manifest = Object.freeze({
   // objects; stages 2-4 are the callbacks, the imperative instance with the
   // remaining hooks, and the components no fixture mounts. See the spec's
   // staging table.
+  //
+  // Stage 1's set is twenty. Eighteen of them are below; `Handle` and
+  // `NodeToolbar` are the two outstanding, and they belong to the node-toolbar
+  // fixture rather than to either driver, so they cross when it does (#47).
   stage: 1,
 
   // The eight TS enums are plain data on both sides, so crossing them was the

@@ -47,8 +47,8 @@
 -- |     driver reaches them on the first interaction.
 -- |   * `Boundary.Chrome` — `Panel`, `Background`, `Controls` and `MiniMap`,
 -- |     which a driver mounts inside the flow.
--- |   * `Boundary.Hooks` — `useNodesState` and `useEdgesState`, which are
--- |     stage 3's everywhere except in the one driver that calls them.
+-- |   * `Boundary.Hooks` — `useNodesState` and `useEdgesState`, the two of the
+-- |     21 hooks that do not have to wait for stage 3's instance converter.
 -- |
 -- | `ReactFlow` is therefore the first *component* to cross. The remaining
 -- | exports upstream's fixtures import cross with their fixtures.

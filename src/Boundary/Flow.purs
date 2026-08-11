@@ -70,7 +70,7 @@ import Boundary.Enums
   , selectionModeIn
   , zIndexModeIn
   )
-import Boundary.Refusal (Refusal, refuseFirst)
+import Boundary.Refusal (Refusal, callbackProp, componentProp, deferredMessage, refuseFirst)
 import Boundary.Undefined (Undefinable, fromUndefinable, isDefined)
 import Boundary.Untagged (asArray, asBoolean, asNumber, asString, typeName)
 import Data.Array.NonEmpty (fromArray) as NEA
@@ -319,22 +319,6 @@ type JsFlowProps =
 -- The deferred-prop guard
 -- ────────────────────────────────────────────────────────────────────────
 
-callbackProp :: forall a. String -> (JsFlowProps -> Undefinable a) -> Refusal JsFlowProps
-callbackProp name get =
-  { name
-  , stage: 2
-  , note: "the callback props"
-  , supplied: \p -> isDefined (get p)
-  }
-
-componentProp :: forall a. String -> (JsFlowProps -> Undefinable a) -> Refusal JsFlowProps
-componentProp name get =
-  { name
-  , stage: 4
-  , note: "the props that hand a consumer's own component its props record"
-  , supplied: \p -> isDefined (get p)
-  }
-
 -- | Every prop that resolves on the JS surface but does not yet cross. Named
 -- | rather than counted, because the count is the thing that drifts.
 deferredProps :: Array (Refusal JsFlowProps)
@@ -393,18 +377,7 @@ deferredProps =
 -- | Throws on the first deferred prop the consumer supplied, and otherwise
 -- | hands the props straight back.
 guardDeferred :: JsFlowProps -> JsFlowProps
-guardDeferred = refuseFirst message deferredProps
-  where
-  message d =
-    "ps-flow: the `" <> d.name
-      <> "` prop has not crossed the JavaScript boundary yet — it lands in "
-      <> "boundary stage "
-      <> show d.stage
-      <> " ("
-      <> d.note
-      <> "). It is refused rather than ignored so that a prop ps-flow has "
-      <> "not implemented fails loudly instead of looking like a prop you "
-      <> "did not set."
+guardDeferred = refuseFirst deferredMessage deferredProps
 
 -- ────────────────────────────────────────────────────────────────────────
 -- The conversion

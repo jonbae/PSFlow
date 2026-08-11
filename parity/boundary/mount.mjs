@@ -27,7 +27,8 @@
 //      calling convention and the branches the crossing itself introduces —
 //      never upstream's semantics, which is call-and-compare's to prove.
 //
-//   4. **The four chrome components mount with no props at all.** That is the
+//   4. **Three of the four chrome components mount with no props at all**, and
+//      the fourth names the one prop upstream declares required. That is the
 //      dull case and the one that used to crash: React hands a component `{}`,
 //      every `Maybe` field of the PureScript record arrives `undefined`, and
 //      the first `case` over one falls off the end of its pattern match.
@@ -214,10 +215,17 @@ check("node props arrive JS-shaped, not PureScript-shaped", () => {
 // and every pattern below anchors on `\n`. Without this the parse finds
 // nothing on a Windows checkout, which is a loud failure rather than a quiet
 // one — but a loud failure on the wrong thing is still the wrong report.
-const flowText = readFileSync(flowSource, "utf8").replace(/\r\n/g, "\n");
+const readModule = (path) => readFileSync(path, "utf8").replace(/\r\n/g, "\n");
+
+// The one shape a deferred entry is written in, wherever the table lives.
+// `Boundary.Refusal` owns both constructors, so both converter modules are
+// read with this.
+const deferredEntries = (text) =>
+  [...text.matchAll(/^\s*[[,]?\s*(?:callbackProp|componentProp)\s+"([^"]+)"/gm)].map((m) => m[1]);
+
+const flowText = readModule(flowSource);
 const flowFields = new Set(recordFields(flowSource, "JsFlowProps"));
-const deferredPattern = /^\s*[[,]?\s*(?:callbackProp|componentProp)\s+"([^"]+)"/gm;
-const deferred = [...flowText.matchAll(deferredPattern)].map((m) => m[1]);
+const deferred = deferredEntries(flowText);
 
 // The list is read, not restated, so an empty read is a broken parser rather
 // than a boundary with nothing left to defer — and a broken parser here would
@@ -475,7 +483,7 @@ throws(
 // crossing converts, refuses what it cannot, and passes children through.
 
 const chromeSource = join(repoRoot, "src/Boundary/Chrome.purs");
-const chromeText = readFileSync(chromeSource, "utf8").replace(/\r\n/g, "\n");
+const chromeText = readModule(chromeSource);
 
 const inFlow = (...children) =>
   renderToStaticMarkup(createElement(ReactFlow, convertedProps, ...children));
@@ -543,8 +551,7 @@ chromeThrows(
 
 // The refused list is read out of the module, never restated: a second copy is
 // a second thing to go stale, and this file already checks the one copy.
-const chromeDeferredPattern = /^\s*[[,]?\s*(?:callbackProp|componentProp)\s+"([^"]+)"/gm;
-const chromeDeferred = [...chromeText.matchAll(chromeDeferredPattern)].map((m) => m[1]);
+const chromeDeferred = deferredEntries(chromeText);
 
 if (chromeDeferred.length === 0) {
   fail(`read no deferred props from ${chromeSource} — the parse is wrong`);
@@ -579,22 +586,30 @@ for (const qualified of chromeDeferred) {
 }
 
 // The other direction, exactly as for the flow props: a chrome prop handed
-// `Nothing` with no table entry is ignored in silence. Each converter is named
-// with the component it builds, because the deferred entries are qualified and
-// an unqualified match would let `Controls.onFitView` cover `MiniMap`'s.
-const chromeConverters = [
-  { fn: "panelPropsIn", component: "Panel" },
-  { fn: "backgroundPropsIn", component: "Background" },
-  { fn: "convertControls", component: "Controls" },
-  { fn: "convertMiniMap", component: "MiniMap" },
-];
+// `Nothing` with no table entry is ignored in silence.
+//
+// The converters are found by name — `convert<Component>`, which is why all
+// four are spelled that way — rather than listed, so a fifth component
+// crossing is picked up here instead of waiting for someone to extend a list.
+// The component half of the name is what qualifies the lookup: an unqualified
+// match would let `Controls.onFitView` cover `MiniMap`'s.
+const chromeConverters = [...chromeText.matchAll(/^convert(\w+) p =$/gm)].map((m) => m[1]);
+
+if (chromeConverters.length === 0) {
+  fail(`found no \`convert<Component>\` converters in ${chromeSource} — the parse is wrong`);
+}
 
 check("every chrome prop wired to `Nothing` has a deferred entry", () => {
   const deferredSet = new Set(chromeDeferred);
   const unguarded = [];
-  for (const { fn, component } of chromeConverters) {
-    const body = new RegExp(`^${fn} p =\\n([\\s\\S]*?)\\n  \\}$`, "m").exec(chromeText);
-    assert(body !== null, `cannot find \`${fn}\` in Boundary.Chrome — the parse is wrong`);
+  for (const component of chromeConverters) {
+    assert(
+      Object.hasOwn(chromeComponents, component),
+      `\`convert${component}\` names no exported component — a converter must be ` +
+        `\`convert<Component>\`, or the qualified lookup below cannot find its refusals`
+    );
+    const body = new RegExp(`^convert${component} p =\\n([\\s\\S]*?)\\n  \\}$`, "m").exec(chromeText);
+    assert(body !== null, `cannot read \`convert${component}\`'s body — the parse is wrong`);
     for (const [, name] of body[1].matchAll(/^\s*[,{]\s*(\w+): Nothing$/gm)) {
       if (!deferredSet.has(`${component}.${name}`)) unguarded.push(`${component}.${name}`);
     }
