@@ -12,20 +12,41 @@ all defined there.
 |---|---|
 | `src/Flow.tsx` | the fixture driver: a twin of upstream's `generic-tests/Flow.tsx` |
 | `src/entry.tsx` | the page: route → fixture or example driver, a twin of upstream's `generic-tests/index.tsx` |
-| `index.html` | the container, whose box feeds `fitView` |
+| `index.html` | the container, whose box feeds `fitView`, and the `?side=` switch |
+| `registry.mjs` | the fixture glob over two roots, and the collision it can hit |
 | `build.mjs` | the two registries, the bundle, the alias, and the provenance check |
 | `dist/psflow.js` | generated, and committed — see below |
 
 ```sh
 npm run build:driver                        # spago build, then the psflow bundle
 node parity/driver/build.mjs --side upstream   # the net's other run
+npm run test:harness                        # includes registry.mjs's own tests
 ```
+
+## `?side=`, and why it is a parameter
+
+`index.html` imports `dist/psflow.js` or `dist/upstream.js` according to
+`?side=`, defaulting to `psflow` — so the conformance suite's URLs, which carry
+no query, are unchanged. An unknown side renders an error and throws rather than
+mounting nothing, because a page that quietly rendered no flow would leave every
+gate downstream comparing two runs of the same library and reporting green.
+
+A parameter rather than a second HTML file: the container above the mount point
+is what feeds `fitView`, and two files could drift. The net's runs must differ
+in the library and in nothing else.
 
 ## Two kinds of route
 
 `#/tests/generic/…` is a **fixture**: data, handed to `Flow.tsx`. That is what
 upstream's `generic-tests/index.tsx` serves and what four of the five
-conformance specs drive.
+conformance specs drive. Fixtures are globbed from **two roots** — the vendored
+`generic-tests/` and `parity/system/fixtures/`, where ps-flow authors its own —
+into one flat route space, so a file in the second landing on a vendored
+fixture's path would shadow it and every spec driving that route would keep
+passing against something else. `registry.mjs` fails on the collision rather
+than letting one win. Its second root is empty until the corpus lands
+([#55](https://github.com/jonbae/PSFlow/issues/55)); emptiness only fails in the
+aggregate, which would be a page answering every route with a 404.
 
 `#/examples/…` is an **example driver**: a whole component of upstream's,
 imported unmodified and mounted as it stands. `generic-props.spec.ts` needs
@@ -60,10 +81,10 @@ compiled `Example.Main`, and move over with their fixtures
 deleted once they all have
 ([#50](https://github.com/jonbae/PSFlow/issues/50)).
 
-Next, **the net**, which drives this same page on both sides
-([#35](https://github.com/jonbae/PSFlow/issues/35)), which is what the
-`--side upstream` bundle is for. Upstream's own vendored `Flow.tsx` and
-`index.tsx` become reference material that never executes.
+Next, **the net**, whose capture harness drives this same page on both sides
+through `?side=` (`parity/system/harness/`), which is what the `--side upstream`
+bundle is for. Upstream's own vendored `Flow.tsx` and `index.tsx` become
+reference material that never executes.
 
 ## Why one driver is ours and the other is not
 

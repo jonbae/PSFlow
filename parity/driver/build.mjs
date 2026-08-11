@@ -17,9 +17,12 @@
 //        npm run build:driver
 
 import { build } from "esbuild";
-import { readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
+import { readFileSync, statSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-import { dirname, join, posix, relative, resolve, sep } from "node:path";
+import { dirname, resolve } from "node:path";
+
+import { RegistryError, collectFixtures } from "./registry.mjs";
+import { SIDES } from "./sides.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(here, "..", "..");
@@ -52,51 +55,59 @@ const sides = {
   },
 };
 
+// `sides.mjs` is the list; this file is the configuration for each. A side that
+// gained a bundle here without the page learning to load it would build fine
+// and be unreachable.
+if (Object.keys(sides).sort().join() !== [...SIDES].sort().join()) {
+  console.error(
+    `the side configurations here (${Object.keys(sides).join(", ")}) are not the sides in ` +
+      `sides.mjs (${SIDES.join(", ")}).`
+  );
+  process.exit(2);
+}
+
 const sideFlag = process.argv.indexOf("--side");
-const side = sideFlag === -1 ? "psflow" : process.argv[sideFlag + 1];
+const side = sideFlag === -1 ? SIDES[0] : process.argv[sideFlag + 1];
 if (!Object.hasOwn(sides, side)) {
-  console.error(`unknown side ${JSON.stringify(side)} — expected ${Object.keys(sides).join(" or ")}`);
+  console.error(`unknown side ${JSON.stringify(side)} — expected ${SIDES.join(" or ")}`);
   process.exit(2);
 }
 
 // ── The fixture registry ────────────────────────────────────────────────
 //
-// Upstream's `index.tsx` reaches its fixtures with vite's `import.meta.glob`,
-// which structurally cannot see a file outside the vendored tree. This is the
-// same glob, done at build time, over roots this repo chooses — so a fixture
-// ps-flow authors can join the corpus without the vendored copy being touched.
+// Two roots, globbed into one flat route space by `registry.mjs`. The vendored
+// one holds upstream's four `generic-tests` fixtures; the second is where
+// ps-flow authors its own, in its own tree, so that the vendored copy stays
+// byte-identical and a baseline bump is `rm -rf` and re-vendor with no merge.
 //
-// `.ts` only, exactly as upstream's glob: a fixture's `components/*.tsx` are
-// imported *by* the fixture and are not routes of their own.
+// PSFlow's root is legitimately empty until the corpus lands (#55). Emptiness
+// only fails in the aggregate — see `registry.mjs`, which also refuses a route
+// two roots both claim.
 
-const fixtureRoots = [resolve(repoRoot, "xyflow/examples/react/src/generic-tests")];
+const vendoredFixtures = resolve(repoRoot, "xyflow/examples/react/src/generic-tests");
+const ownFixtures = resolve(repoRoot, "parity/system/fixtures");
 
-function walk(dir) {
-  return readdirSync(dir).flatMap((name) => {
-    const path = join(dir, name);
-    if (statSync(path).isDirectory()) return walk(path);
-    return name.endsWith(".ts") && !name.endsWith(".d.ts") ? [path] : [];
-  });
-}
+const fixtureRoots = [
+  {
+    dir: vendoredFixtures,
+    missing:
+      `no vendored fixture root at ${vendoredFixtures} — the vendored upstream tree is missing, ` +
+      `and the driver has nothing to mount. Re-vendor \`xyflow/\` and try again.`,
+  },
+  {
+    dir: ownFixtures,
+    missing:
+      `no ps-flow fixture root at ${ownFixtures} — this one is this repo's own and is committed, ` +
+      `so its absence is a lost directory rather than a missing checkout. Restore it from git.`,
+  },
+];
 
-const fixtures = fixtureRoots.flatMap((root) => {
-  if (!statSync(root, { throwIfNoEntry: false })?.isDirectory()) {
-    console.error(
-      `no fixture root at ${root} — the vendored upstream tree is missing, and the ` +
-        `driver has nothing to mount. Re-vendor \`xyflow/\` and try again.`
-    );
-    process.exit(2);
-  }
-  return walk(root).map((file) => ({
-    route: `./${relative(root, file).split(sep).join(posix.sep)}`,
-    file,
-  }));
-});
-
-// An empty registry would build a page that answers every route with a 404 —
-// a green build and a suite that fails everywhere, blaming the library.
-if (fixtures.length === 0) {
-  console.error(`found no fixtures under ${fixtureRoots.join(", ")}`);
+let fixtures;
+try {
+  fixtures = collectFixtures(fixtureRoots);
+} catch (e) {
+  if (!(e instanceof RegistryError)) throw e;
+  console.error(e.message);
   process.exit(2);
 }
 

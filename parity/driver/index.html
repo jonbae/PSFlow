@@ -29,6 +29,32 @@
   </head>
   <body>
     <div id="app"></div>
-    <script type="module" src="./dist/psflow.js"></script>
+    <!--
+      One page, two bundles. Which library rendered is a *query parameter*
+      rather than a second HTML file, because the container above is what feeds
+      `fitView` — two files could drift, and a divergence injected there would
+      land in precisely the measurement question the net exists to settle.
+      `?side=` is invisible to a scenario, which is handed the action
+      vocabulary and never the page.
+
+      No parameter means `psflow`: the conformance suite's URLs carry none and
+      keep working unchanged.
+    -->
+    <script type="module">
+      const bundles = { psflow: "./dist/psflow.js", upstream: "./dist/upstream.js" };
+      const side = new URLSearchParams(location.search).get("side") ?? "psflow";
+
+      // A misspelt side must not render an empty flow: every gate downstream
+      // would compare two runs of the same library and report green.
+      if (!Object.hasOwn(bundles, side)) {
+        const complaint =
+          `ps-flow driver: unknown side ${JSON.stringify(side)} — ` +
+          `expected ${Object.keys(bundles).join(" or ")}.`;
+        document.getElementById("app").textContent = complaint;
+        throw new Error(complaint);
+      }
+
+      await import(bundles[side]);
+    </script>
   </body>
 </html>

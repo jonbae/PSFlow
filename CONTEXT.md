@@ -64,8 +64,8 @@ _Avoid_: unsupported prop, unimplemented prop, TODO prop
 Something that goes red. There are five, and each is named for what its red
 means. Never numbered — see *Layer* below. Other things in this repo also go
 red without being one of the five: `parity:boundary`, `parity:changelog`,
-`test:compare`, `test:node-props`, and the **unit tests**. Each entry below
-says where it sits.
+`test:compare`, `test:harness`, `test:harness:live`, `test:node-props`, and the
+**unit tests**. Each entry below says where it sits.
 _Avoid_: layer, check, suite (when a gate is meant)
 
 **Parity gate**:
@@ -265,13 +265,16 @@ word as the **system parity** gate, on purpose.
 The harness that mounts upstream xyflow and PSFlow side by side, drives both
 through identical scripted interactions, and diffs the results. Called *dual-run*
 because neither side is a hand-written expectation.
-_Avoid_: the harness, the diff suite
+_Avoid_: the harness (which is the capture half alone), the diff suite
 
 **Fixture**:
 One flow definition — nodes, edges, and the props handed to `ReactFlow` — as a
 data file both implementations import. Never contains test code. An **example
 driver** carries its fixture inside the component instead, which is why it is
-imported unmodified rather than twinned.
+imported unmodified rather than twinned. They live in two roots — upstream's
+vendored `generic-tests/` and `parity/system/fixtures/` for PSFlow's own — so
+that the vendored tree stays byte-identical and a bump stays `rm -rf` and
+re-vendor.
 _Avoid_: test data, flow config, page
 
 **Driver**:
@@ -306,6 +309,24 @@ One step in a scenario. The primitives are pointer, key, wheel, touch and
 imperative call; everything else is a gesture composed from them.
 _Avoid_: step, command, interaction (when a single step is meant)
 
+**Action vocabulary**:
+The frozen object a scenario is handed: the closed primitive tier and the open
+gesture tier, and nothing else — no page, no side, no library handle, no
+imperative return value. Say **vocabulary**, never *driver object*, even though
+the corpus ticket wrote it that way: a **driver** here is the React component
+that mounts a fixture, and one sentence cannot carry both. It is what makes
+"a scenario has no way to learn which side it is running against" a structural
+fact rather than a rule.
+_Avoid_: driver object, actions API, helpers
+
+**Harness**:
+The **capture** half of the net, `parity/system/harness/`: it drives one
+scenario against one side and returns a trace. Narrower than **the net**, which
+is capture and compare together, and not a **driver**, which is a React
+component. Say which is meant — "the harness" for the whole net is what the
+entries above rule out, and this is the sense that survives.
+_Avoid_: the net (when only capture is meant), runner, driver
+
 **Gesture**:
 A named composition of primitive actions — dragging a node, drawing a selection
 box, completing a connection. Written once and reused, so no scenario re-encodes
@@ -313,9 +334,11 @@ how a drag works.
 _Avoid_: macro, helper
 
 **Trace**:
-Everything one run recorded, written to disk. One trace per side per scenario,
-divided into sections.
-_Avoid_: snapshot, capture, result
+Everything one run recorded, as JSON: returned by **capture**, written to disk,
+and read back by compare. One trace per side per scenario, divided into
+sections. The disk is not incidental — it is what lets a revised noise policy
+re-diff every trace ever captured in seconds, without a browser.
+_Avoid_: snapshot, capture (the step, not what it produced), result
 
 **Section**:
 One division of a trace, each observing a different mechanism.
