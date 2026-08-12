@@ -38,6 +38,15 @@ JavaScript. Independent of gated — an export can be crossed with nothing provi
 the conversion is right.
 _Avoid_: converted, wrapped, adapted
 
+**Shape** (of an export):
+What a JavaScript caller sees before calling: `typeof`, arity
+(`Function.length`), and the React wrapper chain (`memo`, `forwardRef`). Not
+the value's contents — deep-equalling the enum objects and calling the pure
+functions are separate claims. Compared across the whole JS surface and
+deliberately not scoped to the **crossed** set, because a gate bounded by the
+conversion plan is invisible-by-construction outside it.
+_Avoid_: signature, type (a shape is neither), interface
+
 **Manifest**:
 The boundary module's machine-readable record of which exports have **crossed**
 and which are still passing through raw, in `src/Boundary.js`. It exists so a
@@ -64,8 +73,8 @@ _Avoid_: unsupported prop, unimplemented prop, TODO prop
 Something that goes red. There are five, and each is named for what its red
 means. Never numbered — see *Layer* below. Other things in this repo also go
 red without being one of the five: `parity:boundary`, `parity:changelog`,
-`test:compare`, `test:harness`, `test:harness:live`, `test:node-props`, and the
-**unit tests**. Each entry below says where it sits.
+`test:surface`, `test:compare`, `test:harness`, `test:harness:live`,
+`test:node-props`, and the **unit tests**. Each entry below says where it sits.
 _Avoid_: layer, check, suite (when a gate is meant)
 
 **Parity gate**:
@@ -88,9 +97,13 @@ QuickCheck is *not* the criterion: `Test.System.Utils.Store` runs properties
 with no upstream at all.
 
 **Surface parity** (`npm run parity:surface`):
-The parity gate at the grain of one name: export names and prop members,
-compared against the vendored upstream's TypeScript. Reads `index.js` for
-PSFlow's value names and `src/React.purs` for its type names.
+The parity gate at the grain of one export: the **values** `index.js` publishes
+and their **shapes** — `typeof`, arity, React wrapper kind — plus prop members,
+compared against the vendored upstream. It *imports* `index.js` rather than
+reading it, so it proves a binding resolves rather than that a line exists, and
+therefore needs `spago build` first: this gate is not standalone. Type names
+still come from `src/React.purs`, types having nothing to import. An upstream
+value is satisfied only by a PSFlow value.
 _Avoid_: Layer 0, the API diff, `parity:api`
 
 **Function parity** (the `Test.Parity.*` modules under `spago test`):
@@ -141,6 +154,14 @@ The PSFlow-only modules under `spago test` — `Test.Properties`,
 explicitly as **outside the gate scheme**: they prove PSFlow's internals are
 self-consistent, which is a different claim from "PSFlow matches xyflow".
 _Avoid_: the test suite, the PureScript tests
+
+**Gate self-tests** (`npm run test:surface`, `test:compare`, `test:harness`):
+`node --test` over a gate's *own* logic — surface parity's shape and allowlist
+modules, system parity's comparison core, the net harness and the driver's
+registries. Outside the gate scheme for the same reason the **unit tests** are:
+they prove a gate does what it claims, which is a different claim from "PSFlow
+matches xyflow". A red one means the instrument is broken, not the port.
+_Avoid_: the parity tests, the gate tests (when a gate itself is meant)
 
 **Layer**:
 Retired. The numbering encoded concentric containment (Layer 2 ⊃ Layer 1 ⊃

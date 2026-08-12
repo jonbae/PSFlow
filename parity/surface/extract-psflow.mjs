@@ -1,15 +1,20 @@
-// Surface parity — PSFlow extractor. No new dependency: PSFlow's surfaced API
-// is already written down in two hand-maintained barrels, so we read those
-// directly rather than compile PureScript.
+// Surface parity — PSFlow extractor.
 //
-//   * value names  ← `index.js` (the JS surface). It re-exports the compiled
-//     boundary module under TS-identical PascalCase names (`ReactFlow`,
-//     `MiniMap`, …), so it already encodes the camelCase↔PascalCase mapping
-//     the diff needs. Cross-checked below against both of the other places
-//     that list the same surface: the boundary manifest and `Boundary.purs`.
+//   * values       ← **imported** from `index.js`, the JS surface. Not read:
+//     the extractor used to scrape `/export const (\w+)\s*=/` over the file,
+//     which proves a line of text exists and not that the binding resolves.
+//     Importing gets the resolved value, which is also what makes shape
+//     comparison possible at all. Cost, accepted: this needs `spago build`
+//     first, so surface parity is no longer standalone. Deliberately *not*
+//     hedged with a fall back to the regex when `output/` is missing — a gate
+//     that goes quiet exactly when it is least able to check is the documented
+//     mechanism by which the `NodeProps` gap survived a version bump.
+//   * shapes       ← `typeof`, arity and React wrapper kind of each imported
+//     value (`shape.mjs`), for the diff to compare against upstream's.
 //   * type names   ← `src/React.purs` re-export groups (`import … ( … ) as
 //     ReExport*`). PureScript types are PascalCase; values are lowercase.
 //     We keep the PascalCase tokens (stripping any `(..)` constructor marker).
+//     Still textual: types have no runtime existence to import.
 //   * prop members ← the `ReactFlowProps` / `NodeProps` / `EdgeProps` record
 //     definitions in `src/React/Types/{Component,Nodes,Edges}.purs`.
 //
@@ -17,17 +22,55 @@
 
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { dirname, resolve, join } from "node:path";
-import { readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { PROP_TYPES } from "./prop-types.mjs";
+import { mustAgree } from "./agreement.mjs";
+import { shapeOf } from "./shape.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(here, "..", "..");
 const read = (p) => readFileSync(join(repoRoot, p), "utf8");
 
-// ─── Value names from index.js ────────────────────────────────────────────
-// `index.js` is a bare `export { … } from "./output/Boundary/index.js"`, so
-// each entry is either `local as Public` or a bare name that needs no rename.
-// The *public* name is what upstream is compared against.
+// ─── Values, by importing the JS surface ──────────────────────────────────
+const compiled = join(repoRoot, "output", "Boundary", "index.js");
+if (!existsSync(compiled)) {
+  throw new Error(
+    `[extract-psflow] no compiled boundary module at ${compiled}. Surface parity ` +
+      `imports \`index.js\` rather than reading it, so it needs the PureScript ` +
+      `output: run \`spago build\` and try again.\n` +
+      `There is no fallback on purpose — a gate that degrades to a weaker check ` +
+      `when the build is missing reports green about a surface it never saw.`
+  );
+}
+
+let surface;
+try {
+  surface = await import(pathToFileURL(join(repoRoot, "index.js")).href);
+} catch (cause) {
+  // An ESM link error here is the failure that put `Position` and `MarkerType`
+  // out of the audience's reach in the first place: index.js names a binding
+  // the boundary module does not export, and every consumer's import of the
+  // whole package fails. The import is what proves it cannot recur.
+  throw new Error(
+    `[extract-psflow] importing index.js failed, so PSFlow's JS surface does not ` +
+      `load at all — this is what a consumer's \`import … from "ps-flow"\` would do.\n` +
+      `  ${cause.message}\n` +
+      `If a name is missing, add it to src/Boundary.purs's export list (or to one ` +
+      `of its \`module <Alias>\` re-export groups). If the output is stale, rebuild ` +
+      `with \`spago build\`.`,
+    { cause }
+  );
+}
+
+const valueExports = Object.keys(surface);
+const shapes = Object.fromEntries(valueExports.map((name) => [name, shapeOf(surface[name])]));
+
+// ─── index.js stays a bare re-export ──────────────────────────────────────
+// The import above settles what the surface *is*; this settles what the file
+// is allowed to be. `index.js` carries no logic — every conversion lives in
+// PureScript where the compiler checks it — so each specifier is either a bare
+// name or `local as Public`, and the parsed public names must be exactly the
+// names that arrived on import.
 const indexJs = read("index.js");
 const exportBlocks = [
   ...indexJs.matchAll(/export\s*\{([\s\S]*?)\}\s*from\s*["'][^"']+["']/g),
@@ -49,15 +92,15 @@ const specifiers = exportBlocks.flatMap((block) =>
       return { local: m[1], public: m[2] ?? m[1] };
     })
 );
-const valueExports = specifiers.map((s) => s.public);
 
-if (valueExports.length === 0) {
-  throw new Error(
-    "[extract-psflow] index.js yielded no value exports. Either the file stopped " +
-      "being a bare `export { … } from …` re-export, or this extractor no longer " +
-      "matches its shape — reporting the whole surface as missing would bury that."
-  );
-}
+mustAgree({
+  about: `[extract-psflow] index.js's export list does not match what importing it yields.`,
+  left: { label: "imported", names: valueExports },
+  right: { label: "declared", names: specifiers.map((s) => s.public) },
+  remedy:
+    `index.js must stay a single bare \`export { … } from "./output/Boundary/index.js"\`; ` +
+    `anything the parser above cannot see is surface nobody is reviewing.`,
+});
 
 // ─── Cross-check against the boundary manifest ────────────────────────────
 // The manifest (`src/Boundary.js`) is what other gates scope themselves to, so
@@ -66,103 +109,18 @@ if (valueExports.length === 0) {
 const { manifest } = await import(
   pathToFileURL(join(repoRoot, "src", "Boundary.js")).href
 );
-const manifestNames = new Set([...manifest.crossed, ...manifest.passthrough]);
-const published = new Set(valueExports);
-const notInManifest = [...published].filter((n) => !manifestNames.has(n)).sort();
-const notInIndex = [...manifestNames].filter((n) => !published.has(n)).sort();
-if (notInManifest.length || notInIndex.length) {
-  throw new Error(
-    `[extract-psflow] boundary manifest is out of step with index.js.` +
-      (notInManifest.length
-        ? `\n  exported but not in the manifest: ${notInManifest.join(", ")}`
-        : "") +
-      (notInIndex.length
-        ? `\n  in the manifest but not exported: ${notInIndex.join(", ")}`
-        : "") +
-      `\nUpdate \`manifest.crossed\` / \`manifest.passthrough\` in src/Boundary.js.`
-  );
-}
+mustAgree({
+  about: `[extract-psflow] boundary manifest is out of step with index.js.`,
+  left: { label: "exported", names: valueExports },
+  right: { label: "in the manifest", names: [...manifest.crossed, ...manifest.passthrough] },
+  remedy: `Update \`manifest.crossed\` / \`manifest.passthrough\` in src/Boundary.js.`,
+});
 
-// ─── Cross-check against the boundary module's own export list ────────────
-// The check above ties index.js to the manifest, and both are JavaScript. The
-// third list is `src/Boundary.purs` — and a name in index.js that the boundary
-// module does not export is an *ESM link error*, the exact failure that put
-// `Position` and `MarkerType` out of reach in the first place. Nothing here
-// imports index.js (that is surface parity's own next step), so check it
-// textually, the way React.purs is read below.
-const boundaryPurs = read("src/Boundary.purs");
-const lowercaseNames = (block) =>
-  block
-    .split(/[\n,]/)
-    .map((s) => s.trim())
-    .filter((s) => /^[a-z]\w*'?$/.test(s));
-
-const exportList = /^module\s+Boundary\s*\(([\s\S]*?)\)\s*where/m.exec(boundaryPurs);
-if (!exportList) {
-  throw new Error(
-    `[extract-psflow] could not find the module export list in src/Boundary.purs. ` +
-      `If the module was restructured, update this extractor — silently skipping ` +
-      `the check would leave index.js free to name a binding that does not exist.`
-  );
-}
-
-const exportEntries = exportList[1]
-  .split(/[\n,]/)
-  .map((s) => s.trim())
-  .filter(Boolean);
-
-// PureScript can only re-export an imported name through a `module <Alias>`
-// entry, so every alias in the export list is resolved back to its import
-// block. Resolving them all rather than naming `PublicSurface` is what keeps
-// this check working as each stage moves exports out of the passthrough block
-// into a crossed one of its own.
-const reExportAliases = exportEntries
-  .map((entry) => /^module\s+(\w+)$/.exec(entry))
-  .filter(Boolean)
-  .map((m) => m[1]);
-
-if (reExportAliases.length === 0) {
-  throw new Error(
-    `[extract-psflow] src/Boundary.purs's export list names no \`module <Alias>\` ` +
-      `re-export groups. Every public value reaches index.js through one, so finding ` +
-      `none means this extractor no longer matches the module — which would report ` +
-      `the whole surface as unresolved.`
-  );
-}
-
-// One alias can be fed by *several* import blocks — a crossed export lives in
-// whichever converter module owns it, and PureScript needs one `import` line
-// per module. So every block is collected, not the first: reading only the
-// first would report the rest of the group as names index.js cannot link to.
-const boundaryValues = new Set(exportEntries.filter((s) => /^[a-z]\w*'?$/.test(s)));
-for (const alias of reExportAliases) {
-  const blocks = [
-    ...boundaryPurs.matchAll(
-      new RegExp(`import\\s+[\\w.]+\\s*\\(([\\s\\S]*?)\\)\\s*as\\s+${alias}\\b`, "g")
-    ),
-  ];
-  if (blocks.length === 0) {
-    throw new Error(
-      `[extract-psflow] src/Boundary.purs re-exports \`module ${alias}\` but has no ` +
-        `matching \`import … ( … ) as ${alias}\` block.`
-    );
-  }
-  for (const block of blocks) {
-    for (const name of lowercaseNames(block[1])) boundaryValues.add(name);
-  }
-}
-
-const unresolved = specifiers
-  .filter((s) => !boundaryValues.has(s.local))
-  .map((s) => (s.local === s.public ? s.local : `${s.local} (as ${s.public})`));
-if (unresolved.length) {
-  throw new Error(
-    `[extract-psflow] index.js re-exports ${unresolved.length} name(s) the boundary ` +
-      `module does not export: ${unresolved.join(", ")}.\n` +
-      `Importing index.js would fail to link. Add them to Boundary.purs's export ` +
-      `list or to one of its \`module <Alias>\` re-export blocks.`
-  );
-}
+// The third list — `src/Boundary.purs`'s own export list — used to be checked
+// here textually, because nothing imported index.js and a name the boundary
+// module does not export is an ESM link error. The import above supersedes it:
+// a name that does not link now fails the import outright, which is a stronger
+// claim than any reading of the source could make.
 
 // ─── Type names from React.purs re-export groups ──────────────────────────
 const reactPurs = read("src/React.purs");
@@ -264,6 +222,7 @@ const output = {
   // camelCase re-exports (PSFlow-only helpers like `useConnectionWith`); kept
   // for context, not used by the gate.
   psValueLower: [...psValueLower].sort(),
+  shapes,
   props,
 };
 

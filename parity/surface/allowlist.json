@@ -1,6 +1,7 @@
 {
   "_comment": "Documented intentional divergences subtracted from the surface-parity diff buckets. `exports.missing` keys are upstream symbols knowingly absent from PSFlow's surface; `exports.extra` keys are PSFlow-only names that are intentional renames/idioms. Each value is the rationale shown in report.md. Genuine-but-tracked gaps reference a ticket. A NEW upstream symbol not listed here trips the parity gate.",
-  "_comment_props": "`props.<Type>` accepts four keys, all optional. `rename` maps an upstream member name to the PSFlow name standing in for it and is applied to the upstream set before diffing, so one entry cancels the divergence on both sides instead of leaving a missing row and an extra row that can drift apart. `missing` and `extra` are rationale maps in the same shape as `exports.*`, consumed by the same partition(). `drift` is report annotation only — it labels a member in the output and suppresses nothing. Prop divergence gates CI as of ticket 071: anything not declared here fails `npm run parity:surface`. Note the comparison is name-only; see the limit documented in report.md.",
+  "_comment_stale": "This file is the second implementation of a **region** (CONTEXT.md; the first is parity/system/regions.json), and the stale rule holds on both: an entry that no longer corresponds to a real difference FAILS. Permanent entries included — a permanent entry that stops matching means upstream changed or PSFlow gained the export, and either is worth hearing about. So a fix deletes its entry in the same commit; an entry outlives its cause by exactly one run. `_comment*` keys are prose and are not entries.",
+  "_comment_props": "`props.<Type>` accepts four keys, all optional. `rename` maps an upstream member name to the PSFlow name standing in for it and is applied to the upstream set before diffing, so one entry cancels the divergence on both sides instead of leaving a missing row and an extra row that can drift apart; it goes stale when it stops cancelling anything. `missing` and `extra` are rationale maps in the same shape as `exports.*`, consumed by the same claim(). `drift` is report annotation only — it labels a member in the output and suppresses nothing — but a drift key naming a member neither side has is stale like anything else. Prop divergence gates CI as of ticket 071: anything not declared here fails `npm run parity:surface`. Note the comparison is name-only; see the limit documented in report.md.",
   "exports": {
     "missing": {
       "NodeAddChange": "Constructor of the PS `NodeChange` sum type, reachable via `NodeChange(..)`. TS exports each change as a standalone type; PS models them as one sum type (intentional).",
@@ -43,6 +44,33 @@
       "EdgeTypesMap": "PS rename of upstream `EdgeTypes`.",
       "ControlsProps": "PS rename of upstream `ControlProps`."
     }
+  },
+  "_comment_shapes": "`typeof`, arity and React wrapper kind of every value `index.js` publishes, compared against the vendored upstream's. Every entry must name the event that retires it — a boundary stage or a ticket — which is enforced, because this section is the per-stage progress ledger: `stage N is done` means deleting stage N's entries here leaves the gate green. Deliberately not scoped to the boundary manifest: a gate bounded by the conversion plan is invisible-by-construction outside it. The 21 below sort into four classes — curried pure functions, curried hooks, component wrapper kind, and one PSFlow-only export.",
+  "shapes": {
+    "getConnectedEdges": "Curried: upstream takes (nodes, edges) in one call, PSFlow one argument at a time. Uncurries when the pure functions cross; no boundary stage is scheduled to cross them and #62 carries the decision on whether a fifth stage is warranted.",
+    "getIncomers": "Curried: upstream (node, nodes, edges), PSFlow one at a time. Retired with the pure functions — see #62's open decision on a fifth stage.",
+    "getOutgoers": "Curried: upstream (node, nodes, edges), PSFlow one at a time. Retired with the pure functions — see #62's open decision on a fifth stage.",
+    "getViewportForBounds": "Curried: upstream takes six arguments, PSFlow one at a time. Retired with the pure functions — see #62's open decision on a fifth stage.",
+    "reconnectEdge": "Curried: upstream (oldEdge, newConnection, edges, options), PSFlow one at a time. Retired with the pure functions — see #62's open decision on a fifth stage.",
+
+    "useEdges": "Curried: upstream takes no arguments, PSFlow takes `Unit`. Uncurries when the hooks cross in boundary stage 3 (#56).",
+    "useNodes": "Curried: upstream takes no arguments, PSFlow takes `Unit`. Uncurries when the hooks cross in boundary stage 3 (#56).",
+    "useStore": "Curried: upstream (selector, equalityFn?), PSFlow one argument at a time. Uncurries in boundary stage 3 (#56).",
+    "useKeyPress": "Curried, and partly a `Function.length` artifact: upstream's (keyCode = null, options = {}) both have defaults, so it reports arity 0 and a crossed PSFlow hook taking one argument will still differ. Boundary stage 3 (#56) crosses it; re-word this entry then rather than deleting it.",
+    "useNodeConnections": "As `useKeyPress`: upstream's single parameter has a default, so arity 0 is a `Function.length` artifact rather than a nullary declaration. Boundary stage 3 (#56).",
+    "useNodesInitialized": "As `useKeyPress`: upstream's `options` parameter has a default, so it reports arity 0. Boundary stage 3 (#56).",
+
+    "Background": "PSFlow drops a `memo` upstream has. The underlying `React.Additional.Background` is memoized; boundary stage 1's chrome wrapper is a plain `reactComponent`, so crossing it lost the memoization. Wrapper kind is resolved for the components in boundary stage 4 (#62); recorded meanwhile in the divergence backlog (#22).",
+    "Controls": "PSFlow drops a `memo` upstream has — the same stage-1 chrome wrapper as `Background`. Boundary stage 4 (#62); recorded in #22.",
+    "MiniMap": "PSFlow drops a `memo` upstream has — the same stage-1 chrome wrapper as `Background`. Boundary stage 4 (#62); recorded in #22.",
+    "Panel": "Upstream is a `forwardRef`, PSFlow a plain function, so a `ref` passed to a `<Panel />` is dropped. Boundary stage 4 (#62); recorded in #22.",
+    "EdgeText": "PSFlow drops a `memo` upstream has, and this one is still passthrough — the divergence predates the boundary module. Boundary stage 4 (#62), which crosses it; recorded in #22.",
+    "BaseEdge": "PSFlow adds a `memo` upstream does not have. Per-component drift rather than one systematic representation difference, which is why it is listed separately. Boundary stage 4 (#62); recorded in #22.",
+    "ControlButton": "PSFlow adds a `memo` upstream does not have. Boundary stage 4 (#62); recorded in #22.",
+    "Handle": "Both memoize, but upstream's inner component is a `forwardRef` taking (props, ref) and PSFlow's is a plain one-argument function, so a `ref` on a `<Handle />` is dropped. #47 crosses `Handle`; wrapper kind resolves with the other components in boundary stage 4 (#62).",
+
+    "ReactFlow": "Upstream is a `forwardRef`, PSFlow a plain function — `ReactFlow` is not a drop-in for upstream's because it does not accept a `ref`. This is ticket #27, which a ~20-line scratch script rediscovered independently. Retired by #27.",
+    "ReactFlowWithRef": "PSFlow-only, so upstream has no shape to agree with: it is the ref-taking wrapper that exists precisely because `ReactFlow` is not one. Retired by #27, which makes `ReactFlow` a drop-in and removes the reason for a second component."
   },
   "props": {
     "ReactFlowProps": {
