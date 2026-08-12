@@ -19,6 +19,9 @@ generated-docs/
 # (oracle/index.js) is committed so `spago test` works without xyflow/.
 parity/surface/upstream.json
 parity/surface/psflow.json
+# The vendored upstream, bundled so its exports can be imported and their
+# shapes read. A build artifact of a gitignored tree; rebuilt on every run.
+parity/surface/upstream-bundle.mjs
 
 # The driver's upstream-side bundle. Its psflow sibling is committed, because
 # the vendored `xyflow/` tree is not and the conformance suite would have no

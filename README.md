@@ -22,7 +22,7 @@ mean something.
 
 | Gate | Command | What it compares |
 |---|---|---|
-| **surface parity** | `npm run parity:surface` | export names and prop members, against the vendored upstream's TypeScript |
+| **surface parity** | `npm run parity:surface` | exported *values* and their shapes, plus prop members, against the vendored upstream |
 | **function parity** | `spago test` | pure-function return values, against the `@psflow/oracle` bundle |
 | **conformance test suite** | `npm run test:conformance` | upstream's own e2e specs, ported — upstream's *asserted intent* |
 | **smoke test suite** | `npm run test:smoke` | liveness, plus the hand-authored interaction assertions not yet retired |
@@ -47,11 +47,19 @@ interop-shaped and shadow every other gate at once. Everything else is
 parity divergence, but nothing blocks. A red function parity may not touch the
 fixtures at all.
 
+**Surface parity needs `spago build` first**, and hard-fails on missing
+compiled output rather than falling back. It **imports** `index.js` rather than
+reading it — a regex over the file proves a line of text exists, not that the
+binding resolves — which is also what lets it compare `typeof`, arity and React
+wrapper kind across every export. The cost, accepted in ticket 041: the
+cheapest gate is no longer standalone.
+
 ## Checks that are not gates in that sense
 
 ```sh
 npm run parity:boundary   # boundary module — outbound drift + deferred props refused
 npm run parity:changelog  # 12.3.5→12.11.0 changelog audit; gates on unbucketed PRs
+npm run test:surface      # node --test over surface parity's shape and allowlist logic
 npm run test:compare      # node --test over the system-parity comparison core
 npm run test:harness      # node --test over its capture half and the driver's registries and sides
 npm run test:harness:live # the net harness against a real page — a browser, but no parity claim

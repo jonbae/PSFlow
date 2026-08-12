@@ -1,21 +1,36 @@
-// Surface parity — upstream extractor. Uses the TypeScript compiler API (the
-// authoritative source: it resolves `export *`, renamed re-exports, and
-// type-only exports that a regex would miss) to read the full public API
-// surface of the vendored `@xyflow/react` entry point.
+// Surface parity — upstream extractor. Reads the vendored `@xyflow/react` two
+// ways, because the two questions have different authorities.
+//
+//   * **names and prop members** ← the TypeScript compiler API. It resolves
+//     `export *`, renamed re-exports, and the type-only exports that have no
+//     runtime existence to read.
+//   * **shapes** ← the *values*, by bundling the same entry point with esbuild
+//     and importing it. `typeof`, arity and React wrapper kind cannot be had
+//     from a declaration: `forwardRef` and `memo` are calls, not types.
+//
+// The bundle is built from `xyflow/` and never from `node_modules/@xyflow/`.
+// The parity baseline is the vendored checkout — the published package is not
+// an acceptable stand-in for it, which is the same invariant
+// `parity/driver/build.mjs` enforces on its bundles. The two extraction paths
+// are cross-checked against each other below, so a bundle that silently picked
+// up a different build would fail rather than quietly reshape the gate.
 //
 // Emits `upstream.json`:
 //   { reactVersion, systemVersion,
 //     valueExports: [...], typeExports: [...],
+//     shapes: { <name>: { kind, wrappers, arity } },
 //     props: { ReactFlowProps: [...], NodeProps: [...], EdgeProps: [...] } }
 //
 // Run with plain `node` (Node strips the TS types). Requires the dev-only
-// `typescript` dependency.
+// `typescript` and `esbuild` dependencies.
 
 import ts from "typescript";
-import { fileURLToPath } from "node:url";
+import { build } from "esbuild";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import { dirname, resolve, join } from "node:path";
 import { readFileSync, writeFileSync } from "node:fs";
 import { PROP_TYPES } from "./prop-types.mjs";
+import { shapeOf } from "./shape.mjs";
 
 const here: string = dirname(fileURLToPath(import.meta.url));
 const repoRoot: string = resolve(here, "..", "..");
@@ -117,11 +132,63 @@ const props: Record<string, string[]> = Object.fromEntries(
   PROP_TYPES.map((p) => [p.name, propMembers(p.name)])
 );
 
+// ─── Shapes, from the bundled vendored sources ────────────────────────────
+// The bundle is a build artifact of a gitignored tree, so it is gitignored too
+// and rebuilt on every run — it costs about a second and can never be stale.
+const bundlePath: string = join(here, "upstream-bundle.mjs");
+
+await build({
+  entryPoints: [entry],
+  bundle: true,
+  format: "esm",
+  platform: "neutral",
+  // React stays out: it is a real dependency of this repo, both sides resolve
+  // the same copy, and `Symbol.for("react.memo")` is registry-global anyway.
+  external: ["react", "react-dom", "react/jsx-runtime", "react-dom/client"],
+  alias: { "@xyflow/system": xyflow("packages/system/src/index.ts") },
+  jsx: "automatic",
+  // The vendored tsconfigs extend a workspace package that is not vendored
+  // with them; every option this bundle needs is set explicitly above.
+  tsconfigRaw: {},
+  // `getNodesBounds` branches on it, and a neutral bundle has no `process` —
+  // the same substitution `oracle/esbuild.mjs` makes, for the same reason.
+  define: { "process.env.NODE_ENV": '"production"' },
+  // One transitive CommonJS dependency (`use-sync-external-store`) requires
+  // React dynamically, which an ESM bundle has no `require` for.
+  banner: { js: `import { createRequire as __cr } from "node:module";\nconst require = __cr(import.meta.url);` },
+  outfile: bundlePath,
+  logLevel: "warning",
+});
+
+const runtime: Record<string, unknown> = await import(pathToFileURL(bundlePath).href);
+
+// The compiler read declarations; the bundle ran code. They must describe the
+// same surface — if they diverge, one of the two is looking at something else,
+// and a shape comparison built on the wrong build is worse than none.
+const runtimeNames = new Set(Object.keys(runtime));
+const declaredValues = new Set(valueExports);
+const onlyRuntime = [...runtimeNames].filter((n) => !declaredValues.has(n)).sort();
+const onlyDeclared = [...declaredValues].filter((n) => !runtimeNames.has(n)).sort();
+if (onlyRuntime.length || onlyDeclared.length) {
+  throw new Error(
+    `[extract-upstream] the vendored sources' value exports disagree with what the ` +
+      `bundle of the same entry point yields.` +
+      (onlyRuntime.length ? `\n  in the bundle only: ${onlyRuntime.join(", ")}` : "") +
+      (onlyDeclared.length ? `\n  in the declarations only: ${onlyDeclared.join(", ")}` : "") +
+      `\nOne of the two is reading a different upstream than the other.`
+  );
+}
+
+const shapes = Object.fromEntries(
+  Array.from(runtimeNames).sort().map((name) => [name, shapeOf(runtime[name])])
+);
+
 const output = {
   reactVersion,
   systemVersion,
   valueExports: Array.from(new Set(valueExports)).sort(),
   typeExports: Array.from(new Set(typeExports)).sort(),
+  shapes,
   props,
 };
 
@@ -132,6 +199,6 @@ const propSummary: string = PROP_TYPES.map((p) => `${p.name}=${props[p.name].len
 
 console.log(
   `[extract-upstream] react ${reactVersion} / system ${systemVersion}: ` +
-    `${output.valueExports.length} value + ${output.typeExports.length} type exports, ` +
-    `props ${propSummary} → ${outPath}`
+    `${output.valueExports.length} value (shapes from the vendored bundle) + ` +
+    `${output.typeExports.length} type exports, props ${propSummary} → ${outPath}`
 );

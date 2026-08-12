@@ -88,10 +88,23 @@ QuickCheck is *not* the criterion: `Test.System.Utils.Store` runs properties
 with no upstream at all.
 
 **Surface parity** (`npm run parity:surface`):
-The parity gate at the grain of one name: export names and prop members,
-compared against the vendored upstream's TypeScript. Reads `index.js` for
-PSFlow's value names and `src/React.purs` for its type names.
+The parity gate at the grain of one export: the **values** `index.js` publishes
+and their **shapes** — `typeof`, arity, React wrapper kind — plus prop members,
+compared against the vendored upstream. It *imports* `index.js` rather than
+reading it, so it proves a binding resolves rather than that a line exists, and
+therefore needs `spago build` first: this gate is not standalone. Type names
+still come from `src/React.purs`, types having nothing to import. An upstream
+value is satisfied only by a PSFlow value.
 _Avoid_: Layer 0, the API diff, `parity:api`
+
+**Shape** (of an export):
+What a JavaScript caller sees before calling: `typeof`, arity
+(`Function.length`), and the React wrapper chain (`memo`, `forwardRef`). Not
+the value's contents — deep-equalling the enum objects and calling the pure
+functions are separate claims. Compared across the whole JS surface and
+deliberately not scoped to the **crossed** set, because a gate bounded by the
+conversion plan is invisible-by-construction outside it.
+_Avoid_: signature, type (a shape is neither), interface
 
 **Function parity** (the `Test.Parity.*` modules under `spago test`):
 The parity gate at the grain of one call: a pure function's return value,

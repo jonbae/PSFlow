@@ -7,7 +7,7 @@
 //   1. Coverage — every PR in `entries.json` must have a `verdicts.json` key.
 //      This is what catches the *next* version bump: bumping `xyflow/` surfaces
 //      new PRs, and each one fails the build until it is bucketed. Same
-//      key-presence mechanism as `partition()` in ../surface/diff.mjs.
+//      key-presence mechanism as `claim()` in ../surface/allowlist.mjs.
 //
 //   2. Evidence — every verdict in a "covered" bucket must cite non-empty
 //      evidence. Without this the audit degrades into a wall of unfalsifiable
