@@ -23,10 +23,6 @@ const ARROWS = { up: "ArrowUp", down: "ArrowDown", left: "ArrowLeft", right: "Ar
 
 const DEFAULT_PANE = ".react-flow__pane";
 
-// A **point** is `{ target, dx, dy, origin }`, or a bare selector when the
-// centre will do. The primitives take the target and the aim separately, so
-// these two split one apart; passing the whole point as the options would leave
-// a stray `target` key in it.
 // Counts, all of which have to be at least one: zero steps is a press and a
 // release with no gesture between them, and would record as one.
 const atLeastOnce = (what, n) => {
@@ -34,6 +30,10 @@ const atLeastOnce = (what, n) => {
   return n;
 };
 
+// A **point** is `{ target, dx, dy, origin }`, or a bare selector when the
+// centre will do. The primitives take the target and the aim separately, so
+// these two split one apart; passing the whole point as the options would leave
+// a stray `target` key in it.
 const targetOf = (point) => (typeof point === "string" ? point : point.target);
 const aimOf = (point) => {
   if (typeof point === "string") return {};
@@ -117,15 +117,21 @@ export const createGestures = (primitives) => {
      * again at release time rather than assumed to be where the last move put
      * the pointer.
      *
-     * `nudge` is a small target-relative move after the press, which is what
-     * starts a connection line in a browser; it is target-relative rather than
+     * `nudge` is a small move away from the press, which is what starts a
+     * connection line in a browser. It is expressed target-relative rather than
      * pointer-relative so that setting it to `null` changes only whether the
-     * move happens, never where the gesture lands.
+     * move happens, never where the gesture lands — and it is added to the grab
+     * offset rather than replacing it, so that a scenario grabbing a handle
+     * off-centre still nudges by the distance it asked for. Overwriting would
+     * make the nudge silently shrink as the grab offset grew: a source point of
+     * `{ dx: 3 }` under a 5-pixel nudge would move the pointer 2.
      */
     async connect(source, target, { nudge = { dx: 5, dy: 5 } } = {}) {
-      const entries = [await primitives.pointerDown(targetOf(source), aimOf(source))];
+      const aim = aimOf(source);
+      const entries = [await primitives.pointerDown(targetOf(source), aim)];
       if (nudge !== null) {
-        entries.push(await primitives.pointerMove(targetOf(source), { ...aimOf(source), ...nudge }));
+        const nudged = { ...aim, dx: (aim.dx ?? 0) + (nudge.dx ?? 0), dy: (aim.dy ?? 0) + (nudge.dy ?? 0) };
+        entries.push(await primitives.pointerMove(targetOf(source), nudged));
       }
       entries.push(await primitives.pointerMove(targetOf(target), aimOf(target)));
       entries.push(await primitives.pointerUp(targetOf(target), aimOf(target)));

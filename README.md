@@ -53,7 +53,7 @@ fixtures at all.
 npm run parity:boundary   # boundary module — outbound drift + deferred props refused
 npm run parity:changelog  # 12.3.5→12.11.0 changelog audit; gates on unbucketed PRs
 npm run test:compare      # node --test over the system-parity comparison core
-npm run test:harness      # node --test over its capture half and the driver's fixture registry
+npm run test:harness      # node --test over its capture half and the driver's registries and sides
 npm run test:harness:live # the net harness against a real page — a browser, but no parity claim
 ```
 

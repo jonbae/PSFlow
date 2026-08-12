@@ -21,7 +21,19 @@ import { defineScenario, runScenario } from "./scenario.mjs";
 const here = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(here, "..", "..", "..");
 
-const baseline = JSON.parse(readFileSync(resolve(repoRoot, "xyflow/packages/react/package.json"), "utf8")).version;
+// The ps-flow side of this file runs off `dist/psflow.js`, which is committed —
+// fixtures bundled in — so seven of these nine tests are meant to run on a clean
+// clone, and the two that need the other side skip themselves below. Reading the
+// vendored version at module load would undo all of that: an absent `xyflow/`
+// would throw during collection and take the seven with it. README lists the
+// scripts that hard-fail without the checkout and this is deliberately not one.
+//
+// A trace's `baseline` says which vendored upstream it was captured against, so
+// with no checkout there is no honest version to name. These traces are the
+// harness testing itself — never persisted, never compared, no parity claim —
+// so the field is envelope-only here and says plainly that nothing was vendored.
+const vendored = resolve(repoRoot, "xyflow/packages/react/package.json");
+const baseline = existsSync(vendored) ? JSON.parse(readFileSync(vendored, "utf8")).version : "no-vendored-checkout";
 
 const NODES_GENERAL = "/tests/generic/nodes/general";
 const NODE = '.react-flow__node[data-id="Node-1"]';
@@ -103,7 +115,7 @@ test("a key reaches the page, and a targeted one focuses first", async ({ page }
 // on *before the document loads*. Which scenarios pay for that is declared, so
 // the rest of the corpus keeps measuring a browser without it.
 test("a scenario that does not declare touch runs on a page without it", async ({ page }) => {
-  await drive(page, defineScenario({ id: "live--mount-only", route: NODES_GENERAL, run: async () => {} }));
+  await drive(page, defineScenario({ id: "live--no-touch", route: NODES_GENERAL, run: async () => {} }));
 
   expect(await page.evaluate(() => "ontouchstart" in window)).toBe(false);
 });

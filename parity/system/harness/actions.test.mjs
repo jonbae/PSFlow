@@ -10,7 +10,10 @@ import { PRIMITIVES, createPrimitives } from "./actions.mjs";
 const NODE = { x: 75, y: 25, width: 150, height: 36 };
 const PANE = { x: 0, y: 0, width: 800, height: 600 };
 
-const harness = (options = {}) => {
+// Not `harness()`: the **harness** is `parity/system/harness/`, the net's
+// capture half, and a local factory of the same name would make the word mean
+// two things in one directory.
+const bench = (options = {}) => {
   const { port, sent } = createFakePort({ boxes: { ".node": NODE, ".pane": PANE }, ...options });
   const log = createDrivingLog();
   // `api.calls` is the trace section a mutator's return lands in. It is the
@@ -23,12 +26,12 @@ const harness = (options = {}) => {
 test("the primitive tier is closed at the seven the spec names", () => {
   assert.deepEqual(PRIMITIVES, ["pointerDown", "pointerMove", "pointerUp", "key", "wheel", "touch", "call"]);
 
-  const { actions } = harness();
+  const { actions } = bench();
   assert.deepEqual(Object.keys(actions).sort(), [...PRIMITIVES].sort());
 });
 
 test("a target resolves to its own box and the pointer lands in the centre", async () => {
-  const { actions, log, sent } = harness();
+  const { actions, log, sent } = bench();
   await actions.pointerDown(".node");
 
   assert.deepEqual(log.entries(), [
@@ -45,7 +48,7 @@ test("a target resolves to its own box and the pointer lands in the centre", asy
 });
 
 test("an offset is from the centre by default and from the top-left on request", async () => {
-  const { actions, log } = harness();
+  const { actions, log } = bench();
   await actions.pointerDown(".node", { dx: 10, dy: -5 });
   await actions.pointerDown(".node", { dx: 10, dy: -5, origin: "topLeft" });
 
@@ -59,12 +62,12 @@ test("an offset is from the centre by default and from the top-left on request",
 });
 
 test("an unknown origin fails at once rather than silently meaning centre", async () => {
-  const { actions } = harness();
+  const { actions } = bench();
   await assert.rejects(() => actions.pointerDown(".node", { origin: "middle" }), /origin/);
 });
 
 test("a null target moves the pointer relative to where it already is", async () => {
-  const { actions, log } = harness();
+  const { actions, log } = bench();
   await actions.pointerDown(".node");
   await actions.pointerMove(null, { dx: 20, dy: 30 });
   await actions.pointerMove(null, { dx: 20, dy: 30 });
@@ -83,7 +86,7 @@ test("a null target moves the pointer relative to where it already is", async ()
 
 // The rule the whole section exists for.
 test("an unresolved target is recorded and skipped, never thrown", async () => {
-  const { actions, log, sent } = harness();
+  const { actions, log, sent } = bench();
   const entry = await actions.pointerDown(".missing");
 
   assert.equal(entry.resolved, false);
@@ -94,7 +97,7 @@ test("an unresolved target is recorded and skipped, never thrown", async () => {
 });
 
 test("driving continues past an unresolved target, and the pointer has not moved", async () => {
-  const { actions, log } = harness();
+  const { actions, log } = bench();
   await actions.pointerDown(".node");
   await actions.pointerMove(".missing");
   await actions.pointerMove(null, { dx: 5, dy: 5 });
@@ -110,7 +113,7 @@ test("driving continues past an unresolved target, and the pointer has not moved
 });
 
 test("a key is pressed by default, and down and up are available for a held modifier", async () => {
-  const { actions, log, sent } = harness();
+  const { actions, log, sent } = bench();
   await actions.key("Shift", { action: "down" });
   await actions.key("ArrowRight");
   await actions.key("Shift", { action: "up" });
@@ -131,7 +134,7 @@ test("a key is pressed by default, and down and up are available for a held modi
 });
 
 test("a targeted key focuses first, and records the box it focused", async () => {
-  const { actions, log, sent } = harness();
+  const { actions, log, sent } = bench();
   await actions.key("ArrowRight", { target: ".node" });
 
   assert.deepEqual(log.entries()[0], {
@@ -149,12 +152,12 @@ test("a targeted key focuses first, and records the box it focused", async () =>
 });
 
 test("an unknown key action fails rather than being dispatched as a name", async () => {
-  const { actions } = harness();
+  const { actions } = bench();
   await assert.rejects(() => actions.key("Shift", { action: "hold" }), /hold/);
 });
 
 test("a wheel is dispatched over its target and records both the point and the deltas", async () => {
-  const { actions, log, sent } = harness();
+  const { actions, log, sent } = bench();
   await actions.wheel(".node", { deltaY: -120 });
 
   assert.deepEqual(log.entries()[0].dispatched, { x: 150, y: 43, deltaX: 0, deltaY: -120 });
@@ -162,7 +165,7 @@ test("a wheel is dispatched over its target and records both the point and the d
 });
 
 test("touch points resolve individually and the entry names the selector list", async () => {
-  const { actions, log, sent } = harness();
+  const { actions, log, sent } = bench();
   await actions.touch("start", [
     { target: ".node", dx: -20, id: 1 },
     { target: ".node", dx: 20, id: 2 },
@@ -192,7 +195,7 @@ test("touch points resolve individually and the entry names the selector list", 
 });
 
 test("one unresolved touch point skips the whole action", async () => {
-  const { actions, log, sent } = harness();
+  const { actions, log, sent } = bench();
   await actions.touch("move", [{ target: ".node", id: 1 }, { target: ".missing", id: 2 }]);
 
   assert.deepEqual(log.entries(), [
@@ -202,7 +205,7 @@ test("one unresolved touch point skips the whole action", async () => {
 });
 
 test("a touch end carries no points and still records what was dispatched", async () => {
-  const { actions, log } = harness();
+  const { actions, log } = bench();
   await actions.touch("end", []);
 
   assert.deepEqual(log.entries()[0], {
@@ -216,12 +219,12 @@ test("a touch end carries no points and still records what was dispatched", asyn
 });
 
 test("a touch phase that is not one of the four fails", async () => {
-  const { actions } = harness();
+  const { actions } = bench();
   await assert.rejects(() => actions.touch("tap", [{ target: ".node" }]), /tap/);
 });
 
 test("a touch point without a target fails — there is no base to offset from", async () => {
-  const { actions } = harness();
+  const { actions } = bench();
   await assert.rejects(() => actions.touch("start", [{ dx: 10 }]), /target/);
 });
 
@@ -229,7 +232,7 @@ test("a touch point without a target fails — there is no base to offset from",
 // cross until boundary stage 3 (#56). An absent bridge is a page that cannot
 // answer, which is the same thing as a target that did not resolve.
 test("call records unresolved while the imperative bridge is not installed", async () => {
-  const { actions, log, sent, apiCalls } = harness();
+  const { actions, log, sent, apiCalls } = bench();
   await actions.call("zoomIn");
 
   assert.deepEqual(log.entries(), [
@@ -240,7 +243,7 @@ test("call records unresolved while the imperative bridge is not installed", asy
 });
 
 test("call dispatches through the bridge when the page has one, and the return lands in api", async () => {
-  const { actions, log, sent, apiCalls } = harness({ bridge: (method, args) => ({ method, args }) });
+  const { actions, log, sent, apiCalls } = bench({ bridge: (method, args) => ({ method, args }) });
   await actions.call("setViewport", [{ x: 1, y: 2, zoom: 3 }]);
 
   assert.deepEqual(log.entries()[0], {
@@ -261,14 +264,14 @@ test("call dispatches through the bridge when the page has one, and the return l
 // returned its result would be an aperture onto the running library — the one
 // remaining way a scenario could branch on which side it is driving.
 test("call hands the scenario the driving entry, never the library's answer", async () => {
-  const { actions } = harness({ bridge: () => ({ nodes: [], edges: [] }) });
+  const { actions } = bench({ bridge: () => ({ nodes: [], edges: [] }) });
   const entry = await actions.call("toObject");
 
   assert.deepEqual(Object.keys(entry), ["index", "action", "target", "resolved", "box", "dispatched"]);
 });
 
 test("every primitive returns the entry it recorded", async () => {
-  const { actions, log } = harness();
+  const { actions, log } = bench();
   const entries = [
     await actions.pointerDown(".node"),
     await actions.pointerMove(null, { dx: 1 }),

@@ -19,8 +19,6 @@ import { assertPendingStillEmpty } from "./pending.mjs";
 import { createPagePort } from "./port.mjs";
 import { createVocabulary } from "./vocabulary.mjs";
 
-export { DRIVER_PAGE, SIDES };
-
 // The flow's root element. It is what the mount waits for, and its box is the
 // container measurement everything downstream is computed from.
 export const FLOW_ROOT = ".react-flow";
