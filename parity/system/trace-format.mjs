@@ -14,9 +14,13 @@ import { readFileSync } from "node:fs";
 
 export const TRACE_FORMAT = 1;
 
+// The receipt for the input side, named because three modules downstream ask
+// whether a difference landed in it.
+export const DRIVING = "driving";
+
 // Order is the format's own; the *report* leads with `driving` instead, because
 // inputs that differed make output differences uninterpretable (#26).
-export const SECTIONS = ["dom", "callbacks", "hooks", "api", "props", "console", "driving"];
+export const SECTIONS = ["dom", "callbacks", "hooks", "api", "props", "console", DRIVING];
 
 export class TraceFormatError extends Error {
   constructor(label, problems) {

@@ -20,9 +20,9 @@
 // consequences of a run that was not one experiment.
 
 import { SIDES } from "../../driver/sides.mjs";
-import { compareTraces } from "./index.mjs";
+import { compareTraces, isDriving } from "./index.mjs";
 import { checkSelfConsistency } from "./consistency.mjs";
-import { OUTCOME } from "./regions.mjs";
+import { OUTCOME, regionsWith } from "./regions.mjs";
 
 // Upstream reads left: it is the reference, and a difference is a thing PSFlow
 // did to it. That is the opposite of `SIDES`' own order, where psflow comes
@@ -69,7 +69,7 @@ const bySide = (traces) => {
     if (traced.length !== 2) {
       throw new RunError(
         `a run is two captures of each side; got ${traced.length} of ${side}. ` +
-          `Self-consistency is what makes a recorded baseline mean anything, and it needs the second capture.`
+          `Self-consistency is what makes a recorded trace baseline mean anything, and it needs the second capture.`
       );
     }
   }
@@ -87,12 +87,12 @@ const failuresOf = (consistency, comparison) => {
     }
   }
 
-  const driving = comparison.unclaimed.filter((d) => d.path[0] === "driving");
-  const rest = comparison.unclaimed.filter((d) => d.path[0] !== "driving");
+  const driving = comparison.unclaimed.filter(isDriving);
+  const rest = comparison.unclaimed.filter((difference) => !isDriving(difference));
   if (driving.length) failures.push({ class: FAILURE.drivingDivergence, differences: driving });
   if (rest.length) failures.push({ class: FAILURE.unclaimed, differences: rest });
 
-  const named = (status) => comparison.outcomes.filter((o) => o.status === status).map((o) => o.region.id);
+  const named = (status) => regionsWith(comparison.outcomes, status).map((o) => o.region.id);
   const stale = named(OUTCOME.stale);
   const moved = named(OUTCOME.moved);
   if (stale.length) failures.push({ class: FAILURE.staleRegion, regions: stale });

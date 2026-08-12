@@ -131,7 +131,10 @@ test("a region can claim a driving difference; it cannot make the sections after
 
   assert.equal(result.unclaimed.every((d) => d.path[0] !== "driving"), true, "the region claimed them");
   assert.equal(result.driving.diverged, true, "and the two runs are still not one experiment");
-  assert.match(renderReport(result), /consequence of the driving divergence/);
+
+  const report = renderReport(result);
+  assert.match(report, /consequence of the driving divergence/);
+  assert.match(report, /does not fail on it.*decision about pass and fail/s);
 });
 
 test("the report names both sides by the identity their traces carry", () => {

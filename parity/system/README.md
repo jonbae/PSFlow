@@ -175,17 +175,22 @@ deliberate differences.
 - **No regions.** A region is a claim about the two implementations disagreeing.
   There is no such thing as a claim that a side disagrees with itself, and
   inventing one would turn the only check that can see non-reproducibility into
-  an allowlist.
-- **The driving log carries no tolerance.** Rules that could reach the `driving`
-  section are *withheld* from this check rather than trusted not to be written —
-  judged on the pattern (`driving/…`, `*/…`, `**/…`), not on what it happens to
-  match today. So a side whose resolved boxes wobble between its own two captures
-  fails against itself, down to the last sub-pixel. That is the
-  measured-DOM-dimensions question asked in the cheapest available form, of each
-  implementation separately rather than of the pair — and it is the only place it
-  *can* be asked without tolerance, because across two sides a box differing by
-  1e-5 is a finding somebody has to judge, while within one side it is never
-  anything but noise.
+  one more register of forgiven differences.
+- **The driving log carries no tolerance.** It is diffed straight off the two
+  traces and **never handed to the normalizer at all**, so no rule that could be
+  written — not one aimed at it, not a `**` one that would reach it on the way
+  past — can forgive a difference there. A side whose resolved boxes wobble
+  between its own two captures fails against itself, down to the last sub-pixel.
+  That is the measured-DOM-dimensions question asked in the cheapest available
+  form, of each implementation separately rather than of the pair — and it is the
+  only place it *can* be asked without tolerance, because across two sides a box
+  differing by 1e-5 is a finding somebody has to judge, while within one side
+  there is nothing to judge.
+
+Every **other** section normalizes exactly as it does across the sides. Class
+token order is as much noise within one side as between two, and a check that
+refused the whole ruleset would be red for reasons the noise policy has already
+settled.
 
 The cross-side comparison then reads **capture 1 of each side**, which is only
 meaningful because the check above read both.

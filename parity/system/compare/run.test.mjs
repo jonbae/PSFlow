@@ -20,6 +20,15 @@ const CLEAN = [
   "baseline.psflow.capture2.json",
 ];
 
+// One side that does not reproduce itself: psflow's second capture resolved the
+// node's box a hundred-thousandth of a pixel wider.
+const WOBBLING = [
+  "baseline.upstream.json",
+  "baseline.upstream.capture2.json",
+  "baseline.psflow.json",
+  "wobbling-box.psflow.capture2.json",
+];
+
 const run = (names, options = {}) => compareRun(names.map(fixture), { rules: SORT_RULES, ...options });
 
 test("the run reads exactly the sides the driver serves, reordered rather than renamed", () => {
@@ -46,12 +55,7 @@ test("four agreeing captures pass, and the report says both sides agreed with th
 });
 
 test("a side that disagrees with itself is its own failure class", () => {
-  const result = run([
-    "baseline.upstream.json",
-    "baseline.upstream.capture2.json",
-    "baseline.psflow.json",
-    "wobbling-box.psflow.capture2.json",
-  ]);
+  const result = run(WOBBLING);
 
   assert.equal(result.ok, false);
   assert.deepEqual(
@@ -66,12 +70,7 @@ test("a side that disagrees with itself is its own failure class", () => {
 });
 
 test("the cross-side comparison still runs and is still reported when a side is not reproducible", () => {
-  const result = run([
-    "baseline.upstream.json",
-    "baseline.upstream.capture2.json",
-    "baseline.psflow.json",
-    "wobbling-box.psflow.capture2.json",
-  ]);
+  const result = run(WOBBLING);
 
   // Capture-everything applies here too: an unreproducible side does not stop
   // the comparison, it frames it.
@@ -80,12 +79,7 @@ test("the cross-side comparison still runs and is still reported when a side is 
 });
 
 test("self-consistency is checked against both captures, not against the one that goes on to compare", () => {
-  const result = run([
-    "baseline.upstream.json",
-    "baseline.upstream.capture2.json",
-    "baseline.psflow.json",
-    "wobbling-box.psflow.capture2.json",
-  ]);
+  const result = run(WOBBLING);
 
   // The cross-side pair is capture 1 of each side, so the wobble lives only in
   // a trace the comparison never reads — and is still a failure.

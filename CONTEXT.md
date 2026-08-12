@@ -372,21 +372,30 @@ dispatched. Compared ahead of the other sections, because inputs that differ mak
 output differences uninterpretable.
 _Avoid_: stimulus, input, actions
 
+**Capture**:
+Two senses, and both are load-bearing. As a *step*, it is the half of the net
+that drives a scenario and produces a **trace** — the sense **Harness** carries.
+As a *count*, it is one numbered drive of one scenario against one side, which
+is the trace envelope's `capture` field: each side is captured twice, and
+`capture: 2` names the second. A sentence must make clear which; "capture 1" and
+"the capture step" both do.
+_Avoid_: run (for the count — a run is all four), snapshot, execution
+
 **Run** (of system parity):
 One scenario, two sides, two **captures** each — four traces, read in one order.
-A **capture** is one numbered execution of one scenario against one side, and a
-side's two are what makes the check below possible. The four go into
-`compare.mjs` in any order and are grouped by the side each records.
+The four go into `compare.mjs` in any order and are grouped by the side each
+records.
 _Avoid_: comparison, pass (of the net), execution
 
 **Self-consistency**:
-A side's two captures compared **against itself**, before the two sides are
+A side's two **captures** compared **against itself**, before the two sides are
 compared at all: a recorded **trace baseline** is meaningless if traces are not
 reproducible. A side disagreeing with itself is its own failure class, and it is
 the one comparison no **region** may claim — a region says the two
 implementations differ for a stated reason, and there is no such statement about
-a side differing from itself. The **driving log** takes part with no tolerance,
-which is where sub-pixel box wobble is caught.
+a side differing from itself. The **driving log** takes part with no tolerance:
+it never reaches the normalizer, which is how sub-pixel box wobble is caught.
+Every other section normalizes as usual.
 _Avoid_: flake check, stability check, reproducibility test
 
 **Consequence**:
@@ -395,8 +404,9 @@ unreadable, so it is a reading of two runs that were not one experiment. Named
 in the report and **never suppressed** — capture-everything applies to a failed
 run as much as to a passing one, and a real divergence is exactly what would be
 hiding underneath. Says nothing about whether the difference is real; only that
-it cannot yet be attributed.
-_Avoid_: symptom, knock-on, noise (which is what the noise policy claims)
+it cannot yet be attributed, which is what distinguishes it from a **claimed**
+difference.
+_Avoid_: symptom, knock-on, downstream difference
 
 **Probe**:
 A component that renders nothing and exists only to report what hooks return and

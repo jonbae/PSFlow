@@ -17,14 +17,17 @@
 // hand-authored assertions into the recording, and it means revising the noise
 // policy re-runs this step in seconds rather than re-running a browser.
 
-import { SECTIONS, validateTrace } from "../trace-format.mjs";
+import { DRIVING, validateTrace } from "../trace-format.mjs";
 import { diffValues } from "./diff.mjs";
 import { assertNoCollapse, normalize } from "./normalize.mjs";
 import { claimDifferences, passes } from "./regions.mjs";
 
 // The driving log is compared ahead of the other sections as its own class:
 // if the inputs differed, the outputs differing tells you nothing new (#26).
-export const REPORT_ORDER = ["driving", "dom", "callbacks", "hooks", "api", "props", "console"];
+export const REPORT_ORDER = [DRIVING, "dom", "callbacks", "hooks", "api", "props", "console"];
+
+/** Is this difference in the receipt for the input side, rather than in a response? */
+export const isDriving = (difference) => difference.path[0] === DRIVING;
 
 // What the sections after `driving` are, once it has diverged. Not a filter:
 // a run whose inputs differed reports every difference it found, and the
@@ -82,7 +85,7 @@ export const compareTraces = (leftTrace, rightTrace, { rules = [], regions = [] 
   // is someone's stated decision about pass and fail — and it still cannot make
   // the sections after it readable, so the framing turns on the difference
   // existing rather than on it going unclaimed.
-  const drivingDifferences = differences.filter((d) => d.path[0] === "driving");
+  const drivingDifferences = differences.filter(isDriving);
 
   return {
     scenario: leftTrace.scenario,

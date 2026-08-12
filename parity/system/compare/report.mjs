@@ -5,9 +5,10 @@
 // doing a baseline bump wants the region verdicts, because the regions whose
 // content *moved* are the behavioural changelog.
 
-import { CONSEQUENCE, REPORT_ORDER } from "./index.mjs";
+import { DRIVING } from "../trace-format.mjs";
+import { CONSEQUENCE, REPORT_ORDER, isDriving } from "./index.mjs";
 import { formatPath } from "./paths.mjs";
-import { OUTCOME } from "./regions.mjs";
+import { OUTCOME, regionsWith } from "./regions.mjs";
 
 const MAX_VALUE = 160;
 
@@ -55,8 +56,9 @@ export const renderRunReport = (run) => {
     "## Self-consistency",
     "",
     "Each side is captured twice and compared against itself **before** the sides are compared at all: a",
-    "recorded baseline is meaningless if traces are not reproducible. The driving log takes part with no",
-    "tolerance applied, so a side whose resolved boxes wobble between its own captures fails against itself.",
+    "recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with",
+    "no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble",
+    "between its own captures fails against itself.",
     "",
     "| side | captures | verdict | differences |",
     "|---|---|---|---|"
@@ -68,8 +70,8 @@ export const renderRunReport = (run) => {
   }
   lines.push("");
 
-  for (const side of run.consistency) {
-    if (side.consistent) continue;
+  const inconsistent = run.consistency.filter((side) => !side.consistent);
+  for (const side of inconsistent) {
     lines.push(
       `### ${side.side} disagrees with itself`,
       "",
@@ -78,23 +80,11 @@ export const renderRunReport = (run) => {
     );
   }
 
-  const inconsistent = run.consistency.filter((c) => !c.consistent);
   if (inconsistent.length) {
     lines.push(
       `**${inconsistent.map((c) => c.side).join(" and ")} did not reproduce.** The comparison below ran anyway —`,
       "capture-everything applies to a failed run as much as to a passing one — but a difference it reports",
       "cannot yet be attributed to either implementation. Fix the reproducibility, then read it.",
-      ""
-    );
-  }
-
-  const withheld = run.consistency.flatMap((c) => c.withheld);
-  if (withheld.length) {
-    lines.push(
-      `${withheld.length} normalization rule(s) were **withheld** from the check above, because they reach the`,
-      "driving log and it carries no tolerance: " +
-        [...new Set(withheld.map((r) => `\`${r.at}\``))].join(", ") +
-        ".",
       ""
     );
   }
@@ -112,8 +102,8 @@ export const renderReport = (result) => {
     "",
   ];
 
-  const stale = outcomes.filter((o) => o.status === OUTCOME.stale);
-  const moved = outcomes.filter((o) => o.status === OUTCOME.moved);
+  const stale = regionsWith(outcomes, OUTCOME.stale);
+  const moved = regionsWith(outcomes, OUTCOME.moved);
 
   if (result.ok) {
     lines.push(
@@ -127,7 +117,7 @@ export const renderReport = (result) => {
     // Named apart from the rest, and first: "the inputs differed" is a different
     // finding from "the outputs differed", and reading it as the second one is
     // how two different experiments get filed as a behavioural difference.
-    const drivingUnclaimed = unclaimed.filter((d) => d.path[0] === "driving");
+    const drivingUnclaimed = unclaimed.filter(isDriving);
     if (drivingUnclaimed.length) parts.push(`${drivingUnclaimed.length} driving divergence(s)`);
     if (unclaimed.length - drivingUnclaimed.length) {
       parts.push(`${unclaimed.length - drivingUnclaimed.length} unclaimed difference(s)`);
@@ -151,6 +141,17 @@ export const renderReport = (result) => {
       "a real divergence is exactly what would be hiding down there.",
       ""
     );
+    // A region may claim a driving difference, and then the run passes. It is
+    // still two experiments: the claim decides what fails, never what is
+    // readable, and a green run whose sections are consequences has to say so.
+    if (!result.driving.differences.some((d) => unclaimed.includes(d))) {
+      lines.push(
+        "Every difference in the log is claimed by a region, so the run does not fail on it. That is a",
+        "decision about pass and fail and not about attribution: the sections below are consequences either",
+        "way.",
+        ""
+      );
+    }
   }
 
   if (unclaimed.length) {
@@ -158,7 +159,7 @@ export const renderReport = (result) => {
     for (const section of REPORT_ORDER) {
       const inSection = unclaimed.filter((d) => d.path[0] === section);
       if (!inSection.length) continue;
-      const note = result.driving.diverged && section !== "driving" ? ` — ${CONSEQUENCE}` : "";
+      const note = result.driving.diverged && section !== DRIVING ? ` — ${CONSEQUENCE}` : "";
       lines.push(
         `### ${section} (${inSection.length})${note}`,
         "",

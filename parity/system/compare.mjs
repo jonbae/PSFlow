@@ -11,7 +11,7 @@
 //
 // **A run is four traces**: two sides, two captures each, in any order — they
 // are grouped by the side each one records. Both sides are checked against
-// themselves before the two sides are compared, because a recorded baseline is
+// themselves before the two sides are compared, because a recorded trace baseline is
 // meaningless if traces are not reproducible.
 //
 // The two-trace form is the narrower question — these two traces, compared —
@@ -69,7 +69,7 @@ if (![2, 4].includes(positional.length) || (flags.has("--out") && (!out || out.s
 // Both hand back `{ ok, render }` so the recording and reporting below is
 // written once — and so the narrower form cannot quietly acquire a cheaper
 // definition of passing.
-const compare = (traces, regions, rules) => {
+const compare = (traces, { rules, regions }) => {
   if (traces.length === 4) {
     const run = compareRun(traces, { rules, regions });
     return { ok: run.ok, comparison: run.comparison, render: () => renderRunReport(run) };
@@ -98,7 +98,7 @@ try {
   const rules = readJson(NORMALIZATION).rules;
   const regions = readJson(REGIONS).regions;
 
-  let result = compare(traces, regions, rules);
+  let result = compare(traces, { rules, regions });
 
   if (flags.has("--record")) {
     // Stamped with the baseline of the trace that read right — the same one the
@@ -107,7 +107,7 @@ try {
     writeFileSync(REGIONS, JSON.stringify({ ...readJson(REGIONS), regions: rerecorded }, null, 2) + "\n");
     // Re-run rather than re-deciding here: what a passing run *is* belongs to
     // the comparison core, and an unclaimed difference has to still fail.
-    result = compare(traces, rerecorded, rules);
+    result = compare(traces, { rules, regions: rerecorded });
   }
 
   const report = result.render();

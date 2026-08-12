@@ -35,9 +35,6 @@ test("sub-pixel box variation between one side's two captures fails", () => {
   );
   assert.deepEqual(result.differences[0].left, 150);
   assert.deepEqual(result.differences[0].right, 150.00001);
-  // The driving log is the receipt for the input side, so a difference there is
-  // reported apart from the rest: it is what makes the other sections unreadable.
-  assert.equal(result.driving.diverged, true);
 });
 
 test("no rule can be written that would forgive a driving difference", () => {
@@ -51,14 +48,16 @@ test("no rule can be written that would forgive a driving difference", () => {
     rules: tolerant,
   });
 
-  assert.equal(result.consistent, false, "the wobble survives a ruleset written to delete it");
+  // The log never reaches the normalizer, so neither the rule aimed at it nor
+  // the one that would have swept it up on the way past can touch the wobble.
+  assert.equal(result.consistent, false);
   assert.deepEqual(
-    result.withheld.map((r) => r.at),
-    ["driving/**/box", "**/width"]
+    result.differences.map((d) => formatPath(d.path)),
+    ["driving/1/box/width"]
   );
 });
 
-test("normalization still applies to the sections that are not the driving log", () => {
+test("every other section normalizes exactly as it does across the sides", () => {
   const restyled = fixture("baseline.psflow.capture2.json");
   const node = restyled.sections.dom.root.children[0].children[0];
   node.attrs.class = node.attrs.class.split(" ").reverse().join(" ");
@@ -68,6 +67,22 @@ test("normalization still applies to the sections that are not the driving log",
 
   assert.equal(forgiven.consistent, true, "class token order is noise within a side as much as across two");
   assert.equal(unforgiven.consistent, false, "and it is the ruleset doing the forgiving, not the check");
+});
+
+test("a rule broad enough to reach the driving log still normalizes the sections it may touch", () => {
+  const restyled = fixture("baseline.psflow.capture2.json");
+  const node = restyled.sections.dom.root.children[0].children[0];
+  node.attrs.class = node.attrs.class.split(" ").reverse().join(" ");
+
+  // `**`-rooted, so under a withhold-the-rule reading of "no tolerance" this
+  // sort would be dropped from the whole check and the side would fail against
+  // itself for token order the noise policy settled long ago. Only the driving
+  // log is untouchable; the ruleset applies everywhere else in full.
+  const result = checkSelfConsistency(fixture("baseline.psflow.json"), restyled, {
+    rules: [{ kind: "sort", at: "**/attrs/class", as: "tokens", reason: "the same rule, written broadly" }],
+  });
+
+  assert.equal(result.consistent, true);
 });
 
 test("a side compared against the other side is a mistake, not an inconsistency", () => {
@@ -101,6 +116,16 @@ test("two captures against different baselines are not two captures of one run",
   assert.throws(
     () => checkSelfConsistency(fixture("baseline.psflow.json"), other, {}),
     (e) => e instanceof ConsistencyError && /baseline/.test(e.message)
+  );
+});
+
+test("an illegal rule fails the check rather than being quietly skipped", () => {
+  assert.throws(
+    () =>
+      checkSelfConsistency(fixture("baseline.psflow.json"), fixture("baseline.psflow.capture2.json"), {
+        rules: [{ kind: "round", at: "dom/**/attrs/style", reason: "a kind that does not exist" }],
+      }),
+    /kind "round" is not one of/
   );
 });
 
