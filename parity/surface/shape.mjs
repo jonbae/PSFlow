@@ -25,8 +25,9 @@
 // total — it must be safe to apply to all 68 exports without invoking any.
 //
 // Sharp edge, accepted: `Function.length` ignores default and rest parameters,
-// so an arity difference is occasionally a legitimate signature difference
-// rather than a currying gap. Those become permanent allowlist entries.
+// so an arity difference is occasionally a legitimate difference in how the
+// two sides declare their parameters rather than a currying gap. Those become
+// permanent allowlist entries.
 
 /** A name the module does not export. Distinct from an unresolved binding. */
 export const ABSENT = Object.freeze({ kind: "absent", wrappers: Object.freeze([]), arity: null });

@@ -24,6 +24,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 import { dirname, resolve, join } from "node:path";
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { PROP_TYPES } from "./prop-types.mjs";
+import { mustAgree } from "./agreement.mjs";
 import { shapeOf } from "./shape.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -92,19 +93,14 @@ const specifiers = exportBlocks.flatMap((block) =>
     })
 );
 
-const declared = new Set(specifiers.map((s) => s.public));
-const imported = new Set(valueExports);
-const notDeclared = [...imported].filter((n) => !declared.has(n)).sort();
-const notImported = [...declared].filter((n) => !imported.has(n)).sort();
-if (notDeclared.length || notImported.length) {
-  throw new Error(
-    `[extract-psflow] index.js's export list does not match what importing it yields.` +
-      (notDeclared.length ? `\n  imported but not declared: ${notDeclared.join(", ")}` : "") +
-      (notImported.length ? `\n  declared but not imported: ${notImported.join(", ")}` : "") +
-      `\nindex.js must stay a single bare \`export { … } from "./output/Boundary/index.js"\`; ` +
-      `anything the parser above cannot see is surface nobody is reviewing.`
-  );
-}
+mustAgree({
+  about: `[extract-psflow] index.js's export list does not match what importing it yields.`,
+  left: { label: "imported", names: valueExports },
+  right: { label: "declared", names: specifiers.map((s) => s.public) },
+  remedy:
+    `index.js must stay a single bare \`export { … } from "./output/Boundary/index.js"\`; ` +
+    `anything the parser above cannot see is surface nobody is reviewing.`,
+});
 
 // ─── Cross-check against the boundary manifest ────────────────────────────
 // The manifest (`src/Boundary.js`) is what other gates scope themselves to, so
@@ -113,22 +109,12 @@ if (notDeclared.length || notImported.length) {
 const { manifest } = await import(
   pathToFileURL(join(repoRoot, "src", "Boundary.js")).href
 );
-const manifestNames = new Set([...manifest.crossed, ...manifest.passthrough]);
-const published = new Set(valueExports);
-const notInManifest = [...published].filter((n) => !manifestNames.has(n)).sort();
-const notInIndex = [...manifestNames].filter((n) => !published.has(n)).sort();
-if (notInManifest.length || notInIndex.length) {
-  throw new Error(
-    `[extract-psflow] boundary manifest is out of step with index.js.` +
-      (notInManifest.length
-        ? `\n  exported but not in the manifest: ${notInManifest.join(", ")}`
-        : "") +
-      (notInIndex.length
-        ? `\n  in the manifest but not exported: ${notInIndex.join(", ")}`
-        : "") +
-      `\nUpdate \`manifest.crossed\` / \`manifest.passthrough\` in src/Boundary.js.`
-  );
-}
+mustAgree({
+  about: `[extract-psflow] boundary manifest is out of step with index.js.`,
+  left: { label: "exported", names: valueExports },
+  right: { label: "in the manifest", names: [...manifest.crossed, ...manifest.passthrough] },
+  remedy: `Update \`manifest.crossed\` / \`manifest.passthrough\` in src/Boundary.js.`,
+});
 
 // The third list — `src/Boundary.purs`'s own export list — used to be checked
 // here textually, because nothing imported index.js and a name the boundary

@@ -126,8 +126,9 @@ longest — component wrapper kind, boundary stage 4 at the earliest — is the 
 this comparison rediscovered ticket 27 from.
 
 Sharp edge, accepted: `Function.length` ignores default and rest parameters,
-so an arity difference is occasionally a legitimate signature difference rather
-than a currying gap. Those entries are permanent rather than transitional.
+so an arity difference is occasionally a legitimate difference in how the two
+sides declare their parameters rather than a currying gap. Those entries are
+permanent rather than transitional.
 
 - compared: 68 · same shape: 47 · differ: 21
 
@@ -152,16 +153,16 @@ done is mechanical: delete that stage's entries and this gate must stay green.
 | `Handle` | `memo(forwardRef(fn/2))` | `memo(fn/1)` | Both memoize, but upstream's inner component is a `forwardRef` taking (props, ref) and PSFlow's is a plain one-argument function, so a `ref` on a `<Handle />` is dropped. #47 crosses `Handle`; wrapper kind resolves with the other components in boundary stage 4 (#62). |
 | `MiniMap` | `memo(fn/1)` | `fn/1` | PSFlow drops a `memo` upstream has — the same stage-1 chrome wrapper as `Background`. Boundary stage 4 (#62); recorded in #22. |
 | `Panel` | `forwardRef(fn/2)` | `fn/1` | Upstream is a `forwardRef`, PSFlow a plain function, so a `ref` passed to a `<Panel />` is dropped. Boundary stage 4 (#62); recorded in #22. |
-| `ReactFlow` | `forwardRef(fn/2)` | `fn/1` | Upstream is a `forwardRef`, PSFlow a plain function — `ReactFlow` is not a drop-in for upstream's because it does not accept a `ref`. This is ticket #27, which a ~20-line shape probe rediscovered independently. Retired by #27. |
+| `ReactFlow` | `forwardRef(fn/2)` | `fn/1` | Upstream is a `forwardRef`, PSFlow a plain function — `ReactFlow` is not a drop-in for upstream's because it does not accept a `ref`. This is ticket #27, which a ~20-line scratch script rediscovered independently. Retired by #27. |
 | `ReactFlowWithRef` | `absent` | `forwardRef(fn/2)` | PSFlow-only, so upstream has no shape to agree with: it is the ref-taking wrapper that exists precisely because `ReactFlow` is not one. Retired by #27, which makes `ReactFlow` a drop-in and removes the reason for a second component. |
-| `getConnectedEdges` | `fn/2` | `fn/1` | Curried: upstream takes (nodes, edges) in one call, PSFlow one argument at a time. Uncurries when the pure functions cross; no boundary stage is scheduled to convert them and #62 carries the decision on whether a fifth stage is warranted. |
+| `getConnectedEdges` | `fn/2` | `fn/1` | Curried: upstream takes (nodes, edges) in one call, PSFlow one argument at a time. Uncurries when the pure functions cross; no boundary stage is scheduled to cross them and #62 carries the decision on whether a fifth stage is warranted. |
 | `getIncomers` | `fn/3` | `fn/1` | Curried: upstream (node, nodes, edges), PSFlow one at a time. Retired with the pure functions — see #62's open decision on a fifth stage. |
 | `getOutgoers` | `fn/3` | `fn/1` | Curried: upstream (node, nodes, edges), PSFlow one at a time. Retired with the pure functions — see #62's open decision on a fifth stage. |
 | `getViewportForBounds` | `fn/6` | `fn/1` | Curried: upstream takes six arguments, PSFlow one at a time. Retired with the pure functions — see #62's open decision on a fifth stage. |
 | `reconnectEdge` | `fn/3` | `fn/1` | Curried: upstream (oldEdge, newConnection, edges, options), PSFlow one at a time. Retired with the pure functions — see #62's open decision on a fifth stage. |
 | `useEdges` | `fn/0` | `fn/1` | Curried: upstream takes no arguments, PSFlow takes `Unit`. Uncurries when the hooks cross in boundary stage 3 (#56). |
-| `useKeyPress` | `fn/0` | `fn/1` | Curried, and partly a `Function.length` artifact: upstream's (keyCode = null, options = {}) both have defaults, so it reports arity 0 and a converted PSFlow hook taking one argument will still differ. Boundary stage 3 (#56) lands the conversion; re-word this entry then rather than deleting it. |
-| `useNodeConnections` | `fn/0` | `fn/1` | As `useKeyPress`: upstream's single parameter has a default, so arity 0 is a `Function.length` artifact rather than a nullary signature. Boundary stage 3 (#56). |
+| `useKeyPress` | `fn/0` | `fn/1` | Curried, and partly a `Function.length` artifact: upstream's (keyCode = null, options = {}) both have defaults, so it reports arity 0 and a crossed PSFlow hook taking one argument will still differ. Boundary stage 3 (#56) crosses it; re-word this entry then rather than deleting it. |
+| `useNodeConnections` | `fn/0` | `fn/1` | As `useKeyPress`: upstream's single parameter has a default, so arity 0 is a `Function.length` artifact rather than a nullary declaration. Boundary stage 3 (#56). |
 | `useNodes` | `fn/0` | `fn/1` | Curried: upstream takes no arguments, PSFlow takes `Unit`. Uncurries when the hooks cross in boundary stage 3 (#56). |
 | `useNodesInitialized` | `fn/0` | `fn/1` | As `useKeyPress`: upstream's `options` parameter has a default, so it reports arity 0. Boundary stage 3 (#56). |
 | `useStore` | `fn/2` | `fn/1` | Curried: upstream (selector, equalityFn?), PSFlow one argument at a time. Uncurries in boundary stage 3 (#56). |

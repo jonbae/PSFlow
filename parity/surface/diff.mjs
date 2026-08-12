@@ -8,7 +8,8 @@
 //   * a non-empty "missing in PSFlow" *export* bucket after allowlisting;
 //   * a non-empty missing/extra *prop-member* bucket after allowlisting;
 //   * a non-empty shape-divergence bucket after allowlisting;
-//   * any allowlist entry that no longer claims a real difference — stale.
+//   * any allowlist entry that no longer claims a real difference — stale;
+//   * any allowlist entry whose reason nobody could act on — malformed.
 //
 // The prop buckets used to be informational — they printed divergence while
 // the script still exited 0, which is exactly how the xPos/yPos rename
@@ -57,9 +58,9 @@ const allowShapes = allow.shapes ?? {};
 // so a malformed reason does not hide the comparison it sits beside: the
 // entries still claim what they claim, it is only the prose that is unusable.
 const malformed = [];
-const checkReasons = (register, entries, extra) => {
+const checkReasons = (register, entries, rule) => {
   try {
-    validateReasons(register, entries, extra);
+    validateReasons(register, entries, rule);
   } catch (e) {
     if (!(e instanceof AllowlistError)) throw e;
     malformed.push(e.message);
@@ -95,15 +96,20 @@ const extraRaw = diff(psflowAll, upstreamAll);
 const missing = claim(missingRaw, allowMissing);
 const extra = claim(extraRaw, allowExtra);
 
-// ─── Shape divergence (gated) ─────────────────────────────────────────────
+// ─── Shape divergence (fails the run) ─────────────────────────────────────
 // Applied to every export PSFlow publishes, not scoped to the boundary
 // manifest's crossed set. A gate bounded by the conversion plan would be
 // invisible-by-construction outside it — this effort's own bug in miniature,
 // and the class it would have hidden longest (component wrapper kind, stage 4
-// at the earliest) is the one a static probe rediscovered ticket 27 from.
+// at the earliest) is the one a ~20-line scratch script rediscovered ticket 27
+// from, before this gate existed.
 //
-// A PSFlow-only export has no upstream shape and reads as `absent` here: still
-// a difference, still needing a written reason.
+// The set compared is PSFlow's exports, not the union of both sides, and the
+// asymmetry is the same one the missing/extra buckets draw. A PSFlow-only
+// export has no upstream shape, reads as `absent` here, and still needs a
+// written reason. An *upstream*-only value has nothing on this side to have a
+// shape at all — it is a missing export, reported once as that rather than
+// twice as a name and a shape.
 const shapeRows = shapeDifferences(upstream.shapes ?? {}, psflow.shapes ?? {}, psflow.valueExports);
 const shapeByName = new Map(shapeRows.map((r) => [r.name, r]));
 const shapeDiff = claim(
@@ -111,7 +117,7 @@ const shapeDiff = claim(
   allowShapes
 );
 
-// ─── Prop diffs (gated) ───────────────────────────────────────────────────
+// ─── Prop diffs (fails the run) ───────────────────────────────────────────
 // `props.<Type>.rename` maps an upstream member name to the PSFlow name that
 // stands in for it. It is applied to the *upstream* set before diffing, so an
 // intentional rename cancels on both sides from a single entry instead of
@@ -143,7 +149,7 @@ const propFailures = PROP_TYPES.filter(
     propResults[p.name].extra.unclaimed.length > 0
 ).map((p) => p.name);
 
-// ─── Stale entries (gated) ────────────────────────────────────────────────
+// ─── Stale entries (fails the run) ────────────────────────────────────────
 // One register, one rule: an entry that no longer corresponds to a real
 // difference fails. Permanent entries included — a permanent entry that stops
 // matching means upstream changed or PSFlow gained the export, and either is
@@ -177,7 +183,6 @@ const propSection = (name, r) => {
   const cfg = allow.props?.[name] ?? {};
   const drift = cfg.drift ?? {};
   const annotate = (x) => (drift[x] ? `\`${x}\` _(${drift[x]})_` : `\`${x}\``);
-  const renames = cfg.rename ?? {};
   return [
     `### ${name}`,
     "",
@@ -187,7 +192,7 @@ const propSection = (name, r) => {
     }`,
     `- **extra in PSFlow** (${r.extra.unclaimed.length}): ${list(r.extra.unclaimed)}`,
     r.renames.live.length
-      ? `- allowlisted renames: ${r.renames.live.map((u) => `\`${u}\` → \`${renames[u]}\``).join(", ")}`
+      ? `- allowlisted renames: ${r.renames.live.map(([from, to]) => `\`${from}\` → \`${to}\``).join(", ")}`
       : null,
     r.missing.claimed.length
       ? `- allowlisted missing: ${r.missing.claimed.map((n) => `\`${n}\` _(${cfg.missing[n]})_`).join(", ")}`
@@ -283,8 +288,9 @@ longest — component wrapper kind, boundary stage 4 at the earliest — is the 
 this comparison rediscovered ticket 27 from.
 
 Sharp edge, accepted: \`Function.length\` ignores default and rest parameters,
-so an arity difference is occasionally a legitimate signature difference rather
-than a currying gap. Those entries are permanent rather than transitional.
+so an arity difference is occasionally a legitimate difference in how the two
+sides declare their parameters rather than a currying gap. Those entries are
+permanent rather than transitional.
 
 - compared: ${psflow.valueExports.length} · same shape: ${psflow.valueExports.length - shapeRows.length} · differ: ${shapeRows.length}
 

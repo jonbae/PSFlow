@@ -32,15 +32,14 @@ export class AllowlistError extends Error {
  * `stale` are both empty.
  */
 export const claim = (differences, entries = {}) => {
-  const register = entries ?? {};
   const found = new Set(differences);
   const claimed = [];
   const unclaimed = [];
   for (const name of differences) {
-    if (Object.hasOwn(register, name)) claimed.push(name);
+    if (Object.hasOwn(entries, name)) claimed.push(name);
     else unclaimed.push(name);
   }
-  const stale = Object.keys(register).filter((name) => !found.has(name));
+  const stale = Object.keys(entries).filter((name) => !found.has(name));
   return { claimed: claimed.sort(), unclaimed, stale: stale.sort() };
 };
 
@@ -51,25 +50,29 @@ export const claim = (differences, entries = {}) => {
  * entries can be deleted and surface parity stays green, which only works if
  * every entry says which stage owns it.
  */
+// A floor, not a proof: the pattern cannot tell a ticket that *retires* the
+// divergence from one that merely records it, so it catches the entry that
+// names nothing and leaves the rest to a reader. Tightening it further would
+// mean encoding which ticket numbers are stages, which goes stale faster than
+// the entries it polices.
 export const RETIRING_EVENT = {
   pattern: /\bstage [1-4]\b|#\d+|\bticket \d+\b/,
   requirement:
     "name the event that retires it — a boundary stage (`stage 2`) or a ticket (`#27`, `ticket 058`)",
 };
 
-/** Every entry needs a written reason; some registers need more of it. */
-export const validateReasons = (register, entries = {}, extra = null) => {
-  for (const [name, reason] of Object.entries(entries ?? {})) {
+/** Every entry needs a written reason; some registers demand more of it. */
+export const validateReasons = (register, entries = {}, rule = null) => {
+  for (const [name, reason] of Object.entries(entries)) {
     if (typeof reason !== "string" || reason.trim() === "") {
       throw new AllowlistError(
         `${register}.${name} has no written reason — an unexplained entry is a dumping ground.`
       );
     }
-    if (extra && !extra.pattern.test(reason)) {
-      throw new AllowlistError(`${register}.${name}: the reason must ${extra.requirement}.\n  got: ${reason}`);
+    if (rule && !rule.pattern.test(reason)) {
+      throw new AllowlistError(`${register}.${name}: the reason must ${rule.requirement}.\n  got: ${reason}`);
     }
   }
-  return entries ?? {};
 };
 
 /**
@@ -79,15 +82,20 @@ export const validateReasons = (register, entries = {}, extra = null) => {
  * has the name it translates from, PSFlow still has the name it translates to,
  * and PSFlow does not also publish upstream's own name — in which case the
  * rename cancels nothing and is hiding a genuine extra member.
+ *
+ * `live` holds the surviving pairs rather than their upstream halves, so a
+ * caller reporting them does not have to go back to the register for the other
+ * half of something this function already had in hand.
  */
 export const liveRenames = (renames = {}, upstreamMembers, psflowMembers) => {
   const upstream = new Set(upstreamMembers);
   const psflow = new Set(psflowMembers);
   const live = [];
   const stale = [];
-  for (const [from, to] of Object.entries(renames ?? {})) {
+  for (const [from, to] of Object.entries(renames)) {
     const cancels = upstream.has(from) && psflow.has(to) && !psflow.has(from);
-    (cancels ? live : stale).push(from);
+    if (cancels) live.push([from, to]);
+    else stale.push(from);
   }
-  return { live: live.sort(), stale: stale.sort() };
+  return { live: live.sort(([a], [b]) => a.localeCompare(b)), stale: stale.sort() };
 };

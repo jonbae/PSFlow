@@ -30,6 +30,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 import { dirname, resolve, join } from "node:path";
 import { readFileSync, writeFileSync } from "node:fs";
 import { PROP_TYPES } from "./prop-types.mjs";
+import { mustAgree } from "./agreement.mjs";
 import { shapeOf } from "./shape.mjs";
 
 const here: string = dirname(fileURLToPath(import.meta.url));
@@ -165,22 +166,19 @@ const runtime: Record<string, unknown> = await import(pathToFileURL(bundlePath).
 // The compiler read declarations; the bundle ran code. They must describe the
 // same surface — if they diverge, one of the two is looking at something else,
 // and a shape comparison built on the wrong build is worse than none.
-const runtimeNames = new Set(Object.keys(runtime));
-const declaredValues = new Set(valueExports);
-const onlyRuntime = [...runtimeNames].filter((n) => !declaredValues.has(n)).sort();
-const onlyDeclared = [...declaredValues].filter((n) => !runtimeNames.has(n)).sort();
-if (onlyRuntime.length || onlyDeclared.length) {
-  throw new Error(
+const runtimeNames: string[] = Object.keys(runtime);
+
+mustAgree({
+  about:
     `[extract-upstream] the vendored sources' value exports disagree with what the ` +
-      `bundle of the same entry point yields.` +
-      (onlyRuntime.length ? `\n  in the bundle only: ${onlyRuntime.join(", ")}` : "") +
-      (onlyDeclared.length ? `\n  in the declarations only: ${onlyDeclared.join(", ")}` : "") +
-      `\nOne of the two is reading a different upstream than the other.`
-  );
-}
+    `bundle of the same entry point yields.`,
+  left: { label: "in the bundle", names: runtimeNames },
+  right: { label: "in the declarations", names: valueExports },
+  remedy: "One of the two is reading a different upstream than the other.",
+});
 
 const shapes = Object.fromEntries(
-  Array.from(runtimeNames).sort().map((name) => [name, shapeOf(runtime[name])])
+  [...runtimeNames].sort().map((name) => [name, shapeOf(runtime[name])])
 );
 
 const output = {

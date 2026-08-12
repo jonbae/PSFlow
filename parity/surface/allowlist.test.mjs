@@ -3,6 +3,8 @@ import assert from "node:assert/strict";
 
 import { AllowlistError, claim, liveRenames, validateReasons, RETIRING_EVENT } from "./allowlist.mjs";
 
+const renamesOf = (result) => result.live.map(([from, to]) => `${from}→${to}`);
+
 test("a difference with an entry is claimed; one without is not", () => {
   const { claimed, unclaimed } = claim(["MiniMapNode", "SomethingNew"], { MiniMapNode: "ticket 058" });
   assert.deepEqual(claimed, ["MiniMapNode"]);
@@ -62,10 +64,11 @@ test("a rename is live only when it still cancels a real difference", () => {
   const upstream = ["xPos", "id"];
   const psflow = ["positionAbsoluteX", "id"];
 
-  assert.deepEqual(liveRenames({ xPos: "positionAbsoluteX" }, upstream, psflow), {
-    live: ["xPos"],
-    stale: [],
-  });
+  const live = liveRenames({ xPos: "positionAbsoluteX" }, upstream, psflow);
+  // The pair survives whole, so a caller reporting it never goes back to the
+  // register for the half this function already had.
+  assert.deepEqual(renamesOf(live), ["xPos→positionAbsoluteX"]);
+  assert.deepEqual(live.stale, []);
   // upstream dropped the member the rename translates from
   assert.deepEqual(liveRenames({ gone: "positionAbsoluteX" }, upstream, psflow).stale, ["gone"]);
   // PSFlow does not have the member the rename translates to
