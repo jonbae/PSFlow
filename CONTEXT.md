@@ -372,6 +372,32 @@ dispatched. Compared ahead of the other sections, because inputs that differ mak
 output differences uninterpretable.
 _Avoid_: stimulus, input, actions
 
+**Run** (of system parity):
+One scenario, two sides, two **captures** each — four traces, read in one order.
+A **capture** is one numbered execution of one scenario against one side, and a
+side's two are what makes the check below possible. The four go into
+`compare.mjs` in any order and are grouped by the side each records.
+_Avoid_: comparison, pass (of the net), execution
+
+**Self-consistency**:
+A side's two captures compared **against itself**, before the two sides are
+compared at all: a recorded **trace baseline** is meaningless if traces are not
+reproducible. A side disagreeing with itself is its own failure class, and it is
+the one comparison no **region** may claim — a region says the two
+implementations differ for a stated reason, and there is no such statement about
+a side differing from itself. The **driving log** takes part with no tolerance,
+which is where sub-pixel box wobble is caught.
+_Avoid_: flake check, stability check, reproducibility test
+
+**Consequence**:
+Of a difference: it sits in a section the diverging **driving log** has made
+unreadable, so it is a reading of two runs that were not one experiment. Named
+in the report and **never suppressed** — capture-everything applies to a failed
+run as much as to a passing one, and a real divergence is exactly what would be
+hiding underneath. Says nothing about whether the difference is real; only that
+it cannot yet be attributed.
+_Avoid_: symptom, knock-on, noise (which is what the noise policy claims)
+
 **Probe**:
 A component that renders nothing and exists only to report what hooks return and
 what props it was handed. A node-level probe replaces a node type rather than

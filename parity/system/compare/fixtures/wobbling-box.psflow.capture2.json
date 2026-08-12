@@ -2,7 +2,7 @@
   "traceFormat": 1,
   "scenario": "mount-baseline--nodes-general",
   "side": "psflow",
-  "capture": 1,
+  "capture": 2,
   "baseline": "12.11.0",
   "sections": {
     "dom": {
@@ -28,25 +28,6 @@
               {
                 "tag": "div",
                 "attrs": {
-                  "class": "react-flow__node react-flow__node-default",
-                  "data-id": "2",
-                  "style": "z-index: 0; transform: translate(100px, 125px); pointer-events: all; visibility: visible;"
-                },
-                "children": [
-                  {
-                    "tag": "div",
-                    "attrs": {
-                      "class": "react-flow__handle react-flow__handle-top",
-                      "data-handleid": "b"
-                    },
-                    "children": []
-                  }
-                ],
-                "text": "Node 2"
-              },
-              {
-                "tag": "div",
-                "attrs": {
                   "class": "react-flow__node react-flow__node-input",
                   "data-id": "1",
                   "style": "z-index: 0; transform: translate(75px, 25px); pointer-events: all; visibility: visible;"
@@ -62,6 +43,25 @@
                   }
                 ],
                 "text": "Node 1"
+              },
+              {
+                "tag": "div",
+                "attrs": {
+                  "class": "react-flow__node react-flow__node-default",
+                  "data-id": "2",
+                  "style": "z-index: 0; transform: translate(100px, 125px); pointer-events: all; visibility: visible;"
+                },
+                "children": [
+                  {
+                    "tag": "div",
+                    "attrs": {
+                      "class": "react-flow__handle react-flow__handle-top",
+                      "data-handleid": "b"
+                    },
+                    "children": []
+                  }
+                ],
+                "text": "Node 2"
               }
             ]
           }
@@ -184,7 +184,7 @@
         "box": {
           "x": 75,
           "y": 25,
-          "width": 150,
+          "width": 150.00001,
           "height": 36
         },
         "dispatched": {

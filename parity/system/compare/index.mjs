@@ -24,9 +24,12 @@ import { claimDifferences, passes } from "./regions.mjs";
 
 // The driving log is compared ahead of the other sections as its own class:
 // if the inputs differed, the outputs differing tells you nothing new (#26).
-// Framing the rest as consequences of a driving divergence is issue #43's; this
-// is the ordering it lands on.
 export const REPORT_ORDER = ["driving", "dom", "callbacks", "hooks", "api", "props", "console"];
+
+// What the sections after `driving` are, once it has diverged. Not a filter:
+// a run whose inputs differed reports every difference it found, and the
+// consequences are exactly where a real divergence would be hiding (#43).
+export const CONSEQUENCE = "consequence of the driving divergence";
 
 export class ComparisonError extends Error {
   constructor(message) {
@@ -74,12 +77,20 @@ export const compareTraces = (leftTrace, rightTrace, { rules = [], regions = [] 
 
   const claimed = claimDifferences(differences, regions, { scenario: leftTrace.scenario });
 
+  // Whether the two runs were the same experiment, which is a different question
+  // from whether the run passes. A region can claim a driving difference — that
+  // is someone's stated decision about pass and fail — and it still cannot make
+  // the sections after it readable, so the framing turns on the difference
+  // existing rather than on it going unclaimed.
+  const drivingDifferences = differences.filter((d) => d.path[0] === "driving");
+
   return {
     scenario: leftTrace.scenario,
     left: identity(leftTrace),
     right: identity(rightTrace),
     differences,
     ...claimed,
+    driving: { diverged: drivingDifferences.length > 0, differences: drivingDifferences },
     deleted: { left: left.deleted, right: right.deleted },
     ok: passes(claimed),
   };

@@ -108,6 +108,14 @@ export const runScenario = async (
     // measure a touch-capable browser.
     if (scenario.touch) await port.enableTouch();
 
+    // Blank first, then the driver. A capture reuses the page, so the second
+    // capture of a scenario navigates to the URL the page is *already* on — and
+    // a navigation to the same document differing only in its fragment is a
+    // same-document navigation: nothing reloads, React state survives, and
+    // capture 2 starts wherever capture 1 left the flow. Self-consistency (#43)
+    // caught it against a real page, where a drag's second capture resolved the
+    // node 100px further right than its first.
+    await page.goto("about:blank");
     await page.goto(driverUrl(scenario.route, side));
 
     // The mount is a driving action like any other, and recorded as one. A side

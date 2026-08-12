@@ -93,6 +93,47 @@ test("a difference claimed by a region does not fail the run", () => {
   assert.match(renderReport(result), /layout-float-drift/);
 });
 
+test("a driving divergence is reported first and frames the rest as consequences, suppressing none of them", () => {
+  const result = compareTraces(fixture("baseline.upstream.json"), fixture("missed-target.psflow.json"), {
+    rules: SORT_RULES,
+  });
+  const report = renderReport(result);
+
+  assert.equal(result.driving.diverged, true);
+  assert.ok(report.indexOf("### driving") < report.indexOf("### dom"), "the receipt for the input side leads");
+  assert.match(report, /The inputs differed/);
+  assert.match(report, /### dom \(1\) — consequence of the driving divergence/);
+  // Framing is not filtering: the layout difference underneath is still here,
+  // and is exactly where a real divergence would be hiding.
+  assert.ok(result.unclaimed.some((d) => d.path[0] === "dom"));
+  assert.match(report, /75\.00017302302994px/);
+});
+
+test("a driving log that agrees frames nothing", () => {
+  const report = renderReport(compareTraces(fixture("baseline.upstream.json"), fixture("precise-coordinate.psflow.json"), {}));
+
+  assert.doesNotMatch(report, /consequence/);
+});
+
+test("a region can claim a driving difference; it cannot make the sections after it readable", () => {
+  const regions = [
+    {
+      id: "psflow-misses-the-node",
+      kind: "known-divergence",
+      reason: "the node PSFlow rendered is not where the selector looked",
+      ticket: "https://github.com/jonbae/PSFlow/issues/22",
+      affirmedAgainst: "12.11.0",
+      path: "driving/**",
+      recorded: [],
+    },
+  ];
+  const result = compareTraces(fixture("baseline.upstream.json"), fixture("missed-target.psflow.json"), { regions });
+
+  assert.equal(result.unclaimed.every((d) => d.path[0] !== "driving"), true, "the region claimed them");
+  assert.equal(result.driving.diverged, true, "and the two runs are still not one experiment");
+  assert.match(renderReport(result), /consequence of the driving divergence/);
+});
+
 test("the report names both sides by the identity their traces carry", () => {
   const report = renderReport(compareTraces(fixture("baseline.upstream.json"), fixture("baseline.psflow.json"), {}));
 
@@ -125,6 +166,66 @@ test("the CLI exits non-zero on an unclaimed difference", () => {
         stdio: "pipe",
       }),
     (e) => e.status === 1
+  );
+});
+
+test("the CLI reads four traces as one run and passes when both sides reproduced", () => {
+  const out = join(mkdtempSync(join(tmpdir(), "psflow-compare-")), "report.md");
+  execFileSync(process.execPath, [
+    CLI,
+    fixturePath("baseline.upstream.json"),
+    fixturePath("baseline.upstream.capture2.json"),
+    fixturePath("baseline.psflow.json"),
+    fixturePath("baseline.psflow.capture2.json"),
+    "--out",
+    out,
+  ]);
+
+  const report = readFileSync(out, "utf8");
+  assert.match(report, /## Self-consistency/);
+  assert.match(report, /No unclaimed differences/);
+});
+
+test("the CLI fails a run whose sides agree with each other but not with themselves", () => {
+  assert.throws(
+    () =>
+      execFileSync(
+        process.execPath,
+        [
+          CLI,
+          fixturePath("baseline.upstream.json"),
+          fixturePath("baseline.upstream.capture2.json"),
+          fixturePath("baseline.psflow.json"),
+          fixturePath("wobbling-box.psflow.capture2.json"),
+        ],
+        { stdio: "pipe" }
+      ),
+    (e) => e.status === 1 && /psflow disagrees with itself/.test(String(e.stdout))
+  );
+});
+
+test("the two-trace form says that self-consistency went unchecked", () => {
+  const out = join(mkdtempSync(join(tmpdir(), "psflow-compare-")), "report.md");
+  execFileSync(process.execPath, [CLI, fixturePath("baseline.upstream.json"), fixturePath("baseline.psflow.json"), "--out", out]);
+
+  assert.match(readFileSync(out, "utf8"), /Not checked/);
+});
+
+test("the CLI exits 2 on traces that are not two captures of each of two sides", () => {
+  assert.throws(
+    () =>
+      execFileSync(
+        process.execPath,
+        [
+          CLI,
+          fixturePath("baseline.upstream.json"),
+          fixturePath("baseline.psflow.json"),
+          fixturePath("baseline.psflow.capture2.json"),
+          fixturePath("precise-coordinate.psflow.json"),
+        ],
+        { stdio: "pipe" }
+      ),
+    (e) => e.status === 2 && /two captures of each side/.test(String(e.stderr))
   );
 });
 

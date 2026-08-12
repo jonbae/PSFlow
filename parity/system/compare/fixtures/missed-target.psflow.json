@@ -28,7 +28,26 @@
               {
                 "tag": "div",
                 "attrs": {
-                  "class": "react-flow__node react-flow__node-default",
+                  "class": "react-flow__node react-flow__node-input",
+                  "data-id": "1",
+                  "style": "pointer-events: all; transform: translate(75.00017302302994px, 25.000038167661856px); visibility: visible; z-index: 0;"
+                },
+                "children": [
+                  {
+                    "tag": "div",
+                    "attrs": {
+                      "class": "react-flow__handle react-flow__handle-bottom",
+                      "data-handleid": "a"
+                    },
+                    "children": []
+                  }
+                ],
+                "text": "Node 1"
+              },
+              {
+                "tag": "div",
+                "attrs": {
+                  "class": "react-flow__node-default react-flow__node",
                   "data-id": "2",
                   "style": "z-index: 0; transform: translate(100px, 125px); pointer-events: all; visibility: visible;"
                 },
@@ -43,25 +62,6 @@
                   }
                 ],
                 "text": "Node 2"
-              },
-              {
-                "tag": "div",
-                "attrs": {
-                  "class": "react-flow__node react-flow__node-input",
-                  "data-id": "1",
-                  "style": "z-index: 0; transform: translate(75px, 25px); pointer-events: all; visibility: visible;"
-                },
-                "children": [
-                  {
-                    "tag": "div",
-                    "attrs": {
-                      "class": "react-flow__handle react-flow__handle-bottom",
-                      "data-handleid": "a"
-                    },
-                    "children": []
-                  }
-                ],
-                "text": "Node 1"
               }
             ]
           }
@@ -180,18 +180,9 @@
         "index": 1,
         "action": "pointerDown",
         "target": ".react-flow__node[data-id='1']",
-        "resolved": true,
-        "box": {
-          "x": 75,
-          "y": 25,
-          "width": 150,
-          "height": 36
-        },
-        "dispatched": {
-          "x": 150,
-          "y": 43,
-          "button": "left"
-        }
+        "resolved": false,
+        "box": null,
+        "dispatched": null
       }
     ]
   }
