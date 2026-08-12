@@ -16,7 +16,9 @@
     "parity:surface": "node parity/surface/extract-upstream.ts && node parity/surface/extract-psflow.mjs && node parity/surface/diff.mjs",
     "parity:boundary": "node parity/boundary/drift.mjs && node parity/boundary/mount.mjs",
     "parity:changelog": "node parity/changelog-audit/extract-entries.mjs && node parity/changelog-audit/audit.mjs",
-    "test:compare": "node --test \"parity/system/**/*.test.mjs\"",
+    "test:compare": "node --test \"parity/system/trace-format.test.mjs\" \"parity/system/compare/**/*.test.mjs\"",
+    "test:harness": "node --test \"parity/system/harness/**/*.test.mjs\" \"parity/driver/**/*.test.mjs\"",
+    "test:harness:live": "playwright test --config parity/system/harness/playwright.config.mjs",
     "build:oracle": "node oracle/esbuild.mjs"
   },
   "dependencies": {

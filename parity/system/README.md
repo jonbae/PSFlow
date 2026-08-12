@@ -9,8 +9,8 @@ The net has two halves, and they are deliberately separate steps:
 
 | Step | What it does | Where it is |
 |---|---|---|
-| **capture** | drives a scenario against one side and writes a trace to disk | not built yet — [net harness #35](https://github.com/jonbae/PSFlow/issues/35), [first dom diff #51](https://github.com/jonbae/PSFlow/issues/51) |
-| **compare** | reads two stored traces and reports what differs | this directory |
+| **capture** | drives a scenario against one side and returns a trace | `harness/` — five of the seven sections still to come, see below |
+| **compare** | reads two stored traces and reports what differs | `compare/`, and `compare.mjs` |
 
 Capture records **everything** observable; everything the noise policy forgives
 lives in compare. That keeps a capture whitelist from smuggling hand-authored
@@ -113,7 +113,9 @@ for twice.
   "props": { "node-probe#1": { "id": "1", "type": "probe", "selected": false } },
 
   // ── console ──────────────────────────────────────────────────────────────
-  "console": [ { "level": "warn", "text": "…" } ],
+  // What the page printed, plus what it threw: an uncaught exception is not a
+  // console message to Playwright, and would otherwise be in no section at all.
+  "console": [ { "level": "warn", "text": "…" }, { "level": "pageerror", "text": "…" } ],
 
   // ── driving ──────────────────────────────────────────────────────────────
   // The receipt for the input side. Targets resolve against each side's own
@@ -121,13 +123,24 @@ for twice.
   // An unresolved target is recorded and skipped, never thrown.
   // All five fields are required — `target`, `box` and `dispatched` nullable,
   // since an imperative call has no target and an unresolved one has no box.
+  // The `mount` is an action like any other: navigating to the route is done
+  // *to* the page, and its box is the container measurement fitView uses.
   "driving": [
-    { "index": 0, "action": "pointerDown", "target": ".react-flow__node[data-id='1']",
+    { "index": 0, "action": "mount", "target": ".react-flow", "resolved": true,
+      "box": { "x": 0, "y": 0, "width": 800, "height": 600 },
+      "dispatched": { "route": "/tests/generic/nodes/general" } },
+    { "index": 1, "action": "pointerDown", "target": ".react-flow__node[data-id='1']",
       "resolved": true, "box": { "x": 75, "y": 25, "width": 150, "height": 36 },
-      "dispatched": { "x": 150, "y": 43 } }
+      "dispatched": { "x": 150, "y": 43, "button": "left" } }
   ]
 }
 ```
+
+`dispatched` is shaped by the action: `{ x, y }` for a move, `{ x, y, button }`
+for a press or release, `{ key, action }` for a key, `{ x, y, deltaX, deltaY }`
+for a wheel, `{ type, points }` for a touch — whose points carry their own
+resolution, because one box could not stand for several — and `{ method, args }`
+for an imperative call.
 
 ---
 
@@ -235,7 +248,9 @@ change to `regions.json`.
 
 ```sh
 node parity/system/compare.mjs <left-trace.json> <right-trace.json> [--out report.md] [--record]
-npm run test:compare      # the comparison core's own unit tests — no browser
+npm run test:compare       # the comparison core's own unit tests — no browser
+npm run test:harness       # the capture half's, likewise
+npm run test:harness:live  # the harness against a real page
 ```
 
 Exit codes: `0` clean, `1` differences the noise policy does not claim (or a
@@ -243,8 +258,11 @@ region gone stale), `2` a run that could not be interpreted at all — a malform
 trace, an illegal normalization rule, a region missing its reason. A run that
 cannot be interpreted is never a pass.
 
-`parity:system` — the gate that captures and then compares — arrives with the
-capture half.
+`parity:system` — the gate that captures and then compares — does not exist yet.
+It waits on `dom` capture ([#51](https://github.com/jonbae/PSFlow/issues/51)):
+two traces whose `dom` is `null` on both sides compare clean and mean nothing,
+so wiring the two halves together before then would build a gate that cannot go
+red.
 
 ## Tested at this seam
 
@@ -255,11 +273,22 @@ no browser, no boundary module and no driver. They are the one place in this
 effort where hand-authored expectations are correct: the subject under test is
 the comparison logic, not xyflow.
 
+The capture half has the same shape one level down: everything above the page
+port is plain composition, tested against a double, and the browser sees only
+the claim a double cannot make. `harness/README.md`.
+
 ## Not built here
 
+- **Settling** — polling until consecutive snapshots agree, each side on its own
+  clock — and the `dom` element tree, which is what makes the two halves a gate:
+  [#51](https://github.com/jonbae/PSFlow/issues/51).
 - **Self-consistency**, and the driving log's framing of the other sections as
   consequences — [#43](https://github.com/jonbae/PSFlow/issues/43).
 - **Callback sequence comparison** and argument serialization —
   [#44](https://github.com/jonbae/PSFlow/issues/44).
+- **The `hooks`, `props` and `api.queries` sections**, which need probes —
+  [#59](https://github.com/jonbae/PSFlow/issues/59).
+- **The corpus itself** — the conformance seed, the test-debt scenarios and the
+  fork staleness gate — [#55](https://github.com/jonbae/PSFlow/issues/55).
 - **Witnesses, holes and the coverage artifact** —
   [#57](https://github.com/jonbae/PSFlow/issues/57).
