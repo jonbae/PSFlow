@@ -74,7 +74,8 @@ Something that goes red. There are five, and each is named for what its red
 means. Never numbered — see *Layer* below. Other things in this repo also go
 red without being one of the five: `parity:boundary`, `parity:changelog`,
 `test:surface`, `test:compare`, `test:harness`, `test:harness:live`,
-`test:node-props`, and the **unit tests**. Each entry below says where it sits.
+`test:census`, `test:node-props`, and the **unit tests**. Each entry below says
+where it sits.
 _Avoid_: layer, check, suite (when a gate is meant)
 
 **Parity gate**:
@@ -150,6 +151,11 @@ record, and retires when the net's `props` section is green (#61).
 census names them as gates on individual rows because *something* would go red;
 neither is one of the five.
 
+`parity:boundary` is likewise not one of the five gates, but the census names
+its mount check as row-level JS-surface proof for the crossings it directly
+exercises. In that scoped use, `boundary` means “this census entry would make
+the boundary mount check go red,” not “boundary is a sixth gate.”
+
 **Unit tests**:
 The PSFlow-only modules under `spago test` — `Test.Properties`,
 `Test.System.Utils.Store`, `Test.React.Store.Reduce`,
@@ -158,11 +164,13 @@ explicitly as **outside the gate scheme**: they prove PSFlow's internals are
 self-consistent, which is a different claim from "PSFlow matches xyflow".
 _Avoid_: the test suite, the PureScript tests
 
-**Gate self-tests** (`npm run test:surface`, `test:compare`, `test:harness`):
-`node --test` over a gate's *own* logic — surface parity's shape and allowlist
-modules, system parity's comparison core, the net harness and the driver's
-registries. Outside the gate scheme for the same reason the **unit tests** are:
-they prove a gate does what it claims, which is a different claim from "PSFlow
+**Gate self-tests** (`npm run test:surface`, `test:census`, `test:compare`,
+`test:harness`):
+`node --test` over an instrument's *own* logic — surface parity's shape and
+allowlist modules, the census generator and its staleness logic, system parity's
+comparison core, the net harness and the driver's registries. Outside the gate
+scheme for the same reason the **unit tests** are:
+they prove an instrument does what it claims, which is a different claim from "PSFlow
 matches xyflow". A red one means the instrument is broken, not the port.
 _Avoid_: the parity tests, the gate tests (when a gate itself is meant)
 
