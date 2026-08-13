@@ -3,7 +3,7 @@ import { expect, test } from "@playwright/test";
 // Walks the runtime checklist from tickets/053-react-runtime-verification.md.
 // Items annotated with `test.skip(...)` are blocked by a 052 follow-up
 // — link the issue ID in the skip reason so the gap is auditable.
-const APP = "/examples/react-smoke/index.html";
+const APP = "/parity/driver/index.html#/smoke";
 
 test.describe("ps-flow smoke test", () => {
   test.beforeEach(async ({ page }) => {

@@ -1,9 +1,10 @@
-# The drivers — one page, bundled once per side
+# The driver page — bundled once per side
 
-A **driver** is the React component that mounts a **fixture**. There are two,
-and the page below serves both; it is bundled twice, and the two bundles differ
-in exactly one thing, what `@xyflow/react` resolves to. A driver difference can
-therefore never be mistaken for a library difference.
+One page routes fixture data through the `Flow.tsx` **driver**, or directly
+mounts the upstream **example driver** and PSFlow-local contract components. It
+is bundled twice, and the two bundles differ in exactly one thing: what
+`@xyflow/react` resolves to. A driver difference can therefore never be
+mistaken for a library difference.
 
 Vocabulary is `CONTEXT.md`; **driver**, **fixture** and the gate names below are
 all defined there.
@@ -11,7 +12,9 @@ all defined there.
 | | |
 |---|---|
 | `src/Flow.tsx` | the fixture driver: a twin of upstream's `generic-tests/Flow.tsx` |
-| `src/entry.tsx` | the page: route → fixture or example driver, a twin of upstream's `generic-tests/index.tsx` |
+| `src/entry.tsx` | the page: route → fixture or direct component, a twin of upstream's `generic-tests/index.tsx` |
+| `src/Smoke.tsx` | the JS-surface smoke page |
+| `src/NodePropsGuard.tsx` | the JS-surface NodeProps guard |
 | `index.html` | the container, whose box feeds `fitView`, and the `?side=` switch |
 | `registry.mjs` | the fixture glob over two roots, and the collision it can hit |
 | `build.mjs` | the two registries, the bundle, the alias, and the provenance check |
@@ -48,14 +51,14 @@ than letting one win. Its second root is empty until the corpus lands
 ([#55](https://github.com/jonbae/PSFlow/issues/55)); emptiness only fails in the
 aggregate, which would be a page answering every route with a 404.
 
-`#/examples/…` is an **example driver**: a whole component of upstream's,
-imported unmodified and mounted as it stands. `generic-props.spec.ts` needs
-one, because upstream has no props fixture to twin — its own props spec drives
-its `examples/ColorMode` page, so PSFlow's port drives upstream's own
-`examples/ColorMode/index.tsx`, through this page, on the JS surface.
+The other hashes select components mounted directly. `generic-props.spec.ts`
+needs upstream's **example driver**, `examples/ColorMode/index.tsx`, because
+upstream has no props fixture to twin. `#/smoke` and `#/examples/node-props`
+select PSFlow-authored components that preserve the local smoke and NodeProps
+contracts without reopening the compiled PureScript page.
 
-Example drivers are **written down** in `build.mjs` rather than globbed, unlike
-the fixtures. Upstream's `examples/` holds dozens of directories, most of them
+Direct components are **written down** in `build.mjs` rather than globbed,
+unlike the fixtures. Upstream's `examples/` holds dozens of directories, most of them
 importing exports that have not crossed, and one unresolved import is a link
 error that stops the page building for every route at once. Adding an entry is
 therefore a decision about the crossing set, not a discovery — which is why
@@ -72,15 +75,10 @@ what proves it.
 
 ## Who uses it
 
-Today, all five specs in the conformance test suite — `generic-nodes`,
-`generic-pane`, `generic-edges`, `generic-props` and `generic-node-toolbar` —
-run against this page and therefore enter through **the JS surface**.
-`generic-node-toolbar` was the second-to-last to move
-([#47](https://github.com/jonbae/PSFlow/issues/47)) and `generic-edges` the last
-([#48](https://github.com/jonbae/PSFlow/issues/48)). No conformance spec enters
-through the compiled `Example.Main` page any more, which is what
-[#50](https://github.com/jonbae/PSFlow/issues/50) deletes; the smoke, screenshot
-and node-props specs still load it.
+All five specs in the conformance test suite, the smoke suite, the NodeProps
+guard, and the screenshot helper run against this page and therefore enter
+through **the JS surface**. The compiled `Example.Main` door and its translated
+fixtures were deleted in [#50](https://github.com/jonbae/PSFlow/issues/50).
 
 The edges fixture is where `MarkerType` stops being merely an enum object that
 resolves: upstream's unchanged `edges/general.ts` reads `Arrow` and
@@ -104,7 +102,7 @@ through `?side=` (`parity/system/harness/`), which is what the `--side upstream`
 bundle is for. Upstream's own vendored `Flow.tsx` and `index.tsx` become
 reference material that never executes.
 
-## Why one driver is ours and the other is not
+## Why the fixture driver is ours and ColorMode is not
 
 The bar that governs **fixtures** is *make hand-translation impossible*, and it
 is absolute: hand-translating them is what poisoned the dual-run spike's diff.

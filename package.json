@@ -8,7 +8,6 @@
     ".": "./index.js"
   },
   "scripts": {
-    "build:smoke": "spago build && esbuild examples/react-smoke/src/entry.js --bundle --format=esm --platform=browser --outfile=examples/react-smoke/dist/example.js",
     "build:driver": "spago build && node parity/driver/build.mjs",
     "test:conformance": "playwright test --config examples/react-smoke/playwright.config.ts --project=conformance",
     "test:smoke": "playwright test --config examples/react-smoke/playwright.config.ts --project=smoke",

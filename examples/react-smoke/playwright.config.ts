@@ -5,7 +5,7 @@ import { readdirSync } from "node:fs";
 
 // Resolve to the repo root so the static server serves
 // `node_modules/@xyflow/react/dist/style.css` (referenced by index.html)
-// alongside the bundled example output. `__dirname` isn't defined in
+// alongside the bundled driver output. `__dirname` isn't defined in
 // ESM modules — recover it from `import.meta.url`.
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "..", "..");
@@ -60,7 +60,7 @@ export default defineConfig({
   projects: suites,
   webServer: {
     command: `npx http-server "${repoRoot}" -p 5173 -c-1 --silent`,
-    url: "http://127.0.0.1:5173/examples/react-smoke/index.html",
+    url: "http://127.0.0.1:5173/parity/driver/index.html",
     reuseExistingServer: !process.env.CI,
     timeout: 30_000,
   },

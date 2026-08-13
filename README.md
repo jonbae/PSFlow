@@ -6,8 +6,7 @@ the dual-run net — is [`CONTEXT.md`](CONTEXT.md); this file is what to run.
 ## Build
 
 ```sh
-npm run build:smoke    # spago build + esbuild bundles examples/react-smoke
-npm run build:driver   # spago build + esbuild bundles parity/driver (see its README)
+npm run build:driver   # spago build + esbuild bundles the browser driver page (see its README)
 npm run build:oracle   # regenerate oracle/index.js, the @psflow/oracle bundle
 ```
 
@@ -39,6 +38,7 @@ Two browser specs sit outside the scheme as well:
 ```sh
 npm run test:node-props   # PSFlow-only NodeProps guard; retires on the net's props section
 npx playwright test --config examples/react-smoke/playwright.config.ts --project=screenshot
+# writes parity/driver/dist/smoke.png
 ```
 
 **Ordering.** Surface parity green is a hard precondition — its failures are

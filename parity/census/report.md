@@ -11,11 +11,11 @@ specific to it — it would not fail if the behaviour diverged.
 
 **Gated is always relative to one surface**, so the question is asked twice and
 the two counts are never summed. Which column a browser gate lands in is derived,
-not declared: a spec that loads `parity/driver/index.html` entered through
-`index.js` — the **JS surface** — and every other spec loads the compiled
-`Example.Main` page. Function parity and the prop-member diff read below
-`index.js` and are therefore PureScript-surface gates, which is why the gate
-whose name sounds closest to the JS surface is among the furthest from it.
+not declared: every browser spec must load `parity/driver/index.html`, which enters
+through `index.js` — the **JS surface** — or the census fails. Function parity and
+the prop-member diff read below `index.js` and are therefore PureScript-surface
+gates, which is why the gate whose name sounds closest to the JS surface is among
+the furthest from it.
 
 The JS-surface status joins the boundary manifest to gates that enter through
 `index.js`. Browser-spec and boundary-check attribution is hand-maintained in
@@ -37,19 +37,19 @@ about the shape a JavaScript caller receives.
 
 | Kind | Total | Gated — PureScript surface | Gated — JS surface | Crossed, ungated — JS surface | Indirect only | Nothing but the name |
 |---|---:|---:|---:|---:|---:|---:|
-| `component` | 22 | 11 | 8 | 0 | 3 | 6 |
+| `component` | 22 | 6 | 8 | 0 | 2 | 7 |
 | `hook` | 21 | 0 | 2 | 0 | 0 | 19 |
 | `pure-fn` | 17 | 17 | 17 | 0 | 0 | 0 |
 | `enum-value` | 8 | 0 | 8 | 0 | 0 | 0 |
-| `props` | 30 | 4 | 3 | 0 | 5 | 20 |
-| `callback` | 26 | 1 | 2 | 0 | 1 | 23 |
+| `props` | 30 | 3 | 4 | 0 | 5 | 20 |
+| `callback` | 26 | 0 | 2 | 0 | 1 | 23 |
 | `change` | 12 | 0 | 0 | 0 | 2 | 10 |
-| `data` | 43 | 11 | 11 | 0 | 5 | 21 |
+| `data` | 43 | 10 | 11 | 0 | 5 | 21 |
 | `options` | 20 | 2 | 0 | 0 | 1 | 17 |
 | `instance-api` | 7 | 0 | 0 | 0 | 1 | 6 |
 | `store` | 3 | 0 | 0 | 0 | 0 | 3 |
 | `internal-type` | 1 | 0 | 0 | 0 | 0 | 1 |
-| **total** | **210** | **46** | **51** | **0** | **18** | **126** |
+| **total** | **210** | **38** | **52** | **0** | **17** | **127** |
 
 ## Summary by mechanism
 
@@ -81,23 +81,23 @@ JS/TS consumer — the audience this repo exists for — the import is `undefine
 
 | Export | Kind | Mechanism that could prove it | Gates today (PureScript surface) | JS-surface status | Notes |
 |---|---|---|---|---|---|
-| `Background` | component | `dual-run-dom` | smoke | crossed, gated — boundary + conformance (generic-props) ~ | Renders-behind assertion only; no variant/gap/size/offset coverage. Its JS-shaped props and no-props mount are gated on the JS surface by parity:boundary; the ColorMode driver also mounts it without a specific assertion. |
+| `Background` | component | `dual-run-dom` | — | crossed, gated — boundary + smoke + conformance (generic-props) ~ | Renders-behind assertion only; no variant/gap/size/offset coverage. Its JS-shaped props and no-props mount are gated on the JS surface by parity:boundary; the ColorMode driver also mounts it without a specific assertion. |
 | `BaseEdge` | component | `dual-run-dom` | — | passthrough, gated — conformance (generic-edges) | path, interactionWidth and markers asserted by generic-edges. |
 | `BezierEdge` | component | `dual-run-dom` | function | passthrough, ungated — conformance (generic-edges) ~ | getBezierPath has function parity; the component is only rendered as the fixture's default edge type. |
-| `ControlButton` | component | `dual-run-dom` | smoke ~ | passthrough, ungated | Rendered inside Controls; the exported component with custom children is never mounted. |
-| `Controls` | component | `dual-run-dom` | smoke | crossed, gated — boundary + conformance (generic-props) ~ | Renders + zoom-in click changes the transform. Its JS-shaped props and no-props mount are gated on the JS surface by parity:boundary; the ColorMode driver also mounts it without a specific assertion. |
+| `ControlButton` | component | `dual-run-dom` | — | passthrough, ungated — smoke ~ | Rendered inside Controls; the exported component with custom children is never mounted. |
+| `Controls` | component | `dual-run-dom` | — | crossed, gated — boundary + smoke + conformance (generic-props) ~ | Renders + zoom-in click changes the transform. Its JS-shaped props and no-props mount are gated on the JS surface by parity:boundary; the ColorMode driver also mounts it without a specific assertion. |
 | `EdgeLabelRenderer` | component | `dual-run-dom` | — | passthrough, ungated | Never mounted. |
 | `EdgeText` | component | `dual-run-dom` | — | passthrough, ungated — conformance (generic-edges) ~ | Mounted for the fixture's string labels. The interactionWidth case depends on its measured background for the click target, but no assertion is specifically about label rendering. |
 | `EdgeToolbar` | component | `dual-run-dom` | — | passthrough, ungated | getEdgeToolbarTransform has function parity; the component is never mounted. |
-| `Handle` | component | `dual-run-dom` | smoke | crossed, gated — boundary + conformance (generic-nodes) + conformance (generic-node-toolbar) ~ | connect/connectable=false/connectingfrom class asserted. Upstream's two defaults and the enum conversion are gated on the JS surface by parity:boundary, mounted inside a node component rather than in the flow. ToolbarNode.tsx mounts a target and a source handle, which is the only place a consumer's own component mounts one, but asserts nothing about either. |
-| `MiniMap` | component | `dual-run-dom` | smoke | crossed, gated — boundary + conformance (generic-props) ~ | Renders + clickable only; no node-rendering, mask or pan/zoom coverage. Its JS-shaped props and no-props mount are gated on the JS surface by parity:boundary; the ColorMode driver also mounts it without a specific assertion. |
+| `Handle` | component | `dual-run-dom` | — | crossed, gated — boundary + conformance (generic-nodes) + conformance (generic-node-toolbar) ~ + smoke | connect/connectable=false/connectingfrom class asserted. Upstream's two defaults and the enum conversion are gated on the JS surface by parity:boundary, mounted inside a node component rather than in the flow. ToolbarNode.tsx mounts a target and a source handle, which is the only place a consumer's own component mounts one, but asserts nothing about either. |
+| `MiniMap` | component | `dual-run-dom` | — | crossed, gated — boundary + smoke + conformance (generic-props) ~ | Renders + clickable only; no node-rendering, mask or pan/zoom coverage. Its JS-shaped props and no-props mount are gated on the JS surface by parity:boundary; the ColorMode driver also mounts it without a specific assertion. |
 | `MiniMapNode` | component | `dual-run-dom` | — | no runtime value, ungated | Not exported by PSFlow at all (allowlisted). A JS consumer importing it gets undefined. |
 | `NodeResizeControl` | component | `dual-run-dom` | — | passthrough, ungated | Never mounted. Known-wrong — ticket 073 (XYResizer drag lifecycle). |
 | `NodeResizer` | component | `dual-run-dom` | — | passthrough, ungated | Never mounted. Known-wrong — ticket 073. |
 | `NodeToolbar` | component | `dual-run-dom` | function | crossed, gated — boundary + conformance (generic-node-toolbar) | getNodeToolbarTransform has function parity; positioning and default behaviour asserted by generic-node-toolbar. parity:boundary holds the pattern-match case and that its converters run, mounted inside a node component; it cannot assert the DOM, because the toolbar portals into a flow root a server render does not have. |
 | `Panel` | component | `dual-run-dom` | — | crossed, gated — boundary + conformance (generic-props) ~ | Its required position, enum conversion and children pass-through are gated on the JS surface by parity:boundary. The ColorMode fixture also mounts it, but asserts only the wrapper's colorMode class. |
-| `ReactFlow` | component | `dual-run-dom` | smoke | crossed, gated — conformance (generic-nodes) + conformance (generic-pane) + conformance (generic-edges) + conformance (generic-props) | More gates touch this than any other export — the nodes, edges, pane and props specs all drive it. |
-| `ReactFlowProvider` | component | `dual-run-dom` | smoke ~ | passthrough, ungated | Mounted; no assertion is specific to it. |
+| `ReactFlow` | component | `dual-run-dom` | — | crossed, gated — conformance (generic-nodes) + conformance (generic-pane) + conformance (generic-edges) + conformance (generic-props) + smoke | More gates touch this than any other export — the nodes, edges, pane and props specs all drive it. |
+| `ReactFlowProvider` | component | `dual-run-dom` | — | passthrough, ungated | The retired PureScript smoke page mounted it, but no JS-surface driver does yet. |
 | `SimpleBezierEdge` | component | `dual-run-dom` | function | passthrough, ungated | getSimpleBezierPath has function parity; component never mounted. |
 | `SmoothStepEdge` | component | `dual-run-dom` | function | passthrough, ungated | getSmoothStepPath has function parity; component never mounted. |
 | `StepEdge` | component | `dual-run-dom` | function | passthrough, ungated | Upstream StepEdge is SmoothStepEdge at borderRadius 0, which function parity's generated domain covers; component never mounted. |
@@ -137,7 +137,7 @@ JS/TS consumer — the audience this repo exists for — the import is `undefine
 | `getSimpleBezierPath` | pure-fn | `oracle` | function | passthrough, gated — surface (behavior) |  |
 | `getSmoothStepPath` | pure-fn | `oracle` | function | passthrough, gated — surface (behavior) |  |
 | `getStraightPath` | pure-fn | `oracle` | function | passthrough, gated — surface (behavior) |  |
-| `getViewportForBounds` | pure-fn | `oracle` | function + smoke ~ | passthrough, gated — surface (behavior) | Oracled by ticket 030: the fitView zoom formula agrees with upstream, so the spike's 1.03145-vs-1.05466 gap came from the inputs, not the arithmetic. Also traversed by fitView in the smoke fixtures, where nothing about its result is asserted. |
+| `getViewportForBounds` | pure-fn | `oracle` | function | passthrough, gated — surface (behavior) + smoke ~ | Oracled by ticket 030: the fitView zoom formula agrees with upstream, so the spike's 1.03145-vs-1.05466 gap came from the inputs, not the arithmetic. Also traversed by fitView in the smoke fixtures, where nothing about its result is asserted. |
 | `isEdge` | pure-fn | `oracle` | function | passthrough, gated — surface (behavior) | Oracled by ticket 039 over all 16 key combinations — the guard's whole input domain, exhausted rather than sampled. Objects only: upstream's `in` test throws on a primitive where PSFlow answers false. |
 | `isNode` | pure-fn | `oracle` | function | passthrough, gated — surface (behavior) | Oracled by ticket 039 over all 16 key combinations — the guard's whole input domain, exhausted rather than sampled. Objects only: upstream's `in` test throws on a primitive where PSFlow answers false. |
 | `reconnectEdge` | pure-fn | `oracle` | function | passthrough, gated — surface (behavior) | Oracled by ticket 039, on both channels, across both shouldReplaceId settings. |
@@ -159,15 +159,15 @@ JS/TS consumer — the audience this repo exists for — the import is `undefine
 | `EdgeComponentProps` | props | `dual-run-props` | — | no runtime value, ungated |  |
 | `EdgeComponentWithPathOptions` | props | `none` | — | no runtime value, ungated | PSFlow does not model it (allowlisted). Out of scope — issue #17. |
 | `EdgeLabelRendererProps` | props | `dual-run-dom` | — | no runtime value, ungated |  |
-| `EdgeProps` | props | `dual-run-props` | surface-props | no runtime value, ungated | Prop-member names gated on the PureScript surface by the surface-parity prop diff (ticket 071 renamed edgeType to type). No probe component reads the props object at runtime — unlike NodeProps. |
+| `EdgeProps` | props | `dual-run-props` | surface-props | no runtime value, ungated | Prop-member names gated on the PureScript surface by the surface-parity prop diff (ticket 071 renamed edgeType to type). No component reads the props object at runtime — unlike the NodeProps guard. |
 | `EdgeTextProps` | props | `dual-run-dom` | — | no runtime value, ungated | EdgeText is never mounted. |
 | `EdgeToolbarProps` | props | `dual-run-dom` | — | no runtime value, ungated | EdgeToolbar is never mounted. |
 | `EdgeWrapperProps` | props | `dual-run-dom` | — | no runtime value, ungated | Internal wrapper; observable only as the DOM it produces. |
-| `HandleProps` | props | `dual-run-dom` | smoke | no runtime value, gated — conformance (generic-nodes) + conformance (generic-node-toolbar) ~ | connectable=false and handle position attributes asserted. ToolbarNode.tsx sets type and position on both of its handles and asserts neither. |
+| `HandleProps` | props | `dual-run-dom` | — | no runtime value, gated — conformance (generic-nodes) + conformance (generic-node-toolbar) ~ + smoke | connectable=false and handle position attributes asserted. ToolbarNode.tsx sets type and position on both of its handles and asserts neither. |
 | `MiniMapNodeProps` | props | `none` | — | no runtime value, ungated | Not surfaced by PSFlow (allowlisted, ticket 058). |
 | `MiniMapNodes` | props | `none` | — | no runtime value, ungated | Component exists in PSFlow but is not in the public barrel (allowlisted, ticket 058). |
 | `MiniMapProps` | props | `dual-run-dom` | — | no runtime value, ungated — conformance (generic-props) ~ | MiniMap is mounted with every prop unset on both surfaces; no prop is asserted. |
-| `NodeProps` | props | `dual-run-props` | surface-props + node-props | no runtime value, ungated | The one type with a real runtime probe: node-props.spec.ts mounts a custom node and reads the props object. Ticket 069 closed the xPos/yPos rename here after it survived from 12.3.5 as a printed-not-failed diff. |
+| `NodeProps` | props | `dual-run-props` | surface-props | no runtime value, gated — node-props | The one type with a runtime guard: node-props.spec.ts mounts a custom node and renders values from the props object. Ticket 069 closed the xPos/yPos rename here after it survived from 12.3.5 as a printed-not-failed diff. |
 | `NodeResizerProps` | props | `dual-run-dom` | — | no runtime value, ungated | NodeResizer is never mounted and is known-wrong (073). |
 | `NodeToolbarProps` | props | `dual-run-dom` | — | no runtime value, gated — conformance (generic-node-toolbar) | position, align and offset all driven by generic-node-toolbar. |
 | `NodeWrapperProps` | props | `dual-run-dom` | — | no runtime value, ungated — conformance (generic-nodes) ~ | Internal wrapper; observable as the .react-flow__node DOM the node specs assert on. |
@@ -183,7 +183,7 @@ JS/TS consumer — the audience this repo exists for — the import is `undefine
 | `IsValidConnection` | callback | `dual-run-callback` | — | no runtime value, ungated | One test-debt row (077: #5704). |
 | `NodeMouseHandler` | callback | `dual-run-callback` | — | no runtime value, ungated |  |
 | `OnBeforeDelete` | callback | `dual-run-callback` | — | no runtime value, ungated |  |
-| `OnConnect` | callback | `dual-run-callback` | smoke ~ | no runtime value, ungated — conformance (generic-nodes) ~ | Both gates observe only that an edge appeared after connecting nodes; neither inspects the callback payload. |
+| `OnConnect` | callback | `dual-run-callback` | — | no runtime value, ungated — smoke ~ + conformance (generic-nodes) ~ | Both gates observe only that an edge appeared after connecting nodes; neither inspects the callback payload. |
 | `OnConnectEnd` | callback | `dual-run-callback` | — | no runtime value, ungated | One test-debt row (077: #5704). |
 | `OnConnectStart` | callback | `dual-run-callback` | — | no runtime value, ungated |  |
 | `OnDelete` | callback | `dual-run-callback` | — | no runtime value, ungated |  |
@@ -195,7 +195,7 @@ JS/TS consumer — the audience this repo exists for — the import is `undefine
 | `OnMoveEnd` | callback | `dual-run-callback` | — | no runtime value, ungated | One test-debt row (078: #5547, always call onMoveEnd when onMoveStart was called). |
 | `OnMoveStart` | callback | `dual-run-callback` | — | no runtime value, ungated | See OnMoveEnd. |
 | `OnNodeDrag` | callback | `dual-run-callback` | — | no runtime value, ungated | One test-debt row (076: #5450, call onNodeDrag while autopan is ongoing). |
-| `OnNodesChange` | callback | `dual-run-callback` | smoke | no runtime value, gated — conformance (generic-nodes) | Smoke asserts it fires on drag; generic-nodes also observes controlled node selection, movement and deletion through the JS-surface driver. Neither inspects the complete payload. |
+| `OnNodesChange` | callback | `dual-run-callback` | — | no runtime value, gated — smoke + conformance (generic-nodes) | Smoke asserts it fires on drag; generic-nodes also observes controlled node selection, movement and deletion through the JS-surface driver. Neither inspects the complete payload. |
 | `OnNodesDelete` | callback | `dual-run-callback` | — | no runtime value, ungated |  |
 | `OnReconnect` | callback | `dual-run-callback` | — | no runtime value, ungated |  |
 | `OnResize` | callback | `dual-run-callback` | — | no runtime value, ungated | Resizer surface — known-wrong (073). |
@@ -223,7 +223,7 @@ JS/TS consumer — the audience this repo exists for — the import is `undefine
 | `BuiltInNode` | data | `none` | — | no runtime value, ungated | Type-only both sides; PSFlow does not model it (allowlisted). Ruled out of scope on the map — issue #17. |
 | `ColorMode` | data | `dual-run-dom` | — | no runtime value, gated — conformance (generic-props) | generic-props asserts the light and dark wrapper classes. |
 | `ColorModeClass` | data | `dual-run-dom` | — | no runtime value, gated — conformance (generic-props) | Same assertion as ColorMode. |
-| `Connection` | data | `dual-run-callback` | smoke ~ | no runtime value, ungated — conformance (generic-nodes) ~ | click-connect asserts an edge appears; the onConnect payload shape is never inspected. |
+| `Connection` | data | `dual-run-callback` | — | no runtime value, ungated — conformance (generic-nodes) ~ + smoke ~ | click-connect asserts an edge appears; the onConnect payload shape is never inspected. |
 | `ConnectionInProgress` | data | `dual-run-hook` | — | no runtime value, ungated |  |
 | `ConnectionState` | data | `dual-run-hook` | — | no runtime value, ungated | useConnection's return value. |
 | `ControlLinePosition` | data | `dual-run-dom` | — | no runtime value, ungated | NodeResizeControl surface — unmounted and known-wrong (073). |
@@ -236,7 +236,7 @@ JS/TS consumer — the audience this repo exists for — the import is `undefine
 | `EdgeTypes` | data | `dual-run-dom` | — | no runtime value, ungated | PSFlow renames it EdgeTypesMap; type-only, so the rename cannot reach a JS consumer. |
 | `FinalConnectionState` | data | `dual-run-callback` | — | no runtime value, ungated | onConnectEnd payload; never inspected. |
 | `HandleConnection` | data | `dual-run-hook` | — | no runtime value, ungated | useHandleConnections return value. |
-| `HandleType` | data | `dual-run-dom` | smoke | no runtime value, gated — conformance (generic-nodes) + conformance (generic-node-toolbar) ~ | Surfaces as data-handlepos / handle classes, which the connect specs locate on. ToolbarNode.tsx passes both members and asserts neither. |
+| `HandleType` | data | `dual-run-dom` | — | no runtime value, gated — conformance (generic-nodes) + conformance (generic-node-toolbar) ~ + smoke | Surfaces as data-handlepos / handle classes, which the connect specs locate on. ToolbarNode.tsx passes both members and asserts neither. |
 | `InternalNode` | data | `dual-run-hook` | — | no runtime value, ungated | useInternalNode return value. |
 | `KeyCode` | data | `dual-run-dom` | — | no runtime value, ungated — conformance (generic-nodes) ~ + conformance (generic-edges) ~ | Delete-key presses drive the deletion specs, but only the default key codes. |
 | `NoConnection` | data | `none` | — | no runtime value, ungated | Nullary constructor of the PS ConnectionState, not a standalone type (allowlisted, ticket 054). |
@@ -244,7 +244,7 @@ JS/TS consumer — the audience this repo exists for — the import is `undefine
 | `NodeConnection` | data | `dual-run-hook` | — | no runtime value, ungated | useNodeConnections return value. |
 | `NodeHandle` | data | `none` | — | no runtime value, ungated | Not surfaced by PSFlow (allowlisted, ticket 058). |
 | `NodeOrigin` | data | `dual-run-dom` | — | no runtime value, ungated | Never set by any fixture. |
-| `NodeTypes` | data | `dual-run-dom` | node-props ~ | no runtime value, ungated | PSFlow renames it NodeTypesMap. A custom nodeTypes map is mounted by the NodeProps probe; the custom-default fallback is known-wrong (ticket 075). |
+| `NodeTypes` | data | `dual-run-dom` | — | no runtime value, ungated — node-props ~ | PSFlow renames it NodeTypesMap. A custom nodeTypes map is mounted by the NodeProps guard; the custom-default fallback is known-wrong (ticket 075). |
 | `OnConnectStartParams` | data | `dual-run-callback` | — | no runtime value, ungated |  |
 | `OnSelectionChangeParams` | data | `dual-run-callback` | — | no runtime value, ungated |  |
 | `PanelPosition` | data | `dual-run-dom` | — | no runtime value, ungated — conformance (generic-props) ~ | The ColorMode driver mounts a top-right panel; position is not asserted. Two test-debt rows (079: #5252, #5362). |
@@ -281,7 +281,7 @@ JS/TS consumer — the audience this repo exists for — the import is `undefine
 | `UseOnViewportChangeOptions` | options | `dual-run-callback` | — | no runtime value, ungated |  |
 | `ViewportHelperFunctionOptions` | options | `dual-run-api` | — | no runtime value, ungated | Carries the ease/interpolate members from upstream #5276 — the test-debt row ticket 078 flags as most worth attention. |
 | `FitBounds` | instance-api | `dual-run-api` | — | no runtime value, ungated |  |
-| `FitView` | instance-api | `dual-run-api` | node-props ~ | no runtime value, ungated | fitView runs in the NodeProps probe fixture, but no assertion targets the resulting viewport. The spike's fitView zoom divergence lives here. |
+| `FitView` | instance-api | `dual-run-api` | — | no runtime value, ungated — node-props ~ | fitView runs on the NodeProps guard page, but no assertion targets the resulting viewport. The spike's fitView zoom divergence lives here. |
 | `GeneralHelpers` | instance-api | `none` | — | no runtime value, ungated | Not surfaced by PSFlow (allowlisted, ticket 058). |
 | `ReactFlowInstance` | instance-api | `dual-run-api` | — | no runtime value, ungated | The entire imperative API — zoomIn/zoomOut/setViewport/screenToFlowPosition/toObject/updateNode/deleteElements — is reachable by no gate. Six test-debt rows land here. |
 | `SetCenter` | instance-api | `dual-run-api` | — | no runtime value, ungated |  |
