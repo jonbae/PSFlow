@@ -17,16 +17,22 @@
 // hand-authored assertions into the recording, and it means revising the noise
 // policy re-runs this step in seconds rather than re-running a browser.
 
-import { SECTIONS, validateTrace } from "../trace-format.mjs";
+import { DRIVING, validateTrace } from "../trace-format.mjs";
 import { diffValues } from "./diff.mjs";
 import { assertNoCollapse, normalize } from "./normalize.mjs";
 import { claimDifferences, passes } from "./regions.mjs";
 
 // The driving log is compared ahead of the other sections as its own class:
 // if the inputs differed, the outputs differing tells you nothing new (#26).
-// Framing the rest as consequences of a driving divergence is issue #43's; this
-// is the ordering it lands on.
-export const REPORT_ORDER = ["driving", "dom", "callbacks", "hooks", "api", "props", "console"];
+export const REPORT_ORDER = [DRIVING, "dom", "callbacks", "hooks", "api", "props", "console"];
+
+/** Is this difference in the receipt for the input side, rather than in a response? */
+export const isDriving = (difference) => difference.path[0] === DRIVING;
+
+// What the sections after `driving` are, once it has diverged. Not a filter:
+// a run whose inputs differed reports every difference it found, and the
+// consequences are exactly where a real divergence would be hiding (#43).
+export const CONSEQUENCE = "consequence of the driving divergence";
 
 export class ComparisonError extends Error {
   constructor(message) {
@@ -74,12 +80,20 @@ export const compareTraces = (leftTrace, rightTrace, { rules = [], regions = [] 
 
   const claimed = claimDifferences(differences, regions, { scenario: leftTrace.scenario });
 
+  // Whether the two runs were the same experiment, which is a different question
+  // from whether the run passes. A region can claim a driving difference — that
+  // is someone's stated decision about pass and fail — and it still cannot make
+  // the sections after it readable, so the framing turns on the difference
+  // existing rather than on it going unclaimed.
+  const drivingDifferences = differences.filter(isDriving);
+
   return {
     scenario: leftTrace.scenario,
     left: identity(leftTrace),
     right: identity(rightTrace),
     differences,
     ...claimed,
+    driving: { diverged: drivingDifferences.length > 0, differences: drivingDifferences },
     deleted: { left: left.deleted, right: right.deleted },
     ok: passes(claimed),
   };

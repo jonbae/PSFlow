@@ -16,6 +16,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 
+import { checkSelfConsistency } from "../compare/consistency.mjs";
 import { defineScenario, runScenario } from "./scenario.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -94,6 +95,28 @@ test("an unresolved target is recorded and driving continues — never a timeout
     ["pointerDown", false],
     ["pointerUp", true],
   ]);
+});
+
+// Self-consistency is tested against fixture traces without a browser (#43), and
+// there is one thing those cannot say: that a real page can satisfy it. The
+// driving log carries no tolerance, so every box a drag resolves has to come back
+// bit-identical from a second run of the same scenario. If real layout wobbles in
+// the last decimal place, the whole check is unsatisfiable and the net would be
+// permanently red — which is a thing to learn here, cheaply, rather than from a
+// corpus of sixty scenarios later.
+test("a side reproduces itself, boxes included, across two captures of one scenario", async ({ page }) => {
+  const scenario = defineScenario({
+    id: "live--drag-node",
+    route: NODES_GENERAL,
+    run: (actions) => actions.dragNode(NODE, { dx: 100, dy: 40, steps: 4 }),
+  });
+
+  const first = await runScenario(page, scenario, { side: "psflow", capture: 1, baseline });
+  const second = await runScenario(page, scenario, { side: "psflow", capture: 2, baseline });
+
+  const result = checkSelfConsistency(first, second);
+  expect(result.differences).toEqual([]);
+  expect(result.consistent).toBe(true);
 });
 
 test("a key reaches the page, and a targeted one focuses first", async ({ page }) => {

@@ -10,7 +10,7 @@ The net has two halves, and they are deliberately separate steps:
 | Step | What it does | Where it is |
 |---|---|---|
 | **capture** | drives a scenario against one side and returns a trace | `harness/` — five of the seven sections still to come, see below |
-| **compare** | reads two stored traces and reports what differs | `compare/`, and `compare.mjs` |
+| **compare** | reads a run's four stored traces and reports what differs | `compare/`, and `compare.mjs` |
 
 Capture records **everything** observable; everything the noise policy forgives
 lives in compare. That keeps a capture whitelist from smuggling hand-authored
@@ -146,6 +146,57 @@ for an imperative call.
 
 ## How comparison works
 
+A **run** is one scenario, two sides, **two captures each** — four traces, read in
+one order, and the order is an interpretation order rather than a pipeline
+(`compare/run.mjs`).
+
+**1. Each side against itself** (`compare/consistency.mjs`). A side disagreeing
+with itself is its own failure class, and it is read first because it invalidates
+everything after it: a cross-side difference between two sides that are not
+reproducible cannot be attributed to either implementation.
+
+**2. The driving log across the sides.** The same argument one level down —
+inputs that differed make output differences uninterpretable.
+
+**3. Everything else**, claimed by regions as usual.
+
+**Nothing earlier suppresses anything later.** Capture-everything is the rule the
+whole net is built on, and a run whose first two steps failed still reports the
+third in full — the real divergence may well be down there, and a report that
+stopped at the first bad news would hide it. What the earlier steps buy is
+*framing*: the report says which findings are readings and which are
+**consequences** of a run that was not one experiment.
+
+### Self-consistency
+
+Same machinery as the cross-side comparison — normalize, then diff — with two
+deliberate differences.
+
+- **No regions.** A region is a claim about the two implementations disagreeing.
+  There is no such thing as a claim that a side disagrees with itself, and
+  inventing one would turn the only check that can see non-reproducibility into
+  one more register of forgiven differences.
+- **The driving log carries no tolerance.** It is diffed straight off the two
+  traces and **never handed to the normalizer at all**, so no rule that could be
+  written — not one aimed at it, not a `**` one that would reach it on the way
+  past — can forgive a difference there. A side whose resolved boxes wobble
+  between its own two captures fails against itself, down to the last sub-pixel.
+  That is the measured-DOM-dimensions question asked in the cheapest available
+  form, of each implementation separately rather than of the pair — and it is the
+  only place it *can* be asked without tolerance, because across two sides a box
+  differing by 1e-5 is a finding somebody has to judge, while within one side
+  there is nothing to judge.
+
+Every **other** section normalizes exactly as it does across the sides. Class
+token order is as much noise within one side as between two, and a check that
+refused the whole ruleset would be red for reasons the noise policy has already
+settled.
+
+The cross-side comparison then reads **capture 1 of each side**, which is only
+meaningful because the check above read both.
+
+### The comparison itself
+
 `compare/index.mjs` runs five steps, and the order is the design.
 
 **1. Validate the envelopes.** Both traces must be the same scenario.
@@ -160,6 +211,18 @@ agrees after it fails the run, unless the two were reorderings of one another.
 
 **5. Claim what is left** with hand-written regions (`regions.json`). Anything
 unclaimed fails.
+
+### The driving log is read first
+
+`driving` leads the report, and when it differs the report says so **before** the
+tables: the two sides were not driven the same way, so every other difference is
+a reading of two different experiments. Sections after it are labelled
+*consequence of the driving divergence*, and none of them is dropped — a real
+divergence is exactly what would be hiding underneath.
+
+A region *can* claim a driving difference, which is a decision about pass and
+fail. It still cannot make the sections after it readable, so the framing turns
+on the difference existing rather than on it going unclaimed.
 
 ### Keyed, never positional
 
@@ -247,16 +310,29 @@ change to `regions.json`.
 ## Commands
 
 ```sh
-node parity/system/compare.mjs <left-trace.json> <right-trace.json> [--out report.md] [--record]
+node parity/system/compare.mjs <trace.json × 4> [--out report.md] [--record]
+node parity/system/compare.mjs <left.json> <right.json> [--out report.md] [--record]
 npm run test:compare       # the comparison core's own unit tests — no browser
 npm run test:harness       # the capture half's, likewise
 npm run test:harness:live  # the harness against a real page
 ```
 
-Exit codes: `0` clean, `1` differences the noise policy does not claim (or a
-region gone stale), `2` a run that could not be interpreted at all — a malformed
-trace, an illegal normalization rule, a region missing its reason. A run that
-cannot be interpreted is never a pass.
+The four traces go in **any order** — they are grouped by the side each one
+records, so a run assembled wrong fails as a run assembled wrong rather than
+comparing a side against the wrong thing and reporting it as a finding.
+
+The two-trace form compares exactly those two: the narrower question, and what a
+baseline bump asks when it re-diffs stored traces of one side against another
+baseline. Its report says that self-consistency went **unchecked**, because a
+form that quietly skipped a check is how a gate ends up proving less than its
+name.
+
+Exit codes: `0` clean, `1` differences the noise policy does not claim — a side
+that disagrees with itself, a driving divergence, an unclaimed difference, a
+region gone stale — `2` a run that could not be interpreted at all: a malformed
+trace, an illegal normalization rule, a region missing its reason, traces that
+are not two captures of each of two sides. A run that cannot be interpreted is
+never a pass.
 
 `parity:system` — the gate that captures and then compares — does not exist yet.
 It waits on `dom` capture ([#51](https://github.com/jonbae/PSFlow/issues/51)):
@@ -282,8 +358,6 @@ the claim a double cannot make. `harness/README.md`.
 - **Settling** — polling until consecutive snapshots agree, each side on its own
   clock — and the `dom` element tree, which is what makes the two halves a gate:
   [#51](https://github.com/jonbae/PSFlow/issues/51).
-- **Self-consistency**, and the driving log's framing of the other sections as
-  consequences — [#43](https://github.com/jonbae/PSFlow/issues/43).
 - **Callback sequence comparison** and argument serialization —
   [#44](https://github.com/jonbae/PSFlow/issues/44).
 - **The `hooks`, `props` and `api.queries` sections**, which need probes —

@@ -79,7 +79,10 @@ test("a scenario declaring touch has emulation on before the page is navigated",
     { side: "psflow", capture: 1, baseline: "12.11.0", port: watched }
   );
 
-  assert.deepEqual(order, ["enableTouch", "goto"]);
+  // Two navigations: the blank document each capture starts from, then the
+  // driver. Emulation has to precede both — applied after a document has loaded
+  // it leaves every dispatched touch inert.
+  assert.deepEqual(order, ["enableTouch", "goto", "goto"]);
   assert.deepEqual(sent, [], "the double records nothing for a scenario that never touched");
 });
 
@@ -102,8 +105,24 @@ test("the run is the envelope's, and the trace validates", async () => {
   assert.equal(trace.side, "psflow");
   assert.equal(trace.capture, 1);
   assert.equal(trace.baseline, "12.11.0");
-  assert.deepEqual(page.visited, ["/parity/driver/index.html?side=psflow#/tests/generic/nodes/general"]);
+  assert.deepEqual(page.visited, ["about:blank", "/parity/driver/index.html?side=psflow#/tests/generic/nodes/general"]);
   assert.equal(validateTrace(trace, "in-memory"), trace);
+});
+
+// Found by self-consistency against a real page (#43): a capture reuses the
+// page, so the second capture of a scenario navigates to the URL the page is
+// already on. That is a same-document navigation — nothing reloads, and capture
+// 2 opens on the flow capture 1 left behind, a hundred pixels along.
+test("every capture starts on a document of its own, not on the one before it", async () => {
+  const page = fakePage();
+  const { port } = createFakePort({ boxes: { ".react-flow": FLOW } });
+  const run = { side: "psflow", baseline: "12.11.0", port };
+
+  await runScenario(page, scenario(), { ...run, capture: 1 });
+  await runScenario(page, scenario(), { ...run, capture: 2 });
+
+  assert.deepEqual(page.visited.filter((url) => url === "about:blank").length, 2);
+  assert.equal(page.visited[2], "about:blank", "the second capture blanks before it navigates, not after");
 });
 
 // The side lives in the URL and in nothing else. A trace carrying it in a

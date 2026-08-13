@@ -1,9 +1,9 @@
 # The net harness — the capture step
 
 **Capture** drives one **scenario** against one side and returns a **trace**.
-Its counterpart, **compare**, reads two stored traces and reports what differs;
-they are separate steps by design, and `../README.md` says why, along with the
-trace format both halves agree on.
+Its counterpart, **compare**, reads a **run**'s four stored traces — two sides,
+two captures each — and reports what differs; they are separate steps by design,
+and `../README.md` says why, along with the trace format both halves agree on.
 
 Vocabulary is `CONTEXT.md`. Terms in **bold** are defined there.
 
@@ -137,24 +137,28 @@ Three rules, all load-bearing:
 - **Compared ahead of the other sections, as its own failure class.** If the
   inputs differed, the outputs differing tells you nothing new. It does not
   suppress the other sections — capture-everything still applies — it changes
-  the order and framing of the report. `REPORT_ORDER` in `../compare/index.mjs`
-  already leads with it; the framing is
-  [#43](https://github.com/jonbae/PSFlow/issues/43).
+  the order and framing of the report: `REPORT_ORDER` in `../compare/index.mjs`
+  leads with it, and the sections after it are labelled *consequence of the
+  driving divergence* rather than dropped.
 - **An unresolved target is recorded and skipped, never thrown.** Driving
   continues, and downstream actions may fail to resolve too. A missing element
   is one of the most interesting divergences available; left alone it would
   surface as a Playwright timeout, which reads as a flake.
-- **It participates in self-consistency with no tolerance applied.** A side
-  whose resolved boxes wobble between its own two captures fails against
-  *itself*. Those sub-pixel differences are not noise to be tolerated: they are
-  the measured-DOM-dimensions question asked in the cheapest and most legible
-  form it has. The comparison is
-  [#43](https://github.com/jonbae/PSFlow/issues/43); what capture owes it is
+- **It participates in self-consistency with no tolerance applied**
+  (`../compare/consistency.mjs`). A side whose resolved boxes wobble between its
+  own two captures fails against *itself*. Those sub-pixel differences are not
+  noise to be tolerated: they are the measured-DOM-dimensions question asked in
+  the cheapest and most legible form it has. What capture owes that check is
   that a box is recorded **exactly as measured** — nothing here rounds a
   coordinate, and a gesture's steps are drift-corrected against their own
   dispatched points so that a step count cannot show up as a fractional
-  coordinate — and that `capture` is an envelope field, so one side's two runs
-  are distinguishable.
+  coordinate — that `capture` is an envelope field, so one side's two runs are
+  distinguishable, and that **each capture starts on a document of its own**.
+  The last of those is the check's first finding: a capture reuses the page, so
+  a second capture navigates to the URL the page is already on, which is a
+  same-document navigation. Nothing reloaded, and capture 2 opened on the flow
+  capture 1 had already dragged a hundred pixels along. `runScenario` blanks the
+  page before it navigates.
 
 **The mount is a driving action.** Navigating to the route is something done
 *to* the page, and recording it that way means a side that never renders a flow

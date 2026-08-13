@@ -2,7 +2,7 @@
   "traceFormat": 1,
   "scenario": "mount-baseline--nodes-general",
   "side": "upstream",
-  "capture": 1,
+  "capture": 2,
   "baseline": "12.11.0",
   "sections": {
     "dom": {

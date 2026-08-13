@@ -164,10 +164,34 @@
       {
         "index": 0,
         "action": "mount",
-        "target": null,
+        "target": ".react-flow",
         "resolved": true,
-        "box": null,
-        "dispatched": null
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 800,
+          "height": 600
+        },
+        "dispatched": {
+          "route": "/tests/generic/nodes/general"
+        }
+      },
+      {
+        "index": 1,
+        "action": "pointerDown",
+        "target": ".react-flow__node[data-id='1']",
+        "resolved": true,
+        "box": {
+          "x": 75,
+          "y": 25,
+          "width": 150,
+          "height": 36
+        },
+        "dispatched": {
+          "x": 150,
+          "y": 43,
+          "button": "left"
+        }
       }
     ]
   }

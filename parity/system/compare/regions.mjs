@@ -123,6 +123,9 @@ export const claimDifferences = (differences, regions, { scenario }) => {
 export const passes = ({ unclaimed, outcomes }) =>
   unclaimed.length === 0 && outcomes.every((o) => o.status === OUTCOME.ridesFree);
 
+/** The outcomes with one status — what the report counts and a run names. */
+export const regionsWith = (outcomes, status) => outcomes.filter((o) => o.status === status);
+
 /**
  * Refreshes the recorded values of regions that claimed something, and stamps
  * them with the baseline they were affirmed against.
