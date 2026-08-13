@@ -183,6 +183,11 @@ forever. What gets dropped is a value that *is* an identity: a DOM node, a
 function, a React fiber, where the two sides could not agree even in principle
 since each rendered its own. Their kind survives; only the identity goes.
 
+A React **element** is not one of those and is not blacklisted. It is plain data
+— `type`, `key`, `props` — and node `data` routinely carries one, so dropping it
+would put every element in a flow under a single marker. The fiber behind it
+(`_owner`) still goes.
+
 That rule is what catches **a synthetic event where a native one is expected**. A
 React synthetic event carries its fields as enumerable own properties; a native
 event carries them on its prototype, so it has none at all. No shape check and no
@@ -192,9 +197,16 @@ it, a `MouseEvent` where a `PointerEvent` belongs would serialize to `{}` on bot
 sides and compare clean.
 
 Everything JSON cannot carry gets a marker rather than a flattening —
-`undefined` against `null`, `NaN`, `-0`, a cycle, a graph deeper than the limit,
-a getter that threw. Each is a difference the file would otherwise stop carrying,
-and `diff.mjs` compares with `Object.is`.
+`undefined` against `null`, `NaN`, `-0`, a cycle, a getter that threw. Each is a
+difference the file would otherwise stop carrying, and `diff.mjs` compares with
+`Object.is`.
+
+A graph deeper than the ceiling is the one case that **throws** instead. A marker
+there would put two different subgraphs under one value and make them compare
+equal — a collapse, which the noise policy forbids outright and which nothing
+downstream could see, since `assertNoCollapse` only ever sees what capture
+already wrote. The ceiling is there to keep a pathological graph off the stack,
+not to decide anything, so reaching it is a question for a person.
 
 ## Touch, and why it is declared
 

@@ -20,10 +20,10 @@
 // consequences of a run that was not one experiment.
 
 import { SIDES } from "../../driver/sides.mjs";
-import { weakeningsWith } from "./callbacks.mjs";
+
 import { compareTraces, isDriving } from "./index.mjs";
 import { checkSelfConsistency } from "./consistency.mjs";
-import { OUTCOME, regionsWith } from "./regions.mjs";
+import { OUTCOME, outcomesWith } from "./regions.mjs";
 
 // Upstream reads left: it is the reference, and a difference is a thing PSFlow
 // did to it. That is the opposite of `SIDES`' own order, where psflow comes
@@ -94,7 +94,7 @@ const failuresOf = (consistency, comparison) => {
   if (driving.length) failures.push({ class: FAILURE.drivingDivergence, differences: driving });
   if (rest.length) failures.push({ class: FAILURE.unclaimed, differences: rest });
 
-  const named = (status) => regionsWith(comparison.outcomes, status).map((o) => o.region.id);
+  const named = (status) => outcomesWith(comparison.outcomes, status).map((o) => o.region.id);
   const stale = named(OUTCOME.stale);
   const moved = named(OUTCOME.moved);
   if (stale.length) failures.push({ class: FAILURE.staleRegion, regions: stale });
@@ -103,11 +103,11 @@ const failuresOf = (consistency, comparison) => {
   // Its own class rather than a stale region: a weakening records no values, so
   // there is nothing to re-affirm and nothing `--record` could write. It either
   // still forgives something or it goes.
-  const staleWeakenings = weakeningsWith(comparison.weakenings, OUTCOME.stale);
+  const staleWeakenings = outcomesWith(comparison.weakenings, OUTCOME.stale);
   if (staleWeakenings.length) {
     failures.push({
       class: FAILURE.staleWeakening,
-      weakenings: staleWeakenings.map((o) => `${o.weakening.callback} (${o.weakening.kind})`),
+      weakenings: staleWeakenings.map((o) => `${o.weakening.callback} (${o.weakening.axis})`),
     });
   }
 

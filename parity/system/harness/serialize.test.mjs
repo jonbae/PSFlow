@@ -3,23 +3,20 @@ import assert from "node:assert/strict";
 
 import { MARKER, SerializationError, serializeCall, serializeValue } from "./serialize.mjs";
 
-// The two events the serializer exists to tell apart. Neither is constructed by
-// a browser here: what distinguishes them is *where their properties live*, and
-// that is reproducible in node.
+// The two events the serializer exists to tell apart.
 //
 //   * A React synthetic event carries its fields as enumerable own properties.
-//   * A native event carries them on its prototype, as accessors.
+//   * A native event carries them on its prototype, as accessors — so it has no
+//     own enumerable properties at all, which is why its class has to be
+//     recorded for the difference to be visible.
 //
-// So the native one has no own enumerable properties at all, which is why its
-// class has to be recorded for the difference to be visible.
-class NativeMouseEvent {
-  constructor(fields) {
-    Object.defineProperties(
-      this,
-      Object.fromEntries(Object.entries(fields).map(([k, v]) => [k, { get: () => v, enumerable: false }]))
-    );
-  }
-}
+// The native half is **node's own `Event`**, not a stand-in: that half of the
+// claim is a fact about the platform rather than about this module, and a
+// hand-built object with non-enumerable accessors would assert the premise
+// instead of observing it. `Event` is a WHATWG global here, so no browser is
+// needed to look.
+const nativeEvent = (type) => new Event(type);
+
 const syntheticEvent = (fields) => {
   class SyntheticBaseEvent {}
   return Object.assign(new SyntheticBaseEvent(), fields);
@@ -45,24 +42,33 @@ test("every enumerable own property is kept, including ones a whitelist would ne
   });
 });
 
-test("a native event where a synthetic one is expected is caught, and the other way round", () => {
-  const fields = { type: "pointerdown", button: 0, bubbles: true };
+test("a real native event puts nothing in its own properties — the premise the rule turns on", () => {
+  const event = nativeEvent("pointerdown");
 
-  const synthetic = serializeValue(syntheticEvent(fields));
-  const native = serializeValue(new NativeMouseEvent(fields));
+  // Observed, not assumed: `type` reads back fine and is nowhere in `Object.keys`.
+  assert.equal(event.type, "pointerdown");
+  assert.deepEqual(Object.keys(event), []);
+});
+
+test("a native event where a synthetic one is expected is caught, and the other way round", () => {
+  const synthetic = serializeValue(syntheticEvent({ type: "pointerdown", button: 0, bubbles: true }));
+  const native = serializeValue(nativeEvent("pointerdown"));
 
   assert.notDeepEqual(synthetic, native);
-  // And it says which, rather than only that fourteen fields went missing: the
+  // And it says which, rather than only that three fields went missing: the
   // class is the one thing a native event still has to say for itself.
-  assert.equal(native[MARKER.class], "NativeMouseEvent");
+  assert.equal(native[MARKER.class], "Event");
   assert.equal(synthetic[MARKER.class], "SyntheticBaseEvent");
 });
 
 test("two native events of different kinds differ, though neither has an own property to differ in", () => {
-  class PointerEvent {}
-  class MouseEvent {}
+  // `CustomEvent` is node's too, and the pair is the case `@class` exists for:
+  // without it both serialize to `{}` and compare clean.
+  const event = serializeValue(nativeEvent("click"));
+  const custom = serializeValue(new CustomEvent("click", { detail: 1 }));
 
-  assert.notDeepEqual(serializeValue(new PointerEvent()), serializeValue(new MouseEvent()));
+  assert.deepEqual(Object.keys(new CustomEvent("click")), [], "neither has an own property");
+  assert.notDeepEqual(event, custom);
 });
 
 test("a plain object records no class, so the marker means something when it appears", () => {
@@ -128,10 +134,32 @@ test("a cycle records where it came back to, rather than recursing forever", () 
   });
 });
 
-test("a graph deeper than the limit is marked, not truncated silently", () => {
+test("a graph deeper than the ceiling is a hard error, because a marker would collapse two of them", () => {
   const deep = { a: { b: { c: { d: "bottom" } } } };
 
-  assert.deepEqual(serializeValue(deep, { maxDepth: 2 }), { a: { b: { [MARKER.depth]: 2 } } });
+  // Truncating would put two *different* subgraphs under one value and make
+  // them compare equal — a collapse, which nothing downstream could see.
+  assert.throws(() => serializeValue(deep, { maxDepth: 2 }), SerializationError);
+  assert.throws(() => serializeValue(deep, { maxDepth: 2 }), /a\/b is more than 2 deep/);
+});
+
+test("a React element is data and survives; the fiber behind it is a reference and does not", () => {
+  const fiber = { tag: 5, stateNode: null, return: null, memoizedProps: {} };
+  const element = { $$typeof: Symbol.for("react.element"), type: "div", key: null, props: { children: "Node 1" }, _owner: fiber };
+
+  // xyflow node `data` routinely carries an element, so blacklisting it would
+  // put every one in a flow under a single marker.
+  assert.deepEqual(serializeValue({ data: { label: element } }), {
+    data: {
+      label: {
+        $$typeof: { [MARKER.symbol]: "Symbol(react.element)" },
+        type: "div",
+        key: null,
+        props: { children: "Node 1" },
+        _owner: { [MARKER.ref]: "React fiber" },
+      },
+    },
+  });
 });
 
 test("a getter that throws costs its own field and not the capture", () => {

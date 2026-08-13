@@ -274,7 +274,7 @@ test("a weakening is read from the register and forgives the count it names", ()
   const weakenings = [
     {
       callback: "onNodesChange",
-      kind: "count",
+      axis: "count",
       reason: "the second node's measurement lands in one batch upstream and two here",
       ticket: "https://github.com/jonbae/PSFlow/issues/22",
     },
@@ -291,7 +291,7 @@ test("a weakening is read from the register and forgives the count it names", ()
 });
 
 test("a weakening that forgives nothing fails the run, with nothing for --record to write back", () => {
-  const weakenings = [{ callback: "onNodesChange", kind: "order", reason: "a reason that has outlived its cause" }];
+  const weakenings = [{ callback: "onNodesChange", axis: "order", reason: "a reason that has outlived its cause" }];
 
   const result = compareTraces(fixture("baseline.upstream.json"), fixture("baseline.psflow.json"), { weakenings });
 
@@ -302,7 +302,7 @@ test("a weakening that forgives nothing fails the run, with nothing for --record
 });
 
 test("self-consistency compares the call log too, and no weakening reaches it", () => {
-  const weakenings = [{ callback: "onNodesChange", kind: "count", reason: "irrelevant here, and that is the point" }];
+  const weakenings = [{ callback: "onNodesChange", axis: "count", reason: "irrelevant here, and that is the point" }];
   const run = compareRun(
     [
       fixture("baseline.upstream.json"),

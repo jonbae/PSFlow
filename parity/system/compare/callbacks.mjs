@@ -21,9 +21,8 @@
 // over, and here it is worse: the invented differences are in *arguments*, and
 // read as findings about what the two libraries pass.
 //
-// So calls are paired by name and occurrence — the second `onNodesChange` on one
-// side against the second on the other — and each of the three claims is then
-// asked separately:
+// So calls are **paired** first (see below), and each of the three claims is
+// then asked of the pairing separately:
 //
 //   * **count** — a call with no partner is a `left-only` or `right-only`
 //     difference at its own index. A missing call and a duplicated one are the
@@ -33,8 +32,8 @@
 //     never a cascade.
 //   * **arguments** — each pair is diffed by `diff.mjs` under the call's index.
 //
-// Pairing by occurrence is not keying in the sense `diff.mjs` means it: nothing
-// about order is forgiven, it is asserted one line down. Paths stay positional —
+// Pairing is not keying in the sense `diff.mjs` means it: nothing about order is
+// forgiven, it is asserted one line down. Paths stay positional —
 // `callbacks/3/args/0/dimensions/width` addresses the trace itself, which is
 // what lets `assertNoCollapse` and a region's pattern speak the same language.
 // The index of a paired difference is the **left** side's; the right's is
@@ -42,16 +41,24 @@
 //
 // ## Weakening
 //
-// One callback, one axis, one written reason. The kinds are closed at `count`
-// and `order` — the two axes a *comparison* can relax.
+// One callback, one axis, one written reason. The axes are closed at `count`
+// and `order` — the two a *comparison* can relax.
 //
-// **`arguments` is deliberately not a kind.** An argument difference is already
+// **`arguments` is deliberately not an axis.** An argument difference is already
 // claimable: it has a path, so a **region** claims it, carrying a reason, a
 // ticket and the recorded values that must be re-affirmed when they move. A
-// weakening records nothing, so an `arguments` kind would make a whole handler's
+// weakening records nothing, so an `arguments` axis would make a whole handler's
 // payload unobserved for as long as the entry survived — the dumping ground the
 // noise policy is built to prevent. Nothing about `count` or `order` can be said
 // that way, which is why they need a mechanism of their own.
+//
+// The two axes are not quite independent, and the seam is worth stating. A call
+// only one side made has no position on the other, so it cannot take part in an
+// order comparison at all — which means a `count` weakening also drops that
+// call's *unpaired* occurrences from the interleaving check. The calls that do
+// pair still compare their order exactly. There is no stricter reading
+// available: comparing the position of a call one side never made is not a
+// question with an answer.
 //
 // A weakening that forgives nothing **fails as stale**, like every other register
 // here, and it is judged on what it alone forgives: two weakenings that overlap
@@ -61,11 +68,11 @@
 // of another. Scoping is how regions answer that; a weakening has no case for it
 // yet, and inventing one before the corpus exists would be guessing.
 
-import { diffValues } from "./diff.mjs";
+import { difference, diffValues } from "./diff.mjs";
 import { OUTCOME } from "./regions.mjs";
 
 /** The two axes a comparison can relax. `arguments` is a region's job — see above. */
-export const WEAKENING_KINDS = ["count", "order"];
+export const WEAKENING_AXES = ["count", "order"];
 
 export class WeakeningError extends Error {
   constructor(message) {
@@ -82,9 +89,12 @@ export const validateWeakenings = (weakenings) => {
     if (typeof weakening?.callback !== "string" || weakening.callback === "") {
       throw new WeakeningError(`${at}: needs the name of the callback it weakens`);
     }
-    if (!WEAKENING_KINDS.includes(weakening.kind)) {
+    // `axis` rather than regions' `kind`, because it is not regions' taxonomy:
+    // a region's kind says what sort of claim it is, and this says which of the
+    // three things the comparison asserts is being let go.
+    if (!WEAKENING_AXES.includes(weakening.axis)) {
       throw new WeakeningError(
-        `${at}: kind ${JSON.stringify(weakening.kind)} is not one of ${WEAKENING_KINDS.join(", ")}. ` +
+        `${at}: axis ${JSON.stringify(weakening.axis)} is not one of ${WEAKENING_AXES.join(", ")}. ` +
           `An argument that differs has a path, so it is claimed by a region — which records the values ` +
           `and makes someone re-affirm them when they move.`
       );
@@ -96,71 +106,159 @@ export const validateWeakenings = (weakenings) => {
       throw new WeakeningError(`${at}: a ticket is where the difference stays someone's problem, or it is absent`);
     }
 
-    const key = `${weakening.callback}/${weakening.kind}`;
+    const key = `${weakening.callback}/${weakening.axis}`;
     if (seen.has(key)) {
-      throw new WeakeningError(`${at}: ${weakening.callback} already weakens ${weakening.kind}; one of the two could never go stale`);
+      throw new WeakeningError(`${at}: ${weakening.callback} already weakens ${weakening.axis}; one of the two could never go stale`);
     }
     seen.add(key);
   });
   return weakenings;
 };
 
-const difference = (kind, path, left, right) => ({ kind, path, left, right });
+// ── Pairing ────────────────────────────────────────────────────────────────
+// Which call on one side is *the same call* on the other. Calls of different
+// names never pair — a call named `onNodeDrag` cannot be a call named
+// `onNodesChange` — so the question is only ever asked within one name.
+//
+// Within a name, occurrence is the identity: the second `onNodesChange` against
+// the second. That is right until the two sides made **the same calls in a
+// different sequence**, where it pairs each against the other's partner and
+// reports two differences in *arguments*. That is the cascade this module exists
+// to avoid, arriving by a different route and in its worst form —
+// `onNodesChange` is the highest-volume callback in the corpus, so it would be
+// the common case, and invented argument differences read as findings about what
+// the two libraries pass.
+//
+// So a name whose two sides carry the same arguments in a different sequence
+// pairs by those arguments instead, and the reordering surfaces one level up as
+// the `order` difference it is. That is the same test `diff.mjs` applies to
+// keyed DOM children — same keys, different sequence — asked here of a call's
+// arguments rather than of an element's id.
+//
+// A name where both happened at once, a reorder *and* an argument change, pairs
+// by occurrence and reports the arguments. Nothing is hidden; the reorder is
+// simply not separable from the change without guessing which call became which.
 
-/**
- * Each call tagged with its position and with `name#n`, where n counts that
- * name's occurrences on its own side. The tag is what pairs the two sides; it
- * never reaches a path.
- */
-const occurrences = (calls) => {
-  const counts = new Map();
-  return calls.map((call, index) => {
-    const n = (counts.get(call.name) ?? 0) + 1;
-    counts.set(call.name, n);
-    return { call, index, key: `${call.name}#${n}` };
+const argumentsOf = (call) => JSON.stringify(call.args);
+
+const sameCalls = (left, right) =>
+  left.length === right.length && [...left].sort().join(" ") === [...right].sort().join(" ");
+
+/** The calls of each name on one side, in the order that side made them. */
+const groupByName = (calls) => {
+  const names = new Map();
+  calls.forEach((call, index) => {
+    if (!names.has(call.name)) names.set(call.name, []);
+    names.get(call.name).push({ call, index });
   });
+  return names;
 };
 
-const namesWeakening = (weakenings, kind) =>
-  new Set(weakenings.filter((w) => w.kind === kind).map((w) => w.callback));
+/**
+ * Pairs one name's calls: by argument where the two sides merely reordered
+ * them, by occurrence otherwise. Returns the pairs, and whatever one side made
+ * that the other did not.
+ */
+const pairOneName = (left, right) => {
+  const leftArgs = left.map((entry) => argumentsOf(entry.call));
+  const rightArgs = right.map((entry) => argumentsOf(entry.call));
+
+  if (sameCalls(leftArgs, rightArgs) && leftArgs.join(" ") !== rightArgs.join(" ")) {
+    const queues = new Map();
+    right.forEach((entry, i) => {
+      if (!queues.has(rightArgs[i])) queues.set(rightArgs[i], []);
+      queues.get(rightArgs[i]).push(entry);
+    });
+    return {
+      pairs: left.map((entry, i) => ({ left: entry, right: queues.get(leftArgs[i]).shift() })),
+      unpairedLeft: [],
+      unpairedRight: [],
+    };
+  }
+
+  const shared = Math.min(left.length, right.length);
+  return {
+    pairs: left.slice(0, shared).map((entry, i) => ({ left: entry, right: right[i] })),
+    unpairedLeft: left.slice(shared),
+    unpairedRight: right.slice(shared),
+  };
+};
+
+const pairCalls = (left, right) => {
+  const leftByName = groupByName(left);
+  const rightByName = groupByName(right);
+  const pairs = [];
+  const unpairedLeft = [];
+  const unpairedRight = [];
+
+  for (const name of new Set([...leftByName.keys(), ...rightByName.keys()])) {
+    const paired = pairOneName(leftByName.get(name) ?? [], rightByName.get(name) ?? []);
+    pairs.push(...paired.pairs);
+    unpairedLeft.push(...paired.unpairedLeft);
+    unpairedRight.push(...paired.unpairedRight);
+  }
+
+  // Back into the order each side made them, so every list below reads the way
+  // the trace does.
+  const byIndex = (a, b) => a.index - b.index;
+  return {
+    pairs: pairs.sort((a, b) => byIndex(a.left, b.left)),
+    unpairedLeft: unpairedLeft.sort(byIndex),
+    unpairedRight: unpairedRight.sort(byIndex),
+  };
+};
+
+const weakened = (weakenings, axis) =>
+  new Set(weakenings.filter((w) => w.axis === axis).map((w) => w.callback));
 
 const diffSequences = (left, right, weakenings, path) => {
   const out = [];
-  const forgivenCount = namesWeakening(weakenings, "count");
-  const forgivenOrder = namesWeakening(weakenings, "order");
+  const forgivenCount = weakened(weakenings, "count");
+  const forgivenOrder = weakened(weakenings, "order");
 
-  const leftCalls = occurrences(left);
-  const rightCalls = occurrences(right);
-  const leftByKey = new Map(leftCalls.map((e) => [e.key, e]));
-  const rightByKey = new Map(rightCalls.map((e) => [e.key, e]));
+  const { pairs, unpairedLeft, unpairedRight } = pairCalls(left, right);
+
+  // `name#n` labels a *pair*, numbered by where its left call sits among that
+  // name's pairs. It is what the order difference carries, and it never reaches
+  // a path — paths stay positional, so they address the trace itself.
+  const labels = new Map();
+  const numbered = new Map();
+  for (const pair of pairs) {
+    const n = (numbered.get(pair.left.call.name) ?? 0) + 1;
+    numbered.set(pair.left.call.name, n);
+    labels.set(pair, `${pair.left.call.name}#${n}`);
+  }
 
   // A call with no partner. From the left it reads as missing, from the right as
   // duplicated or spurious; they are one question, and the two kinds say which
   // side made the call.
-  for (const entry of leftCalls) {
-    if (!rightByKey.has(entry.key) && !forgivenCount.has(entry.call.name)) {
+  for (const entry of unpairedLeft) {
+    if (!forgivenCount.has(entry.call.name)) {
       out.push(difference("left-only", [...path, entry.index], entry.call, undefined));
     }
   }
-  for (const entry of rightCalls) {
-    if (!leftByKey.has(entry.key) && !forgivenCount.has(entry.call.name)) {
+  for (const entry of unpairedRight) {
+    if (!forgivenCount.has(entry.call.name)) {
       out.push(difference("right-only", [...path, entry.index], undefined, entry.call));
     }
   }
 
   // Order is judged over the calls both sides made, so a call one side skipped
   // does not also report as everything after it having moved.
-  const sequence = (entries, other) =>
-    entries.filter((e) => other.has(e.key) && !forgivenOrder.has(e.call.name)).map((e) => e.key);
-  const leftOrder = sequence(leftCalls, rightByKey);
-  const rightOrder = sequence(rightCalls, leftByKey);
+  const sequence = (side) =>
+    [...pairs]
+      .filter((pair) => !forgivenOrder.has(pair.left.call.name))
+      .sort((a, b) => a[side].index - b[side].index)
+      .map((pair) => labels.get(pair));
+  const leftOrder = sequence("left");
+  const rightOrder = sequence("right");
   if (leftOrder.join(" ") !== rightOrder.join(" ")) out.push(difference("order", path, leftOrder, rightOrder));
 
-  for (const entry of leftCalls) {
-    const partner = rightByKey.get(entry.key);
+  for (const pair of pairs) {
     // The whole entry, not only `args`: a field the trace format grows would
-    // otherwise be captured and never compared.
-    if (partner) out.push(...diffValues(entry.call, partner.call, [...path, entry.index]));
+    // otherwise be captured and never compared. Reported at the left call's
+    // index; the right's is recoverable from the order difference.
+    out.push(...diffValues(pair.left.call, pair.right.call, [...path, pair.left.index]));
   }
 
   return out;
@@ -171,7 +269,9 @@ const diffSequences = (left, right, weakenings, path) => {
  *
  * Returns `{ differences, outcomes }`. An outcome is `{ weakening, status }`,
  * and only `rides-free` passes — a weakening rides free when the comparison
- * would have reported something without it.
+ * would have reported something without it. Two of regions' three outcomes:
+ * a weakening records no values, so there is nothing of it that could have
+ * `moved`.
  */
 export const compareCallbacks = (left, right, { weakenings = [], path = ["callbacks"] } = {}) => {
   validateWeakenings(weakenings);
@@ -189,5 +289,3 @@ export const compareCallbacks = (left, right, { weakenings = [], path = ["callba
   return { differences, outcomes };
 };
 
-/** The weakenings with one status — what the report counts and a run names. */
-export const weakeningsWith = (outcomes, status) => outcomes.filter((o) => o.status === status);

@@ -21,10 +21,10 @@
 // policy re-runs this step in seconds rather than re-running a browser.
 
 import { CALLBACKS, DRIVING, validateTrace } from "../trace-format.mjs";
-import { compareCallbacks, weakeningsWith } from "./callbacks.mjs";
+import { compareCallbacks } from "./callbacks.mjs";
 import { diffValues } from "./diff.mjs";
 import { assertNoCollapse, normalize } from "./normalize.mjs";
-import { OUTCOME, claimDifferences, passes } from "./regions.mjs";
+import { OUTCOME, claimDifferences, outcomesWith, passes } from "./regions.mjs";
 
 // The driving log is compared ahead of the other sections as its own class:
 // if the inputs differed, the outputs differing tells you nothing new (#26).
@@ -112,6 +112,6 @@ export const compareTraces = (leftTrace, rightTrace, { rules = [], regions = [],
     // A stale weakening fails the run on its own, for the reason every register
     // here fails stale: an entry that stops corresponding to a real difference
     // is one nobody will notice has stopped protecting anything.
-    ok: passes(claimed) && weakeningsWith(callbacks.outcomes, OUTCOME.stale).length === 0,
+    ok: passes(claimed) && outcomesWith(callbacks.outcomes, OUTCOME.stale).length === 0,
   };
 };

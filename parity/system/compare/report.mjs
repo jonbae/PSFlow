@@ -6,10 +6,10 @@
 // content *moved* are the behavioural changelog.
 
 import { DRIVING } from "../trace-format.mjs";
-import { weakeningsWith } from "./callbacks.mjs";
+
 import { CONSEQUENCE, REPORT_ORDER, isDriving } from "./index.mjs";
 import { formatPath } from "./paths.mjs";
-import { OUTCOME, regionsWith } from "./regions.mjs";
+import { OUTCOME, outcomesWith } from "./regions.mjs";
 
 const MAX_VALUE = 160;
 
@@ -96,7 +96,7 @@ export const renderRunReport = (run) => {
 
 export const renderReport = (result) => {
   const { left, right, unclaimed, outcomes, weakenings, deleted } = result;
-  const staleWeakenings = weakeningsWith(weakenings, OUTCOME.stale);
+  const staleWeakenings = outcomesWith(weakenings, OUTCOME.stale);
   const lines = [
     `# Comparison report — ${result.scenario}`,
     "",
@@ -104,8 +104,8 @@ export const renderReport = (result) => {
     "",
   ];
 
-  const stale = regionsWith(outcomes, OUTCOME.stale);
-  const moved = regionsWith(outcomes, OUTCOME.moved);
+  const stale = outcomesWith(outcomes, OUTCOME.stale);
+  const moved = outcomesWith(outcomes, OUTCOME.moved);
 
   if (result.ok) {
     lines.push(
@@ -210,7 +210,7 @@ export const renderReport = (result) => {
     );
     for (const { weakening, status } of weakenings) {
       lines.push(
-        `| \`${weakening.callback}\` | ${weakening.kind} | ${status} | ${weakening.reason} | ${weakening.ticket ?? "—"} |`
+        `| \`${weakening.callback}\` | ${weakening.axis} | ${status} | ${weakening.reason} | ${weakening.ticket ?? "—"} |`
       );
     }
     lines.push("");

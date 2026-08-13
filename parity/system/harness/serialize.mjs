@@ -52,7 +52,6 @@ export const MARKER = Object.freeze({
   class: "@class",
   ref: "@ref",
   cycle: "@cycle",
-  depth: "@depth",
   threw: "@threw",
   number: "@number",
   undefined: "@undefined",
@@ -93,12 +92,17 @@ const referenceKind = (value) => {
   // The global, reached through `event.view`.
   if (value.window === value || value.self === value) return "Window";
 
-  // A React fiber — `_targetInst` on every synthetic event. It is a reference
-  // into React's internals, and it is also the whole component tree: left in,
-  // one pointer event would serialize thousands of fields that say nothing
-  // about either library.
+  // A React fiber — `_targetInst` on every synthetic event, and `_owner` on
+  // every element. It is a reference into React's internals, and it is also the
+  // whole component tree: left in, one pointer event would serialize thousands
+  // of fields that say nothing about either library.
+  //
+  // A React *element* is not one of these, and is deliberately not blacklisted.
+  // It is plain data — `type`, `key`, `props` — and xyflow node `data` routinely
+  // carries one, so dropping it would put every element in a flow under a single
+  // marker. The rule is reference-typed and only reference-typed; an element is
+  // a value that happens to describe a component.
   if (typeof value.tag === "number" && "stateNode" in value && "return" in value) return "React fiber";
-  if (typeof value.$$typeof === "symbol") return "React element";
 
   return null;
 };
@@ -166,7 +170,21 @@ export const serializeValue = (value, { path = [], maxDepth = 16 } = {}) => {
     if (typeof node !== "object" || node === null) return primitive(node);
 
     if (ancestors.has(node)) return { [MARKER.cycle]: formatPath(ancestors.get(node)) };
-    if (depth >= maxDepth) return { [MARKER.depth]: maxDepth };
+
+    // Loud, and deliberately not a marker. A marker would put two *different*
+    // subgraphs under one value and make them compare equal — a collapse, which
+    // the noise policy forbids outright (#19 §1), and one no rule authored it
+    // and no backstop downstream could see. The ceiling exists to keep a
+    // pathological graph off the stack, not to decide anything, so reaching it
+    // is a question for a person.
+    if (depth >= maxDepth) {
+      throw new SerializationError(
+        `${formatPath(at)} is more than ${maxDepth} deep. Nothing xyflow passes a callback should be — ` +
+          `a reference-typed value would have been dropped by kind, and a cycle recorded as one — so this ` +
+          `is either a new shape of argument or a blacklist that stopped recognising something. ` +
+          `Truncating it here would make two different subgraphs compare equal.`
+      );
+    }
 
     ancestors.set(node, at);
     try {

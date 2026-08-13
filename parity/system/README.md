@@ -212,7 +212,8 @@ agrees after it fails the run, unless the two were reorderings of one another.
 **5. Claim what is left** with hand-written regions (`regions.json`). Anything
 unclaimed fails.
 
-Step 4 has one exception, and it is the section that needs one: `callbacks`.
+Step 4 has one section that compares differently, and it is the one that needs
+to: `callbacks`.
 
 ### The driving log is read first
 
@@ -249,9 +250,12 @@ section agrees, and an end-state net passes green. The call log is the only plac
 the absence is visible.
 
 So order, count and interleaving are all compared (`compare/callbacks.mjs`), and
-it stays legible by pairing calls by name and occurrence — the second
-`onNodesChange` on one side against the second on the other — before asking the
-three questions separately:
+it stays legible by **pairing** calls before asking the three questions
+separately. Calls of different names never pair, so the question is only asked
+within one name; there, occurrence is the identity — the second `onNodesChange`
+against the second — except where the two sides made the same calls in a
+different sequence, which pairs by argument instead so that a reorder surfaces as
+a reorder rather than as two invented argument differences.
 
 - **count** — a call with no partner is `left-only` or `right-only` at its own
   index. A missing call and a duplicated one are one question asked from the two
@@ -267,6 +271,10 @@ pairing, dropping the third call of five reports one missing entry plus every
 later call as an *argument* difference, and those read as findings about what the
 two libraries pass.
 
+A name where a reorder and an argument change happened at once pairs by
+occurrence and reports the arguments. Nothing is hidden; the reorder is simply
+not separable from the change without guessing which call became which.
+
 Arguments arrive already serialized, by the rule that keeps every enumerable own
 property and blacklists only reference-typed fields (`harness/serialize.mjs`).
 That is what catches a synthetic event where a native one is expected, which no
@@ -277,14 +285,22 @@ shape check and no DOM diff can see.
 | Field | |
 |---|---|
 | `callback` | the handler name |
-| `kind` | `count` or `order` |
+| `axis` | `count` or `order` — regions' word is `kind`, and this is not regions' taxonomy |
 | `reason` | required |
 | `ticket` | where a bug stays someone's problem |
 
-There is no `arguments` kind, deliberately. An argument that differs has a path,
+There is no `arguments` axis, deliberately. An argument that differs has a path,
 so a **region** claims it — recording the values, and making someone re-affirm
-them when they move. A weakening records nothing, so an `arguments` kind would
+them when they move. A weakening records nothing, so an `arguments` axis would
 leave a whole handler's payload unobserved for as long as the entry survived.
+
+The two axes are not quite independent, and the seam is worth knowing. A call
+only one side made has no position on the other, so it cannot take part in an
+order comparison at all — which means a `count` weakening also drops that call's
+*unpaired* occurrences from the interleaving check. The calls that do pair still
+compare their order exactly, and there is no stricter reading available:
+comparing the position of a call one side never made is not a question with an
+answer.
 
 A weakening that forgives nothing **fails as stale**, and it is judged on what it
 alone forgives, so two overlapping entries cannot each ride on the other's back.
