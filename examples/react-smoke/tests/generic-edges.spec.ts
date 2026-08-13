@@ -2,16 +2,24 @@
 // Faithful copy of upstream's framework-parameterized e2e suite; the ONLY
 // changes are the infrastructure bits that differ for PSFlow:
 //   1. FRAMEWORK is hard-set to 'react' (upstream reads process.env.FRAMEWORK).
-//   2. the route is loaded via the static smoke server + hash router
-//      ('/examples/react-smoke/index.html#/tests/generic/edges/general')
+//   2. the route is loaded via the static server + hash router
+//      ('/parity/driver/index.html#/tests/generic/edges/general')
 //      instead of a vite path ('/tests/generic/edges/general').
 //   3. beforeEach waits for the first edge to render (upstream's waitForSelector
 //      is commented out with a note that its timeout gets ignored under vite;
 //      the static server needs the wait so the flow is mounted before asserting).
+//
+// The page is the TSX driver, with `@xyflow/react` aliased to `index.js` — so
+// this spec enters through the JS surface, the door the audience comes
+// through, and it mounts upstream's own `edges/general.ts` unmodified. That
+// fixture imports `MarkerType` from the package it is driving; selecting and
+// deleting its controlled edges also sends JS-shaped changes back through
+// `onEdgesChange` and the driver's `applyEdgeChanges(changes, edges)` call.
+// Run `npm run build:driver` after changing `src/` or re-vendoring `xyflow/`.
 import { test, expect } from "@playwright/test";
 
 const FRAMEWORK = "react";
-const ROUTE = "/examples/react-smoke/index.html#/tests/generic/edges/general";
+const ROUTE = "/parity/driver/index.html#/tests/generic/edges/general";
 
 test.describe("Edges", () => {
   test.beforeEach(async ({ page }) => {

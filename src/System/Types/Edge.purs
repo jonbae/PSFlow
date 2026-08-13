@@ -37,7 +37,8 @@ import System.Types.Ids (NodeId)
 -- | `selectable` keep their tri-state `Maybe Boolean` because absence means
 -- | "inherit from store default".
 -- |
--- | `className` (rendered on the edge `<g>`) and `style` (rendered on the
+-- | `label` carries the string form PSFlow's built-in edge components already
+-- | render. `className` (rendered on the edge `<g>`) and `style` (rendered on the
 -- | `.react-flow__edge-path`) mirror the presentational fields carried by
 -- | `NodeBase` (ticket 060). `style` is `Maybe (Object String)` — not `Foreign`
 -- | — so the record keeps a derivable `Eq` for memoization/tests.
@@ -57,6 +58,7 @@ type EdgeBase edgeData =
   , markerStart :: Maybe EdgeMarkerType
   , markerEnd :: Maybe EdgeMarkerType
   , zIndex :: Maybe Int
+  , label :: Maybe String
   , ariaLabel :: Maybe String
   , interactionWidth :: Maybe Number
   , className :: Maybe String

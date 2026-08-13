@@ -124,6 +124,7 @@ placeholderEdge edgeId =
   , markerStart: Nothing
   , markerEnd: Nothing
   , zIndex: Nothing
+  , label: Nothing
   , ariaLabel: Nothing
   , interactionWidth: Nothing
   , className: Nothing
@@ -288,7 +289,7 @@ mkEdgeProps edge sx sy tx ty sp tp mStart mEnd =
   , targetY: ty
   , sourcePosition: sp
   , targetPosition: tp
-  , label: Nothing
+  , label: edge.label
   , labelStyle: Nothing
   , labelShowBg: Nothing
   , labelBgStyle: Nothing

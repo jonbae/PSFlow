@@ -269,6 +269,7 @@ connectionToEdge mDefaults conn =
   , markerStart: Nothing
   , markerEnd: Nothing
   , zIndex: _.zIndex =<< mDefaults
+  , label: Nothing
   , ariaLabel: _.ariaLabel =<< mDefaults
   , interactionWidth: _.interactionWidth =<< mDefaults
   , className: Nothing

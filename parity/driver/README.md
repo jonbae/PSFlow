@@ -72,14 +72,20 @@ what proves it.
 
 ## Who uses it
 
-Today, the conformance suite — upstream's own e2e specs, ported. Three of them
-(`generic-nodes`, `generic-pane`, `generic-props`) run against this page and
-therefore enter through **the JS surface**; the rest still enter through the
-compiled `Example.Main`, and move over with their fixtures
-([node-toolbar #47](https://github.com/jonbae/PSFlow/issues/47),
-[edges #48](https://github.com/jonbae/PSFlow/issues/48)). The old door is
-deleted once they all have
-([#50](https://github.com/jonbae/PSFlow/issues/50)).
+Today, four specs in the conformance test suite — `generic-nodes`,
+`generic-pane`, `generic-edges` and `generic-props` — run against this page and
+therefore enter through **the JS surface**. `generic-node-toolbar` still enters
+through the compiled `Example.Main` and moves with its fixture
+([#47](https://github.com/jonbae/PSFlow/issues/47)); the old door is deleted
+once it has ([#50](https://github.com/jonbae/PSFlow/issues/50)).
+
+The edges fixture is where `MarkerType` stops being merely an enum object that
+resolves: upstream's unchanged `edges/general.ts` reads `Arrow` and
+`ArrowClosed` from it and the spec asserts the marker URLs they produce.
+Selecting and deleting a controlled edge also sends a JS-shaped change through
+`onEdgesChange` into `applyEdgeChanges(changes, edges)`. The same driver already
+proves `onNodesChange` / `applyNodeChanges` by moving and deleting nodes, and
+`onConnect` / `addEdge` by connecting them, in `generic-nodes.spec.ts`.
 
 Next, **the net**, whose capture harness drives this same page on both sides
 through `?side=` (`parity/system/harness/`), which is what the `--side upstream`
