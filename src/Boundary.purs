@@ -24,12 +24,12 @@
 -- |
 -- | What has landed so far is this skeleton, the eight TS enum objects below,
 -- | the converters, the three graph utilities a driver calls, the four chrome
--- | components a driver mounts, and two of the 21 hooks. The enums needed no
--- | converter at all — they are plain data on both sides, `{ Left: "left", … }`
--- | against `{ Left: "left", … }`, so there is nothing to get wrong but member
--- | names, which the record types check.
+-- | components a driver mounts, the two a custom node mounts, and two of the 21
+-- | hooks. The enums needed no converter at all — they are plain data on both
+-- | sides, `{ Left: "left", … }` against `{ Left: "left", … }`, so there is
+-- | nothing to get wrong but member names, which the record types check.
 -- |
--- | The converters are the rest, and they live in eight modules beneath this
+-- | The converters are the rest, and they live in nine modules beneath this
 -- | one, none of them on the PureScript surface:
 -- |
 -- |   * `Boundary.Undefined` — `undefined`, which is what a JavaScript caller
@@ -47,11 +47,14 @@
 -- |     driver reaches them on the first interaction.
 -- |   * `Boundary.Chrome` — `Panel`, `Background`, `Controls` and `MiniMap`,
 -- |     which a driver mounts inside the flow.
+-- |   * `Boundary.NodeChrome` — `Handle` and `NodeToolbar`, which a consumer's
+-- |     own node component mounts one level down.
 -- |   * `Boundary.Hooks` — `useNodesState` and `useEdgesState`, the two of the
 -- |     21 hooks that do not have to wait for stage 3's instance converter.
 -- |
--- | `ReactFlow` is therefore the first *component* to cross. The remaining
--- | exports upstream's fixtures import cross with their fixtures.
+-- | `ReactFlow` is therefore the first *component* to cross, and `Handle` and
+-- | `NodeToolbar` the last of stage 1's set: each export upstream's fixtures
+-- | import crossed with the fixture that imports it.
 -- |
 -- | The enums are not a consumer nit. `Position` and `MarkerType` were not on
 -- | the JS surface at all, and two of upstream's five test fixtures import
@@ -102,13 +105,18 @@ import Boundary.Utils (addEdge, applyEdgeChanges, applyNodeChanges) as CrossedSu
 import Boundary.Chrome (background, controls, miniMap, panel) as CrossedSurface
 import Boundary.Hooks (useEdgesState, useNodesState) as CrossedSurface
 
+-- The two a *custom node* mounts, rather than a driver. `Boundary.NodeChrome`
+-- says why they crossed last of stage 1's set: nothing but a consumer's own
+-- node component mounts either, and the node-toolbar fixture is the first one
+-- any gate runs.
+import Boundary.NodeChrome (handle, nodeToolbar) as CrossedSurface
+
 -- The other 50 symbols of the public surface, passing through raw. Ordered to
 -- mirror `xyflow/packages/react/src/index.ts`, as `index.js` is, so future
 -- audits stay mechanical.
 import React
   ( -- Components
     reactFlowWithRef
-  , handle
   , edgeText
   , straightEdge
   , stepEdge
@@ -157,7 +165,6 @@ import React
   , getSimpleBezierPath
   -- Additional components
   , controlButton
-  , nodeToolbar
   , nodeResizer
   , nodeResizeControl
   , edgeToolbar

@@ -30,7 +30,8 @@
 -- | `ConnectionLineType.Bezier` is `"default"`, not `"bezier"`, and
 -- | `MarkerType.ArrowClosed` is `"arrowclosed"`, all lowercase.
 module Boundary.Enums
-  ( backgroundVariantIn
+  ( alignIn
+  , backgroundVariantIn
   , colorModeIn
   , connectionLineTypeIn
   , connectionModeIn
@@ -71,6 +72,7 @@ import System.Types.Connection
 import System.Types.Edge (ConnectionLineType(..), MarkerType(..))
 import System.Types.Geometry (Position(..))
 import System.Types.Handle (HandleType(..))
+import System.Types.Node (Align(..))
 
 -- | Look a string up in a member table, or throw naming the field, the value
 -- | and every member. `field` is the JS-facing prop path the value arrived on
@@ -213,6 +215,15 @@ orientationIn :: String -> String -> Chrome.Orientation
 orientationIn field = fromEnumString field
   [ Tuple "horizontal" Chrome.Horizontal
   , Tuple "vertical" Chrome.Vertical
+  ]
+
+-- | `NodeToolbar.align`. A string union upstream, with no runtime object —
+-- | which is why upstream's own fixture writes the bare `'start'`.
+alignIn :: String -> String -> Align
+alignIn field = fromEnumString field
+  [ Tuple "center" AlignCenter
+  , Tuple "start" AlignStart
+  , Tuple "end" AlignEnd
   ]
 
 -- | `FitViewOptions.interpolate`.

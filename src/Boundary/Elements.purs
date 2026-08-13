@@ -51,6 +51,7 @@ module Boundary.Elements
   , JsConnection
   , JsXYPosition
   , asCssObject
+  , asCssStyle
   , fromCssObject
   , coordinateExtentIn
   , coordinateExtentOut
@@ -96,6 +97,7 @@ import Foreign (Foreign)
 import Foreign.Object (Object)
 import Foreign.Object (mapWithKey) as Object
 import React.Basic (JSX, ReactComponent, element)
+import React.Types.Edges (Style)
 import React.Types.Nodes (NodeProps, NodeTypesMap)
 import System.Types.Connection (Connection, KeyCode(..))
 import System.Types.Edge (EdgeBase, EdgeChange(..), EdgeMarker, EdgeMarkerType(..))
@@ -489,17 +491,25 @@ nodeHandleOut h =
   , height: toUndefinable h.height
   }
 
--- `CSSProperties` in both directions, for the `style` field a node or an edge
--- carries — and, through `Boundary.Chrome`, the one each of the four chrome
--- components carries. PureScript's `Object String` is the same runtime object;
--- the coercion is where the type stops being true about numeric CSS values.
--- `Boundary.Flow` has its own pair of these for the connection-line styles,
--- because those are typed with the opaque `React.Types.Edges.Style` instead.
+-- `CSSProperties`, which ps-flow models with two types depending on where it
+-- appears, so the crossing needs both. One runtime object either way — a
+-- `style` prop is spread onto a DOM node and nothing on this surface reads it —
+-- which is what makes every one of these a coercion rather than a conversion.
+--
+-- `Object String` is the node's, the edge's and the four chrome components'.
+-- The type stops being true about numeric CSS values there; a JavaScript
+-- consumer's `{ width: 4 }` arrives and is spread unread.
 asCssObject :: Foreign -> Object String
 asCssObject = unsafeCoerce
 
 fromCssObject :: Object String -> Foreign
 fromCssObject = unsafeCoerce
+
+-- The opaque `React.Types.Edges.Style`, which is what the connection-line
+-- props and `<Handle />` carry instead. Inbound only: nothing on this
+-- surface hands one back, and an opaque type has nothing to read out of it.
+asCssStyle :: Foreign -> Style
+asCssStyle = unsafeCoerce
 
 -- ────────────────────────────────────────────────────────────────────────
 -- Edge

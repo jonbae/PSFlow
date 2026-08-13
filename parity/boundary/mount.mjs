@@ -33,15 +33,22 @@
 //      every `Maybe` field of the PureScript record arrives `undefined`, and
 //      the first `case` over one falls off the end of its pattern match.
 //
-//   5. **`useNodesState` and `useEdgesState` return upstream's 3-tuple, and
+//   5. **`<Handle />` and `<NodeToolbar />` mount inside a consumer's own node
+//      component, and `<Handle />` with no props takes upstream's defaults.**
+//      `HandleProps` makes `type` and `position` required — a sum type has no
+//      absent state — so the defaults upstream declares in its parameter list
+//      are the crossing's to supply, and `<Handle />` is the plainest thing a
+//      custom node writes.
+//
+//   6. **`useNodesState` and `useEdgesState` return upstream's 3-tuple, and
 //      their setters run.** Both were unreachable from JavaScript — a hook is
 //      an unrun `Effect`, and `setEdges(fn)` built a second one — and both are
 //      destructured by the ColorMode driver.
 //
-// The deferred lists are read live out of `src/Boundary/Flow.purs` and
-// `src/Boundary/Chrome.purs` rather than restated here. A second copy of
-// either is a second thing to go stale, and this file checks the one copy
-// against the record it belongs to instead.
+// The deferred lists are read live out of `src/Boundary/Flow.purs`,
+// `src/Boundary/Chrome.purs` and `src/Boundary/NodeChrome.purs` rather than
+// restated here. A second copy of any of them is a second thing to go stale,
+// and this file checks the one copy against the record it belongs to instead.
 //
 // Usage: node parity/boundary/mount.mjs   (requires `spago build`)
 
@@ -105,12 +112,18 @@ function assert(condition, message) {
 // `Maybe` as absence, the untagged unions in both of their forms, the tuple
 // encodings, and the dotted aria-config keys.
 
+// The consumer's own node component, which is both the only place node props
+// arrive and the only thing that mounts a `<Handle />` or a `<NodeToolbar />`.
+// One stand-in serves both: this section reads the props it was handed, and
+// section 5 mounts the two components as its children.
 let customNodeProps = null;
 
-function CustomNode(props) {
+const customNode = (...children) => (props) => {
   customNodeProps = props;
-  return createElement("div", { className: "probe-node" }, "node");
-}
+  return createElement("div", { className: "probe-node" }, "node", ...children);
+};
+
+const CustomNode = customNode();
 
 const convertedProps = {
   nodes: [
@@ -470,35 +483,55 @@ throws(
   "boundary stage 2"
 );
 
-// ── 5. The chrome components ────────────────────────────────────────────
+// ── 5. The components, in the two places they mount ─────────────────────
 //
-// `<Panel />`, `<Background />`, `<Controls />` and `<MiniMap />`, mounted as
-// children of the flow the way a driver mounts them. The claim that matters
-// most is the dullest one: **with no props at all**. Three of the four take
-// none in upstream's ColorMode example, and before they crossed, a `{}` props
-// object gave every `Maybe` field `undefined` and the first `case` over one
-// fell off the end of its pattern match.
+// `<Panel />`, `<Background />`, `<Controls />` and `<MiniMap />` are mounted
+// as children of the flow, the way a driver mounts them. `<Handle />` and
+// `<NodeToolbar />` are mounted one level down, by a consumer's own node
+// component — which is why they were the two exports of stage 1's set that
+// neither driver reached.
 //
-// Nothing here asserts what the components *render*. Their DOM is the
-// conformance suite's and the net's; what this section holds is that the
-// crossing converts, refuses what it cannot, and passes children through.
-
-const chromeSource = join(repoRoot, "src/Boundary/Chrome.purs");
-const chromeText = readModule(chromeSource);
+// The claim that matters most is the dullest one: **with no props at all**.
+// Three of the four chrome components take none in upstream's ColorMode
+// example and `<Handle />` takes none in upstream's `ToolbarNode.tsx`, and
+// before they crossed, a `{}` props object gave every `Maybe` field
+// `undefined` and the first `case` over one fell off the end of its pattern
+// match.
+//
+// Nothing here asserts what the components *render*, beyond the defaults the
+// crossing itself has to supply. Their DOM is the conformance suite's and the
+// net's; what this section holds is that the crossing converts, refuses what
+// it cannot, and passes children through.
 
 const inFlow = (...children) =>
   renderToStaticMarkup(createElement(ReactFlow, convertedProps, ...children));
 
-function mounts(what, element, ...mustContain) {
+// The other place a component mounts. `<Handle />` reads its node's id out of
+// context and `<NodeToolbar />` floats above that node, so neither is a child
+// of the flow — both are rendered by the node component the consumer put in
+// `nodeTypes`, which is section 1's `customNode` stand-in, instantiated here
+// with the component under test as its children.
+const inNode = (...children) =>
+  renderToStaticMarkup(
+    createElement(ReactFlow, {
+      ...convertedProps,
+      nodeTypes: { custom: customNode(...children) },
+    })
+  );
+
+const mountsIn = (mount) => (what, element, ...mustContain) =>
   check(what, () => {
-    const html = inFlow(element);
+    const html = mount(element);
     for (const fragment of mustContain) {
       assert(html.includes(fragment), `rendered without ${JSON.stringify(fragment)}`);
     }
   });
-}
+
+const mounts = mountsIn(inFlow);
+const mountsInNode = mountsIn(inNode);
 
 const { Panel, Background, Controls, MiniMap } = psflow;
+const { Handle, NodeToolbar } = psflow;
 
 mounts(
   "`<Panel />` converts its position and passes its children through",
@@ -522,9 +555,11 @@ mounts(
   "horizontal"
 );
 
-function chromeThrows(what, element, ...mustMention) {
-  throws(what, () => inFlow(element), ...mustMention);
-}
+const throwsIn = (mount) => (what, element, ...mustMention) =>
+  throws(what, () => mount(element), ...mustMention);
+
+const chromeThrows = throwsIn(inFlow);
+const nodeChromeThrows = throwsIn(inNode);
 
 chromeThrows(
   "`<Panel />` without a position says so rather than failing a pattern match",
@@ -550,77 +585,148 @@ chromeThrows(
   "Background.gap"
 );
 
-// The refused list is read out of the module, never restated: a second copy is
-// a second thing to go stale, and this file already checks the one copy.
-const chromeDeferred = deferredEntries(chromeText);
+// The two a custom node mounts. `<Handle />` with no props is the case the
+// crossing has to answer for: upstream defaults `type` to `'source'` and
+// `position` to `Position.Top` in its parameter list, and ps-flow's record
+// makes both required, so an omitted one would meet a pattern-match failure
+// rather than a handle. Both defaults are read back off the rendered div.
+mountsInNode(
+  "`<Handle />` mounts with no props at all, on upstream's two defaults",
+  createElement(Handle, {}),
+  'data-handlepos="top"',
+  // `data-id` is `<flow>-<node>-<handle>-<type>`, so the tag it ends with is
+  // the `type` default.
+  '-source"'
+);
+mountsInNode(
+  "`<Handle />` converts the type and position it is given",
+  createElement(Handle, { type: "target", position: "left" }),
+  'data-handlepos="left"',
+  '-target"'
+);
 
-if (chromeDeferred.length === 0) {
-  fail(`read no deferred props from ${chromeSource} — the parse is wrong`);
-}
+// `<NodeToolbar />` renders through a portal into the flow's root div, and a
+// server render has no such node — the store's `domNode` is `Nothing`, so the
+// portal renders nothing whatever it was handed. What these hold is the
+// pattern-match case and that the converters run; the toolbar's DOM is the
+// conformance suite's, which drives all twelve position/align permutations.
+mountsInNode(
+  "`<NodeToolbar />` with no props at all reaches no pattern-match failure",
+  createElement(NodeToolbar, {}),
+  "react-flow__node"
+);
+mountsInNode(
+  "its position, align and node-id converters run without refusing what they are given",
+  createElement(NodeToolbar, { isVisible: true, position: "bottom", align: "end", nodeId: ["a", "b"] }),
+  "react-flow__node"
+);
 
-const chromeComponents = { Panel, Background, Controls, MiniMap };
+nodeChromeThrows(
+  "`<Handle />`'s position is refused by the same enum table",
+  createElement(Handle, { position: "middle" }),
+  "Handle.position",
+  "left"
+);
+nodeChromeThrows(
+  "`<NodeToolbar />`'s align is refused by the same enum table",
+  createElement(NodeToolbar, { align: "centre" }),
+  "NodeToolbar.align",
+  "center"
+);
+nodeChromeThrows(
+  "`<NodeToolbar />` refuses a nodeId that is neither an id nor a list of them",
+  createElement(NodeToolbar, { nodeId: 42 }),
+  "NodeToolbar.nodeId"
+);
 
-for (const qualified of chromeDeferred) {
-  const [component, prop] = qualified.split(".");
-  check(`\`${qualified}\` is refused at mount`, () => {
-    assert(
-      Object.hasOwn(chromeComponents, component),
-      `names \`${component}\`, which is not one of ${Object.keys(chromeComponents).join(", ")} ` +
-        `— a deferred entry must be written \`<Component>.<prop>\``
-    );
-    let threw = null;
-    try {
-      inFlow(createElement(chromeComponents[component], { [prop]: () => {} }));
-    } catch (e) {
-      threw = e;
+// The refused lists are read out of the modules, never restated: a second copy
+// is a second thing to go stale, and this file already checks the one copy.
+// The two converter modules differ in nothing but where their components
+// mount, so both go through the same two checks below.
+const converterModules = [
+  {
+    source: join(repoRoot, "src/Boundary/Chrome.purs"),
+    components: { Panel, Background, Controls, MiniMap },
+    mount: inFlow,
+  },
+  {
+    source: join(repoRoot, "src/Boundary/NodeChrome.purs"),
+    components: { Handle, NodeToolbar },
+    mount: inNode,
+  },
+];
+
+for (const { source, components, mount } of converterModules) {
+  const text = readModule(source);
+  const known = Object.keys(components).join(", ");
+  const componentDeferred = deferredEntries(text);
+
+  if (componentDeferred.length === 0) {
+    fail(`read no deferred props from ${source} — the parse is wrong`);
+  }
+
+  for (const qualified of componentDeferred) {
+    const [component, prop] = qualified.split(".");
+    check(`\`${qualified}\` is refused at mount`, () => {
+      assert(
+        Object.hasOwn(components, component),
+        `names \`${component}\`, which is not one of ${known} — a deferred entry ` +
+          `must be written \`<Component>.<prop>\``
+      );
+      let threw = null;
+      try {
+        mount(createElement(components[component], { [prop]: () => {} }));
+      } catch (e) {
+        threw = e;
+      }
+      assert(threw !== null, "mounted without complaint — the prop is being silently ignored");
+      assert(
+        threw.message.includes(`\`${qualified}\``),
+        `threw, but the message does not name the prop: ${threw.message}`
+      );
+      assert(
+        /boundary stage \d/.test(threw.message),
+        `threw, but the message does not name the stage that lands it: ${threw.message}`
+      );
+    });
+  }
+
+  // The other direction, exactly as for the flow props: a prop handed
+  // `Nothing` with no table entry is ignored in silence.
+  //
+  // The converters are found by name — `convert<Component>`, which is why
+  // every one of them is spelled that way — rather than listed, so a component
+  // crossing is picked up here instead of waiting for someone to extend a
+  // list. The component half of the name is what qualifies the lookup: an
+  // unqualified match would let `Controls.onFitView` cover `MiniMap`'s.
+  const converters = [...text.matchAll(/^convert(\w+) p =$/gm)].map((m) => m[1]);
+
+  if (converters.length === 0) {
+    fail(`found no \`convert<Component>\` converters in ${source} — the parse is wrong`);
+  }
+
+  check(`every ${known} prop wired to \`Nothing\` has a deferred entry`, () => {
+    const deferredSet = new Set(componentDeferred);
+    const unguarded = [];
+    for (const component of converters) {
+      assert(
+        Object.hasOwn(components, component),
+        `\`convert${component}\` names no exported component — a converter must be ` +
+          `\`convert<Component>\`, or the qualified lookup below cannot find its refusals`
+      );
+      const body = new RegExp(`^convert${component} p =\\n([\\s\\S]*?)\\n  \\}$`, "m").exec(text);
+      assert(body !== null, `cannot read \`convert${component}\`'s body — the parse is wrong`);
+      for (const [, name] of body[1].matchAll(/^\s*[,{]\s*(\w+): Nothing$/gm)) {
+        if (!deferredSet.has(`${component}.${name}`)) unguarded.push(`${component}.${name}`);
+      }
     }
-    assert(threw !== null, "mounted without complaint — the prop is being silently ignored");
     assert(
-      threw.message.includes(`\`${qualified}\``),
-      `threw, but the message does not name the prop: ${threw.message}`
-    );
-    assert(
-      /boundary stage \d/.test(threw.message),
-      `threw, but the message does not name the stage that lands it: ${threw.message}`
+      unguarded.length === 0,
+      `props wired to \`Nothing\` with no deferred entry, so they are silently ` +
+        `ignored: ${unguarded.join(", ")}`
     );
   });
 }
-
-// The other direction, exactly as for the flow props: a chrome prop handed
-// `Nothing` with no table entry is ignored in silence.
-//
-// The converters are found by name — `convert<Component>`, which is why all
-// four are spelled that way — rather than listed, so a fifth component
-// crossing is picked up here instead of waiting for someone to extend a list.
-// The component half of the name is what qualifies the lookup: an unqualified
-// match would let `Controls.onFitView` cover `MiniMap`'s.
-const chromeConverters = [...chromeText.matchAll(/^convert(\w+) p =$/gm)].map((m) => m[1]);
-
-if (chromeConverters.length === 0) {
-  fail(`found no \`convert<Component>\` converters in ${chromeSource} — the parse is wrong`);
-}
-
-check("every chrome prop wired to `Nothing` has a deferred entry", () => {
-  const deferredSet = new Set(chromeDeferred);
-  const unguarded = [];
-  for (const component of chromeConverters) {
-    assert(
-      Object.hasOwn(chromeComponents, component),
-      `\`convert${component}\` names no exported component — a converter must be ` +
-        `\`convert<Component>\`, or the qualified lookup below cannot find its refusals`
-    );
-    const body = new RegExp(`^convert${component} p =\\n([\\s\\S]*?)\\n  \\}$`, "m").exec(chromeText);
-    assert(body !== null, `cannot read \`convert${component}\`'s body — the parse is wrong`);
-    for (const [, name] of body[1].matchAll(/^\s*[,{]\s*(\w+): Nothing$/gm)) {
-      if (!deferredSet.has(`${component}.${name}`)) unguarded.push(`${component}.${name}`);
-    }
-  }
-  assert(
-    unguarded.length === 0,
-    `chrome props wired to \`Nothing\` with no deferred entry, so they are silently ` +
-      `ignored: ${unguarded.join(", ")}`
-  );
-});
 
 // `nodeColor` and its two siblings are `string | ((node) => string)` upstream.
 // The function half is the one place a chrome component hands the consumer a

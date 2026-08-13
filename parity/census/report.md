@@ -24,7 +24,7 @@ its own behavior registry. `crossed` means a JS-shaped wrapper exists; `passthro
 means `index.js` still publishes the PureScript value unchanged. A crossed export
 with no direct JS-surface gate is displayed as `crossed, ungated`, rather than
 being counted as gated on the JS surface merely because its wrapper exists.
-At boundary stage 1, 18 exports have crossed; 0 are crossed but ungated on
+At boundary stage 1, 20 exports have crossed; 0 are crossed but ungated on
 the JS surface. Stage 1 is self-covering; later stages deliberately populate
 that window until system parity gates their converters.
 
@@ -37,19 +37,19 @@ about the shape a JavaScript caller receives.
 
 | Kind | Total | Gated — PureScript surface | Gated — JS surface | Crossed, ungated — JS surface | Indirect only | Nothing but the name |
 |---|---:|---:|---:|---:|---:|---:|
-| `component` | 22 | 11 | 7 | 0 | 3 | 6 |
+| `component` | 22 | 11 | 8 | 0 | 3 | 6 |
 | `hook` | 21 | 0 | 2 | 0 | 0 | 19 |
 | `pure-fn` | 17 | 17 | 17 | 0 | 0 | 0 |
 | `enum-value` | 8 | 0 | 8 | 0 | 0 | 0 |
-| `props` | 30 | 5 | 2 | 0 | 5 | 20 |
+| `props` | 30 | 4 | 3 | 0 | 5 | 20 |
 | `callback` | 26 | 1 | 2 | 0 | 1 | 23 |
 | `change` | 12 | 0 | 0 | 0 | 2 | 10 |
-| `data` | 43 | 11 | 10 | 0 | 5 | 21 |
+| `data` | 43 | 11 | 11 | 0 | 5 | 21 |
 | `options` | 20 | 2 | 0 | 0 | 1 | 17 |
 | `instance-api` | 7 | 0 | 0 | 0 | 1 | 6 |
 | `store` | 3 | 0 | 0 | 0 | 0 | 3 |
 | `internal-type` | 1 | 0 | 0 | 0 | 0 | 1 |
-| **total** | **210** | **47** | **48** | **0** | **18** | **126** |
+| **total** | **210** | **46** | **51** | **0** | **18** | **126** |
 
 ## Summary by mechanism
 
@@ -89,12 +89,12 @@ JS/TS consumer — the audience this repo exists for — the import is `undefine
 | `EdgeLabelRenderer` | component | `dual-run-dom` | — | passthrough, ungated | Never mounted. |
 | `EdgeText` | component | `dual-run-dom` | — | passthrough, ungated — conformance (generic-edges) ~ | Mounted for the fixture's string labels. The interactionWidth case depends on its measured background for the click target, but no assertion is specifically about label rendering. |
 | `EdgeToolbar` | component | `dual-run-dom` | — | passthrough, ungated | getEdgeToolbarTransform has function parity; the component is never mounted. |
-| `Handle` | component | `dual-run-dom` | smoke | passthrough, gated — conformance (generic-nodes) | connect/connectable=false/connectingfrom class asserted. |
+| `Handle` | component | `dual-run-dom` | smoke | crossed, gated — boundary + conformance (generic-nodes) + conformance (generic-node-toolbar) ~ | connect/connectable=false/connectingfrom class asserted. Upstream's two defaults and the enum conversion are gated on the JS surface by parity:boundary, mounted inside a node component rather than in the flow. ToolbarNode.tsx mounts a target and a source handle, which is the only place a consumer's own component mounts one, but asserts nothing about either. |
 | `MiniMap` | component | `dual-run-dom` | smoke | crossed, gated — boundary + conformance (generic-props) ~ | Renders + clickable only; no node-rendering, mask or pan/zoom coverage. Its JS-shaped props and no-props mount are gated on the JS surface by parity:boundary; the ColorMode driver also mounts it without a specific assertion. |
 | `MiniMapNode` | component | `dual-run-dom` | — | no runtime value, ungated | Not exported by PSFlow at all (allowlisted). A JS consumer importing it gets undefined. |
 | `NodeResizeControl` | component | `dual-run-dom` | — | passthrough, ungated | Never mounted. Known-wrong — ticket 073 (XYResizer drag lifecycle). |
 | `NodeResizer` | component | `dual-run-dom` | — | passthrough, ungated | Never mounted. Known-wrong — ticket 073. |
-| `NodeToolbar` | component | `dual-run-dom` | function + conformance (generic-node-toolbar) | passthrough, ungated | getNodeToolbarTransform has function parity; positioning and default behaviour asserted by generic-node-toolbar. |
+| `NodeToolbar` | component | `dual-run-dom` | function | crossed, gated — boundary + conformance (generic-node-toolbar) | getNodeToolbarTransform has function parity; positioning and default behaviour asserted by generic-node-toolbar. parity:boundary holds the pattern-match case and that its converters run, mounted inside a node component; it cannot assert the DOM, because the toolbar portals into a flow root a server render does not have. |
 | `Panel` | component | `dual-run-dom` | — | crossed, gated — boundary + conformance (generic-props) ~ | Its required position, enum conversion and children pass-through are gated on the JS surface by parity:boundary. The ColorMode fixture also mounts it, but asserts only the wrapper's colorMode class. |
 | `ReactFlow` | component | `dual-run-dom` | smoke | crossed, gated — conformance (generic-nodes) + conformance (generic-pane) + conformance (generic-edges) + conformance (generic-props) | More gates touch this than any other export — the nodes, edges, pane and props specs all drive it. |
 | `ReactFlowProvider` | component | `dual-run-dom` | smoke ~ | passthrough, ungated | Mounted; no assertion is specific to it. |
@@ -163,13 +163,13 @@ JS/TS consumer — the audience this repo exists for — the import is `undefine
 | `EdgeTextProps` | props | `dual-run-dom` | — | no runtime value, ungated | EdgeText is never mounted. |
 | `EdgeToolbarProps` | props | `dual-run-dom` | — | no runtime value, ungated | EdgeToolbar is never mounted. |
 | `EdgeWrapperProps` | props | `dual-run-dom` | — | no runtime value, ungated | Internal wrapper; observable only as the DOM it produces. |
-| `HandleProps` | props | `dual-run-dom` | smoke | no runtime value, gated — conformance (generic-nodes) | connectable=false and handle position attributes asserted. |
+| `HandleProps` | props | `dual-run-dom` | smoke | no runtime value, gated — conformance (generic-nodes) + conformance (generic-node-toolbar) ~ | connectable=false and handle position attributes asserted. ToolbarNode.tsx sets type and position on both of its handles and asserts neither. |
 | `MiniMapNodeProps` | props | `none` | — | no runtime value, ungated | Not surfaced by PSFlow (allowlisted, ticket 058). |
 | `MiniMapNodes` | props | `none` | — | no runtime value, ungated | Component exists in PSFlow but is not in the public barrel (allowlisted, ticket 058). |
 | `MiniMapProps` | props | `dual-run-dom` | — | no runtime value, ungated — conformance (generic-props) ~ | MiniMap is mounted with every prop unset on both surfaces; no prop is asserted. |
 | `NodeProps` | props | `dual-run-props` | surface-props + node-props | no runtime value, ungated | The one type with a real runtime probe: node-props.spec.ts mounts a custom node and reads the props object. Ticket 069 closed the xPos/yPos rename here after it survived from 12.3.5 as a printed-not-failed diff. |
 | `NodeResizerProps` | props | `dual-run-dom` | — | no runtime value, ungated | NodeResizer is never mounted and is known-wrong (073). |
-| `NodeToolbarProps` | props | `dual-run-dom` | conformance (generic-node-toolbar) | no runtime value, ungated | position, align and offset all driven by generic-node-toolbar. |
+| `NodeToolbarProps` | props | `dual-run-dom` | — | no runtime value, gated — conformance (generic-node-toolbar) | position, align and offset all driven by generic-node-toolbar. |
 | `NodeWrapperProps` | props | `dual-run-dom` | — | no runtime value, ungated — conformance (generic-nodes) ~ | Internal wrapper; observable as the .react-flow__node DOM the node specs assert on. |
 | `PanelProps` | props | `dual-run-dom` | — | no runtime value, ungated — conformance (generic-props) ~ | See PanelPosition. |
 | `ReactFlowProps` | props | `dual-run-dom` | surface-props | no runtime value, gated — conformance (generic-nodes) + conformance (generic-pane) + conformance (generic-edges) + conformance (generic-props) | Prop-member names gated on the PureScript surface by the surface-parity prop diff; a minority of members (selectable/draggable/deletable/connectable/minZoom/maxZoom/panOnScroll/defaultViewport/autoPan*/colorMode/nodeTypes) are driven by the conformance specs. The gate is name-only — a member whose type changed upstream still passes. |
@@ -217,7 +217,7 @@ JS/TS consumer — the audience this repo exists for — the import is `undefine
 | `NodeRemoveChange` | change | `dual-run-callback` | — | no runtime value, ungated | Constructor of the PS NodeChange sum type. |
 | `NodeReplaceChange` | change | `dual-run-callback` | — | no runtime value, ungated | Constructor of the PS NodeChange sum type. |
 | `NodeSelectionChange` | change | `dual-run-callback` | — | no runtime value, ungated | Constructor of the PS NodeChange sum type. |
-| `Align` | data | `dual-run-dom` | function + conformance (generic-node-toolbar) | no runtime value, ungated | getNodeToolbarTransform takes align; toolbar positioning asserted. |
+| `Align` | data | `dual-run-dom` | function | no runtime value, gated — conformance (generic-node-toolbar) | getNodeToolbarTransform takes align; toolbar positioning asserted. |
 | `Box` | data | `oracle` | function | no runtime value, ungated | Shape marshalled by rectToBox/boxToRect/getBoundsOfBoxes properties. |
 | `BuiltInEdge` | data | `none` | — | no runtime value, ungated | Type-only both sides; PSFlow does not model it (allowlisted). Ruled out of scope on the map — issue #17. |
 | `BuiltInNode` | data | `none` | — | no runtime value, ungated | Type-only both sides; PSFlow does not model it (allowlisted). Ruled out of scope on the map — issue #17. |
@@ -236,7 +236,7 @@ JS/TS consumer — the audience this repo exists for — the import is `undefine
 | `EdgeTypes` | data | `dual-run-dom` | — | no runtime value, ungated | PSFlow renames it EdgeTypesMap; type-only, so the rename cannot reach a JS consumer. |
 | `FinalConnectionState` | data | `dual-run-callback` | — | no runtime value, ungated | onConnectEnd payload; never inspected. |
 | `HandleConnection` | data | `dual-run-hook` | — | no runtime value, ungated | useHandleConnections return value. |
-| `HandleType` | data | `dual-run-dom` | smoke | no runtime value, gated — conformance (generic-nodes) | Surfaces as data-handlepos / handle classes, which the connect specs locate on. |
+| `HandleType` | data | `dual-run-dom` | smoke | no runtime value, gated — conformance (generic-nodes) + conformance (generic-node-toolbar) ~ | Surfaces as data-handlepos / handle classes, which the connect specs locate on. ToolbarNode.tsx passes both members and asserts neither. |
 | `InternalNode` | data | `dual-run-hook` | — | no runtime value, ungated | useInternalNode return value. |
 | `KeyCode` | data | `dual-run-dom` | — | no runtime value, ungated — conformance (generic-nodes) ~ + conformance (generic-edges) ~ | Delete-key presses drive the deletion specs, but only the default key codes. |
 | `NoConnection` | data | `none` | — | no runtime value, ungated | Nullary constructor of the PS ConnectionState, not a standalone type (allowlisted, ticket 054). |

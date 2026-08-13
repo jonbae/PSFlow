@@ -121,8 +121,9 @@ const pairs = [
     js: { file: "src/Boundary/Flow.purs", type: "JsViewport" },
     renames: {},
   },
-  // The four chrome components. Their crossings are inbound-only — nothing
-  // hands a `PanelProps` back to a JavaScript caller — so the compiler already
+  // The component props — the four chrome ones below, and the two a custom
+  // node mounts further down. Their crossings are inbound-only — nothing hands
+  // a `PanelProps` back to a JavaScript caller — so the compiler already
   // forces every PureScript field to be constructed. What it does not force is
   // the other direction: a field *removed* from the PureScript record leaves
   // an orphan on the JS side that a consumer can still set and nothing reads,
@@ -149,6 +150,21 @@ const pairs = [
     what: "MiniMapProps",
     ps: { file: "src/React/Types/Component.purs", type: "MiniMapProps" },
     js: { file: "src/Boundary/Chrome.purs", type: "JsMiniMapProps" },
+    renames: {},
+  },
+  // The two a custom node mounts. `HandleProps`' rename is the same one
+  // `NodeHandle` carries and for the same reason: PureScript keeps `type` for
+  // the element's own tag, so the handle's kind is `handleType`.
+  {
+    what: "HandleProps",
+    ps: { file: "src/React/Types/Component.purs", type: "HandleProps" },
+    js: { file: "src/Boundary/NodeChrome.purs", type: "JsHandleProps" },
+    renames: { handleType: "type" },
+  },
+  {
+    what: "NodeToolbarProps",
+    ps: { file: "src/React/Types/Component.purs", type: "NodeToolbarProps" },
+    js: { file: "src/Boundary/NodeChrome.purs", type: "JsNodeToolbarProps" },
     renames: {},
   },
   {
