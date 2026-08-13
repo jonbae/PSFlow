@@ -27,9 +27,10 @@ export const manifest = Object.freeze({
   // remaining hooks, and the components no fixture mounts. See the spec's
   // staging table.
   //
-  // Stage 1's set is twenty. Eighteen of them are below; `Handle` and
-  // `NodeToolbar` are the two outstanding, and they belong to the node-toolbar
-  // fixture rather than to either driver, so they cross when it does (#47).
+  // Stage 1's set is twenty, and all twenty are below. `Handle` and
+  // `NodeToolbar` were the last two: they belong to the node-toolbar fixture
+  // rather than to either driver, and crossed when it moved onto the JS
+  // surface (#47).
   stage: 1,
 
   // The eight TS enums are plain data on both sides, so crossing them was the
@@ -46,17 +47,22 @@ export const manifest = Object.freeze({
   //
   // The four chrome components were in stage 1's set from the start —
   // upstream's `Flow.tsx` mounts each of them — and crossed when a driver
-  // first rendered one. `useNodesState` and `useEdgesState` are the two
-  // exceptions to the hooks being stage 3: they return their own bundles and
-  // touch no `ReactFlowInstance`, so they do not wait for its converter.
+  // first rendered one. `Handle` and `NodeToolbar` are the pair no driver
+  // mounts: they are mounted by a consumer's own node component, which the
+  // node-toolbar fixture is the first to supply. `useNodesState` and
+  // `useEdgesState` are the two exceptions to the hooks being stage 3: they
+  // return their own bundles and touch no `ReactFlowInstance`, so they do not
+  // wait for its converter.
   crossed: Object.freeze([
     "Background",
     "BackgroundVariant",
     "ConnectionLineType",
     "ConnectionMode",
     "Controls",
+    "Handle",
     "MarkerType",
     "MiniMap",
+    "NodeToolbar",
     "PanOnScrollMode",
     "Panel",
     "Position",
@@ -77,10 +83,8 @@ export const manifest = Object.freeze({
     "EdgeLabelRenderer",
     "EdgeText",
     "EdgeToolbar",
-    "Handle",
     "NodeResizeControl",
     "NodeResizer",
-    "NodeToolbar",
     "ReactFlowProvider",
     "ReactFlowWithRef",
     "SimpleBezierEdge",

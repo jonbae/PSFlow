@@ -48,6 +48,7 @@ import Boundary.Elements
   , JsNode
   , JsNodeChange
   , JsNodeProps
+  , asCssStyle
   , connectionOut
   , coordinateExtentIn
   , edgeChangeOut
@@ -88,7 +89,7 @@ import React.Basic (JSX, ReactComponent, element)
 import React.Basic.Hooks (ReactChildren, reactComponentWithChildren)
 import React.Container.ReactFlow (reactFlow) as PS
 import React.Types.Component (ReactFlowProps)
-import React.Types.Edges (DefaultEdgeOptions, ReconnectHandleType(..), Style)
+import React.Types.Edges (DefaultEdgeOptions, ReconnectHandleType(..))
 import React.Types.General (FitViewOptions, OnEdgesChange, OnNodesChange, ProOptions)
 import System.Constants (AriaLabelConfigOverride)
 import System.Types.Connection (Padding(..), PaddingValue(..), Viewport)
@@ -525,12 +526,6 @@ convertProps p =
 -- `JsViewport` declaration to compare `Viewport` against.
 viewportIn :: Maybe JsViewport -> Maybe Viewport
 viewportIn = map \v -> { x: v.x, y: v.y, zoom: v.zoom }
-
--- The connection-line styles, which PureScript types with the opaque
--- `React.Types.Edges.Style` rather than the `Object String` a node or edge
--- carries. `Boundary.Elements` has the other pair for those.
-asCssStyle :: Foreign -> Style
-asCssStyle = unsafeCoerce
 
 onNodesChangeIn :: EffectFn1 (Array JsNodeChange) Unit -> OnNodesChange Foreign
 onNodesChangeIn f = \changes -> runEffectFn1 f (map nodeChangeOut changes)

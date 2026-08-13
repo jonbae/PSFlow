@@ -67,7 +67,7 @@
     "EdgeText": "PSFlow drops a `memo` upstream has, and this one is still passthrough — the divergence predates the boundary module. Boundary stage 4 (#62), which crosses it; recorded in #22.",
     "BaseEdge": "PSFlow adds a `memo` upstream does not have. Per-component drift rather than one systematic representation difference, which is why it is listed separately. Boundary stage 4 (#62); recorded in #22.",
     "ControlButton": "PSFlow adds a `memo` upstream does not have. Boundary stage 4 (#62); recorded in #22.",
-    "Handle": "Both memoize, but upstream's inner component is a `forwardRef` taking (props, ref) and PSFlow's is a plain one-argument function, so a `ref` on a `<Handle />` is dropped. #47 crosses `Handle`; wrapper kind resolves with the other components in boundary stage 4 (#62).",
+    "Handle": "Both memoize — the boundary wrapper keeps the `memo` its PureScript component has — but upstream's inner component is a `forwardRef` taking (props, ref) and PSFlow's is a plain one-argument function, so a `ref` on a `<Handle />` is dropped. Wrapper kind resolves with the other components in boundary stage 4 (#62).",
 
     "ReactFlow": "Upstream is a `forwardRef`, PSFlow a plain function — `ReactFlow` is not a drop-in for upstream's because it does not accept a `ref`. This is ticket #27, which a ~20-line scratch script rediscovered independently. Retired by #27.",
     "ReactFlowWithRef": "PSFlow-only, so upstream has no shape to agree with: it is the ref-taking wrapper that exists precisely because `ReactFlow` is not one. Retired by #27, which makes `ReactFlow` a drop-in and removes the reason for a second component."

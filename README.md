@@ -78,14 +78,16 @@ compares each crossed record's PureScript label set against its JS-shaped one,
 live from source, because the outbound direction has no compiler check and the
 repo's generators vary too few fields for a round-trip property to find an
 omission. `mount.mjs` enters through `index.js` — the only door the boundary
-module is gated on — and makes five claims: that a fully converted prop set
+module is gated on — and makes six claims: that a fully converted prop set
 mounts and arrives JS-shaped, that every prop the boundary has not crossed yet
 is refused rather than ignored, that the graph utilities a driver calls are
 callable from JavaScript with their round trip closing, that three of the four
 chrome components mount with no props at all and the fourth names the prop
-upstream declares required, and that `useNodesState` / `useEdgesState` return
-upstream's 3-tuple with a setter that runs. It needs `spago build` first and
-hard-fails on missing compiled output.
+upstream declares required, that `<Handle />` and `<NodeToolbar />` mount inside
+a consumer's own node component with `<Handle />` taking upstream's defaults for
+the two props ps-flow's record makes required, and that `useNodesState` /
+`useEdgesState` return upstream's 3-tuple with a setter that runs. It needs
+`spago build` first and hard-fails on missing compiled output.
 
 `parity:changelog` measures what a baseline bump costs, not what detects a
 divergence.

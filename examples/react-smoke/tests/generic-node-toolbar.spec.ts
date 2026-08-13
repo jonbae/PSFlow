@@ -2,14 +2,22 @@
 // Faithful copy of upstream's framework-parameterized e2e suite; the ONLY
 // changes are the infrastructure bits that differ for PSFlow:
 //   1. FRAMEWORK is hard-set to 'react' (upstream reads process.env.FRAMEWORK).
-//   2. the route is loaded via the static smoke server + hash router
-//      ('/examples/react-smoke/index.html#/tests/generic/node-toolbar/general')
+//   2. the route is loaded via the static server + hash router
+//      ('/parity/driver/index.html#/tests/generic/node-toolbar/general')
 //      instead of a vite path ('/tests/generic/node-toolbar/general').
 //   3. the beforeEach waitForSelector timeout is bumped to 10s for the static server.
+//
+// The page is the TSX driver, with `@xyflow/react` aliased to `index.js` — so
+// this spec enters through the JS surface, the door the audience comes
+// through, and it mounts upstream's own `node-toolbar/general.ts` and its
+// `ToolbarNode.tsx` unmodified. That component is the first user-authored
+// custom node any gate has run: it destructures `NodeProps` and mounts
+// `<Handle />` and `<NodeToolbar />`, all three of which cross here. Run
+// `npm run build:driver` after changing `src/` or re-vendoring `xyflow/`.
 import { test, expect } from "@playwright/test";
 
 const FRAMEWORK = "react";
-const ROUTE = "/examples/react-smoke/index.html#/tests/generic/node-toolbar/general";
+const ROUTE = "/parity/driver/index.html#/tests/generic/node-toolbar/general";
 
 type Position = "top" | "right" | "bottom" | "left";
 const positions: Position[] = ["top", "right", "bottom", "left"];
