@@ -1,0 +1,27 @@
+{
+  "_comment": [
+    "Per-callback weakenings of the exact sequence (#19 §5, #44). Callbacks compare more strictly than",
+    "anything else in the trace, because they leave no residue in end state: if PSFlow never fires a",
+    "handler the DOM is identical and every other section agrees. Order, count and interleaving are all",
+    "compared, and an entry here relaxes one axis for one callback.",
+    "",
+    "  callback  the handler name, e.g. onNodeMouseMove",
+    "  kind      count (how many times it fired) or order (where it fired among the others)",
+    "  reason    required",
+    "  ticket    where the difference stays someone's problem, when it is a bug rather than a decision",
+    "",
+    "There is no `arguments` kind, deliberately. An argument that differs has a path, so it is claimed by",
+    "a region in regions.json — which records the values and makes someone re-affirm them when they move.",
+    "A weakening records nothing, so an argument kind would leave a whole handler's payload unobserved for",
+    "as long as the entry survived.",
+    "",
+    "A weakening that forgives nothing fails as stale, and it is judged on what it alone forgives.",
+    "Self-consistency ignores this file entirely: a side is held to reproducing its own call log exactly.",
+    "",
+    "Three audit rows in the flow-props-change-after-mount scenario are reachable only because this",
+    "comparison is exact (spec #37). If an entry ever appears here, check those first.",
+    "",
+    "Empty until the net captures its first callbacks (#54)."
+  ],
+  "weakenings": []
+}

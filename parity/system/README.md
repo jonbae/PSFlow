@@ -93,7 +93,7 @@ for twice.
   // ── callbacks ────────────────────────────────────────────────────────────
   // An exact sequence: order, count and interleaving all compare (#19 §5).
   // Arguments serialize every enumerable own property, blacklisting only
-  // reference-typed fields (#19 §6) — issue #44 builds that serializer.
+  // reference-typed fields (#19 §6) — `harness/serialize.mjs`.
   "callbacks": [ { "name": "onNodesChange", "args": [ [ { "id": "1", "type": "dimensions" } ] ] } ],
 
   // ── hooks ────────────────────────────────────────────────────────────────
@@ -212,6 +212,8 @@ agrees after it fails the run, unless the two were reorderings of one another.
 **5. Claim what is left** with hand-written regions (`regions.json`). Anything
 unclaimed fails.
 
+Step 4 has one exception, and it is the section that needs one: `callbacks`.
+
 ### The driving log is read first
 
 `driving` leads the report, and when it differs the report says so **before** the
@@ -235,8 +237,64 @@ Ordering stays observable. Pairing by key is not ignoring order: a keyed pairing
 that finds the same keys in a different sequence reports exactly one `order`
 difference at the parent, carrying both sequences.
 
-Everything else compares positionally, which is what `callbacks` needs — there,
-position *is* the identity.
+Everything else compares positionally, which is what a call's *arguments* need —
+there, position is the identity.
+
+### Callbacks — an exact sequence
+
+Callbacks are compared more strictly than anything else in the trace, and the
+reason is structural rather than a matter of taste: **they leave no residue in
+end state.** If PSFlow never fires a handler the DOM is identical, every other
+section agrees, and an end-state net passes green. The call log is the only place
+the absence is visible.
+
+So order, count and interleaving are all compared (`compare/callbacks.mjs`), and
+it stays legible by pairing calls by name and occurrence — the second
+`onNodesChange` on one side against the second on the other — before asking the
+three questions separately:
+
+- **count** — a call with no partner is `left-only` or `right-only` at its own
+  index. A missing call and a duplicated one are one question asked from the two
+  sides.
+- **order** — the paired calls' sequences are compared as sequences. The same
+  calls in a different order is exactly one `order` difference carrying both.
+- **arguments** — each pair is diffed under the call's index.
+
+Pairing is not keying in the sense the section above means it: nothing about
+order is forgiven, it is asserted one line down. Paths stay positional —
+`callbacks/3/args/0/dimensions/width` addresses the trace itself. Without the
+pairing, dropping the third call of five reports one missing entry plus every
+later call as an *argument* difference, and those read as findings about what the
+two libraries pass.
+
+Arguments arrive already serialized, by the rule that keeps every enumerable own
+property and blacklists only reference-typed fields (`harness/serialize.mjs`).
+That is what catches a synthetic event where a native one is expected, which no
+shape check and no DOM diff can see.
+
+**Weakening** relaxes one axis for one callback, in `weakenings.json`:
+
+| Field | |
+|---|---|
+| `callback` | the handler name |
+| `kind` | `count` or `order` |
+| `reason` | required |
+| `ticket` | where a bug stays someone's problem |
+
+There is no `arguments` kind, deliberately. An argument that differs has a path,
+so a **region** claims it — recording the values, and making someone re-affirm
+them when they move. A weakening records nothing, so an `arguments` kind would
+leave a whole handler's payload unobserved for as long as the entry survived.
+
+A weakening that forgives nothing **fails as stale**, and it is judged on what it
+alone forgives, so two overlapping entries cannot each ride on the other's back.
+`--record` does not touch this file: there are no values to write back. And no
+weakening reaches self-consistency — a side is held to reproducing its own call
+log exactly, whatever the two sides are allowed to differ on between them.
+
+Three audit rows in the `flow-props-change-after-mount` scenario are reachable
+**only** because this comparison is exact. If an entry ever appears in
+`weakenings.json`, check those first.
 
 ### Normalization — may delete or reorder, may never collapse
 
@@ -329,10 +387,10 @@ name.
 
 Exit codes: `0` clean, `1` differences the noise policy does not claim — a side
 that disagrees with itself, a driving divergence, an unclaimed difference, a
-region gone stale — `2` a run that could not be interpreted at all: a malformed
-trace, an illegal normalization rule, a region missing its reason, traces that
-are not two captures of each of two sides. A run that cannot be interpreted is
-never a pass.
+region or a callback weakening gone stale — `2` a run that could not be
+interpreted at all: a malformed trace, an illegal normalization rule, a region
+missing its reason, traces that are not two captures of each of two sides. A run
+that cannot be interpreted is never a pass.
 
 `parity:system` — the gate that captures and then compares — does not exist yet.
 It waits on `dom` capture ([#51](https://github.com/jonbae/PSFlow/issues/51)):
@@ -358,8 +416,10 @@ the claim a double cannot make. `harness/README.md`.
 - **Settling** — polling until consecutive snapshots agree, each side on its own
   clock — and the `dom` element tree, which is what makes the two halves a gate:
   [#51](https://github.com/jonbae/PSFlow/issues/51).
-- **Callback sequence comparison** and argument serialization —
-  [#44](https://github.com/jonbae/PSFlow/issues/44).
+- **The in-page callback log** — the capture half of the section above, which
+  waits on the callback props crossing the boundary
+  ([#52](https://github.com/jonbae/PSFlow/issues/52)) before there is anything to
+  accumulate: [#54](https://github.com/jonbae/PSFlow/issues/54).
 - **The `hooks`, `props` and `api.queries` sections**, which need probes —
   [#59](https://github.com/jonbae/PSFlow/issues/59).
 - **The corpus itself** — the conformance seed, the test-debt scenarios and the

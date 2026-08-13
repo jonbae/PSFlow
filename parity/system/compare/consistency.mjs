@@ -11,10 +11,13 @@
 // It is the same machinery as the cross-side comparison — normalize, then diff —
 // with two deliberate differences.
 //
-//   * **No regions.** A region is a claim about the two implementations
-//     disagreeing; there is no such thing as a claim that a side disagrees with
-//     itself, and inventing one would turn the only check that can see
-//     non-reproducibility into one more register of forgiven differences.
+//   * **No regions, and no callback weakenings.** A region is a claim about the
+//     two implementations disagreeing; there is no such thing as a claim that a
+//     side disagrees with itself, and inventing one would turn the only check
+//     that can see non-reproducibility into one more register of forgiven
+//     differences. A weakening is the same claim about the same pair, one
+//     section down: a side that fires a handler eleven times and then twelve is
+//     not reproducible, whatever the two sides do about it between them.
 //   * **The driving log carries no tolerance.** It is diffed straight off the
 //     two traces and never handed to the normalizer at all, so no rule that
 //     could be written — not one aimed at it, not a `**` one that reaches it by
@@ -32,7 +35,8 @@
 // refused the whole ruleset would be red for reasons the noise policy has
 // already settled.
 
-import { DRIVING, validateTrace } from "../trace-format.mjs";
+import { CALLBACKS, DRIVING, validateTrace } from "../trace-format.mjs";
+import { compareCallbacks } from "./callbacks.mjs";
 import { diffValues } from "./diff.mjs";
 import { REPORT_ORDER } from "./index.mjs";
 import { assertNoCollapse, normalize } from "./normalize.mjs";
@@ -87,12 +91,15 @@ export const checkSelfConsistency = (first, second, { rules = [] } = {}) => {
 
   // Section by section in report order, so the driving log leads here for the
   // same reason it leads there — off the raw traces, since it is the one
-  // section the normalizer never saw.
-  const differences = REPORT_ORDER.flatMap((section) =>
-    section === DRIVING
-      ? diffValues(first.sections[DRIVING], second.sections[DRIVING], [DRIVING])
-      : diffValues(left.value[section], right.value[section], [section])
-  );
+  // section the normalizer never saw. `callbacks` takes its own comparison with
+  // an empty weakening set: a side has to reproduce its own call log exactly.
+  const differences = REPORT_ORDER.flatMap((section) => {
+    if (section === DRIVING) return diffValues(first.sections[DRIVING], second.sections[DRIVING], [DRIVING]);
+    if (section === CALLBACKS) {
+      return compareCallbacks(left.value[CALLBACKS], right.value[CALLBACKS], { path: [CALLBACKS] }).differences;
+    }
+    return diffValues(left.value[section], right.value[section], [section]);
+  });
 
   return {
     side: first.side,

@@ -472,9 +472,20 @@ Of a difference: some region's pattern covers it, so it is someone's stated
 decision rather than a failure. An unclaimed difference fails the run.
 _Avoid_: allowed, ignored, expected
 
+**Weakening**:
+A relaxation of the **callbacks** comparison for one callback along one axis —
+`count` or `order` — carrying a written reason, in
+`parity/system/weakenings.json`. Not a third implementation of **Region**: a
+region claims a difference *the comparison reported* and records the values it
+claimed, while a weakening changes what the comparison asserts and records
+nothing. That is exactly why there is no `arguments` weakening — an argument
+that differs has a path, so it is a region's to claim. Reserved for the
+callbacks section; nothing else in the trace has an axis to relax.
+_Avoid_: region, waiver, tolerance, exception
+
 **Stale**:
-Of an entry in any register — region, allowlist entry, witness, hole, census
-entry, manifest — it no longer corresponds to anything real, and therefore fails.
+Of an entry in any register — region, allowlist entry, weakening, witness, hole,
+census entry, manifest — it no longer corresponds to anything real, and therefore fails.
 The inversion is deliberate and repo-wide: entries bite when they stop being true
 instead of accumulating silently, which is what makes a register a gate rather
 than a record.

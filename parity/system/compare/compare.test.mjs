@@ -7,10 +7,13 @@ import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
 import { SECTIONS, readTrace } from "../trace-format.mjs";
+import { validateWeakenings } from "./callbacks.mjs";
 import { REPORT_ORDER, compareTraces } from "./index.mjs";
 import { validateRules } from "./normalize.mjs";
+import { formatPath } from "./paths.mjs";
 import { validateRegions } from "./regions.mjs";
 import { renderReport } from "./report.mjs";
+import { compareRun } from "./run.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const fixturePath = (name) => join(here, "fixtures", name);
@@ -244,7 +247,77 @@ test("the CLI exits 2 on a trace it cannot interpret, rather than comparing what
   );
 });
 
-test("the committed ruleset and region register are themselves legal", () => {
+test("the committed ruleset and both registers are themselves legal", () => {
   assert.doesNotThrow(() => validateRules(committed("normalization.json").rules));
   assert.doesNotThrow(() => validateRegions(committed("regions.json").regions));
+  assert.doesNotThrow(() => validateWeakenings(committed("weakenings.json").weakenings));
+});
+
+// ── Callbacks ──────────────────────────────────────────────────────────────
+// The section nothing else can stand in for: a handler that never fired leaves
+// the DOM identical, so every other section of these two traces agrees.
+
+test("a handler that fired on one side and not the other fails, though nothing else differs", () => {
+  const result = compareTraces(fixture("baseline.upstream.json"), fixture("silent-handler.psflow.json"), {
+    rules: SORT_RULES,
+  });
+
+  assert.equal(result.ok, false);
+  assert.deepEqual(
+    result.unclaimed.map((d) => `${d.kind} ${formatPath(d.path)}`),
+    ["left-only callbacks/1"]
+  );
+  assert.match(renderReport(result), /### callbacks \(1\)/);
+});
+
+test("a weakening is read from the register and forgives the count it names", () => {
+  const weakenings = [
+    {
+      callback: "onNodesChange",
+      kind: "count",
+      reason: "the second node's measurement lands in one batch upstream and two here",
+      ticket: "https://github.com/jonbae/PSFlow/issues/22",
+    },
+  ];
+
+  const result = compareTraces(fixture("baseline.upstream.json"), fixture("silent-handler.psflow.json"), {
+    rules: SORT_RULES,
+    weakenings,
+  });
+
+  assert.equal(result.ok, true);
+  assert.deepEqual(result.unclaimed, []);
+  assert.match(renderReport(result), /## Callback weakenings/);
+});
+
+test("a weakening that forgives nothing fails the run, with nothing for --record to write back", () => {
+  const weakenings = [{ callback: "onNodesChange", kind: "order", reason: "a reason that has outlived its cause" }];
+
+  const result = compareTraces(fixture("baseline.upstream.json"), fixture("baseline.psflow.json"), { weakenings });
+
+  assert.equal(result.ok, false);
+  assert.deepEqual(result.unclaimed, [], "nothing differed — the failure is the entry itself");
+  assert.equal(result.weakenings[0].status, "stale");
+  assert.match(renderReport(result), /stale callback weakening/);
+});
+
+test("self-consistency compares the call log too, and no weakening reaches it", () => {
+  const weakenings = [{ callback: "onNodesChange", kind: "count", reason: "irrelevant here, and that is the point" }];
+  const run = compareRun(
+    [
+      fixture("baseline.upstream.json"),
+      fixture("baseline.upstream.capture2.json"),
+      fixture("baseline.psflow.json"),
+      fixture("restless-handler.psflow.capture2.json"),
+    ],
+    { rules: SORT_RULES, weakenings }
+  );
+
+  assert.equal(run.ok, false);
+  const [psflow] = run.consistency.filter((side) => side.side === "psflow");
+  assert.equal(psflow.consistent, false);
+  assert.deepEqual(
+    psflow.differences.map((d) => `${d.kind} ${formatPath(d.path)}`),
+    ["right-only callbacks/2"]
+  );
 });
