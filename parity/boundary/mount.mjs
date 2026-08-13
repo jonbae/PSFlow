@@ -112,12 +112,18 @@ function assert(condition, message) {
 // `Maybe` as absence, the untagged unions in both of their forms, the tuple
 // encodings, and the dotted aria-config keys.
 
+// The consumer's own node component, which is both the only place node props
+// arrive and the only thing that mounts a `<Handle />` or a `<NodeToolbar />`.
+// One stand-in serves both: this section reads the props it was handed, and
+// section 5 mounts the two components as its children.
 let customNodeProps = null;
 
-function CustomNode(props) {
+const customNode = (...children) => (props) => {
   customNodeProps = props;
-  return createElement("div", { className: "probe-node" }, "node");
-}
+  return createElement("div", { className: "probe-node" }, "node", ...children);
+};
+
+const CustomNode = customNode();
 
 const convertedProps = {
   nodes: [
@@ -503,13 +509,15 @@ const inFlow = (...children) =>
 // The other place a component mounts. `<Handle />` reads its node's id out of
 // context and `<NodeToolbar />` floats above that node, so neither is a child
 // of the flow — both are rendered by the node component the consumer put in
-// `nodeTypes`, which is what this stands in for.
-const inNode = (...children) => {
-  const NodeMountProbe = () => createElement("div", null, ...children);
-  return renderToStaticMarkup(
-    createElement(ReactFlow, { ...convertedProps, nodeTypes: { custom: NodeMountProbe } })
+// `nodeTypes`, which is section 1's `customNode` stand-in, instantiated here
+// with the component under test as its children.
+const inNode = (...children) =>
+  renderToStaticMarkup(
+    createElement(ReactFlow, {
+      ...convertedProps,
+      nodeTypes: { custom: customNode(...children) },
+    })
   );
-};
 
 const mountsIn = (mount) => (what, element, ...mustContain) =>
   check(what, () => {
@@ -603,12 +611,12 @@ mountsInNode(
 // pattern-match case and that the converters run; the toolbar's DOM is the
 // conformance suite's, which drives all twelve position/align permutations.
 mountsInNode(
-  "`<NodeToolbar />` mounts with no props at all",
+  "`<NodeToolbar />` with no props at all reaches no pattern-match failure",
   createElement(NodeToolbar, {}),
   "react-flow__node"
 );
 mountsInNode(
-  "`<NodeToolbar />` converts its position, align and node ids",
+  "its position, align and node-id converters run without refusing what they are given",
   createElement(NodeToolbar, { isVisible: true, position: "bottom", align: "end", nodeId: ["a", "b"] }),
   "react-flow__node"
 );

@@ -28,9 +28,9 @@ export const manifest = Object.freeze({
   // staging table.
   //
   // Stage 1's set is twenty, and all twenty are below. `Handle` and
-  // `NodeToolbar` were the last two: they belong to the node-toolbar fixture
-  // rather than to either driver, and crossed when it moved onto the JS
-  // surface (#47).
+  // `NodeToolbar` were the last two: they are mounted by the node component
+  // the node-toolbar fixture names rather than by either driver, and crossed
+  // when that fixture moved onto the JS surface (#47).
   stage: 1,
 
   // The eight TS enums are plain data on both sides, so crossing them was the
@@ -49,7 +49,7 @@ export const manifest = Object.freeze({
   // upstream's `Flow.tsx` mounts each of them — and crossed when a driver
   // first rendered one. `Handle` and `NodeToolbar` are the pair no driver
   // mounts: they are mounted by a consumer's own node component, which the
-  // node-toolbar fixture is the first to supply. `useNodesState` and
+  // node-toolbar fixture is the first to name. `useNodesState` and
   // `useEdgesState` are the two exceptions to the hooks being stage 3: they
   // return their own bundles and touch no `ReactFlowInstance`, so they do not
   // wait for its converter.

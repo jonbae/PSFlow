@@ -505,9 +505,9 @@ asCssObject = unsafeCoerce
 fromCssObject :: Object String -> Foreign
 fromCssObject = unsafeCoerce
 
--- | The opaque `React.Types.Edges.Style`, which is what the connection-line
--- | props and `<Handle />` carry instead. Inbound only: nothing on this
--- | surface hands one back, and an opaque type has nothing to read out of it.
+-- The opaque `React.Types.Edges.Style`, which is what the connection-line
+-- props and `<Handle />` carry instead. Inbound only: nothing on this
+-- surface hands one back, and an opaque type has nothing to read out of it.
 asCssStyle :: Foreign -> Style
 asCssStyle = unsafeCoerce
 

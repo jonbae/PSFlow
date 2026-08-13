@@ -90,10 +90,11 @@ Selecting and deleting a controlled edge also sends a JS-shaped change through
 proves `onNodesChange` / `applyNodeChanges` by moving and deleting nodes, and
 `onConnect` / `addEdge` by connecting them, in `generic-nodes.spec.ts`.
 
-The node-toolbar fixture is the one that cost more than a route change. Its
-`ToolbarNode.tsx` is the first **user-authored custom node component** any gate
-has run: ps-flow hands it node props, it reads `data.toolbarPosition` off them,
-and hands the value straight back to a `<NodeToolbar />` it mounts itself. So
+The node-toolbar fixture is the one that cost more than a route change. The
+component its `nodeTypes` names, `ToolbarNode.tsx`, is the first
+**user-authored custom node component** any gate has run: ps-flow hands it node
+props, it reads `data.toolbarPosition` off them, and hands the value straight
+back to a `<NodeToolbar />` it mounts itself. So
 `Handle` and `NodeToolbar` crossed with it — the two exports of boundary stage
 1's set that neither driver mounts, because nothing but a consumer's own node
 component does.

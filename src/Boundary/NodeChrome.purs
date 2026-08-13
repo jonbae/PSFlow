@@ -7,8 +7,9 @@
 -- | of stage 1's set that neither driver reached, and why they cross with the
 -- | node-toolbar fixture rather than with either driver.
 -- |
--- | That fixture is what makes this module worth more than two wrappers.
--- | Upstream's `ToolbarNode.tsx` is the first **user-authored custom node**
+-- | The node component that fixture names is what makes this module worth more
+-- | than two wrappers. Upstream's `ToolbarNode.tsx` is the first
+-- | **user-authored custom node**
 -- | any gate has run: it is handed `NodeProps` by ps-flow (crossed already, in
 -- | `Boundary.Elements.nodePropsOut`), reads `data.toolbarPosition` off it, and
 -- | hands the string straight back to `<NodeToolbar position={…} />`. So the
