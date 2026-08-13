@@ -123,8 +123,13 @@ export const claimDifferences = (differences, regions, { scenario }) => {
 export const passes = ({ unclaimed, outcomes }) =>
   unclaimed.length === 0 && outcomes.every((o) => o.status === OUTCOME.ridesFree);
 
-/** The outcomes with one status — what the report counts and a run names. */
-export const regionsWith = (outcomes, status) => outcomes.filter((o) => o.status === status);
+/**
+ * The outcomes with one status — what the report counts and a run names. Shared
+ * with the callback weakenings, which are judged with the same vocabulary: two
+ * of these three, since a weakening records no values and so has nothing that
+ * could have `moved`.
+ */
+export const outcomesWith = (outcomes, status) => outcomes.filter((o) => o.status === status);
 
 /**
  * Refreshes the recorded values of regions that claimed something, and stamps

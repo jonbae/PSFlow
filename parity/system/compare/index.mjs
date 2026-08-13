@@ -8,7 +8,10 @@
 //   2. **Normalize both sides** with one content-blind ruleset (`normalize.mjs`).
 //   3. **Check nothing collapsed.** A value that differed before normalization
 //      and agrees after it fails the run unless the two were reorderings.
-//   4. **Diff section by section**, keyed rather than positional (`diff.mjs`).
+//   4. **Diff section by section**, keyed rather than positional (`diff.mjs`) —
+//      except `callbacks`, which has a comparison of its own (`callbacks.mjs`),
+//      because a handler that never fired leaves no residue for any other
+//      section to carry.
 //   5. **Claim what is left** with hand-written regions (`regions.mjs`).
 //
 // Capture and compare are separate steps by design (#18): a trace records
@@ -17,10 +20,11 @@
 // hand-authored assertions into the recording, and it means revising the noise
 // policy re-runs this step in seconds rather than re-running a browser.
 
-import { DRIVING, validateTrace } from "../trace-format.mjs";
+import { CALLBACKS, DRIVING, validateTrace } from "../trace-format.mjs";
+import { compareCallbacks } from "./callbacks.mjs";
 import { diffValues } from "./diff.mjs";
 import { assertNoCollapse, normalize } from "./normalize.mjs";
-import { claimDifferences, passes } from "./regions.mjs";
+import { OUTCOME, claimDifferences, outcomesWith, passes } from "./regions.mjs";
 
 // The driving log is compared ahead of the other sections as its own class:
 // if the inputs differed, the outputs differing tells you nothing new (#26).
@@ -52,10 +56,11 @@ const identity = (trace) => ({
  * Compares two traces and returns everything the report needs.
  *
  * `rules` is the normalization ruleset, `regions` the register of hand-written
- * claims. Both default to empty, which is the strictest possible run: every
- * difference is unclaimed and the run fails.
+ * claims, `weakenings` the per-callback relaxations of the exact sequence. All
+ * three default to empty, which is the strictest possible run: every difference
+ * is unclaimed and the run fails.
  */
-export const compareTraces = (leftTrace, rightTrace, { rules = [], regions = [] } = {}) => {
+export const compareTraces = (leftTrace, rightTrace, { rules = [], regions = [], weakenings = [] } = {}) => {
   validateTrace(leftTrace, `${leftTrace?.side ?? "left"} trace`);
   validateTrace(rightTrace, `${rightTrace?.side ?? "right"} trace`);
 
@@ -74,8 +79,16 @@ export const compareTraces = (leftTrace, rightTrace, { rules = [], regions = [] 
     rules
   );
 
+  // Normalized first, like every other section: a rule that deletes a field by
+  // name reaches inside a serialized argument the same way it reaches inside a
+  // DOM attribute. What `callbacks.mjs` adds is what happens to the *sequence*.
+  const callbacks = compareCallbacks(left.value[CALLBACKS], right.value[CALLBACKS], {
+    weakenings,
+    path: [CALLBACKS],
+  });
+
   const differences = REPORT_ORDER.flatMap((section) =>
-    diffValues(left.value[section], right.value[section], [section])
+    section === CALLBACKS ? callbacks.differences : diffValues(left.value[section], right.value[section], [section])
   );
 
   const claimed = claimDifferences(differences, regions, { scenario: leftTrace.scenario });
@@ -94,7 +107,11 @@ export const compareTraces = (leftTrace, rightTrace, { rules = [], regions = [] 
     differences,
     ...claimed,
     driving: { diverged: drivingDifferences.length > 0, differences: drivingDifferences },
+    weakenings: callbacks.outcomes,
     deleted: { left: left.deleted, right: right.deleted },
-    ok: passes(claimed),
+    // A stale weakening fails the run on its own, for the reason every register
+    // here fails stale: an entry that stops corresponding to a real difference
+    // is one nobody will notice has stopped protecting anything.
+    ok: passes(claimed) && outcomesWith(callbacks.outcomes, OUTCOME.stale).length === 0,
   };
 };

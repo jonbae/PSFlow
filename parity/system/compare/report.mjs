@@ -6,9 +6,10 @@
 // content *moved* are the behavioural changelog.
 
 import { DRIVING } from "../trace-format.mjs";
+
 import { CONSEQUENCE, REPORT_ORDER, isDriving } from "./index.mjs";
 import { formatPath } from "./paths.mjs";
-import { OUTCOME, regionsWith } from "./regions.mjs";
+import { OUTCOME, outcomesWith } from "./regions.mjs";
 
 const MAX_VALUE = 160;
 
@@ -94,7 +95,8 @@ export const renderRunReport = (run) => {
 };
 
 export const renderReport = (result) => {
-  const { left, right, unclaimed, outcomes, deleted } = result;
+  const { left, right, unclaimed, outcomes, weakenings, deleted } = result;
+  const staleWeakenings = outcomesWith(weakenings, OUTCOME.stale);
   const lines = [
     `# Comparison report — ${result.scenario}`,
     "",
@@ -102,8 +104,8 @@ export const renderReport = (result) => {
     "",
   ];
 
-  const stale = regionsWith(outcomes, OUTCOME.stale);
-  const moved = regionsWith(outcomes, OUTCOME.moved);
+  const stale = outcomesWith(outcomes, OUTCOME.stale);
+  const moved = outcomesWith(outcomes, OUTCOME.moved);
 
   if (result.ok) {
     lines.push(
@@ -124,6 +126,7 @@ export const renderReport = (result) => {
     }
     if (stale.length) parts.push(`${stale.length} stale region(s)`);
     if (moved.length) parts.push(`${moved.length} region(s) needing re-affirmation`);
+    if (staleWeakenings.length) parts.push(`${staleWeakenings.length} stale callback weakening(s)`);
     lines.push(`**Failed:** ${parts.join(", ")}.`, "");
   }
 
@@ -189,6 +192,32 @@ export const renderReport = (result) => {
       lines.push(
         "A region whose content moved needs re-affirming, not re-syncing: someone has to look at the new",
         "values and decide they are still the same cause. `--record` writes them back once they have.",
+        ""
+      );
+    }
+  }
+
+  if (weakenings.length) {
+    lines.push(
+      "## Callback weakenings",
+      "",
+      "Callbacks compare as an exact sequence — order, count and interleaving — because a handler that",
+      "never fired leaves no residue for any other section to carry. A weakening relaxes one axis for one",
+      "callback, and an argument that differs is not one of them: that has a path, so it is a region.",
+      "",
+      "| callback | axis | status | reason | ticket |",
+      "|---|---|---|---|---|"
+    );
+    for (const { weakening, status } of weakenings) {
+      lines.push(
+        `| \`${weakening.callback}\` | ${weakening.axis} | ${status} | ${weakening.reason} | ${weakening.ticket ?? "—"} |`
+      );
+    }
+    lines.push("");
+    if (staleWeakenings.length) {
+      lines.push(
+        "A weakening that forgives nothing is holding the strictest comparison in the net open for no reason.",
+        "There is nothing to re-record — it never held any values — so it is deleted or it is wrong.",
         ""
       );
     }

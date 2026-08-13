@@ -33,9 +33,13 @@ export const PENDING = [
     empty: (dom) => dom.root === null,
   },
   {
+    // The comparison and the argument serializer landed with #44; what is still
+    // missing is the in-page log that accumulates the calls — and the boundary
+    // stage (#52) that has to cross the callback props before there is anything
+    // to accumulate.
     section: "callbacks",
-    what: "the call sequence, which needs the argument serializer",
-    issue: 44,
+    what: "the in-page call log; `serialize.mjs` is what it will record with",
+    issue: 54,
     empty: (callbacks) => callbacks.length === 0,
   },
   {

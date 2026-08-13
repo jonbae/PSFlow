@@ -14,6 +14,7 @@ Vocabulary is `CONTEXT.md`. Terms in **bold** are defined there.
 | `actions.mjs` | the **closed** primitive tier |
 | `gestures.mjs` | the **open-by-addition** gesture tier |
 | `driving.mjs` | the **driving log** |
+| `serialize.mjs` | what a callback was handed, as trace content — the one module that runs *in* the page |
 | `port.mjs` | the only file that knows what a browser is |
 | `fake-port.mjs` | its double, which everything above is tested against |
 | `pending.mjs` | the sections capture does not fill yet, declared |
@@ -167,6 +168,46 @@ also unresolved — a finding — rather than as a thrown timeout. The box it
 resolves to is the container measurement `fitView` is computed from, so it lands
 in the section that carries no tolerance.
 
+## The argument serializer
+
+`serialize.mjs` turns a live JavaScript value into the JSON the `callbacks`
+section carries. It is the one module here that runs **in the page** rather than
+driving one from outside, which is why it imports nothing: the in-page call log
+([#54](https://github.com/jonbae/PSFlow/issues/54)) bundles it into the driver.
+
+The rule is the noise policy's: **serialize every enumerable own property,
+blacklist only reference-typed fields.** The second half's *only* is the sharper
+one — a whitelist of interesting fields is a hand-authored reading of what
+xyflow passes, and a field nobody thought to ask for is a field that can differ
+forever. What gets dropped is a value that *is* an identity: a DOM node, a
+function, a React fiber, where the two sides could not agree even in principle
+since each rendered its own. Their kind survives; only the identity goes.
+
+A React **element** is not one of those and is not blacklisted. It is plain data
+— `type`, `key`, `props` — and node `data` routinely carries one, so dropping it
+would put every element in a flow under a single marker. The fiber behind it
+(`_owner`) still goes.
+
+That rule is what catches **a synthetic event where a native one is expected**. A
+React synthetic event carries its fields as enumerable own properties; a native
+event carries them on its prototype, so it has none at all. No shape check and no
+DOM diff can see the difference — both are `object`, and neither leaves a mark on
+the page. The class name is recorded for the case one step further on: without
+it, a `MouseEvent` where a `PointerEvent` belongs would serialize to `{}` on both
+sides and compare clean.
+
+Everything JSON cannot carry gets a marker rather than a flattening —
+`undefined` against `null`, `NaN`, `-0`, a cycle, a getter that threw. Each is a
+difference the file would otherwise stop carrying, and `diff.mjs` compares with
+`Object.is`.
+
+A graph deeper than the ceiling is the one case that **throws** instead. A marker
+there would put two different subgraphs under one value and make them compare
+equal — a collapse, which the noise policy forbids outright and which nothing
+downstream could see, since `assertNoCollapse` only ever sees what capture
+already wrote. The ceiling is there to keep a pathological graph off the stack,
+not to decide anything, so reaching it is a question for a person.
+
 ## Touch, and why it is declared
 
 `Input.dispatchTouchEvent` through `page.context().newCDPSession(page)`. The
@@ -213,7 +254,7 @@ of it capture reaches today.
 | Section | Exports | Captured here |
 |---|---:|---|
 | `dom` | 64 | `page` only — the element tree is [#51](https://github.com/jonbae/PSFlow/issues/51) |
-| `callbacks` | 47 | no — needs the argument serializer, [#44](https://github.com/jonbae/PSFlow/issues/44) |
+| `callbacks` | 47 | no — the serializer is here, the in-page log is [#54](https://github.com/jonbae/PSFlow/issues/54) |
 | `hooks` | 27 | no — needs probes, [#59](https://github.com/jonbae/PSFlow/issues/59) |
 | `api` | 14 | `calls` only, and empty until the bridge exists; `queries` is #59 |
 | `props` | 4 | no — needs probes, #59 |

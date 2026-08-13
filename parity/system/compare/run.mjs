@@ -20,9 +20,10 @@
 // consequences of a run that was not one experiment.
 
 import { SIDES } from "../../driver/sides.mjs";
+
 import { compareTraces, isDriving } from "./index.mjs";
 import { checkSelfConsistency } from "./consistency.mjs";
-import { OUTCOME, regionsWith } from "./regions.mjs";
+import { OUTCOME, outcomesWith } from "./regions.mjs";
 
 // Upstream reads left: it is the reference, and a difference is a thing PSFlow
 // did to it. That is the opposite of `SIDES`' own order, where psflow comes
@@ -36,6 +37,7 @@ export const FAILURE = Object.freeze({
   unclaimed: "unclaimed-difference",
   staleRegion: "stale-region",
   movedRegion: "region-needs-reaffirming",
+  staleWeakening: "stale-weakening",
 });
 
 export class RunError extends Error {
@@ -92,11 +94,22 @@ const failuresOf = (consistency, comparison) => {
   if (driving.length) failures.push({ class: FAILURE.drivingDivergence, differences: driving });
   if (rest.length) failures.push({ class: FAILURE.unclaimed, differences: rest });
 
-  const named = (status) => regionsWith(comparison.outcomes, status).map((o) => o.region.id);
+  const named = (status) => outcomesWith(comparison.outcomes, status).map((o) => o.region.id);
   const stale = named(OUTCOME.stale);
   const moved = named(OUTCOME.moved);
   if (stale.length) failures.push({ class: FAILURE.staleRegion, regions: stale });
   if (moved.length) failures.push({ class: FAILURE.movedRegion, regions: moved });
+
+  // Its own class rather than a stale region: a weakening records no values, so
+  // there is nothing to re-affirm and nothing `--record` could write. It either
+  // still forgives something or it goes.
+  const staleWeakenings = outcomesWith(comparison.weakenings, OUTCOME.stale);
+  if (staleWeakenings.length) {
+    failures.push({
+      class: FAILURE.staleWeakening,
+      weakenings: staleWeakenings.map((o) => `${o.weakening.callback} (${o.weakening.axis})`),
+    });
+  }
 
   return failures;
 };
@@ -109,11 +122,13 @@ const failuresOf = (consistency, comparison) => {
  * comparison reads capture 1 of each side — which is only meaningful *because*
  * the self-consistency check read both.
  */
-export const compareRun = (traces, { rules = [], regions = [] } = {}) => {
+export const compareRun = (traces, { rules = [], regions = [], weakenings = [] } = {}) => {
   const [upstream, psflow] = bySide(traces);
 
+  // No weakenings on the way in: a side is held to reproducing its own call log
+  // exactly, whatever the two sides are allowed to differ on between them.
   const consistency = [upstream, psflow].map(([first, second]) => checkSelfConsistency(first, second, { rules }));
-  const comparison = compareTraces(upstream[0], psflow[0], { rules, regions });
+  const comparison = compareTraces(upstream[0], psflow[0], { rules, regions, weakenings });
   const failures = failuresOf(consistency, comparison);
 
   return {

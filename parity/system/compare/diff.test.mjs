@@ -63,12 +63,17 @@ test("an element present on one side only is reported as one difference, keyed",
   assert.equal(formatPath(rightOnly[0].path), "dom/root/children/div[0]/children/3");
 });
 
-test("callbacks compare as a sequence — position is the identity there", () => {
+test("keying is for DOM children alone; every other list is positional", () => {
   const swapped = fixture("baseline.psflow.json");
   swapped.sections.callbacks.reverse();
 
   const differences = diffValues(upstream().sections.callbacks, swapped.sections.callbacks, ["callbacks"]);
 
+  // A reordered list must not compare equal, and outside `dom` this module has
+  // no identity to pair by, so it says so positionally rather than as `order`.
+  // The `callbacks` section is compared by `callbacks.mjs`, which pairs calls by
+  // name and occurrence and then asserts the sequence itself; what it uses this
+  // module for is the arguments of a pair, where position is the identity.
   assert.ok(differences.length > 0, "a reordered callback log must not compare equal");
   assert.ok(differences.every((d) => d.kind !== "order"));
 });

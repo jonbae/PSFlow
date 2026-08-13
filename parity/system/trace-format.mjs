@@ -18,9 +18,14 @@ export const TRACE_FORMAT = 1;
 // whether a difference landed in it.
 export const DRIVING = "driving";
 
+// Named for the same reason one section further on: `callbacks` is the one
+// section with a comparison of its own (#44), so both comparison paths have to
+// ask whether they are looking at it.
+export const CALLBACKS = "callbacks";
+
 // Order is the format's own; the *report* leads with `driving` instead, because
 // inputs that differed make output differences uninterpretable (#26).
-export const SECTIONS = ["dom", "callbacks", "hooks", "api", "props", "console", DRIVING];
+export const SECTIONS = ["dom", CALLBACKS, "hooks", "api", "props", "console", DRIVING];
 
 export class TraceFormatError extends Error {
   constructor(label, problems) {
