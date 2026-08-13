@@ -72,6 +72,24 @@
     "ReactFlow": "Upstream is a `forwardRef`, PSFlow a plain function — `ReactFlow` is not a drop-in for upstream's because it does not accept a `ref`. This is ticket #27, which a ~20-line scratch script rediscovered independently. Retired by #27.",
     "ReactFlowWithRef": "PSFlow-only, so upstream has no shape to agree with: it is the ref-taking wrapper that exists precisely because `ReactFlow` is not one. Retired by #27, which makes `ReactFlow` a drop-in and removes the reason for a second component."
   },
+  "_comment_behavior": "Behavior entries are keyed by `<export>.<difference-class>`, not export alone. If a fix changes the class without closing the difference, the old entry becomes stale and the new difference is unclaimed, so one known failure cannot hide another. Every reason must name the boundary stage that retires it. Issue #62 owns the decision on creating stage 5 for the fourteen pure exports no current stage crosses.",
+  "behavior": {
+    "enums": {},
+    "functions": {
+      "getBezierEdgeCenter.positional-array-return": "Returns a labelled record where upstream returns a positional array. Retires when boundary stage 5 crosses the remaining pure functions (#62).",
+      "getBezierPath.throw-vs-return": "Still consumes PureScript Position constructors, so shared JS enum strings throw before its labelled-record return is reached. Retires when boundary stage 5 crosses the remaining pure functions (#62).",
+      "getConnectedEdges.call-convention": "Returns the next curried function instead of accepting both arrays in one call. Retires when boundary stage 5 crosses the remaining pure functions (#62).",
+      "getEdgeCenter.positional-array-return": "Returns a labelled record where upstream returns a positional array. Retires when boundary stage 5 crosses the remaining pure functions (#62).",
+      "getIncomers.call-convention": "Returns the next curried function instead of accepting node, nodes and edges together. Retires when boundary stage 5 crosses the remaining pure functions (#62).",
+      "getNodesBounds.call-convention": "Its first call returns a function for PSFlow-only lookup/origin arguments where upstream returns the bounds. Retires when boundary stage 5 crosses the remaining pure functions (#62).",
+      "getOutgoers.call-convention": "Returns the next curried function instead of accepting node, nodes and edges together. Retires when boundary stage 5 crosses the remaining pure functions (#62).",
+      "getSimpleBezierPath.positional-array-return": "Returns a labelled record where upstream returns a positional array. Retires when boundary stage 5 crosses the remaining pure functions (#62).",
+      "getSmoothStepPath.throw-vs-return": "Still consumes PureScript Position constructors, so shared JS enum strings throw before its labelled-record return is reached. Retires when boundary stage 5 crosses the remaining pure functions (#62).",
+      "getStraightPath.positional-array-return": "Returns a labelled record where upstream returns a positional array. Retires when boundary stage 5 crosses the remaining pure functions (#62).",
+      "getViewportForBounds.call-convention": "Returns the next curried function instead of accepting all six upstream arguments together. Retires when boundary stage 5 crosses the remaining pure functions (#62).",
+      "reconnectEdge.call-convention": "Returns the next curried function instead of accepting the old edge, connection, edges and options together. Retires when boundary stage 5 crosses the remaining pure functions (#62)."
+    }
+  },
   "props": {
     "ReactFlowProps": {
       "extra": {

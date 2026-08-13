@@ -1,7 +1,14 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 
-import { AllowlistError, claim, liveRenames, validateReasons, RETIRING_EVENT } from "./allowlist.mjs";
+import {
+  AllowlistError,
+  claim,
+  liveRenames,
+  validateReasons,
+  RETIRING_EVENT,
+  RETIRING_STAGE,
+} from "./allowlist.mjs";
 
 const renamesOf = (result) => result.live.map(([from, to]) => `${from}→${to}`);
 
@@ -49,6 +56,16 @@ test("a shape entry must name the event that retires it: a boundary stage or a t
   );
   assert.doesNotThrow(() =>
     validateReasons("shapes", { ReactFlow: "no ref — ticket #27" }, RETIRING_EVENT)
+  );
+});
+
+test("a behavioral entry names the boundary stage, not merely a tracking ticket", () => {
+  assert.throws(
+    () => validateReasons("behavior.functions", { A: "curried — tracked by #62" }, RETIRING_STAGE),
+    AllowlistError
+  );
+  assert.doesNotThrow(() =>
+    validateReasons("behavior.functions", { A: "uncurries in boundary stage 5 (#62)" }, RETIRING_STAGE)
   );
 });
 

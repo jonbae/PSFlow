@@ -7,7 +7,7 @@
 //
 //   * a non-empty "missing in PSFlow" *export* bucket after allowlisting;
 //   * a non-empty missing/extra *prop-member* bucket after allowlisting;
-//   * a non-empty shape-divergence bucket after allowlisting;
+//   * a non-empty shape- or behavior-divergence bucket after allowlisting;
 //   * any allowlist entry that no longer claims a real difference — stale;
 //   * any allowlist entry whose reason nobody could act on — malformed.
 //
@@ -31,12 +31,20 @@
 // not have at all. `Position` is upstream's name, so PSFlow holding both the
 // value and a PureScript type of that name is not an extension.
 
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import { dirname, join } from "node:path";
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { PROP_TYPES } from "./prop-types.mjs";
 import { shapeDifferences } from "./shape.mjs";
-import { AllowlistError, RETIRING_EVENT, claim, liveRenames, validateReasons } from "./allowlist.mjs";
+import { behaviorDifferences, describeObservation } from "./behavior.mjs";
+import {
+  AllowlistError,
+  RETIRING_EVENT,
+  RETIRING_STAGE,
+  claim,
+  liveRenames,
+  validateReasons,
+} from "./allowlist.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const load = (name) => JSON.parse(readFileSync(join(here, name), "utf8"));
@@ -46,11 +54,13 @@ const psflow = load("psflow.json");
 const allowPath = join(here, "allowlist.json");
 const allow = existsSync(allowPath)
   ? load("allowlist.json")
-  : { exports: { missing: {}, extra: {} }, shapes: {}, props: {} };
+  : { exports: { missing: {}, extra: {} }, shapes: {}, behavior: {}, props: {} };
 
 const allowMissing = allow.exports?.missing ?? {};
 const allowExtra = allow.exports?.extra ?? {};
 const allowShapes = allow.shapes ?? {};
+const allowBehaviorEnums = allow.behavior?.enums ?? {};
+const allowBehaviorFunctions = allow.behavior?.functions ?? {};
 
 // Every entry needs a written reason, and a shape entry needs one that names
 // what will retire it — an entry nobody can act on is a failure of the register
@@ -70,6 +80,8 @@ const checkReasons = (register, entries, rule) => {
 checkReasons("exports.missing", allowMissing);
 checkReasons("exports.extra", allowExtra);
 checkReasons("shapes", allowShapes, RETIRING_EVENT);
+checkReasons("behavior.enums", allowBehaviorEnums, RETIRING_STAGE);
+checkReasons("behavior.functions", allowBehaviorFunctions, RETIRING_STAGE);
 for (const { name } of PROP_TYPES) {
   const cfg = allow.props?.[name] ?? {};
   checkReasons(`props.${name}.missing`, cfg.missing);
@@ -117,6 +129,21 @@ const shapeDiff = claim(
   allowShapes
 );
 
+// ─── Value behavior (fails the run) ──────────────────────────────────────
+// The upstream extractor has already bundled and imported the vendored entry
+// point to read shapes. Import that exact artifact here and compare it with the
+// package barrel a consumer reaches. The fixtures in behavior.mjs are cloned
+// from one frozen input for each side, so this is call-and-compare rather than
+// two expectations which merely happen to look alike.
+const upstreamRuntime = await import(pathToFileURL(join(here, "upstream-bundle.mjs")).href);
+const psflowRuntime = await import(pathToFileURL(join(here, "..", "..", "index.js")).href);
+const behaviorRows = behaviorDifferences(upstreamRuntime, psflowRuntime);
+const behaviorById = new Map(
+  [...behaviorRows.enums, ...behaviorRows.functions].map((row) => [row.id, row])
+);
+const behaviorEnums = claim(behaviorRows.enums.map((row) => row.id), allowBehaviorEnums);
+const behaviorFunctions = claim(behaviorRows.functions.map((row) => row.id), allowBehaviorFunctions);
+
 // ─── Prop diffs (fails the run) ───────────────────────────────────────────
 // `props.<Type>.rename` maps an upstream member name to the PSFlow name that
 // stands in for it. It is applied to the *upstream* set before diffing, so an
@@ -160,6 +187,8 @@ const staleEntries = [
   ...missing.stale.map((n) => [`exports.missing.${n}`, "no upstream export of that name is missing from PSFlow"]),
   ...extra.stale.map((n) => [`exports.extra.${n}`, "PSFlow no longer publishes that name, or upstream now does too"]),
   ...shapeDiff.stale.map((n) => [`shapes.${n}`, "the two shapes agree now — the divergence it recorded is gone"]),
+  ...behaviorEnums.stale.map((n) => [`behavior.enums.${n}`, "the frozen enum objects no longer differ in that class"]),
+  ...behaviorFunctions.stale.map((n) => [`behavior.functions.${n}`, "that call no longer differs in that class"]),
   ...PROP_TYPES.flatMap((p) => {
     const r = propResults[p.name];
     return [
@@ -218,7 +247,27 @@ const shapeTable = (names, { withReason }) =>
         .join("\n")
     : `| _none_ |${" |".repeat(withReason ? 3 : 2)}`;
 
-const report = `# Surface parity — export, shape and prop-member report
+const shortObservation = (observation) => {
+  const text = describeObservation(observation).replace(/\|/g, "\\|").replace(/\r?\n/g, " ");
+  return text.length > 180 ? `${text.slice(0, 177)}…` : text;
+};
+
+const behaviorTable = (names, allowMap = null) =>
+  names.length
+    ? names.map((id) => {
+        const row = behaviorById.get(id);
+        const cells = [
+          `\`${row.name}\``,
+          `\`${row.differenceClass}\``,
+          shortObservation(row.upstream),
+          shortObservation(row.psflow),
+        ];
+        if (allowMap) cells.push(allowMap[id] ?? "");
+        return `| ${cells.join(" | ")} |`;
+      }).join("\n")
+    : `| _none_ |${" |".repeat(allowMap ? 4 : 3)}`;
+
+const report = `# Surface parity — export, shape, behavior and prop-member report
 
 _Generated by \`npm run parity:surface\` — do not edit by hand. Last run: ${now}._
 
@@ -236,6 +285,11 @@ bundling the same vendored entry point and importing it — \`forwardRef\` and
 \`index.js\`, which is why this gate needs \`spago build\` first and is no longer
 standalone; its type names still come from \`src/React.purs\`, types having no
 runtime existence to import.
+
+The same two imported barrels supply the behavioral checks: frozen snapshots
+of the eight enum objects are deep-compared, then seventeen pure functions are
+called with cloned copies of one shared input each and their returns compared.
+This is still a seconds-only Node gate; it mounts nothing and needs no browser.
 
 An upstream **value** is satisfied only by a PSFlow **value**. The two name
 sets were merged until ticket 041, which passed nine audience-reaching absences
@@ -309,6 +363,40 @@ done is mechanical: delete that stage's entries and this gate must stay green.
 |--------|----------|--------|------------|
 ${shapeTable(shapeDiff.claimed, { withReason: true })}
 
+## Value behavior parity (gates CI)
+
+The eight enum objects must be frozen and deep-equal upstream. The seventeen
+pure functions are then called through \`index.js\` with the same inputs as the
+vendored upstream bundle. A difference is keyed by both export and class, so an
+allowlisted currying gap cannot later hide a different return-value regression.
+
+- enum objects compared: 8 · differ: ${behaviorRows.enums.length}
+- pure functions called: 17 · agree: ${17 - behaviorRows.functions.length} · differ: ${behaviorRows.functions.length}
+
+### ❌ Un-allowlisted enum divergence (gates CI)
+
+| Export | Difference class | upstream | PSFlow |
+|--------|------------------|----------|--------|
+${behaviorTable(behaviorEnums.unclaimed)}
+
+### ❌ Un-allowlisted pure-function divergence (gates CI)
+
+| Export | Difference class | upstream | PSFlow |
+|--------|------------------|----------|--------|
+${behaviorTable(behaviorFunctions.unclaimed)}
+
+### 📋 Known behavioral divergences (allowlisted)
+
+Every entry names its retiring boundary stage. Fixing only part of a divergence
+changes its class, which makes the old entry stale and the new class unclaimed.
+
+| Export | Difference class | upstream | PSFlow | Retired by |
+|--------|------------------|----------|--------|------------|
+${behaviorTable(
+  [...behaviorEnums.claimed, ...behaviorFunctions.claimed],
+  { ...allowBehaviorEnums, ...allowBehaviorFunctions }
+)}
+
 ## Prop-member parity (gates CI)
 
 Members are restricted to those declared in the xyflow sources (inherited React
@@ -345,6 +433,11 @@ console.log(
     `differ=${shapeDiff.unclaimed.length} allowlisted=${shapeDiff.claimed.length}`
 );
 console.log(
+  `[diff] behavior enums=8/${behaviorRows.enums.length}/${behaviorEnums.unclaimed.length} ` +
+    `functions=17/${behaviorRows.functions.length}/${behaviorFunctions.unclaimed.length} ` +
+    "(checked/differ/unallowlisted)"
+);
+console.log(
   `[diff] props ` +
     PROP_TYPES.map(
       (p) =>
@@ -374,6 +467,24 @@ if (shapeDiff.unclaimed.length > 0) {
   console.error(
     "Cross the export in the boundary module, or add it to allowlist.json under\n" +
       "`shapes` with a reason naming the boundary stage or ticket that retires it."
+  );
+  process.exitCode = 1;
+}
+
+const unclaimedBehavior = [
+  ...behaviorEnums.unclaimed.map((id) => behaviorById.get(id)),
+  ...behaviorFunctions.unclaimed.map((id) => behaviorById.get(id)),
+];
+if (unclaimedBehavior.length > 0) {
+  console.error(`\n[diff] FAIL: ${unclaimedBehavior.length} value behavior difference(s) are not allowlisted:`);
+  for (const row of unclaimedBehavior) {
+    console.error(`  - ${row.name} [${row.differenceClass}]`);
+    console.error(`      upstream ${shortObservation(row.upstream)}`);
+    console.error(`      PSFlow   ${shortObservation(row.psflow)}`);
+  }
+  console.error(
+    "Cross the export in the boundary module, or add its `<export>.<difference-class>`\n" +
+      "id under `behavior` with a reason naming the boundary stage that retires it."
   );
   process.exitCode = 1;
 }
@@ -412,12 +523,14 @@ if (staleEntries.length > 0) {
 if (
   !missing.unclaimed.length &&
   !shapeDiff.unclaimed.length &&
+  !behaviorEnums.unclaimed.length &&
+  !behaviorFunctions.unclaimed.length &&
   !propFailures.length &&
   !staleEntries.length &&
   !malformed.length
 ) {
   console.log(
-    "[diff] OK: no un-allowlisted missing exports, no un-allowlisted shape or prop\n" +
-      "       divergence, and every allowlist entry claims something."
+    "[diff] OK: no un-allowlisted missing exports, shape, behavior or prop divergence,\n" +
+      "       and every allowlist entry claims something."
   );
 }
