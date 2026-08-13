@@ -6,7 +6,7 @@
 //      ('/parity/driver/index.html#/tests/generic/nodes/general')
 //      instead of a vite path ('/tests/generic/nodes/general').
 //
-// The page is the TSX driver, with `@xyflow/react` aliased to `index.js` — so
+// The page mounts the TSX driver with `@xyflow/react` aliased to `index.js` — so
 // this spec enters through the JS surface, the door the audience comes
 // through, and it mounts upstream's own `nodes/general.ts` unmodified. Run
 // `npm run build:driver` after changing `src/` or re-vendoring `xyflow/`.

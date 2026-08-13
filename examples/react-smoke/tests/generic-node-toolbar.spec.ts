@@ -7,7 +7,7 @@
 //      instead of a vite path ('/tests/generic/node-toolbar/general').
 //   3. the beforeEach waitForSelector timeout is bumped to 10s for the static server.
 //
-// The page is the TSX driver, with `@xyflow/react` aliased to `index.js` — so
+// The page mounts the TSX driver with `@xyflow/react` aliased to `index.js` — so
 // this spec enters through the JS surface, the door the audience comes
 // through, and it mounts upstream's own `node-toolbar/general.ts` and its
 // `ToolbarNode.tsx` unmodified. That component is the first user-authored

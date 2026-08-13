@@ -11,16 +11,15 @@
 // `props` section is green ([#61](https://github.com/jonbae/PSFlow/issues/61));
 // `npm run test:node-props` is its runner.
 //
-// The page (`Example.NodePropsProbe`, route `#/examples/node-props`) renders each
-// of those fields as a `data-*` attribute on a `.node-props-probe` div. The
-// expected strings are exactly what PureScript's `show` emits — `Number` carries
-// a trailing `.0`, `Boolean` is lower-case.
+// The JS-surface page (`#/examples/node-props`) renders each
+// of those fields as a `data-*` attribute on a `.node-props-node` div. The
+// expected strings are the browser representation of JS-native values.
 import { test, expect, type Page } from "@playwright/test";
 
-const ROUTE = "/examples/react-smoke/index.html#/examples/node-props";
+const ROUTE = "/parity/driver/index.html#/examples/node-props";
 
-const probe = (page: Page, id: string) =>
-  page.locator(`.react-flow__node[data-id="${id}"] .node-props-probe`);
+const nodeView = (page: Page, id: string) =>
+  page.locator(`.react-flow__node[data-id="${id}"] .node-props-node`);
 
 test.describe("NodeProps (PSFlow guard, ticket 069)", () => {
   // `probe-child` sets selectable/draggable/deletable explicitly to false and
@@ -32,20 +31,20 @@ test.describe("NodeProps (PSFlow guard, ticket 069)", () => {
     await page.goto(ROUTE);
     await expect(page.locator(".react-flow")).toBeVisible();
 
-    const child = probe(page, "probe-child");
+    const child = nodeView(page, "probe-child");
     await expect(child).toBeVisible();
 
     await expect(child).toHaveAttribute("data-selectable", "false");
     await expect(child).toHaveAttribute("data-draggable", "false");
     await expect(child).toHaveAttribute("data-deletable", "false");
 
-    await expect(child).toHaveAttribute("data-width", "120.0");
-    await expect(child).toHaveAttribute("data-height", "40.0");
+    await expect(child).toHaveAttribute("data-width", "120");
+    await expect(child).toHaveAttribute("data-height", "40");
 
     await expect(child).toHaveAttribute("data-parent-id", "probe-parent");
 
-    await expect(child).toHaveAttribute("data-pos-x", "150.0");
-    await expect(child).toHaveAttribute("data-pos-y", "225.0");
+    await expect(child).toHaveAttribute("data-pos-x", "150");
+    await expect(child).toHaveAttribute("data-pos-y", "225");
   });
 
   // `probe-parent` leaves all three flags at `Nothing`, so it covers the
@@ -55,19 +54,19 @@ test.describe("NodeProps (PSFlow guard, ticket 069)", () => {
     await page.goto(ROUTE);
     await expect(page.locator(".react-flow")).toBeVisible();
 
-    const parent = probe(page, "probe-parent");
+    const parent = nodeView(page, "probe-parent");
     await expect(parent).toBeVisible();
 
     await expect(parent).toHaveAttribute("data-selectable", "true");
     await expect(parent).toHaveAttribute("data-draggable", "true");
     await expect(parent).toHaveAttribute("data-deletable", "true");
 
-    await expect(parent).toHaveAttribute("data-width", "300.0");
-    await expect(parent).toHaveAttribute("data-height", "200.0");
+    await expect(parent).toHaveAttribute("data-width", "300");
+    await expect(parent).toHaveAttribute("data-height", "200");
 
     await expect(parent).toHaveAttribute("data-parent-id", "");
 
-    await expect(parent).toHaveAttribute("data-pos-x", "100.0");
-    await expect(parent).toHaveAttribute("data-pos-y", "200.0");
+    await expect(parent).toHaveAttribute("data-pos-x", "100");
+    await expect(parent).toHaveAttribute("data-pos-y", "200");
   });
 });

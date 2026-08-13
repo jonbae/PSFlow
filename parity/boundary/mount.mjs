@@ -120,7 +120,7 @@ let customNodeProps = null;
 
 const customNode = (...children) => (props) => {
   customNodeProps = props;
-  return createElement("div", { className: "probe-node" }, "node", ...children);
+  return createElement("div", { className: "custom-node" }, "node", ...children);
 };
 
 const CustomNode = customNode();
@@ -201,7 +201,7 @@ check("a fully converted prop set mounts", () => {
 });
 
 check("the consumer's node component is reached", () => {
-  assert(markup.includes("probe-node"), "the custom node type did not render");
+  assert(markup.includes("custom-node"), "the custom node type did not render");
   assert(customNodeProps !== null, "the custom node component was never called");
 });
 

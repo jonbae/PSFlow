@@ -14,7 +14,7 @@
 // Exit 1 = the classification no longer matches the surface. Fix
 // classification.json, don't loosen this script.
 
-import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync, readdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { manifest } from "../../src/Boundary.js";
@@ -77,13 +77,12 @@ const FLAT_GATES = {
 // numbering alive in the register that is supposed to have shed it.
 const SPEC_SUITES = new Set(["conformance", "smoke", "node-props"]);
 
-// A spec enters through the JS surface iff it loads the conformance driver
-// page, which is bundled with `@xyflow/react` aliased to `index.js`. Every
-// other spec loads the compiled `Example.Main` page — the PureScript surface.
-// Reading the spec rather than listing it here is what makes the census's two
-// columns follow a spec when it migrates from one door to the other.
+// Every browser spec enters through the driver page, which is bundled with
+// `@xyflow/react` aliased to `index.js`. The compiled `Example.Main` page was
+// retired by ticket 050; naming its old URL is now a contract violation rather
+// than a second surface the census will classify.
 const JS_SURFACE_PAGE = "/parity/driver/index.html";
-const PS_SURFACE_PAGE = "/examples/react-smoke/index.html";
+const RETIRED_PS_SURFACE_PAGE = "/examples/react-smoke/index.html";
 
 const specSurfaces = new Map();
 const specErrors = [];
@@ -97,24 +96,29 @@ const surfaceOfSpec = (spec) => {
   } else {
     const src = readFileSync(path, "utf8");
     const js = src.includes(JS_SURFACE_PAGE);
-    const ps = src.includes(PS_SURFACE_PAGE);
-    if (js && ps) {
+    const retired = src.includes(RETIRED_PS_SURFACE_PAGE);
+    if (retired) {
       specErrors.push(
-        `${spec} loads both the driver page and the Example.Main page — split it, ` +
-          `or the census cannot say which surface it gates.`
+        `${spec} enters through the retired Example.Main page ` +
+          `(${RETIRED_PS_SURFACE_PAGE}); every browser spec must use ${JS_SURFACE_PAGE}.`
       );
     } else if (js) surface = "js";
-    else if (ps) surface = "ps";
     else {
       specErrors.push(
-        `${spec} loads neither ${JS_SURFACE_PAGE} nor ${PS_SURFACE_PAGE}; ` +
-          `the census cannot tell which surface it entered through.`
+        `${spec} does not load ${JS_SURFACE_PAGE}; every browser spec must enter ` +
+          `through the JS surface.`
       );
     }
   }
   specSurfaces.set(spec, surface);
   return surface;
 };
+
+// The contract applies to every executable browser spec, not only specs that
+// happen to be cited by an export's hand-maintained gate attribution.
+for (const spec of readdirSync(SPEC_DIR).filter((name) => name.endsWith(".spec.ts"))) {
+  surfaceOfSpec(spec);
+}
 
 // { suite, spec, indirect, surface } — surface is null when unresolvable.
 const parseGate = (name, token) => {
@@ -299,11 +303,11 @@ out.push("specific to it — it would not fail if the behaviour diverged.");
 out.push("");
 out.push("**Gated is always relative to one surface**, so the question is asked twice and");
 out.push("the two counts are never summed. Which column a browser gate lands in is derived,");
-out.push("not declared: a spec that loads `parity/driver/index.html` entered through");
-out.push("`index.js` — the **JS surface** — and every other spec loads the compiled");
-out.push("`Example.Main` page. Function parity and the prop-member diff read below");
-out.push("`index.js` and are therefore PureScript-surface gates, which is why the gate");
-out.push("whose name sounds closest to the JS surface is among the furthest from it.");
+out.push("not declared: every browser spec must load `parity/driver/index.html`, which enters");
+out.push("through `index.js` — the **JS surface** — or the census fails. Function parity and");
+out.push("the prop-member diff read below `index.js` and are therefore PureScript-surface");
+out.push("gates, which is why the gate whose name sounds closest to the JS surface is among");
+out.push("the furthest from it.");
 out.push("");
 out.push("The JS-surface status joins the boundary manifest to gates that enter through");
 out.push("`index.js`. Browser-spec and boundary-check attribution is hand-maintained in");

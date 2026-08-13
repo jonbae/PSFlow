@@ -9,7 +9,7 @@
 //      is commented out with a note that its timeout gets ignored under vite;
 //      the static server needs the wait so the flow is mounted before asserting).
 //
-// The page is the TSX driver, with `@xyflow/react` aliased to `index.js` — so
+// The page mounts the TSX driver with `@xyflow/react` aliased to `index.js` — so
 // this spec enters through the JS surface, the door the audience comes
 // through, and it mounts upstream's own `edges/general.ts` unmodified. That
 // fixture imports `MarkerType` from the package it is driving; selecting and

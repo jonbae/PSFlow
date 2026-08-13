@@ -41,6 +41,7 @@ const censusFixture = (
     "src/Boundary.js",
     `export const manifest = ${JSON.stringify({ stage: 1, ...manifest })};\n`
   );
+  mkdirSync(join(root, "examples/react-smoke/tests"), { recursive: true });
   for (const [name, contents] of Object.entries(specs)) {
     write(root, `examples/react-smoke/tests/${name}`, contents);
   }
@@ -108,4 +109,36 @@ test("the standalone census rejects a manifest name that is both crossed and pas
 
   assert.equal(failure.status, 1);
   assert.match(failure.stderr, /Boundary manifest names marked both crossed and passthrough.*Ambiguous/);
+});
+
+test("the standalone census rejects specs that enter through the retired Example.Main page", (t) => {
+  const root = censusFixture(t, {
+    valueExports: ["LegacyGate"],
+    classification: {
+      LegacyGate: ["component", "dual-run-dom", ["smoke:legacy.spec.ts"], ""],
+    },
+    manifest: { crossed: ["LegacyGate"], passthrough: [] },
+    specs: {
+      "legacy.spec.ts": 'page.goto("/examples/react-smoke/index.html");\n',
+    },
+  });
+  const failure = runCensus(root);
+
+  assert.equal(failure.status, 1);
+  assert.match(failure.stderr, /legacy\.spec\.ts enters through the retired Example\.Main page/);
+});
+
+test("the standalone census checks unclassified specs for the retired page too", (t) => {
+  const root = censusFixture(t, {
+    valueExports: ["Ungated"],
+    classification: { Ungated: ["component", "dual-run-dom", [], ""] },
+    manifest: { crossed: ["Ungated"], passthrough: [] },
+    specs: {
+      "screenshot.spec.ts": 'page.goto("/examples/react-smoke/index.html");\n',
+    },
+  });
+  const failure = runCensus(root);
+
+  assert.equal(failure.status, 1);
+  assert.match(failure.stderr, /screenshot\.spec\.ts enters through the retired Example\.Main page/);
 });
