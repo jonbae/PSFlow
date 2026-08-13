@@ -127,10 +127,10 @@ type JsFitViewOptions =
 -- |
 -- | The thirteen split two ways, and the message says which:
 -- |
--- |   * `type`, `markerStart`, `markerEnd`, `style` and `className` are fields
--- |     `Edge` itself has — so the value has somewhere to go, just not through
--- |     this record, and setting it per edge works today.
--- |   * the six label options, `ariaRole` and `domAttributes` are fields
+-- |   * `type`, `markerStart`, `markerEnd`, `style`, `className` and `label`
+-- |     are fields `Edge` itself has — so the value has somewhere to go, just
+-- |     not through this record, and setting it per edge works today.
+-- |   * the five remaining label options, `ariaRole` and `domAttributes` are fields
 -- |     ps-flow does not model anywhere yet. Those are census rows.
 type JsDefaultEdgeOptions =
   { animated :: Undefinable Boolean
@@ -551,7 +551,7 @@ refusedEdgeOptions =
   , droppedOption "markerEnd" _.markerEnd
   , droppedOption "style" _.style
   , droppedOption "className" _.className
-  , unmodelledOption "label" _.label
+  , droppedOption "label" _.label
   , unmodelledOption "labelStyle" _.labelStyle
   , unmodelledOption "labelShowBg" _.labelShowBg
   , unmodelledOption "labelBgStyle" _.labelBgStyle

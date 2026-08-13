@@ -89,6 +89,7 @@ sampleEdge =
   , markerStart: Nothing
   , markerEnd: Nothing
   , zIndex: Nothing
+  , label: Nothing
   , ariaLabel: Nothing
   , interactionWidth: Nothing
   , className: Nothing
@@ -144,6 +145,7 @@ freshEdge =
   , markerStart: Nothing
   , markerEnd: Nothing
   , zIndex: Nothing
+  , label: Nothing
   , ariaLabel: Nothing
   , interactionWidth: Nothing
   , className: Nothing

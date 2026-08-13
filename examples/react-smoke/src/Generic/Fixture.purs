@@ -103,6 +103,7 @@ baseEdge eid src tgt =
   , markerStart: Nothing
   , markerEnd: Nothing
   , zIndex: Nothing
+  , label: Nothing
   , ariaLabel: Nothing
   , interactionWidth: Nothing
   , className: Nothing
@@ -219,7 +220,8 @@ markerOfType t =
 
 -- | Port of `generic-tests/edges/general.ts` — 14 nodes (incl. subflow parent
 -- | `12` with children `12-a`/`12-b`) + 12 edges, each exercising one edge prop.
--- | Labels are dropped (no test asserts label text; `EdgeBase` carries none).
+-- | Labels remain omitted from this legacy hand-translated fixture; the
+-- | conformance suite now imports upstream's fixture through the JS surface.
 edgesGeneral :: Fixture
 edgesGeneral =
   { nodes:

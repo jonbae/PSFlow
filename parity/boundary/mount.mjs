@@ -373,7 +373,7 @@ const jsNodes = [
   { id: "a", type: "custom", position: { x: 10, y: 20 }, data: { label: "A" }, style: { background: "red" } },
   { id: "b", position: { x: 0, y: 0 }, data: {} },
 ];
-const jsEdges = [{ id: "a-b", source: "a", target: "b" }];
+const jsEdges = [{ id: "a-b", source: "a", target: "b", label: "A to B" }];
 
 function uncurried(what, fn, arity) {
   check(what, () => {
@@ -419,6 +419,7 @@ check("edges come back JS-shaped, so they can go straight back into `edges`", ()
   const [e] = applyEdgeChanges([{ type: "select", id: "a-b", selected: true }], jsEdges);
   assert(e.id === "a-b", "the edge lost its id in the round trip");
   assert(e.source === "a" && e.target === "b", "the edge lost its endpoints in the round trip");
+  assert(e.label === "A to B", "the edge lost its label in the round trip");
   assert(!("edgeType" in e), "the edge still carries `edgeType`");
 });
 

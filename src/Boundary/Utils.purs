@@ -143,6 +143,7 @@ edgeFromConnection generate c =
   , markerStart: Nothing
   , markerEnd: Nothing
   , zIndex: Nothing
+  , label: Nothing
   , ariaLabel: Nothing
   , interactionWidth: Nothing
   , className: Nothing

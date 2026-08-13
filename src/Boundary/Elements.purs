@@ -187,7 +187,7 @@ type JsEdgeMarker =
   , strokeWidth :: Undefinable Number
   }
 
--- | The 19 fields of `System.Types.Edge.EdgeBase`. `markerStart`/`markerEnd`
+-- | The 20 fields of `System.Types.Edge.EdgeBase`. `markerStart`/`markerEnd`
 -- | are `Foreign` because upstream's `EdgeMarkerType` is `string | EdgeMarker`.
 type JsEdge =
   { id :: String
@@ -205,6 +205,7 @@ type JsEdge =
   , markerStart :: Undefinable Foreign
   , markerEnd :: Undefinable Foreign
   , zIndex :: Undefinable Number
+  , label :: Undefinable String
   , ariaLabel :: Undefinable String
   , interactionWidth :: Undefinable Number
   , className :: Undefinable String
@@ -521,6 +522,7 @@ edgeIn e =
   , markerStart: map (markerIn "edge.markerStart") (fromUndefinable e.markerStart)
   , markerEnd: map (markerIn "edge.markerEnd") (fromUndefinable e.markerEnd)
   , zIndex: map Int.round (fromUndefinable e.zIndex)
+  , label: fromUndefinable e.label
   , ariaLabel: fromUndefinable e.ariaLabel
   , interactionWidth: fromUndefinable e.interactionWidth
   , className: fromUndefinable e.className
@@ -544,6 +546,7 @@ edgeOut e =
   , markerStart: toUndefinable (map markerOut e.markerStart)
   , markerEnd: toUndefinable (map markerOut e.markerEnd)
   , zIndex: toUndefinable (map Int.toNumber e.zIndex)
+  , label: toUndefinable e.label
   , ariaLabel: toUndefinable e.ariaLabel
   , interactionWidth: toUndefinable e.interactionWidth
   , className: toUndefinable e.className
