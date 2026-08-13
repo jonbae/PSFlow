@@ -61,6 +61,15 @@ export const RETIRING_EVENT = {
     "name the event that retires it — a boundary stage (`stage 2`) or a ticket (`#27`, `ticket 058`)",
 };
 
+// Behavioral divergences are all conversion debt, so a ticket by itself is
+// not enough: the reason must say which boundary stage removes the difference.
+// Stage 5 is intentionally accepted here because issue #62 owns the decision
+// on creating it for the fourteen pure exports no current stage crosses.
+export const RETIRING_STAGE = {
+  pattern: /\bboundary stage [1-9]\d*\b/i,
+  requirement: "name the boundary stage that retires it (for example, `boundary stage 5`)",
+};
+
 /** Every entry needs a written reason; some registers demand more of it. */
 export const validateReasons = (register, entries = {}, rule = null) => {
   for (const [name, reason] of Object.entries(entries)) {

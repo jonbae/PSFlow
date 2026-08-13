@@ -22,7 +22,7 @@ mean something.
 
 | Gate | Command | What it compares |
 |---|---|---|
-| **surface parity** | `npm run parity:surface` | exported *values* and their shapes, plus prop members, against the vendored upstream |
+| **surface parity** | `npm run parity:surface` | exported *values*, shapes and selected JS-barrel behavior, plus prop members, against vendored upstream |
 | **function parity** | `spago test` | pure-function return values, against the `@psflow/oracle` bundle |
 | **conformance test suite** | `npm run test:conformance` | upstream's own e2e specs, ported — upstream's *asserted intent* |
 | **smoke test suite** | `npm run test:smoke` | liveness, plus the hand-authored interaction assertions not yet retired |
@@ -53,6 +53,13 @@ reading it — a regex over the file proves a line of text exists, not that the
 binding resolves — which is also what lets it compare `typeof`, arity and React
 wrapper kind across every export. The cost, accepted in ticket 041: the
 cheapest gate is no longer standalone.
+
+The gate also deep-compares the eight frozen enum objects and calls the
+seventeen pure functions once through `index.js` with the same inputs as the
+vendored upstream bundle. This catches JS-boundary failures that `typeof` and
+arity cannot, especially a labelled record where upstream returns a positional
+array. Known differences are keyed by export *and difference class*; every one
+names its retiring boundary stage and fails as stale when it stops matching.
 
 ## Checks that are not gates in that sense
 

@@ -98,12 +98,15 @@ with no upstream at all.
 
 **Surface parity** (`npm run parity:surface`):
 The parity gate at the grain of one export: the **values** `index.js` publishes
-and their **shapes** — `typeof`, arity, React wrapper kind — plus prop members,
-compared against the vendored upstream. It *imports* `index.js` rather than
-reading it, so it proves a binding resolves rather than that a line exists, and
-therefore needs `spago build` first: this gate is not standalone. Type names
-still come from `src/React.purs`, types having nothing to import. An upstream
-value is satisfied only by a PSFlow value.
+and their **shapes** — `typeof`, arity, React wrapper kind — plus prop members
+and two behavioral checks: deep-equality of the eight frozen enum objects and
+call-and-compare over the seventeen pure functions. All are compared against
+the vendored upstream. It *imports* `index.js` rather than reading it, so it
+proves a binding resolves rather than that a line exists, and therefore needs
+`spago build` first: this gate is not standalone. Type names still come from
+`src/React.purs`, types having nothing to import. An upstream value is satisfied
+only by a PSFlow value. The behavioral checks still run in Node, in seconds,
+without mounting or opening a browser.
 _Avoid_: Layer 0, the API diff, `parity:api`
 
 **Function parity** (the `Test.Parity.*` modules under `spago test`):
