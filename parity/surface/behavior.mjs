@@ -66,6 +66,7 @@ const fullEdge = (id, source, target) => ({
   markerStart: undefined,
   markerEnd: undefined,
   zIndex: undefined,
+  label: undefined,
   ariaLabel: undefined,
   interactionWidth: undefined,
   className: undefined,

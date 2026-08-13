@@ -17,6 +17,8 @@
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+import { manifest } from "../../src/Boundary.js";
+import { ENUM_EXPORTS, PURE_FUNCTION_CALLS } from "../surface/behavior.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const read = (p) => JSON.parse(readFileSync(join(here, p), "utf8"));
@@ -42,6 +44,17 @@ const upstreamValues = new Set(upstream.valueExports);
 const upstreamNames = [...upstream.valueExports, ...upstream.typeExports];
 const psValues = new Set(psflow.valueExports);
 const psTypes = new Set(psflow.typeExports);
+const crossed = new Set(manifest.crossed);
+const passthrough = new Set(manifest.passthrough);
+const behaviorExports = new Set([
+  ...ENUM_EXPORTS,
+  ...PURE_FUNCTION_CALLS.map(({ name }) => name),
+]);
+const BOUNDARY_STATUS = Object.freeze({
+  crossed: Object.freeze({ label: "crossed", isCrossed: true }),
+  passthrough: Object.freeze({ label: "passthrough", isCrossed: false }),
+  absent: Object.freeze({ label: "no runtime value", isCrossed: false }),
+});
 
 // ── Gate vocabulary ────────────────────────────────────────────────────────
 // A gate token is either a bare name (a gate with no per-row spec) or
@@ -53,6 +66,7 @@ const SPEC_DIR = join(here, "../../examples/react-smoke/tests");
 // parity imports `System.Utils.*` and the prop-member diff reads the records
 // in `src/React/Types/*.purs`. Neither loads `index.js`.
 const FLAT_GATES = {
+  boundary: "js",
   function: "ps",
   "surface-props": "ps",
 };
@@ -140,6 +154,29 @@ if (stale.length) {
   errors.push(`Classified names no longer in the upstream surface (${stale.length}): ${stale.join(", ")}`);
 }
 
+const manifestNames = [...manifest.crossed, ...manifest.passthrough];
+const ambiguousManifestNames = manifest.crossed.filter((name) => passthrough.has(name));
+const absentFromManifest = [...psValues].filter((name) => !crossed.has(name) && !passthrough.has(name));
+const staleInManifest = manifestNames.filter((name) => !psValues.has(name));
+if (ambiguousManifestNames.length) {
+  errors.push(
+    `Boundary manifest names marked both crossed and passthrough (${ambiguousManifestNames.length}): ` +
+      ambiguousManifestNames.join(", ")
+  );
+}
+if (absentFromManifest.length) {
+  errors.push(
+    `PSFlow runtime exports absent from the boundary manifest (${absentFromManifest.length}): ` +
+      absentFromManifest.join(", ")
+  );
+}
+if (staleInManifest.length) {
+  errors.push(
+    `Boundary manifest names with no PSFlow runtime export (${staleInManifest.length}): ` +
+      staleInManifest.join(", ")
+  );
+}
+
 // A function-parity claim on a pure function must be backed by the oracle
 // bundle actually exporting it — one of the two gate claims verifiable
 // mechanically. The other is that every named spec file exists and says which
@@ -159,9 +196,13 @@ for (const name of upstreamNames) {
   }
 }
 
-const parsedGates = new Map(
-  classified.map((name) => [name, classification[name][2].map((g) => parseGate(name, g))])
-);
+const parsedGates = new Map(classified.map((name) => {
+  const attributed = classification[name][2].map((g) => parseGate(name, g));
+  const surfaceBehavior = behaviorExports.has(name)
+    ? [{ suite: "surface", spec: "behavior", indirect: false, surface: "js" }]
+    : [];
+  return [name, [...surfaceBehavior, ...attributed]];
+}));
 errors.push(...specErrors);
 
 if (errors.length) {
@@ -188,6 +229,11 @@ const rows = upstreamNames
       upstreamValue: upstreamValues.has(name),
       psValue: psValues.has(name),
       psType: psTypes.has(name),
+      boundaryStatus: crossed.has(name)
+        ? BOUNDARY_STATUS.crossed
+        : passthrough.has(name)
+          ? BOUNDARY_STATUS.passthrough
+          : BOUNDARY_STATUS.absent,
     };
   })
   .sort((a, b) => {
@@ -201,8 +247,10 @@ const gatedOn = (r, surface) => r.gates.some((g) => !g.indirect && g.surface ===
 const anyGated = (r) => gatedOn(r, "ps") || gatedOn(r, "js");
 const indirectOnly = (r) => r.gates.length > 0 && !anyGated(r);
 const provenByNothing = (r) => r.gates.length === 0;
+const crossedAndUngatedOnJs = (r) => r.boundaryStatus.isCrossed && !gatedOn(r, "js");
 
 const tally = (pred) => rows.filter(pred).length;
+const crossedUngatedCount = tally(crossedAndUngatedOnJs);
 const byKind = KIND_ORDER.map((kind) => {
   const ks = rows.filter((r) => r.kind === kind);
   return {
@@ -210,6 +258,7 @@ const byKind = KIND_ORDER.map((kind) => {
     total: ks.length,
     ps: ks.filter((r) => gatedOn(r, "ps")).length,
     js: ks.filter((r) => gatedOn(r, "js")).length,
+    crossedUngatedJs: ks.filter(crossedAndUngatedOnJs).length,
     indirect: ks.filter(indirectOnly).length,
     nothing: ks.filter(provenByNothing).length,
   };
@@ -226,6 +275,11 @@ const gateLabel = (g) => {
 const gateCell = (r, surface) => {
   const gs = r.gates.filter((g) => g.surface === surface);
   return gs.length ? gs.map(gateLabel).join(" + ") : "—";
+};
+const jsStatusCell = (r) => {
+  const gates = gateCell(r, "js");
+  const status = `${r.boundaryStatus.label}, ${gatedOn(r, "js") ? "gated" : "ungated"}`;
+  return gates === "—" ? status : `${status} — ${gates}`;
 };
 const allGatesCell = (r) => (r.gates.length ? r.gates.map(gateLabel).join(" + ") : "—");
 
@@ -251,10 +305,17 @@ out.push("`Example.Main` page. Function parity and the prop-member diff read bel
 out.push("`index.js` and are therefore PureScript-surface gates, which is why the gate");
 out.push("whose name sounds closest to the JS surface is among the furthest from it.");
 out.push("");
-out.push("What these columns do **not** yet show is *crossed-but-ungated* — an export with");
-out.push("a JS-shaped wrapper that no JS-surface gate proves. That needs the boundary");
-out.push("manifest joined in alongside them, which is");
-out.push("[#49](https://github.com/jonbae/PSFlow/issues/49).");
+out.push("The JS-surface status joins the boundary manifest to gates that enter through");
+out.push("`index.js`. Browser-spec and boundary-check attribution is hand-maintained in");
+out.push("`classification.json`; surface parity's enum and function attribution comes from");
+out.push("its own behavior registry. `crossed` means a JS-shaped wrapper exists; `passthrough`");
+out.push("means `index.js` still publishes the PureScript value unchanged. A crossed export");
+out.push("with no direct JS-surface gate is displayed as `crossed, ungated`, rather than");
+out.push("being counted as gated on the JS surface merely because its wrapper exists.");
+out.push(`At boundary stage ${manifest.stage}, ${manifest.crossed.length} exports have crossed; ` +
+  `${crossedUngatedCount} ${crossedUngatedCount === 1 ? "is" : "are"} crossed but ungated on`);
+out.push("the JS surface. Stage 1 is self-covering; later stages deliberately populate");
+out.push("that window until system parity gates their converters.");
 out.push("");
 out.push("The `Mechanism` column is about the **implementation**, not the JS-facing");
 out.push("property: `oracle` calls PureScript functions from PureScript, where currying");
@@ -264,13 +325,17 @@ out.push("");
 
 out.push("## Summary by kind");
 out.push("");
-out.push("| Kind | Total | Gated — PureScript surface | Gated — JS surface | Indirect only | Nothing but the name |");
-out.push("|---|---:|---:|---:|---:|---:|");
+out.push("| Kind | Total | Gated — PureScript surface | Gated — JS surface | Crossed, ungated — JS surface | Indirect only | Nothing but the name |");
+out.push("|---|---:|---:|---:|---:|---:|---:|");
 for (const r of byKind) {
-  out.push(`| \`${r.kind}\` | ${r.total} | ${r.ps} | ${r.js} | ${r.indirect} | ${r.nothing} |`);
+  out.push(
+    `| \`${r.kind}\` | ${r.total} | ${r.ps} | ${r.js} | ${r.crossedUngatedJs} | ` +
+      `${r.indirect} | ${r.nothing} |`
+  );
 }
 out.push(`| **total** | **${rows.length}** | **${tally((r) => gatedOn(r, "ps"))}** | ` +
-  `**${tally((r) => gatedOn(r, "js"))}** | **${tally(indirectOnly)}** | **${tally(provenByNothing)}** |`);
+  `**${tally((r) => gatedOn(r, "js"))}** | **${crossedUngatedCount}** | ` +
+  `**${tally(indirectOnly)}** | **${tally(provenByNothing)}** |`);
 out.push("");
 
 out.push("## Summary by mechanism");
@@ -303,12 +368,12 @@ out.push("");
 
 out.push("## Full census");
 out.push("");
-out.push("| Export | Kind | Mechanism that could prove it | Gates today (PureScript surface) | Gates today (JS surface) | Notes |");
+out.push("| Export | Kind | Mechanism that could prove it | Gates today (PureScript surface) | JS-surface status | Notes |");
 out.push("|---|---|---|---|---|---|");
 for (const r of rows) {
   out.push(
     `| \`${r.name}\` | ${r.kind} | \`${r.mechanism}\` | ` +
-      `${gateCell(r, "ps")} | ${gateCell(r, "js")} | ${r.note} |`
+      `${gateCell(r, "ps")} | ${jsStatusCell(r)} | ${r.note} |`
   );
 }
 out.push("");
@@ -318,5 +383,6 @@ console.log(
   `Census OK — ${rows.length} exports classified; ` +
     `${tally((r) => gatedOn(r, "ps"))} gated beyond name presence on the PureScript surface, ` +
     `${tally((r) => gatedOn(r, "js"))} on the JS surface, ` +
+    `${crossedUngatedCount} crossed but ungated on the JS surface, ` +
     `${tally(provenByNothing)} proven by nothing.`
 );
