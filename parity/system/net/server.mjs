@@ -1,4 +1,4 @@
-// The static server the net's two runs load the driver page from (#51).
+// The static server both of the net's sides load the driver page from (#51).
 //
 // A server rather than `file://` because the page is an ES module graph and a
 // module import from a file URL is a cross-origin request; and this one rather

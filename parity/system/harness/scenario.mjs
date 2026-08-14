@@ -128,25 +128,25 @@ export const runScenario = async (
     await page.goto("about:blank");
     await page.goto(driverUrl(scenario.route, side));
 
+    // Waited for, then settled, then measured. Each side waits on its own clock
+    // — polling until consecutive snapshots agree, never a duration — because
+    // selectors resolve against each side's own render, and anything aimed at a
+    // flow still mounting is aimed at a layout about to move. The measurement is
+    // taken afterwards for the same reason: it is the container box `fitView` is
+    // computed from, and it lands in the one section that carries no tolerance.
+    const appeared = await port.box(FLOW_ROOT, { timeout: mountTimeout });
+    if (appeared) await settleDom(port, FLOW_ROOT, settle);
+    const box = appeared ? await port.box(FLOW_ROOT) : null;
+
     // The mount is a driving action like any other, and recorded as one. A side
     // that never renders a flow then reads as an unresolved first action —
     // followed by a scenario whose every action is also unresolved — instead of
-    // as a thrown timeout, which reads as a flake. The box it resolves to is the
-    // container measurement `fitView` is computed from, so it belongs in the
-    // section that carries no tolerance.
-    const box = await port.box(FLOW_ROOT, { timeout: mountTimeout });
+    // as a thrown timeout, which reads as a flake.
     log.record(
       box
         ? { action: "mount", target: FLOW_ROOT, resolved: true, box, dispatched: { route: scenario.route } }
         : { action: "mount", target: FLOW_ROOT, resolved: false }
     );
-
-    // Settled before anything is driven at it. Selectors resolve against each
-    // side's own render, so an action aimed at a flow still mounting aims at a
-    // layout about to move — and the box it recorded lands in the one section
-    // that carries no tolerance. Each side waits on its own clock, which is the
-    // whole reason this is polling rather than a duration (`settle.mjs`).
-    await settleDom(port, FLOW_ROOT, settle);
 
     // The vocabulary, and nothing else. No page, no side, no library handle.
     await scenario.run(createVocabulary(port, log, apiCalls));
@@ -167,7 +167,7 @@ export const runScenario = async (
       driving: log.entries(),
     };
 
-    // The five sections above that are empty are empty because their capture is
+    // The four sections above that are empty are empty because their capture is
     // not built, and each is declared in `pending.mjs`. This is what stops one
     // from being quietly filled in without the declaration going with it.
     assertPendingStillEmpty(sections);

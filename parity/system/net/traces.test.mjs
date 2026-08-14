@@ -5,7 +5,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 
 import { TraceFormatError } from "../trace-format.mjs";
-import { TraceStoreError, orphanedTraces, readRun, runNames, traceName, writeTrace } from "./traces.mjs";
+import { TraceStoreError, orphanedTraces, readRun, runNames, storedScenarios, traceName, writeTrace } from "./traces.mjs";
 
 const trace = (side, capture, scenario = "mount-baseline--nodes-general") => ({
   traceFormat: 1,
@@ -77,6 +77,16 @@ test("a stored trace that is not a valid trace fails as one, on the way in", () 
   writeFileSync(join(dir, "mount-baseline--nodes-general.psflow.capture1.json"), '{"traceFormat":1}\n');
 
   assert.throws(() => readRun(dir, "mount-baseline--nodes-general"), TraceFormatError);
+});
+
+// Re-diffing must not need the vendored checkout: without this the traces being
+// committed would buy nothing on a clean clone, and a bumped baseline could not
+// re-diff the previous one's stored traces — which is why they are in the repo.
+test("the scenarios on disk are readable from the file names alone, with no corpus", () => {
+  const dir = full(store());
+  full(dir, "mount-baseline--pane-general");
+
+  assert.deepEqual(storedScenarios(dir), ["mount-baseline--nodes-general", "mount-baseline--pane-general"]);
 });
 
 // A trace left behind by a renamed scenario is stale in exactly the sense every

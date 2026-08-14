@@ -64,7 +64,7 @@ names its retiring boundary stage and fails as stale when it stops matching.
 **System parity is red, and that is where it is meant to be.** It mounts
 upstream and ps-flow on the same unmodified fixtures, settles each on its own
 clock, captures each twice, and diffs the `dom` section; its first run found
-nine classes of divergence, which are on the divergence backlog
+nine classes of divergence, listed on the divergence backlog
 ([#22](https://github.com/jonbae/PSFlow/issues/22)) rather than fixed. A
 difference is answered by a fix in the port or by a **region** in
 `parity/system/regions.json` — never by loosening what the net looks at. It

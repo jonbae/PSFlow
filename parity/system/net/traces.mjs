@@ -69,6 +69,23 @@ export const readRun = (dir, scenario) =>
   });
 
 /**
+ * The scenarios `dir` holds traces for, read off the file names.
+ *
+ * This is how `--compare-only` finds its work: re-diffing stored traces must
+ * not need the vendored checkout, or the traces being committed would buy
+ * nothing on a clean clone and a bumped baseline could not re-diff the previous
+ * one's traces — which is the whole reason they are in the repository.
+ */
+export const storedScenarios = (dir) =>
+  [
+    ...new Set(
+      readdirSync(dir)
+        .filter((name) => name.endsWith(".json"))
+        .map((name) => name.split(".")[0])
+    ),
+  ].sort();
+
+/**
  * Trace files in `dir` that no scenario in the corpus claims.
  *
  * A trace left behind by a renamed or deleted scenario is **stale** in exactly

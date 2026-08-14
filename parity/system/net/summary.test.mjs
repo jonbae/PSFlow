@@ -78,6 +78,22 @@ test("a re-diff of stored traces says so rather than reading as a measurement", 
   assert.doesNotMatch(captured, /No browser ran/);
 });
 
+// A stored trace no scenario claims is stale in the sense every register here
+// uses. It is reported beside the runs rather than instead of them — nothing
+// earlier suppresses anything later — and it takes the run red on its own.
+test("orphaned traces are named beside the runs, and a clean corpus with one is not passed", () => {
+  const report = renderNetReport([run("a")], {
+    baseline: "12.11.0",
+    orphans: ["mount-baseline--gone-away.psflow.capture1.json"],
+  });
+
+  assert.doesNotMatch(report, /Every scenario reproduced itself/);
+  assert.match(report, /1 stored trace\(s\) belong to no scenario/);
+  assert.match(report, /`mount-baseline--gone-away\.psflow\.capture1\.json`/);
+  // The run itself is still reported in full.
+  assert.match(report, /# System parity run — a/);
+});
+
 // A side that did not reproduce itself is a failure of its own class, and the
 // summary has to count it — a scenario whose only differences are a side against
 // itself would otherwise read as zero.

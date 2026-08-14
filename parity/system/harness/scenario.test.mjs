@@ -246,10 +246,12 @@ test("the dom section is the settled snapshot, element tree and all", async () =
   assert.deepEqual(trace.sections.dom, settled);
 });
 
-// Selectors resolve against each side's own render, so an action driven at a
-// flow that is still mounting aims at a layout about to move — and the box it
-// resolves lands in the one section that carries no tolerance.
-test("the page is settled before the scenario is allowed to act", async () => {
+// Selectors resolve against each side's own render, so anything aimed at a flow
+// still mounting is aimed at a layout about to move — and the box it resolves
+// lands in the one section that carries no tolerance. That holds for the mount's
+// own measurement too: the container box `fitView` is computed from is read
+// *after* the page settles, not while it is still arriving.
+test("the page is settled before the mount is measured and before the scenario acts", async () => {
   const seen = [];
   const { port } = createFakePort({ boxes: { ".react-flow": FLOW, ".node": NODE }, dom: [flow("a"), flow("a")] });
   const watched = {
@@ -273,9 +275,27 @@ test("the page is settled before the scenario is allowed to act", async () => {
     { side: "psflow", capture: 1, baseline: "12.11.0", port: watched }
   );
 
-  // Mount, then settle, then the action resolves its own target — never the
-  // other way round.
-  assert.deepEqual(seen.slice(0, 4), ["box:.react-flow", "dom", "dom", "box:.node"]);
+  // Wait for the flow, settle, measure the container, then let the action
+  // resolve its own target — never the other way round.
+  assert.deepEqual(seen.slice(0, 5), ["box:.react-flow", "dom", "dom", "box:.react-flow", "box:.node"]);
+});
+
+// A side that never renders a flow must not spend the poll ceiling on a page
+// that has nothing to settle, and must still read as an unresolved mount.
+test("a side that never mounts is not settled on, and is still recorded as unresolved", async () => {
+  const { port, ticks } = createFakePort({ boxes: {} });
+  const trace = await runScenario(fakePage(), scenario(), {
+    side: "psflow",
+    capture: 1,
+    baseline: "12.11.0",
+    port,
+  });
+
+  assert.deepEqual(trace.sections.driving, [
+    { index: 0, action: "mount", target: ".react-flow", resolved: false, box: null, dispatched: null },
+  ]);
+  // One settle, the capture's — the pre-act one is skipped.
+  assert.equal(ticks(), 1);
 });
 
 // A page that never stops changing is a question for a person: capturing anyway
