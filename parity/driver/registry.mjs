@@ -13,7 +13,7 @@
 // the collision that creates is worth a test.
 
 import { readdirSync, statSync } from "node:fs";
-import { join, posix, relative, sep } from "node:path";
+import { join, posix, relative, resolve, sep } from "node:path";
 
 export class RegistryError extends Error {
   constructor(message) {
@@ -21,6 +21,39 @@ export class RegistryError extends Error {
     this.name = "RegistryError";
   }
 }
+
+/**
+ * The two roots, named here rather than in `build.mjs` because two callers now
+ * need the same answer: the build, which turns them into routes the page can
+ * serve, and the net's corpus, which mounts one scenario per fixture. Two lists
+ * would drift, and the drift would be a fixture the page serves and the net
+ * never mounts — a hole nothing would report, since neither side would know the
+ * other was missing it.
+ *
+ * The vendored root holds upstream's `generic-tests` fixtures; the second is
+ * where ps-flow authors its own, so the vendored copy stays byte-identical and a
+ * baseline bump is `rm -rf` and re-vendor with no merge. The two `missing`
+ * messages differ because their absences mean different things.
+ */
+export const fixtureRoots = (repoRoot) => {
+  const vendored = resolve(repoRoot, "xyflow/examples/react/src/generic-tests");
+  const own = resolve(repoRoot, "parity/system/fixtures");
+
+  return [
+    {
+      dir: vendored,
+      missing:
+        `no vendored fixture root at ${vendored} — the vendored upstream tree is missing, and the ` +
+        `driver has nothing to mount. Re-vendor \`xyflow/\` and try again.`,
+    },
+    {
+      dir: own,
+      missing:
+        `no ps-flow fixture root at ${own} — this one is this repo's own and is committed, so its ` +
+        `absence is a lost directory rather than a missing checkout. Restore it from git.`,
+    },
+  ];
+};
 
 const walk = (dir) =>
   readdirSync(dir).flatMap((name) => {

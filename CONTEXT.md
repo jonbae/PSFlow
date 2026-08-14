@@ -117,9 +117,15 @@ explores inputs no fixture will produce, which is why the net does not subsume
 it.
 _Avoid_: Layer 1, the oracle tests, the numeric gate
 
-**System parity** (`parity:system` — the script does not exist yet):
+**System parity** (`npm run parity:system`):
 The parity gate at the grain of a whole mounted app — the **net**. The audit
-bucket named `system` and this gate name coincide deliberately.
+bucket named `system` and this gate name coincide deliberately. It builds both
+bundles, drives the **corpus** against each side twice, writes every **trace**
+to `parity/system/traces/`, and diffs the runs it reads back off disk. Its
+corpus today is **mount-only baselines**, one per **fixture**; the rest arrives
+with the corpus ticket. Red is its expected state while the divergence backlog
+is being worked — a failing run is recording what the two implementations do,
+and the answer is a fix or a **region**, never a looser comparison.
 _Avoid_: Layer 2, the e2e gate
 
 **Conformance test suite** (`npm run test:conformance`):
@@ -187,7 +193,7 @@ is the mapping.
 | Layer 1 (`Test.Parity.*` only) | function parity | `spago test`, unchanged |
 | Layer 2, the five `generic-*` specs | conformance test suite | `test:smoke` → `test:conformance` |
 | Layer 2, `smoke.spec.ts` | smoke test suite | `test:smoke` |
-| the net | system parity | `parity:system`, not yet built |
+| the net | system parity | `parity:system` |
 | audit buckets `layer0` / `layer1` / `layer2` | `surface` / `function` / `conformance` | — |
 | audit bucket `system` | unchanged — it already named the gate | — |
 | census gates `L0` / `L0-props` / `L1` | `surface` / `surface-props` / `function` | — |

@@ -17,6 +17,7 @@ import { TRACE_FORMAT, validateTrace } from "../trace-format.mjs";
 import { createDrivingLog } from "./driving.mjs";
 import { assertPendingStillEmpty } from "./pending.mjs";
 import { createPagePort } from "./port.mjs";
+import { settleDom } from "./settle.mjs";
 import { createVocabulary } from "./vocabulary.mjs";
 
 // The flow's root element. It is what the mount waits for, and its box is the
@@ -71,12 +72,21 @@ export const driverUrl = (route, side) => `${DRIVER_PAGE}?side=${side}#${route}`
  *
  * `page` is a Playwright page; only `on`, `off` and `goto` are used directly,
  * everything else going through the port, which is the seam the harness's own
- * tests replace.
+ * tests replace. `settle` is passed through to `settleDom` — the poll ceiling
+ * and how many consecutive snapshots have to agree.
  */
 export const runScenario = async (
   page,
   scenario,
-  { side, capture, baseline, mountTimeout = 10_000, resolveTimeout, port = createPagePort(page, { resolveTimeout }) } = {}
+  {
+    side,
+    capture,
+    baseline,
+    mountTimeout = 10_000,
+    resolveTimeout,
+    settle = {},
+    port = createPagePort(page, { resolveTimeout }),
+  } = {}
 ) => {
   if (!SIDES.includes(side)) {
     throw new ScenarioError(`unknown side ${JSON.stringify(side)} — expected ${SIDES.join(" or ")}`);
@@ -131,11 +141,24 @@ export const runScenario = async (
         : { action: "mount", target: FLOW_ROOT, resolved: false }
     );
 
+    // Settled before anything is driven at it. Selectors resolve against each
+    // side's own render, so an action aimed at a flow still mounting aims at a
+    // layout about to move — and the box it recorded lands in the one section
+    // that carries no tolerance. Each side waits on its own clock, which is the
+    // whole reason this is polling rather than a duration (`settle.mjs`).
+    await settleDom(port, FLOW_ROOT, settle);
+
     // The vocabulary, and nothing else. No page, no side, no library handle.
     await scenario.run(createVocabulary(port, log, apiCalls));
 
+    // And settled again before it is read. This snapshot *is* the `dom`
+    // section — the one two consecutive polls agreed on, never a fresh read
+    // afterwards — so nothing reaches the trace that was not observed to be
+    // stable. Note that settled is not **gesture complete**: a scenario whose
+    // last action leaves the pointer down settles mid-gesture, which is the
+    // only way transient state is observable at all.
     const sections = {
-      dom: { page: await port.pageState(), root: null },
+      dom: await settleDom(port, FLOW_ROOT, settle),
       callbacks: [],
       hooks: {},
       api: { queries: {}, calls: apiCalls },

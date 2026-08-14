@@ -3,22 +3,23 @@
 // The trace format requires all seven sections to be present, because an absent
 // section would compare as "nothing differed there". A section that is present
 // and *empty because nobody built its capture yet* has exactly the same
-// problem, and this ticket leaves five of them that way: the harness (#35)
-// builds the driving log and the vocabulary, and the other sections arrive with
-// the issues named below.
+// problem, and the harness (#35) left five of them that way; `dom` has since
+// landed (#51) and its entry is gone, which is the register working.
 //
-// So the gaps are written down, and the register behaves the way every other
+// The gaps are written down, and the register behaves the way every other
 // register in this repo does: **an entry that stops corresponding to reality
-// fails.** Land `dom` capture and forget to delete its entry here, and the next
-// capture goes red naming the entry rather than quietly shipping a trace whose
-// declared-empty section is now full. That inverts the failure — a forgotten
-// entry bites instead of rotting — which is the only property that makes a
-// declaration worth writing at all.
+// fails.** Land a section's capture and forget to delete its entry here, and
+// the next capture goes red naming the entry rather than quietly shipping a
+// trace whose declared-empty section is now full. That inverts the failure — a
+// forgotten entry bites instead of rotting — which is the only property that
+// makes a declaration worth writing at all.
 //
 // It is not a substitute for the sections themselves. A comparison between two
-// traces whose `dom` is `null` on both sides reports no differences and means
-// nothing; `parity:system` is not a gate until those entries are gone, which is
-// why the gate command lands with `dom` capture (#51) rather than here.
+// traces whose sections are all empty on both sides reports no differences and
+// means nothing, which is why `parity:system` waited for `dom`: it is the
+// section that carries 64 of the trace's 156 exports and the one a mount-only
+// scenario is almost entirely made of. The four entries left are what the gate
+// still cannot see.
 
 /**
  * Each entry says which section, what is missing from it, who lands it, and how
@@ -26,12 +27,6 @@
  * stale.
  */
 export const PENDING = [
-  {
-    section: "dom",
-    what: "the element tree under `.react-flow`; `dom.page` is captured",
-    issue: 51,
-    empty: (dom) => dom.root === null,
-  },
   {
     // The comparison and the argument serializer landed with #44; what is still
     // missing is the in-page log that accumulates the calls — and the boundary
