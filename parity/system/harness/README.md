@@ -9,12 +9,14 @@ Vocabulary is `CONTEXT.md`. Terms in **bold** are defined there.
 
 | | |
 |---|---|
-| `scenario.mjs` | `defineScenario`, `runScenario` — the envelope, the mount, the trace |
+| `scenario.mjs` | `defineScenario`, `runScenario` — the envelope, the mount, the settle, the trace |
 | `vocabulary.mjs` | the two tiers merged into the object a scenario is handed |
 | `actions.mjs` | the **closed** primitive tier |
 | `gestures.mjs` | the **open-by-addition** gesture tier |
 | `driving.mjs` | the **driving log** |
-| `serialize.mjs` | what a callback was handed, as trace content — the one module that runs *in* the page |
+| `dom.mjs` | the `dom` section — the second module that runs *in* the page |
+| `settle.mjs` | polling until consecutive snapshots agree, on the page's own clock |
+| `serialize.mjs` | what a callback was handed, as trace content — the other one that runs in the page |
 | `port.mjs` | the only file that knows what a browser is |
 | `fake-port.mjs` | its double, which everything above is tested against |
 | `pending.mjs` | the sections capture does not fill yet, declared |
@@ -25,9 +27,8 @@ npm run test:harness       # the harness's own unit tests — no browser
 npm run test:harness:live  # the browser self-test (needs dist/psflow.js)
 ```
 
-`parity:system` — the gate that captures and then compares — is not here. It
-arrives with `dom` capture ([#51](https://github.com/jonbae/PSFlow/issues/51)),
-for the reason the last section of this file gives.
+`parity:system` — the gate that captures and then compares — is not here; it is
+`../net.mjs`, the one place the two halves meet.
 
 ---
 
@@ -253,26 +254,57 @@ of it capture reaches today.
 
 | Section | Exports | Captured here |
 |---|---:|---|
-| `dom` | 64 | `page` only — the element tree is [#51](https://github.com/jonbae/PSFlow/issues/51) |
+| `dom` | 64 | yes — the element tree and the page state, both settled first |
 | `callbacks` | 47 | no — the serializer is here, the in-page log is [#54](https://github.com/jonbae/PSFlow/issues/54) |
 | `hooks` | 27 | no — needs probes, [#59](https://github.com/jonbae/PSFlow/issues/59) |
 | `api` | 14 | `calls` only, and empty until the bridge exists; `queries` is #59 |
 | `props` | 4 | no — needs probes, #59 |
 | `console` | 0 | yes, plus uncaught errors |
-| `driving` | 0 | yes — this ticket |
+| `driving` | 0 | yes |
 
-The five gaps are declared in `pending.mjs` with the issue that lands each.
+The four gaps are declared in `pending.mjs` with the issue that lands each.
 
 The register behaves like every other register here: **an entry that stops
-corresponding to reality fails.** Land `dom` capture and leave its entry behind,
-and the next capture goes red naming the entry rather than shipping a trace
-whose declared-empty section is now full.
+corresponding to reality fails.** `dom`'s entry was deleted when its capture
+landed, and had it been left behind the next capture would have gone red naming
+the entry rather than shipping a trace whose declared-empty section was now full.
 
-That declaration is not a substitute for the sections. Two traces whose `dom` is
-`null` on both sides compare clean and mean nothing, which is why `parity:system`
-is not a gate until those entries are gone — the gate command lands with `dom`
-capture, not here.
+That declaration is not a substitute for the sections. Two traces whose sections
+are empty on both sides compare clean and mean nothing, which is why the gate
+waited for `dom`: it carries 64 of the 156 and is nearly the whole of what a
+mount-only scenario observes.
 
-Also elsewhere: **settling** (polling until consecutive snapshots agree, each
-side on its own clock) and **self-consistency** are #51 and #43. This harness
-waits for the flow to mount and no longer.
+## Settling
+
+**Settled** is defined by observation, never by a duration: `settle.mjs` polls
+the `dom` section until consecutive snapshots agree, and there is no wall-clock
+constant in the file. A fixed wait is a bet that one implementation is not
+slower than the other, and losing it silently is the worst outcome available —
+the slow side gets captured mid-mount and every section diverges at once, which
+reads as a library that renders nothing like the other rather than as a harness
+that did not wait. **Each side settles on its own clock**; nothing here compares
+the two, and that a slow side and a fast side reach the same end state is
+precisely the claim the net makes.
+
+Between polls the harness asks the port to `tick`: two animation frames and then
+a turn of the task queue. Two, because that is the order the work lands in — a
+frame runs its animation callbacks, lays out, and *then* runs the resize
+observers xyflow measures nodes with, so the second frame is the first that can
+see what the first caused.
+
+`runScenario` settles **twice**, and both are load-bearing. Before the scenario
+acts, because selectors resolve against each side's own render and an action
+driven at a flow still mounting aims at a layout about to move — and the box it
+resolves lands in the section that carries no tolerance. And before the capture,
+where the snapshot two polls agreed on *is* the `dom` section, never a fresh read
+afterwards. Settled is not **gesture complete**: a scenario whose last action
+leaves the pointer down settles mid-gesture, which is the only way transient
+state is observable.
+
+A page that never settles **throws** at the poll ceiling. Capturing anyway would
+record a snapshot known to be mid-flight, and every alternative to throwing is a
+fixed timeout wearing a different hat.
+
+`live.spec.mjs` is where that stops being a design and becomes a measurement: a
+real mount settles, and one side reproduces its whole `dom` section across two
+captures of the same scenario.

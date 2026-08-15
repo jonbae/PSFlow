@@ -4,7 +4,7 @@ import { mkdtempSync, mkdirSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 
-import { RegistryError, collectFixtures } from "./registry.mjs";
+import { RegistryError, collectFixtures, fixtureRoots } from "./registry.mjs";
 
 // A fixture root is a directory of `.ts` files; the tests build small real ones
 // rather than mocking `fs`, because what is under test is how the walk turns a
@@ -75,6 +75,19 @@ test("a missing root fails with the message its caller gave it", () => {
     () => collectFixtures([{ dir: join(tmpdir(), "psflow-registry-absent"), missing: "re-vendor xyflow/" }]),
     (e) => e instanceof RegistryError && /re-vendor xyflow\//.test(e.message)
   );
+});
+
+// The roots live here rather than in `build.mjs` because the net's corpus
+// derives a mount-only baseline per fixture from the same list. Two lists would
+// drift into a fixture the page serves and the net never mounts — a hole
+// nothing reports, since neither list knows the other exists.
+test("the two roots are named once, and their absences mean different things", () => {
+  const [vendored, own] = fixtureRoots("/repo");
+
+  assert.equal(vendored.dir, join("/repo", "xyflow/examples/react/src/generic-tests"));
+  assert.equal(own.dir, join("/repo", "parity/system/fixtures"));
+  assert.match(vendored.missing, /re-vendor/i);
+  assert.match(own.missing, /git/i);
 });
 
 // A root that is present and empty is legitimate — `parity/system/fixtures/`

@@ -9,7 +9,7 @@
 // This is not `parity:system`. It proves the *harness* drives a real page —
 // that a selector resolves to a box, that a gesture moves what it grabs, that
 // CDP touch reaches the renderer — and it asserts nothing about ps-flow against
-// upstream. The gate that does arrives with `dom` capture (#51).
+// upstream. The gate that does is `../net.mjs` (`npm run parity:system`).
 
 import { defineConfig, devices } from "@playwright/test";
 import path from "node:path";

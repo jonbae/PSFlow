@@ -22,10 +22,11 @@ test("every declared gap names a real section, and says who lands it", () => {
   }
 });
 
-test("the sections this ticket does capture are not declared pending", () => {
+test("the sections capture does fill are not declared pending", () => {
   const declared = PENDING.map((p) => p.section);
-  assert.ok(!declared.includes("driving"), "the driving log is what this ticket built");
+  assert.ok(!declared.includes("driving"), "the driving log is the harness's own (#35)");
   assert.ok(!declared.includes("console"), "console capture is a page listener and is built");
+  assert.ok(!declared.includes("dom"), "the element tree landed with the gate (#51)");
 });
 
 test("a trace whose pending sections are still empty passes through unchanged", () => {
@@ -34,17 +35,17 @@ test("a trace whose pending sections are still empty passes through unchanged", 
 });
 
 // The inversion that makes the declaration worth writing: a forgotten entry
-// bites the next run rather than rotting. Without it, landing `dom` capture and
-// leaving the entry behind reports the section as unobserved while it is being
-// observed.
+// bites the next run rather than rotting. Without it, landing a section's
+// capture and leaving its entry behind reports the section as unobserved while
+// it is being observed — which is exactly what `dom` would now be doing.
 test("a section that gained content fails as a stale declaration", () => {
   const sections = empty();
-  sections.dom.root = { tag: "div", attrs: {}, children: [] };
+  sections.hooks["flow-probe"] = { useViewport: { x: 0, y: 0, zoom: 1 } };
 
   assert.throws(() => assertPendingStillEmpty(sections), (e) => {
     assert.ok(e instanceof PendingSectionError);
-    assert.match(e.message, /dom/);
-    assert.match(e.message, /#51/);
+    assert.match(e.message, /hooks/);
+    assert.match(e.message, /#59/);
     assert.match(e.message, /pending\.mjs/);
     return true;
   });

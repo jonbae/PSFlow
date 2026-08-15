@@ -21,7 +21,7 @@ import { readFileSync, statSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 
-import { RegistryError, collectFixtures } from "./registry.mjs";
+import { RegistryError, collectFixtures, fixtureRoots } from "./registry.mjs";
 import { SIDES } from "./sides.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -75,36 +75,18 @@ if (!Object.hasOwn(sides, side)) {
 
 // ── The fixture registry ────────────────────────────────────────────────
 //
-// Two roots, globbed into one flat route space by `registry.mjs`. The vendored
-// one holds upstream's four `generic-tests` fixtures; the second is where
-// ps-flow authors its own, in its own tree, so that the vendored copy stays
-// byte-identical and a baseline bump is `rm -rf` and re-vendor with no merge.
+// Two roots, globbed into one flat route space by `registry.mjs`, which also
+// names them — the net's corpus derives a mount-only baseline per fixture from
+// the same list, and two lists would drift into a fixture the page serves and
+// the net never mounts.
 //
 // PSFlow's root is legitimately empty until the corpus lands (#55). Emptiness
 // only fails in the aggregate — see `registry.mjs`, which also refuses a route
 // two roots both claim.
 
-const vendoredFixtures = resolve(repoRoot, "xyflow/examples/react/src/generic-tests");
-const ownFixtures = resolve(repoRoot, "parity/system/fixtures");
-
-const fixtureRoots = [
-  {
-    dir: vendoredFixtures,
-    missing:
-      `no vendored fixture root at ${vendoredFixtures} — the vendored upstream tree is missing, ` +
-      `and the driver has nothing to mount. Re-vendor \`xyflow/\` and try again.`,
-  },
-  {
-    dir: ownFixtures,
-    missing:
-      `no ps-flow fixture root at ${ownFixtures} — this one is this repo's own and is committed, ` +
-      `so its absence is a lost directory rather than a missing checkout. Restore it from git.`,
-  },
-];
-
 let fixtures;
 try {
-  fixtures = collectFixtures(fixtureRoots);
+  fixtures = collectFixtures(fixtureRoots(repoRoot));
 } catch (e) {
   if (!(e instanceof RegistryError)) throw e;
   console.error(e.message);

@@ -35,10 +35,20 @@ vendored root**. A file here landing on a vendored fixture's path would shadow
 it, and every spec driving that route would keep passing against something
 else, so `collectFixtures` fails on the collision rather than letting one win.
 
+## A fixture here joins the net by existing
+
+The **corpus** derives one **mount-only baseline** per fixture from this same
+registry (`parity/system/corpus/mount-baselines.mjs`), across both roots. So a
+file dropped in here is mounted by `parity:system` on both sides and diffed the
+next time the gate runs, with no second list to remember — which is what makes
+"mount-only is a general rule for every fixture" structural rather than a habit.
+
+What it does *not* get automatically is a scenario that drives anything; that is
+[#55](https://github.com/jonbae/PSFlow/issues/55)'s.
+
 ## Empty, for now
 
-The corpus is built by
-[#55](https://github.com/jonbae/PSFlow/issues/55); the harness that drives it
-([#35](https://github.com/jonbae/PSFlow/issues/35)) only opened this root. An
-empty root is legitimate — the registry only fails when *every* root is empty,
-which would build a page answering every route with a 404.
+The corpus's interaction scenarios are built by #55; the harness that drives
+them ([#35](https://github.com/jonbae/PSFlow/issues/35)) only opened this root.
+An empty root is legitimate — the registry only fails when *every* root is
+empty, which would build a page answering every route with a 404.

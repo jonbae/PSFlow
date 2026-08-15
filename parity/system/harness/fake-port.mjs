@@ -9,8 +9,22 @@
 // checks the two agree on the method set rather than leaving that to a browser
 // run to discover.
 
-export const createFakePort = ({ boxes = {}, bridge = null, page: pageState = null } = {}) => {
+/** What a page with no flow on it and nothing scrolled answers. */
+export const EMPTY_DOM = Object.freeze({
+  page: Object.freeze({ scrollX: 0, scrollY: 0, visualViewportScale: 1 }),
+  root: null,
+});
+
+/**
+ * `dom` is what the page answers when asked for the `dom` section. Give it a
+ * **list** to script a page that is still changing: each poll takes the next
+ * entry and the last one repeats forever, which is what a page that eventually
+ * settles looks like from up here.
+ */
+export const createFakePort = ({ boxes = {}, bridge = null, dom = EMPTY_DOM } = {}) => {
   const sent = [];
+  const snapshots = Array.isArray(dom) ? [...dom] : [dom];
+  let ticks = 0;
 
   const port = {
     // The real port refuses to dispatch touch until this has been called, and
@@ -47,10 +61,21 @@ export const createFakePort = ({ boxes = {}, bridge = null, page: pageState = nu
       sent.push({ kind: "call", method, args });
       return { installed: true, result: bridge(method, args) };
     },
-    async pageState() {
-      return pageState ?? { scrollX: 0, scrollY: 0, visualViewportScale: 1 };
+    async dom() {
+      // The last snapshot repeats: a page settles and then stays settled, and a
+      // double that ran out of answers would fail as an undefined rather than
+      // as whatever the test was actually about.
+      return snapshots.length > 1 ? snapshots.shift() : snapshots[0];
+    },
+
+    // The real one yields to the page's frame loop. There is no page here, so
+    // it counts the yield instead — and counts it apart from `sent`, which is
+    // what was *dispatched*: a tick sends nothing, and a scenario that only
+    // settled has driven nothing.
+    async tick() {
+      ticks++;
     },
   };
 
-  return { port, sent };
+  return { port, sent, ticks: () => ticks };
 };

@@ -19,15 +19,16 @@ test("the real port and its double answer the same methods", () => {
   assert.deepEqual(Object.keys(real).sort(), Object.keys(fake).sort());
 });
 
-test("the port is only ever the nine the harness above it uses", () => {
+test("the port is only ever the ten the harness above it uses", () => {
   assert.deepEqual(Object.keys(createPagePort({})).sort(), [
     "box",
     "call",
+    "dom",
     "enableTouch",
     "focus",
     "keyboard",
     "mouse",
-    "pageState",
+    "tick",
     "touch",
     "wheel",
   ]);

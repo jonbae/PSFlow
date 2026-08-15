@@ -25,7 +25,7 @@ mean something.
 | **function parity** | `spago test` | pure-function return values, against the `@psflow/oracle` bundle |
 | **conformance test suite** | `npm run test:conformance` | upstream's own e2e specs, ported — upstream's *asserted intent* |
 | **smoke test suite** | `npm run test:smoke` | liveness, plus the hand-authored interaction assertions not yet retired |
-| **system parity** | — | a mounted app's whole end-state trace. Does not exist yet |
+| **system parity** | `npm run parity:system` | a mounted app's whole end-state trace, against vendored upstream mounted beside it |
 
 `spago test` is deliberately broader than function parity: it also runs the
 **unit tests**, the PSFlow-only modules that prove the internals are
@@ -60,6 +60,24 @@ vendored upstream bundle. This catches JS-boundary failures that `typeof` and
 arity cannot, especially a labelled record where upstream returns a positional
 array. Known differences are keyed by export *and difference class*; every one
 names its retiring boundary stage and fails as stale when it stops matching.
+
+**System parity is red, and that is where it is meant to be.** It mounts
+upstream and ps-flow on the same unmodified fixtures, settles each on its own
+clock, captures each twice, and diffs the `dom` section; its first run found
+nine classes of divergence, listed on the divergence backlog
+([#22](https://github.com/jonbae/PSFlow/issues/22)) rather than fixed. A
+difference is answered by a fix in the port or by a **region** in
+`parity/system/regions.json` — never by loosening what the net looks at. It
+builds both driver bundles itself, so it cannot measure code that is not in the
+tree, and needs `spago build` first for the ps-flow side. Its detail is
+`parity/system/README.md`; the report is `parity/system/report.md` and the
+traces behind it are committed under `parity/system/traces/`.
+
+```sh
+npm run parity:system                    # build both bundles, capture the corpus, diff
+node parity/system/net.mjs --compare-only  # re-diff the stored traces — seconds, no browser
+node parity/system/net.mjs --scenario mount-baseline--nodes-general
+```
 
 ## Checks that are not gates in that sense
 
@@ -117,10 +135,20 @@ Bumping the baseline is one atomic change:
    changes it),
 5. `npm run parity:surface` and `npm run parity:changelog` — the audit will fail
    on every PR the bump introduced until each is bucketed in
-   `parity/changelog-audit/verdicts.json`.
+   `parity/changelog-audit/verdicts.json`,
+6. `npm run parity:system` (commit the re-captured `parity/system/traces/` and
+   `report.md`). Diff the traces against their previous versions before you
+   commit them: what upstream's own render changed under the bump is visible
+   there and nowhere else.
 
-`xyflow/` is gitignored, so `parity:surface`, `parity:changelog`, `build:oracle`
-and `build:driver` all require it present and hard-fail on a clean clone. The
-committed artifacts (`parity/surface/report.md`,
+`xyflow/` is gitignored, so `parity:surface`, `parity:changelog`,
+`build:oracle`, `build:driver` and `parity:system` all require it present and
+hard-fail on a clean clone. The committed artifacts (`parity/surface/report.md`,
 `parity/changelog-audit/report.md`, `oracle/index.js`,
-`parity/driver/dist/psflow.js`) are what survive without it.
+`parity/driver/dist/psflow.js`, `parity/system/report.md` and the traces under
+`parity/system/traces/`) are what survive without it.
+
+The traces are committed for a reason beyond a clean clone: re-diffing a
+**stored** trace of one baseline against a trace of the next is what turns a
+bump into a behavioural changelog, and that comparison is impossible if the
+older traces only ever existed on the machine that captured them.

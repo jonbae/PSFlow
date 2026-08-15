@@ -61630,7 +61630,7 @@ var Flow_default = ({ flowConfig }) => {
   ] }) });
 };
 
-// ../../../../Documents/repos/PSFlow/xyflow/examples/react/src/generic-tests/edges/general.ts
+// xyflow/examples/react/src/generic-tests/edges/general.ts
 var general_default = {
   flowProps: {
     fitView: true,
@@ -61828,7 +61828,7 @@ var general_default = {
   }
 };
 
-// ../../../../Documents/repos/PSFlow/xyflow/examples/react/src/generic-tests/node-toolbar/components/ToolbarNode.tsx
+// xyflow/examples/react/src/generic-tests/node-toolbar/components/ToolbarNode.tsx
 var import_react9 = __toESM(require_react(), 1);
 var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
 var CustomNode = ({ id: id3, data }) => {
@@ -61845,7 +61845,7 @@ var CustomNode = ({ id: id3, data }) => {
 };
 var ToolbarNode_default = (0, import_react9.memo)(CustomNode);
 
-// ../../../../Documents/repos/PSFlow/xyflow/examples/react/src/generic-tests/node-toolbar/general.ts
+// xyflow/examples/react/src/generic-tests/node-toolbar/general.ts
 var positions = ["top", "right", "bottom", "left"];
 var alignments = ["start", "center", "end"];
 var nodes = [
@@ -61891,7 +61891,7 @@ var general_default2 = {
   }
 };
 
-// ../../../../Documents/repos/PSFlow/xyflow/examples/react/src/generic-tests/nodes/components/DragHandleNode.tsx
+// xyflow/examples/react/src/generic-tests/nodes/components/DragHandleNode.tsx
 var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
 var DragHandleNode_default = () => {
   return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
@@ -61922,7 +61922,7 @@ var DragHandleNode_default = () => {
   );
 };
 
-// ../../../../Documents/repos/PSFlow/xyflow/examples/react/src/generic-tests/nodes/general.ts
+// xyflow/examples/react/src/generic-tests/nodes/general.ts
 var general_default3 = {
   flowProps: {
     fitView: true,
@@ -62016,7 +62016,7 @@ var general_default3 = {
   }
 };
 
-// ../../../../Documents/repos/PSFlow/xyflow/examples/react/src/generic-tests/pane/general.ts
+// xyflow/examples/react/src/generic-tests/pane/general.ts
 var general_default4 = {
   flowProps: {
     minZoom: 0.25,
@@ -62055,7 +62055,7 @@ var general_default4 = {
   }
 };
 
-// ../../../../Documents/repos/PSFlow/xyflow/examples/react/src/generic-tests/pane/non-defaults.ts
+// xyflow/examples/react/src/generic-tests/pane/non-defaults.ts
 var non_defaults_default = {
   flowProps: {
     panOnScroll: true,
@@ -62104,7 +62104,7 @@ var psflow_fixtures_default = {
   "./pane/non-defaults.ts": non_defaults_default
 };
 
-// ../../../../Documents/repos/PSFlow/xyflow/examples/react/src/examples/ColorMode/index.tsx
+// xyflow/examples/react/src/examples/ColorMode/index.tsx
 var import_react12 = __toESM(require_react(), 1);
 var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
 var nodeDefaults = {

@@ -17,6 +17,7 @@ import { TRACE_FORMAT, validateTrace } from "../trace-format.mjs";
 import { createDrivingLog } from "./driving.mjs";
 import { assertPendingStillEmpty } from "./pending.mjs";
 import { createPagePort } from "./port.mjs";
+import { settleDom } from "./settle.mjs";
 import { createVocabulary } from "./vocabulary.mjs";
 
 // The flow's root element. It is what the mount waits for, and its box is the
@@ -71,12 +72,21 @@ export const driverUrl = (route, side) => `${DRIVER_PAGE}?side=${side}#${route}`
  *
  * `page` is a Playwright page; only `on`, `off` and `goto` are used directly,
  * everything else going through the port, which is the seam the harness's own
- * tests replace.
+ * tests replace. `settle` is passed through to `settleDom` — the poll ceiling
+ * and how many consecutive snapshots have to agree.
  */
 export const runScenario = async (
   page,
   scenario,
-  { side, capture, baseline, mountTimeout = 10_000, resolveTimeout, port = createPagePort(page, { resolveTimeout }) } = {}
+  {
+    side,
+    capture,
+    baseline,
+    mountTimeout = 10_000,
+    resolveTimeout,
+    settle = {},
+    port = createPagePort(page, { resolveTimeout }),
+  } = {}
 ) => {
   if (!SIDES.includes(side)) {
     throw new ScenarioError(`unknown side ${JSON.stringify(side)} — expected ${SIDES.join(" or ")}`);
@@ -118,13 +128,20 @@ export const runScenario = async (
     await page.goto("about:blank");
     await page.goto(driverUrl(scenario.route, side));
 
+    // Waited for, then settled, then measured. Each side waits on its own clock
+    // — polling until consecutive snapshots agree, never a duration — because
+    // selectors resolve against each side's own render, and anything aimed at a
+    // flow still mounting is aimed at a layout about to move. The measurement is
+    // taken afterwards for the same reason: it is the container box `fitView` is
+    // computed from, and it lands in the one section that carries no tolerance.
+    const appeared = await port.box(FLOW_ROOT, { timeout: mountTimeout });
+    if (appeared) await settleDom(port, FLOW_ROOT, settle);
+    const box = appeared ? await port.box(FLOW_ROOT) : null;
+
     // The mount is a driving action like any other, and recorded as one. A side
     // that never renders a flow then reads as an unresolved first action —
     // followed by a scenario whose every action is also unresolved — instead of
-    // as a thrown timeout, which reads as a flake. The box it resolves to is the
-    // container measurement `fitView` is computed from, so it belongs in the
-    // section that carries no tolerance.
-    const box = await port.box(FLOW_ROOT, { timeout: mountTimeout });
+    // as a thrown timeout, which reads as a flake.
     log.record(
       box
         ? { action: "mount", target: FLOW_ROOT, resolved: true, box, dispatched: { route: scenario.route } }
@@ -134,8 +151,14 @@ export const runScenario = async (
     // The vocabulary, and nothing else. No page, no side, no library handle.
     await scenario.run(createVocabulary(port, log, apiCalls));
 
+    // And settled again before it is read. This snapshot *is* the `dom`
+    // section — the one two consecutive polls agreed on, never a fresh read
+    // afterwards — so nothing reaches the trace that was not observed to be
+    // stable. Note that settled is not **gesture complete**: a scenario whose
+    // last action leaves the pointer down settles mid-gesture, which is the
+    // only way transient state is observable at all.
     const sections = {
-      dom: { page: await port.pageState(), root: null },
+      dom: await settleDom(port, FLOW_ROOT, settle),
       callbacks: [],
       hooks: {},
       api: { queries: {}, calls: apiCalls },
@@ -144,7 +167,7 @@ export const runScenario = async (
       driving: log.entries(),
     };
 
-    // The five sections above that are empty are empty because their capture is
+    // The four sections above that are empty are empty because their capture is
     // not built, and each is declared in `pending.mjs`. This is what stops one
     // from being quietly filled in without the declaration going with it.
     assertPendingStillEmpty(sections);

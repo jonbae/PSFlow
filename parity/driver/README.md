@@ -16,7 +16,7 @@ all defined there.
 | `src/Smoke.tsx` | the JS-surface smoke page |
 | `src/NodePropsGuard.tsx` | the JS-surface NodeProps guard |
 | `index.html` | the container, whose box feeds `fitView`, and the `?side=` switch |
-| `registry.mjs` | the fixture glob over two roots, and the collision it can hit |
+| `registry.mjs` | the two fixture roots, the glob over them, and the collision it can hit |
 | `build.mjs` | the two registries, the bundle, the alias, and the provenance check |
 | `dist/psflow.js` | generated, and committed — see below |
 
@@ -47,9 +47,11 @@ conformance specs drive. Fixtures are globbed from **two roots** — the vendore
 into one flat route space, so a file in the second landing on a vendored
 fixture's path would shadow it and every spec driving that route would keep
 passing against something else. `registry.mjs` fails on the collision rather
-than letting one win. Its second root is empty until the corpus lands
-([#55](https://github.com/jonbae/PSFlow/issues/55)); emptiness only fails in the
-aggregate, which would be a page answering every route with a 404.
+than letting one win, and it is where the two roots are *named*, because the
+net's corpus derives its scenarios from the same pair. Its second root is empty
+until the corpus lands ([#55](https://github.com/jonbae/PSFlow/issues/55));
+emptiness only fails in the aggregate, which would be a page answering every
+route with a 404.
 
 The other hashes select components mounted directly. `generic-props.spec.ts`
 needs upstream's **example driver**, `examples/ColorMode/index.tsx`, because
@@ -97,10 +99,16 @@ back to a `<NodeToolbar />` it mounts itself. So
 1's set that neither driver mounts, because nothing but a consumer's own node
 component does.
 
-Next, **the net**, whose capture harness drives this same page on both sides
+And **the net**, whose capture harness drives this same page on both sides
 through `?side=` (`parity/system/harness/`), which is what the `--side upstream`
 bundle is for. Upstream's own vendored `Flow.tsx` and `index.tsx` become
-reference material that never executes.
+reference material that never executes. `npm run parity:system` runs this
+script itself, once per side, immediately before it captures — so that gate at
+least can never measure a bundle older than the tree.
+
+Every **fixture** in the registry is also a scenario: the net derives one
+mount-only baseline per fixture from the same list (`registry.mjs`'s
+`fixtureRoots`), so a fixture cannot join this page without joining the net.
 
 ## Why the fixture driver is ours and ColorMode is not
 

@@ -9,6 +9,8 @@
 // The port resolves and dispatches. It decides nothing: what to aim at, what to
 // record, and whether a miss is a failure all belong upstairs.
 
+import { domSection } from "./dom.mjs";
+
 const CDP_TOUCH = { touchStart: 1, touchMove: 1, touchEnd: 1, touchCancel: 1 };
 
 /**
@@ -139,16 +141,38 @@ export const createPagePort = (page, { resolveTimeout = 1_000 } = {}) => {
     },
 
     /**
-     * Page-level state, which is `dom.page` in the trace. Enumerated rather
-     * than open: two upstream behaviours turn on a browser default — a scroll,
-     * a pinch-zoom — *not* happening, and that is only observable here.
+     * The `dom` section — the subtree under `selector`, plus page-level state.
+     * What it records is `dom.mjs`'s, which runs *in* the page; this is only
+     * the door it goes through.
      */
-    async pageState() {
-      return page.evaluate(() => ({
-        scrollX: window.scrollX,
-        scrollY: window.scrollY,
-        visualViewportScale: window.visualViewport?.scale ?? 1,
-      }));
+    async dom(selector) {
+      return page.evaluate(domSection, selector);
+    },
+
+    /**
+     * Yields until the page's own frame loop has come round — which is what
+     * `settle.mjs` puts between two polls.
+     *
+     * Two frames and then a turn of the task queue, in that order, because that
+     * is the order the work lands in: a rendering frame runs its animation
+     * callbacks, lays out, and *then* runs the resize observers that xyflow
+     * measures nodes with, so the second frame is the first one that can see
+     * what the first one caused. The trailing `setTimeout` is a yield to the
+     * task queue rather than a wait — zero delay, and what it collects is the
+     * continuation a `then` or a timer scheduled during those frames.
+     *
+     * None of that is a duration. Waiting a fixed number of milliseconds is a
+     * bet that neither implementation is slower than the number, and the harness
+     * makes no such bet: each side settles when it has stopped changing, on its
+     * own clock.
+     */
+    async tick() {
+      await page.evaluate(
+        () =>
+          new Promise((resolve) => {
+            requestAnimationFrame(() => requestAnimationFrame(() => setTimeout(resolve, 0)));
+          })
+      );
     },
   };
 };

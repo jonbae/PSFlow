@@ -9,7 +9,7 @@
 // actions that did nothing at all.
 //
 // It asserts nothing about ps-flow against upstream. That is `parity:system`,
-// which arrives with `dom` capture (#51).
+// which is `../net.mjs`.
 
 import { test, expect } from "@playwright/test";
 import { existsSync, readFileSync } from "node:fs";
@@ -23,7 +23,7 @@ const here = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(here, "..", "..", "..");
 
 // The ps-flow side of this file runs off `dist/psflow.js`, which is committed —
-// fixtures bundled in — so seven of these nine tests are meant to run on a clean
+// fixtures bundled in — so all but two of these are meant to run on a clean
 // clone, and the two that need the other side skip themselves below. Reading the
 // vendored version at module load would undo all of that: an absent `xyflow/`
 // would throw during collection and take the seven with it. README lists the
@@ -55,6 +55,55 @@ test("a mount resolves the container, and the trace it produces is a valid trace
   expect(mount.box.width).toBeGreaterThan(0);
   expect(mount.box.height).toBeGreaterThan(0);
   expect(trace.sections.dom.page).toEqual({ scrollX: 0, scrollY: 0, visualViewportScale: 1 });
+});
+
+// `dom.mjs` is tested against a hand-built document, which can say what capture
+// keeps and nothing about what a real render puts there. This is the other half:
+// that the selector reaches a mounted flow, and that what comes back is the
+// nested element tree rather than an empty shell — a section that captured only
+// the root would compare clean on both sides forever.
+test("the dom section carries the flow's own element tree, nested", async ({ page }) => {
+  const { sections } = await drive(
+    page,
+    defineScenario({ id: "live--dom-capture", route: NODES_GENERAL, run: async () => {} })
+  );
+
+  expect(sections.dom.root.tag).toBe("div");
+  expect(sections.dom.root.attrs.class).toContain("react-flow");
+
+  const nodes = [];
+  const walk = (el) => {
+    if (el.attrs["data-id"] && el.attrs.class?.includes("react-flow__node")) nodes.push(el.attrs["data-id"]);
+    el.children.forEach(walk);
+  };
+  walk(sections.dom.root);
+
+  expect(nodes).toContain("Node-1");
+});
+
+// Settling is defined by observation rather than by a duration, and the claim a
+// double cannot make is that a real mount — React committing, the resize
+// observers measuring, `fitView` running — actually reaches a state where two
+// consecutive snapshots agree. If it did not, every capture would end at the
+// ceiling and the whole net would be unreachable, which is a thing to learn
+// here rather than from a corpus of sixty scenarios later.
+test("a real flow settles, and the transform it settles at is measured, not zero", async ({ page }) => {
+  const { sections } = await drive(
+    page,
+    defineScenario({ id: "live--settling", route: NODES_GENERAL, run: async () => {} })
+  );
+
+  const viewport = [];
+  const walk = (el) => {
+    if (el.attrs.class?.includes("react-flow__viewport")) viewport.push(el.attrs.style ?? "");
+    el.children.forEach(walk);
+  };
+  walk(sections.dom.root);
+
+  // `fitView` lands a transform on the viewport, and it lands a frame or more
+  // after the flow first appears. A capture that did not wait catches the
+  // identity transform instead.
+  expect(viewport[0]).toMatch(/translate/);
 });
 
 // The one claim the fake port cannot make: that a gesture composed of pointer
@@ -220,7 +269,7 @@ test("a touch drag moves upstream's node, which is what proves the events arrive
 });
 
 // One driver, bundled twice, one scenario. This is the property the whole
-// harness exists for; the *comparison* of the two traces is #51's.
+// harness exists for; the *comparison* of the two traces is the gate's.
 test("the same scenario drives the upstream bundle through the same page", async ({ page }) => {
   test.skip(
     !existsSync(resolve(repoRoot, "parity/driver/dist/upstream.js")),

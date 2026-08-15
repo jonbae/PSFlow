@@ -2,12 +2,15 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 
 import { validateTrace } from "../trace-format.mjs";
-import { createFakePort } from "./fake-port.mjs";
+import { EMPTY_DOM, createFakePort } from "./fake-port.mjs";
+import { SettleError } from "./settle.mjs";
 import { VOCABULARY } from "./vocabulary.mjs";
 import { ScenarioError, defineScenario, driverUrl, runScenario } from "./scenario.mjs";
 
 const FLOW = { x: 0, y: 0, width: 800, height: 600 };
 const NODE = { x: 75, y: 25, width: 150, height: 36 };
+
+const flow = (label) => ({ page: EMPTY_DOM.page, root: { tag: "div", attrs: { "data-x": label }, children: [] } });
 
 // Only `on`, `off` and `goto` are reached directly; everything else is the
 // port, which is the whole point of there being a port.
@@ -36,9 +39,9 @@ const fakePage = () => {
 const scenario = (run = async () => {}) =>
   defineScenario({ id: "mount-baseline--nodes-general", route: "/tests/generic/nodes/general", run });
 
-const capture = async (run, { boxes = { ".react-flow": FLOW, ".node": NODE }, ...options } = {}) => {
+const capture = async (run, { boxes = { ".react-flow": FLOW, ".node": NODE }, dom, ...options } = {}) => {
   const page = fakePage();
-  const { port, sent } = createFakePort({ boxes });
+  const { port, sent } = createFakePort({ boxes, ...(dom === undefined ? {} : { dom }) });
   const trace = await runScenario(page, scenario(run), {
     side: "psflow",
     capture: 1,
@@ -227,14 +230,93 @@ test("a scenario that throws still lets go of the page", async () => {
 });
 
 test("page-level state is captured, since two behaviours turn on a default not happening", async () => {
-  const page = fakePage();
-  const { port } = createFakePort({
-    boxes: { ".react-flow": FLOW },
-    page: { scrollX: 0, scrollY: 40, visualViewportScale: 2 },
+  const { trace } = await capture(undefined, {
+    dom: { page: { scrollX: 0, scrollY: 40, visualViewportScale: 2 }, root: null },
   });
-  const trace = await runScenario(page, scenario(), { side: "psflow", capture: 1, baseline: "12.11.0", port });
 
   assert.deepEqual(trace.sections.dom.page, { scrollX: 0, scrollY: 40, visualViewportScale: 2 });
+});
+
+// The section that makes the two halves a gate: two traces whose `dom` is null
+// on both sides compare clean and mean nothing.
+test("the dom section is the settled snapshot, element tree and all", async () => {
+  const settled = { page: EMPTY_DOM.page, root: { tag: "div", attrs: { class: "react-flow" }, children: [] } };
+  const { trace } = await capture(undefined, { dom: [flow("mounting"), settled, settled] });
+
+  assert.deepEqual(trace.sections.dom, settled);
+});
+
+// Selectors resolve against each side's own render, so anything aimed at a flow
+// still mounting is aimed at a layout about to move — and the box it resolves
+// lands in the one section that carries no tolerance. That holds for the mount's
+// own measurement too: the container box `fitView` is computed from is read
+// *after* the page settles, not while it is still arriving.
+test("the page is settled before the mount is measured and before the scenario acts", async () => {
+  const seen = [];
+  const { port } = createFakePort({ boxes: { ".react-flow": FLOW, ".node": NODE }, dom: [flow("a"), flow("a")] });
+  const watched = {
+    ...port,
+    async dom(selector) {
+      const snapshot = await port.dom(selector);
+      seen.push("dom");
+      return snapshot;
+    },
+    async box(selector, options) {
+      seen.push(`box:${selector}`);
+      return port.box(selector, options);
+    },
+  };
+
+  await runScenario(
+    fakePage(),
+    scenario(async (actions) => {
+      await actions.pointerDown(".node");
+    }),
+    { side: "psflow", capture: 1, baseline: "12.11.0", port: watched }
+  );
+
+  // Wait for the flow, settle, measure the container, then let the action
+  // resolve its own target — never the other way round.
+  assert.deepEqual(seen.slice(0, 5), ["box:.react-flow", "dom", "dom", "box:.react-flow", "box:.node"]);
+});
+
+// A side that never renders a flow must not spend the poll ceiling on a page
+// that has nothing to settle, and must still read as an unresolved mount.
+test("a side that never mounts is not settled on, and is still recorded as unresolved", async () => {
+  const { port, ticks } = createFakePort({ boxes: {} });
+  const trace = await runScenario(fakePage(), scenario(), {
+    side: "psflow",
+    capture: 1,
+    baseline: "12.11.0",
+    port,
+  });
+
+  assert.deepEqual(trace.sections.driving, [
+    { index: 0, action: "mount", target: ".react-flow", resolved: false, box: null, dispatched: null },
+  ]);
+  // One settle, the capture's — the pre-act one is skipped.
+  assert.equal(ticks(), 1);
+});
+
+// A page that never stops changing is a question for a person: capturing anyway
+// would record a snapshot known to be mid-flight, and the run would report a
+// divergence in every section at once.
+test("a page that never settles fails the capture rather than being read mid-flight", async () => {
+  let poll = 0;
+  const { port } = createFakePort({ boxes: { ".react-flow": FLOW } });
+  const restless = { ...port, async dom() { return flow(`poll-${poll++}`); } };
+
+  await assert.rejects(
+    () =>
+      runScenario(fakePage(), scenario(), {
+        side: "psflow",
+        capture: 1,
+        baseline: "12.11.0",
+        port: restless,
+        settle: { polls: 3 },
+      }),
+    SettleError
+  );
 });
 
 test("the envelope refuses a run it could not identify", async () => {
