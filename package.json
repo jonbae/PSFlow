@@ -21,6 +21,7 @@
     "test:compare": "node --test \"parity/system/trace-format.test.mjs\" \"parity/system/compare/**/*.test.mjs\"",
     "test:harness": "node --test \"parity/system/harness/**/*.test.mjs\" \"parity/system/corpus/**/*.test.mjs\" \"parity/system/net/**/*.test.mjs\" \"parity/driver/**/*.test.mjs\"",
     "test:harness:live": "playwright test --config parity/system/harness/playwright.config.mjs",
+    "test:ci": "node --test .github/scripts/*.test.mjs",
     "build:oracle": "node oracle/esbuild.mjs"
   },
   "dependencies": {

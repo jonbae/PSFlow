@@ -89,6 +89,7 @@ npm run test:census       # node --test over the standalone census generator and
 npm run test:compare      # node --test over the system-parity comparison core
 npm run test:harness      # node --test over its capture half and the driver's registries and sides
 npm run test:harness:live # the net harness against a real page — a browser, but no parity claim
+npm run test:ci           # node --test over the gates workflow and the baseline vendoring script
 ```
 
 `parity:boundary` is two staleness checks over `src/Boundary/`. `drift.mjs`
@@ -110,6 +111,50 @@ the two props ps-flow's record makes required, and that `useNodesState` /
 `parity:changelog` measures what a baseline bump costs, not what detects a
 divergence.
 
+`test:ci` is the gates workflow's self-test: it holds `.github/workflows/gates.yml`
+to the five-gate table above — the four cheap gates each run once, under the
+command this file documents, with surface parity first and system parity absent —
+and covers the baseline vendoring script CI runs. Editing either file without the
+other goes red.
+
+## Continuous integration
+
+`.github/workflows/gates.yml` runs **the four cheap gates on every pull
+request**: surface parity, function parity, the conformance test suite and the
+smoke test suite, in that order, each failing the check when it is red.
+
+**Surface parity runs first and blocks.** It is the only hard precondition, so
+when it is red the three gates after it do not run and the run's summary says
+why they were withheld rather than leaving them skipped in silence. Everything
+below it is interpretation order.
+
+**System parity is not in the per-PR workflow.** Its per-run cost is not
+knowable until the corpus exists — a floor of ~240 runs at two sides by two
+captures, each settling on its own clock — and multiplying the two is what
+answers the per-PR / nightly / bump-only question. Until that measurement
+exists, a schedule would be a guess; and while the divergence backlog is being
+worked, a per-PR run that is red on purpose would train everyone to ignore a red
+check.
+
+CI vendors the parity baseline itself, since `xyflow/` is gitignored:
+
+```sh
+node .github/scripts/vendor-baseline.mjs   # resolves the tag from the exact pins below
+```
+
+It reads the exact-pinned `@xyflow/*` devDependencies, downloads that release
+tag's source tarball into `xyflow/`, and fails if the extracted tree disagrees
+with either pin — the tag names the react version only, so the system version is
+checked rather than assumed. It refuses to touch an existing `xyflow/`: a bump
+is a delete and re-vendor, never a merge.
+
+CI then rebuilds `oracle/index.js` and `parity/driver/dist/psflow.js` before
+running anything. Both are committed so a fresh clone works without the
+vendored tree, and **nothing fails when they are left stale** — a bundle
+predating `output/` leaves every spec green about code that is gone. CI has the
+vendored tree anyway, so rebuilding costs seconds and the gates measure the
+commit rather than the last artifact someone rebuilt by hand.
+
 ## The parity baseline
 
 The parity baseline is the **vendored** `xyflow/` checkout — currently
@@ -127,8 +172,10 @@ drift the declared baseline away from the vendored one without any gate noticing
 
 Bumping the baseline is one atomic change:
 
-1. update the vendored `xyflow/` checkout,
-2. re-pin both devDependencies to the new versions,
+1. re-pin both devDependencies to the new versions,
+2. `rm -rf xyflow && node .github/scripts/vendor-baseline.mjs` — the checkout is
+   resolved *from* the pin, which is what keeps the two halves of the baseline
+   one change rather than two, and is how CI gets its copy,
 3. `npm run build:oracle` (commit the regenerated `oracle/index.js`),
 4. `npm run build:driver` (commit the regenerated `parity/driver/dist/psflow.js`
    — it inlines upstream's fixture files and the ColorMode example, so a bump

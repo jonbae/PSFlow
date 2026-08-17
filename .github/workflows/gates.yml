@@ -1,0 +1,155 @@
+# The four cheap gates, on every pull request.
+#
+# "Gates CI" in this repo's prose used to mean "gates whoever remembered to run
+# the script". This is the thing that makes it mean CI: surface parity,
+# function parity, the conformance test suite and the smoke test suite, run
+# against every PR, each one failing the check when it is red. README's
+# five-gate table is what this file is held to — `npm run test:ci` compares the
+# two, so a gate renamed in one place goes red rather than quietly dropping out
+# of CI.
+#
+# **System parity is deliberately not here.** Its per-run cost is not knowable
+# until the corpus exists: the floor is ~240 runs at two sides by two captures,
+# and each side settles on its own clock, so per-run time is measured and not
+# predicted. Multiply the two and the per-PR / nightly / bump-only question
+# answers itself; picking a schedule now would be guessing. It is also red on
+# purpose today, while the divergence backlog is worked, so a per-PR run would
+# train everyone to ignore a red check — the failure mode this whole effort
+# exists to close.
+#
+# **Ordering is not arbitrary.** Surface parity is the only *hard*
+# precondition: interop breakage has a cheap static signature and an expensive
+# runtime shadow, so a red one makes every downstream result unreadable rather
+# than merely suspect. It runs first, and when it fails the gates after it do
+# not run and the run says so. Everything after it is interpretation order —
+# cheapest instrument first.
+#
+# **Every artifact a gate reads is rebuilt here from the tree being tested.**
+# `oracle/index.js` and `parity/driver/dist/psflow.js` are committed so a fresh
+# clone can run without the gitignored `xyflow/`, and nothing fails when they
+# are left stale — a bundle predating `output/` leaves every spec green about
+# code that is gone. CI has the vendored tree anyway, so it rebuilds both and
+# the gates measure the commit rather than the last artifact someone rebuilt.
+
+name: gates
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+# A superseded run proves nothing about the head of the branch.
+concurrency:
+  group: gates-${{ github.ref }}
+  cancel-in-progress: true
+
+# Gates read; they do not write.
+permissions:
+  contents: read
+
+jobs:
+  cheap-gates:
+    name: the four cheap gates
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # >= 22.18 on purpose: `parity/surface/extract-upstream.ts` is run by
+      # plain `node`, which strips the types itself.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      # Pinned, and taken from the compiler's own release rather than a
+      # third-party action: the two versions are what `spago.lock`'s package set
+      # was resolved against, and a floating toolchain would make a red gate
+      # ambiguous between the port and the compiler.
+      - name: Install the PureScript toolchain
+        run: |
+          curl -fsSL https://github.com/purescript/purescript/releases/download/v0.15.16/linux64.tar.gz | tar -xz -C "$RUNNER_TEMP"
+          sudo install "$RUNNER_TEMP/purescript/purs" /usr/local/bin/purs
+          npm install --global spago@1.0.4
+          purs --version
+          spago --version
+
+      - name: Install the npm dependencies
+        run: npm ci
+
+      # `xyflow/` is gitignored, so CI has no parity baseline until it fetches
+      # one. It is resolved from the exact-pinned `@xyflow/*` devDependencies —
+      # the declared baseline — and the extracted tree is checked against both
+      # pins, so the version CI measures cannot drift from the version the repo
+      # says it measures.
+      - name: Vendor the parity baseline
+        run: node .github/scripts/vendor-baseline.mjs
+
+      - name: Install Playwright's browser
+        run: npx playwright install --with-deps chromium
+
+      # Not a gate: it proves this workflow runs what README says it runs.
+      - name: CI's own self-tests
+        run: npm run test:ci
+
+      - name: Build the PureScript output
+        run: spago build
+
+      - name: Rebuild the artifacts the gates read
+        run: |
+          npm run build:oracle
+          npm run build:driver
+
+      # ── The gates ────────────────────────────────────────────────────────
+
+      - name: Surface parity
+        id: surface_parity
+        run: npm run parity:surface
+
+      # The blocking half is that the steps below are skipped. This is the
+      # reporting half: skipped-in-silence reads as "CI did not bother", and
+      # what happened is that three results were withheld because they could
+      # not have been read.
+      - name: Surface parity is red — the rest of the run was not interpreted
+        if: failure() && steps.surface_parity.outcome == 'failure'
+        run: |
+          cat >> "$GITHUB_STEP_SUMMARY" <<'SUMMARY'
+          ### Surface parity is red
+
+          Function parity, the conformance test suite and the smoke test suite
+          did not run. Their results are withheld, not passed.
+
+          Surface parity is the only hard precondition among the gates. Its
+          failures are interop-shaped — an export that does not resolve, a
+          shape that changed, a positional array arriving as a labelled record
+          — and interop breakage has a cheap static signature and an expensive
+          runtime shadow. The two browser suites enter through the same door
+          that just failed, so what they would report is a reading of the door
+          rather than of the port, at five minutes a go. Function parity
+          measures below that door, at the oracle seam, and may well still be
+          green — which is the reassurance to distrust while the surface is
+          red.
+
+          Fix surface parity first, then read the rest.
+          SUMMARY
+          echo "::error title=Surface parity is red::The three gates after it did not run — see the job summary."
+
+      - name: Function parity
+        run: spago test
+
+      - name: Conformance test suite
+        run: npm run test:conformance
+
+      - name: Smoke test suite
+        run: npm run test:smoke
+
+      # A browser gate's failure is a trace and a screenshot, and neither
+      # survives the runner.
+      - name: Keep what the browser gates recorded
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-results
+          path: test-results/
+          retention-days: 7
+          if-no-files-found: ignore
