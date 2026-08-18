@@ -36,6 +36,7 @@ module Boundary.Utils
 
 import Prelude
 
+import Boundary.Callbacks (JsOnError)
 import Boundary.Elements
   ( JsConnection
   , JsEdge
@@ -51,7 +52,6 @@ import Boundary.Elements
   , nodeIn
   , nodeOut
   )
-import Boundary.Callbacks (JsOnError)
 import Boundary.Undefined (Undefinable, fromUndefinable)
 import Data.Either (Either(..))
 import Data.Function.Uncurried (Fn2, Fn3, mkFn2, mkFn3)
@@ -61,8 +61,8 @@ import Effect.Exception.Unsafe (unsafeThrow)
 import Effect.Uncurried (runEffectFn2)
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign)
-import System.Constants (ErrorCode(..), errorMessage)
 import React.Store.Changes (applyEdgeChanges, applyNodeChanges) as PS
+import System.Constants (ErrorCode(..), errorMessage)
 import System.Types.Connection (Connection)
 import System.Types.Edge (EdgeBase)
 import System.Utils.Edges.General (GetEdgeId, addEdge, getEdgeId) as PS
@@ -98,6 +98,15 @@ applyEdgeChanges = mkFn2 \changes edges ->
 -- | the only signal a consumer gets that `addEdge` declined to add anything,
 -- | and `reportAddEdgeError` below is where the code upstream reports beside
 -- | the message comes back.
+-- |
+-- | **A consumer who passes none gets silence, where upstream warns.**
+-- | Upstream's `addEdge` defaults the option — `onError: options.onError ??
+-- | defaultOnError`, a `createDevWarn` — so an empty endpoint prints in
+-- | development even when nobody asked. ps-flow has no `createDevWarn`, and
+-- | inventing one here would be this module adding behaviour the internals do
+-- | not have, which is the same thing refusing `MiniMap.nodeColor`'s string
+-- | form avoids. The divergence is real and lands in the net's `console`
+-- | section, which is the mechanism built to see it.
 type JsAddEdgeOptions =
   { getEdgeId :: Undefinable (JsConnection -> String)
   , onError :: Undefinable JsOnError

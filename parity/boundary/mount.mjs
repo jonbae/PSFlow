@@ -20,35 +20,53 @@
 //      unions, the node and edge records, and the node-type wrapping — and
 //      then reads the props a consumer's own node component actually received.
 //
-//   3. **The graph utilities are callable, and their round trip closes.** A
+//   3. **Every callback prop that has crossed is accepted**, is converted from
+//      its own field, and has a type a JavaScript caller can satisfy in one
+//      call. This is (1) turned around, and it is where boundary stage 2 left
+//      the surface: 46 of these threw at mount until the callbacks crossed. It
+//      is deliberately three claims and not one, because a handler can be
+//      accepted and still be wired from a sibling field or be curried, and
+//      neither shows up as a mount failure.
+//
+//   4. **The graph utilities are callable, and their round trip closes.** A
 //      controlled flow's own change handlers call `applyNodeChanges`,
 //      `applyEdgeChanges` and `addEdge` with every argument at once and put
 //      what comes back into `nodes` / `edges`. What that section claims is the
 //      calling convention and the branches the crossing itself introduces —
-//      never upstream's semantics, which is call-and-compare's to prove.
+//      never upstream's semantics, which is call-and-compare's to prove. It is
+//      also where the one crossed callback a server render can *fire* lives:
+//      `addEdge`'s `options.onError`.
 //
-//   4. **Three of the four chrome components mount with no props at all**, and
+//   5. **Three of the four chrome components mount with no props at all**, and
 //      the fourth names the one prop upstream declares required. That is the
 //      dull case and the one that used to crash: React hands a component `{}`,
 //      every `Maybe` field of the PureScript record arrives `undefined`, and
 //      the first `case` over one falls off the end of its pattern match.
 //
-//   5. **`<Handle />` and `<NodeToolbar />` mount inside a consumer's own node
-//      component, and `<Handle />` with no props takes upstream's defaults.**
-//      `HandleProps` makes `type` and `position` required — a sum type has no
-//      absent state — so the defaults upstream declares in its parameter list
-//      are the crossing's to supply, and `<Handle />` is the plainest thing a
-//      custom node writes.
+//   6. **The four components a consumer's own node component mounts do so**,
+//      and `<Handle />` with no props takes upstream's defaults. `HandleProps`
+//      makes `type` and `position` required — a sum type has no absent state —
+//      so the defaults upstream declares in its parameter list are the
+//      crossing's to supply, and `<Handle />` is the plainest thing a custom
+//      node writes. `<NodeToolbar />`, `<NodeResizer />` and
+//      `<NodeResizeControl />` mount beside it.
 //
-//   6. **`useNodesState` and `useEdgesState` return upstream's 3-tuple, and
+//   7. **`useNodesState` and `useEdgesState` return upstream's 3-tuple, and
 //      their setters run.** Both were unreachable from JavaScript — a hook is
 //      an unrun `Effect`, and `setEdges(fn)` built a second one — and both are
 //      destructured by the ColorMode driver.
 //
+// What this file cannot claim is that a flow-level handler was ever *called*.
+// Every one of them reaches the store through `StoreUpdater`'s effect and
+// `react-dom/server` runs no effects, so acceptance is the ceiling here and the
+// net's `callbacks` section is what holds the rest.
+//
 // The deferred lists are read live out of `src/Boundary/Flow.purs`,
-// `src/Boundary/Chrome.purs` and `src/Boundary/NodeChrome.purs` rather than
-// restated here. A second copy of any of them is a second thing to go stale,
-// and this file checks the one copy against the record it belongs to instead.
+// `src/Boundary/Chrome.purs`, `src/Boundary/NodeChrome.purs` and
+// `src/Boundary/Resizer.purs` rather than restated here, and the callback lists
+// are derived from `src/Boundary/Callbacks.purs`' own type synonyms. A second
+// copy of any of them is a second thing to go stale, and this file checks the
+// one copy against the record it belongs to instead.
 //
 // Usage: node parity/boundary/mount.mjs   (requires `spago build`)
 
@@ -340,13 +358,29 @@ const handlerTypes = typeSynonyms(callbacksSource);
 // handler types themselves — `JsConnectionState` is an argument, not a
 // callback. A field typed by one of those is data, so the ones that are
 // arguments rather than functions are excluded by name.
-const argumentTypes = new Set([
+//
+// This is the one list in this file that is written rather than derived, so it
+// carries the rule every register here does: an entry that stops naming a real
+// declaration fails, instead of quietly excluding nothing while a handler it
+// was never meant to cover slips past.
+const argumentTypes = [
   "JsConnectStartParams",
   "JsConnectionState",
   "JsResizeParams",
   "JsResizeParamsWithDirection",
-]);
-const handlerTypeSet = new Set(handlerTypes.filter((name) => !argumentTypes.has(name)));
+];
+
+const declaredTypes = new Set(handlerTypes);
+const staleArguments = argumentTypes.filter((name) => !declaredTypes.has(name));
+if (staleArguments.length > 0) {
+  fail(
+    `stale argument-type exclusions in mount.mjs: ${staleArguments.join(", ")} — ` +
+      `no longer declared in ${callbacksSource}`
+  );
+}
+
+const excluded = new Set(argumentTypes);
+const handlerTypeSet = new Set(handlerTypes.filter((name) => !excluded.has(name)));
 
 if (handlerTypeSet.size === 0) {
   fail(`found no handler types in ${callbacksSource} — the parse is wrong`);
@@ -430,7 +464,13 @@ check("every callback prop is converted from its own field", () => {
       m[2],
     ])
   );
-  const wrong = flowCallbacks.filter((name) => !(wired.get(name) ?? "").includes(`p.${name}`));
+  // Anchored on a word boundary, not `includes`: `p.onNodeDrag` is a prefix of
+  // `p.onNodeDragStop`, so a substring test would pass `onNodeDrag` wired from
+  // its own sibling — which is the miswiring this check exists for, and five
+  // of the 49 props have a sibling whose name extends theirs.
+  const wrong = flowCallbacks.filter(
+    (name) => !new RegExp(`\\bp\\.${name}\\b`).test(wired.get(name) ?? "")
+  );
   assert(
     wrong.length === 0,
     `callback props whose conversion never reads their own field: ${wrong.join(", ")}`

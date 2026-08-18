@@ -29283,7 +29283,7 @@ var setAttributesOut = function(m) {
     return false;
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Elements (line 959, column 22 - line 963, column 37): " + [m.width.constructor.name, m.height.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Elements (line 958, column 22 - line 962, column 37): " + [m.width.constructor.name, m.height.constructor.name]);
 };
 var setAttributesIn = function(raw) {
   var v = asBoolean(raw);
@@ -29313,7 +29313,7 @@ var setAttributesIn = function(raw) {
     return unsafeThrow("ps-flow: a dimension change's `setAttributes` must be a boolean, " + ('"width" or "height", got ' + (typeName(raw) + ".")));
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Elements (line 966, column 23 - line 976, column 17): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Elements (line 965, column 23 - line 975, column 17): " + [v.constructor.name]);
 };
 var requiredMember = function(tag) {
   return function(member7) {
@@ -29337,7 +29337,7 @@ var readKey = function(field) {
       return unsafeThrow("ps-flow: every entry of `" + (field + ("` must be a string, got " + (typeName(raw) + "."))));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Elements (line 460, column 21 - line 466, column 15): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Elements (line 459, column 21 - line 465, column 15): " + [v.constructor.name]);
   };
 };
 var pairError = function(field) {
@@ -29472,10 +29472,10 @@ var keyCodeIn = function(v) {
           return unsafeThrow("ps-flow: `" + (v + ("` must be a string or an array of strings, got " + (typeName(raw) + "."))));
         }
         ;
-        throw new Error("Failed pattern match at Boundary.Elements (line 451, column 16 - line 457, column 19): " + [v3.constructor.name]);
+        throw new Error("Failed pattern match at Boundary.Elements (line 450, column 16 - line 456, column 19): " + [v3.constructor.name]);
       }
       ;
-      throw new Error("Failed pattern match at Boundary.Elements (line 449, column 3 - line 457, column 19): " + [v2.constructor.name]);
+      throw new Error("Failed pattern match at Boundary.Elements (line 448, column 3 - line 456, column 19): " + [v2.constructor.name]);
     });
   };
 };
@@ -29557,7 +29557,7 @@ var markerOut = function(v) {
     return edgeMarkerOut(v.value0);
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Elements (line 753, column 13 - line 755, column 51): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Elements (line 752, column 13 - line 754, column 51): " + [v.constructor.name]);
 };
 var edgeOut = function(e) {
   return {
@@ -29607,7 +29607,7 @@ var markerIn = function(field) {
       return new CustomMarker(edgeMarkerIn(field)(raw));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Elements (line 748, column 22 - line 750, column 66): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Elements (line 747, column 22 - line 749, column 66): " + [v.constructor.name]);
   };
 };
 var edgeChangeOut = function(v) {
@@ -29651,7 +29651,7 @@ var edgeChangeOut = function(v) {
     };
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Elements (line 997, column 17 - line 1016, column 6): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Elements (line 996, column 17 - line 1015, column 6): " + [v.constructor.name]);
 };
 var coordinateExtentOut = function(e) {
   return [[unwrap2(e).minX, unwrap2(e).minY], [unwrap2(e).maxX, unwrap2(e).maxY]];
@@ -29665,7 +29665,7 @@ var nodeExtentOut = function(v) {
     return coordinateExtentOut(v.value0);
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Elements (line 642, column 17 - line 644, column 56): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Elements (line 641, column 17 - line 643, column 56): " + [v.constructor.name]);
 };
 var internalNodeOut = function(n) {
   return {
@@ -29835,7 +29835,7 @@ var nodeChangeOut = function(v) {
     };
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Elements (line 904, column 17 - line 937, column 6): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Elements (line 903, column 17 - line 936, column 6): " + [v.constructor.name]);
 };
 var coordinateExtentIn = function(field) {
   return function(v) {
@@ -29871,10 +29871,10 @@ var nodeExtentIn = function(raw) {
       return unsafeThrow('ps-flow: `node.extent` accepts the string "parent" or ' + ("[[minX, minY], [maxX, maxY]], got " + (typeName(raw) + ".")));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Elements (line 632, column 14 - line 639, column 17): " + [v1.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Elements (line 631, column 14 - line 638, column 17): " + [v1.constructor.name]);
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Elements (line 624, column 20 - line 639, column 17): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Elements (line 623, column 20 - line 638, column 17): " + [v.constructor.name]);
 };
 var connectionOut = function(c) {
   return {
@@ -31174,7 +31174,7 @@ var isValidConnectionIn = function(f) {
       }));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Callbacks (line 521, column 20 - line 530, column 8): " + [c.edge.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Callbacks (line 534, column 20 - line 543, column 8): " + [c.edge.constructor.name]);
   };
   return function(candidate) {
     return f(candidateOut(candidate));
@@ -31362,7 +31362,7 @@ var beforeDeleteResultIn = function(raw) {
     return badBeforeDeleteResult(raw);
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Callbacks (line 551, column 28 - line 567, column 39): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Callbacks (line 564, column 28 - line 580, column 39): " + [v.constructor.name]);
 };
 var onBeforeDeleteIn = function(f) {
   return function(selection2) {
@@ -61820,7 +61820,7 @@ var reportAddEdgeError = function(onError) {
       return unsafeThrow("ps-flow: `addEdge` failed with " + (show13(message2) + ", which is not the one error it is able to report. `options.onError` takes upstream's error code as its first argument and there is no code for this one, so it is refused rather than reported under another error's."));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Utils (line 149, column 1 - line 149, column 57): " + [onError.constructor.name, message2.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Utils (line 158, column 1 - line 158, column 57): " + [onError.constructor.name, message2.constructor.name]);
   };
 };
 var edgeFromConnection = function(generate) {
@@ -61875,7 +61875,7 @@ var addEdgeWithOptions = function(edgeParams) {
           return getEdgeId;
         }
         ;
-        throw new Error("Failed pattern match at Boundary.Utils (line 131, column 14 - line 133, column 28): " + [v2.constructor.name]);
+        throw new Error("Failed pattern match at Boundary.Utils (line 140, column 14 - line 142, column 28): " + [v2.constructor.name]);
       }();
       var edge = function() {
         var $18 = isEdgeBase(edgeParams);
@@ -61902,7 +61902,7 @@ var addEdgeWithOptions = function(edgeParams) {
               return reportAddEdgeError(v1.value0)(v.value0)();
             }
             ;
-            throw new Error("Failed pattern match at Boundary.Utils (line 122, column 7 - line 124, column 59): " + [v1.constructor.name]);
+            throw new Error("Failed pattern match at Boundary.Utils (line 131, column 7 - line 133, column 59): " + [v1.constructor.name]);
           })();
           return edges;
         });
@@ -61912,7 +61912,7 @@ var addEdgeWithOptions = function(edgeParams) {
         return map55(edgeOut)(v.value0);
       }
       ;
-      throw new Error("Failed pattern match at Boundary.Utils (line 117, column 3 - line 126, column 35): " + [v.constructor.name]);
+      throw new Error("Failed pattern match at Boundary.Utils (line 126, column 3 - line 135, column 35): " + [v.constructor.name]);
     };
   };
 };

@@ -288,9 +288,20 @@ noConnection =
   , pointer: null
   }
 
--- | Upstream's `ResizeParams` and `ResizeParamsWithDirection`. The direction
--- | pair is `Int` in PureScript and `number` in JavaScript, which is the only
--- | field of either that is not already the same on both sides.
+-- | Upstream's `ResizeParams` and `ResizeParamsWithDirection`.
+-- |
+-- | `direction` is upstream's `number[]` — a **positional pair**, `[dx, dy]`,
+-- | which a consumer destructures. `System.XYResizer.ResizeParamsWithDirection`
+-- | names the components `{ dx, dy }` instead, and letting that record out
+-- | would be the labelled-record-where-upstream-has-an-array divergence this
+-- | boundary exists to remove: `const [dx, dy] = params.direction` would bind
+-- | `undefined` twice and say nothing about why.
+-- |
+-- | It crosses the way `nodeOrigin` and `snapGrid` do, and note what that
+-- | costs: `parity/boundary/drift.mjs` compares field *names*, so it sees
+-- | `direction` on both sides and never looks inside. Nothing but this
+-- | converter holds the pair encoding, which is why it is written out rather
+-- | than coerced.
 type JsResizeParams =
   { x :: Number
   , y :: Number
@@ -303,7 +314,7 @@ type JsResizeParamsWithDirection =
   , y :: Number
   , width :: Number
   , height :: Number
-  , direction :: { dx :: Number, dy :: Number }
+  , direction :: Array Number
   }
 
 resizeParamsOut :: ResizeParams -> JsResizeParams
@@ -315,10 +326,7 @@ resizeParamsWithDirectionOut p =
   , y: p.y
   , width: p.width
   , height: p.height
-  , direction:
-      { dx: Int.toNumber p.direction.dx
-      , dy: Int.toNumber p.direction.dy
-      }
+  , direction: [ Int.toNumber p.direction.dx, Int.toNumber p.direction.dy ]
   }
 
 -- ────────────────────────────────────────────────────────────────────────
@@ -364,8 +372,13 @@ mouseEventHandlerIn f = \event -> runEffectFn1 f (eventOut event)
 -- | so the prop stays callable from PureScript without an FFI bridge. There is
 -- | therefore no event here to hand over, and a consumer's `(event) => …` is
 -- | called with none — a gap in the internals, not something a converter can
--- | close, and it is a census row rather than a refusal because refusing would
--- | make a working handler an error.
+-- | close. It is crossed rather than refused because refusing would make a
+-- | working handler an error.
+-- |
+-- | **Nothing records it.** The census counts exports and this is a prop of
+-- | one, so no entry of it says the argument is missing; the net's `callbacks`
+-- | section is what will see it, by comparing what each side's handler was
+-- | handed. Until then this comment is the only place it is written down.
 -- |
 -- | A PureScript `Effect Unit` is a nullary function at runtime and so is the
 -- | consumer's, which is why this needs no wrapper at all.

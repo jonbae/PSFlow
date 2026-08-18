@@ -76,7 +76,6 @@ module Boundary.Elements
   , edgeOut
   , edgeChangeIn
   , edgeChangeOut
-  , graphSelectionIn
   , graphSelectionOut
   , handleOut
   , internalNodeOut
@@ -228,8 +227,8 @@ type JsInternalNode = { internals :: JsNodeInternals | JsNodeRow }
 -- | as a reference-equality optimisation. `System.Types.Node.NodeInternals`
 -- | omits it on purpose — PureScript has no reference equality — so there is
 -- | nothing here to emit it from, and a consumer reading `internals.userNode`
--- | gets `undefined` rather than their own node. A census row, not something a
--- | converter can close.
+-- | gets `undefined` rather than their own node. A gap in the internals rather
+-- | than something a converter can close.
 type JsNodeInternals =
   { positionAbsolute :: JsXYPosition
   , z :: Number
@@ -1059,14 +1058,4 @@ graphSelectionOut
 graphSelectionOut s =
   { nodes: map nodeOut s.nodes
   , edges: map edgeOut s.edges
-  }
-
--- | The way back, for `onBeforeDelete`: the one callback on this surface whose
--- | *return* value is graph data, so the bag it was handed comes back in.
-graphSelectionIn
-  :: JsGraphSelection
-  -> { nodes :: Array (NodeBase Foreign), edges :: Array (EdgeBase Foreign) }
-graphSelectionIn s =
-  { nodes: map nodeIn s.nodes
-  , edges: map edgeIn s.edges
   }
