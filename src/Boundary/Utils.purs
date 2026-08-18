@@ -51,12 +51,17 @@ import Boundary.Elements
   , nodeIn
   , nodeOut
   )
-import Boundary.Undefined (Undefinable, fromUndefinable, isDefined)
+import Boundary.Callbacks (JsOnError)
+import Boundary.Undefined (Undefinable, fromUndefinable)
 import Data.Either (Either(..))
 import Data.Function.Uncurried (Fn2, Fn3, mkFn2, mkFn3)
 import Data.Maybe (Maybe(..))
+import Effect (Effect)
 import Effect.Exception.Unsafe (unsafeThrow)
+import Effect.Uncurried (runEffectFn2)
+import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign)
+import System.Constants (ErrorCode(..), errorMessage)
 import React.Store.Changes (applyEdgeChanges, applyNodeChanges) as PS
 import System.Types.Connection (Connection)
 import System.Types.Edge (EdgeBase)
@@ -88,10 +93,14 @@ applyEdgeChanges = mkFn2 \changes edges ->
 -- | what makes it work. ps-flow's own `addEdge` takes a `GetEdgeId`
 -- | positionally and never calls it (it demands a complete `Edge`), so the
 -- | generator is applied here, where the connection becomes an edge.
+-- |
+-- | `onError` was refused until boundary stage 2 crossed the callbacks. It is
+-- | the only signal a consumer gets that `addEdge` declined to add anything,
+-- | and `reportAddEdgeError` below is where the code upstream reports beside
+-- | the message comes back.
 type JsAddEdgeOptions =
   { getEdgeId :: Undefinable (JsConnection -> String)
-  -- Refused. Present so it can be seen and rejected, never read.
-  , onError :: Undefinable Foreign
+  , onError :: Undefinable JsOnError
   }
 
 -- | `addEdge(edgeParams, edges, options?)`.
@@ -107,13 +116,16 @@ addEdgeWithOptions
 addEdgeWithOptions edgeParams edges rawOptions =
   case PS.addEdge edge (map edgeIn edges) generate of
     -- Upstream reports the empty endpoint through `options.onError` and hands
-    -- back the array it was given. With `onError` refused above there is
-    -- nobody to report to, so this returns the caller's own array — not a
-    -- round-tripped copy of it, because nothing happened to it.
-    Left _ -> edges
+    -- back the array it was given — not a round-tripped copy of it, because
+    -- nothing happened to it.
+    Left message -> unsafePerformEffect do
+      case options >>= (fromUndefinable <<< _.onError) of
+        Nothing -> pure unit
+        Just onError -> reportAddEdgeError onError message
+      pure edges
     Right next -> map edgeOut next
   where
-  options = map guardAddEdgeOptions (fromUndefinable rawOptions)
+  options = fromUndefinable rawOptions
 
   generate :: PS.GetEdgeId
   generate = case options >>= (fromUndefinable <<< _.getEdgeId) of
@@ -123,6 +135,27 @@ addEdgeWithOptions edgeParams edges rawOptions =
   edge =
     if isEdgeBase edgeParams then edgeIn (unsafeCoerce edgeParams)
     else edgeFromConnection generate (connectionIn (unsafeCoerce edgeParams))
+
+-- | `onError` takes upstream's error **code** as well as its message, and
+-- | ps-flow's `addEdge` returns only the message: `System.Constants.ErrorCode`
+-- | is a sum whose tag `errorMessage` erases. So the code is restored here.
+-- |
+-- | It is restored by *checking* rather than by assuming. `addEdge` has exactly
+-- | one failing branch today, `E006`, which is also the only error upstream's
+-- | own `addEdge` reports — so a message that is not that one means a second
+-- | failure mode was added to the internals with no code to carry it, and
+-- | reporting it as `"006"` would be a wrong code the consumer cannot tell from
+-- | a right one.
+reportAddEdgeError :: JsOnError -> String -> Effect Unit
+reportAddEdgeError onError message
+  | message == errorMessage E006 = runEffectFn2 onError "006" message
+  | otherwise =
+      unsafeThrow $
+        "ps-flow: `addEdge` failed with " <> show message
+          <> ", which is not the one error it is able to report. `options.onError` "
+          <> "takes upstream's error code as its first argument and there is no "
+          <> "code for this one, so it is refused rather than reported under "
+          <> "another error's."
 
 -- | The `{ ...connection, id }` upstream builds, written as a record so that a
 -- | field added to `EdgeBase` fails here rather than arriving undefined.
@@ -149,20 +182,6 @@ edgeFromConnection generate c =
   , className: Nothing
   , style: Nothing
   }
-
--- | `onError` is a callback, and callbacks land in boundary stage 2. Refused
--- | rather than ignored for the reason every deferred prop is: a handler that
--- | is never called looks exactly like a handler the consumer never passed,
--- | and this one is the only signal that `addEdge` declined to add anything.
-guardAddEdgeOptions :: JsAddEdgeOptions -> JsAddEdgeOptions
-guardAddEdgeOptions o
-  | isDefined o.onError =
-      unsafeThrow
-        "ps-flow: `addEdge`'s `options.onError` has not crossed the JavaScript \
-        \boundary yet — it lands in boundary stage 2 (the callback props). It \
-        \is refused rather than ignored so that a handler ps-flow would never \
-        \call fails loudly instead of looking like a handler you did not pass."
-guardAddEdgeOptions o = o
 
 -- ────────────────────────────────────────────────────────────────────────
 -- The optional third argument

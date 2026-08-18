@@ -21,25 +21,27 @@
 export const freeze = (record) => Object.freeze(record);
 
 export const manifest = Object.freeze({
-  // The highest boundary stage that has landed. Stage 1 crosses the exports
+  // The highest boundary stage that has landed. Stage 1 crossed the exports
   // upstream's fixtures and the two drivers import plus the eight enum
-  // objects; stages 2-4 are the callbacks, the imperative instance with the
-  // remaining hooks, and the components no fixture mounts. See the spec's
-  // staging table.
+  // objects; stage 2 crosses the callback props; stages 3-4 are the imperative
+  // instance with the remaining hooks, and the components no fixture mounts.
+  // See the spec's staging table.
   //
-  // Stage 1's set is twenty, and all twenty are below. `Handle` and
-  // `NodeToolbar` were the last two: they are mounted by the node component
-  // the node-toolbar fixture names rather than by either driver, and crossed
-  // when that fixture moved onto the JS surface (#47).
-  stage: 1,
+  // A stage is counted in **converters**, not exports, which is why stage 2
+  // moves this number while adding only two names below: 46 callback props
+  // crossed on `ReactFlow` alone, and every one of them is a prop of an export
+  // that had already crossed. The two new names are `NodeResizer` and
+  // `NodeResizeControl`, which come forward out of stage 4 because their three
+  // lifecycle handlers are callback props and a callback cannot cross without
+  // the record it hangs off.
+  stage: 2,
 
   // The eight TS enums are plain data on both sides, so crossing them was the
   // whole conversion: no wrapper, no arity change, no representation to
-  // translate. `ReactFlow` is the opposite — 124 props, of which 75 convert
-  // (72 non-callback fields plus the three change callbacks) and 49 are
-  // refused outright until the stage that lands them (see `Boundary.Flow`).
-  // It is listed as crossed because a JavaScript caller now gets upstream's
-  // prop shapes or an error, never silence.
+  // translate. `ReactFlow` is the opposite — 124 props, of which 121 convert
+  // and three are refused outright until the stage that lands them (see
+  // `Boundary.Flow`). It is listed as crossed because a JavaScript caller now
+  // gets upstream's prop shapes or an error, never silence.
   //
   // The three utilities are what a controlled flow's own change handlers call,
   // so they cross with `ReactFlow` rather than after it: `onNodesChange` is
@@ -62,6 +64,8 @@ export const manifest = Object.freeze({
     "Handle",
     "MarkerType",
     "MiniMap",
+    "NodeResizeControl",
+    "NodeResizer",
     "NodeToolbar",
     "PanOnScrollMode",
     "Panel",
@@ -83,8 +87,6 @@ export const manifest = Object.freeze({
     "EdgeLabelRenderer",
     "EdgeText",
     "EdgeToolbar",
-    "NodeResizeControl",
-    "NodeResizer",
     "ReactFlowProvider",
     "ReactFlowWithRef",
     "SimpleBezierEdge",

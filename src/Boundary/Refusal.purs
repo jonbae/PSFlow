@@ -12,15 +12,20 @@
 -- | that recur, the message a deferred prop gives, and the "first one that
 -- | applies wins" lookup.
 -- |
+-- | Stage 2 emptied the largest of those tables. `callbackProp` — the entry
+-- | kind every one of the 47 callback props used — is gone, because the
+-- | callbacks cross now; what is left is the two kinds whose *arguments* have
+-- | not crossed, which is a different claim and lands in a different stage.
+-- |
 -- | The message is still a parameter of `refuseFirst`, because not everything
 -- | refused is a deferred prop: `defaultEdgeOptions`' thirteen dropped members
 -- | are refused for a different reason and have to say so, or the consumer is
 -- | sent to the wrong file.
 module Boundary.Refusal
   ( Refusal
-  , callbackProp
   , componentProp
   , deferredMessage
+  , instanceProp
   , refuseFirst
   ) where
 
@@ -40,12 +45,18 @@ type Refusal props =
   , supplied :: props -> Boolean
   }
 
--- | A callback prop. Boundary stage 2, wherever it appears.
-callbackProp :: forall props a. String -> (props -> Undefinable a) -> Refusal props
-callbackProp name get =
+-- | A prop whose value is a **handler of the imperative instance**.
+-- |
+-- | The callback props crossed in stage 2 and this is the one that could not
+-- | come with them: `onInit`'s single argument is the `ReactFlowInstance`, and
+-- | converting that is stage 3's whole subject rather than something a handler
+-- | converter could do on the side. A callback whose arguments have not crossed
+-- | has not crossed.
+instanceProp :: forall props a. String -> (props -> Undefinable a) -> Refusal props
+instanceProp name get =
   { name
-  , stage: 2
-  , note: "the callback props"
+  , stage: 3
+  , note: "the imperative instance and the 21 hooks"
   , supplied: \p -> isDefined (get p)
   }
 

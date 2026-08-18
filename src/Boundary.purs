@@ -24,12 +24,13 @@
 -- |
 -- | What has landed so far is this skeleton, the eight TS enum objects below,
 -- | the converters, the three graph utilities a driver calls, the four chrome
--- | components a driver mounts, the two a custom node mounts, and two of the 21
--- | hooks. The enums needed no converter at all — they are plain data on both
--- | sides, `{ Left: "left", … }` against `{ Left: "left", … }`, so there is
--- | nothing to get wrong but member names, which the record types check.
+-- | components a driver mounts, the four a custom node mounts, two of the 21
+-- | hooks, and — since stage 2 — **every callback prop bar `onInit`**. The
+-- | enums needed no converter at all: they are plain data on both sides,
+-- | `{ Left: "left", … }` against `{ Left: "left", … }`, so there is nothing to
+-- | get wrong but member names, which the record types check.
 -- |
--- | The converters are the rest, and they live in nine modules beneath this
+-- | The converters are the rest, and they live in eleven modules beneath this
 -- | one, none of them on the PureScript surface:
 -- |
 -- |   * `Boundary.Undefined` — `undefined`, which is what a JavaScript caller
@@ -39,8 +40,10 @@
 -- |   * `Boundary.Refusal` — the shape of a prop that resolves and does not
 -- |     cross, and the guard that throws on one.
 -- |   * `Boundary.Enums` — string literals in, sum-type constructors out.
--- |   * `Boundary.Elements` — `Node`, `Edge`, node props, the change objects
--- |     and `Connection`.
+-- |   * `Boundary.Elements` — `Node`, `Edge`, node props, the change objects,
+-- |     `Connection`, and the shapes a handler carries back out.
+-- |   * `Boundary.Callbacks` — one JS-shaped type and one converter per
+-- |     handler, shared by every record below that has one.
 -- |   * `Boundary.Flow` — the 124 flow props, and `ReactFlow` itself.
 -- |   * `Boundary.Utils` — `applyNodeChanges`, `applyEdgeChanges` and
 -- |     `addEdge`, which a controlled flow's own change handlers call, so a
@@ -49,6 +52,9 @@
 -- |     which a driver mounts inside the flow.
 -- |   * `Boundary.NodeChrome` — `Handle` and `NodeToolbar`, which a consumer's
 -- |     own node component mounts one level down.
+-- |   * `Boundary.Resizer` — `NodeResizer` and `NodeResizeControl`, mounted the
+-- |     same way and crossed with the callbacks because their lifecycle
+-- |     handlers are callback props.
 -- |   * `Boundary.Hooks` — `useNodesState` and `useEdgesState`, the two of the
 -- |     21 hooks that do not have to wait for stage 3's instance converter.
 -- |
@@ -111,7 +117,13 @@ import Boundary.Hooks (useEdgesState, useNodesState) as CrossedSurface
 -- any gate runs.
 import Boundary.NodeChrome (handle, nodeToolbar) as CrossedSurface
 
--- The other 50 symbols of the public surface, passing through raw. Ordered to
+-- The other pair a custom node mounts, and the only two exports stage 2 adds
+-- beyond the callbacks themselves. `Boundary.Resizer` says why they come
+-- forward out of stage 4: their three lifecycle handlers are callback props,
+-- and a callback cannot cross without the record it hangs off.
+import Boundary.Resizer (nodeResizeControl, nodeResizer) as CrossedSurface
+
+-- The other 48 symbols of the public surface, passing through raw. Ordered to
 -- mirror `xyflow/packages/react/src/index.ts`, as `index.js` is, so future
 -- audits stay mechanical.
 import React
@@ -165,8 +177,6 @@ import React
   , getSimpleBezierPath
   -- Additional components
   , controlButton
-  , nodeResizer
-  , nodeResizeControl
   , edgeToolbar
   ) as PublicSurface
 

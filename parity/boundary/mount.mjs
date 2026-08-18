@@ -56,7 +56,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { dirname, join } from "node:path";
 
-import { fail, recordFields } from "./purs.mjs";
+import { fail, recordEntries, recordFields, typeSynonyms } from "./purs.mjs";
 
 const repoRoot = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const flowSource = join(repoRoot, "src/Boundary/Flow.purs");
@@ -231,20 +231,41 @@ check("node props arrive JS-shaped, not PureScript-shaped", () => {
 const readModule = (path) => readFileSync(path, "utf8").replace(/\r\n/g, "\n");
 
 // The one shape a deferred entry is written in, wherever the table lives.
-// `Boundary.Refusal` owns both constructors, so both converter modules are
-// read with this.
-const deferredEntries = (text) =>
-  [...text.matchAll(/^\s*[[,]?\s*(?:callbackProp|componentProp)\s+"([^"]+)"/gm)].map((m) => m[1]);
+// `Boundary.Refusal` owns the entry constructors, and *which* constructors
+// exist is read out of that module rather than listed here: stage 2 removed
+// `callbackProp` and added `instanceProp`, and a list would have gone stale
+// silently in both directions — the removed one matching nothing, the added
+// one leaving a whole table unread and the section green.
+const refusalKinds = [
+  ...readModule(join(repoRoot, "src/Boundary/Refusal.purs")).matchAll(
+    /^(\w+Prop) :: forall/gm
+  ),
+].map((m) => m[1]);
+
+if (refusalKinds.length === 0) {
+  fail("found no refusal constructors in Boundary.Refusal — the parse is wrong");
+}
+
+const deferredEntries = (text) => [
+  ...text.matchAll(
+    new RegExp(`^\\s*[[,]?\\s*(?:${refusalKinds.join("|")})\\s+"([^"]+)"`, "gm")
+  ),
+].map((m) => m[1]);
 
 const flowText = readModule(flowSource);
 const flowFields = new Set(recordFields(flowSource, "JsFlowProps"));
 const deferred = deferredEntries(flowText);
 
-// The list is read, not restated, so an empty read is a broken parser rather
-// than a boundary with nothing left to defer — and a broken parser here would
-// turn the whole section green.
-if (deferred.length < 40) {
-  fail(`read only ${deferred.length} deferred props from ${flowSource} — the parse is wrong`);
+// The table is read, not restated, so a parse that found nothing has to be
+// told apart from a boundary with nothing left to defer. The declaration is
+// the anchor: while it exists it must yield entries, and when the last stage
+// empties it, it goes and this check goes with it.
+const deferredTable = /^deferredProps =\n([\s\S]*?)\n  \]$/m.exec(flowText);
+if (deferredTable === null) {
+  fail(`cannot find \`deferredProps\` in ${flowSource} — the parse is wrong`);
+}
+if (deferred.length === 0) {
+  fail(`read no deferred props from ${flowSource}'s table — the parse is wrong`);
 }
 
 check("every deferred prop is a real JsFlowProps field", () => {
@@ -297,6 +318,131 @@ for (const name of deferred) {
     );
   });
 }
+
+// ── 2b. Every callback prop is accepted, and fires JS-shaped ────────────
+//
+// The mirror image of the section above, and the one stage 2 turned around: 46
+// of these props threw at mount until the callbacks crossed, and each of them
+// now has to be *taken*. Without this, deleting a converter and leaving the
+// field wired to `Nothing` would only be caught by the deferred-entry check
+// above — which is a source check, so a converter that throws on the value it
+// is handed would still pass it.
+//
+// The list is derived, never listed. `Boundary.Callbacks` declares one
+// `type Js… =` per handler shape and its header states that invariant, so a
+// prop is a callback exactly when its declared type names one of those
+// synonyms. A handler added later is picked up here on the run that adds it.
+
+const callbacksSource = join(repoRoot, "src/Boundary/Callbacks.purs");
+const handlerTypes = typeSynonyms(callbacksSource);
+
+// The shapes a handler *carries* are declared in the same module and are not
+// handler types themselves — `JsConnectionState` is an argument, not a
+// callback. A field typed by one of those is data, so the ones that are
+// arguments rather than functions are excluded by name.
+const argumentTypes = new Set([
+  "JsConnectStartParams",
+  "JsConnectionState",
+  "JsResizeParams",
+  "JsResizeParamsWithDirection",
+]);
+const handlerTypeSet = new Set(handlerTypes.filter((name) => !argumentTypes.has(name)));
+
+if (handlerTypeSet.size === 0) {
+  fail(`found no handler types in ${callbacksSource} — the parse is wrong`);
+}
+
+// Every handler type has to be **uncurried**, and no gate here can fire one to
+// find out. A curried PureScript function of two arguments is two nested calls
+// at runtime, so `f(event)` on a consumer's `(event, params) => …` returns
+// `undefined` and the second call throws — the exact failure this whole
+// boundary exists to remove, on the one class the mount checks cannot reach.
+// `EffectFnN` and `FnN` are the uncurried forms; a bare arrow is only right
+// when the handler takes one argument, which is `a -> b` and no more.
+check("every handler type takes its arguments in one call", () => {
+  const declarations = new Map(
+    [...readModule(callbacksSource).matchAll(/^type\s+(Js\w+)\s*=([\s\S]*?)(?=\n\n)/gm)].map(
+      (m) => [m[1], m[2].trim().replace(/\s+/g, " ")]
+    )
+  );
+  const curried = [];
+  for (const name of handlerTypeSet) {
+    const body = declarations.get(name);
+    assert(body !== undefined, `cannot read \`type ${name}\` — the parse is wrong`);
+    if (/^(EffectFn\d|Fn\d)\b/.test(body)) continue;
+    // What is left is an arrow type or a nullary `Effect Unit`. Arrows may have
+    // exactly one, at the top level — nested arrows inside parentheses are a
+    // consumer's own callback, not this one's arity.
+    const arrows = body.replace(/\([^()]*\)/g, "").split("->").length - 1;
+    if (arrows > 1) curried.push(`${name} = ${body}`);
+  }
+  assert(
+    curried.length === 0,
+    `handler types a JavaScript caller cannot satisfy, because they are curried ` +
+      `— use \`EffectFn${"<n>"}\` or \`Fn${"<n>"}\`: ${curried.join("; ")}`
+  );
+});
+
+// A prop is a callback iff its type mentions one of them. The type text is
+// `Undefinable JsNodeMouseHandler`, so the test is on the words.
+const callbackPropsOf = (path, typeName) =>
+  recordEntries(path, typeName)
+    .filter((entry) => entry.type.split(/[^A-Za-z0-9_']+/).some((w) => handlerTypeSet.has(w)))
+    .map((entry) => entry.name);
+
+const flowCallbacks = callbackPropsOf(flowSource, "JsFlowProps");
+
+// Upstream's `ReactFlowProps` has 49 callback props and `onInit` is the one
+// still refused, so anything under 40 here is a parse that stopped working
+// rather than a boundary that lost its callbacks.
+if (flowCallbacks.length < 40) {
+  fail(
+    `read only ${flowCallbacks.length} callback props from ${flowSource} — the parse is wrong`
+  );
+}
+
+check("no callback prop is also a deferred prop", () => {
+  const deferredSet = new Set(deferred);
+  const both = flowCallbacks.filter((name) => deferredSet.has(name));
+  assert(
+    both.length === 0,
+    `props that are typed as handlers and refused anyway: ${both.join(", ")} — ` +
+      `a crossed callback with a stale table entry throws on a prop that works`
+  );
+});
+
+for (const name of flowCallbacks) {
+  check(`\`${name}\` is accepted at mount`, () => {
+    renderToStaticMarkup(createElement(ReactFlow, { ...convertedProps, [name]: () => {} }));
+  });
+}
+
+// The other direction again, and the one the `Nothing` check above cannot see:
+// a callback wired to the *wrong* field. `onNodeClick: map nodeMouseHandlerIn
+// (fromUndefinable p.onNodeDrag)` converts, compiles, mounts and is silently
+// the wrong handler — 46 near-identical lines is exactly where that happens.
+check("every callback prop is converted from its own field", () => {
+  const convertProps = /^convertProps p =\n([\s\S]*?)\n  \}$/m.exec(flowText);
+  assert(convertProps !== null, "cannot find `convertProps` in Boundary.Flow — the parse is wrong");
+  const wired = new Map(
+    [...convertProps[1].matchAll(/^\s*[,{]\s*(\w+):([\s\S]*?)(?=\n\s*[,}])/gm)].map((m) => [
+      m[1],
+      m[2],
+    ])
+  );
+  const wrong = flowCallbacks.filter((name) => !(wired.get(name) ?? "").includes(`p.${name}`));
+  assert(
+    wrong.length === 0,
+    `callback props whose conversion never reads their own field: ${wrong.join(", ")}`
+  );
+});
+
+// None of the 46 can be *fired* from here. Every flow-level handler reaches the
+// store through `StoreUpdater`'s effect, and `react-dom/server` runs no
+// effects — so a server render can prove a handler was accepted and never that
+// it was called. That claim is the net's `callbacks` section (#54), which this
+// stage is what unblocks. The one crossed callback reachable without a browser
+// is `addEdge`'s `options.onError`, which section 4 fires and reads.
 
 // ── 3. Values a converter cannot represent are refused ──────────────────
 
@@ -468,20 +614,35 @@ check("a `Connection` argument is handed to `options.getEdgeId`", () => {
 });
 
 // Upstream reports an empty endpoint through `options.onError` and hands back
-// the array it was given. With `onError` refused there is nobody to report to,
-// so this path returns the caller's own array — the identity is the claim, and
-// it is this module's decision rather than upstream's behaviour.
+// the array it was given. The identity is this module's decision rather than
+// upstream's behaviour, so it is checked here.
 check("a connection with no endpoints hands the caller's own array back", () => {
   const out = addEdge({ source: "", target: "a" }, jsEdges);
   assert(out === jsEdges, "returned a copy — the untouched array should come back as it was");
 });
 
-throws(
-  "`addEdge` refuses `options.onError`",
-  () => addEdge({ source: "b", target: "a" }, jsEdges, { onError: () => {} }),
-  "onError",
-  "boundary stage 2"
-);
+// `options.onError` was refused until boundary stage 2. It is the only signal
+// a consumer gets that `addEdge` declined to add anything, and it is also the
+// one place a crossed callback is reachable without a browser — so what it is
+// handed is checked, not only that it fired. The **code** is the part the
+// crossing restores: ps-flow's `addEdge` returns the message alone.
+check("`addEdge` reports an empty endpoint through `options.onError`", () => {
+  const calls = [];
+  const out = addEdge({ source: "", target: "a" }, jsEdges, {
+    onError: (...args) => calls.push(args),
+  });
+  assert(calls.length === 1, `\`onError\` was called ${calls.length} times, not once`);
+  const [id, message] = calls[0];
+  assert(id === "006", `the error id was ${JSON.stringify(id)}, not upstream's "006"`);
+  assert(typeof message === "string" && message.length > 0, "the message did not arrive");
+  assert(out === jsEdges, "the untouched array should still come back as it was");
+});
+
+check("`addEdge` reports nothing when it added an edge", () => {
+  const calls = [];
+  addEdge({ source: "b", target: "a" }, jsEdges, { onError: () => calls.push(1) });
+  assert(calls.length === 0, "`onError` fired on a connection that was added");
+});
 
 // ── 5. The components, in the two places they mount ─────────────────────
 //
@@ -531,7 +692,7 @@ const mounts = mountsIn(inFlow);
 const mountsInNode = mountsIn(inNode);
 
 const { Panel, Background, Controls, MiniMap } = psflow;
-const { Handle, NodeToolbar } = psflow;
+const { Handle, NodeToolbar, NodeResizer, NodeResizeControl } = psflow;
 
 mounts(
   "`<Panel />` converts its position and passes its children through",
@@ -639,30 +800,113 @@ nodeChromeThrows(
   "NodeToolbar.nodeId"
 );
 
+// The resizer pair, mounted where the other two are — by the consumer's own
+// node component. Both take no required props, which is the case the crossing
+// answers for; their three enum props are the only values either can refuse.
+mountsInNode(
+  "`<NodeResizer />` mounts with no props at all",
+  createElement(NodeResizer, {}),
+  "react-flow__resize-control"
+);
+mountsInNode(
+  "`<NodeResizeControl />` mounts with no props at all",
+  createElement(NodeResizeControl, {}),
+  "react-flow__resize-control"
+);
+mountsInNode(
+  "`<NodeResizeControl />`'s position, variant and direction converters run",
+  createElement(NodeResizeControl, {
+    position: "bottom-right",
+    variant: "line",
+    resizeDirection: "horizontal",
+  }),
+  "react-flow__resize-control"
+);
+
+nodeChromeThrows(
+  "`<NodeResizeControl />`'s position is refused by the same enum table",
+  createElement(NodeResizeControl, { position: "bottomRight" }),
+  "NodeResizeControl.position",
+  "bottom-right"
+);
+nodeChromeThrows(
+  "`<NodeResizeControl />`'s variant is refused by the same enum table",
+  createElement(NodeResizeControl, { variant: "lines" }),
+  "NodeResizeControl.variant",
+  "line"
+);
+nodeChromeThrows(
+  "`<NodeResizeControl />`'s resizeDirection is refused by the same enum table",
+  createElement(NodeResizeControl, { resizeDirection: "sideways" }),
+  "NodeResizeControl.resizeDirection",
+  "horizontal"
+);
+
 // The refused lists are read out of the modules, never restated: a second copy
 // is a second thing to go stale, and this file already checks the one copy.
-// The two converter modules differ in nothing but where their components
-// mount, so both go through the same two checks below.
+// The three converter modules differ in nothing but where their components
+// mount, so all three go through the same checks below.
+//
+// Each entry names its components' JS prop records too, because the callback
+// half of these checks is derived from a record's field types the same way the
+// flow's is. `Boundary.NodeChrome` is the module with an empty refusal table
+// after stage 2 — both of `<Handle />`'s deferred props were callbacks — which
+// is why a module with none is a legitimate state here and not a broken parse.
 const converterModules = [
   {
     source: join(repoRoot, "src/Boundary/Chrome.purs"),
     components: { Panel, Background, Controls, MiniMap },
+    propRecords: {
+      Panel: "JsPanelProps",
+      Background: "JsBackgroundProps",
+      Controls: "JsControlsProps",
+      MiniMap: "JsMiniMapProps",
+    },
     mount: inFlow,
   },
   {
     source: join(repoRoot, "src/Boundary/NodeChrome.purs"),
     components: { Handle, NodeToolbar },
+    propRecords: { Handle: "JsHandleProps", NodeToolbar: "JsNodeToolbarProps" },
+    mount: inNode,
+  },
+  {
+    source: join(repoRoot, "src/Boundary/Resizer.purs"),
+    components: { NodeResizer, NodeResizeControl },
+    propRecords: {
+      NodeResizer: "JsNodeResizerProps",
+      NodeResizeControl: "JsNodeResizeControlProps",
+    },
     mount: inNode,
   },
 ];
 
-for (const { source, components, mount } of converterModules) {
+// Across the three, something must still be refused — otherwise every refusal
+// check below is vacuous and a broken parse looks exactly like a finished
+// staging. The per-module count may legitimately be zero; the total may not,
+// until the stage that empties the last table.
+const refusedSomewhere = converterModules.flatMap(({ source }) =>
+  deferredEntries(readModule(source))
+);
+if (refusedSomewhere.length === 0) {
+  fail("read no deferred props from any converter module — the parse is wrong");
+}
+
+for (const { source, components, propRecords, mount } of converterModules) {
   const text = readModule(source);
   const known = Object.keys(components).join(", ");
   const componentDeferred = deferredEntries(text);
 
-  if (componentDeferred.length === 0) {
-    fail(`read no deferred props from ${source} — the parse is wrong`);
+  // The callback props these components take, derived from their own prop
+  // records exactly as the flow's are. Six of `Controls`' and `MiniMap`'s and
+  // both of `<Handle />`'s threw at mount until stage 2, and the resizer's
+  // seven are the reason its two components crossed at all.
+  for (const [component, record] of Object.entries(propRecords)) {
+    for (const prop of callbackPropsOf(source, record)) {
+      check(`\`${component}.${prop}\` is accepted at mount`, () => {
+        mount(createElement(components[component], { [prop]: () => {} }));
+      });
+    }
   }
 
   for (const qualified of componentDeferred) {

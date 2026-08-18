@@ -24,7 +24,7 @@ its own behavior registry. `crossed` means a JS-shaped wrapper exists; `passthro
 means `index.js` still publishes the PureScript value unchanged. A crossed export
 with no direct JS-surface gate is displayed as `crossed, ungated`, rather than
 being counted as gated on the JS surface merely because its wrapper exists.
-At boundary stage 1, 20 exports have crossed; 0 are crossed but ungated on
+At boundary stage 2, 22 exports have crossed; 0 are crossed but ungated on
 the JS surface. Stage 1 is self-covering; later stages deliberately populate
 that window until system parity gates their converters.
 
@@ -37,7 +37,7 @@ about the shape a JavaScript caller receives.
 
 | Kind | Total | Gated — PureScript surface | Gated — JS surface | Crossed, ungated — JS surface | Indirect only | Nothing but the name |
 |---|---:|---:|---:|---:|---:|---:|
-| `component` | 22 | 6 | 8 | 0 | 2 | 7 |
+| `component` | 22 | 6 | 10 | 0 | 2 | 5 |
 | `hook` | 21 | 0 | 2 | 0 | 0 | 19 |
 | `pure-fn` | 17 | 17 | 17 | 0 | 0 | 0 |
 | `enum-value` | 8 | 0 | 8 | 0 | 0 | 0 |
@@ -49,7 +49,7 @@ about the shape a JavaScript caller receives.
 | `instance-api` | 7 | 0 | 0 | 0 | 1 | 6 |
 | `store` | 3 | 0 | 0 | 0 | 0 | 3 |
 | `internal-type` | 1 | 0 | 0 | 0 | 0 | 1 |
-| **total** | **210** | **38** | **52** | **0** | **17** | **127** |
+| **total** | **210** | **38** | **54** | **0** | **17** | **125** |
 
 ## Summary by mechanism
 
@@ -60,7 +60,7 @@ to reach it.
 |---|---:|---:|
 | `dual-run-api` | 14 | 0 |
 | `dual-run-callback` | 47 | 2 |
-| `dual-run-dom` | 64 | 26 |
+| `dual-run-dom` | 64 | 28 |
 | `dual-run-hook` | 27 | 2 |
 | `dual-run-props` | 4 | 2 |
 | `dual-run-value` | 8 | 8 |
@@ -92,8 +92,8 @@ JS/TS consumer — the audience this repo exists for — the import is `undefine
 | `Handle` | component | `dual-run-dom` | — | crossed, gated — boundary + conformance (generic-nodes) + conformance (generic-node-toolbar) ~ + smoke | connect/connectable=false/connectingfrom class asserted. Upstream's two defaults and the enum conversion are gated on the JS surface by parity:boundary, mounted inside a node component rather than in the flow. ToolbarNode.tsx mounts a target and a source handle, which is the only place a consumer's own component mounts one, but asserts nothing about either. |
 | `MiniMap` | component | `dual-run-dom` | — | crossed, gated — boundary + smoke + conformance (generic-props) ~ | Renders + clickable only; no node-rendering, mask or pan/zoom coverage. Its JS-shaped props and no-props mount are gated on the JS surface by parity:boundary; the ColorMode driver also mounts it without a specific assertion. |
 | `MiniMapNode` | component | `dual-run-dom` | — | no runtime value, ungated | Not exported by PSFlow at all (allowlisted). A JS consumer importing it gets undefined. |
-| `NodeResizeControl` | component | `dual-run-dom` | — | passthrough, ungated | Never mounted. Known-wrong — ticket 073 (XYResizer drag lifecycle). |
-| `NodeResizer` | component | `dual-run-dom` | — | passthrough, ungated | Never mounted. Known-wrong — ticket 073. |
+| `NodeResizeControl` | component | `dual-run-dom` | — | crossed, gated — boundary | parity:boundary mounts it with no props inside a node component and holds its three enum converters; nothing drives a resize, so its handlers are reachable and undriven. Known-wrong — ticket 073 (XYResizer drag lifecycle). |
+| `NodeResizer` | component | `dual-run-dom` | — | crossed, gated — boundary | parity:boundary mounts it with no props inside a node component. Its four handlers cross but nothing drives a resize. Known-wrong — ticket 073. |
 | `NodeToolbar` | component | `dual-run-dom` | function | crossed, gated — boundary + conformance (generic-node-toolbar) | getNodeToolbarTransform has function parity; positioning and default behaviour asserted by generic-node-toolbar. parity:boundary holds the pattern-match case and that its converters run, mounted inside a node component; it cannot assert the DOM, because the toolbar portals into a flow root a server render does not have. |
 | `Panel` | component | `dual-run-dom` | — | crossed, gated — boundary + conformance (generic-props) ~ | Its required position, enum conversion and children pass-through are gated on the JS surface by parity:boundary. The ColorMode fixture also mounts it, but asserts only the wrapper's colorMode class. |
 | `ReactFlow` | component | `dual-run-dom` | — | crossed, gated — conformance (generic-nodes) + conformance (generic-pane) + conformance (generic-edges) + conformance (generic-props) + smoke | More gates touch this than any other export — the nodes, edges, pane and props specs all drive it. |

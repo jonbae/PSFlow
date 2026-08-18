@@ -27,9 +27,9 @@ var __toESM = (mod2, isNodeMode, target5) => (target5 = mod2 != null ? __create(
   mod2
 ));
 
-// node_modules/react/cjs/react.development.js
+// ../../../node_modules/react/cjs/react.development.js
 var require_react_development = __commonJS({
-  "node_modules/react/cjs/react.development.js"(exports, module) {
+  "../../../node_modules/react/cjs/react.development.js"(exports, module) {
     "use strict";
     if (true) {
       (function() {
@@ -1901,9 +1901,9 @@ var require_react_development = __commonJS({
   }
 });
 
-// node_modules/react/index.js
+// ../../../node_modules/react/index.js
 var require_react = __commonJS({
-  "node_modules/react/index.js"(exports, module) {
+  "../../../node_modules/react/index.js"(exports, module) {
     "use strict";
     if (false) {
       module.exports = null;
@@ -1913,9 +1913,9 @@ var require_react = __commonJS({
   }
 });
 
-// node_modules/scheduler/cjs/scheduler.development.js
+// ../../../node_modules/scheduler/cjs/scheduler.development.js
 var require_scheduler_development = __commonJS({
-  "node_modules/scheduler/cjs/scheduler.development.js"(exports) {
+  "../../../node_modules/scheduler/cjs/scheduler.development.js"(exports) {
     "use strict";
     if (true) {
       (function() {
@@ -2363,9 +2363,9 @@ var require_scheduler_development = __commonJS({
   }
 });
 
-// node_modules/scheduler/index.js
+// ../../../node_modules/scheduler/index.js
 var require_scheduler = __commonJS({
-  "node_modules/scheduler/index.js"(exports, module) {
+  "../../../node_modules/scheduler/index.js"(exports, module) {
     "use strict";
     if (false) {
       module.exports = null;
@@ -2375,9 +2375,9 @@ var require_scheduler = __commonJS({
   }
 });
 
-// node_modules/react-dom/cjs/react-dom.development.js
+// ../../../node_modules/react-dom/cjs/react-dom.development.js
 var require_react_dom_development = __commonJS({
-  "node_modules/react-dom/cjs/react-dom.development.js"(exports) {
+  "../../../node_modules/react-dom/cjs/react-dom.development.js"(exports) {
     "use strict";
     if (true) {
       (function() {
@@ -6155,14 +6155,14 @@ var require_react_dom_development = __commonJS({
         }
         function getLaneLabelMap() {
           {
-            var map54 = /* @__PURE__ */ new Map();
+            var map56 = /* @__PURE__ */ new Map();
             var lane = 1;
             for (var index6 = 0; index6 < TotalLanes; index6++) {
               var label4 = getLabelForLane(lane);
-              map54.set(lane, label4);
+              map56.set(lane, label4);
               lane *= 2;
             }
-            return map54;
+            return map56;
           }
         }
         function markCommitStarted(lanes) {
@@ -7259,9 +7259,9 @@ var require_react_dom_development = __commonJS({
           }
           return true;
         }
-        function attemptReplayContinuousQueuedEventInMap(queuedEvent, key2, map54) {
+        function attemptReplayContinuousQueuedEventInMap(queuedEvent, key2, map56) {
           if (attemptReplayContinuousQueuedEvent(queuedEvent)) {
-            map54.delete(key2);
+            map56.delete(key2);
           }
         }
         function replayUnblockedEvents() {
@@ -23539,9 +23539,9 @@ var require_react_dom_development = __commonJS({
   }
 });
 
-// node_modules/react-dom/index.js
+// ../../../node_modules/react-dom/index.js
 var require_react_dom = __commonJS({
-  "node_modules/react-dom/index.js"(exports, module) {
+  "../../../node_modules/react-dom/index.js"(exports, module) {
     "use strict";
     if (false) {
       checkDCE();
@@ -23552,9 +23552,9 @@ var require_react_dom = __commonJS({
   }
 });
 
-// node_modules/react-dom/client.js
+// ../../../node_modules/react-dom/client.js
 var require_client = __commonJS({
-  "node_modules/react-dom/client.js"(exports) {
+  "../../../node_modules/react-dom/client.js"(exports) {
     "use strict";
     var m = require_react_dom();
     if (false) {
@@ -23583,9 +23583,9 @@ var require_client = __commonJS({
   }
 });
 
-// node_modules/react/cjs/react-jsx-runtime.development.js
+// ../../../node_modules/react/cjs/react-jsx-runtime.development.js
 var require_react_jsx_runtime_development = __commonJS({
-  "node_modules/react/cjs/react-jsx-runtime.development.js"(exports) {
+  "../../../node_modules/react/cjs/react-jsx-runtime.development.js"(exports) {
     "use strict";
     if (true) {
       (function() {
@@ -24476,9 +24476,9 @@ var require_react_jsx_runtime_development = __commonJS({
   }
 });
 
-// node_modules/react/jsx-runtime.js
+// ../../../node_modules/react/jsx-runtime.js
 var require_jsx_runtime = __commonJS({
-  "node_modules/react/jsx-runtime.js"(exports, module) {
+  "../../../node_modules/react/jsx-runtime.js"(exports, module) {
     "use strict";
     if (false) {
       module.exports = null;
@@ -24497,24 +24497,26 @@ var import_react6 = __toESM(require_react(), 1);
 // output/Boundary/foreign.js
 var freeze = (record) => Object.freeze(record);
 var manifest = Object.freeze({
-  // The highest boundary stage that has landed. Stage 1 crosses the exports
+  // The highest boundary stage that has landed. Stage 1 crossed the exports
   // upstream's fixtures and the two drivers import plus the eight enum
-  // objects; stages 2-4 are the callbacks, the imperative instance with the
-  // remaining hooks, and the components no fixture mounts. See the spec's
-  // staging table.
+  // objects; stage 2 crosses the callback props; stages 3-4 are the imperative
+  // instance with the remaining hooks, and the components no fixture mounts.
+  // See the spec's staging table.
   //
-  // Stage 1's set is twenty, and all twenty are below. `Handle` and
-  // `NodeToolbar` were the last two: they are mounted by the node component
-  // the node-toolbar fixture names rather than by either driver, and crossed
-  // when that fixture moved onto the JS surface (#47).
-  stage: 1,
+  // A stage is counted in **converters**, not exports, which is why stage 2
+  // moves this number while adding only two names below: 46 callback props
+  // crossed on `ReactFlow` alone, and every one of them is a prop of an export
+  // that had already crossed. The two new names are `NodeResizer` and
+  // `NodeResizeControl`, which come forward out of stage 4 because their three
+  // lifecycle handlers are callback props and a callback cannot cross without
+  // the record it hangs off.
+  stage: 2,
   // The eight TS enums are plain data on both sides, so crossing them was the
   // whole conversion: no wrapper, no arity change, no representation to
-  // translate. `ReactFlow` is the opposite — 124 props, of which 75 convert
-  // (72 non-callback fields plus the three change callbacks) and 49 are
-  // refused outright until the stage that lands them (see `Boundary.Flow`).
-  // It is listed as crossed because a JavaScript caller now gets upstream's
-  // prop shapes or an error, never silence.
+  // translate. `ReactFlow` is the opposite — 124 props, of which 121 convert
+  // and three are refused outright until the stage that lands them (see
+  // `Boundary.Flow`). It is listed as crossed because a JavaScript caller now
+  // gets upstream's prop shapes or an error, never silence.
   //
   // The three utilities are what a controlled flow's own change handlers call,
   // so they cross with `ReactFlow` rather than after it: `onNodesChange` is
@@ -24537,6 +24539,8 @@ var manifest = Object.freeze({
     "Handle",
     "MarkerType",
     "MiniMap",
+    "NodeResizeControl",
+    "NodeResizer",
     "NodeToolbar",
     "PanOnScrollMode",
     "Panel",
@@ -24557,8 +24561,6 @@ var manifest = Object.freeze({
     "EdgeLabelRenderer",
     "EdgeText",
     "EdgeToolbar",
-    "NodeResizeControl",
-    "NodeResizer",
     "ReactFlowProvider",
     "ReactFlowWithRef",
     "SimpleBezierEdge",
@@ -24601,6 +24603,16 @@ var manifest = Object.freeze({
     "useViewport"
   ])
 });
+
+// output/Boundary.Callbacks/foreign.js
+var isArrayOf = (value12) => Array.isArray(value12);
+var awaitPromise = (value12) => (onError, onSuccess) => {
+  Promise.resolve(value12).then(
+    onSuccess,
+    (reason) => onError(reason instanceof Error ? reason : new Error(String(reason)))
+  );
+  return (_cancelError, _onCancelerError, onCancelerSuccess) => onCancelerSuccess();
+};
 
 // output/Boundary.Elements/foreign.js
 var mkNodeComponentWrapper = (wrapped) => (render2) => {
@@ -24900,10 +24912,10 @@ var apply = function(dict) {
 };
 var applySecond = function(dictApply) {
   var apply1 = apply(dictApply);
-  var map54 = map(dictApply.Functor0());
+  var map56 = map(dictApply.Functor0());
   return function(a) {
     return function(b) {
-      return apply1(map54($$const(identity2))(a))(b);
+      return apply1(map56($$const(identity2))(a))(b);
     };
   };
 };
@@ -24998,12 +25010,12 @@ var discardUnit = {
 
 // output/Control.Monad/index.js
 var ap = function(dictMonad) {
-  var bind56 = bind(dictMonad.Bind1());
+  var bind57 = bind(dictMonad.Bind1());
   var pure80 = pure(dictMonad.Applicative0());
   return function(f) {
     return function(a) {
-      return bind56(f)(function(f$prime) {
-        return bind56(a)(function(a$prime) {
+      return bind57(f)(function(f$prime) {
+        return bind57(a)(function(a$prime) {
           return pure80(f$prime(a$prime));
         });
       });
@@ -26034,13 +26046,13 @@ var foldMap = function(dict) {
 var foldM = function(dictFoldable) {
   var foldl22 = foldl(dictFoldable);
   return function(dictMonad) {
-    var bind56 = bind(dictMonad.Bind1());
+    var bind57 = bind(dictMonad.Bind1());
     var pure80 = pure(dictMonad.Applicative0());
     return function(f) {
       return function(b0) {
         return foldl22(function(b) {
           return function(a) {
-            return bind56(b)(flip(f)(a));
+            return bind57(b)(flip(f)(a));
           };
         })(pure80(b0));
       };
@@ -27216,6 +27228,1137 @@ var AlignEnd = /* @__PURE__ */ function() {
   return AlignEnd2;
 }();
 
+// ../../../node_modules/d3-dispatch/src/dispatch.js
+var noop = { value: () => {
+} };
+function dispatch() {
+  for (var i = 0, n = arguments.length, _ = {}, t; i < n; ++i) {
+    if (!(t = arguments[i] + "") || t in _ || /[\s.]/.test(t)) throw new Error("illegal type: " + t);
+    _[t] = [];
+  }
+  return new Dispatch(_);
+}
+function Dispatch(_) {
+  this._ = _;
+}
+function parseTypenames(typenames, types) {
+  return typenames.trim().split(/^|\s+/).map(function(t) {
+    var name15 = "", i = t.indexOf(".");
+    if (i >= 0) name15 = t.slice(i + 1), t = t.slice(0, i);
+    if (t && !types.hasOwnProperty(t)) throw new Error("unknown type: " + t);
+    return { type: t, name: name15 };
+  });
+}
+Dispatch.prototype = dispatch.prototype = {
+  constructor: Dispatch,
+  on: function(typename, callback) {
+    var _ = this._, T = parseTypenames(typename + "", _), t, i = -1, n = T.length;
+    if (arguments.length < 2) {
+      while (++i < n) if ((t = (typename = T[i]).type) && (t = get(_[t], typename.name))) return t;
+      return;
+    }
+    if (callback != null && typeof callback !== "function") throw new Error("invalid callback: " + callback);
+    while (++i < n) {
+      if (t = (typename = T[i]).type) _[t] = set(_[t], typename.name, callback);
+      else if (callback == null) for (t in _) _[t] = set(_[t], typename.name, null);
+    }
+    return this;
+  },
+  copy: function() {
+    var copy = {}, _ = this._;
+    for (var t in _) copy[t] = _[t].slice();
+    return new Dispatch(copy);
+  },
+  call: function(type, that) {
+    if ((n = arguments.length - 2) > 0) for (var args = new Array(n), i = 0, n, t; i < n; ++i) args[i] = arguments[i + 2];
+    if (!this._.hasOwnProperty(type)) throw new Error("unknown type: " + type);
+    for (t = this._[type], i = 0, n = t.length; i < n; ++i) t[i].value.apply(that, args);
+  },
+  apply: function(type, that, args) {
+    if (!this._.hasOwnProperty(type)) throw new Error("unknown type: " + type);
+    for (var t = this._[type], i = 0, n = t.length; i < n; ++i) t[i].value.apply(that, args);
+  }
+};
+function get(type, name15) {
+  for (var i = 0, n = type.length, c; i < n; ++i) {
+    if ((c = type[i]).name === name15) {
+      return c.value;
+    }
+  }
+}
+function set(type, name15, callback) {
+  for (var i = 0, n = type.length; i < n; ++i) {
+    if (type[i].name === name15) {
+      type[i] = noop, type = type.slice(0, i).concat(type.slice(i + 1));
+      break;
+    }
+  }
+  if (callback != null) type.push({ name: name15, value: callback });
+  return type;
+}
+var dispatch_default = dispatch;
+
+// ../../../node_modules/d3-selection/src/namespaces.js
+var xhtml = "http://www.w3.org/1999/xhtml";
+var namespaces_default = {
+  svg: "http://www.w3.org/2000/svg",
+  xhtml,
+  xlink: "http://www.w3.org/1999/xlink",
+  xml: "http://www.w3.org/XML/1998/namespace",
+  xmlns: "http://www.w3.org/2000/xmlns/"
+};
+
+// ../../../node_modules/d3-selection/src/namespace.js
+function namespace_default(name15) {
+  var prefix = name15 += "", i = prefix.indexOf(":");
+  if (i >= 0 && (prefix = name15.slice(0, i)) !== "xmlns") name15 = name15.slice(i + 1);
+  return namespaces_default.hasOwnProperty(prefix) ? { space: namespaces_default[prefix], local: name15 } : name15;
+}
+
+// ../../../node_modules/d3-selection/src/creator.js
+function creatorInherit(name15) {
+  return function() {
+    var document3 = this.ownerDocument, uri = this.namespaceURI;
+    return uri === xhtml && document3.documentElement.namespaceURI === xhtml ? document3.createElement(name15) : document3.createElementNS(uri, name15);
+  };
+}
+function creatorFixed(fullname) {
+  return function() {
+    return this.ownerDocument.createElementNS(fullname.space, fullname.local);
+  };
+}
+function creator_default(name15) {
+  var fullname = namespace_default(name15);
+  return (fullname.local ? creatorFixed : creatorInherit)(fullname);
+}
+
+// ../../../node_modules/d3-selection/src/selector.js
+function none() {
+}
+function selector_default(selector4) {
+  return selector4 == null ? none : function() {
+    return this.querySelector(selector4);
+  };
+}
+
+// ../../../node_modules/d3-selection/src/selection/select.js
+function select_default(select3) {
+  if (typeof select3 !== "function") select3 = selector_default(select3);
+  for (var groups = this._groups, m = groups.length, subgroups = new Array(m), j = 0; j < m; ++j) {
+    for (var group4 = groups[j], n = group4.length, subgroup = subgroups[j] = new Array(n), node, subnode, i = 0; i < n; ++i) {
+      if ((node = group4[i]) && (subnode = select3.call(node, node.__data__, i, group4))) {
+        if ("__data__" in node) subnode.__data__ = node.__data__;
+        subgroup[i] = subnode;
+      }
+    }
+  }
+  return new Selection(subgroups, this._parents);
+}
+
+// ../../../node_modules/d3-selection/src/array.js
+function array(x) {
+  return x == null ? [] : Array.isArray(x) ? x : Array.from(x);
+}
+
+// ../../../node_modules/d3-selection/src/selectorAll.js
+function empty2() {
+  return [];
+}
+function selectorAll_default(selector4) {
+  return selector4 == null ? empty2 : function() {
+    return this.querySelectorAll(selector4);
+  };
+}
+
+// ../../../node_modules/d3-selection/src/selection/selectAll.js
+function arrayAll(select3) {
+  return function() {
+    return array(select3.apply(this, arguments));
+  };
+}
+function selectAll_default(select3) {
+  if (typeof select3 === "function") select3 = arrayAll(select3);
+  else select3 = selectorAll_default(select3);
+  for (var groups = this._groups, m = groups.length, subgroups = [], parents = [], j = 0; j < m; ++j) {
+    for (var group4 = groups[j], n = group4.length, node, i = 0; i < n; ++i) {
+      if (node = group4[i]) {
+        subgroups.push(select3.call(node, node.__data__, i, group4));
+        parents.push(node);
+      }
+    }
+  }
+  return new Selection(subgroups, parents);
+}
+
+// ../../../node_modules/d3-selection/src/matcher.js
+function matcher_default(selector4) {
+  return function() {
+    return this.matches(selector4);
+  };
+}
+function childMatcher(selector4) {
+  return function(node) {
+    return node.matches(selector4);
+  };
+}
+
+// ../../../node_modules/d3-selection/src/selection/selectChild.js
+var find3 = Array.prototype.find;
+function childFind(match) {
+  return function() {
+    return find3.call(this.children, match);
+  };
+}
+function childFirst() {
+  return this.firstElementChild;
+}
+function selectChild_default(match) {
+  return this.select(match == null ? childFirst : childFind(typeof match === "function" ? match : childMatcher(match)));
+}
+
+// ../../../node_modules/d3-selection/src/selection/selectChildren.js
+var filter2 = Array.prototype.filter;
+function children() {
+  return Array.from(this.children);
+}
+function childrenFilter(match) {
+  return function() {
+    return filter2.call(this.children, match);
+  };
+}
+function selectChildren_default(match) {
+  return this.selectAll(match == null ? children : childrenFilter(typeof match === "function" ? match : childMatcher(match)));
+}
+
+// ../../../node_modules/d3-selection/src/selection/filter.js
+function filter_default(match) {
+  if (typeof match !== "function") match = matcher_default(match);
+  for (var groups = this._groups, m = groups.length, subgroups = new Array(m), j = 0; j < m; ++j) {
+    for (var group4 = groups[j], n = group4.length, subgroup = subgroups[j] = [], node, i = 0; i < n; ++i) {
+      if ((node = group4[i]) && match.call(node, node.__data__, i, group4)) {
+        subgroup.push(node);
+      }
+    }
+  }
+  return new Selection(subgroups, this._parents);
+}
+
+// ../../../node_modules/d3-selection/src/selection/sparse.js
+function sparse_default(update2) {
+  return new Array(update2.length);
+}
+
+// ../../../node_modules/d3-selection/src/selection/enter.js
+function enter_default() {
+  return new Selection(this._enter || this._groups.map(sparse_default), this._parents);
+}
+function EnterNode(parent2, datum2) {
+  this.ownerDocument = parent2.ownerDocument;
+  this.namespaceURI = parent2.namespaceURI;
+  this._next = null;
+  this._parent = parent2;
+  this.__data__ = datum2;
+}
+EnterNode.prototype = {
+  constructor: EnterNode,
+  appendChild: function(child) {
+    return this._parent.insertBefore(child, this._next);
+  },
+  insertBefore: function(child, next) {
+    return this._parent.insertBefore(child, next);
+  },
+  querySelector: function(selector4) {
+    return this._parent.querySelector(selector4);
+  },
+  querySelectorAll: function(selector4) {
+    return this._parent.querySelectorAll(selector4);
+  }
+};
+
+// ../../../node_modules/d3-selection/src/constant.js
+function constant_default(x) {
+  return function() {
+    return x;
+  };
+}
+
+// ../../../node_modules/d3-selection/src/selection/data.js
+function bindIndex(parent2, group4, enter, update2, exit, data) {
+  var i = 0, node, groupLength = group4.length, dataLength = data.length;
+  for (; i < dataLength; ++i) {
+    if (node = group4[i]) {
+      node.__data__ = data[i];
+      update2[i] = node;
+    } else {
+      enter[i] = new EnterNode(parent2, data[i]);
+    }
+  }
+  for (; i < groupLength; ++i) {
+    if (node = group4[i]) {
+      exit[i] = node;
+    }
+  }
+}
+function bindKey(parent2, group4, enter, update2, exit, data, key2) {
+  var i, node, nodeByKeyValue = /* @__PURE__ */ new Map(), groupLength = group4.length, dataLength = data.length, keyValues = new Array(groupLength), keyValue;
+  for (i = 0; i < groupLength; ++i) {
+    if (node = group4[i]) {
+      keyValues[i] = keyValue = key2.call(node, node.__data__, i, group4) + "";
+      if (nodeByKeyValue.has(keyValue)) {
+        exit[i] = node;
+      } else {
+        nodeByKeyValue.set(keyValue, node);
+      }
+    }
+  }
+  for (i = 0; i < dataLength; ++i) {
+    keyValue = key2.call(parent2, data[i], i, data) + "";
+    if (node = nodeByKeyValue.get(keyValue)) {
+      update2[i] = node;
+      node.__data__ = data[i];
+      nodeByKeyValue.delete(keyValue);
+    } else {
+      enter[i] = new EnterNode(parent2, data[i]);
+    }
+  }
+  for (i = 0; i < groupLength; ++i) {
+    if ((node = group4[i]) && nodeByKeyValue.get(keyValues[i]) === node) {
+      exit[i] = node;
+    }
+  }
+}
+function datum(node) {
+  return node.__data__;
+}
+function data_default(value12, key2) {
+  if (!arguments.length) return Array.from(this, datum);
+  var bind57 = key2 ? bindKey : bindIndex, parents = this._parents, groups = this._groups;
+  if (typeof value12 !== "function") value12 = constant_default(value12);
+  for (var m = groups.length, update2 = new Array(m), enter = new Array(m), exit = new Array(m), j = 0; j < m; ++j) {
+    var parent2 = parents[j], group4 = groups[j], groupLength = group4.length, data = arraylike(value12.call(parent2, parent2 && parent2.__data__, j, parents)), dataLength = data.length, enterGroup = enter[j] = new Array(dataLength), updateGroup = update2[j] = new Array(dataLength), exitGroup = exit[j] = new Array(groupLength);
+    bind57(parent2, group4, enterGroup, updateGroup, exitGroup, data, key2);
+    for (var i0 = 0, i1 = 0, previous, next; i0 < dataLength; ++i0) {
+      if (previous = enterGroup[i0]) {
+        if (i0 >= i1) i1 = i0 + 1;
+        while (!(next = updateGroup[i1]) && ++i1 < dataLength) ;
+        previous._next = next || null;
+      }
+    }
+  }
+  update2 = new Selection(update2, parents);
+  update2._enter = enter;
+  update2._exit = exit;
+  return update2;
+}
+function arraylike(data) {
+  return typeof data === "object" && "length" in data ? data : Array.from(data);
+}
+
+// ../../../node_modules/d3-selection/src/selection/exit.js
+function exit_default() {
+  return new Selection(this._exit || this._groups.map(sparse_default), this._parents);
+}
+
+// ../../../node_modules/d3-selection/src/selection/join.js
+function join_default(onenter, onupdate, onexit) {
+  var enter = this.enter(), update2 = this, exit = this.exit();
+  if (typeof onenter === "function") {
+    enter = onenter(enter);
+    if (enter) enter = enter.selection();
+  } else {
+    enter = enter.append(onenter + "");
+  }
+  if (onupdate != null) {
+    update2 = onupdate(update2);
+    if (update2) update2 = update2.selection();
+  }
+  if (onexit == null) exit.remove();
+  else onexit(exit);
+  return enter && update2 ? enter.merge(update2).order() : update2;
+}
+
+// ../../../node_modules/d3-selection/src/selection/merge.js
+function merge_default(context) {
+  var selection2 = context.selection ? context.selection() : context;
+  for (var groups0 = this._groups, groups1 = selection2._groups, m0 = groups0.length, m1 = groups1.length, m = Math.min(m0, m1), merges = new Array(m0), j = 0; j < m; ++j) {
+    for (var group0 = groups0[j], group1 = groups1[j], n = group0.length, merge2 = merges[j] = new Array(n), node, i = 0; i < n; ++i) {
+      if (node = group0[i] || group1[i]) {
+        merge2[i] = node;
+      }
+    }
+  }
+  for (; j < m0; ++j) {
+    merges[j] = groups0[j];
+  }
+  return new Selection(merges, this._parents);
+}
+
+// ../../../node_modules/d3-selection/src/selection/order.js
+function order_default() {
+  for (var groups = this._groups, j = -1, m = groups.length; ++j < m; ) {
+    for (var group4 = groups[j], i = group4.length - 1, next = group4[i], node; --i >= 0; ) {
+      if (node = group4[i]) {
+        if (next && node.compareDocumentPosition(next) ^ 4) next.parentNode.insertBefore(node, next);
+        next = node;
+      }
+    }
+  }
+  return this;
+}
+
+// ../../../node_modules/d3-selection/src/selection/sort.js
+function sort_default(compare3) {
+  if (!compare3) compare3 = ascending;
+  function compareNode(a, b) {
+    return a && b ? compare3(a.__data__, b.__data__) : !a - !b;
+  }
+  for (var groups = this._groups, m = groups.length, sortgroups = new Array(m), j = 0; j < m; ++j) {
+    for (var group4 = groups[j], n = group4.length, sortgroup = sortgroups[j] = new Array(n), node, i = 0; i < n; ++i) {
+      if (node = group4[i]) {
+        sortgroup[i] = node;
+      }
+    }
+    sortgroup.sort(compareNode);
+  }
+  return new Selection(sortgroups, this._parents).order();
+}
+function ascending(a, b) {
+  return a < b ? -1 : a > b ? 1 : a >= b ? 0 : NaN;
+}
+
+// ../../../node_modules/d3-selection/src/selection/call.js
+function call_default() {
+  var callback = arguments[0];
+  arguments[0] = this;
+  callback.apply(null, arguments);
+  return this;
+}
+
+// ../../../node_modules/d3-selection/src/selection/nodes.js
+function nodes_default() {
+  return Array.from(this);
+}
+
+// ../../../node_modules/d3-selection/src/selection/node.js
+function node_default() {
+  for (var groups = this._groups, j = 0, m = groups.length; j < m; ++j) {
+    for (var group4 = groups[j], i = 0, n = group4.length; i < n; ++i) {
+      var node = group4[i];
+      if (node) return node;
+    }
+  }
+  return null;
+}
+
+// ../../../node_modules/d3-selection/src/selection/size.js
+function size_default() {
+  let size6 = 0;
+  for (const node of this) ++size6;
+  return size6;
+}
+
+// ../../../node_modules/d3-selection/src/selection/empty.js
+function empty_default() {
+  return !this.node();
+}
+
+// ../../../node_modules/d3-selection/src/selection/each.js
+function each_default(callback) {
+  for (var groups = this._groups, j = 0, m = groups.length; j < m; ++j) {
+    for (var group4 = groups[j], i = 0, n = group4.length, node; i < n; ++i) {
+      if (node = group4[i]) callback.call(node, node.__data__, i, group4);
+    }
+  }
+  return this;
+}
+
+// ../../../node_modules/d3-selection/src/selection/attr.js
+function attrRemove(name15) {
+  return function() {
+    this.removeAttribute(name15);
+  };
+}
+function attrRemoveNS(fullname) {
+  return function() {
+    this.removeAttributeNS(fullname.space, fullname.local);
+  };
+}
+function attrConstant(name15, value12) {
+  return function() {
+    this.setAttribute(name15, value12);
+  };
+}
+function attrConstantNS(fullname, value12) {
+  return function() {
+    this.setAttributeNS(fullname.space, fullname.local, value12);
+  };
+}
+function attrFunction(name15, value12) {
+  return function() {
+    var v = value12.apply(this, arguments);
+    if (v == null) this.removeAttribute(name15);
+    else this.setAttribute(name15, v);
+  };
+}
+function attrFunctionNS(fullname, value12) {
+  return function() {
+    var v = value12.apply(this, arguments);
+    if (v == null) this.removeAttributeNS(fullname.space, fullname.local);
+    else this.setAttributeNS(fullname.space, fullname.local, v);
+  };
+}
+function attr_default(name15, value12) {
+  var fullname = namespace_default(name15);
+  if (arguments.length < 2) {
+    var node = this.node();
+    return fullname.local ? node.getAttributeNS(fullname.space, fullname.local) : node.getAttribute(fullname);
+  }
+  return this.each((value12 == null ? fullname.local ? attrRemoveNS : attrRemove : typeof value12 === "function" ? fullname.local ? attrFunctionNS : attrFunction : fullname.local ? attrConstantNS : attrConstant)(fullname, value12));
+}
+
+// ../../../node_modules/d3-selection/src/window.js
+function window_default(node) {
+  return node.ownerDocument && node.ownerDocument.defaultView || node.document && node || node.defaultView;
+}
+
+// ../../../node_modules/d3-selection/src/selection/style.js
+function styleRemove(name15) {
+  return function() {
+    this.style.removeProperty(name15);
+  };
+}
+function styleConstant(name15, value12, priority) {
+  return function() {
+    this.style.setProperty(name15, value12, priority);
+  };
+}
+function styleFunction(name15, value12, priority) {
+  return function() {
+    var v = value12.apply(this, arguments);
+    if (v == null) this.style.removeProperty(name15);
+    else this.style.setProperty(name15, v, priority);
+  };
+}
+function style_default(name15, value12, priority) {
+  return arguments.length > 1 ? this.each((value12 == null ? styleRemove : typeof value12 === "function" ? styleFunction : styleConstant)(name15, value12, priority == null ? "" : priority)) : styleValue(this.node(), name15);
+}
+function styleValue(node, name15) {
+  return node.style.getPropertyValue(name15) || window_default(node).getComputedStyle(node, null).getPropertyValue(name15);
+}
+
+// ../../../node_modules/d3-selection/src/selection/property.js
+function propertyRemove(name15) {
+  return function() {
+    delete this[name15];
+  };
+}
+function propertyConstant(name15, value12) {
+  return function() {
+    this[name15] = value12;
+  };
+}
+function propertyFunction(name15, value12) {
+  return function() {
+    var v = value12.apply(this, arguments);
+    if (v == null) delete this[name15];
+    else this[name15] = v;
+  };
+}
+function property_default(name15, value12) {
+  return arguments.length > 1 ? this.each((value12 == null ? propertyRemove : typeof value12 === "function" ? propertyFunction : propertyConstant)(name15, value12)) : this.node()[name15];
+}
+
+// ../../../node_modules/d3-selection/src/selection/classed.js
+function classArray(string) {
+  return string.trim().split(/^|\s+/);
+}
+function classList(node) {
+  return node.classList || new ClassList(node);
+}
+function ClassList(node) {
+  this._node = node;
+  this._names = classArray(node.getAttribute("class") || "");
+}
+ClassList.prototype = {
+  add: function(name15) {
+    var i = this._names.indexOf(name15);
+    if (i < 0) {
+      this._names.push(name15);
+      this._node.setAttribute("class", this._names.join(" "));
+    }
+  },
+  remove: function(name15) {
+    var i = this._names.indexOf(name15);
+    if (i >= 0) {
+      this._names.splice(i, 1);
+      this._node.setAttribute("class", this._names.join(" "));
+    }
+  },
+  contains: function(name15) {
+    return this._names.indexOf(name15) >= 0;
+  }
+};
+function classedAdd(node, names) {
+  var list = classList(node), i = -1, n = names.length;
+  while (++i < n) list.add(names[i]);
+}
+function classedRemove(node, names) {
+  var list = classList(node), i = -1, n = names.length;
+  while (++i < n) list.remove(names[i]);
+}
+function classedTrue(names) {
+  return function() {
+    classedAdd(this, names);
+  };
+}
+function classedFalse(names) {
+  return function() {
+    classedRemove(this, names);
+  };
+}
+function classedFunction(names, value12) {
+  return function() {
+    (value12.apply(this, arguments) ? classedAdd : classedRemove)(this, names);
+  };
+}
+function classed_default(name15, value12) {
+  var names = classArray(name15 + "");
+  if (arguments.length < 2) {
+    var list = classList(this.node()), i = -1, n = names.length;
+    while (++i < n) if (!list.contains(names[i])) return false;
+    return true;
+  }
+  return this.each((typeof value12 === "function" ? classedFunction : value12 ? classedTrue : classedFalse)(names, value12));
+}
+
+// ../../../node_modules/d3-selection/src/selection/text.js
+function textRemove() {
+  this.textContent = "";
+}
+function textConstant(value12) {
+  return function() {
+    this.textContent = value12;
+  };
+}
+function textFunction(value12) {
+  return function() {
+    var v = value12.apply(this, arguments);
+    this.textContent = v == null ? "" : v;
+  };
+}
+function text_default(value12) {
+  return arguments.length ? this.each(value12 == null ? textRemove : (typeof value12 === "function" ? textFunction : textConstant)(value12)) : this.node().textContent;
+}
+
+// ../../../node_modules/d3-selection/src/selection/html.js
+function htmlRemove() {
+  this.innerHTML = "";
+}
+function htmlConstant(value12) {
+  return function() {
+    this.innerHTML = value12;
+  };
+}
+function htmlFunction(value12) {
+  return function() {
+    var v = value12.apply(this, arguments);
+    this.innerHTML = v == null ? "" : v;
+  };
+}
+function html_default(value12) {
+  return arguments.length ? this.each(value12 == null ? htmlRemove : (typeof value12 === "function" ? htmlFunction : htmlConstant)(value12)) : this.node().innerHTML;
+}
+
+// ../../../node_modules/d3-selection/src/selection/raise.js
+function raise() {
+  if (this.nextSibling) this.parentNode.appendChild(this);
+}
+function raise_default() {
+  return this.each(raise);
+}
+
+// ../../../node_modules/d3-selection/src/selection/lower.js
+function lower() {
+  if (this.previousSibling) this.parentNode.insertBefore(this, this.parentNode.firstChild);
+}
+function lower_default() {
+  return this.each(lower);
+}
+
+// ../../../node_modules/d3-selection/src/selection/append.js
+function append_default(name15) {
+  var create4 = typeof name15 === "function" ? name15 : creator_default(name15);
+  return this.select(function() {
+    return this.appendChild(create4.apply(this, arguments));
+  });
+}
+
+// ../../../node_modules/d3-selection/src/selection/insert.js
+function constantNull() {
+  return null;
+}
+function insert_default(name15, before) {
+  var create4 = typeof name15 === "function" ? name15 : creator_default(name15), select3 = before == null ? constantNull : typeof before === "function" ? before : selector_default(before);
+  return this.select(function() {
+    return this.insertBefore(create4.apply(this, arguments), select3.apply(this, arguments) || null);
+  });
+}
+
+// ../../../node_modules/d3-selection/src/selection/remove.js
+function remove() {
+  var parent2 = this.parentNode;
+  if (parent2) parent2.removeChild(this);
+}
+function remove_default() {
+  return this.each(remove);
+}
+
+// ../../../node_modules/d3-selection/src/selection/clone.js
+function selection_cloneShallow() {
+  var clone = this.cloneNode(false), parent2 = this.parentNode;
+  return parent2 ? parent2.insertBefore(clone, this.nextSibling) : clone;
+}
+function selection_cloneDeep() {
+  var clone = this.cloneNode(true), parent2 = this.parentNode;
+  return parent2 ? parent2.insertBefore(clone, this.nextSibling) : clone;
+}
+function clone_default(deep) {
+  return this.select(deep ? selection_cloneDeep : selection_cloneShallow);
+}
+
+// ../../../node_modules/d3-selection/src/selection/datum.js
+function datum_default(value12) {
+  return arguments.length ? this.property("__data__", value12) : this.node().__data__;
+}
+
+// ../../../node_modules/d3-selection/src/selection/on.js
+function contextListener(listener) {
+  return function(event) {
+    listener.call(this, event, this.__data__);
+  };
+}
+function parseTypenames2(typenames) {
+  return typenames.trim().split(/^|\s+/).map(function(t) {
+    var name15 = "", i = t.indexOf(".");
+    if (i >= 0) name15 = t.slice(i + 1), t = t.slice(0, i);
+    return { type: t, name: name15 };
+  });
+}
+function onRemove(typename) {
+  return function() {
+    var on2 = this.__on;
+    if (!on2) return;
+    for (var j = 0, i = -1, m = on2.length, o; j < m; ++j) {
+      if (o = on2[j], (!typename.type || o.type === typename.type) && o.name === typename.name) {
+        this.removeEventListener(o.type, o.listener, o.options);
+      } else {
+        on2[++i] = o;
+      }
+    }
+    if (++i) on2.length = i;
+    else delete this.__on;
+  };
+}
+function onAdd(typename, value12, options2) {
+  return function() {
+    var on2 = this.__on, o, listener = contextListener(value12);
+    if (on2) for (var j = 0, m = on2.length; j < m; ++j) {
+      if ((o = on2[j]).type === typename.type && o.name === typename.name) {
+        this.removeEventListener(o.type, o.listener, o.options);
+        this.addEventListener(o.type, o.listener = listener, o.options = options2);
+        o.value = value12;
+        return;
+      }
+    }
+    this.addEventListener(typename.type, listener, options2);
+    o = { type: typename.type, name: typename.name, value: value12, listener, options: options2 };
+    if (!on2) this.__on = [o];
+    else on2.push(o);
+  };
+}
+function on_default(typename, value12, options2) {
+  var typenames = parseTypenames2(typename + ""), i, n = typenames.length, t;
+  if (arguments.length < 2) {
+    var on2 = this.node().__on;
+    if (on2) for (var j = 0, m = on2.length, o; j < m; ++j) {
+      for (i = 0, o = on2[j]; i < n; ++i) {
+        if ((t = typenames[i]).type === o.type && t.name === o.name) {
+          return o.value;
+        }
+      }
+    }
+    return;
+  }
+  on2 = value12 ? onAdd : onRemove;
+  for (i = 0; i < n; ++i) this.each(on2(typenames[i], value12, options2));
+  return this;
+}
+
+// ../../../node_modules/d3-selection/src/selection/dispatch.js
+function dispatchEvent(node, type, params) {
+  var window2 = window_default(node), event = window2.CustomEvent;
+  if (typeof event === "function") {
+    event = new event(type, params);
+  } else {
+    event = window2.document.createEvent("Event");
+    if (params) event.initEvent(type, params.bubbles, params.cancelable), event.detail = params.detail;
+    else event.initEvent(type, false, false);
+  }
+  node.dispatchEvent(event);
+}
+function dispatchConstant(type, params) {
+  return function() {
+    return dispatchEvent(this, type, params);
+  };
+}
+function dispatchFunction(type, params) {
+  return function() {
+    return dispatchEvent(this, type, params.apply(this, arguments));
+  };
+}
+function dispatch_default2(type, params) {
+  return this.each((typeof params === "function" ? dispatchFunction : dispatchConstant)(type, params));
+}
+
+// ../../../node_modules/d3-selection/src/selection/iterator.js
+function* iterator_default() {
+  for (var groups = this._groups, j = 0, m = groups.length; j < m; ++j) {
+    for (var group4 = groups[j], i = 0, n = group4.length, node; i < n; ++i) {
+      if (node = group4[i]) yield node;
+    }
+  }
+}
+
+// ../../../node_modules/d3-selection/src/selection/index.js
+var root = [null];
+function Selection(groups, parents) {
+  this._groups = groups;
+  this._parents = parents;
+}
+function selection() {
+  return new Selection([[document.documentElement]], root);
+}
+function selection_selection() {
+  return this;
+}
+Selection.prototype = selection.prototype = {
+  constructor: Selection,
+  select: select_default,
+  selectAll: selectAll_default,
+  selectChild: selectChild_default,
+  selectChildren: selectChildren_default,
+  filter: filter_default,
+  data: data_default,
+  enter: enter_default,
+  exit: exit_default,
+  join: join_default,
+  merge: merge_default,
+  selection: selection_selection,
+  order: order_default,
+  sort: sort_default,
+  call: call_default,
+  nodes: nodes_default,
+  node: node_default,
+  size: size_default,
+  empty: empty_default,
+  each: each_default,
+  attr: attr_default,
+  style: style_default,
+  property: property_default,
+  classed: classed_default,
+  text: text_default,
+  html: html_default,
+  raise: raise_default,
+  lower: lower_default,
+  append: append_default,
+  insert: insert_default,
+  remove: remove_default,
+  clone: clone_default,
+  datum: datum_default,
+  on: on_default,
+  dispatch: dispatch_default2,
+  [Symbol.iterator]: iterator_default
+};
+var selection_default = selection;
+
+// ../../../node_modules/d3-selection/src/select.js
+function select_default2(selector4) {
+  return typeof selector4 === "string" ? new Selection([[document.querySelector(selector4)]], [document.documentElement]) : new Selection([[selector4]], root);
+}
+
+// ../../../node_modules/d3-selection/src/sourceEvent.js
+function sourceEvent_default(event) {
+  let sourceEvent;
+  while (sourceEvent = event.sourceEvent) event = sourceEvent;
+  return event;
+}
+
+// ../../../node_modules/d3-selection/src/pointer.js
+function pointer_default(event, node) {
+  event = sourceEvent_default(event);
+  if (node === void 0) node = event.currentTarget;
+  if (node) {
+    var svg = node.ownerSVGElement || node;
+    if (svg.createSVGPoint) {
+      var point = svg.createSVGPoint();
+      point.x = event.clientX, point.y = event.clientY;
+      point = point.matrixTransform(node.getScreenCTM().inverse());
+      return [point.x, point.y];
+    }
+    if (node.getBoundingClientRect) {
+      var rect = node.getBoundingClientRect();
+      return [event.clientX - rect.left - node.clientLeft, event.clientY - rect.top - node.clientTop];
+    }
+  }
+  return [event.pageX, event.pageY];
+}
+
+// ../../../node_modules/d3-drag/src/noevent.js
+var nonpassive = { passive: false };
+var nonpassivecapture = { capture: true, passive: false };
+function nopropagation(event) {
+  event.stopImmediatePropagation();
+}
+function noevent_default(event) {
+  event.preventDefault();
+  event.stopImmediatePropagation();
+}
+
+// ../../../node_modules/d3-drag/src/nodrag.js
+function nodrag_default(view) {
+  var root3 = view.document.documentElement, selection2 = select_default2(view).on("dragstart.drag", noevent_default, nonpassivecapture);
+  if ("onselectstart" in root3) {
+    selection2.on("selectstart.drag", noevent_default, nonpassivecapture);
+  } else {
+    root3.__noselect = root3.style.MozUserSelect;
+    root3.style.MozUserSelect = "none";
+  }
+}
+function yesdrag(view, noclick) {
+  var root3 = view.document.documentElement, selection2 = select_default2(view).on("dragstart.drag", null);
+  if (noclick) {
+    selection2.on("click.drag", noevent_default, nonpassivecapture);
+    setTimeout(function() {
+      selection2.on("click.drag", null);
+    }, 0);
+  }
+  if ("onselectstart" in root3) {
+    selection2.on("selectstart.drag", null);
+  } else {
+    root3.style.MozUserSelect = root3.__noselect;
+    delete root3.__noselect;
+  }
+}
+
+// ../../../node_modules/d3-drag/src/constant.js
+var constant_default2 = (x) => () => x;
+
+// ../../../node_modules/d3-drag/src/event.js
+function DragEvent(type, {
+  sourceEvent,
+  subject,
+  target: target5,
+  identifier,
+  active,
+  x,
+  y,
+  dx,
+  dy,
+  dispatch: dispatch2
+}) {
+  Object.defineProperties(this, {
+    type: { value: type, enumerable: true, configurable: true },
+    sourceEvent: { value: sourceEvent, enumerable: true, configurable: true },
+    subject: { value: subject, enumerable: true, configurable: true },
+    target: { value: target5, enumerable: true, configurable: true },
+    identifier: { value: identifier, enumerable: true, configurable: true },
+    active: { value: active, enumerable: true, configurable: true },
+    x: { value: x, enumerable: true, configurable: true },
+    y: { value: y, enumerable: true, configurable: true },
+    dx: { value: dx, enumerable: true, configurable: true },
+    dy: { value: dy, enumerable: true, configurable: true },
+    _: { value: dispatch2 }
+  });
+}
+DragEvent.prototype.on = function() {
+  var value12 = this._.on.apply(this._, arguments);
+  return value12 === this._ ? this : value12;
+};
+
+// ../../../node_modules/d3-drag/src/drag.js
+function defaultFilter(event) {
+  return !event.ctrlKey && !event.button;
+}
+function defaultContainer() {
+  return this.parentNode;
+}
+function defaultSubject(event, d) {
+  return d == null ? { x: event.x, y: event.y } : d;
+}
+function defaultTouchable() {
+  return navigator.maxTouchPoints || "ontouchstart" in this;
+}
+function drag_default() {
+  var filter6 = defaultFilter, container2 = defaultContainer, subject = defaultSubject, touchable = defaultTouchable, gestures = {}, listeners = dispatch_default("start", "drag", "end"), active = 0, mousedownx, mousedowny, mousemoving, touchending, clickDistance2 = 0;
+  function drag(selection2) {
+    selection2.on("mousedown.drag", mousedowned).filter(touchable).on("touchstart.drag", touchstarted).on("touchmove.drag", touchmoved, nonpassive).on("touchend.drag touchcancel.drag", touchended).style("touch-action", "none").style("-webkit-tap-highlight-color", "rgba(0,0,0,0)");
+  }
+  function mousedowned(event, d) {
+    if (touchending || !filter6.call(this, event, d)) return;
+    var gesture = beforestart(this, container2.call(this, event, d), event, d, "mouse");
+    if (!gesture) return;
+    select_default2(event.view).on("mousemove.drag", mousemoved, nonpassivecapture).on("mouseup.drag", mouseupped, nonpassivecapture);
+    nodrag_default(event.view);
+    nopropagation(event);
+    mousemoving = false;
+    mousedownx = event.clientX;
+    mousedowny = event.clientY;
+    gesture("start", event);
+  }
+  function mousemoved(event) {
+    noevent_default(event);
+    if (!mousemoving) {
+      var dx = event.clientX - mousedownx, dy = event.clientY - mousedowny;
+      mousemoving = dx * dx + dy * dy > clickDistance2;
+    }
+    gestures.mouse("drag", event);
+  }
+  function mouseupped(event) {
+    select_default2(event.view).on("mousemove.drag mouseup.drag", null);
+    yesdrag(event.view, mousemoving);
+    noevent_default(event);
+    gestures.mouse("end", event);
+  }
+  function touchstarted(event, d) {
+    if (!filter6.call(this, event, d)) return;
+    var touches = event.changedTouches, c = container2.call(this, event, d), n = touches.length, i, gesture;
+    for (i = 0; i < n; ++i) {
+      if (gesture = beforestart(this, c, event, d, touches[i].identifier, touches[i])) {
+        nopropagation(event);
+        gesture("start", event, touches[i]);
+      }
+    }
+  }
+  function touchmoved(event) {
+    var touches = event.changedTouches, n = touches.length, i, gesture;
+    for (i = 0; i < n; ++i) {
+      if (gesture = gestures[touches[i].identifier]) {
+        noevent_default(event);
+        gesture("drag", event, touches[i]);
+      }
+    }
+  }
+  function touchended(event) {
+    var touches = event.changedTouches, n = touches.length, i, gesture;
+    if (touchending) clearTimeout(touchending);
+    touchending = setTimeout(function() {
+      touchending = null;
+    }, 500);
+    for (i = 0; i < n; ++i) {
+      if (gesture = gestures[touches[i].identifier]) {
+        nopropagation(event);
+        gesture("end", event, touches[i]);
+      }
+    }
+  }
+  function beforestart(that, container3, event, d, identifier, touch) {
+    var dispatch2 = listeners.copy(), p = pointer_default(touch || event, container3), dx, dy, s;
+    if ((s = subject.call(that, new DragEvent("beforestart", {
+      sourceEvent: event,
+      target: drag,
+      identifier,
+      active,
+      x: p[0],
+      y: p[1],
+      dx: 0,
+      dy: 0,
+      dispatch: dispatch2
+    }), d)) == null) return;
+    dx = s.x - p[0] || 0;
+    dy = s.y - p[1] || 0;
+    return function gesture(type, event2, touch2) {
+      var p0 = p, n;
+      switch (type) {
+        case "start":
+          gestures[identifier] = gesture, n = active++;
+          break;
+        case "end":
+          delete gestures[identifier], --active;
+        // falls through
+        case "drag":
+          p = pointer_default(touch2 || event2, container3), n = active;
+          break;
+      }
+      dispatch2.call(
+        type,
+        that,
+        new DragEvent(type, {
+          sourceEvent: event2,
+          subject: s,
+          target: drag,
+          identifier,
+          active: n,
+          x: p[0] + dx,
+          y: p[1] + dy,
+          dx: p[0] - p0[0],
+          dy: p[1] - p0[1],
+          dispatch: dispatch2
+        }),
+        d
+      );
+    };
+  }
+  drag.filter = function(_) {
+    return arguments.length ? (filter6 = typeof _ === "function" ? _ : constant_default2(!!_), drag) : filter6;
+  };
+  drag.container = function(_) {
+    return arguments.length ? (container2 = typeof _ === "function" ? _ : constant_default2(_), drag) : container2;
+  };
+  drag.subject = function(_) {
+    return arguments.length ? (subject = typeof _ === "function" ? _ : constant_default2(_), drag) : subject;
+  };
+  drag.touchable = function(_) {
+    return arguments.length ? (touchable = typeof _ === "function" ? _ : constant_default2(!!_), drag) : touchable;
+  };
+  drag.on = function() {
+    var value12 = listeners.on.apply(listeners, arguments);
+    return value12 === listeners ? drag : value12;
+  };
+  drag.clickDistance = function(_) {
+    return arguments.length ? (clickDistance2 = (_ = +_) * _, drag) : Math.sqrt(clickDistance2);
+  };
+  return drag;
+}
+
+// output/System.FFI.D3Drag/foreign.js
+var dragBehavior = () => drag_default();
+var setDragClickDistance = (n) => (behavior) => () => {
+  behavior.clickDistance(n);
+  return behavior;
+};
+var setDragOn = (typename) => (handler2) => (behavior) => () => {
+  behavior.on(typename, (event) => handler2(event)());
+  return behavior;
+};
+var setDragFilter = (predicate) => (behavior) => () => {
+  behavior.filter((event) => predicate({ sourceEvent: event })());
+  return behavior;
+};
+var applyDrag = (selection2) => (behavior) => () => {
+  selection2.call(behavior);
+};
+var dragSourceEvent = (event) => () => event.sourceEvent;
+
+// output/System.FFI.D3Selection/foreign.js
+var d3Select = (node) => () => select_default2(node);
+var d3SelectionOnNull = (sel) => (typename) => () => {
+  sel.on(typename, null);
+};
+var d3Pointer = (event) => (container2) => () => {
+  const [x, y] = pointer_default(event, container2);
+  return { x, y };
+};
+
 // output/Boundary.Enums/index.js
 var show2 = /* @__PURE__ */ show(showString);
 var intercalate3 = /* @__PURE__ */ intercalate(foldableArray)(monoidString);
@@ -27237,7 +28380,7 @@ var positionOut = function(v) {
     return "bottom";
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Enums (line 106, column 15 - line 110, column 24): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Enums (line 120, column 15 - line 124, column 24): " + [v.constructor.name]);
 };
 var markerTypeOut = function(v) {
   if (v instanceof Arrow) {
@@ -27248,7 +28391,7 @@ var markerTypeOut = function(v) {
     return "arrowclosed";
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Enums (line 123, column 17 - line 125, column 31): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Enums (line 137, column 17 - line 139, column 31): " + [v.constructor.name]);
 };
 var handleTypeOut = function(v) {
   if (v instanceof Source) {
@@ -27259,7 +28402,7 @@ var handleTypeOut = function(v) {
     return "target";
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Enums (line 139, column 17 - line 141, column 21): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Enums (line 153, column 17 - line 155, column 21): " + [v.constructor.name]);
 };
 var fromEnumString = function(field) {
   return function(members) {
@@ -27277,7 +28420,7 @@ var fromEnumString = function(field) {
         })(members)) + "."))))));
       }
       ;
-      throw new Error("Failed pattern match at Boundary.Enums (line 83, column 3 - line 90, column 17): " + [v.constructor.name]);
+      throw new Error("Failed pattern match at Boundary.Enums (line 97, column 3 - line 104, column 17): " + [v.constructor.name]);
     };
   };
 };
@@ -27474,1944 +28617,148 @@ var toMaybe = function(n) {
   return nullable(n, Nothing.value, Just.create);
 };
 
-// output/Foreign.Object/foreign.js
-function _copyST(m) {
-  return function() {
-    var r = {};
-    for (var k in m) {
-      if (hasOwnProperty.call(m, k)) {
-        r[k] = m[k];
-      }
-    }
-    return r;
-  };
+// output/Foreign/foreign.js
+function typeOf(value12) {
+  return typeof value12;
 }
-var empty2 = {};
-function runST(f) {
-  return f();
+function tagOf(value12) {
+  return Object.prototype.toString.call(value12).slice(8, -1);
 }
-function _mapWithKey(m0, f) {
-  var m = {};
-  for (var k in m0) {
-    if (hasOwnProperty.call(m0, k)) {
-      m[k] = f(k)(m0[k]);
-    }
-  }
-  return m;
+function isNull2(value12) {
+  return value12 === null;
 }
-function _lookup(no, yes, k, m) {
-  return k in m ? yes(m[k]) : no;
+function isUndefined(value12) {
+  return value12 === void 0;
 }
-function toArrayWithKey(f) {
-  return function(m) {
-    var r = [];
-    for (var k in m) {
-      if (hasOwnProperty.call(m, k)) {
-        r.push(f(k)(m[k]));
-      }
-    }
-    return r;
-  };
-}
-var keys = Object.keys || toArrayWithKey(function(k) {
-  return function() {
-    return k;
-  };
-});
-
-// output/Foreign.Object.ST/foreign.js
-var newImpl = function() {
-  return {};
+var isArray = Array.isArray || function(value12) {
+  return Object.prototype.toString.call(value12) === "[object Array]";
 };
-function poke2(k) {
-  return function(v) {
-    return function(m) {
-      return function() {
-        m[k] = v;
-        return m;
-      };
-    };
-  };
-}
 
-// output/Foreign.Object/index.js
-var $$void3 = /* @__PURE__ */ $$void(functorST);
-var toUnfoldable2 = function(dictUnfoldable) {
-  var $89 = toUnfoldable(dictUnfoldable);
-  var $90 = toArrayWithKey(Tuple.create);
-  return function($91) {
-    return $89($90($91));
-  };
+// output/Control.Monad.Error.Class/index.js
+var throwError = function(dict) {
+  return dict.throwError;
 };
-var thawST = _copyST;
-var mutate = function(f) {
-  return function(m) {
-    return runST(function __do2() {
-      var s = thawST(m)();
-      f(s)();
-      return s;
+
+// output/Control.Monad.State.Class/index.js
+var state = function(dict) {
+  return dict.state;
+};
+var modify_2 = function(dictMonadState) {
+  var state1 = state(dictMonadState);
+  return function(f) {
+    return state1(function(s) {
+      return new Tuple(unit, f(s));
     });
   };
 };
-var mapWithKey = function(f) {
-  return function(m) {
-    return _mapWithKey(m, f);
-  };
-};
-var lookup = /* @__PURE__ */ function() {
-  return runFn4(_lookup)(Nothing.value)(Just.create);
-}();
-var insert2 = function(k) {
-  return function(v) {
-    return mutate(poke2(k)(v));
-  };
-};
-var fromFoldable2 = function(dictFoldable) {
-  var fromFoldable110 = fromFoldable(dictFoldable);
-  return function(l) {
-    return runST(function __do2() {
-      var s = newImpl();
-      foreach(fromFoldable110(l))(function(v) {
-        return $$void3(poke2(v.value0)(v.value1)(s));
-      })();
-      return s;
-    });
-  };
-};
-
-// output/React.Basic/foreign.js
-var import_react = __toESM(require_react(), 1);
-var createElement = import_react.default.createElement;
-var Fragment = import_react.default.Fragment;
-var empty3 = null;
-function keyed(key2) {
-  return (child) => createElement(Fragment, { key: key2 }, child);
-}
-function element(component) {
-  return (props) => Array.isArray(props.children) ? createElement.apply(null, [component, props].concat(props.children)) : createElement(component, props);
-}
-function fragment(children3) {
-  return createElement.apply(null, [Fragment, null].concat(children3));
-}
-function createContext(defaultValue4) {
-  return () => import_react.default.createContext(defaultValue4);
-}
-function contextProvider(context) {
-  return context.Provider;
-}
-
-// output/React.Basic/index.js
-var semigroupJSX = {
-  append: function(a) {
-    return function(b) {
-      return fragment([a, b]);
-    };
-  }
-};
-var provider = function(context) {
-  return function(value12) {
-    return function(children3) {
-      return element(contextProvider(context))({
-        value: value12,
-        children: children3
-      });
-    };
-  };
-};
-var monoidJSX = {
-  mempty: empty3,
-  Semigroup0: function() {
-    return semigroupJSX;
-  }
-};
-
-// output/Boundary.Elements/index.js
-var show3 = /* @__PURE__ */ show(showInt);
-var wrap2 = /* @__PURE__ */ wrap();
-var map5 = /* @__PURE__ */ map(functorMaybe);
-var unwrap2 = /* @__PURE__ */ unwrap();
-var bind2 = /* @__PURE__ */ bind(bindMaybe);
-var map1 = /* @__PURE__ */ map(functorArray);
-var show1 = /* @__PURE__ */ show(showString);
-var unknownChange = function(what) {
-  return function(tag) {
-    return unsafeThrow("ps-flow: `" + (tag + ("` is not a " + (what + "-change type."))));
-  };
-};
-var setAttributesOut = function(m) {
-  if (m.width && m.height) {
-    return true;
-  }
-  ;
-  if (m.width && !m.height) {
-    return "width";
-  }
-  ;
-  if (!m.width && m.height) {
-    return "height";
-  }
-  ;
-  if (!m.width && !m.height) {
-    return false;
-  }
-  ;
-  throw new Error("Failed pattern match at Boundary.Elements (line 780, column 22 - line 784, column 37): " + [m.width.constructor.name, m.height.constructor.name]);
-};
-var setAttributesIn = function(raw) {
-  var v = asBoolean(raw);
-  if (v instanceof Just) {
-    return {
-      width: v.value0,
-      height: v.value0
-    };
-  }
-  ;
-  if (v instanceof Nothing) {
-    var v1 = asString(raw);
-    if (v1 instanceof Just && v1.value0 === "width") {
-      return {
-        width: true,
-        height: false
-      };
-    }
-    ;
-    if (v1 instanceof Just && v1.value0 === "height") {
-      return {
-        width: false,
-        height: true
-      };
-    }
-    ;
-    return unsafeThrow("ps-flow: a dimension change's `setAttributes` must be a boolean, " + ('"width" or "height", got ' + (typeName(raw) + ".")));
-  }
-  ;
-  throw new Error("Failed pattern match at Boundary.Elements (line 787, column 23 - line 797, column 17): " + [v.constructor.name]);
-};
-var requiredMember = function(tag) {
-  return function(member7) {
-    var $$throw = function(v) {
-      return unsafeThrow("ps-flow: a `" + (tag + ("` change must carry `" + (member7 + "`."))));
-    };
-    var $93 = fromMaybe$prime($$throw);
-    return function($94) {
-      return $93(fromUndefinable($94));
-    };
-  };
-};
-var readKey = function(field) {
-  return function(raw) {
-    var v = asString(raw);
-    if (v instanceof Just) {
-      return v.value0;
-    }
-    ;
-    if (v instanceof Nothing) {
-      return unsafeThrow("ps-flow: every entry of `" + (field + ("` must be a string, got " + (typeName(raw) + "."))));
-    }
-    ;
-    throw new Error("Failed pattern match at Boundary.Elements (line 358, column 21 - line 364, column 15): " + [v.constructor.name]);
-  };
-};
-var pairError = function(field) {
-  return function(shape2) {
-    return function(got) {
-      return "ps-flow: `" + (field + ("` must be " + (shape2 + (" \u2014 exactly two numbers, got " + (show3(length(got)) + ".")))));
-    };
-  };
-};
-var snapGridIn = function(field) {
-  return function(v) {
-    if (v.length === 2) {
-      return wrap2({
-        gx: v[0],
-        gy: v[1]
-      });
-    }
-    ;
-    return unsafeThrow(pairError(field)("[gridX, gridY]")(v));
-  };
-};
-var nodePropsOut = function(p) {
-  return {
-    id: p.id,
-    data: p.data,
-    width: toUndefinable(p.width),
-    height: toUndefinable(p.height),
-    sourcePosition: toUndefinable(map5(positionOut)(p.sourcePosition)),
-    targetPosition: toUndefinable(map5(positionOut)(p.targetPosition)),
-    dragHandle: toUndefinable(p.dragHandle),
-    parentId: toUndefinable(p.parentId),
-    type: p.type,
-    dragging: p.dragging,
-    zIndex: p.zIndex,
-    selectable: p.selectable,
-    deletable: p.deletable,
-    selected: p.selected,
-    draggable: p.draggable,
-    isConnectable: p.isConnectable,
-    positionAbsoluteX: p.positionAbsoluteX,
-    positionAbsoluteY: p.positionAbsoluteY
-  };
-};
-var wrapNodeComponent = function(userComponent) {
-  return mkNodeComponentWrapper(userComponent)(function(psProps) {
-    return element(userComponent)(nodePropsOut(psProps));
+var get2 = function(dictMonadState) {
+  return state(dictMonadState)(function(s) {
+    return new Tuple(s, s);
   });
 };
-var nodeTypesIn = function(types) {
-  return mapWithKey(function(v) {
-    return function(c) {
-      return wrapNodeComponent(c);
-    };
-  })(types);
-};
-var nodeOriginOut = function(o) {
-  return [unwrap2(o).ox, unwrap2(o).oy];
-};
-var nodeOriginIn = function(field) {
-  return function(v) {
-    if (v.length === 2) {
-      return wrap2({
-        ox: v[0],
-        oy: v[1]
-      });
-    }
-    ;
-    return unsafeThrow(pairError(field)("[originX, originY]")(v));
-  };
-};
-var nodeHandleOut = function(h) {
-  return {
-    id: toUndefinable(h.id),
-    x: h.x,
-    y: h.y,
-    position: positionOut(h.position),
-    type: handleTypeOut(h.handleType),
-    width: toUndefinable(h.width),
-    height: toUndefinable(h.height)
-  };
-};
-var nodeHandleIn = function(h) {
-  return {
-    id: fromUndefinable(h.id),
-    x: h.x,
-    y: h.y,
-    position: positionIn("node.handles[].position")(h.position),
-    handleType: handleTypeIn("node.handles[].type")(h.type),
-    width: fromUndefinable(h.width),
-    height: fromUndefinable(h.height)
-  };
-};
-var measuredOut = function(m) {
-  return {
-    width: toUndefinable(m.width),
-    height: toUndefinable(m.height)
-  };
-};
-var measuredIn = function(m) {
-  return {
-    width: fromUndefinable(m.width),
-    height: fromUndefinable(m.height)
-  };
-};
-var keyCodeIn = function(v) {
-  return function(v1) {
-    if (isNull(v1)) {
-      return unsafeThrow("ps-flow: `" + (v + '` was set to null, which upstream reads as "disable this key". ps-flow cannot express that yet \u2014 its key-code type has no disabled state, so a null would silently fall back to the default key instead. Omit the prop to get the default, or pass the key you want.'));
-    }
-    ;
-    return bind2(fromUndefinable(v1))(function(raw) {
-      var v2 = asString(raw);
-      if (v2 instanceof Just) {
-        return new Just(new SingleKey(v2.value0));
-      }
-      ;
-      if (v2 instanceof Nothing) {
-        var v3 = asArray(raw);
-        if (v3 instanceof Just) {
-          return map5(MultiKey.create)(fromArray(map1(readKey(v))(v3.value0)));
-        }
-        ;
-        if (v3 instanceof Nothing) {
-          return unsafeThrow("ps-flow: `" + (v + ("` must be a string or an array of strings, got " + (typeName(raw) + "."))));
-        }
-        ;
-        throw new Error("Failed pattern match at Boundary.Elements (line 349, column 16 - line 355, column 19): " + [v3.constructor.name]);
-      }
-      ;
-      throw new Error("Failed pattern match at Boundary.Elements (line 347, column 3 - line 355, column 19): " + [v2.constructor.name]);
-    });
-  };
-};
-var fromCssObject = unsafeCoerce2;
-var emptyNodeChange = {
-  type: "",
-  id: undefined2,
-  dimensions: undefined2,
-  resizing: undefined2,
-  setAttributes: undefined2,
-  position: undefined2,
-  positionAbsolute: undefined2,
-  dragging: undefined2,
-  selected: undefined2,
-  item: undefined2,
-  index: undefined2
-};
-var emptyMeasured = /* @__PURE__ */ function() {
-  return {
-    width: Nothing.value,
-    height: Nothing.value
-  };
-}();
-var emptyEdgeChange = {
-  type: "",
-  id: undefined2,
-  selected: undefined2,
-  item: undefined2,
-  index: undefined2
-};
-var edgeMarkerOut = function(m) {
-  return {
-    type: markerTypeOut(m.markerType),
-    color: toUndefinable(m.color),
-    width: toUndefinable(m.width),
-    height: toUndefinable(m.height),
-    markerUnits: toUndefinable(m.markerUnits),
-    orient: toUndefinable(m.orient),
-    strokeWidth: toUndefinable(m.strokeWidth)
-  };
-};
-var markerOut = function(v) {
-  if (v instanceof NamedMarker) {
-    return v.value0;
-  }
-  ;
-  if (v instanceof CustomMarker) {
-    return edgeMarkerOut(v.value0);
-  }
-  ;
-  throw new Error("Failed pattern match at Boundary.Elements (line 574, column 13 - line 576, column 51): " + [v.constructor.name]);
-};
-var edgeOut = function(e) {
-  return {
-    id: e.id,
-    type: toUndefinable(e.edgeType),
-    source: unwrap2(e.source),
-    target: unwrap2(e.target),
-    sourceHandle: toUndefinable(e.sourceHandle),
-    targetHandle: toUndefinable(e.targetHandle),
-    animated: toUndefinable(new Just(e.animated)),
-    hidden: toUndefinable(new Just(e.hidden)),
-    deletable: toUndefinable(e.deletable),
-    selectable: toUndefinable(e.selectable),
-    data: toUndefinable(e.data),
-    selected: toUndefinable(new Just(e.selected)),
-    markerStart: toUndefinable(map5(markerOut)(e.markerStart)),
-    markerEnd: toUndefinable(map5(markerOut)(e.markerEnd)),
-    zIndex: toUndefinable(map5(toNumber)(e.zIndex)),
-    label: toUndefinable(e.label),
-    ariaLabel: toUndefinable(e.ariaLabel),
-    interactionWidth: toUndefinable(e.interactionWidth),
-    className: toUndefinable(e.className),
-    style: toUndefinable(map5(fromCssObject)(e.style))
-  };
-};
-var edgeMarkerIn = function(field) {
-  return function(m) {
-    return {
-      markerType: markerTypeIn(field + ".type")(m.type),
-      color: fromUndefinable(m.color),
-      width: fromUndefinable(m.width),
-      height: fromUndefinable(m.height),
-      markerUnits: fromUndefinable(m.markerUnits),
-      orient: fromUndefinable(m.orient),
-      strokeWidth: fromUndefinable(m.strokeWidth)
-    };
-  };
-};
-var markerIn = function(field) {
-  return function(raw) {
-    var v = asString(raw);
-    if (v instanceof Just) {
-      return new NamedMarker(v.value0);
-    }
-    ;
-    if (v instanceof Nothing) {
-      return new CustomMarker(edgeMarkerIn(field)(raw));
-    }
-    ;
-    throw new Error("Failed pattern match at Boundary.Elements (line 569, column 22 - line 571, column 66): " + [v.constructor.name]);
-  };
-};
-var edgeChangeOut = function(v) {
-  if (v instanceof EdgeSelectionChange) {
-    return {
-      item: emptyEdgeChange.item,
-      index: emptyEdgeChange.index,
-      type: "select",
-      id: toUndefinable(new Just(v.value0.id)),
-      selected: toUndefinable(new Just(v.value0.selected))
-    };
-  }
-  ;
-  if (v instanceof EdgeRemoveChange) {
-    return {
-      selected: emptyEdgeChange.selected,
-      item: emptyEdgeChange.item,
-      index: emptyEdgeChange.index,
-      type: "remove",
-      id: toUndefinable(new Just(v.value0.id))
-    };
-  }
-  ;
-  if (v instanceof EdgeAddChange) {
-    return {
-      id: emptyEdgeChange.id,
-      selected: emptyEdgeChange.selected,
-      type: "add",
-      item: toUndefinable(new Just(edgeOut(v.value0.item))),
-      index: toUndefinable(map5(toNumber)(v.value0.index))
-    };
-  }
-  ;
-  if (v instanceof EdgeReplaceChange) {
-    return {
-      selected: emptyEdgeChange.selected,
-      index: emptyEdgeChange.index,
-      type: "replace",
-      id: toUndefinable(new Just(v.value0.id)),
-      item: toUndefinable(new Just(edgeOut(v.value0.item)))
-    };
-  }
-  ;
-  throw new Error("Failed pattern match at Boundary.Elements (line 818, column 17 - line 837, column 6): " + [v.constructor.name]);
-};
-var coordinateExtentOut = function(e) {
-  return [[unwrap2(e).minX, unwrap2(e).minY], [unwrap2(e).maxX, unwrap2(e).maxY]];
-};
-var nodeExtentOut = function(v) {
-  if (v instanceof ParentExtent) {
-    return "parent";
-  }
-  ;
-  if (v instanceof CoordExtent) {
-    return coordinateExtentOut(v.value0);
-  }
-  ;
-  throw new Error("Failed pattern match at Boundary.Elements (line 468, column 17 - line 470, column 56): " + [v.constructor.name]);
-};
-var nodeOut = function(n) {
-  return {
-    id: unwrap2(n.id),
-    position: n.position,
-    data: n.data,
-    type: toUndefinable(n.nodeType),
-    sourcePosition: toUndefinable(map5(positionOut)(n.sourcePosition)),
-    targetPosition: toUndefinable(map5(positionOut)(n.targetPosition)),
-    hidden: toUndefinable(new Just(n.hidden)),
-    selected: toUndefinable(new Just(n.selected)),
-    dragging: toUndefinable(new Just(n.dragging)),
-    draggable: toUndefinable(n.draggable),
-    selectable: toUndefinable(n.selectable),
-    connectable: toUndefinable(n.connectable),
-    deletable: toUndefinable(n.deletable),
-    dragHandle: toUndefinable(n.dragHandle),
-    width: toUndefinable(n.width),
-    height: toUndefinable(n.height),
-    initialWidth: toUndefinable(n.initialWidth),
-    initialHeight: toUndefinable(n.initialHeight),
-    parentId: toUndefinable(map5(unwrap2)(n.parentId)),
-    zIndex: toUndefinable(map5(toNumber)(n.zIndex)),
-    extent: toUndefinable(map5(nodeExtentOut)(n.extent)),
-    expandParent: toUndefinable(new Just(n.expandParent)),
-    ariaLabel: toUndefinable(n.ariaLabel),
-    origin: toUndefinable(map5(nodeOriginOut)(n.origin)),
-    handles: toUndefinable(map5(map1(nodeHandleOut))(n.handles)),
-    measured: toUndefinable(new Just(measuredOut(n.measured))),
-    className: toUndefinable(n.className),
-    style: toUndefinable(map5(fromCssObject)(n.style))
-  };
-};
-var nodeChangeOut = function(v) {
-  if (v instanceof NodeDimensionChange) {
-    return {
-      position: emptyNodeChange.position,
-      positionAbsolute: emptyNodeChange.positionAbsolute,
-      dragging: emptyNodeChange.dragging,
-      selected: emptyNodeChange.selected,
-      item: emptyNodeChange.item,
-      index: emptyNodeChange.index,
-      type: "dimensions",
-      id: toUndefinable(new Just(unwrap2(v.value0.id))),
-      dimensions: toUndefinable(v.value0.dimensions),
-      resizing: toUndefinable(new Just(v.value0.resizing)),
-      setAttributes: toUndefinable(map5(setAttributesOut)(v.value0.setAttributes))
-    };
-  }
-  ;
-  if (v instanceof NodePositionChange) {
-    return {
-      dimensions: emptyNodeChange.dimensions,
-      resizing: emptyNodeChange.resizing,
-      setAttributes: emptyNodeChange.setAttributes,
-      selected: emptyNodeChange.selected,
-      item: emptyNodeChange.item,
-      index: emptyNodeChange.index,
-      type: "position",
-      id: toUndefinable(new Just(unwrap2(v.value0.id))),
-      position: toUndefinable(v.value0.position),
-      positionAbsolute: toUndefinable(v.value0.positionAbsolute),
-      dragging: toUndefinable(new Just(v.value0.dragging))
-    };
-  }
-  ;
-  if (v instanceof NodeSelectionChange) {
-    return {
-      dimensions: emptyNodeChange.dimensions,
-      resizing: emptyNodeChange.resizing,
-      setAttributes: emptyNodeChange.setAttributes,
-      position: emptyNodeChange.position,
-      positionAbsolute: emptyNodeChange.positionAbsolute,
-      dragging: emptyNodeChange.dragging,
-      item: emptyNodeChange.item,
-      index: emptyNodeChange.index,
-      type: "select",
-      id: toUndefinable(new Just(unwrap2(v.value0.id))),
-      selected: toUndefinable(new Just(v.value0.selected))
-    };
-  }
-  ;
-  if (v instanceof NodeRemoveChange) {
-    return {
-      dimensions: emptyNodeChange.dimensions,
-      resizing: emptyNodeChange.resizing,
-      setAttributes: emptyNodeChange.setAttributes,
-      position: emptyNodeChange.position,
-      positionAbsolute: emptyNodeChange.positionAbsolute,
-      dragging: emptyNodeChange.dragging,
-      selected: emptyNodeChange.selected,
-      item: emptyNodeChange.item,
-      index: emptyNodeChange.index,
-      type: "remove",
-      id: toUndefinable(new Just(unwrap2(v.value0.id)))
-    };
-  }
-  ;
-  if (v instanceof NodeAddChange) {
-    return {
-      id: emptyNodeChange.id,
-      dimensions: emptyNodeChange.dimensions,
-      resizing: emptyNodeChange.resizing,
-      setAttributes: emptyNodeChange.setAttributes,
-      position: emptyNodeChange.position,
-      positionAbsolute: emptyNodeChange.positionAbsolute,
-      dragging: emptyNodeChange.dragging,
-      selected: emptyNodeChange.selected,
-      type: "add",
-      item: toUndefinable(new Just(nodeOut(v.value0.item))),
-      index: toUndefinable(map5(toNumber)(v.value0.index))
-    };
-  }
-  ;
-  if (v instanceof NodeReplaceChange) {
-    return {
-      dimensions: emptyNodeChange.dimensions,
-      resizing: emptyNodeChange.resizing,
-      setAttributes: emptyNodeChange.setAttributes,
-      position: emptyNodeChange.position,
-      positionAbsolute: emptyNodeChange.positionAbsolute,
-      dragging: emptyNodeChange.dragging,
-      selected: emptyNodeChange.selected,
-      index: emptyNodeChange.index,
-      type: "replace",
-      id: toUndefinable(new Just(unwrap2(v.value0.id))),
-      item: toUndefinable(new Just(nodeOut(v.value0.item)))
-    };
-  }
-  ;
-  throw new Error("Failed pattern match at Boundary.Elements (line 725, column 17 - line 758, column 6): " + [v.constructor.name]);
-};
-var coordinateExtentIn = function(field) {
-  return function(v) {
-    if (v.length === 2 && (v[0].length === 2 && v[1].length === 2)) {
-      return wrap2({
-        minX: v[0][0],
-        minY: v[0][1],
-        maxX: v[1][0],
-        maxY: v[1][1]
-      });
-    }
-    ;
-    return unsafeThrow("ps-flow: `" + (field + "` must be [[minX, minY], [maxX, maxY]]."));
-  };
-};
-var nodeExtentIn = function(raw) {
-  var v = asString(raw);
-  if (v instanceof Just && v.value0 === "parent") {
-    return ParentExtent.value;
-  }
-  ;
-  if (v instanceof Just) {
-    return unsafeThrow('ps-flow: `node.extent` accepts the string "parent" or a coordinate ' + ("extent, got " + (show1(v.value0) + ".")));
-  }
-  ;
-  if (v instanceof Nothing) {
-    var v1 = asArray(raw);
-    if (v1 instanceof Just) {
-      return new CoordExtent(coordinateExtentIn("node.extent")(raw));
-    }
-    ;
-    if (v1 instanceof Nothing) {
-      return unsafeThrow('ps-flow: `node.extent` accepts the string "parent" or ' + ("[[minX, minY], [maxX, maxY]], got " + (typeName(raw) + ".")));
-    }
-    ;
-    throw new Error("Failed pattern match at Boundary.Elements (line 458, column 14 - line 465, column 17): " + [v1.constructor.name]);
-  }
-  ;
-  throw new Error("Failed pattern match at Boundary.Elements (line 450, column 20 - line 465, column 17): " + [v.constructor.name]);
-};
-var connectionOut = function(c) {
-  return {
-    source: unwrap2(c.source),
-    target: unwrap2(c.target),
-    sourceHandle: toNullable(c.sourceHandle),
-    targetHandle: toNullable(c.targetHandle)
-  };
-};
-var connectionIn = function(c) {
-  return {
-    source: wrap2(c.source),
-    target: wrap2(c.target),
-    sourceHandle: toMaybe(c.sourceHandle),
-    targetHandle: toMaybe(c.targetHandle)
-  };
-};
-var asCssStyle = unsafeCoerce2;
-var asCssObject = unsafeCoerce2;
-var edgeIn = function(e) {
-  return {
-    id: e.id,
-    edgeType: fromUndefinable(e.type),
-    source: wrap2(e.source),
-    target: wrap2(e.target),
-    sourceHandle: fromUndefinable(e.sourceHandle),
-    targetHandle: fromUndefinable(e.targetHandle),
-    animated: fromMaybe(false)(fromUndefinable(e.animated)),
-    hidden: fromMaybe(false)(fromUndefinable(e.hidden)),
-    deletable: fromUndefinable(e.deletable),
-    selectable: fromUndefinable(e.selectable),
-    data: fromUndefinable(e.data),
-    selected: fromMaybe(false)(fromUndefinable(e.selected)),
-    markerStart: map5(markerIn("edge.markerStart"))(fromUndefinable(e.markerStart)),
-    markerEnd: map5(markerIn("edge.markerEnd"))(fromUndefinable(e.markerEnd)),
-    zIndex: map5(round2)(fromUndefinable(e.zIndex)),
-    label: fromUndefinable(e.label),
-    ariaLabel: fromUndefinable(e.ariaLabel),
-    interactionWidth: fromUndefinable(e.interactionWidth),
-    className: fromUndefinable(e.className),
-    style: map5(asCssObject)(fromUndefinable(e.style))
-  };
-};
-var edgeChangeIn = function(c) {
-  if (c.type === "select") {
-    return new EdgeSelectionChange({
-      id: requiredMember(c.type)("id")(c.id),
-      selected: requiredMember(c.type)("selected")(c.selected)
-    });
-  }
-  ;
-  if (c.type === "remove") {
-    return new EdgeRemoveChange({
-      id: requiredMember(c.type)("id")(c.id)
-    });
-  }
-  ;
-  if (c.type === "add") {
-    return new EdgeAddChange({
-      item: edgeIn(requiredMember(c.type)("item")(c.item)),
-      index: map5(round2)(fromUndefinable(c.index))
-    });
-  }
-  ;
-  if (c.type === "replace") {
-    return new EdgeReplaceChange({
-      id: requiredMember(c.type)("id")(c.id),
-      item: edgeIn(requiredMember(c.type)("item")(c.item))
-    });
-  }
-  ;
-  return unknownChange("edge")(c.type);
-};
-var nodeIn = function(n) {
-  return {
-    id: wrap2(n.id),
-    position: n.position,
-    data: n.data,
-    sourcePosition: map5(positionIn("node.sourcePosition"))(fromUndefinable(n.sourcePosition)),
-    targetPosition: map5(positionIn("node.targetPosition"))(fromUndefinable(n.targetPosition)),
-    hidden: fromMaybe(false)(fromUndefinable(n.hidden)),
-    selected: fromMaybe(false)(fromUndefinable(n.selected)),
-    dragging: fromMaybe(false)(fromUndefinable(n.dragging)),
-    draggable: fromUndefinable(n.draggable),
-    selectable: fromUndefinable(n.selectable),
-    connectable: fromUndefinable(n.connectable),
-    deletable: fromUndefinable(n.deletable),
-    dragHandle: fromUndefinable(n.dragHandle),
-    width: fromUndefinable(n.width),
-    height: fromUndefinable(n.height),
-    initialWidth: fromUndefinable(n.initialWidth),
-    initialHeight: fromUndefinable(n.initialHeight),
-    parentId: map5(wrap2)(fromUndefinable(n.parentId)),
-    zIndex: map5(round2)(fromUndefinable(n.zIndex)),
-    extent: map5(nodeExtentIn)(fromUndefinable(n.extent)),
-    expandParent: fromMaybe(false)(fromUndefinable(n.expandParent)),
-    ariaLabel: fromUndefinable(n.ariaLabel),
-    origin: map5(nodeOriginIn("node.origin"))(fromUndefinable(n.origin)),
-    handles: map5(map1(nodeHandleIn))(fromUndefinable(n.handles)),
-    measured: maybe(emptyMeasured)(measuredIn)(fromUndefinable(n.measured)),
-    nodeType: fromUndefinable(n.type),
-    className: fromUndefinable(n.className),
-    style: map5(asCssObject)(fromUndefinable(n.style))
-  };
-};
-var nodeChangeIn = function(c) {
-  if (c.type === "dimensions") {
-    return new NodeDimensionChange({
-      id: wrap2(requiredMember(c.type)("id")(c.id)),
-      dimensions: fromUndefinable(c.dimensions),
-      resizing: fromMaybe(false)(fromUndefinable(c.resizing)),
-      setAttributes: map5(setAttributesIn)(fromUndefinable(c.setAttributes))
-    });
-  }
-  ;
-  if (c.type === "position") {
-    return new NodePositionChange({
-      id: wrap2(requiredMember(c.type)("id")(c.id)),
-      position: fromUndefinable(c.position),
-      positionAbsolute: fromUndefinable(c.positionAbsolute),
-      dragging: fromMaybe(false)(fromUndefinable(c.dragging))
-    });
-  }
-  ;
-  if (c.type === "select") {
-    return new NodeSelectionChange({
-      id: wrap2(requiredMember(c.type)("id")(c.id)),
-      selected: requiredMember(c.type)("selected")(c.selected)
-    });
-  }
-  ;
-  if (c.type === "remove") {
-    return new NodeRemoveChange({
-      id: wrap2(requiredMember(c.type)("id")(c.id))
-    });
-  }
-  ;
-  if (c.type === "add") {
-    return new NodeAddChange({
-      item: nodeIn(requiredMember(c.type)("item")(c.item)),
-      index: map5(round2)(fromUndefinable(c.index))
-    });
-  }
-  ;
-  if (c.type === "replace") {
-    return new NodeReplaceChange({
-      id: wrap2(requiredMember(c.type)("id")(c.id)),
-      item: nodeIn(requiredMember(c.type)("item")(c.item))
-    });
-  }
-  ;
-  return unknownChange("node")(c.type);
+
+// output/Control.Monad.Trans.Class/index.js
+var lift = function(dict) {
+  return dict.lift;
 };
 
-// output/Boundary.Refusal/index.js
-var show4 = /* @__PURE__ */ show(showInt);
-var refuseFirst = function(message2) {
-  return function(refusals) {
-    return function(p) {
-      var v = find2(function(r) {
-        return r.supplied(p);
-      })(refusals);
-      if (v instanceof Nothing) {
-        return p;
-      }
-      ;
-      if (v instanceof Just) {
-        return unsafeThrow(message2(v.value0));
-      }
-      ;
-      throw new Error("Failed pattern match at Boundary.Refusal (line 87, column 34 - line 89, column 36): " + [v.constructor.name]);
-    };
-  };
-};
-var deferredMessage = function(d) {
-  return "ps-flow: the `" + (d.name + ("` prop has not crossed the JavaScript boundary yet \u2014 it lands in " + ("boundary stage " + (show4(d.stage) + (" (" + (d.note + "). It is refused rather than ignored so that a prop ps-flow has not implemented fails loudly instead of looking like a prop you did not set."))))));
-};
-var componentProp = function(name15) {
-  return function(get7) {
-    return {
-      name: name15,
-      stage: 4,
-      note: "the props that hand a consumer's own component its props record",
-      supplied: function(p) {
-        return isDefined(get7(p));
-      }
-    };
-  };
-};
-var callbackProp = function(name15) {
-  return function(get7) {
-    return {
-      name: name15,
-      stage: 2,
-      note: "the callback props",
-      supplied: function(p) {
-        return isDefined(get7(p));
-      }
-    };
-  };
-};
-
-// output/Data.String.CodeUnits/foreign.js
-var length2 = function(s) {
-  return s.length;
-};
-var splitAt2 = function(i) {
-  return function(s) {
-    return { before: s.substring(0, i), after: s.substring(i) };
-  };
-};
-
-// output/Data.String.CodeUnits/index.js
-var stripSuffix = function(v) {
-  return function(str) {
-    var v1 = splitAt2(length2(str) - length2(v) | 0)(str);
-    var $14 = v1.after === v;
-    if ($14) {
-      return new Just(v1.before);
-    }
-    ;
-    return Nothing.value;
-  };
-};
-
-// output/React.Basic.Hooks/foreign.js
-var import_react2 = __toESM(require_react(), 1);
-var useEqCache = (eq18, a) => {
-  const memoRef = import_react2.default.useRef(a);
-  if (memoRef.current !== a && !eq18(memoRef.current, a)) {
-    memoRef.current = a;
+// output/Effect.Class/index.js
+var monadEffectEffect = {
+  liftEffect: /* @__PURE__ */ identity(categoryFn),
+  Monad0: function() {
+    return monadEffect;
   }
-  return memoRef.current;
 };
-function reactChildrenToArray(children3) {
-  return import_react2.default.Children.toArray(children3);
-}
-var memo_ = import_react2.default.memo;
-var memoEq_ = import_react2.default.memo;
-function useState_(tuple, initialState2) {
-  const [state3, setState] = import_react2.default.useState(
-    typeof initialState2 === "function" ? () => initialState2 : initialState2
-  );
-  if (!setState.hasOwnProperty("$$reactBasicHooks$$cachedSetState")) {
-    setState.$$reactBasicHooks$$cachedSetState = (update2) => () => setState(update2);
-  }
-  return tuple(state3, setState.$$reactBasicHooks$$cachedSetState);
-}
-function useEffect_(eq18, deps, effect) {
-  const memoizedKey = useEqCache(eq18, deps);
-  import_react2.default.useEffect(effect, [memoizedKey]);
-}
-function useEffectAlways_(effect) {
-  return import_react2.default.useEffect(effect);
-}
-function useLayoutEffect_(eq18, deps, effect) {
-  const memoizedKey = useEqCache(eq18, deps);
-  import_react2.default.useLayoutEffect(effect, [memoizedKey]);
-}
-var useRef_ = import_react2.default.useRef;
-function readRef_(ref) {
-  return ref.current;
-}
-function writeRef_(ref, a) {
-  ref.current = a;
-}
-var useContext_ = import_react2.default.useContext;
-function useMemo_(eq18, deps, computeA) {
-  const memoizedKey = useEqCache(eq18, deps);
-  return import_react2.default.useMemo(computeA, [memoizedKey]);
-}
-var useDebugValue_ = import_react2.default.useDebugValue;
-var useId_ = import_react2.default.useId;
-var useDeferredValue_ = import_react2.default.useDeferredValue;
-var useSyncExternalStore2_ = import_react2.default.useSyncExternalStore;
-var useSyncExternalStore3_ = import_react2.default.useSyncExternalStore;
-function unsafeSetDisplayName(displayName2, component) {
-  component.displayName = displayName2;
-  component.toString = () => displayName2;
-  return component;
-}
-var useEffectEvent_ = import_react2.default.useEffectEvent || import_react2.default.experimental_useEffectEvent;
-
-// output/Effect.Uncurried/foreign.js
-var mkEffectFn1 = function mkEffectFn12(fn) {
-  return function(x) {
-    return fn(x)();
-  };
-};
-var runEffectFn1 = function runEffectFn12(fn) {
-  return function(a) {
-    return function() {
-      return fn(a);
-    };
-  };
-};
-var runEffectFn2 = function runEffectFn22(fn) {
-  return function(a) {
-    return function(b) {
-      return function() {
-        return fn(a, b);
-      };
-    };
-  };
+var liftEffect = function(dict) {
+  return dict.liftEffect;
 };
 
-// output/Control.Bind.Indexed/index.js
-var ibind = function(dict) {
-  return dict.ibind;
-};
-
-// output/React.Basic.Hooks.Internal/index.js
-var map6 = /* @__PURE__ */ map(functorEffect);
-var apply2 = /* @__PURE__ */ apply(applyEffect);
-var pure2 = /* @__PURE__ */ pure(applicativeEffect);
-var Render = function(x) {
+// output/Control.Monad.Except.Trans/index.js
+var map5 = /* @__PURE__ */ map(functorEither);
+var ExceptT = function(x) {
   return x;
 };
-var unsafeHook = Render;
-var ixFunctorRender = {
-  imap: function(f) {
-    return function(v) {
-      return map6(f)(v);
-    };
-  }
+var runExceptT = function(v) {
+  return v;
 };
-var ixApplyRender = {
-  iapply: function(v) {
-    return function(v1) {
-      return apply2(v)(v1);
-    };
-  },
-  IxFunctor0: function() {
-    return ixFunctorRender;
-  }
-};
-var ixBindRender = {
-  ibind: function(v) {
-    return function(f) {
-      return function __do2() {
-        var a = v();
-        var v1 = f(a);
-        return v1();
-      };
-    };
-  },
-  IxApply0: function() {
-    return ixApplyRender;
-  }
-};
-var functorRender = {
-  map: function(f) {
-    return function(v) {
-      return map6(f)(v);
-    };
-  }
-};
-var discard2 = function(dictIxBind) {
-  return ibind(dictIxBind);
-};
-var coerceHook = function() {
+var mapExceptT = function(f) {
   return function(v) {
-    return v;
+    return f(v);
   };
 };
-var bind3 = function(dictIxBind) {
-  return ibind(dictIxBind);
-};
-var applyRender = function(dictTypeEquals) {
+var functorExceptT = function(dictFunctor) {
+  var map117 = map(dictFunctor);
   return {
-    apply: function(v) {
-      return function(v1) {
-        return apply2(v)(v1);
-      };
-    },
-    Functor0: function() {
-      return functorRender;
+    map: function(f) {
+      return mapExceptT(map117(map5(f)));
     }
   };
 };
-var applicativeRender = function(dictTypeEquals) {
-  var applyRender1 = applyRender(dictTypeEquals);
+var monadExceptT = function(dictMonad) {
   return {
-    pure: function(a) {
-      return pure2(a);
+    Applicative0: function() {
+      return applicativeExceptT(dictMonad);
+    },
+    Bind1: function() {
+      return bindExceptT(dictMonad);
+    }
+  };
+};
+var bindExceptT = function(dictMonad) {
+  var bind57 = bind(dictMonad.Bind1());
+  var pure80 = pure(dictMonad.Applicative0());
+  return {
+    bind: function(v) {
+      return function(k) {
+        return bind57(v)(either(function($193) {
+          return pure80(Left.create($193));
+        })(function(a) {
+          var v1 = k(a);
+          return v1;
+        }));
+      };
     },
     Apply0: function() {
-      return applyRender1;
+      return applyExceptT(dictMonad);
     }
   };
 };
-
-// output/Unsafe.Reference/foreign.js
-function reallyUnsafeRefEq(a) {
-  return function(b) {
-    return a === b;
-  };
-}
-
-// output/Unsafe.Reference/index.js
-var unsafeRefEq = reallyUnsafeRefEq;
-
-// output/React.Basic.Hooks/index.js
-var bind4 = /* @__PURE__ */ bind(bindEffect);
-var writeRef = /* @__PURE__ */ runEffectFn2(writeRef_);
-var useState = function(initialState2) {
-  return unsafeHook(function() {
-    return useState_(mkFn2(Tuple.create), initialState2);
-  });
-};
-var useRef = function(initialValue) {
-  return unsafeHook(function() {
-    return useRef_(initialValue);
-  });
-};
-var useMemo = function(dictEq) {
-  var eq18 = eq(dictEq);
-  return function(deps) {
-    return function(computeA) {
-      return unsafeHook(function() {
-        return useMemo_(mkFn2(eq18), deps, computeA);
-      });
-    };
+var applyExceptT = function(dictMonad) {
+  var functorExceptT1 = functorExceptT(dictMonad.Bind1().Apply0().Functor0());
+  return {
+    apply: ap(monadExceptT(dictMonad)),
+    Functor0: function() {
+      return functorExceptT1;
+    }
   };
 };
-var useLayoutEffect = function(dictEq) {
-  var eq18 = eq(dictEq);
-  return function(deps) {
-    return function(effect) {
-      return unsafeHook(function() {
-        return useLayoutEffect_(mkFn2(eq18), deps, effect);
-      });
-    };
-  };
-};
-var useEffectOnce = function(effect) {
-  return unsafeHook(function() {
-    return useEffect_(function(v, v1) {
-      return true;
-    }, unit, effect);
-  });
-};
-var useEffectAlways = function(effect) {
-  return unsafeHook(function() {
-    return useEffectAlways_(effect);
-  });
-};
-var useEffect = function(dictEq) {
-  var eq18 = eq(dictEq);
-  return function(deps) {
-    return function(effect) {
-      return unsafeHook(function() {
-        return useEffect_(mkFn2(eq18), deps, effect);
-      });
-    };
-  };
-};
-var useContext = function(context) {
-  return unsafeHook(function() {
-    return useContext_(context);
-  });
-};
-var unsafeReactFunctionComponent = unsafeCoerce2;
-var unsafeDiscardRenderEffects = unsafeCoerce2;
-var unsafeReactComponent = function() {
-  return function() {
-    return function(name15) {
-      return function(renderFn) {
-        var c = unsafeReactFunctionComponent(function(props) {
-          return unsafeDiscardRenderEffects(renderFn(props))();
-        });
-        return function() {
-          return unsafeSetDisplayName(name15, c);
-        };
+var applicativeExceptT = function(dictMonad) {
+  return {
+    pure: function() {
+      var $194 = pure(dictMonad.Applicative0());
+      return function($195) {
+        return ExceptT($194(Right.create($195)));
       };
-    };
+    }(),
+    Apply0: function() {
+      return applyExceptT(dictMonad);
+    }
   };
 };
-var unsafeReactComponent1 = /* @__PURE__ */ unsafeReactComponent()();
-var readRef = /* @__PURE__ */ runEffectFn1(readRef_);
-var reactComponentWithChildren = function() {
-  return function() {
-    return unsafeReactComponent1;
-  };
-};
-var reactComponent = function() {
-  return function() {
-    return function() {
-      return unsafeReactComponent1;
-    };
-  };
-};
-var reactChildrenFromArray = unsafeCoerce2;
-var memo = /* @__PURE__ */ flip(bind4)(/* @__PURE__ */ runEffectFn1(memo_));
-var eqUnsafeReference = {
-  eq: unsafeRefEq
-};
-
-// output/React.Container.ReactFlow/foreign.js
-var mergeStyleImpl = (a) => (b) => ({ ...a, ...b });
-var filterEmptyImpl = (xs) => xs.filter((s) => s.length > 0);
-var joinWithSpaceImpl = (xs) => xs.join(" ");
-
-// output/React.FFI.DOM/foreign.js
-var React3 = __toESM(require_react(), 1);
-var mk = (tag) => (props) => (children3) => React3.createElement(tag, props, ...children3);
-var div_ = mk("div");
-var span_ = mk("span");
-var button_ = mk("button");
-var g_ = mk("g");
-var path_ = mk("path");
-var text_ = mk("text");
-var rect_ = mk("rect");
-var circle_ = mk("circle");
-var foreignObject_ = mk("foreignObject");
-var svg_ = mk("svg");
-var defs_ = mk("defs");
-var marker_ = mk("marker");
-var pattern_ = mk("pattern");
-var polyline_ = mk("polyline");
-var symbol_ = mk("symbol");
-var title_ = mk("title");
-var scrollResetHandlerImpl = (cb) => (event) => {
-  if (event && event.currentTarget && event.currentTarget.scrollTo) {
-    event.currentTarget.scrollTo({ top: 0, left: 0, behavior: "instant" });
-  }
-  cb();
-};
-
-// output/React.FFI.DOM/index.js
-var textContent = unsafeCoerce2;
-var scrollResetHandler = function(cb) {
-  return scrollResetHandlerImpl(function(v) {
-    return cb();
-  });
-};
-var opt = function($2) {
-  return toNullable($2);
-};
-
-// output/React.Context.Store/index.js
-var storeContext = /* @__PURE__ */ function() {
-  return unsafePerformEffect(createContext(Nothing.value));
-}();
-var storeProvider = function(value12) {
-  return function(children3) {
-    return provider(storeContext)(value12)(children3);
-  };
-};
-
-// output/System.Constants/index.js
-var show5 = /* @__PURE__ */ show(showNumber);
-var E001 = /* @__PURE__ */ function() {
-  function E0012() {
-  }
-  ;
-  E0012.value = new E0012();
-  return E0012;
-}();
-var E002 = /* @__PURE__ */ function() {
-  function E0022() {
-  }
-  ;
-  E0022.value = new E0022();
-  return E0022;
-}();
-var E003 = /* @__PURE__ */ function() {
-  function E0032(value0) {
-    this.value0 = value0;
-  }
-  ;
-  E0032.create = function(value0) {
-    return new E0032(value0);
-  };
-  return E0032;
-}();
-var E004 = /* @__PURE__ */ function() {
-  function E0042() {
-  }
-  ;
-  E0042.value = new E0042();
-  return E0042;
-}();
-var E005 = /* @__PURE__ */ function() {
-  function E0052() {
-  }
-  ;
-  E0052.value = new E0052();
-  return E0052;
-}();
-var E006 = /* @__PURE__ */ function() {
-  function E0062() {
-  }
-  ;
-  E0062.value = new E0062();
-  return E0062;
-}();
-var E007 = /* @__PURE__ */ function() {
-  function E0072(value0) {
-    this.value0 = value0;
-  }
-  ;
-  E0072.create = function(value0) {
-    return new E0072(value0);
-  };
-  return E0072;
-}();
-var E008 = /* @__PURE__ */ function() {
-  function E0082(value0, value1) {
-    this.value0 = value0;
-    this.value1 = value1;
-  }
-  ;
-  E0082.create = function(value0) {
-    return function(value1) {
-      return new E0082(value0, value1);
-    };
-  };
-  return E0082;
-}();
-var E009 = /* @__PURE__ */ function() {
-  function E0092(value0) {
-    this.value0 = value0;
-  }
-  ;
-  E0092.create = function(value0) {
-    return new E0092(value0);
-  };
-  return E0092;
-}();
-var E010 = /* @__PURE__ */ function() {
-  function E0102() {
-  }
-  ;
-  E0102.value = new E0102();
-  return E0102;
-}();
-var E011 = /* @__PURE__ */ function() {
-  function E0112(value0) {
-    this.value0 = value0;
-  }
-  ;
-  E0112.create = function(value0) {
-    return new E0112(value0);
-  };
-  return E0112;
-}();
-var E012 = /* @__PURE__ */ function() {
-  function E0122(value0) {
-    this.value0 = value0;
-  }
-  ;
-  E0122.create = function(value0) {
-    return new E0122(value0);
-  };
-  return E0122;
-}();
-var E013 = /* @__PURE__ */ function() {
-  function E0132(value0) {
-    this.value0 = value0;
-  }
-  ;
-  E0132.create = function(value0) {
-    return new E0132(value0);
-  };
-  return E0132;
-}();
-var E014 = /* @__PURE__ */ function() {
-  function E0142() {
-  }
-  ;
-  E0142.value = new E0142();
-  return E0142;
-}();
-var E015 = /* @__PURE__ */ function() {
-  function E0152() {
-  }
-  ;
-  E0152.value = new E0152();
-  return E0152;
-}();
-var infiniteExtent = /* @__PURE__ */ function() {
-  return mkCoordinateExtent(-1 / 0)(-1 / 0)(1 / 0)(1 / 0);
-}();
-var errorMessage = function(v) {
-  if (v instanceof E001) {
-    return "[React Flow]: Seems like you have not used zustand provider as an ancestor. Help: https://reactflow.dev/error#001";
-  }
-  ;
-  if (v instanceof E002) {
-    return "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them.";
-  }
-  ;
-  if (v instanceof E003) {
-    return 'Node type "' + (v.value0 + '" not found. Using fallback type "default".');
-  }
-  ;
-  if (v instanceof E004) {
-    return "The React Flow parent container needs a width and a height to render the graph.";
-  }
-  ;
-  if (v instanceof E005) {
-    return "Only child nodes can use a parent extent.";
-  }
-  ;
-  if (v instanceof E006) {
-    return "Can't create edge. An edge needs a source and a target.";
-  }
-  ;
-  if (v instanceof E007) {
-    return "The old edge with id=" + (v.value0 + " does not exist.");
-  }
-  ;
-  if (v instanceof E008) {
-    var handleStr = function() {
-      if (v.value0 instanceof Source) {
-        return "source";
-      }
-      ;
-      if (v.value0 instanceof Target) {
-        return "target";
-      }
-      ;
-      throw new Error("Failed pattern match at System.Constants (line 65, column 19 - line 67, column 27): " + [v.value0.constructor.name]);
-    }();
-    var handleId = function() {
-      if (v.value0 instanceof Source) {
-        return fromMaybe("")(v.value1.sourceHandle);
-      }
-      ;
-      if (v.value0 instanceof Target) {
-        return fromMaybe("")(v.value1.targetHandle);
-      }
-      ;
-      throw new Error("Failed pattern match at System.Constants (line 68, column 18 - line 70, column 49): " + [v.value0.constructor.name]);
-    }();
-    return "Couldn't create edge for " + (handleStr + (' handle id: "' + (handleId + ('", edge id: ' + (v.value1.id + ".")))));
-  }
-  ;
-  if (v instanceof E009) {
-    return 'Marker type "' + (v.value0 + `" doesn't exist.`);
-  }
-  ;
-  if (v instanceof E010) {
-    return "Handle: No node id found. Make sure to only use a Handle inside a custom Node.";
-  }
-  ;
-  if (v instanceof E011) {
-    return 'Edge type "' + (v.value0 + '" not found. Using fallback type "default".');
-  }
-  ;
-  if (v instanceof E012) {
-    return 'Node with id "' + (v.value0 + '" does not exist, it may have been removed. This can happen when a node is deleted before the "onNodeClick" handler is called.');
-  }
-  ;
-  if (v instanceof E013) {
-    return "It seems that you haven't loaded the styles. Please import '@xyflow/" + (v.value0 + "/dist/style.css' or base.css to make sure everything is working properly.");
-  }
-  ;
-  if (v instanceof E014) {
-    return "useNodeConnections: No node ID found. Call useNodeConnections inside a custom Node or provide a node ID.";
-  }
-  ;
-  if (v instanceof E015) {
-    return "It seems that you are trying to drag a node that is not initialized. Please use onNodesChange as explained in the docs.";
-  }
-  ;
-  throw new Error("Failed pattern match at System.Constants (line 48, column 16 - line 90, column 126): " + [v.constructor.name]);
-};
-var elementSelectionKeys = ["Enter", " ", "Escape"];
-var defaultAriaLabelConfig = {
-  nodeA11yDescriptionDefault: "Press enter or space to select a node. Press delete to remove it and escape to cancel.",
-  nodeA11yDescriptionKeyboardDisabled: "Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel.",
-  nodeA11yDescriptionAriaLiveMessage: function(v) {
-    return "Moved selected node " + (v.direction + (". New position, x: " + (show5(v.x) + (", y: " + show5(v.y)))));
-  },
-  edgeA11yDescriptionDefault: "Press enter or space to select an edge. You can then press delete to remove it or escape to cancel.",
-  controlsAriaLabel: "Control Panel",
-  controlsZoomInAriaLabel: "Zoom In",
-  controlsZoomOutAriaLabel: "Zoom Out",
-  controlsFitViewAriaLabel: "Fit View",
-  controlsInteractiveAriaLabel: "Toggle Interactivity",
-  minimapAriaLabel: "Mini Map",
-  handleAriaLabel: "Handle"
-};
-var mergeAriaLabelConfig = function(o) {
+var monadThrowExceptT = function(dictMonad) {
+  var monadExceptT1 = monadExceptT(dictMonad);
   return {
-    nodeA11yDescriptionDefault: fromMaybe(defaultAriaLabelConfig.nodeA11yDescriptionDefault)(o.nodeA11yDescriptionDefault),
-    nodeA11yDescriptionKeyboardDisabled: fromMaybe(defaultAriaLabelConfig.nodeA11yDescriptionKeyboardDisabled)(o.nodeA11yDescriptionKeyboardDisabled),
-    nodeA11yDescriptionAriaLiveMessage: fromMaybe(defaultAriaLabelConfig.nodeA11yDescriptionAriaLiveMessage)(o.nodeA11yDescriptionAriaLiveMessage),
-    edgeA11yDescriptionDefault: fromMaybe(defaultAriaLabelConfig.edgeA11yDescriptionDefault)(o.edgeA11yDescriptionDefault),
-    controlsAriaLabel: fromMaybe(defaultAriaLabelConfig.controlsAriaLabel)(o.controlsAriaLabel),
-    controlsZoomInAriaLabel: fromMaybe(defaultAriaLabelConfig.controlsZoomInAriaLabel)(o.controlsZoomInAriaLabel),
-    controlsZoomOutAriaLabel: fromMaybe(defaultAriaLabelConfig.controlsZoomOutAriaLabel)(o.controlsZoomOutAriaLabel),
-    controlsFitViewAriaLabel: fromMaybe(defaultAriaLabelConfig.controlsFitViewAriaLabel)(o.controlsFitViewAriaLabel),
-    controlsInteractiveAriaLabel: fromMaybe(defaultAriaLabelConfig.controlsInteractiveAriaLabel)(o.controlsInteractiveAriaLabel),
-    minimapAriaLabel: fromMaybe(defaultAriaLabelConfig.minimapAriaLabel)(o.minimapAriaLabel),
-    handleAriaLabel: fromMaybe(defaultAriaLabelConfig.handleAriaLabel)(o.handleAriaLabel)
-  };
-};
-
-// output/Type.Equality/index.js
-var refl = {
-  proof: function(a) {
-    return a;
-  },
-  Coercible0: function() {
-    return void 0;
-  }
-};
-
-// output/React.Hook.Store/index.js
-var coerceHook2 = /* @__PURE__ */ coerceHook();
-var bind5 = /* @__PURE__ */ bind3(ixBindRender);
-var pure3 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
-var map7 = /* @__PURE__ */ map(functorEffect);
-var discard3 = /* @__PURE__ */ discard2(ixBindRender);
-var useEffect2 = /* @__PURE__ */ useEffect(eqUnsafeReference);
-var storeAsTagged = unsafeCoerce2;
-var opaqueToStore = unsafeCoerce2;
-var useStoreApi = /* @__PURE__ */ coerceHook2(/* @__PURE__ */ bind5(/* @__PURE__ */ useContext(storeContext))(function(mStore) {
-  if (mStore instanceof Nothing) {
-    return unsafeThrow(errorMessage(E001.value));
-  }
-  ;
-  if (mStore instanceof Just) {
-    return pure3(opaqueToStore(mStore.value0));
-  }
-  ;
-  throw new Error("Failed pattern match at React.Hook.Store (line 87, column 3 - line 89, column 47): " + [mStore.constructor.name]);
-}));
-var useStore = function(dictEq) {
-  return function(selector4) {
-    return coerceHook2(bind5(useContext(storeContext))(function(mStore) {
-      var store = function() {
-        if (mStore instanceof Nothing) {
-          return unsafeThrow(errorMessage(E001.value));
-        }
-        ;
-        if (mStore instanceof Just) {
-          return opaqueToStore(mStore.value0);
-        }
-        ;
-        throw new Error("Failed pattern match at React.Hook.Store (line 107, column 13 - line 109, column 42): " + [mStore.constructor.name]);
-      }();
-      var initial = unsafePerformEffect(map7(selector4)(store.getState));
-      return bind5(useState(initial))(function(v) {
-        return discard3(useEffect2(storeAsTagged(store))(store.subscribe(dictEq)(selector4)(function(v1) {
-          return v.value1($$const(v1));
-        })))(function() {
-          return pure3(v.value0);
-        });
-      });
-    }));
-  };
-};
-
-// output/React.Container.A11yDescriptions/index.js
-var bind6 = /* @__PURE__ */ bind3(ixBindRender);
-var useStore2 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
-  reflectSymbol: function() {
-    return "nodeKeyboardDisabled";
-  }
-})(eqString))()({
-  reflectSymbol: function() {
-    return "nodeDefault";
-  }
-})(eqString))()({
-  reflectSymbol: function() {
-    return "edgeDefault";
-  }
-})(eqString)));
-var useStore1 = /* @__PURE__ */ useStore(eqString);
-var pure4 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
-var append1 = /* @__PURE__ */ append(semigroupArray);
-var toForeignStyle = unsafeCoerce2;
-var selectDescriptions = function(s) {
-  return {
-    nodeDefault: s.ariaLabelConfig.nodeA11yDescriptionDefault,
-    nodeKeyboardDisabled: s.ariaLabelConfig.nodeA11yDescriptionKeyboardDisabled,
-    edgeDefault: s.ariaLabelConfig.edgeA11yDescriptionDefault
-  };
-};
-var selectAriaLiveMessage = function(v) {
-  return v.ariaLiveMessage;
-};
-var hiddenStyle = /* @__PURE__ */ toForeignStyle({
-  display: "none"
-});
-var ariaLiveStyle = /* @__PURE__ */ function() {
-  return toForeignStyle({
-    position: "absolute",
-    width: 1,
-    height: 1,
-    margin: -1 | 0,
-    border: 0,
-    padding: 0,
-    overflow: "hidden",
-    clip: "rect(0px, 0px, 0px, 0px)",
-    clipPath: "inset(100%)"
-  });
-}();
-var a11yDescriptions = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponent()()()("A11yDescriptions")(function(v) {
-  return bind6(useStore2(selectDescriptions))(function(descs) {
-    return bind6(useStore1(selectAriaLiveMessage))(function(ariaLiveMessage) {
-      var nodeDescText = function() {
-        if (v.disableKeyboardA11y) {
-          return descs.nodeKeyboardDisabled;
-        }
-        ;
-        return descs.nodeDefault;
-      }();
-      var nodeDescId = "react-flow__node-desc-" + v.rfId;
-      var edgeDescId = "react-flow__edge-desc-" + v.rfId;
-      var descChildren = [div_({
-        id: nodeDescId,
-        style: hiddenStyle
-      })([textContent(nodeDescText)]), div_({
-        id: edgeDescId,
-        style: hiddenStyle
-      })([textContent(descs.edgeDefault)])];
-      var ariaLiveId = "react-flow__aria-live-" + v.rfId;
-      var liveChildren = function() {
-        if (v.disableKeyboardA11y) {
-          return [];
-        }
-        ;
-        return [div_({
-          id: ariaLiveId,
-          "aria-live": "assertive",
-          "aria-atomic": "true",
-          style: ariaLiveStyle
-        })([textContent(ariaLiveMessage)])];
-      }();
-      return pure4(fragment(append1(descChildren)(liveChildren)));
-    });
-  });
-}));
-
-// output/React.Container.Attribution/foreign.js
-var import_react3 = __toESM(require_react(), 1);
-var a_ = (props) => (children3) => (0, import_react3.createElement)("a", props, ...children3);
-
-// output/React.Portal.Panel/index.js
-var pure5 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
-var panelPositionClasses = function(v) {
-  if (v instanceof TopLeft) {
-    return "top left";
-  }
-  ;
-  if (v instanceof TopCenter) {
-    return "top center";
-  }
-  ;
-  if (v instanceof TopRight) {
-    return "top right";
-  }
-  ;
-  if (v instanceof BottomLeft) {
-    return "bottom left";
-  }
-  ;
-  if (v instanceof BottomCenter) {
-    return "bottom center";
-  }
-  ;
-  if (v instanceof BottomRight) {
-    return "bottom right";
-  }
-  ;
-  if (v instanceof CenterLeft) {
-    return "center left";
-  }
-  ;
-  if (v instanceof CenterRight) {
-    return "center right";
-  }
-  ;
-  throw new Error("Failed pattern match at React.Portal.Panel (line 26, column 24 - line 34, column 32): " + [v.constructor.name]);
-};
-var panel = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponentWithChildren()()("Panel")(function(v) {
-  var userClass = fromMaybe("")(v.className);
-  var className2 = "react-flow__panel " + (panelPositionClasses(v.position) + function() {
-    var $10 = userClass === "";
-    if ($10) {
-      return "";
-    }
-    ;
-    return " " + userClass;
-  }());
-  return pure5(div_({
-    className: className2,
-    style: opt(v.style),
-    "aria-label": opt(v["aria-label"]),
-    "data-testid": opt(v["data-testid"])
-  })(reactChildrenToArray(v.children)));
-})));
-
-// output/React.Container.Attribution/index.js
-var pure6 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
-var mempty2 = /* @__PURE__ */ mempty(monoidJSX);
-var attribution = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponent()()()("Attribution")(function(v) {
-  var hidden2 = function() {
-    if (v.proOptions instanceof Just) {
-      return v.proOptions.value0.hideAttribution;
-    }
-    ;
-    if (v.proOptions instanceof Nothing) {
-      return false;
-    }
-    ;
-    throw new Error("Failed pattern match at React.Container.Attribution (line 28, column 16 - line 30, column 25): " + [v.proOptions.constructor.name]);
-  }();
-  if (hidden2) {
-    return pure6(mempty2);
-  }
-  ;
-  var pos = fromMaybe(BottomRight.value)(v.position);
-  var link = a_({
-    href: "https://reactflow.dev",
-    target: "_blank",
-    rel: "noopener noreferrer",
-    "aria-label": "React Flow attribution"
-  })([textContent("React Flow")]);
-  var messageWrap = span_({
-    "data-message": "Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"
-  })([link]);
-  return pure6(element(panel)({
-    position: pos,
-    className: new Just("react-flow__attribution"),
-    style: Nothing.value,
-    "aria-label": Nothing.value,
-    "data-testid": Nothing.value,
-    children: reactChildrenFromArray([messageWrap])
-  }));
-}));
-
-// output/React.Component.ConnectionLine/foreign.js
-var import_react4 = __toESM(require_react(), 1);
-var svg_2 = (props) => (children3) => (0, import_react4.createElement)("svg", props, ...children3);
-
-// output/Data.Number.Format/foreign.js
-function wrap3(method2) {
-  return function(d) {
-    return function(num) {
-      return method2.apply(num, [d]);
-    };
-  };
-}
-var toPrecisionNative = wrap3(Number.prototype.toPrecision);
-var toFixedNative = wrap3(Number.prototype.toFixed);
-var toExponentialNative = wrap3(Number.prototype.toExponential);
-function toString(num) {
-  return num.toString();
-}
-
-// output/Data.String.Common/foreign.js
-var trim = function(s) {
-  return s.trim();
-};
-var joinWith = function(s) {
-  return function(xs) {
-    return xs.join(s);
-  };
-};
-
-// output/React.Types.Edges/index.js
-var ReconnectAny = /* @__PURE__ */ function() {
-  function ReconnectAny2() {
-  }
-  ;
-  ReconnectAny2.value = new ReconnectAny2();
-  return ReconnectAny2;
-}();
-var ReconnectOnly = /* @__PURE__ */ function() {
-  function ReconnectOnly2(value0) {
-    this.value0 = value0;
-  }
-  ;
-  ReconnectOnly2.create = function(value0) {
-    return new ReconnectOnly2(value0);
-  };
-  return ReconnectOnly2;
-}();
-var ConnectionValid = /* @__PURE__ */ function() {
-  function ConnectionValid2() {
-  }
-  ;
-  ConnectionValid2.value = new ConnectionValid2();
-  return ConnectionValid2;
-}();
-var ConnectionInvalid = /* @__PURE__ */ function() {
-  function ConnectionInvalid2() {
-  }
-  ;
-  ConnectionInvalid2.value = new ConnectionInvalid2();
-  return ConnectionInvalid2;
-}();
-
-// output/System.Utils.Edges.Bezier/index.js
-var showN = toString;
-var getBezierEdgeCenter = function(p) {
-  var centerY = p.sourceY * 0.125 + p.sourceControlY * 0.375 + p.targetControlY * 0.375 + p.targetY * 0.125;
-  var centerX = p.sourceX * 0.125 + p.sourceControlX * 0.375 + p.targetControlX * 0.375 + p.targetX * 0.125;
-  return {
-    centerX,
-    centerY,
-    offsetX: abs(centerX - p.sourceX),
-    offsetY: abs(centerY - p.sourceY)
-  };
-};
-var calculateControlOffset = function(distance2) {
-  return function(curvature) {
-    if (distance2 >= 0) {
-      return 0.5 * distance2;
-    }
-    ;
-    if (otherwise) {
-      return curvature * 25 * sqrt(-distance2);
-    }
-    ;
-    throw new Error("Failed pattern match at System.Utils.Edges.Bezier (line 60, column 1 - line 60, column 53): " + [distance2.constructor.name, curvature.constructor.name]);
-  };
-};
-var getControlWithCurvature = function(pos) {
-  return function(x1) {
-    return function(y1) {
-      return function(x2) {
-        return function(y2) {
-          return function(c) {
-            if (pos instanceof PosLeft) {
-              return {
-                x: x1 - calculateControlOffset(x1 - x2)(c),
-                y: y1
-              };
-            }
-            ;
-            if (pos instanceof PosRight) {
-              return {
-                x: x1 + calculateControlOffset(x2 - x1)(c),
-                y: y1
-              };
-            }
-            ;
-            if (pos instanceof PosTop) {
-              return {
-                x: x1,
-                y: y1 - calculateControlOffset(y1 - y2)(c)
-              };
-            }
-            ;
-            if (pos instanceof PosBottom) {
-              return {
-                x: x1,
-                y: y1 + calculateControlOffset(y2 - y1)(c)
-              };
-            }
-            ;
-            throw new Error("Failed pattern match at System.Utils.Edges.Bezier (line 73, column 45 - line 77, column 69): " + [pos.constructor.name]);
-          };
-        };
+    throwError: function() {
+      var $204 = pure(dictMonad.Applicative0());
+      return function($205) {
+        return ExceptT($204(Left.create($205)));
       };
-    };
+    }(),
+    Monad0: function() {
+      return monadExceptT1;
+    }
   };
 };
-var getBezierPath = function(p) {
-  var tgt = getControlWithCurvature(p.targetPosition)(p.targetX)(p.targetY)(p.sourceX)(p.sourceY)(p.curvature);
-  var src9 = getControlWithCurvature(p.sourcePosition)(p.sourceX)(p.sourceY)(p.targetX)(p.targetY)(p.curvature);
-  var path = "M" + (showN(p.sourceX) + ("," + (showN(p.sourceY) + (" C" + (showN(src9.x) + ("," + (showN(src9.y) + (" " + (showN(tgt.x) + ("," + (showN(tgt.y) + (" " + (showN(p.targetX) + ("," + showN(p.targetY)))))))))))))));
-  var c = getBezierEdgeCenter({
-    sourceX: p.sourceX,
-    sourceY: p.sourceY,
-    targetX: p.targetX,
-    targetY: p.targetY,
-    sourceControlX: src9.x,
-    sourceControlY: src9.y,
-    targetControlX: tgt.x,
-    targetControlY: tgt.y
-  });
-  return {
-    path,
-    labelX: c.centerX,
-    labelY: c.centerY,
-    offsetX: c.offsetX,
-    offsetY: c.offsetY
-  };
-};
-
-// output/System.Utils.Edges.SimpleBezier/index.js
-var showN2 = toString;
-var getControl = function(pos) {
-  return function(x1) {
-    return function(y1) {
-      return function(x2) {
-        return function(y2) {
-          if (pos instanceof PosLeft) {
-            return {
-              x: 0.5 * (x1 + x2),
-              y: y1
-            };
-          }
-          ;
-          if (pos instanceof PosRight) {
-            return {
-              x: 0.5 * (x1 + x2),
-              y: y1
-            };
-          }
-          ;
-          return {
-            x: x1,
-            y: 0.5 * (y1 + y2)
-          };
-        };
-      };
-    };
-  };
-};
-var getSimpleBezierPath = function(p) {
-  var tgt = getControl(p.targetPosition)(p.targetX)(p.targetY)(p.sourceX)(p.sourceY);
-  var src9 = getControl(p.sourcePosition)(p.sourceX)(p.sourceY)(p.targetX)(p.targetY);
-  var path = "M" + (showN2(p.sourceX) + ("," + (showN2(p.sourceY) + (" C" + (showN2(src9.x) + ("," + (showN2(src9.y) + (" " + (showN2(tgt.x) + ("," + (showN2(tgt.y) + (" " + (showN2(p.targetX) + ("," + showN2(p.targetY)))))))))))))));
-  var c = getBezierEdgeCenter({
-    sourceX: p.sourceX,
-    sourceY: p.sourceY,
-    targetX: p.targetX,
-    targetY: p.targetY,
-    sourceControlX: src9.x,
-    sourceControlY: src9.y,
-    targetControlX: tgt.x,
-    targetControlY: tgt.y
-  });
-  return {
-    path,
-    labelX: c.centerX,
-    labelY: c.centerY,
-    offsetX: c.offsetX,
-    offsetY: c.offsetY
-  };
-};
-
-// output/System.Utils.General/foreign.js
-var isMacOsImpl = () => typeof navigator !== "undefined" && typeof navigator.userAgent === "string" && navigator.userAgent.indexOf("Mac") >= 0;
 
 // output/Data.List.Types/index.js
 var Nil = /* @__PURE__ */ function() {
@@ -29590,9 +28937,9 @@ var semigroupList = {
     };
   }
 };
-var append12 = /* @__PURE__ */ append(semigroupList);
+var append1 = /* @__PURE__ */ append(semigroupList);
 var altList = {
-  alt: append12,
+  alt: append1,
   Functor0: function() {
     return functorList;
   }
@@ -29606,789 +28953,8 @@ var plusList = /* @__PURE__ */ function() {
   };
 }();
 
-// output/Data.Map.Internal/index.js
-var $runtime_lazy2 = function(name15, moduleName, init4) {
-  var state3 = 0;
-  var val;
-  return function(lineNumber) {
-    if (state3 === 2) return val;
-    if (state3 === 1) throw new ReferenceError(name15 + " was needed before it finished initializing (module " + moduleName + ", line " + lineNumber + ")", moduleName, lineNumber);
-    state3 = 1;
-    val = init4();
-    state3 = 2;
-    return val;
-  };
-};
-var Leaf = /* @__PURE__ */ function() {
-  function Leaf2() {
-  }
-  ;
-  Leaf2.value = new Leaf2();
-  return Leaf2;
-}();
-var Node = /* @__PURE__ */ function() {
-  function Node3(value0, value1, value22, value32, value42, value52) {
-    this.value0 = value0;
-    this.value1 = value1;
-    this.value2 = value22;
-    this.value3 = value32;
-    this.value4 = value42;
-    this.value5 = value52;
-  }
-  ;
-  Node3.create = function(value0) {
-    return function(value1) {
-      return function(value22) {
-        return function(value32) {
-          return function(value42) {
-            return function(value52) {
-              return new Node3(value0, value1, value22, value32, value42, value52);
-            };
-          };
-        };
-      };
-    };
-  };
-  return Node3;
-}();
-var IterLeaf = /* @__PURE__ */ function() {
-  function IterLeaf2() {
-  }
-  ;
-  IterLeaf2.value = new IterLeaf2();
-  return IterLeaf2;
-}();
-var IterEmit = /* @__PURE__ */ function() {
-  function IterEmit2(value0, value1, value22) {
-    this.value0 = value0;
-    this.value1 = value1;
-    this.value2 = value22;
-  }
-  ;
-  IterEmit2.create = function(value0) {
-    return function(value1) {
-      return function(value22) {
-        return new IterEmit2(value0, value1, value22);
-      };
-    };
-  };
-  return IterEmit2;
-}();
-var IterNode = /* @__PURE__ */ function() {
-  function IterNode2(value0, value1) {
-    this.value0 = value0;
-    this.value1 = value1;
-  }
-  ;
-  IterNode2.create = function(value0) {
-    return function(value1) {
-      return new IterNode2(value0, value1);
-    };
-  };
-  return IterNode2;
-}();
-var IterDone = /* @__PURE__ */ function() {
-  function IterDone2() {
-  }
-  ;
-  IterDone2.value = new IterDone2();
-  return IterDone2;
-}();
-var IterNext = /* @__PURE__ */ function() {
-  function IterNext2(value0, value1, value22) {
-    this.value0 = value0;
-    this.value1 = value1;
-    this.value2 = value22;
-  }
-  ;
-  IterNext2.create = function(value0) {
-    return function(value1) {
-      return function(value22) {
-        return new IterNext2(value0, value1, value22);
-      };
-    };
-  };
-  return IterNext2;
-}();
-var SplitLast = /* @__PURE__ */ function() {
-  function SplitLast2(value0, value1, value22) {
-    this.value0 = value0;
-    this.value1 = value1;
-    this.value2 = value22;
-  }
-  ;
-  SplitLast2.create = function(value0) {
-    return function(value1) {
-      return function(value22) {
-        return new SplitLast2(value0, value1, value22);
-      };
-    };
-  };
-  return SplitLast2;
-}();
-var unsafeNode = function(k, v, l, r) {
-  if (l instanceof Leaf) {
-    if (r instanceof Leaf) {
-      return new Node(1, 1, k, v, l, r);
-    }
-    ;
-    if (r instanceof Node) {
-      return new Node(1 + r.value0 | 0, 1 + r.value1 | 0, k, v, l, r);
-    }
-    ;
-    throw new Error("Failed pattern match at Data.Map.Internal (line 702, column 5 - line 706, column 39): " + [r.constructor.name]);
-  }
-  ;
-  if (l instanceof Node) {
-    if (r instanceof Leaf) {
-      return new Node(1 + l.value0 | 0, 1 + l.value1 | 0, k, v, l, r);
-    }
-    ;
-    if (r instanceof Node) {
-      return new Node(1 + function() {
-        var $280 = l.value0 > r.value0;
-        if ($280) {
-          return l.value0;
-        }
-        ;
-        return r.value0;
-      }() | 0, (1 + l.value1 | 0) + r.value1 | 0, k, v, l, r);
-    }
-    ;
-    throw new Error("Failed pattern match at Data.Map.Internal (line 708, column 5 - line 712, column 68): " + [r.constructor.name]);
-  }
-  ;
-  throw new Error("Failed pattern match at Data.Map.Internal (line 700, column 32 - line 712, column 68): " + [l.constructor.name]);
-};
-var toMapIter = /* @__PURE__ */ function() {
-  return flip(IterNode.create)(IterLeaf.value);
-}();
-var stepWith = function(f) {
-  return function(next) {
-    return function(done) {
-      var go2 = function($copy_v) {
-        var $tco_done = false;
-        var $tco_result;
-        function $tco_loop(v) {
-          if (v instanceof IterLeaf) {
-            $tco_done = true;
-            return done(unit);
-          }
-          ;
-          if (v instanceof IterEmit) {
-            $tco_done = true;
-            return next(v.value0, v.value1, v.value2);
-          }
-          ;
-          if (v instanceof IterNode) {
-            $copy_v = f(v.value1)(v.value0);
-            return;
-          }
-          ;
-          throw new Error("Failed pattern match at Data.Map.Internal (line 940, column 8 - line 946, column 20): " + [v.constructor.name]);
-        }
-        ;
-        while (!$tco_done) {
-          $tco_result = $tco_loop($copy_v);
-        }
-        ;
-        return $tco_result;
-      };
-      return go2;
-    };
-  };
-};
-var size2 = function(v) {
-  if (v instanceof Leaf) {
-    return 0;
-  }
-  ;
-  if (v instanceof Node) {
-    return v.value1;
-  }
-  ;
-  throw new Error("Failed pattern match at Data.Map.Internal (line 618, column 8 - line 620, column 24): " + [v.constructor.name]);
-};
-var singleton5 = function(k) {
-  return function(v) {
-    return new Node(1, 1, k, v, Leaf.value, Leaf.value);
-  };
-};
-var unsafeBalancedNode = /* @__PURE__ */ function() {
-  var height8 = function(v) {
-    if (v instanceof Leaf) {
-      return 0;
-    }
-    ;
-    if (v instanceof Node) {
-      return v.value0;
-    }
-    ;
-    throw new Error("Failed pattern match at Data.Map.Internal (line 757, column 12 - line 759, column 26): " + [v.constructor.name]);
-  };
-  var rotateLeft = function(k, v, l, rk, rv, rl, rr) {
-    if (rl instanceof Node && rl.value0 > height8(rr)) {
-      return unsafeNode(rl.value2, rl.value3, unsafeNode(k, v, l, rl.value4), unsafeNode(rk, rv, rl.value5, rr));
-    }
-    ;
-    return unsafeNode(rk, rv, unsafeNode(k, v, l, rl), rr);
-  };
-  var rotateRight = function(k, v, lk, lv, ll, lr, r) {
-    if (lr instanceof Node && height8(ll) <= lr.value0) {
-      return unsafeNode(lr.value2, lr.value3, unsafeNode(lk, lv, ll, lr.value4), unsafeNode(k, v, lr.value5, r));
-    }
-    ;
-    return unsafeNode(lk, lv, ll, unsafeNode(k, v, lr, r));
-  };
-  return function(k, v, l, r) {
-    if (l instanceof Leaf) {
-      if (r instanceof Leaf) {
-        return singleton5(k)(v);
-      }
-      ;
-      if (r instanceof Node && r.value0 > 1) {
-        return rotateLeft(k, v, l, r.value2, r.value3, r.value4, r.value5);
-      }
-      ;
-      return unsafeNode(k, v, l, r);
-    }
-    ;
-    if (l instanceof Node) {
-      if (r instanceof Node) {
-        if (r.value0 > (l.value0 + 1 | 0)) {
-          return rotateLeft(k, v, l, r.value2, r.value3, r.value4, r.value5);
-        }
-        ;
-        if (l.value0 > (r.value0 + 1 | 0)) {
-          return rotateRight(k, v, l.value2, l.value3, l.value4, l.value5, r);
-        }
-        ;
-      }
-      ;
-      if (r instanceof Leaf && l.value0 > 1) {
-        return rotateRight(k, v, l.value2, l.value3, l.value4, l.value5, r);
-      }
-      ;
-      return unsafeNode(k, v, l, r);
-    }
-    ;
-    throw new Error("Failed pattern match at Data.Map.Internal (line 717, column 40 - line 738, column 34): " + [l.constructor.name]);
-  };
-}();
-var $lazy_unsafeSplitLast = /* @__PURE__ */ $runtime_lazy2("unsafeSplitLast", "Data.Map.Internal", function() {
-  return function(k, v, l, r) {
-    if (r instanceof Leaf) {
-      return new SplitLast(k, v, l);
-    }
-    ;
-    if (r instanceof Node) {
-      var v1 = $lazy_unsafeSplitLast(779)(r.value2, r.value3, r.value4, r.value5);
-      return new SplitLast(v1.value0, v1.value1, unsafeBalancedNode(k, v, l, v1.value2));
-    }
-    ;
-    throw new Error("Failed pattern match at Data.Map.Internal (line 776, column 37 - line 780, column 57): " + [r.constructor.name]);
-  };
-});
-var unsafeSplitLast = /* @__PURE__ */ $lazy_unsafeSplitLast(775);
-var unsafeJoinNodes = function(v, v1) {
-  if (v instanceof Leaf) {
-    return v1;
-  }
-  ;
-  if (v instanceof Node) {
-    var v2 = unsafeSplitLast(v.value2, v.value3, v.value4, v.value5);
-    return unsafeBalancedNode(v2.value0, v2.value1, v2.value2, v1);
-  }
-  ;
-  throw new Error("Failed pattern match at Data.Map.Internal (line 764, column 25 - line 768, column 38): " + [v.constructor.name, v1.constructor.name]);
-};
-var member = function(dictOrd) {
-  var compare3 = compare(dictOrd);
-  return function(k) {
-    var go2 = function($copy_v) {
-      var $tco_done = false;
-      var $tco_result;
-      function $tco_loop(v) {
-        if (v instanceof Leaf) {
-          $tco_done = true;
-          return false;
-        }
-        ;
-        if (v instanceof Node) {
-          var v1 = compare3(k)(v.value2);
-          if (v1 instanceof LT) {
-            $copy_v = v.value4;
-            return;
-          }
-          ;
-          if (v1 instanceof GT) {
-            $copy_v = v.value5;
-            return;
-          }
-          ;
-          if (v1 instanceof EQ) {
-            $tco_done = true;
-            return true;
-          }
-          ;
-          throw new Error("Failed pattern match at Data.Map.Internal (line 459, column 7 - line 462, column 19): " + [v1.constructor.name]);
-        }
-        ;
-        throw new Error("Failed pattern match at Data.Map.Internal (line 456, column 8 - line 462, column 19): " + [v.constructor.name]);
-      }
-      ;
-      while (!$tco_done) {
-        $tco_result = $tco_loop($copy_v);
-      }
-      ;
-      return $tco_result;
-    };
-    return go2;
-  };
-};
-var lookup2 = function(dictOrd) {
-  var compare3 = compare(dictOrd);
-  return function(k) {
-    var go2 = function($copy_v) {
-      var $tco_done = false;
-      var $tco_result;
-      function $tco_loop(v) {
-        if (v instanceof Leaf) {
-          $tco_done = true;
-          return Nothing.value;
-        }
-        ;
-        if (v instanceof Node) {
-          var v1 = compare3(k)(v.value2);
-          if (v1 instanceof LT) {
-            $copy_v = v.value4;
-            return;
-          }
-          ;
-          if (v1 instanceof GT) {
-            $copy_v = v.value5;
-            return;
-          }
-          ;
-          if (v1 instanceof EQ) {
-            $tco_done = true;
-            return new Just(v.value3);
-          }
-          ;
-          throw new Error("Failed pattern match at Data.Map.Internal (line 283, column 7 - line 286, column 22): " + [v1.constructor.name]);
-        }
-        ;
-        throw new Error("Failed pattern match at Data.Map.Internal (line 280, column 8 - line 286, column 22): " + [v.constructor.name]);
-      }
-      ;
-      while (!$tco_done) {
-        $tco_result = $tco_loop($copy_v);
-      }
-      ;
-      return $tco_result;
-    };
-    return go2;
-  };
-};
-var iterMapL = /* @__PURE__ */ function() {
-  var go2 = function($copy_iter) {
-    return function($copy_v) {
-      var $tco_var_iter = $copy_iter;
-      var $tco_done = false;
-      var $tco_result;
-      function $tco_loop(iter, v) {
-        if (v instanceof Leaf) {
-          $tco_done = true;
-          return iter;
-        }
-        ;
-        if (v instanceof Node) {
-          if (v.value5 instanceof Leaf) {
-            $tco_var_iter = new IterEmit(v.value2, v.value3, iter);
-            $copy_v = v.value4;
-            return;
-          }
-          ;
-          $tco_var_iter = new IterEmit(v.value2, v.value3, new IterNode(v.value5, iter));
-          $copy_v = v.value4;
-          return;
-        }
-        ;
-        throw new Error("Failed pattern match at Data.Map.Internal (line 951, column 13 - line 958, column 48): " + [v.constructor.name]);
-      }
-      ;
-      while (!$tco_done) {
-        $tco_result = $tco_loop($tco_var_iter, $copy_v);
-      }
-      ;
-      return $tco_result;
-    };
-  };
-  return go2;
-}();
-var stepAscCps = /* @__PURE__ */ stepWith(iterMapL);
-var stepAsc = /* @__PURE__ */ function() {
-  return stepAscCps(function(k, v, next) {
-    return new IterNext(k, v, next);
-  })($$const(IterDone.value));
-}();
-var eqMapIter = function(dictEq) {
-  var eq18 = eq(dictEq);
-  return function(dictEq1) {
-    var eq28 = eq(dictEq1);
-    return {
-      eq: /* @__PURE__ */ function() {
-        var go2 = function($copy_a) {
-          return function($copy_b) {
-            var $tco_var_a = $copy_a;
-            var $tco_done = false;
-            var $tco_result;
-            function $tco_loop(a, b) {
-              var v = stepAsc(a);
-              if (v instanceof IterNext) {
-                var v2 = stepAsc(b);
-                if (v2 instanceof IterNext && (eq18(v.value0)(v2.value0) && eq28(v.value1)(v2.value1))) {
-                  $tco_var_a = v.value2;
-                  $copy_b = v2.value2;
-                  return;
-                }
-                ;
-                $tco_done = true;
-                return false;
-              }
-              ;
-              if (v instanceof IterDone) {
-                $tco_done = true;
-                return true;
-              }
-              ;
-              throw new Error("Failed pattern match at Data.Map.Internal (line 859, column 14 - line 868, column 13): " + [v.constructor.name]);
-            }
-            ;
-            while (!$tco_done) {
-              $tco_result = $tco_loop($tco_var_a, $copy_b);
-            }
-            ;
-            return $tco_result;
-          };
-        };
-        return go2;
-      }()
-    };
-  };
-};
-var stepUnfoldr = /* @__PURE__ */ function() {
-  var step2 = function(k, v, next) {
-    return new Just(new Tuple(new Tuple(k, v), next));
-  };
-  return stepAscCps(step2)(function(v) {
-    return Nothing.value;
-  });
-}();
-var toUnfoldable3 = function(dictUnfoldable) {
-  var $784 = unfoldr(dictUnfoldable)(stepUnfoldr);
-  return function($785) {
-    return $784(toMapIter($785));
-  };
-};
-var isEmpty = function(v) {
-  if (v instanceof Leaf) {
-    return true;
-  }
-  ;
-  return false;
-};
-var insert3 = function(dictOrd) {
-  var compare3 = compare(dictOrd);
-  return function(k) {
-    return function(v) {
-      var go2 = function(v1) {
-        if (v1 instanceof Leaf) {
-          return singleton5(k)(v);
-        }
-        ;
-        if (v1 instanceof Node) {
-          var v2 = compare3(k)(v1.value2);
-          if (v2 instanceof LT) {
-            return unsafeBalancedNode(v1.value2, v1.value3, go2(v1.value4), v1.value5);
-          }
-          ;
-          if (v2 instanceof GT) {
-            return unsafeBalancedNode(v1.value2, v1.value3, v1.value4, go2(v1.value5));
-          }
-          ;
-          if (v2 instanceof EQ) {
-            return new Node(v1.value0, v1.value1, k, v, v1.value4, v1.value5);
-          }
-          ;
-          throw new Error("Failed pattern match at Data.Map.Internal (line 471, column 7 - line 474, column 35): " + [v2.constructor.name]);
-        }
-        ;
-        throw new Error("Failed pattern match at Data.Map.Internal (line 468, column 8 - line 474, column 35): " + [v1.constructor.name]);
-      };
-      return go2;
-    };
-  };
-};
-var functorMap = {
-  map: function(f) {
-    var go2 = function(v) {
-      if (v instanceof Leaf) {
-        return Leaf.value;
-      }
-      ;
-      if (v instanceof Node) {
-        return new Node(v.value0, v.value1, v.value2, f(v.value3), go2(v.value4), go2(v.value5));
-      }
-      ;
-      throw new Error("Failed pattern match at Data.Map.Internal (line 147, column 10 - line 150, column 39): " + [v.constructor.name]);
-    };
-    return go2;
-  }
-};
-var foldableMap = {
-  foldr: function(f) {
-    return function(z) {
-      var $lazy_go = $runtime_lazy2("go", "Data.Map.Internal", function() {
-        return function(m$prime, z$prime) {
-          if (m$prime instanceof Leaf) {
-            return z$prime;
-          }
-          ;
-          if (m$prime instanceof Node) {
-            return $lazy_go(172)(m$prime.value4, f(m$prime.value3)($lazy_go(172)(m$prime.value5, z$prime)));
-          }
-          ;
-          throw new Error("Failed pattern match at Data.Map.Internal (line 169, column 26 - line 172, column 43): " + [m$prime.constructor.name]);
-        };
-      });
-      var go2 = $lazy_go(169);
-      return function(m) {
-        return go2(m, z);
-      };
-    };
-  },
-  foldl: function(f) {
-    return function(z) {
-      var $lazy_go = $runtime_lazy2("go", "Data.Map.Internal", function() {
-        return function(z$prime, m$prime) {
-          if (m$prime instanceof Leaf) {
-            return z$prime;
-          }
-          ;
-          if (m$prime instanceof Node) {
-            return $lazy_go(178)(f($lazy_go(178)(z$prime, m$prime.value4))(m$prime.value3), m$prime.value5);
-          }
-          ;
-          throw new Error("Failed pattern match at Data.Map.Internal (line 175, column 26 - line 178, column 43): " + [m$prime.constructor.name]);
-        };
-      });
-      var go2 = $lazy_go(175);
-      return function(m) {
-        return go2(z, m);
-      };
-    };
-  },
-  foldMap: function(dictMonoid) {
-    var mempty21 = mempty(dictMonoid);
-    var append112 = append(dictMonoid.Semigroup0());
-    return function(f) {
-      var go2 = function(v) {
-        if (v instanceof Leaf) {
-          return mempty21;
-        }
-        ;
-        if (v instanceof Node) {
-          return append112(go2(v.value4))(append112(f(v.value3))(go2(v.value5)));
-        }
-        ;
-        throw new Error("Failed pattern match at Data.Map.Internal (line 181, column 10 - line 184, column 28): " + [v.constructor.name]);
-      };
-      return go2;
-    };
-  }
-};
-var foldableWithIndexMap = {
-  foldrWithIndex: function(f) {
-    return function(z) {
-      var $lazy_go = $runtime_lazy2("go", "Data.Map.Internal", function() {
-        return function(m$prime, z$prime) {
-          if (m$prime instanceof Leaf) {
-            return z$prime;
-          }
-          ;
-          if (m$prime instanceof Node) {
-            return $lazy_go(192)(m$prime.value4, f(m$prime.value2)(m$prime.value3)($lazy_go(192)(m$prime.value5, z$prime)));
-          }
-          ;
-          throw new Error("Failed pattern match at Data.Map.Internal (line 189, column 26 - line 192, column 45): " + [m$prime.constructor.name]);
-        };
-      });
-      var go2 = $lazy_go(189);
-      return function(m) {
-        return go2(m, z);
-      };
-    };
-  },
-  foldlWithIndex: function(f) {
-    return function(z) {
-      var $lazy_go = $runtime_lazy2("go", "Data.Map.Internal", function() {
-        return function(z$prime, m$prime) {
-          if (m$prime instanceof Leaf) {
-            return z$prime;
-          }
-          ;
-          if (m$prime instanceof Node) {
-            return $lazy_go(198)(f(m$prime.value2)($lazy_go(198)(z$prime, m$prime.value4))(m$prime.value3), m$prime.value5);
-          }
-          ;
-          throw new Error("Failed pattern match at Data.Map.Internal (line 195, column 26 - line 198, column 45): " + [m$prime.constructor.name]);
-        };
-      });
-      var go2 = $lazy_go(195);
-      return function(m) {
-        return go2(z, m);
-      };
-    };
-  },
-  foldMapWithIndex: function(dictMonoid) {
-    var mempty21 = mempty(dictMonoid);
-    var append112 = append(dictMonoid.Semigroup0());
-    return function(f) {
-      var go2 = function(v) {
-        if (v instanceof Leaf) {
-          return mempty21;
-        }
-        ;
-        if (v instanceof Node) {
-          return append112(go2(v.value4))(append112(f(v.value2)(v.value3))(go2(v.value5)));
-        }
-        ;
-        throw new Error("Failed pattern match at Data.Map.Internal (line 201, column 10 - line 204, column 30): " + [v.constructor.name]);
-      };
-      return go2;
-    };
-  },
-  Foldable0: function() {
-    return foldableMap;
-  }
-};
-var keys2 = /* @__PURE__ */ function() {
-  return foldrWithIndex(foldableWithIndexMap)(function(k) {
-    return function(v) {
-      return function(acc) {
-        return new Cons(k, acc);
-      };
-    };
-  })(Nil.value);
-}();
-var values = /* @__PURE__ */ function() {
-  return foldr(foldableMap)(Cons.create)(Nil.value);
-}();
-var filterWithKey = function(dictOrd) {
-  return function(f) {
-    var go2 = function(v) {
-      if (v instanceof Leaf) {
-        return Leaf.value;
-      }
-      ;
-      if (v instanceof Node) {
-        if (f(v.value2)(v.value3)) {
-          return unsafeBalancedNode(v.value2, v.value3, go2(v.value4), go2(v.value5));
-        }
-        ;
-        if (otherwise) {
-          return unsafeJoinNodes(go2(v.value4), go2(v.value5));
-        }
-        ;
-      }
-      ;
-      throw new Error("Failed pattern match at Data.Map.Internal (line 627, column 8 - line 633, column 47): " + [v.constructor.name]);
-    };
-    return go2;
-  };
-};
-var filter2 = function(dictOrd) {
-  var $786 = filterWithKey(dictOrd);
-  return function($787) {
-    return $786($$const($787));
-  };
-};
-var eqMap = function(dictEq) {
-  var eqMapIter1 = eqMapIter(dictEq);
-  return function(dictEq1) {
-    var eq18 = eq(eqMapIter1(dictEq1));
-    return {
-      eq: function(xs) {
-        return function(ys) {
-          if (xs instanceof Leaf) {
-            if (ys instanceof Leaf) {
-              return true;
-            }
-            ;
-            return false;
-          }
-          ;
-          if (xs instanceof Node) {
-            if (ys instanceof Node && xs.value1 === ys.value1) {
-              return eq18(toMapIter(xs))(toMapIter(ys));
-            }
-            ;
-            return false;
-          }
-          ;
-          throw new Error("Failed pattern match at Data.Map.Internal (line 94, column 14 - line 105, column 16): " + [xs.constructor.name]);
-        };
-      }
-    };
-  };
-};
-var empty4 = /* @__PURE__ */ function() {
-  return Leaf.value;
-}();
-var fromFoldable3 = function(dictOrd) {
-  var insert17 = insert3(dictOrd);
-  return function(dictFoldable) {
-    return foldl(dictFoldable)(function(m) {
-      return function(v) {
-        return insert17(v.value0)(v.value1)(m);
-      };
-    })(empty4);
-  };
-};
-var $$delete2 = function(dictOrd) {
-  var compare3 = compare(dictOrd);
-  return function(k) {
-    var go2 = function(v) {
-      if (v instanceof Leaf) {
-        return Leaf.value;
-      }
-      ;
-      if (v instanceof Node) {
-        var v1 = compare3(k)(v.value2);
-        if (v1 instanceof LT) {
-          return unsafeBalancedNode(v.value2, v.value3, go2(v.value4), v.value5);
-        }
-        ;
-        if (v1 instanceof GT) {
-          return unsafeBalancedNode(v.value2, v.value3, v.value4, go2(v.value5));
-        }
-        ;
-        if (v1 instanceof EQ) {
-          return unsafeJoinNodes(v.value4, v.value5);
-        }
-        ;
-        throw new Error("Failed pattern match at Data.Map.Internal (line 498, column 7 - line 501, column 43): " + [v1.constructor.name]);
-      }
-      ;
-      throw new Error("Failed pattern match at Data.Map.Internal (line 495, column 8 - line 501, column 43): " + [v.constructor.name]);
-    };
-    return go2;
-  };
-};
-
 // output/Data.List/index.js
-var map8 = /* @__PURE__ */ map(functorMaybe);
+var map6 = /* @__PURE__ */ map(functorMaybe);
 var uncons2 = function(v) {
   if (v instanceof Nil) {
     return Nothing.value;
@@ -30403,1562 +28969,1065 @@ var uncons2 = function(v) {
   ;
   throw new Error("Failed pattern match at Data.List (line 259, column 1 - line 259, column 66): " + [v.constructor.name]);
 };
-var toUnfoldable4 = function(dictUnfoldable) {
+var toUnfoldable2 = function(dictUnfoldable) {
   return unfoldr(dictUnfoldable)(function(xs) {
-    return map8(function(rec) {
+    return map6(function(rec) {
       return new Tuple(rec.head, rec.tail);
     })(uncons2(xs));
   });
 };
 
-// output/Data.Set/index.js
-var coerce3 = /* @__PURE__ */ coerce();
-var foldMap2 = /* @__PURE__ */ foldMap(foldableList);
-var foldl3 = /* @__PURE__ */ foldl(foldableList);
-var foldr3 = /* @__PURE__ */ foldr(foldableList);
-var $$Set = function(x) {
-  return x;
+// output/Partial.Unsafe/foreign.js
+var _unsafePartial = function(f) {
+  return f();
 };
-var toList = function(v) {
-  return keys2(v);
+
+// output/Partial/foreign.js
+var _crashWith = function(msg) {
+  throw new Error(msg);
 };
-var toUnfoldable5 = function(dictUnfoldable) {
-  var $96 = toUnfoldable4(dictUnfoldable);
-  return function($97) {
-    return $96(toList($97));
+
+// output/Partial/index.js
+var crashWith = function() {
+  return _crashWith;
+};
+
+// output/Partial.Unsafe/index.js
+var crashWith2 = /* @__PURE__ */ crashWith();
+var unsafePartial = _unsafePartial;
+var unsafeCrashWith = function(msg) {
+  return unsafePartial(function() {
+    return crashWith2(msg);
+  });
+};
+
+// output/Data.List.NonEmpty/index.js
+var singleton4 = /* @__PURE__ */ function() {
+  var $200 = singleton3(plusList);
+  return function($201) {
+    return NonEmptyList($200($201));
   };
+}();
+
+// output/Data.String.CodeUnits/foreign.js
+var length3 = function(s) {
+  return s.length;
 };
-var size3 = /* @__PURE__ */ coerce3(size2);
-var member2 = function(dictOrd) {
-  return coerce3(member(dictOrd));
-};
-var insert4 = function(dictOrd) {
-  var insert17 = insert3(dictOrd);
-  return function(a) {
-    return function(v) {
-      return insert17(a)(unit)(v);
-    };
-  };
-};
-var fromMap = $$Set;
-var foldableSet = {
-  foldMap: function(dictMonoid) {
-    var foldMap12 = foldMap2(dictMonoid);
-    return function(f) {
-      var $98 = foldMap12(f);
-      return function($99) {
-        return $98(toList($99));
-      };
-    };
-  },
-  foldl: function(f) {
-    return function(x) {
-      var $100 = foldl3(f)(x);
-      return function($101) {
-        return $100(toList($101));
-      };
-    };
-  },
-  foldr: function(f) {
-    return function(x) {
-      var $102 = foldr3(f)(x);
-      return function($103) {
-        return $102(toList($103));
-      };
-    };
-  }
-};
-var eqSet = function(dictEq) {
-  var eq18 = eq(eqMap(dictEq)(eqUnit));
-  return {
-    eq: function(v) {
-      return function(v1) {
-        return eq18(v)(v1);
-      };
-    }
-  };
-};
-var empty5 = empty4;
-var fromFoldable4 = function(dictFoldable) {
-  var foldl22 = foldl(dictFoldable);
-  return function(dictOrd) {
-    var insert17 = insert4(dictOrd);
-    return foldl22(function(m) {
-      return function(a) {
-        return insert17(a)(m);
-      };
-    })(empty5);
+var splitAt2 = function(i) {
+  return function(s) {
+    return { before: s.substring(0, i), after: s.substring(i) };
   };
 };
 
-// output/System.Utils.General/index.js
-var max4 = /* @__PURE__ */ max(ordNumber);
-var min4 = /* @__PURE__ */ min(ordNumber);
-var any3 = /* @__PURE__ */ any(foldableArray)(heytingAlgebraBoolean);
-var oneOf2 = /* @__PURE__ */ oneOf(foldableArray)(plusMaybe);
-var lookup3 = /* @__PURE__ */ lookup2(ordNodeId);
-var roundHalfUp = function(n) {
-  var f = floor(n);
-  var $30 = n - f >= 0.5;
-  if ($30) {
-    return f + 1;
-  }
-  ;
-  return f;
-};
-var snapPosition = function(position3) {
-  return function(v) {
-    return {
-      x: v.gx * roundHalfUp(position3.x / v.gx),
-      y: v.gy * roundHalfUp(position3.y / v.gy)
-    };
-  };
-};
-var rendererPointToPoint = function(p) {
-  return function(v) {
-    return {
-      x: p.x * v.scale + v.tx,
-      y: p.y * v.scale + v.ty
-    };
-  };
-};
-var rectToBox = function(r) {
-  return {
-    x: r.x,
-    y: r.y,
-    x2: r.x + r.width,
-    y2: r.y + r.height
-  };
-};
-var pointToRendererPoint = function(p) {
-  return function(v) {
-    return function(mGrid) {
-      var pos = {
-        x: (p.x - v.tx) / v.scale,
-        y: (p.y - v.ty) / v.scale
-      };
-      if (mGrid instanceof Just) {
-        return snapPosition(pos)(mGrid.value0);
-      }
-      ;
-      if (mGrid instanceof Nothing) {
-        return pos;
-      }
-      ;
-      throw new Error("Failed pattern match at System.Utils.General (line 247, column 5 - line 249, column 21): " + [mGrid.constructor.name]);
-    };
-  };
-};
-var parsePadding = function(pv) {
-  return function(viewport2) {
-    if (pv instanceof RatioPadding) {
-      return floor((viewport2 - viewport2 / (1 + pv.value0)) * 0.5);
+// output/Data.String.CodeUnits/index.js
+var stripSuffix = function(v) {
+  return function(str) {
+    var v1 = splitAt2(length3(str) - length3(v) | 0)(str);
+    var $14 = v1.after === v;
+    if ($14) {
+      return new Just(v1.before);
     }
     ;
-    if (pv instanceof PxPadding) {
-      return floor(pv.value0);
-    }
-    ;
-    if (pv instanceof PctPadding) {
-      return floor(viewport2 * pv.value0 * 0.01);
-    }
-    ;
-    throw new Error("Failed pattern match at System.Utils.General (line 290, column 28 - line 293, column 57): " + [pv.constructor.name]);
-  };
-};
-var parsePaddings = function(padding) {
-  return function(width8) {
-    return function(height8) {
-      if (padding instanceof UniformPadding) {
-        var paddingY = parsePadding(padding.value0)(height8);
-        var paddingX = parsePadding(padding.value0)(width8);
-        return {
-          top: paddingY,
-          right: paddingX,
-          bottom: paddingY,
-          left: paddingX,
-          x: paddingX * 2,
-          y: paddingY * 2
-        };
-      }
-      ;
-      if (padding instanceof DirectionalPadding) {
-        var pickV = function(side) {
-          return function(fallback) {
-            if (side instanceof Just) {
-              return parsePadding(side.value0)(fallback);
-            }
-            ;
-            if (side instanceof Nothing) {
-              if (padding.value0.y instanceof Just) {
-                return parsePadding(padding.value0.y.value0)(fallback);
-              }
-              ;
-              if (padding.value0.y instanceof Nothing) {
-                return 0;
-              }
-              ;
-              throw new Error("Failed pattern match at System.Utils.General (line 323, column 22 - line 325, column 27): " + [padding.value0.y.constructor.name]);
-            }
-            ;
-            throw new Error("Failed pattern match at System.Utils.General (line 321, column 9 - line 325, column 27): " + [side.constructor.name]);
-          };
-        };
-        var top3 = pickV(padding.value0.top)(height8);
-        var pickH = function(side) {
-          return function(fallback) {
-            if (side instanceof Just) {
-              return parsePadding(side.value0)(fallback);
-            }
-            ;
-            if (side instanceof Nothing) {
-              if (padding.value0.x instanceof Just) {
-                return parsePadding(padding.value0.x.value0)(fallback);
-              }
-              ;
-              if (padding.value0.x instanceof Nothing) {
-                return 0;
-              }
-              ;
-              throw new Error("Failed pattern match at System.Utils.General (line 329, column 22 - line 331, column 27): " + [padding.value0.x.constructor.name]);
-            }
-            ;
-            throw new Error("Failed pattern match at System.Utils.General (line 327, column 9 - line 331, column 27): " + [side.constructor.name]);
-          };
-        };
-        var right = pickH(padding.value0.right)(width8);
-        var left = pickH(padding.value0.left)(width8);
-        var bottom3 = pickV(padding.value0.bottom)(height8);
-        return {
-          top: top3,
-          right,
-          bottom: bottom3,
-          left,
-          x: left + right,
-          y: top3 + bottom3
-        };
-      }
-      ;
-      throw new Error("Failed pattern match at System.Utils.General (line 305, column 38 - line 337, column 69): " + [padding.constructor.name]);
-    };
-  };
-};
-var nodeHasDimensions = function(node) {
-  return any3(isJust)([node.measured.width, node.width, node.initialWidth]) && any3(isJust)([node.measured.height, node.height, node.initialHeight]);
-};
-var isNumeric = function(n) {
-  return !isNaNImpl(n) && isFiniteImpl(n);
-};
-var isMacOs = isMacOsImpl;
-var isCoordinateExtent = function(v) {
-  if (v instanceof Just && v.value0 instanceof CoordExtent) {
-    return new Just(v.value0.value0);
-  }
-  ;
-  return Nothing.value;
-};
-var identityTransform = /* @__PURE__ */ mkTransform(0)(0)(1);
-var getOverlappingArea = function(a) {
-  return function(b) {
-    var yOverlap = max4(0)(min4(a.y + a.height)(b.y + b.height) - max4(a.y)(b.y));
-    var xOverlap = max4(0)(min4(a.x + a.width)(b.x + b.width) - max4(a.x)(b.x));
-    var ceilNum = function(n) {
-      return -floor(-n);
-    };
-    return ceilNum(xOverlap * yOverlap);
-  };
-};
-var getNodeDimensions = function(node) {
-  var mw = oneOf2([node.measured.width, node.width, node.initialWidth]);
-  var mh = oneOf2([node.measured.height, node.height, node.initialHeight]);
-  if (mw instanceof Nothing && mh instanceof Nothing) {
     return Nothing.value;
+  };
+};
+
+// output/Foreign/index.js
+var TypeMismatch = /* @__PURE__ */ function() {
+  function TypeMismatch2(value0, value1) {
+    this.value0 = value0;
+    this.value1 = value1;
   }
   ;
-  return new Just({
-    width: fromMaybe(0)(mw),
-    height: fromMaybe(0)(mh)
-  });
-};
-var getNodePositionWithOrigin = function(node) {
-  return function(defaultOrigin) {
-    var dims = fromMaybe({
-      width: 0,
-      height: 0
-    })(getNodeDimensions(node));
-    var v = fromMaybe(defaultOrigin)(node.origin);
-    return {
-      x: node.position.x - dims.width * v.ox,
-      y: node.position.y - dims.height * v.oy
+  TypeMismatch2.create = function(value0) {
+    return function(value1) {
+      return new TypeMismatch2(value0, value1);
     };
   };
+  return TypeMismatch2;
+}();
+var ErrorAtProperty = /* @__PURE__ */ function() {
+  function ErrorAtProperty2(value0, value1) {
+    this.value0 = value0;
+    this.value1 = value1;
+  }
+  ;
+  ErrorAtProperty2.create = function(value0) {
+    return function(value1) {
+      return new ErrorAtProperty2(value0, value1);
+    };
+  };
+  return ErrorAtProperty2;
+}();
+var unsafeToForeign = unsafeCoerce2;
+var unsafeFromForeign = unsafeCoerce2;
+var fail = function(dictMonad) {
+  var $153 = throwError(monadThrowExceptT(dictMonad));
+  return function($154) {
+    return $153(singleton4($154));
+  };
 };
-var nodeToRect = function(en) {
-  return function(origin2) {
-    var pos = function() {
-      if (en instanceof Right) {
-        return en.value0.internals.positionAbsolute;
+var unsafeReadTagged = function(dictMonad) {
+  var pure130 = pure(applicativeExceptT(dictMonad));
+  var fail1 = fail(dictMonad);
+  return function(tag) {
+    return function(value12) {
+      if (tagOf(value12) === tag) {
+        return pure130(unsafeFromForeign(value12));
       }
       ;
-      if (en instanceof Left) {
-        return getNodePositionWithOrigin(en.value0)(origin2);
+      if (otherwise) {
+        return fail1(new TypeMismatch(tag, tagOf(value12)));
       }
       ;
-      throw new Error("Failed pattern match at System.Utils.General (line 155, column 11 - line 157, column 57): " + [en.constructor.name]);
-    }();
-    var dims = fromMaybe({
-      width: 0,
-      height: 0
-    })(function() {
-      if (en instanceof Right) {
-        return getNodeDimensions(en.value0);
+      throw new Error("Failed pattern match at Foreign (line 123, column 1 - line 123, column 104): " + [tag.constructor.name, value12.constructor.name]);
+    };
+  };
+};
+var readString = function(dictMonad) {
+  return unsafeReadTagged(dictMonad)("String");
+};
+
+// output/Foreign.Object/foreign.js
+function _copyST(m) {
+  return function() {
+    var r = {};
+    for (var k in m) {
+      if (hasOwnProperty.call(m, k)) {
+        r[k] = m[k];
       }
-      ;
-      if (en instanceof Left) {
-        return getNodeDimensions(en.value0);
+    }
+    return r;
+  };
+}
+var empty3 = {};
+function runST(f) {
+  return f();
+}
+function _mapWithKey(m0, f) {
+  var m = {};
+  for (var k in m0) {
+    if (hasOwnProperty.call(m0, k)) {
+      m[k] = f(k)(m0[k]);
+    }
+  }
+  return m;
+}
+function _lookup(no, yes, k, m) {
+  return k in m ? yes(m[k]) : no;
+}
+function toArrayWithKey(f) {
+  return function(m) {
+    var r = [];
+    for (var k in m) {
+      if (hasOwnProperty.call(m, k)) {
+        r.push(f(k)(m[k]));
       }
-      ;
-      throw new Error("Failed pattern match at System.Utils.General (line 158, column 50 - line 160, column 42): " + [en.constructor.name]);
-    }());
-    return {
-      x: pos.x,
-      y: pos.y,
-      width: dims.width,
-      height: dims.height
-    };
+    }
+    return r;
   };
-};
-var nodeToBox = function(en) {
-  return function(origin2) {
-    var r = nodeToRect(en)(origin2);
-    return {
-      x: r.x,
-      y: r.y,
-      x2: r.x + r.width,
-      y2: r.y + r.height
-    };
+}
+var keys = Object.keys || toArrayWithKey(function(k) {
+  return function() {
+    return k;
   };
+});
+
+// output/Foreign.Object.ST/foreign.js
+var newImpl = function() {
+  return {};
 };
-var getBoundsOfBoxes = function(a) {
-  return function(b) {
-    return {
-      x: min4(a.x)(b.x),
-      y: min4(a.y)(b.y),
-      x2: max4(a.x2)(b.x2),
-      y2: max4(a.y2)(b.y2)
-    };
-  };
-};
-var evaluateAbsolutePosition = function(position3) {
-  return function(dimensions) {
-    return function(parentId) {
-      return function(lookup112) {
-        return function(defaultOrigin) {
-          var v = lookup3(parentId)(lookup112);
-          if (v instanceof Nothing) {
-            return position3;
-          }
-          ;
-          if (v instanceof Just) {
-            var v1 = fromMaybe(defaultOrigin)(v.value0.origin);
-            return {
-              x: position3.x + v.value0.internals.positionAbsolute.x - dimensions.width * v1.ox,
-              y: position3.y + v.value0.internals.positionAbsolute.y - dimensions.height * v1.oy
-            };
-          }
-          ;
-          throw new Error("Failed pattern match at System.Utils.General (line 419, column 3 - line 429, column 10): " + [v.constructor.name]);
-        };
-      };
-    };
-  };
-};
-var clamp2 = function(val) {
-  return function(mn) {
-    return function(mx) {
-      return min4(max4(val)(mn))(mx);
-    };
-  };
-};
-var clampPosition = function(position3) {
+function poke2(k) {
   return function(v) {
-    return function(dims) {
-      return {
-        x: clamp2(position3.x)(v.minX)(v.maxX - fromMaybe(0)(dims.width)),
-        y: clamp2(position3.y)(v.minY)(v.maxY - fromMaybe(0)(dims.height))
+    return function(m) {
+      return function() {
+        m[k] = v;
+        return m;
       };
     };
   };
+}
+
+// output/Foreign.Object/index.js
+var $$void3 = /* @__PURE__ */ $$void(functorST);
+var toUnfoldable3 = function(dictUnfoldable) {
+  var $89 = toUnfoldable(dictUnfoldable);
+  var $90 = toArrayWithKey(Tuple.create);
+  return function($91) {
+    return $89($90($91));
+  };
 };
-var clampPositionToParent = function(childPosition) {
-  return function(childDimensions) {
-    return function(parent2) {
-      var parentDims = fromMaybe({
-        width: 0,
-        height: 0
-      })(getNodeDimensions(parent2));
-      var extent = {
-        minX: parent2.internals.positionAbsolute.x,
-        minY: parent2.internals.positionAbsolute.y,
-        maxX: parent2.internals.positionAbsolute.x + parentDims.width,
-        maxY: parent2.internals.positionAbsolute.y + parentDims.height
-      };
-      return clampPosition(childPosition)(extent)({
-        width: new Just(childDimensions.width),
-        height: new Just(childDimensions.height)
+var thawST = _copyST;
+var mutate = function(f) {
+  return function(m) {
+    return runST(function __do2() {
+      var s = thawST(m)();
+      f(s)();
+      return s;
+    });
+  };
+};
+var mapWithKey = function(f) {
+  return function(m) {
+    return _mapWithKey(m, f);
+  };
+};
+var lookup = /* @__PURE__ */ function() {
+  return runFn4(_lookup)(Nothing.value)(Just.create);
+}();
+var insert2 = function(k) {
+  return function(v) {
+    return mutate(poke2(k)(v));
+  };
+};
+var fromFoldable3 = function(dictFoldable) {
+  var fromFoldable110 = fromFoldable(dictFoldable);
+  return function(l) {
+    return runST(function __do2() {
+      var s = newImpl();
+      foreach(fromFoldable110(l))(function(v) {
+        return $$void3(poke2(v.value0)(v.value1)(s));
+      })();
+      return s;
+    });
+  };
+};
+
+// output/React.Basic/foreign.js
+var import_react = __toESM(require_react(), 1);
+var createElement = import_react.default.createElement;
+var Fragment = import_react.default.Fragment;
+var empty4 = null;
+function keyed(key2) {
+  return (child) => createElement(Fragment, { key: key2 }, child);
+}
+function element(component) {
+  return (props) => Array.isArray(props.children) ? createElement.apply(null, [component, props].concat(props.children)) : createElement(component, props);
+}
+function fragment(children3) {
+  return createElement.apply(null, [Fragment, null].concat(children3));
+}
+function createContext(defaultValue4) {
+  return () => import_react.default.createContext(defaultValue4);
+}
+function contextProvider(context) {
+  return context.Provider;
+}
+
+// output/React.Basic/index.js
+var semigroupJSX = {
+  append: function(a) {
+    return function(b) {
+      return fragment([a, b]);
+    };
+  }
+};
+var provider = function(context) {
+  return function(value12) {
+    return function(children3) {
+      return element(contextProvider(context))({
+        value: value12,
+        children: children3
       });
     };
   };
 };
-var calculateAppliedPaddings = function(bounds) {
-  return function(x) {
-    return function(y) {
-      return function(zoom) {
-        return function(width8) {
-          return function(height8) {
-            var t = mkTransform(x)(y)(zoom);
-            var topLeft = rendererPointToPoint({
-              x: bounds.x,
-              y: bounds.y
-            })(t);
-            var bottomRight = rendererPointToPoint({
-              x: bounds.x + bounds.width,
-              y: bounds.y + bounds.height
-            })(t);
-            return {
-              left: floor(topLeft.x),
-              top: floor(topLeft.y),
-              right: floor(width8 - bottomRight.x),
-              bottom: floor(height8 - bottomRight.y)
-            };
-          };
-        };
+var monoidJSX = {
+  mempty: empty4,
+  Semigroup0: function() {
+    return semigroupJSX;
+  }
+};
+
+// output/Boundary.Elements/index.js
+var show3 = /* @__PURE__ */ show(showInt);
+var wrap2 = /* @__PURE__ */ wrap();
+var map7 = /* @__PURE__ */ map(functorMaybe);
+var unwrap2 = /* @__PURE__ */ unwrap();
+var bind2 = /* @__PURE__ */ bind(bindMaybe);
+var map1 = /* @__PURE__ */ map(functorArray);
+var show1 = /* @__PURE__ */ show(showString);
+var viewportOut = function(v) {
+  return {
+    x: v.x,
+    y: v.y,
+    zoom: v.zoom
+  };
+};
+var viewportIn = function(v) {
+  return {
+    x: v.x,
+    y: v.y,
+    zoom: v.zoom
+  };
+};
+var unknownChange = function(what) {
+  return function(tag) {
+    return unsafeThrow("ps-flow: `" + (tag + ("` is not a " + (what + "-change type."))));
+  };
+};
+var setAttributesOut = function(m) {
+  if (m.width && m.height) {
+    return true;
+  }
+  ;
+  if (m.width && !m.height) {
+    return "width";
+  }
+  ;
+  if (!m.width && m.height) {
+    return "height";
+  }
+  ;
+  if (!m.width && !m.height) {
+    return false;
+  }
+  ;
+  throw new Error("Failed pattern match at Boundary.Elements (line 959, column 22 - line 963, column 37): " + [m.width.constructor.name, m.height.constructor.name]);
+};
+var setAttributesIn = function(raw) {
+  var v = asBoolean(raw);
+  if (v instanceof Just) {
+    return {
+      width: v.value0,
+      height: v.value0
+    };
+  }
+  ;
+  if (v instanceof Nothing) {
+    var v1 = asString(raw);
+    if (v1 instanceof Just && v1.value0 === "width") {
+      return {
+        width: true,
+        height: false
       };
+    }
+    ;
+    if (v1 instanceof Just && v1.value0 === "height") {
+      return {
+        width: false,
+        height: true
+      };
+    }
+    ;
+    return unsafeThrow("ps-flow: a dimension change's `setAttributes` must be a boolean, " + ('"width" or "height", got ' + (typeName(raw) + ".")));
+  }
+  ;
+  throw new Error("Failed pattern match at Boundary.Elements (line 966, column 23 - line 976, column 17): " + [v.constructor.name]);
+};
+var requiredMember = function(tag) {
+  return function(member7) {
+    var $$throw = function(v) {
+      return unsafeThrow("ps-flow: a `" + (tag + ("` change must carry `" + (member7 + "`."))));
+    };
+    var $93 = fromMaybe$prime($$throw);
+    return function($94) {
+      return $93(fromUndefinable($94));
     };
   };
 };
-var getViewportForBounds = function(bounds) {
-  return function(width8) {
-    return function(height8) {
-      return function(minZoom) {
-        return function(maxZoom) {
-          return function(padding) {
-            var p = parsePaddings(padding)(width8)(height8);
-            var xZoom = (width8 - p.x) / bounds.width;
-            var yZoom = (height8 - p.y) / bounds.height;
-            var zoom = min4(xZoom)(yZoom);
-            var clampedZoom = clamp2(zoom)(minZoom)(maxZoom);
-            var boundsCenterY = bounds.y + bounds.height / 2;
-            var y0 = height8 / 2 - boundsCenterY * clampedZoom;
-            var boundsCenterX = bounds.x + bounds.width / 2;
-            var x0 = width8 / 2 - boundsCenterX * clampedZoom;
-            var newPadding = calculateAppliedPaddings(bounds)(x0)(y0)(clampedZoom)(width8)(height8);
-            var offset = {
-              left: min4(newPadding.left - p.left)(0),
-              top: min4(newPadding.top - p.top)(0),
-              right: min4(newPadding.right - p.right)(0),
-              bottom: min4(newPadding.bottom - p.bottom)(0)
-            };
-            return {
-              x: x0 - offset.left + offset.right,
-              y: y0 - offset.top + offset.bottom,
-              zoom: clampedZoom
-            };
-          };
-        };
-      };
+var readKey = function(field) {
+  return function(raw) {
+    var v = asString(raw);
+    if (v instanceof Just) {
+      return v.value0;
+    }
+    ;
+    if (v instanceof Nothing) {
+      return unsafeThrow("ps-flow: every entry of `" + (field + ("` must be a string, got " + (typeName(raw) + "."))));
+    }
+    ;
+    throw new Error("Failed pattern match at Boundary.Elements (line 460, column 21 - line 466, column 15): " + [v.constructor.name]);
+  };
+};
+var pairError = function(field) {
+  return function(shape2) {
+    return function(got) {
+      return "ps-flow: `" + (field + ("` must be " + (shape2 + (" \u2014 exactly two numbers, got " + (show3(length(got)) + ".")))));
     };
   };
 };
-var calcAutoPan = function(pos) {
-  return function(bounds) {
-    return function(speed) {
-      return function(distance2) {
-        var velocity = function(value12) {
-          return function(mn) {
-            return function(mx) {
-              if (value12 < mn) {
-                return clamp2(abs(value12 - mn))(1)(mn) / mn;
-              }
-              ;
-              if (value12 > mx) {
-                return -clamp2(abs(value12 - mx))(1)(mn) / mn;
-              }
-              ;
-              if (otherwise) {
-                return 0;
-              }
-              ;
-              throw new Error("Failed pattern match at System.Utils.General (line 127, column 3 - line 130, column 22): " + [value12.constructor.name, mn.constructor.name, mx.constructor.name]);
-            };
-          };
-        };
-        return {
-          x: velocity(pos.x)(distance2)(bounds.width - distance2) * speed,
-          y: velocity(pos.y)(distance2)(bounds.height - distance2) * speed
-        };
-      };
-    };
+var snapGridIn = function(field) {
+  return function(v) {
+    if (v.length === 2) {
+      return wrap2({
+        gx: v[0],
+        gy: v[1]
+      });
+    }
+    ;
+    return unsafeThrow(pairError(field)("[gridX, gridY]")(v));
   };
 };
-var boxToRect = function(b) {
+var nodePropsOut = function(p) {
+  return {
+    id: p.id,
+    data: p.data,
+    width: toUndefinable(p.width),
+    height: toUndefinable(p.height),
+    sourcePosition: toUndefinable(map7(positionOut)(p.sourcePosition)),
+    targetPosition: toUndefinable(map7(positionOut)(p.targetPosition)),
+    dragHandle: toUndefinable(p.dragHandle),
+    parentId: toUndefinable(p.parentId),
+    type: p.type,
+    dragging: p.dragging,
+    zIndex: p.zIndex,
+    selectable: p.selectable,
+    deletable: p.deletable,
+    selected: p.selected,
+    draggable: p.draggable,
+    isConnectable: p.isConnectable,
+    positionAbsoluteX: p.positionAbsoluteX,
+    positionAbsoluteY: p.positionAbsoluteY
+  };
+};
+var wrapNodeComponent = function(userComponent) {
+  return mkNodeComponentWrapper(userComponent)(function(psProps) {
+    return element(userComponent)(nodePropsOut(psProps));
+  });
+};
+var nodeTypesIn = function(types) {
+  return mapWithKey(function(v) {
+    return function(c) {
+      return wrapNodeComponent(c);
+    };
+  })(types);
+};
+var nodeOriginOut = function(o) {
+  return [unwrap2(o).ox, unwrap2(o).oy];
+};
+var nodeOriginIn = function(field) {
+  return function(v) {
+    if (v.length === 2) {
+      return wrap2({
+        ox: v[0],
+        oy: v[1]
+      });
+    }
+    ;
+    return unsafeThrow(pairError(field)("[originX, originY]")(v));
+  };
+};
+var nodeHandleOut = function(h) {
+  return {
+    id: toUndefinable(h.id),
+    x: h.x,
+    y: h.y,
+    position: positionOut(h.position),
+    type: handleTypeOut(h.handleType),
+    width: toUndefinable(h.width),
+    height: toUndefinable(h.height)
+  };
+};
+var nodeHandleIn = function(h) {
+  return {
+    id: fromUndefinable(h.id),
+    x: h.x,
+    y: h.y,
+    position: positionIn("node.handles[].position")(h.position),
+    handleType: handleTypeIn("node.handles[].type")(h.type),
+    width: fromUndefinable(h.width),
+    height: fromUndefinable(h.height)
+  };
+};
+var nodeBoundsOut = function(b) {
   return {
     x: b.x,
     y: b.y,
-    width: b.x2 - b.x,
-    height: b.y2 - b.y
+    width: toUndefinable(b.width),
+    height: toUndefinable(b.height)
   };
 };
-var getBoundsOfRects = function(a) {
-  return function(b) {
-    return boxToRect(getBoundsOfBoxes(rectToBox(a))(rectToBox(b)));
-  };
-};
-var areSetsEqual = function(dictEq) {
-  return eq(eqSet(dictEq));
-};
-
-// output/System.Utils.Edges.General/index.js
-var unwrap3 = /* @__PURE__ */ unwrap();
-var max5 = /* @__PURE__ */ max(ordNumber);
-var eq22 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqString));
-var eq3 = /* @__PURE__ */ eq(eqNodeId);
-var isEdgeVisible = function(p) {
-  var viewRect = {
-    x: -p.transform.tx / p.transform.scale,
-    y: -p.transform.ty / p.transform.scale,
-    width: p.width / p.transform.scale,
-    height: p.height / p.transform.scale
-  };
-  var origin2 = mkNodeOrigin(0)(0);
-  var sourceBox = nodeToBox(new Right(p.sourceNode))(origin2);
-  var targetBox = nodeToBox(new Right(p.targetNode))(origin2);
-  var raw = getBoundsOfBoxes(sourceBox)(targetBox);
-  var edgeBox = {
-    x: raw.x,
-    y: raw.y,
-    x2: function() {
-      var $29 = raw.x === raw.x2;
-      if ($29) {
-        return raw.x2 + 1;
-      }
-      ;
-      return raw.x2;
-    }(),
-    y2: function() {
-      var $30 = raw.y === raw.y2;
-      if ($30) {
-        return raw.y2 + 1;
-      }
-      ;
-      return raw.y2;
-    }()
-  };
-  return getOverlappingArea(viewRect)(boxToRect(edgeBox)) > 0;
-};
-var getElevatedEdgeZIndex = function(p) {
-  if (p.zIndexMode instanceof ZManual) {
-    return p.zIndex;
-  }
-  ;
-  var targetContributes = isJust(p.targetNode.parentId) || p.elevateOnSelect && p.targetNode.selected;
-  var targetZ = function() {
-    if (targetContributes) {
-      return p.targetNode.internals.z;
-    }
-    ;
-    return 0;
-  }();
-  var sourceContributes = isJust(p.sourceNode.parentId) || p.elevateOnSelect && p.sourceNode.selected;
-  var sourceZ = function() {
-    if (sourceContributes) {
-      return p.sourceNode.internals.z;
-    }
-    ;
-    return 0;
-  }();
-  var nodeZ = max5(sourceZ)(targetZ);
-  var edgeZ = function() {
-    var $34 = p.elevateOnSelect && p.selected;
-    if ($34) {
-      return p.zIndex + 1e3 | 0;
-    }
-    ;
-    return p.zIndex;
-  }();
-  return edgeZ + floor2(nodeZ) | 0;
-};
-var getEdgeId = function(c) {
-  return "xy-edge__" + (unwrap3(c.source) + (fromMaybe("")(c.sourceHandle) + ("-" + (unwrap3(c.target) + fromMaybe("")(c.targetHandle)))));
-};
-var getEdgeCenter = function(v) {
-  var yOffset = abs(v.targetY - v.sourceY) / 2;
-  var xOffset = abs(v.targetX - v.sourceX) / 2;
-  var centerY = function() {
-    var $36 = v.targetY < v.sourceY;
-    if ($36) {
-      return v.targetY + yOffset;
-    }
-    ;
-    return v.targetY - yOffset;
-  }();
-  var centerX = function() {
-    var $37 = v.targetX < v.sourceX;
-    if ($37) {
-      return v.targetX + xOffset;
-    }
-    ;
-    return v.targetX - xOffset;
-  }();
+var measuredOut = function(m) {
   return {
-    centerX,
-    centerY,
-    offsetX: xOffset,
-    offsetY: yOffset
+    width: toUndefinable(m.width),
+    height: toUndefinable(m.height)
   };
 };
-var connectionExists = function(edge) {
-  return function(edges) {
-    var blank = function(v) {
-      if (v instanceof Nothing) {
-        return true;
-      }
-      ;
-      if (v instanceof Just) {
-        return v.value0 === "";
-      }
-      ;
-      throw new Error("Failed pattern match at System.Utils.Edges.General (line 166, column 11 - line 168, column 22): " + [v.constructor.name]);
-    };
-    var handleMatches = function(a) {
-      return function(b) {
-        return eq22(a)(b) || blank(a) && blank(b);
-      };
-    };
-    var matches2 = function(el) {
-      return eq3(el.source)(edge.source) && (eq3(el.target)(edge.target) && (handleMatches(el.sourceHandle)(edge.sourceHandle) && handleMatches(el.targetHandle)(edge.targetHandle)));
-    };
-    return any2(matches2)(edges);
+var measuredIn = function(m) {
+  return {
+    width: fromUndefinable(m.width),
+    height: fromUndefinable(m.height)
   };
 };
-var addEdge = function(v) {
+var keyCodeIn = function(v) {
   return function(v1) {
-    return function(v2) {
-      if (unwrap3(v.source) === "" || unwrap3(v.target) === "") {
-        return new Left(errorMessage(E006.value));
-      }
-      ;
-      var $47 = connectionExists(v)(v1);
-      if ($47) {
-        return new Right(v1);
-      }
-      ;
-      return new Right(snoc(v1)(v));
-    };
-  };
-};
-
-// output/System.Utils.Edges.SmoothStep/index.js
-var min5 = /* @__PURE__ */ min(ordNumber);
-var append13 = /* @__PURE__ */ append(semigroupArray);
-var eq12 = /* @__PURE__ */ eq(eqPosition);
-var notEq1 = /* @__PURE__ */ notEq(eqPosition);
-var max6 = /* @__PURE__ */ max(ordNumber);
-var foldl4 = /* @__PURE__ */ foldl(foldableArray);
-var AxisX = /* @__PURE__ */ function() {
-  function AxisX2() {
-  }
-  ;
-  AxisX2.value = new AxisX2();
-  return AxisX2;
-}();
-var AxisY = /* @__PURE__ */ function() {
-  function AxisY2() {
-  }
-  ;
-  AxisY2.value = new AxisY2();
-  return AxisY2;
-}();
-var showN3 = toString;
-var setAxis = function(v) {
-  return function(v1) {
-    return function(v2) {
-      if (v instanceof AxisX) {
-        return {
-          y: v1.y,
-          x: v2
-        };
-      }
-      ;
-      if (v instanceof AxisY) {
-        return {
-          x: v1.x,
-          y: v2
-        };
-      }
-      ;
-      throw new Error("Failed pattern match at System.Utils.Edges.SmoothStep (line 95, column 1 - line 95, column 54): " + [v.constructor.name, v1.constructor.name, v2.constructor.name]);
-    };
-  };
-};
-var scale = function(k) {
-  return function(v) {
-    return {
-      x: k * v.x,
-      y: k * v.y
-    };
-  };
-};
-var handleDirection = function(v) {
-  if (v instanceof PosLeft) {
-    return {
-      x: -1,
-      y: 0
-    };
-  }
-  ;
-  if (v instanceof PosRight) {
-    return {
-      x: 1,
-      y: 0
-    };
-  }
-  ;
-  if (v instanceof PosTop) {
-    return {
-      x: 0,
-      y: -1
-    };
-  }
-  ;
-  if (v instanceof PosBottom) {
-    return {
-      x: 0,
-      y: 1
-    };
-  }
-  ;
-  throw new Error("Failed pattern match at System.Utils.Edges.SmoothStep (line 35, column 19 - line 39, column 34): " + [v.constructor.name]);
-};
-var getDirection = function(v) {
-  var horizontal = function() {
-    var $42 = v.source.x < v.target.x;
-    if ($42) {
-      return {
-        x: 1,
-        y: 0
-      };
+    if (isNull(v1)) {
+      return unsafeThrow("ps-flow: `" + (v + '` was set to null, which upstream reads as "disable this key". ps-flow cannot express that yet \u2014 its key-code type has no disabled state, so a null would silently fall back to the default key instead. Omit the prop to get the default, or pass the key you want.'));
     }
     ;
-    return {
-      x: -1,
-      y: 0
-    };
-  }();
-  if (v.sourcePosition instanceof PosLeft) {
-    return horizontal;
-  }
-  ;
-  if (v.sourcePosition instanceof PosRight) {
-    return horizontal;
-  }
-  ;
-  var $44 = v.source.y < v.target.y;
-  if ($44) {
-    return {
-      x: 0,
-      y: 1
-    };
-  }
-  ;
-  return {
-    x: 0,
-    y: -1
-  };
-};
-var distance = function(a) {
-  return function(b) {
-    return sqrt(pow(b.x - a.x)(2) + pow(b.y - a.y)(2));
-  };
-};
-var getBend = function(a) {
-  return function(b) {
-    return function(c) {
-      return function(size6) {
-        var bendSize = min5(min5(distance(a)(b) / 2)(distance(b)(c) / 2))(size6);
-        var $50 = a.x === b.x && b.x === c.x || a.y === b.y && b.y === c.y;
-        if ($50) {
-          return "L" + (showN3(b.x) + (" " + showN3(b.y)));
+    return bind2(fromUndefinable(v1))(function(raw) {
+      var v2 = asString(raw);
+      if (v2 instanceof Just) {
+        return new Just(new SingleKey(v2.value0));
+      }
+      ;
+      if (v2 instanceof Nothing) {
+        var v3 = asArray(raw);
+        if (v3 instanceof Just) {
+          return map7(MultiKey.create)(fromArray(map1(readKey(v))(v3.value0)));
         }
         ;
-        var $51 = a.y === b.y;
-        if ($51) {
-          var yDir = function() {
-            var $52 = a.y < c.y;
-            if ($52) {
-              return 1;
-            }
-            ;
-            return -1;
-          }();
-          var xDir = function() {
-            var $53 = a.x < c.x;
-            if ($53) {
-              return -1;
-            }
-            ;
-            return 1;
-          }();
-          return "L " + (showN3(b.x + bendSize * xDir) + ("," + (showN3(b.y) + ("Q " + (showN3(b.x) + ("," + (showN3(b.y) + (" " + (showN3(b.x) + ("," + showN3(b.y + bendSize * yDir)))))))))));
+        if (v3 instanceof Nothing) {
+          return unsafeThrow("ps-flow: `" + (v + ("` must be a string or an array of strings, got " + (typeName(raw) + "."))));
         }
         ;
-        var yDir = function() {
-          var $54 = a.y < c.y;
-          if ($54) {
-            return -1;
-          }
-          ;
-          return 1;
-        }();
-        var xDir = function() {
-          var $55 = a.x < c.x;
-          if ($55) {
-            return 1;
-          }
-          ;
-          return -1;
-        }();
-        return "L " + (showN3(b.x) + ("," + (showN3(b.y + bendSize * yDir) + ("Q " + (showN3(b.x) + ("," + (showN3(b.y) + (" " + (showN3(b.x + bendSize * xDir) + ("," + showN3(b.y)))))))))));
-      };
-    };
+        throw new Error("Failed pattern match at Boundary.Elements (line 451, column 16 - line 457, column 19): " + [v3.constructor.name]);
+      }
+      ;
+      throw new Error("Failed pattern match at Boundary.Elements (line 449, column 3 - line 457, column 19): " + [v2.constructor.name]);
+    });
   };
 };
-var axisOpposite = function(v) {
-  if (v instanceof AxisX) {
-    return AxisY.value;
-  }
-  ;
-  if (v instanceof AxisY) {
-    return AxisX.value;
-  }
-  ;
-  throw new Error("Failed pattern match at System.Utils.Edges.SmoothStep (line 67, column 1 - line 67, column 29): " + [v.constructor.name]);
-};
-var axisGet = function(v) {
-  return function(v1) {
-    if (v instanceof AxisX) {
-      return v1.x;
-    }
-    ;
-    if (v instanceof AxisY) {
-      return v1.y;
-    }
-    ;
-    throw new Error("Failed pattern match at System.Utils.Edges.SmoothStep (line 63, column 1 - line 63, column 40): " + [v.constructor.name, v1.constructor.name]);
-  };
-};
-var addV = function(a) {
-  return function(b) {
-    return {
-      x: a.x + b.x,
-      y: a.y + b.y
-    };
-  };
-};
-var buildPathPoints = function(source) {
-  return function(target5) {
-    return function(points) {
-      return function(sourceGapOffset) {
-        return function(targetGapOffset) {
-          return function(sourceGapped) {
-            return function(targetGapped) {
-              var tailPt = fromMaybe({
-                x: 0,
-                y: 0
-              })(index(points)(length(points) - 1 | 0));
-              var headPt = fromMaybe({
-                x: 0,
-                y: 0
-              })(index(points)(0));
-              var gappedTarget = addV(targetGapped)(targetGapOffset);
-              var suffix = function() {
-                var $59 = gappedTarget.x !== tailPt.x || gappedTarget.y !== tailPt.y;
-                if ($59) {
-                  return [gappedTarget];
-                }
-                ;
-                return [];
-              }();
-              var gappedSource = addV(sourceGapped)(sourceGapOffset);
-              var prefix = function() {
-                var $60 = gappedSource.x !== headPt.x || gappedSource.y !== headPt.y;
-                if ($60) {
-                  return [gappedSource];
-                }
-                ;
-                return [];
-              }();
-              return append13([source])(append13(prefix)(append13(points)(append13(suffix)([target5]))));
-            };
-          };
-        };
-      };
-    };
-  };
-};
-var oppositeBranch = function(p) {
-  return function(sourceGapped) {
-    return function(targetGapped) {
-      return function(dirAxis) {
-        return function(currDir) {
-          return function(sourceDir) {
-            var centerY = function() {
-              if (dirAxis instanceof AxisX) {
-                return fromMaybe((sourceGapped.y + targetGapped.y) / 2)(p.center.y);
-              }
-              ;
-              if (dirAxis instanceof AxisY) {
-                return fromMaybe(sourceGapped.y + (targetGapped.y - sourceGapped.y) * p.stepPosition)(p.center.y);
-              }
-              ;
-              throw new Error("Failed pattern match at System.Utils.Edges.SmoothStep (line 158, column 15 - line 162, column 19): " + [dirAxis.constructor.name]);
-            }();
-            var horizontalSplit = [{
-              x: sourceGapped.x,
-              y: centerY
-            }, {
-              x: targetGapped.x,
-              y: centerY
-            }];
-            var centerX = function() {
-              if (dirAxis instanceof AxisX) {
-                return fromMaybe(sourceGapped.x + (targetGapped.x - sourceGapped.x) * p.stepPosition)(p.center.x);
-              }
-              ;
-              if (dirAxis instanceof AxisY) {
-                return fromMaybe((sourceGapped.x + targetGapped.x) / 2)(p.center.x);
-              }
-              ;
-              throw new Error("Failed pattern match at System.Utils.Edges.SmoothStep (line 153, column 15 - line 157, column 78): " + [dirAxis.constructor.name]);
-            }();
-            var verticalSplit = [{
-              x: centerX,
-              y: sourceGapped.y
-            }, {
-              x: centerX,
-              y: targetGapped.y
-            }];
-            var points = function() {
-              var $63 = axisGet(dirAxis)(sourceDir) === currDir;
-              if ($63) {
-                if (dirAxis instanceof AxisX) {
-                  return verticalSplit;
-                }
-                ;
-                if (dirAxis instanceof AxisY) {
-                  return horizontalSplit;
-                }
-                ;
-                throw new Error("Failed pattern match at System.Utils.Edges.SmoothStep (line 168, column 52 - line 170, column 33): " + [dirAxis.constructor.name]);
-              }
-              ;
-              if (dirAxis instanceof AxisX) {
-                return horizontalSplit;
-              }
-              ;
-              if (dirAxis instanceof AxisY) {
-                return verticalSplit;
-              }
-              ;
-              throw new Error("Failed pattern match at System.Utils.Edges.SmoothStep (line 171, column 12 - line 173, column 31): " + [dirAxis.constructor.name]);
-            }();
-            var pathPoints = buildPathPoints(p.source)(p.target)(points)({
-              x: 0,
-              y: 0
-            })({
-              x: 0,
-              y: 0
-            })(sourceGapped)(targetGapped);
-            return {
-              pathPoints,
-              centerX,
-              centerY
-            };
-          };
-        };
-      };
-    };
-  };
-};
-var sameOrMixedBranch = function(p) {
-  return function(sourceGapped) {
-    return function(targetGapped) {
-      return function(dirAxis) {
-        return function(currDir) {
-          return function(sourceDir) {
-            return function(targetDir) {
-              var targetSource = [{
-                x: targetGapped.x,
-                y: sourceGapped.y
-              }];
-              var sourceTarget = [{
-                x: sourceGapped.x,
-                y: targetGapped.y
-              }];
-              var samePosBasePoints = function() {
-                if (dirAxis instanceof AxisX) {
-                  var $67 = sourceDir.x === currDir;
-                  if ($67) {
-                    return targetSource;
-                  }
-                  ;
-                  return sourceTarget;
-                }
-                ;
-                if (dirAxis instanceof AxisY) {
-                  var $68 = sourceDir.y === currDir;
-                  if ($68) {
-                    return sourceTarget;
-                  }
-                  ;
-                  return targetSource;
-                }
-                ;
-                throw new Error("Failed pattern match at System.Utils.Edges.SmoothStep (line 199, column 25 - line 203, column 70): " + [dirAxis.constructor.name]);
-              }();
-              var v = function() {
-                var $69 = eq12(p.sourcePosition)(p.targetPosition);
-                if ($69) {
-                  var diff = abs(axisGet(dirAxis)(p.source) - axisGet(dirAxis)(p.target));
-                  var $70 = diff <= p.offset;
-                  if ($70) {
-                    var tgtSign = function() {
-                      var $71 = axisGet(dirAxis)(targetGapped) > axisGet(dirAxis)(p.target);
-                      if ($71) {
-                        return -1;
-                      }
-                      ;
-                      return 1;
-                    }();
-                    var srcSign = function() {
-                      var $72 = axisGet(dirAxis)(sourceGapped) > axisGet(dirAxis)(p.source);
-                      if ($72) {
-                        return -1;
-                      }
-                      ;
-                      return 1;
-                    }();
-                    var gapOffset = min5(p.offset - 1)(p.offset - diff);
-                    var $73 = axisGet(dirAxis)(sourceDir) === currDir;
-                    if ($73) {
-                      return {
-                        sourceGapOffset: setAxis(dirAxis)({
-                          x: 0,
-                          y: 0
-                        })(srcSign * gapOffset),
-                        targetGapOffset: {
-                          x: 0,
-                          y: 0
-                        }
-                      };
-                    }
-                    ;
-                    return {
-                      sourceGapOffset: {
-                        x: 0,
-                        y: 0
-                      },
-                      targetGapOffset: setAxis(dirAxis)({
-                        x: 0,
-                        y: 0
-                      })(tgtSign * gapOffset)
-                    };
-                  }
-                  ;
-                  return {
-                    sourceGapOffset: {
-                      x: 0,
-                      y: 0
-                    },
-                    targetGapOffset: {
-                      x: 0,
-                      y: 0
-                    }
-                  };
-                }
-                ;
-                return {
-                  sourceGapOffset: {
-                    x: 0,
-                    y: 0
-                  },
-                  targetGapOffset: {
-                    x: 0,
-                    y: 0
-                  }
-                };
-              }();
-              var targetGapPoint = addV(targetGapped)(v.targetGapOffset);
-              var sourceGapPoint = addV(sourceGapped)(v.sourceGapOffset);
-              var points = function() {
-                var $75 = notEq1(p.sourcePosition)(p.targetPosition);
-                if ($75) {
-                  var oppAxis = axisOpposite(dirAxis);
-                  var sourceGtTargetOppo = axisGet(oppAxis)(sourceGapped) > axisGet(oppAxis)(targetGapped);
-                  var sourceLtTargetOppo = axisGet(oppAxis)(sourceGapped) < axisGet(oppAxis)(targetGapped);
-                  var isSameDir = axisGet(dirAxis)(sourceDir) === axisGet(oppAxis)(targetDir);
-                  var flipSourceTarget = axisGet(dirAxis)(sourceDir) === 1 && (!isSameDir && sourceGtTargetOppo || isSameDir && sourceLtTargetOppo) || axisGet(dirAxis)(sourceDir) !== 1 && (!isSameDir && sourceLtTargetOppo || isSameDir && sourceGtTargetOppo);
-                  if (flipSourceTarget) {
-                    if (dirAxis instanceof AxisX) {
-                      return sourceTarget;
-                    }
-                    ;
-                    if (dirAxis instanceof AxisY) {
-                      return targetSource;
-                    }
-                    ;
-                    throw new Error("Failed pattern match at System.Utils.Edges.SmoothStep (line 259, column 36 - line 261, column 34): " + [dirAxis.constructor.name]);
-                  }
-                  ;
-                  return samePosBasePoints;
-                }
-                ;
-                return samePosBasePoints;
-              }();
-              var pathPoints = buildPathPoints(p.source)(p.target)(points)(v.sourceGapOffset)(v.targetGapOffset)(sourceGapped)(targetGapped);
-              var firstPoint = fromMaybe({
-                x: 0,
-                y: 0
-              })(index(points)(0));
-              var maxXDistance = max6(abs(sourceGapPoint.x - firstPoint.x))(abs(targetGapPoint.x - firstPoint.x));
-              var maxYDistance = max6(abs(sourceGapPoint.y - firstPoint.y))(abs(targetGapPoint.y - firstPoint.y));
-              var centerY = function() {
-                var $78 = maxXDistance >= maxYDistance;
-                if ($78) {
-                  return firstPoint.y;
-                }
-                ;
-                return (sourceGapPoint.y + targetGapPoint.y) / 2;
-              }();
-              var centerX = function() {
-                var $79 = maxXDistance >= maxYDistance;
-                if ($79) {
-                  return (sourceGapPoint.x + targetGapPoint.x) / 2;
-                }
-                ;
-                return firstPoint.x;
-              }();
-              return {
-                pathPoints,
-                centerX,
-                centerY
-              };
-            };
-          };
-        };
-      };
-    };
-  };
-};
-var getPoints = function(p) {
-  var targetDir = handleDirection(p.targetPosition);
-  var targetGapped = addV(p.target)(scale(p.offset)(targetDir));
-  var sourceDir = handleDirection(p.sourcePosition);
-  var sourceGapped = addV(p.source)(scale(p.offset)(sourceDir));
-  var dir2 = getDirection({
-    source: sourceGapped,
-    sourcePosition: p.sourcePosition,
-    target: targetGapped
-  });
-  var dirAxis = function() {
-    var $82 = dir2.x !== 0;
-    if ($82) {
-      return AxisX.value;
-    }
-    ;
-    return AxisY.value;
-  }();
-  var sourceDirAccess = axisGet(dirAxis)(sourceDir);
-  var targetDirAccess = axisGet(dirAxis)(targetDir);
-  var defaultEdge = getEdgeCenter({
-    sourceX: p.source.x,
-    sourceY: p.source.y,
-    targetX: p.target.x,
-    targetY: p.target.y
-  });
-  var currDir = axisGet(dirAxis)(dir2);
-  var initialResult = function() {
-    var $83 = sourceDirAccess * targetDirAccess === -1;
-    if ($83) {
-      return oppositeBranch(p)(sourceGapped)(targetGapped)(dirAxis)(currDir)(sourceDir);
-    }
-    ;
-    return sameOrMixedBranch(p)(sourceGapped)(targetGapped)(dirAxis)(currDir)(sourceDir)(targetDir);
-  }();
+var handleOut = function(h) {
   return {
-    points: initialResult.pathPoints,
-    centerX: initialResult.centerX,
-    centerY: initialResult.centerY,
-    defaultOffsetX: defaultEdge.offsetX,
-    defaultOffsetY: defaultEdge.offsetY
+    id: toUndefinable(h.id),
+    nodeId: unwrap2(h.nodeId),
+    x: h.x,
+    y: h.y,
+    position: positionOut(h.position),
+    type: handleTypeOut(h.handleType),
+    width: h.width,
+    height: h.height
   };
 };
-var getSmoothStepPath = function(p) {
-  var res = getPoints({
-    source: {
-      x: p.sourceX,
-      y: p.sourceY
-    },
-    sourcePosition: p.sourcePosition,
-    target: {
-      x: p.targetX,
-      y: p.targetY
-    },
-    targetPosition: p.targetPosition,
-    center: {
-      x: p.centerX,
-      y: p.centerY
-    },
-    offset: p.offset,
-    stepPosition: p.stepPosition
-  });
-  var n = length(res.points);
-  var last$prime = fromMaybe({
-    x: 0,
-    y: 0
-  })(index(res.points)(n - 1 | 0));
-  var head$prime = fromMaybe({
-    x: 0,
-    y: 0
-  })(index(res.points)(0));
-  var bends = function() {
-    var $84 = n < 3;
-    if ($84) {
-      return "";
-    }
-    ;
-    return foldl4(function(acc) {
-      return function(i) {
-        var c = fromMaybe({
-          x: 0,
-          y: 0
-        })(index(res.points)(i + 1 | 0));
-        var b = fromMaybe({
-          x: 0,
-          y: 0
-        })(index(res.points)(i));
-        var a = fromMaybe({
-          x: 0,
-          y: 0
-        })(index(res.points)(i - 1 | 0));
-        return acc + getBend(a)(b)(c)(p.borderRadius);
-      };
-    })("")(range2(1)(n - 2 | 0));
-  }();
-  var path = "M" + (showN3(head$prime.x) + (" " + (showN3(head$prime.y) + (bends + ("L" + (showN3(last$prime.x) + (" " + showN3(last$prime.y))))))));
+var handleBoundsOut = function(b) {
   return {
-    path,
-    labelX: res.centerX,
-    labelY: res.centerY,
-    offsetX: res.defaultOffsetX,
-    offsetY: res.defaultOffsetY
+    source: map1(function($95) {
+      return handleOut(unSourceHandle($95));
+    })(b.source),
+    target: map1(function($96) {
+      return handleOut(unTargetHandle($96));
+    })(b.target)
   };
 };
-
-// output/System.Utils.Edges.Straight/index.js
-var showN4 = toString;
-var getStraightPath = function(p) {
-  var path = "M " + (showN4(p.sourceX) + ("," + (showN4(p.sourceY) + ("L " + (showN4(p.targetX) + ("," + showN4(p.targetY)))))));
-  var c = getEdgeCenter({
-    sourceX: p.sourceX,
-    sourceY: p.sourceY,
-    targetX: p.targetX,
-    targetY: p.targetY
-  });
+var nodeInternalsOut = function(i) {
   return {
-    path,
-    labelX: c.centerX,
-    labelY: c.centerY,
-    offsetX: c.offsetX,
-    offsetY: c.offsetY
+    positionAbsolute: i.positionAbsolute,
+    z: i.z,
+    rootParentIndex: toUndefinable(map7(toNumber)(i.rootParentIndex)),
+    handleBounds: toUndefinable(map7(handleBoundsOut)(i.handleBounds)),
+    bounds: toUndefinable(map7(nodeBoundsOut)(i.bounds))
   };
 };
-
-// output/React.Component.ConnectionLine/index.js
-var bind7 = /* @__PURE__ */ bind3(ixBindRender);
-var useStore3 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
-  reflectSymbol: function() {
-    return "width";
-  }
-})(eqNumber))()({
-  reflectSymbol: function() {
-    return "nodesConnectable";
-  }
-})(eqBoolean))()({
-  reflectSymbol: function() {
-    return "isValid";
-  }
-})(/* @__PURE__ */ eqMaybe(eqBoolean)))()({
-  reflectSymbol: function() {
-    return "inProgress";
-  }
-})(eqBoolean))()({
-  reflectSymbol: function() {
-    return "height";
-  }
-})(eqNumber))()({
-  reflectSymbol: function() {
-    return "dataRef";
-  }
-})(eqUnsafeReference)));
-var pure7 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
-var mempty3 = /* @__PURE__ */ mempty(monoidJSX);
-var toForeignStyle2 = unsafeCoerce2;
-var statusClassName = function(v) {
-  if (v instanceof Just && v.value0 instanceof ConnectionValid) {
-    return "valid";
-  }
-  ;
-  if (v instanceof Just && v.value0 instanceof ConnectionInvalid) {
-    return "invalid";
-  }
-  ;
-  if (v instanceof Nothing) {
-    return "";
-  }
-  ;
-  throw new Error("Failed pattern match at React.Component.ConnectionLine (line 132, column 19 - line 135, column 16): " + [v.constructor.name]);
+var fromCssObject = unsafeCoerce2;
+var emptyNodeChange = {
+  type: "",
+  id: undefined2,
+  dimensions: undefined2,
+  resizing: undefined2,
+  setAttributes: undefined2,
+  position: undefined2,
+  positionAbsolute: undefined2,
+  dragging: undefined2,
+  selected: undefined2,
+  item: undefined2,
+  index: undefined2
 };
-var showN5 = toString;
-var selectSlice = function(s) {
-  if (s.connection instanceof NoConnection) {
-    return {
-      nodesConnectable: s.nodesConnectable,
-      width: s.width,
-      height: s.height,
-      inProgress: false,
-      isValid: Nothing.value,
-      dataRef: Nothing.value
-    };
-  }
-  ;
-  if (s.connection instanceof ConnectionInProgress) {
-    return {
-      nodesConnectable: s.nodesConnectable,
-      width: s.width,
-      height: s.height,
-      inProgress: true,
-      isValid: s.connection.value0.isValid,
-      dataRef: new Just(s.connection.value0)
-    };
-  }
-  ;
-  throw new Error("Failed pattern match at React.Component.ConnectionLine (line 97, column 17 - line 113, column 6): " + [s.connection.constructor.name]);
-};
-var mkPath = function(lineType) {
-  return function(p) {
-    if (lineType instanceof BezierLine) {
-      return function(v) {
-        return v.path;
-      }(getBezierPath({
-        sourceX: p.sourceX,
-        sourceY: p.sourceY,
-        sourcePosition: p.sourcePosition,
-        targetX: p.targetX,
-        targetY: p.targetY,
-        targetPosition: p.targetPosition,
-        curvature: 0.25
-      }));
-    }
-    ;
-    if (lineType instanceof SimpleBezierLine) {
-      return function(v) {
-        return v.path;
-      }(getSimpleBezierPath({
-        sourceX: p.sourceX,
-        sourceY: p.sourceY,
-        sourcePosition: p.sourcePosition,
-        targetX: p.targetX,
-        targetY: p.targetY,
-        targetPosition: p.targetPosition
-      }));
-    }
-    ;
-    if (lineType instanceof StepLine) {
-      return function(v) {
-        return v.path;
-      }(getSmoothStepPath({
-        sourceX: p.sourceX,
-        sourceY: p.sourceY,
-        sourcePosition: p.sourcePosition,
-        targetX: p.targetX,
-        targetY: p.targetY,
-        targetPosition: p.targetPosition,
-        borderRadius: 0,
-        centerX: Nothing.value,
-        centerY: Nothing.value,
-        offset: 20,
-        stepPosition: 0.5
-      }));
-    }
-    ;
-    if (lineType instanceof SmoothStepLine) {
-      return function(v) {
-        return v.path;
-      }(getSmoothStepPath({
-        sourceX: p.sourceX,
-        sourceY: p.sourceY,
-        sourcePosition: p.sourcePosition,
-        targetX: p.targetX,
-        targetY: p.targetY,
-        targetPosition: p.targetPosition,
-        borderRadius: 5,
-        centerX: Nothing.value,
-        centerY: Nothing.value,
-        offset: 20,
-        stepPosition: 0.5
-      }));
-    }
-    ;
-    if (lineType instanceof StraightLine) {
-      return function(v) {
-        return v.path;
-      }(getStraightPath({
-        sourceX: p.sourceX,
-        sourceY: p.sourceY,
-        targetX: p.targetX,
-        targetY: p.targetY
-      }));
-    }
-    ;
-    throw new Error("Failed pattern match at React.Component.ConnectionLine (line 147, column 21 - line 201, column 8): " + [lineType.constructor.name]);
-  };
-};
-var joinSpace = /* @__PURE__ */ function() {
-  var $74 = joinWith(" ");
-  var $75 = filter(function(v) {
-    return v !== "";
-  });
-  return function($76) {
-    return $74($75($76));
+var emptyMeasured = /* @__PURE__ */ function() {
+  return {
+    width: Nothing.value,
+    height: Nothing.value
   };
 }();
-var emptyForeign = /* @__PURE__ */ toForeignStyle2({});
-var styleOrEmpty = function(v) {
-  if (v instanceof Nothing) {
-    return emptyForeign;
-  }
-  ;
-  if (v instanceof Just) {
+var emptyEdgeChange = {
+  type: "",
+  id: undefined2,
+  selected: undefined2,
+  item: undefined2,
+  index: undefined2
+};
+var edgeMarkerOut = function(m) {
+  return {
+    type: markerTypeOut(m.markerType),
+    color: toUndefinable(m.color),
+    width: toUndefinable(m.width),
+    height: toUndefinable(m.height),
+    markerUnits: toUndefinable(m.markerUnits),
+    orient: toUndefinable(m.orient),
+    strokeWidth: toUndefinable(m.strokeWidth)
+  };
+};
+var markerOut = function(v) {
+  if (v instanceof NamedMarker) {
     return v.value0;
   }
   ;
-  throw new Error("Failed pattern match at React.Component.ConnectionLine (line 71, column 16 - line 73, column 40): " + [v.constructor.name]);
-};
-var connectionStatusOf = function(v) {
-  if (v instanceof Nothing) {
-    return Nothing.value;
+  if (v instanceof CustomMarker) {
+    return edgeMarkerOut(v.value0);
   }
   ;
-  if (v instanceof Just && v.value0) {
-    return new Just(ConnectionValid.value);
-  }
-  ;
-  if (v instanceof Just && !v.value0) {
-    return new Just(ConnectionInvalid.value);
-  }
-  ;
-  throw new Error("Failed pattern match at React.Component.ConnectionLine (line 126, column 22 - line 129, column 39): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Elements (line 753, column 13 - line 755, column 51): " + [v.constructor.name]);
 };
-var connectionLine = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponent()()()("ConnectionLine")(function(v) {
-  return bind7(useStore3(selectSlice))(function(slice3) {
-    var lineType = fromMaybe(BezierLine.value)(v.connectionLineType);
-    var gate = slice3.width > 0 && (slice3.nodesConnectable && slice3.inProgress);
-    return pure7(function() {
-      var $69 = !gate;
-      if ($69) {
-        return mempty3;
-      }
-      ;
-      if (slice3.dataRef instanceof Nothing) {
-        return mempty3;
-      }
-      ;
-      if (slice3.dataRef instanceof Just) {
-        var status2 = connectionStatusOf(slice3.isValid);
-        var innerBody = function() {
-          if (v.connectionLineComponent instanceof Just) {
-            return v.connectionLineComponent.value0({
-              connectionLineStyle: v.connectionLineStyle,
-              connectionLineType: lineType,
-              fromNode: slice3.dataRef.value0.fromNode,
-              fromHandle: slice3.dataRef.value0.fromHandle,
-              fromX: slice3.dataRef.value0.from.x,
-              fromY: slice3.dataRef.value0.from.y,
-              toX: slice3.dataRef.value0.to.x,
-              toY: slice3.dataRef.value0.to.y,
-              fromPosition: slice3.dataRef.value0.fromPosition,
-              toPosition: slice3.dataRef.value0.toPosition,
-              connectionStatus: status2,
-              toNode: slice3.dataRef.value0.toNode,
-              toHandle: slice3.dataRef.value0.toHandle,
-              pointer: slice3.dataRef.value0.pointer
-            });
-          }
-          ;
-          if (v.connectionLineComponent instanceof Nothing) {
-            var pathStr = mkPath(lineType)({
-              sourceX: slice3.dataRef.value0.from.x,
-              sourceY: slice3.dataRef.value0.from.y,
-              sourcePosition: slice3.dataRef.value0.fromPosition,
-              targetX: slice3.dataRef.value0.to.x,
-              targetY: slice3.dataRef.value0.to.y,
-              targetPosition: slice3.dataRef.value0.toPosition
-            });
-            return path_({
-              d: pathStr,
-              fill: "none",
-              className: "react-flow__connection-path",
-              style: styleOrEmpty(v.connectionLineStyle)
-            })([]);
-          }
-          ;
-          throw new Error("Failed pattern match at React.Component.ConnectionLine (line 231, column 27 - line 266, column 25): " + [v.connectionLineComponent.constructor.name]);
-        }();
-        var gClass = joinSpace(["react-flow__connection", statusClassName(status2)]);
-        return svg_2({
-          style: styleOrEmpty(v.connectionLineContainerStyle),
-          width: showN5(slice3.width),
-          height: showN5(slice3.height),
-          className: "react-flow__connectionline react-flow__container"
-        })([g_({
-          className: gClass
-        })([innerBody])]);
-      }
-      ;
-      throw new Error("Failed pattern match at React.Component.ConnectionLine (line 221, column 14 - line 274, column 59): " + [slice3.dataRef.constructor.name]);
-    }());
-  });
-})));
-
-// output/React.Component.EdgeWrapper/foreign.js
-var import_react5 = __toESM(require_react(), 1);
-var svg_3 = (props) => (children3) => (0, import_react5.createElement)("svg", props, ...children3);
-var joinSpace2 = (xs) => xs.filter((s) => s !== "").join(" ");
-
-// output/React.Basic.Events/index.js
-var handler_ = function($30) {
-  return mkEffectFn1($$const($30));
+var edgeOut = function(e) {
+  return {
+    id: e.id,
+    type: toUndefinable(e.edgeType),
+    source: unwrap2(e.source),
+    target: unwrap2(e.target),
+    sourceHandle: toUndefinable(e.sourceHandle),
+    targetHandle: toUndefinable(e.targetHandle),
+    animated: toUndefinable(new Just(e.animated)),
+    hidden: toUndefinable(new Just(e.hidden)),
+    deletable: toUndefinable(e.deletable),
+    selectable: toUndefinable(e.selectable),
+    data: toUndefinable(map7(unsafeToForeign)(e.data)),
+    selected: toUndefinable(new Just(e.selected)),
+    markerStart: toUndefinable(map7(markerOut)(e.markerStart)),
+    markerEnd: toUndefinable(map7(markerOut)(e.markerEnd)),
+    zIndex: toUndefinable(map7(toNumber)(e.zIndex)),
+    label: toUndefinable(e.label),
+    ariaLabel: toUndefinable(e.ariaLabel),
+    interactionWidth: toUndefinable(e.interactionWidth),
+    className: toUndefinable(e.className),
+    style: toUndefinable(map7(fromCssObject)(e.style))
+  };
 };
-var handler = function(v) {
-  return function(cb) {
-    return function($31) {
-      return cb(v($31))();
+var edgeMarkerIn = function(field) {
+  return function(m) {
+    return {
+      markerType: markerTypeIn(field + ".type")(m.type),
+      color: fromUndefinable(m.color),
+      width: fromUndefinable(m.width),
+      height: fromUndefinable(m.height),
+      markerUnits: fromUndefinable(m.markerUnits),
+      orient: fromUndefinable(m.orient),
+      strokeWidth: fromUndefinable(m.strokeWidth)
     };
   };
 };
-var categoryBuilder = categoryFn;
-var syntheticEvent = /* @__PURE__ */ identity(categoryBuilder);
+var markerIn = function(field) {
+  return function(raw) {
+    var v = asString(raw);
+    if (v instanceof Just) {
+      return new NamedMarker(v.value0);
+    }
+    ;
+    if (v instanceof Nothing) {
+      return new CustomMarker(edgeMarkerIn(field)(raw));
+    }
+    ;
+    throw new Error("Failed pattern match at Boundary.Elements (line 748, column 22 - line 750, column 66): " + [v.constructor.name]);
+  };
+};
+var edgeChangeOut = function(v) {
+  if (v instanceof EdgeSelectionChange) {
+    return {
+      item: emptyEdgeChange.item,
+      index: emptyEdgeChange.index,
+      type: "select",
+      id: toUndefinable(new Just(v.value0.id)),
+      selected: toUndefinable(new Just(v.value0.selected))
+    };
+  }
+  ;
+  if (v instanceof EdgeRemoveChange) {
+    return {
+      selected: emptyEdgeChange.selected,
+      item: emptyEdgeChange.item,
+      index: emptyEdgeChange.index,
+      type: "remove",
+      id: toUndefinable(new Just(v.value0.id))
+    };
+  }
+  ;
+  if (v instanceof EdgeAddChange) {
+    return {
+      id: emptyEdgeChange.id,
+      selected: emptyEdgeChange.selected,
+      type: "add",
+      item: toUndefinable(new Just(edgeOut(v.value0.item))),
+      index: toUndefinable(map7(toNumber)(v.value0.index))
+    };
+  }
+  ;
+  if (v instanceof EdgeReplaceChange) {
+    return {
+      selected: emptyEdgeChange.selected,
+      index: emptyEdgeChange.index,
+      type: "replace",
+      id: toUndefinable(new Just(v.value0.id)),
+      item: toUndefinable(new Just(edgeOut(v.value0.item)))
+    };
+  }
+  ;
+  throw new Error("Failed pattern match at Boundary.Elements (line 997, column 17 - line 1016, column 6): " + [v.constructor.name]);
+};
+var coordinateExtentOut = function(e) {
+  return [[unwrap2(e).minX, unwrap2(e).minY], [unwrap2(e).maxX, unwrap2(e).maxY]];
+};
+var nodeExtentOut = function(v) {
+  if (v instanceof ParentExtent) {
+    return "parent";
+  }
+  ;
+  if (v instanceof CoordExtent) {
+    return coordinateExtentOut(v.value0);
+  }
+  ;
+  throw new Error("Failed pattern match at Boundary.Elements (line 642, column 17 - line 644, column 56): " + [v.constructor.name]);
+};
+var internalNodeOut = function(n) {
+  return {
+    id: unwrap2(n.id),
+    position: n.position,
+    data: n.data,
+    type: toUndefinable(n.nodeType),
+    sourcePosition: toUndefinable(map7(positionOut)(n.sourcePosition)),
+    targetPosition: toUndefinable(map7(positionOut)(n.targetPosition)),
+    hidden: toUndefinable(new Just(n.hidden)),
+    selected: toUndefinable(new Just(n.selected)),
+    dragging: toUndefinable(new Just(n.dragging)),
+    draggable: toUndefinable(n.draggable),
+    selectable: toUndefinable(n.selectable),
+    connectable: toUndefinable(n.connectable),
+    deletable: toUndefinable(n.deletable),
+    dragHandle: toUndefinable(n.dragHandle),
+    width: toUndefinable(n.width),
+    height: toUndefinable(n.height),
+    initialWidth: toUndefinable(n.initialWidth),
+    initialHeight: toUndefinable(n.initialHeight),
+    parentId: toUndefinable(map7(unwrap2)(n.parentId)),
+    zIndex: toUndefinable(map7(toNumber)(n.zIndex)),
+    extent: toUndefinable(map7(nodeExtentOut)(n.extent)),
+    expandParent: toUndefinable(new Just(n.expandParent)),
+    ariaLabel: toUndefinable(n.ariaLabel),
+    origin: toUndefinable(map7(nodeOriginOut)(n.origin)),
+    handles: toUndefinable(map7(map1(nodeHandleOut))(n.handles)),
+    measured: toUndefinable(new Just(measuredOut(n.measured))),
+    className: toUndefinable(n.className),
+    style: toUndefinable(map7(fromCssObject)(n.style)),
+    internals: nodeInternalsOut(n.internals)
+  };
+};
+var nodeOut = function(n) {
+  return {
+    id: unwrap2(n.id),
+    position: n.position,
+    data: n.data,
+    type: toUndefinable(n.nodeType),
+    sourcePosition: toUndefinable(map7(positionOut)(n.sourcePosition)),
+    targetPosition: toUndefinable(map7(positionOut)(n.targetPosition)),
+    hidden: toUndefinable(new Just(n.hidden)),
+    selected: toUndefinable(new Just(n.selected)),
+    dragging: toUndefinable(new Just(n.dragging)),
+    draggable: toUndefinable(n.draggable),
+    selectable: toUndefinable(n.selectable),
+    connectable: toUndefinable(n.connectable),
+    deletable: toUndefinable(n.deletable),
+    dragHandle: toUndefinable(n.dragHandle),
+    width: toUndefinable(n.width),
+    height: toUndefinable(n.height),
+    initialWidth: toUndefinable(n.initialWidth),
+    initialHeight: toUndefinable(n.initialHeight),
+    parentId: toUndefinable(map7(unwrap2)(n.parentId)),
+    zIndex: toUndefinable(map7(toNumber)(n.zIndex)),
+    extent: toUndefinable(map7(nodeExtentOut)(n.extent)),
+    expandParent: toUndefinable(new Just(n.expandParent)),
+    ariaLabel: toUndefinable(n.ariaLabel),
+    origin: toUndefinable(map7(nodeOriginOut)(n.origin)),
+    handles: toUndefinable(map7(map1(nodeHandleOut))(n.handles)),
+    measured: toUndefinable(new Just(measuredOut(n.measured))),
+    className: toUndefinable(n.className),
+    style: toUndefinable(map7(fromCssObject)(n.style))
+  };
+};
+var graphSelectionOut = function(s) {
+  return {
+    nodes: map1(nodeOut)(s.nodes),
+    edges: map1(edgeOut)(s.edges)
+  };
+};
+var nodeChangeOut = function(v) {
+  if (v instanceof NodeDimensionChange) {
+    return {
+      position: emptyNodeChange.position,
+      positionAbsolute: emptyNodeChange.positionAbsolute,
+      dragging: emptyNodeChange.dragging,
+      selected: emptyNodeChange.selected,
+      item: emptyNodeChange.item,
+      index: emptyNodeChange.index,
+      type: "dimensions",
+      id: toUndefinable(new Just(unwrap2(v.value0.id))),
+      dimensions: toUndefinable(v.value0.dimensions),
+      resizing: toUndefinable(new Just(v.value0.resizing)),
+      setAttributes: toUndefinable(map7(setAttributesOut)(v.value0.setAttributes))
+    };
+  }
+  ;
+  if (v instanceof NodePositionChange) {
+    return {
+      dimensions: emptyNodeChange.dimensions,
+      resizing: emptyNodeChange.resizing,
+      setAttributes: emptyNodeChange.setAttributes,
+      selected: emptyNodeChange.selected,
+      item: emptyNodeChange.item,
+      index: emptyNodeChange.index,
+      type: "position",
+      id: toUndefinable(new Just(unwrap2(v.value0.id))),
+      position: toUndefinable(v.value0.position),
+      positionAbsolute: toUndefinable(v.value0.positionAbsolute),
+      dragging: toUndefinable(new Just(v.value0.dragging))
+    };
+  }
+  ;
+  if (v instanceof NodeSelectionChange) {
+    return {
+      dimensions: emptyNodeChange.dimensions,
+      resizing: emptyNodeChange.resizing,
+      setAttributes: emptyNodeChange.setAttributes,
+      position: emptyNodeChange.position,
+      positionAbsolute: emptyNodeChange.positionAbsolute,
+      dragging: emptyNodeChange.dragging,
+      item: emptyNodeChange.item,
+      index: emptyNodeChange.index,
+      type: "select",
+      id: toUndefinable(new Just(unwrap2(v.value0.id))),
+      selected: toUndefinable(new Just(v.value0.selected))
+    };
+  }
+  ;
+  if (v instanceof NodeRemoveChange) {
+    return {
+      dimensions: emptyNodeChange.dimensions,
+      resizing: emptyNodeChange.resizing,
+      setAttributes: emptyNodeChange.setAttributes,
+      position: emptyNodeChange.position,
+      positionAbsolute: emptyNodeChange.positionAbsolute,
+      dragging: emptyNodeChange.dragging,
+      selected: emptyNodeChange.selected,
+      item: emptyNodeChange.item,
+      index: emptyNodeChange.index,
+      type: "remove",
+      id: toUndefinable(new Just(unwrap2(v.value0.id)))
+    };
+  }
+  ;
+  if (v instanceof NodeAddChange) {
+    return {
+      id: emptyNodeChange.id,
+      dimensions: emptyNodeChange.dimensions,
+      resizing: emptyNodeChange.resizing,
+      setAttributes: emptyNodeChange.setAttributes,
+      position: emptyNodeChange.position,
+      positionAbsolute: emptyNodeChange.positionAbsolute,
+      dragging: emptyNodeChange.dragging,
+      selected: emptyNodeChange.selected,
+      type: "add",
+      item: toUndefinable(new Just(nodeOut(v.value0.item))),
+      index: toUndefinable(map7(toNumber)(v.value0.index))
+    };
+  }
+  ;
+  if (v instanceof NodeReplaceChange) {
+    return {
+      dimensions: emptyNodeChange.dimensions,
+      resizing: emptyNodeChange.resizing,
+      setAttributes: emptyNodeChange.setAttributes,
+      position: emptyNodeChange.position,
+      positionAbsolute: emptyNodeChange.positionAbsolute,
+      dragging: emptyNodeChange.dragging,
+      selected: emptyNodeChange.selected,
+      index: emptyNodeChange.index,
+      type: "replace",
+      id: toUndefinable(new Just(unwrap2(v.value0.id))),
+      item: toUndefinable(new Just(nodeOut(v.value0.item)))
+    };
+  }
+  ;
+  throw new Error("Failed pattern match at Boundary.Elements (line 904, column 17 - line 937, column 6): " + [v.constructor.name]);
+};
+var coordinateExtentIn = function(field) {
+  return function(v) {
+    if (v.length === 2 && (v[0].length === 2 && v[1].length === 2)) {
+      return wrap2({
+        minX: v[0][0],
+        minY: v[0][1],
+        maxX: v[1][0],
+        maxY: v[1][1]
+      });
+    }
+    ;
+    return unsafeThrow("ps-flow: `" + (field + "` must be [[minX, minY], [maxX, maxY]]."));
+  };
+};
+var nodeExtentIn = function(raw) {
+  var v = asString(raw);
+  if (v instanceof Just && v.value0 === "parent") {
+    return ParentExtent.value;
+  }
+  ;
+  if (v instanceof Just) {
+    return unsafeThrow('ps-flow: `node.extent` accepts the string "parent" or a coordinate ' + ("extent, got " + (show1(v.value0) + ".")));
+  }
+  ;
+  if (v instanceof Nothing) {
+    var v1 = asArray(raw);
+    if (v1 instanceof Just) {
+      return new CoordExtent(coordinateExtentIn("node.extent")(raw));
+    }
+    ;
+    if (v1 instanceof Nothing) {
+      return unsafeThrow('ps-flow: `node.extent` accepts the string "parent" or ' + ("[[minX, minY], [maxX, maxY]], got " + (typeName(raw) + ".")));
+    }
+    ;
+    throw new Error("Failed pattern match at Boundary.Elements (line 632, column 14 - line 639, column 17): " + [v1.constructor.name]);
+  }
+  ;
+  throw new Error("Failed pattern match at Boundary.Elements (line 624, column 20 - line 639, column 17): " + [v.constructor.name]);
+};
+var connectionOut = function(c) {
+  return {
+    source: unwrap2(c.source),
+    target: unwrap2(c.target),
+    sourceHandle: toNullable(c.sourceHandle),
+    targetHandle: toNullable(c.targetHandle)
+  };
+};
+var connectionIn = function(c) {
+  return {
+    source: wrap2(c.source),
+    target: wrap2(c.target),
+    sourceHandle: toMaybe(c.sourceHandle),
+    targetHandle: toMaybe(c.targetHandle)
+  };
+};
+var asCssStyle = unsafeCoerce2;
+var asCssObject = unsafeCoerce2;
+var edgeIn = function(e) {
+  return {
+    id: e.id,
+    edgeType: fromUndefinable(e.type),
+    source: wrap2(e.source),
+    target: wrap2(e.target),
+    sourceHandle: fromUndefinable(e.sourceHandle),
+    targetHandle: fromUndefinable(e.targetHandle),
+    animated: fromMaybe(false)(fromUndefinable(e.animated)),
+    hidden: fromMaybe(false)(fromUndefinable(e.hidden)),
+    deletable: fromUndefinable(e.deletable),
+    selectable: fromUndefinable(e.selectable),
+    data: fromUndefinable(e.data),
+    selected: fromMaybe(false)(fromUndefinable(e.selected)),
+    markerStart: map7(markerIn("edge.markerStart"))(fromUndefinable(e.markerStart)),
+    markerEnd: map7(markerIn("edge.markerEnd"))(fromUndefinable(e.markerEnd)),
+    zIndex: map7(round2)(fromUndefinable(e.zIndex)),
+    label: fromUndefinable(e.label),
+    ariaLabel: fromUndefinable(e.ariaLabel),
+    interactionWidth: fromUndefinable(e.interactionWidth),
+    className: fromUndefinable(e.className),
+    style: map7(asCssObject)(fromUndefinable(e.style))
+  };
+};
+var edgeChangeIn = function(c) {
+  if (c.type === "select") {
+    return new EdgeSelectionChange({
+      id: requiredMember(c.type)("id")(c.id),
+      selected: requiredMember(c.type)("selected")(c.selected)
+    });
+  }
+  ;
+  if (c.type === "remove") {
+    return new EdgeRemoveChange({
+      id: requiredMember(c.type)("id")(c.id)
+    });
+  }
+  ;
+  if (c.type === "add") {
+    return new EdgeAddChange({
+      item: edgeIn(requiredMember(c.type)("item")(c.item)),
+      index: map7(round2)(fromUndefinable(c.index))
+    });
+  }
+  ;
+  if (c.type === "replace") {
+    return new EdgeReplaceChange({
+      id: requiredMember(c.type)("id")(c.id),
+      item: edgeIn(requiredMember(c.type)("item")(c.item))
+    });
+  }
+  ;
+  return unknownChange("edge")(c.type);
+};
+var nodeIn = function(n) {
+  return {
+    id: wrap2(n.id),
+    position: n.position,
+    data: n.data,
+    sourcePosition: map7(positionIn("node.sourcePosition"))(fromUndefinable(n.sourcePosition)),
+    targetPosition: map7(positionIn("node.targetPosition"))(fromUndefinable(n.targetPosition)),
+    hidden: fromMaybe(false)(fromUndefinable(n.hidden)),
+    selected: fromMaybe(false)(fromUndefinable(n.selected)),
+    dragging: fromMaybe(false)(fromUndefinable(n.dragging)),
+    draggable: fromUndefinable(n.draggable),
+    selectable: fromUndefinable(n.selectable),
+    connectable: fromUndefinable(n.connectable),
+    deletable: fromUndefinable(n.deletable),
+    dragHandle: fromUndefinable(n.dragHandle),
+    width: fromUndefinable(n.width),
+    height: fromUndefinable(n.height),
+    initialWidth: fromUndefinable(n.initialWidth),
+    initialHeight: fromUndefinable(n.initialHeight),
+    parentId: map7(wrap2)(fromUndefinable(n.parentId)),
+    zIndex: map7(round2)(fromUndefinable(n.zIndex)),
+    extent: map7(nodeExtentIn)(fromUndefinable(n.extent)),
+    expandParent: fromMaybe(false)(fromUndefinable(n.expandParent)),
+    ariaLabel: fromUndefinable(n.ariaLabel),
+    origin: map7(nodeOriginIn("node.origin"))(fromUndefinable(n.origin)),
+    handles: map7(map1(nodeHandleIn))(fromUndefinable(n.handles)),
+    measured: maybe(emptyMeasured)(measuredIn)(fromUndefinable(n.measured)),
+    nodeType: fromUndefinable(n.type),
+    className: fromUndefinable(n.className),
+    style: map7(asCssObject)(fromUndefinable(n.style))
+  };
+};
+var nodeChangeIn = function(c) {
+  if (c.type === "dimensions") {
+    return new NodeDimensionChange({
+      id: wrap2(requiredMember(c.type)("id")(c.id)),
+      dimensions: fromUndefinable(c.dimensions),
+      resizing: fromMaybe(false)(fromUndefinable(c.resizing)),
+      setAttributes: map7(setAttributesIn)(fromUndefinable(c.setAttributes))
+    });
+  }
+  ;
+  if (c.type === "position") {
+    return new NodePositionChange({
+      id: wrap2(requiredMember(c.type)("id")(c.id)),
+      position: fromUndefinable(c.position),
+      positionAbsolute: fromUndefinable(c.positionAbsolute),
+      dragging: fromMaybe(false)(fromUndefinable(c.dragging))
+    });
+  }
+  ;
+  if (c.type === "select") {
+    return new NodeSelectionChange({
+      id: wrap2(requiredMember(c.type)("id")(c.id)),
+      selected: requiredMember(c.type)("selected")(c.selected)
+    });
+  }
+  ;
+  if (c.type === "remove") {
+    return new NodeRemoveChange({
+      id: wrap2(requiredMember(c.type)("id")(c.id))
+    });
+  }
+  ;
+  if (c.type === "add") {
+    return new NodeAddChange({
+      item: nodeIn(requiredMember(c.type)("item")(c.item)),
+      index: map7(round2)(fromUndefinable(c.index))
+    });
+  }
+  ;
+  if (c.type === "replace") {
+    return new NodeReplaceChange({
+      id: wrap2(requiredMember(c.type)("id")(c.id)),
+      item: nodeIn(requiredMember(c.type)("item")(c.item))
+    });
+  }
+  ;
+  return unknownChange("node")(c.type);
+};
 
 // output/Effect.Aff/foreign.js
 var Aff = function() {
@@ -32820,158 +30889,18 @@ function _makeFiber(util, aff) {
 }
 var _sequential = Aff.Seq;
 
-// output/Control.Monad.Error.Class/index.js
-var throwError = function(dict) {
-  return dict.throwError;
-};
-
-// output/Control.Monad.State.Class/index.js
-var state = function(dict) {
-  return dict.state;
-};
-var modify_2 = function(dictMonadState) {
-  var state1 = state(dictMonadState);
-  return function(f) {
-    return state1(function(s) {
-      return new Tuple(unit, f(s));
-    });
-  };
-};
-var get2 = function(dictMonadState) {
-  return state(dictMonadState)(function(s) {
-    return new Tuple(s, s);
-  });
-};
-
-// output/Control.Monad.Trans.Class/index.js
-var lift = function(dict) {
-  return dict.lift;
-};
-
-// output/Effect.Class/index.js
-var monadEffectEffect = {
-  liftEffect: /* @__PURE__ */ identity(categoryFn),
-  Monad0: function() {
-    return monadEffect;
+// output/Type.Equality/index.js
+var refl = {
+  proof: function(a) {
+    return a;
+  },
+  Coercible0: function() {
+    return void 0;
   }
-};
-var liftEffect = function(dict) {
-  return dict.liftEffect;
-};
-
-// output/Control.Monad.Except.Trans/index.js
-var map9 = /* @__PURE__ */ map(functorEither);
-var ExceptT = function(x) {
-  return x;
-};
-var runExceptT = function(v) {
-  return v;
-};
-var mapExceptT = function(f) {
-  return function(v) {
-    return f(v);
-  };
-};
-var functorExceptT = function(dictFunctor) {
-  var map118 = map(dictFunctor);
-  return {
-    map: function(f) {
-      return mapExceptT(map118(map9(f)));
-    }
-  };
-};
-var monadExceptT = function(dictMonad) {
-  return {
-    Applicative0: function() {
-      return applicativeExceptT(dictMonad);
-    },
-    Bind1: function() {
-      return bindExceptT(dictMonad);
-    }
-  };
-};
-var bindExceptT = function(dictMonad) {
-  var bind56 = bind(dictMonad.Bind1());
-  var pure80 = pure(dictMonad.Applicative0());
-  return {
-    bind: function(v) {
-      return function(k) {
-        return bind56(v)(either(function($193) {
-          return pure80(Left.create($193));
-        })(function(a) {
-          var v1 = k(a);
-          return v1;
-        }));
-      };
-    },
-    Apply0: function() {
-      return applyExceptT(dictMonad);
-    }
-  };
-};
-var applyExceptT = function(dictMonad) {
-  var functorExceptT1 = functorExceptT(dictMonad.Bind1().Apply0().Functor0());
-  return {
-    apply: ap(monadExceptT(dictMonad)),
-    Functor0: function() {
-      return functorExceptT1;
-    }
-  };
-};
-var applicativeExceptT = function(dictMonad) {
-  return {
-    pure: function() {
-      var $194 = pure(dictMonad.Applicative0());
-      return function($195) {
-        return ExceptT($194(Right.create($195)));
-      };
-    }(),
-    Apply0: function() {
-      return applyExceptT(dictMonad);
-    }
-  };
-};
-var monadThrowExceptT = function(dictMonad) {
-  var monadExceptT1 = monadExceptT(dictMonad);
-  return {
-    throwError: function() {
-      var $204 = pure(dictMonad.Applicative0());
-      return function($205) {
-        return ExceptT($204(Left.create($205)));
-      };
-    }(),
-    Monad0: function() {
-      return monadExceptT1;
-    }
-  };
-};
-
-// output/Partial.Unsafe/foreign.js
-var _unsafePartial = function(f) {
-  return f();
-};
-
-// output/Partial/foreign.js
-var _crashWith = function(msg) {
-  throw new Error(msg);
-};
-
-// output/Partial/index.js
-var crashWith = function() {
-  return _crashWith;
-};
-
-// output/Partial.Unsafe/index.js
-var crashWith2 = /* @__PURE__ */ crashWith();
-var unsafePartial = _unsafePartial;
-var unsafeCrashWith = function(msg) {
-  return unsafePartial(function() {
-    return crashWith2(msg);
-  });
 };
 
 // output/Effect.Aff/index.js
-var $runtime_lazy3 = function(name15, moduleName, init4) {
+var $runtime_lazy2 = function(name15, moduleName, init4) {
   var state3 = 0;
   var val;
   return function(lineNumber) {
@@ -33065,7 +30994,7 @@ var applicativeAff = {
     return $lazy_applyAff(0);
   }
 };
-var $lazy_applyAff = /* @__PURE__ */ $runtime_lazy3("applyAff", "Effect.Aff", function() {
+var $lazy_applyAff = /* @__PURE__ */ $runtime_lazy2("applyAff", "Effect.Aff", function() {
   return {
     apply: ap(monadAff),
     Functor0: function() {
@@ -33074,7 +31003,7 @@ var $lazy_applyAff = /* @__PURE__ */ $runtime_lazy3("applyAff", "Effect.Aff", fu
   };
 });
 var applyAff = /* @__PURE__ */ $lazy_applyAff(73);
-var pure22 = /* @__PURE__ */ pure(applicativeAff);
+var pure2 = /* @__PURE__ */ pure(applicativeAff);
 var monadEffectAff = {
   liftEffect: _liftEffect,
   Monad0: function() {
@@ -33085,10 +31014,3734 @@ var liftEffect2 = /* @__PURE__ */ liftEffect(monadEffectAff);
 var effectCanceler = function($77) {
   return Canceler($$const(liftEffect2($77)));
 };
-var nonCanceler = /* @__PURE__ */ $$const(/* @__PURE__ */ pure22(unit));
+var nonCanceler = /* @__PURE__ */ $$const(/* @__PURE__ */ pure2(unit));
+
+// output/Effect.Uncurried/foreign.js
+var mkEffectFn1 = function mkEffectFn12(fn) {
+  return function(x) {
+    return fn(x)();
+  };
+};
+var runEffectFn1 = function runEffectFn12(fn) {
+  return function(a) {
+    return function() {
+      return fn(a);
+    };
+  };
+};
+var runEffectFn2 = function runEffectFn22(fn) {
+  return function(a) {
+    return function(b) {
+      return function() {
+        return fn(a, b);
+      };
+    };
+  };
+};
+
+// output/Effect.Aff.Compat/index.js
+var fromEffectFnAff = function(v) {
+  return makeAff(function(k) {
+    return function __do2() {
+      var v1 = v(function($9) {
+        return k(Left.create($9))();
+      }, function($10) {
+        return k(Right.create($10))();
+      });
+      return function(e) {
+        return makeAff(function(k2) {
+          return function __do3() {
+            v1(e, function($11) {
+              return k2(Left.create($11))();
+            }, function($12) {
+              return k2(Right.create($12))();
+            });
+            return nonCanceler;
+          };
+        });
+      };
+    };
+  });
+};
+
+// output/Boundary.Callbacks/index.js
+var identity4 = /* @__PURE__ */ identity(categoryFn);
+var map8 = /* @__PURE__ */ map(functorArray);
+var map12 = /* @__PURE__ */ map(functorMaybe);
+var unwrap3 = /* @__PURE__ */ unwrap();
+var bind3 = /* @__PURE__ */ bind(bindAff);
+var liftEffect3 = /* @__PURE__ */ liftEffect(monadEffectAff);
+var pure1 = /* @__PURE__ */ pure(applicativeAff);
+var onViewportChangeIn = function(f) {
+  return function(viewport2) {
+    return function() {
+      return f(viewportOut(viewport2));
+    };
+  };
+};
+var onSelectionChangeIn = function(f) {
+  return function(params) {
+    return function() {
+      return f(graphSelectionOut(params));
+    };
+  };
+};
+var onScrollIn = identity4;
+var onReconnectIn = function(f) {
+  return function(oldEdge) {
+    return function(newConnection) {
+      return function() {
+        return f(edgeOut(oldEdge), connectionOut(newConnection));
+      };
+    };
+  };
+};
+var onNodesDeleteIn = function(f) {
+  return function(nodes3) {
+    return function() {
+      return f(map8(nodeOut)(nodes3));
+    };
+  };
+};
+var onNodesChangeIn = function(f) {
+  return function(changes) {
+    return function() {
+      return f(map8(nodeChangeOut)(changes));
+    };
+  };
+};
+var onErrorIn = function(f) {
+  return function(id3) {
+    return function(message2) {
+      return function() {
+        return f(id3, message2);
+      };
+    };
+  };
+};
+var onEdgesDeleteIn = function(f) {
+  return function(edges) {
+    return function() {
+      return f(map8(edgeOut)(edges));
+    };
+  };
+};
+var onEdgesChangeIn = function(f) {
+  return function(changes) {
+    return function() {
+      return f(map8(edgeChangeOut)(changes));
+    };
+  };
+};
+var onDeleteIn = function(f) {
+  return function(deleted) {
+    return function() {
+      return f(graphSelectionOut(deleted));
+    };
+  };
+};
+var onConnectIn = function(f) {
+  return function(connection) {
+    return function() {
+      return f(connectionOut(connection));
+    };
+  };
+};
+var noConnection2 = {
+  isValid: nullImpl,
+  from: nullImpl,
+  fromHandle: nullImpl,
+  fromPosition: nullImpl,
+  fromNode: nullImpl,
+  to: nullImpl,
+  toHandle: nullImpl,
+  toPosition: nullImpl,
+  toNode: nullImpl,
+  pointer: nullImpl
+};
+var isValidConnectionIn = function(f) {
+  var candidateOut = function(c) {
+    if (c.edge instanceof Just) {
+      return unsafeToForeign(edgeOut(c.edge.value0));
+    }
+    ;
+    if (c.edge instanceof Nothing) {
+      return unsafeToForeign(connectionOut({
+        source: c.source,
+        target: c.target,
+        sourceHandle: c.sourceHandle,
+        targetHandle: c.targetHandle
+      }));
+    }
+    ;
+    throw new Error("Failed pattern match at Boundary.Callbacks (line 521, column 20 - line 530, column 8): " + [c.edge.constructor.name]);
+  };
+  return function(candidate) {
+    return f(candidateOut(candidate));
+  };
+};
+var interactiveChangeHandlerIn = function(f) {
+  return function(interactive) {
+    return function() {
+      return f(interactive);
+    };
+  };
+};
+var eventOut = unsafeToForeign;
+var miniMapClickHandlerIn = function(f) {
+  return function(event) {
+    return function(position3) {
+      return function() {
+        return f(eventOut(event), position3);
+      };
+    };
+  };
+};
+var mouseEventHandlerIn = function(f) {
+  return function(event) {
+    return function() {
+      return f(eventOut(event));
+    };
+  };
+};
+var nodeMouseHandlerIn = function(f) {
+  return function(event) {
+    return function(node) {
+      return function() {
+        return f(eventOut(event), nodeOut(node));
+      };
+    };
+  };
+};
+var onMoveIn = function(f) {
+  return function(event) {
+    return function(viewport2) {
+      return function() {
+        return f(toNullable(map12(eventOut)(event)), viewportOut(viewport2));
+      };
+    };
+  };
+};
+var onNodeDragIn = function(f) {
+  return function(event) {
+    return function(node) {
+      return function(nodes3) {
+        return function() {
+          return f(eventOut(event), nodeOut(node), map8(nodeOut)(nodes3));
+        };
+      };
+    };
+  };
+};
+var onPaneScrollIn = function(f) {
+  return function(event) {
+    return function() {
+      return f(toUndefinable(map12(eventOut)(event)));
+    };
+  };
+};
+var onReconnectStartIn = function(f) {
+  return function(event) {
+    return function(edge) {
+      return function(handleType) {
+        return function() {
+          return f(eventOut(event), edgeOut(edge), handleTypeOut(handleType));
+        };
+      };
+    };
+  };
+};
+var selectionDragHandlerIn = function(f) {
+  return function(event) {
+    return function(nodes3) {
+      return function() {
+        return f(eventOut(event), map8(nodeOut)(nodes3));
+      };
+    };
+  };
+};
+var edgeMouseHandlerIn = function(f) {
+  return function(event) {
+    return function(edge) {
+      return function() {
+        return f(eventOut(event), edgeOut(edge));
+      };
+    };
+  };
+};
+var connectionStateOut = function(v) {
+  if (v instanceof Nothing) {
+    return noConnection2;
+  }
+  ;
+  if (v instanceof Just) {
+    return {
+      isValid: toNullable(v.value0.isValid),
+      from: notNull(v.value0.from),
+      fromHandle: notNull(handleOut(v.value0.fromHandle)),
+      fromPosition: notNull(positionOut(v.value0.fromPosition)),
+      fromNode: notNull(internalNodeOut(v.value0.fromNode)),
+      to: notNull(v.value0.to),
+      toHandle: toNullable(map12(handleOut)(v.value0.toHandle)),
+      toPosition: notNull(positionOut(v.value0.toPosition)),
+      toNode: toNullable(map12(internalNodeOut)(v.value0.toNode)),
+      pointer: notNull(v.value0.pointer)
+    };
+  }
+  ;
+  throw new Error("Failed pattern match at Boundary.Callbacks (line 259, column 22 - line 272, column 6): " + [v.constructor.name]);
+};
+var onReconnectEndIn = function(f) {
+  return function(event) {
+    return function(edge) {
+      return function(handleType) {
+        return function(state3) {
+          return function() {
+            return f(eventOut(event), edgeOut(edge), handleTypeOut(handleType), connectionStateOut(state3));
+          };
+        };
+      };
+    };
+  };
+};
+var connectStartParamsOut = function(p) {
+  return {
+    nodeId: toNullable(map12(unwrap3)(p.nodeId)),
+    handleId: toNullable(p.handleId),
+    handleType: toNullable(map12(handleTypeOut)(p.handleType))
+  };
+};
+var connectEventOut = /* @__PURE__ */ either(eventOut)(eventOut);
+var onConnectEndIn = function(f) {
+  return function(event) {
+    return function(state3) {
+      return function() {
+        return f(connectEventOut(event), connectionStateOut(state3));
+      };
+    };
+  };
+};
+var onConnectStartIn = function(f) {
+  return function(event) {
+    return function(params) {
+      return function() {
+        return f(connectEventOut(event), connectStartParamsOut(params));
+      };
+    };
+  };
+};
+var commandHandlerIn = identity4;
+var badBeforeDeleteResult = function(raw) {
+  return unsafeThrow("ps-flow: `onBeforeDelete` must resolve to a boolean or to " + ("`{ nodes, edges }`, got " + (typeName(raw) + ".")));
+};
+var beforeDeleteResultIn = function(raw) {
+  var v = asBoolean(raw);
+  if (v instanceof Just) {
+    return {
+      allow: v.value0,
+      nodes: Nothing.value,
+      edges: Nothing.value
+    };
+  }
+  ;
+  if (v instanceof Nothing && typeName(raw) === "object") {
+    var v1 = isArrayOf(raw.edges);
+    var v2 = isArrayOf(raw.nodes);
+    if (v2 && v1) {
+      return {
+        allow: true,
+        nodes: new Just(map8(nodeIn)(raw.nodes)),
+        edges: new Just(map8(edgeIn)(raw.edges))
+      };
+    }
+    ;
+    return badBeforeDeleteResult(raw);
+  }
+  ;
+  if (v instanceof Nothing) {
+    return badBeforeDeleteResult(raw);
+  }
+  ;
+  throw new Error("Failed pattern match at Boundary.Callbacks (line 551, column 28 - line 567, column 39): " + [v.constructor.name]);
+};
+var onBeforeDeleteIn = function(f) {
+  return function(selection2) {
+    return bind3(liftEffect3(function() {
+      return f(graphSelectionOut(selection2));
+    }))(function(answered) {
+      return bind3(fromEffectFnAff(awaitPromise(answered)))(function(settled) {
+        return pure1(beforeDeleteResultIn(settled));
+      });
+    });
+  };
+};
+
+// output/Boundary.Refusal/index.js
+var show4 = /* @__PURE__ */ show(showInt);
+var refuseFirst = function(message2) {
+  return function(refusals) {
+    return function(p) {
+      var v = find2(function(r) {
+        return r.supplied(p);
+      })(refusals);
+      if (v instanceof Nothing) {
+        return p;
+      }
+      ;
+      if (v instanceof Just) {
+        return unsafeThrow(message2(v.value0));
+      }
+      ;
+      throw new Error("Failed pattern match at Boundary.Refusal (line 98, column 34 - line 100, column 36): " + [v.constructor.name]);
+    };
+  };
+};
+var instanceProp = function(name15) {
+  return function(get7) {
+    return {
+      name: name15,
+      stage: 3,
+      note: "the imperative instance and the 21 hooks",
+      supplied: function(p) {
+        return isDefined(get7(p));
+      }
+    };
+  };
+};
+var deferredMessage = function(d) {
+  return "ps-flow: the `" + (d.name + ("` prop has not crossed the JavaScript boundary yet \u2014 it lands in " + ("boundary stage " + (show4(d.stage) + (" (" + (d.note + "). It is refused rather than ignored so that a prop ps-flow has not implemented fails loudly instead of looking like a prop you did not set."))))));
+};
+var componentProp = function(name15) {
+  return function(get7) {
+    return {
+      name: name15,
+      stage: 4,
+      note: "the props that hand a consumer's own component its props record",
+      supplied: function(p) {
+        return isDefined(get7(p));
+      }
+    };
+  };
+};
+
+// output/React.Basic.Hooks/foreign.js
+var import_react2 = __toESM(require_react(), 1);
+var useEqCache = (eq18, a) => {
+  const memoRef = import_react2.default.useRef(a);
+  if (memoRef.current !== a && !eq18(memoRef.current, a)) {
+    memoRef.current = a;
+  }
+  return memoRef.current;
+};
+function reactChildrenToArray(children3) {
+  return import_react2.default.Children.toArray(children3);
+}
+var memo_ = import_react2.default.memo;
+var memoEq_ = import_react2.default.memo;
+function useState_(tuple, initialState2) {
+  const [state3, setState] = import_react2.default.useState(
+    typeof initialState2 === "function" ? () => initialState2 : initialState2
+  );
+  if (!setState.hasOwnProperty("$$reactBasicHooks$$cachedSetState")) {
+    setState.$$reactBasicHooks$$cachedSetState = (update2) => () => setState(update2);
+  }
+  return tuple(state3, setState.$$reactBasicHooks$$cachedSetState);
+}
+function useEffect_(eq18, deps, effect) {
+  const memoizedKey = useEqCache(eq18, deps);
+  import_react2.default.useEffect(effect, [memoizedKey]);
+}
+function useEffectAlways_(effect) {
+  return import_react2.default.useEffect(effect);
+}
+function useLayoutEffect_(eq18, deps, effect) {
+  const memoizedKey = useEqCache(eq18, deps);
+  import_react2.default.useLayoutEffect(effect, [memoizedKey]);
+}
+var useRef_ = import_react2.default.useRef;
+function readRef_(ref) {
+  return ref.current;
+}
+function writeRef_(ref, a) {
+  ref.current = a;
+}
+var useContext_ = import_react2.default.useContext;
+function useMemo_(eq18, deps, computeA) {
+  const memoizedKey = useEqCache(eq18, deps);
+  return import_react2.default.useMemo(computeA, [memoizedKey]);
+}
+var useDebugValue_ = import_react2.default.useDebugValue;
+var useId_ = import_react2.default.useId;
+var useDeferredValue_ = import_react2.default.useDeferredValue;
+var useSyncExternalStore2_ = import_react2.default.useSyncExternalStore;
+var useSyncExternalStore3_ = import_react2.default.useSyncExternalStore;
+function unsafeSetDisplayName(displayName2, component) {
+  component.displayName = displayName2;
+  component.toString = () => displayName2;
+  return component;
+}
+var useEffectEvent_ = import_react2.default.useEffectEvent || import_react2.default.experimental_useEffectEvent;
+
+// output/Control.Bind.Indexed/index.js
+var ibind = function(dict) {
+  return dict.ibind;
+};
+
+// output/React.Basic.Hooks.Internal/index.js
+var map9 = /* @__PURE__ */ map(functorEffect);
+var apply2 = /* @__PURE__ */ apply(applyEffect);
+var pure3 = /* @__PURE__ */ pure(applicativeEffect);
+var Render = function(x) {
+  return x;
+};
+var unsafeHook = Render;
+var ixFunctorRender = {
+  imap: function(f) {
+    return function(v) {
+      return map9(f)(v);
+    };
+  }
+};
+var ixApplyRender = {
+  iapply: function(v) {
+    return function(v1) {
+      return apply2(v)(v1);
+    };
+  },
+  IxFunctor0: function() {
+    return ixFunctorRender;
+  }
+};
+var ixBindRender = {
+  ibind: function(v) {
+    return function(f) {
+      return function __do2() {
+        var a = v();
+        var v1 = f(a);
+        return v1();
+      };
+    };
+  },
+  IxApply0: function() {
+    return ixApplyRender;
+  }
+};
+var functorRender = {
+  map: function(f) {
+    return function(v) {
+      return map9(f)(v);
+    };
+  }
+};
+var discard2 = function(dictIxBind) {
+  return ibind(dictIxBind);
+};
+var coerceHook = function() {
+  return function(v) {
+    return v;
+  };
+};
+var bind4 = function(dictIxBind) {
+  return ibind(dictIxBind);
+};
+var applyRender = function(dictTypeEquals) {
+  return {
+    apply: function(v) {
+      return function(v1) {
+        return apply2(v)(v1);
+      };
+    },
+    Functor0: function() {
+      return functorRender;
+    }
+  };
+};
+var applicativeRender = function(dictTypeEquals) {
+  var applyRender1 = applyRender(dictTypeEquals);
+  return {
+    pure: function(a) {
+      return pure3(a);
+    },
+    Apply0: function() {
+      return applyRender1;
+    }
+  };
+};
+
+// output/Unsafe.Reference/foreign.js
+function reallyUnsafeRefEq(a) {
+  return function(b) {
+    return a === b;
+  };
+}
+
+// output/Unsafe.Reference/index.js
+var unsafeRefEq = reallyUnsafeRefEq;
+
+// output/React.Basic.Hooks/index.js
+var bind5 = /* @__PURE__ */ bind(bindEffect);
+var writeRef = /* @__PURE__ */ runEffectFn2(writeRef_);
+var useState = function(initialState2) {
+  return unsafeHook(function() {
+    return useState_(mkFn2(Tuple.create), initialState2);
+  });
+};
+var useRef = function(initialValue) {
+  return unsafeHook(function() {
+    return useRef_(initialValue);
+  });
+};
+var useMemo = function(dictEq) {
+  var eq18 = eq(dictEq);
+  return function(deps) {
+    return function(computeA) {
+      return unsafeHook(function() {
+        return useMemo_(mkFn2(eq18), deps, computeA);
+      });
+    };
+  };
+};
+var useLayoutEffect = function(dictEq) {
+  var eq18 = eq(dictEq);
+  return function(deps) {
+    return function(effect) {
+      return unsafeHook(function() {
+        return useLayoutEffect_(mkFn2(eq18), deps, effect);
+      });
+    };
+  };
+};
+var useEffectOnce = function(effect) {
+  return unsafeHook(function() {
+    return useEffect_(function(v, v1) {
+      return true;
+    }, unit, effect);
+  });
+};
+var useEffectAlways = function(effect) {
+  return unsafeHook(function() {
+    return useEffectAlways_(effect);
+  });
+};
+var useEffect = function(dictEq) {
+  var eq18 = eq(dictEq);
+  return function(deps) {
+    return function(effect) {
+      return unsafeHook(function() {
+        return useEffect_(mkFn2(eq18), deps, effect);
+      });
+    };
+  };
+};
+var useContext = function(context) {
+  return unsafeHook(function() {
+    return useContext_(context);
+  });
+};
+var unsafeReactFunctionComponent = unsafeCoerce2;
+var unsafeDiscardRenderEffects = unsafeCoerce2;
+var unsafeReactComponent = function() {
+  return function() {
+    return function(name15) {
+      return function(renderFn) {
+        var c = unsafeReactFunctionComponent(function(props) {
+          return unsafeDiscardRenderEffects(renderFn(props))();
+        });
+        return function() {
+          return unsafeSetDisplayName(name15, c);
+        };
+      };
+    };
+  };
+};
+var unsafeReactComponent1 = /* @__PURE__ */ unsafeReactComponent()();
+var readRef = /* @__PURE__ */ runEffectFn1(readRef_);
+var reactComponentWithChildren = function() {
+  return function() {
+    return unsafeReactComponent1;
+  };
+};
+var reactComponent = function() {
+  return function() {
+    return function() {
+      return unsafeReactComponent1;
+    };
+  };
+};
+var reactChildrenFromArray = unsafeCoerce2;
+var memo = /* @__PURE__ */ flip(bind5)(/* @__PURE__ */ runEffectFn1(memo_));
+var eqUnsafeReference = {
+  eq: unsafeRefEq
+};
+
+// output/React.Container.ReactFlow/foreign.js
+var mergeStyleImpl = (a) => (b) => ({ ...a, ...b });
+var filterEmptyImpl = (xs) => xs.filter((s) => s.length > 0);
+var joinWithSpaceImpl = (xs) => xs.join(" ");
+
+// output/React.FFI.DOM/foreign.js
+var React3 = __toESM(require_react(), 1);
+var mk = (tag) => (props) => (children3) => React3.createElement(tag, props, ...children3);
+var div_ = mk("div");
+var span_ = mk("span");
+var button_ = mk("button");
+var g_ = mk("g");
+var path_ = mk("path");
+var text_ = mk("text");
+var rect_ = mk("rect");
+var circle_ = mk("circle");
+var foreignObject_ = mk("foreignObject");
+var svg_ = mk("svg");
+var defs_ = mk("defs");
+var marker_ = mk("marker");
+var pattern_ = mk("pattern");
+var polyline_ = mk("polyline");
+var symbol_ = mk("symbol");
+var title_ = mk("title");
+var scrollResetHandlerImpl = (cb) => (event) => {
+  if (event && event.currentTarget && event.currentTarget.scrollTo) {
+    event.currentTarget.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }
+  cb();
+};
+
+// output/React.FFI.DOM/index.js
+var textContent = unsafeCoerce2;
+var scrollResetHandler = function(cb) {
+  return scrollResetHandlerImpl(function(v) {
+    return cb();
+  });
+};
+var opt = function($2) {
+  return toNullable($2);
+};
+
+// output/React.Context.Store/index.js
+var storeContext = /* @__PURE__ */ function() {
+  return unsafePerformEffect(createContext(Nothing.value));
+}();
+var storeProvider = function(value12) {
+  return function(children3) {
+    return provider(storeContext)(value12)(children3);
+  };
+};
+
+// output/System.Constants/index.js
+var show5 = /* @__PURE__ */ show(showNumber);
+var E001 = /* @__PURE__ */ function() {
+  function E0012() {
+  }
+  ;
+  E0012.value = new E0012();
+  return E0012;
+}();
+var E002 = /* @__PURE__ */ function() {
+  function E0022() {
+  }
+  ;
+  E0022.value = new E0022();
+  return E0022;
+}();
+var E003 = /* @__PURE__ */ function() {
+  function E0032(value0) {
+    this.value0 = value0;
+  }
+  ;
+  E0032.create = function(value0) {
+    return new E0032(value0);
+  };
+  return E0032;
+}();
+var E004 = /* @__PURE__ */ function() {
+  function E0042() {
+  }
+  ;
+  E0042.value = new E0042();
+  return E0042;
+}();
+var E005 = /* @__PURE__ */ function() {
+  function E0052() {
+  }
+  ;
+  E0052.value = new E0052();
+  return E0052;
+}();
+var E006 = /* @__PURE__ */ function() {
+  function E0062() {
+  }
+  ;
+  E0062.value = new E0062();
+  return E0062;
+}();
+var E007 = /* @__PURE__ */ function() {
+  function E0072(value0) {
+    this.value0 = value0;
+  }
+  ;
+  E0072.create = function(value0) {
+    return new E0072(value0);
+  };
+  return E0072;
+}();
+var E008 = /* @__PURE__ */ function() {
+  function E0082(value0, value1) {
+    this.value0 = value0;
+    this.value1 = value1;
+  }
+  ;
+  E0082.create = function(value0) {
+    return function(value1) {
+      return new E0082(value0, value1);
+    };
+  };
+  return E0082;
+}();
+var E009 = /* @__PURE__ */ function() {
+  function E0092(value0) {
+    this.value0 = value0;
+  }
+  ;
+  E0092.create = function(value0) {
+    return new E0092(value0);
+  };
+  return E0092;
+}();
+var E010 = /* @__PURE__ */ function() {
+  function E0102() {
+  }
+  ;
+  E0102.value = new E0102();
+  return E0102;
+}();
+var E011 = /* @__PURE__ */ function() {
+  function E0112(value0) {
+    this.value0 = value0;
+  }
+  ;
+  E0112.create = function(value0) {
+    return new E0112(value0);
+  };
+  return E0112;
+}();
+var E012 = /* @__PURE__ */ function() {
+  function E0122(value0) {
+    this.value0 = value0;
+  }
+  ;
+  E0122.create = function(value0) {
+    return new E0122(value0);
+  };
+  return E0122;
+}();
+var E013 = /* @__PURE__ */ function() {
+  function E0132(value0) {
+    this.value0 = value0;
+  }
+  ;
+  E0132.create = function(value0) {
+    return new E0132(value0);
+  };
+  return E0132;
+}();
+var E014 = /* @__PURE__ */ function() {
+  function E0142() {
+  }
+  ;
+  E0142.value = new E0142();
+  return E0142;
+}();
+var E015 = /* @__PURE__ */ function() {
+  function E0152() {
+  }
+  ;
+  E0152.value = new E0152();
+  return E0152;
+}();
+var infiniteExtent = /* @__PURE__ */ function() {
+  return mkCoordinateExtent(-1 / 0)(-1 / 0)(1 / 0)(1 / 0);
+}();
+var errorMessage = function(v) {
+  if (v instanceof E001) {
+    return "[React Flow]: Seems like you have not used zustand provider as an ancestor. Help: https://reactflow.dev/error#001";
+  }
+  ;
+  if (v instanceof E002) {
+    return "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them.";
+  }
+  ;
+  if (v instanceof E003) {
+    return 'Node type "' + (v.value0 + '" not found. Using fallback type "default".');
+  }
+  ;
+  if (v instanceof E004) {
+    return "The React Flow parent container needs a width and a height to render the graph.";
+  }
+  ;
+  if (v instanceof E005) {
+    return "Only child nodes can use a parent extent.";
+  }
+  ;
+  if (v instanceof E006) {
+    return "Can't create edge. An edge needs a source and a target.";
+  }
+  ;
+  if (v instanceof E007) {
+    return "The old edge with id=" + (v.value0 + " does not exist.");
+  }
+  ;
+  if (v instanceof E008) {
+    var handleStr = function() {
+      if (v.value0 instanceof Source) {
+        return "source";
+      }
+      ;
+      if (v.value0 instanceof Target) {
+        return "target";
+      }
+      ;
+      throw new Error("Failed pattern match at System.Constants (line 65, column 19 - line 67, column 27): " + [v.value0.constructor.name]);
+    }();
+    var handleId = function() {
+      if (v.value0 instanceof Source) {
+        return fromMaybe("")(v.value1.sourceHandle);
+      }
+      ;
+      if (v.value0 instanceof Target) {
+        return fromMaybe("")(v.value1.targetHandle);
+      }
+      ;
+      throw new Error("Failed pattern match at System.Constants (line 68, column 18 - line 70, column 49): " + [v.value0.constructor.name]);
+    }();
+    return "Couldn't create edge for " + (handleStr + (' handle id: "' + (handleId + ('", edge id: ' + (v.value1.id + ".")))));
+  }
+  ;
+  if (v instanceof E009) {
+    return 'Marker type "' + (v.value0 + `" doesn't exist.`);
+  }
+  ;
+  if (v instanceof E010) {
+    return "Handle: No node id found. Make sure to only use a Handle inside a custom Node.";
+  }
+  ;
+  if (v instanceof E011) {
+    return 'Edge type "' + (v.value0 + '" not found. Using fallback type "default".');
+  }
+  ;
+  if (v instanceof E012) {
+    return 'Node with id "' + (v.value0 + '" does not exist, it may have been removed. This can happen when a node is deleted before the "onNodeClick" handler is called.');
+  }
+  ;
+  if (v instanceof E013) {
+    return "It seems that you haven't loaded the styles. Please import '@xyflow/" + (v.value0 + "/dist/style.css' or base.css to make sure everything is working properly.");
+  }
+  ;
+  if (v instanceof E014) {
+    return "useNodeConnections: No node ID found. Call useNodeConnections inside a custom Node or provide a node ID.";
+  }
+  ;
+  if (v instanceof E015) {
+    return "It seems that you are trying to drag a node that is not initialized. Please use onNodesChange as explained in the docs.";
+  }
+  ;
+  throw new Error("Failed pattern match at System.Constants (line 48, column 16 - line 90, column 126): " + [v.constructor.name]);
+};
+var elementSelectionKeys = ["Enter", " ", "Escape"];
+var defaultAriaLabelConfig = {
+  nodeA11yDescriptionDefault: "Press enter or space to select a node. Press delete to remove it and escape to cancel.",
+  nodeA11yDescriptionKeyboardDisabled: "Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel.",
+  nodeA11yDescriptionAriaLiveMessage: function(v) {
+    return "Moved selected node " + (v.direction + (". New position, x: " + (show5(v.x) + (", y: " + show5(v.y)))));
+  },
+  edgeA11yDescriptionDefault: "Press enter or space to select an edge. You can then press delete to remove it or escape to cancel.",
+  controlsAriaLabel: "Control Panel",
+  controlsZoomInAriaLabel: "Zoom In",
+  controlsZoomOutAriaLabel: "Zoom Out",
+  controlsFitViewAriaLabel: "Fit View",
+  controlsInteractiveAriaLabel: "Toggle Interactivity",
+  minimapAriaLabel: "Mini Map",
+  handleAriaLabel: "Handle"
+};
+var mergeAriaLabelConfig = function(o) {
+  return {
+    nodeA11yDescriptionDefault: fromMaybe(defaultAriaLabelConfig.nodeA11yDescriptionDefault)(o.nodeA11yDescriptionDefault),
+    nodeA11yDescriptionKeyboardDisabled: fromMaybe(defaultAriaLabelConfig.nodeA11yDescriptionKeyboardDisabled)(o.nodeA11yDescriptionKeyboardDisabled),
+    nodeA11yDescriptionAriaLiveMessage: fromMaybe(defaultAriaLabelConfig.nodeA11yDescriptionAriaLiveMessage)(o.nodeA11yDescriptionAriaLiveMessage),
+    edgeA11yDescriptionDefault: fromMaybe(defaultAriaLabelConfig.edgeA11yDescriptionDefault)(o.edgeA11yDescriptionDefault),
+    controlsAriaLabel: fromMaybe(defaultAriaLabelConfig.controlsAriaLabel)(o.controlsAriaLabel),
+    controlsZoomInAriaLabel: fromMaybe(defaultAriaLabelConfig.controlsZoomInAriaLabel)(o.controlsZoomInAriaLabel),
+    controlsZoomOutAriaLabel: fromMaybe(defaultAriaLabelConfig.controlsZoomOutAriaLabel)(o.controlsZoomOutAriaLabel),
+    controlsFitViewAriaLabel: fromMaybe(defaultAriaLabelConfig.controlsFitViewAriaLabel)(o.controlsFitViewAriaLabel),
+    controlsInteractiveAriaLabel: fromMaybe(defaultAriaLabelConfig.controlsInteractiveAriaLabel)(o.controlsInteractiveAriaLabel),
+    minimapAriaLabel: fromMaybe(defaultAriaLabelConfig.minimapAriaLabel)(o.minimapAriaLabel),
+    handleAriaLabel: fromMaybe(defaultAriaLabelConfig.handleAriaLabel)(o.handleAriaLabel)
+  };
+};
+
+// output/React.Hook.Store/index.js
+var coerceHook2 = /* @__PURE__ */ coerceHook();
+var bind6 = /* @__PURE__ */ bind4(ixBindRender);
+var pure4 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var map10 = /* @__PURE__ */ map(functorEffect);
+var discard3 = /* @__PURE__ */ discard2(ixBindRender);
+var useEffect2 = /* @__PURE__ */ useEffect(eqUnsafeReference);
+var storeAsTagged = unsafeCoerce2;
+var opaqueToStore = unsafeCoerce2;
+var useStoreApi = /* @__PURE__ */ coerceHook2(/* @__PURE__ */ bind6(/* @__PURE__ */ useContext(storeContext))(function(mStore) {
+  if (mStore instanceof Nothing) {
+    return unsafeThrow(errorMessage(E001.value));
+  }
+  ;
+  if (mStore instanceof Just) {
+    return pure4(opaqueToStore(mStore.value0));
+  }
+  ;
+  throw new Error("Failed pattern match at React.Hook.Store (line 87, column 3 - line 89, column 47): " + [mStore.constructor.name]);
+}));
+var useStore = function(dictEq) {
+  return function(selector4) {
+    return coerceHook2(bind6(useContext(storeContext))(function(mStore) {
+      var store = function() {
+        if (mStore instanceof Nothing) {
+          return unsafeThrow(errorMessage(E001.value));
+        }
+        ;
+        if (mStore instanceof Just) {
+          return opaqueToStore(mStore.value0);
+        }
+        ;
+        throw new Error("Failed pattern match at React.Hook.Store (line 107, column 13 - line 109, column 42): " + [mStore.constructor.name]);
+      }();
+      var initial = unsafePerformEffect(map10(selector4)(store.getState));
+      return bind6(useState(initial))(function(v) {
+        return discard3(useEffect2(storeAsTagged(store))(store.subscribe(dictEq)(selector4)(function(v1) {
+          return v.value1($$const(v1));
+        })))(function() {
+          return pure4(v.value0);
+        });
+      });
+    }));
+  };
+};
+
+// output/React.Container.A11yDescriptions/index.js
+var bind7 = /* @__PURE__ */ bind4(ixBindRender);
+var useStore2 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
+  reflectSymbol: function() {
+    return "nodeKeyboardDisabled";
+  }
+})(eqString))()({
+  reflectSymbol: function() {
+    return "nodeDefault";
+  }
+})(eqString))()({
+  reflectSymbol: function() {
+    return "edgeDefault";
+  }
+})(eqString)));
+var useStore1 = /* @__PURE__ */ useStore(eqString);
+var pure5 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var append12 = /* @__PURE__ */ append(semigroupArray);
+var toForeignStyle = unsafeCoerce2;
+var selectDescriptions = function(s) {
+  return {
+    nodeDefault: s.ariaLabelConfig.nodeA11yDescriptionDefault,
+    nodeKeyboardDisabled: s.ariaLabelConfig.nodeA11yDescriptionKeyboardDisabled,
+    edgeDefault: s.ariaLabelConfig.edgeA11yDescriptionDefault
+  };
+};
+var selectAriaLiveMessage = function(v) {
+  return v.ariaLiveMessage;
+};
+var hiddenStyle = /* @__PURE__ */ toForeignStyle({
+  display: "none"
+});
+var ariaLiveStyle = /* @__PURE__ */ function() {
+  return toForeignStyle({
+    position: "absolute",
+    width: 1,
+    height: 1,
+    margin: -1 | 0,
+    border: 0,
+    padding: 0,
+    overflow: "hidden",
+    clip: "rect(0px, 0px, 0px, 0px)",
+    clipPath: "inset(100%)"
+  });
+}();
+var a11yDescriptions = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponent()()()("A11yDescriptions")(function(v) {
+  return bind7(useStore2(selectDescriptions))(function(descs) {
+    return bind7(useStore1(selectAriaLiveMessage))(function(ariaLiveMessage) {
+      var nodeDescText = function() {
+        if (v.disableKeyboardA11y) {
+          return descs.nodeKeyboardDisabled;
+        }
+        ;
+        return descs.nodeDefault;
+      }();
+      var nodeDescId = "react-flow__node-desc-" + v.rfId;
+      var edgeDescId = "react-flow__edge-desc-" + v.rfId;
+      var descChildren = [div_({
+        id: nodeDescId,
+        style: hiddenStyle
+      })([textContent(nodeDescText)]), div_({
+        id: edgeDescId,
+        style: hiddenStyle
+      })([textContent(descs.edgeDefault)])];
+      var ariaLiveId = "react-flow__aria-live-" + v.rfId;
+      var liveChildren = function() {
+        if (v.disableKeyboardA11y) {
+          return [];
+        }
+        ;
+        return [div_({
+          id: ariaLiveId,
+          "aria-live": "assertive",
+          "aria-atomic": "true",
+          style: ariaLiveStyle
+        })([textContent(ariaLiveMessage)])];
+      }();
+      return pure5(fragment(append12(descChildren)(liveChildren)));
+    });
+  });
+}));
+
+// output/React.Container.Attribution/foreign.js
+var import_react3 = __toESM(require_react(), 1);
+var a_ = (props) => (children3) => (0, import_react3.createElement)("a", props, ...children3);
+
+// output/React.Portal.Panel/index.js
+var pure6 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var panelPositionClasses = function(v) {
+  if (v instanceof TopLeft) {
+    return "top left";
+  }
+  ;
+  if (v instanceof TopCenter) {
+    return "top center";
+  }
+  ;
+  if (v instanceof TopRight) {
+    return "top right";
+  }
+  ;
+  if (v instanceof BottomLeft) {
+    return "bottom left";
+  }
+  ;
+  if (v instanceof BottomCenter) {
+    return "bottom center";
+  }
+  ;
+  if (v instanceof BottomRight) {
+    return "bottom right";
+  }
+  ;
+  if (v instanceof CenterLeft) {
+    return "center left";
+  }
+  ;
+  if (v instanceof CenterRight) {
+    return "center right";
+  }
+  ;
+  throw new Error("Failed pattern match at React.Portal.Panel (line 26, column 24 - line 34, column 32): " + [v.constructor.name]);
+};
+var panel = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponentWithChildren()()("Panel")(function(v) {
+  var userClass = fromMaybe("")(v.className);
+  var className2 = "react-flow__panel " + (panelPositionClasses(v.position) + function() {
+    var $10 = userClass === "";
+    if ($10) {
+      return "";
+    }
+    ;
+    return " " + userClass;
+  }());
+  return pure6(div_({
+    className: className2,
+    style: opt(v.style),
+    "aria-label": opt(v["aria-label"]),
+    "data-testid": opt(v["data-testid"])
+  })(reactChildrenToArray(v.children)));
+})));
+
+// output/React.Container.Attribution/index.js
+var pure7 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var mempty2 = /* @__PURE__ */ mempty(monoidJSX);
+var attribution = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponent()()()("Attribution")(function(v) {
+  var hidden2 = function() {
+    if (v.proOptions instanceof Just) {
+      return v.proOptions.value0.hideAttribution;
+    }
+    ;
+    if (v.proOptions instanceof Nothing) {
+      return false;
+    }
+    ;
+    throw new Error("Failed pattern match at React.Container.Attribution (line 28, column 16 - line 30, column 25): " + [v.proOptions.constructor.name]);
+  }();
+  if (hidden2) {
+    return pure7(mempty2);
+  }
+  ;
+  var pos = fromMaybe(BottomRight.value)(v.position);
+  var link = a_({
+    href: "https://reactflow.dev",
+    target: "_blank",
+    rel: "noopener noreferrer",
+    "aria-label": "React Flow attribution"
+  })([textContent("React Flow")]);
+  var messageWrap = span_({
+    "data-message": "Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"
+  })([link]);
+  return pure7(element(panel)({
+    position: pos,
+    className: new Just("react-flow__attribution"),
+    style: Nothing.value,
+    "aria-label": Nothing.value,
+    "data-testid": Nothing.value,
+    children: reactChildrenFromArray([messageWrap])
+  }));
+}));
+
+// output/React.Component.ConnectionLine/foreign.js
+var import_react4 = __toESM(require_react(), 1);
+var svg_2 = (props) => (children3) => (0, import_react4.createElement)("svg", props, ...children3);
+
+// output/Data.Number.Format/foreign.js
+function wrap3(method2) {
+  return function(d) {
+    return function(num) {
+      return method2.apply(num, [d]);
+    };
+  };
+}
+var toPrecisionNative = wrap3(Number.prototype.toPrecision);
+var toFixedNative = wrap3(Number.prototype.toFixed);
+var toExponentialNative = wrap3(Number.prototype.toExponential);
+function toString(num) {
+  return num.toString();
+}
+
+// output/Data.String.Common/foreign.js
+var trim = function(s) {
+  return s.trim();
+};
+var joinWith = function(s) {
+  return function(xs) {
+    return xs.join(s);
+  };
+};
+
+// output/React.Types.Edges/index.js
+var ReconnectAny = /* @__PURE__ */ function() {
+  function ReconnectAny2() {
+  }
+  ;
+  ReconnectAny2.value = new ReconnectAny2();
+  return ReconnectAny2;
+}();
+var ReconnectOnly = /* @__PURE__ */ function() {
+  function ReconnectOnly2(value0) {
+    this.value0 = value0;
+  }
+  ;
+  ReconnectOnly2.create = function(value0) {
+    return new ReconnectOnly2(value0);
+  };
+  return ReconnectOnly2;
+}();
+var ConnectionValid = /* @__PURE__ */ function() {
+  function ConnectionValid2() {
+  }
+  ;
+  ConnectionValid2.value = new ConnectionValid2();
+  return ConnectionValid2;
+}();
+var ConnectionInvalid = /* @__PURE__ */ function() {
+  function ConnectionInvalid2() {
+  }
+  ;
+  ConnectionInvalid2.value = new ConnectionInvalid2();
+  return ConnectionInvalid2;
+}();
+
+// output/System.Utils.Edges.Bezier/index.js
+var showN = toString;
+var getBezierEdgeCenter = function(p) {
+  var centerY = p.sourceY * 0.125 + p.sourceControlY * 0.375 + p.targetControlY * 0.375 + p.targetY * 0.125;
+  var centerX = p.sourceX * 0.125 + p.sourceControlX * 0.375 + p.targetControlX * 0.375 + p.targetX * 0.125;
+  return {
+    centerX,
+    centerY,
+    offsetX: abs(centerX - p.sourceX),
+    offsetY: abs(centerY - p.sourceY)
+  };
+};
+var calculateControlOffset = function(distance2) {
+  return function(curvature) {
+    if (distance2 >= 0) {
+      return 0.5 * distance2;
+    }
+    ;
+    if (otherwise) {
+      return curvature * 25 * sqrt(-distance2);
+    }
+    ;
+    throw new Error("Failed pattern match at System.Utils.Edges.Bezier (line 60, column 1 - line 60, column 53): " + [distance2.constructor.name, curvature.constructor.name]);
+  };
+};
+var getControlWithCurvature = function(pos) {
+  return function(x1) {
+    return function(y1) {
+      return function(x2) {
+        return function(y2) {
+          return function(c) {
+            if (pos instanceof PosLeft) {
+              return {
+                x: x1 - calculateControlOffset(x1 - x2)(c),
+                y: y1
+              };
+            }
+            ;
+            if (pos instanceof PosRight) {
+              return {
+                x: x1 + calculateControlOffset(x2 - x1)(c),
+                y: y1
+              };
+            }
+            ;
+            if (pos instanceof PosTop) {
+              return {
+                x: x1,
+                y: y1 - calculateControlOffset(y1 - y2)(c)
+              };
+            }
+            ;
+            if (pos instanceof PosBottom) {
+              return {
+                x: x1,
+                y: y1 + calculateControlOffset(y2 - y1)(c)
+              };
+            }
+            ;
+            throw new Error("Failed pattern match at System.Utils.Edges.Bezier (line 73, column 45 - line 77, column 69): " + [pos.constructor.name]);
+          };
+        };
+      };
+    };
+  };
+};
+var getBezierPath = function(p) {
+  var tgt = getControlWithCurvature(p.targetPosition)(p.targetX)(p.targetY)(p.sourceX)(p.sourceY)(p.curvature);
+  var src9 = getControlWithCurvature(p.sourcePosition)(p.sourceX)(p.sourceY)(p.targetX)(p.targetY)(p.curvature);
+  var path = "M" + (showN(p.sourceX) + ("," + (showN(p.sourceY) + (" C" + (showN(src9.x) + ("," + (showN(src9.y) + (" " + (showN(tgt.x) + ("," + (showN(tgt.y) + (" " + (showN(p.targetX) + ("," + showN(p.targetY)))))))))))))));
+  var c = getBezierEdgeCenter({
+    sourceX: p.sourceX,
+    sourceY: p.sourceY,
+    targetX: p.targetX,
+    targetY: p.targetY,
+    sourceControlX: src9.x,
+    sourceControlY: src9.y,
+    targetControlX: tgt.x,
+    targetControlY: tgt.y
+  });
+  return {
+    path,
+    labelX: c.centerX,
+    labelY: c.centerY,
+    offsetX: c.offsetX,
+    offsetY: c.offsetY
+  };
+};
+
+// output/System.Utils.Edges.SimpleBezier/index.js
+var showN2 = toString;
+var getControl = function(pos) {
+  return function(x1) {
+    return function(y1) {
+      return function(x2) {
+        return function(y2) {
+          if (pos instanceof PosLeft) {
+            return {
+              x: 0.5 * (x1 + x2),
+              y: y1
+            };
+          }
+          ;
+          if (pos instanceof PosRight) {
+            return {
+              x: 0.5 * (x1 + x2),
+              y: y1
+            };
+          }
+          ;
+          return {
+            x: x1,
+            y: 0.5 * (y1 + y2)
+          };
+        };
+      };
+    };
+  };
+};
+var getSimpleBezierPath = function(p) {
+  var tgt = getControl(p.targetPosition)(p.targetX)(p.targetY)(p.sourceX)(p.sourceY);
+  var src9 = getControl(p.sourcePosition)(p.sourceX)(p.sourceY)(p.targetX)(p.targetY);
+  var path = "M" + (showN2(p.sourceX) + ("," + (showN2(p.sourceY) + (" C" + (showN2(src9.x) + ("," + (showN2(src9.y) + (" " + (showN2(tgt.x) + ("," + (showN2(tgt.y) + (" " + (showN2(p.targetX) + ("," + showN2(p.targetY)))))))))))))));
+  var c = getBezierEdgeCenter({
+    sourceX: p.sourceX,
+    sourceY: p.sourceY,
+    targetX: p.targetX,
+    targetY: p.targetY,
+    sourceControlX: src9.x,
+    sourceControlY: src9.y,
+    targetControlX: tgt.x,
+    targetControlY: tgt.y
+  });
+  return {
+    path,
+    labelX: c.centerX,
+    labelY: c.centerY,
+    offsetX: c.offsetX,
+    offsetY: c.offsetY
+  };
+};
+
+// output/System.Utils.General/foreign.js
+var isMacOsImpl = () => typeof navigator !== "undefined" && typeof navigator.userAgent === "string" && navigator.userAgent.indexOf("Mac") >= 0;
+
+// output/Data.Map.Internal/index.js
+var $runtime_lazy3 = function(name15, moduleName, init4) {
+  var state3 = 0;
+  var val;
+  return function(lineNumber) {
+    if (state3 === 2) return val;
+    if (state3 === 1) throw new ReferenceError(name15 + " was needed before it finished initializing (module " + moduleName + ", line " + lineNumber + ")", moduleName, lineNumber);
+    state3 = 1;
+    val = init4();
+    state3 = 2;
+    return val;
+  };
+};
+var Leaf = /* @__PURE__ */ function() {
+  function Leaf2() {
+  }
+  ;
+  Leaf2.value = new Leaf2();
+  return Leaf2;
+}();
+var Node = /* @__PURE__ */ function() {
+  function Node3(value0, value1, value22, value32, value42, value52) {
+    this.value0 = value0;
+    this.value1 = value1;
+    this.value2 = value22;
+    this.value3 = value32;
+    this.value4 = value42;
+    this.value5 = value52;
+  }
+  ;
+  Node3.create = function(value0) {
+    return function(value1) {
+      return function(value22) {
+        return function(value32) {
+          return function(value42) {
+            return function(value52) {
+              return new Node3(value0, value1, value22, value32, value42, value52);
+            };
+          };
+        };
+      };
+    };
+  };
+  return Node3;
+}();
+var IterLeaf = /* @__PURE__ */ function() {
+  function IterLeaf2() {
+  }
+  ;
+  IterLeaf2.value = new IterLeaf2();
+  return IterLeaf2;
+}();
+var IterEmit = /* @__PURE__ */ function() {
+  function IterEmit2(value0, value1, value22) {
+    this.value0 = value0;
+    this.value1 = value1;
+    this.value2 = value22;
+  }
+  ;
+  IterEmit2.create = function(value0) {
+    return function(value1) {
+      return function(value22) {
+        return new IterEmit2(value0, value1, value22);
+      };
+    };
+  };
+  return IterEmit2;
+}();
+var IterNode = /* @__PURE__ */ function() {
+  function IterNode2(value0, value1) {
+    this.value0 = value0;
+    this.value1 = value1;
+  }
+  ;
+  IterNode2.create = function(value0) {
+    return function(value1) {
+      return new IterNode2(value0, value1);
+    };
+  };
+  return IterNode2;
+}();
+var IterDone = /* @__PURE__ */ function() {
+  function IterDone2() {
+  }
+  ;
+  IterDone2.value = new IterDone2();
+  return IterDone2;
+}();
+var IterNext = /* @__PURE__ */ function() {
+  function IterNext2(value0, value1, value22) {
+    this.value0 = value0;
+    this.value1 = value1;
+    this.value2 = value22;
+  }
+  ;
+  IterNext2.create = function(value0) {
+    return function(value1) {
+      return function(value22) {
+        return new IterNext2(value0, value1, value22);
+      };
+    };
+  };
+  return IterNext2;
+}();
+var SplitLast = /* @__PURE__ */ function() {
+  function SplitLast2(value0, value1, value22) {
+    this.value0 = value0;
+    this.value1 = value1;
+    this.value2 = value22;
+  }
+  ;
+  SplitLast2.create = function(value0) {
+    return function(value1) {
+      return function(value22) {
+        return new SplitLast2(value0, value1, value22);
+      };
+    };
+  };
+  return SplitLast2;
+}();
+var unsafeNode = function(k, v, l, r) {
+  if (l instanceof Leaf) {
+    if (r instanceof Leaf) {
+      return new Node(1, 1, k, v, l, r);
+    }
+    ;
+    if (r instanceof Node) {
+      return new Node(1 + r.value0 | 0, 1 + r.value1 | 0, k, v, l, r);
+    }
+    ;
+    throw new Error("Failed pattern match at Data.Map.Internal (line 702, column 5 - line 706, column 39): " + [r.constructor.name]);
+  }
+  ;
+  if (l instanceof Node) {
+    if (r instanceof Leaf) {
+      return new Node(1 + l.value0 | 0, 1 + l.value1 | 0, k, v, l, r);
+    }
+    ;
+    if (r instanceof Node) {
+      return new Node(1 + function() {
+        var $280 = l.value0 > r.value0;
+        if ($280) {
+          return l.value0;
+        }
+        ;
+        return r.value0;
+      }() | 0, (1 + l.value1 | 0) + r.value1 | 0, k, v, l, r);
+    }
+    ;
+    throw new Error("Failed pattern match at Data.Map.Internal (line 708, column 5 - line 712, column 68): " + [r.constructor.name]);
+  }
+  ;
+  throw new Error("Failed pattern match at Data.Map.Internal (line 700, column 32 - line 712, column 68): " + [l.constructor.name]);
+};
+var toMapIter = /* @__PURE__ */ function() {
+  return flip(IterNode.create)(IterLeaf.value);
+}();
+var stepWith = function(f) {
+  return function(next) {
+    return function(done) {
+      var go2 = function($copy_v) {
+        var $tco_done = false;
+        var $tco_result;
+        function $tco_loop(v) {
+          if (v instanceof IterLeaf) {
+            $tco_done = true;
+            return done(unit);
+          }
+          ;
+          if (v instanceof IterEmit) {
+            $tco_done = true;
+            return next(v.value0, v.value1, v.value2);
+          }
+          ;
+          if (v instanceof IterNode) {
+            $copy_v = f(v.value1)(v.value0);
+            return;
+          }
+          ;
+          throw new Error("Failed pattern match at Data.Map.Internal (line 940, column 8 - line 946, column 20): " + [v.constructor.name]);
+        }
+        ;
+        while (!$tco_done) {
+          $tco_result = $tco_loop($copy_v);
+        }
+        ;
+        return $tco_result;
+      };
+      return go2;
+    };
+  };
+};
+var size2 = function(v) {
+  if (v instanceof Leaf) {
+    return 0;
+  }
+  ;
+  if (v instanceof Node) {
+    return v.value1;
+  }
+  ;
+  throw new Error("Failed pattern match at Data.Map.Internal (line 618, column 8 - line 620, column 24): " + [v.constructor.name]);
+};
+var singleton6 = function(k) {
+  return function(v) {
+    return new Node(1, 1, k, v, Leaf.value, Leaf.value);
+  };
+};
+var unsafeBalancedNode = /* @__PURE__ */ function() {
+  var height8 = function(v) {
+    if (v instanceof Leaf) {
+      return 0;
+    }
+    ;
+    if (v instanceof Node) {
+      return v.value0;
+    }
+    ;
+    throw new Error("Failed pattern match at Data.Map.Internal (line 757, column 12 - line 759, column 26): " + [v.constructor.name]);
+  };
+  var rotateLeft = function(k, v, l, rk, rv, rl, rr) {
+    if (rl instanceof Node && rl.value0 > height8(rr)) {
+      return unsafeNode(rl.value2, rl.value3, unsafeNode(k, v, l, rl.value4), unsafeNode(rk, rv, rl.value5, rr));
+    }
+    ;
+    return unsafeNode(rk, rv, unsafeNode(k, v, l, rl), rr);
+  };
+  var rotateRight = function(k, v, lk, lv, ll, lr, r) {
+    if (lr instanceof Node && height8(ll) <= lr.value0) {
+      return unsafeNode(lr.value2, lr.value3, unsafeNode(lk, lv, ll, lr.value4), unsafeNode(k, v, lr.value5, r));
+    }
+    ;
+    return unsafeNode(lk, lv, ll, unsafeNode(k, v, lr, r));
+  };
+  return function(k, v, l, r) {
+    if (l instanceof Leaf) {
+      if (r instanceof Leaf) {
+        return singleton6(k)(v);
+      }
+      ;
+      if (r instanceof Node && r.value0 > 1) {
+        return rotateLeft(k, v, l, r.value2, r.value3, r.value4, r.value5);
+      }
+      ;
+      return unsafeNode(k, v, l, r);
+    }
+    ;
+    if (l instanceof Node) {
+      if (r instanceof Node) {
+        if (r.value0 > (l.value0 + 1 | 0)) {
+          return rotateLeft(k, v, l, r.value2, r.value3, r.value4, r.value5);
+        }
+        ;
+        if (l.value0 > (r.value0 + 1 | 0)) {
+          return rotateRight(k, v, l.value2, l.value3, l.value4, l.value5, r);
+        }
+        ;
+      }
+      ;
+      if (r instanceof Leaf && l.value0 > 1) {
+        return rotateRight(k, v, l.value2, l.value3, l.value4, l.value5, r);
+      }
+      ;
+      return unsafeNode(k, v, l, r);
+    }
+    ;
+    throw new Error("Failed pattern match at Data.Map.Internal (line 717, column 40 - line 738, column 34): " + [l.constructor.name]);
+  };
+}();
+var $lazy_unsafeSplitLast = /* @__PURE__ */ $runtime_lazy3("unsafeSplitLast", "Data.Map.Internal", function() {
+  return function(k, v, l, r) {
+    if (r instanceof Leaf) {
+      return new SplitLast(k, v, l);
+    }
+    ;
+    if (r instanceof Node) {
+      var v1 = $lazy_unsafeSplitLast(779)(r.value2, r.value3, r.value4, r.value5);
+      return new SplitLast(v1.value0, v1.value1, unsafeBalancedNode(k, v, l, v1.value2));
+    }
+    ;
+    throw new Error("Failed pattern match at Data.Map.Internal (line 776, column 37 - line 780, column 57): " + [r.constructor.name]);
+  };
+});
+var unsafeSplitLast = /* @__PURE__ */ $lazy_unsafeSplitLast(775);
+var unsafeJoinNodes = function(v, v1) {
+  if (v instanceof Leaf) {
+    return v1;
+  }
+  ;
+  if (v instanceof Node) {
+    var v2 = unsafeSplitLast(v.value2, v.value3, v.value4, v.value5);
+    return unsafeBalancedNode(v2.value0, v2.value1, v2.value2, v1);
+  }
+  ;
+  throw new Error("Failed pattern match at Data.Map.Internal (line 764, column 25 - line 768, column 38): " + [v.constructor.name, v1.constructor.name]);
+};
+var member = function(dictOrd) {
+  var compare3 = compare(dictOrd);
+  return function(k) {
+    var go2 = function($copy_v) {
+      var $tco_done = false;
+      var $tco_result;
+      function $tco_loop(v) {
+        if (v instanceof Leaf) {
+          $tco_done = true;
+          return false;
+        }
+        ;
+        if (v instanceof Node) {
+          var v1 = compare3(k)(v.value2);
+          if (v1 instanceof LT) {
+            $copy_v = v.value4;
+            return;
+          }
+          ;
+          if (v1 instanceof GT) {
+            $copy_v = v.value5;
+            return;
+          }
+          ;
+          if (v1 instanceof EQ) {
+            $tco_done = true;
+            return true;
+          }
+          ;
+          throw new Error("Failed pattern match at Data.Map.Internal (line 459, column 7 - line 462, column 19): " + [v1.constructor.name]);
+        }
+        ;
+        throw new Error("Failed pattern match at Data.Map.Internal (line 456, column 8 - line 462, column 19): " + [v.constructor.name]);
+      }
+      ;
+      while (!$tco_done) {
+        $tco_result = $tco_loop($copy_v);
+      }
+      ;
+      return $tco_result;
+    };
+    return go2;
+  };
+};
+var lookup2 = function(dictOrd) {
+  var compare3 = compare(dictOrd);
+  return function(k) {
+    var go2 = function($copy_v) {
+      var $tco_done = false;
+      var $tco_result;
+      function $tco_loop(v) {
+        if (v instanceof Leaf) {
+          $tco_done = true;
+          return Nothing.value;
+        }
+        ;
+        if (v instanceof Node) {
+          var v1 = compare3(k)(v.value2);
+          if (v1 instanceof LT) {
+            $copy_v = v.value4;
+            return;
+          }
+          ;
+          if (v1 instanceof GT) {
+            $copy_v = v.value5;
+            return;
+          }
+          ;
+          if (v1 instanceof EQ) {
+            $tco_done = true;
+            return new Just(v.value3);
+          }
+          ;
+          throw new Error("Failed pattern match at Data.Map.Internal (line 283, column 7 - line 286, column 22): " + [v1.constructor.name]);
+        }
+        ;
+        throw new Error("Failed pattern match at Data.Map.Internal (line 280, column 8 - line 286, column 22): " + [v.constructor.name]);
+      }
+      ;
+      while (!$tco_done) {
+        $tco_result = $tco_loop($copy_v);
+      }
+      ;
+      return $tco_result;
+    };
+    return go2;
+  };
+};
+var iterMapL = /* @__PURE__ */ function() {
+  var go2 = function($copy_iter) {
+    return function($copy_v) {
+      var $tco_var_iter = $copy_iter;
+      var $tco_done = false;
+      var $tco_result;
+      function $tco_loop(iter, v) {
+        if (v instanceof Leaf) {
+          $tco_done = true;
+          return iter;
+        }
+        ;
+        if (v instanceof Node) {
+          if (v.value5 instanceof Leaf) {
+            $tco_var_iter = new IterEmit(v.value2, v.value3, iter);
+            $copy_v = v.value4;
+            return;
+          }
+          ;
+          $tco_var_iter = new IterEmit(v.value2, v.value3, new IterNode(v.value5, iter));
+          $copy_v = v.value4;
+          return;
+        }
+        ;
+        throw new Error("Failed pattern match at Data.Map.Internal (line 951, column 13 - line 958, column 48): " + [v.constructor.name]);
+      }
+      ;
+      while (!$tco_done) {
+        $tco_result = $tco_loop($tco_var_iter, $copy_v);
+      }
+      ;
+      return $tco_result;
+    };
+  };
+  return go2;
+}();
+var stepAscCps = /* @__PURE__ */ stepWith(iterMapL);
+var stepAsc = /* @__PURE__ */ function() {
+  return stepAscCps(function(k, v, next) {
+    return new IterNext(k, v, next);
+  })($$const(IterDone.value));
+}();
+var eqMapIter = function(dictEq) {
+  var eq18 = eq(dictEq);
+  return function(dictEq1) {
+    var eq28 = eq(dictEq1);
+    return {
+      eq: /* @__PURE__ */ function() {
+        var go2 = function($copy_a) {
+          return function($copy_b) {
+            var $tco_var_a = $copy_a;
+            var $tco_done = false;
+            var $tco_result;
+            function $tco_loop(a, b) {
+              var v = stepAsc(a);
+              if (v instanceof IterNext) {
+                var v2 = stepAsc(b);
+                if (v2 instanceof IterNext && (eq18(v.value0)(v2.value0) && eq28(v.value1)(v2.value1))) {
+                  $tco_var_a = v.value2;
+                  $copy_b = v2.value2;
+                  return;
+                }
+                ;
+                $tco_done = true;
+                return false;
+              }
+              ;
+              if (v instanceof IterDone) {
+                $tco_done = true;
+                return true;
+              }
+              ;
+              throw new Error("Failed pattern match at Data.Map.Internal (line 859, column 14 - line 868, column 13): " + [v.constructor.name]);
+            }
+            ;
+            while (!$tco_done) {
+              $tco_result = $tco_loop($tco_var_a, $copy_b);
+            }
+            ;
+            return $tco_result;
+          };
+        };
+        return go2;
+      }()
+    };
+  };
+};
+var stepUnfoldr = /* @__PURE__ */ function() {
+  var step2 = function(k, v, next) {
+    return new Just(new Tuple(new Tuple(k, v), next));
+  };
+  return stepAscCps(step2)(function(v) {
+    return Nothing.value;
+  });
+}();
+var toUnfoldable4 = function(dictUnfoldable) {
+  var $784 = unfoldr(dictUnfoldable)(stepUnfoldr);
+  return function($785) {
+    return $784(toMapIter($785));
+  };
+};
+var isEmpty = function(v) {
+  if (v instanceof Leaf) {
+    return true;
+  }
+  ;
+  return false;
+};
+var insert3 = function(dictOrd) {
+  var compare3 = compare(dictOrd);
+  return function(k) {
+    return function(v) {
+      var go2 = function(v1) {
+        if (v1 instanceof Leaf) {
+          return singleton6(k)(v);
+        }
+        ;
+        if (v1 instanceof Node) {
+          var v2 = compare3(k)(v1.value2);
+          if (v2 instanceof LT) {
+            return unsafeBalancedNode(v1.value2, v1.value3, go2(v1.value4), v1.value5);
+          }
+          ;
+          if (v2 instanceof GT) {
+            return unsafeBalancedNode(v1.value2, v1.value3, v1.value4, go2(v1.value5));
+          }
+          ;
+          if (v2 instanceof EQ) {
+            return new Node(v1.value0, v1.value1, k, v, v1.value4, v1.value5);
+          }
+          ;
+          throw new Error("Failed pattern match at Data.Map.Internal (line 471, column 7 - line 474, column 35): " + [v2.constructor.name]);
+        }
+        ;
+        throw new Error("Failed pattern match at Data.Map.Internal (line 468, column 8 - line 474, column 35): " + [v1.constructor.name]);
+      };
+      return go2;
+    };
+  };
+};
+var functorMap = {
+  map: function(f) {
+    var go2 = function(v) {
+      if (v instanceof Leaf) {
+        return Leaf.value;
+      }
+      ;
+      if (v instanceof Node) {
+        return new Node(v.value0, v.value1, v.value2, f(v.value3), go2(v.value4), go2(v.value5));
+      }
+      ;
+      throw new Error("Failed pattern match at Data.Map.Internal (line 147, column 10 - line 150, column 39): " + [v.constructor.name]);
+    };
+    return go2;
+  }
+};
+var foldableMap = {
+  foldr: function(f) {
+    return function(z) {
+      var $lazy_go = $runtime_lazy3("go", "Data.Map.Internal", function() {
+        return function(m$prime, z$prime) {
+          if (m$prime instanceof Leaf) {
+            return z$prime;
+          }
+          ;
+          if (m$prime instanceof Node) {
+            return $lazy_go(172)(m$prime.value4, f(m$prime.value3)($lazy_go(172)(m$prime.value5, z$prime)));
+          }
+          ;
+          throw new Error("Failed pattern match at Data.Map.Internal (line 169, column 26 - line 172, column 43): " + [m$prime.constructor.name]);
+        };
+      });
+      var go2 = $lazy_go(169);
+      return function(m) {
+        return go2(m, z);
+      };
+    };
+  },
+  foldl: function(f) {
+    return function(z) {
+      var $lazy_go = $runtime_lazy3("go", "Data.Map.Internal", function() {
+        return function(z$prime, m$prime) {
+          if (m$prime instanceof Leaf) {
+            return z$prime;
+          }
+          ;
+          if (m$prime instanceof Node) {
+            return $lazy_go(178)(f($lazy_go(178)(z$prime, m$prime.value4))(m$prime.value3), m$prime.value5);
+          }
+          ;
+          throw new Error("Failed pattern match at Data.Map.Internal (line 175, column 26 - line 178, column 43): " + [m$prime.constructor.name]);
+        };
+      });
+      var go2 = $lazy_go(175);
+      return function(m) {
+        return go2(z, m);
+      };
+    };
+  },
+  foldMap: function(dictMonoid) {
+    var mempty21 = mempty(dictMonoid);
+    var append112 = append(dictMonoid.Semigroup0());
+    return function(f) {
+      var go2 = function(v) {
+        if (v instanceof Leaf) {
+          return mempty21;
+        }
+        ;
+        if (v instanceof Node) {
+          return append112(go2(v.value4))(append112(f(v.value3))(go2(v.value5)));
+        }
+        ;
+        throw new Error("Failed pattern match at Data.Map.Internal (line 181, column 10 - line 184, column 28): " + [v.constructor.name]);
+      };
+      return go2;
+    };
+  }
+};
+var foldableWithIndexMap = {
+  foldrWithIndex: function(f) {
+    return function(z) {
+      var $lazy_go = $runtime_lazy3("go", "Data.Map.Internal", function() {
+        return function(m$prime, z$prime) {
+          if (m$prime instanceof Leaf) {
+            return z$prime;
+          }
+          ;
+          if (m$prime instanceof Node) {
+            return $lazy_go(192)(m$prime.value4, f(m$prime.value2)(m$prime.value3)($lazy_go(192)(m$prime.value5, z$prime)));
+          }
+          ;
+          throw new Error("Failed pattern match at Data.Map.Internal (line 189, column 26 - line 192, column 45): " + [m$prime.constructor.name]);
+        };
+      });
+      var go2 = $lazy_go(189);
+      return function(m) {
+        return go2(m, z);
+      };
+    };
+  },
+  foldlWithIndex: function(f) {
+    return function(z) {
+      var $lazy_go = $runtime_lazy3("go", "Data.Map.Internal", function() {
+        return function(z$prime, m$prime) {
+          if (m$prime instanceof Leaf) {
+            return z$prime;
+          }
+          ;
+          if (m$prime instanceof Node) {
+            return $lazy_go(198)(f(m$prime.value2)($lazy_go(198)(z$prime, m$prime.value4))(m$prime.value3), m$prime.value5);
+          }
+          ;
+          throw new Error("Failed pattern match at Data.Map.Internal (line 195, column 26 - line 198, column 45): " + [m$prime.constructor.name]);
+        };
+      });
+      var go2 = $lazy_go(195);
+      return function(m) {
+        return go2(z, m);
+      };
+    };
+  },
+  foldMapWithIndex: function(dictMonoid) {
+    var mempty21 = mempty(dictMonoid);
+    var append112 = append(dictMonoid.Semigroup0());
+    return function(f) {
+      var go2 = function(v) {
+        if (v instanceof Leaf) {
+          return mempty21;
+        }
+        ;
+        if (v instanceof Node) {
+          return append112(go2(v.value4))(append112(f(v.value2)(v.value3))(go2(v.value5)));
+        }
+        ;
+        throw new Error("Failed pattern match at Data.Map.Internal (line 201, column 10 - line 204, column 30): " + [v.constructor.name]);
+      };
+      return go2;
+    };
+  },
+  Foldable0: function() {
+    return foldableMap;
+  }
+};
+var keys2 = /* @__PURE__ */ function() {
+  return foldrWithIndex(foldableWithIndexMap)(function(k) {
+    return function(v) {
+      return function(acc) {
+        return new Cons(k, acc);
+      };
+    };
+  })(Nil.value);
+}();
+var values = /* @__PURE__ */ function() {
+  return foldr(foldableMap)(Cons.create)(Nil.value);
+}();
+var filterWithKey = function(dictOrd) {
+  return function(f) {
+    var go2 = function(v) {
+      if (v instanceof Leaf) {
+        return Leaf.value;
+      }
+      ;
+      if (v instanceof Node) {
+        if (f(v.value2)(v.value3)) {
+          return unsafeBalancedNode(v.value2, v.value3, go2(v.value4), go2(v.value5));
+        }
+        ;
+        if (otherwise) {
+          return unsafeJoinNodes(go2(v.value4), go2(v.value5));
+        }
+        ;
+      }
+      ;
+      throw new Error("Failed pattern match at Data.Map.Internal (line 627, column 8 - line 633, column 47): " + [v.constructor.name]);
+    };
+    return go2;
+  };
+};
+var filter4 = function(dictOrd) {
+  var $786 = filterWithKey(dictOrd);
+  return function($787) {
+    return $786($$const($787));
+  };
+};
+var eqMap = function(dictEq) {
+  var eqMapIter1 = eqMapIter(dictEq);
+  return function(dictEq1) {
+    var eq18 = eq(eqMapIter1(dictEq1));
+    return {
+      eq: function(xs) {
+        return function(ys) {
+          if (xs instanceof Leaf) {
+            if (ys instanceof Leaf) {
+              return true;
+            }
+            ;
+            return false;
+          }
+          ;
+          if (xs instanceof Node) {
+            if (ys instanceof Node && xs.value1 === ys.value1) {
+              return eq18(toMapIter(xs))(toMapIter(ys));
+            }
+            ;
+            return false;
+          }
+          ;
+          throw new Error("Failed pattern match at Data.Map.Internal (line 94, column 14 - line 105, column 16): " + [xs.constructor.name]);
+        };
+      }
+    };
+  };
+};
+var empty5 = /* @__PURE__ */ function() {
+  return Leaf.value;
+}();
+var fromFoldable4 = function(dictOrd) {
+  var insert17 = insert3(dictOrd);
+  return function(dictFoldable) {
+    return foldl(dictFoldable)(function(m) {
+      return function(v) {
+        return insert17(v.value0)(v.value1)(m);
+      };
+    })(empty5);
+  };
+};
+var $$delete2 = function(dictOrd) {
+  var compare3 = compare(dictOrd);
+  return function(k) {
+    var go2 = function(v) {
+      if (v instanceof Leaf) {
+        return Leaf.value;
+      }
+      ;
+      if (v instanceof Node) {
+        var v1 = compare3(k)(v.value2);
+        if (v1 instanceof LT) {
+          return unsafeBalancedNode(v.value2, v.value3, go2(v.value4), v.value5);
+        }
+        ;
+        if (v1 instanceof GT) {
+          return unsafeBalancedNode(v.value2, v.value3, v.value4, go2(v.value5));
+        }
+        ;
+        if (v1 instanceof EQ) {
+          return unsafeJoinNodes(v.value4, v.value5);
+        }
+        ;
+        throw new Error("Failed pattern match at Data.Map.Internal (line 498, column 7 - line 501, column 43): " + [v1.constructor.name]);
+      }
+      ;
+      throw new Error("Failed pattern match at Data.Map.Internal (line 495, column 8 - line 501, column 43): " + [v.constructor.name]);
+    };
+    return go2;
+  };
+};
+
+// output/Data.Set/index.js
+var coerce3 = /* @__PURE__ */ coerce();
+var foldMap2 = /* @__PURE__ */ foldMap(foldableList);
+var foldl3 = /* @__PURE__ */ foldl(foldableList);
+var foldr3 = /* @__PURE__ */ foldr(foldableList);
+var $$Set = function(x) {
+  return x;
+};
+var toList = function(v) {
+  return keys2(v);
+};
+var toUnfoldable5 = function(dictUnfoldable) {
+  var $96 = toUnfoldable2(dictUnfoldable);
+  return function($97) {
+    return $96(toList($97));
+  };
+};
+var size3 = /* @__PURE__ */ coerce3(size2);
+var member2 = function(dictOrd) {
+  return coerce3(member(dictOrd));
+};
+var insert4 = function(dictOrd) {
+  var insert17 = insert3(dictOrd);
+  return function(a) {
+    return function(v) {
+      return insert17(a)(unit)(v);
+    };
+  };
+};
+var fromMap = $$Set;
+var foldableSet = {
+  foldMap: function(dictMonoid) {
+    var foldMap12 = foldMap2(dictMonoid);
+    return function(f) {
+      var $98 = foldMap12(f);
+      return function($99) {
+        return $98(toList($99));
+      };
+    };
+  },
+  foldl: function(f) {
+    return function(x) {
+      var $100 = foldl3(f)(x);
+      return function($101) {
+        return $100(toList($101));
+      };
+    };
+  },
+  foldr: function(f) {
+    return function(x) {
+      var $102 = foldr3(f)(x);
+      return function($103) {
+        return $102(toList($103));
+      };
+    };
+  }
+};
+var eqSet = function(dictEq) {
+  var eq18 = eq(eqMap(dictEq)(eqUnit));
+  return {
+    eq: function(v) {
+      return function(v1) {
+        return eq18(v)(v1);
+      };
+    }
+  };
+};
+var empty6 = empty5;
+var fromFoldable5 = function(dictFoldable) {
+  var foldl22 = foldl(dictFoldable);
+  return function(dictOrd) {
+    var insert17 = insert4(dictOrd);
+    return foldl22(function(m) {
+      return function(a) {
+        return insert17(a)(m);
+      };
+    })(empty6);
+  };
+};
+
+// output/System.Utils.General/index.js
+var max4 = /* @__PURE__ */ max(ordNumber);
+var min4 = /* @__PURE__ */ min(ordNumber);
+var any3 = /* @__PURE__ */ any(foldableArray)(heytingAlgebraBoolean);
+var oneOf2 = /* @__PURE__ */ oneOf(foldableArray)(plusMaybe);
+var lookup3 = /* @__PURE__ */ lookup2(ordNodeId);
+var roundHalfUp = function(n) {
+  var f = floor(n);
+  var $30 = n - f >= 0.5;
+  if ($30) {
+    return f + 1;
+  }
+  ;
+  return f;
+};
+var snapPosition = function(position3) {
+  return function(v) {
+    return {
+      x: v.gx * roundHalfUp(position3.x / v.gx),
+      y: v.gy * roundHalfUp(position3.y / v.gy)
+    };
+  };
+};
+var rendererPointToPoint = function(p) {
+  return function(v) {
+    return {
+      x: p.x * v.scale + v.tx,
+      y: p.y * v.scale + v.ty
+    };
+  };
+};
+var rectToBox = function(r) {
+  return {
+    x: r.x,
+    y: r.y,
+    x2: r.x + r.width,
+    y2: r.y + r.height
+  };
+};
+var pointToRendererPoint = function(p) {
+  return function(v) {
+    return function(mGrid) {
+      var pos = {
+        x: (p.x - v.tx) / v.scale,
+        y: (p.y - v.ty) / v.scale
+      };
+      if (mGrid instanceof Just) {
+        return snapPosition(pos)(mGrid.value0);
+      }
+      ;
+      if (mGrid instanceof Nothing) {
+        return pos;
+      }
+      ;
+      throw new Error("Failed pattern match at System.Utils.General (line 247, column 5 - line 249, column 21): " + [mGrid.constructor.name]);
+    };
+  };
+};
+var parsePadding = function(pv) {
+  return function(viewport2) {
+    if (pv instanceof RatioPadding) {
+      return floor((viewport2 - viewport2 / (1 + pv.value0)) * 0.5);
+    }
+    ;
+    if (pv instanceof PxPadding) {
+      return floor(pv.value0);
+    }
+    ;
+    if (pv instanceof PctPadding) {
+      return floor(viewport2 * pv.value0 * 0.01);
+    }
+    ;
+    throw new Error("Failed pattern match at System.Utils.General (line 290, column 28 - line 293, column 57): " + [pv.constructor.name]);
+  };
+};
+var parsePaddings = function(padding) {
+  return function(width8) {
+    return function(height8) {
+      if (padding instanceof UniformPadding) {
+        var paddingY = parsePadding(padding.value0)(height8);
+        var paddingX = parsePadding(padding.value0)(width8);
+        return {
+          top: paddingY,
+          right: paddingX,
+          bottom: paddingY,
+          left: paddingX,
+          x: paddingX * 2,
+          y: paddingY * 2
+        };
+      }
+      ;
+      if (padding instanceof DirectionalPadding) {
+        var pickV = function(side) {
+          return function(fallback) {
+            if (side instanceof Just) {
+              return parsePadding(side.value0)(fallback);
+            }
+            ;
+            if (side instanceof Nothing) {
+              if (padding.value0.y instanceof Just) {
+                return parsePadding(padding.value0.y.value0)(fallback);
+              }
+              ;
+              if (padding.value0.y instanceof Nothing) {
+                return 0;
+              }
+              ;
+              throw new Error("Failed pattern match at System.Utils.General (line 323, column 22 - line 325, column 27): " + [padding.value0.y.constructor.name]);
+            }
+            ;
+            throw new Error("Failed pattern match at System.Utils.General (line 321, column 9 - line 325, column 27): " + [side.constructor.name]);
+          };
+        };
+        var top3 = pickV(padding.value0.top)(height8);
+        var pickH = function(side) {
+          return function(fallback) {
+            if (side instanceof Just) {
+              return parsePadding(side.value0)(fallback);
+            }
+            ;
+            if (side instanceof Nothing) {
+              if (padding.value0.x instanceof Just) {
+                return parsePadding(padding.value0.x.value0)(fallback);
+              }
+              ;
+              if (padding.value0.x instanceof Nothing) {
+                return 0;
+              }
+              ;
+              throw new Error("Failed pattern match at System.Utils.General (line 329, column 22 - line 331, column 27): " + [padding.value0.x.constructor.name]);
+            }
+            ;
+            throw new Error("Failed pattern match at System.Utils.General (line 327, column 9 - line 331, column 27): " + [side.constructor.name]);
+          };
+        };
+        var right = pickH(padding.value0.right)(width8);
+        var left = pickH(padding.value0.left)(width8);
+        var bottom3 = pickV(padding.value0.bottom)(height8);
+        return {
+          top: top3,
+          right,
+          bottom: bottom3,
+          left,
+          x: left + right,
+          y: top3 + bottom3
+        };
+      }
+      ;
+      throw new Error("Failed pattern match at System.Utils.General (line 305, column 38 - line 337, column 69): " + [padding.constructor.name]);
+    };
+  };
+};
+var nodeHasDimensions = function(node) {
+  return any3(isJust)([node.measured.width, node.width, node.initialWidth]) && any3(isJust)([node.measured.height, node.height, node.initialHeight]);
+};
+var isNumeric = function(n) {
+  return !isNaNImpl(n) && isFiniteImpl(n);
+};
+var isMacOs = isMacOsImpl;
+var isCoordinateExtent = function(v) {
+  if (v instanceof Just && v.value0 instanceof CoordExtent) {
+    return new Just(v.value0.value0);
+  }
+  ;
+  return Nothing.value;
+};
+var identityTransform = /* @__PURE__ */ mkTransform(0)(0)(1);
+var getOverlappingArea = function(a) {
+  return function(b) {
+    var yOverlap = max4(0)(min4(a.y + a.height)(b.y + b.height) - max4(a.y)(b.y));
+    var xOverlap = max4(0)(min4(a.x + a.width)(b.x + b.width) - max4(a.x)(b.x));
+    var ceilNum = function(n) {
+      return -floor(-n);
+    };
+    return ceilNum(xOverlap * yOverlap);
+  };
+};
+var getNodeDimensions = function(node) {
+  var mw = oneOf2([node.measured.width, node.width, node.initialWidth]);
+  var mh = oneOf2([node.measured.height, node.height, node.initialHeight]);
+  if (mw instanceof Nothing && mh instanceof Nothing) {
+    return Nothing.value;
+  }
+  ;
+  return new Just({
+    width: fromMaybe(0)(mw),
+    height: fromMaybe(0)(mh)
+  });
+};
+var getNodePositionWithOrigin = function(node) {
+  return function(defaultOrigin) {
+    var dims = fromMaybe({
+      width: 0,
+      height: 0
+    })(getNodeDimensions(node));
+    var v = fromMaybe(defaultOrigin)(node.origin);
+    return {
+      x: node.position.x - dims.width * v.ox,
+      y: node.position.y - dims.height * v.oy
+    };
+  };
+};
+var nodeToRect = function(en) {
+  return function(origin2) {
+    var pos = function() {
+      if (en instanceof Right) {
+        return en.value0.internals.positionAbsolute;
+      }
+      ;
+      if (en instanceof Left) {
+        return getNodePositionWithOrigin(en.value0)(origin2);
+      }
+      ;
+      throw new Error("Failed pattern match at System.Utils.General (line 155, column 11 - line 157, column 57): " + [en.constructor.name]);
+    }();
+    var dims = fromMaybe({
+      width: 0,
+      height: 0
+    })(function() {
+      if (en instanceof Right) {
+        return getNodeDimensions(en.value0);
+      }
+      ;
+      if (en instanceof Left) {
+        return getNodeDimensions(en.value0);
+      }
+      ;
+      throw new Error("Failed pattern match at System.Utils.General (line 158, column 50 - line 160, column 42): " + [en.constructor.name]);
+    }());
+    return {
+      x: pos.x,
+      y: pos.y,
+      width: dims.width,
+      height: dims.height
+    };
+  };
+};
+var nodeToBox = function(en) {
+  return function(origin2) {
+    var r = nodeToRect(en)(origin2);
+    return {
+      x: r.x,
+      y: r.y,
+      x2: r.x + r.width,
+      y2: r.y + r.height
+    };
+  };
+};
+var getBoundsOfBoxes = function(a) {
+  return function(b) {
+    return {
+      x: min4(a.x)(b.x),
+      y: min4(a.y)(b.y),
+      x2: max4(a.x2)(b.x2),
+      y2: max4(a.y2)(b.y2)
+    };
+  };
+};
+var evaluateAbsolutePosition = function(position3) {
+  return function(dimensions) {
+    return function(parentId) {
+      return function(lookup112) {
+        return function(defaultOrigin) {
+          var v = lookup3(parentId)(lookup112);
+          if (v instanceof Nothing) {
+            return position3;
+          }
+          ;
+          if (v instanceof Just) {
+            var v1 = fromMaybe(defaultOrigin)(v.value0.origin);
+            return {
+              x: position3.x + v.value0.internals.positionAbsolute.x - dimensions.width * v1.ox,
+              y: position3.y + v.value0.internals.positionAbsolute.y - dimensions.height * v1.oy
+            };
+          }
+          ;
+          throw new Error("Failed pattern match at System.Utils.General (line 419, column 3 - line 429, column 10): " + [v.constructor.name]);
+        };
+      };
+    };
+  };
+};
+var clamp2 = function(val) {
+  return function(mn) {
+    return function(mx) {
+      return min4(max4(val)(mn))(mx);
+    };
+  };
+};
+var clampPosition = function(position3) {
+  return function(v) {
+    return function(dims) {
+      return {
+        x: clamp2(position3.x)(v.minX)(v.maxX - fromMaybe(0)(dims.width)),
+        y: clamp2(position3.y)(v.minY)(v.maxY - fromMaybe(0)(dims.height))
+      };
+    };
+  };
+};
+var clampPositionToParent = function(childPosition) {
+  return function(childDimensions) {
+    return function(parent2) {
+      var parentDims = fromMaybe({
+        width: 0,
+        height: 0
+      })(getNodeDimensions(parent2));
+      var extent = {
+        minX: parent2.internals.positionAbsolute.x,
+        minY: parent2.internals.positionAbsolute.y,
+        maxX: parent2.internals.positionAbsolute.x + parentDims.width,
+        maxY: parent2.internals.positionAbsolute.y + parentDims.height
+      };
+      return clampPosition(childPosition)(extent)({
+        width: new Just(childDimensions.width),
+        height: new Just(childDimensions.height)
+      });
+    };
+  };
+};
+var calculateAppliedPaddings = function(bounds) {
+  return function(x) {
+    return function(y) {
+      return function(zoom) {
+        return function(width8) {
+          return function(height8) {
+            var t = mkTransform(x)(y)(zoom);
+            var topLeft = rendererPointToPoint({
+              x: bounds.x,
+              y: bounds.y
+            })(t);
+            var bottomRight = rendererPointToPoint({
+              x: bounds.x + bounds.width,
+              y: bounds.y + bounds.height
+            })(t);
+            return {
+              left: floor(topLeft.x),
+              top: floor(topLeft.y),
+              right: floor(width8 - bottomRight.x),
+              bottom: floor(height8 - bottomRight.y)
+            };
+          };
+        };
+      };
+    };
+  };
+};
+var getViewportForBounds = function(bounds) {
+  return function(width8) {
+    return function(height8) {
+      return function(minZoom) {
+        return function(maxZoom) {
+          return function(padding) {
+            var p = parsePaddings(padding)(width8)(height8);
+            var xZoom = (width8 - p.x) / bounds.width;
+            var yZoom = (height8 - p.y) / bounds.height;
+            var zoom = min4(xZoom)(yZoom);
+            var clampedZoom = clamp2(zoom)(minZoom)(maxZoom);
+            var boundsCenterY = bounds.y + bounds.height / 2;
+            var y0 = height8 / 2 - boundsCenterY * clampedZoom;
+            var boundsCenterX = bounds.x + bounds.width / 2;
+            var x0 = width8 / 2 - boundsCenterX * clampedZoom;
+            var newPadding = calculateAppliedPaddings(bounds)(x0)(y0)(clampedZoom)(width8)(height8);
+            var offset = {
+              left: min4(newPadding.left - p.left)(0),
+              top: min4(newPadding.top - p.top)(0),
+              right: min4(newPadding.right - p.right)(0),
+              bottom: min4(newPadding.bottom - p.bottom)(0)
+            };
+            return {
+              x: x0 - offset.left + offset.right,
+              y: y0 - offset.top + offset.bottom,
+              zoom: clampedZoom
+            };
+          };
+        };
+      };
+    };
+  };
+};
+var calcAutoPan = function(pos) {
+  return function(bounds) {
+    return function(speed) {
+      return function(distance2) {
+        var velocity = function(value12) {
+          return function(mn) {
+            return function(mx) {
+              if (value12 < mn) {
+                return clamp2(abs(value12 - mn))(1)(mn) / mn;
+              }
+              ;
+              if (value12 > mx) {
+                return -clamp2(abs(value12 - mx))(1)(mn) / mn;
+              }
+              ;
+              if (otherwise) {
+                return 0;
+              }
+              ;
+              throw new Error("Failed pattern match at System.Utils.General (line 127, column 3 - line 130, column 22): " + [value12.constructor.name, mn.constructor.name, mx.constructor.name]);
+            };
+          };
+        };
+        return {
+          x: velocity(pos.x)(distance2)(bounds.width - distance2) * speed,
+          y: velocity(pos.y)(distance2)(bounds.height - distance2) * speed
+        };
+      };
+    };
+  };
+};
+var boxToRect = function(b) {
+  return {
+    x: b.x,
+    y: b.y,
+    width: b.x2 - b.x,
+    height: b.y2 - b.y
+  };
+};
+var getBoundsOfRects = function(a) {
+  return function(b) {
+    return boxToRect(getBoundsOfBoxes(rectToBox(a))(rectToBox(b)));
+  };
+};
+var areSetsEqual = function(dictEq) {
+  return eq(eqSet(dictEq));
+};
+
+// output/System.Utils.Edges.General/index.js
+var unwrap4 = /* @__PURE__ */ unwrap();
+var max5 = /* @__PURE__ */ max(ordNumber);
+var eq22 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqString));
+var eq3 = /* @__PURE__ */ eq(eqNodeId);
+var isEdgeVisible = function(p) {
+  var viewRect = {
+    x: -p.transform.tx / p.transform.scale,
+    y: -p.transform.ty / p.transform.scale,
+    width: p.width / p.transform.scale,
+    height: p.height / p.transform.scale
+  };
+  var origin2 = mkNodeOrigin(0)(0);
+  var sourceBox = nodeToBox(new Right(p.sourceNode))(origin2);
+  var targetBox = nodeToBox(new Right(p.targetNode))(origin2);
+  var raw = getBoundsOfBoxes(sourceBox)(targetBox);
+  var edgeBox = {
+    x: raw.x,
+    y: raw.y,
+    x2: function() {
+      var $29 = raw.x === raw.x2;
+      if ($29) {
+        return raw.x2 + 1;
+      }
+      ;
+      return raw.x2;
+    }(),
+    y2: function() {
+      var $30 = raw.y === raw.y2;
+      if ($30) {
+        return raw.y2 + 1;
+      }
+      ;
+      return raw.y2;
+    }()
+  };
+  return getOverlappingArea(viewRect)(boxToRect(edgeBox)) > 0;
+};
+var getElevatedEdgeZIndex = function(p) {
+  if (p.zIndexMode instanceof ZManual) {
+    return p.zIndex;
+  }
+  ;
+  var targetContributes = isJust(p.targetNode.parentId) || p.elevateOnSelect && p.targetNode.selected;
+  var targetZ = function() {
+    if (targetContributes) {
+      return p.targetNode.internals.z;
+    }
+    ;
+    return 0;
+  }();
+  var sourceContributes = isJust(p.sourceNode.parentId) || p.elevateOnSelect && p.sourceNode.selected;
+  var sourceZ = function() {
+    if (sourceContributes) {
+      return p.sourceNode.internals.z;
+    }
+    ;
+    return 0;
+  }();
+  var nodeZ = max5(sourceZ)(targetZ);
+  var edgeZ = function() {
+    var $34 = p.elevateOnSelect && p.selected;
+    if ($34) {
+      return p.zIndex + 1e3 | 0;
+    }
+    ;
+    return p.zIndex;
+  }();
+  return edgeZ + floor2(nodeZ) | 0;
+};
+var getEdgeId = function(c) {
+  return "xy-edge__" + (unwrap4(c.source) + (fromMaybe("")(c.sourceHandle) + ("-" + (unwrap4(c.target) + fromMaybe("")(c.targetHandle)))));
+};
+var getEdgeCenter = function(v) {
+  var yOffset = abs(v.targetY - v.sourceY) / 2;
+  var xOffset = abs(v.targetX - v.sourceX) / 2;
+  var centerY = function() {
+    var $36 = v.targetY < v.sourceY;
+    if ($36) {
+      return v.targetY + yOffset;
+    }
+    ;
+    return v.targetY - yOffset;
+  }();
+  var centerX = function() {
+    var $37 = v.targetX < v.sourceX;
+    if ($37) {
+      return v.targetX + xOffset;
+    }
+    ;
+    return v.targetX - xOffset;
+  }();
+  return {
+    centerX,
+    centerY,
+    offsetX: xOffset,
+    offsetY: yOffset
+  };
+};
+var connectionExists = function(edge) {
+  return function(edges) {
+    var blank = function(v) {
+      if (v instanceof Nothing) {
+        return true;
+      }
+      ;
+      if (v instanceof Just) {
+        return v.value0 === "";
+      }
+      ;
+      throw new Error("Failed pattern match at System.Utils.Edges.General (line 166, column 11 - line 168, column 22): " + [v.constructor.name]);
+    };
+    var handleMatches = function(a) {
+      return function(b) {
+        return eq22(a)(b) || blank(a) && blank(b);
+      };
+    };
+    var matches2 = function(el) {
+      return eq3(el.source)(edge.source) && (eq3(el.target)(edge.target) && (handleMatches(el.sourceHandle)(edge.sourceHandle) && handleMatches(el.targetHandle)(edge.targetHandle)));
+    };
+    return any2(matches2)(edges);
+  };
+};
+var addEdge = function(v) {
+  return function(v1) {
+    return function(v2) {
+      if (unwrap4(v.source) === "" || unwrap4(v.target) === "") {
+        return new Left(errorMessage(E006.value));
+      }
+      ;
+      var $47 = connectionExists(v)(v1);
+      if ($47) {
+        return new Right(v1);
+      }
+      ;
+      return new Right(snoc(v1)(v));
+    };
+  };
+};
+
+// output/System.Utils.Edges.SmoothStep/index.js
+var min5 = /* @__PURE__ */ min(ordNumber);
+var append13 = /* @__PURE__ */ append(semigroupArray);
+var eq12 = /* @__PURE__ */ eq(eqPosition);
+var notEq1 = /* @__PURE__ */ notEq(eqPosition);
+var max6 = /* @__PURE__ */ max(ordNumber);
+var foldl4 = /* @__PURE__ */ foldl(foldableArray);
+var AxisX = /* @__PURE__ */ function() {
+  function AxisX2() {
+  }
+  ;
+  AxisX2.value = new AxisX2();
+  return AxisX2;
+}();
+var AxisY = /* @__PURE__ */ function() {
+  function AxisY2() {
+  }
+  ;
+  AxisY2.value = new AxisY2();
+  return AxisY2;
+}();
+var showN3 = toString;
+var setAxis = function(v) {
+  return function(v1) {
+    return function(v2) {
+      if (v instanceof AxisX) {
+        return {
+          y: v1.y,
+          x: v2
+        };
+      }
+      ;
+      if (v instanceof AxisY) {
+        return {
+          x: v1.x,
+          y: v2
+        };
+      }
+      ;
+      throw new Error("Failed pattern match at System.Utils.Edges.SmoothStep (line 95, column 1 - line 95, column 54): " + [v.constructor.name, v1.constructor.name, v2.constructor.name]);
+    };
+  };
+};
+var scale = function(k) {
+  return function(v) {
+    return {
+      x: k * v.x,
+      y: k * v.y
+    };
+  };
+};
+var handleDirection = function(v) {
+  if (v instanceof PosLeft) {
+    return {
+      x: -1,
+      y: 0
+    };
+  }
+  ;
+  if (v instanceof PosRight) {
+    return {
+      x: 1,
+      y: 0
+    };
+  }
+  ;
+  if (v instanceof PosTop) {
+    return {
+      x: 0,
+      y: -1
+    };
+  }
+  ;
+  if (v instanceof PosBottom) {
+    return {
+      x: 0,
+      y: 1
+    };
+  }
+  ;
+  throw new Error("Failed pattern match at System.Utils.Edges.SmoothStep (line 35, column 19 - line 39, column 34): " + [v.constructor.name]);
+};
+var getDirection = function(v) {
+  var horizontal = function() {
+    var $42 = v.source.x < v.target.x;
+    if ($42) {
+      return {
+        x: 1,
+        y: 0
+      };
+    }
+    ;
+    return {
+      x: -1,
+      y: 0
+    };
+  }();
+  if (v.sourcePosition instanceof PosLeft) {
+    return horizontal;
+  }
+  ;
+  if (v.sourcePosition instanceof PosRight) {
+    return horizontal;
+  }
+  ;
+  var $44 = v.source.y < v.target.y;
+  if ($44) {
+    return {
+      x: 0,
+      y: 1
+    };
+  }
+  ;
+  return {
+    x: 0,
+    y: -1
+  };
+};
+var distance = function(a) {
+  return function(b) {
+    return sqrt(pow(b.x - a.x)(2) + pow(b.y - a.y)(2));
+  };
+};
+var getBend = function(a) {
+  return function(b) {
+    return function(c) {
+      return function(size6) {
+        var bendSize = min5(min5(distance(a)(b) / 2)(distance(b)(c) / 2))(size6);
+        var $50 = a.x === b.x && b.x === c.x || a.y === b.y && b.y === c.y;
+        if ($50) {
+          return "L" + (showN3(b.x) + (" " + showN3(b.y)));
+        }
+        ;
+        var $51 = a.y === b.y;
+        if ($51) {
+          var yDir = function() {
+            var $52 = a.y < c.y;
+            if ($52) {
+              return 1;
+            }
+            ;
+            return -1;
+          }();
+          var xDir = function() {
+            var $53 = a.x < c.x;
+            if ($53) {
+              return -1;
+            }
+            ;
+            return 1;
+          }();
+          return "L " + (showN3(b.x + bendSize * xDir) + ("," + (showN3(b.y) + ("Q " + (showN3(b.x) + ("," + (showN3(b.y) + (" " + (showN3(b.x) + ("," + showN3(b.y + bendSize * yDir)))))))))));
+        }
+        ;
+        var yDir = function() {
+          var $54 = a.y < c.y;
+          if ($54) {
+            return -1;
+          }
+          ;
+          return 1;
+        }();
+        var xDir = function() {
+          var $55 = a.x < c.x;
+          if ($55) {
+            return 1;
+          }
+          ;
+          return -1;
+        }();
+        return "L " + (showN3(b.x) + ("," + (showN3(b.y + bendSize * yDir) + ("Q " + (showN3(b.x) + ("," + (showN3(b.y) + (" " + (showN3(b.x + bendSize * xDir) + ("," + showN3(b.y)))))))))));
+      };
+    };
+  };
+};
+var axisOpposite = function(v) {
+  if (v instanceof AxisX) {
+    return AxisY.value;
+  }
+  ;
+  if (v instanceof AxisY) {
+    return AxisX.value;
+  }
+  ;
+  throw new Error("Failed pattern match at System.Utils.Edges.SmoothStep (line 67, column 1 - line 67, column 29): " + [v.constructor.name]);
+};
+var axisGet = function(v) {
+  return function(v1) {
+    if (v instanceof AxisX) {
+      return v1.x;
+    }
+    ;
+    if (v instanceof AxisY) {
+      return v1.y;
+    }
+    ;
+    throw new Error("Failed pattern match at System.Utils.Edges.SmoothStep (line 63, column 1 - line 63, column 40): " + [v.constructor.name, v1.constructor.name]);
+  };
+};
+var addV = function(a) {
+  return function(b) {
+    return {
+      x: a.x + b.x,
+      y: a.y + b.y
+    };
+  };
+};
+var buildPathPoints = function(source) {
+  return function(target5) {
+    return function(points) {
+      return function(sourceGapOffset) {
+        return function(targetGapOffset) {
+          return function(sourceGapped) {
+            return function(targetGapped) {
+              var tailPt = fromMaybe({
+                x: 0,
+                y: 0
+              })(index(points)(length(points) - 1 | 0));
+              var headPt = fromMaybe({
+                x: 0,
+                y: 0
+              })(index(points)(0));
+              var gappedTarget = addV(targetGapped)(targetGapOffset);
+              var suffix = function() {
+                var $59 = gappedTarget.x !== tailPt.x || gappedTarget.y !== tailPt.y;
+                if ($59) {
+                  return [gappedTarget];
+                }
+                ;
+                return [];
+              }();
+              var gappedSource = addV(sourceGapped)(sourceGapOffset);
+              var prefix = function() {
+                var $60 = gappedSource.x !== headPt.x || gappedSource.y !== headPt.y;
+                if ($60) {
+                  return [gappedSource];
+                }
+                ;
+                return [];
+              }();
+              return append13([source])(append13(prefix)(append13(points)(append13(suffix)([target5]))));
+            };
+          };
+        };
+      };
+    };
+  };
+};
+var oppositeBranch = function(p) {
+  return function(sourceGapped) {
+    return function(targetGapped) {
+      return function(dirAxis) {
+        return function(currDir) {
+          return function(sourceDir) {
+            var centerY = function() {
+              if (dirAxis instanceof AxisX) {
+                return fromMaybe((sourceGapped.y + targetGapped.y) / 2)(p.center.y);
+              }
+              ;
+              if (dirAxis instanceof AxisY) {
+                return fromMaybe(sourceGapped.y + (targetGapped.y - sourceGapped.y) * p.stepPosition)(p.center.y);
+              }
+              ;
+              throw new Error("Failed pattern match at System.Utils.Edges.SmoothStep (line 158, column 15 - line 162, column 19): " + [dirAxis.constructor.name]);
+            }();
+            var horizontalSplit = [{
+              x: sourceGapped.x,
+              y: centerY
+            }, {
+              x: targetGapped.x,
+              y: centerY
+            }];
+            var centerX = function() {
+              if (dirAxis instanceof AxisX) {
+                return fromMaybe(sourceGapped.x + (targetGapped.x - sourceGapped.x) * p.stepPosition)(p.center.x);
+              }
+              ;
+              if (dirAxis instanceof AxisY) {
+                return fromMaybe((sourceGapped.x + targetGapped.x) / 2)(p.center.x);
+              }
+              ;
+              throw new Error("Failed pattern match at System.Utils.Edges.SmoothStep (line 153, column 15 - line 157, column 78): " + [dirAxis.constructor.name]);
+            }();
+            var verticalSplit = [{
+              x: centerX,
+              y: sourceGapped.y
+            }, {
+              x: centerX,
+              y: targetGapped.y
+            }];
+            var points = function() {
+              var $63 = axisGet(dirAxis)(sourceDir) === currDir;
+              if ($63) {
+                if (dirAxis instanceof AxisX) {
+                  return verticalSplit;
+                }
+                ;
+                if (dirAxis instanceof AxisY) {
+                  return horizontalSplit;
+                }
+                ;
+                throw new Error("Failed pattern match at System.Utils.Edges.SmoothStep (line 168, column 52 - line 170, column 33): " + [dirAxis.constructor.name]);
+              }
+              ;
+              if (dirAxis instanceof AxisX) {
+                return horizontalSplit;
+              }
+              ;
+              if (dirAxis instanceof AxisY) {
+                return verticalSplit;
+              }
+              ;
+              throw new Error("Failed pattern match at System.Utils.Edges.SmoothStep (line 171, column 12 - line 173, column 31): " + [dirAxis.constructor.name]);
+            }();
+            var pathPoints = buildPathPoints(p.source)(p.target)(points)({
+              x: 0,
+              y: 0
+            })({
+              x: 0,
+              y: 0
+            })(sourceGapped)(targetGapped);
+            return {
+              pathPoints,
+              centerX,
+              centerY
+            };
+          };
+        };
+      };
+    };
+  };
+};
+var sameOrMixedBranch = function(p) {
+  return function(sourceGapped) {
+    return function(targetGapped) {
+      return function(dirAxis) {
+        return function(currDir) {
+          return function(sourceDir) {
+            return function(targetDir) {
+              var targetSource = [{
+                x: targetGapped.x,
+                y: sourceGapped.y
+              }];
+              var sourceTarget = [{
+                x: sourceGapped.x,
+                y: targetGapped.y
+              }];
+              var samePosBasePoints = function() {
+                if (dirAxis instanceof AxisX) {
+                  var $67 = sourceDir.x === currDir;
+                  if ($67) {
+                    return targetSource;
+                  }
+                  ;
+                  return sourceTarget;
+                }
+                ;
+                if (dirAxis instanceof AxisY) {
+                  var $68 = sourceDir.y === currDir;
+                  if ($68) {
+                    return sourceTarget;
+                  }
+                  ;
+                  return targetSource;
+                }
+                ;
+                throw new Error("Failed pattern match at System.Utils.Edges.SmoothStep (line 199, column 25 - line 203, column 70): " + [dirAxis.constructor.name]);
+              }();
+              var v = function() {
+                var $69 = eq12(p.sourcePosition)(p.targetPosition);
+                if ($69) {
+                  var diff = abs(axisGet(dirAxis)(p.source) - axisGet(dirAxis)(p.target));
+                  var $70 = diff <= p.offset;
+                  if ($70) {
+                    var tgtSign = function() {
+                      var $71 = axisGet(dirAxis)(targetGapped) > axisGet(dirAxis)(p.target);
+                      if ($71) {
+                        return -1;
+                      }
+                      ;
+                      return 1;
+                    }();
+                    var srcSign = function() {
+                      var $72 = axisGet(dirAxis)(sourceGapped) > axisGet(dirAxis)(p.source);
+                      if ($72) {
+                        return -1;
+                      }
+                      ;
+                      return 1;
+                    }();
+                    var gapOffset = min5(p.offset - 1)(p.offset - diff);
+                    var $73 = axisGet(dirAxis)(sourceDir) === currDir;
+                    if ($73) {
+                      return {
+                        sourceGapOffset: setAxis(dirAxis)({
+                          x: 0,
+                          y: 0
+                        })(srcSign * gapOffset),
+                        targetGapOffset: {
+                          x: 0,
+                          y: 0
+                        }
+                      };
+                    }
+                    ;
+                    return {
+                      sourceGapOffset: {
+                        x: 0,
+                        y: 0
+                      },
+                      targetGapOffset: setAxis(dirAxis)({
+                        x: 0,
+                        y: 0
+                      })(tgtSign * gapOffset)
+                    };
+                  }
+                  ;
+                  return {
+                    sourceGapOffset: {
+                      x: 0,
+                      y: 0
+                    },
+                    targetGapOffset: {
+                      x: 0,
+                      y: 0
+                    }
+                  };
+                }
+                ;
+                return {
+                  sourceGapOffset: {
+                    x: 0,
+                    y: 0
+                  },
+                  targetGapOffset: {
+                    x: 0,
+                    y: 0
+                  }
+                };
+              }();
+              var targetGapPoint = addV(targetGapped)(v.targetGapOffset);
+              var sourceGapPoint = addV(sourceGapped)(v.sourceGapOffset);
+              var points = function() {
+                var $75 = notEq1(p.sourcePosition)(p.targetPosition);
+                if ($75) {
+                  var oppAxis = axisOpposite(dirAxis);
+                  var sourceGtTargetOppo = axisGet(oppAxis)(sourceGapped) > axisGet(oppAxis)(targetGapped);
+                  var sourceLtTargetOppo = axisGet(oppAxis)(sourceGapped) < axisGet(oppAxis)(targetGapped);
+                  var isSameDir = axisGet(dirAxis)(sourceDir) === axisGet(oppAxis)(targetDir);
+                  var flipSourceTarget = axisGet(dirAxis)(sourceDir) === 1 && (!isSameDir && sourceGtTargetOppo || isSameDir && sourceLtTargetOppo) || axisGet(dirAxis)(sourceDir) !== 1 && (!isSameDir && sourceLtTargetOppo || isSameDir && sourceGtTargetOppo);
+                  if (flipSourceTarget) {
+                    if (dirAxis instanceof AxisX) {
+                      return sourceTarget;
+                    }
+                    ;
+                    if (dirAxis instanceof AxisY) {
+                      return targetSource;
+                    }
+                    ;
+                    throw new Error("Failed pattern match at System.Utils.Edges.SmoothStep (line 259, column 36 - line 261, column 34): " + [dirAxis.constructor.name]);
+                  }
+                  ;
+                  return samePosBasePoints;
+                }
+                ;
+                return samePosBasePoints;
+              }();
+              var pathPoints = buildPathPoints(p.source)(p.target)(points)(v.sourceGapOffset)(v.targetGapOffset)(sourceGapped)(targetGapped);
+              var firstPoint = fromMaybe({
+                x: 0,
+                y: 0
+              })(index(points)(0));
+              var maxXDistance = max6(abs(sourceGapPoint.x - firstPoint.x))(abs(targetGapPoint.x - firstPoint.x));
+              var maxYDistance = max6(abs(sourceGapPoint.y - firstPoint.y))(abs(targetGapPoint.y - firstPoint.y));
+              var centerY = function() {
+                var $78 = maxXDistance >= maxYDistance;
+                if ($78) {
+                  return firstPoint.y;
+                }
+                ;
+                return (sourceGapPoint.y + targetGapPoint.y) / 2;
+              }();
+              var centerX = function() {
+                var $79 = maxXDistance >= maxYDistance;
+                if ($79) {
+                  return (sourceGapPoint.x + targetGapPoint.x) / 2;
+                }
+                ;
+                return firstPoint.x;
+              }();
+              return {
+                pathPoints,
+                centerX,
+                centerY
+              };
+            };
+          };
+        };
+      };
+    };
+  };
+};
+var getPoints = function(p) {
+  var targetDir = handleDirection(p.targetPosition);
+  var targetGapped = addV(p.target)(scale(p.offset)(targetDir));
+  var sourceDir = handleDirection(p.sourcePosition);
+  var sourceGapped = addV(p.source)(scale(p.offset)(sourceDir));
+  var dir2 = getDirection({
+    source: sourceGapped,
+    sourcePosition: p.sourcePosition,
+    target: targetGapped
+  });
+  var dirAxis = function() {
+    var $82 = dir2.x !== 0;
+    if ($82) {
+      return AxisX.value;
+    }
+    ;
+    return AxisY.value;
+  }();
+  var sourceDirAccess = axisGet(dirAxis)(sourceDir);
+  var targetDirAccess = axisGet(dirAxis)(targetDir);
+  var defaultEdge = getEdgeCenter({
+    sourceX: p.source.x,
+    sourceY: p.source.y,
+    targetX: p.target.x,
+    targetY: p.target.y
+  });
+  var currDir = axisGet(dirAxis)(dir2);
+  var initialResult = function() {
+    var $83 = sourceDirAccess * targetDirAccess === -1;
+    if ($83) {
+      return oppositeBranch(p)(sourceGapped)(targetGapped)(dirAxis)(currDir)(sourceDir);
+    }
+    ;
+    return sameOrMixedBranch(p)(sourceGapped)(targetGapped)(dirAxis)(currDir)(sourceDir)(targetDir);
+  }();
+  return {
+    points: initialResult.pathPoints,
+    centerX: initialResult.centerX,
+    centerY: initialResult.centerY,
+    defaultOffsetX: defaultEdge.offsetX,
+    defaultOffsetY: defaultEdge.offsetY
+  };
+};
+var getSmoothStepPath = function(p) {
+  var res = getPoints({
+    source: {
+      x: p.sourceX,
+      y: p.sourceY
+    },
+    sourcePosition: p.sourcePosition,
+    target: {
+      x: p.targetX,
+      y: p.targetY
+    },
+    targetPosition: p.targetPosition,
+    center: {
+      x: p.centerX,
+      y: p.centerY
+    },
+    offset: p.offset,
+    stepPosition: p.stepPosition
+  });
+  var n = length(res.points);
+  var last$prime = fromMaybe({
+    x: 0,
+    y: 0
+  })(index(res.points)(n - 1 | 0));
+  var head$prime = fromMaybe({
+    x: 0,
+    y: 0
+  })(index(res.points)(0));
+  var bends = function() {
+    var $84 = n < 3;
+    if ($84) {
+      return "";
+    }
+    ;
+    return foldl4(function(acc) {
+      return function(i) {
+        var c = fromMaybe({
+          x: 0,
+          y: 0
+        })(index(res.points)(i + 1 | 0));
+        var b = fromMaybe({
+          x: 0,
+          y: 0
+        })(index(res.points)(i));
+        var a = fromMaybe({
+          x: 0,
+          y: 0
+        })(index(res.points)(i - 1 | 0));
+        return acc + getBend(a)(b)(c)(p.borderRadius);
+      };
+    })("")(range2(1)(n - 2 | 0));
+  }();
+  var path = "M" + (showN3(head$prime.x) + (" " + (showN3(head$prime.y) + (bends + ("L" + (showN3(last$prime.x) + (" " + showN3(last$prime.y))))))));
+  return {
+    path,
+    labelX: res.centerX,
+    labelY: res.centerY,
+    offsetX: res.defaultOffsetX,
+    offsetY: res.defaultOffsetY
+  };
+};
+
+// output/System.Utils.Edges.Straight/index.js
+var showN4 = toString;
+var getStraightPath = function(p) {
+  var path = "M " + (showN4(p.sourceX) + ("," + (showN4(p.sourceY) + ("L " + (showN4(p.targetX) + ("," + showN4(p.targetY)))))));
+  var c = getEdgeCenter({
+    sourceX: p.sourceX,
+    sourceY: p.sourceY,
+    targetX: p.targetX,
+    targetY: p.targetY
+  });
+  return {
+    path,
+    labelX: c.centerX,
+    labelY: c.centerY,
+    offsetX: c.offsetX,
+    offsetY: c.offsetY
+  };
+};
+
+// output/React.Component.ConnectionLine/index.js
+var bind8 = /* @__PURE__ */ bind4(ixBindRender);
+var useStore3 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
+  reflectSymbol: function() {
+    return "width";
+  }
+})(eqNumber))()({
+  reflectSymbol: function() {
+    return "nodesConnectable";
+  }
+})(eqBoolean))()({
+  reflectSymbol: function() {
+    return "isValid";
+  }
+})(/* @__PURE__ */ eqMaybe(eqBoolean)))()({
+  reflectSymbol: function() {
+    return "inProgress";
+  }
+})(eqBoolean))()({
+  reflectSymbol: function() {
+    return "height";
+  }
+})(eqNumber))()({
+  reflectSymbol: function() {
+    return "dataRef";
+  }
+})(eqUnsafeReference)));
+var pure8 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var mempty3 = /* @__PURE__ */ mempty(monoidJSX);
+var toForeignStyle2 = unsafeCoerce2;
+var statusClassName = function(v) {
+  if (v instanceof Just && v.value0 instanceof ConnectionValid) {
+    return "valid";
+  }
+  ;
+  if (v instanceof Just && v.value0 instanceof ConnectionInvalid) {
+    return "invalid";
+  }
+  ;
+  if (v instanceof Nothing) {
+    return "";
+  }
+  ;
+  throw new Error("Failed pattern match at React.Component.ConnectionLine (line 132, column 19 - line 135, column 16): " + [v.constructor.name]);
+};
+var showN5 = toString;
+var selectSlice = function(s) {
+  if (s.connection instanceof NoConnection) {
+    return {
+      nodesConnectable: s.nodesConnectable,
+      width: s.width,
+      height: s.height,
+      inProgress: false,
+      isValid: Nothing.value,
+      dataRef: Nothing.value
+    };
+  }
+  ;
+  if (s.connection instanceof ConnectionInProgress) {
+    return {
+      nodesConnectable: s.nodesConnectable,
+      width: s.width,
+      height: s.height,
+      inProgress: true,
+      isValid: s.connection.value0.isValid,
+      dataRef: new Just(s.connection.value0)
+    };
+  }
+  ;
+  throw new Error("Failed pattern match at React.Component.ConnectionLine (line 97, column 17 - line 113, column 6): " + [s.connection.constructor.name]);
+};
+var mkPath = function(lineType) {
+  return function(p) {
+    if (lineType instanceof BezierLine) {
+      return function(v) {
+        return v.path;
+      }(getBezierPath({
+        sourceX: p.sourceX,
+        sourceY: p.sourceY,
+        sourcePosition: p.sourcePosition,
+        targetX: p.targetX,
+        targetY: p.targetY,
+        targetPosition: p.targetPosition,
+        curvature: 0.25
+      }));
+    }
+    ;
+    if (lineType instanceof SimpleBezierLine) {
+      return function(v) {
+        return v.path;
+      }(getSimpleBezierPath({
+        sourceX: p.sourceX,
+        sourceY: p.sourceY,
+        sourcePosition: p.sourcePosition,
+        targetX: p.targetX,
+        targetY: p.targetY,
+        targetPosition: p.targetPosition
+      }));
+    }
+    ;
+    if (lineType instanceof StepLine) {
+      return function(v) {
+        return v.path;
+      }(getSmoothStepPath({
+        sourceX: p.sourceX,
+        sourceY: p.sourceY,
+        sourcePosition: p.sourcePosition,
+        targetX: p.targetX,
+        targetY: p.targetY,
+        targetPosition: p.targetPosition,
+        borderRadius: 0,
+        centerX: Nothing.value,
+        centerY: Nothing.value,
+        offset: 20,
+        stepPosition: 0.5
+      }));
+    }
+    ;
+    if (lineType instanceof SmoothStepLine) {
+      return function(v) {
+        return v.path;
+      }(getSmoothStepPath({
+        sourceX: p.sourceX,
+        sourceY: p.sourceY,
+        sourcePosition: p.sourcePosition,
+        targetX: p.targetX,
+        targetY: p.targetY,
+        targetPosition: p.targetPosition,
+        borderRadius: 5,
+        centerX: Nothing.value,
+        centerY: Nothing.value,
+        offset: 20,
+        stepPosition: 0.5
+      }));
+    }
+    ;
+    if (lineType instanceof StraightLine) {
+      return function(v) {
+        return v.path;
+      }(getStraightPath({
+        sourceX: p.sourceX,
+        sourceY: p.sourceY,
+        targetX: p.targetX,
+        targetY: p.targetY
+      }));
+    }
+    ;
+    throw new Error("Failed pattern match at React.Component.ConnectionLine (line 147, column 21 - line 201, column 8): " + [lineType.constructor.name]);
+  };
+};
+var joinSpace = /* @__PURE__ */ function() {
+  var $74 = joinWith(" ");
+  var $75 = filter(function(v) {
+    return v !== "";
+  });
+  return function($76) {
+    return $74($75($76));
+  };
+}();
+var emptyForeign = /* @__PURE__ */ toForeignStyle2({});
+var styleOrEmpty = function(v) {
+  if (v instanceof Nothing) {
+    return emptyForeign;
+  }
+  ;
+  if (v instanceof Just) {
+    return v.value0;
+  }
+  ;
+  throw new Error("Failed pattern match at React.Component.ConnectionLine (line 71, column 16 - line 73, column 40): " + [v.constructor.name]);
+};
+var connectionStatusOf = function(v) {
+  if (v instanceof Nothing) {
+    return Nothing.value;
+  }
+  ;
+  if (v instanceof Just && v.value0) {
+    return new Just(ConnectionValid.value);
+  }
+  ;
+  if (v instanceof Just && !v.value0) {
+    return new Just(ConnectionInvalid.value);
+  }
+  ;
+  throw new Error("Failed pattern match at React.Component.ConnectionLine (line 126, column 22 - line 129, column 39): " + [v.constructor.name]);
+};
+var connectionLine = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponent()()()("ConnectionLine")(function(v) {
+  return bind8(useStore3(selectSlice))(function(slice3) {
+    var lineType = fromMaybe(BezierLine.value)(v.connectionLineType);
+    var gate = slice3.width > 0 && (slice3.nodesConnectable && slice3.inProgress);
+    return pure8(function() {
+      var $69 = !gate;
+      if ($69) {
+        return mempty3;
+      }
+      ;
+      if (slice3.dataRef instanceof Nothing) {
+        return mempty3;
+      }
+      ;
+      if (slice3.dataRef instanceof Just) {
+        var status2 = connectionStatusOf(slice3.isValid);
+        var innerBody = function() {
+          if (v.connectionLineComponent instanceof Just) {
+            return v.connectionLineComponent.value0({
+              connectionLineStyle: v.connectionLineStyle,
+              connectionLineType: lineType,
+              fromNode: slice3.dataRef.value0.fromNode,
+              fromHandle: slice3.dataRef.value0.fromHandle,
+              fromX: slice3.dataRef.value0.from.x,
+              fromY: slice3.dataRef.value0.from.y,
+              toX: slice3.dataRef.value0.to.x,
+              toY: slice3.dataRef.value0.to.y,
+              fromPosition: slice3.dataRef.value0.fromPosition,
+              toPosition: slice3.dataRef.value0.toPosition,
+              connectionStatus: status2,
+              toNode: slice3.dataRef.value0.toNode,
+              toHandle: slice3.dataRef.value0.toHandle,
+              pointer: slice3.dataRef.value0.pointer
+            });
+          }
+          ;
+          if (v.connectionLineComponent instanceof Nothing) {
+            var pathStr = mkPath(lineType)({
+              sourceX: slice3.dataRef.value0.from.x,
+              sourceY: slice3.dataRef.value0.from.y,
+              sourcePosition: slice3.dataRef.value0.fromPosition,
+              targetX: slice3.dataRef.value0.to.x,
+              targetY: slice3.dataRef.value0.to.y,
+              targetPosition: slice3.dataRef.value0.toPosition
+            });
+            return path_({
+              d: pathStr,
+              fill: "none",
+              className: "react-flow__connection-path",
+              style: styleOrEmpty(v.connectionLineStyle)
+            })([]);
+          }
+          ;
+          throw new Error("Failed pattern match at React.Component.ConnectionLine (line 231, column 27 - line 266, column 25): " + [v.connectionLineComponent.constructor.name]);
+        }();
+        var gClass = joinSpace(["react-flow__connection", statusClassName(status2)]);
+        return svg_2({
+          style: styleOrEmpty(v.connectionLineContainerStyle),
+          width: showN5(slice3.width),
+          height: showN5(slice3.height),
+          className: "react-flow__connectionline react-flow__container"
+        })([g_({
+          className: gClass
+        })([innerBody])]);
+      }
+      ;
+      throw new Error("Failed pattern match at React.Component.ConnectionLine (line 221, column 14 - line 274, column 59): " + [slice3.dataRef.constructor.name]);
+    }());
+  });
+})));
+
+// output/React.Component.EdgeWrapper/foreign.js
+var import_react5 = __toESM(require_react(), 1);
+var svg_3 = (props) => (children3) => (0, import_react5.createElement)("svg", props, ...children3);
+var joinSpace2 = (xs) => xs.filter((s) => s !== "").join(" ");
+
+// output/React.Basic.Events/index.js
+var handler_ = function($30) {
+  return mkEffectFn1($$const($30));
+};
+var handler = function(v) {
+  return function(cb) {
+    return function($31) {
+      return cb(v($31))();
+    };
+  };
+};
+var categoryBuilder = categoryFn;
+var syntheticEvent = /* @__PURE__ */ identity(categoryBuilder);
 
 // output/React.Edge.Anchor/index.js
-var pure8 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var pure9 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var shiftY = function(y) {
   return function(shift) {
     return function(v) {
@@ -33120,7 +34773,7 @@ var shiftX = function(x) {
   };
 };
 var edgeAnchor = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponent()()()("EdgeAnchor")(function(v) {
-  return pure8(function() {
+  return pure9(function() {
     var r = fromMaybe(10)(v.radius);
     return circle_({
       onMouseDown: v.onMouseDown,
@@ -33645,11 +35298,11 @@ var runStateT = function(v) {
 };
 var monadTransStateT = {
   lift: function(dictMonad) {
-    var bind56 = bind(dictMonad.Bind1());
+    var bind57 = bind(dictMonad.Bind1());
     var pure80 = pure(dictMonad.Applicative0());
     return function(m) {
       return function(s) {
-        return bind56(m)(function(x) {
+        return bind57(m)(function(x) {
           return pure80(new Tuple(x, s));
         });
       };
@@ -33658,12 +35311,12 @@ var monadTransStateT = {
 };
 var lift3 = /* @__PURE__ */ lift(monadTransStateT);
 var functorStateT = function(dictFunctor) {
-  var map54 = map(dictFunctor);
+  var map56 = map(dictFunctor);
   return {
     map: function(f) {
       return function(v) {
         return function(s) {
-          return map54(function(v1) {
+          return map56(function(v1) {
             return new Tuple(f(v1.value0), v1.value1);
           })(v(s));
         };
@@ -33682,12 +35335,12 @@ var monadStateT = function(dictMonad) {
   };
 };
 var bindStateT = function(dictMonad) {
-  var bind56 = bind(dictMonad.Bind1());
+  var bind57 = bind(dictMonad.Bind1());
   return {
     bind: function(v) {
       return function(f) {
         return function(s) {
-          return bind56(v(s))(function(v1) {
+          return bind57(v(s))(function(v1) {
             var v3 = f(v1.value0);
             return v3(v1.value1);
           });
@@ -33759,12 +35412,12 @@ var cancelAnimationFrameImpl = (handle3) => () => {
 };
 
 // output/System.FFI.AnimationFrame/index.js
-var map10 = /* @__PURE__ */ map(functorEffect);
+var map11 = /* @__PURE__ */ map(functorEffect);
 var RafHandle = function(x) {
   return x;
 };
 var requestAnimationFrame = function(action2) {
-  return map10(RafHandle)(requestAnimationFrameImpl(action2));
+  return map11(RafHandle)(requestAnimationFrameImpl(action2));
 };
 var cancelAnimationFrame = function(v) {
   return cancelAnimationFrameImpl(v);
@@ -33848,9 +35501,9 @@ var getHandleBoundsImpl = (typeStr) => (nodeElement) => (nodeBounds) => (zoom) =
 };
 
 // output/System.Utils.Dom/index.js
-var map11 = /* @__PURE__ */ map(functorEffect);
-var unwrap4 = /* @__PURE__ */ unwrap();
-var map12 = /* @__PURE__ */ map(functorMaybe);
+var map13 = /* @__PURE__ */ map(functorEffect);
+var unwrap5 = /* @__PURE__ */ unwrap();
+var map14 = /* @__PURE__ */ map(functorMaybe);
 var map22 = /* @__PURE__ */ map(functorArray);
 var isInputDOMNode = isInputDOMNodeImpl;
 var getHostForElement = function(m) {
@@ -33926,8 +35579,8 @@ var getHandleBounds = function(ht) {
             throw new Error("Failed pattern match at System.Utils.Dom (line 201, column 19 - line 203, column 23): " + [v.constructor.name]);
           };
           return function __do2() {
-            var result = map11(toMaybe)(getHandleBoundsImpl(handleTypeTag(ht))(el)(bounds)(zoom)(unwrap4(nodeId)))();
-            return map12(map22(toHandle(ht)(nodeId)))(result);
+            var result = map13(toMaybe)(getHandleBoundsImpl(handleTypeTag(ht))(el)(bounds)(zoom)(unwrap5(nodeId)))();
+            return map14(map22(toHandle(ht)(nodeId)))(result);
           };
         };
       };
@@ -34020,15 +35673,15 @@ var getDimensions = function(node) {
   };
 };
 var findViewportZoom = function(host3) {
-  return map11(toMaybe)(findViewportZoomImpl(host3));
+  return map13(toMaybe)(findViewportZoomImpl(host3));
 };
 var elementBoundingRect = elementBoundingRectImpl;
 
 // output/System.Utils.Edges.Positions/index.js
-var map13 = /* @__PURE__ */ map(functorArray);
+var map15 = /* @__PURE__ */ map(functorArray);
 var eq4 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqString));
-var bind8 = /* @__PURE__ */ bind(bindMaybe);
-var pure9 = /* @__PURE__ */ pure(applicativeMaybe);
+var bind9 = /* @__PURE__ */ bind(bindMaybe);
+var pure10 = /* @__PURE__ */ pure(applicativeMaybe);
 var nodeHandleToHandle = function(h) {
   return function(nodeId) {
     return {
@@ -34049,7 +35702,7 @@ var toHandleBounds = function(node) {
   }
   ;
   if (node.handles instanceof Just) {
-    var asHandles = map13(function(h) {
+    var asHandles = map15(function(h) {
       return nodeHandleToHandle(h)(node.id);
     })(node.handles.value0);
     return new Just({
@@ -34214,7 +35867,7 @@ var getEdgePosition = function(params) {
   var targetHandlePool = function() {
     if (params.connectionMode instanceof Strict) {
       if (targetBounds instanceof Just) {
-        return map13(unTargetHandle)(targetBounds.value0.target);
+        return map15(unTargetHandle)(targetBounds.value0.target);
       }
       ;
       if (targetBounds instanceof Nothing) {
@@ -34226,7 +35879,7 @@ var getEdgePosition = function(params) {
     ;
     if (params.connectionMode instanceof Loose) {
       if (targetBounds instanceof Just) {
-        return concat([map13(unTargetHandle)(targetBounds.value0.target), map13(unSourceHandle)(targetBounds.value0.source)]);
+        return concat([map15(unTargetHandle)(targetBounds.value0.target), map15(unSourceHandle)(targetBounds.value0.source)]);
       }
       ;
       if (targetBounds instanceof Nothing) {
@@ -34251,7 +35904,7 @@ var getEdgePosition = function(params) {
   }();
   var sourceHandles = function() {
     if (sourceBounds instanceof Just) {
-      return map13(unSourceHandle)(sourceBounds.value0.source);
+      return map15(unSourceHandle)(sourceBounds.value0.source);
     }
     ;
     if (sourceBounds instanceof Nothing) {
@@ -34260,11 +35913,11 @@ var getEdgePosition = function(params) {
     ;
     throw new Error("Failed pattern match at System.Utils.Edges.Positions (line 100, column 23 - line 102, column 22): " + [sourceBounds.constructor.name]);
   }();
-  return bind8(getHandle(sourceHandles)(params.sourceHandle))(function(sh) {
-    return bind8(getHandle(targetHandlePool)(params.targetHandle))(function(th) {
+  return bind9(getHandle(sourceHandles)(params.sourceHandle))(function(sh) {
+    return bind9(getHandle(targetHandlePool)(params.targetHandle))(function(th) {
       var tgtXY = getHandlePosition(params.targetNode)(new Just(th))(th.position)(false);
       var srcXY = getHandlePosition(params.sourceNode)(new Just(sh))(sh.position)(false);
-      return pure9({
+      return pure10({
         sourceX: srcXY.x,
         sourceY: srcXY.y,
         targetX: tgtXY.x,
@@ -34283,18 +35936,18 @@ var classListContains2 = (element2) => (cls) => () => {
 };
 
 // output/System.XYHandle.Utils/index.js
-var fromFoldable5 = /* @__PURE__ */ fromFoldable(foldableList);
+var fromFoldable6 = /* @__PURE__ */ fromFoldable(foldableList);
 var append2 = /* @__PURE__ */ append(semigroupArray);
-var pure10 = /* @__PURE__ */ pure(applicativeEffect);
+var pure11 = /* @__PURE__ */ pure(applicativeEffect);
 var lookup4 = /* @__PURE__ */ lookup2(ordNodeId);
-var map14 = /* @__PURE__ */ map(functorArray);
+var map16 = /* @__PURE__ */ map(functorArray);
 var eq5 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqString));
 var eq13 = /* @__PURE__ */ eq(eqNodeId);
 var eq23 = /* @__PURE__ */ eq(eqHandleType);
 var min6 = /* @__PURE__ */ min(ordNumber);
 var zeroOrigin = /* @__PURE__ */ mkNodeOrigin(0)(0);
 var mapValues = function(lookup112) {
-  return fromFoldable5(values(lookup112));
+  return fromFoldable6(values(lookup112));
 };
 var nodesWithinDistance = function(position3) {
   return function(lookup112) {
@@ -34341,12 +35994,12 @@ var infinity2 = /* @__PURE__ */ function() {
 var getHandleType = function(edgeUpdaterType) {
   return function(handleDomNode) {
     if (edgeUpdaterType instanceof Just) {
-      return pure10(new Just(edgeUpdaterType.value0));
+      return pure11(new Just(edgeUpdaterType.value0));
     }
     ;
     if (edgeUpdaterType instanceof Nothing) {
       if (handleDomNode instanceof Nothing) {
-        return pure10(Nothing.value);
+        return pure11(Nothing.value);
       }
       ;
       if (handleDomNode instanceof Just) {
@@ -34387,11 +36040,11 @@ var getHandle2 = function(nodeId) {
                 if (mode instanceof Strict) {
                   if (v.value0.internals.handleBounds instanceof Just) {
                     if (handleType instanceof Source) {
-                      return map14(unSourceHandle)(v.value0.internals.handleBounds.value0.source);
+                      return map16(unSourceHandle)(v.value0.internals.handleBounds.value0.source);
                     }
                     ;
                     if (handleType instanceof Target) {
-                      return map14(unTargetHandle)(v.value0.internals.handleBounds.value0.target);
+                      return map16(unTargetHandle)(v.value0.internals.handleBounds.value0.target);
                     }
                     ;
                     throw new Error("Failed pattern match at System.XYHandle.Utils (line 190, column 24 - line 192, column 53): " + [handleType.constructor.name]);
@@ -34406,7 +36059,7 @@ var getHandle2 = function(nodeId) {
                 ;
                 if (mode instanceof Loose) {
                   if (v.value0.internals.handleBounds instanceof Just) {
-                    return append2(map14(unSourceHandle)(v.value0.internals.handleBounds.value0.source))(map14(unTargetHandle)(v.value0.internals.handleBounds.value0.target));
+                    return append2(map16(unSourceHandle)(v.value0.internals.handleBounds.value0.source))(map16(unTargetHandle)(v.value0.internals.handleBounds.value0.target));
                   }
                   ;
                   if (v.value0.internals.handleBounds instanceof Nothing) {
@@ -34490,7 +36143,7 @@ var getClosestHandle = function(position3) {
           var handlesOf = function(node) {
             var tgt = function() {
               if (node.internals.handleBounds instanceof Just) {
-                return map14(unTargetHandle)(node.internals.handleBounds.value0.target);
+                return map16(unTargetHandle)(node.internals.handleBounds.value0.target);
               }
               ;
               if (node.internals.handleBounds instanceof Nothing) {
@@ -34501,7 +36154,7 @@ var getClosestHandle = function(position3) {
             }();
             var src9 = function() {
               if (node.internals.handleBounds instanceof Just) {
-                return map14(unSourceHandle)(node.internals.handleBounds.value0.source);
+                return map16(unSourceHandle)(node.internals.handleBounds.value0.source);
               }
               ;
               if (node.internals.handleBounds instanceof Nothing) {
@@ -34510,9 +36163,9 @@ var getClosestHandle = function(position3) {
               ;
               throw new Error("Failed pattern match at System.XYHandle.Utils (line 110, column 17 - line 112, column 26): " + [node.internals.handleBounds.constructor.name]);
             }();
-            return map14(Tuple.create(node))(append2(src9)(tgt));
+            return map16(Tuple.create(node))(append2(src9)(tgt));
           };
-          return concat(map14(handlesOf)(closeNodes));
+          return concat(map16(handlesOf)(closeNodes));
         }();
         var annotated = foldl2(function(acc) {
           return function(v2) {
@@ -34599,9 +36252,9 @@ var $runtime_lazy4 = function(name15, moduleName, init4) {
   };
 };
 var discard4 = /* @__PURE__ */ discard(discardUnit);
-var pure11 = /* @__PURE__ */ pure(applicativeEffect);
-var unwrap5 = /* @__PURE__ */ unwrap();
-var map15 = /* @__PURE__ */ map(functorEffect);
+var pure12 = /* @__PURE__ */ pure(applicativeEffect);
+var unwrap6 = /* @__PURE__ */ unwrap();
+var map17 = /* @__PURE__ */ map(functorEffect);
 var notEq2 = /* @__PURE__ */ notEq(eqNodeId);
 var notEq12 = /* @__PURE__ */ notEq(/* @__PURE__ */ eqMaybe(eqString));
 var eq6 = /* @__PURE__ */ eq(eqHandleType);
@@ -34611,14 +36264,14 @@ var discard22 = /* @__PURE__ */ discard4(bindStateT2);
 var monadStateStateT2 = /* @__PURE__ */ monadStateStateT(monadEffect);
 var modify_3 = /* @__PURE__ */ modify_2(monadStateStateT2);
 var bind1 = /* @__PURE__ */ bind(bindStateT2);
-var liftEffect3 = /* @__PURE__ */ liftEffect(/* @__PURE__ */ monadEffectState(monadEffectEffect));
+var liftEffect4 = /* @__PURE__ */ liftEffect(/* @__PURE__ */ monadEffectState(monadEffectEffect));
 var for_2 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var when2 = /* @__PURE__ */ when(applicativeEffect);
 var applicativeStateT2 = /* @__PURE__ */ applicativeStateT(monadEffect);
-var pure1 = /* @__PURE__ */ pure(applicativeStateT2);
-var get3 = /* @__PURE__ */ get2(monadStateStateT2);
+var pure13 = /* @__PURE__ */ pure(applicativeStateT2);
+var get4 = /* @__PURE__ */ get2(monadStateStateT2);
 var bind22 = /* @__PURE__ */ bind(bindAff);
-var pure23 = /* @__PURE__ */ pure(applicativeAff);
+var pure22 = /* @__PURE__ */ pure(applicativeAff);
 var when1 = /* @__PURE__ */ when(applicativeStateT2);
 var unless2 = /* @__PURE__ */ unless(applicativeEffect);
 var runOnRef = function(ref) {
@@ -34670,13 +36323,13 @@ var handleSelector = function(lib) {
         ;
         throw new Error("Failed pattern match at System.XYHandle (line 557, column 19 - line 559, column 23): " + [v.constructor.name]);
       };
-      return "." + (lib + ('-flow__handle[data-id="' + (fromMaybe("")(flowId) + ("-" + (unwrap5(h.nodeId) + ("-" + (fromMaybe("null")(h.id) + ("-" + (handleTypeTag(h.handleType) + '"]')))))))));
+      return "." + (lib + ('-flow__handle[data-id="' + (fromMaybe("")(flowId) + ("-" + (unwrap6(h.nodeId) + ("-" + (fromMaybe("null")(h.id) + ("-" + (handleTypeTag(h.handleType) + '"]')))))))));
     };
   };
 };
 var getAttribute = function(el) {
   return function(name15) {
-    return map15(toMaybe)(getAttributeImpl(el)(name15));
+    return map17(toMaybe)(getAttributeImpl(el)(name15));
   };
 };
 var docTag = function(v) {
@@ -34699,13 +36352,13 @@ var docTag = function(v) {
 var elementFromPointOnDoc = function(d) {
   return function(x) {
     return function(y) {
-      return map15(toMaybe)(elementFromPointOnDocImpl(docTag(d))(x)(y));
+      return map17(toMaybe)(elementFromPointOnDocImpl(docTag(d))(x)(y));
     };
   };
 };
 var querySelectorOnDoc = function(d) {
   return function(sel) {
-    return map15(toMaybe)(querySelectorOnDocImpl(docTag(d))(sel));
+    return map17(toMaybe)(querySelectorOnDocImpl(docTag(d))(sel));
   };
 };
 var isValidHandle = function(event) {
@@ -34844,7 +36497,7 @@ var onPointerDown = function(event) {
       var doc = getHostForElement(Nothing.value)();
       var containerBounds = function() {
         if (params.domNode instanceof Just) {
-          return map15(Just.create)(elementBoundingRect(params.domNode.value0))();
+          return map17(Just.create)(elementBoundingRect(params.domNode.value0))();
         }
         ;
         if (params.domNode instanceof Nothing) {
@@ -34906,9 +36559,9 @@ var onPointerDown = function(event) {
               $81.connectionStarted = true;
               return $81;
             }))(function() {
-              return bind1(liftEffect3(read(previousConnection)))(function(prev) {
-                return discard22(liftEffect3(params.updateConnection(new ConnectionInProgress(prev))))(function() {
-                  return liftEffect3(for_2(params.onConnectStart)(function(cb) {
+              return bind1(liftEffect4(read(previousConnection)))(function(prev) {
+                return discard22(liftEffect4(params.updateConnection(new ConnectionInProgress(prev))))(function() {
+                  return liftEffect4(for_2(params.onConnectStart)(function(cb) {
                     return cb(event)({
                       nodeId: new Just(params.nodeId),
                       handleId: params.handleId,
@@ -34925,22 +36578,22 @@ var onPointerDown = function(event) {
             var $lazy_autoPanStep = $runtime_lazy4("autoPanStep", "System.XYHandle", function() {
               var $84 = !params.autoPanOnConnect;
               if ($84) {
-                return pure1(unit);
+                return pure13(unit);
               }
               ;
-              return bind1(get3)(function(s) {
+              return bind1(get4)(function(s) {
                 var speed = fromMaybe(15)(params.autoPanSpeed);
                 var mv = calcAutoPan(s.position)({
                   width: containerBounds.value0.width,
                   height: containerBounds.value0.height
                 })(speed)(40);
-                return discard22(liftEffect3(launchAff_(bind22(params.panBy({
+                return discard22(liftEffect4(launchAff_(bind22(params.panBy({
                   x: mv.x,
                   y: mv.y
                 }))(function() {
-                  return pure23(unit);
+                  return pure22(unit);
                 }))))(function() {
-                  return bind1(liftEffect3(requestAnimationFrame(autoPan(unit))))(function(handle3) {
+                  return bind1(liftEffect4(requestAnimationFrame(autoPan(unit))))(function(handle3) {
                     return modify_3(function(v) {
                       var $85 = {};
                       for (var $86 in v) {
@@ -35018,8 +36671,8 @@ var onPointerDown = function(event) {
                   $91.isValid = validNow;
                   return $91;
                 }))(function() {
-                  return bind1(get3)(function(s) {
-                    return when1(!s.autoPanStarted)(discard22(liftEffect3(autoPan(unit)))(function() {
+                  return bind1(get4)(function(s) {
+                    return when1(!s.autoPanStarted)(discard22(liftEffect4(autoPan(unit)))(function() {
                       return modify_3(function(v) {
                         var $94 = {};
                         for (var $95 in v) {
@@ -35095,29 +36748,29 @@ var onPointerDown = function(event) {
             var onPointerUp = function(ev) {
               return function __do3() {
                 var multi = isMultiTouchEvent(ev)();
-                return unless2(multi)(runOnRef(stateRef)(bind1(get3)(function(s) {
-                  return discard22(when1(s.connectionStarted)(discard22(liftEffect3(function() {
+                return unless2(multi)(runOnRef(stateRef)(bind1(get4)(function(s) {
+                  return discard22(when1(s.connectionStarted)(discard22(liftEffect4(function() {
                     if (s.connection instanceof Just && (s.isValid instanceof Just && (s.isValid.value0 && (isJust(s.closestHandle) || isJust(s.resultHandleDomNode))))) {
                       return for_2(params.onConnect)(function(cb) {
                         return cb(s.connection.value0);
                       });
                     }
                     ;
-                    return pure11(unit);
+                    return pure12(unit);
                   }()))(function() {
-                    return bind1(liftEffect3(read(previousConnection)))(function(prev) {
+                    return bind1(liftEffect4(read(previousConnection)))(function(prev) {
                       var $$final = new Just(prev);
-                      return discard22(liftEffect3(for_2(params.onConnectEnd)(function(cb) {
+                      return discard22(liftEffect4(for_2(params.onConnectEnd)(function(cb) {
                         return cb(ev)($$final);
                       })))(function() {
-                        return when1(isJust(params.edgeUpdaterType))(liftEffect3(for_2(params.onReconnectEnd)(function(cb) {
+                        return when1(isJust(params.edgeUpdaterType))(liftEffect4(for_2(params.onReconnectEnd)(function(cb) {
                           return cb(ev)($$final);
                         })));
                       });
                     });
                   })))(function() {
-                    return discard22(liftEffect3(params.cancelConnection))(function() {
-                      return discard22(liftEffect3(for_2(s.autoPanId)(cancelAnimationFrame)))(function() {
+                    return discard22(liftEffect4(params.cancelConnection))(function() {
+                      return discard22(liftEffect4(for_2(s.autoPanId)(cancelAnimationFrame)))(function() {
                         return discard22(modify_3(function(v) {
                           var $113 = {};
                           for (var $114 in v) {
@@ -35134,7 +36787,7 @@ var onPointerDown = function(event) {
                           $113.resultHandleDomNode = Nothing.value;
                           return $113;
                         }))(function() {
-                          return liftEffect3(removeDocListeners(doc)(onPointerMove)(onPointerUp));
+                          return liftEffect4(removeDocListeners(doc)(onPointerMove)(onPointerUp));
                         });
                       });
                     });
@@ -35145,21 +36798,21 @@ var onPointerDown = function(event) {
             var onPointerMove = function(ev) {
               return function __do3() {
                 var evPos2 = getEventPosition(ev)(Nothing.value)();
-                var proceed = runOnRef(stateRef)(bind1(get3)(function(s) {
+                var proceed = runOnRef(stateRef)(bind1(get4)(function(s) {
                   var dy = evPos2.y - evPos.y;
                   var dx = evPos2.x - evPos.x;
                   var moved = dx * dx + dy * dy > params.dragThreshold * params.dragThreshold;
                   if (s.connectionStarted) {
-                    return pure1(true);
+                    return pure13(true);
                   }
                   ;
                   if (moved) {
                     return discard22(startConnection)(function() {
-                      return pure1(true);
+                      return pure13(true);
                     });
                   }
                   ;
-                  return pure1(false);
+                  return pure13(false);
                 }))();
                 return when2(proceed)(function __do4() {
                   var mFromHandleNow = params.getFromHandle();
@@ -35247,22 +36900,22 @@ var toEvent = unsafeCoerce2;
 
 // output/React.Component.EdgeWrapper.UpdateAnchors/index.js
 var applySecond2 = /* @__PURE__ */ applySecond(applyAff);
-var liftEffect4 = /* @__PURE__ */ liftEffect(monadEffectAff);
-var pure12 = /* @__PURE__ */ pure(applicativeAff);
-var map16 = /* @__PURE__ */ map(functorMaybe);
-var bind9 = /* @__PURE__ */ bind3(ixBindRender);
+var liftEffect5 = /* @__PURE__ */ liftEffect(monadEffectAff);
+var pure14 = /* @__PURE__ */ pure(applicativeAff);
+var map18 = /* @__PURE__ */ map(functorMaybe);
+var bind10 = /* @__PURE__ */ bind4(ixBindRender);
 var when3 = /* @__PURE__ */ when(applicativeEffect);
-var pure13 = /* @__PURE__ */ pure(applicativeEffect);
+var pure15 = /* @__PURE__ */ pure(applicativeEffect);
 var eq14 = /* @__PURE__ */ eq(eqHandleType);
 var for_3 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
-var map17 = /* @__PURE__ */ map(functorEffect);
-var pure24 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var map19 = /* @__PURE__ */ map(functorEffect);
+var pure23 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var append3 = /* @__PURE__ */ append(semigroupJSX);
 var mempty4 = /* @__PURE__ */ mempty(monoidJSX);
 var syntheticToMouse = unsafeCoerce2;
 var panByAdapter = function(store) {
   return function(delta) {
-    return applySecond2(liftEffect4(store.dispatch(new PanBy(delta))))(pure12(true));
+    return applySecond2(liftEffect5(store.dispatch(new PanBy(delta))))(pure14(true));
   };
 };
 var extractFromHandle = function(v) {
@@ -35277,10 +36930,10 @@ var extractFromHandle = function(v) {
   throw new Error("Failed pattern match at React.Component.EdgeWrapper.UpdateAnchors (line 116, column 21 - line 118, column 46): " + [v.constructor.name]);
 };
 var currentTargetElement = function(se) {
-  return map16(unsafeCoerce2)(currentTarget(toEvent(syntheticToMouse(se))));
+  return map18(unsafeCoerce2)(currentTarget(toEvent(syntheticToMouse(se))));
 };
 var edgeUpdateAnchors = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponent()()()("EdgeUpdateAnchors")(function(v) {
-  return bind9(useStoreApi)(function(store) {
+  return bind10(useStoreApi)(function(store) {
     var targetOpposite = {
       nodeId: v.edge.source,
       id: v.edge.sourceHandle,
@@ -35409,7 +37062,7 @@ var edgeUpdateAnchors = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reac
                       }
                       ;
                       if (evtUnion instanceof Right) {
-                        return pure13(unit);
+                        return pure15(unit);
                       }
                       ;
                       throw new Error("Failed pattern match at React.Component.EdgeWrapper.UpdateAnchors (line 192, column 54 - line 194, column 43): " + [evtUnion.constructor.name]);
@@ -35417,7 +37070,7 @@ var edgeUpdateAnchors = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reac
                   };
                 };
               }),
-              getTransform: map17(function(v2) {
+              getTransform: map19(function(v2) {
                 return v2.transform;
               })(store.getState),
               getFromHandle: function __do3() {
@@ -35434,7 +37087,7 @@ var edgeUpdateAnchors = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reac
         });
       });
     };
-    return pure24(append3(function() {
+    return pure23(append3(function() {
       if (showSource) {
         return element(edgeAnchor)({
           position: v.sourcePosition,
@@ -35480,13 +37133,13 @@ var measureText = (element2) => () => {
 };
 
 // output/React.Edge.Text/index.js
-var bind10 = /* @__PURE__ */ bind3(ixBindRender);
+var bind11 = /* @__PURE__ */ bind4(ixBindRender);
 var discard5 = /* @__PURE__ */ discard2(ixBindRender);
 var useEffect3 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqMaybe(eqString));
-var map18 = /* @__PURE__ */ map(functorEffect);
+var map20 = /* @__PURE__ */ map(functorEffect);
 var for_4 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
-var pure14 = /* @__PURE__ */ pure(applicativeEffect);
-var pure15 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var pure16 = /* @__PURE__ */ pure(applicativeEffect);
+var pure17 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty5 = /* @__PURE__ */ mempty(monoidJSX);
 var show6 = /* @__PURE__ */ show(showNumber);
 var initialBBox = {
@@ -35500,19 +37153,19 @@ var defaultPadding = {
   y: 4
 };
 var edgeText = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponent()()()("EdgeText")(function(v) {
-  return bind10(useState(initialBBox))(function(v1) {
-    return bind10(useRef(toNullable(Nothing.value)))(function(textRef) {
+  return bind11(useState(initialBBox))(function(v1) {
+    return bind11(useRef(toNullable(Nothing.value)))(function(textRef) {
       return discard5(useEffect3(v.label)(function __do2() {
-        var mText = map18(toMaybe)(readRef(textRef))();
+        var mText = map20(toMaybe)(readRef(textRef))();
         for_4(mText)(function(text5) {
           return function __do3() {
             var measured = measureText(text5)();
             return v1.value1($$const(measured))();
           };
         })();
-        return pure14(unit);
+        return pure16(unit);
       }))(function() {
-        return pure15(function() {
+        return pure17(function() {
           if (v.label instanceof Nothing) {
             return mempty5;
           }
@@ -35571,11 +37224,11 @@ var edgeText = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponen
 }));
 
 // output/React.Edge.Base/index.js
-var pure16 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var pure18 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty6 = /* @__PURE__ */ mempty(monoidJSX);
 var append14 = /* @__PURE__ */ append(semigroupJSX);
 var baseEdge = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponent()()()("BaseEdge")(function(v) {
-  return pure16(function() {
+  return pure18(function() {
     var pathClass = function() {
       if (v.className instanceof Just) {
         return "react-flow__edge-path " + v.className.value0;
@@ -35636,8 +37289,8 @@ var baseEdge = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PU
 
 // output/React.Edge.Bezier/index.js
 var reactComponent2 = /* @__PURE__ */ reactComponent()()();
-var pure17 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
-var bind11 = /* @__PURE__ */ bind(bindMaybe);
+var pure19 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var bind12 = /* @__PURE__ */ bind(bindMaybe);
 var mkBezierEdge = function(cfg) {
   var name15 = function() {
     if (cfg.isInternal) {
@@ -35647,8 +37300,8 @@ var mkBezierEdge = function(cfg) {
     return "BezierEdge";
   }();
   return unsafePerformEffect(memo(reactComponent2(name15)(function(v) {
-    return pure17(function() {
-      var curvature = fromMaybe(0.25)(bind11(v.pathOptions)(function(v1) {
+    return pure19(function() {
+      var curvature = fromMaybe(0.25)(bind12(v.pathOptions)(function(v1) {
         return v1.curvature;
       }));
       var result = getBezierPath({
@@ -35693,7 +37346,7 @@ var bezierEdgeInternal = /* @__PURE__ */ mkBezierEdge({
 
 // output/React.Edge.SimpleBezier/index.js
 var reactComponent3 = /* @__PURE__ */ reactComponent()()();
-var pure18 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var pure20 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mkSimpleBezierEdge = function(cfg) {
   var name15 = function() {
     if (cfg.isInternal) {
@@ -35703,7 +37356,7 @@ var mkSimpleBezierEdge = function(cfg) {
     return "SimpleBezierEdge";
   }();
   return unsafePerformEffect(memo(reactComponent3(name15)(function(v) {
-    return pure18(function() {
+    return pure20(function() {
       var result = getSimpleBezierPath({
         sourceX: v.sourceX,
         sourceY: v.sourceY,
@@ -35745,15 +37398,15 @@ var simpleBezierEdgeInternal = /* @__PURE__ */ mkSimpleBezierEdge({
 
 // output/React.Edge.SmoothStep/index.js
 var reactComponent4 = /* @__PURE__ */ reactComponent()()();
-var pure19 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
-var bind12 = /* @__PURE__ */ bind(bindMaybe);
+var pure21 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var bind13 = /* @__PURE__ */ bind(bindMaybe);
 var mkSmoothStepEdge = function(cfg) {
   return unsafePerformEffect(memo(reactComponent4(cfg.name)(function(v) {
-    return pure19(function() {
-      var stepPosition = fromMaybe(0.5)(bind12(v.pathOptions)(function(v1) {
+    return pure21(function() {
+      var stepPosition = fromMaybe(0.5)(bind13(v.pathOptions)(function(v1) {
         return v1.stepPosition;
       }));
-      var offset = fromMaybe(20)(bind12(v.pathOptions)(function(v1) {
+      var offset = fromMaybe(20)(bind13(v.pathOptions)(function(v1) {
         return v1.offset;
       }));
       var borderRadius = function() {
@@ -35762,7 +37415,7 @@ var mkSmoothStepEdge = function(cfg) {
         }
         ;
         if (cfg.forcedBorderRadius instanceof Nothing) {
-          return fromMaybe(5)(bind12(v.pathOptions)(function(v1) {
+          return fromMaybe(5)(bind13(v.pathOptions)(function(v1) {
             return v1.borderRadius;
           }));
         }
@@ -35828,7 +37481,7 @@ var stepEdgeInternal = /* @__PURE__ */ function() {
 
 // output/React.Edge.Straight/index.js
 var reactComponent5 = /* @__PURE__ */ reactComponent()()();
-var pure20 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var pure24 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mkStraightEdge = function(cfg) {
   var name15 = function() {
     if (cfg.isInternal) {
@@ -35838,7 +37491,7 @@ var mkStraightEdge = function(cfg) {
     return "StraightEdge";
   }();
   return unsafePerformEffect(memo(reactComponent5(name15)(function(v) {
-    return pure20(function() {
+    return pure24(function() {
       var result = getStraightPath({
         sourceX: v.sourceX,
         sourceY: v.sourceY,
@@ -35889,11 +37542,11 @@ var nullPosition = /* @__PURE__ */ function() {
   };
 }();
 var builtinEdgeTypes = /* @__PURE__ */ function() {
-  return fromFoldable2(foldableArray)([new Tuple("default", bezierEdgeInternal), new Tuple("straight", straightEdgeInternal), new Tuple("step", stepEdgeInternal), new Tuple("smoothstep", smoothStepEdgeInternal), new Tuple("simplebezier", simpleBezierEdgeInternal)]);
+  return fromFoldable3(foldableArray)([new Tuple("default", bezierEdgeInternal), new Tuple("straight", straightEdgeInternal), new Tuple("step", stepEdgeInternal), new Tuple("smoothstep", smoothStepEdgeInternal), new Tuple("simplebezier", simpleBezierEdgeInternal)]);
 }();
 
 // output/System.Utils.Marker/index.js
-var map19 = /* @__PURE__ */ map(functorMaybe);
+var map21 = /* @__PURE__ */ map(functorMaybe);
 var member3 = /* @__PURE__ */ member2(ordString);
 var insert6 = /* @__PURE__ */ insert4(ordString);
 var append15 = /* @__PURE__ */ append(semigroupArray);
@@ -35911,17 +37564,17 @@ var showMarkerType = function(v) {
   throw new Error("Failed pattern match at System.Utils.Marker (line 37, column 18 - line 39, column 31): " + [v.constructor.name]);
 };
 var encodeMarker = function(m) {
-  return joinWith("&")(catMaybes([map19(function(v) {
+  return joinWith("&")(catMaybes([map21(function(v) {
     return "color=" + v;
-  })(m.color), map19(function(v) {
+  })(m.color), map21(function(v) {
     return "height=" + showN6(v);
-  })(m.height), map19(function(v) {
+  })(m.height), map21(function(v) {
     return "markerUnits=" + v;
-  })(m.markerUnits), map19(function(v) {
+  })(m.markerUnits), map21(function(v) {
     return "orient=" + v;
-  })(m.orient), map19(function(v) {
+  })(m.orient), map21(function(v) {
     return "strokeWidth=" + showN6(v);
-  })(m.strokeWidth), new Just("type=" + showMarkerType(m.markerType)), map19(function(v) {
+  })(m.strokeWidth), new Just("type=" + showMarkerType(m.markerType)), map21(function(v) {
     return "width=" + showN6(v);
   })(m.width)]));
 };
@@ -36028,7 +37681,7 @@ var createMarkerIds = function(edges) {
     })(function(v) {
       return v.markers;
     }(foldl2(step2)({
-      ids: empty5,
+      ids: empty6,
       markers: []
     })(edges)));
   };
@@ -36055,10 +37708,10 @@ var fromEvent = /* @__PURE__ */ unsafeReadProtoTagged("KeyboardEvent");
 // output/React.Component.EdgeWrapper/index.js
 var lookup6 = /* @__PURE__ */ lookup2(ordString);
 var lookup1 = /* @__PURE__ */ lookup2(ordNodeId);
-var unwrap6 = /* @__PURE__ */ unwrap();
-var pure21 = /* @__PURE__ */ pure(applicativeEffect);
+var unwrap7 = /* @__PURE__ */ unwrap();
+var pure25 = /* @__PURE__ */ pure(applicativeEffect);
 var for_5 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
-var bind13 = /* @__PURE__ */ bind3(ixBindRender);
+var bind14 = /* @__PURE__ */ bind4(ixBindRender);
 var eqRec3 = /* @__PURE__ */ eqRec();
 var eqRowCons3 = /* @__PURE__ */ eqRowCons(eqRowNil)();
 var useStore4 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec3(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons3({
@@ -36221,8 +37874,8 @@ var mkEdgeProps = function(edge) {
                     data: edge.data,
                     style: edge.style,
                     selected: edge.selected,
-                    source: unwrap6(edge.source),
-                    target: unwrap6(edge.target),
+                    source: unwrap7(edge.source),
+                    target: unwrap7(edge.target),
                     selectable: edge.selectable,
                     deletable: edge.deletable,
                     sourceX: sx,
@@ -36266,7 +37919,7 @@ var fireEdgeHandler = function(mCb) {
       }
       ;
       if (mCb instanceof Nothing) {
-        return pure21(unit);
+        return pure25(unit);
       }
       ;
       throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 476, column 31 - line 478, column 23): " + [mCb.constructor.name]);
@@ -36293,7 +37946,7 @@ var resolveEdgeComponent = function(mTypes) {
       var typesObj = edgeTypesAsObject(mTypes);
       var v = lookup(edgeType)(typesObj);
       if (v instanceof Just) {
-        return pure21({
+        return pure25({
           edgeType,
           component: v.value0
         });
@@ -36302,7 +37955,7 @@ var resolveEdgeComponent = function(mTypes) {
       if (v instanceof Nothing) {
         var v1 = lookup(edgeType)(builtinEdgeTypes);
         if (v1 instanceof Just) {
-          return pure21({
+          return pure25({
             edgeType,
             component: v1.value0
           });
@@ -36408,14 +38061,14 @@ var applyDefaults = function(v) {
   };
 };
 var edgeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponent()()()("EdgeWrapper")(function(v) {
-  return bind13(useStore4(selectEdgeSlice(v.id)))(function(slice3) {
+  return bind14(useStore4(selectEdgeSlice(v.id)))(function(slice3) {
     var edge = applyDefaults(slice3.defaultEdgeOptions)(slice3.edge);
     var edgeTypeInit = fromMaybe("default")(edge.edgeType);
     var resolved = unsafePerformEffect(resolveEdgeComponent(v.edgeTypes)(v.onError)(edgeTypeInit));
-    return bind13(useStoreApi)(function(store) {
-      return bind13(useState(false))(function(v1) {
-        return bind13(useState(false))(function(v2) {
-          return bind13(useStore12(selectEdgePosition(v.id)))(function(positionSlice) {
+    return bind14(useStoreApi)(function(store) {
+      return bind14(useState(false))(function(v1) {
+        return bind14(useState(false))(function(v2) {
+          return bind14(useStore12(selectEdgePosition(v.id)))(function(positionSlice) {
             var onMouseMoveHandler = handler(syntheticEvent)(function(se) {
               return fireEdgeHandler(v.onMouseMove)(se)(edge);
             });
@@ -36621,7 +38274,7 @@ var edgeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                     return onKeyDownHandler;
                   }
                   ;
-                  return handler_(pure21(unit));
+                  return handler_(pure25(unit));
                 }(),
                 tabIndex: function() {
                   if (v.edgesFocusable) {
@@ -36798,7 +38451,7 @@ var markerSymbol = function(v) {
 };
 
 // output/React.Container.MarkerDefinitions/index.js
-var bind14 = /* @__PURE__ */ bind3(ixBindRender);
+var bind15 = /* @__PURE__ */ bind4(ixBindRender);
 var useStore5 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
     return "edges";
@@ -36808,9 +38461,9 @@ var useStore5 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */
     return "defaultEdgeOptions";
   }
 })(eqUnsafeReference)));
-var pure25 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var pure26 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty8 = /* @__PURE__ */ mempty(monoidJSX);
-var map20 = /* @__PURE__ */ map(functorArray);
+var map23 = /* @__PURE__ */ map(functorArray);
 var selectSlice2 = function(s) {
   return {
     edges: s.edges,
@@ -36835,14 +38488,14 @@ var markerElement = function(m) {
   })]);
 };
 var markerDefinitions = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponent()()()("MarkerDefinitions")(function(v) {
-  return bind14(useStore5(selectSlice2))(function(slice3) {
+  return bind15(useStore5(selectSlice2))(function(slice3) {
     var markers = createMarkerIds(slice3.edges)({
       id: v.rfId,
       defaultColor: v.defaultColor,
       defaultMarkerStart: Nothing.value,
       defaultMarkerEnd: Nothing.value
     });
-    return pure25(function() {
+    return pure26(function() {
       var $24 = $$null(markers);
       if ($24) {
         return mempty8;
@@ -36851,7 +38504,7 @@ var markerDefinitions = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo
       return svg_({
         className: "react-flow__marker",
         "aria-hidden": "true"
-      })([defs_({})(map20(markerElement)(markers))]);
+      })([defs_({})(map23(markerElement)(markers))]);
     }());
   });
 })));
@@ -36869,22 +38522,22 @@ var isEdgeBaseImpl = (e) => e != null && typeof e === "object" && "id" in e && "
 
 // output/System.Utils.Graph/index.js
 var eq7 = /* @__PURE__ */ eq(eqNodeId);
-var fromFoldable6 = /* @__PURE__ */ fromFoldable4(foldableArray);
-var fromFoldable1 = /* @__PURE__ */ fromFoldable6(ordNodeId);
-var map21 = /* @__PURE__ */ map(functorArray);
+var fromFoldable7 = /* @__PURE__ */ fromFoldable5(foldableArray);
+var fromFoldable1 = /* @__PURE__ */ fromFoldable7(ordNodeId);
+var map24 = /* @__PURE__ */ map(functorArray);
 var member4 = /* @__PURE__ */ member2(ordNodeId);
 var fromFoldable22 = /* @__PURE__ */ fromFoldable(foldableList);
 var lookup7 = /* @__PURE__ */ lookup2(ordNodeId);
-var unwrap7 = /* @__PURE__ */ unwrap();
+var unwrap8 = /* @__PURE__ */ unwrap();
 var foldMap3 = /* @__PURE__ */ foldMap(foldableArray)(monoidBoundingBox);
 var eqMaybe3 = /* @__PURE__ */ eqMaybe(eqBoolean);
 var eq24 = /* @__PURE__ */ eq(eqMaybe3);
-var fromFoldable32 = /* @__PURE__ */ fromFoldable6(ordString);
+var fromFoldable32 = /* @__PURE__ */ fromFoldable7(ordString);
 var notEq3 = /* @__PURE__ */ notEq(eqMaybe3);
 var member1 = /* @__PURE__ */ member2(ordString);
-var pure26 = /* @__PURE__ */ pure(applicativeAff);
-var bind15 = /* @__PURE__ */ bind(bindAff);
-var filter3 = /* @__PURE__ */ filter2(ordNodeId);
+var pure27 = /* @__PURE__ */ pure(applicativeAff);
+var bind16 = /* @__PURE__ */ bind(bindAff);
+var filter5 = /* @__PURE__ */ filter4(ordNodeId);
 var alt2 = /* @__PURE__ */ alt(altMaybe);
 var isEdgeBase = function($104) {
   return isEdgeBaseImpl($104);
@@ -36971,7 +38624,7 @@ var getNodesBounds = function(nodes3) {
           }();
           return nodeToBox(source)(origin2);
         };
-        return boxToRect(unwrap7(foldMap3(nodeBoundingBox)(nodes3)));
+        return boxToRect(unwrap8(foldMap3(nodeBoundingBox)(nodes3)));
       }
       ;
       throw new Error("Failed pattern match at System.Utils.Graph (line 153, column 1 - line 158, column 10): " + [nodes3.constructor.name, mLookup.constructor.name, origin2.constructor.name]);
@@ -37006,12 +38659,12 @@ var getInternalNodesBounds = function(nodeLookup) {
     var merged = foldMap3(function(n) {
       return nodeToBox(new Right(n))(zeroOrigin2);
     })(kept);
-    return boxToRect(unwrap7(merged));
+    return boxToRect(unwrap8(merged));
   };
 };
 var getConnectedEdges = function(nodes3) {
   return function(edges) {
-    var ids = fromFoldable1(map21(function(v) {
+    var ids = fromFoldable1(map24(function(v) {
       return v.id;
     })(nodes3));
     return filter(function(e) {
@@ -37057,11 +38710,11 @@ var getElementsToRemove = function(p) {
       return foldl2(step2)([])(nodes3);
     };
   };
-  var nodeIds = fromFoldable1(map21(function(v) {
+  var nodeIds = fromFoldable1(map24(function(v) {
     return v.id;
   })(p.nodesToRemove));
   var matchingNodes = collectMatchingNodes(nodeIds)(p.nodes);
-  var edgeIds = fromFoldable32(map21(function(v) {
+  var edgeIds = fromFoldable32(map24(function(v) {
     return v.id;
   })(p.edgesToRemove));
   var deletableEdges = filter(function(e) {
@@ -37081,18 +38734,18 @@ var getElementsToRemove = function(p) {
     };
   })(connectedEdges)(deletableEdges);
   if (p.onBeforeDelete instanceof Nothing) {
-    return pure26({
+    return pure27({
       nodes: matchingNodes,
       edges: matchingEdges
     });
   }
   ;
   if (p.onBeforeDelete instanceof Just) {
-    return bind15(p.onBeforeDelete.value0({
+    return bind16(p.onBeforeDelete.value0({
       nodes: matchingNodes,
       edges: matchingEdges
     }))(function(result) {
-      return pure26(function() {
+      return pure27(function() {
         if (result instanceof Left && result.value0) {
           return {
             nodes: matchingNodes,
@@ -37122,7 +38775,7 @@ var filterFitViewNodes = function(nodes3) {
   return function(opts) {
     var optionIds = function() {
       if (opts.nodes instanceof Just) {
-        return new Just(fromFoldable1(map21(function(v) {
+        return new Just(fromFoldable1(map24(function(v) {
           return v.id;
         })(opts.nodes.value0)));
       }
@@ -37133,7 +38786,7 @@ var filterFitViewNodes = function(nodes3) {
       ;
       throw new Error("Failed pattern match at System.Utils.Graph (line 348, column 17 - line 350, column 25): " + [opts.nodes.constructor.name]);
     }();
-    return filter3(function(n) {
+    return filter5(function(n) {
       var visible = opts.includeHiddenNodes || !n.hidden;
       var inOptions = function() {
         if (optionIds instanceof Nothing) {
@@ -37172,17 +38825,17 @@ var fitViewport = function(params) {
     var nodesToFit = filterFitViewNodes(params.nodes)(options2);
     var $76 = size2(nodesToFit) === 0;
     if ($76) {
-      return pure26(true);
+      return pure27(true);
     }
     ;
     var bounds = getInternalNodesBounds(nodesToFit)(Nothing.value);
     var viewport2 = getViewportForBounds(bounds)(params.width)(params.height)(fromMaybe(params.minZoom)(options2.minZoom))(fromMaybe(params.maxZoom)(options2.maxZoom))(fromMaybe(defaultFitViewPadding)(options2.padding));
-    return bind15(params.panZoom.setViewport(viewport2)(new Just({
+    return bind16(params.panZoom.setViewport(viewport2)(new Just({
       duration: options2.duration,
       ease: options2.ease,
       interpolate: options2.interpolate
     })))(function() {
-      return pure26(true);
+      return pure27(true);
     });
   };
 };
@@ -37300,13 +38953,13 @@ var calculateNodePosition = function(p) {
 };
 
 // output/React.Hook.VisibleIds.Pure/index.js
-var map23 = /* @__PURE__ */ map(functorArray);
-var fromFoldable7 = /* @__PURE__ */ fromFoldable(foldableSet);
+var map25 = /* @__PURE__ */ map(functorArray);
+var fromFoldable8 = /* @__PURE__ */ fromFoldable(foldableSet);
 var lookup8 = /* @__PURE__ */ lookup2(ordNodeId);
 var selectVisibleNodeIds = function(onlyRenderVisible) {
   return function(s) {
     if (onlyRenderVisible) {
-      return map23(function(v) {
+      return map25(function(v) {
         return v.id;
       })(getNodesInside(s.nodeLookup)({
         x: 0,
@@ -37319,7 +38972,7 @@ var selectVisibleNodeIds = function(onlyRenderVisible) {
       }));
     }
     ;
-    return fromFoldable7(keys3(s.nodeLookup));
+    return fromFoldable8(keys3(s.nodeLookup));
   };
 };
 var selectVisibleEdgeIds = function(onlyRenderVisible) {
@@ -37346,7 +38999,7 @@ var selectVisibleEdgeIds = function(onlyRenderVisible) {
     };
     var $16 = !onlyRenderVisible;
     if ($16) {
-      return map23(function(v) {
+      return map25(function(v) {
         return v.id;
       })(s.edges);
     }
@@ -37371,7 +39024,7 @@ var useVisibleEdgeIds = function(onlyRenderVisible) {
 };
 
 // output/React.Container.EdgeRenderer/index.js
-var bind16 = /* @__PURE__ */ bind3(ixBindRender);
+var bind17 = /* @__PURE__ */ bind4(ixBindRender);
 var useStore7 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
     return "onError";
@@ -37393,8 +39046,8 @@ var useStore7 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */
     return "connectionMode";
   }
 })(eqConnectionMode)));
-var map24 = /* @__PURE__ */ map(functorArray);
-var pure27 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var map26 = /* @__PURE__ */ map(functorArray);
+var pure28 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var append4 = /* @__PURE__ */ append(semigroupArray);
 var selectFlags = function(s) {
   return {
@@ -37406,9 +39059,9 @@ var selectFlags = function(s) {
   };
 };
 var edgeRenderer = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponent()()()("EdgeRenderer")(function(v) {
-  return bind16(useStore7(selectFlags))(function(flags) {
-    return bind16(useVisibleEdgeIds(v.onlyRenderVisibleElements))(function(edgeIds) {
-      var edgeChildren = map24(function(edgeId) {
+  return bind17(useStore7(selectFlags))(function(flags) {
+    return bind17(useVisibleEdgeIds(v.onlyRenderVisibleElements))(function(edgeIds) {
+      var edgeChildren = map26(function(edgeId) {
         return keyed(edgeId)(element(edgeWrapper)({
           id: edgeId,
           edgesFocusable: flags.edgesFocusable,
@@ -37431,7 +39084,7 @@ var edgeRenderer = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @
           disableKeyboardA11y: new Just(v.disableKeyboardA11y)
         }));
       })(edgeIds);
-      return pure27(div_({
+      return pure28(div_({
         className: "react-flow__edges"
       })(append4([element(markerDefinitions)({
         defaultColor: v.defaultMarkerColor,
@@ -37449,90 +39102,9 @@ var focusWithoutScrollImpl = (mEl) => () => {
 };
 
 // output/Control.Monad.Except/index.js
-var unwrap8 = /* @__PURE__ */ unwrap();
+var unwrap9 = /* @__PURE__ */ unwrap();
 var runExcept = function($3) {
-  return unwrap8(runExceptT($3));
-};
-
-// output/Foreign/foreign.js
-function typeOf(value12) {
-  return typeof value12;
-}
-function tagOf(value12) {
-  return Object.prototype.toString.call(value12).slice(8, -1);
-}
-function isNull2(value12) {
-  return value12 === null;
-}
-function isUndefined(value12) {
-  return value12 === void 0;
-}
-var isArray = Array.isArray || function(value12) {
-  return Object.prototype.toString.call(value12) === "[object Array]";
-};
-
-// output/Data.List.NonEmpty/index.js
-var singleton6 = /* @__PURE__ */ function() {
-  var $200 = singleton3(plusList);
-  return function($201) {
-    return NonEmptyList($200($201));
-  };
-}();
-
-// output/Foreign/index.js
-var TypeMismatch = /* @__PURE__ */ function() {
-  function TypeMismatch2(value0, value1) {
-    this.value0 = value0;
-    this.value1 = value1;
-  }
-  ;
-  TypeMismatch2.create = function(value0) {
-    return function(value1) {
-      return new TypeMismatch2(value0, value1);
-    };
-  };
-  return TypeMismatch2;
-}();
-var ErrorAtProperty = /* @__PURE__ */ function() {
-  function ErrorAtProperty2(value0, value1) {
-    this.value0 = value0;
-    this.value1 = value1;
-  }
-  ;
-  ErrorAtProperty2.create = function(value0) {
-    return function(value1) {
-      return new ErrorAtProperty2(value0, value1);
-    };
-  };
-  return ErrorAtProperty2;
-}();
-var unsafeToForeign = unsafeCoerce2;
-var unsafeFromForeign = unsafeCoerce2;
-var fail = function(dictMonad) {
-  var $153 = throwError(monadThrowExceptT(dictMonad));
-  return function($154) {
-    return $153(singleton6($154));
-  };
-};
-var unsafeReadTagged = function(dictMonad) {
-  var pure130 = pure(applicativeExceptT(dictMonad));
-  var fail1 = fail(dictMonad);
-  return function(tag) {
-    return function(value12) {
-      if (tagOf(value12) === tag) {
-        return pure130(unsafeFromForeign(value12));
-      }
-      ;
-      if (otherwise) {
-        return fail1(new TypeMismatch(tag, tagOf(value12)));
-      }
-      ;
-      throw new Error("Failed pattern match at Foreign (line 123, column 1 - line 123, column 104): " + [tag.constructor.name, value12.constructor.name]);
-    };
-  };
-};
-var readString = function(dictMonad) {
-  return unsafeReadTagged(dictMonad)("String");
+  return unwrap9(runExceptT($3));
 };
 
 // output/Foreign.Index/foreign.js
@@ -37636,14 +39208,14 @@ var notEq13 = /* @__PURE__ */ notEq(eqNodeId);
 var notEq22 = /* @__PURE__ */ notEq(eqMaybe4);
 var eq32 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var applySecond3 = /* @__PURE__ */ applySecond(applyAff);
-var liftEffect5 = /* @__PURE__ */ liftEffect(monadEffectAff);
-var pure28 = /* @__PURE__ */ pure(applicativeAff);
-var map25 = /* @__PURE__ */ map(functorMaybe);
+var liftEffect6 = /* @__PURE__ */ liftEffect(monadEffectAff);
+var pure29 = /* @__PURE__ */ pure(applicativeAff);
+var map27 = /* @__PURE__ */ map(functorMaybe);
 var bindFlipped2 = /* @__PURE__ */ bindFlipped(bindMaybe);
 var when5 = /* @__PURE__ */ when(applicativeEffect);
 var pure111 = /* @__PURE__ */ pure(applicativeEffect);
 var for_6 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
-var bind17 = /* @__PURE__ */ bind3(ixBindRender);
+var bind18 = /* @__PURE__ */ bind4(ixBindRender);
 var eqRec4 = /* @__PURE__ */ eqRec();
 var eqRowCons4 = /* @__PURE__ */ eqRowCons(eqRowNil)();
 var useStore8 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec4(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons4({
@@ -37689,7 +39261,7 @@ var useStore14 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec4(/* @__PURE__ */
   }
 })(eqBoolean)));
 var map110 = /* @__PURE__ */ map(functorEffect);
-var pure29 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var pure210 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var syntheticToMouse2 = unsafeCoerce2;
 var selectHandleSlice = function(s) {
   return {
@@ -37804,7 +39376,7 @@ var positionString = function(v) {
 };
 var panByAdapter2 = function(store) {
   return function(delta) {
-    return applySecond3(liftEffect5(store.dispatch(new PanBy(delta))))(pure28(true));
+    return applySecond3(liftEffect6(store.dispatch(new PanBy(delta))))(pure29(true));
   };
 };
 var liftValidConn = function(iv) {
@@ -37887,7 +39459,7 @@ var extractFromHandle2 = function(v) {
   throw new Error("Failed pattern match at React.Handle (line 229, column 21 - line 231, column 46): " + [v.constructor.name]);
 };
 var currentTargetElement2 = function(se) {
-  return map25(unsafeCoerce2)(currentTarget(toEvent(syntheticToMouse2(se))));
+  return map27(unsafeCoerce2)(currentTarget(toEvent(syntheticToMouse2(se))));
 };
 var connectionToEdge = function(mDefaults) {
   return function(conn) {
@@ -38026,9 +39598,9 @@ var buildClassName = function(p) {
   }()]);
 };
 var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponent()()()("Handle")(function(v) {
-  return bind17(useStore8(selectHandleSlice))(function(slice3) {
-    return bind17(useStoreApi)(function(store) {
-      return bind17(useNodeId)(function(nodeIdM) {
+  return bind18(useStore8(selectHandleSlice))(function(slice3) {
+    return bind18(useStoreApi)(function(store) {
+      return bind18(useNodeId)(function(nodeIdM) {
         var nodeIdStr = function() {
           if (nodeIdM instanceof Just) {
             return nodeIdM.value0;
@@ -38040,7 +39612,7 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
           ;
           throw new Error("Failed pattern match at React.Handle (line 309, column 17 - line 311, column 49): " + [nodeIdM.constructor.name]);
         }();
-        return bind17(useStore14(selectConnectingFlags(nodeIdStr)(v.id)(v.handleType)))(function(flags) {
+        return bind18(useStore14(selectConnectingFlags(nodeIdStr)(v.id)(v.handleType)))(function(flags) {
           var isTarget = function() {
             if (v.handleType instanceof Target) {
               return true;
@@ -38401,7 +39973,7 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
             extra: v.className,
             flags
           });
-          return pure29(div_({
+          return pure210(div_({
             className: className2,
             style: opt(v.style),
             "data-handleid": opt(v.id),
@@ -38427,14 +39999,14 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
 })));
 
 // output/React.Node.Default/index.js
-var bind18 = /* @__PURE__ */ bind(/* @__PURE__ */ bindExceptT(monadIdentity));
+var bind19 = /* @__PURE__ */ bind(/* @__PURE__ */ bindExceptT(monadIdentity));
 var ix2 = /* @__PURE__ */ ix(/* @__PURE__ */ indexableForeign(monadIdentity))(/* @__PURE__ */ indexString(monadIdentity));
 var readString2 = /* @__PURE__ */ readString(monadIdentity);
 var pure30 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty9 = /* @__PURE__ */ mempty(monoidJSX);
 var append5 = /* @__PURE__ */ append(semigroupJSX);
 var readLabel = function(f) {
-  return hush(runExcept(bind18(ix2(f)("label"))(readString2)));
+  return hush(runExcept(bind19(ix2(f)("label"))(readString2)));
 };
 var defaultNode = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponent()()()("DefaultNode")(function(v) {
   return pure30(function() {
@@ -38486,14 +40058,14 @@ var groupNode = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompone
 }));
 
 // output/React.Node.Input/index.js
-var bind19 = /* @__PURE__ */ bind(/* @__PURE__ */ bindExceptT(monadIdentity));
+var bind20 = /* @__PURE__ */ bind(/* @__PURE__ */ bindExceptT(monadIdentity));
 var ix3 = /* @__PURE__ */ ix(/* @__PURE__ */ indexableForeign(monadIdentity))(/* @__PURE__ */ indexString(monadIdentity));
 var readString3 = /* @__PURE__ */ readString(monadIdentity);
 var pure32 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty11 = /* @__PURE__ */ mempty(monoidJSX);
 var append6 = /* @__PURE__ */ append(semigroupJSX);
 var readLabel2 = function(f) {
-  return hush(runExcept(bind19(ix3(f)("label"))(readString3)));
+  return hush(runExcept(bind20(ix3(f)("label"))(readString3)));
 };
 var inputNode = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponent()()()("InputNode")(function(v) {
   return pure32(function() {
@@ -38526,14 +40098,14 @@ var inputNode = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompone
 }));
 
 // output/React.Node.Output/index.js
-var bind20 = /* @__PURE__ */ bind(/* @__PURE__ */ bindExceptT(monadIdentity));
+var bind21 = /* @__PURE__ */ bind(/* @__PURE__ */ bindExceptT(monadIdentity));
 var ix4 = /* @__PURE__ */ ix(/* @__PURE__ */ indexableForeign(monadIdentity))(/* @__PURE__ */ indexString(monadIdentity));
 var readString4 = /* @__PURE__ */ readString(monadIdentity);
 var pure33 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty12 = /* @__PURE__ */ mempty(monoidJSX);
 var append7 = /* @__PURE__ */ append(semigroupJSX);
 var readLabel3 = function(f) {
-  return hush(runExcept(bind20(ix4(f)("label"))(readString4)));
+  return hush(runExcept(bind21(ix4(f)("label"))(readString4)));
 };
 var outputNode = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponent()()()("OutputNode")(function(v) {
   return pure33(function() {
@@ -38588,10 +40160,10 @@ var getNodeInlineStyleDimensions = function(node) {
   throw new Error("Failed pattern match at React.Component.NodeWrapper.Util (line 61, column 3 - line 69, column 8): " + [node.internals.handleBounds.constructor.name]);
 };
 var builtinNodeTypes = /* @__PURE__ */ function() {
-  return fromFoldable2(foldableArray)([new Tuple("input", inputNode), new Tuple("default", defaultNode), new Tuple("output", outputNode), new Tuple("group", groupNode)]);
+  return fromFoldable3(foldableArray)([new Tuple("input", inputNode), new Tuple("default", defaultNode), new Tuple("output", outputNode), new Tuple("group", groupNode)]);
 }();
 var arrowKeyDiffs = /* @__PURE__ */ function() {
-  return fromFoldable3(ordString)(foldableArray)([new Tuple("ArrowUp", {
+  return fromFoldable4(ordString)(foldableArray)([new Tuple("ArrowUp", {
     x: 0,
     y: -1
   }), new Tuple("ArrowDown", {
@@ -38616,1137 +40188,6 @@ var isMultiTouchSourceEvent = (event) => () => {
 var mouseButtonIsZero = (event) => () => !event.button;
 var mouseEventTarget = (event) => () => event.target;
 
-// node_modules/d3-dispatch/src/dispatch.js
-var noop = { value: () => {
-} };
-function dispatch() {
-  for (var i = 0, n = arguments.length, _ = {}, t; i < n; ++i) {
-    if (!(t = arguments[i] + "") || t in _ || /[\s.]/.test(t)) throw new Error("illegal type: " + t);
-    _[t] = [];
-  }
-  return new Dispatch(_);
-}
-function Dispatch(_) {
-  this._ = _;
-}
-function parseTypenames(typenames, types) {
-  return typenames.trim().split(/^|\s+/).map(function(t) {
-    var name15 = "", i = t.indexOf(".");
-    if (i >= 0) name15 = t.slice(i + 1), t = t.slice(0, i);
-    if (t && !types.hasOwnProperty(t)) throw new Error("unknown type: " + t);
-    return { type: t, name: name15 };
-  });
-}
-Dispatch.prototype = dispatch.prototype = {
-  constructor: Dispatch,
-  on: function(typename, callback) {
-    var _ = this._, T = parseTypenames(typename + "", _), t, i = -1, n = T.length;
-    if (arguments.length < 2) {
-      while (++i < n) if ((t = (typename = T[i]).type) && (t = get4(_[t], typename.name))) return t;
-      return;
-    }
-    if (callback != null && typeof callback !== "function") throw new Error("invalid callback: " + callback);
-    while (++i < n) {
-      if (t = (typename = T[i]).type) _[t] = set(_[t], typename.name, callback);
-      else if (callback == null) for (t in _) _[t] = set(_[t], typename.name, null);
-    }
-    return this;
-  },
-  copy: function() {
-    var copy = {}, _ = this._;
-    for (var t in _) copy[t] = _[t].slice();
-    return new Dispatch(copy);
-  },
-  call: function(type, that) {
-    if ((n = arguments.length - 2) > 0) for (var args = new Array(n), i = 0, n, t; i < n; ++i) args[i] = arguments[i + 2];
-    if (!this._.hasOwnProperty(type)) throw new Error("unknown type: " + type);
-    for (t = this._[type], i = 0, n = t.length; i < n; ++i) t[i].value.apply(that, args);
-  },
-  apply: function(type, that, args) {
-    if (!this._.hasOwnProperty(type)) throw new Error("unknown type: " + type);
-    for (var t = this._[type], i = 0, n = t.length; i < n; ++i) t[i].value.apply(that, args);
-  }
-};
-function get4(type, name15) {
-  for (var i = 0, n = type.length, c; i < n; ++i) {
-    if ((c = type[i]).name === name15) {
-      return c.value;
-    }
-  }
-}
-function set(type, name15, callback) {
-  for (var i = 0, n = type.length; i < n; ++i) {
-    if (type[i].name === name15) {
-      type[i] = noop, type = type.slice(0, i).concat(type.slice(i + 1));
-      break;
-    }
-  }
-  if (callback != null) type.push({ name: name15, value: callback });
-  return type;
-}
-var dispatch_default = dispatch;
-
-// node_modules/d3-selection/src/namespaces.js
-var xhtml = "http://www.w3.org/1999/xhtml";
-var namespaces_default = {
-  svg: "http://www.w3.org/2000/svg",
-  xhtml,
-  xlink: "http://www.w3.org/1999/xlink",
-  xml: "http://www.w3.org/XML/1998/namespace",
-  xmlns: "http://www.w3.org/2000/xmlns/"
-};
-
-// node_modules/d3-selection/src/namespace.js
-function namespace_default(name15) {
-  var prefix = name15 += "", i = prefix.indexOf(":");
-  if (i >= 0 && (prefix = name15.slice(0, i)) !== "xmlns") name15 = name15.slice(i + 1);
-  return namespaces_default.hasOwnProperty(prefix) ? { space: namespaces_default[prefix], local: name15 } : name15;
-}
-
-// node_modules/d3-selection/src/creator.js
-function creatorInherit(name15) {
-  return function() {
-    var document3 = this.ownerDocument, uri = this.namespaceURI;
-    return uri === xhtml && document3.documentElement.namespaceURI === xhtml ? document3.createElement(name15) : document3.createElementNS(uri, name15);
-  };
-}
-function creatorFixed(fullname) {
-  return function() {
-    return this.ownerDocument.createElementNS(fullname.space, fullname.local);
-  };
-}
-function creator_default(name15) {
-  var fullname = namespace_default(name15);
-  return (fullname.local ? creatorFixed : creatorInherit)(fullname);
-}
-
-// node_modules/d3-selection/src/selector.js
-function none() {
-}
-function selector_default(selector4) {
-  return selector4 == null ? none : function() {
-    return this.querySelector(selector4);
-  };
-}
-
-// node_modules/d3-selection/src/selection/select.js
-function select_default(select3) {
-  if (typeof select3 !== "function") select3 = selector_default(select3);
-  for (var groups = this._groups, m = groups.length, subgroups = new Array(m), j = 0; j < m; ++j) {
-    for (var group4 = groups[j], n = group4.length, subgroup = subgroups[j] = new Array(n), node, subnode, i = 0; i < n; ++i) {
-      if ((node = group4[i]) && (subnode = select3.call(node, node.__data__, i, group4))) {
-        if ("__data__" in node) subnode.__data__ = node.__data__;
-        subgroup[i] = subnode;
-      }
-    }
-  }
-  return new Selection(subgroups, this._parents);
-}
-
-// node_modules/d3-selection/src/array.js
-function array(x) {
-  return x == null ? [] : Array.isArray(x) ? x : Array.from(x);
-}
-
-// node_modules/d3-selection/src/selectorAll.js
-function empty6() {
-  return [];
-}
-function selectorAll_default(selector4) {
-  return selector4 == null ? empty6 : function() {
-    return this.querySelectorAll(selector4);
-  };
-}
-
-// node_modules/d3-selection/src/selection/selectAll.js
-function arrayAll(select3) {
-  return function() {
-    return array(select3.apply(this, arguments));
-  };
-}
-function selectAll_default(select3) {
-  if (typeof select3 === "function") select3 = arrayAll(select3);
-  else select3 = selectorAll_default(select3);
-  for (var groups = this._groups, m = groups.length, subgroups = [], parents = [], j = 0; j < m; ++j) {
-    for (var group4 = groups[j], n = group4.length, node, i = 0; i < n; ++i) {
-      if (node = group4[i]) {
-        subgroups.push(select3.call(node, node.__data__, i, group4));
-        parents.push(node);
-      }
-    }
-  }
-  return new Selection(subgroups, parents);
-}
-
-// node_modules/d3-selection/src/matcher.js
-function matcher_default(selector4) {
-  return function() {
-    return this.matches(selector4);
-  };
-}
-function childMatcher(selector4) {
-  return function(node) {
-    return node.matches(selector4);
-  };
-}
-
-// node_modules/d3-selection/src/selection/selectChild.js
-var find3 = Array.prototype.find;
-function childFind(match) {
-  return function() {
-    return find3.call(this.children, match);
-  };
-}
-function childFirst() {
-  return this.firstElementChild;
-}
-function selectChild_default(match) {
-  return this.select(match == null ? childFirst : childFind(typeof match === "function" ? match : childMatcher(match)));
-}
-
-// node_modules/d3-selection/src/selection/selectChildren.js
-var filter5 = Array.prototype.filter;
-function children() {
-  return Array.from(this.children);
-}
-function childrenFilter(match) {
-  return function() {
-    return filter5.call(this.children, match);
-  };
-}
-function selectChildren_default(match) {
-  return this.selectAll(match == null ? children : childrenFilter(typeof match === "function" ? match : childMatcher(match)));
-}
-
-// node_modules/d3-selection/src/selection/filter.js
-function filter_default(match) {
-  if (typeof match !== "function") match = matcher_default(match);
-  for (var groups = this._groups, m = groups.length, subgroups = new Array(m), j = 0; j < m; ++j) {
-    for (var group4 = groups[j], n = group4.length, subgroup = subgroups[j] = [], node, i = 0; i < n; ++i) {
-      if ((node = group4[i]) && match.call(node, node.__data__, i, group4)) {
-        subgroup.push(node);
-      }
-    }
-  }
-  return new Selection(subgroups, this._parents);
-}
-
-// node_modules/d3-selection/src/selection/sparse.js
-function sparse_default(update2) {
-  return new Array(update2.length);
-}
-
-// node_modules/d3-selection/src/selection/enter.js
-function enter_default() {
-  return new Selection(this._enter || this._groups.map(sparse_default), this._parents);
-}
-function EnterNode(parent2, datum2) {
-  this.ownerDocument = parent2.ownerDocument;
-  this.namespaceURI = parent2.namespaceURI;
-  this._next = null;
-  this._parent = parent2;
-  this.__data__ = datum2;
-}
-EnterNode.prototype = {
-  constructor: EnterNode,
-  appendChild: function(child) {
-    return this._parent.insertBefore(child, this._next);
-  },
-  insertBefore: function(child, next) {
-    return this._parent.insertBefore(child, next);
-  },
-  querySelector: function(selector4) {
-    return this._parent.querySelector(selector4);
-  },
-  querySelectorAll: function(selector4) {
-    return this._parent.querySelectorAll(selector4);
-  }
-};
-
-// node_modules/d3-selection/src/constant.js
-function constant_default(x) {
-  return function() {
-    return x;
-  };
-}
-
-// node_modules/d3-selection/src/selection/data.js
-function bindIndex(parent2, group4, enter, update2, exit, data) {
-  var i = 0, node, groupLength = group4.length, dataLength = data.length;
-  for (; i < dataLength; ++i) {
-    if (node = group4[i]) {
-      node.__data__ = data[i];
-      update2[i] = node;
-    } else {
-      enter[i] = new EnterNode(parent2, data[i]);
-    }
-  }
-  for (; i < groupLength; ++i) {
-    if (node = group4[i]) {
-      exit[i] = node;
-    }
-  }
-}
-function bindKey(parent2, group4, enter, update2, exit, data, key2) {
-  var i, node, nodeByKeyValue = /* @__PURE__ */ new Map(), groupLength = group4.length, dataLength = data.length, keyValues = new Array(groupLength), keyValue;
-  for (i = 0; i < groupLength; ++i) {
-    if (node = group4[i]) {
-      keyValues[i] = keyValue = key2.call(node, node.__data__, i, group4) + "";
-      if (nodeByKeyValue.has(keyValue)) {
-        exit[i] = node;
-      } else {
-        nodeByKeyValue.set(keyValue, node);
-      }
-    }
-  }
-  for (i = 0; i < dataLength; ++i) {
-    keyValue = key2.call(parent2, data[i], i, data) + "";
-    if (node = nodeByKeyValue.get(keyValue)) {
-      update2[i] = node;
-      node.__data__ = data[i];
-      nodeByKeyValue.delete(keyValue);
-    } else {
-      enter[i] = new EnterNode(parent2, data[i]);
-    }
-  }
-  for (i = 0; i < groupLength; ++i) {
-    if ((node = group4[i]) && nodeByKeyValue.get(keyValues[i]) === node) {
-      exit[i] = node;
-    }
-  }
-}
-function datum(node) {
-  return node.__data__;
-}
-function data_default(value12, key2) {
-  if (!arguments.length) return Array.from(this, datum);
-  var bind56 = key2 ? bindKey : bindIndex, parents = this._parents, groups = this._groups;
-  if (typeof value12 !== "function") value12 = constant_default(value12);
-  for (var m = groups.length, update2 = new Array(m), enter = new Array(m), exit = new Array(m), j = 0; j < m; ++j) {
-    var parent2 = parents[j], group4 = groups[j], groupLength = group4.length, data = arraylike(value12.call(parent2, parent2 && parent2.__data__, j, parents)), dataLength = data.length, enterGroup = enter[j] = new Array(dataLength), updateGroup = update2[j] = new Array(dataLength), exitGroup = exit[j] = new Array(groupLength);
-    bind56(parent2, group4, enterGroup, updateGroup, exitGroup, data, key2);
-    for (var i0 = 0, i1 = 0, previous, next; i0 < dataLength; ++i0) {
-      if (previous = enterGroup[i0]) {
-        if (i0 >= i1) i1 = i0 + 1;
-        while (!(next = updateGroup[i1]) && ++i1 < dataLength) ;
-        previous._next = next || null;
-      }
-    }
-  }
-  update2 = new Selection(update2, parents);
-  update2._enter = enter;
-  update2._exit = exit;
-  return update2;
-}
-function arraylike(data) {
-  return typeof data === "object" && "length" in data ? data : Array.from(data);
-}
-
-// node_modules/d3-selection/src/selection/exit.js
-function exit_default() {
-  return new Selection(this._exit || this._groups.map(sparse_default), this._parents);
-}
-
-// node_modules/d3-selection/src/selection/join.js
-function join_default(onenter, onupdate, onexit) {
-  var enter = this.enter(), update2 = this, exit = this.exit();
-  if (typeof onenter === "function") {
-    enter = onenter(enter);
-    if (enter) enter = enter.selection();
-  } else {
-    enter = enter.append(onenter + "");
-  }
-  if (onupdate != null) {
-    update2 = onupdate(update2);
-    if (update2) update2 = update2.selection();
-  }
-  if (onexit == null) exit.remove();
-  else onexit(exit);
-  return enter && update2 ? enter.merge(update2).order() : update2;
-}
-
-// node_modules/d3-selection/src/selection/merge.js
-function merge_default(context) {
-  var selection2 = context.selection ? context.selection() : context;
-  for (var groups0 = this._groups, groups1 = selection2._groups, m0 = groups0.length, m1 = groups1.length, m = Math.min(m0, m1), merges = new Array(m0), j = 0; j < m; ++j) {
-    for (var group0 = groups0[j], group1 = groups1[j], n = group0.length, merge2 = merges[j] = new Array(n), node, i = 0; i < n; ++i) {
-      if (node = group0[i] || group1[i]) {
-        merge2[i] = node;
-      }
-    }
-  }
-  for (; j < m0; ++j) {
-    merges[j] = groups0[j];
-  }
-  return new Selection(merges, this._parents);
-}
-
-// node_modules/d3-selection/src/selection/order.js
-function order_default() {
-  for (var groups = this._groups, j = -1, m = groups.length; ++j < m; ) {
-    for (var group4 = groups[j], i = group4.length - 1, next = group4[i], node; --i >= 0; ) {
-      if (node = group4[i]) {
-        if (next && node.compareDocumentPosition(next) ^ 4) next.parentNode.insertBefore(node, next);
-        next = node;
-      }
-    }
-  }
-  return this;
-}
-
-// node_modules/d3-selection/src/selection/sort.js
-function sort_default(compare3) {
-  if (!compare3) compare3 = ascending;
-  function compareNode(a, b) {
-    return a && b ? compare3(a.__data__, b.__data__) : !a - !b;
-  }
-  for (var groups = this._groups, m = groups.length, sortgroups = new Array(m), j = 0; j < m; ++j) {
-    for (var group4 = groups[j], n = group4.length, sortgroup = sortgroups[j] = new Array(n), node, i = 0; i < n; ++i) {
-      if (node = group4[i]) {
-        sortgroup[i] = node;
-      }
-    }
-    sortgroup.sort(compareNode);
-  }
-  return new Selection(sortgroups, this._parents).order();
-}
-function ascending(a, b) {
-  return a < b ? -1 : a > b ? 1 : a >= b ? 0 : NaN;
-}
-
-// node_modules/d3-selection/src/selection/call.js
-function call_default() {
-  var callback = arguments[0];
-  arguments[0] = this;
-  callback.apply(null, arguments);
-  return this;
-}
-
-// node_modules/d3-selection/src/selection/nodes.js
-function nodes_default() {
-  return Array.from(this);
-}
-
-// node_modules/d3-selection/src/selection/node.js
-function node_default() {
-  for (var groups = this._groups, j = 0, m = groups.length; j < m; ++j) {
-    for (var group4 = groups[j], i = 0, n = group4.length; i < n; ++i) {
-      var node = group4[i];
-      if (node) return node;
-    }
-  }
-  return null;
-}
-
-// node_modules/d3-selection/src/selection/size.js
-function size_default() {
-  let size6 = 0;
-  for (const node of this) ++size6;
-  return size6;
-}
-
-// node_modules/d3-selection/src/selection/empty.js
-function empty_default() {
-  return !this.node();
-}
-
-// node_modules/d3-selection/src/selection/each.js
-function each_default(callback) {
-  for (var groups = this._groups, j = 0, m = groups.length; j < m; ++j) {
-    for (var group4 = groups[j], i = 0, n = group4.length, node; i < n; ++i) {
-      if (node = group4[i]) callback.call(node, node.__data__, i, group4);
-    }
-  }
-  return this;
-}
-
-// node_modules/d3-selection/src/selection/attr.js
-function attrRemove(name15) {
-  return function() {
-    this.removeAttribute(name15);
-  };
-}
-function attrRemoveNS(fullname) {
-  return function() {
-    this.removeAttributeNS(fullname.space, fullname.local);
-  };
-}
-function attrConstant(name15, value12) {
-  return function() {
-    this.setAttribute(name15, value12);
-  };
-}
-function attrConstantNS(fullname, value12) {
-  return function() {
-    this.setAttributeNS(fullname.space, fullname.local, value12);
-  };
-}
-function attrFunction(name15, value12) {
-  return function() {
-    var v = value12.apply(this, arguments);
-    if (v == null) this.removeAttribute(name15);
-    else this.setAttribute(name15, v);
-  };
-}
-function attrFunctionNS(fullname, value12) {
-  return function() {
-    var v = value12.apply(this, arguments);
-    if (v == null) this.removeAttributeNS(fullname.space, fullname.local);
-    else this.setAttributeNS(fullname.space, fullname.local, v);
-  };
-}
-function attr_default(name15, value12) {
-  var fullname = namespace_default(name15);
-  if (arguments.length < 2) {
-    var node = this.node();
-    return fullname.local ? node.getAttributeNS(fullname.space, fullname.local) : node.getAttribute(fullname);
-  }
-  return this.each((value12 == null ? fullname.local ? attrRemoveNS : attrRemove : typeof value12 === "function" ? fullname.local ? attrFunctionNS : attrFunction : fullname.local ? attrConstantNS : attrConstant)(fullname, value12));
-}
-
-// node_modules/d3-selection/src/window.js
-function window_default(node) {
-  return node.ownerDocument && node.ownerDocument.defaultView || node.document && node || node.defaultView;
-}
-
-// node_modules/d3-selection/src/selection/style.js
-function styleRemove(name15) {
-  return function() {
-    this.style.removeProperty(name15);
-  };
-}
-function styleConstant(name15, value12, priority) {
-  return function() {
-    this.style.setProperty(name15, value12, priority);
-  };
-}
-function styleFunction(name15, value12, priority) {
-  return function() {
-    var v = value12.apply(this, arguments);
-    if (v == null) this.style.removeProperty(name15);
-    else this.style.setProperty(name15, v, priority);
-  };
-}
-function style_default(name15, value12, priority) {
-  return arguments.length > 1 ? this.each((value12 == null ? styleRemove : typeof value12 === "function" ? styleFunction : styleConstant)(name15, value12, priority == null ? "" : priority)) : styleValue(this.node(), name15);
-}
-function styleValue(node, name15) {
-  return node.style.getPropertyValue(name15) || window_default(node).getComputedStyle(node, null).getPropertyValue(name15);
-}
-
-// node_modules/d3-selection/src/selection/property.js
-function propertyRemove(name15) {
-  return function() {
-    delete this[name15];
-  };
-}
-function propertyConstant(name15, value12) {
-  return function() {
-    this[name15] = value12;
-  };
-}
-function propertyFunction(name15, value12) {
-  return function() {
-    var v = value12.apply(this, arguments);
-    if (v == null) delete this[name15];
-    else this[name15] = v;
-  };
-}
-function property_default(name15, value12) {
-  return arguments.length > 1 ? this.each((value12 == null ? propertyRemove : typeof value12 === "function" ? propertyFunction : propertyConstant)(name15, value12)) : this.node()[name15];
-}
-
-// node_modules/d3-selection/src/selection/classed.js
-function classArray(string) {
-  return string.trim().split(/^|\s+/);
-}
-function classList(node) {
-  return node.classList || new ClassList(node);
-}
-function ClassList(node) {
-  this._node = node;
-  this._names = classArray(node.getAttribute("class") || "");
-}
-ClassList.prototype = {
-  add: function(name15) {
-    var i = this._names.indexOf(name15);
-    if (i < 0) {
-      this._names.push(name15);
-      this._node.setAttribute("class", this._names.join(" "));
-    }
-  },
-  remove: function(name15) {
-    var i = this._names.indexOf(name15);
-    if (i >= 0) {
-      this._names.splice(i, 1);
-      this._node.setAttribute("class", this._names.join(" "));
-    }
-  },
-  contains: function(name15) {
-    return this._names.indexOf(name15) >= 0;
-  }
-};
-function classedAdd(node, names) {
-  var list = classList(node), i = -1, n = names.length;
-  while (++i < n) list.add(names[i]);
-}
-function classedRemove(node, names) {
-  var list = classList(node), i = -1, n = names.length;
-  while (++i < n) list.remove(names[i]);
-}
-function classedTrue(names) {
-  return function() {
-    classedAdd(this, names);
-  };
-}
-function classedFalse(names) {
-  return function() {
-    classedRemove(this, names);
-  };
-}
-function classedFunction(names, value12) {
-  return function() {
-    (value12.apply(this, arguments) ? classedAdd : classedRemove)(this, names);
-  };
-}
-function classed_default(name15, value12) {
-  var names = classArray(name15 + "");
-  if (arguments.length < 2) {
-    var list = classList(this.node()), i = -1, n = names.length;
-    while (++i < n) if (!list.contains(names[i])) return false;
-    return true;
-  }
-  return this.each((typeof value12 === "function" ? classedFunction : value12 ? classedTrue : classedFalse)(names, value12));
-}
-
-// node_modules/d3-selection/src/selection/text.js
-function textRemove() {
-  this.textContent = "";
-}
-function textConstant(value12) {
-  return function() {
-    this.textContent = value12;
-  };
-}
-function textFunction(value12) {
-  return function() {
-    var v = value12.apply(this, arguments);
-    this.textContent = v == null ? "" : v;
-  };
-}
-function text_default(value12) {
-  return arguments.length ? this.each(value12 == null ? textRemove : (typeof value12 === "function" ? textFunction : textConstant)(value12)) : this.node().textContent;
-}
-
-// node_modules/d3-selection/src/selection/html.js
-function htmlRemove() {
-  this.innerHTML = "";
-}
-function htmlConstant(value12) {
-  return function() {
-    this.innerHTML = value12;
-  };
-}
-function htmlFunction(value12) {
-  return function() {
-    var v = value12.apply(this, arguments);
-    this.innerHTML = v == null ? "" : v;
-  };
-}
-function html_default(value12) {
-  return arguments.length ? this.each(value12 == null ? htmlRemove : (typeof value12 === "function" ? htmlFunction : htmlConstant)(value12)) : this.node().innerHTML;
-}
-
-// node_modules/d3-selection/src/selection/raise.js
-function raise() {
-  if (this.nextSibling) this.parentNode.appendChild(this);
-}
-function raise_default() {
-  return this.each(raise);
-}
-
-// node_modules/d3-selection/src/selection/lower.js
-function lower() {
-  if (this.previousSibling) this.parentNode.insertBefore(this, this.parentNode.firstChild);
-}
-function lower_default() {
-  return this.each(lower);
-}
-
-// node_modules/d3-selection/src/selection/append.js
-function append_default(name15) {
-  var create4 = typeof name15 === "function" ? name15 : creator_default(name15);
-  return this.select(function() {
-    return this.appendChild(create4.apply(this, arguments));
-  });
-}
-
-// node_modules/d3-selection/src/selection/insert.js
-function constantNull() {
-  return null;
-}
-function insert_default(name15, before) {
-  var create4 = typeof name15 === "function" ? name15 : creator_default(name15), select3 = before == null ? constantNull : typeof before === "function" ? before : selector_default(before);
-  return this.select(function() {
-    return this.insertBefore(create4.apply(this, arguments), select3.apply(this, arguments) || null);
-  });
-}
-
-// node_modules/d3-selection/src/selection/remove.js
-function remove() {
-  var parent2 = this.parentNode;
-  if (parent2) parent2.removeChild(this);
-}
-function remove_default() {
-  return this.each(remove);
-}
-
-// node_modules/d3-selection/src/selection/clone.js
-function selection_cloneShallow() {
-  var clone = this.cloneNode(false), parent2 = this.parentNode;
-  return parent2 ? parent2.insertBefore(clone, this.nextSibling) : clone;
-}
-function selection_cloneDeep() {
-  var clone = this.cloneNode(true), parent2 = this.parentNode;
-  return parent2 ? parent2.insertBefore(clone, this.nextSibling) : clone;
-}
-function clone_default(deep) {
-  return this.select(deep ? selection_cloneDeep : selection_cloneShallow);
-}
-
-// node_modules/d3-selection/src/selection/datum.js
-function datum_default(value12) {
-  return arguments.length ? this.property("__data__", value12) : this.node().__data__;
-}
-
-// node_modules/d3-selection/src/selection/on.js
-function contextListener(listener) {
-  return function(event) {
-    listener.call(this, event, this.__data__);
-  };
-}
-function parseTypenames2(typenames) {
-  return typenames.trim().split(/^|\s+/).map(function(t) {
-    var name15 = "", i = t.indexOf(".");
-    if (i >= 0) name15 = t.slice(i + 1), t = t.slice(0, i);
-    return { type: t, name: name15 };
-  });
-}
-function onRemove(typename) {
-  return function() {
-    var on2 = this.__on;
-    if (!on2) return;
-    for (var j = 0, i = -1, m = on2.length, o; j < m; ++j) {
-      if (o = on2[j], (!typename.type || o.type === typename.type) && o.name === typename.name) {
-        this.removeEventListener(o.type, o.listener, o.options);
-      } else {
-        on2[++i] = o;
-      }
-    }
-    if (++i) on2.length = i;
-    else delete this.__on;
-  };
-}
-function onAdd(typename, value12, options2) {
-  return function() {
-    var on2 = this.__on, o, listener = contextListener(value12);
-    if (on2) for (var j = 0, m = on2.length; j < m; ++j) {
-      if ((o = on2[j]).type === typename.type && o.name === typename.name) {
-        this.removeEventListener(o.type, o.listener, o.options);
-        this.addEventListener(o.type, o.listener = listener, o.options = options2);
-        o.value = value12;
-        return;
-      }
-    }
-    this.addEventListener(typename.type, listener, options2);
-    o = { type: typename.type, name: typename.name, value: value12, listener, options: options2 };
-    if (!on2) this.__on = [o];
-    else on2.push(o);
-  };
-}
-function on_default(typename, value12, options2) {
-  var typenames = parseTypenames2(typename + ""), i, n = typenames.length, t;
-  if (arguments.length < 2) {
-    var on2 = this.node().__on;
-    if (on2) for (var j = 0, m = on2.length, o; j < m; ++j) {
-      for (i = 0, o = on2[j]; i < n; ++i) {
-        if ((t = typenames[i]).type === o.type && t.name === o.name) {
-          return o.value;
-        }
-      }
-    }
-    return;
-  }
-  on2 = value12 ? onAdd : onRemove;
-  for (i = 0; i < n; ++i) this.each(on2(typenames[i], value12, options2));
-  return this;
-}
-
-// node_modules/d3-selection/src/selection/dispatch.js
-function dispatchEvent(node, type, params) {
-  var window2 = window_default(node), event = window2.CustomEvent;
-  if (typeof event === "function") {
-    event = new event(type, params);
-  } else {
-    event = window2.document.createEvent("Event");
-    if (params) event.initEvent(type, params.bubbles, params.cancelable), event.detail = params.detail;
-    else event.initEvent(type, false, false);
-  }
-  node.dispatchEvent(event);
-}
-function dispatchConstant(type, params) {
-  return function() {
-    return dispatchEvent(this, type, params);
-  };
-}
-function dispatchFunction(type, params) {
-  return function() {
-    return dispatchEvent(this, type, params.apply(this, arguments));
-  };
-}
-function dispatch_default2(type, params) {
-  return this.each((typeof params === "function" ? dispatchFunction : dispatchConstant)(type, params));
-}
-
-// node_modules/d3-selection/src/selection/iterator.js
-function* iterator_default() {
-  for (var groups = this._groups, j = 0, m = groups.length; j < m; ++j) {
-    for (var group4 = groups[j], i = 0, n = group4.length, node; i < n; ++i) {
-      if (node = group4[i]) yield node;
-    }
-  }
-}
-
-// node_modules/d3-selection/src/selection/index.js
-var root = [null];
-function Selection(groups, parents) {
-  this._groups = groups;
-  this._parents = parents;
-}
-function selection() {
-  return new Selection([[document.documentElement]], root);
-}
-function selection_selection() {
-  return this;
-}
-Selection.prototype = selection.prototype = {
-  constructor: Selection,
-  select: select_default,
-  selectAll: selectAll_default,
-  selectChild: selectChild_default,
-  selectChildren: selectChildren_default,
-  filter: filter_default,
-  data: data_default,
-  enter: enter_default,
-  exit: exit_default,
-  join: join_default,
-  merge: merge_default,
-  selection: selection_selection,
-  order: order_default,
-  sort: sort_default,
-  call: call_default,
-  nodes: nodes_default,
-  node: node_default,
-  size: size_default,
-  empty: empty_default,
-  each: each_default,
-  attr: attr_default,
-  style: style_default,
-  property: property_default,
-  classed: classed_default,
-  text: text_default,
-  html: html_default,
-  raise: raise_default,
-  lower: lower_default,
-  append: append_default,
-  insert: insert_default,
-  remove: remove_default,
-  clone: clone_default,
-  datum: datum_default,
-  on: on_default,
-  dispatch: dispatch_default2,
-  [Symbol.iterator]: iterator_default
-};
-var selection_default = selection;
-
-// node_modules/d3-selection/src/select.js
-function select_default2(selector4) {
-  return typeof selector4 === "string" ? new Selection([[document.querySelector(selector4)]], [document.documentElement]) : new Selection([[selector4]], root);
-}
-
-// node_modules/d3-selection/src/sourceEvent.js
-function sourceEvent_default(event) {
-  let sourceEvent;
-  while (sourceEvent = event.sourceEvent) event = sourceEvent;
-  return event;
-}
-
-// node_modules/d3-selection/src/pointer.js
-function pointer_default(event, node) {
-  event = sourceEvent_default(event);
-  if (node === void 0) node = event.currentTarget;
-  if (node) {
-    var svg = node.ownerSVGElement || node;
-    if (svg.createSVGPoint) {
-      var point = svg.createSVGPoint();
-      point.x = event.clientX, point.y = event.clientY;
-      point = point.matrixTransform(node.getScreenCTM().inverse());
-      return [point.x, point.y];
-    }
-    if (node.getBoundingClientRect) {
-      var rect = node.getBoundingClientRect();
-      return [event.clientX - rect.left - node.clientLeft, event.clientY - rect.top - node.clientTop];
-    }
-  }
-  return [event.pageX, event.pageY];
-}
-
-// node_modules/d3-drag/src/noevent.js
-var nonpassive = { passive: false };
-var nonpassivecapture = { capture: true, passive: false };
-function nopropagation(event) {
-  event.stopImmediatePropagation();
-}
-function noevent_default(event) {
-  event.preventDefault();
-  event.stopImmediatePropagation();
-}
-
-// node_modules/d3-drag/src/nodrag.js
-function nodrag_default(view) {
-  var root3 = view.document.documentElement, selection2 = select_default2(view).on("dragstart.drag", noevent_default, nonpassivecapture);
-  if ("onselectstart" in root3) {
-    selection2.on("selectstart.drag", noevent_default, nonpassivecapture);
-  } else {
-    root3.__noselect = root3.style.MozUserSelect;
-    root3.style.MozUserSelect = "none";
-  }
-}
-function yesdrag(view, noclick) {
-  var root3 = view.document.documentElement, selection2 = select_default2(view).on("dragstart.drag", null);
-  if (noclick) {
-    selection2.on("click.drag", noevent_default, nonpassivecapture);
-    setTimeout(function() {
-      selection2.on("click.drag", null);
-    }, 0);
-  }
-  if ("onselectstart" in root3) {
-    selection2.on("selectstart.drag", null);
-  } else {
-    root3.style.MozUserSelect = root3.__noselect;
-    delete root3.__noselect;
-  }
-}
-
-// node_modules/d3-drag/src/constant.js
-var constant_default2 = (x) => () => x;
-
-// node_modules/d3-drag/src/event.js
-function DragEvent(type, {
-  sourceEvent,
-  subject,
-  target: target5,
-  identifier,
-  active,
-  x,
-  y,
-  dx,
-  dy,
-  dispatch: dispatch2
-}) {
-  Object.defineProperties(this, {
-    type: { value: type, enumerable: true, configurable: true },
-    sourceEvent: { value: sourceEvent, enumerable: true, configurable: true },
-    subject: { value: subject, enumerable: true, configurable: true },
-    target: { value: target5, enumerable: true, configurable: true },
-    identifier: { value: identifier, enumerable: true, configurable: true },
-    active: { value: active, enumerable: true, configurable: true },
-    x: { value: x, enumerable: true, configurable: true },
-    y: { value: y, enumerable: true, configurable: true },
-    dx: { value: dx, enumerable: true, configurable: true },
-    dy: { value: dy, enumerable: true, configurable: true },
-    _: { value: dispatch2 }
-  });
-}
-DragEvent.prototype.on = function() {
-  var value12 = this._.on.apply(this._, arguments);
-  return value12 === this._ ? this : value12;
-};
-
-// node_modules/d3-drag/src/drag.js
-function defaultFilter(event) {
-  return !event.ctrlKey && !event.button;
-}
-function defaultContainer() {
-  return this.parentNode;
-}
-function defaultSubject(event, d) {
-  return d == null ? { x: event.x, y: event.y } : d;
-}
-function defaultTouchable() {
-  return navigator.maxTouchPoints || "ontouchstart" in this;
-}
-function drag_default() {
-  var filter6 = defaultFilter, container2 = defaultContainer, subject = defaultSubject, touchable = defaultTouchable, gestures = {}, listeners = dispatch_default("start", "drag", "end"), active = 0, mousedownx, mousedowny, mousemoving, touchending, clickDistance2 = 0;
-  function drag(selection2) {
-    selection2.on("mousedown.drag", mousedowned).filter(touchable).on("touchstart.drag", touchstarted).on("touchmove.drag", touchmoved, nonpassive).on("touchend.drag touchcancel.drag", touchended).style("touch-action", "none").style("-webkit-tap-highlight-color", "rgba(0,0,0,0)");
-  }
-  function mousedowned(event, d) {
-    if (touchending || !filter6.call(this, event, d)) return;
-    var gesture = beforestart(this, container2.call(this, event, d), event, d, "mouse");
-    if (!gesture) return;
-    select_default2(event.view).on("mousemove.drag", mousemoved, nonpassivecapture).on("mouseup.drag", mouseupped, nonpassivecapture);
-    nodrag_default(event.view);
-    nopropagation(event);
-    mousemoving = false;
-    mousedownx = event.clientX;
-    mousedowny = event.clientY;
-    gesture("start", event);
-  }
-  function mousemoved(event) {
-    noevent_default(event);
-    if (!mousemoving) {
-      var dx = event.clientX - mousedownx, dy = event.clientY - mousedowny;
-      mousemoving = dx * dx + dy * dy > clickDistance2;
-    }
-    gestures.mouse("drag", event);
-  }
-  function mouseupped(event) {
-    select_default2(event.view).on("mousemove.drag mouseup.drag", null);
-    yesdrag(event.view, mousemoving);
-    noevent_default(event);
-    gestures.mouse("end", event);
-  }
-  function touchstarted(event, d) {
-    if (!filter6.call(this, event, d)) return;
-    var touches = event.changedTouches, c = container2.call(this, event, d), n = touches.length, i, gesture;
-    for (i = 0; i < n; ++i) {
-      if (gesture = beforestart(this, c, event, d, touches[i].identifier, touches[i])) {
-        nopropagation(event);
-        gesture("start", event, touches[i]);
-      }
-    }
-  }
-  function touchmoved(event) {
-    var touches = event.changedTouches, n = touches.length, i, gesture;
-    for (i = 0; i < n; ++i) {
-      if (gesture = gestures[touches[i].identifier]) {
-        noevent_default(event);
-        gesture("drag", event, touches[i]);
-      }
-    }
-  }
-  function touchended(event) {
-    var touches = event.changedTouches, n = touches.length, i, gesture;
-    if (touchending) clearTimeout(touchending);
-    touchending = setTimeout(function() {
-      touchending = null;
-    }, 500);
-    for (i = 0; i < n; ++i) {
-      if (gesture = gestures[touches[i].identifier]) {
-        nopropagation(event);
-        gesture("end", event, touches[i]);
-      }
-    }
-  }
-  function beforestart(that, container3, event, d, identifier, touch) {
-    var dispatch2 = listeners.copy(), p = pointer_default(touch || event, container3), dx, dy, s;
-    if ((s = subject.call(that, new DragEvent("beforestart", {
-      sourceEvent: event,
-      target: drag,
-      identifier,
-      active,
-      x: p[0],
-      y: p[1],
-      dx: 0,
-      dy: 0,
-      dispatch: dispatch2
-    }), d)) == null) return;
-    dx = s.x - p[0] || 0;
-    dy = s.y - p[1] || 0;
-    return function gesture(type, event2, touch2) {
-      var p0 = p, n;
-      switch (type) {
-        case "start":
-          gestures[identifier] = gesture, n = active++;
-          break;
-        case "end":
-          delete gestures[identifier], --active;
-        // falls through
-        case "drag":
-          p = pointer_default(touch2 || event2, container3), n = active;
-          break;
-      }
-      dispatch2.call(
-        type,
-        that,
-        new DragEvent(type, {
-          sourceEvent: event2,
-          subject: s,
-          target: drag,
-          identifier,
-          active: n,
-          x: p[0] + dx,
-          y: p[1] + dy,
-          dx: p[0] - p0[0],
-          dy: p[1] - p0[1],
-          dispatch: dispatch2
-        }),
-        d
-      );
-    };
-  }
-  drag.filter = function(_) {
-    return arguments.length ? (filter6 = typeof _ === "function" ? _ : constant_default2(!!_), drag) : filter6;
-  };
-  drag.container = function(_) {
-    return arguments.length ? (container2 = typeof _ === "function" ? _ : constant_default2(_), drag) : container2;
-  };
-  drag.subject = function(_) {
-    return arguments.length ? (subject = typeof _ === "function" ? _ : constant_default2(_), drag) : subject;
-  };
-  drag.touchable = function(_) {
-    return arguments.length ? (touchable = typeof _ === "function" ? _ : constant_default2(!!_), drag) : touchable;
-  };
-  drag.on = function() {
-    var value12 = listeners.on.apply(listeners, arguments);
-    return value12 === listeners ? drag : value12;
-  };
-  drag.clickDistance = function(_) {
-    return arguments.length ? (clickDistance2 = (_ = +_) * _, drag) : Math.sqrt(clickDistance2);
-  };
-  return drag;
-}
-
-// output/System.FFI.D3Drag/foreign.js
-var dragBehavior = () => drag_default();
-var setDragClickDistance = (n) => (behavior) => () => {
-  behavior.clickDistance(n);
-  return behavior;
-};
-var setDragOn = (typename) => (handler2) => (behavior) => () => {
-  behavior.on(typename, (event) => handler2(event)());
-  return behavior;
-};
-var setDragFilter = (predicate) => (behavior) => () => {
-  behavior.filter((event) => predicate({ sourceEvent: event })());
-  return behavior;
-};
-var applyDrag = (selection2) => (behavior) => () => {
-  selection2.call(behavior);
-};
-var dragSourceEvent = (event) => () => event.sourceEvent;
-
-// output/System.FFI.D3Selection/foreign.js
-var d3Select = (node) => () => select_default2(node);
-var d3SelectionOnNull = (sel) => (typename) => () => {
-  sel.on(typename, null);
-};
-var d3Pointer = (event) => (container2) => () => {
-  const [x, y] = pointer_default(event, container2);
-  return { x, y };
-};
-
 // output/System.XYDrag.Utils/foreign.js
 var hasSelectorImpl = (target5) => (selector4) => (domNode) => () => {
   let current = target5;
@@ -39766,7 +40207,7 @@ var hasSelectorImpl = (target5) => (selector4) => (domNode) => () => {
 var member5 = /* @__PURE__ */ member2(ordParentId);
 var lookup9 = /* @__PURE__ */ lookup2(ordNodeId);
 var insert7 = /* @__PURE__ */ insert4(ordParentId);
-var toUnfoldable6 = /* @__PURE__ */ toUnfoldable3(unfoldableArray);
+var toUnfoldable6 = /* @__PURE__ */ toUnfoldable4(unfoldableArray);
 var eq9 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqNodeId));
 var insert1 = /* @__PURE__ */ insert3(ordNodeId);
 var isParentSelected = function(node) {
@@ -39821,7 +40262,7 @@ var isParentSelected = function(node) {
         return $tco_result;
       };
     };
-    return go2(empty5)(node.parentId);
+    return go2(empty6)(node.parentId);
   };
 };
 var hasSelector = hasSelectorImpl;
@@ -39968,7 +40409,7 @@ var getDragItems = function(lookup112) {
           };
         };
         var entries = toUnfoldable6(lookup112);
-        return foldl2(step2)(empty4)(entries);
+        return foldl2(step2)(empty5)(entries);
       };
     };
   };
@@ -40003,8 +40444,8 @@ var calculateSnapOffset = function(dragItems) {
 
 // output/System.XYDrag/index.js
 var bindStateT3 = /* @__PURE__ */ bindStateT(monadEffect);
-var bind21 = /* @__PURE__ */ bind(bindStateT3);
-var liftEffect6 = /* @__PURE__ */ liftEffect(/* @__PURE__ */ monadEffectState(monadEffectEffect));
+var bind23 = /* @__PURE__ */ bind(bindStateT3);
+var liftEffect7 = /* @__PURE__ */ liftEffect(/* @__PURE__ */ monadEffectState(monadEffectEffect));
 var discard6 = /* @__PURE__ */ discard(discardUnit);
 var discard1 = /* @__PURE__ */ discard6(bindStateT3);
 var monadStateStateT3 = /* @__PURE__ */ monadStateStateT(monadEffect);
@@ -40014,7 +40455,7 @@ var lookup10 = /* @__PURE__ */ lookup2(ordNodeId);
 var applicativeStateT3 = /* @__PURE__ */ applicativeStateT(monadEffect);
 var pure34 = /* @__PURE__ */ pure(applicativeStateT3);
 var insert8 = /* @__PURE__ */ insert3(ordNodeId);
-var toUnfoldable7 = /* @__PURE__ */ toUnfoldable3(unfoldableArray);
+var toUnfoldable7 = /* @__PURE__ */ toUnfoldable4(unfoldableArray);
 var foldM4 = /* @__PURE__ */ foldM(foldableArray)(/* @__PURE__ */ monadStateT(monadEffect));
 var when6 = /* @__PURE__ */ when(applicativeStateT3);
 var traverse_2 = /* @__PURE__ */ traverse_(applicativeEffect)(foldableMaybe);
@@ -40023,14 +40464,14 @@ var when12 = /* @__PURE__ */ when(applicativeEffect);
 var pure112 = /* @__PURE__ */ pure(applicativeEffect);
 var unsafeReadTagged2 = /* @__PURE__ */ unsafeReadTagged(monadIdentity);
 var unless3 = /* @__PURE__ */ unless(applicativeStateT3);
-var map26 = /* @__PURE__ */ map(functorEffect);
-var bind23 = /* @__PURE__ */ bind(bindAff);
+var map28 = /* @__PURE__ */ map(functorEffect);
+var bind24 = /* @__PURE__ */ bind(bindAff);
 var liftEffect1 = /* @__PURE__ */ liftEffect(monadEffectAff);
 var notEq14 = /* @__PURE__ */ notEq(/* @__PURE__ */ eqMaybe(eqNumber));
 var updateNodes = function(params) {
   return function(mUpd) {
     return function(pos) {
-      return bind21(liftEffect6(params.getStoreItems))(function(store) {
+      return bind23(liftEffect7(params.getStoreItems))(function(store) {
         return discard1(modify_4(function(v) {
           var $72 = {};
           for (var $73 in v) {
@@ -40046,7 +40487,7 @@ var updateNodes = function(params) {
           };
           return $72;
         }))(function() {
-          return bind21(get5)(function(s) {
+          return bind23(get5)(function(s) {
             var isMultiDrag = size2(s.dragItems) > 1;
             var multiSnap = function() {
               var $75 = isMultiDrag && store.snapToGrid;
@@ -40136,7 +40577,7 @@ var updateNodes = function(params) {
               };
             };
             var entries = toUnfoldable7(s.dragItems);
-            return bind21(foldM4(step2)(false)(entries))(function(hasChange) {
+            return bind23(foldM4(step2)(false)(entries))(function(hasChange) {
               return when6(hasChange)(discard1(modify_4(function(v) {
                 var $90 = {};
                 for (var $91 in v) {
@@ -40149,9 +40590,9 @@ var updateNodes = function(params) {
                 $90.nodePositionsChanged = true;
                 return $90;
               }))(function() {
-                return bind21(get5)(function(s2) {
-                  return discard1(liftEffect6(store.updateNodePositions(s2.dragItems)(true)))(function() {
-                    return liftEffect6(traverse_2(function(ev) {
+                return bind23(get5)(function(s2) {
+                  return discard1(liftEffect7(store.updateNodePositions(s2.dragItems)(true)))(function() {
+                    return liftEffect7(traverse_2(function(ev) {
                       var nodeId = function() {
                         if (mUpd instanceof Just) {
                           return mUpd.value0.nodeId;
@@ -40207,7 +40648,7 @@ var initialDragState2 = /* @__PURE__ */ function() {
       y: Nothing.value
     },
     autoPanId: Nothing.value,
-    dragItems: empty4,
+    dragItems: empty5,
     autoPanStarted: false,
     mousePosition: {
       x: 0,
@@ -40248,9 +40689,9 @@ var foreignAsTouchOrMouse = function(f) {
 var onEnd = function(params) {
   return function(upd) {
     return function(ev) {
-      return bind21(liftEffect6(dragSourceEvent(ev)))(function(src9) {
-        return bind21(get5)(function(s0) {
-          return unless3(!s0.dragStarted || s0.abortDrag)(discard1(liftEffect6(for_7(s0.autoPanId)(cancelAnimationFrame)))(function() {
+      return bind23(liftEffect7(dragSourceEvent(ev)))(function(src9) {
+        return bind23(get5)(function(s0) {
+          return unless3(!s0.dragStarted || s0.abortDrag)(discard1(liftEffect7(for_7(s0.autoPanId)(cancelAnimationFrame)))(function() {
             return discard1(modify_4(function(v) {
               var $104 = {};
               for (var $105 in v) {
@@ -40265,8 +40706,8 @@ var onEnd = function(params) {
               $104.autoPanId = Nothing.value;
               return $104;
             }))(function() {
-              return when6(size2(s0.dragItems) > 0)(bind21(liftEffect6(params.getStoreItems))(function(store) {
-                return discard1(when6(s0.nodePositionsChanged)(discard1(liftEffect6(store.updateNodePositions(s0.dragItems)(false)))(function() {
+              return when6(size2(s0.dragItems) > 0)(bind23(liftEffect7(params.getStoreItems))(function(store) {
+                return discard1(when6(s0.nodePositionsChanged)(discard1(liftEffect7(store.updateNodePositions(s0.dragItems)(false)))(function() {
                   return modify_4(function(v) {
                     var $107 = {};
                     for (var $108 in v) {
@@ -40282,7 +40723,7 @@ var onEnd = function(params) {
                 })))(function() {
                   var mouseEv = foreignAsMouseEvent(src9);
                   var eventArgs = getEventHandlerParams(upd.nodeId)(s0.dragItems)(store.nodeLookup)(false);
-                  return liftEffect6(function __do2() {
+                  return liftEffect7(function __do2() {
                     for_7(eventArgs.currentNode)(function(cn) {
                       return function __do3() {
                         for_7(params.onDragStop)(function(cb) {
@@ -40309,8 +40750,8 @@ var onEnd = function(params) {
 var startDrag = function(params) {
   return function(upd) {
     return function(ev) {
-      return bind21(liftEffect6(params.getStoreItems))(function(store) {
-        return bind21(liftEffect6(dragSourceEvent(ev)))(function(src9) {
+      return bind23(liftEffect7(params.getStoreItems))(function(store) {
+        return bind23(liftEffect7(dragSourceEvent(ev)))(function(src9) {
           return discard1(modify_4(function(v) {
             var $110 = {};
             for (var $111 in v) {
@@ -40324,7 +40765,7 @@ var startDrag = function(params) {
             return $110;
           }))(function() {
             var deselectFirst = (!store.selectNodesOnDrag || !upd.isSelectable) && !store.multiSelectionActive;
-            return discard1(liftEffect6(function() {
+            return discard1(liftEffect7(function() {
               if (upd.nodeId instanceof Just && deselectFirst) {
                 var alreadySelected = function() {
                   var v = lookup10(upd.nodeId.value0)(store.nodeLookup);
@@ -40343,7 +40784,7 @@ var startDrag = function(params) {
               ;
               return pure112(unit);
             }()))(function() {
-              return discard1(liftEffect6(function() {
+              return discard1(liftEffect7(function() {
                 if (upd.nodeId instanceof Just && (upd.isSelectable && store.selectNodesOnDrag)) {
                   return for_7(params.onNodeMouseDown)(function(cb) {
                     return cb(upd.nodeId.value0);
@@ -40352,8 +40793,8 @@ var startDrag = function(params) {
                 ;
                 return pure112(unit);
               }()))(function() {
-                return bind21(get5)(function(s) {
-                  return bind21(liftEffect6(getPointerPosition(foreignAsTouchOrMouse(src9))({
+                return bind23(get5)(function(s) {
+                  return bind23(liftEffect7(getPointerPosition(foreignAsTouchOrMouse(src9))({
                     transform: store.transform,
                     snapGrid: store.snapGrid,
                     snapToGrid: store.snapToGrid,
@@ -40382,7 +40823,7 @@ var startDrag = function(params) {
                       return when6(size2(items) > 0)(function() {
                         var mouseEv = foreignAsMouseEvent(src9);
                         var eventArgs = getEventHandlerParams(upd.nodeId)(items)(store.nodeLookup)(true);
-                        return liftEffect6(function __do2() {
+                        return liftEffect7(function __do2() {
                           for_7(eventArgs.currentNode)(function(cn) {
                             return function __do3() {
                               for_7(params.onDragStart)(function(cb) {
@@ -40412,11 +40853,11 @@ var startDrag = function(params) {
 var onStart = function(params) {
   return function(upd) {
     return function(ev) {
-      return bind21(liftEffect6(params.getStoreItems))(function(store) {
-        return bind21(liftEffect6(dragSourceEvent(ev)))(function(src9) {
-          return bind21(liftEffect6(function() {
+      return bind23(liftEffect7(params.getStoreItems))(function(store) {
+        return bind23(liftEffect7(dragSourceEvent(ev)))(function(src9) {
+          return bind23(liftEffect7(function() {
             if (store.domNode instanceof Just) {
-              return map26(Just.create)(elementBoundingRect(store.domNode.value0));
+              return map28(Just.create)(elementBoundingRect(store.domNode.value0));
             }
             ;
             if (store.domNode instanceof Nothing) {
@@ -40441,13 +40882,13 @@ var onStart = function(params) {
               return $124;
             }))(function() {
               return discard1(when6(store.nodeDragThreshold === 0)(startDrag(params)(upd)(ev)))(function() {
-                return bind21(liftEffect6(getPointerPosition(foreignAsTouchOrMouse(src9))({
+                return bind23(liftEffect7(getPointerPosition(foreignAsTouchOrMouse(src9))({
                   transform: store.transform,
                   snapGrid: store.snapGrid,
                   snapToGrid: store.snapToGrid,
                   containerBounds: bounds
                 })))(function(pp) {
-                  return bind21(liftEffect6(getEventPosition(foreignAsTouchOrMouse(src9))(bounds)))(function(mp) {
+                  return bind23(liftEffect7(getEventPosition(foreignAsTouchOrMouse(src9))(bounds)))(function(mp) {
                     return modify_4(function(v) {
                       var $127 = {};
                       for (var $128 in v) {
@@ -40521,16 +40962,16 @@ var autoPanStep = function(params) {
       ;
       return Nothing.value;
     };
-    return bind21(get5)(function(s) {
+    return bind23(get5)(function(s) {
       if (s.containerBounds instanceof Nothing) {
         return pure34(unit);
       }
       ;
       if (s.containerBounds instanceof Just) {
-        return bind21(liftEffect6(params.getStoreItems))(function(store) {
+        return bind23(liftEffect7(params.getStoreItems))(function(store) {
           var $139 = !store.autoPanOnNodeDrag;
           if ($139) {
-            return discard1(liftEffect6(for_7(s.autoPanId)(cancelAnimationFrame)))(function() {
+            return discard1(liftEffect7(for_7(s.autoPanId)(cancelAnimationFrame)))(function() {
               return modify_4(function(v) {
                 var $140 = {};
                 for (var $141 in v) {
@@ -40569,11 +41010,11 @@ var autoPanStep = function(params) {
               $144.lastPos = newLp;
               return $144;
             }))(function() {
-              return liftEffect6(launchAff_(bind23(store.panBy({
+              return liftEffect7(launchAff_(bind24(store.panBy({
                 x: mv.x,
                 y: mv.y
               }))(function(ok) {
-                return liftEffect1(when12(ok)(runOnRef2(stateRef)(bind21(get5)(function(s2) {
+                return liftEffect1(when12(ok)(runOnRef2(stateRef)(bind23(get5)(function(s2) {
                   var v = xyOf(s2.lastPos);
                   if (v instanceof Just) {
                     return updateNodes(params)(Nothing.value)(v.value0);
@@ -40588,7 +41029,7 @@ var autoPanStep = function(params) {
               })));
             });
           }()))(function() {
-            return bind21(liftEffect6(requestAnimationFrame(autoPanLoop(params)(stateRef))))(function(handle3) {
+            return bind23(liftEffect7(requestAnimationFrame(autoPanLoop(params)(stateRef))))(function(handle3) {
               return modify_4(function(v) {
                 var $149 = {};
                 for (var $150 in v) {
@@ -40619,10 +41060,10 @@ var onDragHandler = function(params) {
   return function(stateRef) {
     return function(upd) {
       return function(ev) {
-        return bind21(liftEffect6(params.getStoreItems))(function(store) {
-          return bind21(liftEffect6(dragSourceEvent(ev)))(function(src9) {
-            return bind21(get5)(function(s0) {
-              return bind21(liftEffect6(getPointerPosition(foreignAsTouchOrMouse(src9))({
+        return bind23(liftEffect7(params.getStoreItems))(function(store) {
+          return bind23(liftEffect7(dragSourceEvent(ev)))(function(src9) {
+            return bind23(get5)(function(s0) {
+              return bind23(liftEffect7(getPointerPosition(foreignAsTouchOrMouse(src9))({
                 transform: store.transform,
                 snapGrid: store.snapGrid,
                 snapToGrid: store.snapToGrid,
@@ -40640,7 +41081,7 @@ var onDragHandler = function(params) {
                   $153.dragEvent = new Just(foreignAsMouseEvent(src9));
                   return $153;
                 }))(function() {
-                  return bind21(liftEffect6(isMultiTouchSourceEvent(src9)))(function(multi) {
+                  return bind23(liftEffect7(isMultiTouchSourceEvent(src9)))(function(multi) {
                     var deletedDuringDrag = function() {
                       if (upd.nodeId instanceof Just) {
                         return isNothing(lookup10(upd.nodeId.value0)(store.nodeLookup));
@@ -40664,7 +41105,7 @@ var onDragHandler = function(params) {
                       $158.abortDrag = true;
                       return $158;
                     })))(function() {
-                      return bind21(get5)(function(s1) {
+                      return bind23(get5)(function(s1) {
                         return when6(!s1.abortDrag)(discard1(when6(!s1.autoPanStarted && (store.autoPanOnNodeDrag && s1.dragStarted))(discard1(modify_4(function(v) {
                           var $161 = {};
                           for (var $162 in v) {
@@ -40679,15 +41120,15 @@ var onDragHandler = function(params) {
                         }))(function() {
                           return autoPanStep(params)(stateRef);
                         })))(function() {
-                          return discard1(when6(!s1.dragStarted)(bind21(liftEffect6(getEventPosition(foreignAsTouchOrMouse(src9))(s1.containerBounds)))(function(curMP) {
+                          return discard1(when6(!s1.dragStarted)(bind23(liftEffect7(getEventPosition(foreignAsTouchOrMouse(src9))(s1.containerBounds)))(function(curMP) {
                             var dy = curMP.y - s1.mousePosition.y;
                             var dx = curMP.x - s1.mousePosition.x;
                             var dist = sqrt(dx * dx + dy * dy);
                             return when6(dist > store.nodeDragThreshold)(startDrag(params)(upd)(ev));
                           })))(function() {
-                            return bind21(get5)(function(s2) {
+                            return bind23(get5)(function(s2) {
                               var moved = notEq14(s2.lastPos.x)(new Just(pp.xSnapped)) || notEq14(s2.lastPos.y)(new Just(pp.ySnapped));
-                              return when6(moved && (size2(s2.dragItems) > 0 && s2.dragStarted))(bind21(liftEffect6(getEventPosition(foreignAsTouchOrMouse(src9))(s2.containerBounds)))(function(mp) {
+                              return when6(moved && (size2(s2.dragItems) > 0 && s2.dragStarted))(bind23(liftEffect7(getEventPosition(foreignAsTouchOrMouse(src9))(s2.containerBounds)))(function(mp) {
                                 return discard1(modify_4(function(v) {
                                   var $164 = {};
                                   for (var $165 in v) {
@@ -40777,15 +41218,15 @@ var fromElement = /* @__PURE__ */ unsafeReadProtoTagged("HTMLDivElement");
 
 // output/React.Hook.Drag/index.js
 var coerceHook3 = /* @__PURE__ */ coerceHook();
-var bind24 = /* @__PURE__ */ bind3(ixBindRender);
+var bind25 = /* @__PURE__ */ bind4(ixBindRender);
 var discard7 = /* @__PURE__ */ discard2(ixBindRender);
 var useEffect4 = /* @__PURE__ */ useEffect(eqUnsafeReference);
-var map27 = /* @__PURE__ */ map(functorEffect);
+var map29 = /* @__PURE__ */ map(functorEffect);
 var pure113 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var asDeps = unsafeCoerce2;
 var useDrag = function(opts) {
-  return coerceHook3(bind24(useState(false))(function(v) {
-    return bind24(useRef(Nothing.value))(function(controllerRef) {
+  return coerceHook3(bind25(useState(false))(function(v) {
+    return bind25(useRef(Nothing.value))(function(controllerRef) {
       return discard7(useEffect4(asDeps(opts))(function __do2() {
         var mController = readRef(controllerRef)();
         var controller = function() {
@@ -40846,7 +41287,7 @@ var useDrag = function(opts) {
           ;
           throw new Error("Failed pattern match at React.Hook.Drag (line 96, column 19 - line 116, column 15): " + [mController.constructor.name]);
         }();
-        var mDiv = map27(toMaybe)(readRef(opts.wrapperRef))();
+        var mDiv = map29(toMaybe)(readRef(opts.wrapperRef))();
         (function() {
           if (mDiv instanceof Nothing) {
             return unit;
@@ -40886,7 +41327,7 @@ var useDrag = function(opts) {
 };
 
 // output/React.Hook.MoveSelectedNodes/index.js
-var map28 = /* @__PURE__ */ map(functorArray);
+var map30 = /* @__PURE__ */ map(functorArray);
 var lookup11 = /* @__PURE__ */ lookup2(ordNodeId);
 var useMoveSelectedNodes = /* @__PURE__ */ function() {
   var mkMover = function(store) {
@@ -40897,7 +41338,7 @@ var useMoveSelectedNodes = /* @__PURE__ */ function() {
           var selected2 = filter(function(v) {
             return v.selected;
           })(st.nodes);
-          var dragItems = map28(function(n) {
+          var dragItems = map30(function(n) {
             var newPos = {
               x: n.position.x + delta.x * factor,
               y: n.position.y + delta.y * factor
@@ -40945,13 +41386,13 @@ var useMoveSelectedNodes = /* @__PURE__ */ function() {
 
 // output/React.Component.NodesSelection/index.js
 var applySecond4 = /* @__PURE__ */ applySecond(applyAff);
-var liftEffect7 = /* @__PURE__ */ liftEffect(monadEffectAff);
+var liftEffect8 = /* @__PURE__ */ liftEffect(monadEffectAff);
 var pure35 = /* @__PURE__ */ pure(applicativeAff);
 var pure114 = /* @__PURE__ */ pure(applicativeEffect);
-var map29 = /* @__PURE__ */ map(functorMaybe);
+var map31 = /* @__PURE__ */ map(functorMaybe);
 var fromFoldable9 = /* @__PURE__ */ fromFoldable(foldableList);
-var unwrap9 = /* @__PURE__ */ unwrap();
-var bind110 = /* @__PURE__ */ bind3(ixBindRender);
+var unwrap10 = /* @__PURE__ */ unwrap();
+var bind110 = /* @__PURE__ */ bind4(ixBindRender);
 var useStore9 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
     return "width";
@@ -40978,13 +41419,13 @@ var useEffect5 = /* @__PURE__ */ useEffect(eqUnsafeReference);
 var unless4 = /* @__PURE__ */ unless(applicativeEffect);
 var lookup12 = /* @__PURE__ */ lookup2(ordString);
 var for_8 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
-var pure210 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var pure211 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty13 = /* @__PURE__ */ mempty(monoidJSX);
 var toForeignStyle4 = unsafeCoerce2;
 var showN7 = toString;
 var panByAdapter3 = function(store) {
   return function(delta) {
-    return applySecond4(liftEffect7(store.dispatch(new PanBy(delta))))(pure35(true));
+    return applySecond4(liftEffect8(store.dispatch(new PanBy(delta))))(pure35(true));
   };
 };
 var mkDragStoreItems = function(store) {
@@ -40999,7 +41440,7 @@ var mkDragStoreItems = function(store) {
       snapToGrid: s.snapToGrid,
       nodeOrigin: s.nodeOrigin,
       multiSelectionActive: s.multiSelectionActive,
-      domNode: map29(toElement)(s.domNode),
+      domNode: map31(toElement)(s.domNode),
       transform: s.transform,
       autoPanOnNodeDrag: s.autoPanOnNodeDrag,
       nodesDraggable: s.nodesDraggable,
@@ -41029,7 +41470,7 @@ var isNumericN = function(n) {
   return !isNaNImpl(n) && isFiniteImpl(n);
 };
 var selectSlice3 = function(s) {
-  var t = unwrap9(s.transform);
+  var t = unwrap10(s.transform);
   var rect = getInternalNodesBounds(s.nodeLookup)(new Just(function(n) {
     return n.selected;
   }));
@@ -41111,7 +41552,7 @@ var nodesSelection = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/*
                   };
                 });
               });
-              return pure210(function() {
+              return pure211(function() {
                 var $66 = !shouldRender;
                 if ($66) {
                   return mempty13;
@@ -41178,7 +41619,7 @@ var eventButtonImpl = (event) => () => event.button;
 var eventIsPrimaryImpl = (event) => () => !!event.isPrimary;
 
 // output/React.Component.UserSelection/index.js
-var bind25 = /* @__PURE__ */ bind3(ixBindRender);
+var bind26 = /* @__PURE__ */ bind4(ixBindRender);
 var eqRec5 = /* @__PURE__ */ eqRec();
 var eqRowCons5 = /* @__PURE__ */ eqRowCons(eqRowNil)();
 var useStore10 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec5(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons5({
@@ -41225,7 +41666,7 @@ var selectSlice4 = function(s) {
   };
 };
 var userSelection = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponent()()()("UserSelection")(function(v) {
-  return bind25(useStore10(selectSlice4))(function(slice3) {
+  return bind26(useStore10(selectSlice4))(function(slice3) {
     return pure36(function() {
       if (slice3.active && slice3.rect instanceof Just) {
         return div_({
@@ -41243,7 +41684,7 @@ var userSelection = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* 
   });
 })));
 
-// node_modules/d3-color/src/define.js
+// ../../../node_modules/d3-color/src/define.js
 function define_default(constructor, factory, prototype) {
   constructor.prototype = factory.prototype = prototype;
   prototype.constructor = constructor;
@@ -41254,7 +41695,7 @@ function extend2(parent2, definition) {
   return prototype;
 }
 
-// node_modules/d3-color/src/color.js
+// ../../../node_modules/d3-color/src/color.js
 function Color() {
 }
 var darker = 0.7;
@@ -41591,7 +42032,7 @@ function hsl2rgb(h, m1, m2) {
   return (h < 60 ? m1 + (m2 - m1) * h / 60 : h < 180 ? m2 : h < 240 ? m1 + (m2 - m1) * (240 - h) / 60 : m1) * 255;
 }
 
-// node_modules/d3-interpolate/src/basis.js
+// ../../../node_modules/d3-interpolate/src/basis.js
 function basis(t1, v0, v1, v2, v3) {
   var t2 = t1 * t1, t3 = t2 * t1;
   return ((1 - 3 * t1 + 3 * t2 - t3) * v0 + (4 - 6 * t2 + 3 * t3) * v1 + (1 + 3 * t1 + 3 * t2 - 3 * t3) * v2 + t3 * v3) / 6;
@@ -41604,7 +42045,7 @@ function basis_default(values2) {
   };
 }
 
-// node_modules/d3-interpolate/src/basisClosed.js
+// ../../../node_modules/d3-interpolate/src/basisClosed.js
 function basisClosed_default(values2) {
   var n = values2.length;
   return function(t) {
@@ -41613,10 +42054,10 @@ function basisClosed_default(values2) {
   };
 }
 
-// node_modules/d3-interpolate/src/constant.js
+// ../../../node_modules/d3-interpolate/src/constant.js
 var constant_default3 = (x) => () => x;
 
-// node_modules/d3-interpolate/src/color.js
+// ../../../node_modules/d3-interpolate/src/color.js
 function linear(a, d) {
   return function(t) {
     return a + t * d;
@@ -41637,7 +42078,7 @@ function nogamma(a, b) {
   return d ? linear(a, d) : constant_default3(isNaN(a) ? b : a);
 }
 
-// node_modules/d3-interpolate/src/rgb.js
+// ../../../node_modules/d3-interpolate/src/rgb.js
 var rgb_default = function rgbGamma(y) {
   var color2 = gamma(y);
   function rgb2(start3, end) {
@@ -41677,7 +42118,7 @@ function rgbSpline(spline) {
 var rgbBasis = rgbSpline(basis_default);
 var rgbBasisClosed = rgbSpline(basisClosed_default);
 
-// node_modules/d3-interpolate/src/numberArray.js
+// ../../../node_modules/d3-interpolate/src/numberArray.js
 function numberArray_default(a, b) {
   if (!b) b = [];
   var n = a ? Math.min(b.length, a.length) : 0, c = b.slice(), i;
@@ -41690,7 +42131,7 @@ function isNumberArray(x) {
   return ArrayBuffer.isView(x) && !(x instanceof DataView);
 }
 
-// node_modules/d3-interpolate/src/array.js
+// ../../../node_modules/d3-interpolate/src/array.js
 function genericArray(a, b) {
   var nb = b ? b.length : 0, na = a ? Math.min(nb, a.length) : 0, x = new Array(na), c = new Array(nb), i;
   for (i = 0; i < na; ++i) x[i] = value_default(a[i], b[i]);
@@ -41701,7 +42142,7 @@ function genericArray(a, b) {
   };
 }
 
-// node_modules/d3-interpolate/src/date.js
+// ../../../node_modules/d3-interpolate/src/date.js
 function date_default(a, b) {
   var d = /* @__PURE__ */ new Date();
   return a = +a, b = +b, function(t) {
@@ -41709,14 +42150,14 @@ function date_default(a, b) {
   };
 }
 
-// node_modules/d3-interpolate/src/number.js
+// ../../../node_modules/d3-interpolate/src/number.js
 function number_default(a, b) {
   return a = +a, b = +b, function(t) {
     return a * (1 - t) + b * t;
   };
 }
 
-// node_modules/d3-interpolate/src/object.js
+// ../../../node_modules/d3-interpolate/src/object.js
 function object_default(a, b) {
   var i = {}, c = {}, k;
   if (a === null || typeof a !== "object") a = {};
@@ -41734,7 +42175,7 @@ function object_default(a, b) {
   };
 }
 
-// node_modules/d3-interpolate/src/string.js
+// ../../../node_modules/d3-interpolate/src/string.js
 var reA = /[-+]?(?:\d+\.?\d*|\.?\d+)(?:[eE][-+]?\d+)?/g;
 var reB = new RegExp(reA.source, "g");
 function zero2(b) {
@@ -41776,15 +42217,15 @@ function string_default(a, b) {
   });
 }
 
-// node_modules/d3-interpolate/src/value.js
+// ../../../node_modules/d3-interpolate/src/value.js
 function value_default(a, b) {
   var t = typeof b, c;
   return b == null || t === "boolean" ? constant_default3(b) : (t === "number" ? number_default : t === "string" ? (c = color(b)) ? (b = c, rgb_default) : string_default : b instanceof color ? rgb_default : b instanceof Date ? date_default : isNumberArray(b) ? numberArray_default : Array.isArray(b) ? genericArray : typeof b.valueOf !== "function" && typeof b.toString !== "function" || isNaN(b) ? object_default : number_default)(a, b);
 }
 
-// node_modules/d3-interpolate/src/transform/decompose.js
+// ../../../node_modules/d3-interpolate/src/transform/decompose.js
 var degrees = 180 / Math.PI;
-var identity4 = {
+var identity5 = {
   translateX: 0,
   translateY: 0,
   rotate: 0,
@@ -41808,22 +42249,22 @@ function decompose_default(a, b, c, d, e, f) {
   };
 }
 
-// node_modules/d3-interpolate/src/transform/parse.js
+// ../../../node_modules/d3-interpolate/src/transform/parse.js
 var svgNode;
 function parseCss(value12) {
   const m = new (typeof DOMMatrix === "function" ? DOMMatrix : WebKitCSSMatrix)(value12 + "");
-  return m.isIdentity ? identity4 : decompose_default(m.a, m.b, m.c, m.d, m.e, m.f);
+  return m.isIdentity ? identity5 : decompose_default(m.a, m.b, m.c, m.d, m.e, m.f);
 }
 function parseSvg(value12) {
-  if (value12 == null) return identity4;
+  if (value12 == null) return identity5;
   if (!svgNode) svgNode = document.createElementNS("http://www.w3.org/2000/svg", "g");
   svgNode.setAttribute("transform", value12);
-  if (!(value12 = svgNode.transform.baseVal.consolidate())) return identity4;
+  if (!(value12 = svgNode.transform.baseVal.consolidate())) return identity5;
   value12 = value12.matrix;
   return decompose_default(value12.a, value12.b, value12.c, value12.d, value12.e, value12.f);
 }
 
-// node_modules/d3-interpolate/src/transform/index.js
+// ../../../node_modules/d3-interpolate/src/transform/index.js
 function interpolateTransform(parse7, pxComma, pxParen, degParen) {
   function pop2(s) {
     return s.length ? s.pop() + " " : "";
@@ -41878,7 +42319,7 @@ function interpolateTransform(parse7, pxComma, pxParen, degParen) {
 var interpolateTransformCss = interpolateTransform(parseCss, "px, ", "px)", "deg)");
 var interpolateTransformSvg = interpolateTransform(parseSvg, ", ", ")", ")");
 
-// node_modules/d3-interpolate/src/zoom.js
+// ../../../node_modules/d3-interpolate/src/zoom.js
 var epsilon2 = 1e-12;
 function cosh(x) {
   return ((x = Math.exp(x)) + 1 / x) / 2;
@@ -41923,7 +42364,7 @@ var zoom_default = function zoomRho(rho, rho2, rho4) {
   return zoom;
 }(Math.SQRT2, 2, 4);
 
-// node_modules/d3-timer/src/timer.js
+// ../../../node_modules/d3-timer/src/timer.js
 var frame = 0;
 var timeout = 0;
 var interval = 0;
@@ -42025,7 +42466,7 @@ function sleep(time2) {
   }
 }
 
-// node_modules/d3-timer/src/timeout.js
+// ../../../node_modules/d3-timer/src/timeout.js
 function timeout_default(callback, delay, time2) {
   var t = new Timer();
   delay = delay == null ? 0 : +delay;
@@ -42036,7 +42477,7 @@ function timeout_default(callback, delay, time2) {
   return t;
 }
 
-// node_modules/d3-transition/src/transition/schedule.js
+// ../../../node_modules/d3-transition/src/transition/schedule.js
 var emptyOn = dispatch_default("start", "end", "cancel", "interrupt");
 var emptyTween = [];
 var CREATED = 0;
@@ -42147,7 +42588,7 @@ function create(node, id3, self) {
   }
 }
 
-// node_modules/d3-transition/src/interrupt.js
+// ../../../node_modules/d3-transition/src/interrupt.js
 function interrupt_default(node, name15) {
   var schedules = node.__transition, schedule, active, empty8 = true, i;
   if (!schedules) return;
@@ -42166,14 +42607,14 @@ function interrupt_default(node, name15) {
   if (empty8) delete node.__transition;
 }
 
-// node_modules/d3-transition/src/selection/interrupt.js
+// ../../../node_modules/d3-transition/src/selection/interrupt.js
 function interrupt_default2(name15) {
   return this.each(function() {
     interrupt_default(this, name15);
   });
 }
 
-// node_modules/d3-transition/src/transition/tween.js
+// ../../../node_modules/d3-transition/src/transition/tween.js
 function tweenRemove(id3, name15) {
   var tween0, tween1;
   return function() {
@@ -42234,13 +42675,13 @@ function tweenValue(transition2, name15, value12) {
   };
 }
 
-// node_modules/d3-transition/src/transition/interpolate.js
+// ../../../node_modules/d3-transition/src/transition/interpolate.js
 function interpolate_default(a, b) {
   var c;
   return (typeof b === "number" ? number_default : b instanceof color ? rgb_default : (c = color(b)) ? (b = c, rgb_default) : string_default)(a, b);
 }
 
-// node_modules/d3-transition/src/transition/attr.js
+// ../../../node_modules/d3-transition/src/transition/attr.js
 function attrRemove2(name15) {
   return function() {
     this.removeAttribute(name15);
@@ -42290,7 +42731,7 @@ function attr_default2(name15, value12) {
   return this.attrTween(name15, typeof value12 === "function" ? (fullname.local ? attrFunctionNS2 : attrFunction2)(fullname, i, tweenValue(this, "attr." + name15, value12)) : value12 == null ? (fullname.local ? attrRemoveNS2 : attrRemove2)(fullname) : (fullname.local ? attrConstantNS2 : attrConstant2)(fullname, i, value12));
 }
 
-// node_modules/d3-transition/src/transition/attrTween.js
+// ../../../node_modules/d3-transition/src/transition/attrTween.js
 function attrInterpolate(name15, i) {
   return function(t) {
     this.setAttribute(name15, i.call(this, t));
@@ -42330,7 +42771,7 @@ function attrTween_default(name15, value12) {
   return this.tween(key2, (fullname.local ? attrTweenNS : attrTween)(fullname, value12));
 }
 
-// node_modules/d3-transition/src/transition/delay.js
+// ../../../node_modules/d3-transition/src/transition/delay.js
 function delayFunction(id3, value12) {
   return function() {
     init3(this, id3).delay = +value12.apply(this, arguments);
@@ -42346,7 +42787,7 @@ function delay_default(value12) {
   return arguments.length ? this.each((typeof value12 === "function" ? delayFunction : delayConstant)(id3, value12)) : get6(this.node(), id3).delay;
 }
 
-// node_modules/d3-transition/src/transition/duration.js
+// ../../../node_modules/d3-transition/src/transition/duration.js
 function durationFunction(id3, value12) {
   return function() {
     set2(this, id3).duration = +value12.apply(this, arguments);
@@ -42362,7 +42803,7 @@ function duration_default(value12) {
   return arguments.length ? this.each((typeof value12 === "function" ? durationFunction : durationConstant)(id3, value12)) : get6(this.node(), id3).duration;
 }
 
-// node_modules/d3-transition/src/transition/ease.js
+// ../../../node_modules/d3-transition/src/transition/ease.js
 function easeConstant(id3, value12) {
   if (typeof value12 !== "function") throw new Error();
   return function() {
@@ -42374,7 +42815,7 @@ function ease_default(value12) {
   return arguments.length ? this.each(easeConstant(id3, value12)) : get6(this.node(), id3).ease;
 }
 
-// node_modules/d3-transition/src/transition/easeVarying.js
+// ../../../node_modules/d3-transition/src/transition/easeVarying.js
 function easeVarying(id3, value12) {
   return function() {
     var v = value12.apply(this, arguments);
@@ -42387,7 +42828,7 @@ function easeVarying_default(value12) {
   return this.each(easeVarying(this._id, value12));
 }
 
-// node_modules/d3-transition/src/transition/filter.js
+// ../../../node_modules/d3-transition/src/transition/filter.js
 function filter_default2(match) {
   if (typeof match !== "function") match = matcher_default(match);
   for (var groups = this._groups, m = groups.length, subgroups = new Array(m), j = 0; j < m; ++j) {
@@ -42400,7 +42841,7 @@ function filter_default2(match) {
   return new Transition(subgroups, this._parents, this._name, this._id);
 }
 
-// node_modules/d3-transition/src/transition/merge.js
+// ../../../node_modules/d3-transition/src/transition/merge.js
 function merge_default2(transition2) {
   if (transition2._id !== this._id) throw new Error();
   for (var groups0 = this._groups, groups1 = transition2._groups, m0 = groups0.length, m1 = groups1.length, m = Math.min(m0, m1), merges = new Array(m0), j = 0; j < m; ++j) {
@@ -42416,7 +42857,7 @@ function merge_default2(transition2) {
   return new Transition(merges, this._parents, this._name, this._id);
 }
 
-// node_modules/d3-transition/src/transition/on.js
+// ../../../node_modules/d3-transition/src/transition/on.js
 function start(name15) {
   return (name15 + "").trim().split(/^|\s+/).every(function(t) {
     var i = t.indexOf(".");
@@ -42437,7 +42878,7 @@ function on_default2(name15, listener) {
   return arguments.length < 2 ? get6(this.node(), id3).on.on(name15) : this.each(onFunction(id3, name15, listener));
 }
 
-// node_modules/d3-transition/src/transition/remove.js
+// ../../../node_modules/d3-transition/src/transition/remove.js
 function removeFunction(id3) {
   return function() {
     var parent2 = this.parentNode;
@@ -42449,7 +42890,7 @@ function remove_default2() {
   return this.on("end.remove", removeFunction(this._id));
 }
 
-// node_modules/d3-transition/src/transition/select.js
+// ../../../node_modules/d3-transition/src/transition/select.js
 function select_default3(select3) {
   var name15 = this._name, id3 = this._id;
   if (typeof select3 !== "function") select3 = selector_default(select3);
@@ -42465,7 +42906,7 @@ function select_default3(select3) {
   return new Transition(subgroups, this._parents, name15, id3);
 }
 
-// node_modules/d3-transition/src/transition/selectAll.js
+// ../../../node_modules/d3-transition/src/transition/selectAll.js
 function selectAll_default2(select3) {
   var name15 = this._name, id3 = this._id;
   if (typeof select3 !== "function") select3 = selectorAll_default(select3);
@@ -42485,13 +42926,13 @@ function selectAll_default2(select3) {
   return new Transition(subgroups, parents, name15, id3);
 }
 
-// node_modules/d3-transition/src/transition/selection.js
+// ../../../node_modules/d3-transition/src/transition/selection.js
 var Selection2 = selection_default.prototype.constructor;
 function selection_default2() {
   return new Selection2(this._groups, this._parents);
 }
 
-// node_modules/d3-transition/src/transition/style.js
+// ../../../node_modules/d3-transition/src/transition/style.js
 function styleNull(name15, interpolate) {
   var string00, string10, interpolate0;
   return function() {
@@ -42532,7 +42973,7 @@ function style_default2(name15, value12, priority) {
   return value12 == null ? this.styleTween(name15, styleNull(name15, i)).on("end.style." + name15, styleRemove2(name15)) : typeof value12 === "function" ? this.styleTween(name15, styleFunction2(name15, i, tweenValue(this, "style." + name15, value12))).each(styleMaybeRemove(this._id, name15)) : this.styleTween(name15, styleConstant2(name15, i, value12), priority).on("end.style." + name15, null);
 }
 
-// node_modules/d3-transition/src/transition/styleTween.js
+// ../../../node_modules/d3-transition/src/transition/styleTween.js
 function styleInterpolate(name15, i, priority) {
   return function(t) {
     this.style.setProperty(name15, i.call(this, t), priority);
@@ -42556,7 +42997,7 @@ function styleTween_default(name15, value12, priority) {
   return this.tween(key2, styleTween(name15, value12, priority == null ? "" : priority));
 }
 
-// node_modules/d3-transition/src/transition/text.js
+// ../../../node_modules/d3-transition/src/transition/text.js
 function textConstant2(value12) {
   return function() {
     this.textContent = value12;
@@ -42572,7 +43013,7 @@ function text_default2(value12) {
   return this.tween("text", typeof value12 === "function" ? textFunction2(tweenValue(this, "text", value12)) : textConstant2(value12 == null ? "" : value12 + ""));
 }
 
-// node_modules/d3-transition/src/transition/textTween.js
+// ../../../node_modules/d3-transition/src/transition/textTween.js
 function textInterpolate(i) {
   return function(t) {
     this.textContent = i.call(this, t);
@@ -42596,7 +43037,7 @@ function textTween_default(value12) {
   return this.tween(key2, textTween(value12));
 }
 
-// node_modules/d3-transition/src/transition/transition.js
+// ../../../node_modules/d3-transition/src/transition/transition.js
 function transition_default() {
   var name15 = this._name, id0 = this._id, id1 = newId();
   for (var groups = this._groups, m = groups.length, j = 0; j < m; ++j) {
@@ -42615,7 +43056,7 @@ function transition_default() {
   return new Transition(groups, this._parents, name15, id1);
 }
 
-// node_modules/d3-transition/src/transition/end.js
+// ../../../node_modules/d3-transition/src/transition/end.js
 function end_default() {
   var on0, on1, that = this, id3 = that._id, size6 = that.size();
   return new Promise(function(resolve, reject) {
@@ -42636,7 +43077,7 @@ function end_default() {
   });
 }
 
-// node_modules/d3-transition/src/transition/index.js
+// ../../../node_modules/d3-transition/src/transition/index.js
 var id = 0;
 function Transition(groups, parents, name15, id3) {
   this._groups = groups;
@@ -42684,12 +43125,12 @@ Transition.prototype = transition.prototype = {
   [Symbol.iterator]: selection_prototype[Symbol.iterator]
 };
 
-// node_modules/d3-ease/src/cubic.js
+// ../../../node_modules/d3-ease/src/cubic.js
 function cubicInOut(t) {
   return ((t *= 2) <= 1 ? t * t * t : (t -= 2) * t * t + 2) / 2;
 }
 
-// node_modules/d3-transition/src/selection/transition.js
+// ../../../node_modules/d3-transition/src/selection/transition.js
 var defaultTiming = {
   time: null,
   // Set on use.
@@ -42723,14 +43164,14 @@ function transition_default2(name15) {
   return new Transition(groups, this._parents, name15, id3);
 }
 
-// node_modules/d3-transition/src/selection/index.js
+// ../../../node_modules/d3-transition/src/selection/index.js
 selection_default.prototype.interrupt = interrupt_default2;
 selection_default.prototype.transition = transition_default2;
 
-// node_modules/d3-zoom/src/constant.js
+// ../../../node_modules/d3-zoom/src/constant.js
 var constant_default4 = (x) => () => x;
 
-// node_modules/d3-zoom/src/event.js
+// ../../../node_modules/d3-zoom/src/event.js
 function ZoomEvent(type, {
   sourceEvent,
   target: target5,
@@ -42746,7 +43187,7 @@ function ZoomEvent(type, {
   });
 }
 
-// node_modules/d3-zoom/src/transform.js
+// ../../../node_modules/d3-zoom/src/transform.js
 function Transform(k, x, y) {
   this.k = k;
   this.x = x;
@@ -42788,14 +43229,14 @@ Transform.prototype = {
     return "translate(" + this.x + "," + this.y + ") scale(" + this.k + ")";
   }
 };
-var identity5 = new Transform(1, 0, 0);
+var identity6 = new Transform(1, 0, 0);
 transform.prototype = Transform.prototype;
 function transform(node) {
-  while (!node.__zoom) if (!(node = node.parentNode)) return identity5;
+  while (!node.__zoom) if (!(node = node.parentNode)) return identity6;
   return node.__zoom;
 }
 
-// node_modules/d3-zoom/src/noevent.js
+// ../../../node_modules/d3-zoom/src/noevent.js
 function nopropagation2(event) {
   event.stopImmediatePropagation();
 }
@@ -42804,7 +43245,7 @@ function noevent_default2(event) {
   event.stopImmediatePropagation();
 }
 
-// node_modules/d3-zoom/src/zoom.js
+// ../../../node_modules/d3-zoom/src/zoom.js
 function defaultFilter2(event) {
   return (!event.ctrlKey || event.type === "wheel") && !event.button;
 }
@@ -42821,7 +43262,7 @@ function defaultExtent() {
   return [[0, 0], [e.clientWidth, e.clientHeight]];
 }
 function defaultTransform() {
-  return this.__zoom || identity5;
+  return this.__zoom || identity6;
 }
 function defaultWheelDelta(event) {
   return -event.deltaY * (event.deltaMode === 1 ? 0.05 : event.deltaMode ? 1 : 2e-3) * (event.ctrlKey ? 10 : 1);
@@ -42875,7 +43316,7 @@ function zoom_default2() {
   zoom.translateTo = function(selection2, x, y, p, event) {
     zoom.transform(selection2, function() {
       var e = extent.apply(this, arguments), t = this.__zoom, p0 = p == null ? centroid(e) : typeof p === "function" ? p.apply(this, arguments) : p;
-      return constrain(identity5.translate(p0[0], p0[1]).scale(t.k).translate(
+      return constrain(identity6.translate(p0[0], p0[1]).scale(t.k).translate(
         typeof x === "function" ? -x.apply(this, arguments) : -x,
         typeof y === "function" ? -y.apply(this, arguments) : -y
       ), e, translateExtent);
@@ -43123,7 +43564,7 @@ function zoom_default2() {
 var zoomTransformX = (t) => t.x;
 var zoomTransformY = (t) => t.y;
 var zoomTransformK = (t) => t.k;
-var zoomIdentity = identity5;
+var zoomIdentity = identity6;
 var zoomTranslate = (t) => (x) => (y) => t.translate(x, y);
 var zoomScale = (t) => (k) => t.scale(k);
 var zoomCreate = () => zoom_default2();
@@ -43271,12 +43712,12 @@ var lookup14 = /* @__PURE__ */ lookup2(ordString);
 var insert12 = /* @__PURE__ */ insert3(ordString);
 var max7 = /* @__PURE__ */ max(ordInt);
 var min7 = /* @__PURE__ */ min(ordInt);
-var toUnfoldable8 = /* @__PURE__ */ toUnfoldable3(unfoldableArray);
-var map30 = /* @__PURE__ */ map(functorArray);
-var fromFoldable10 = /* @__PURE__ */ fromFoldable3(ordNodeId)(foldableArray);
+var toUnfoldable8 = /* @__PURE__ */ toUnfoldable4(unfoldableArray);
+var map32 = /* @__PURE__ */ map(functorArray);
+var fromFoldable10 = /* @__PURE__ */ fromFoldable4(ordNodeId)(foldableArray);
 var member6 = /* @__PURE__ */ member(ordNodeId);
 var append8 = /* @__PURE__ */ append(semigroupArray);
-var fromFoldable12 = /* @__PURE__ */ fromFoldable3(ordString)(foldableArray);
+var fromFoldable12 = /* @__PURE__ */ fromFoldable4(ordString)(foldableArray);
 var member12 = /* @__PURE__ */ member(ordString);
 var partitionNodeChanges = /* @__PURE__ */ function() {
   var appendChange = function(id3) {
@@ -43343,7 +43784,7 @@ var partitionNodeChanges = /* @__PURE__ */ function() {
     };
   };
   return foldl5(step2)({
-    byId: empty4,
+    byId: empty5,
     adds: []
   });
 }();
@@ -43398,7 +43839,7 @@ var partitionEdgeChanges = /* @__PURE__ */ function() {
     };
   };
   return foldl5(step2)({
-    byId: empty4,
+    byId: empty5,
     adds: []
   });
 }();
@@ -43483,7 +43924,7 @@ var getNodeSelectionChanges = function(lookup26) {
   return function(selectedIds) {
     return function(mutate2) {
       var r = getSelectionChangesGeneric1(lookup26)(selectedIds)(mutate2);
-      var changes = map30(function(p) {
+      var changes = map32(function(p) {
         return new NodeSelectionChange({
           id: p.id,
           selected: p.selected
@@ -43509,7 +43950,7 @@ var getNodeElementsDiffChanges = function(mItems) {
       ;
       throw new Error("Failed pattern match at React.Store.Changes (line 290, column 13 - line 292, column 20): " + [mItems.constructor.name]);
     }();
-    var itemsLookup = fromFoldable10(map30(function(n) {
+    var itemsLookup = fromFoldable10(map32(function(n) {
       return new Tuple(n.id, n);
     })(items));
     var removes = foldl5(function(acc) {
@@ -43560,7 +44001,7 @@ var getNodeElementsDiffChanges = function(mItems) {
 var getEdgeSelectionChanges = function(lookup26) {
   return function(selectedIds) {
     var r = getSelectionChangesGeneric2(lookup26)(selectedIds)(false);
-    var changes = map30(function(p) {
+    var changes = map32(function(p) {
       return new EdgeSelectionChange({
         id: p.id,
         selected: p.selected
@@ -43584,7 +44025,7 @@ var getEdgeElementsDiffChanges = function(mItems) {
       ;
       throw new Error("Failed pattern match at React.Store.Changes (line 323, column 13 - line 325, column 20): " + [mItems.constructor.name]);
     }();
-    var itemsLookup = fromFoldable12(map30(function(e) {
+    var itemsLookup = fromFoldable12(map32(function(e) {
       return new Tuple(e.id, e);
     })(items));
     var removes = foldl5(function(acc) {
@@ -44056,12 +44497,12 @@ var when7 = /* @__PURE__ */ when(applicativeEffect);
 var lookup15 = /* @__PURE__ */ lookup2(ordString);
 var insert10 = /* @__PURE__ */ insert4(ordString);
 var bind111 = /* @__PURE__ */ bind(bindMaybe);
-var unwrap10 = /* @__PURE__ */ unwrap();
+var unwrap11 = /* @__PURE__ */ unwrap();
 var foldl6 = /* @__PURE__ */ foldl(foldableList);
 var foldl12 = /* @__PURE__ */ foldl(foldableArray);
 var toUnfoldable9 = /* @__PURE__ */ toUnfoldable5(unfoldableArray);
 var pure37 = /* @__PURE__ */ pure(applicativeEffect);
-var bind26 = /* @__PURE__ */ bind3(ixBindRender);
+var bind27 = /* @__PURE__ */ bind4(ixBindRender);
 var eqRec6 = /* @__PURE__ */ eqRec();
 var eqRowCons6 = /* @__PURE__ */ eqRowCons(eqRowNil)();
 var useStore11 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec6(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons6({
@@ -44086,10 +44527,10 @@ var useStore11 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec6(/* @__PURE__ */
   }
 })(eqNumber)));
 var for_9 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
-var map31 = /* @__PURE__ */ map(functorEffect);
+var map33 = /* @__PURE__ */ map(functorEffect);
 var elem6 = /* @__PURE__ */ elem3(eqInt);
 var eq16 = /* @__PURE__ */ eq(eqSelectionMode);
-var fromFoldable11 = /* @__PURE__ */ fromFoldable4(foldableArray)(ordNodeId);
+var fromFoldable11 = /* @__PURE__ */ fromFoldable5(foldableArray)(ordNodeId);
 var map111 = /* @__PURE__ */ map(functorArray);
 var areSetsEqual2 = /* @__PURE__ */ areSetsEqual(eqNodeId);
 var areSetsEqual1 = /* @__PURE__ */ areSetsEqual(eqString);
@@ -44179,7 +44620,7 @@ var collectIncidentEdgeIds = function(state3) {
     }));
     var addEdgesForNode = function(acc) {
       return function(nodeId) {
-        var v = lookup15(unwrap10(nodeId))(state3.connectionLookup);
+        var v = lookup15(unwrap11(nodeId))(state3.connectionLookup);
         if (v instanceof Nothing) {
           return acc;
         }
@@ -44191,7 +44632,7 @@ var collectIncidentEdgeIds = function(state3) {
         throw new Error("Failed pattern match at React.Container.Pane (line 135, column 34 - line 137, column 102): " + [v.constructor.name]);
       };
     };
-    return foldl12(addEdgesForNode)(empty5)(toUnfoldable9(selectedNodeIds));
+    return foldl12(addEdgesForNode)(empty6)(toUnfoldable9(selectedNodeIds));
   };
 };
 var cleanupAutoPan = function(refs) {
@@ -44222,19 +44663,19 @@ var abs3 = function(n) {
   return n;
 };
 var pane = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponentWithChildren()()("Pane")(function(v) {
-  return bind26(useStore11(selectSlice5))(function(slice3) {
-    return bind26(useStoreApi)(function(store) {
-      return bind26(useRef(toNullable(Nothing.value)))(function(container2) {
-        return bind26(useRef(toNullable(Nothing.value)))(function(containerBoundsRef) {
-          return bind26(useRef(empty5))(function(selectedNodeIdsRef) {
-            return bind26(useRef(empty5))(function(selectedEdgeIdsRef) {
-              return bind26(useRef(false))(function(selectionInProgressRef) {
-                return bind26(useRef({
+  return bind27(useStore11(selectSlice5))(function(slice3) {
+    return bind27(useStoreApi)(function(store) {
+      return bind27(useRef(toNullable(Nothing.value)))(function(container2) {
+        return bind27(useRef(toNullable(Nothing.value)))(function(containerBoundsRef) {
+          return bind27(useRef(empty6))(function(selectedNodeIdsRef) {
+            return bind27(useRef(empty6))(function(selectedEdgeIdsRef) {
+              return bind27(useRef(false))(function(selectionInProgressRef) {
+                return bind27(useRef({
                   x: 0,
                   y: 0
                 }))(function(positionRef) {
-                  return bind26(useRef(toNullable(Nothing.value)))(function(autoPanHandleRef) {
-                    return bind26(useRef(false))(function(autoPanStartedRef) {
+                  return bind27(useRef(toNullable(Nothing.value)))(function(autoPanHandleRef) {
+                    return bind27(useRef(false))(function(autoPanStartedRef) {
                       var onWheel = function(we) {
                         return for_9(v.onPaneScroll)(function(cb) {
                           return cb(we);
@@ -44251,7 +44692,7 @@ var pane = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__
                           var st = store.getState();
                           var mBounds = function() {
                             if (st.domNode instanceof Just) {
-                              return map31(Just.create)(elementBoundingRect(st.domNode.value0))();
+                              return map33(Just.create)(elementBoundingRect(st.domNode.value0))();
                             }
                             ;
                             if (st.domNode instanceof Nothing) {
@@ -45105,7 +45546,7 @@ var keydown = "keydown";
 
 // output/React.Hook.KeyPress/index.js
 var coerceHook4 = /* @__PURE__ */ coerceHook();
-var bind27 = /* @__PURE__ */ bind3(ixBindRender);
+var bind28 = /* @__PURE__ */ bind4(ixBindRender);
 var discard9 = /* @__PURE__ */ discard2(ixBindRender);
 var pure38 = /* @__PURE__ */ pure(applicativeEffect);
 var any5 = /* @__PURE__ */ any(foldableArray)(heytingAlgebraBoolean);
@@ -45126,7 +45567,7 @@ var eqKeyMatcher = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE_
 var useEffect6 = /* @__PURE__ */ useEffect(eqKeyMatcher);
 var useKeyPress = function(mKeyCode) {
   return function(mOpts) {
-    return coerceHook4(bind27(useState(false))(function(v) {
+    return coerceHook4(bind28(useState(false))(function(v) {
       var opts = fromMaybe({
         actInsideInputWithModifier: false
       })(mOpts);
@@ -45260,15 +45701,15 @@ var disconnect = (observer) => () => {
 
 // output/React.Hook.ResizeHandler/index.js
 var coerceHook5 = /* @__PURE__ */ coerceHook();
-var bind28 = /* @__PURE__ */ bind3(ixBindRender);
+var bind29 = /* @__PURE__ */ bind4(ixBindRender);
 var useEffect7 = /* @__PURE__ */ useEffect(eqUnsafeReference);
-var map32 = /* @__PURE__ */ map(functorEffect);
+var map34 = /* @__PURE__ */ map(functorEffect);
 var pure39 = /* @__PURE__ */ pure(applicativeEffect);
 var useResizeHandler = function(divRef) {
   return function(onResize) {
-    return coerceHook5(bind28(useStoreApi)(function(store) {
+    return coerceHook5(bind29(useStoreApi)(function(store) {
       return useEffect7(divRef)(function __do2() {
-        var mDiv = map32(toMaybe)(readRef(divRef))();
+        var mDiv = map34(toMaybe)(readRef(divRef))();
         if (mDiv instanceof Nothing) {
           return pure39(unit);
         }
@@ -46274,9 +46715,9 @@ var createXYPanZoom = function(params) {
 };
 
 // output/React.Container.ZoomPane/index.js
-var bind29 = /* @__PURE__ */ bind3(ixBindRender);
+var bind30 = /* @__PURE__ */ bind4(ixBindRender);
 var discard10 = /* @__PURE__ */ discard2(ixBindRender);
-var map33 = /* @__PURE__ */ map(functorEffect);
+var map35 = /* @__PURE__ */ map(functorEffect);
 var pure43 = /* @__PURE__ */ pure(applicativeEffect);
 var for_11 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var useEffect8 = /* @__PURE__ */ useEffect(eqUnsafeReference);
@@ -46333,14 +46774,14 @@ var asUpdateDeps = function(p) {
   };
 };
 var zoomPane = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponentWithChildren()()("ZoomPane")(function(v) {
-  return bind29(useStoreApi)(function(store) {
-    return bind29(useStore15(selectSlice6))(function(slice3) {
-      return bind29(useKeyPress(v.zoomActivationKeyCode)(Nothing.value))(function(zoomActivationKeyPressed) {
-        return bind29(useRef(toNullable(Nothing.value)))(function(paneRef) {
-          return bind29(useRef(Nothing.value))(function(panZoomRef) {
+  return bind30(useStoreApi)(function(store) {
+    return bind30(useStore15(selectSlice6))(function(slice3) {
+      return bind30(useKeyPress(v.zoomActivationKeyCode)(Nothing.value))(function(zoomActivationKeyPressed) {
+        return bind30(useRef(toNullable(Nothing.value)))(function(paneRef) {
+          return bind30(useRef(Nothing.value))(function(panZoomRef) {
             return discard10(useResizeHandler(paneRef)(Nothing.value))(function() {
               return discard10(useEffectOnce(function __do2() {
-                var mDiv = map33(toMaybe)(readRef(paneRef))();
+                var mDiv = map35(toMaybe)(readRef(paneRef))();
                 if (mDiv instanceof Nothing) {
                   return pure43(unit);
                 }
@@ -46749,7 +47190,7 @@ var zoomPane = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PU
 
 // output/React.Hook.GlobalKeyHandler/index.js
 var coerceHook6 = /* @__PURE__ */ coerceHook();
-var bind30 = /* @__PURE__ */ bind3(ixBindRender);
+var bind31 = /* @__PURE__ */ bind4(ixBindRender);
 var useEffect9 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
     return "multi";
@@ -46762,13 +47203,13 @@ var useEffect9 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqRec()(/* @__PURE__ 
 var notEq7 = /* @__PURE__ */ notEq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var when11 = /* @__PURE__ */ when(applicativeEffect);
 var notEq15 = /* @__PURE__ */ notEq(/* @__PURE__ */ eqArray(eqNodeId));
-var map34 = /* @__PURE__ */ map(functorArray);
+var map36 = /* @__PURE__ */ map(functorArray);
 var notEq23 = /* @__PURE__ */ notEq(/* @__PURE__ */ eqArray(eqString));
 var pure44 = /* @__PURE__ */ pure(applicativeEffect);
 var useGlobalKeyHandler = function(opts) {
-  return coerceHook6(bind30(useStoreApi)(function(store) {
-    return bind30(useKeyPress(opts.deleteKeyCode)(Nothing.value))(function(deletePressed) {
-      return bind30(useKeyPress(opts.multiSelectionKeyCode)(Nothing.value))(function(multiPressed) {
+  return coerceHook6(bind31(useStoreApi)(function(store) {
+    return bind31(useKeyPress(opts.deleteKeyCode)(Nothing.value))(function(deletePressed) {
+      return bind31(useKeyPress(opts.multiSelectionKeyCode)(Nothing.value))(function(multiPressed) {
         return useEffect9({
           "delete": deletePressed,
           multi: multiPressed
@@ -46881,12 +47322,12 @@ var useGlobalKeyHandler = function(opts) {
                 ;
                 return Nothing.value;
               })(st.edges);
-              when11(notEq15(selectedNodeIds)([]))(store.dispatch(new TriggerNodeChanges(map34(function(i) {
+              when11(notEq15(selectedNodeIds)([]))(store.dispatch(new TriggerNodeChanges(map36(function(i) {
                 return new NodeRemoveChange({
                   id: i
                 });
               })(selectedNodeIds))))();
-              return when11(notEq23(selectedEdgeIds)([]))(store.dispatch(new TriggerEdgeChanges(map34(function(i) {
+              return when11(notEq23(selectedEdgeIds)([]))(store.dispatch(new TriggerEdgeChanges(map36(function(i) {
                 return new EdgeRemoveChange({
                   id: i
                 });
@@ -46903,7 +47344,7 @@ var useGlobalKeyHandler = function(opts) {
 };
 
 // output/React.Container.FlowRenderer/index.js
-var bind31 = /* @__PURE__ */ bind3(ixBindRender);
+var bind32 = /* @__PURE__ */ bind4(ixBindRender);
 var useStore16 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
     return "userSelectionActive";
@@ -46939,9 +47380,9 @@ var escalatePan = function(pressed) {
   };
 };
 var flowRenderer = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponentWithChildren()()("FlowRenderer")(function(v) {
-  return bind31(useStore16(selectSlice7))(function(slice3) {
-    return bind31(useKeyPress(v.selectionKeyCode)(Nothing.value))(function(selectionKeyPressed) {
-      return bind31(useKeyPress(v.panActivationKeyCode)(Nothing.value))(function(panActivationKeyPressed) {
+  return bind32(useStore16(selectSlice7))(function(slice3) {
+    return bind32(useKeyPress(v.selectionKeyCode)(Nothing.value))(function(selectionKeyPressed) {
+      return bind32(useKeyPress(v.panActivationKeyCode)(Nothing.value))(function(panActivationKeyPressed) {
         var panOnScroll = panActivationKeyPressed || v.panOnScroll;
         var panOnDrag = escalatePan(panActivationKeyPressed)(v.panOnDrag);
         var selectionOnDragEff = v.selectionOnDrag && !isUnrestrictedPan(panOnDrag);
@@ -47025,14 +47466,14 @@ var joinSpace3 = (xs) => xs.filter((s) => s !== "").join(" ");
 
 // output/React.Hook.NodeObserver/index.js
 var coerceHook7 = /* @__PURE__ */ coerceHook();
-var bind32 = /* @__PURE__ */ bind3(ixBindRender);
+var bind33 = /* @__PURE__ */ bind4(ixBindRender);
 var useEffect10 = /* @__PURE__ */ useEffect(eqUnsafeReference);
-var map35 = /* @__PURE__ */ map(functorEffect);
+var map37 = /* @__PURE__ */ map(functorEffect);
 var pure46 = /* @__PURE__ */ pure(applicativeEffect);
 var useNodeObserver = function(params) {
-  return coerceHook7(bind32(useStoreApi)(function(store) {
+  return coerceHook7(bind33(useStoreApi)(function(store) {
     return useEffect10(params)(function __do2() {
-      var mDiv = map35(toMaybe)(readRef(params.wrapperRef))();
+      var mDiv = map37(toMaybe)(readRef(params.wrapperRef))();
       if (mDiv instanceof Nothing) {
         return pure46(unit);
       }
@@ -47050,7 +47491,7 @@ var useNodeObserver = function(params) {
               nodeElement: mDiv.value0,
               force: params.force
             };
-            return store.dispatch(new UpdateNodeInternals(singleton5(params.nodeId)(update2), {
+            return store.dispatch(new UpdateNodeInternals(singleton6(params.nodeId)(update2), {
               triggerFitView: false
             }));
           })();
@@ -47068,14 +47509,14 @@ var useNodeObserver = function(params) {
 
 // output/React.Node.Util/index.js
 var lookup16 = /* @__PURE__ */ lookup2(ordNodeId);
-var unwrap11 = /* @__PURE__ */ unwrap();
+var unwrap12 = /* @__PURE__ */ unwrap();
 var handleNodeClick = function(args) {
   return function __do2() {
     var state3 = args.store.getState();
     var v = lookup16(args.id)(state3.nodeLookup);
     if (v instanceof Nothing) {
       if (state3.onError instanceof Just) {
-        return state3.onError.value0("012")(errorMessage(new E012(unwrap11(args.id))))();
+        return state3.onError.value0("012")(errorMessage(new E012(unwrap12(args.id))))();
       }
       ;
       if (state3.onError instanceof Nothing) {
@@ -47110,14 +47551,14 @@ var handleNodeClick = function(args) {
 var lookup17 = /* @__PURE__ */ lookup2(ordNodeId);
 var lookup18 = /* @__PURE__ */ lookup2(ordParentId);
 var applySecond6 = /* @__PURE__ */ applySecond(applyAff);
-var liftEffect8 = /* @__PURE__ */ liftEffect(monadEffectAff);
+var liftEffect9 = /* @__PURE__ */ liftEffect(monadEffectAff);
 var pure47 = /* @__PURE__ */ pure(applicativeAff);
 var pure118 = /* @__PURE__ */ pure(applicativeEffect);
 var for_12 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
-var unwrap12 = /* @__PURE__ */ unwrap();
-var map36 = /* @__PURE__ */ map(functorMaybe);
+var unwrap13 = /* @__PURE__ */ unwrap();
+var map38 = /* @__PURE__ */ map(functorMaybe);
 var fromFoldable13 = /* @__PURE__ */ fromFoldable(foldableList);
-var bind112 = /* @__PURE__ */ bind3(ixBindRender);
+var bind112 = /* @__PURE__ */ bind4(ixBindRender);
 var useStore17 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
     return "node";
@@ -47132,7 +47573,7 @@ var elem9 = /* @__PURE__ */ elem2(eqString);
 var lookup22 = /* @__PURE__ */ lookup2(ordString);
 var when13 = /* @__PURE__ */ when(applicativeEffect);
 var show7 = /* @__PURE__ */ show(showNumber);
-var pure211 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var pure212 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty15 = /* @__PURE__ */ mempty(monoidJSX);
 var toForeignStyle8 = unsafeCoerce2;
 var placeholderNode = function(nodeId) {
@@ -47204,7 +47645,7 @@ var selectNodeSlice = function(nodeId) {
 };
 var panByAdapter4 = function(store) {
   return function(delta) {
-    return applySecond6(liftEffect8(store.dispatch(new PanBy(delta))))(pure47(true));
+    return applySecond6(liftEffect9(store.dispatch(new PanBy(delta))))(pure47(true));
   };
 };
 var nodeTypesAsObject = function(v) {
@@ -47277,14 +47718,14 @@ var mkNodeProps = function(node) {
         return function(connectable) {
           return function(dragging) {
             return {
-              id: unwrap12(node.id),
+              id: unwrap13(node.id),
               data: node.data,
               width: node.width,
               height: node.height,
               sourcePosition: node.sourcePosition,
               targetPosition: node.targetPosition,
               dragHandle: node.dragHandle,
-              parentId: map36(unwrap12)(node.parentId),
+              parentId: map38(unwrap13)(node.parentId),
               type: nodeType,
               dragging,
               zIndex: node.internals.z,
@@ -47314,7 +47755,7 @@ var mkDragStoreItems2 = function(store) {
       snapToGrid: s.snapToGrid,
       nodeOrigin: s.nodeOrigin,
       multiSelectionActive: s.multiSelectionActive,
-      domNode: map36(toElement)(s.domNode),
+      domNode: map38(toElement)(s.domNode),
       transform: s.transform,
       autoPanOnNodeDrag: s.autoPanOnNodeDrag,
       nodesDraggable: s.nodesDraggable,
@@ -47543,7 +47984,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                     width: st.width,
                     height: st.height
                   };
-                  var visible = getNodesInside(singleton5(v.id)(slice3.node))(paneRect)(st.transform)({
+                  var visible = getNodesInside(singleton6(v.id)(slice3.node))(paneRect)(st.transform)({
                     partially: true,
                     excludeNonSelectable: false
                   });
@@ -47581,8 +48022,8 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                   return "hidden";
                 }()
               });
-              var mergedStyle = mergeStyles(mergeStyles(baseStyle)(fromMaybe(emptyForeign2)(map36(unsafeToForeign)(slice3.node.style))))(dimStyle);
-              return pure211(function() {
+              var mergedStyle = mergeStyles(mergeStyles(baseStyle)(fromMaybe(emptyForeign2)(map38(unsafeToForeign)(slice3.node.style))))(dimStyle);
+              return pure212(function() {
                 if (slice3.node.hidden) {
                   return mempty15;
                 }
@@ -47680,9 +48121,9 @@ var _lastElementChild = getEffProp("lastElementChild");
 var childElementCount = getEffProp("childElementCount");
 
 // output/Web.DOM.Element/index.js
-var map37 = /* @__PURE__ */ map(functorEffect);
+var map39 = /* @__PURE__ */ map(functorEffect);
 var getAttribute2 = function(attr) {
-  var $6 = map37(toMaybe);
+  var $6 = map39(toMaybe);
   var $7 = _getAttribute(attr);
   return function($8) {
     return $6($7($8));
@@ -47694,7 +48135,7 @@ var foldM5 = /* @__PURE__ */ foldM(foldableArray)(monadEffect);
 var insert11 = /* @__PURE__ */ insert3(ordNodeId);
 var pure48 = /* @__PURE__ */ pure(applicativeEffect);
 var when14 = /* @__PURE__ */ when(applicativeEffect);
-var bind113 = /* @__PURE__ */ bind3(ixBindRender);
+var bind113 = /* @__PURE__ */ bind4(ixBindRender);
 var useMemo2 = /* @__PURE__ */ useMemo(eqUnit);
 var discard13 = /* @__PURE__ */ discard2(ixBindRender);
 var pure119 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
@@ -47719,8 +48160,8 @@ var useStore18 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ *
     return "elementsSelectable";
   }
 })(eqBoolean)));
-var map38 = /* @__PURE__ */ map(functorArray);
-var unwrap13 = /* @__PURE__ */ unwrap();
+var map40 = /* @__PURE__ */ map(functorArray);
+var unwrap14 = /* @__PURE__ */ unwrap();
 var toForeignStyle9 = unsafeCoerce2;
 var selectFlags2 = function(s) {
   return {
@@ -47734,7 +48175,7 @@ var selectFlags2 = function(s) {
 var mkSharedObserver = function(store) {
   return createResizeObserver(function(entries) {
     return function __do2() {
-      var updatesRef = $$new(empty4)();
+      var updatesRef = $$new(empty5)();
       foldM5(function(v) {
         return function(entry) {
           return function __do3() {
@@ -47779,8 +48220,8 @@ var nodeRenderer = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @
   return bind113(useStore18(selectFlags2))(function(flags) {
     return bind113(useVisibleNodeIds(v.onlyRenderVisibleElements))(function(nodeIds) {
       return bind113(useResizeObserver)(function(observer) {
-        var children3 = map38(function(nodeId) {
-          var nodeIdStr = unwrap13(nodeId);
+        var children3 = map40(function(nodeId) {
+          var nodeIdStr = unwrap14(nodeId);
           return keyed(nodeIdStr)(element(nodeWrapper)({
             id: nodeIdStr,
             nodeTypes: v.nodeTypes,
@@ -47814,7 +48255,7 @@ var nodeRenderer = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @
 })));
 
 // output/React.Container.Viewport/index.js
-var bind33 = /* @__PURE__ */ bind3(ixBindRender);
+var bind34 = /* @__PURE__ */ bind4(ixBindRender);
 var useStore19 = /* @__PURE__ */ useStore(eqTransform);
 var show8 = /* @__PURE__ */ show(showNumber);
 var pure49 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
@@ -47823,7 +48264,7 @@ var selectTransform = function(v) {
   return v.transform;
 };
 var viewport = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponentWithChildren()()("Viewport")(function(v) {
-  return bind33(useStore19(selectTransform))(function(v1) {
+  return bind34(useStore19(selectTransform))(function(v1) {
     var transformStr = "translate(" + (show8(v1.tx) + ("px," + (show8(v1.ty) + ("px) scale(" + (show8(v1.scale) + ")")))));
     var styleObj = toForeignStyle10({
       transform: transformStr
@@ -48152,7 +48593,7 @@ var batchContext = /* @__PURE__ */ function() {
   return unsafePerformEffect(createContext(Nothing.value));
 }();
 var useBatchContext = /* @__PURE__ */ function() {
-  var unwrap19 = function(v) {
+  var unwrap20 = function(v) {
     if (v instanceof Just) {
       return v.value0;
     }
@@ -48163,18 +48604,18 @@ var useBatchContext = /* @__PURE__ */ function() {
     ;
     throw new Error("Failed pattern match at React.Context.Batch (line 71, column 12 - line 73, column 47): " + [v.constructor.name]);
   };
-  return map(functorRender)(unwrap19)(useContext(batchContext));
+  return map(functorRender)(unwrap20)(useContext(batchContext));
 }();
 
 // output/React.Hook.ViewportHelper/index.js
-var bind34 = /* @__PURE__ */ bind(bindAff);
-var liftEffect9 = /* @__PURE__ */ liftEffect(monadEffectAff);
+var bind35 = /* @__PURE__ */ bind(bindAff);
+var liftEffect10 = /* @__PURE__ */ liftEffect(monadEffectAff);
 var pure50 = /* @__PURE__ */ pure(applicativeAff);
-var unwrap14 = /* @__PURE__ */ unwrap();
-var map39 = /* @__PURE__ */ map(functorEffect);
-var bind210 = /* @__PURE__ */ bind3(ixBindRender);
+var unwrap15 = /* @__PURE__ */ unwrap();
+var map41 = /* @__PURE__ */ map(functorEffect);
+var bind210 = /* @__PURE__ */ bind4(ixBindRender);
 var useMemo3 = /* @__PURE__ */ useMemo(eqUnit);
-var pure212 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var pure213 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var toPzOpts = function(opts) {
   return {
     duration: opts.duration,
@@ -48186,7 +48627,7 @@ var setCenter = function(store) {
   return function(x) {
     return function(y) {
       return function(opts) {
-        return bind34(liftEffect9(store.getState))(function(s) {
+        return bind35(liftEffect10(store.getState))(function(s) {
           if (s.panZoom instanceof Nothing) {
             return pure50(false);
           }
@@ -48200,7 +48641,7 @@ var setCenter = function(store) {
               y: centerY,
               zoom: nextZoom
             };
-            return bind34(s.panZoom.value0.setViewport(viewport2)(new Just({
+            return bind35(s.panZoom.value0.setViewport(viewport2)(new Just({
               duration: opts.duration,
               ease: opts.ease,
               interpolate: opts.interpolate
@@ -48281,7 +48722,7 @@ var flowToScreen = function(store) {
 var fitBounds = function(store) {
   return function(bounds) {
     return function(opts) {
-      return bind34(liftEffect9(store.getState))(function(s) {
+      return bind35(liftEffect10(store.getState))(function(s) {
         if (s.panZoom instanceof Nothing) {
           return pure50(false);
         }
@@ -48289,7 +48730,7 @@ var fitBounds = function(store) {
         if (s.panZoom instanceof Just) {
           var padding = new UniformPadding(new RatioPadding(fromMaybe(0.1)(opts.padding)));
           var viewport2 = getViewportForBounds(bounds)(s.width)(s.height)(s.minZoom)(s.maxZoom)(padding);
-          return bind34(s.panZoom.value0.setViewport(viewport2)(new Just({
+          return bind35(s.panZoom.value0.setViewport(viewport2)(new Just({
             duration: opts.duration,
             ease: opts.ease,
             interpolate: opts.interpolate
@@ -48305,7 +48746,7 @@ var fitBounds = function(store) {
 };
 var mkHelper = function(store) {
   var withPanZoom = function(k) {
-    return bind34(liftEffect9(store.getState))(function(s) {
+    return bind35(liftEffect10(store.getState))(function(s) {
       if (s.panZoom instanceof Nothing) {
         return pure50(false);
       }
@@ -48337,17 +48778,17 @@ var mkHelper = function(store) {
     },
     getZoom: function __do2() {
       var s = store.getState();
-      return unwrap14(s.transform).scale;
+      return unwrap15(s.transform).scale;
     },
     setViewport: function(viewport2) {
       return function(opts) {
-        return bind34(liftEffect9(store.getState))(function(s) {
+        return bind35(liftEffect10(store.getState))(function(s) {
           if (s.panZoom instanceof Nothing) {
             return pure50(false);
           }
           ;
           if (s.panZoom instanceof Just) {
-            return bind34(s.panZoom.value0.setViewport(viewport2)(new Just(toPzOpts(opts))))(function() {
+            return bind35(s.panZoom.value0.setViewport(viewport2)(new Just(toPzOpts(opts))))(function() {
               return pure50(true);
             });
           }
@@ -48357,7 +48798,7 @@ var mkHelper = function(store) {
       };
     },
     getViewport: function __do2() {
-      var v = map39(function(v2) {
+      var v = map41(function(v2) {
         return v2.transform;
       })(store.getState)();
       return {
@@ -48392,7 +48833,7 @@ var useViewportHelper = /* @__PURE__ */ coerceHook()(/* @__PURE__ */ bind210(use
   return bind210(useMemo3(unit)(function(v) {
     return mkHelper(store);
   }))(function(helper) {
-    return pure212(helper);
+    return pure213(helper);
   });
 }));
 
@@ -48459,11 +48900,11 @@ var RectArg = /* @__PURE__ */ function() {
 }();
 
 // output/React.Hook.ReactFlow/index.js
-var map40 = /* @__PURE__ */ map(functorMaybe);
+var map42 = /* @__PURE__ */ map(functorMaybe);
 var lookup19 = /* @__PURE__ */ lookup2(ordNodeId);
 var pure51 = /* @__PURE__ */ pure(applicativeEffect);
 var bind114 = /* @__PURE__ */ bind(bindAff);
-var liftEffect10 = /* @__PURE__ */ liftEffect(monadEffectAff);
+var liftEffect11 = /* @__PURE__ */ liftEffect(monadEffectAff);
 var discard14 = /* @__PURE__ */ discard(discardUnit);
 var discard15 = /* @__PURE__ */ discard14(bindAff);
 var eq10 = /* @__PURE__ */ eq(eqNodeId);
@@ -48474,11 +48915,11 @@ var append11 = /* @__PURE__ */ append(semigroupArray);
 var when15 = /* @__PURE__ */ when(applicativeEffect);
 var for_13 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var map112 = /* @__PURE__ */ map(functorArray);
-var bind211 = /* @__PURE__ */ bind3(ixBindRender);
+var bind211 = /* @__PURE__ */ bind4(ixBindRender);
 var useMemo4 = /* @__PURE__ */ useMemo(eqUnit);
 var useStore20 = /* @__PURE__ */ useStore(eqBoolean);
 var useMemo1 = /* @__PURE__ */ useMemo(eqBoolean);
-var pure213 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var pure214 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var toNodeIdOnly = function(v) {
   if (v instanceof Left) {
     return new Just({
@@ -48521,7 +48962,7 @@ var resolveBoundsRef = function(lookup26) {
     }
     ;
     if (v instanceof BoundsId) {
-      return map40(stripInternals)(lookup19(v.value0)(lookup26));
+      return map42(stripInternals)(lookup19(v.value0)(lookup26));
     }
     ;
     throw new Error("Failed pattern match at React.Hook.ReactFlow (line 518, column 27 - line 521, column 59): " + [v.constructor.name]);
@@ -48644,8 +49085,8 @@ var getNodeRect = function(store) {
 var fitView = function(store) {
   return function(batchContext2) {
     return function(mOpts) {
-      return bind114(liftEffect10(store.getState))(function(s) {
-        return bind114(liftEffect10(function() {
+      return bind114(liftEffect11(store.getState))(function(s) {
+        return bind114(liftEffect11(function() {
           if (s.fitViewResolver instanceof Just) {
             return pure51(s.fitViewResolver.value0);
           }
@@ -48656,7 +49097,7 @@ var fitView = function(store) {
           ;
           throw new Error("Failed pattern match at React.Hook.ReactFlow (line 401, column 26 - line 403, column 26): " + [s.fitViewResolver.constructor.name]);
         }()))(function(resolver) {
-          return discard15(liftEffect10(store.dispatch(new PatchState(function(st) {
+          return discard15(liftEffect11(store.dispatch(new PatchState(function(st) {
             return {
               rfId: st.rfId,
               width: st.width,
@@ -48745,7 +49186,7 @@ var fitView = function(store) {
               fitViewResolver: new Just(resolver)
             };
           }))))(function() {
-            return discard15(liftEffect10(batchContext2.nodeQueue.push(new QueueUpdate(function(xs) {
+            return discard15(liftEffect11(batchContext2.nodeQueue.push(new QueueUpdate(function(xs) {
               return xs;
             }))))(function() {
               return read4(resolver);
@@ -48873,7 +49314,7 @@ var mkGeneralHelpers = function(store) {
         };
       },
       deleteElements: function(opts) {
-        return bind114(liftEffect10(store.getState))(function(s) {
+        return bind114(liftEffect11(store.getState))(function(s) {
           var nodesToRemove = mapMaybe(toNodeIdOnly)(fromMaybe([])(opts.nodes));
           var edgesToRemove = mapMaybe(toIdOnly)(fromMaybe([])(opts.edges));
           return bind114(getElementsToRemove({
@@ -48881,9 +49322,9 @@ var mkGeneralHelpers = function(store) {
             edgesToRemove,
             nodes: s.nodes,
             edges: s.edges,
-            onBeforeDelete: map40(adaptOnBeforeDelete)(s.onBeforeDelete)
+            onBeforeDelete: map42(adaptOnBeforeDelete)(s.onBeforeDelete)
           }))(function(result) {
-            return discard15(liftEffect10(function __do2() {
+            return discard15(liftEffect11(function __do2() {
               when15(length(result.edges) > 0)(function __do3() {
                 for_13(s.onEdgesDelete)(function(cb) {
                   return cb(result.edges);
@@ -49141,7 +49582,7 @@ var useReactFlow = /* @__PURE__ */ function() {
             return bind211(useMemo1(viewportInitialized)(function(v) {
               return merge(generalHelper)(viewportHelper)(viewportInitialized);
             }))(function(instance_) {
-              return pure213(instance_);
+              return pure214(instance_);
             });
           });
         });
@@ -49152,13 +49593,13 @@ var useReactFlow = /* @__PURE__ */ function() {
 
 // output/React.Hook.Listeners/index.js
 var coerceHook8 = /* @__PURE__ */ coerceHook();
-var bind35 = /* @__PURE__ */ bind3(ixBindRender);
+var bind36 = /* @__PURE__ */ bind4(ixBindRender);
 var useEffect11 = /* @__PURE__ */ useEffect(eqUnsafeReference);
 var when16 = /* @__PURE__ */ when(applicativeEffect);
 var pure52 = /* @__PURE__ */ pure(applicativeEffect);
 var useOnInitHandler = function(mOnInit) {
-  return coerceHook8(bind35(useReactFlow)(function(rfInstance) {
-    return bind35(useRef(false))(function(initRef) {
+  return coerceHook8(bind36(useReactFlow)(function(rfInstance) {
+    return bind36(useRef(false))(function(initRef) {
       return useEffect11(rfInstance.viewportInitialized)(function __do2() {
         var initialized = readRef(initRef)();
         when16(!initialized && rfInstance.viewportInitialized)(function() {
@@ -49197,7 +49638,7 @@ var isDevelopment = typeof IS_DEV !== "undefined" ? IS_DEV : true;
 
 // output/React.Hook.NodeOrEdgeTypesWarning/index.js
 var coerceHook9 = /* @__PURE__ */ coerceHook();
-var bind36 = /* @__PURE__ */ bind3(ixBindRender);
+var bind37 = /* @__PURE__ */ bind4(ixBindRender);
 var useEffect12 = /* @__PURE__ */ useEffect(eqUnsafeReference);
 var when17 = /* @__PURE__ */ when(applicativeEffect);
 var pure53 = /* @__PURE__ */ pure(applicativeEffect);
@@ -49256,8 +49697,8 @@ var useNodeOrEdgeTypesWarning = function(mTypes) {
       ;
       throw new Error("Failed pattern match at React.Hook.NodeOrEdgeTypesWarning (line 67, column 15 - line 69, column 28): " + [mTypes.constructor.name]);
     }();
-    return bind36(useStoreApi)(function(store) {
-      return bind36(useRef(current))(function(typesRef) {
+    return bind37(useStoreApi)(function(store) {
+      return bind37(useRef(current))(function(typesRef) {
         return useEffect12(current)(function __do2() {
           when17(isDevelopment)(function __do3() {
             var s = store.getState();
@@ -49295,18 +49736,18 @@ var checkPaneZIndex = () => {
 };
 
 // output/React.Hook.StylesLoadedWarning/index.js
-var bind37 = /* @__PURE__ */ bind3(ixBindRender);
+var bind38 = /* @__PURE__ */ bind4(ixBindRender);
 var when18 = /* @__PURE__ */ when(applicativeEffect);
-var map41 = /* @__PURE__ */ map(functorEffect);
+var map43 = /* @__PURE__ */ map(functorEffect);
 var pure54 = /* @__PURE__ */ pure(applicativeEffect);
-var useStylesLoadedWarning = /* @__PURE__ */ coerceHook()(/* @__PURE__ */ bind37(useStoreApi)(function(store) {
-  return bind37(useRef(false))(function(checkedRef) {
+var useStylesLoadedWarning = /* @__PURE__ */ coerceHook()(/* @__PURE__ */ bind38(useStoreApi)(function(store) {
+  return bind38(useRef(false))(function(checkedRef) {
     return useEffectOnce(function __do2() {
       when18(isDevelopment)(function __do3() {
         var s = store.getState();
         var checked2 = readRef(checkedRef)();
         return when18(!checked2)(function __do4() {
-          var mZIndex = map41(toMaybe)(checkPaneZIndex)();
+          var mZIndex = map43(toMaybe)(checkPaneZIndex)();
           (function() {
             if (mZIndex instanceof Just && mZIndex.value0 !== "1") {
               if (s.onError instanceof Just) {
@@ -49332,7 +49773,7 @@ var useStylesLoadedWarning = /* @__PURE__ */ coerceHook()(/* @__PURE__ */ bind37
 
 // output/React.Hook.ViewportSync/index.js
 var coerceHook10 = /* @__PURE__ */ coerceHook();
-var bind38 = /* @__PURE__ */ bind3(ixBindRender);
+var bind39 = /* @__PURE__ */ bind4(ixBindRender);
 var useEffect13 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqMaybe(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
     return "zoom";
@@ -49348,7 +49789,7 @@ var useEffect13 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqMaybe(/* @__PURE__
 })(eqNumber))));
 var pure55 = /* @__PURE__ */ pure(applicativeEffect);
 var useViewportSync = function(mViewport) {
-  return coerceHook10(bind38(useStoreApi)(function(store) {
+  return coerceHook10(bind39(useStoreApi)(function(store) {
     return useEffect13(mViewport)(function __do2() {
       (function() {
         if (mViewport instanceof Nothing) {
@@ -49456,9 +49897,9 @@ var useViewportSync = function(mViewport) {
 
 // output/React.Container.GraphView/index.js
 var discard16 = /* @__PURE__ */ discard2(ixBindRender);
-var map42 = /* @__PURE__ */ map(functorMaybe);
+var map44 = /* @__PURE__ */ map(functorMaybe);
 var pure56 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
-var toForeign = unsafeCoerce2;
+var toForeign2 = unsafeCoerce2;
 var paneScrollAdapter = function(v) {
   if (v instanceof Nothing) {
     return Nothing.value;
@@ -49473,8 +49914,8 @@ var paneScrollAdapter = function(v) {
   throw new Error("Failed pattern match at React.Container.GraphView (line 169, column 21 - line 171, column 38): " + [v.constructor.name]);
 };
 var graphView = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponent()()()("GraphView")(function(v) {
-  return discard16(useNodeOrEdgeTypesWarning(map42(toForeign)(v.nodeTypes)))(function() {
-    return discard16(useNodeOrEdgeTypesWarning(map42(toForeign)(v.edgeTypes)))(function() {
+  return discard16(useNodeOrEdgeTypesWarning(map44(toForeign2)(v.nodeTypes)))(function() {
+    return discard16(useNodeOrEdgeTypesWarning(map44(toForeign2)(v.edgeTypes)))(function() {
       return discard16(useStylesLoadedWarning)(function() {
         return discard16(useOnInitHandler(v.onInit))(function() {
           return discard16(useViewportSync(v.viewport))(function() {
@@ -49582,7 +50023,7 @@ var useIsomorphicLayoutEffect = function(dictEq) {
 };
 
 // output/React.Provider.Batch/index.js
-var bind39 = /* @__PURE__ */ bind3(ixBindRender);
+var bind40 = /* @__PURE__ */ bind4(ixBindRender);
 var useMemo5 = /* @__PURE__ */ useMemo(eqUnit);
 var discard17 = /* @__PURE__ */ discard2(ixBindRender);
 var useIsomorphicLayoutEffect2 = /* @__PURE__ */ useIsomorphicLayoutEffect(eqInt);
@@ -49606,15 +50047,15 @@ var applyQueueItem = function(current) {
   };
 };
 var batchProvider = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponentWithChildren()()("BatchProvider")(function(v) {
-  return bind39(useStoreApi)(function(store) {
-    return bind39(useState(0))(function(v1) {
+  return bind40(useStoreApi)(function(store) {
+    return bind40(useState(0))(function(v1) {
       var bumpSerial = v1.value1(function(v2) {
         return v2 + 1 | 0;
       });
-      return bind39(useMemo5(unit)(function(v2) {
+      return bind40(useMemo5(unit)(function(v2) {
         return unsafePerformEffect(createQueue(bumpSerial));
       }))(function(nodeQueue) {
-        return bind39(useMemo5(unit)(function(v2) {
+        return bind40(useMemo5(unit)(function(v2) {
           return unsafePerformEffect(createQueue(bumpSerial));
         }))(function(edgeQueue) {
           return discard17(useIsomorphicLayoutEffect2(v1.value0)(function __do2() {
@@ -49667,13 +50108,13 @@ var insert13 = /* @__PURE__ */ insert3(ordParentId);
 var insert14 = /* @__PURE__ */ insert3(ordNodeId);
 var foldl8 = /* @__PURE__ */ foldl(foldableArray);
 var pure58 = /* @__PURE__ */ pure(applicativeAff);
-var bind40 = /* @__PURE__ */ bind(bindAff);
+var bind41 = /* @__PURE__ */ bind(bindAff);
 var max11 = /* @__PURE__ */ max(ordNumber);
 var eq17 = /* @__PURE__ */ eq(eqNodeId);
 var fromFoldable15 = /* @__PURE__ */ fromFoldable(foldableList);
 var append16 = /* @__PURE__ */ append(semigroupArray);
 var lookup111 = /* @__PURE__ */ lookup2(ordNodeId);
-var toUnfoldable10 = /* @__PURE__ */ toUnfoldable3(unfoldableArray);
+var toUnfoldable10 = /* @__PURE__ */ toUnfoldable4(unfoldableArray);
 var eq26 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqInt));
 var eq33 = /* @__PURE__ */ eq(eqZIndexMode);
 var pure122 = /* @__PURE__ */ pure(applicativeEffect);
@@ -49681,7 +50122,7 @@ var notEq16 = /* @__PURE__ */ notEq(/* @__PURE__ */ eqMaybe(eqNumber));
 var foldM6 = /* @__PURE__ */ foldM(foldableList)(monadEffect);
 var lookup23 = /* @__PURE__ */ lookup2(ordString);
 var insert22 = /* @__PURE__ */ insert3(ordString);
-var unwrap15 = /* @__PURE__ */ unwrap();
+var unwrap16 = /* @__PURE__ */ unwrap();
 var updateParentLookup = function(node) {
   return function(parentLookup) {
     if (node.parentId instanceof Nothing) {
@@ -49696,7 +50137,7 @@ var updateParentLookup = function(node) {
         }
         ;
         if (v instanceof Nothing) {
-          return empty4;
+          return empty5;
         }
         ;
         throw new Error("Failed pattern match at System.Utils.Store (line 199, column 18 - line 201, column 29): " + [v.constructor.name]);
@@ -49787,7 +50228,7 @@ var panBy = function(delta) {
                 return pure58(false);
               }
               ;
-              return bind40(mPanZoom.value0.setViewportConstrained({
+              return bind41(mPanZoom.value0.setViewportConstrained({
                 x: v.tx + delta.x,
                 y: v.ty + delta.y,
                 zoom: v.scale
@@ -49977,7 +50418,7 @@ var handleExpandParent = function(children3) {
             ;
             throw new Error("Failed pattern match at System.Utils.Store (line 518, column 13 - line 529, column 24): " + [v.constructor.name]);
           };
-        })(empty4)(children3);
+        })(empty5)(children3);
         var pairs = toUnfoldable10(expansions);
         return foldl2(stepExpansion(children3)(parentLookup)(defaultOrigin))([])(pairs);
       };
@@ -50699,8 +51140,8 @@ var adoptUserNodes = function(nodes3) {
           };
         };
         var initial = {
-          nodeLookup: empty4,
-          parentLookup: empty4,
+          nodeLookup: empty5,
+          parentLookup: empty5,
           nodesInitialized: length(nodes3) > 0,
           hasSelectedNodes: false,
           rootParentIndex: new Just(0)
@@ -50731,7 +51172,7 @@ var addConnectionToLookup = function(typeStr) {
                   }
                   ;
                   if (v instanceof Nothing) {
-                    return empty4;
+                    return empty5;
                   }
                   ;
                   throw new Error("Failed pattern match at System.Utils.Store (line 861, column 17 - line 863, column 31): " + [v.constructor.name]);
@@ -50758,13 +51199,13 @@ var addConnectionToLookup = function(typeStr) {
 };
 var updateConnectionLookup = function(edges) {
   var initial = {
-    connectionLookup: empty4,
-    edgeLookup: empty4
+    connectionLookup: empty5,
+    edgeLookup: empty5
   };
   var $$final = foldl8(function(st) {
     return function(edge) {
-      var targetStr = unwrap15(edge.target);
-      var sourceStr = unwrap15(edge.source);
+      var targetStr = unwrap16(edge.target);
+      var sourceStr = unwrap16(edge.source);
       var targetKey = targetStr + ("-" + (fromMaybe("null")(edge.targetHandle) + ("--" + (sourceStr + ("-" + fromMaybe("null")(edge.sourceHandle))))));
       var sourceKey = sourceStr + ("-" + (fromMaybe("null")(edge.sourceHandle) + ("--" + (targetStr + ("-" + fromMaybe("null")(edge.targetHandle))))));
       var connection = {
@@ -50811,7 +51252,7 @@ var initialState = function(opts) {
     nodeExtent,
     zIndexMode
   };
-  var adopted = adoptUserNodes(nodes3)(empty4)(empty4)(adoptOpts);
+  var adopted = adoptUserNodes(nodes3)(empty5)(empty5)(adoptOpts);
   var transform2 = function() {
     if (fitViewRequested) {
       var xz = function() {
@@ -50958,8 +51399,8 @@ var initialState = function(opts) {
     debug: false,
     ariaLabelConfig: defaultAriaLabelConfig,
     zIndexMode,
-    onNodesChangeMiddlewareMap: empty4,
-    onEdgesChangeMiddlewareMap: empty4
+    onNodesChangeMiddlewareMap: empty5,
+    onEdgesChangeMiddlewareMap: empty5
   };
 };
 var defaultInitialStateOptions = /* @__PURE__ */ function() {
@@ -50985,11 +51426,11 @@ var ordMiddlewareKey = ordInt;
 
 // output/React.Store.Reduce/index.js
 var append17 = /* @__PURE__ */ append(semigroupArray);
-var map43 = /* @__PURE__ */ map(functorArray);
-var fromFoldable16 = /* @__PURE__ */ fromFoldable4(foldableArray);
+var map45 = /* @__PURE__ */ map(functorArray);
+var fromFoldable16 = /* @__PURE__ */ fromFoldable5(foldableArray);
 var fromFoldable17 = /* @__PURE__ */ fromFoldable16(ordString);
 var fromFoldable23 = /* @__PURE__ */ fromFoldable16(ordNodeId);
-var toUnfoldable11 = /* @__PURE__ */ toUnfoldable3(unfoldableArray);
+var toUnfoldable11 = /* @__PURE__ */ toUnfoldable4(unfoldableArray);
 var insert15 = /* @__PURE__ */ insert3(ordMiddlewareKey);
 var $$delete4 = /* @__PURE__ */ $$delete2(ordMiddlewareKey);
 var reduceTriggerEdgeChanges = function(state3) {
@@ -51931,7 +52372,7 @@ var reduceTriggerNodeChanges = function(state3) {
 var reduceAddSelectedEdges = function(state3) {
   return function(ids) {
     if (state3.multiSelectionActive) {
-      var changes = map43(function(id3) {
+      var changes = map45(function(id3) {
         return new EdgeSelectionChange({
           id: id3,
           selected: true
@@ -51951,7 +52392,7 @@ var reduceAddSelectedEdges = function(state3) {
           };
         }
         ;
-        return getNodeSelectionChanges(state3.nodeLookup)(empty5)(true);
+        return getNodeSelectionChanges(state3.nodeLookup)(empty6)(true);
       }();
       var s1 = {
         ariaLabelConfig: state3.ariaLabelConfig,
@@ -52055,7 +52496,7 @@ var reduceAddSelectedEdges = function(state3) {
 var reduceAddSelectedNodes = function(state3) {
   return function(ids) {
     if (state3.multiSelectionActive) {
-      var changes = map43(function(id3) {
+      var changes = map45(function(id3) {
         return new NodeSelectionChange({
           id: id3,
           selected: true
@@ -52162,7 +52603,7 @@ var reduceAddSelectedNodes = function(state3) {
           };
         }
         ;
-        return getEdgeSelectionChanges(state3.edgeLookup)(empty5);
+        return getEdgeSelectionChanges(state3.edgeLookup)(empty6);
       }();
       var afterNodes = reduceTriggerNodeChanges(s1)(nodeRes.changes);
       var afterEdges = reduceTriggerEdgeChanges(afterNodes.state)(edgeRes.changes);
@@ -52442,7 +52883,7 @@ var reduceUnselectNodesAndEdges = function(state3) {
       ;
       throw new Error("Failed pattern match at React.Store.Reduce (line 399, column 19 - line 401, column 29): " + [params.edges.constructor.name]);
     }();
-    var nodeChanges = map43(function(n) {
+    var nodeChanges = map45(function(n) {
       return new NodeSelectionChange({
         id: n.id,
         selected: false
@@ -52450,7 +52891,7 @@ var reduceUnselectNodesAndEdges = function(state3) {
     })(filter(function(v) {
       return v.selected;
     })(targetNodes));
-    var edgeChanges = map43(function(e) {
+    var edgeChanges = map45(function(e) {
       return new EdgeSelectionChange({
         id: e.id,
         selected: false
@@ -52469,7 +52910,7 @@ var reduceUnselectNodesAndEdges = function(state3) {
 var reduceUpdateNodePositions = function(state3) {
   return function(items) {
     return function(dragging) {
-      var changes = map43(function(item) {
+      var changes = map45(function(item) {
         return new NodePositionChange({
           id: item.id,
           position: new Just(item.position),
@@ -53606,7 +54047,7 @@ var reduce = function(state3) {
 // output/React.Store.Shell/index.js
 var for_14 = /* @__PURE__ */ for_(applicativeEffect)(foldableArray);
 var pure59 = /* @__PURE__ */ pure(applicativeEffect);
-var map44 = /* @__PURE__ */ map(functorMaybe);
+var map46 = /* @__PURE__ */ map(functorMaybe);
 var bind115 = /* @__PURE__ */ bind(bindAff);
 var pure123 = /* @__PURE__ */ pure(applicativeAff);
 var append18 = /* @__PURE__ */ append(semigroupArray);
@@ -53697,7 +54138,7 @@ var createStore = function(opts) {
         if (eff instanceof RunDomUpdateNodeInternals) {
           return function __do3() {
             var s = read(stateRef)();
-            var r = updateNodeInternals(eff.value0)(s.nodeLookup)(s.parentLookup)(map44(toHTMLElement)(s.domNode))(s.nodeOrigin)(s.nodeExtent)(s.zIndexMode)();
+            var r = updateNodeInternals(eff.value0)(s.nodeLookup)(s.parentLookup)(map46(toHTMLElement)(s.domNode))(s.nodeOrigin)(s.nodeExtent)(s.zIndexMode)();
             return dispatch_(new MergeNodeInternalsResult({
               nodeLookup: r.nodeLookup,
               parentLookup: r.parentLookup,
@@ -53839,7 +54280,7 @@ var createStore = function(opts) {
 };
 
 // output/React.Provider/index.js
-var bind41 = /* @__PURE__ */ bind3(ixBindRender);
+var bind42 = /* @__PURE__ */ bind4(ixBindRender);
 var useMemo6 = /* @__PURE__ */ useMemo(eqUnit);
 var pure60 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var storeToOpaque = unsafeCoerce2;
@@ -53862,7 +54303,7 @@ var reactFlowProvider = /* @__PURE__ */ function() {
     };
   };
   return unsafePerformEffect(reactComponentWithChildren()()("ReactFlowProvider")(function(v) {
-    return bind41(useMemo6(unit)(function(v1) {
+    return bind42(useMemo6(unit)(function(v1) {
       return unsafePerformEffect(createStore(toInitOptions(v)));
     }))(function(store) {
       return pure60(storeProvider(new Just(storeToOpaque(store)))([element(batchProvider)({
@@ -53873,10 +54314,10 @@ var reactFlowProvider = /* @__PURE__ */ function() {
 }();
 
 // output/React.Container.Wrapper/index.js
-var bind42 = /* @__PURE__ */ bind3(ixBindRender);
+var bind43 = /* @__PURE__ */ bind4(ixBindRender);
 var pure61 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var wrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponentWithChildren()()("Wrapper")(function(v) {
-  return bind42(useContext(storeContext))(function(mStore) {
+  return bind43(useContext(storeContext))(function(mStore) {
     return pure61(function() {
       if (mStore instanceof Just) {
         return fragment(reactChildrenToArray(v.children));
@@ -53914,7 +54355,7 @@ var prefersDarkMode = () => {
 
 // output/React.Hook.ColorModeClass/index.js
 var coerceHook11 = /* @__PURE__ */ coerceHook();
-var bind43 = /* @__PURE__ */ bind3(ixBindRender);
+var bind44 = /* @__PURE__ */ bind4(ixBindRender);
 var discard18 = /* @__PURE__ */ discard2(ixBindRender);
 var useEffect14 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqMaybe(eqColorMode));
 var pure62 = /* @__PURE__ */ pure(applicativeEffect);
@@ -53931,7 +54372,7 @@ var useColorModeClass = function(mode) {
     ;
     return Nothing.value;
   };
-  return coerceHook11(bind43(useState(resolveStatic(mode)))(function(v) {
+  return coerceHook11(bind44(useState(resolveStatic(mode)))(function(v) {
     return discard18(useEffect14(mode)(function() {
       if (mode instanceof Just && mode.value0 instanceof LightMode) {
         return function __do2() {
@@ -53975,10 +54416,10 @@ var useColorModeClass = function(mode) {
 };
 
 // output/React.Provider.SelectionListener/index.js
-var unwrap16 = /* @__PURE__ */ unwrap();
+var unwrap17 = /* @__PURE__ */ unwrap();
 var fromFoldable18 = /* @__PURE__ */ fromFoldable(foldableList);
 var reactComponent6 = /* @__PURE__ */ reactComponent()()();
-var bind44 = /* @__PURE__ */ bind3(ixBindRender);
+var bind45 = /* @__PURE__ */ bind4(ixBindRender);
 var eqArray2 = /* @__PURE__ */ eqArray(eqString);
 var useStore21 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
@@ -54000,7 +54441,7 @@ var selectIds = function(s) {
   return {
     nodes: mapMaybe(function(n) {
       if (n.selected) {
-        return new Just(unwrap16(n.id));
+        return new Just(unwrap17(n.id));
       }
       ;
       return Nothing.value;
@@ -54015,8 +54456,8 @@ var selectIds = function(s) {
   };
 };
 var selectionListenerInner = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponent6("SelectionListenerInner")(function(v) {
-  return bind44(useStoreApi)(function(store) {
-    return bind44(useStore21(selectIds))(function(selected2) {
+  return bind45(useStoreApi)(function(store) {
+    return bind45(useStore21(selectIds))(function(selected2) {
       return discard19(useEffect15(selected2)(function __do2() {
         var s = store.getState();
         var selectedNodes = filter(function(n) {
@@ -54051,7 +54492,7 @@ var selectionListenerInner = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */
   });
 }));
 var selectionListener = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponent6("SelectionListener")(function(v) {
-  return bind44(useStore110(function($45) {
+  return bind45(useStore110(function($45) {
     return !$$null(function(v1) {
       return v1.onSelectionChangeHandlers;
     }($45));
@@ -54070,7 +54511,7 @@ var selectionListener = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reac
 // output/React.Provider.StoreUpdater/index.js
 var useEffect16 = /* @__PURE__ */ useEffect(eqUnsafeReference);
 var pure64 = /* @__PURE__ */ pure(applicativeEffect);
-var bind45 = /* @__PURE__ */ bind3(ixBindRender);
+var bind46 = /* @__PURE__ */ bind4(ixBindRender);
 var discard110 = /* @__PURE__ */ discard2(ixBindRender);
 var pure126 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty17 = /* @__PURE__ */ mempty(monoidJSX);
@@ -54095,7 +54536,7 @@ var effectOnJust = function(dispatch2) {
   };
 };
 var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponent()()()("StoreUpdater")(function(v) {
-  return bind45(useStoreApi)(function(store) {
+  return bind46(useStoreApi)(function(store) {
     return discard110(useEffectOnce(function __do2() {
       store.dispatch(new SetDefaultNodesAndEdges(v.defaultNodes, v.defaultEdges))();
       return store.dispatch(Reset.value);
@@ -58812,7 +59253,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
 
 // output/React.Container.ReactFlow/index.js
 var reactComponentWithChildren2 = /* @__PURE__ */ reactComponentWithChildren()();
-var bind46 = /* @__PURE__ */ bind3(ixBindRender);
+var bind47 = /* @__PURE__ */ bind4(ixBindRender);
 var alt7 = /* @__PURE__ */ alt(altMaybe);
 var pure65 = /* @__PURE__ */ pure(applicativeEffect);
 var append19 = /* @__PURE__ */ append(semigroupArray);
@@ -58868,7 +59309,7 @@ var buildOuterClass = function(cmc) {
   };
 };
 var reactFlowInner = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponentWithChildren2("ReactFlowInner")(function(v) {
-  return bind46(useColorModeClass(v.rfProps.colorMode))(function(colorModeCls) {
+  return bind47(useColorModeClass(v.rfProps.colorMode))(function(colorModeCls) {
     var zoomOnScroll = fromMaybe(true)(v.rfProps.zoomOnScroll);
     var zoomOnPinch = fromMaybe(true)(v.rfProps.zoomOnPinch);
     var zoomOnDoubleClick = fromMaybe(true)(v.rfProps.zoomOnDoubleClick);
@@ -59075,19 +59516,12 @@ var reactFlow = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompone
 }));
 
 // output/Boundary.Flow/index.js
-var map45 = /* @__PURE__ */ map(functorMaybe);
-var map113 = /* @__PURE__ */ map(functorArray);
-var bind47 = /* @__PURE__ */ bind(bindMaybe);
+var map47 = /* @__PURE__ */ map(functorArray);
+var map113 = /* @__PURE__ */ map(functorMaybe);
+var bind48 = /* @__PURE__ */ bind(bindMaybe);
 var show9 = /* @__PURE__ */ show(showString);
 var wrap5 = /* @__PURE__ */ wrap();
 var pure66 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
-var viewportIn = /* @__PURE__ */ map45(function(v) {
-  return {
-    x: v.x,
-    y: v.y,
-    zoom: v.zoom
-  };
-});
 var unmodelledOption = function(name15) {
   return function(get7) {
     return {
@@ -59120,10 +59554,10 @@ var reconnectableIn = function(raw) {
       return unsafeThrow("ps-flow: `defaultEdgeOptions.reconnectable` must be a boolean, " + ('"source" or "target", got ' + (typeName(raw) + ".")));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Flow (line 609, column 14 - line 616, column 17): " + [v1.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Flow (line 597, column 14 - line 604, column 17): " + [v1.constructor.name]);
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Flow (line 606, column 23 - line 616, column 17): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Flow (line 594, column 23 - line 604, column 17): " + [v.constructor.name]);
 };
 var proOptionsIn = function(o) {
   return {
@@ -59142,7 +59576,7 @@ var panOnDragIn = function(raw) {
       return unsafeThrow("ps-flow: every entry of `panOnDrag` must be a mouse-button number, got " + (typeName(b) + "."));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Flow (line 718, column 18 - line 724, column 17): " + [v3.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Flow (line 706, column 18 - line 712, column 17): " + [v3.constructor.name]);
   };
   var v = asBoolean(raw);
   if (v instanceof Just && v.value0) {
@@ -59156,7 +59590,7 @@ var panOnDragIn = function(raw) {
   if (v instanceof Nothing) {
     var v1 = asArray(raw);
     if (v1 instanceof Just) {
-      var v2 = fromArray(map113(readButton)(v1.value0));
+      var v2 = fromArray(map47(readButton)(v1.value0));
       if (v2 instanceof Just) {
         return new PanOnButtons(v2.value0);
       }
@@ -59165,38 +59599,17 @@ var panOnDragIn = function(raw) {
         return NoPan.value;
       }
       ;
-      throw new Error("Failed pattern match at Boundary.Flow (line 708, column 7 - line 710, column 25): " + [v2.constructor.name]);
+      throw new Error("Failed pattern match at Boundary.Flow (line 696, column 7 - line 698, column 25): " + [v2.constructor.name]);
     }
     ;
     if (v1 instanceof Nothing) {
       return unsafeThrow("ps-flow: `panOnDrag` must be a boolean or an array of mouse-button " + ("numbers, got " + (typeName(raw) + ".")));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Flow (line 706, column 14 - line 716, column 17): " + [v1.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Flow (line 694, column 14 - line 704, column 17): " + [v1.constructor.name]);
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Flow (line 703, column 19 - line 716, column 17): " + [v.constructor.name]);
-};
-var onNodesChangeIn = function(f) {
-  return function(changes) {
-    return function() {
-      return f(map113(nodeChangeOut)(changes));
-    };
-  };
-};
-var onEdgesChangeIn = function(f) {
-  return function(changes) {
-    return function() {
-      return f(map113(edgeChangeOut)(changes));
-    };
-  };
-};
-var onConnectIn = function(f) {
-  return function(connection) {
-    return function() {
-      return f(connectionOut(connection));
-    };
-  };
+  throw new Error("Failed pattern match at Boundary.Flow (line 691, column 19 - line 704, column 17): " + [v.constructor.name]);
 };
 var droppedOption = function(name15) {
   return function(get7) {
@@ -59243,100 +59656,8 @@ var guardEdgeOptions = /* @__PURE__ */ function() {
   };
   return refuseFirst(message2)(refusedEdgeOptions);
 }();
-var deferredProps = [/* @__PURE__ */ callbackProp("onNodeClick")(function(v) {
-  return v.onNodeClick;
-}), /* @__PURE__ */ callbackProp("onNodeDoubleClick")(function(v) {
-  return v.onNodeDoubleClick;
-}), /* @__PURE__ */ callbackProp("onNodeMouseEnter")(function(v) {
-  return v.onNodeMouseEnter;
-}), /* @__PURE__ */ callbackProp("onNodeMouseMove")(function(v) {
-  return v.onNodeMouseMove;
-}), /* @__PURE__ */ callbackProp("onNodeMouseLeave")(function(v) {
-  return v.onNodeMouseLeave;
-}), /* @__PURE__ */ callbackProp("onNodeContextMenu")(function(v) {
-  return v.onNodeContextMenu;
-}), /* @__PURE__ */ callbackProp("onNodeDragStart")(function(v) {
-  return v.onNodeDragStart;
-}), /* @__PURE__ */ callbackProp("onNodeDrag")(function(v) {
-  return v.onNodeDrag;
-}), /* @__PURE__ */ callbackProp("onNodeDragStop")(function(v) {
-  return v.onNodeDragStop;
-}), /* @__PURE__ */ callbackProp("onEdgeClick")(function(v) {
-  return v.onEdgeClick;
-}), /* @__PURE__ */ callbackProp("onEdgeContextMenu")(function(v) {
-  return v.onEdgeContextMenu;
-}), /* @__PURE__ */ callbackProp("onEdgeMouseEnter")(function(v) {
-  return v.onEdgeMouseEnter;
-}), /* @__PURE__ */ callbackProp("onEdgeMouseMove")(function(v) {
-  return v.onEdgeMouseMove;
-}), /* @__PURE__ */ callbackProp("onEdgeMouseLeave")(function(v) {
-  return v.onEdgeMouseLeave;
-}), /* @__PURE__ */ callbackProp("onEdgeDoubleClick")(function(v) {
-  return v.onEdgeDoubleClick;
-}), /* @__PURE__ */ callbackProp("onReconnect")(function(v) {
-  return v.onReconnect;
-}), /* @__PURE__ */ callbackProp("onReconnectStart")(function(v) {
-  return v.onReconnectStart;
-}), /* @__PURE__ */ callbackProp("onReconnectEnd")(function(v) {
-  return v.onReconnectEnd;
-}), /* @__PURE__ */ callbackProp("onNodesDelete")(function(v) {
-  return v.onNodesDelete;
-}), /* @__PURE__ */ callbackProp("onEdgesDelete")(function(v) {
-  return v.onEdgesDelete;
-}), /* @__PURE__ */ callbackProp("onDelete")(function(v) {
-  return v.onDelete;
-}), /* @__PURE__ */ callbackProp("onSelectionDragStart")(function(v) {
-  return v.onSelectionDragStart;
-}), /* @__PURE__ */ callbackProp("onSelectionDrag")(function(v) {
-  return v.onSelectionDrag;
-}), /* @__PURE__ */ callbackProp("onSelectionDragStop")(function(v) {
-  return v.onSelectionDragStop;
-}), /* @__PURE__ */ callbackProp("onSelectionStart")(function(v) {
-  return v.onSelectionStart;
-}), /* @__PURE__ */ callbackProp("onSelectionEnd")(function(v) {
-  return v.onSelectionEnd;
-}), /* @__PURE__ */ callbackProp("onSelectionContextMenu")(function(v) {
-  return v.onSelectionContextMenu;
-}), /* @__PURE__ */ callbackProp("onSelectionChange")(function(v) {
-  return v.onSelectionChange;
-}), /* @__PURE__ */ callbackProp("onConnectStart")(function(v) {
-  return v.onConnectStart;
-}), /* @__PURE__ */ callbackProp("onConnectEnd")(function(v) {
-  return v.onConnectEnd;
-}), /* @__PURE__ */ callbackProp("onClickConnectStart")(function(v) {
-  return v.onClickConnectStart;
-}), /* @__PURE__ */ callbackProp("onClickConnectEnd")(function(v) {
-  return v.onClickConnectEnd;
-}), /* @__PURE__ */ callbackProp("onInit")(function(v) {
+var deferredProps = [/* @__PURE__ */ instanceProp("onInit")(function(v) {
   return v.onInit;
-}), /* @__PURE__ */ callbackProp("onMove")(function(v) {
-  return v.onMove;
-}), /* @__PURE__ */ callbackProp("onMoveStart")(function(v) {
-  return v.onMoveStart;
-}), /* @__PURE__ */ callbackProp("onMoveEnd")(function(v) {
-  return v.onMoveEnd;
-}), /* @__PURE__ */ callbackProp("onScroll")(function(v) {
-  return v.onScroll;
-}), /* @__PURE__ */ callbackProp("onPaneScroll")(function(v) {
-  return v.onPaneScroll;
-}), /* @__PURE__ */ callbackProp("onPaneClick")(function(v) {
-  return v.onPaneClick;
-}), /* @__PURE__ */ callbackProp("onPaneContextMenu")(function(v) {
-  return v.onPaneContextMenu;
-}), /* @__PURE__ */ callbackProp("onPaneMouseEnter")(function(v) {
-  return v.onPaneMouseEnter;
-}), /* @__PURE__ */ callbackProp("onPaneMouseMove")(function(v) {
-  return v.onPaneMouseMove;
-}), /* @__PURE__ */ callbackProp("onPaneMouseLeave")(function(v) {
-  return v.onPaneMouseLeave;
-}), /* @__PURE__ */ callbackProp("onBeforeDelete")(function(v) {
-  return v.onBeforeDelete;
-}), /* @__PURE__ */ callbackProp("isValidConnection")(function(v) {
-  return v.isValidConnection;
-}), /* @__PURE__ */ callbackProp("onError")(function(v) {
-  return v.onError;
-}), /* @__PURE__ */ callbackProp("onViewportChange")(function(v) {
-  return v.onViewportChange;
 }), /* @__PURE__ */ componentProp("edgeTypes")(function(v) {
   return v.edgeTypes;
 }), /* @__PURE__ */ componentProp("connectionLineComponent")(function(v) {
@@ -59351,14 +59672,14 @@ var convertEdgeOptions = function(o) {
     selectable: fromUndefinable(o.selectable),
     focusable: fromUndefinable(o.focusable),
     data: fromUndefinable(o.data),
-    zIndex: map45(round2)(fromUndefinable(o.zIndex)),
+    zIndex: map113(round2)(fromUndefinable(o.zIndex)),
     ariaLabel: fromUndefinable(o.ariaLabel),
     interactionWidth: fromUndefinable(o.interactionWidth),
-    reconnectable: bind47(fromUndefinable(o.reconnectable))(reconnectableIn)
+    reconnectable: bind48(fromUndefinable(o.reconnectable))(reconnectableIn)
   };
 };
-var defaultEdgeOptionsIn = function($114) {
-  return convertEdgeOptions(guardEdgeOptions($114));
+var defaultEdgeOptionsIn = function($68) {
+  return convertEdgeOptions(guardEdgeOptions($68));
 };
 var badPadding = function(field) {
   return function(s) {
@@ -59387,10 +59708,10 @@ var paddingStringIn = function(field) {
         return badPadding(field)(s);
       }
       ;
-      throw new Error("Failed pattern match at Boundary.Flow (line 684, column 16 - line 686, column 36): " + [v1.constructor.name]);
+      throw new Error("Failed pattern match at Boundary.Flow (line 672, column 16 - line 674, column 36): " + [v1.constructor.name]);
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Flow (line 682, column 3 - line 686, column 36): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Flow (line 670, column 3 - line 674, column 36): " + [v.constructor.name]);
   };
 };
 var paddingValueIn = function(field) {
@@ -59410,17 +59731,17 @@ var paddingValueIn = function(field) {
         return Nothing.value;
       }
       ;
-      throw new Error("Failed pattern match at Boundary.Flow (line 676, column 14 - line 678, column 23): " + [v1.constructor.name]);
+      throw new Error("Failed pattern match at Boundary.Flow (line 664, column 14 - line 666, column 23): " + [v1.constructor.name]);
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Flow (line 674, column 28 - line 678, column 23): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Flow (line 662, column 28 - line 666, column 23): " + [v.constructor.name]);
   };
 };
 var paddingIn = function(field) {
   return function(raw) {
     var side = function(name15) {
       return function(value12) {
-        return bind47(fromUndefinable(value12))(function(v2) {
+        return bind48(fromUndefinable(value12))(function(v2) {
           var v1 = paddingValueIn(field + ("." + name15))(v2);
           if (v1 instanceof Just) {
             return new Just(v1.value0);
@@ -59430,7 +59751,7 @@ var paddingIn = function(field) {
             return badPadding(field + ("." + name15))(typeName(v2));
           }
           ;
-          throw new Error("Failed pattern match at Boundary.Flow (line 669, column 5 - line 671, column 64): " + [v1.constructor.name]);
+          throw new Error("Failed pattern match at Boundary.Flow (line 657, column 5 - line 659, column 64): " + [v1.constructor.name]);
         });
       };
     };
@@ -59450,19 +59771,19 @@ var paddingIn = function(field) {
       });
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Flow (line 643, column 23 - line 652, column 6): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Flow (line 631, column 23 - line 640, column 6): " + [v.constructor.name]);
   };
 };
 var fitViewOptionsIn = function(o) {
   return {
-    padding: map45(paddingIn("fitViewOptions.padding"))(fromUndefinable(o.padding)),
+    padding: map113(paddingIn("fitViewOptions.padding"))(fromUndefinable(o.padding)),
     includeHiddenNodes: fromMaybe(false)(fromUndefinable(o.includeHiddenNodes)),
     minZoom: fromUndefinable(o.minZoom),
     maxZoom: fromUndefinable(o.maxZoom),
-    duration: map45(round2)(fromUndefinable(o.duration)),
+    duration: map113(round2)(fromUndefinable(o.duration)),
     ease: fromUndefinable(o.ease),
-    interpolate: map45(interpolateModeIn("fitViewOptions.interpolate"))(fromUndefinable(o.interpolate)),
-    nodes: map45(map113(function(n) {
+    interpolate: map113(interpolateModeIn("fitViewOptions.interpolate"))(fromUndefinable(o.interpolate)),
+    nodes: map113(map47(function(n) {
       return {
         id: wrap5(n.id)
       };
@@ -59487,85 +59808,85 @@ var ariaLabelConfigIn = function(c) {
 var convertProps = function(p) {
   return {
     children: p.children,
-    nodes: map45(map113(nodeIn))(fromUndefinable(p.nodes)),
-    edges: map45(map113(edgeIn))(fromUndefinable(p.edges)),
-    defaultNodes: map45(map113(nodeIn))(fromUndefinable(p.defaultNodes)),
-    defaultEdges: map45(map113(edgeIn))(fromUndefinable(p.defaultEdges)),
-    defaultEdgeOptions: map45(defaultEdgeOptionsIn)(fromUndefinable(p.defaultEdgeOptions)),
-    onNodeClick: Nothing.value,
-    onNodeDoubleClick: Nothing.value,
-    onNodeMouseEnter: Nothing.value,
-    onNodeMouseMove: Nothing.value,
-    onNodeMouseLeave: Nothing.value,
-    onNodeContextMenu: Nothing.value,
-    onNodeDragStart: Nothing.value,
-    onNodeDrag: Nothing.value,
-    onNodeDragStop: Nothing.value,
-    onEdgeClick: Nothing.value,
-    onEdgeContextMenu: Nothing.value,
-    onEdgeMouseEnter: Nothing.value,
-    onEdgeMouseMove: Nothing.value,
-    onEdgeMouseLeave: Nothing.value,
-    onEdgeDoubleClick: Nothing.value,
-    onReconnect: Nothing.value,
-    onReconnectStart: Nothing.value,
-    onReconnectEnd: Nothing.value,
-    onNodesChange: map45(onNodesChangeIn)(fromUndefinable(p.onNodesChange)),
-    onEdgesChange: map45(onEdgesChangeIn)(fromUndefinable(p.onEdgesChange)),
-    onNodesDelete: Nothing.value,
-    onEdgesDelete: Nothing.value,
-    onDelete: Nothing.value,
-    onSelectionDragStart: Nothing.value,
-    onSelectionDrag: Nothing.value,
-    onSelectionDragStop: Nothing.value,
-    onSelectionStart: Nothing.value,
-    onSelectionEnd: Nothing.value,
-    onSelectionContextMenu: Nothing.value,
-    onSelectionChange: Nothing.value,
-    onConnect: map45(onConnectIn)(fromUndefinable(p.onConnect)),
-    onConnectStart: Nothing.value,
-    onConnectEnd: Nothing.value,
-    onClickConnectStart: Nothing.value,
-    onClickConnectEnd: Nothing.value,
+    nodes: map113(map47(nodeIn))(fromUndefinable(p.nodes)),
+    edges: map113(map47(edgeIn))(fromUndefinable(p.edges)),
+    defaultNodes: map113(map47(nodeIn))(fromUndefinable(p.defaultNodes)),
+    defaultEdges: map113(map47(edgeIn))(fromUndefinable(p.defaultEdges)),
+    defaultEdgeOptions: map113(defaultEdgeOptionsIn)(fromUndefinable(p.defaultEdgeOptions)),
+    onNodeClick: map113(nodeMouseHandlerIn)(fromUndefinable(p.onNodeClick)),
+    onNodeDoubleClick: map113(nodeMouseHandlerIn)(fromUndefinable(p.onNodeDoubleClick)),
+    onNodeMouseEnter: map113(nodeMouseHandlerIn)(fromUndefinable(p.onNodeMouseEnter)),
+    onNodeMouseMove: map113(nodeMouseHandlerIn)(fromUndefinable(p.onNodeMouseMove)),
+    onNodeMouseLeave: map113(nodeMouseHandlerIn)(fromUndefinable(p.onNodeMouseLeave)),
+    onNodeContextMenu: map113(nodeMouseHandlerIn)(fromUndefinable(p.onNodeContextMenu)),
+    onNodeDragStart: map113(onNodeDragIn)(fromUndefinable(p.onNodeDragStart)),
+    onNodeDrag: map113(onNodeDragIn)(fromUndefinable(p.onNodeDrag)),
+    onNodeDragStop: map113(onNodeDragIn)(fromUndefinable(p.onNodeDragStop)),
+    onEdgeClick: map113(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeClick)),
+    onEdgeContextMenu: map113(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeContextMenu)),
+    onEdgeMouseEnter: map113(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeMouseEnter)),
+    onEdgeMouseMove: map113(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeMouseMove)),
+    onEdgeMouseLeave: map113(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeMouseLeave)),
+    onEdgeDoubleClick: map113(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeDoubleClick)),
+    onReconnect: map113(onReconnectIn)(fromUndefinable(p.onReconnect)),
+    onReconnectStart: map113(onReconnectStartIn)(fromUndefinable(p.onReconnectStart)),
+    onReconnectEnd: map113(onReconnectEndIn)(fromUndefinable(p.onReconnectEnd)),
+    onNodesChange: map113(onNodesChangeIn)(fromUndefinable(p.onNodesChange)),
+    onEdgesChange: map113(onEdgesChangeIn)(fromUndefinable(p.onEdgesChange)),
+    onNodesDelete: map113(onNodesDeleteIn)(fromUndefinable(p.onNodesDelete)),
+    onEdgesDelete: map113(onEdgesDeleteIn)(fromUndefinable(p.onEdgesDelete)),
+    onDelete: map113(onDeleteIn)(fromUndefinable(p.onDelete)),
+    onSelectionDragStart: map113(selectionDragHandlerIn)(fromUndefinable(p.onSelectionDragStart)),
+    onSelectionDrag: map113(selectionDragHandlerIn)(fromUndefinable(p.onSelectionDrag)),
+    onSelectionDragStop: map113(selectionDragHandlerIn)(fromUndefinable(p.onSelectionDragStop)),
+    onSelectionStart: map113(mouseEventHandlerIn)(fromUndefinable(p.onSelectionStart)),
+    onSelectionEnd: map113(mouseEventHandlerIn)(fromUndefinable(p.onSelectionEnd)),
+    onSelectionContextMenu: map113(selectionDragHandlerIn)(fromUndefinable(p.onSelectionContextMenu)),
+    onSelectionChange: map113(onSelectionChangeIn)(fromUndefinable(p.onSelectionChange)),
+    onConnect: map113(onConnectIn)(fromUndefinable(p.onConnect)),
+    onConnectStart: map113(onConnectStartIn)(fromUndefinable(p.onConnectStart)),
+    onConnectEnd: map113(onConnectEndIn)(fromUndefinable(p.onConnectEnd)),
+    onClickConnectStart: map113(onConnectStartIn)(fromUndefinable(p.onClickConnectStart)),
+    onClickConnectEnd: map113(onConnectEndIn)(fromUndefinable(p.onClickConnectEnd)),
     onInit: Nothing.value,
-    onMove: Nothing.value,
-    onMoveStart: Nothing.value,
-    onMoveEnd: Nothing.value,
-    onScroll: Nothing.value,
-    onPaneScroll: Nothing.value,
-    onPaneClick: Nothing.value,
-    onPaneContextMenu: Nothing.value,
-    onPaneMouseEnter: Nothing.value,
-    onPaneMouseMove: Nothing.value,
-    onPaneMouseLeave: Nothing.value,
+    onMove: map113(onMoveIn)(fromUndefinable(p.onMove)),
+    onMoveStart: map113(onMoveIn)(fromUndefinable(p.onMoveStart)),
+    onMoveEnd: map113(onMoveIn)(fromUndefinable(p.onMoveEnd)),
+    onScroll: map113(onScrollIn)(fromUndefinable(p.onScroll)),
+    onPaneScroll: map113(onPaneScrollIn)(fromUndefinable(p.onPaneScroll)),
+    onPaneClick: map113(mouseEventHandlerIn)(fromUndefinable(p.onPaneClick)),
+    onPaneContextMenu: map113(mouseEventHandlerIn)(fromUndefinable(p.onPaneContextMenu)),
+    onPaneMouseEnter: map113(mouseEventHandlerIn)(fromUndefinable(p.onPaneMouseEnter)),
+    onPaneMouseMove: map113(mouseEventHandlerIn)(fromUndefinable(p.onPaneMouseMove)),
+    onPaneMouseLeave: map113(mouseEventHandlerIn)(fromUndefinable(p.onPaneMouseLeave)),
     paneClickDistance: fromUndefinable(p.paneClickDistance),
     nodeClickDistance: fromUndefinable(p.nodeClickDistance),
-    onBeforeDelete: Nothing.value,
-    isValidConnection: Nothing.value,
-    onError: Nothing.value,
-    nodeTypes: map45(nodeTypesIn)(fromUndefinable(p.nodeTypes)),
+    onBeforeDelete: map113(onBeforeDeleteIn)(fromUndefinable(p.onBeforeDelete)),
+    isValidConnection: map113(isValidConnectionIn)(fromUndefinable(p.isValidConnection)),
+    onError: map113(onErrorIn)(fromUndefinable(p.onError)),
+    nodeTypes: map113(nodeTypesIn)(fromUndefinable(p.nodeTypes)),
     edgeTypes: Nothing.value,
-    connectionLineType: map45(connectionLineTypeIn("connectionLineType"))(fromUndefinable(p.connectionLineType)),
-    connectionLineStyle: map45(asCssStyle)(fromUndefinable(p.connectionLineStyle)),
+    connectionLineType: map113(connectionLineTypeIn("connectionLineType"))(fromUndefinable(p.connectionLineType)),
+    connectionLineStyle: map113(asCssStyle)(fromUndefinable(p.connectionLineStyle)),
     connectionLineComponent: Nothing.value,
-    connectionLineContainerStyle: map45(asCssStyle)(fromUndefinable(p.connectionLineContainerStyle)),
-    connectionMode: map45(connectionModeIn("connectionMode"))(fromUndefinable(p.connectionMode)),
+    connectionLineContainerStyle: map113(asCssStyle)(fromUndefinable(p.connectionLineContainerStyle)),
+    connectionMode: map113(connectionModeIn("connectionMode"))(fromUndefinable(p.connectionMode)),
     deleteKeyCode: keyCodeIn("deleteKeyCode")(p.deleteKeyCode),
     selectionKeyCode: keyCodeIn("selectionKeyCode")(p.selectionKeyCode),
     selectionOnDrag: fromUndefinable(p.selectionOnDrag),
-    selectionMode: map45(selectionModeIn("selectionMode"))(fromUndefinable(p.selectionMode)),
+    selectionMode: map113(selectionModeIn("selectionMode"))(fromUndefinable(p.selectionMode)),
     panActivationKeyCode: keyCodeIn("panActivationKeyCode")(p.panActivationKeyCode),
     multiSelectionKeyCode: keyCodeIn("multiSelectionKeyCode")(p.multiSelectionKeyCode),
     zoomActivationKeyCode: keyCodeIn("zoomActivationKeyCode")(p.zoomActivationKeyCode),
     snapToGrid: fromUndefinable(p.snapToGrid),
-    snapGrid: map45(snapGridIn("snapGrid"))(fromUndefinable(p.snapGrid)),
+    snapGrid: map113(snapGridIn("snapGrid"))(fromUndefinable(p.snapGrid)),
     onlyRenderVisibleElements: fromUndefinable(p.onlyRenderVisibleElements),
     nodesDraggable: fromUndefinable(p.nodesDraggable),
     nodesConnectable: fromUndefinable(p.nodesConnectable),
     nodesFocusable: fromUndefinable(p.nodesFocusable),
     nodeDragThreshold: fromUndefinable(p.nodeDragThreshold),
-    nodeOrigin: map45(nodeOriginIn("nodeOrigin"))(fromUndefinable(p.nodeOrigin)),
-    nodeExtent: map45(coordinateExtentIn("nodeExtent"))(fromUndefinable(p.nodeExtent)),
+    nodeOrigin: map113(nodeOriginIn("nodeOrigin"))(fromUndefinable(p.nodeOrigin)),
+    nodeExtent: map113(coordinateExtentIn("nodeExtent"))(fromUndefinable(p.nodeExtent)),
     autoPanOnNodeFocus: fromUndefinable(p.autoPanOnNodeFocus),
     autoPanOnNodeDrag: fromUndefinable(p.autoPanOnNodeDrag),
     noDragClassName: fromUndefinable(p.noDragClassName),
@@ -59577,43 +59898,43 @@ var convertProps = function(p) {
     selectNodesOnDrag: fromUndefinable(p.selectNodesOnDrag),
     elevateNodesOnSelect: fromUndefinable(p.elevateNodesOnSelect),
     elevateEdgesOnSelect: fromUndefinable(p.elevateEdgesOnSelect),
-    panOnDrag: map45(panOnDragIn)(fromUndefinable(p.panOnDrag)),
+    panOnDrag: map113(panOnDragIn)(fromUndefinable(p.panOnDrag)),
     minZoom: fromUndefinable(p.minZoom),
     maxZoom: fromUndefinable(p.maxZoom),
-    translateExtent: map45(coordinateExtentIn("translateExtent"))(fromUndefinable(p.translateExtent)),
+    translateExtent: map113(coordinateExtentIn("translateExtent"))(fromUndefinable(p.translateExtent)),
     zoomOnScroll: fromUndefinable(p.zoomOnScroll),
     zoomOnPinch: fromUndefinable(p.zoomOnPinch),
     zoomOnDoubleClick: fromUndefinable(p.zoomOnDoubleClick),
     panOnScroll: fromUndefinable(p.panOnScroll),
     panOnScrollSpeed: fromUndefinable(p.panOnScrollSpeed),
-    panOnScrollMode: map45(panOnScrollModeIn("panOnScrollMode"))(fromUndefinable(p.panOnScrollMode)),
+    panOnScrollMode: map113(panOnScrollModeIn("panOnScrollMode"))(fromUndefinable(p.panOnScrollMode)),
     preventScrolling: fromUndefinable(p.preventScrolling),
-    viewport: viewportIn(fromUndefinable(p.viewport)),
-    defaultViewport: viewportIn(fromUndefinable(p.defaultViewport)),
-    onViewportChange: Nothing.value,
+    viewport: map113(viewportIn)(fromUndefinable(p.viewport)),
+    defaultViewport: map113(viewportIn)(fromUndefinable(p.defaultViewport)),
+    onViewportChange: map113(onViewportChangeIn)(fromUndefinable(p.onViewportChange)),
     fitView: fromUndefinable(p.fitView),
-    fitViewOptions: map45(fitViewOptionsIn)(fromUndefinable(p.fitViewOptions)),
+    fitViewOptions: map113(fitViewOptionsIn)(fromUndefinable(p.fitViewOptions)),
     defaultMarkerColor: fromUndefinable(p.defaultMarkerColor),
     width: fromUndefinable(p.width),
     height: fromUndefinable(p.height),
-    colorMode: map45(colorModeIn("colorMode"))(fromUndefinable(p.colorMode)),
-    attributionPosition: map45(panelPositionIn("attributionPosition"))(fromUndefinable(p.attributionPosition)),
-    proOptions: map45(proOptionsIn)(fromUndefinable(p.proOptions)),
+    colorMode: map113(colorModeIn("colorMode"))(fromUndefinable(p.colorMode)),
+    attributionPosition: map113(panelPositionIn("attributionPosition"))(fromUndefinable(p.attributionPosition)),
+    proOptions: map113(proOptionsIn)(fromUndefinable(p.proOptions)),
     noWheelClassName: fromUndefinable(p.noWheelClassName),
     noPanClassName: fromUndefinable(p.noPanClassName),
     disableKeyboardA11y: fromUndefinable(p.disableKeyboardA11y),
-    ariaLabelConfig: map45(ariaLabelConfigIn)(fromUndefinable(p.ariaLabelConfig)),
+    ariaLabelConfig: map113(ariaLabelConfigIn)(fromUndefinable(p.ariaLabelConfig)),
     autoPanOnConnect: fromUndefinable(p.autoPanOnConnect),
     autoPanSpeed: fromUndefinable(p.autoPanSpeed),
     autoPanOnSelection: fromUndefinable(p.autoPanOnSelection),
     connectOnClick: fromUndefinable(p.connectOnClick),
     connectionRadius: fromUndefinable(p.connectionRadius),
     debug: fromUndefinable(p.debug),
-    zIndexMode: map45(zIndexModeIn("zIndexMode"))(fromUndefinable(p.zIndexMode))
+    zIndexMode: map113(zIndexModeIn("zIndexMode"))(fromUndefinable(p.zIndexMode))
   };
 };
-var flowPropsIn = function($115) {
-  return convertProps(guardDeferred($115));
+var flowPropsIn = function($69) {
+  return convertProps(guardDeferred($69));
 };
 var reactFlow2 = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponentWithChildren()()("ReactFlow")(function(v) {
   return pure66(element(reactFlow)(flowPropsIn(v)));
@@ -59675,8 +59996,8 @@ var dotPattern = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompon
 
 // output/React.Additional.Background/index.js
 var foldl9 = /* @__PURE__ */ foldl(foldableArray);
-var toUnfoldable12 = /* @__PURE__ */ toUnfoldable2(unfoldableArray);
-var bind48 = /* @__PURE__ */ bind3(ixBindRender);
+var toUnfoldable12 = /* @__PURE__ */ toUnfoldable3(unfoldableArray);
+var bind49 = /* @__PURE__ */ bind4(ixBindRender);
 var eq11 = /* @__PURE__ */ eq(eqBackgroundVariant);
 var pure68 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var toForeignStyle11 = unsafeCoerce2;
@@ -59729,12 +60050,12 @@ var defaultSize = function(v) {
   throw new Error("Failed pattern match at React.Additional.Background (line 37, column 15 - line 40, column 15): " + [v.constructor.name]);
 };
 var containerStyle2 = /* @__PURE__ */ function() {
-  return fromFoldable2(foldableArray)([new Tuple("position", "absolute"), new Tuple("top", "0"), new Tuple("left", "0"), new Tuple("width", "100%"), new Tuple("height", "100%")]);
+  return fromFoldable3(foldableArray)([new Tuple("position", "absolute"), new Tuple("top", "0"), new Tuple("left", "0"), new Tuple("width", "100%"), new Tuple("height", "100%")]);
 }();
 var buildStyle = function(userStyle) {
   return function(bgColor) {
     return function(patternColor) {
-      var base = fromMaybe(empty2)(userStyle);
+      var base = fromMaybe(empty3)(userStyle);
       var withContainer = foldl9(function(acc) {
         return function(v) {
           return insert2(v.value0)(v.value1)(acc);
@@ -59767,7 +60088,7 @@ var buildStyle = function(userStyle) {
   };
 };
 var background = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponent()()()("Background")(function(v) {
-  return bind48(useStore22(selector))(function(v1) {
+  return bind49(useStore22(selector))(function(v1) {
     var variant = fromMaybe(Dots.value)(v.variant);
     var patternSize = fromMaybe(defaultSize(variant))(v.size);
     var isDots = eq11(variant)(Dots.value);
@@ -59870,11 +60191,11 @@ var background = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__
 
 // output/React.Additional.Controls.Button/index.js
 var for_16 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
-var identity6 = /* @__PURE__ */ identity(categoryFn);
+var identity7 = /* @__PURE__ */ identity(categoryFn);
 var pure69 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var controlButton = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponentWithChildren()()("ControlButton")(function(v) {
   var userClass = fromMaybe("")(v.className);
-  var onClickHandler = handler_(for_16(v.onClick)(identity6));
+  var onClickHandler = handler_(for_16(v.onClick)(identity7));
   var className2 = "react-flow__controls-button" + function() {
     var $11 = userClass === "";
     if ($11) {
@@ -59927,10 +60248,10 @@ var iconFitView = /* @__PURE__ */ svg_({
 })([])]);
 
 // output/React.Additional.Controls/index.js
-var bind49 = /* @__PURE__ */ bind3(ixBindRender);
+var bind50 = /* @__PURE__ */ bind4(ixBindRender);
 var $$void6 = /* @__PURE__ */ $$void(functorAff);
 var for_17 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
-var identity7 = /* @__PURE__ */ identity(categoryFn);
+var identity8 = /* @__PURE__ */ identity(categoryFn);
 var append110 = /* @__PURE__ */ append(semigroupArray);
 var pure70 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var selector2 = function(s) {
@@ -59978,9 +60299,9 @@ var defaultOpts = /* @__PURE__ */ function() {
   };
 }();
 var controls2 = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponentWithChildren()()("Controls")(function(v) {
-  return bind49(useStoreApi)(function(store) {
-    return bind49(useStore23(selector2))(function(v1) {
-      return bind49(useReactFlow)(function(flow) {
+  return bind50(useStoreApi)(function(store) {
+    return bind50(useStore23(selector2))(function(v1) {
+      return bind50(useReactFlow)(function(flow) {
         var showZoom = fromMaybe(true)(v.showZoom);
         var showInteractive = fromMaybe(true)(v.showInteractive);
         var showFitView = fromMaybe(true)(v.showFitView);
@@ -59997,11 +60318,11 @@ var controls2 = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__P
         }());
         var onZoomOutHandler = function __do2() {
           launchAff_($$void6(flow.zoomOut(defaultOpts)))();
-          return for_17(v.onZoomOut)(identity7)();
+          return for_17(v.onZoomOut)(identity8)();
         };
         var onZoomInHandler = function __do2() {
           launchAff_($$void6(flow.zoomIn(defaultOpts)))();
-          return for_17(v.onZoomIn)(identity7)();
+          return for_17(v.onZoomIn)(identity8)();
         };
         var zoomButtons = function() {
           if (showZoom) {
@@ -60125,7 +60446,7 @@ var controls2 = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__P
         }();
         var onFitViewHandler = function __do2() {
           launchAff_($$void6(flow.fitView(v.fitViewOptions)))();
-          return for_17(v.onFitView)(identity7)();
+          return for_17(v.onFitView)(identity8)();
         };
         var interactiveButton = function() {
           if (showInteractive) {
@@ -60179,7 +60500,7 @@ var controls2 = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__P
 })));
 
 // output/React.Additional.MiniMap.Node/index.js
-var map46 = /* @__PURE__ */ map(functorMaybe);
+var map48 = /* @__PURE__ */ map(functorMaybe);
 var show10 = /* @__PURE__ */ show(showNumber);
 var pure71 = /* @__PURE__ */ pure(applicativeEffect);
 var pure128 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
@@ -60230,7 +60551,7 @@ var maybeInsert = function(k) {
   };
 };
 var miniMapNode = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponent()()()("MiniMapNode")(function(v) {
-  var styleObj = maybeInsert("strokeWidth")(map46(show10)(v.strokeWidth))(maybeInsert("stroke")(v.strokeColor)(maybeInsert("fill")(pickFill(v.color)(v.style))(empty2)));
+  var styleObj = maybeInsert("strokeWidth")(map48(show10)(v.strokeWidth))(maybeInsert("stroke")(v.strokeColor)(maybeInsert("fill")(pickFill(v.color)(v.style))(empty3)));
   var onClickHandler = function() {
     if (v.onClick instanceof Nothing) {
       return handler_(pure71(unit));
@@ -60274,9 +60595,9 @@ var miniMapNode = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
 
 // output/React.Additional.MiniMap.Nodes/index.js
 var lookup21 = /* @__PURE__ */ lookup2(ordNodeId);
-var map47 = /* @__PURE__ */ map(functorMaybe);
-var unwrap17 = /* @__PURE__ */ unwrap();
-var bind50 = /* @__PURE__ */ bind3(ixBindRender);
+var map49 = /* @__PURE__ */ map(functorMaybe);
+var unwrap18 = /* @__PURE__ */ unwrap();
+var bind51 = /* @__PURE__ */ bind4(ixBindRender);
 var useStore24 = /* @__PURE__ */ useStore(eqUnsafeReference);
 var pure72 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var shapeRendering = "geometricPrecision";
@@ -60305,10 +60626,10 @@ var renderOne = function(props) {
     ;
     if (v instanceof Just) {
       var userComp = fromMaybe(miniMapNode)(props.nodeComponent);
-      var stroke = map47(function(f) {
+      var stroke = map49(function(f) {
         return f(base);
       })(props.nodeStrokeColor);
-      var color2 = map47(function(f) {
+      var color2 = map49(function(f) {
         return f(base);
       })(props.nodeColor);
       var cls = function() {
@@ -60323,7 +60644,7 @@ var renderOne = function(props) {
         throw new Error("Failed pattern match at React.Additional.MiniMap.Nodes (line 60, column 17 - line 62, column 26): " + [props.nodeClassName.constructor.name]);
       }();
       return new Just(element(userComp)({
-        id: unwrap17(internal.id),
+        id: unwrap18(internal.id),
         x: internal.internals.positionAbsolute.x,
         y: internal.internals.positionAbsolute.y,
         width: v.value0.width,
@@ -60344,7 +60665,7 @@ var renderOne = function(props) {
   };
 };
 var miniMapNodes = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponent()()()("MiniMapNodes")(function(v) {
-  return bind50(useStore24(selectNodes))(function(v1) {
+  return bind51(useStore24(selectNodes))(function(v1) {
     return pure72(fragment(mapMaybe(renderOne(v))(v1)));
   });
 })));
@@ -60556,9 +60877,9 @@ var eqRec1 = /* @__PURE__ */ eqRec7(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eq
     return "height";
   }
 })(eqNumber));
-var map48 = /* @__PURE__ */ map(functorMaybe);
+var map50 = /* @__PURE__ */ map(functorMaybe);
 var show11 = /* @__PURE__ */ show(showNumber);
-var bind51 = /* @__PURE__ */ bind3(ixBindRender);
+var bind52 = /* @__PURE__ */ bind4(ixBindRender);
 var max13 = /* @__PURE__ */ max(ordNumber);
 var discard20 = /* @__PURE__ */ discard2(ixBindRender);
 var pure74 = /* @__PURE__ */ pure(applicativeEffect);
@@ -60667,8 +60988,8 @@ var buildPanelStyle = function(userStyle) {
             return function(nodeStrokeColor) {
               return function(nodeStrokeWidth) {
                 return function(viewScale) {
-                  var base = fromMaybe(empty2)(userStyle);
-                  return maybeInsert2("--xy-minimap-node-stroke-width-props")(map48(show11)(nodeStrokeWidth))(maybeInsert2("--xy-minimap-node-stroke-color-props")(nodeStrokeColor)(maybeInsert2("--xy-minimap-node-background-color-props")(nodeColor)(maybeInsert2("--xy-minimap-mask-stroke-width-props")(map48(function(w) {
+                  var base = fromMaybe(empty3)(userStyle);
+                  return maybeInsert2("--xy-minimap-node-stroke-width-props")(map50(show11)(nodeStrokeWidth))(maybeInsert2("--xy-minimap-node-stroke-color-props")(nodeStrokeColor)(maybeInsert2("--xy-minimap-node-background-color-props")(nodeColor)(maybeInsert2("--xy-minimap-mask-stroke-width-props")(map50(function(w) {
                     return show11(w * viewScale);
                   })(maskStrokeWidth))(maybeInsert2("--xy-minimap-mask-stroke-color-props")(maskStrokeColor)(maybeInsert2("--xy-minimap-mask-background-color-props")(maskColor)(maybeInsert2("--xy-minimap-background-color-props")(bgColor)(base)))))));
                 };
@@ -60681,11 +61002,11 @@ var buildPanelStyle = function(userStyle) {
   };
 };
 var miniMap = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponentWithChildren()()("MiniMap")(function(v) {
-  return bind51(useStoreApi)(function(store) {
-    return bind51(useStore25(selector3))(function(v1) {
-      return bind51(useRef(toNullable(Nothing.value)))(function(svgRef) {
-        return bind51(useRef(0))(function(viewScaleRef) {
-          return bind51(useRef(toNullable(Nothing.value)))(function(instanceRef) {
+  return bind52(useStoreApi)(function(store) {
+    return bind52(useStore25(selector3))(function(v1) {
+      return bind52(useRef(toNullable(Nothing.value)))(function(svgRef) {
+        return bind52(useRef(0))(function(viewScaleRef) {
+          return bind52(useRef(toNullable(Nothing.value)))(function(instanceRef) {
             var labelledBy = "react-flow__minimap-desc-" + v1.rfId;
             var scaledWidth = v1.boundingRect.width / defaultWidth;
             var scaledHeight = v1.boundingRect.height / defaultHeight;
@@ -60883,7 +61204,7 @@ var miniMap = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PUR
 })));
 
 // output/Boundary.Chrome/index.js
-var map49 = /* @__PURE__ */ map(functorMaybe);
+var map51 = /* @__PURE__ */ map(functorMaybe);
 var reactComponentWithChildren3 = /* @__PURE__ */ reactComponentWithChildren()();
 var pure75 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var requiredProp = function(field) {
@@ -60897,7 +61218,7 @@ var requiredProp = function(field) {
       return unsafeThrow("ps-flow: `" + (field + "` is required and was not supplied."));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Chrome (line 85, column 24 - line 89, column 69): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Chrome (line 94, column 24 - line 98, column 69): " + [v.constructor.name]);
   };
 };
 var numberPairIn = function(field) {
@@ -60913,7 +61234,7 @@ var numberPairIn = function(field) {
           return unsafeThrow("ps-flow: the " + (name15 + (" entry of `" + (field + ("` must be a number, got " + (typeName(value12) + "."))))));
         }
         ;
-        throw new Error("Failed pattern match at Boundary.Chrome (line 171, column 21 - line 177, column 17): " + [v2.constructor.name]);
+        throw new Error("Failed pattern match at Boundary.Chrome (line 180, column 21 - line 186, column 17): " + [v2.constructor.name]);
       };
     };
     var v = asNumber(raw);
@@ -60930,7 +61251,7 @@ var numberPairIn = function(field) {
       return unsafeThrow("ps-flow: `" + (field + ("` must be a number or a pair of numbers, got " + (typeName(raw) + "."))));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Chrome (line 161, column 26 - line 169, column 17): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Chrome (line 170, column 26 - line 178, column 17): " + [v.constructor.name]);
   };
 };
 var nodeAttributeIn = function(field) {
@@ -60945,7 +61266,7 @@ var nodeAttributeIn = function(field) {
         return unsafeThrow("ps-flow: `" + (field + ("` returned " + (typeName(value12) + ", not a string."))));
       }
       ;
-      throw new Error("Failed pattern match at Boundary.Chrome (line 334, column 22 - line 338, column 86): " + [v2.constructor.name]);
+      throw new Error("Failed pattern match at Boundary.Chrome (line 331, column 22 - line 335, column 86): " + [v2.constructor.name]);
     };
     var v = asFunction(raw);
     if (v instanceof Just) {
@@ -60964,33 +61285,20 @@ var nodeAttributeIn = function(field) {
         return unsafeThrow("ps-flow: `" + (field + ("` must be a function of a node, got " + (typeName(raw) + "."))));
       }
       ;
-      throw new Error("Failed pattern match at Boundary.Chrome (line 322, column 14 - line 332, column 17): " + [v1.constructor.name]);
+      throw new Error("Failed pattern match at Boundary.Chrome (line 319, column 14 - line 329, column 17): " + [v1.constructor.name]);
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Chrome (line 320, column 29 - line 332, column 17): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Chrome (line 317, column 29 - line 329, column 17): " + [v.constructor.name]);
   };
 };
-var deferredMiniMapProps = [/* @__PURE__ */ callbackProp("MiniMap.onClick")(function(v) {
-  return v.onClick;
-}), /* @__PURE__ */ callbackProp("MiniMap.onNodeClick")(function(v) {
-  return v.onNodeClick;
-}), /* @__PURE__ */ componentProp("MiniMap.nodeComponent")(function(v) {
+var deferredMiniMapProps = [/* @__PURE__ */ componentProp("MiniMap.nodeComponent")(function(v) {
   return v.nodeComponent;
-})];
-var deferredControlsProps = [/* @__PURE__ */ callbackProp("Controls.onZoomIn")(function(v) {
-  return v.onZoomIn;
-}), /* @__PURE__ */ callbackProp("Controls.onZoomOut")(function(v) {
-  return v.onZoomOut;
-}), /* @__PURE__ */ callbackProp("Controls.onFitView")(function(v) {
-  return v.onFitView;
-}), /* @__PURE__ */ callbackProp("Controls.onInteractiveChange")(function(v) {
-  return v.onInteractiveChange;
 })];
 var convertPanel = function(p) {
   return {
     position: panelPositionIn("Panel.position")(requiredProp("Panel.position")(p.position)),
     className: fromUndefinable(p.className),
-    style: map49(asCssObject)(fromUndefinable(p.style)),
+    style: map51(asCssObject)(fromUndefinable(p.style)),
     "aria-label": fromUndefinable(p["aria-label"]),
     "data-testid": fromUndefinable(p["data-testid"]),
     children: p.children
@@ -61001,9 +61309,9 @@ var panel2 = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponentW
 }));
 var convertMiniMap = function(p) {
   return {
-    nodeColor: map49(nodeAttributeIn("MiniMap.nodeColor"))(fromUndefinable(p.nodeColor)),
-    nodeStrokeColor: map49(nodeAttributeIn("MiniMap.nodeStrokeColor"))(fromUndefinable(p.nodeStrokeColor)),
-    nodeClassName: map49(nodeAttributeIn("MiniMap.nodeClassName"))(fromUndefinable(p.nodeClassName)),
+    nodeColor: map51(nodeAttributeIn("MiniMap.nodeColor"))(fromUndefinable(p.nodeColor)),
+    nodeStrokeColor: map51(nodeAttributeIn("MiniMap.nodeStrokeColor"))(fromUndefinable(p.nodeStrokeColor)),
+    nodeClassName: map51(nodeAttributeIn("MiniMap.nodeClassName"))(fromUndefinable(p.nodeClassName)),
     nodeBorderRadius: fromUndefinable(p.nodeBorderRadius),
     nodeStrokeWidth: fromUndefinable(p.nodeStrokeWidth),
     nodeComponent: Nothing.value,
@@ -61011,9 +61319,9 @@ var convertMiniMap = function(p) {
     maskColor: fromUndefinable(p.maskColor),
     maskStrokeColor: fromUndefinable(p.maskStrokeColor),
     maskStrokeWidth: fromUndefinable(p.maskStrokeWidth),
-    position: map49(panelPositionIn("MiniMap.position"))(fromUndefinable(p.position)),
-    onClick: Nothing.value,
-    onNodeClick: Nothing.value,
+    position: map51(panelPositionIn("MiniMap.position"))(fromUndefinable(p.position)),
+    onClick: map51(miniMapClickHandlerIn)(fromUndefinable(p.onClick)),
+    onNodeClick: map51(nodeMouseHandlerIn)(fromUndefinable(p.onNodeClick)),
     pannable: fromUndefinable(p.pannable),
     zoomable: fromUndefinable(p.zoomable),
     "aria-label": fromUndefinable(p["aria-label"]),
@@ -61021,14 +61329,14 @@ var convertMiniMap = function(p) {
     zoomStep: fromUndefinable(p.zoomStep),
     offsetScale: fromUndefinable(p.offsetScale),
     children: p.children,
-    style: map49(asCssObject)(fromUndefinable(p.style)),
+    style: map51(asCssObject)(fromUndefinable(p.style)),
     className: fromUndefinable(p.className)
   };
 };
 var miniMapPropsIn = /* @__PURE__ */ function() {
-  var $48 = refuseFirst(deferredMessage)(deferredMiniMapProps);
-  return function($49) {
-    return convertMiniMap($48($49));
+  var $42 = refuseFirst(deferredMessage)(deferredMiniMapProps);
+  return function($43) {
+    return convertMiniMap($42($43));
   };
 }();
 var miniMap2 = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponentWithChildren3("MiniMap")(function(v) {
@@ -61039,17 +61347,17 @@ var convertControls = function(p) {
     showZoom: fromUndefinable(p.showZoom),
     showFitView: fromUndefinable(p.showFitView),
     showInteractive: fromUndefinable(p.showInteractive),
-    fitViewOptions: map49(fitViewOptionsIn)(fromUndefinable(p.fitViewOptions)),
-    onZoomIn: Nothing.value,
-    onZoomOut: Nothing.value,
-    onFitView: Nothing.value,
-    onInteractiveChange: Nothing.value,
-    position: map49(panelPositionIn("Controls.position"))(fromUndefinable(p.position)),
+    fitViewOptions: map51(fitViewOptionsIn)(fromUndefinable(p.fitViewOptions)),
+    onZoomIn: map51(commandHandlerIn)(fromUndefinable(p.onZoomIn)),
+    onZoomOut: map51(commandHandlerIn)(fromUndefinable(p.onZoomOut)),
+    onFitView: map51(commandHandlerIn)(fromUndefinable(p.onFitView)),
+    onInteractiveChange: map51(interactiveChangeHandlerIn)(fromUndefinable(p.onInteractiveChange)),
+    position: map51(panelPositionIn("Controls.position"))(fromUndefinable(p.position)),
     children: p.children,
-    style: map49(asCssObject)(fromUndefinable(p.style)),
+    style: map51(asCssObject)(fromUndefinable(p.style)),
     className: fromUndefinable(p.className),
     "aria-label": fromUndefinable(p["aria-label"]),
-    orientation: map49(orientationIn("Controls.orientation"))(fromUndefinable(p.orientation))
+    orientation: map51(orientationIn("Controls.orientation"))(fromUndefinable(p.orientation))
   };
 };
 var convertBackground = function(p) {
@@ -61059,22 +61367,16 @@ var convertBackground = function(p) {
     bgColor: fromUndefinable(p.bgColor),
     className: fromUndefinable(p.className),
     patternClassName: fromUndefinable(p.patternClassName),
-    gap: map49(numberPairIn("Background.gap"))(fromUndefinable(p.gap)),
+    gap: map51(numberPairIn("Background.gap"))(fromUndefinable(p.gap)),
     size: fromUndefinable(p.size),
-    offset: map49(numberPairIn("Background.offset"))(fromUndefinable(p.offset)),
+    offset: map51(numberPairIn("Background.offset"))(fromUndefinable(p.offset)),
     lineWidth: fromUndefinable(p.lineWidth),
-    variant: map49(backgroundVariantIn("Background.variant"))(fromUndefinable(p.variant)),
-    style: map49(asCssObject)(fromUndefinable(p.style))
+    variant: map51(backgroundVariantIn("Background.variant"))(fromUndefinable(p.variant)),
+    style: map51(asCssObject)(fromUndefinable(p.style))
   };
 };
-var controlsPropsIn = /* @__PURE__ */ function() {
-  var $50 = refuseFirst(deferredMessage)(deferredControlsProps);
-  return function($51) {
-    return convertControls($50($51));
-  };
-}();
 var controls3 = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponentWithChildren3("Controls")(function(v) {
-  return pure75(element(controls2)(controlsPropsIn(v)));
+  return pure75(element(controls2)(convertControls(v)));
 }));
 var background2 = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponent()()()("Background")(function(v) {
   return pure75(element(background)(convertBackground(v)));
@@ -61085,11 +61387,11 @@ var mkTriple = (first, second, third) => [first, second, third];
 
 // output/React.Hook.NodesEdgesState/index.js
 var coerceHook12 = /* @__PURE__ */ coerceHook();
-var bind52 = /* @__PURE__ */ bind3(ixBindRender);
+var bind53 = /* @__PURE__ */ bind4(ixBindRender);
 var pure76 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var useEdgesState = function(initialEdges3) {
-  return coerceHook12(bind52(useState([]))(function() {
-    return bind52(useState(initialEdges3))(function(v) {
+  return coerceHook12(bind53(useState([]))(function() {
+    return bind53(useState(initialEdges3))(function(v) {
       return pure76({
         edges: v.value0,
         setEdges: v.value1,
@@ -61101,8 +61403,8 @@ var useEdgesState = function(initialEdges3) {
   }));
 };
 var useNodesState = function(initialNodes3) {
-  return coerceHook12(bind52(useState(initialNodes3))(function(v) {
-    return bind52(useState([]))(function() {
+  return coerceHook12(bind53(useState(initialNodes3))(function(v) {
+    return bind53(useState([]))(function() {
       return pure76({
         nodes: v.value0,
         setNodes: v.value1,
@@ -61115,7 +61417,7 @@ var useNodesState = function(initialNodes3) {
 };
 
 // output/Boundary.Hooks/index.js
-var map50 = /* @__PURE__ */ map(functorArray);
+var map52 = /* @__PURE__ */ map(functorArray);
 var map115 = /* @__PURE__ */ map(functorEffect);
 var setStateOut = function(name15) {
   return function(inward) {
@@ -61139,13 +61441,13 @@ var setStateOut = function(name15) {
           var v = asFunction(action2);
           if (v instanceof Just) {
             return set3(function(previous) {
-              return map50(inward)(expect("returned")(v.value0(map50(outward)(previous))));
+              return map52(inward)(expect("returned")(v.value0(map52(outward)(previous))));
             })();
           }
           ;
           if (v instanceof Nothing) {
             return set3(function(v1) {
-              return map50(inward)(expect("was called with")(action2));
+              return map52(inward)(expect("was called with")(action2));
             })();
           }
           ;
@@ -61157,20 +61459,20 @@ var setStateOut = function(name15) {
 };
 var runHook = unsafeCoerce2;
 var nodesTripleOut = function(bundle) {
-  return mkTriple(map50(nodeOut)(bundle.nodes), setStateOut("setNodes")(nodeIn)(nodeOut)(bundle.setNodes), function(changes) {
-    return bundle.onNodesChange(map50(nodeChangeIn)(changes))();
+  return mkTriple(map52(nodeOut)(bundle.nodes), setStateOut("setNodes")(nodeIn)(nodeOut)(bundle.setNodes), function(changes) {
+    return bundle.onNodesChange(map52(nodeChangeIn)(changes))();
   });
 };
 var useNodesState2 = function(initialNodes3) {
-  return unsafePerformEffect(map115(nodesTripleOut)(runHook(useNodesState(map50(nodeIn)(initialNodes3)))));
+  return unsafePerformEffect(map115(nodesTripleOut)(runHook(useNodesState(map52(nodeIn)(initialNodes3)))));
 };
 var edgesTripleOut = function(bundle) {
-  return mkTriple(map50(edgeOut)(bundle.edges), setStateOut("setEdges")(edgeIn)(edgeOut)(bundle.setEdges), function(changes) {
-    return bundle.onEdgesChange(map50(edgeChangeIn)(changes))();
+  return mkTriple(map52(edgeOut)(bundle.edges), setStateOut("setEdges")(edgeIn)(edgeOut)(bundle.setEdges), function(changes) {
+    return bundle.onEdgesChange(map52(edgeChangeIn)(changes))();
   });
 };
 var useEdgesState2 = function(initialEdges3) {
-  return unsafePerformEffect(map115(edgesTripleOut)(runHook(useEdgesState(map50(edgeIn)(initialEdges3)))));
+  return unsafePerformEffect(map115(edgesTripleOut)(runHook(useEdgesState(map52(edgeIn)(initialEdges3)))));
 };
 
 // output/React.Portal.FFI/foreign.js
@@ -61178,7 +61480,7 @@ var import_react_dom = __toESM(require_react_dom(), 1);
 var createPortal = (jsx8) => (container2) => (0, import_react_dom.createPortal)(jsx8, container2);
 
 // output/React.Additional.NodeToolbar.Portal/index.js
-var bind53 = /* @__PURE__ */ bind3(ixBindRender);
+var bind54 = /* @__PURE__ */ bind4(ixBindRender);
 var useStore26 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqMaybe(eqUnsafeReference));
 var pure77 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty19 = /* @__PURE__ */ mempty(monoidJSX);
@@ -61194,7 +61496,7 @@ var selectTarget = function(s) {
   throw new Error("Failed pattern match at React.Additional.NodeToolbar.Portal (line 25, column 18 - line 27, column 51): " + [s.domNode.constructor.name]);
 };
 var nodeToolbarPortal = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponentWithChildren()()("NodeToolbarPortal")(function(v) {
-  return bind53(useStore26(selectTarget))(function(mTarget) {
+  return bind54(useStore26(selectTarget))(function(mTarget) {
     return pure77(function() {
       if (mTarget instanceof Nothing) {
         return mempty19;
@@ -61285,14 +61587,14 @@ var getNodeToolbarTransform = function(nodeRect) {
 // output/React.Additional.NodeToolbar/index.js
 var lookup25 = /* @__PURE__ */ lookup2(ordNodeId);
 var insert16 = /* @__PURE__ */ insert3(ordNodeId);
-var map51 = /* @__PURE__ */ map(functorArray);
+var map53 = /* @__PURE__ */ map(functorArray);
 var eq27 = /* @__PURE__ */ eq(eqUnsafeReference);
-var bind54 = /* @__PURE__ */ bind3(ixBindRender);
+var bind55 = /* @__PURE__ */ bind4(ixBindRender);
 var fromFoldable19 = /* @__PURE__ */ fromFoldable(foldableList);
 var pure78 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty20 = /* @__PURE__ */ mempty(monoidJSX);
 var max14 = /* @__PURE__ */ max(ordNumber);
-var unwrap18 = /* @__PURE__ */ unwrap();
+var unwrap19 = /* @__PURE__ */ unwrap();
 var show12 = /* @__PURE__ */ show(showNumber);
 var toForeignStyle13 = unsafeCoerce2;
 var lookupNodes = function(ids) {
@@ -61310,7 +61612,7 @@ var lookupNodes = function(ids) {
         ;
         throw new Error("Failed pattern match at React.Additional.NodeToolbar (line 80, column 19 - line 82, column 40): " + [v.constructor.name]);
       };
-    })(empty4)(ids);
+    })(empty5)(ids);
   };
 };
 var selectorFor = function(ids) {
@@ -61329,7 +61631,7 @@ var selectorFor = function(ids) {
 var idsFromProp = function(mProp) {
   return function(ctxId) {
     if (mProp instanceof Just && mProp.value0 instanceof Right) {
-      return map51(NodeId)(mProp.value0.value0);
+      return map53(NodeId)(mProp.value0.value0);
     }
     ;
     if (mProp instanceof Just && mProp.value0 instanceof Left) {
@@ -61360,9 +61662,9 @@ var eqTbSlice = {
 };
 var useStore27 = /* @__PURE__ */ useStore(eqTbSlice);
 var nodeToolbar = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponentWithChildren()()("NodeToolbar")(function(v) {
-  return bind54(useNodeId)(function(ctxId) {
+  return bind55(useNodeId)(function(ctxId) {
     var ids = idsFromProp(v.nodeId)(ctxId);
-    return bind54(useStore27(selectorFor(ids)))(function(v1) {
+    return bind55(useStore27(selectorFor(ids)))(function(v1) {
       var nodesArr = fromFoldable19(values(v1.nodes));
       var isActive = function() {
         if (v.isVisible instanceof Just) {
@@ -61402,7 +61704,7 @@ var nodeToolbar = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompo
       })(0)(nodesArr);
       var dataIdStr = trim(foldl2(function(acc) {
         return function(n) {
-          return acc + (unwrap18(n.id) + " ");
+          return acc + (unwrap19(n.id) + " ");
         };
       })("")(nodesArr));
       var className2 = "react-flow__node-toolbar" + function() {
@@ -61413,7 +61715,7 @@ var nodeToolbar = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompo
         ;
         return " " + userClass;
       }();
-      var baseStyle = fromMaybe(empty2)(v.style);
+      var baseStyle = fromMaybe(empty3)(v.style);
       var align = fromMaybe(AlignCenter.value)(v.align);
       var transformStr = getNodeToolbarTransform(nodeRect)(viewport2)(position3)(offset)(align);
       var wrapperStyle2 = insert2("zIndex")(show12(maxZ))(insert2("transform")(transformStr)(insert2("position")("absolute")(baseStyle)));
@@ -61430,7 +61732,7 @@ var nodeToolbar = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompo
 }));
 
 // output/Boundary.NodeChrome/index.js
-var map52 = /* @__PURE__ */ map(functorArray);
+var map54 = /* @__PURE__ */ map(functorArray);
 var map116 = /* @__PURE__ */ map(functorMaybe);
 var pure79 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var nodeIdIn = function(raw) {
@@ -61444,7 +61746,7 @@ var nodeIdIn = function(raw) {
       return unsafeThrow("ps-flow: every entry of `NodeToolbar.nodeId` must be a node id, got " + (typeName(entry) + "."));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.NodeChrome (line 165, column 18 - line 171, column 17): " + [v2.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.NodeChrome (line 160, column 18 - line 166, column 17): " + [v2.constructor.name]);
   };
   var v = asString(raw);
   if (v instanceof Just) {
@@ -61454,23 +61756,18 @@ var nodeIdIn = function(raw) {
   if (v instanceof Nothing) {
     var v1 = asArray(raw);
     if (v1 instanceof Just) {
-      return new Right(map52(readId)(v1.value0));
+      return new Right(map54(readId)(v1.value0));
     }
     ;
     if (v1 instanceof Nothing) {
       return unsafeThrow("ps-flow: `NodeToolbar.nodeId` must be a node id or an array of them, got " + (typeName(raw) + "."));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.NodeChrome (line 157, column 14 - line 163, column 17): " + [v1.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.NodeChrome (line 152, column 14 - line 158, column 17): " + [v1.constructor.name]);
   }
   ;
-  throw new Error("Failed pattern match at Boundary.NodeChrome (line 155, column 16 - line 163, column 17): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.NodeChrome (line 150, column 16 - line 158, column 17): " + [v.constructor.name]);
 };
-var deferredHandleProps = [/* @__PURE__ */ callbackProp("Handle.onConnect")(function(v) {
-  return v.onConnect;
-}), /* @__PURE__ */ callbackProp("Handle.isValidConnection")(function(v) {
-  return v.isValidConnection;
-})];
 var convertNodeToolbar = function(p) {
   return {
     nodeId: map116(nodeIdIn)(fromUndefinable(p.nodeId)),
@@ -61494,35 +61791,37 @@ var convertHandle = function(p) {
     isConnectable: fromUndefinable(p.isConnectable),
     isConnectableStart: fromUndefinable(p.isConnectableStart),
     isConnectableEnd: fromUndefinable(p.isConnectableEnd),
-    onConnect: Nothing.value,
-    isValidConnection: Nothing.value,
+    onConnect: map116(onConnectIn)(fromUndefinable(p.onConnect)),
+    isValidConnection: map116(isValidConnectionIn)(fromUndefinable(p.isValidConnection)),
     className: fromUndefinable(p.className),
     style: map116(asCssStyle)(fromUndefinable(p.style))
   };
 };
-var handlePropsIn = /* @__PURE__ */ function() {
-  var $26 = refuseFirst(deferredMessage)(deferredHandleProps);
-  return function($27) {
-    return convertHandle($26($27));
-  };
-}();
 var handle2 = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponent()()()("Handle")(function(v) {
-  return pure79(element(handle)(handlePropsIn(v)));
+  return pure79(element(handle)(convertHandle(v)));
 })));
 
 // output/Boundary.Utils/foreign.js
 var withDefaultedOptions = (impl) => (first, second, options2 = void 0) => impl(first, second, options2);
 
 // output/Boundary.Utils/index.js
-var map53 = /* @__PURE__ */ map(functorArray);
-var map117 = /* @__PURE__ */ map(functorMaybe);
-var bind55 = /* @__PURE__ */ bind(bindMaybe);
-var guardAddEdgeOptions = function(v) {
-  if (isDefined(v.onError)) {
-    return unsafeThrow("ps-flow: `addEdge`'s `options.onError` has not crossed the JavaScript boundary yet \u2014 it lands in boundary stage 2 (the callback props). It is refused rather than ignored so that a handler ps-flow would never call fails loudly instead of looking like a handler you did not pass.");
-  }
-  ;
-  return v;
+var show13 = /* @__PURE__ */ show(showString);
+var map55 = /* @__PURE__ */ map(functorArray);
+var bind56 = /* @__PURE__ */ bind(bindMaybe);
+var reportAddEdgeError = function(onError) {
+  return function(message2) {
+    if (message2 === errorMessage(E006.value)) {
+      return function() {
+        return onError("006", message2);
+      };
+    }
+    ;
+    if (otherwise) {
+      return unsafeThrow("ps-flow: `addEdge` failed with " + (show13(message2) + ", which is not the one error it is able to report. `options.onError` takes upstream's error code as its first argument and there is no code for this one, so it is refused rather than reported under another error's."));
+    }
+    ;
+    throw new Error("Failed pattern match at Boundary.Utils (line 149, column 1 - line 149, column 57): " + [onError.constructor.name, message2.constructor.name]);
+  };
 };
 var edgeFromConnection = function(generate) {
   return function(c) {
@@ -61551,24 +61850,24 @@ var edgeFromConnection = function(generate) {
   };
 };
 var applyNodeChanges2 = function(changes, nodes3) {
-  return map53(nodeOut)(applyNodeChanges(map53(nodeChangeIn)(changes))(map53(nodeIn)(nodes3)));
+  return map55(nodeOut)(applyNodeChanges(map55(nodeChangeIn)(changes))(map55(nodeIn)(nodes3)));
 };
 var applyEdgeChanges2 = function(changes, edges) {
-  return map53(edgeOut)(applyEdgeChanges(map53(edgeChangeIn)(changes))(map53(edgeIn)(edges)));
+  return map55(edgeOut)(applyEdgeChanges(map55(edgeChangeIn)(changes))(map55(edgeIn)(edges)));
 };
 var addEdgeWithOptions = function(edgeParams) {
   return function(edges) {
     return function(rawOptions) {
-      var options2 = map117(guardAddEdgeOptions)(fromUndefinable(rawOptions));
+      var options2 = fromUndefinable(rawOptions);
       var generate = function() {
-        var v2 = bind55(options2)(function($15) {
+        var v2 = bind56(options2)(function($24) {
           return fromUndefinable(function(v1) {
             return v1.getEdgeId;
-          }($15));
+          }($24));
         });
         if (v2 instanceof Just) {
-          return function($16) {
-            return v2.value0(connectionOut($16));
+          return function($25) {
+            return v2.value0(connectionOut($25));
           };
         }
         ;
@@ -61576,26 +61875,44 @@ var addEdgeWithOptions = function(edgeParams) {
           return getEdgeId;
         }
         ;
-        throw new Error("Failed pattern match at Boundary.Utils (line 119, column 14 - line 121, column 28): " + [v2.constructor.name]);
+        throw new Error("Failed pattern match at Boundary.Utils (line 131, column 14 - line 133, column 28): " + [v2.constructor.name]);
       }();
       var edge = function() {
-        var $11 = isEdgeBase(edgeParams);
-        if ($11) {
+        var $18 = isEdgeBase(edgeParams);
+        if ($18) {
           return edgeIn(edgeParams);
         }
         ;
         return edgeFromConnection(generate)(connectionIn(edgeParams));
       }();
-      var v = addEdge(edge)(map53(edgeIn)(edges))(generate);
+      var v = addEdge(edge)(map55(edgeIn)(edges))(generate);
       if (v instanceof Left) {
-        return edges;
+        return unsafePerformEffect(function __do2() {
+          (function() {
+            var v1 = bind56(options2)(function($26) {
+              return fromUndefinable(function(v2) {
+                return v2.onError;
+              }($26));
+            });
+            if (v1 instanceof Nothing) {
+              return unit;
+            }
+            ;
+            if (v1 instanceof Just) {
+              return reportAddEdgeError(v1.value0)(v.value0)();
+            }
+            ;
+            throw new Error("Failed pattern match at Boundary.Utils (line 122, column 7 - line 124, column 59): " + [v1.constructor.name]);
+          })();
+          return edges;
+        });
       }
       ;
       if (v instanceof Right) {
-        return map53(edgeOut)(v.value0);
+        return map55(edgeOut)(v.value0);
       }
       ;
-      throw new Error("Failed pattern match at Boundary.Utils (line 108, column 3 - line 114, column 35): " + [v.constructor.name]);
+      throw new Error("Failed pattern match at Boundary.Utils (line 117, column 3 - line 126, column 35): " + [v.constructor.name]);
     };
   };
 };

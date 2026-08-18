@@ -29,11 +29,15 @@
 -- | them in. Repeating them here would be a second copy of a default, free to
 -- | drift from the one that renders.
 -- |
--- | ## What is refused
+-- | ## Nothing here is refused any more
 -- |
--- | `Handle.onConnect` and `Handle.isValidConnection` are **callbacks**, which
--- | are boundary stage 2 wherever they appear, so they are refused with the
--- | message every deferred prop gives.
+-- | `Handle.onConnect` and `Handle.isValidConnection` were, until boundary
+-- | stage 2 crossed the callbacks wherever they appear. They are the only two
+-- | props either component ever deferred, so this is the one converter module
+-- | with an empty refusal table — and `isValidConnection` is the reason
+-- | `Boundary.Callbacks.isValidConnectionIn` is polymorphic in the edge's data:
+-- | `HandleProps` instantiates it at `Unit`, which is the type saying the
+-- | predicate never reads it.
 -- |
 -- | Neither record names upstream's `HTMLAttributes<HTMLDivElement>`, which
 -- | both components spread onto their div. That is a gap in the internals
@@ -49,9 +53,9 @@ module Boundary.NodeChrome
 
 import Prelude
 
+import Boundary.Callbacks (JsIsValidConnection, JsOnConnect, isValidConnectionIn, onConnectIn)
 import Boundary.Elements (asCssObject, asCssStyle)
 import Boundary.Enums (alignIn, handleTypeIn, positionIn)
-import Boundary.Refusal (Refusal, callbackProp, deferredMessage, refuseFirst)
 import Boundary.Undefined (Undefinable, fromUndefinable)
 import Boundary.Untagged (asArray, asString, typeName)
 import Data.Either (Either(..))
@@ -80,20 +84,11 @@ type JsHandleProps =
   , isConnectable :: Undefinable Boolean
   , isConnectableStart :: Undefinable Boolean
   , isConnectableEnd :: Undefinable Boolean
-  , onConnect :: Undefinable Foreign
-  , isValidConnection :: Undefinable Foreign
+  , onConnect :: Undefinable JsOnConnect
+  , isValidConnection :: Undefinable JsIsValidConnection
   , className :: Undefinable String
   , style :: Undefinable Foreign
   }
-
-deferredHandleProps :: Array (Refusal JsHandleProps)
-deferredHandleProps =
-  [ callbackProp "Handle.onConnect" _.onConnect
-  , callbackProp "Handle.isValidConnection" _.isValidConnection
-  ]
-
-handlePropsIn :: JsHandleProps -> HandleProps
-handlePropsIn = convertHandle <<< refuseFirst deferredMessage deferredHandleProps
 
 convertHandle :: JsHandleProps -> HandleProps
 convertHandle p =
@@ -103,8 +98,8 @@ convertHandle p =
   , isConnectable: fromUndefinable p.isConnectable
   , isConnectableStart: fromUndefinable p.isConnectableStart
   , isConnectableEnd: fromUndefinable p.isConnectableEnd
-  , onConnect: Nothing
-  , isValidConnection: Nothing
+  , onConnect: map onConnectIn (fromUndefinable p.onConnect)
+  , isValidConnection: map isValidConnectionIn (fromUndefinable p.isValidConnection)
   , className: fromUndefinable p.className
   , style: map asCssStyle (fromUndefinable p.style)
   }
@@ -118,7 +113,7 @@ convertHandle p =
 handle :: ReactComponent JsHandleProps
 handle =
   unsafePerformEffect $ memo $ reactComponent "Handle"
-    \(props :: JsHandleProps) -> pure (element PS.handle (handlePropsIn props))
+    \(props :: JsHandleProps) -> pure (element PS.handle (convertHandle props))
 
 -- ────────────────────────────────────────────────────────────────────────
 -- NodeToolbar
