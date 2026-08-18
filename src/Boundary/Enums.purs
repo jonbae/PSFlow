@@ -18,13 +18,14 @@
 -- | `'smoothStep'` needs to see `'smoothstep'`.
 -- |
 -- | **Only three cross outbound**, because only three are on a value that
--- | leaves: `Position` on node props and node handles, `MarkerType` on an edge
--- | marker, `HandleType` on a node handle. The rest are inbound-only in stage
--- | 1, and an unused outbound codec is a converter nobody has been able to get
--- | wrong yet. The three that do exist are written as `case` expressions
--- | rather than as lookups in the member table below, so that a constructor
--- | added to one of those sum types fails the build instead of throwing on the
--- | first value that reaches it.
+-- | leaves: `Position` on node props, node handles and a connection state's
+-- | two sides; `MarkerType` on an edge marker; `HandleType` on a node handle
+-- | and on the argument `onReconnectStart` is handed. The rest are
+-- | inbound-only, and an unused outbound codec is a converter nobody has been
+-- | able to get wrong yet. The three that do exist are written as `case`
+-- | expressions rather than as lookups in the member table below, so that a
+-- | constructor added to one of those sum types fails the build instead of
+-- | throwing on the first value that reaches it.
 -- |
 -- | The string values are upstream's verbatim. Two are worth reading twice:
 -- | `ConnectionLineType.Bezier` is `"default"`, not `"bezier"`, and
@@ -35,6 +36,7 @@ module Boundary.Enums
   , colorModeIn
   , connectionLineTypeIn
   , connectionModeIn
+  , controlPositionIn
   , handleTypeIn
   , handleTypeOut
   , interpolateModeIn
@@ -45,6 +47,8 @@ module Boundary.Enums
   , panelPositionIn
   , positionIn
   , positionOut
+  , resizeControlVariantIn
+  , resizeDirectionIn
   , selectionModeIn
   , zIndexModeIn
   ) where
@@ -73,6 +77,16 @@ import System.Types.Edge (ConnectionLineType(..), MarkerType(..))
 import System.Types.Geometry (Position(..))
 import System.Types.Handle (HandleType(..))
 import System.Types.Node (Align(..))
+import System.XYResizer
+  ( ControlLinePosition(..)
+  , ControlPosition(..)
+  , CornerPosition(..)
+  , ResizeControlDirection
+  , ResizeControlVariant(..)
+  )
+-- Qualified for the same reason `Orientation` is: `ResizeControlDirection`'s
+-- two constructors are spelled `Horizontal` and `Vertical` as well.
+import System.XYResizer (ResizeControlDirection(..)) as Resizer
 
 -- | Look a string up in a member table, or throw naming the field, the value
 -- | and every member. `field` is the JS-facing prop path the value arrived on
@@ -231,4 +245,36 @@ interpolateModeIn :: String -> String -> InterpolateMode
 interpolateModeIn field = fromEnumString field
   [ Tuple "smooth" Smooth
   , Tuple "linear" Linear
+  ]
+
+-- | `<NodeResizeControl position>`. Upstream is one flat string union of eight
+-- | members; ps-flow nests it as a line or a corner, so the flattening is this
+-- | table and there is nothing else to it.
+controlPositionIn :: String -> String -> ControlPosition
+controlPositionIn field = fromEnumString field
+  [ Tuple "top" (ControlLine LineTop)
+  , Tuple "right" (ControlLine LineRight)
+  , Tuple "bottom" (ControlLine LineBottom)
+  , Tuple "left" (ControlLine LineLeft)
+  , Tuple "top-left" (ControlCorner CornerTopLeft)
+  , Tuple "top-right" (ControlCorner CornerTopRight)
+  , Tuple "bottom-left" (ControlCorner CornerBottomLeft)
+  , Tuple "bottom-right" (ControlCorner CornerBottomRight)
+  ]
+
+-- | `<NodeResizeControl variant>`. A TS enum, whose runtime object `Boundary`
+-- | already publishes as `ResizeControlVariant`.
+resizeControlVariantIn :: String -> String -> ResizeControlVariant
+resizeControlVariantIn field = fromEnumString field
+  [ Tuple "line" LineVariant
+  , Tuple "handle" HandleVariant
+  ]
+
+-- | `<NodeResizeControl resizeDirection>`. A string union with no runtime
+-- | object, and spelled the same as `Controls.orientation`'s two members
+-- | without being it — which is why the constructors are qualified.
+resizeDirectionIn :: String -> String -> ResizeControlDirection
+resizeDirectionIn field = fromEnumString field
+  [ Tuple "horizontal" Resizer.Horizontal
+  , Tuple "vertical" Resizer.Vertical
   ]

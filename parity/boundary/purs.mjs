@@ -80,7 +80,7 @@ function dataBody(source, typeName, where) {
 
 // Top-level labels only: a comma inside a nested record or a type application
 // does not start a new field.
-function labelsOf(body, typeName, where) {
+function segmentsOf(body) {
   const segments = [];
   let depth = 0;
   let inString = false;
@@ -100,16 +100,31 @@ function labelsOf(body, typeName, where) {
     current += c;
   }
   segments.push(current);
+  return segments;
+}
 
-  const labels = [];
-  for (const segment of segments) {
-    const m = /^\s*("(?:[^"\\]|\\.)*"|[A-Za-z_][A-Za-z0-9_']*)\s*::/.exec(segment);
-    if (m) labels.push(m[1].startsWith('"') ? m[1].slice(1, -1) : m[1]);
+// One entry per field: its label, and the source text of its type. The type
+// text is what lets a caller tell a callback prop from a data one without a
+// list of its own.
+function entriesOf(body, typeName, where) {
+  const entries = [];
+  for (const segment of segmentsOf(body)) {
+    const m = /^\s*("(?:[^"\\]|\\.)*"|[A-Za-z_][A-Za-z0-9_']*)\s*::([\s\S]*)$/.exec(segment);
+    if (m) {
+      entries.push({
+        name: m[1].startsWith('"') ? m[1].slice(1, -1) : m[1],
+        type: m[2].trim().replace(/\s+/g, " "),
+      });
+    }
   }
-  if (labels.length === 0) {
+  if (entries.length === 0) {
     fail(`\`type ${typeName}\` in ${where} yielded no fields — the parse is wrong`);
   }
-  return labels;
+  return entries;
+}
+
+function labelsOf(body, typeName, where) {
+  return entriesOf(body, typeName, where).map((entry) => entry.name);
 }
 
 export function readSource(path) {
@@ -123,6 +138,24 @@ export function readSource(path) {
 export function recordFields(path, typeName) {
   const source = readSource(path);
   return labelsOf(declarationBody(source, typeName, path), typeName, path);
+}
+
+// The same declaration, with each field's type text alongside its label.
+export function recordEntries(path, typeName) {
+  const source = readSource(path);
+  return entriesOf(declarationBody(source, typeName, path), typeName, path);
+}
+
+// The names a module declares as `type X = …`, in declaration order. Used to
+// find out which types are handler types without restating the list.
+export function typeSynonyms(path) {
+  const names = [...readSource(path).matchAll(/^type\s+([A-Z][A-Za-z0-9_']*)/gm)].map(
+    (m) => m[1]
+  );
+  if (names.length === 0) {
+    fail(`${path} declares no type synonyms — the parse is wrong`);
+  }
+  return names;
 }
 
 // The constructor names of a sum type, in declaration order. Used to catch a

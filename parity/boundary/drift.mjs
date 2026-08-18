@@ -50,8 +50,44 @@ const pairs = [
   {
     what: "Node",
     ps: { file: "src/System/Types/Node.purs", type: "NodeBaseRow" },
-    js: { file: "src/Boundary/Elements.purs", type: "JsNode" },
+    js: { file: "src/Boundary/Elements.purs", type: "JsNodeRow" },
     renames: { nodeType: "type" },
+  },
+  // An internal node is a node plus `internals`, on both sides and by the same
+  // mechanism: each extends the row above rather than restating it. So there is
+  // exactly one field left for this pair to compare, and the 28 it does not
+  // compare are the ones the pair above already holds.
+  {
+    what: "InternalNode",
+    ps: { file: "src/System/Types/Node.purs", type: "InternalNodeBase" },
+    js: { file: "src/Boundary/Elements.purs", type: "JsInternalNode" },
+    renames: {},
+  },
+  {
+    what: "NodeInternals",
+    ps: { file: "src/System/Types/Node.purs", type: "NodeInternals" },
+    js: { file: "src/Boundary/Elements.purs", type: "JsNodeInternals" },
+    renames: {},
+  },
+  {
+    what: "NodeHandleBounds",
+    ps: { file: "src/System/Types/Node.purs", type: "NodeHandleBounds" },
+    js: { file: "src/Boundary/Elements.purs", type: "JsNodeHandleBounds" },
+    renames: {},
+  },
+  {
+    what: "NodeBounds",
+    ps: { file: "src/System/Types/Node.purs", type: "NodeBounds" },
+    js: { file: "src/Boundary/Elements.purs", type: "JsNodeBounds" },
+    renames: {},
+  },
+  // A measured handle, which is `NodeHandle` plus the node it belongs to. Its
+  // rename is the one `NodeHandle` carries and for the same reason.
+  {
+    what: "Handle",
+    ps: { file: "src/System/Types/Handle.purs", type: "Handle" },
+    js: { file: "src/Boundary/Elements.purs", type: "JsHandle" },
+    renames: { handleType: "type" },
   },
   {
     what: "Edge",
@@ -118,7 +154,40 @@ const pairs = [
   {
     what: "Viewport",
     ps: { file: "src/System/Types/Connection.purs", type: "Viewport" },
-    js: { file: "src/Boundary/Flow.purs", type: "JsViewport" },
+    js: { file: "src/Boundary/Elements.purs", type: "JsViewport" },
+    renames: {},
+  },
+  // The shapes a callback carries out. Every one of them is outbound-only, so
+  // the compiler forces nothing about them and this is the whole check —
+  // the same position `Node` and `Edge` are in, one argument along.
+  {
+    what: "ConnectionState",
+    ps: { file: "src/System/Types/Connection.purs", type: "ConnectionInProgressData" },
+    js: { file: "src/Boundary/Callbacks.purs", type: "JsConnectionState" },
+    renames: {},
+  },
+  {
+    what: "ConnectStartParams",
+    ps: { file: "src/System/XYHandle.purs", type: "OnConnectStartParams" },
+    js: { file: "src/Boundary/Callbacks.purs", type: "JsConnectStartParams" },
+    renames: {},
+  },
+  {
+    what: "GraphSelection",
+    ps: { file: "src/React/Types/General.purs", type: "OnSelectionChangeParams" },
+    js: { file: "src/Boundary/Elements.purs", type: "JsGraphSelection" },
+    renames: {},
+  },
+  {
+    what: "ResizeParams",
+    ps: { file: "src/System/XYResizer.purs", type: "ResizeParams" },
+    js: { file: "src/Boundary/Callbacks.purs", type: "JsResizeParams" },
+    renames: {},
+  },
+  {
+    what: "ResizeParamsDir",
+    ps: { file: "src/System/XYResizer.purs", type: "ResizeParamsWithDirection" },
+    js: { file: "src/Boundary/Callbacks.purs", type: "JsResizeParamsWithDirection" },
     renames: {},
   },
   // The component props — the four chrome ones below, and the two a custom
@@ -165,6 +234,20 @@ const pairs = [
     what: "NodeToolbarProps",
     ps: { file: "src/React/Types/Component.purs", type: "NodeToolbarProps" },
     js: { file: "src/Boundary/NodeChrome.purs", type: "JsNodeToolbarProps" },
+    renames: {},
+  },
+  // The other pair a custom node mounts, crossed with the callbacks because
+  // their lifecycle handlers are callback props.
+  {
+    what: "NodeResizerProps",
+    ps: { file: "src/React/Types/Component.purs", type: "NodeResizerProps" },
+    js: { file: "src/Boundary/Resizer.purs", type: "JsNodeResizerProps" },
+    renames: {},
+  },
+  {
+    what: "ResizeControlProps",
+    ps: { file: "src/React/Types/Component.purs", type: "NodeResizeControlProps" },
+    js: { file: "src/Boundary/Resizer.purs", type: "JsNodeResizeControlProps" },
     renames: {},
   },
   {

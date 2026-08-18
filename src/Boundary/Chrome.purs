@@ -18,15 +18,14 @@
 -- |
 -- | ## What is refused, and what that costs
 -- |
--- | Seven props resolve here and do not cross:
+-- | One prop resolves here and does not cross. `MiniMap.nodeComponent` is a
+-- | consumer's own component receiving `MiniMapNodeProps`, so crossing it means
+-- | an outbound converter for that record — the same reason `edgeTypes` is
+-- | deferred and `nodeTypes` is not.
 -- |
--- |   * `Controls`' four handlers and `MiniMap`'s two are **callbacks**, which
--- |     are boundary stage 2 wherever they appear. Refused, with the message
--- |     every deferred prop gives.
--- |   * `MiniMap.nodeComponent` is a consumer's own component receiving
--- |     `MiniMapNodeProps`, so crossing it means an outbound converter for
--- |     that record — the same reason `edgeTypes` is deferred and `nodeTypes`
--- |     is not.
+-- | `Controls`' four handlers and `MiniMap`'s two were refused beside it until
+-- | boundary stage 2, which crossed the callbacks wherever they appear; their
+-- | converters are in `Boundary.Callbacks` with the flow's.
 -- |
 -- | Three more are refused **by value rather than by name**:
 -- | `nodeColor`, `nodeStrokeColor` and `nodeClassName` are
@@ -47,10 +46,20 @@ module Boundary.Chrome
 
 import Prelude
 
+import Boundary.Callbacks
+  ( JsCommandHandler
+  , JsInteractiveChangeHandler
+  , JsMiniMapClickHandler
+  , JsNodeMouseHandler
+  , commandHandlerIn
+  , interactiveChangeHandlerIn
+  , miniMapClickHandlerIn
+  , nodeMouseHandlerIn
+  )
 import Boundary.Elements (asCssObject, nodeOut)
 import Boundary.Enums (backgroundVariantIn, orientationIn, panelPositionIn)
 import Boundary.Flow (JsFitViewOptions, fitViewOptionsIn)
-import Boundary.Refusal (Refusal, callbackProp, componentProp, deferredMessage, refuseFirst)
+import Boundary.Refusal (Refusal, componentProp, deferredMessage, refuseFirst)
 import Boundary.Undefined (Undefinable, fromUndefinable)
 import Boundary.Untagged (asArray, asFunction, asNumber, asString, typeName)
 import Data.Either (Either(..))
@@ -190,10 +199,10 @@ type JsControlsProps =
   , showFitView :: Undefinable Boolean
   , showInteractive :: Undefinable Boolean
   , fitViewOptions :: Undefinable JsFitViewOptions
-  , onZoomIn :: Undefinable Foreign
-  , onZoomOut :: Undefinable Foreign
-  , onFitView :: Undefinable Foreign
-  , onInteractiveChange :: Undefinable Foreign
+  , onZoomIn :: Undefinable JsCommandHandler
+  , onZoomOut :: Undefinable JsCommandHandler
+  , onFitView :: Undefinable JsCommandHandler
+  , onInteractiveChange :: Undefinable JsInteractiveChangeHandler
   , position :: Undefinable String
   , children :: ReactChildren JSX
   , style :: Undefinable Foreign
@@ -202,27 +211,17 @@ type JsControlsProps =
   , orientation :: Undefinable String
   }
 
-deferredControlsProps :: Array (Refusal JsControlsProps)
-deferredControlsProps =
-  [ callbackProp "Controls.onZoomIn" _.onZoomIn
-  , callbackProp "Controls.onZoomOut" _.onZoomOut
-  , callbackProp "Controls.onFitView" _.onFitView
-  , callbackProp "Controls.onInteractiveChange" _.onInteractiveChange
-  ]
-
-controlsPropsIn :: JsControlsProps -> ControlsProps
-controlsPropsIn = convertControls <<< refuseFirst deferredMessage deferredControlsProps
-
 convertControls :: JsControlsProps -> ControlsProps
 convertControls p =
   { showZoom: fromUndefinable p.showZoom
   , showFitView: fromUndefinable p.showFitView
   , showInteractive: fromUndefinable p.showInteractive
   , fitViewOptions: map fitViewOptionsIn (fromUndefinable p.fitViewOptions)
-  , onZoomIn: Nothing
-  , onZoomOut: Nothing
-  , onFitView: Nothing
-  , onInteractiveChange: Nothing
+  , onZoomIn: map commandHandlerIn (fromUndefinable p.onZoomIn)
+  , onZoomOut: map commandHandlerIn (fromUndefinable p.onZoomOut)
+  , onFitView: map commandHandlerIn (fromUndefinable p.onFitView)
+  , onInteractiveChange:
+      map interactiveChangeHandlerIn (fromUndefinable p.onInteractiveChange)
   , position: map (panelPositionIn "Controls.position") (fromUndefinable p.position)
   , children: p.children
   , style: map asCssObject (fromUndefinable p.style)
@@ -234,7 +233,7 @@ convertControls p =
 controls :: ReactComponent JsControlsProps
 controls =
   unsafePerformEffect $ reactComponentWithChildren "Controls"
-    \(props :: JsControlsProps) -> pure (element PS.controls (controlsPropsIn props))
+    \(props :: JsControlsProps) -> pure (element PS.controls (convertControls props))
 
 -- ────────────────────────────────────────────────────────────────────────
 -- MiniMap
@@ -255,8 +254,8 @@ type JsMiniMapProps =
   , maskStrokeColor :: Undefinable String
   , maskStrokeWidth :: Undefinable Number
   , position :: Undefinable String
-  , onClick :: Undefinable Foreign
-  , onNodeClick :: Undefinable Foreign
+  , onClick :: Undefinable JsMiniMapClickHandler
+  , onNodeClick :: Undefinable JsNodeMouseHandler
   , pannable :: Undefinable Boolean
   , zoomable :: Undefinable Boolean
   , "aria-label" :: Undefinable String
@@ -270,9 +269,7 @@ type JsMiniMapProps =
 
 deferredMiniMapProps :: Array (Refusal JsMiniMapProps)
 deferredMiniMapProps =
-  [ callbackProp "MiniMap.onClick" _.onClick
-  , callbackProp "MiniMap.onNodeClick" _.onNodeClick
-  , componentProp "MiniMap.nodeComponent" _.nodeComponent
+  [ componentProp "MiniMap.nodeComponent" _.nodeComponent
   ]
 
 miniMapPropsIn :: JsMiniMapProps -> MiniMapProps Foreign
@@ -293,8 +290,8 @@ convertMiniMap p =
   , maskStrokeColor: fromUndefinable p.maskStrokeColor
   , maskStrokeWidth: fromUndefinable p.maskStrokeWidth
   , position: map (panelPositionIn "MiniMap.position") (fromUndefinable p.position)
-  , onClick: Nothing
-  , onNodeClick: Nothing
+  , onClick: map miniMapClickHandlerIn (fromUndefinable p.onClick)
+  , onNodeClick: map nodeMouseHandlerIn (fromUndefinable p.onNodeClick)
   , pannable: fromUndefinable p.pannable
   , zoomable: fromUndefinable p.zoomable
   , "aria-label": fromUndefinable p."aria-label"

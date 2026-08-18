@@ -6,6 +6,13 @@
 -- | of them convert **both directions** — and the two directions are not
 -- | symmetric in what they can get wrong.
 -- |
+-- | Boundary stage 2 added the shapes a **handler** carries: the internal node
+-- | and measured handle a connection state names, the viewport, and the
+-- | `{ nodes, edges }` bag three callbacks share. They live here rather than in
+-- | `Boundary.Callbacks` because each is a record with two directions or two
+-- | callers, which is what this module is for; the handler *types* and their
+-- | converters are that module's.
+-- |
 -- | **Inbound is compiler-checked.** Building a PureScript record forces a
 -- | value for every field, so a field added to `NodeBaseRow` breaks this
 -- | module until someone reads it off the JavaScript object.
@@ -41,14 +48,22 @@ module Boundary.Elements
   ( JsCoordinateExtent
   , JsEdge
   , JsEdgeMarker
+  , JsGraphSelection
+  , JsHandle
+  , JsInternalNode
   , JsMeasured
   , JsNode
+  , JsNodeBounds
   , JsNodeHandle
+  , JsNodeHandleBounds
+  , JsNodeInternals
   , JsNodeOrigin
   , JsNodeProps
+  , JsNodeRow
   , JsNodeChange
   , JsEdgeChange
   , JsConnection
+  , JsViewport
   , JsXYPosition
   , asCssObject
   , asCssStyle
@@ -61,6 +76,9 @@ module Boundary.Elements
   , edgeOut
   , edgeChangeIn
   , edgeChangeOut
+  , graphSelectionOut
+  , handleOut
+  , internalNodeOut
   , keyCodeIn
   , nodeIn
   , nodeOut
@@ -71,6 +89,8 @@ module Boundary.Elements
   , nodePropsOut
   , nodeTypesIn
   , snapGridIn
+  , viewportIn
+  , viewportOut
   ) where
 
 import Prelude
@@ -93,16 +113,26 @@ import Data.Newtype (unwrap, wrap)
 import Data.Nullable (Nullable, toMaybe, toNullable)
 import Effect.Exception.Unsafe (unsafeThrow)
 import Effect.Uncurried (EffectFn1, mkEffectFn1)
-import Foreign (Foreign)
+import Foreign (Foreign, unsafeToForeign)
 import Foreign.Object (Object)
 import Foreign.Object (mapWithKey) as Object
 import React.Basic (JSX, ReactComponent, element)
 import React.Types.Edges (Style)
 import React.Types.Nodes (NodeProps, NodeTypesMap)
-import System.Types.Connection (Connection, KeyCode(..))
+import System.Types.Connection (Connection, KeyCode(..), Viewport)
 import System.Types.Edge (EdgeBase, EdgeChange(..), EdgeMarker, EdgeMarkerType(..))
 import System.Types.Geometry (CoordinateExtent, NodeOrigin, SnapGrid)
-import System.Types.Node (NodeBase, NodeChange(..), NodeExtent(..), NodeHandle)
+import System.Types.Handle (Handle, unSourceHandle, unTargetHandle)
+import System.Types.Node
+  ( InternalNodeBase
+  , NodeBase
+  , NodeBounds
+  , NodeChange(..)
+  , NodeExtent(..)
+  , NodeHandle
+  , NodeHandleBounds
+  , NodeInternals
+  )
 import Unsafe.Coerce (unsafeCoerce)
 
 -- ────────────────────────────────────────────────────────────────────────
@@ -148,8 +178,12 @@ type JsNodeHandle =
 -- | `CSSProperties`, whose values are `string | number` — PureScript models it
 -- | as `Object String`, which is wrong about the numbers and right about
 -- | everything PSFlow does with it, which is spread it onto a DOM node.
-type JsNode =
-  { id :: String
+-- |
+-- | Written as an open row for the same reason `NodeBaseRow` is: upstream's
+-- | `InternalNode` is this record plus `internals`, and a second copy of 28
+-- | fields is a second thing to drift. `JsInternalNode` extends it below.
+type JsNodeRow =
+  ( id :: String
   , position :: JsXYPosition
   , data :: Foreign
   , type :: Undefinable String
@@ -177,6 +211,73 @@ type JsNode =
   , measured :: Undefinable JsMeasured
   , className :: Undefinable String
   , style :: Undefinable Foreign
+  )
+
+type JsNode = { | JsNodeRow }
+
+-- | Upstream `InternalNode` — a node plus the measurements ps-flow's store
+-- | keeps beside it. A JavaScript consumer never builds one; it arrives as
+-- | `fromNode` / `toNode` on the connection state a connection handler is
+-- | handed, which is the only place on this surface an internal node crosses.
+type JsInternalNode = { internals :: JsNodeInternals | JsNodeRow }
+
+-- | Upstream's `internals` bag, minus `userNode`.
+-- |
+-- | `userNode` holds upstream's reference to the object the consumer passed in,
+-- | as a reference-equality optimisation. `System.Types.Node.NodeInternals`
+-- | omits it on purpose — PureScript has no reference equality — so there is
+-- | nothing here to emit it from, and a consumer reading `internals.userNode`
+-- | gets `undefined` rather than their own node. A gap in the internals rather
+-- | than something a converter can close.
+type JsNodeInternals =
+  { positionAbsolute :: JsXYPosition
+  , z :: Number
+  , rootParentIndex :: Undefinable Number
+  , handleBounds :: Undefinable JsNodeHandleBounds
+  , bounds :: Undefinable JsNodeBounds
+  }
+
+-- | Upstream types both arrays `Handle[] | null`, where `null` means "not
+-- | measured yet". `System.Types.Node.NodeHandleBounds` collapsed that
+-- | distinction into the outer `Maybe` and left the arrays total, so there is
+-- | no `null` to emit and this side says so by not claiming one.
+type JsNodeHandleBounds =
+  { source :: Array JsHandle
+  , target :: Array JsHandle
+  }
+
+type JsNodeBounds =
+  { x :: Number
+  , y :: Number
+  , width :: Undefinable Number
+  , height :: Undefinable Number
+  }
+
+-- | Upstream `Handle` — a `NodeHandle` that knows which node it belongs to and
+-- | has been measured. Its type tag is `type`, renamed for the same reason
+-- | `JsNodeHandle`'s is.
+type JsHandle =
+  { id :: Undefinable String
+  , nodeId :: String
+  , x :: Number
+  , y :: Number
+  , position :: String
+  , type :: String
+  , width :: Number
+  , height :: Number
+  }
+
+-- | `{ x, y, zoom }` on both sides, so the conversions below are the identity
+-- | — but writing the fields out rather than coercing is what gives the drift
+-- | gate a declaration to compare `System.Types.Connection.Viewport` against.
+type JsViewport = { x :: Number, y :: Number, zoom :: Number }
+
+-- | The `{ nodes, edges }` bag upstream hands `onDelete`, `onSelectionChange`
+-- | and `onBeforeDelete`. One shape, three callbacks, and the last of them
+-- | reads it back in.
+type JsGraphSelection =
+  { nodes :: Array JsNode
+  , edges :: Array JsEdge
   }
 
 type JsEdgeMarker =
@@ -431,6 +532,78 @@ nodeOut n =
   , style: toUndefinable (map fromCssObject n.style)
   }
 
+-- | A node plus its `internals`. `nodeOut` is *not* reused here: it returns a
+-- | closed `JsNode`, and this record is the same row with one more field, so
+-- | the fields are written once more rather than being merged — which is what
+-- | keeps `JsNodeRow` the single declaration the drift gate reads.
+internalNodeOut :: InternalNodeBase Foreign -> JsInternalNode
+internalNodeOut n =
+  { id: unwrap n.id
+  , position: n.position
+  , data: n.data
+  , type: toUndefinable n.nodeType
+  , sourcePosition: toUndefinable (map positionOut n.sourcePosition)
+  , targetPosition: toUndefinable (map positionOut n.targetPosition)
+  , hidden: toUndefinable (Just n.hidden)
+  , selected: toUndefinable (Just n.selected)
+  , dragging: toUndefinable (Just n.dragging)
+  , draggable: toUndefinable n.draggable
+  , selectable: toUndefinable n.selectable
+  , connectable: toUndefinable n.connectable
+  , deletable: toUndefinable n.deletable
+  , dragHandle: toUndefinable n.dragHandle
+  , width: toUndefinable n.width
+  , height: toUndefinable n.height
+  , initialWidth: toUndefinable n.initialWidth
+  , initialHeight: toUndefinable n.initialHeight
+  , parentId: toUndefinable (map unwrap n.parentId)
+  , zIndex: toUndefinable (map Int.toNumber n.zIndex)
+  , extent: toUndefinable (map nodeExtentOut n.extent)
+  , expandParent: toUndefinable (Just n.expandParent)
+  , ariaLabel: toUndefinable n.ariaLabel
+  , origin: toUndefinable (map nodeOriginOut n.origin)
+  , handles: toUndefinable (map (map nodeHandleOut) n.handles)
+  , measured: toUndefinable (Just (measuredOut n.measured))
+  , className: toUndefinable n.className
+  , style: toUndefinable (map fromCssObject n.style)
+  , internals: nodeInternalsOut n.internals
+  }
+
+nodeInternalsOut :: NodeInternals -> JsNodeInternals
+nodeInternalsOut i =
+  { positionAbsolute: i.positionAbsolute
+  , z: i.z
+  , rootParentIndex: toUndefinable (map Int.toNumber i.rootParentIndex)
+  , handleBounds: toUndefinable (map handleBoundsOut i.handleBounds)
+  , bounds: toUndefinable (map nodeBoundsOut i.bounds)
+  }
+
+handleBoundsOut :: NodeHandleBounds -> JsNodeHandleBounds
+handleBoundsOut b =
+  { source: map (handleOut <<< unSourceHandle) b.source
+  , target: map (handleOut <<< unTargetHandle) b.target
+  }
+
+nodeBoundsOut :: NodeBounds -> JsNodeBounds
+nodeBoundsOut b =
+  { x: b.x
+  , y: b.y
+  , width: toUndefinable b.width
+  , height: toUndefinable b.height
+  }
+
+handleOut :: Handle -> JsHandle
+handleOut h =
+  { id: toUndefinable h.id
+  , nodeId: unwrap h.nodeId
+  , x: h.x
+  , y: h.y
+  , position: positionOut h.position
+  , type: handleTypeOut h.handleType
+  , width: h.width
+  , height: h.height
+  }
+
 emptyMeasured :: { width :: Maybe Number, height :: Maybe Number }
 emptyMeasured = { width: Nothing, height: Nothing }
 
@@ -539,7 +712,12 @@ edgeIn e =
   , style: map asCssObject (fromUndefinable e.style)
   }
 
-edgeOut :: EdgeBase Foreign -> JsEdge
+-- | Polymorphic in the edge's data, where `nodeIn`/`nodeOut` are not: every
+-- | edge that crosses carries `Foreign` data bar one, and that one is
+-- | `<Handle isValidConnection>`, whose `IsValidConnection Unit` says the
+-- | predicate never reads it. `unsafeToForeign` is what the field crosses as
+-- | either way — `data` is the consumer's own value, handed back unread.
+edgeOut :: forall e. EdgeBase e -> JsEdge
 edgeOut e =
   { id: e.id
   , type: toUndefinable e.edgeType
@@ -551,7 +729,7 @@ edgeOut e =
   , hidden: toUndefinable (Just e.hidden)
   , deletable: toUndefinable e.deletable
   , selectable: toUndefinable e.selectable
-  , data: toUndefinable e.data
+  , data: toUndefinable (map unsafeToForeign e.data)
   , selected: toUndefinable (Just e.selected)
   , markerStart: toUndefinable (map markerOut e.markerStart)
   , markerEnd: toUndefinable (map markerOut e.markerEnd)
@@ -862,4 +1040,22 @@ connectionOut c =
   , target: unwrap c.target
   , sourceHandle: toNullable c.sourceHandle
   , targetHandle: toNullable c.targetHandle
+  }
+
+-- ────────────────────────────────────────────────────────────────────────
+-- The viewport, and the two-array selection bag
+-- ────────────────────────────────────────────────────────────────────────
+
+viewportIn :: JsViewport -> Viewport
+viewportIn v = { x: v.x, y: v.y, zoom: v.zoom }
+
+viewportOut :: Viewport -> JsViewport
+viewportOut v = { x: v.x, y: v.y, zoom: v.zoom }
+
+graphSelectionOut
+  :: { nodes :: Array (NodeBase Foreign), edges :: Array (EdgeBase Foreign) }
+  -> JsGraphSelection
+graphSelectionOut s =
+  { nodes: map nodeOut s.nodes
+  , edges: map edgeOut s.edges
   }
