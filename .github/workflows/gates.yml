@@ -3,19 +3,19 @@
 # "Gates CI" in this repo's prose used to mean "gates whoever remembered to run
 # the script". This is the thing that makes it mean CI: surface parity,
 # function parity, the conformance test suite and the smoke test suite, run
-# against every PR, each one failing the check when it is red. README's
-# five-gate table is what this file is held to — `npm run test:ci` compares the
-# two, so a gate renamed in one place goes red rather than quietly dropping out
-# of CI.
+# against every PR, each one failing the pull request check when it is red.
+# README's five-gate table is what this file is held to — `npm run test:ci`
+# compares the two, so a gate renamed in one place goes red rather than quietly
+# dropping out of CI. That section of README says all of this at more length.
 #
 # **System parity is deliberately not here.** Its per-run cost is not knowable
-# until the corpus exists: the floor is ~240 runs at two sides by two captures,
-# and each side settles on its own clock, so per-run time is measured and not
-# predicted. Multiply the two and the per-PR / nightly / bump-only question
-# answers itself; picking a schedule now would be guessing. It is also red on
-# purpose today, while the divergence backlog is worked, so a per-PR run would
-# train everyone to ignore a red check — the failure mode this whole effort
-# exists to close.
+# until the corpus exists: its floor is ~60 scenarios, which at two sides by two
+# captures is ~240 captures, and each side settles on its own clock, so what one
+# costs is measured and not predicted. Multiply the two and the per-PR /
+# nightly / bump-only question answers itself; picking a schedule now would be
+# guessing. It is also red on purpose today, while the divergence backlog is
+# worked, so a per-PR run would train everyone to ignore a red pull request
+# check — the failure mode this whole effort exists to close.
 #
 # **Ordering is not arbitrary.** Surface parity is the only *hard*
 # precondition: interop breakage has a cheap static signature and an expensive
@@ -134,7 +134,7 @@ jobs:
           SUMMARY
           echo "::error title=Surface parity is red::The three gates after it did not run — see the job summary."
 
-      - name: Function parity
+      - name: Function parity — `spago test` also runs the unit tests
         run: spago test
 
       - name: Conformance test suite

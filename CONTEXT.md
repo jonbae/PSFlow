@@ -74,9 +74,17 @@ Something that goes red. There are five, and each is named for what its red
 means. Never numbered — see *Layer* below. Other things in this repo also go
 red without being one of the five: `parity:boundary`, `parity:changelog`,
 `test:surface`, `test:compare`, `test:harness`, `test:harness:live`,
-`test:census`, `test:node-props`, and the **unit tests**. Each entry below says
-where it sits.
+`test:census`, `test:ci`, `test:node-props`, and the **unit tests**. Each entry
+below says where it sits.
 _Avoid_: layer, check, suite (when a gate is meant)
+
+**The four cheap gates**:
+The five minus **system parity** — what per-PR CI runs
+(`.github/workflows/gates.yml`). *Cheap* is per-run cost and nothing else: the
+one left out is the gate whose cost is not yet measurable, not the one with the
+coarsest grain. Not a sixth thing that goes red, and not a tier — the collective
+exists because CI's scope needed one word for it.
+_Avoid_: the fast gates, the CI gates, the cheap ladder
 
 **Parity gate**:
 One of the three gates that compares PSFlow against **executing** upstream, so
@@ -171,10 +179,12 @@ self-consistent, which is a different claim from "PSFlow matches xyflow".
 _Avoid_: the test suite, the PureScript tests
 
 **Gate self-tests** (`npm run test:surface`, `test:census`, `test:compare`,
-`test:harness`):
+`test:harness`, `test:ci`):
 `node --test` over an instrument's *own* logic — surface parity's shape and
 allowlist modules, the census generator and its staleness logic, system parity's
-comparison core, the net harness and the driver's registries. Outside the gate
+comparison core, the net harness and the driver's registries, and the gates
+workflow's agreement with README's table plus the baseline vendoring script it
+runs. Outside the gate
 scheme for the same reason the **unit tests** are:
 they prove an instrument does what it claims, which is a different claim from "PSFlow
 matches xyflow". A red one means the instrument is broken, not the port.

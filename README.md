@@ -121,7 +121,9 @@ other goes red.
 
 `.github/workflows/gates.yml` runs **the four cheap gates on every pull
 request**: surface parity, function parity, the conformance test suite and the
-smoke test suite, in that order, each failing the check when it is red.
+smoke test suite, in that order, each failing the pull request check when it is
+red. `spago test` is the whole PureScript suite, so that step is stricter than
+function parity alone — never weaker.
 
 **Surface parity runs first and blocks.** It is the only hard precondition, so
 when it is red the three gates after it do not run and the run's summary says
@@ -129,12 +131,12 @@ why they were withheld rather than leaving them skipped in silence. Everything
 below it is interpretation order.
 
 **System parity is not in the per-PR workflow.** Its per-run cost is not
-knowable until the corpus exists — a floor of ~240 runs at two sides by two
-captures, each settling on its own clock — and multiplying the two is what
-answers the per-PR / nightly / bump-only question. Until that measurement
-exists, a schedule would be a guess; and while the divergence backlog is being
-worked, a per-PR run that is red on purpose would train everyone to ignore a red
-check.
+knowable until the corpus exists — a floor of ~60 scenarios, which at two sides
+by two captures is ~240 captures, each settling on its own clock — and
+multiplying the two is what answers the per-PR / nightly / bump-only question.
+Until that measurement exists, a schedule would be a guess; and while the
+divergence backlog is being worked, a per-PR run that is red on purpose would
+train everyone to ignore a red pull request check.
 
 CI vendors the parity baseline itself, since `xyflow/` is gitignored:
 
