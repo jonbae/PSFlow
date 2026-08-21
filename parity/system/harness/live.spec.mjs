@@ -16,11 +16,17 @@ import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 
+import { CALL_LOG, OBSERVE } from "./call-log.mjs";
 import { checkSelfConsistency } from "../compare/consistency.mjs";
-import { defineScenario, runScenario } from "./scenario.mjs";
+import { defineScenario, driverUrl, runScenario } from "./scenario.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(here, "..", "..", "..");
+
+// The committed ruleset, because self-consistency below is the one the net runs
+// rather than a stricter cousin of it: a rule the policy has already settled
+// would otherwise make this file red for a reason nobody here decided.
+const rules = JSON.parse(readFileSync(resolve(here, "..", "normalization.json"), "utf8")).rules;
 
 // The ps-flow side of this file runs off `dist/psflow.js`, which is committed —
 // fixtures bundled in — so all but two of these are meant to run on a clean
@@ -37,6 +43,7 @@ const vendored = resolve(repoRoot, "xyflow/packages/react/package.json");
 const baseline = existsSync(vendored) ? JSON.parse(readFileSync(vendored, "utf8")).version : "no-vendored-checkout";
 
 const NODES_GENERAL = "/tests/generic/nodes/general";
+const EDGES_GENERAL = "/tests/generic/edges/general";
 const NODE = '.react-flow__node[data-id="Node-1"]';
 
 const drive = (page, scenario, side = "psflow") => runScenario(page, scenario, { side, capture: 1, baseline });
@@ -153,19 +160,182 @@ test("an unresolved target is recorded and driving continues — never a timeout
 // the last decimal place, the whole check is unsatisfiable and the net would be
 // permanently red — which is a thing to learn here, cheaply, rather than from a
 // corpus of sixty scenarios later.
-test("a side reproduces itself, boxes included, across two captures of one scenario", async ({ page }) => {
-  const scenario = defineScenario({
-    id: "live--drag-node",
-    route: NODES_GENERAL,
-    run: (actions) => actions.dragNode(NODE, { dx: 100, dy: 40, steps: 4 }),
-  });
+//
+// Scoped to the two sections the *harness* answers for, and deliberately so.
+// ps-flow's call log does not reproduce itself — the same drag fires the same
+// calls in three different interleavings across six runs, where upstream fires
+// one — and that is a library divergence of exactly the kind the net exists to
+// find (#22). It is the gate's to report, on the run that measures it; asserting
+// it either way here would make this file a parity claim, which is not its job.
+// The whole-trace form of this check is the upstream one below.
+const dragScenario = defineScenario({
+  id: "live--drag-node",
+  route: NODES_GENERAL,
+  run: (actions) => actions.dragNode(NODE, { dx: 100, dy: 40, steps: 4 }),
+});
 
-  const first = await runScenario(page, scenario, { side: "psflow", capture: 1, baseline });
-  const second = await runScenario(page, scenario, { side: "psflow", capture: 2, baseline });
+const sectionsOf = (differences, ...names) => differences.filter((d) => names.includes(d.path?.[0]));
 
-  const result = checkSelfConsistency(first, second);
+test("a side reproduces its own boxes and its own render across two captures", async ({ page }) => {
+  const first = await runScenario(page, dragScenario, { side: "psflow", capture: 1, baseline });
+  const second = await runScenario(page, dragScenario, { side: "psflow", capture: 2, baseline });
+
+  const { differences } = checkSelfConsistency(first, second, { rules });
+
+  expect(sectionsOf(differences, "driving", "dom")).toEqual([]);
+});
+
+// The whole check, on the side that can satisfy it today — and the claim the
+// node tests cannot make about the call log: that a real library firing real
+// handlers produces the *same sequence* twice, arguments included. If it did
+// not, the section would be unusable rather than strict, and no amount of
+// comparison logic downstream could tell the difference.
+test("upstream reproduces its whole trace, call log included, across two captures", async ({ page }) => {
+  test.skip(
+    !existsSync(resolve(repoRoot, "parity/driver/dist/upstream.js")),
+    "the upstream bundle is built beside a vendored xyflow/ and is not committed"
+  );
+
+  const first = await runScenario(page, dragScenario, { side: "upstream", capture: 1, baseline });
+  const second = await runScenario(page, dragScenario, { side: "upstream", capture: 2, baseline });
+
+  const result = checkSelfConsistency(first, second, { rules });
   expect(result.differences).toEqual([]);
   expect(result.consistent).toBe(true);
+});
+
+// ── The call log against a real page ───────────────────────────────────────
+//
+// `call-log.mjs` is tested in node against hand-made calls, which can say what
+// the log keeps and nothing about whether a library ever reaches it. These are
+// the other half: that the driver's wrapping survives the boundary, that the
+// sequence is the library's own, and that a handler *no fixture sets* is
+// installed — the last of which is the whole reason the driver derives its list
+// rather than following the fixtures.
+
+test("a real library firing real handlers lands in the callbacks section, in order", async ({ page }) => {
+  const { sections } = await drive(page, dragScenario);
+  const names = sections.callbacks.map((e) => e.name);
+
+  // A mount alone fires some of these, which is why the drag's own three are
+  // checked as a subsequence rather than as the whole section: what is being
+  // claimed here is that the log caught them and kept the library's order.
+  const drag = names.filter((n) => ["onNodeDragStart", "onNodeDrag", "onNodeDragStop"].includes(n));
+  expect(drag[0]).toBe("onNodeDragStart");
+  expect(drag[drag.length - 1]).toBe("onNodeDragStop");
+  expect(drag.filter((n) => n === "onNodeDrag").length).toBeGreaterThan(0);
+  expect(names).toContain("onNodesChange");
+});
+
+// Every argument, not only the ones a handler's signature makes obvious: the
+// node a drag was about arrives as trace content, addressable field by field, so
+// a region can point at one of them.
+test("what a handler was handed arrives as trace content, addressable field by field", async ({ page }) => {
+  const { sections } = await drive(page, dragScenario);
+  const [event, node] = sections.callbacks.find((e) => e.name === "onNodeDragStart").args;
+
+  expect(node.id).toBe("Node-1");
+  expect(node.position).toEqual({ x: expect.any(Number), y: expect.any(Number) });
+  expect(typeof event).toBe("object");
+});
+
+// The claim `serialize.mjs` exists to make, one level up from its own tests: a
+// React synthetic event carries its fields as *own* properties, so they reach the
+// trace — and a native event, carrying them on its prototype, arrives as its
+// class name and nothing else. No shape check and no DOM diff can see that
+// difference, and both kinds turn up in one drag: xyflow's own drag comes from
+// d3, so `onNodeDragStart` is handed the native `MouseEvent`, while the handlers
+// React wires are handed a synthetic one.
+//
+// Asserted on upstream, which is where the reference answer for what a handler
+// *should* be handed lives. What ps-flow passes is the gate's to report.
+test("upstream's synthetic event reaches the trace with its own fields on it", async ({ page }) => {
+  test.skip(
+    !existsSync(resolve(repoRoot, "parity/driver/dist/upstream.js")),
+    "the upstream bundle is built beside a vendored xyflow/ and is not committed"
+  );
+
+  const trace = await drive(page, dragScenario, "upstream");
+  const [event] = trace.sections.callbacks.find((e) => e.name === "onPaneMouseMove").args;
+
+  expect(event["@class"]).toMatch(/Synthetic/);
+  expect(event.type).toBe("pointermove");
+  expect(typeof event.clientX).toBe("number");
+
+  // The identities, kept as their kind and no further: each side rendered its
+  // own DIV and neither could agree with the other about which one it was.
+  expect(event.target).toEqual({ "@ref": "DIV" });
+  expect(event.nativeEvent["@class"]).toBe("PointerEvent");
+});
+
+// The fixture sets no handler at all — `nodes/general.ts` is nodes, edges and
+// `multiSelectionKeyCode`. Every call in its log is therefore a prop the driver
+// installed because upstream declares it, which is the property that makes a
+// handler firing on one side and not the other visible at all.
+test("a handler no fixture ever set is installed, and fires", async ({ page }) => {
+  const { sections } = await drive(page, dragScenario);
+
+  expect(sections.callbacks.map((e) => e.name)).toContain("onPaneMouseMove");
+});
+
+// The refusal that keeps an empty section from being mistaken for a quiet one.
+// A page with no log is a driver bundle built before there was one, and capture
+// must not answer that with a section the other side's equally empty one
+// compares clean against.
+test("a page with no call log fails the capture rather than recording nothing", async ({ page }) => {
+  // Installed before the driver's own script runs, so the property the log would
+  // be published under refuses to hold it. The key travels as an argument for
+  // the same reason `port.mjs` passes it into `page.evaluate`: an init script
+  // reaches the page as source, with none of this scope.
+  await page.addInitScript((key) => {
+    Object.defineProperty(window, key, { value: undefined, writable: false, configurable: false });
+  }, CALL_LOG);
+
+  await expect(
+    drive(page, defineScenario({ id: "live--no-call-log", route: NODES_GENERAL, run: async () => {} }))
+  ).rejects.toThrow(/build:driver/);
+});
+
+// The other half of that guard, and the one that protects the *other* gates:
+// wrapping is asked for by the URL, because installing a callback prop changes
+// what the page renders. A page loaded without the parameter reports an empty
+// list rather than staying silent — which is what `callbacksSection` turns into
+// a failure, tested there — and every capture asks, because `driverUrl` is the
+// only thing that builds the URL.
+test("a fixture driver wraps nothing unless the URL asks, and every capture asks", async ({ page }) => {
+  const url = driverUrl(NODES_GENERAL, "psflow").replace(`&${OBSERVE.param}=${OBSERVE.callbacks}`, "");
+  await page.goto(url);
+  await page.locator(".react-flow").waitFor();
+
+  const observing = await page.evaluate((key) => window[key].read().observing, CALL_LOG);
+  expect(observing).toEqual([]);
+
+  await expect(
+    drive(page, defineScenario({ id: "live--unobserved", route: NODES_GENERAL, run: async () => {} }))
+  ).resolves.toBeDefined();
+});
+
+// What that parameter costs the page, measured rather than asserted from the
+// source: the edges fixture sets no `onReconnect`, so upstream renders no
+// reconnect anchors — until the net asks for the observed form and every edge
+// endpoint gains one. That is why the conformance suite, which drives this same
+// page to measure upstream's asserted intent against upstream's own fixture,
+// does not ask.
+test("observing changes what the page renders, which is why the other gates do not ask for it", async ({ page }) => {
+  const observed = driverUrl(EDGES_GENERAL, "psflow");
+  const asAuthored = observed.replace(`&${OBSERVE.param}=${OBSERVE.callbacks}`, "");
+
+  await page.goto(asAuthored);
+  await page.locator(".react-flow").waitFor();
+  const withoutAnchors = await page.locator(".react-flow__edgeupdater").count();
+
+  await page.goto("about:blank");
+  await page.goto(observed);
+  await page.locator(".react-flow").waitFor();
+  const withAnchors = await page.locator(".react-flow__edgeupdater").count();
+
+  expect(withoutAnchors).toBe(0);
+  expect(withAnchors).toBeGreaterThan(0);
 });
 
 test("a key reaches the page, and a targeted one focuses first", async ({ page }) => {

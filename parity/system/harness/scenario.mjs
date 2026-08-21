@@ -6,14 +6,16 @@
 // forgives lives downstream. See `../README.md`.
 //
 // Both sides load **the same page**, `parity/driver/index.html`, differing only
-// in the `?side=` parameter that decides which bundle it imports. Upstream's own
-// vendored app is vite plus a path router where this is a static server plus a
-// hash router, and it wraps the flow in different container markup — which is
-// not cosmetic, because the container's box feeds `fitView`, which feeds the
-// viewport transform, which feeds everything.
+// in the `?side=` parameter that decides which bundle it imports — the other
+// parameter the net asks for, `?observe=callbacks`, is identical on both.
+// Upstream's own vendored app is vite plus a path router where this is a static
+// server plus a hash router, and it wraps the flow in different container
+// markup — which is not cosmetic, because the container's box feeds `fitView`,
+// which feeds the viewport transform, which feeds everything.
 
 import { DRIVER_PAGE, SIDES } from "../../driver/sides.mjs";
 import { TRACE_FORMAT, validateTrace } from "../trace-format.mjs";
+import { OBSERVE, callbacksSection } from "./call-log.mjs";
 import { createDrivingLog } from "./driving.mjs";
 import { assertPendingStillEmpty } from "./pending.mjs";
 import { createPagePort } from "./port.mjs";
@@ -64,8 +66,18 @@ export const defineScenario = ({ id, route, run, touch = false }) => {
   return Object.freeze({ id, route, run, touch });
 };
 
-/** Relative, and resolved against the browser context's `baseURL`. */
-export const driverUrl = (route, side) => `${DRIVER_PAGE}?side=${side}#${route}`;
+/**
+ * Relative, and resolved against the browser context's `baseURL`.
+ *
+ * Two parameters, and both are the net's rather than the page's: which bundle to
+ * import, and that the fixture driver should wrap its callback props into the
+ * call log. The second is asked for explicitly because installing a callback
+ * prop changes what the page renders — `call-log.mjs`'s `OBSERVE` says how — and
+ * the conformance suite drives this same page to measure upstream's fixture as
+ * upstream wrote it. Neither parameter is reachable from a scenario.
+ */
+export const driverUrl = (route, side) =>
+  `${DRIVER_PAGE}?side=${side}&${OBSERVE.param}=${OBSERVE.callbacks}#${route}`;
 
 /**
  * Drives `scenario` against `side` and returns a validated trace.
@@ -126,6 +138,18 @@ export const runScenario = async (
     // caught it against a real page, where a drag's second capture resolved the
     // node 100px further right than its first.
     await page.goto("about:blank");
+
+    // And the pointer parked, for the same reason one level down. The cursor
+    // belongs to the browser rather than to the document, so it stays where the
+    // previous capture left it — and the page that mounts under it fires its
+    // boundary events from *there*: capture 2 of a drag recorded a
+    // `onPaneMouseEnter` before the flow had finished mounting, carrying
+    // coordinates a hundred pixels along, while capture 1 recorded it when the
+    // drag first moved. Parked on `about:blank`, so no page sees the move, and
+    // it is not a driving action: nothing was done to the flow, the same way
+    // blanking the page is not one.
+    await port.mouse("move", { x: -1, y: -1 });
+
     await page.goto(driverUrl(scenario.route, side));
 
     // Waited for, then settled, then measured. Each side waits on its own clock
@@ -157,9 +181,16 @@ export const runScenario = async (
     // stable. Note that settled is not **gesture complete**: a scenario whose
     // last action leaves the pointer down settles mid-gesture, which is the
     // only way transient state is observable at all.
+    //
+    // The `callbacks` section is read here too, and after the settle rather
+    // than before it: a handler the page had not got round to firing yet is a
+    // call the scenario made happen, and the log is read as a section of the
+    // same end-state snapshot precisely so that no mid-interaction checkpoint
+    // is needed to see it. Nothing accumulates during the read — the
+    // serialization already happened, once per call, at the moment of the call.
     const sections = {
       dom: await settleDom(port, FLOW_ROOT, settle),
-      callbacks: [],
+      callbacks: callbacksSection(await port.callbacks()),
       hooks: {},
       api: { queries: {}, calls: apiCalls },
       props: {},

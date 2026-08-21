@@ -63,15 +63,17 @@ names its retiring boundary stage and fails as stale when it stops matching.
 
 **System parity is red, and that is where it is meant to be.** It mounts
 upstream and ps-flow on the same unmodified fixtures, settles each on its own
-clock, captures each twice, and diffs the `dom` section; its first run found
-nine classes of divergence, listed on the divergence backlog
-([#22](https://github.com/jonbae/PSFlow/issues/22)) rather than fixed. A
-difference is answered by a fix in the port or by a **region** in
-`parity/system/regions.json` — never by loosening what the net looks at. It
-builds both driver bundles itself, so it cannot measure code that is not in the
-tree, and needs `spago build` first for the ps-flow side. Its detail is
-`parity/system/README.md`; the report is `parity/system/report.md` and the
-traces behind it are committed under `parity/system/traces/`.
+clock, captures each twice, and diffs the `dom` and `callbacks` sections; its
+first run found nine classes of divergence, and the call log added its own —
+handlers ps-flow never fires, handlers it fires twice, and a call sequence it
+does not reproduce between its own two captures. Both lists live on the
+divergence backlog ([#22](https://github.com/jonbae/PSFlow/issues/22)) rather
+than being fixed. A difference is answered by a fix in the port or by a
+**region** in `parity/system/regions.json` — never by loosening what the net
+looks at. It builds both driver bundles itself, so it cannot measure code that
+is not in the tree, and needs `spago build` first for the ps-flow side. Its
+detail is `parity/system/README.md`; the report is `parity/system/report.md`
+and the traces behind it are committed under `parity/system/traces/`.
 
 ```sh
 npm run parity:system                    # build both bundles, capture the corpus, diff

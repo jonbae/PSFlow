@@ -3,8 +3,9 @@
 // The trace format requires all seven sections to be present, because an absent
 // section would compare as "nothing differed there". A section that is present
 // and *empty because nobody built its capture yet* has exactly the same
-// problem, and the harness (#35) left five of them that way; `dom` has since
-// landed (#51) and its entry is gone, which is the register working.
+// problem, and the harness (#35) left five of them that way; `dom` (#51) and
+// `callbacks` (#54) have since landed and their entries are gone, which is the
+// register working.
 //
 // The gaps are written down, and the register behaves the way every other
 // register in this repo does: **an entry that stops corresponding to reality
@@ -18,7 +19,7 @@
 // traces whose sections are all empty on both sides reports no differences and
 // means nothing, which is why `parity:system` waited for `dom`: it is the
 // section that carries 64 of the trace's 156 exports and the one a mount-only
-// scenario is almost entirely made of. The four entries left are what the gate
+// scenario is almost entirely made of. The three entries left are what the gate
 // still cannot see.
 
 /**
@@ -27,16 +28,6 @@
  * stale.
  */
 export const PENDING = [
-  {
-    // The comparison and the argument serializer landed with #44; what is still
-    // missing is the in-page log that accumulates the calls — and the boundary
-    // stage (#52) that has to cross the callback props before there is anything
-    // to accumulate.
-    section: "callbacks",
-    what: "the in-page call log; `serialize.mjs` is what it will record with",
-    issue: 54,
-    empty: (callbacks) => callbacks.length === 0,
-  },
   {
     section: "hooks",
     what: "what each probe saw its hooks return",

@@ -21,7 +21,7 @@ export const EMPTY_DOM = Object.freeze({
  * entry and the last one repeats forever, which is what a page that eventually
  * settles looks like from up here.
  */
-export const createFakePort = ({ boxes = {}, bridge = null, dom = EMPTY_DOM } = {}) => {
+export const createFakePort = ({ boxes = {}, bridge = null, dom = EMPTY_DOM, callLog = null } = {}) => {
   const sent = [];
   const snapshots = Array.isArray(dom) ? [...dom] : [dom];
   let ticks = 0;
@@ -60,6 +60,14 @@ export const createFakePort = ({ boxes = {}, bridge = null, dom = EMPTY_DOM } = 
       if (!bridge) return { installed: false, result: null };
       sent.push({ kind: "call", method, args });
       return { installed: true, result: bridge(method, args) };
+    },
+    // A page with a driver on it publishes a call log; `callLog` is what it
+    // holds by the time the section is read. The default is a page whose log is
+    // there, whose fixture driver wrapped its props, and which recorded nothing
+    // — a scenario that drove nothing. The two failures, a page with no log and
+    // a fixture driver that wrapped nothing, have to be asked for explicitly.
+    async callbacks() {
+      return callLog ?? { installed: true, entries: [], failures: [], observing: ["onNodesChange"] };
     },
     async dom() {
       // The last snapshot repeats: a page settles and then stays settled, and a

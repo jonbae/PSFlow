@@ -39,9 +39,13 @@ const fakePage = () => {
 const scenario = (run = async () => {}) =>
   defineScenario({ id: "mount-baseline--nodes-general", route: "/tests/generic/nodes/general", run });
 
-const capture = async (run, { boxes = { ".react-flow": FLOW, ".node": NODE }, dom, ...options } = {}) => {
+const capture = async (run, { boxes = { ".react-flow": FLOW, ".node": NODE }, dom, callLog, ...options } = {}) => {
   const page = fakePage();
-  const { port, sent } = createFakePort({ boxes, ...(dom === undefined ? {} : { dom }) });
+  const { port, sent } = createFakePort({
+    boxes,
+    ...(dom === undefined ? {} : { dom }),
+    ...(callLog === undefined ? {} : { callLog }),
+  });
   const trace = await runScenario(page, scenario(run), {
     side: "psflow",
     capture: 1,
@@ -86,7 +90,52 @@ test("a scenario declaring touch has emulation on before the page is navigated",
   // driver. Emulation has to precede both — applied after a document has loaded
   // it leaves every dispatched touch inert.
   assert.deepEqual(order, ["enableTouch", "goto", "goto"]);
-  assert.deepEqual(sent, [], "the double records nothing for a scenario that never touched");
+  assert.deepEqual(
+    sent,
+    [{ kind: "mouse", type: "move", x: -1, y: -1 }],
+    "the only thing dispatched by a scenario that drove nothing is the parked pointer"
+  );
+});
+
+// The cursor belongs to the browser rather than to the document, so it survives
+// the navigation that blanks the page: capture 2 of a drag was mounting a flow
+// under a pointer capture 1 had left inside it, and the boundary events the
+// browser fired from there landed in the call log ahead of the mount. Parked
+// off-viewport, on the blank document, so no page sees the move — and it is not
+// a driving action, the same way blanking the page is not one.
+test("the pointer is parked off-viewport between the blank document and the driver", async () => {
+  const page = fakePage();
+  const { port, sent } = createFakePort({ boxes: { ".react-flow": FLOW } });
+  const order = [];
+  const watched = {
+    ...port,
+    async mouse(type, at) {
+      order.push(`mouse:${type}`);
+      return port.mouse(type, at);
+    },
+  };
+  const gotoWatched = {
+    ...page,
+    async goto(url) {
+      order.push(url === "about:blank" ? "blank" : "driver");
+      return page.goto(url);
+    },
+  };
+
+  const { sections } = await runScenario(gotoWatched, scenario(), {
+    side: "psflow",
+    capture: 1,
+    baseline: "12.11.0",
+    port: watched,
+  });
+
+  assert.deepEqual(order, ["blank", "mouse:move", "driver"]);
+  assert.deepEqual(sent, [{ kind: "mouse", type: "move", x: -1, y: -1 }]);
+  assert.deepEqual(
+    sections.driving.map((e) => e.action),
+    ["mount"],
+    "parking the pointer is a precondition, not something done to the flow"
+  );
 });
 
 test("a scenario that does not declare touch never turns emulation on", async () => {
@@ -96,9 +145,19 @@ test("a scenario that does not declare touch never turns emulation on", async ()
 });
 
 test("both sides load the same page, differing only in which bundle it imports", () => {
-  assert.equal(driverUrl("/tests/generic/nodes/general", "psflow"), "/parity/driver/index.html?side=psflow#/tests/generic/nodes/general");
-  assert.equal(driverUrl("/tests/generic/nodes/general", "upstream"), "/parity/driver/index.html?side=upstream#/tests/generic/nodes/general");
-  assert.equal(driverUrl("/examples/color-mode", "psflow"), "/parity/driver/index.html?side=psflow#/examples/color-mode");
+  const url = (route, side) => driverUrl(route, side);
+
+  assert.equal(url("/tests/generic/nodes/general", "psflow"), "/parity/driver/index.html?side=psflow&observe=callbacks#/tests/generic/nodes/general");
+  assert.equal(url("/tests/generic/nodes/general", "upstream"), "/parity/driver/index.html?side=upstream&observe=callbacks#/tests/generic/nodes/general");
+  assert.equal(url("/examples/color-mode", "psflow"), "/parity/driver/index.html?side=psflow&observe=callbacks#/examples/color-mode");
+
+  // The second parameter is the same on both sides, which is what keeps it out
+  // of the difference between them: it asks the fixture driver to wrap its
+  // callback props, and installing those changes what the page renders.
+  assert.equal(
+    url("/tests/generic/nodes/general", "psflow").replace("psflow", "upstream"),
+    url("/tests/generic/nodes/general", "upstream")
+  );
 });
 
 test("the run is the envelope's, and the trace validates", async () => {
@@ -108,7 +167,10 @@ test("the run is the envelope's, and the trace validates", async () => {
   assert.equal(trace.side, "psflow");
   assert.equal(trace.capture, 1);
   assert.equal(trace.baseline, "12.11.0");
-  assert.deepEqual(page.visited, ["about:blank", "/parity/driver/index.html?side=psflow#/tests/generic/nodes/general"]);
+  assert.deepEqual(page.visited, [
+    "about:blank",
+    "/parity/driver/index.html?side=psflow&observe=callbacks#/tests/generic/nodes/general",
+  ]);
   assert.equal(validateTrace(trace, "in-memory"), trace);
 });
 
@@ -244,6 +306,40 @@ test("the dom section is the settled snapshot, element tree and all", async () =
   const { trace } = await capture(undefined, { dom: [flow("mounting"), settled, settled] });
 
   assert.deepEqual(trace.sections.dom, settled);
+});
+
+// The section with no other witness: a handler that never fired leaves the DOM
+// identical and every other section agreeing. It is read off the in-page log as
+// a section of the same end-state snapshot, which is what keeps the
+// one-snapshot-per-test rule and still catches the absence.
+test("the callbacks section is the in-page log, read as part of the end state", async () => {
+  const entries = [
+    { name: "onNodesChange", args: [[{ id: "1", type: "dimensions" }]] },
+    { name: "onNodeDrag", args: [{ type: "pointermove" }, { id: "1" }, []] },
+  ];
+  const observing = ["onNodesChange", "onNodeDrag"];
+  const { trace } = await capture(undefined, { callLog: { installed: true, entries, failures: [], observing } });
+
+  assert.deepEqual(trace.sections.callbacks, entries);
+});
+
+// Unlike the imperative bridge, which is legitimately absent until it crosses,
+// a page with no call log is a driver bundle built before there was one.
+// Capturing anyway would write an empty section that compares clean against the
+// other side's equally empty one.
+test("a page that published no call log fails the capture rather than recording nothing", async () => {
+  await assert.rejects(() => capture(undefined, { callLog: { installed: false, entries: [], failures: [], observing: null } }), {
+    name: "CallLogError",
+    message: /build:driver/,
+  });
+});
+
+test("a call the page could not serialize fails the capture, since the sequence is what is compared", async () => {
+  const failures = [{ name: "onConnectEnd", index: 3, error: "args/1 is more than 16 deep" }];
+  await assert.rejects(() => capture(undefined, { callLog: { installed: true, entries: [], failures, observing: ["onConnectEnd"] } }), {
+    name: "CallLogError",
+    message: /onConnectEnd/,
+  });
 });
 
 // Selectors resolve against each side's own render, so anything aimed at a flow

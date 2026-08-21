@@ -10,11 +10,11 @@ import { formatPath } from "./paths.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const fixture = (name) => readTrace(join(here, "fixtures", name));
-const SORT_RULES = JSON.parse(readFileSync(join(here, "..", "normalization.json"), "utf8")).rules;
+const COMMITTED_RULES = JSON.parse(readFileSync(join(here, "..", "normalization.json"), "utf8")).rules;
 
 test("two captures of one side that agree are self-consistent", () => {
   const result = checkSelfConsistency(fixture("baseline.psflow.json"), fixture("baseline.psflow.capture2.json"), {
-    rules: SORT_RULES,
+    rules: COMMITTED_RULES,
   });
 
   assert.equal(result.consistent, true);
@@ -25,7 +25,7 @@ test("two captures of one side that agree are self-consistent", () => {
 
 test("sub-pixel box variation between one side's two captures fails", () => {
   const result = checkSelfConsistency(fixture("baseline.psflow.json"), fixture("wobbling-box.psflow.capture2.json"), {
-    rules: SORT_RULES,
+    rules: COMMITTED_RULES,
   });
 
   assert.equal(result.consistent, false);
@@ -39,7 +39,7 @@ test("sub-pixel box variation between one side's two captures fails", () => {
 
 test("no rule can be written that would forgive a driving difference", () => {
   const tolerant = [
-    ...SORT_RULES,
+    ...COMMITTED_RULES,
     { kind: "delete", at: "driving/**/box", reason: "boxes wobble, apparently" },
     { kind: "delete", at: "**/width", reason: "a rule broad enough to reach driving by accident" },
   ];
@@ -62,7 +62,7 @@ test("every other section normalizes exactly as it does across the sides", () =>
   const node = restyled.sections.dom.root.children[0].children[0];
   node.attrs.class = node.attrs.class.split(" ").reverse().join(" ");
 
-  const forgiven = checkSelfConsistency(fixture("baseline.psflow.json"), restyled, { rules: SORT_RULES });
+  const forgiven = checkSelfConsistency(fixture("baseline.psflow.json"), restyled, { rules: COMMITTED_RULES });
   const unforgiven = checkSelfConsistency(fixture("baseline.psflow.json"), restyled, { rules: [] });
 
   assert.equal(forgiven.consistent, true, "class token order is noise within a side as much as across two");

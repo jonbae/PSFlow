@@ -10,6 +10,11 @@
   ],
   "rules": [
     {
+      "kind": "delete",
+      "at": "callbacks/**/timeStamp",
+      "reason": "a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing"
+    },
+    {
       "kind": "sort",
       "at": "dom/**/attrs/class",
       "as": "tokens",

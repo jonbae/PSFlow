@@ -16,7 +16,8 @@ Vocabulary is `CONTEXT.md`. Terms in **bold** are defined there.
 | `driving.mjs` | the **driving log** |
 | `dom.mjs` | the `dom` section — the second module that runs *in* the page |
 | `settle.mjs` | polling until consecutive snapshots agree, on the page's own clock |
-| `serialize.mjs` | what a callback was handed, as trace content — the other one that runs in the page |
+| `call-log.mjs` | the `callbacks` section — the in-page log the driver accumulates into |
+| `serialize.mjs` | what a callback was handed, as trace content — the third one that runs in the page |
 | `port.mjs` | the only file that knows what a browser is |
 | `fake-port.mjs` | its double, which everything above is tested against |
 | `pending.mjs` | the sections capture does not fill yet, declared |
@@ -160,7 +161,10 @@ Three rules, all load-bearing:
   a second capture navigates to the URL the page is already on, which is a
   same-document navigation. Nothing reloaded, and capture 2 opened on the flow
   capture 1 had already dragged a hundred pixels along. `runScenario` blanks the
-  page before it navigates.
+  page before it navigates. The **pointer** is the same finding one layer out —
+  it belongs to the browser rather than the document, so it survives that
+  blanking too — and it stayed invisible until the call log could see the
+  boundary events it caused. `runScenario` parks it as well; see below.
 
 **The mount is a driving action.** Navigating to the route is something done
 *to* the page, and recording it that way means a side that never renders a flow
@@ -169,12 +173,113 @@ also unresolved — a finding — rather than as a thrown timeout. The box it
 resolves to is the container measurement `fitView` is computed from, so it lands
 in the section that carries no tolerance.
 
+## The in-page call log
+
+Callbacks are the one class of behaviour with **no other witness**. A handler
+that never fires leaves the DOM identical, every other section agreeing, and an
+end-state net passing green — which is why the boundary staging crossed them
+first, and why the comparison that reads this section is the strictest one the
+net has.
+
+`call-log.mjs` is the capture half. It runs **in the page**, bundled into the
+driver rather than handed to `page.evaluate` as source, and it does two things:
+wraps a handler so that calling it records the call, and holds what it recorded
+until the harness reads it back through `port.callbacks()`.
+
+**The arguments are serialized at the moment of the call.** Not at the end, and
+this is not an optimisation. xyflow hands a handler objects it goes on to
+*mutate* — a node's `position` during a drag, a connection state as the pointer
+moves — and synthetic events whose fields are gone by the time the page settles.
+A log holding references would answer with the end state of every argument it was
+ever handed, which is what the other six sections already say.
+
+**The log is read as a section of the end-state snapshot**, after the settle that
+produces `dom`. That is what keeps one snapshot per scenario — the alternative
+was checkpointing mid-interaction — while still catching a handler that never
+fired.
+
+### Every callback prop is installed — when the net asks
+
+A fixture sets three or four handlers; upstream's `ReactFlowProps` declares 49.
+The 45 nobody sets are the interesting ones: a handler no page passes fires on
+*neither* side, so the two traces agree about it forever. So the driver installs
+every one of them (`parity/driver/src/callbacks.ts`), each wrapping whatever the
+fixture itself set.
+
+**But only when the URL asks** — `?observe=callbacks`, which `driverUrl` adds and
+nothing else does. Installing a callback prop is not free: three of upstream's
+are *presence*-sensitive rather than return-value sensitive, and `onReconnect` is
+the loud one — passing it at all renders a reconnect anchor per edge endpoint,
+twenty-two elements the edges fixture never asked for. That is symmetric across
+the net's two sides and harmless to it, but the **conformance test suite** drives
+this same page, and what it is for is upstream's *asserted intent* against
+upstream's own unmodified fixture. A spec failing because the driver had quietly
+added props would be blamed on ps-flow.
+
+Forgetting to ask is not left to discipline. The driver reports what it wrapped
+on every mount, `[]` included, and the three states are three different findings:
+`null` is a route with no fixture driver on it, a list is a page that can report
+calls, and `[]` is a fixture driver that wrapped nothing — the URL lost the
+parameter — which **fails the capture**. `live.spec.mjs` measures both halves:
+that an unasked page wraps nothing, and that asking puts the anchors on the
+page.
+
+Which props those are is **derived from the vendored `ReactFlowProps`** with the
+TypeScript compiler, at driver build time (`parity/driver/callbacks.mjs`). This
+is the driver's one derived list, and the exception to "a driver mistake shows up
+identically on both sides": a handler missing from it is the one mistake the
+dual-run design cannot see through. A prop is a callback exactly when its type is
+callable, which no name pattern can decide — `onError`, `isValidConnection` and
+`shouldResize` share none.
+
+Two things the derivation cannot decide are written down beside it, and both
+**fail stale** the way every register here does:
+
+- **`onInit` is not installed.** Its argument is the imperative
+  `ReactFlowInstance`, which ps-flow refuses at mount until stage 3
+  ([#56](https://github.com/jonbae/PSFlow/issues/56)) — installing it would fail
+  every scenario on one side rather than observing anything. It is a **hole** in
+  this section, with the reason written where the coverage artifact
+  ([#57](https://github.com/jonbae/PSFlow/issues/57)) can read it.
+- **What an installed-but-unset handler answers.** For most props *absent* and
+  *present returning undefined* are the same instruction to the library. For
+  `onBeforeDelete` and `isValidConnection` they are not — the library reads the
+  return value, and `undefined` is falsy — so those two answer `true`, which is
+  what upstream does with the prop absent. Observing a deletion must not stop it
+  happening.
+
+### An absent log fails the capture
+
+Not "records an empty section". A page that published no log is a driver bundle
+built before the log existed, and the empty section it would produce compares
+clean against the other side's equally empty one — the silent pass the whole net
+exists to remove. Same for a call the serializer refused: the section is compared
+as an exact sequence, so a call missing from it is not a shorter sequence but an
+unreadable one, and the `SerializationError` is raised by the harness reading the
+log rather than thrown inside a library's own event dispatch, where it would
+change what the page does.
+
+### The parked pointer
+
+The cursor belongs to the browser, not to the document, so it survives the
+navigation that starts each capture. That was invisible until callbacks were
+observed: capture 2 of a drag mounted its flow *under* a pointer capture 1 had
+left inside the flow, and the browser fired the boundary events from there —
+`onPaneMouseEnter` ahead of the mount, carrying coordinates a hundred pixels
+along, where capture 1 recorded it when the drag first moved.
+
+So `runScenario` parks the pointer off-viewport on the blank document, between
+the two navigations. No page sees the move, and it is not a driving action for
+the same reason blanking the page is not one: nothing was done to the flow. With
+it, upstream reproduces a whole drag — call log included — across four captures;
+without it, one in three disagreed with itself.
+
 ## The argument serializer
 
 `serialize.mjs` turns a live JavaScript value into the JSON the `callbacks`
-section carries. It is the one module here that runs **in the page** rather than
-driving one from outside, which is why it imports nothing: the in-page call log
-([#54](https://github.com/jonbae/PSFlow/issues/54)) bundles it into the driver.
+section carries. It runs **in the page** rather than driving one from outside,
+which is why it imports nothing beyond what the log beside it hands over: both
+are bundled into the driver.
 
 The rule is the noise policy's: **serialize every enumerable own property,
 blacklist only reference-typed fields.** The second half's *only* is the sharper
@@ -255,14 +360,14 @@ of it capture reaches today.
 | Section | Exports | Captured here |
 |---|---:|---|
 | `dom` | 64 | yes — the element tree and the page state, both settled first |
-| `callbacks` | 47 | no — the serializer is here, the in-page log is [#54](https://github.com/jonbae/PSFlow/issues/54) |
+| `callbacks` | 47 | yes — every call the driver's installed handlers saw, serialized as it was made |
 | `hooks` | 27 | no — needs probes, [#59](https://github.com/jonbae/PSFlow/issues/59) |
 | `api` | 14 | `calls` only, and empty until the bridge exists; `queries` is #59 |
 | `props` | 4 | no — needs probes, #59 |
 | `console` | 0 | yes, plus uncaught errors |
 | `driving` | 0 | yes |
 
-The four gaps are declared in `pending.mjs` with the issue that lands each.
+The three gaps are declared in `pending.mjs` with the issue that lands each.
 
 The register behaves like every other register here: **an entry that stops
 corresponding to reality fails.** `dom`'s entry was deleted when its capture
@@ -272,7 +377,10 @@ the entry rather than shipping a trace whose declared-empty section was now full
 That declaration is not a substitute for the sections. Two traces whose sections
 are empty on both sides compare clean and mean nothing, which is why the gate
 waited for `dom`: it carries 64 of the 156 and is nearly the whole of what a
-mount-only scenario observes.
+mount-only scenario observes. `callbacks` is the one section where that trap has
+a second door — a page can publish no log at all, and every capture would then
+record an empty section rather than a missing one — which is why an absent log
+**fails the capture** instead of being recorded as a gap.
 
 ## Settling
 
