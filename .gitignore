@@ -34,11 +34,3 @@ parity/driver/dist/upstream.js
 # which embed the PR titles so review survives without xyflow/.
 parity/changelog-audit/entries.json
 
-# Skill links, not skill content. The real skills live in `.agents/skills/` and
-# are committed; `.claude/skills/<name>` is only a link to each one, recreated
-# from skills-lock.json by the installer. On Windows without Developer Mode the
-# installer must use directory junctions, which git cannot represent — tracking
-# them as POSIX symlinks checks them out as text files containing a path, so
-# Claude Code finds no SKILL.md and every skill silently disappears.
-.claude/skills/
-
