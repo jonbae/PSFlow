@@ -13,10 +13,12 @@ all defined there.
 |---|---|
 | `src/Flow.tsx` | the fixture driver: a twin of upstream's `generic-tests/Flow.tsx` |
 | `src/entry.tsx` | the page: route → fixture or direct component, a twin of upstream's `generic-tests/index.tsx` |
+| `src/callbacks.ts` | the call log's driver half: publish it, wrap every callback prop into it |
 | `src/Smoke.tsx` | the JS-surface smoke page |
 | `src/NodePropsGuard.tsx` | the JS-surface NodeProps guard |
 | `index.html` | the container, whose box feeds `fitView`, and the `?side=` switch |
 | `registry.mjs` | the two fixture roots, the glob over them, and the collision it can hit |
+| `callbacks.mjs` | which callback props the page installs, derived from upstream, and the two registers it cannot derive |
 | `build.mjs` | the two registries, the bundle, the alias, and the provenance check |
 | `dist/psflow.js` | generated, and committed — see below |
 
@@ -109,6 +111,56 @@ least can never measure a bundle older than the tree.
 Every **fixture** in the registry is also a scenario: the net derives one
 mount-only baseline per fixture from the same list (`registry.mjs`'s
 `fixtureRoots`), so a fixture cannot join this page without joining the net.
+
+## Every callback prop, installed — for the net only
+
+The net's `callbacks` section can only observe a handler this page actually
+passed to `<ReactFlow />`. A fixture sets three or four; upstream declares 49.
+The other 45 are the ones that matter — a handler **nothing sets** fires on
+neither side, so the two traces agree about it for ever, which is the silent pass
+the whole dual-run design exists to remove. So `src/callbacks.ts` installs every
+one of them, each wrapping whatever the fixture itself set and deferring to it.
+
+**Behind `?observe=callbacks`**, the page's second parameter, which the net's
+`driverUrl` adds and no other gate does. Installing a callback prop changes what
+the page renders: three of upstream's are presence-sensitive, and `onReconnect`
+puts a reconnect anchor on every edge endpoint — twenty-two elements the edges
+fixture never asked for. Symmetric across the net's two sides, so the net is
+unharmed; but every gate listed above drives this same page, and the conformance
+suite in particular exists to measure upstream's **asserted intent** against
+upstream's own unmodified fixture. A spec failing because the driver had quietly
+added props would be blamed on ps-flow.
+
+A capture that forgot to ask would record an empty section on both sides, which
+is the silent pass again — so the driver reports what it wrapped on every mount,
+and a fixture driver that wrapped *nothing* fails the capture rather than
+producing a trace.
+
+This is the driver's **one derived list**, and the exception to everything above
+about a driver being allowed to be hand-written: a driver mistake shows up
+identically on both sides, and that is exactly what makes a *missing* handler
+invisible. `callbacks.mjs` reads the vendored `ReactFlowProps` with the
+TypeScript compiler — the same instrument, for the same reason, as
+`parity/surface/extract-upstream.ts` — and takes the members whose type is
+callable, which no name pattern can decide. Members inherited from React's
+`HTMLAttributes<HTMLDivElement>` are excluded, exactly as surface parity excludes
+them from the prop-member diff: they are the DOM's handlers rather than xyflow's.
+
+Two things it cannot derive sit beside it, and both **fail stale** — a build
+whose register names a prop upstream no longer declares as a callback exits 2
+rather than excluding nothing:
+
+- **`onInit` is not installed.** Its argument is the imperative
+  `ReactFlowInstance`, which ps-flow refuses at mount until boundary stage 3
+  ([#56](https://github.com/jonbae/PSFlow/issues/56)). It is a declared **hole**
+  in the section, carrying its reason and the ticket that closes it.
+- **What an installed-but-unset handler answers.** `onBeforeDelete` and
+  `isValidConnection` are read for their return value, so answering `undefined`
+  would cancel every deletion and refuse every connection — the two answer `true`,
+  which is what upstream does with the prop absent.
+
+The log they feed is the harness's, not the driver's: `parity/system/harness/`
+owns it, and this page bundles it. That is where the rest of the design is.
 
 ## Why the fixture driver is ours and ColorMode is not
 

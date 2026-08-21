@@ -11,7 +11,7 @@ import { renderRunReport } from "./report.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const fixture = (name) => readTrace(join(here, "fixtures", name));
-const SORT_RULES = JSON.parse(readFileSync(join(here, "..", "normalization.json"), "utf8")).rules;
+const COMMITTED_RULES = JSON.parse(readFileSync(join(here, "..", "normalization.json"), "utf8")).rules;
 
 const CLEAN = [
   "baseline.upstream.json",
@@ -29,7 +29,7 @@ const WOBBLING = [
   "wobbling-box.psflow.capture2.json",
 ];
 
-const run = (names, options = {}) => compareRun(names.map(fixture), { rules: SORT_RULES, ...options });
+const run = (names, options = {}) => compareRun(names.map(fixture), { rules: COMMITTED_RULES, ...options });
 
 test("the run reads exactly the sides the driver serves, reordered rather than renamed", () => {
   // A side added to the driver and not here would be a side no run could group,

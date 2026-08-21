@@ -23,8 +23,15 @@ import { createRoot, type Root } from 'react-dom/client';
 import type { ComponentType } from 'react';
 
 import Flow, { type FlowConfig } from './Flow';
+import { publishCallLog } from './callbacks';
 import fixtures from 'psflow:fixtures';
 import directComponents from 'psflow:components';
+
+// Before anything renders, and for every route rather than only the ones that
+// mount a flow: the net reads the `callbacks` section off this log, and a page
+// that published none is indistinguishable from a driver bundle built before
+// the log existed — which is what capture treats it as (#54).
+publishCallLog();
 
 // `#/tests/generic/nodes/general` names `./nodes/general.ts`, the same key
 // upstream's path router derives. The prefix is upstream's route, kept so that

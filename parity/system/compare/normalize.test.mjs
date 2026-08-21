@@ -15,7 +15,7 @@ const fixture = (name) => readTrace(join(here, "fixtures", name));
 
 // The committed ruleset, not a copy of it: the rules the net actually runs are
 // what the "cannot collapse" criterion has to hold against.
-const SORT_RULES = JSON.parse(readFileSync(join(here, "../normalization.json"), "utf8")).rules;
+const COMMITTED_RULES = JSON.parse(readFileSync(join(here, "../normalization.json"), "utf8")).rules;
 
 const sectionsOf = (trace) => trace.sections;
 
@@ -40,7 +40,7 @@ test("a deleted field is recorded as unobserved rather than silently dropped", (
 });
 
 test("sorting reorders class tokens and style declarations without touching anything else", () => {
-  const { value } = normalize(sectionsOf(fixture("precise-coordinate.psflow.json")), SORT_RULES);
+  const { value } = normalize(sectionsOf(fixture("precise-coordinate.psflow.json")), COMMITTED_RULES);
   const nodes = value.dom.root.children[0].children;
 
   assert.equal(nodes[1].attrs.class, "react-flow__node react-flow__node-default");
@@ -48,9 +48,48 @@ test("sorting reorders class tokens and style declarations without touching anyt
   assert.deepEqual(value.callbacks, sectionsOf(fixture("baseline.upstream.json")).callbacks);
 });
 
+// The one field in the committed ruleset that is deleted rather than sorted. A
+// DOM event's `timeStamp` is a clock reading, so it differs between a side's own
+// two captures — and self-consistency is the one comparison no region and no
+// weakening may claim, which leaves the noise policy's `delete` as the only
+// mechanism that can reach it.
+test("a callback argument's timeStamp is deleted from both sides, and recorded as unobserved", () => {
+  const sections = {
+    callbacks: [
+      { name: "onNodeDrag", args: [{ type: "pointermove", timeStamp: 1102.3, clientX: 614 }, { id: "1" }] },
+      { name: "onNodeDragStop", args: [{ type: "pointerup", timeStamp: 1187.9 }, { id: "1" }] },
+    ],
+  };
+  const { value, deleted } = normalize(sections, COMMITTED_RULES);
+
+  assert.deepEqual(value.callbacks[0].args[0], { type: "pointermove", clientX: 614 });
+  assert.equal("timeStamp" in value.callbacks[1].args[0], false);
+  assert.deepEqual(deleted.map((d) => formatPath(d.path)), [
+    "callbacks/0/args/0/timeStamp",
+    "callbacks/1/args/0/timeStamp",
+  ]);
+});
+
+// Content-blindness cuts both ways, and this is the cost of it: the rule reads a
+// field's name and its position, never the value, so a fixture that put a
+// `timeStamp` in a node's own data would have it deleted too. That is the rule
+// applied honestly rather than a gap — and the alternative, a rule that looked
+// at the value to decide whether it was a clock, is exactly the tolerance rule
+// the closed kind set exists to make unwritable.
+test("the rule reaches only the callbacks section, since that is where it is aimed", () => {
+  const sections = {
+    callbacks: [{ name: "onMove", args: [{ timeStamp: 1 }] }],
+    dom: { page: {}, root: { tag: "div", attrs: { timeStamp: "1" }, children: [] } },
+  };
+  const { value } = normalize(sections, COMMITTED_RULES);
+
+  assert.equal(value.dom.root.attrs.timeStamp, "1");
+  assert.equal("timeStamp" in value.callbacks[0].args[0], false);
+});
+
 test("normalization cannot collapse two distinct values into one", () => {
-  const upstream = normalize(sectionsOf(fixture("baseline.upstream.json")), SORT_RULES).value;
-  const psflow = normalize(sectionsOf(fixture("precise-coordinate.psflow.json")), SORT_RULES).value;
+  const upstream = normalize(sectionsOf(fixture("baseline.upstream.json")), COMMITTED_RULES).value;
+  const psflow = normalize(sectionsOf(fixture("precise-coordinate.psflow.json")), COMMITTED_RULES).value;
 
   const differences = diffValues(upstream.dom, psflow.dom, ["dom"]);
 
@@ -92,7 +131,7 @@ test("the collapse guard rejects a normalizer that made two distinct values agre
   const before = { left: { api: { queries: { zoom: 1.03145 } } }, right: { api: { queries: { zoom: 1.05466 } } } };
   const after = { left: { api: { queries: { zoom: 1.03 } } }, right: { api: { queries: { zoom: 1.03 } } } };
 
-  assert.throws(() => assertNoCollapse(before, after, SORT_RULES), /api\/queries\/zoom/);
+  assert.throws(() => assertNoCollapse(before, after, COMMITTED_RULES), /api\/queries\/zoom/);
 });
 
 test("the collapse guard accepts a reorder, which is what makes it a permutation and not a collapse", () => {

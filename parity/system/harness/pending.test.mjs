@@ -27,6 +27,7 @@ test("the sections capture does fill are not declared pending", () => {
   assert.ok(!declared.includes("driving"), "the driving log is the harness's own (#35)");
   assert.ok(!declared.includes("console"), "console capture is a page listener and is built");
   assert.ok(!declared.includes("dom"), "the element tree landed with the gate (#51)");
+  assert.ok(!declared.includes("callbacks"), "the in-page call log landed with the section (#54)");
 });
 
 test("a trace whose pending sections are still empty passes through unchanged", () => {
@@ -63,11 +64,11 @@ test("api is judged on its queries, because api.calls is captured", () => {
 
 test("several landing at once are all named, not just the first", () => {
   const sections = empty();
-  sections.callbacks.push({ name: "onNodesChange", args: [] });
+  sections.hooks["flow-probe"] = { useViewport: { x: 0, y: 0, zoom: 1 } };
   sections.props["node-probe#1"] = { id: "1" };
 
   assert.throws(() => assertPendingStillEmpty(sections), (e) => {
-    assert.match(e.message, /callbacks/);
+    assert.match(e.message, /hooks/);
     assert.match(e.message, /props/);
     return true;
   });

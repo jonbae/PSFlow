@@ -85,6 +85,30 @@
                                       "class": "react-flow__edge-interaction"
                                     },
                                     "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
+                                      "cx": "163",
+                                      "cy": "-182",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
+                                      "cx": "-13",
+                                      "cy": "18",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
                                   }
                                 ]
                               }
@@ -1041,7 +1065,171 @@
         ]
       }
     },
-    "callbacks": [],
+    "callbacks": [
+      {
+        "name": "onSelectionChange",
+        "args": [
+          {
+            "nodes": [],
+            "edges": []
+          }
+        ]
+      },
+      {
+        "name": "onMoveStart",
+        "args": [
+          null,
+          {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          }
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 58,
+            "y": 340.04571428571427,
+            "zoom": 1.1085714285714285
+          }
+        ]
+      },
+      {
+        "name": "onMove",
+        "args": [
+          null,
+          {
+            "x": 58,
+            "y": 340.04571428571427,
+            "zoom": 1.1085714285714285
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "id": "default-node",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 36
+              }
+            },
+            {
+              "id": "node-start-top",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 36
+              }
+            },
+            {
+              "id": "node-center-top",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 36
+              }
+            },
+            {
+              "id": "node-end-top",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 36
+              }
+            },
+            {
+              "id": "node-start-right",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 36
+              }
+            },
+            {
+              "id": "node-center-right",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 36
+              }
+            },
+            {
+              "id": "node-end-right",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 36
+              }
+            },
+            {
+              "id": "node-start-bottom",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 36
+              }
+            },
+            {
+              "id": "node-center-bottom",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 36
+              }
+            },
+            {
+              "id": "node-end-bottom",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 36
+              }
+            },
+            {
+              "id": "node-start-left",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 36
+              }
+            },
+            {
+              "id": "node-center-left",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 36
+              }
+            },
+            {
+              "id": "node-end-left",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 36
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 58,
+            "y": 340.04571428571427,
+            "zoom": 1.1085714285714285
+          }
+        ]
+      }
+    ],
     "hooks": {},
     "api": {
       "queries": {},

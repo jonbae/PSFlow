@@ -85,6 +85,30 @@
                                       "class": "react-flow__edge-interaction"
                                     },
                                     "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
+                                      "cx": "75.000001418919",
+                                      "cy": "48.999997446564066",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
+                                      "cx": "-25.000007468645535",
+                                      "cy": "87.00000336336355",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
                                   }
                                 ]
                               }
@@ -126,6 +150,30 @@
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
                                       "class": "react-flow__edge-interaction"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
+                                      "cx": "75.000001418919",
+                                      "cy": "48.999997446564066",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
+                                      "cx": "174.99999253135445",
+                                      "cy": "87.00000336336355",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
                                     },
                                     "children": []
                                   }
@@ -313,7 +361,48 @@
         ]
       }
     },
-    "callbacks": [],
+    "callbacks": [
+      {
+        "name": "onSelectionChange",
+        "args": [
+          {
+            "nodes": [],
+            "edges": []
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "id": "1",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 36
+              }
+            },
+            {
+              "id": "2",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 36
+              }
+            },
+            {
+              "id": "3",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 36
+              }
+            }
+          ]
+        ]
+      }
+    ],
     "hooks": {},
     "api": {
       "queries": {},

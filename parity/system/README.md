@@ -9,7 +9,7 @@ The net has two halves, and they are deliberately separate steps:
 
 | Step | What it does | Where it is |
 |---|---|---|
-| **capture** | drives a scenario against one side and returns a trace | `harness/` — four of the seven sections still to come, see below |
+| **capture** | drives a scenario against one side and returns a trace | `harness/` — three of the seven sections still to come, see below |
 | **compare** | reads a run's four stored traces and reports what differs | `compare/`, and `compare.mjs` |
 | **the gate** | the only place the two meet: build, capture the corpus, persist, diff | `net.mjs` and `net/` |
 
@@ -53,9 +53,12 @@ The envelope is not compared — it identifies the run. Comparing two traces of
 different scenarios is a hard error rather than a difference: two scenarios are
 not two runs of one experiment.
 
-There is no timestamp anywhere in a trace. The net is deliberately blind to
-performance (each side settles on its own clock), and a recorded time would
-break self-consistency on every run.
+The net records no time of its own, anywhere in a trace. It is deliberately
+blind to performance — each side settles on its own clock — and a recorded time
+would break self-consistency on every run. One time value does *arrive*: a DOM
+event's own `timeStamp`, on every serialized event argument in `callbacks`. It
+breaks self-consistency exactly as predicted, which is why normalization deletes
+it (see the delete rule below); nothing writes one.
 
 ### The seven sections
 
@@ -93,6 +96,8 @@ for twice.
 
   // ── callbacks ────────────────────────────────────────────────────────────
   // An exact sequence: order, count and interleaving all compare (#19 §5).
+  // Accumulated in the page as the calls happen — `harness/call-log.mjs`, which
+  // the driver bundles — because a handler leaves no residue to read afterwards.
   // Arguments serialize every enumerable own property, blacklisting only
   // reference-typed fields (#19 §6) — `harness/serialize.mjs`.
   "callbacks": [ { "name": "onNodesChange", "args": [ [ { "id": "1", "type": "dimensions" } ] ] } ],
@@ -250,6 +255,16 @@ end state.** If PSFlow never fires a handler the DOM is identical, every other
 section agrees, and an end-state net passes green. The call log is the only place
 the absence is visible.
 
+That log is the capture half's — `harness/call-log.mjs`, bundled into the driver
+and accumulated **in the page** as the calls happen, then read as one section of
+the same end-state snapshot. Three things about it decide what this comparison
+can say, and all three are `harness/README.md`'s: the arguments are serialized at
+the moment of the call, because xyflow mutates what it hands a handler; the
+driver installs **every** callback prop upstream declares, because a handler no
+fixture set fires on neither side and would compare clean for ever; and it does
+so only when the URL asks, because installing one changes what the page renders
+and the other browser gates drive the same page.
+
 So order, count and interleaving are all compared (`compare/callbacks.mjs`), and
 it stays legible by **pairing** calls before asking the three questions
 separately. Calls of different names never pair, so the question is only asked
@@ -320,8 +335,13 @@ position, never its value.
 
 - **`delete`** removes a named field from both sides regardless of value. A
   deleted field counts as **unobserved** in coverage, not as passing, and the
-  report says so. The list is near-empty: the spike went looking for
-  React-internal churn and found none.
+  report says so. The list is one rule long: the spike went looking for
+  React-internal churn and found none, and what did eventually earn an entry is
+  a **clock** — a DOM event's `timeStamp`, which reaches the trace on every
+  serialized event argument and differs between a side's own two captures.
+  Neither implementation computes it; the browser stamps it. Deleting is the
+  only mechanism that can reach it, since self-consistency is the one comparison
+  no region and no weakening may claim.
 - **`sort`** reorders `tokens` (whitespace-separated, e.g. `class`) or
   `declarations` (`;`-separated, e.g. `style`). Tokenizing means separator
   whitespace stops being content — `class="a  b"` and `class="a b"` compare
@@ -453,6 +473,14 @@ The first run found nine classes of divergence across five fixtures — among th
 an `aria-describedby` ps-flow never emits, edge path coordinates carrying 2e-5
 of accumulated error, and node DOM order sorted rather than in insertion order.
 
+The `callbacks` section (#54) added its own on the run that landed it, from a
+**mount alone**: upstream fires `onMoveStart` and `onMove` where ps-flow fires
+neither, ps-flow fires a second `onSelectionChange` / `onViewportChange` /
+`onMoveEnd` where upstream fires one, its `NodeChange` objects carry six fields
+holding `undefined` that upstream's do not, and it reports an `onError("002")`
+upstream never raises. None of it leaves a mark on the page, which is the whole
+reason the section exists.
+
 **The list lives on the divergence backlog**
 ([#22](https://github.com/jonbae/PSFlow/issues/22)), not here, and deliberately:
 a second copy in the repository would be a register with no gate behind it,
@@ -467,8 +495,14 @@ fixed in the port, or claimed by a **region** in `regions.json` with a written
 reason and a ticket — and a region that stops claiming anything fails as stale,
 so the register cannot quietly become a list of things nobody looks at.
 
-Both sides reproduced themselves on every scenario and the **driving log** agreed
-everywhere, which is what makes those nine readings rather than **consequences**.
+The **driving log** agrees everywhere, which is what makes these readings rather
+than **consequences**. Both sides also reproduced themselves on every scenario
+until the call log landed; **ps-flow no longer does**. It fires the same calls in
+different interleavings between its own two captures of one scenario — where
+upstream reproduces its order exactly, drag included — and that is its own
+failure class, the one no **region** and no **weakening** may claim. It is on the
+divergence backlog with the rest, and until it is fixed the cross-side callback
+differences beneath it are read with that in mind.
 
 ## Tested at this seam
 
@@ -490,10 +524,6 @@ what is left in `net.mjs` is the doing.
 
 ## Not built here
 
-- **The in-page callback log** — the capture half of the section above, which
-  waits on the callback props crossing the boundary
-  ([#52](https://github.com/jonbae/PSFlow/issues/52)) before there is anything to
-  accumulate: [#54](https://github.com/jonbae/PSFlow/issues/54).
 - **The `hooks`, `props` and `api.queries` sections**, which need probes —
   [#59](https://github.com/jonbae/PSFlow/issues/59).
 - **The rest of the corpus** — the conformance seed, the test-debt scenarios and

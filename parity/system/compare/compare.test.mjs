@@ -21,7 +21,7 @@ const fixture = (name) => readTrace(fixturePath(name));
 
 const CLI = join(here, "..", "compare.mjs");
 const committed = (name) => JSON.parse(readFileSync(join(here, "..", name), "utf8"));
-const SORT_RULES = committed("normalization.json").rules;
+const COMMITTED_RULES = committed("normalization.json").rules;
 
 test("the report leads with the driving log, because inputs that differed frame everything after", () => {
   assert.equal(REPORT_ORDER[0], "driving");
@@ -47,7 +47,7 @@ test("comparing two different scenarios is a mistake, not a difference", () => {
 
 test("normalization runs before comparison, so reordering never reaches the report", () => {
   const result = compareTraces(fixture("baseline.upstream.json"), fixture("precise-coordinate.psflow.json"), {
-    rules: SORT_RULES,
+    rules: COMMITTED_RULES,
   });
 
   assert.equal(result.ok, false);
@@ -98,7 +98,7 @@ test("a difference claimed by a region does not fail the run", () => {
 
 test("a driving divergence is reported first and frames the rest as consequences, suppressing none of them", () => {
   const result = compareTraces(fixture("baseline.upstream.json"), fixture("missed-target.psflow.json"), {
-    rules: SORT_RULES,
+    rules: COMMITTED_RULES,
   });
   const report = renderReport(result);
 
@@ -259,7 +259,7 @@ test("the committed ruleset and both registers are themselves legal", () => {
 
 test("a handler that fired on one side and not the other fails, though nothing else differs", () => {
   const result = compareTraces(fixture("baseline.upstream.json"), fixture("silent-handler.psflow.json"), {
-    rules: SORT_RULES,
+    rules: COMMITTED_RULES,
   });
 
   assert.equal(result.ok, false);
@@ -281,7 +281,7 @@ test("a weakening is read from the register and forgives the count it names", ()
   ];
 
   const result = compareTraces(fixture("baseline.upstream.json"), fixture("silent-handler.psflow.json"), {
-    rules: SORT_RULES,
+    rules: COMMITTED_RULES,
     weakenings,
   });
 
@@ -310,7 +310,7 @@ test("self-consistency compares the call log too, and no weakening reaches it", 
       fixture("baseline.psflow.json"),
       fixture("restless-handler.psflow.capture2.json"),
     ],
-    { rules: SORT_RULES, weakenings }
+    { rules: COMMITTED_RULES, weakenings }
   );
 
   assert.equal(run.ok, false);

@@ -399,6 +399,18 @@ dispatched. Compared ahead of the other sections, because inputs that differ mak
 output differences uninterpretable.
 _Avoid_: stimulus, input, actions
 
+**Call log**:
+The in-page accumulation the `callbacks` section is read off — what the page did
+*back*, where the **driving log** is what was done to it. The two are a pair, so
+a sentence with both in view has to say which; inside the module that is about
+one of them, a bare "the log" is that one. It lives in the page because a call
+leaves nothing behind to read afterwards, and its arguments are serialized at the
+moment of the call because xyflow mutates what it hands a handler. A page that
+published none **fails the capture**, rather than recording an empty section that
+would compare clean against the other side's.
+_Avoid_: the log (where the driving log is also in view), the callback trace, the
+event log
+
 **Capture**:
 Two senses, and both are load-bearing. As a *step*, it is the half of the net
 that drives a scenario and produces a **trace** — the sense **Harness** carries.

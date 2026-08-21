@@ -9,6 +9,7 @@
 // The port resolves and dispatches. It decides nothing: what to aim at, what to
 // record, and whether a miss is a failure all belong upstairs.
 
+import { CALL_LOG } from "./call-log.mjs";
 import { domSection } from "./dom.mjs";
 
 const CDP_TOUCH = { touchStart: 1, touchMove: 1, touchEnd: 1, touchCancel: 1 };
@@ -147,6 +148,29 @@ export const createPagePort = (page, { resolveTimeout = 1_000 } = {}) => {
      */
     async dom(selector) {
       return page.evaluate(domSection, selector);
+    },
+
+    /**
+     * The `callbacks` section, read off the log the driver page published while
+     * the scenario was being driven. Everything in it was serialized at the
+     * moment of each call — a log holding live references would answer with
+     * whatever those objects had become by now — so what crosses back here is
+     * already the JSON the trace carries.
+     *
+     * `installed: false` is a page that published no log, and unlike the
+     * imperative bridge above that is never legitimate: it means the driver
+     * bundle predates the log. What to do about it is `call-log.mjs`'s to say,
+     * one level up; the port reports and decides nothing.
+     *
+     * The key travels as an argument rather than being closed over: an
+     * evaluated function reaches the page as source, with none of this scope.
+     */
+    async callbacks() {
+      return page.evaluate((key) => {
+        const log = window[key];
+        if (!log || typeof log.read !== "function") return { installed: false, entries: [], failures: [] };
+        return { installed: true, ...log.read() };
+      }, CALL_LOG);
     },
 
     /**
