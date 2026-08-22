@@ -52,9 +52,9 @@ The corpus's interaction scenarios exist
 ([#55](https://github.com/jonbae/PSFlow/issues/55)), and every one of them is
 lifted from upstream's own suite, so every one drives a fixture upstream already
 ships. A file lands here the first time a scenario needs a flow upstream does
-not have — the test-debt scenarios
-([#59](https://github.com/jonbae/PSFlow/issues/59)) are where that starts, since
-several of them name props no vendored fixture sets.
+not have — the thirty test-debt scenarios
+([#60](https://github.com/jonbae/PSFlow/issues/60)) are where that starts, since several of
+them name props no vendored fixture sets.
 
 An empty root is legitimate meanwhile — the registry only fails when *every*
 root is empty, which would build a page answering every route with a 404.

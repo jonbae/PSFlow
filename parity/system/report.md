@@ -12,36 +12,36 @@ claimed by a region — never by loosening what the net looks at.
 
 | scenario | verdict | failure classes | differences |
 |---|---|---|---|
-| `mount-baseline--edges-general` | **failed** | self-inconsistent, unclaimed-difference | 322 |
+| `mount-baseline--edges-general` | **failed** | unclaimed-difference | 321 |
 | `mount-baseline--node-toolbar-general` | **failed** | unclaimed-difference | 237 |
 | `mount-baseline--nodes-general` | **failed** | unclaimed-difference | 147 |
-| `mount-baseline--pane-general` | **failed** | self-inconsistent, unclaimed-difference | 67 |
-| `mount-baseline--pane-non-defaults` | **failed** | self-inconsistent, unclaimed-difference | 50 |
+| `mount-baseline--pane-general` | **failed** | unclaimed-difference | 66 |
+| `mount-baseline--pane-non-defaults` | **failed** | unclaimed-difference | 49 |
 | `mount-baseline--examples-color-mode` | **failed** | unclaimed-difference | 41 |
-| `click-selects-edge` | **failed** | self-inconsistent, driving-divergence, unclaimed-difference | 386 |
+| `click-selects-edge` | **failed** | driving-divergence, unclaimed-difference | 385 |
 | `multi-select-edges-with-modifier` | **failed** | self-inconsistent, driving-divergence, unclaimed-difference | 479 |
 | `click-unselectable-edge` | **failed** | unclaimed-difference | 366 |
-| `delete-key-removes-edge` | **failed** | self-inconsistent, driving-divergence, unclaimed-difference | 386 |
-| `delete-key-spares-undeletable-edge` | **failed** | driving-divergence, unclaimed-difference | 383 |
+| `delete-key-removes-edge` | **failed** | self-inconsistent, driving-divergence, unclaimed-difference | 388 |
+| `delete-key-spares-undeletable-edge` | **failed** | self-inconsistent, driving-divergence, unclaimed-difference | 384 |
 | `click-inside-interaction-width` | **failed** | self-inconsistent, driving-divergence, unclaimed-difference | 375 |
-| `click-selects-node` | **failed** | unclaimed-difference | 300 |
+| `click-selects-node` | **failed** | self-inconsistent, unclaimed-difference | 301 |
 | `shift-drag-selects-nodes` | **failed** | self-inconsistent, unclaimed-difference | 254 |
 | `click-unselectable-node` | **failed** | self-inconsistent, unclaimed-difference | 310 |
 | `drag-moves-node` | **failed** | self-inconsistent, unclaimed-difference | 648 |
-| `drag-does-not-move-undraggable-node` | **failed** | unclaimed-difference | 231 |
-| `drag-by-custom-drag-handle` | **failed** | self-inconsistent, unclaimed-difference | 711 |
-| `delete-key-removes-node-and-edges` | **failed** | unclaimed-difference | 296 |
-| `delete-key-spares-undeletable-node` | **failed** | unclaimed-difference | 315 |
+| `drag-does-not-move-undraggable-node` | **failed** | self-inconsistent, unclaimed-difference | 232 |
+| `drag-by-custom-drag-handle` | **failed** | self-inconsistent, unclaimed-difference | 746 |
+| `delete-key-removes-node-and-edges` | **failed** | self-inconsistent, unclaimed-difference | 297 |
+| `delete-key-spares-undeletable-node` | **failed** | self-inconsistent, unclaimed-difference | 316 |
 | `connect-source-handle-to-target-handle` | **failed** | self-inconsistent, unclaimed-difference | 412 |
-| `connect-output-to-output-handle` | **failed** | unclaimed-difference | 335 |
+| `connect-output-to-output-handle` | **failed** | self-inconsistent, unclaimed-difference | 336 |
 | `connect-input-to-input-handle` | **failed** | self-inconsistent, unclaimed-difference | 370 |
-| `connect-to-unconnectable-handle` | **failed** | unclaimed-difference | 326 |
-| `drag-pans-the-pane` | **failed** | unclaimed-difference | 70 |
+| `connect-to-unconnectable-handle` | **failed** | self-inconsistent, unclaimed-difference | 327 |
+| `drag-pans-the-pane` | **failed** | self-inconsistent, unclaimed-difference | 71 |
 | `wheel-zooms-the-pane` | **failed** | self-inconsistent, unclaimed-difference | 72 |
 | `wheel-zooms-out-to-min` | **failed** | unclaimed-difference | 59 |
 | `wheel-zooms-in-to-max` | **failed** | unclaimed-difference | 59 |
 | `wheel-pans-with-panonscroll` | **failed** | unclaimed-difference | 60 |
-| `click-reveals-default-toolbar` | **failed** | unclaimed-difference | 320 |
+| `click-reveals-default-toolbar` | **failed** | self-inconsistent, unclaimed-difference | 321 |
 | `select-dark-color-mode` | **failed** | unclaimed-difference | 41 |
 
 Every trace behind this report is on disk under `parity/system/traces` — four per scenario, two sides captured
@@ -51,7 +51,7 @@ twice each. They are the artifact: re-diffing them costs seconds and no browser.
 
 # System parity run — mount-baseline--edges-general
 
-**Failed:** self-inconsistent, unclaimed-difference.
+**Failed:** unclaimed-difference.
 
 ## Self-consistency
 
@@ -63,17 +63,7 @@ between its own captures fails against itself.
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | **disagrees with itself** | 1 |
-
-### psflow disagrees with itself
-
-| path | kind | capture 1 | capture 2 |
-|---|---|---|---|
-| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2"] | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onSelectionChange#2","onMoveEnd#1","onViewportChange#2","onMoveEnd#2"] |
-
-**psflow did not reproduce.** The comparison below ran anyway —
-capture-everything applies to a failed run as much as to a passing one — but a difference it reports
-cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
+| psflow | 1, 2 | reproduced | 0 |
 
 ---
 
@@ -883,7 +873,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 # System parity run — mount-baseline--pane-general
 
-**Failed:** self-inconsistent, unclaimed-difference.
+**Failed:** unclaimed-difference.
 
 ## Self-consistency
 
@@ -895,17 +885,7 @@ between its own captures fails against itself.
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | **disagrees with itself** | 1 |
-
-### psflow disagrees with itself
-
-| path | kind | capture 1 | capture 2 |
-|---|---|---|---|
-| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2"] | ["onSelectionChange#1","onSelectionChange#2","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onViewportChange#2","onMoveEnd#2"] |
-
-**psflow did not reproduce.** The comparison below ran anyway —
-capture-everything applies to a failed run as much as to a passing one — but a difference it reports
-cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
+| psflow | 1, 2 | reproduced | 0 |
 
 ---
 
@@ -998,7 +978,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 # System parity run — mount-baseline--pane-non-defaults
 
-**Failed:** self-inconsistent, unclaimed-difference.
+**Failed:** unclaimed-difference.
 
 ## Self-consistency
 
@@ -1010,17 +990,7 @@ between its own captures fails against itself.
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | **disagrees with itself** | 1 |
-
-### psflow disagrees with itself
-
-| path | kind | capture 1 | capture 2 |
-|---|---|---|---|
-| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onSelectionChange#2"] | ["onSelectionChange#1","onSelectionChange#2","onNodesChange#1"] |
-
-**psflow did not reproduce.** The comparison below ran anyway —
-capture-everything applies to a failed run as much as to a passing one — but a difference it reports
-cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
+| psflow | 1, 2 | reproduced | 0 |
 
 ---
 
@@ -1171,7 +1141,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 # System parity run — click-selects-edge
 
-**Failed:** self-inconsistent, driving-divergence, unclaimed-difference.
+**Failed:** driving-divergence, unclaimed-difference.
 
 ## Self-consistency
 
@@ -1183,17 +1153,7 @@ between its own captures fails against itself.
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | **disagrees with itself** | 1 |
-
-### psflow disagrees with itself
-
-| path | kind | capture 1 | capture 2 |
-|---|---|---|---|
-| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEnter#1","onEd… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onSelectionChange#2","onMoveEnd#1","onViewportChange#2","onMoveEnd#2","onPaneMouseEnter#1","onEd… |
-
-**psflow did not reproduce.** The comparison below ran anyway —
-capture-everything applies to a failed run as much as to a passing one — but a difference it reports
-cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
+| psflow | 1, 2 | reproduced | 0 |
 
 ---
 
@@ -1414,8 +1374,8 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/6` | right only | — | {"name":"onMoveEnd","args":[null,{"x":546.2857142857142,"y":32,"zoom":0.9371428571428572}]} |
 | `callbacks/12` | right only | — | {"name":"onNodesChange","args":[[]]} |
 | `callbacks/14` | right only | — | {"name":"onViewportChange","args":[{"x":546.2857142857142,"y":32,"zoom":0.9371428571428572}]} |
-| `callbacks/15` | right only | — | {"name":"onSelectionChange","args":[{"nodes":[],"edges":[{"id":"edge-with-class","type":{"@undefined":true},"source":"1","target":"2","sourceHandle":{"@undefin… |
-| `callbacks/16` | right only | — | {"name":"onMoveEnd","args":[null,{"x":546.2857142857142,"y":32,"zoom":0.9371428571428572}]} |
+| `callbacks/15` | right only | — | {"name":"onMoveEnd","args":[null,{"x":546.2857142857142,"y":32,"zoom":0.9371428571428572}]} |
+| `callbacks/16` | right only | — | {"name":"onSelectionChange","args":[{"nodes":[],"edges":[{"id":"edge-with-class","type":{"@undefined":true},"source":"1","target":"2","sourceHandle":{"@undefin… |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onViewportChange#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMove#1","onEdgeMouseMove#1","… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onSelectionChange#2","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMove#1"… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -1641,7 +1601,7 @@ between its own captures fails against itself.
 
 | path | kind | capture 1 | capture 2 |
 |---|---|---|---|
-| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEnter#1","onEd… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onSelectionChange#2","onMoveEnd#1","onViewportChange#2","onMoveEnd#2","onPaneMouseEnter#1","onEd… |
+| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEnter#1","onEd… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEnter#1","onEd… |
 
 **psflow did not reproduce.** The comparison below ran anyway —
 capture-everything applies to a failed run as much as to a passing one — but a difference it reports
@@ -1873,7 +1833,7 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/6` | right only | — | {"name":"onMoveEnd","args":[null,{"x":546.2857142857142,"y":32,"zoom":0.9371428571428572}]} |
 | `callbacks/12` | right only | — | {"name":"onNodesChange","args":[[]]} |
 | `callbacks/14` | right only | — | {"name":"onViewportChange","args":[{"x":546.2857142857142,"y":32,"zoom":0.9371428571428572}]} |
-| `callbacks/16` | right only | — | {"name":"onMoveEnd","args":[null,{"x":546.2857142857142,"y":32,"zoom":0.9371428571428572}]} |
+| `callbacks/15` | right only | — | {"name":"onMoveEnd","args":[null,{"x":546.2857142857142,"y":32,"zoom":0.9371428571428572}]} |
 | `callbacks/23` | right only | — | {"name":"onViewportChange","args":[{"x":546.2857142857142,"y":32,"zoom":0.9371428571428572}]} |
 | `callbacks/24` | right only | — | {"name":"onMoveEnd","args":[null,{"x":546.2857142857142,"y":32,"zoom":0.9371428571428572}]} |
 | `callbacks/25` | right only | — | {"name":"onSelectionChange","args":[{"nodes":[],"edges":[{"id":"edge-with-class","type":{"@undefined":true},"source":"1","target":"2","sourceHandle":{"@undefin… |
@@ -2591,13 +2551,14 @@ between its own captures fails against itself.
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | **disagrees with itself** | 1 |
+| psflow | 1, 2 | **disagrees with itself** | 2 |
 
 ### psflow disagrees with itself
 
 | path | kind | capture 1 | capture 2 |
 |---|---|---|---|
-| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEnter#1","onEd… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onSelectionChange#2","onMoveEnd#1","onViewportChange#2","onMoveEnd#2","onPaneMouseEnter#1","onEd… |
+| `callbacks/19` | left only | {"name":"onMoveEnd","args":[null,{"x":546.2857142857142,"y":32,"zoom":0.9371428571428572}]} | — |
+| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEnter#1","onEd… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEnter#1","onEd… |
 
 **psflow did not reproduce.** The comparison below ran anyway —
 capture-everything applies to a failed run as much as to a passing one — but a difference it reports
@@ -2609,7 +2570,7 @@ cannot yet be attributed to either implementation. Fix the reproducibility, then
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
 
-**Failed:** 4 driving divergence(s), 381 unclaimed difference(s).
+**Failed:** 4 driving divergence(s), 382 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -2804,7 +2765,7 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (211) — consequence of the driving divergence
+### callbacks (212) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -2818,9 +2779,10 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/6` | right only | — | {"name":"onMoveEnd","args":[null,{"x":546.2857142857142,"y":32,"zoom":0.9371428571428572}]} |
 | `callbacks/12` | right only | — | {"name":"onNodesChange","args":[[]]} |
 | `callbacks/14` | right only | — | {"name":"onViewportChange","args":[{"x":546.2857142857142,"y":32,"zoom":0.9371428571428572}]} |
-| `callbacks/17` | right only | — | {"name":"onViewportChange","args":[{"x":546.2857142857142,"y":32,"zoom":0.9371428571428572}]} |
-| `callbacks/18` | right only | — | {"name":"onMoveEnd","args":[null,{"x":546.2857142857142,"y":32,"zoom":0.9371428571428572}]} |
-| `callbacks/19` | right only | — | {"name":"onSelectionChange","args":[{"nodes":[],"edges":[]}]} |
+| `callbacks/16` | right only | — | {"name":"onMoveEnd","args":[null,{"x":546.2857142857142,"y":32,"zoom":0.9371428571428572}]} |
+| `callbacks/18` | right only | — | {"name":"onViewportChange","args":[{"x":546.2857142857142,"y":32,"zoom":0.9371428571428572}]} |
+| `callbacks/19` | right only | — | {"name":"onMoveEnd","args":[null,{"x":546.2857142857142,"y":32,"zoom":0.9371428571428572}]} |
+| `callbacks/20` | right only | — | {"name":"onSelectionChange","args":[{"nodes":[],"edges":[]}]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onViewportChange#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMove#1","onEdgeMouseMove#1","… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onSelectionChange#2","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMove#1"… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -3031,7 +2993,7 @@ a real divergence is exactly what would be hiding down there.
 
 # System parity run — delete-key-spares-undeletable-edge
 
-**Failed:** driving-divergence, unclaimed-difference.
+**Failed:** self-inconsistent, driving-divergence, unclaimed-difference.
 
 ## Self-consistency
 
@@ -3043,7 +3005,17 @@ between its own captures fails against itself.
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | **disagrees with itself** | 1 |
+
+### psflow disagrees with itself
+
+| path | kind | capture 1 | capture 2 |
+|---|---|---|---|
+| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEnter#1","onEd… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onSelectionChange#2","onMoveEnd#1","onViewportChange#2","onMoveEnd#2","onPaneMouseEnter#1","onEd… |
+
+**psflow did not reproduce.** The comparison below ran anyway —
+capture-everything applies to a failed run as much as to a passing one — but a difference it reports
+cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
 ---
 
@@ -3265,8 +3237,8 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/6` | right only | — | {"name":"onMoveEnd","args":[null,{"x":546.2857142857142,"y":32,"zoom":0.9371428571428572}]} |
 | `callbacks/12` | right only | — | {"name":"onNodesChange","args":[[]]} |
 | `callbacks/14` | right only | — | {"name":"onViewportChange","args":[{"x":546.2857142857142,"y":32,"zoom":0.9371428571428572}]} |
-| `callbacks/15` | right only | — | {"name":"onMoveEnd","args":[null,{"x":546.2857142857142,"y":32,"zoom":0.9371428571428572}]} |
-| `callbacks/16` | right only | — | {"name":"onSelectionChange","args":[{"nodes":[],"edges":[{"id":"not-deletable","type":{"@undefined":true},"source":"5","target":"7","sourceHandle":{"@undefined… |
+| `callbacks/15` | right only | — | {"name":"onSelectionChange","args":[{"nodes":[],"edges":[{"id":"not-deletable","type":{"@undefined":true},"source":"5","target":"7","sourceHandle":{"@undefined… |
+| `callbacks/16` | right only | — | {"name":"onMoveEnd","args":[null,{"x":546.2857142857142,"y":32,"zoom":0.9371428571428572}]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onViewportChange#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMove#1","onEdgeMouseMove#1","… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onSelectionChange#2","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMove#1"… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -3489,7 +3461,7 @@ between its own captures fails against itself.
 
 | path | kind | capture 1 | capture 2 |
 |---|---|---|---|
-| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEnter#1","onEd… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEnter#1","onEd… |
+| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEnter#1","onEd… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onSelectionChange#2","onMoveEnd#1","onViewportChange#2","onMoveEnd#2","onPaneMouseEnter#1","onEd… |
 
 **psflow did not reproduce.** The comparison below ran anyway —
 capture-everything applies to a failed run as much as to a passing one — but a difference it reports
@@ -3912,7 +3884,7 @@ a real divergence is exactly what would be hiding down there.
 
 # System parity run — click-selects-node
 
-**Failed:** unclaimed-difference.
+**Failed:** self-inconsistent, unclaimed-difference.
 
 ## Self-consistency
 
@@ -3924,7 +3896,17 @@ between its own captures fails against itself.
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | **disagrees with itself** | 1 |
+
+### psflow disagrees with itself
+
+| path | kind | capture 1 | capture 2 |
+|---|---|---|---|
+| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEn… | ["onSelectionChange#1","onSelectionChange#2","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onViewportChange#2","onMoveEnd#2","onPaneMouseEn… |
+
+**psflow did not reproduce.** The comparison below ran anyway —
+capture-everything applies to a failed run as much as to a passing one — but a difference it reports
+cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
 ---
 
@@ -4275,7 +4257,7 @@ between its own captures fails against itself.
 
 | path | kind | capture 1 | capture 2 |
 |---|---|---|---|
-| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onNodesChange… | ["onSelectionChange#1","onSelectionChange#2","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onViewportChange#2","onMoveEnd#2","onNodesChange… |
+| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onNodesChange… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onNodesChange… |
 
 **psflow did not reproduce.** The comparison below ran anyway —
 capture-everything applies to a failed run as much as to a passing one — but a difference it reports
@@ -4374,7 +4356,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 | `callbacks/11` | right only | — | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"position":{"@undefined":… |
 | `callbacks/12` | right only | — | {"name":"onEdgesChange","args":[[{"item":{"@undefined":true},"index":{"@undefined":true},"type":"select","id":"1-2","selected":true},{"item":{"@undefined":true… |
 | `callbacks/13` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
-| `callbacks/14` | right only | — | {"name":"onViewportChange","args":[{"x":537.0172684458398,"y":32,"zoom":1.0298273155416013}]} |
+| `callbacks/15` | right only | — | {"name":"onViewportChange","args":[{"x":537.0172684458398,"y":32,"zoom":1.0298273155416013}]} |
 | `callbacks/17` | right only | — | {"name":"onMoveEnd","args":[null,{"x":537.0172684458398,"y":32,"zoom":1.0298273155416013}]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onViewportChange#1","onNodesChange#1","onMoveEnd#1","onSelectionStart#1","onNodesChange#2","onEdgesChange#1","onSelectionChange#2","onS… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onSelectionChange#2","onNodesChange#2","onEdgesChange#1","onSelectionStart#1","onS… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
@@ -5631,7 +5613,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 # System parity run — drag-does-not-move-undraggable-node
 
-**Failed:** unclaimed-difference.
+**Failed:** self-inconsistent, unclaimed-difference.
 
 ## Self-consistency
 
@@ -5643,7 +5625,17 @@ between its own captures fails against itself.
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | **disagrees with itself** | 1 |
+
+### psflow disagrees with itself
+
+| path | kind | capture 1 | capture 2 |
+|---|---|---|---|
+| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEn… | ["onSelectionChange#1","onSelectionChange#2","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onViewportChange#2","onMoveEnd#2","onPaneMouseEn… |
+
+**psflow did not reproduce.** The comparison below ran anyway —
+capture-everything applies to a failed run as much as to a passing one — but a difference it reports
+cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
 ---
 
@@ -5919,13 +5911,45 @@ between its own captures fails against itself.
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | **disagrees with itself** | 1 |
+| psflow | 1, 2 | **disagrees with itself** | 33 |
 
 ### psflow disagrees with itself
 
 | path | kind | capture 1 | capture 2 |
 |---|---|---|---|
-| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEn… | ["onSelectionChange#1","onSelectionChange#2","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onViewportChange#2","onMoveEnd#2","onPaneMouseEn… |
+| `callbacks/37` | left only | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… | — |
+| `callbacks/72` | left only | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… | — |
+| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEn… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEn… |
+| `callbacks/33/args/0/screenX` | differs | 794.47412109375 | 834.47412109375 |
+| `callbacks/33/args/0/screenY` | differs | 57.74568557739258 | 97.74568176269531 |
+| `callbacks/33/args/0/clientX` | differs | 794.47412109375 | 834.47412109375 |
+| `callbacks/33/args/0/clientY` | differs | 57.74568557739258 | 97.74568176269531 |
+| `callbacks/33/args/0/pageX` | differs | 794.47412109375 | 834.47412109375 |
+| `callbacks/33/args/0/pageY` | differs | 57.74568557739258 | 97.74568176269531 |
+| `callbacks/34/args/0/screenX` | differs | 794 | 994 |
+| `callbacks/34/args/0/screenY` | differs | 57 | 257 |
+| `callbacks/34/args/0/clientX` | differs | 794 | 994 |
+| `callbacks/34/args/0/clientY` | differs | 57 | 257 |
+| `callbacks/34/args/0/pageX` | differs | 794 | 994 |
+| `callbacks/34/args/0/pageY` | differs | 57 | 257 |
+| `callbacks/34/args/0/buttons` | differs | 1 | 0 |
+| `callbacks/34/args/0/relatedTarget/@ref` | differs | Window | DIV |
+| `callbacks/34/args/1/position/x` | differs | 200 | 462.1798780487805 |
+| `callbacks/34/args/1/position/y` | differs | 0 | 194.2073170731707 |
+| `callbacks/34/args/1/dragging` | differs | false | true |
+| `callbacks/45/args/0/0/position/x` | differs | 297.1036585365854 | 277.6829268292683 |
+| `callbacks/45/args/0/0/positionAbsolute/x` | differs | 297.1036585365854 | 277.6829268292683 |
+| `callbacks/46/args/1/position/x` | differs | 297.1036585365854 | 277.6829268292683 |
+| `callbacks/46/args/2/0/position/x` | differs | 297.1036585365854 | 277.6829268292683 |
+| `callbacks/51/args/0/x` | differs | 487.0172684458398 | 497.0172684458398 |
+| `callbacks/53/args/1/x` | differs | 487.0172684458398 | 497.0172684458398 |
+| `callbacks/55/args/0/0/position/x` | differs | 403.9176829268293 | 394.2073170731707 |
+| `callbacks/55/args/0/0/positionAbsolute/x` | differs | 403.9176829268293 | 394.2073170731707 |
+| `callbacks/56/args/1/position/x` | differs | 403.9176829268293 | 394.2073170731707 |
+| `callbacks/56/args/2/0/position/x` | differs | 403.9176829268293 | 394.2073170731707 |
+| `callbacks/63/args/0/x` | differs | 432.0172684458399 | 437.0172684458398 |
+| `callbacks/65/args/1/x` | differs | 432.0172684458399 | 437.0172684458398 |
+| `callbacks/66/args/0/relatedTarget/@ref` | differs | DIV | Window |
 
 **psflow did not reproduce.** The comparison below ran anyway —
 capture-everything applies to a failed run as much as to a passing one — but a difference it reports
@@ -5937,7 +5961,7 @@ cannot yet be attributed to either implementation. Fix the reproducibility, then
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
 
-**Failed:** 710 unclaimed difference(s).
+**Failed:** 713 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -6012,7 +6036,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (644)
+### callbacks (647)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -6032,18 +6056,18 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 | `callbacks/35` | right only | — | {"name":"onViewportChange","args":[{"x":537.0172684458398,"y":32,"zoom":1.0298273155416013}]} |
 | `callbacks/36` | right only | — | {"name":"onMoveEnd","args":[null,{"x":537.0172684458398,"y":32,"zoom":1.0298273155416013}]} |
 | `callbacks/41` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
-| `callbacks/45` | right only | — | {"name":"onViewportChange","args":[{"x":517.0172684458398,"y":32,"zoom":1.0298273155416013}]} |
-| `callbacks/46` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
-| `callbacks/47` | right only | — | {"name":"onMoveEnd","args":[null,{"x":517.0172684458398,"y":32,"zoom":1.0298273155416013}]} |
-| `callbacks/51` | right only | — | {"name":"onViewportChange","args":[{"x":497.0172684458398,"y":32,"zoom":1.0298273155416013}]} |
+| `callbacks/42` | right only | — | {"name":"onViewportChange","args":[{"x":517.0172684458398,"y":32,"zoom":1.0298273155416013}]} |
+| `callbacks/43` | right only | — | {"name":"onMoveEnd","args":[null,{"x":517.0172684458398,"y":32,"zoom":1.0298273155416013}]} |
+| `callbacks/47` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
+| `callbacks/51` | right only | — | {"name":"onViewportChange","args":[{"x":487.0172684458398,"y":32,"zoom":1.0298273155416013}]} |
 | `callbacks/52` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
-| `callbacks/53` | right only | — | {"name":"onMoveEnd","args":[null,{"x":497.0172684458398,"y":32,"zoom":1.0298273155416013}]} |
+| `callbacks/53` | right only | — | {"name":"onMoveEnd","args":[null,{"x":487.0172684458398,"y":32,"zoom":1.0298273155416013}]} |
 | `callbacks/57` | right only | — | {"name":"onViewportChange","args":[{"x":467.0172684458398,"y":32,"zoom":1.0298273155416013}]} |
 | `callbacks/58` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
 | `callbacks/59` | right only | — | {"name":"onMoveEnd","args":[null,{"x":467.0172684458398,"y":32,"zoom":1.0298273155416013}]} |
-| `callbacks/63` | right only | — | {"name":"onViewportChange","args":[{"x":437.0172684458398,"y":32,"zoom":1.0298273155416013}]} |
+| `callbacks/63` | right only | — | {"name":"onViewportChange","args":[{"x":432.0172684458399,"y":32,"zoom":1.0298273155416013}]} |
 | `callbacks/64` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
-| `callbacks/65` | right only | — | {"name":"onMoveEnd","args":[null,{"x":437.0172684458398,"y":32,"zoom":1.0298273155416013}]} |
+| `callbacks/65` | right only | — | {"name":"onMoveEnd","args":[null,{"x":432.0172684458399,"y":32,"zoom":1.0298273155416013}]} |
 | `callbacks/66` | right only | — | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… |
 | `callbacks/67` | right only | — | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… |
 | `callbacks/69` | right only | — | {"name":"onViewportChange","args":[{"x":402.0172684458399,"y":32,"zoom":1.0298273155416013}]} |
@@ -6386,6 +6410,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 | `callbacks/29/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/29/args/0/0/index` | right only | — | {"@undefined":true} |
 | `callbacks/29/args/0/0/positionAbsolute` | right only | — | {"x":238.84146341463418,"y":38.84146341463414} |
+| `callbacks/30/args/1/position/x` | differs | 277.6829268292683 | 297.1036585365854 |
 | `callbacks/30/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/30/args/1/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/30/args/1/hidden` | right only | — | false |
@@ -6406,6 +6431,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 | `callbacks/30/args/1/handles` | right only | — | {"@undefined":true} |
 | `callbacks/30/args/1/className` | right only | — | {"@undefined":true} |
 | `callbacks/30/args/1/style` | right only | — | {"@undefined":true} |
+| `callbacks/30/args/2/0/position/x` | differs | 277.6829268292683 | 297.1036585365854 |
 | `callbacks/30/args/2/0/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/30/args/2/0/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/30/args/2/0/hidden` | right only | — | false |
@@ -6426,7 +6452,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 | `callbacks/30/args/2/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/30/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/30/args/2/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/32/args/0/0/position/x` | differs | 316.5243902439024 | 277.6829268292683 |
+| `callbacks/32/args/0/0/position/x` | differs | 316.5243902439024 | 297.1036585365854 |
 | `callbacks/32/args/0/0/position/y` | differs | 116.52439024390242 | 77.6829268292683 |
 | `callbacks/32/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/32/args/0/0/resizing` | right only | — | {"@undefined":true} |
@@ -6434,7 +6460,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 | `callbacks/32/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/32/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/32/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/32/args/0/0/positionAbsolute` | right only | — | {"x":277.6829268292683,"y":77.6829268292683} |
+| `callbacks/32/args/0/0/positionAbsolute` | right only | — | {"x":297.1036585365854,"y":77.6829268292683} |
 | `callbacks/33/args/1/position/x` | differs | 316.5243902439024 | 335.9451219512195 |
 | `callbacks/33/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/33/args/1/targetPosition` | right only | — | {"@undefined":true} |
@@ -6486,7 +6512,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 | `callbacks/35/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/35/args/0/0/index` | right only | — | {"@undefined":true} |
 | `callbacks/35/args/0/0/positionAbsolute` | right only | — | {"x":335.9451219512195,"y":116.52439024390242} |
-| `callbacks/36/args/1/position/x` | differs | 355.3658536585366 | 394.2073170731707 |
+| `callbacks/36/args/1/position/x` | differs | 355.3658536585366 | 403.9176829268293 |
 | `callbacks/36/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/36/args/1/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/36/args/1/hidden` | right only | — | false |
@@ -6507,7 +6533,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 | `callbacks/36/args/1/handles` | right only | — | {"@undefined":true} |
 | `callbacks/36/args/1/className` | right only | — | {"@undefined":true} |
 | `callbacks/36/args/1/style` | right only | — | {"@undefined":true} |
-| `callbacks/36/args/2/0/position/x` | differs | 355.3658536585366 | 394.2073170731707 |
+| `callbacks/36/args/2/0/position/x` | differs | 355.3658536585366 | 403.9176829268293 |
 | `callbacks/36/args/2/0/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/36/args/2/0/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/36/args/2/0/hidden` | right only | — | false |
@@ -6528,6 +6554,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 | `callbacks/36/args/2/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/36/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/36/args/2/0/style` | right only | — | {"@undefined":true} |
+| `callbacks/38/args/0/0/position/x` | differs | 394.2073170731707 | 403.9176829268293 |
 | `callbacks/38/args/0/0/position/y` | differs | 194.2073170731707 | 155.36585365853657 |
 | `callbacks/38/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/38/args/0/0/resizing` | right only | — | {"@undefined":true} |
@@ -6535,7 +6562,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 | `callbacks/38/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/38/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/38/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/38/args/0/0/positionAbsolute` | right only | — | {"x":394.2073170731707,"y":155.36585365853657} |
+| `callbacks/38/args/0/0/positionAbsolute` | right only | — | {"x":403.9176829268293,"y":155.36585365853657} |
 | `callbacks/39/args/1/position/x` | differs | 394.2073170731707 | 462.1798780487805 |
 | `callbacks/39/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/39/args/1/targetPosition` | right only | — | {"@undefined":true} |
@@ -6672,7 +6699,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 # System parity run — delete-key-removes-node-and-edges
 
-**Failed:** unclaimed-difference.
+**Failed:** self-inconsistent, unclaimed-difference.
 
 ## Self-consistency
 
@@ -6684,7 +6711,17 @@ between its own captures fails against itself.
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | **disagrees with itself** | 1 |
+
+### psflow disagrees with itself
+
+| path | kind | capture 1 | capture 2 |
+|---|---|---|---|
+| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEn… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEn… |
+
+**psflow did not reproduce.** The comparison below ran anyway —
+capture-everything applies to a failed run as much as to a passing one — but a difference it reports
+cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
 ---
 
@@ -7013,7 +7050,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 # System parity run — delete-key-spares-undeletable-node
 
-**Failed:** unclaimed-difference.
+**Failed:** self-inconsistent, unclaimed-difference.
 
 ## Self-consistency
 
@@ -7025,7 +7062,17 @@ between its own captures fails against itself.
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | **disagrees with itself** | 1 |
+
+### psflow disagrees with itself
+
+| path | kind | capture 1 | capture 2 |
+|---|---|---|---|
+| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEn… | ["onSelectionChange#1","onSelectionChange#2","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onViewportChange#2","onMoveEnd#2","onPaneMouseEn… |
+
+**psflow did not reproduce.** The comparison below ran anyway —
+capture-everything applies to a failed run as much as to a passing one — but a difference it reports
+cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
 ---
 
@@ -7839,7 +7886,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 # System parity run — connect-output-to-output-handle
 
-**Failed:** unclaimed-difference.
+**Failed:** self-inconsistent, unclaimed-difference.
 
 ## Self-consistency
 
@@ -7851,7 +7898,17 @@ between its own captures fails against itself.
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | **disagrees with itself** | 1 |
+
+### psflow disagrees with itself
+
+| path | kind | capture 1 | capture 2 |
+|---|---|---|---|
+| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEn… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onSelectionChange#2","onMoveEnd#1","onError#1","onViewportChange#2","onMoveEnd#2","onPaneMouseEn… |
+
+**psflow did not reproduce.** The comparison below ran anyway —
+capture-everything applies to a failed run as much as to a passing one — but a difference it reports
+cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
 ---
 
@@ -8643,7 +8700,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 # System parity run — connect-to-unconnectable-handle
 
-**Failed:** unclaimed-difference.
+**Failed:** self-inconsistent, unclaimed-difference.
 
 ## Self-consistency
 
@@ -8655,7 +8712,17 @@ between its own captures fails against itself.
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | **disagrees with itself** | 1 |
+
+### psflow disagrees with itself
+
+| path | kind | capture 1 | capture 2 |
+|---|---|---|---|
+| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEn… | ["onSelectionChange#1","onSelectionChange#2","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onViewportChange#2","onMoveEnd#2","onPaneMouseEn… |
+
+**psflow did not reproduce.** The comparison below ran anyway —
+capture-everything applies to a failed run as much as to a passing one — but a difference it reports
+cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
 ---
 
@@ -9014,7 +9081,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 # System parity run — drag-pans-the-pane
 
-**Failed:** unclaimed-difference.
+**Failed:** self-inconsistent, unclaimed-difference.
 
 ## Self-consistency
 
@@ -9026,7 +9093,17 @@ between its own captures fails against itself.
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | **disagrees with itself** | 1 |
+
+### psflow disagrees with itself
+
+| path | kind | capture 1 | capture 2 |
+|---|---|---|---|
+| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEnter#1","onPa… | ["onSelectionChange#1","onSelectionChange#2","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onViewportChange#2","onMoveEnd#2","onPaneMouseEnter#1","onPa… |
+
+**psflow did not reproduce.** The comparison below ran anyway —
+capture-everything applies to a failed run as much as to a passing one — but a difference it reports
+cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
 ---
 
@@ -9568,7 +9645,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 # System parity run — click-reveals-default-toolbar
 
-**Failed:** unclaimed-difference.
+**Failed:** self-inconsistent, unclaimed-difference.
 
 ## Self-consistency
 
@@ -9580,7 +9657,17 @@ between its own captures fails against itself.
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | **disagrees with itself** | 1 |
+
+### psflow disagrees with itself
+
+| path | kind | capture 1 | capture 2 |
+|---|---|---|---|
+| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEn… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onSelectionChange#2","onMoveEnd#1","onError#1","onViewportChange#2","onMoveEnd#2","onPaneMouseEn… |
+
+**psflow did not reproduce.** The comparison below ran anyway —
+capture-everything applies to a failed run as much as to a passing one — but a difference it reports
+cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
 ---
 
@@ -9727,9 +9814,9 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 | `callbacks/15` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
 | `callbacks/16` | right only | — | {"name":"onSelectionChange","args":[{"nodes":[{"id":"default-node","position":{"x":0,"y":-200},"data":{"label":"toolbar top","toolbarPosition":"top"},"type":"T… |
 | `callbacks/17` | right only | — | {"name":"onViewportChange","args":[{"x":58,"y":339.49142857142857,"zoom":1.1085714285714285}]} |
-| `callbacks/18` | right only | — | {"name":"onPaneMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onPointerEnter","_targetInst":{"@ref":"React fiber"},"type":"pointerenter","nat… |
-| `callbacks/19` | right only | — | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… |
-| `callbacks/20` | right only | — | {"name":"onMoveEnd","args":[null,{"x":58,"y":339.49142857142857,"zoom":1.1085714285714285}]} |
+| `callbacks/18` | right only | — | {"name":"onMoveEnd","args":[null,{"x":58,"y":339.49142857142857,"zoom":1.1085714285714285}]} |
+| `callbacks/19` | right only | — | {"name":"onPaneMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onPointerEnter","_targetInst":{"@ref":"React fiber"},"type":"pointerenter","nat… |
+| `callbacks/20` | right only | — | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onViewportChange#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onSelectionChange#2","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1"… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |

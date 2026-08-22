@@ -103,9 +103,9 @@ gets inserted into and trimmed from.
 **Gestures — open by addition.** `click`, `dragNode`, `selectionBox`, `connect`,
 `pan`, `pinch`, `arrowKeyNudge`, each a pure composition of primitives. Adding
 one is a reviewable act, not a scenario detail. `click` arrived with the
-conformance seed, which is largely made of them: Playwright's own
-`locator.click()` is a press and a release with no move between, and twelve
-lifted specs open with one.
+conformance seed: Playwright's own `locator.click()` is a press and a release
+with no move between, and eleven of the seed's twenty-five scenarios reach for
+one.
 
 Scenarios reach for the gesture tier by default and drop to primitives only when
 the scenario is *about* an unusual input sequence — a gesture interrupted

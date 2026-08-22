@@ -52,7 +52,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, posix, relative, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { RegistryError, collectComponents, collectFixtures, directComponents, fixtureRoots } from "../driver/registry.mjs";
+import { RegistryError, routeSpace } from "../driver/registry.mjs";
 import { SIDES } from "../driver/sides.mjs";
 import { WeakeningError } from "./compare/callbacks.mjs";
 import { ConsistencyError } from "./compare/consistency.mjs";
@@ -207,7 +207,8 @@ const workFor = (compareOnly) => {
     );
   }
 
-  const corpus = buildCorpus(collectFixtures(fixtureRoots(repoRoot)), collectComponents(directComponents(repoRoot)));
+  const { fixtures, components } = routeSpace(repoRoot);
+  const corpus = buildCorpus(fixtures, components);
   return { scenarios: corpus, corpus, baseline: readJson(vendored).version };
 };
 
@@ -256,7 +257,7 @@ const main = async () => {
     // traces against a corpus whose relation to upstream is in question
     // produces an artifact that has to be thrown away the moment the question
     // is answered, and re-affirming is a decision rather than a repair.
-    const { outcomes } = checkFork();
+    const { outcomes } = checkFork({ corpus });
     console.log(reportFork(outcomes));
     if (!outcomes.ok) return 1;
 

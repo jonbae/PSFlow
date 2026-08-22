@@ -631,15 +631,6 @@
         ]
       },
       {
-        "name": "onSelectionChange",
-        "args": [
-          {
-            "nodes": [],
-            "edges": []
-          }
-        ]
-      },
-      {
         "name": "onNodesChange",
         "args": [
           [
@@ -927,6 +918,15 @@
         ]
       },
       {
+        "name": "onSelectionChange",
+        "args": [
+          {
+            "nodes": [],
+            "edges": []
+          }
+        ]
+      },
+      {
         "name": "onViewportChange",
         "args": [
           {
@@ -980,7 +980,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 240.70000004768372,
+            "timeStamp": 226.20000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1152,16 +1152,6 @@
         "args": [
           "002",
           "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
-        ]
-      },
-      {
-        "name": "onViewportChange",
-        "args": [
-          {
-            "x": 537.0172684458398,
-            "y": 32,
-            "zoom": 1.0298273155416013
-          }
         ]
       },
       {
@@ -1504,7 +1494,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 268.5,
+            "timeStamp": 246.70000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1545,6 +1535,16 @@
             "isPropagationStopped": {
               "@ref": "function"
             }
+          }
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 537.0172684458398,
+            "y": 32,
+            "zoom": 1.0298273155416013
           }
         ]
       },

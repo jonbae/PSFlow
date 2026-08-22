@@ -73,9 +73,9 @@ _Avoid_: unsupported prop, unimplemented prop, TODO prop
 Something that goes red. There are five, and each is named for what its red
 means. Never numbered — see *Layer* below. Other things in this repo also go
 red without being one of the five: `parity:boundary`, `parity:changelog`,
-`test:surface`, `test:compare`, `test:harness`, `test:harness:live`,
-`test:census`, `test:ci`, `test:node-props`, and the **unit tests**. Each entry
-below says where it sits.
+`parity:fork`, `test:surface`, `test:compare`, `test:harness`,
+`test:harness:live`, `test:census`, `test:ci`, `test:node-props`, and the
+**unit tests**. Each entry below says where it sits.
 _Avoid_: layer, check, suite (when a gate is meant)
 
 **The four cheap gates**:
@@ -92,9 +92,12 @@ neither side is a hand-authored reading of xyflow: **surface parity**,
 **function parity**, **system parity**. That is what the word `parity` marks in
 a gate name, and it is the sense the common noun *oracle* used to carry. The
 script *prefix* is looser than the term: `parity:boundary` is a staleness check
-over `src/Boundary/` and `parity:changelog` measures what a baseline bump costs,
-and neither is a parity gate. Renaming them was ruled out of scope; read the
-prefix as "lives under `parity/`".
+over `src/Boundary/`, `parity:changelog` measures what a baseline bump costs,
+and `parity:fork` reads the **fork register** — none of the three is a parity
+gate. Renaming them was ruled out of scope; read the prefix as "lives under
+`parity/`". `parity:fork` differs from the other two in one way worth knowing:
+it is also **system parity**'s first step, so it can turn a gate red as well as
+go red on its own.
 
 **The delete-`xyflow/` test**:
 What decides membership of the parity gates. Delete the vendored checkout from
@@ -359,12 +362,12 @@ beside the derived **mount-only baselines**; the others are the test-debt
 scenarios and the hole-closing scenarios after them. Say *the seed* only where
 the corpus is already in view.
 _Avoid_: the ported tests, the conformance suite (which is a **gate**, and drives
-ps-flow alone), the baseline
+PSFlow alone), the baseline
 
 **Lifted**:
 Of a scenario: transcribed from an upstream spec as a **one-time fork**, never a
 mirror. Drift between the spec and the scenario is legitimate — the spec asserts
-upstream's expectations against ps-flow alone, while the scenario drives both
+upstream's expectations against PSFlow alone, while the scenario drives both
 sides and asserts nothing — so a changed spec asks for the scenario to be
 **re-affirmed** and never re-synced. Silent drift is not legitimate, which is
 what the **fork register** exists to prevent.

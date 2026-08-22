@@ -980,7 +980,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 442.7999999523163,
+            "timeStamp": 377.7000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1152,6 +1152,71 @@
         "args": [
           "002",
           "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
+        ]
+      },
+      {
+        "name": "onSelectionEnd",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerUp",
+            "_targetInst": null,
+            "type": "pointerup",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 395.59999990463257,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 812.0172729492188,
+            "screenY": 232,
+            "clientX": 812.0172729492188,
+            "clientY": 232,
+            "pageX": 812.0172729492188,
+            "pageY": 232,
+            "ctrlKey": false,
+            "shiftKey": true,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": null,
+            "movementX": 0,
+            "movementY": 0,
+            "pointerId": 1,
+            "width": 1,
+            "height": 1,
+            "pressure": 0,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "mouse",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
         ]
       },
       {
@@ -1480,71 +1545,6 @@
                 }
               }
             ]
-          }
-        ]
-      },
-      {
-        "name": "onSelectionEnd",
-        "args": [
-          {
-            "@class": "SyntheticBaseEvent",
-            "_reactName": "onPointerUp",
-            "_targetInst": null,
-            "type": "pointerup",
-            "nativeEvent": {
-              "@class": "PointerEvent",
-              "isTrusted": true
-            },
-            "target": {
-              "@ref": "DIV"
-            },
-            "currentTarget": {
-              "@ref": "DIV"
-            },
-            "eventPhase": 3,
-            "bubbles": true,
-            "cancelable": true,
-            "timeStamp": 473.2999999523163,
-            "defaultPrevented": false,
-            "isTrusted": true,
-            "view": {
-              "@ref": "Window"
-            },
-            "detail": 0,
-            "screenX": 812.0172729492188,
-            "screenY": 232,
-            "clientX": 812.0172729492188,
-            "clientY": 232,
-            "pageX": 812.0172729492188,
-            "pageY": 232,
-            "ctrlKey": false,
-            "shiftKey": true,
-            "altKey": false,
-            "metaKey": false,
-            "getModifierState": {
-              "@ref": "function"
-            },
-            "button": 0,
-            "buttons": 0,
-            "relatedTarget": null,
-            "movementX": 0,
-            "movementY": 0,
-            "pointerId": 1,
-            "width": 1,
-            "height": 1,
-            "pressure": 0,
-            "tangentialPressure": 0,
-            "tiltX": 0,
-            "tiltY": 0,
-            "twist": 0,
-            "pointerType": "mouse",
-            "isPrimary": true,
-            "isDefaultPrevented": {
-              "@ref": "function"
-            },
-            "isPropagationStopped": {
-              "@ref": "function"
-            }
           }
         ]
       },

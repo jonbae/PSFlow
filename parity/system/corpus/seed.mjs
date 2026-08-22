@@ -42,7 +42,7 @@
 // an element that still does not resolve is **recorded and driven past** rather
 // than thrown.
 //
-// Ids avoid the thirty `reserved.mjs` holds for #59's scenarios, and say what
+// Ids avoid the thirty `reserved.mjs` holds for #60's scenarios, and say what
 // the lifted spec was about rather than which fixture they run against — the
 // route beside each already says that.
 
@@ -304,7 +304,7 @@ const seed = [
   },
 ];
 
-// The seed may not take a name #59's scenarios have already been promised. See
+// The seed may not take a name #60's scenarios have already been promised. See
 // `reserved.mjs`: several of these transcriptions land close enough to a
 // reserved scenario that the collision would be easy to make and invisible
 // afterwards, since `gate-pending` only ever asks whether the *name* is in the
@@ -312,10 +312,10 @@ const seed = [
 const claimed = seed.filter(({ id }) => id in RESERVED);
 if (claimed.length) {
   throw new CorpusError(
-    `the conformance seed claims ${claimed.length} scenario id(s) reserved for the test-debt scenarios (#59):\n` +
+    `the conformance seed claims ${claimed.length} scenario id(s) reserved for the test-debt scenarios (#60):\n` +
       claimed.map(({ id }) => `  ${id} (was ${RESERVED[id]})`).join("\n") +
       `\nThe pending gate cites those by name and would be satisfied by a scenario written for something ` +
-      `else. Rename the seed scenario; #59 decides whether one of these already covers the row.`
+      `else. Rename the seed scenario; #60 decides whether one of these already covers the row.`
   );
 }
 

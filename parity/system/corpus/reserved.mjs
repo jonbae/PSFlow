@@ -2,7 +2,7 @@
 //
 // `tickets/081-interaction-corpus.md` renamed the test-debt ticket's `S1`–`S30`
 // to semantic ids and published the table. Those thirty scenarios are the
-// corpus's second source and land with the behavioural coverage work (#59);
+// corpus's second source and land with the behavioural coverage work (#60);
 // until then the names are spoken for, and `gate-pending` will cite them by
 // name — it fails when the scenario it names is absent from the corpus.
 //
@@ -12,7 +12,7 @@
 // `connect-handle-to-handle`. A seed scenario that took one of those names
 // would satisfy the pending gate with a scenario written for a different
 // purpose, and the row the name was reserved for would count as driven while
-// nothing drove it. So the seed refuses the name and #59 decides, when it gets
+// nothing drove it. So the seed refuses the name and #60 decides, when it gets
 // there, whether a seed scenario already covers the row or a new one is needed.
 //
 // The `S`-numbers stay as a cross-reference, because

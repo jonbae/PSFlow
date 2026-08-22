@@ -27,7 +27,8 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { collectComponents, collectFixtures, directComponents, fixtureRoots } from "../driver/registry.mjs";
+import { collectFixtures, collectComponents, directComponents, fixtureRoots, routeSpace } from "../driver/registry.mjs";
+import { posix, relative, sep } from "node:path";
 import { buildCorpus } from "./corpus/index.mjs";
 import {
   ForkError,
@@ -46,20 +47,47 @@ export const FORK_REGISTER = join(here, "corpus", "fork.json");
 
 const readJson = (path) => JSON.parse(readFileSync(path, "utf8"));
 
+const repoRelative = (file) => relative(repoRoot, file).split(sep).join(posix.sep);
+
 /**
- * Reads the register against the vendored specs and the corpus.
+ * The upstream source the seed reads an assumption out of, hashed whole:
+ * every **vendored** fixture, and every **example driver**.
+ *
+ * Derived from the driver's own two registries rather than listed, the same way
+ * the mount-only baselines are — a fixture a bump adds then arrives as an
+ * *unregistered* unit and asks to be decided about, instead of joining the page
+ * silently. ps-flow's own fixture root is left out on purpose: the register is
+ * about drift under a baseline bump, and this repo's own files do not drift
+ * under one.
+ */
+export const dependedSources = (components = collectComponents(directComponents(repoRoot))) => {
+  // Only the vendored root. `routeSpace` merges both, and ps-flow's own
+  // fixtures have no business in a register about drift under a baseline bump.
+  const [vendored] = fixtureRoots(repoRoot);
+
+  return [
+    ...collectFixtures([vendored]).map(({ file }) => repoRelative(file)),
+    ...components.filter(({ kind }) => kind === "example-driver").map(({ file }) => repoRelative(file)),
+  ];
+};
+
+/**
+ * Reads the register against the vendored source and the corpus.
  *
  * Exported so `net.mjs` runs the same check this command does, rather than a
- * second reading of the same files that could drift from it.
+ * second reading of the same files that could drift from it — and takes the
+ * `corpus` it has already built, since assembling it twice in one run would be
+ * two answers where the gate needs one.
  */
-export const checkFork = () => {
+export const checkFork = ({ corpus } = {}) => {
   const register = readJson(FORK_REGISTER);
-  const corpus = buildCorpus(collectFixtures(fixtureRoots(repoRoot)), collectComponents(directComponents(repoRoot)));
+  const { fixtures, components } = routeSpace(repoRoot);
+  const scenarios = corpus ?? buildCorpus(fixtures, components);
 
   return {
     register,
-    outcomes: forkOutcomes(register.forked, readUnits(repoRoot), {
-      scenarioIds: corpus.map((s) => s.id),
+    outcomes: forkOutcomes(register.forked, readUnits(repoRoot, { sources: dependedSources(components) }), {
+      scenarioIds: scenarios.map((s) => s.id),
       seedIds: seedScenarios.map((s) => s.id),
     }),
   };

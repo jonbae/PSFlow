@@ -22,13 +22,15 @@ npm run test:harness   # this directory's unit tests, among the harness's own
 npm run parity:system  # the gate: build, capture the corpus, persist, diff
 ```
 
-`tickets/081-interaction-corpus.md` names four sources. Two exist: the derived
-baselines and the seed. The test-debt scenarios ([#59]) and the hole-closing
-scenarios after them are the other two.
+`tickets/081-interaction-corpus.md` names four sources, and the first is here:
+the **conformance seed**, and with it the derived **mount-only baselines** —
+one per fixture is the general rule the seed's transcription leans on. The other
+three are the thirty test-debt scenarios ([#60]), the retirement debt ([#61])
+and the hole-closing scenarios after them.
 
 ---
 
-## Source 1 — the mount-only baselines
+## The mount-only baselines
 
 Navigate to a fixture's route, let the page settle, capture. **No action
 vocabulary at all**, which makes it the cheapest scenario there is, and it is
@@ -47,7 +49,7 @@ being handed one, so it *is* a fixture; the two ps-flow **contract** components
 the page also serves are not, and `parity/driver/registry.mjs` is where that
 distinction is recorded, in the same list the build reads.
 
-## Source 2 — the conformance seed
+## The conformance seed
 
 Upstream's own end-to-end suite, transcribed with **every assertion dropped**.
 Forty-one `generic-*` tests drive the four vendored fixtures and two more drive
@@ -86,7 +88,7 @@ invisible afterwards: upstream's "dragging a node" *is* `drag-node-release` in
 outline and its "connecting two nodes" *is* `connect-handle-to-handle`, and
 `gate-pending` only ever asks whether the name is in the corpus — a seed
 scenario holding one would report a changelog row as driven that nothing drove.
-[#59] decides, when it gets there, whether a seed scenario already covers a row.
+[#60] decides, when it gets there, whether a seed scenario already covers a row.
 
 ---
 
@@ -103,16 +105,33 @@ notice: it still drives, both sides still answer, the trace still compares. That
 is the first bump cost on the map with no mechanical detector, and it is built
 here because the seed is what creates the hazard.
 
-`fork.json` registers **every unit** of the five forked spec files — each `test`,
-and each `beforeEach`-style hook — against a hash of its own source and the
-scenarios lifted from it.
+`fork.json` registers **every unit** of upstream source the seed depends on,
+against a hash of that source and the scenarios that depend on it. There are two
+kinds. The **forked specs**, per `test` and per hook. And the **sources the seed
+reads an assumption out of**, hashed whole: the four vendored fixtures and the
+example driver.
+
+That second kind exists because a scenario can depend on a file it does not lift
+from. Upstream's props spec names the option — `selectOption({ label: 'dark' })`
+— but `selectOption` is not an input event and has no place in the closed
+primitive tier, so `select-dark-color-mode` presses ArrowDown once from `light`.
+The *order* of `ColorMode/index.tsx`'s three options is therefore part of that
+scenario, and a bump reordering them would drive `system` with every spec hash
+still affirmed. `.react-flow__node` first-match, `deleteKeyCode: 'd'`,
+`interactionWidth: 42` and `minZoom: 0.25` are the same shape in the four
+fixtures. Both sides mount those files unmodified, so a change to one is
+symmetric and lands in the trace diff; what is *not* symmetric is that the
+transcription read them. They have no unit structure a scenario cites, so the
+whole file is the unit — and the list is derived from the driver's own
+registries, so a fixture a bump adds arrives as **unregistered** rather than
+joining the page silently.
 
 | Outcome | What it means |
 |---|---|
 | **affirmed** | the unit's source is the one the entry recorded |
 | **moved** | it changed: **re-affirm**, never re-sync |
 | **stale** | the entry names a unit the spec no longer holds |
-| **unregistered** | the spec holds a unit no entry names — a bump added a test |
+| **unregistered** | the source holds a unit no entry names — a bump added a test or a fixture |
 | **unlifted** | a seed scenario no entry names, so nothing can detect its drift |
 
 **Hooks are units** because upstream's `goto` lives in one. A bump that moved a
@@ -120,8 +139,8 @@ fixture's route would change no test's text at all, and every scenario in that
 describe would quietly start mounting a 404.
 
 **A not-lifted entry is the ordinary case**, not an exception: eighteen of the
-forty-eight are, most because their fixture's mount-only baseline compares the
-whole DOM where the test compares one attribute. It carries a written reason,
+forty-eight spec units are, most because their fixture's mount-only baseline
+compares the whole DOM where the test compares one attribute. It carries a written reason,
 exactly as a **region** does and for the same purpose — `scenarios: []` is how
 "covered by the baseline" and "nobody got round to it" both look, and telling
 those apart is the whole value of the register.
@@ -175,4 +194,5 @@ produces an artifact that has to be thrown away the moment the question is
 answered. `--compare-only` skips it, because re-diffing stored traces needs no
 vendored checkout at all.
 
-[#59]: https://github.com/jonbae/PSFlow/issues/59
+[#60]: https://github.com/jonbae/PSFlow/issues/60
+[#61]: https://github.com/jonbae/PSFlow/issues/61

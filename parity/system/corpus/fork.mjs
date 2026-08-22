@@ -15,11 +15,26 @@
 //
 // ## What is registered
 //
-// Every **unit** of the five forked spec files — each `test`, and each
-// `beforeEach`-style hook — against a hash of its own source and the scenarios
-// lifted from it. Hooks are units because upstream's `goto` lives in one: a
-// bump that moved a fixture's route would change no test's text at all, and
-// every scenario in that describe would quietly start mounting a 404.
+// Every **unit** of upstream source the seed depends on, against a hash of that
+// source and the scenarios that depend on it. There are two kinds.
+//
+// **The forked specs**, per `test` and per `beforeEach`-style hook. Hooks are
+// units because upstream's `goto` lives in one: a bump that moved a fixture's
+// route would change no test's text at all, and every scenario in that describe
+// would quietly start mounting a 404.
+//
+// **The sources the seed reads an assumption out of**, hashed whole — the four
+// vendored fixtures and the **example driver**. These are not forked; both sides
+// mount them unmodified, so a change to one is symmetric and lands in the trace
+// diff. What is *not* symmetric is that the transcription reads them. Upstream's
+// `selectOption({ label: 'dark' })` names the option; `select-dark-color-mode`
+// presses ArrowDown once, because `selectOption` is not an input event and has
+// no place in the closed primitive tier — so the option *order* in
+// `ColorMode/index.tsx` is part of that scenario, and a bump reordering it would
+// drive `system` with every spec hash still affirmed. `.react-flow__node`
+// first-match, `deleteKeyCode: 'd'`, `interactionWidth: 42` and `minZoom: 0.25`
+// are the same shape in the four fixtures. They have no unit structure a
+// scenario cites, so the whole file is the unit.
 //
 // Five outcomes, and only the first passes:
 //
@@ -74,8 +89,8 @@ export class ForkError extends Error {
  * drives the **example driver** instead, because upstream ships no props
  * fixture to twin. Written down rather than globbed: a file appearing under
  * `e2e/` that this list does not name is upstream growing a suite, which is a
- * decision to take rather than scenery to absorb — and `assertSpecsPresent`
- * fails on one of these going missing for the same reason.
+ * decision to take rather than scenery to absorb. `readUnits` fails on one of
+ * these going missing, for the same reason.
  */
 export const FORKED_SPECS = [
   "xyflow/tests/playwright/e2e/edges.spec.ts",
@@ -85,11 +100,26 @@ export const FORKED_SPECS = [
   "xyflow/tests/playwright/e2e/props.spec.ts",
 ];
 
+/**
+ * What happened to one *entry*. The other two failures in the list above —
+ * *unregistered* and *unlifted* — belong to no entry by construction: one is a
+ * unit with no entry and the other a scenario with no entry, so they ride
+ * beside this on `forkOutcomes`' result rather than in it.
+ */
 export const OUTCOME = Object.freeze({
   affirmed: "affirmed",
   moved: "moved",
   stale: "stale",
 });
+
+/**
+ * The `test` an entry carries when its whole file is the unit.
+ *
+ * Deliberately not a title a test could have: the register keys on
+ * `spec` + `test`, and a real test called "(the whole file)" would collide with
+ * the file's own entry and one of the two would read as unregistered forever.
+ */
+export const WHOLE_FILE = "(the whole file)";
 
 // Playwright's runners, its suites, and the hooks that carry a `goto`. A
 // modifier between them and the call — `test.describe.only`, `test.skip` — says
@@ -198,19 +228,37 @@ export const extractUnits = (spec, source) => {
   return units;
 };
 
-/** Reads the vendored specs and extracts every unit, in `FORKED_SPECS` order. */
-export const readUnits = (repoRoot, specs = FORKED_SPECS) =>
-  specs.flatMap((spec) => {
-    const file = resolve(repoRoot, spec);
-    if (!statSync(file, { throwIfNoEntry: false })?.isFile()) {
-      throw new ForkError(
-        `no forked spec at ${file}. The conformance seed was lifted from it, so its absence means ` +
-          `either the vendored tree needs re-vendoring or a baseline bump moved upstream's suite — and ` +
-          `the second is a decision, not something to route around.`
-      );
-    }
-    return extractUnits(spec, readFileSync(file, "utf8"));
-  });
+const readSource = (repoRoot, spec, why) => {
+  const file = resolve(repoRoot, spec);
+  if (!statSync(file, { throwIfNoEntry: false })?.isFile()) {
+    throw new ForkError(
+      `no ${why} at ${file}. The conformance seed depends on it, so its absence means either the ` +
+        `vendored tree needs re-vendoring or a baseline bump moved it — and the second is a decision, ` +
+        `not something to route around.`
+    );
+  }
+  return readFileSync(file, "utf8");
+};
+
+/**
+ * Every unit the register covers: each spec's tests and hooks, then one
+ * whole-file unit per source the seed reads an assumption out of.
+ *
+ * `sources` are repo-relative paths. They are passed in rather than listed here
+ * because they are *derived* — the vendored fixture root and the example
+ * drivers, from the driver's own registries — and deriving them here would make
+ * this module depend on the driver to answer a question about upstream's specs.
+ * `parity/system/fork.mjs` is where the two are wired together, which is the
+ * one place in the net that already does wiring.
+ */
+export const readUnits = (repoRoot, { specs = FORKED_SPECS, sources = [] } = {}) => [
+  ...specs.flatMap((spec) => extractUnits(spec, readSource(repoRoot, spec, "forked spec"))),
+  ...sources.map((spec) => ({
+    spec,
+    test: WHOLE_FILE,
+    hash: hashOf(readSource(repoRoot, spec, "depended-on source")),
+  })),
+];
 
 /**
  * Checks the register's shape. Throws `ForkError`; nothing here is a finding.
@@ -341,9 +389,10 @@ export const renderForkFailures = (outcomes) => {
 
   if (outcomes.unregistered.length) {
     said.push(
-      `${outcomes.unregistered.length} test(s) in the forked specs are in no entry. A bump added them, and`,
-      `deciding not to lift one is a decision this register records — add an entry with the scenarios it`,
-      `is lifted into, or with an empty list and a written reason:`,
+      `${outcomes.unregistered.length} unit(s) of the upstream source the seed depends on are in no entry.`,
+      `A bump added a test or a fixture, and deciding not to lift one is a decision this register records —`,
+      `add an entry naming the scenarios it is lifted into or depended on by, or an empty list and a`,
+      `written reason:`,
       ...outcomes.unregistered.map((u) => `  ${u.spec} — ${u.test}`)
     );
   }
@@ -359,9 +408,19 @@ export const renderForkFailures = (outcomes) => {
   return said;
 };
 
-/** One line, for a run that passed. */
+/**
+ * One line, for a run that passed — and it counts the three things separately
+ * on purpose. "Lifted" is a claim about a scenario's origin, so a depended-on
+ * source must not be counted as one: nothing was lifted out of `nodes/general.ts`,
+ * the seed only reads it.
+ */
 export const renderForkSummary = (outcomes) => {
-  const lifted = outcomes.entries.filter((e) => e.scenarios.length).length;
-  const declined = outcomes.entries.length - lifted;
-  return `fork: ${outcomes.entries.length} upstream unit(s) affirmed — ${lifted} lifted, ${declined} declined with a reason.`;
+  const sources = outcomes.entries.filter((e) => e.test === WHOLE_FILE);
+  const tests = outcomes.entries.filter((e) => e.test !== WHOLE_FILE);
+  const lifted = tests.filter((e) => e.scenarios.length).length;
+
+  return (
+    `fork: ${outcomes.entries.length} upstream unit(s) affirmed — ${lifted} of ${tests.length} spec unit(s) ` +
+    `lifted, ${tests.length - lifted} declined with a reason, and ${sources.length} depended-on source(s).`
+  );
 };

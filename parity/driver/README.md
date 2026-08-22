@@ -67,7 +67,7 @@ unlike the fixtures. Upstream's `examples/` holds dozens of directories, most of
 importing exports that have not crossed, and one unresolved import is a link
 error that stops the page building for every route at once. Adding an entry is
 therefore a decision about the crossing set, not a discovery — which is why
-`build.mjs` states the count it is refusing to glob rather than this file
+`registry.mjs` states the count it is refusing to glob rather than this file
 repeating it.
 
 They sit beside the fixture roots rather than in `build.mjs` for the reason the

@@ -2056,15 +2056,6 @@
         ]
       },
       {
-        "name": "onSelectionChange",
-        "args": [
-          {
-            "nodes": [],
-            "edges": []
-          }
-        ]
-      },
-      {
         "name": "onMoveEnd",
         "args": [
           null,
@@ -2072,6 +2063,15 @@
             "x": 546.2857142857142,
             "y": 32,
             "zoom": 0.9371428571428572
+          }
+        ]
+      },
+      {
+        "name": "onSelectionChange",
+        "args": [
+          {
+            "nodes": [],
+            "edges": []
           }
         ]
       },

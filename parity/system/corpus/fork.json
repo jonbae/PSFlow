@@ -1,24 +1,28 @@
 {
   "_comment": [
     "The fork register (#55). The conformance seed is a one-time fork of upstream's own end-to-end suite,",
-    "and this is what keeps it from going quietly stale: every test and hook in the five forked spec files,",
-    "against a hash of its own source and the scenarios lifted from it.",
+    "and this is what keeps it from going quietly stale. Two kinds of unit, both against a hash of their",
+    "own source and the scenarios that depend on them:",
     "",
-    "  scenarios  the seed scenarios this unit was lifted into",
+    "  the forked specs   one entry per `test` and per `beforeEach`-style hook. Hooks because upstream's",
+    "                     `goto` lives in one, and a bump that moved a route would change no test's text",
+    "  depended-on source one entry per whole file the seed reads an assumption *out of* — the four",
+    "                     vendored fixtures and the example driver. Not forked: both sides mount them",
+    "                     unmodified. What is not symmetric is that the transcription reads them",
+    "",
+    "  scenarios  the seed scenarios this unit was lifted into, or that depend on it",
     "  reason     required when nothing was lifted — \"covered by the mount-only baseline\" and \"nobody got",
-    "             round to it\" look identical without one",
+    "             round to it\" look identical without one; optional otherwise, and worth writing where",
+    "             the dependency is not obvious from the scenario's name",
     "",
-    "A unit whose source changed fails as **moved**: the scenarios lifted from it must be re-affirmed —",
-    "read the new spec, decide whether the scenario still drives what it should — never re-synced. An entry",
-    "naming a unit the spec no longer holds fails as **stale**, and a unit no entry names fails as",
-    "**unregistered**, which is what a bump that adds a test looks like.",
+    "A unit whose source changed fails as **moved**: the scenarios named must be re-affirmed — read the",
+    "new source, decide whether the scenario still drives what it should — never re-synced. An entry",
+    "naming a unit that is no longer there fails as **stale**, and a unit no entry names fails as",
+    "**unregistered**, which is what a bump that adds a test or a fixture looks like.",
     "",
     "`node parity/system/fork.mjs --affirm` restamps a moved entry's hash and baseline. It cannot create an",
     "entry and it cannot delete one — those are reviewed edits to this file, the same line `--record` draws",
-    "for regions.",
-    "",
-    "Hooks are registered because upstream's `goto` lives in one: a bump moving a fixture's route would",
-    "change no test's text at all, and every scenario in that describe would quietly start mounting a 404."
+    "for regions."
   ],
   "forked": [
     {
@@ -400,7 +404,7 @@
       "test": "Pane default > autoPan > autoPanOnNodeDrag",
       "hash": "sha256:e97a28fc4d1fb288cd80aafaea742c7f0c0a45d17c8164364a6d3561e9d563eb",
       "scenarios": [],
-      "reason": "Autopan runs for as long as the pointer is held near the viewport edge, and upstream waits 500ms to let it. The net records no time anywhere and each side settles on its own clock, so how far the viewport moved would be a function of elapsed frames — the scenario could not reproduce itself across its own two captures and would fail self-consistency on both sides rather than measure anything. The behaviour keeps its reserved scenario `drag-node-autopan` (#59), which needs a way to express a dwell that the action vocabulary does not have.",
+      "reason": "Autopan runs for as long as the pointer is held near the viewport edge, and upstream waits 500ms to let it. The net records no time anywhere and each side settles on its own clock, so how far the viewport moved would be a function of elapsed frames — the scenario could not reproduce itself across its own two captures and would fail self-consistency on both sides rather than measure anything. The behaviour keeps its reserved scenario `drag-node-autopan` (#60), which needs a way to express a dwell that the action vocabulary does not have.",
       "affirmedAgainst": "12.11.0"
     },
     {
@@ -452,6 +456,85 @@
       "scenarios": [
         "select-dark-color-mode"
       ],
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/examples/react/src/generic-tests/edges/general.ts",
+      "test": "(the whole file)",
+      "hash": "sha256:8a4f4c7f0d2d9a6c5f050edecf49ce71d2929c1c06d6581147ae62fdc65462df",
+      "scenarios": [
+        "click-selects-edge",
+        "multi-select-edges-with-modifier",
+        "click-unselectable-edge",
+        "delete-key-removes-edge",
+        "delete-key-spares-undeletable-edge",
+        "click-inside-interaction-width"
+      ],
+      "reason": "`click-inside-interaction-width` presses 21px to the side of an edge's centre, which is half of this fixture's `interactionWidth: 42` and means nothing without it; `delete-key-*` press its `deleteKeyCode: 'd'` and `multi-select-edges-with-modifier` its `multiSelectionKeyCode: 's'`. None of that is stated in a spec, so no spec hash would notice a bump that changed it.",
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/examples/react/src/generic-tests/node-toolbar/general.ts",
+      "test": "(the whole file)",
+      "hash": "sha256:8f6eaad4e5855eeeab34b2b8896bcc97b9e4223f9e88d6c31adc14a51db2cded",
+      "scenarios": [
+        "click-reveals-default-toolbar"
+      ],
+      "reason": "`click-reveals-default-toolbar` is a scenario only because `default-node` is the one node here that sets no `toolbarVisible`. Give it one in a bump and the scenario still drives, still resolves its target, and observes nothing.",
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/examples/react/src/generic-tests/nodes/general.ts",
+      "test": "(the whole file)",
+      "hash": "sha256:0ab7deb6ca43b7a5d56cf7e8c89a1bab0d80a68adcb476cf8c29913a794a7bca",
+      "scenarios": [
+        "click-selects-node",
+        "shift-drag-selects-nodes",
+        "click-unselectable-node",
+        "drag-moves-node",
+        "drag-does-not-move-undraggable-node",
+        "drag-by-custom-drag-handle",
+        "delete-key-removes-node-and-edges",
+        "delete-key-spares-undeletable-node",
+        "connect-source-handle-to-target-handle",
+        "connect-output-to-output-handle",
+        "connect-input-to-input-handle",
+        "connect-to-unconnectable-handle"
+      ],
+      "reason": "`click-selects-node` and `drag-moves-node` aim at `.react-flow__node` first-match, so which node this fixture lists first is part of both, and `shift-drag-selects-nodes` measures its whole box from that node's top left. `drag-by-custom-drag-handle` depends on `dragHandle` being set on `drag-handle` and on nothing else, and the delete and multi-select scenarios on the key codes. A reordering changes every one of them and no spec's text.",
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/examples/react/src/generic-tests/pane/general.ts",
+      "test": "(the whole file)",
+      "hash": "sha256:3183fd012a9c3280ff61a7c516e217d145e41cfe60e25b49798b86e27dc39310",
+      "scenarios": [
+        "drag-pans-the-pane",
+        "wheel-zooms-the-pane",
+        "wheel-zooms-out-to-min",
+        "wheel-zooms-in-to-max"
+      ],
+      "reason": "`wheel-zooms-out-to-min` and `wheel-zooms-in-to-max` are named for the clamp, which is this fixture's `minZoom: 0.25` and `maxZoom: 4`. Widen either in a bump and the scenario measures a step where it claims to measure a floor.",
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/examples/react/src/generic-tests/pane/non-defaults.ts",
+      "test": "(the whole file)",
+      "hash": "sha256:73c08e68af44655a2e16ab6eb8a75dfaab4d9e04ac6643b3a02b03ca9e1371c2",
+      "scenarios": [
+        "wheel-pans-with-panonscroll"
+      ],
+      "reason": "`wheel-pans-with-panonscroll` is the same wheel `wheel-zooms-the-pane` sends; `panOnScroll: true` here is the entire difference between the two scenarios.",
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/examples/react/src/examples/ColorMode/index.tsx",
+      "test": "(the whole file)",
+      "hash": "sha256:6cb50bb589c3d7ed14c6ca4549ed0854e0437fead1894265e85b98c8dd8c010e",
+      "scenarios": [
+        "select-dark-color-mode"
+      ],
+      "reason": "The sharpest of these. Upstream's spec names the option — `selectOption({ label: 'dark' })` — but `selectOption` is not an input event and has no place in the closed primitive tier, so `select-dark-color-mode` presses ArrowDown once from `light`. That makes the *order* of this file's three options part of the scenario. Reorder them in a bump and it drives `system` while every spec hash stays affirmed, which is exactly the silent drift this register exists to stop.",
       "affirmedAgainst": "12.11.0"
     }
   ]

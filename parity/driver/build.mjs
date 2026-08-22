@@ -22,7 +22,7 @@ import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 
 import { CallbackDerivationError, observedCallbacks } from "./callbacks.mjs";
-import { RegistryError, collectComponents, collectFixtures, directComponents, fixtureRoots } from "./registry.mjs";
+import { RegistryError, routeSpace } from "./registry.mjs";
 import { SIDES } from "./sides.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -101,8 +101,7 @@ if (!Object.hasOwn(sides, side)) {
 let fixtures;
 let components;
 try {
-  fixtures = collectFixtures(fixtureRoots(repoRoot));
-  components = collectComponents(directComponents(repoRoot));
+  ({ fixtures, components } = routeSpace(repoRoot));
 } catch (e) {
   if (!(e instanceof RegistryError)) throw e;
   console.error(e.message);

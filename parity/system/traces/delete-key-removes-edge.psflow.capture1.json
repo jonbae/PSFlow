@@ -2054,7 +2054,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 439.2000000476837,
+            "timeStamp": 446.7999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2123,7 +2123,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 439.2000000476837,
+            "timeStamp": 446.7999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2228,7 +2228,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 439.2000000476837,
+            "timeStamp": 446.7999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2293,7 +2293,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 439.2000000476837,
+            "timeStamp": 446.7999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2420,7 +2420,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 454.2999999523163,
+            "timeStamp": 453.2000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2530,6 +2530,17 @@
               "id": "edge-with-class"
             }
           ]
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 546.2857142857142,
+            "y": 32,
+            "zoom": 0.9371428571428572
+          }
         ]
       },
       {

@@ -218,3 +218,18 @@ export const collectComponents = (components) => {
     return { route, kind, file };
   });
 };
+
+/**
+ * Both registries at once — the whole of what the driver page can route to.
+ *
+ * Three callers need exactly this pair and no part of it alone: the build, which
+ * turns them into the page's two module registries; the net's corpus, which
+ * mounts a baseline per fixture; and the fork register, which hashes the
+ * vendored half. Written once because three copies of `collectFixtures(...)`
+ * beside `collectComponents(...)` is three places for one of them to be
+ * forgotten.
+ */
+export const routeSpace = (repoRoot) => ({
+  fixtures: collectFixtures(fixtureRoots(repoRoot)),
+  components: collectComponents(directComponents(repoRoot)),
+});

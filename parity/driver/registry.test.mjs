@@ -103,10 +103,10 @@ test("one empty root is fine; every root empty is not", () => {
 
 // ── The second kind of route ────────────────────────────────────────────
 
-// Written down rather than globbed — upstream ships 65 example directories —
-// but here rather than in `build.mjs` for the same reason the fixture roots
-// are: the corpus mounts the example driver too, and a second copy of the list
-// would drift into a route the page serves and the net never mounts.
+// Written down rather than globbed (`registry.mjs` says what the count refuses),
+// but here rather than in `build.mjs` for the same reason the fixture roots are:
+// the corpus mounts the example driver too, and a second copy of the list would
+// drift into a route the page serves and the net never mounts.
 test("the directly mounted components are named once, and each says what it is", () => {
   assert.deepEqual(
     directComponents("/repo").map(({ route, kind }) => [route, kind]),

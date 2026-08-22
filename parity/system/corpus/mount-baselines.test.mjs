@@ -2,7 +2,8 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 
 import { ScenarioError } from "../harness/scenario.mjs";
-import { CorpusError, idOf, mountBaselines, routeOf } from "./mount-baselines.mjs";
+import { mountBaselines } from "./mount-baselines.mjs";
+import { CorpusError, idOf, routeOf } from "./routes.mjs";
 
 const registered = (...routes) => routes.map((route) => ({ route, file: `/vendored${route.slice(1)}` }));
 

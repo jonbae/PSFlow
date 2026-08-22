@@ -81,9 +81,9 @@ export const createGestures = (primitives) => {
 
   return {
     /**
-     * Press and release without moving — the gesture nearly every spec in the
-     * conformance seed opens with, since Playwright's own `locator.click()` is
-     * exactly this.
+     * Press and release without moving — eleven of the conformance seed's
+     * twenty-five scenarios open with one, since Playwright's own
+     * `locator.click()` is exactly this.
      *
      * The release is **pointer-relative**, so the point is resolved once. An
      * element that moved out from under the press between the two is a

@@ -1,21 +1,30 @@
 // The corpus — every scenario the net drives, assembled from its sources.
 //
-// `tickets/081-interaction-corpus.md` names four, and two of them exist:
+// `tickets/081-interaction-corpus.md` names four sources. The first exists:
 //
-//   1. **mount-only baselines**, one per fixture, *derived* from the driver's
-//      two registries rather than written down (`mount-baselines.mjs`)
-//   2. the **conformance seed**, upstream's own suite transcribed with the
-//      assertions dropped (`seed.mjs`), gated against drift by `fork.mjs`
-//   3. the test-debt scenarios (#59), whose thirty ids `reserved.mjs` holds
-//   4. hole-closing scenarios, until the corpus's termination condition
+//   1. the **conformance seed** (`seed.mjs`), upstream's own suite transcribed
+//      with the assertions dropped, gated against drift by `fork.mjs` — and
+//      with it the **mount-only baselines** (`mount-baselines.mjs`), one per
+//      fixture, *derived* from the driver's two registries rather than written
+//      down, since one is the general rule the seed's transcription leans on
+//   2. the thirty test-debt scenarios (#60), whose ids `reserved.mjs` holds
+//   3. the retirement debt (#61), the hand-authored parity assertions whose
+//      retirement was made conditional on the net covering them
+//   4. hole-closing scenarios, until the corpus's termination condition (#57)
 //
 // Assembling them is one line and one check. The check is the reason this file
 // exists: the sources are written by different people at different times and
 // neither can see the other's ids, so an id two of them both claim would put
 // two scenarios' traces on one set of file names — and the run would compare
 // one experiment against another while reporting the difference as a library
-// divergence. Exactly the hazard `mountBaselines` already guards *within* the
-// derived source, one level out.
+// divergence.
+//
+// `mountBaselines` guards the same hazard *within* the derived source, and the
+// two are not one function because they can say different things. Two fixtures
+// that flatten onto one id are told which two **paths** collided, and that the
+// ps-flow-authored one is the one free to be renamed; up here there are only
+// scenarios, so all that can be named is two routes. The specific message is
+// worth more than the shared line, and it runs first.
 
 import { CorpusError } from "./routes.mjs";
 import { mountBaselines } from "./mount-baselines.mjs";
@@ -45,12 +54,12 @@ export const buildCorpus = (fixtures, components = []) =>
   ]);
 
 /**
- * The check, separately, because the sources it guards between do not all
- * exist yet.
+ * The check across sources, separately, because the sources it guards between
+ * do not all exist yet.
  *
  * Today a derived baseline's id always leads with `mount-baseline--` and no
  * hand-written scenario's does, so the two sources in the corpus cannot in fact
- * collide. The next two can: the test-debt scenarios (#59) and the hole-closing
+ * collide. The next two can: the test-debt scenarios (#60) and the hole-closing
  * scenarios after them are hand-named, arrive later, and are written by someone
  * reading a changelog row rather than this file. That is precisely when a
  * duplicate is easiest to introduce and hardest to see, so the check ships with

@@ -450,8 +450,9 @@ order:
    library.
 2. **The fork register is checked** (`corpus/fork.mjs`), before the browser.
    The **conformance seed** is a one-time fork of upstream's own suite, and a
-   bump that rewrites one of those specs leaves the lifted scenario driving
-   perfectly while it no longer corresponds to anything upstream tests. A
+   bump that rewrites one of those specs — or reorders a fixture the seed reads
+   an assumption out of — leaves the lifted scenario driving perfectly while it
+   no longer corresponds to anything upstream tests. A
    register that is not affirmed fails the run without capturing — the one place
    in this gate where something earlier stops something later, and a
    precondition rather than a suppressed comparison, since no capture has
@@ -463,7 +464,7 @@ order:
 4. **Each scenario is captured four times** — two sides, two **captures** each,
    a fresh browser context per side, the two captures of one side sharing a page
    the way `runScenario` expects.
-4. **Every trace is written to `traces/`** and **read back off disk** before it
+5. **Every trace is written to `traces/`** and **read back off disk** before it
    is diffed, on the run that just wrote it. The stored traces are the artifact
    the whole compare half is built around; a gate that diffed its in-memory
    copies would let the two drift.
@@ -538,9 +539,10 @@ what is left in `net.mjs` is the doing.
 
 - **The `hooks`, `props` and `api.queries` sections**, which need probes —
   [#59](https://github.com/jonbae/PSFlow/issues/59).
-- **The rest of the corpus** — the test-debt scenarios and the hole-closing
-  scenarios after them — [#59](https://github.com/jonbae/PSFlow/issues/59).
-  What is here is the mount-only baselines and the conformance seed; `corpus/`
-  has its own README.
+- **The rest of the corpus** — the thirty test-debt scenarios
+  ([#60](https://github.com/jonbae/PSFlow/issues/60)), the retirement debt
+  ([#61](https://github.com/jonbae/PSFlow/issues/61)) and the hole-closing scenarios after
+  them. What is here is the mount-only baselines and the conformance seed;
+  `corpus/` has its own README.
 - **Witnesses, holes and the coverage artifact** —
   [#57](https://github.com/jonbae/PSFlow/issues/57).

@@ -38,14 +38,14 @@ const bench = () => {
 // below it.
 const driven = (log) => log.entries().map((e) => [e.action, e.target, e.dispatched]);
 
-test("the gesture tier is the six the spec names, and it is open by addition", () => {
+test("the gesture tier is the spec's six plus the one the seed added, and it is open by addition", () => {
   assert.deepEqual(GESTURES, ["click", "dragNode", "selectionBox", "connect", "pan", "pinch", "arrowKeyNudge"]);
 });
 
-// The gesture almost every lifted spec opens with. Playwright's own `click()`
-// moves to the element, presses and releases without resolving it a second
-// time, and so does this: an element that moved under the press is a finding,
-// not something to chase.
+// The gesture eleven of the seed's twenty-five scenarios reach for. Playwright's
+// own `click()` moves to the element, presses and releases without resolving it a
+// second time, and so does this: an element that moved under the press is a
+// finding, not something to chase.
 test("click presses on its target and releases where the press landed", async () => {
   const { actions, log } = bench();
   await actions.click(".node");

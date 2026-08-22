@@ -1,4 +1,4 @@
-// Mount-only baselines — one per fixture, and the first source of the corpus (#51, #55).
+// Mount-only baselines — one per fixture, derived (#51, #55).
 //
 // The cheapest scenario there is: navigate to a fixture's route, let the page
 // settle, capture. No action vocabulary at all. It is also the one the dual-run
@@ -22,8 +22,6 @@
 
 import { defineScenario } from "../harness/scenario.mjs";
 import { CorpusError, idOf, routeOf } from "./routes.mjs";
-
-export { CorpusError, ROUTE_PREFIX, idOf, routeOf } from "./routes.mjs";
 
 /**
  * One mount-only scenario per fixture, fixtures first and in registry order.

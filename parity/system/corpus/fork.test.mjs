@@ -8,6 +8,7 @@ import {
   FORKED_SPECS,
   ForkError,
   OUTCOME,
+  WHOLE_FILE,
   affirmFork,
   extractUnits,
   forkOutcomes,
@@ -16,7 +17,13 @@ import {
   renderForkFailures,
   validateFork,
 } from "./fork.mjs";
+import { dependedSources } from "../fork.mjs";
 import { seedScenarios } from "./seed.mjs";
+
+// The same derivation the command uses, so this file cannot affirm the register
+// against a narrower set of units than the gate reads.
+const committedUnits = () => readUnits(repoRoot, { sources: dependedSources() });
+const seedIds = () => seedScenarios.map((s) => s.id);
 
 const here = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(here, "..", "..", "..");
@@ -231,14 +238,61 @@ test("every forked spec is in the vendored tree", () => {
   assert.equal(readUnits(repoRoot).length > 0, true);
 });
 
-test("the committed register is affirmed against the vendored specs", () => {
-  const result = forkOutcomes(register.forked, readUnits(repoRoot), {
-    scenarioIds: seedScenarios.map((s) => s.id),
-    seedIds: seedScenarios.map((s) => s.id),
+// The second kind of unit, and the one the register would otherwise be blind
+// to: a file the seed reads an assumption *out of* rather than lifts a test
+// from. Derived from the driver's own registries, so a fixture a bump adds
+// arrives as unregistered instead of joining the page silently.
+test("every vendored fixture and the example driver are registered whole", () => {
+  const sources = committedUnits().filter((u) => u.test === WHOLE_FILE);
+
+  assert.deepEqual(
+    sources.map((u) => u.spec.split("/").slice(-2).join("/")).sort(),
+    [
+      "ColorMode/index.tsx",
+      "edges/general.ts",
+      "node-toolbar/general.ts",
+      "nodes/general.ts",
+      "pane/general.ts",
+      "pane/non-defaults.ts",
+    ]
+  );
+});
+
+test("the committed register is affirmed against the vendored source", () => {
+  const result = forkOutcomes(register.forked, committedUnits(), {
+    scenarioIds: seedIds(),
+    seedIds: seedIds(),
   });
 
   assert.deepEqual(renderForkFailures(result), []);
   assert.equal(result.ok, true);
+});
+
+// The transcription that made whole-file units necessary. Upstream's spec names
+// the option; `select-dark-color-mode` presses ArrowDown once, so the *order*
+// of ColorMode's three options is part of the scenario and no spec hash would
+// notice a reorder.
+test("falsify: reordering the colour-mode options fails the register", () => {
+  const colorMode = "xyflow/examples/react/src/examples/ColorMode/index.tsx";
+  // Normalized first, because `hashOf` normalizes too and the vendored tree's
+  // line endings depend on how it was checked out.
+  const source = readFileSync(resolve(repoRoot, colorMode), "utf8").replace(/\r\n/g, "\n");
+  const swapped = source.replace(
+    /(<option value="dark">dark<\/option>)(\s*)(<option value="system">system<\/option>)/,
+    "$3$2$1"
+  );
+  assert.notEqual(swapped, source, "the options the probe reorders are still in upstream's example");
+
+  const units = committedUnits().map((u) =>
+    u.spec === colorMode ? { ...u, hash: hashOf(swapped) } : u
+  );
+  const result = forkOutcomes(register.forked, units, { scenarioIds: seedIds(), seedIds: seedIds() });
+
+  assert.equal(result.ok, false);
+  assert.deepEqual(
+    result.entries.filter((e) => e.outcome === OUTCOME.moved).flatMap((e) => e.scenarios),
+    ["select-dark-color-mode"]
+  );
 });
 
 // A green gate is equally what a gate that reads nothing would produce, so the
@@ -254,11 +308,10 @@ test("falsify: a single edited character in a forked spec fails the register", (
   const tampered = source.replace("await page.mouse.move(500, 500);", "await page.mouse.move(500, 501);");
   assert.notEqual(tampered, source, "the line the probe edits is still in upstream's spec");
 
-  const units = readUnits(repoRoot).filter((u) => u.spec !== spec).concat(extractUnits(spec, tampered));
-  const result = forkOutcomes(register.forked, units, {
-    scenarioIds: seedScenarios.map((s) => s.id),
-    seedIds: seedScenarios.map((s) => s.id),
-  });
+  const units = committedUnits()
+    .filter((u) => u.spec !== spec)
+    .concat(extractUnits(spec, tampered));
+  const result = forkOutcomes(register.forked, units, { scenarioIds: seedIds(), seedIds: seedIds() });
 
   assert.equal(result.ok, false);
   assert.deepEqual(
