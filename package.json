@@ -16,6 +16,7 @@
     "parity:boundary": "node parity/boundary/drift.mjs && node parity/boundary/mount.mjs",
     "parity:changelog": "node parity/changelog-audit/extract-entries.mjs && node parity/changelog-audit/audit.mjs",
     "parity:system": "node parity/system/net.mjs",
+    "parity:fork": "node parity/system/fork.mjs",
     "test:surface": "node --test \"parity/surface/**/*.test.mjs\"",
     "test:census": "node --test \"parity/census/**/*.test.mjs\"",
     "test:compare": "node --test \"parity/system/trace-format.test.mjs\" \"parity/system/compare/**/*.test.mjs\"",

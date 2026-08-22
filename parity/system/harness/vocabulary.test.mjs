@@ -51,6 +51,7 @@ test("no action hands anything back to the scenario", async () => {
     await actions.wheel(".node", { deltaY: 1 }),
     await actions.touch("end", []),
     await actions.call("zoomIn"),
+    await actions.click(".node"),
     await actions.dragNode(".node", { dx: 1, dy: 1, steps: 1 }),
     await actions.selectionBox({ target: ".node" }, { target: ".node" }),
     await actions.connect(".node", ".node"),

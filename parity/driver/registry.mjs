@@ -1,4 +1,5 @@
-// The fixture registry — which files the driver page can route to.
+// The driver page's route space — the fixtures it can mount, and the components
+// it mounts directly.
 //
 // Upstream's `generic-tests/index.tsx` reaches its fixtures with vite's
 // `import.meta.glob`, which structurally cannot see a file outside the vendored
@@ -10,7 +11,8 @@
 // imported *by* the fixture and are not routes of their own.
 //
 // Split out of `build.mjs` because two roots share one flat route space, and
-// the collision that creates is worth a test.
+// the collision that creates is worth a test — and because the net's corpus
+// needs the same two answers the build needs, which two lists would drift on.
 
 import { readdirSync, statSync } from "node:fs";
 import { join, posix, relative, resolve, sep } from "node:path";
@@ -110,4 +112,109 @@ export const collectFixtures = (roots) => {
   }
 
   return fixtures;
+};
+
+// ── The second kind of route ────────────────────────────────────────────
+
+/**
+ * What a directly-mounted component *is*, and the corpus's question in one
+ * field. An **example driver** declares its own flow inline, so it is its own
+ * **fixture** and gets a mount-only baseline like every other fixture does. A
+ * **contract** component renders a ps-flow-specific guard for one of the two
+ * project suites and is a fixture of nothing, so it gets none — mounting it on
+ * the upstream side would compare a page written against ps-flow's own contract
+ * with upstream's reading of it, which is not a claim the net makes.
+ */
+export const COMPONENT_KINDS = ["example-driver", "contract"];
+
+/**
+ * The routes the page mounts a component on directly, rather than handing a
+ * fixture to `Flow.tsx`.
+ *
+ * **Written down rather than globbed**, unlike the fixtures, and the count is
+ * why: upstream ships 65 example directories and a glob would bundle all 65.
+ * Here rather than in `build.mjs` for the same reason `fixtureRoots` is — the
+ * corpus derives the example driver's baseline from this list, and a second
+ * copy would drift into a route the page serves and the net never mounts.
+ *
+ * A route is the path the driver's hash carries, without the `#`, exactly as a
+ * fixture's is once `routeOf` has flattened it. The page keys on the whole
+ * hash, so whoever builds that registry puts the `#` back.
+ *
+ * `file` is repo-relative, and `name` is what a scenario cites when it needs a
+ * route from here — the two together are what let the corpus name a component
+ * without knowing where the repository is.
+ */
+export const DIRECT_COMPONENTS = [
+  {
+    name: "color-mode",
+    route: "/examples/color-mode",
+    kind: "example-driver",
+    file: "xyflow/examples/react/src/examples/ColorMode/index.tsx",
+    missing:
+      `upstream's ColorMode example is not in the vendored tree. It is imported unmodified — it is ` +
+      `its own fixture — so re-vendor \`xyflow/\`, or follow the example if a baseline bump moved it.`,
+  },
+  {
+    name: "smoke",
+    route: "/smoke",
+    kind: "contract",
+    file: "parity/driver/src/Smoke.tsx",
+    missing: `ps-flow's smoke component is missing — it is this repo's own and committed. Restore it from git.`,
+  },
+  {
+    name: "node-props",
+    route: "/examples/node-props",
+    kind: "contract",
+    file: "parity/driver/src/NodePropsGuard.tsx",
+    missing: `ps-flow's NodeProps guard is missing — it is this repo's own and committed. Restore it from git.`,
+  },
+];
+
+/** The same list with `file` resolved against a checkout. */
+export const directComponents = (repoRoot) =>
+  DIRECT_COMPONENTS.map((component) => ({ ...component, file: resolve(repoRoot, component.file) }));
+
+/**
+ * One component's route, by name.
+ *
+ * A scenario that drives a directly-mounted component names it this way rather
+ * than writing the hash path out, so that a baseline bump which moves or
+ * renames the component fails here — naming the scenario's own citation —
+ * instead of leaving the scenario pointed at a route the page answers with a
+ * 404 and the driving log records as an unresolved mount.
+ */
+export const componentRoute = (name) => {
+  const found = DIRECT_COMPONENTS.find((component) => component.name === name);
+  if (!found) {
+    throw new RegistryError(
+      `no directly mounted component named ${JSON.stringify(name)} — there is ` +
+        DIRECT_COMPONENTS.map((c) => c.name).join(", ")
+    );
+  }
+  return found.route;
+};
+
+/**
+ * Checks every component is on disk and returns `{ route, kind, file }`.
+ *
+ * The same treatment a missing fixture root gets, and for the same reason: a
+ * page built around a route whose module is absent is a page that answers it
+ * with a 404, and every spec driving that route then fails somewhere else.
+ */
+export const collectComponents = (components) => {
+  const claimed = new Set();
+
+  return components.map(({ route, kind, file, missing }) => {
+    if (!COMPONENT_KINDS.includes(kind)) {
+      throw new RegistryError(`${route}: kind ${JSON.stringify(kind)} is not one of ${COMPONENT_KINDS.join(", ")}`);
+    }
+    if (claimed.has(route)) throw new RegistryError(`two components both claim the route ${route}`);
+    claimed.add(route);
+
+    if (!statSync(file, { throwIfNoEntry: false })?.isFile()) {
+      throw new RegistryError(missing ?? `no component at ${file} for route ${route}`);
+    }
+    return { route, kind, file };
+  });
 };

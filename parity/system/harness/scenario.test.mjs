@@ -92,7 +92,10 @@ test("a scenario declaring touch has emulation on before the page is navigated",
   assert.deepEqual(order, ["enableTouch", "goto", "goto"]);
   assert.deepEqual(
     sent,
-    [{ kind: "mouse", type: "move", x: -1, y: -1 }],
+    [
+      { kind: "mouse", type: "move", x: -1, y: -1 },
+      { kind: "mouse", type: "up", x: -1, y: -1 },
+    ],
     "the only thing dispatched by a scenario that drove nothing is the parked pointer"
   );
 });
@@ -103,7 +106,13 @@ test("a scenario declaring touch has emulation on before the page is navigated",
 // browser fired from there landed in the call log ahead of the mount. Parked
 // off-viewport, on the blank document, so no page sees the move — and it is not
 // a driving action, the same way blanking the page is not one.
-test("the pointer is parked off-viewport between the blank document and the driver", async () => {
+//
+// The **button** is the same finding one step on. A scenario is allowed to end
+// mid-gesture — `drag-pans-the-pane` lifts a spec that never releases, because
+// settling with the pointer still down is the only way transient state is
+// observable — and a button belongs to the browser exactly as the cursor does,
+// so capture 2 would otherwise mount its flow under a press capture 1 made.
+test("the pointer is parked off-viewport, and released, before the driver loads", async () => {
   const page = fakePage();
   const { port, sent } = createFakePort({ boxes: { ".react-flow": FLOW } });
   const order = [];
@@ -129,8 +138,11 @@ test("the pointer is parked off-viewport between the blank document and the driv
     port: watched,
   });
 
-  assert.deepEqual(order, ["blank", "mouse:move", "driver"]);
-  assert.deepEqual(sent, [{ kind: "mouse", type: "move", x: -1, y: -1 }]);
+  assert.deepEqual(order, ["blank", "mouse:move", "mouse:up", "driver"]);
+  assert.deepEqual(sent, [
+    { kind: "mouse", type: "move", x: -1, y: -1 },
+    { kind: "mouse", type: "up", x: -1, y: -1 },
+  ]);
   assert.deepEqual(
     sections.driving.map((e) => e.action),
     ["mount"],

@@ -352,6 +352,44 @@ against it. Named semantically, never by sequence number — a gate cites scenar
 by name, and numbers shift when the corpus is trimmed.
 _Avoid_: test case, spec
 
+**Conformance seed**:
+The scenarios **lifted** from upstream's own end-to-end suite — its interaction
+sequences, transcribed with every assertion dropped. One of the corpus's sources,
+beside the derived **mount-only baselines**; the others are the test-debt
+scenarios and the hole-closing scenarios after them. Say *the seed* only where
+the corpus is already in view.
+_Avoid_: the ported tests, the conformance suite (which is a **gate**, and drives
+ps-flow alone), the baseline
+
+**Lifted**:
+Of a scenario: transcribed from an upstream spec as a **one-time fork**, never a
+mirror. Drift between the spec and the scenario is legitimate — the spec asserts
+upstream's expectations against ps-flow alone, while the scenario drives both
+sides and asserts nothing — so a changed spec asks for the scenario to be
+**re-affirmed** and never re-synced. Silent drift is not legitimate, which is
+what the **fork register** exists to prevent.
+_Avoid_: copied, ported, synced, mirrored
+
+**Fork register**:
+`parity/system/corpus/fork.json`: every test and hook in the forked spec files,
+against a hash of its own source and the scenarios lifted from it. Its outcomes
+are *affirmed*, *moved* (re-affirm), *stale*, *unregistered* (a bump added a
+test nobody decided about) and *unlifted* (a seed scenario with no origin
+recorded). An entry that lifts nothing carries a written reason, the way a
+**region** does — `scenarios: []` is how "covered by the mount-only baseline"
+and "nobody got round to it" both look. Not a **region**: a region claims a
+difference a comparison reported, where this claims a correspondence to
+something outside the repo.
+_Avoid_: region, manifest, the fork (for the file)
+
+**Re-affirm**:
+To read what changed and decide the entry still says something true, then stamp
+the new value. What a **moved** region and a **moved** fork entry both ask for,
+and deliberately not what an automatic refresh does: `--record` and `--affirm`
+restamp, and neither checks the claim. On a baseline bump the re-affirm set is
+the behavioural changelog, and its size is the bump's measured cost.
+_Avoid_: re-sync, update, refresh, accept
+
 **Action**:
 One step in a scenario. The primitives are pointer, key, wheel, touch and
 imperative call; everything else is a gesture composed from them.
@@ -519,8 +557,9 @@ different mechanisms and a shared field name would read as a shared taxonomy.
 _Avoid_: kind, type, mode
 
 **Stale**:
-Of an entry in any register — region, allowlist entry, weakening, witness, hole,
-census entry, manifest — it no longer corresponds to anything real, and therefore fails.
+Of an entry in any register — region, allowlist entry, weakening, fork entry,
+witness, hole, census entry, manifest — it no longer corresponds to anything
+real, and therefore fails.
 The inversion is deliberate and repo-wide: entries bite when they stop being true
 instead of accumulating silently, which is what makes a register a gate rather
 than a record.

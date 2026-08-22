@@ -1,0 +1,725 @@
+{
+  "traceFormat": 1,
+  "scenario": "mount-baseline--examples-color-mode",
+  "side": "upstream",
+  "capture": 2,
+  "baseline": "12.11.0",
+  "sections": {
+    "dom": {
+      "page": {
+        "scrollX": 0,
+        "scrollY": 0,
+        "visualViewportScale": 1
+      },
+      "root": {
+        "tag": "div",
+        "attrs": {
+          "data-testid": "rf__wrapper",
+          "class": "react-flow light",
+          "role": "application",
+          "style": "width: 100%; height: 100%; overflow: hidden; position: relative; z-index: 0;"
+        },
+        "children": [
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "react-flow__renderer",
+              "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+            },
+            "children": [
+              {
+                "tag": "div",
+                "attrs": {
+                  "class": "react-flow__pane draggable",
+                  "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+                },
+                "children": [
+                  {
+                    "tag": "div",
+                    "attrs": {
+                      "class": "react-flow__viewport xyflow__viewport react-flow__container",
+                      "style": "transform: translate(250.682px, 32px) scale(1.94659);"
+                    },
+                    "children": [
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__edges"
+                        },
+                        "children": [
+                          {
+                            "tag": "svg",
+                            "attrs": {
+                              "style": "z-index: 0;"
+                            },
+                            "children": [
+                              {
+                                "tag": "g",
+                                "attrs": {
+                                  "class": "react-flow__edge react-flow__edge-default nopan selectable",
+                                  "tabindex": "0",
+                                  "role": "group",
+                                  "aria-roledescription": "edge",
+                                  "data-id": "A-B",
+                                  "data-testid": "rf__edge-A-B",
+                                  "aria-label": "Edge from A to B",
+                                  "aria-describedby": "react-flow__edge-desc-1"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M153,168.5 C200,168.5 200,18.5 247,18.5",
+                                      "fill": "none",
+                                      "class": "react-flow__edge-path"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M153,168.5 C200,168.5 200,18.5 247,18.5",
+                                      "fill": "none",
+                                      "stroke-opacity": "0",
+                                      "stroke-width": "20",
+                                      "class": "react-flow__edge-interaction"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "svg",
+                            "attrs": {
+                              "style": "z-index: 0;"
+                            },
+                            "children": [
+                              {
+                                "tag": "g",
+                                "attrs": {
+                                  "class": "react-flow__edge react-flow__edge-default nopan selectable",
+                                  "tabindex": "0",
+                                  "role": "group",
+                                  "aria-roledescription": "edge",
+                                  "data-id": "A-C",
+                                  "data-testid": "rf__edge-A-C",
+                                  "aria-label": "Edge from A to C",
+                                  "aria-describedby": "react-flow__edge-desc-1"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M153,168.5 C200,168.5 200,168.5 247,168.5",
+                                      "fill": "none",
+                                      "class": "react-flow__edge-path"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M153,168.5 C200,168.5 200,168.5 247,168.5",
+                                      "fill": "none",
+                                      "stroke-opacity": "0",
+                                      "stroke-width": "20",
+                                      "class": "react-flow__edge-interaction"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "svg",
+                            "attrs": {
+                              "style": "z-index: 0;"
+                            },
+                            "children": [
+                              {
+                                "tag": "g",
+                                "attrs": {
+                                  "class": "react-flow__edge react-flow__edge-default nopan selectable",
+                                  "tabindex": "0",
+                                  "role": "group",
+                                  "aria-roledescription": "edge",
+                                  "data-id": "A-D",
+                                  "data-testid": "rf__edge-A-D",
+                                  "aria-label": "Edge from A to D",
+                                  "aria-describedby": "react-flow__edge-desc-1"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M153,168.5 C200,168.5 200,318.5 247,318.5",
+                                      "fill": "none",
+                                      "class": "react-flow__edge-path"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M153,168.5 C200,168.5 200,318.5 247,318.5",
+                                      "fill": "none",
+                                      "stroke-opacity": "0",
+                                      "stroke-width": "20",
+                                      "class": "react-flow__edge-interaction"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__edgelabel-renderer"
+                        },
+                        "children": []
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__nodes",
+                          "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+                        },
+                        "children": [
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-input nopan selectable draggable",
+                              "data-id": "A",
+                              "data-testid": "rf__node-A",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(0px, 150px); pointer-events: all; visibility: visible;"
+                            },
+                            "text": "A",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "A",
+                                  "data-handlepos": "right",
+                                  "data-id": "1-A-null-source",
+                                  "class": "react-flow__handle react-flow__handle-right nodrag nopan source connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-default nopan selectable draggable",
+                              "data-id": "B",
+                              "data-testid": "rf__node-B",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(250px, 0px); pointer-events: all; visibility: visible;"
+                            },
+                            "text": "B",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "B",
+                                  "data-handlepos": "left",
+                                  "data-id": "1-B-null-target",
+                                  "class": "react-flow__handle react-flow__handle-left nodrag nopan target connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "B",
+                                  "data-handlepos": "right",
+                                  "data-id": "1-B-null-source",
+                                  "class": "react-flow__handle react-flow__handle-right nodrag nopan source connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-default nopan selectable draggable",
+                              "data-id": "C",
+                              "data-testid": "rf__node-C",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(250px, 150px); pointer-events: all; visibility: visible;"
+                            },
+                            "text": "C",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "C",
+                                  "data-handlepos": "left",
+                                  "data-id": "1-C-null-target",
+                                  "class": "react-flow__handle react-flow__handle-left nodrag nopan target connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "C",
+                                  "data-handlepos": "right",
+                                  "data-id": "1-C-null-source",
+                                  "class": "react-flow__handle react-flow__handle-right nodrag nopan source connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-default nopan selectable draggable",
+                              "data-id": "D",
+                              "data-testid": "rf__node-D",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(250px, 300px); pointer-events: all; visibility: visible;"
+                            },
+                            "text": "D",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "D",
+                                  "data-handlepos": "left",
+                                  "data-id": "1-D-null-target",
+                                  "class": "react-flow__handle react-flow__handle-left nodrag nopan target connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "D",
+                                  "data-handlepos": "right",
+                                  "data-id": "1-D-null-source",
+                                  "class": "react-flow__handle react-flow__handle-right nodrag nopan source connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__viewport-portal"
+                        },
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "react-flow__panel react-flow__minimap bottom right",
+              "data-testid": "rf__minimap"
+            },
+            "children": [
+              {
+                "tag": "svg",
+                "attrs": {
+                  "width": "200",
+                  "height": "150",
+                  "viewBox": "-145.21951219512195 -94.52439024390245 690.439024390244 526.048780487805",
+                  "class": "react-flow__minimap-svg",
+                  "role": "img",
+                  "aria-labelledby": "react-flow__minimap-desc-1"
+                },
+                "children": [
+                  {
+                    "tag": "title",
+                    "attrs": {
+                      "id": "react-flow__minimap-desc-1"
+                    },
+                    "text": "Mini Map",
+                    "children": []
+                  },
+                  {
+                    "tag": "rect",
+                    "attrs": {
+                      "class": "react-flow__minimap-node",
+                      "x": "0",
+                      "y": "150",
+                      "rx": "5",
+                      "ry": "5",
+                      "width": "150",
+                      "height": "37",
+                      "shape-rendering": "geometricPrecision"
+                    },
+                    "children": []
+                  },
+                  {
+                    "tag": "rect",
+                    "attrs": {
+                      "class": "react-flow__minimap-node",
+                      "x": "250",
+                      "y": "0",
+                      "rx": "5",
+                      "ry": "5",
+                      "width": "150",
+                      "height": "37",
+                      "shape-rendering": "geometricPrecision"
+                    },
+                    "children": []
+                  },
+                  {
+                    "tag": "rect",
+                    "attrs": {
+                      "class": "react-flow__minimap-node",
+                      "x": "250",
+                      "y": "150",
+                      "rx": "5",
+                      "ry": "5",
+                      "width": "150",
+                      "height": "37",
+                      "shape-rendering": "geometricPrecision"
+                    },
+                    "children": []
+                  },
+                  {
+                    "tag": "rect",
+                    "attrs": {
+                      "class": "react-flow__minimap-node",
+                      "x": "250",
+                      "y": "300",
+                      "rx": "5",
+                      "ry": "5",
+                      "width": "150",
+                      "height": "37",
+                      "shape-rendering": "geometricPrecision"
+                    },
+                    "children": []
+                  },
+                  {
+                    "tag": "path",
+                    "attrs": {
+                      "class": "react-flow__minimap-mask",
+                      "d": "M-161.65853658536585,-110.96341463414635h723.3170731707318v558.9268292682927h-723.3170731707318z\n        M-128.78048780487805,-16.439024390243905h657.5609756097562v369.8780487804878h-657.5609756097562z",
+                      "fill-rule": "evenodd",
+                      "pointer-events": "none"
+                    },
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tag": "svg",
+            "attrs": {
+              "class": "react-flow__background",
+              "data-testid": "rf__background",
+              "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+            },
+            "children": [
+              {
+                "tag": "pattern",
+                "attrs": {
+                  "id": "pattern-1",
+                  "x": "17.091988130563806",
+                  "y": "32",
+                  "width": "38.931750741839764",
+                  "height": "38.931750741839764",
+                  "patternUnits": "userSpaceOnUse",
+                  "patternTransform": "translate(-20.465875370919882,-20.465875370919882)"
+                },
+                "children": [
+                  {
+                    "tag": "circle",
+                    "attrs": {
+                      "cx": "0.973293768545994",
+                      "cy": "0.973293768545994",
+                      "r": "0.973293768545994",
+                      "class": "react-flow__background-pattern dots"
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "tag": "rect",
+                "attrs": {
+                  "x": "0",
+                  "y": "0",
+                  "width": "100%",
+                  "height": "100%",
+                  "fill": "url(#pattern-1)"
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "react-flow__panel react-flow__controls vertical bottom left",
+              "data-testid": "rf__controls",
+              "aria-label": "Control Panel"
+            },
+            "children": [
+              {
+                "tag": "button",
+                "attrs": {
+                  "type": "button",
+                  "class": "react-flow__controls-button react-flow__controls-zoomin",
+                  "title": "Zoom In",
+                  "aria-label": "Zoom In"
+                },
+                "children": [
+                  {
+                    "tag": "svg",
+                    "attrs": {
+                      "xmlns": "http://www.w3.org/2000/svg",
+                      "viewBox": "0 0 32 32"
+                    },
+                    "children": [
+                      {
+                        "tag": "path",
+                        "attrs": {
+                          "d": "M32 18.133H18.133V32h-4.266V18.133H0v-4.266h13.867V0h4.266v13.867H32z"
+                        },
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "button",
+                "attrs": {
+                  "type": "button",
+                  "class": "react-flow__controls-button react-flow__controls-zoomout",
+                  "title": "Zoom Out",
+                  "aria-label": "Zoom Out"
+                },
+                "children": [
+                  {
+                    "tag": "svg",
+                    "attrs": {
+                      "xmlns": "http://www.w3.org/2000/svg",
+                      "viewBox": "0 0 32 5"
+                    },
+                    "children": [
+                      {
+                        "tag": "path",
+                        "attrs": {
+                          "d": "M0 0h32v4.2H0z"
+                        },
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "button",
+                "attrs": {
+                  "type": "button",
+                  "class": "react-flow__controls-button react-flow__controls-fitview",
+                  "title": "Fit View",
+                  "aria-label": "Fit View"
+                },
+                "children": [
+                  {
+                    "tag": "svg",
+                    "attrs": {
+                      "xmlns": "http://www.w3.org/2000/svg",
+                      "viewBox": "0 0 32 30"
+                    },
+                    "children": [
+                      {
+                        "tag": "path",
+                        "attrs": {
+                          "d": "M3.692 4.63c0-.53.4-.938.939-.938h5.215V0H4.708C2.13 0 0 2.054 0 4.63v5.216h3.692V4.631zM27.354 0h-5.2v3.692h5.17c.53 0 .984.4.984.939v5.215H32V4.631A4.624 4.624 0 0027.354 0zm.954 24.83c0 .532-.4.94-.939.94h-5.215v3.768h5.215c2.577 0 4.631-2.13 4.631-4.707v-5.139h-3.692v5.139zm-23.677.94c-.531 0-.939-.4-.939-.94v-5.138H0v5.139c0 2.577 2.13 4.707 4.708 4.707h5.138V25.77H4.631z"
+                        },
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "button",
+                "attrs": {
+                  "type": "button",
+                  "class": "react-flow__controls-button react-flow__controls-interactive",
+                  "title": "Toggle Interactivity",
+                  "aria-label": "Toggle Interactivity"
+                },
+                "children": [
+                  {
+                    "tag": "svg",
+                    "attrs": {
+                      "xmlns": "http://www.w3.org/2000/svg",
+                      "viewBox": "0 0 25 32"
+                    },
+                    "children": [
+                      {
+                        "tag": "path",
+                        "attrs": {
+                          "d": "M21.333 10.667H19.81V7.619C19.81 3.429 16.38 0 12.19 0c-4.114 1.828-1.37 2.133.305 2.438 1.676.305 4.42 2.59 4.42 5.181v3.048H3.047A3.056 3.056 0 000 13.714v15.238A3.056 3.056 0 003.048 32h18.285a3.056 3.056 0 003.048-3.048V13.714a3.056 3.056 0 00-3.048-3.047zM12.19 24.533a3.056 3.056 0 01-3.047-3.047 3.056 3.056 0 013.047-3.048 3.056 3.056 0 013.048 3.048 3.056 3.056 0 01-3.048 3.047z"
+                        },
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "react-flow__panel top right"
+            },
+            "children": [
+              {
+                "tag": "select",
+                "attrs": {
+                  "data-testid": "colormode-select"
+                },
+                "children": [
+                  {
+                    "tag": "option",
+                    "attrs": {
+                      "value": "light"
+                    },
+                    "text": "light",
+                    "children": []
+                  },
+                  {
+                    "tag": "option",
+                    "attrs": {
+                      "value": "dark"
+                    },
+                    "text": "dark",
+                    "children": []
+                  },
+                  {
+                    "tag": "option",
+                    "attrs": {
+                      "value": "system"
+                    },
+                    "text": "system",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "react-flow__panel react-flow__attribution bottom right",
+              "data-message": "Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"
+            },
+            "children": [
+              {
+                "tag": "a",
+                "attrs": {
+                  "href": "https://reactflow.dev",
+                  "target": "_blank",
+                  "rel": "noopener noreferrer",
+                  "aria-label": "React Flow attribution"
+                },
+                "text": "React Flow",
+                "children": []
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__node-desc-1",
+              "style": "display: none;"
+            },
+            "text": "Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel.",
+            "children": []
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__edge-desc-1",
+              "style": "display: none;"
+            },
+            "text": "Press enter or space to select an edge. You can then press delete to remove it or escape to cancel.",
+            "children": []
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__aria-live-1",
+              "aria-live": "assertive",
+              "aria-atomic": "true",
+              "style": "position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(100%);"
+            },
+            "children": []
+          }
+        ]
+      }
+    },
+    "callbacks": [],
+    "hooks": {},
+    "api": {
+      "queries": {},
+      "calls": []
+    },
+    "props": {},
+    "console": [
+      {
+        "level": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      }
+    ],
+    "driving": [
+      {
+        "index": 0,
+        "action": "mount",
+        "target": ".react-flow",
+        "resolved": true,
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "dispatched": {
+          "route": "/examples/color-mode"
+        }
+      }
+    ]
+  }
+}

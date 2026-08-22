@@ -196,14 +196,23 @@ Bumping the baseline is one atomic change:
 5. `npm run parity:surface` and `npm run parity:changelog` — the audit will fail
    on every PR the bump introduced until each is bucketed in
    `parity/changelog-audit/verdicts.json`,
-6. `npm run parity:system` (commit the re-captured `parity/system/traces/` and
+6. `npm run parity:fork` — the **conformance seed** is a one-time fork of
+   upstream's own end-to-end suite, and a bump that rewrites one of those specs
+   leaves the scenario lifted from it driving perfectly while it no longer
+   corresponds to anything upstream tests. Read each spec the register names,
+   decide whether its scenario still drives what it should, then
+   `node parity/system/fork.mjs --affirm`. A test the bump *added* stays
+   unregistered until someone writes down what to do about it; affirming cannot
+   create an entry. `parity:system` runs this first and will not capture until
+   it is green,
+7. `npm run parity:system` (commit the re-captured `parity/system/traces/` and
    `report.md`). Diff the traces against their previous versions before you
    commit them: what upstream's own render changed under the bump is visible
    there and nowhere else.
 
 `xyflow/` is gitignored, so `parity:surface`, `parity:changelog`,
-`build:oracle`, `build:driver` and `parity:system` all require it present and
-hard-fail on a clean clone. The committed artifacts (`parity/surface/report.md`,
+`build:oracle`, `build:driver`, `parity:fork` and `parity:system` all require it
+present and hard-fail on a clean clone. The committed artifacts (`parity/surface/report.md`,
 `parity/changelog-audit/report.md`, `oracle/index.js`,
 `parity/driver/dist/psflow.js`, `parity/system/report.md` and the traces under
 `parity/system/traces/`) are what survive without it.

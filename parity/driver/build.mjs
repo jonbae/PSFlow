@@ -17,12 +17,12 @@
 //        npm run build:driver
 
 import { build } from "esbuild";
-import { readFileSync, statSync, writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 
 import { CallbackDerivationError, observedCallbacks } from "./callbacks.mjs";
-import { RegistryError, collectFixtures, fixtureRoots } from "./registry.mjs";
+import { RegistryError, collectComponents, collectFixtures, directComponents, fixtureRoots } from "./registry.mjs";
 import { SIDES } from "./sides.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -74,63 +74,39 @@ if (!Object.hasOwn(sides, side)) {
   process.exit(2);
 }
 
-// ── The fixture registry ────────────────────────────────────────────────
+// ── The two route registries ───────────────────────────────────────────
 //
-// Two roots, globbed into one flat route space by `registry.mjs`, which also
-// names them — the net's corpus derives a mount-only baseline per fixture from
-// the same list, and two lists would drift into a fixture the page serves and
-// the net never mounts.
+// **Fixtures**: two roots, globbed into one flat route space by `registry.mjs`,
+// which also names them — the net's corpus derives a mount-only baseline per
+// fixture from the same list, and two lists would drift into a fixture the page
+// serves and the net never mounts.
 //
-// PSFlow's root is legitimately empty until the corpus lands (#55). Emptiness
-// only fails in the aggregate — see `registry.mjs`, which also refuses a route
-// two roots both claim.
+// PSFlow's fixture root is legitimately empty until a scenario needs a fixture
+// upstream does not ship. Emptiness only fails in the aggregate — see
+// `registry.mjs`, which also refuses a route two roots both claim.
+//
+// **Directly mounted components**: the second kind of route, where a component
+// is mounted itself rather than handed a fixture by `src/Flow.tsx`. The
+// conformance suite's ColorMode **example driver** is imported unmodified from
+// upstream; PSFlow's smoke and NodeProps components are project-specific
+// contracts. `generic-props.spec.ts` needs the upstream page: upstream's own
+// props spec drives `examples/color-mode` rather than a generic-test fixture,
+// because there is no props fixture to twin — upstream's `generic-tests/` holds
+// exactly `edges`, `node-toolbar`, `nodes` and `pane`.
+//
+// That list is written down rather than globbed, and lives in `registry.mjs`
+// for the same reason the fixture roots do: the corpus mounts the example
+// driver too.
 
 let fixtures;
+let components;
 try {
   fixtures = collectFixtures(fixtureRoots(repoRoot));
+  components = collectComponents(directComponents(repoRoot));
 } catch (e) {
   if (!(e instanceof RegistryError)) throw e;
   console.error(e.message);
   process.exit(2);
-}
-
-// ── Directly mounted component registry ────────────────────────────────
-//
-// The second kind of route. A **fixture** is data that `src/Flow.tsx` mounts;
-// these components are mounted directly. The conformance suite's ColorMode
-// **example driver** is imported unmodified from upstream; PSFlow's smoke and
-// NodeProps components live here because they are project-specific contracts.
-// `generic-props.spec.ts` needs the upstream page:
-// upstream's own props spec drives `examples/color-mode` rather than a
-// generic-test fixture, because there is no props fixture to twin — upstream's
-// `generic-tests/` holds exactly `edges`, `node-toolbar`, `nodes` and `pane`.
-//
-// Written down rather than globbed, unlike the fixtures — `README.md`, next to
-// this file, says why. The count it turns on: upstream ships 65 example
-// directories, and a glob would bundle all 65.
-const directComponents = [
-  {
-    route: "#/examples/color-mode",
-    file: resolve(repoRoot, "xyflow/examples/react/src/examples/ColorMode/index.tsx"),
-  },
-  {
-    route: "#/smoke",
-    file: resolve(here, "src/Smoke.tsx"),
-  },
-  {
-    route: "#/examples/node-props",
-    file: resolve(here, "src/NodePropsGuard.tsx"),
-  },
-];
-
-for (const { route, file } of directComponents) {
-  if (!statSync(file, { throwIfNoEntry: false })?.isFile()) {
-    console.error(
-      `no direct component at ${file} for route ${route} — restore the local file, ` +
-        `or re-vendor \`xyflow/\` if a baseline bump moved the upstream example.`
-    );
-    process.exit(2);
-  }
 }
 
 // ── The callback props the driver installs ──────────────────────────────
@@ -153,15 +129,19 @@ try {
   process.exit(2);
 }
 
-const moduleRegistry = (entries) =>
+// `key` is what the page looks the module up under. A fixture's is its registry
+// route; a component's is the whole hash — the route with the `#` the registry
+// leaves off put back, since the page matches a directly-mounted component on
+// the whole of `location.hash`.
+const moduleRegistry = (entries, key = ({ route }) => route) =>
   entries.map(({ file }, i) => `import m${i} from ${JSON.stringify(file)};`).join("\n") +
   `\nexport default {\n` +
-  entries.map(({ route }, i) => `  ${JSON.stringify(route)}: m${i},`).join("\n") +
+  entries.map((entry, i) => `  ${JSON.stringify(key(entry))}: m${i},`).join("\n") +
   `\n};\n`;
 
 const virtualModules = {
   "psflow:fixtures": moduleRegistry(fixtures),
-  "psflow:components": moduleRegistry(directComponents),
+  "psflow:components": moduleRegistry(components, ({ route }) => `#${route}`),
   "psflow:callbacks": `export default ${JSON.stringify(callbacks, null, 2)};\n`,
 };
 
@@ -211,7 +191,7 @@ const result = await build({
   banner: {
     js:
       `// ps-flow conformance driver — GENERATED by parity/driver/build.mjs. DO NOT EDIT.\n` +
-      `// Side: ${side}. Fixtures: ${fixtures.length}, direct components: ${directComponents.length}, ` +
+      `// Side: ${side}. Fixtures: ${fixtures.length}, direct components: ${components.length}, ` +
       `observed callback props: ${callbacks.props.length}, from the vendored @xyflow/react ${baseline}.\n` +
       `// Rebuild: npm run build:driver (re-run on every xyflow/ bump and every src/ change).`,
   },
@@ -251,6 +231,6 @@ for (const marker of rejects) {
 writeFileSync(outfile, bundle);
 
 console.log(
-  `driver [${side}]: ${fixtures.length} fixtures + ${directComponents.length} direct component(s), ` +
+  `driver [${side}]: ${fixtures.length} fixtures + ${components.length} direct component(s), ` +
     `${callbacks.props.length} observed callback props, library from \`${wants}\` → dist/${side}.js`
 );

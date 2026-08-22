@@ -4,7 +4,7 @@ import { mkdtempSync, mkdirSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 
-import { RegistryError, collectFixtures, fixtureRoots } from "./registry.mjs";
+import { RegistryError, collectComponents, collectFixtures, directComponents, fixtureRoots } from "./registry.mjs";
 
 // A fixture root is a directory of `.ts` files; the tests build small real ones
 // rather than mocking `fs`, because what is under test is how the walk turns a
@@ -99,4 +99,59 @@ test("one empty root is fine; every root empty is not", () => {
 
   assert.deepEqual(routes(collectFixtures([{ dir: upstream }, { dir: empty }])), ["./nodes/general.ts"]);
   assert.throws(() => collectFixtures([{ dir: empty }]), RegistryError);
+});
+
+// ── The second kind of route ────────────────────────────────────────────
+
+// Written down rather than globbed — upstream ships 65 example directories —
+// but here rather than in `build.mjs` for the same reason the fixture roots
+// are: the corpus mounts the example driver too, and a second copy of the list
+// would drift into a route the page serves and the net never mounts.
+test("the directly mounted components are named once, and each says what it is", () => {
+  assert.deepEqual(
+    directComponents("/repo").map(({ route, kind }) => [route, kind]),
+    [
+      ["/examples/color-mode", "example-driver"],
+      ["/smoke", "contract"],
+      ["/examples/node-props", "contract"],
+    ]
+  );
+});
+
+// A route with no `#` on it, exactly as a fixture's is once `routeOf` has
+// flattened it — the build puts the `#` back for the page, which matches a
+// directly mounted component on the whole hash.
+test("a component route is a hash path with the hash left off", () => {
+  for (const { route } of directComponents("/repo")) assert.ok(route.startsWith("/"), route);
+});
+
+test("a component whose module is missing fails with the message its entry gave it", () => {
+  assert.throws(
+    () =>
+      collectComponents([
+        { route: "/gone", kind: "contract", file: join(tmpdir(), "psflow-absent.tsx"), missing: "restore it from git" },
+      ]),
+    (e) => e instanceof RegistryError && /restore it from git/.test(e.message)
+  );
+});
+
+// The corpus reads this field to decide what gets a mount-only baseline, so a
+// typo in it would silently drop the example driver out of the net.
+test("a component of no known kind fails rather than being routed anyway", () => {
+  const dir = root({ "here.tsx": "export default () => null;\n" });
+
+  assert.throws(
+    () => collectComponents([{ route: "/x", kind: "fixture", file: join(dir, "here.tsx") }]),
+    (e) => e instanceof RegistryError && /example-driver/.test(e.message)
+  );
+});
+
+test("two components claiming one route fail rather than one silently winning", () => {
+  const dir = root({ "here.tsx": "export default () => null;\n" });
+  const twice = [
+    { route: "/x", kind: "contract", file: join(dir, "here.tsx") },
+    { route: "/x", kind: "contract", file: join(dir, "here.tsx") },
+  ];
+
+  assert.throws(() => collectComponents(twice), (e) => e instanceof RegistryError && /\/x/.test(e.message));
 });
