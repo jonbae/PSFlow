@@ -17,7 +17,7 @@
 // the scenario is *about* an unusual input sequence — a gesture interrupted
 // mid-flight, most often, which by construction no gesture can express.
 
-export const GESTURES = ["dragNode", "selectionBox", "connect", "pan", "pinch", "arrowKeyNudge"];
+export const GESTURES = ["click", "dragNode", "selectionBox", "connect", "pan", "pinch", "arrowKeyNudge"];
 
 const ARROWS = { up: "ArrowUp", down: "ArrowDown", left: "ArrowLeft", right: "ArrowRight" };
 
@@ -80,6 +80,33 @@ export const createGestures = (primitives) => {
   };
 
   return {
+    /**
+     * Press and release without moving — eleven of the conformance seed's
+     * twenty-five scenarios open with one, since Playwright's own
+     * `locator.click()` is exactly this.
+     *
+     * The release is **pointer-relative**, so the point is resolved once. An
+     * element that moved out from under the press between the two is a
+     * divergence worth seeing, and re-resolving would follow it there and
+     * record a clean pair of actions instead.
+     *
+     * `modifier` is held across the press and released after it, the same shape
+     * `selectionBox` gives Shift. It is `null` by default, where a selection
+     * box's is not: a bare click is the common case and a modified one is the
+     * exception, and upstream's own multi-selection specs press `s` rather than
+     * Meta because that is what the fixtures set `multiSelectionKeyCode` to.
+     */
+    async click(point, { modifier = null } = {}) {
+      const entries = [];
+      if (modifier !== null) entries.push(await primitives.key(modifier, { action: "down" }));
+
+      entries.push(await primitives.pointerDown(targetOf(point), aimOf(point)));
+      entries.push(await primitives.pointerUp(null));
+
+      if (modifier !== null) entries.push(await primitives.key(modifier, { action: "up" }));
+      return entries;
+    },
+
     /**
      * `dragNode('.react-flow__node[data-id="1"]', { dx: 100, dy: 40 })`.
      * `origin` and an initial `dx`/`dy` grab offset are not the same thing as

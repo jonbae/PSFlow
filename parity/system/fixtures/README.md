@@ -43,12 +43,18 @@ file dropped in here is mounted by `parity:system` on both sides and diffed the
 next time the gate runs, with no second list to remember — which is what makes
 "mount-only is a general rule for every fixture" structural rather than a habit.
 
-What it does *not* get automatically is a scenario that drives anything; that is
-[#55](https://github.com/jonbae/PSFlow/issues/55)'s.
+What it does *not* get automatically is a scenario that drives anything. That is
+a hand-written act in `parity/system/corpus/`, which has its own README.
 
 ## Empty, for now
 
-The corpus's interaction scenarios are built by #55; the harness that drives
-them ([#35](https://github.com/jonbae/PSFlow/issues/35)) only opened this root.
-An empty root is legitimate — the registry only fails when *every* root is
-empty, which would build a page answering every route with a 404.
+The corpus's interaction scenarios exist
+([#55](https://github.com/jonbae/PSFlow/issues/55)), and every one of them is
+lifted from upstream's own suite, so every one drives a fixture upstream already
+ships. A file lands here the first time a scenario needs a flow upstream does
+not have — the thirty test-debt scenarios
+([#60](https://github.com/jonbae/PSFlow/issues/60)) are where that starts, since several of
+them name props no vendored fixture sets.
+
+An empty root is legitimate meanwhile — the registry only fails when *every*
+root is empty, which would build a page answering every route with a 404.

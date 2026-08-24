@@ -1,0 +1,1714 @@
+{
+  "traceFormat": 1,
+  "scenario": "click-reveals-default-toolbar",
+  "side": "upstream",
+  "capture": 2,
+  "baseline": "12.11.0",
+  "sections": {
+    "dom": {
+      "page": {
+        "scrollX": 0,
+        "scrollY": 0,
+        "visualViewportScale": 1
+      },
+      "root": {
+        "tag": "div",
+        "attrs": {
+          "data-testid": "rf__wrapper",
+          "class": "react-flow light",
+          "role": "application",
+          "style": "width: 100%; height: 100%; overflow: hidden; position: relative; z-index: 0;"
+        },
+        "children": [
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "react-flow__renderer",
+              "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+            },
+            "children": [
+              {
+                "tag": "div",
+                "attrs": {
+                  "class": "react-flow__pane draggable",
+                  "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+                },
+                "children": [
+                  {
+                    "tag": "div",
+                    "attrs": {
+                      "class": "react-flow__viewport xyflow__viewport react-flow__container",
+                      "style": "transform: translate(58px, 339.491px) scale(1.10857);"
+                    },
+                    "children": [
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__edges"
+                        },
+                        "children": [
+                          {
+                            "tag": "svg",
+                            "attrs": {
+                              "style": "z-index: 0;"
+                            },
+                            "children": [
+                              {
+                                "tag": "g",
+                                "attrs": {
+                                  "class": "react-flow__edge react-flow__edge-default nopan selectable",
+                                  "tabindex": "0",
+                                  "role": "group",
+                                  "aria-roledescription": "edge",
+                                  "data-id": "first-edge",
+                                  "data-testid": "rf__edge-first-edge",
+                                  "aria-label": "Edge from default-node to node-start-top",
+                                  "aria-describedby": "react-flow__edge-desc-1"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M153,-181.5 C231.06247497997998,-181.5 -81.06247497997998,18.5 -3,18.5",
+                                      "fill": "none",
+                                      "class": "react-flow__edge-path"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M153,-181.5 C231.06247497997998,-181.5 -81.06247497997998,18.5 -3,18.5",
+                                      "fill": "none",
+                                      "stroke-opacity": "0",
+                                      "stroke-width": "20",
+                                      "class": "react-flow__edge-interaction"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
+                                      "cx": "163",
+                                      "cy": "-181.5",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
+                                      "cx": "-13",
+                                      "cy": "18.5",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__edgelabel-renderer"
+                        },
+                        "children": []
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__nodes",
+                          "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+                        },
+                        "children": [
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-ToolbarNode nopan react-flow__node-default selected selectable draggable",
+                              "data-id": "default-node",
+                              "data-testid": "rf__node-default-node",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 1000; transform: translate(0px, -200px); pointer-events: all; visibility: visible;"
+                            },
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {},
+                                "text": "toolbar top",
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "default-node",
+                                  "data-handlepos": "left",
+                                  "data-id": "1-default-node-null-target",
+                                  "class": "react-flow__handle react-flow__handle-left nodrag nopan target connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "default-node",
+                                  "data-handlepos": "right",
+                                  "data-id": "1-default-node-null-source",
+                                  "class": "react-flow__handle react-flow__handle-right nodrag nopan source connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-ToolbarNode nopan react-flow__node-default selectable draggable",
+                              "data-id": "node-start-top",
+                              "data-testid": "rf__node-node-start-top",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(0px, 0px); pointer-events: all; visibility: visible;"
+                            },
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {},
+                                "text": "toolbar top start",
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "node-start-top",
+                                  "data-handlepos": "left",
+                                  "data-id": "1-node-start-top-null-target",
+                                  "class": "react-flow__handle react-flow__handle-left nodrag nopan target connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "node-start-top",
+                                  "data-handlepos": "right",
+                                  "data-id": "1-node-start-top-null-source",
+                                  "class": "react-flow__handle react-flow__handle-right nodrag nopan source connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-ToolbarNode nopan react-flow__node-default selectable draggable",
+                              "data-id": "node-center-top",
+                              "data-testid": "rf__node-node-center-top",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(0px, 100px); pointer-events: all; visibility: visible;"
+                            },
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {},
+                                "text": "toolbar top center",
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "node-center-top",
+                                  "data-handlepos": "left",
+                                  "data-id": "1-node-center-top-null-target",
+                                  "class": "react-flow__handle react-flow__handle-left nodrag nopan target connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "node-center-top",
+                                  "data-handlepos": "right",
+                                  "data-id": "1-node-center-top-null-source",
+                                  "class": "react-flow__handle react-flow__handle-right nodrag nopan source connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-ToolbarNode nopan react-flow__node-default selectable draggable",
+                              "data-id": "node-end-top",
+                              "data-testid": "rf__node-node-end-top",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(0px, 200px); pointer-events: all; visibility: visible;"
+                            },
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {},
+                                "text": "toolbar top end",
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "node-end-top",
+                                  "data-handlepos": "left",
+                                  "data-id": "1-node-end-top-null-target",
+                                  "class": "react-flow__handle react-flow__handle-left nodrag nopan target connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "node-end-top",
+                                  "data-handlepos": "right",
+                                  "data-id": "1-node-end-top-null-source",
+                                  "class": "react-flow__handle react-flow__handle-right nodrag nopan source connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-ToolbarNode nopan react-flow__node-default selectable draggable",
+                              "data-id": "node-start-right",
+                              "data-testid": "rf__node-node-start-right",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(300px, 0px); pointer-events: all; visibility: visible;"
+                            },
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {},
+                                "text": "toolbar right start",
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "node-start-right",
+                                  "data-handlepos": "left",
+                                  "data-id": "1-node-start-right-null-target",
+                                  "class": "react-flow__handle react-flow__handle-left nodrag nopan target connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "node-start-right",
+                                  "data-handlepos": "right",
+                                  "data-id": "1-node-start-right-null-source",
+                                  "class": "react-flow__handle react-flow__handle-right nodrag nopan source connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-ToolbarNode nopan react-flow__node-default selectable draggable",
+                              "data-id": "node-center-right",
+                              "data-testid": "rf__node-node-center-right",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(300px, 100px); pointer-events: all; visibility: visible;"
+                            },
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {},
+                                "text": "toolbar right center",
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "node-center-right",
+                                  "data-handlepos": "left",
+                                  "data-id": "1-node-center-right-null-target",
+                                  "class": "react-flow__handle react-flow__handle-left nodrag nopan target connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "node-center-right",
+                                  "data-handlepos": "right",
+                                  "data-id": "1-node-center-right-null-source",
+                                  "class": "react-flow__handle react-flow__handle-right nodrag nopan source connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-ToolbarNode nopan react-flow__node-default selectable draggable",
+                              "data-id": "node-end-right",
+                              "data-testid": "rf__node-node-end-right",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(300px, 200px); pointer-events: all; visibility: visible;"
+                            },
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {},
+                                "text": "toolbar right end",
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "node-end-right",
+                                  "data-handlepos": "left",
+                                  "data-id": "1-node-end-right-null-target",
+                                  "class": "react-flow__handle react-flow__handle-left nodrag nopan target connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "node-end-right",
+                                  "data-handlepos": "right",
+                                  "data-id": "1-node-end-right-null-source",
+                                  "class": "react-flow__handle react-flow__handle-right nodrag nopan source connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-ToolbarNode nopan react-flow__node-default selectable draggable",
+                              "data-id": "node-start-bottom",
+                              "data-testid": "rf__node-node-start-bottom",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(600px, 0px); pointer-events: all; visibility: visible;"
+                            },
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {},
+                                "text": "toolbar bottom start",
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "node-start-bottom",
+                                  "data-handlepos": "left",
+                                  "data-id": "1-node-start-bottom-null-target",
+                                  "class": "react-flow__handle react-flow__handle-left nodrag nopan target connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "node-start-bottom",
+                                  "data-handlepos": "right",
+                                  "data-id": "1-node-start-bottom-null-source",
+                                  "class": "react-flow__handle react-flow__handle-right nodrag nopan source connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-ToolbarNode nopan react-flow__node-default selectable draggable",
+                              "data-id": "node-center-bottom",
+                              "data-testid": "rf__node-node-center-bottom",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(600px, 100px); pointer-events: all; visibility: visible;"
+                            },
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {},
+                                "text": "toolbar bottom center",
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "node-center-bottom",
+                                  "data-handlepos": "left",
+                                  "data-id": "1-node-center-bottom-null-target",
+                                  "class": "react-flow__handle react-flow__handle-left nodrag nopan target connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "node-center-bottom",
+                                  "data-handlepos": "right",
+                                  "data-id": "1-node-center-bottom-null-source",
+                                  "class": "react-flow__handle react-flow__handle-right nodrag nopan source connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-ToolbarNode nopan react-flow__node-default selectable draggable",
+                              "data-id": "node-end-bottom",
+                              "data-testid": "rf__node-node-end-bottom",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(600px, 200px); pointer-events: all; visibility: visible;"
+                            },
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {},
+                                "text": "toolbar bottom end",
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "node-end-bottom",
+                                  "data-handlepos": "left",
+                                  "data-id": "1-node-end-bottom-null-target",
+                                  "class": "react-flow__handle react-flow__handle-left nodrag nopan target connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "node-end-bottom",
+                                  "data-handlepos": "right",
+                                  "data-id": "1-node-end-bottom-null-source",
+                                  "class": "react-flow__handle react-flow__handle-right nodrag nopan source connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-ToolbarNode nopan react-flow__node-default selectable draggable",
+                              "data-id": "node-start-left",
+                              "data-testid": "rf__node-node-start-left",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(900px, 0px); pointer-events: all; visibility: visible;"
+                            },
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {},
+                                "text": "toolbar left start",
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "node-start-left",
+                                  "data-handlepos": "left",
+                                  "data-id": "1-node-start-left-null-target",
+                                  "class": "react-flow__handle react-flow__handle-left nodrag nopan target connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "node-start-left",
+                                  "data-handlepos": "right",
+                                  "data-id": "1-node-start-left-null-source",
+                                  "class": "react-flow__handle react-flow__handle-right nodrag nopan source connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-ToolbarNode nopan react-flow__node-default selectable draggable",
+                              "data-id": "node-center-left",
+                              "data-testid": "rf__node-node-center-left",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(900px, 100px); pointer-events: all; visibility: visible;"
+                            },
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {},
+                                "text": "toolbar left center",
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "node-center-left",
+                                  "data-handlepos": "left",
+                                  "data-id": "1-node-center-left-null-target",
+                                  "class": "react-flow__handle react-flow__handle-left nodrag nopan target connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "node-center-left",
+                                  "data-handlepos": "right",
+                                  "data-id": "1-node-center-left-null-source",
+                                  "class": "react-flow__handle react-flow__handle-right nodrag nopan source connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-ToolbarNode nopan react-flow__node-default selectable draggable",
+                              "data-id": "node-end-left",
+                              "data-testid": "rf__node-node-end-left",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(900px, 200px); pointer-events: all; visibility: visible;"
+                            },
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {},
+                                "text": "toolbar left end",
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "node-end-left",
+                                  "data-handlepos": "left",
+                                  "data-id": "1-node-end-left-null-target",
+                                  "class": "react-flow__handle react-flow__handle-left nodrag nopan target connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "node-end-left",
+                                  "data-handlepos": "right",
+                                  "data-id": "1-node-end-left-null-source",
+                                  "class": "react-flow__handle react-flow__handle-right nodrag nopan source connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__viewport-portal"
+                        },
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "tag": "div",
+                "attrs": {
+                  "class": "react-flow__node-toolbar",
+                  "data-id": "node-start-top",
+                  "style": "position: absolute; transform: translate(58px, 329.491px) translate(0%, -100%); z-index: 1;"
+                },
+                "children": [
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "delete",
+                    "children": []
+                  },
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "copy",
+                    "children": []
+                  },
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "expand",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "tag": "div",
+                "attrs": {
+                  "class": "react-flow__node-toolbar",
+                  "data-id": "node-center-top",
+                  "style": "position: absolute; transform: translate(141.143px, 440.349px) translate(-50%, -100%); z-index: 1;"
+                },
+                "children": [
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "delete",
+                    "children": []
+                  },
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "copy",
+                    "children": []
+                  },
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "expand",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "tag": "div",
+                "attrs": {
+                  "class": "react-flow__node-toolbar",
+                  "data-id": "node-end-top",
+                  "style": "position: absolute; transform: translate(224.286px, 551.206px) translate(-100%, -100%); z-index: 1;"
+                },
+                "children": [
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "delete",
+                    "children": []
+                  },
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "copy",
+                    "children": []
+                  },
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "expand",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "tag": "div",
+                "attrs": {
+                  "class": "react-flow__node-toolbar",
+                  "data-id": "node-start-right",
+                  "style": "position: absolute; transform: translate(566.857px, 339.491px) translate(0%, 0%); z-index: 1;"
+                },
+                "children": [
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "delete",
+                    "children": []
+                  },
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "copy",
+                    "children": []
+                  },
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "expand",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "tag": "div",
+                "attrs": {
+                  "class": "react-flow__node-toolbar",
+                  "data-id": "node-center-right",
+                  "style": "position: absolute; transform: translate(566.857px, 470.857px) translate(0%, -50%); z-index: 1;"
+                },
+                "children": [
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "delete",
+                    "children": []
+                  },
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "copy",
+                    "children": []
+                  },
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "expand",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "tag": "div",
+                "attrs": {
+                  "class": "react-flow__node-toolbar",
+                  "data-id": "node-end-right",
+                  "style": "position: absolute; transform: translate(566.857px, 602.223px) translate(0%, -100%); z-index: 1;"
+                },
+                "children": [
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "delete",
+                    "children": []
+                  },
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "copy",
+                    "children": []
+                  },
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "expand",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "tag": "div",
+                "attrs": {
+                  "class": "react-flow__node-toolbar",
+                  "data-id": "node-start-bottom",
+                  "style": "position: absolute; transform: translate(723.143px, 390.509px) translate(0%, 0%); z-index: 1;"
+                },
+                "children": [
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "delete",
+                    "children": []
+                  },
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "copy",
+                    "children": []
+                  },
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "expand",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "tag": "div",
+                "attrs": {
+                  "class": "react-flow__node-toolbar",
+                  "data-id": "node-center-bottom",
+                  "style": "position: absolute; transform: translate(806.286px, 501.366px) translate(-50%, 0%); z-index: 1;"
+                },
+                "children": [
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "delete",
+                    "children": []
+                  },
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "copy",
+                    "children": []
+                  },
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "expand",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "tag": "div",
+                "attrs": {
+                  "class": "react-flow__node-toolbar",
+                  "data-id": "node-end-bottom",
+                  "style": "position: absolute; transform: translate(889.429px, 612.223px) translate(-100%, 0%); z-index: 1;"
+                },
+                "children": [
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "delete",
+                    "children": []
+                  },
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "copy",
+                    "children": []
+                  },
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "expand",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "tag": "div",
+                "attrs": {
+                  "class": "react-flow__node-toolbar",
+                  "data-id": "node-start-left",
+                  "style": "position: absolute; transform: translate(1045.71px, 339.491px) translate(-100%, 0%); z-index: 1;"
+                },
+                "children": [
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "delete",
+                    "children": []
+                  },
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "copy",
+                    "children": []
+                  },
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "expand",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "tag": "div",
+                "attrs": {
+                  "class": "react-flow__node-toolbar",
+                  "data-id": "node-center-left",
+                  "style": "position: absolute; transform: translate(1045.71px, 470.857px) translate(-100%, -50%); z-index: 1;"
+                },
+                "children": [
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "delete",
+                    "children": []
+                  },
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "copy",
+                    "children": []
+                  },
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "expand",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "tag": "div",
+                "attrs": {
+                  "class": "react-flow__node-toolbar",
+                  "data-id": "node-end-left",
+                  "style": "position: absolute; transform: translate(1045.71px, 602.223px) translate(-100%, -100%); z-index: 1;"
+                },
+                "children": [
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "delete",
+                    "children": []
+                  },
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "copy",
+                    "children": []
+                  },
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "expand",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "tag": "div",
+                "attrs": {
+                  "class": "react-flow__node-toolbar",
+                  "data-id": "default-node",
+                  "style": "position: absolute; transform: translate(141.143px, 107.777px) translate(-50%, -100%); z-index: 1001;"
+                },
+                "children": [
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "delete",
+                    "children": []
+                  },
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "copy",
+                    "children": []
+                  },
+                  {
+                    "tag": "button",
+                    "attrs": {},
+                    "text": "expand",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "react-flow__panel react-flow__attribution bottom right",
+              "data-message": "Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"
+            },
+            "children": [
+              {
+                "tag": "a",
+                "attrs": {
+                  "href": "https://reactflow.dev",
+                  "target": "_blank",
+                  "rel": "noopener noreferrer",
+                  "aria-label": "React Flow attribution"
+                },
+                "text": "React Flow",
+                "children": []
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__node-desc-1",
+              "style": "display: none;"
+            },
+            "text": "Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel.",
+            "children": []
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__edge-desc-1",
+              "style": "display: none;"
+            },
+            "text": "Press enter or space to select an edge. You can then press delete to remove it or escape to cancel.",
+            "children": []
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__aria-live-1",
+              "aria-live": "assertive",
+              "aria-atomic": "true",
+              "style": "position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(100%);"
+            },
+            "children": []
+          }
+        ]
+      }
+    },
+    "callbacks": [
+      {
+        "name": "onSelectionChange",
+        "args": [
+          {
+            "nodes": [],
+            "edges": []
+          }
+        ]
+      },
+      {
+        "name": "onMoveStart",
+        "args": [
+          null,
+          {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          }
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 58,
+            "y": 339.49142857142857,
+            "zoom": 1.1085714285714285
+          }
+        ]
+      },
+      {
+        "name": "onMove",
+        "args": [
+          null,
+          {
+            "x": 58,
+            "y": 339.49142857142857,
+            "zoom": 1.1085714285714285
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "id": "default-node",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "node-start-top",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "node-center-top",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "node-end-top",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "node-start-right",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "node-center-right",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "node-end-right",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "node-start-bottom",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "node-center-bottom",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "node-end-bottom",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "node-start-left",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "node-center-left",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "node-end-left",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 58,
+            "y": 339.49142857142857,
+            "zoom": 1.1085714285714285
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseEnter",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerEnter",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "pointerenter",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 191,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 141.14285278320312,
+            "screenY": 138.28570556640625,
+            "clientX": 141.14285278320312,
+            "clientY": 138.28570556640625,
+            "pageX": 141.14285278320312,
+            "pageY": 138.28570556640625,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 0,
+            "relatedTarget": {
+              "@ref": "Window"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "pointerId": 1,
+            "width": 1,
+            "height": 1,
+            "pressure": 0,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "mouse",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodeMouseEnter",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseEnter",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseenter",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 191,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 141,
+            "screenY": 138,
+            "clientX": 141,
+            "clientY": 138,
+            "pageX": 141,
+            "pageY": 138,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": {
+              "@ref": "Window"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "default-node",
+            "type": "ToolbarNode",
+            "data": {
+              "label": "toolbar top",
+              "toolbarPosition": "top"
+            },
+            "position": {
+              "x": 0,
+              "y": -200
+            },
+            "className": "react-flow__node-default",
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerMove",
+            "_targetInst": null,
+            "type": "pointermove",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 191,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 141.14285278320312,
+            "screenY": 138.28570556640625,
+            "clientX": 141.14285278320312,
+            "clientY": 138.28570556640625,
+            "pageX": 141.14285278320312,
+            "pageY": 138.28570556640625,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 0,
+            "relatedTarget": null,
+            "movementX": 142,
+            "movementY": 139,
+            "pointerId": 1,
+            "width": 1,
+            "height": 1,
+            "pressure": 0,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "mouse",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodeMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseMove",
+            "_targetInst": null,
+            "type": "mousemove",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 191,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 141,
+            "screenY": 138,
+            "clientX": 141,
+            "clientY": 138,
+            "pageX": 141,
+            "pageY": 138,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": null,
+            "movementX": 142,
+            "movementY": 139,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "default-node",
+            "type": "ToolbarNode",
+            "data": {
+              "label": "toolbar top",
+              "toolbarPosition": "top"
+            },
+            "position": {
+              "x": 0,
+              "y": -200
+            },
+            "className": "react-flow__node-default",
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "id": "default-node",
+              "type": "select",
+              "selected": true
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodeClick",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onClick",
+            "_targetInst": null,
+            "type": "click",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 195.80000019073486,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 1,
+            "screenX": 141,
+            "screenY": 138,
+            "clientX": 141,
+            "clientY": 138,
+            "pageX": 141,
+            "pageY": 138,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": null,
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "default-node",
+            "type": "ToolbarNode",
+            "data": {
+              "label": "toolbar top",
+              "toolbarPosition": "top"
+            },
+            "position": {
+              "x": 0,
+              "y": -200
+            },
+            "className": "react-flow__node-default",
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          }
+        ]
+      },
+      {
+        "name": "onSelectionChange",
+        "args": [
+          {
+            "nodes": [
+              {
+                "id": "default-node",
+                "type": "ToolbarNode",
+                "data": {
+                  "label": "toolbar top",
+                  "toolbarPosition": "top"
+                },
+                "position": {
+                  "x": 0,
+                  "y": -200
+                },
+                "className": "react-flow__node-default",
+                "measured": {
+                  "width": 150,
+                  "height": 37
+                },
+                "selected": true
+              }
+            ],
+            "edges": []
+          }
+        ]
+      }
+    ],
+    "hooks": {},
+    "api": {
+      "queries": {},
+      "calls": []
+    },
+    "props": {},
+    "console": [
+      {
+        "level": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      }
+    ],
+    "driving": [
+      {
+        "index": 0,
+        "action": "mount",
+        "target": ".react-flow",
+        "resolved": true,
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "dispatched": {
+          "route": "/tests/generic/node-toolbar/general"
+        }
+      },
+      {
+        "index": 1,
+        "action": "pointerDown",
+        "target": ".react-flow__node[data-id=\"default-node\"]",
+        "resolved": true,
+        "box": {
+          "x": 58,
+          "y": 117.77714538574219,
+          "width": 166.28570556640625,
+          "height": 41.01713562011719
+        },
+        "dispatched": {
+          "x": 141.14285278320312,
+          "y": 138.28571319580078,
+          "button": "left"
+        }
+      },
+      {
+        "index": 2,
+        "action": "pointerUp",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "x": 141.14285278320312,
+          "y": 138.28571319580078,
+          "button": "left"
+        }
+      }
+    ]
+  }
+}

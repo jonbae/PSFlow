@@ -67,7 +67,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M75.000001418919,38.999997446564066 C75.000001418919,68.0000004049638 -25.000007468645535,68.0000004049638 -25.000007468645535,97.00000336336355",
+                                      "d": "M75.000001418919,39.99999838632741 C75.000001418919,68.50000087484548 -25.000007468645535,68.50000087484548 -25.000007468645535,97.00000336336355",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -76,7 +76,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M75.000001418919,38.999997446564066 C75.000001418919,68.0000004049638 -25.000007468645535,68.0000004049638 -25.000007468645535,97.00000336336355",
+                                      "d": "M75.000001418919,39.99999838632741 C75.000001418919,68.50000087484548 -25.000007468645535,68.50000087484548 -25.000007468645535,97.00000336336355",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -89,7 +89,7 @@
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
                                       "cx": "75.000001418919",
-                                      "cy": "48.999997446564066",
+                                      "cy": "49.99999838632741",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -132,7 +132,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M75.000001418919,38.999997446564066 C75.000001418919,68.0000004049638 174.99999253135445,68.0000004049638 174.99999253135445,97.00000336336355",
+                                      "d": "M75.000001418919,39.99999838632741 C75.000001418919,68.50000087484548 174.99999253135445,68.50000087484548 174.99999253135445,97.00000336336355",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -141,7 +141,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M75.000001418919,38.999997446564066 C75.000001418919,68.0000004049638 174.99999253135445,68.0000004049638 174.99999253135445,97.00000336336355",
+                                      "d": "M75.000001418919,39.99999838632741 C75.000001418919,68.50000087484548 174.99999253135445,68.50000087484548 174.99999253135445,97.00000336336355",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -154,7 +154,7 @@
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
                                       "cx": "75.000001418919",
-                                      "cy": "48.999997446564066",
+                                      "cy": "49.99999838632741",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -202,7 +202,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(0px, 0px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
+                              "style": "z-index: 0; transform: translate(0px, 0px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "1",
                             "children": [
@@ -227,7 +227,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(-100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
+                              "style": "z-index: 0; transform: translate(-100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "2",
                             "children": [
@@ -262,7 +262,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
+                              "style": "z-index: 0; transform: translate(100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "3",
                             "children": [
@@ -398,7 +398,7 @@
               "id": "1",
               "dimensions": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "resizing": false,
               "setAttributes": true
@@ -426,7 +426,7 @@
               "id": "2",
               "dimensions": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "resizing": false,
               "setAttributes": true
@@ -454,7 +454,7 @@
               "id": "3",
               "dimensions": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "resizing": false,
               "setAttributes": true

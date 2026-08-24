@@ -23,6 +23,11 @@ Vocabulary is `CONTEXT.md`. Terms in **bold** are defined there.
 | `pending.mjs` | the sections capture does not fill yet, declared |
 | `live.spec.mjs` | the harness against a real page |
 
+*What* gets driven is not here either: it is `../corpus/`, which has its own
+README — the derived mount-only baselines, the **conformance seed** lifted from
+upstream's own suite, and the fork register that keeps the seed from going
+quietly stale.
+
 ```sh
 npm run test:harness       # the harness's own unit tests — no browser
 npm run test:harness:live  # the browser self-test (needs dist/psflow.js)
@@ -95,9 +100,12 @@ gets inserted into and trimmed from.
 **Primitives — closed.** `pointerDown`, `pointerMove`, `pointerUp`, `key`,
 `wheel`, `touch`, `call`. Extending this set is a decision.
 
-**Gestures — open by addition.** `dragNode`, `selectionBox`, `connect`, `pan`,
-`pinch`, `arrowKeyNudge`, each a pure composition of primitives. Adding one is a
-reviewable act, not a scenario detail.
+**Gestures — open by addition.** `click`, `dragNode`, `selectionBox`, `connect`,
+`pan`, `pinch`, `arrowKeyNudge`, each a pure composition of primitives. Adding
+one is a reviewable act, not a scenario detail. `click` arrived with the
+conformance seed: Playwright's own `locator.click()` is a press and a release
+with no move between, and eleven of the seed's twenty-five scenarios reach for
+one.
 
 Scenarios reach for the gesture tier by default and drop to primitives only when
 the scenario is *about* an unusual input sequence — a gesture interrupted
@@ -259,7 +267,7 @@ unreadable one, and the `SerializationError` is raised by the harness reading th
 log rather than thrown inside a library's own event dispatch, where it would
 change what the page does.
 
-### The parked pointer
+### The parked pointer, and the released button
 
 The cursor belongs to the browser, not to the document, so it survives the
 navigation that starts each capture. That was invisible until callbacks were
@@ -268,11 +276,21 @@ left inside the flow, and the browser fired the boundary events from there —
 `onPaneMouseEnter` ahead of the mount, carrying coordinates a hundred pixels
 along, where capture 1 recorded it when the drag first moved.
 
+The **button** is the same finding one step on, and it arrived with the corpus.
+A scenario may end **mid-gesture** — settling with the pointer still down is the
+only way transient state is observable at all — and `drag-pans-the-pane` lifts a
+spec that never releases. Measured on that scenario: without the release,
+upstream disagreed with itself on three runs out of three, its second capture
+recording `buttons: 1` and `pressure: 0.5` on the events its mount fired where
+the first recorded `0` and `0`. Capture 2 was mounting under a press capture 1
+had left held.
+
 So `runScenario` parks the pointer off-viewport on the blank document, between
-the two navigations. No page sees the move, and it is not a driving action for
-the same reason blanking the page is not one: nothing was done to the flow. With
-it, upstream reproduces a whole drag — call log included — across four captures;
-without it, one in three disagreed with itself.
+the two navigations, and releases it there. No page sees either, and neither is
+a driving action for the same reason blanking the page is not one: nothing was
+done to the flow. With them, upstream reproduces a whole drag — call log
+included — across four captures; without the park, one in three disagreed with
+itself, and without the release, three in three.
 
 ## The argument serializer
 

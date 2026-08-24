@@ -148,7 +148,20 @@ export const runScenario = async (
     // drag first moved. Parked on `about:blank`, so no page sees the move, and
     // it is not a driving action: nothing was done to the flow, the same way
     // blanking the page is not one.
+    //
+    // And released, which is the same finding one step on. A scenario may end
+    // **mid-gesture** — settling with the pointer still down is the only way
+    // transient state is observable, and the conformance seed lifts a pane pan
+    // that upstream's own spec never releases (#55) — and the *button* belongs
+    // to the browser exactly as the cursor does, so it survives the blanking
+    // too. Measured, on `drag-pans-the-pane`: without this line, upstream
+    // disagreed with itself on three runs out of three, its second capture
+    // recording `buttons: 1` and `pressure: 0.5` on the events its mount fired
+    // where the first recorded `0` and `0`. Capture 2 was mounting under a
+    // press capture 1 had left held. Releasing a button nobody pressed is
+    // dispatched all the same and seen by nothing, here on a blank page.
     await port.mouse("move", { x: -1, y: -1 });
+    await port.mouse("up", { x: -1, y: -1 });
 
     await page.goto(driverUrl(scenario.route, side));
 

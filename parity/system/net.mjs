@@ -21,10 +21,17 @@
 // keeping in view: two traces whose sections are empty on both sides compare
 // clean and mean nothing, and a gate that cannot go red is worse than no gate.
 //
-// **The corpus is mount-only baselines**, one per fixture, derived from the
-// fixture registry rather than written down (`corpus/mount-baselines.mjs`). No
-// action vocabulary at all — which is the cheapest scenario there is, and the
-// one the dual-run spike ran when it found an entirely unlisted missing export.
+// **The corpus** is `corpus/`: a mount-only baseline per fixture, derived from
+// the driver's own registries rather than written down, plus the **conformance
+// seed** — upstream's forty-three end-to-end tests transcribed as interaction
+// sequences with their assertions dropped. The baselines are the cheapest
+// scenario there is and the one the dual-run spike ran when it found an
+// entirely unlisted missing export; the seed is what drives anything at all.
+//
+// The seed is a **one-time fork**, and `corpus/fork.mjs` is what keeps it from
+// going quietly stale: every upstream test is registered against the scenarios
+// lifted from it and a hash of its own source, and a bump that rewrites one
+// fails, naming the scenarios to re-affirm.
 //
 // **It runs vendored upstream**, never the published package: both bundles are
 // rebuilt here, and `parity/driver/build.mjs` reads its own output back and
@@ -42,10 +49,10 @@
 import { chromium } from "@playwright/test";
 import { spawn } from "node:child_process";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
-import { dirname, join, relative, resolve } from "node:path";
+import { dirname, join, posix, relative, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { RegistryError, collectFixtures, fixtureRoots } from "../driver/registry.mjs";
+import { RegistryError, routeSpace } from "../driver/registry.mjs";
 import { SIDES } from "../driver/sides.mjs";
 import { WeakeningError } from "./compare/callbacks.mjs";
 import { ConsistencyError } from "./compare/consistency.mjs";
@@ -53,7 +60,9 @@ import { ComparisonError } from "./compare/index.mjs";
 import { NormalizationError } from "./compare/normalize.mjs";
 import { RegionError } from "./compare/regions.mjs";
 import { RunError, compareRun } from "./compare/run.mjs";
-import { CorpusError, mountBaselines } from "./corpus/mount-baselines.mjs";
+import { ForkError } from "./corpus/fork.mjs";
+import { CorpusError, buildCorpus } from "./corpus/index.mjs";
+import { checkFork, reportFork } from "./fork.mjs";
 import { SettleError } from "./harness/settle.mjs";
 import { runScenario } from "./harness/scenario.mjs";
 import { serveDirectory } from "./net/server.mjs";
@@ -198,7 +207,8 @@ const workFor = (compareOnly) => {
     );
   }
 
-  const corpus = mountBaselines(collectFixtures(fixtureRoots(repoRoot)));
+  const { fixtures, components } = routeSpace(repoRoot);
+  const corpus = buildCorpus(fixtures, components);
   return { scenarios: corpus, corpus, baseline: readJson(vendored).version };
 };
 
@@ -218,6 +228,12 @@ const baselineOf = (runs) => {
 
 const withTrailingNewline = (text) => (text.endsWith("\n") ? text : text + "\n");
 
+// `report.md` is a committed artifact, so a path inside it may not depend on
+// which host rendered it: a Windows run would otherwise rewrite the line on
+// every capture and a POSIX run would rewrite it back. The same normalization
+// `registry.mjs` applies to a fixture's route key, for the same reason.
+const posixPath = (path) => path.split(sep).join(posix.sep);
+
 const main = async () => {
   const compareOnly = flag("--compare-only");
   const only = value("--scenario");
@@ -234,6 +250,17 @@ const main = async () => {
   if (compareOnly) {
     console.log(`re-diffing ${scenarios.length} scenario(s) from stored traces — no browser`);
   } else {
+    // Before the browser, and the one place in this file where something
+    // earlier stops something later. It is not a suppressed comparison — no
+    // capture has happened yet to suppress — it is a precondition, the same
+    // kind as the vendored checkout above. Capturing a hundred and twenty
+    // traces against a corpus whose relation to upstream is in question
+    // produces an artifact that has to be thrown away the moment the question
+    // is answered, and re-affirming is a decision rather than a repair.
+    const { outcomes } = checkFork({ corpus });
+    console.log(reportFork(outcomes));
+    if (!outcomes.ok) return 1;
+
     await buildBoth();
     const server = await serveDirectory(repoRoot);
     try {
@@ -265,7 +292,7 @@ const main = async () => {
   const report = renderNetReport(runs, {
     baseline: baselineOf(runs),
     captured: !compareOnly,
-    tracesDir: relative(repoRoot, TRACES),
+    tracesDir: posixPath(relative(repoRoot, TRACES)),
     orphans,
   });
   writeFileSync(REPORT, withTrailingNewline(report));
@@ -300,6 +327,7 @@ const main = async () => {
 // is a bug here and keeps its stack rather than being dressed up as a bad run.
 const INTERPRETABLE = [
   NetError,
+  ForkError,
   TraceFormatError,
   TraceStoreError,
   RegistryError,

@@ -1,0 +1,541 @@
+{
+  "_comment": [
+    "The fork register (#55). The conformance seed is a one-time fork of upstream's own end-to-end suite,",
+    "and this is what keeps it from going quietly stale. Two kinds of unit, both against a hash of their",
+    "own source and the scenarios that depend on them:",
+    "",
+    "  the forked specs   one entry per `test` and per `beforeEach`-style hook. Hooks because upstream's",
+    "                     `goto` lives in one, and a bump that moved a route would change no test's text",
+    "  depended-on source one entry per whole file the seed reads an assumption *out of* — the four",
+    "                     vendored fixtures and the example driver. Not forked: both sides mount them",
+    "                     unmodified. What is not symmetric is that the transcription reads them",
+    "",
+    "  scenarios  the seed scenarios this unit was lifted into, or that depend on it",
+    "  reason     required when nothing was lifted — \"covered by the mount-only baseline\" and \"nobody got",
+    "             round to it\" look identical without one; optional otherwise, and worth writing where",
+    "             the dependency is not obvious from the scenario's name",
+    "",
+    "A unit whose source changed fails as **moved**: the scenarios named must be re-affirmed — read the",
+    "new source, decide whether the scenario still drives what it should — never re-synced. An entry",
+    "naming a unit that is no longer there fails as **stale**, and a unit no entry names fails as",
+    "**unregistered**, which is what a bump that adds a test or a fixture looks like.",
+    "",
+    "`node parity/system/fork.mjs --affirm` restamps a moved entry's hash and baseline. It cannot create an",
+    "entry and it cannot delete one — those are reviewed edits to this file, the same line `--record` draws",
+    "for regions."
+  ],
+  "forked": [
+    {
+      "spec": "xyflow/tests/playwright/e2e/edges.spec.ts",
+      "test": "Edges > beforeEach",
+      "hash": "sha256:ad6ed5bd213bf844fd522c2fa38fbe52adcdd8da4bb893fde4a826179341a2da",
+      "scenarios": [
+        "click-selects-edge",
+        "multi-select-edges-with-modifier",
+        "click-unselectable-edge",
+        "delete-key-removes-edge",
+        "delete-key-spares-undeletable-edge",
+        "click-inside-interaction-width"
+      ],
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/edges.spec.ts",
+      "test": "Edges > selection > selecting an edge by click",
+      "hash": "sha256:2c090f4107e669b5c15c770912c9db1934cf737c3a6f8c848914f2c4214ae1c5",
+      "scenarios": [
+        "click-selects-edge"
+      ],
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/edges.spec.ts",
+      "test": "Edges > selection > selecting multiple edges by meta-click",
+      "hash": "sha256:b9c174a341a1d1056c7b4c3bdffad7b454ab236fe1d954e4abfb33b71bb48e00",
+      "scenarios": [
+        "multi-select-edges-with-modifier"
+      ],
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/edges.spec.ts",
+      "test": "Edges > properties > classes get applied",
+      "hash": "sha256:be26941dfb98b691160a26b12944bdc7b6f549ff0838701a66b2cc8f5b149128",
+      "scenarios": [],
+      "reason": "A static render: the assertion reads one attribute of a page that was only mounted. `mount-baseline--edges-general` compares the whole DOM of that mount — this attribute among them, and everything nobody thought to assert besides.",
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/edges.spec.ts",
+      "test": "Edges > properties > styles get applied",
+      "hash": "sha256:e7c3fe979e894a1901457c80ed04fbfea4bcf101f782e48c54a250a7536ad026",
+      "scenarios": [],
+      "reason": "A static render: the assertion reads one attribute of a page that was only mounted. `mount-baseline--edges-general` compares the whole DOM of that mount — this attribute among them, and everything nobody thought to assert besides.",
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/edges.spec.ts",
+      "test": "Edges > properties > hidden=true hides edge",
+      "hash": "sha256:812b3d5140ac8b29cb4b6a12fdb7cf5653b3caeed28c4ae1974e718e504de321",
+      "scenarios": [],
+      "reason": "A static render: the assertion reads one attribute of a page that was only mounted. `mount-baseline--edges-general` compares the whole DOM of that mount — this attribute among them, and everything nobody thought to assert besides.",
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/edges.spec.ts",
+      "test": "Edges > properties > animated=true add \"animated\" class",
+      "hash": "sha256:d5db426559e42fcd2ec7a80a4b6cf2a96f22e1e5cd4c59142e3aa72c2de5123c",
+      "scenarios": [],
+      "reason": "A static render: the assertion reads one attribute of a page that was only mounted. `mount-baseline--edges-general` compares the whole DOM of that mount — this attribute among them, and everything nobody thought to assert besides.",
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/edges.spec.ts",
+      "test": "Edges > properties > selectable=false prevents selecting of edges",
+      "hash": "sha256:6443811bc122ca0e7863711c198cac296ef360f7b0fceb980a985c725812802b",
+      "scenarios": [
+        "click-unselectable-edge"
+      ],
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/edges.spec.ts",
+      "test": "Edges > properties > deleting edges is possible",
+      "hash": "sha256:44cdd959712c129526cde70257be3f0c6a3c2d1b53ecf074c04bc09ca93d7eb8",
+      "scenarios": [
+        "delete-key-removes-edge"
+      ],
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/edges.spec.ts",
+      "test": "Edges > properties > deletable=false prevents deleting of edges",
+      "hash": "sha256:88be020dde19a9e973318270b600a87b9ab0135c6809d0c00a82d80a7cf4f26c",
+      "scenarios": [
+        "delete-key-spares-undeletable-edge"
+      ],
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/edges.spec.ts",
+      "test": "Edges > properties > zIndex sets z-index of edge svgs",
+      "hash": "sha256:539950a26bd1a4757adb3f3f23d23f2e4f6702a75b9da15acebfad2793f34ca4",
+      "scenarios": [],
+      "reason": "A static render: the assertion reads one attribute of a page that was only mounted. `mount-baseline--edges-general` compares the whole DOM of that mount — this attribute among them, and everything nobody thought to assert besides.",
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/edges.spec.ts",
+      "test": "Edges > properties > aria-lable is working",
+      "hash": "sha256:d8b77d186e606e66a78d5f229e62f14165bf8cce3f57e9f29fad76585c4afbe7",
+      "scenarios": [],
+      "reason": "A static render: the assertion reads one attribute of a page that was only mounted. `mount-baseline--edges-general` compares the whole DOM of that mount — this attribute among them, and everything nobody thought to assert besides.",
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/edges.spec.ts",
+      "test": "Edges > properties > interactionWidth is working",
+      "hash": "sha256:bb3e352625d0ae0922d943f6e5d44c947388de19885b42f461c0980164b4c883",
+      "scenarios": [
+        "click-inside-interaction-width"
+      ],
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/edges.spec.ts",
+      "test": "Edges > properties > marker-start, marker-end set markers",
+      "hash": "sha256:a59c870fc80391fc9175dfa9347f367d6bc35b845c508a713b26e775fc18ea90",
+      "scenarios": [],
+      "reason": "A static render: the assertion reads one attribute of a page that was only mounted. `mount-baseline--edges-general` compares the whole DOM of that mount — this attribute among them, and everything nobody thought to assert besides.",
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/edges.spec.ts",
+      "test": "Edges > properties > z-index",
+      "hash": "sha256:5d6f4c3baf387f9f5c519a6d0d1888c3636a19095636c92384a0f379f008bf35",
+      "scenarios": [],
+      "reason": "A static render: the assertion reads one attribute of a page that was only mounted. `mount-baseline--edges-general` compares the whole DOM of that mount — this attribute among them, and everything nobody thought to assert besides.",
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/edges.spec.ts",
+      "test": "Edges > properties > sub flow: normal node to child node, z-index",
+      "hash": "sha256:360bca377712982a1e22423b8f6077f34a345bcf96cfe92aa01a870dc4b9fb78",
+      "scenarios": [],
+      "reason": "A static render: the assertion reads one attribute of a page that was only mounted. `mount-baseline--edges-general` compares the whole DOM of that mount — this attribute among them, and everything nobody thought to assert besides.",
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/edges.spec.ts",
+      "test": "Edges > properties > sub flow: child node to child node, z-index",
+      "hash": "sha256:b2517e31ca0ed193bf4af702383291047524042fb1c8b9325ef51e17a467ecd0",
+      "scenarios": [],
+      "reason": "A static render: the assertion reads one attribute of a page that was only mounted. `mount-baseline--edges-general` compares the whole DOM of that mount — this attribute among them, and everything nobody thought to assert besides.",
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/node-toolbar.spec.ts",
+      "test": "Node Toolbar > beforeEach",
+      "hash": "sha256:e647c26768e7d9026b615ee5011d330de9d4b8293f5f257cd69a4d982e63d8d5",
+      "scenarios": [
+        "click-reveals-default-toolbar"
+      ],
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/node-toolbar.spec.ts",
+      "test": "Node Toolbar > all toolbars are positioned correctly",
+      "hash": "sha256:73947884898ba9333243c903d16e382b4bb7d34ce3dce4bd7280c3b30e121098",
+      "scenarios": [],
+      "reason": "A static render, and the largest of them: twelve toolbars whose positions are asserted one comparison at a time. `mount-baseline--node-toolbar-general` compares every one of their boxes and the markup around them, without the switch statement.",
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/node-toolbar.spec.ts",
+      "test": "Node Toolbar > toolbar default behaviour",
+      "hash": "sha256:273c0dff50b564e9479f4c7dce975b901aed9fa816653ab465936cc9eeb643cd",
+      "scenarios": [
+        "click-reveals-default-toolbar"
+      ],
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/nodes.spec.ts",
+      "test": "Nodes > beforeEach",
+      "hash": "sha256:a1933047823b1cc924ac52c5e9945d0b54786e91700c29ceee0421306ca03a73",
+      "scenarios": [
+        "click-selects-node",
+        "shift-drag-selects-nodes",
+        "click-unselectable-node",
+        "drag-moves-node",
+        "drag-does-not-move-undraggable-node",
+        "drag-by-custom-drag-handle",
+        "delete-key-removes-node-and-edges",
+        "delete-key-spares-undeletable-node",
+        "connect-source-handle-to-target-handle",
+        "connect-output-to-output-handle",
+        "connect-input-to-input-handle",
+        "connect-to-unconnectable-handle"
+      ],
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/nodes.spec.ts",
+      "test": "Nodes > selection > selecting a node by click",
+      "hash": "sha256:5d75ac3e14c63ae14fb95dad7496aacc8deb57e0f1e547d8c4f473560d4ee7db",
+      "scenarios": [
+        "click-selects-node"
+      ],
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/nodes.spec.ts",
+      "test": "Nodes > selection > selecting multiple nodes with shift drag",
+      "hash": "sha256:3918cd593def2758b0845308cf14381e9d5297bbb0ddeec029a7aa2f1ccea479",
+      "scenarios": [
+        "shift-drag-selects-nodes"
+      ],
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/nodes.spec.ts",
+      "test": "Nodes > selection > selectable=false prevents selection",
+      "hash": "sha256:cc5adcd0304acda9de155bf777a08b26a37d1c8056eecf4913b7f71787e03ad1",
+      "scenarios": [
+        "click-unselectable-node"
+      ],
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/nodes.spec.ts",
+      "test": "Nodes > dragging > dragging a node",
+      "hash": "sha256:6a784b8f3bcc3590b7e7cc483d1c518f0cbe5a643517da1a90189bfc9049f82b",
+      "scenarios": [
+        "drag-moves-node"
+      ],
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/nodes.spec.ts",
+      "test": "Nodes > dragging > draggable=false prevents dragging",
+      "hash": "sha256:1ec847bb3dfc013494bd056b855446a746932c1a961652e5339e080c46f26734",
+      "scenarios": [
+        "drag-does-not-move-undraggable-node"
+      ],
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/nodes.spec.ts",
+      "test": "Nodes > dragging > custom drag handle works",
+      "hash": "sha256:8877dd516c7fc47929185244e4cdb5b0be422e08101dfffefcd1243649e2b080",
+      "scenarios": [
+        "drag-by-custom-drag-handle"
+      ],
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/nodes.spec.ts",
+      "test": "Nodes > deleting > deleting a node and its edges",
+      "hash": "sha256:235d6433eae152f097f2e8a5c246c0f73c0121b05f7cd17558dd3fab0c5b0aa7",
+      "scenarios": [
+        "delete-key-removes-node-and-edges"
+      ],
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/nodes.spec.ts",
+      "test": "Nodes > deleting > deletable=false prevents deletion",
+      "hash": "sha256:ccf7d89ff3bdb4576a60c13ea976c54b93b5de4bfb5514afe8906c7e4e515705",
+      "scenarios": [
+        "delete-key-spares-undeletable-node"
+      ],
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/nodes.spec.ts",
+      "test": "Nodes > connecting > connecting two nodes",
+      "hash": "sha256:56e0b981d2d6ec92a7633f6ca6ee201b7d2bc871213155dc009564373892dfe7",
+      "scenarios": [
+        "connect-source-handle-to-target-handle"
+      ],
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/nodes.spec.ts",
+      "test": "Nodes > connecting > connecting two output handles does not work",
+      "hash": "sha256:e6fdf3cb26cec9da7ab419413a3ee87e55819502609aaf2a4da53d952b1a819e",
+      "scenarios": [
+        "connect-output-to-output-handle"
+      ],
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/nodes.spec.ts",
+      "test": "Nodes > connecting > connecting two input handles does not work",
+      "hash": "sha256:42d8113db575e3b0c07719a4583058819d1d765f73ff81e645d0393b2a138814",
+      "scenarios": [
+        "connect-input-to-input-handle"
+      ],
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/nodes.spec.ts",
+      "test": "Nodes > connecting > connectable=false prevents connections",
+      "hash": "sha256:e4148b2e8be5f6828594c5db9dd32d8112c20cf2179d0621d6aa2ff6c3bb7e8f",
+      "scenarios": [
+        "connect-to-unconnectable-handle"
+      ],
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/nodes.spec.ts",
+      "test": "Nodes > hidden=true hides the node",
+      "hash": "sha256:b484de40f846f0f580e8e4ac23d117aef20210a6cb51f35970b7091c8bec3ae0",
+      "scenarios": [],
+      "reason": "A static render, covered by `mount-baseline--nodes-general`, which compares the whole DOM rather than the one attribute this asserts.",
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/nodes.spec.ts",
+      "test": "Nodes > classes get applied",
+      "hash": "sha256:e249d818727095d89b8b72a85c7ed2bfd3095a2f69bc969479b0a6b97ae9c93e",
+      "scenarios": [],
+      "reason": "A static render, covered by `mount-baseline--nodes-general`, which compares the whole DOM rather than the one attribute this asserts.",
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/nodes.spec.ts",
+      "test": "Nodes > styles get applied",
+      "hash": "sha256:afb0b432406d01f0b24357bf6c4b80a7016db1eb1607c058b912bac51a7e4e4c",
+      "scenarios": [],
+      "reason": "A static render, covered by `mount-baseline--nodes-general`, which compares the whole DOM rather than the one attribute this asserts.",
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/pane.spec.ts",
+      "test": "Pane default > beforeEach",
+      "hash": "sha256:72f8964b19604c482357de1190fb3bdae7c66b087020dac6fa41787064688ab4",
+      "scenarios": [
+        "drag-pans-the-pane",
+        "wheel-zooms-the-pane",
+        "wheel-zooms-out-to-min",
+        "wheel-zooms-in-to-max"
+      ],
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/pane.spec.ts",
+      "test": "Pane default > pan & zoom > panning the pane moves it",
+      "hash": "sha256:231e0e7301142ad6290409a2520917029dea8f2a298b9416341d338a78d95d65",
+      "scenarios": [
+        "drag-pans-the-pane"
+      ],
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/pane.spec.ts",
+      "test": "Pane default > pan & zoom > scrolling the default pane zooms it",
+      "hash": "sha256:2e2569068a75f630fdf13a3fdb5f57df1f91c8dfb7ca060ac9f61836dbe1ada9",
+      "scenarios": [
+        "wheel-zooms-the-pane"
+      ],
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/pane.spec.ts",
+      "test": "Pane default > minZoom & maxZoom > minZoom",
+      "hash": "sha256:aa229ef52fadfcd3c7f53f14e7b34f3f57f45bb12041586c2a3a75cca13a1f95",
+      "scenarios": [
+        "wheel-zooms-out-to-min"
+      ],
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/pane.spec.ts",
+      "test": "Pane default > minZoom & maxZoom > maxZoom",
+      "hash": "sha256:2702c55d136bd8d1bec3e9bef327a68f9ff8c7caca461a62bbb62b2dbfb92e63",
+      "scenarios": [
+        "wheel-zooms-in-to-max"
+      ],
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/pane.spec.ts",
+      "test": "Pane default > autoPan > autoPanOnNodeDrag",
+      "hash": "sha256:e97a28fc4d1fb288cd80aafaea742c7f0c0a45d17c8164364a6d3561e9d563eb",
+      "scenarios": [],
+      "reason": "Autopan runs for as long as the pointer is held near the viewport edge, and upstream waits 500ms to let it. The net records no time anywhere and each side settles on its own clock, so how far the viewport moved would be a function of elapsed frames — the scenario could not reproduce itself across its own two captures and would fail self-consistency on both sides rather than measure anything. The behaviour keeps its reserved scenario `drag-node-autopan` (#60), which needs a way to express a dwell that the action vocabulary does not have.",
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/pane.spec.ts",
+      "test": "Pane default > autoPan > autoPanOnConnect",
+      "hash": "sha256:dbf87897b5c6bdd2e7c42a03b6ac9f8d27c5108294c72d2b12be5383a1e8279b",
+      "scenarios": [],
+      "reason": "The same time dependence as `autoPanOnNodeDrag` above, from a held connection rather than a held drag, and left for the same reason.",
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/pane.spec.ts",
+      "test": "Pane non-default > beforeEach",
+      "hash": "sha256:d1e57b90c2efec2f87ed0b4f661b5f14491013157730483b545b01f6aef9def6",
+      "scenarios": [
+        "wheel-pans-with-panonscroll"
+      ],
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/pane.spec.ts",
+      "test": "Pane non-default > pan & zoom > panOnScroll pans the pane on scrolling",
+      "hash": "sha256:04fbaa009824a00d7b5b56560a0879809e1c64fe69de6a4c03faa5b4e6f87c7d",
+      "scenarios": [
+        "wheel-pans-with-panonscroll"
+      ],
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/pane.spec.ts",
+      "test": "Pane non-default > pan & zoom > intialViewport",
+      "hash": "sha256:0fe07d7b344c42e6ee58e27c83edda1dc42fd6e0ef355dc65888815a48ede050",
+      "scenarios": [],
+      "reason": "A static render: `defaultViewport` is read off the mounted page's transform. `mount-baseline--pane-non-defaults` compares that transform along with everything else the viewport places.",
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/props.spec.ts",
+      "test": "Props > colorMode > render default light color mode",
+      "hash": "sha256:1b006e69491935c03f2404c9af9eb5d12d8f5ed1954a54ce83ced8ae5649e679",
+      "scenarios": [],
+      "reason": "A static render of the example driver in its initial state, which is what `mount-baseline--examples-color-mode` already captures — the assertion is that one class is absent, and the baseline compares the whole class list.",
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/tests/playwright/e2e/props.spec.ts",
+      "test": "Props > colorMode > render dark color mode",
+      "hash": "sha256:5ddf1d995b9720b6c319ad5dece0c8d219c695203438143f0268952643d98320",
+      "scenarios": [
+        "select-dark-color-mode"
+      ],
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/examples/react/src/generic-tests/edges/general.ts",
+      "test": "(the whole file)",
+      "hash": "sha256:8a4f4c7f0d2d9a6c5f050edecf49ce71d2929c1c06d6581147ae62fdc65462df",
+      "scenarios": [
+        "click-selects-edge",
+        "multi-select-edges-with-modifier",
+        "click-unselectable-edge",
+        "delete-key-removes-edge",
+        "delete-key-spares-undeletable-edge",
+        "click-inside-interaction-width"
+      ],
+      "reason": "`click-inside-interaction-width` presses 21px to the side of an edge's centre, which is half of this fixture's `interactionWidth: 42` and means nothing without it; `delete-key-*` press its `deleteKeyCode: 'd'` and `multi-select-edges-with-modifier` its `multiSelectionKeyCode: 's'`. None of that is stated in a spec, so no spec hash would notice a bump that changed it.",
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/examples/react/src/generic-tests/node-toolbar/general.ts",
+      "test": "(the whole file)",
+      "hash": "sha256:8f6eaad4e5855eeeab34b2b8896bcc97b9e4223f9e88d6c31adc14a51db2cded",
+      "scenarios": [
+        "click-reveals-default-toolbar"
+      ],
+      "reason": "`click-reveals-default-toolbar` is a scenario only because `default-node` is the one node here that sets no `toolbarVisible`. Give it one in a bump and the scenario still drives, still resolves its target, and observes nothing.",
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/examples/react/src/generic-tests/nodes/general.ts",
+      "test": "(the whole file)",
+      "hash": "sha256:0ab7deb6ca43b7a5d56cf7e8c89a1bab0d80a68adcb476cf8c29913a794a7bca",
+      "scenarios": [
+        "click-selects-node",
+        "shift-drag-selects-nodes",
+        "click-unselectable-node",
+        "drag-moves-node",
+        "drag-does-not-move-undraggable-node",
+        "drag-by-custom-drag-handle",
+        "delete-key-removes-node-and-edges",
+        "delete-key-spares-undeletable-node",
+        "connect-source-handle-to-target-handle",
+        "connect-output-to-output-handle",
+        "connect-input-to-input-handle",
+        "connect-to-unconnectable-handle"
+      ],
+      "reason": "`click-selects-node` and `drag-moves-node` aim at `.react-flow__node` first-match, so which node this fixture lists first is part of both, and `shift-drag-selects-nodes` measures its whole box from that node's top left. `drag-by-custom-drag-handle` depends on `dragHandle` being set on `drag-handle` and on nothing else, and the delete and multi-select scenarios on the key codes. A reordering changes every one of them and no spec's text.",
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/examples/react/src/generic-tests/pane/general.ts",
+      "test": "(the whole file)",
+      "hash": "sha256:3183fd012a9c3280ff61a7c516e217d145e41cfe60e25b49798b86e27dc39310",
+      "scenarios": [
+        "drag-pans-the-pane",
+        "wheel-zooms-the-pane",
+        "wheel-zooms-out-to-min",
+        "wheel-zooms-in-to-max"
+      ],
+      "reason": "`wheel-zooms-out-to-min` and `wheel-zooms-in-to-max` are named for the clamp, which is this fixture's `minZoom: 0.25` and `maxZoom: 4`. Widen either in a bump and the scenario measures a step where it claims to measure a floor.",
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/examples/react/src/generic-tests/pane/non-defaults.ts",
+      "test": "(the whole file)",
+      "hash": "sha256:73c08e68af44655a2e16ab6eb8a75dfaab4d9e04ac6643b3a02b03ca9e1371c2",
+      "scenarios": [
+        "wheel-pans-with-panonscroll"
+      ],
+      "reason": "`wheel-pans-with-panonscroll` is the same wheel `wheel-zooms-the-pane` sends; `panOnScroll: true` here is the entire difference between the two scenarios.",
+      "affirmedAgainst": "12.11.0"
+    },
+    {
+      "spec": "xyflow/examples/react/src/examples/ColorMode/index.tsx",
+      "test": "(the whole file)",
+      "hash": "sha256:6cb50bb589c3d7ed14c6ca4549ed0854e0437fead1894265e85b98c8dd8c010e",
+      "scenarios": [
+        "select-dark-color-mode"
+      ],
+      "reason": "The sharpest of these. Upstream's spec names the option — `selectOption({ label: 'dark' })` — but `selectOption` is not an input event and has no place in the closed primitive tier, so `select-dark-color-mode` presses ArrowDown once from `light`. That makes the *order* of this file's three options part of the scenario. Reorder them in a bump and it drives `system` while every spec hash stays affirmed, which is exactly the silent drift this register exists to stop.",
+      "affirmedAgainst": "12.11.0"
+    }
+  ]
+}

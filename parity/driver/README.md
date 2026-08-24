@@ -50,10 +50,11 @@ into one flat route space, so a file in the second landing on a vendored
 fixture's path would shadow it and every spec driving that route would keep
 passing against something else. `registry.mjs` fails on the collision rather
 than letting one win, and it is where the two roots are *named*, because the
-net's corpus derives its scenarios from the same pair. Its second root is empty
-until the corpus lands ([#55](https://github.com/jonbae/PSFlow/issues/55));
-emptiness only fails in the aggregate, which would be a page answering every
-route with a 404.
+net's corpus derives a mount-only baseline per fixture from the same pair. Its
+second root is empty while every scenario in the corpus is lifted from
+upstream's own suite and so drives a fixture upstream already ships
+([#55](https://github.com/jonbae/PSFlow/issues/55)); emptiness only fails in the
+aggregate, which would be a page answering every route with a 404.
 
 The other hashes select components mounted directly. `generic-props.spec.ts`
 needs upstream's **example driver**, `examples/ColorMode/index.tsx`, because
@@ -61,13 +62,20 @@ upstream has no props fixture to twin. `#/smoke` and `#/examples/node-props`
 select PSFlow-authored components that preserve the local smoke and NodeProps
 contracts without reopening the compiled PureScript page.
 
-Direct components are **written down** in `build.mjs` rather than globbed,
+Direct components are **written down** in `registry.mjs` rather than globbed,
 unlike the fixtures. Upstream's `examples/` holds dozens of directories, most of them
 importing exports that have not crossed, and one unresolved import is a link
 error that stops the page building for every route at once. Adding an entry is
 therefore a decision about the crossing set, not a discovery — which is why
-`build.mjs` states the count it is refusing to glob rather than this file
+`registry.mjs` states the count it is refusing to glob rather than this file
 repeating it.
+
+They sit beside the fixture roots rather than in `build.mjs` for the reason the
+roots do: the net's corpus reads the same list. Each entry says which **kind** it
+is, and the corpus's question is that field — an **example driver** declares its
+own flow inline, so it *is* a fixture and gets a mount-only baseline like every
+other fixture, while a **contract** component renders a ps-flow-specific guard
+for one of the project suites and is a fixture of nothing.
 
 That import list is not free. `ColorMode/index.tsx` pulls `useNodesState` and
 `useEdgesState` into boundary stage 1 from stage 3, and its line 56 is

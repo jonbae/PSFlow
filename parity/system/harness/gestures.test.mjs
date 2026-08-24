@@ -38,8 +38,63 @@ const bench = () => {
 // below it.
 const driven = (log) => log.entries().map((e) => [e.action, e.target, e.dispatched]);
 
-test("the gesture tier is the six the spec names, and it is open by addition", () => {
-  assert.deepEqual(GESTURES, ["dragNode", "selectionBox", "connect", "pan", "pinch", "arrowKeyNudge"]);
+test("the gesture tier is the spec's six plus the one the seed added, and it is open by addition", () => {
+  assert.deepEqual(GESTURES, ["click", "dragNode", "selectionBox", "connect", "pan", "pinch", "arrowKeyNudge"]);
+});
+
+// The gesture eleven of the seed's twenty-five scenarios reach for. Playwright's
+// own `click()` moves to the element, presses and releases without resolving it a
+// second time, and so does this: an element that moved under the press is a
+// finding, not something to chase.
+test("click presses on its target and releases where the press landed", async () => {
+  const { actions, log } = bench();
+  await actions.click(".node");
+
+  assert.deepEqual(driven(log), [
+    ["pointerDown", ".node", { x: 150, y: 43, button: "left" }],
+    ["pointerUp", null, { x: 150, y: 43, button: "left" }],
+  ]);
+});
+
+// The offset form is what a lifted spec is usually written in — upstream aims
+// at an edge's box centre plus a nudge to land inside its interaction width.
+test("click takes a point, so a spec's own offset survives the lift", async () => {
+  const { actions, log } = bench();
+  await actions.click({ target: ".node", dx: 21 });
+
+  assert.deepEqual(driven(log), [
+    ["pointerDown", ".node", { x: 171, y: 43, button: "left" }],
+    ["pointerUp", null, { x: 171, y: 43, button: "left" }],
+  ]);
+});
+
+// Held across the press and released after it, the same shape `selectionBox`
+// gives Shift. Upstream's multi-selection specs press `s` because the fixtures
+// set `multiSelectionKeyCode: 's'` — Meta does not survive their runner.
+test("click holds a modifier across the press and releases it after", async () => {
+  const { actions, log } = bench();
+  await actions.click(".other", { modifier: "s" });
+
+  assert.deepEqual(driven(log), [
+    ["key", null, { key: "s", action: "down" }],
+    ["pointerDown", ".other", { x: 325, y: 145, button: "left" }],
+    ["pointerUp", null, { x: 325, y: 145, button: "left" }],
+    ["key", null, { key: "s", action: "up" }],
+  ]);
+});
+
+test("click on a target that is not there records the skip and drives on", async () => {
+  const { actions, log, sent } = bench();
+  await actions.click(".missing");
+
+  assert.deepEqual(
+    log.entries().map((e) => [e.action, e.resolved]),
+    [
+      ["pointerDown", false],
+      ["pointerUp", true],
+    ]
+  );
+  assert.equal(sent.length, 1, "the press never happened; the release still did, from where the pointer was");
 });
 
 test("dragNode presses on the node, moves in even steps, and releases", async () => {

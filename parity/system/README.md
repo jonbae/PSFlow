@@ -11,6 +11,7 @@ The net has two halves, and they are deliberately separate steps:
 |---|---|---|
 | **capture** | drives a scenario against one side and returns a trace | `harness/` — three of the seven sections still to come, see below |
 | **compare** | reads a run's four stored traces and reports what differs | `compare/`, and `compare.mjs` |
+| **the corpus** | what gets driven: the scenarios, and where each one came from | `corpus/` |
 | **the gate** | the only place the two meet: build, capture the corpus, persist, diff | `net.mjs` and `net/` |
 
 Capture records **everything** observable; everything the noise policy forgives
@@ -409,6 +410,9 @@ npm run parity:system                      # the gate: build both bundles, captu
 node parity/system/net.mjs --compare-only  # re-diff the stored traces — seconds, no browser
 node parity/system/net.mjs --scenario mount-baseline--nodes-general
 
+npm run parity:fork                        # the fork register against the vendored specs
+node parity/system/fork.mjs --affirm       # restamp the entries whose forked spec moved
+
 node parity/system/compare.mjs <trace.json × 4> [--out report.md] [--record]
 node parity/system/compare.mjs <left.json> <right.json> [--out report.md] [--record]
 npm run test:compare       # the comparison core's own unit tests — no browser
@@ -444,24 +448,33 @@ order:
    reads its own output back and fails if the library in it is not the one the
    side names, which is what stops the two runs from being two runs of one
    library.
-2. **The corpus is derived from the fixture registry**: one **mount-only
-   baseline** per **fixture** (`corpus/mount-baselines.mjs`). Derived rather
-   than written down, so a fixture cannot join the driver page without joining
-   the net.
-3. **Each scenario is captured four times** — two sides, two **captures** each,
+2. **The fork register is checked** (`corpus/fork.mjs`), before the browser.
+   The **conformance seed** is a one-time fork of upstream's own suite, and a
+   bump that rewrites one of those specs — or reorders a fixture the seed reads
+   an assumption out of — leaves the lifted scenario driving perfectly while it
+   no longer corresponds to anything upstream tests. A
+   register that is not affirmed fails the run without capturing — the one place
+   in this gate where something earlier stops something later, and a
+   precondition rather than a suppressed comparison, since no capture has
+   happened yet to suppress.
+3. **The corpus is assembled** (`corpus/`): one **mount-only baseline** per
+   **fixture**, derived from the driver's own registries rather than written
+   down, so a fixture cannot join the driver page without joining the net; plus
+   the conformance seed's twenty-five interaction scenarios.
+4. **Each scenario is captured four times** — two sides, two **captures** each,
    a fresh browser context per side, the two captures of one side sharing a page
    the way `runScenario` expects.
-4. **Every trace is written to `traces/`** and **read back off disk** before it
+5. **Every trace is written to `traces/`** and **read back off disk** before it
    is diffed, on the run that just wrote it. The stored traces are the artifact
    the whole compare half is built around; a gate that diffed its in-memory
    copies would let the two drift.
-5. **Each run is compared** by `compare/run.mjs`, and the report is
+6. **Each run is compared** by `compare/run.mjs`, and the report is
    `report.md` — a verdict per scenario, then every run's report in full.
 
 Exit codes are the compare step's: `0` clean, `1` a scenario failed, `2` a run
 that could not be interpreted.
 
-`--compare-only` skips steps 1–4 and re-diffs what is on disk. That is what a
+`--compare-only` skips steps 1–5 and re-diffs what is on disk. That is what a
 revised noise policy asks, and it is the reason the traces are committed: a
 bumped baseline re-diffs the *previous* baseline's stored traces into a
 behavioural changelog, which is impossible if they only existed on the machine
@@ -526,9 +539,10 @@ what is left in `net.mjs` is the doing.
 
 - **The `hooks`, `props` and `api.queries` sections**, which need probes —
   [#59](https://github.com/jonbae/PSFlow/issues/59).
-- **The rest of the corpus** — the conformance seed, the test-debt scenarios and
-  the fork staleness gate — [#55](https://github.com/jonbae/PSFlow/issues/55).
-  What is here is the mount-only baselines, which are every scenario the corpus
-  has that drives nothing.
+- **The rest of the corpus** — the thirty test-debt scenarios
+  ([#60](https://github.com/jonbae/PSFlow/issues/60)), the retirement debt
+  ([#61](https://github.com/jonbae/PSFlow/issues/61)) and the hole-closing scenarios after
+  them. What is here is the mount-only baselines and the conformance seed;
+  `corpus/` has its own README.
 - **Witnesses, holes and the coverage artifact** —
   [#57](https://github.com/jonbae/PSFlow/issues/57).
