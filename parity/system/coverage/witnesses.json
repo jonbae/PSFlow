@@ -1,0 +1,336 @@
+{
+  "_comment": [
+    "The witness register (#57). One entry per export-bearing census entry — the 156 whose mechanism in",
+    "parity/census/classification.json is one of the five dual-run sections. A witness is the rule joining a",
+    "captured trace back to the export it proves was driven, and it is what makes coverage here derived from",
+    "runs that actually happened rather than declared by whoever last edited a table.",
+    "",
+    "  export    the census entry this witnesses. An export the census no longer carries fails as stale",
+    "  selector  dom only: compounds separated by whitespace — `*`, or a tag with any number of `.class`,",
+    "            `[attr]`, `[attr=value]`, `[attr~=value]`, `[attr*=value]`. Whitespace is the descendant",
+    "            combinator and it is the only one",
+    "  names     the other four sections: the runtime names that would prove the export. Many-to-one in",
+    "            places — NodeMouseHandler is the type behind onNodeClick, onNodeMouseEnter and several more",
+    "  note      optional, and required by nothing: written where the rule needs defending, because a witness",
+    "            that matches something the scenario did not really drive is how a derived number goes wrong,",
+    "            and it is only findable if the rule is visible",
+    "",
+    "Which kind an entry takes is not its own to declare — it follows the section the census puts the export",
+    "in, so a witness describing a trace shape that does not exist is a hard error rather than a finding.",
+    "",
+    "A witness does not say the corpus reaches the export. That is what the traces say. An export whose",
+    "witness nothing holds is a hole, and holes.json is where the reason lives — the two registers are",
+    "different claims and neither stands in for the other.",
+    "",
+    "For the change unions a name is a discriminant rather than a handler: `onNodesChange:position` reads",
+    "\"some onNodesChange call carried a change of type position\". Witnessing NodeAddChange by the handler",
+    "alone would count it driven the moment a mount fired one dimension change.",
+    "",
+    "The hooks, api and props sections are empty until #59 builds the probes, so their names are written",
+    "forward: the hook's own name, an imperative method's name, and — for props — the probe id naming which",
+    "props type reported. A probe #59 names differently makes its export read as an undeclared hole, which is",
+    "the loud failure and the intended one."
+  ],
+  "witnesses": [
+    { "export": "Background", "selector": ".react-flow__background" },
+    { "export": "BaseEdge", "selector": "path.react-flow__edge-path" },
+    {
+      "export": "BezierEdge",
+      "selector": ".react-flow__edge-default",
+      "note": "the class an edge wrapper carries for type `default`, which is the type BezierEdge is registered under"
+    },
+    { "export": "ControlButton", "selector": "button.react-flow__controls-button" },
+    { "export": "Controls", "selector": ".react-flow__controls" },
+    {
+      "export": "EdgeLabelRenderer",
+      "selector": ".react-flow__edgelabel-renderer *",
+      "note": "the container div is drawn by GraphView whether or not anything is portaled into it, so the descendant is the question"
+    },
+    { "export": "EdgeText", "selector": ".react-flow__edge-textwrapper" },
+    { "export": "EdgeToolbar", "selector": ".react-flow__edge-toolbar" },
+    { "export": "Handle", "selector": ".react-flow__handle" },
+    { "export": "MiniMap", "selector": ".react-flow__minimap" },
+    { "export": "MiniMapNode", "selector": ".react-flow__minimap-node" },
+    { "export": "NodeResizeControl", "selector": ".react-flow__resize-control" },
+    {
+      "export": "NodeResizer",
+      "selector": ".react-flow__resize-control.line",
+      "note": "NodeResizer is the only thing that renders a `line` variant; a bare NodeResizeControl defaults to `handle`"
+    },
+    { "export": "NodeToolbar", "selector": ".react-flow__node-toolbar" },
+    { "export": "Panel", "selector": ".react-flow__panel" },
+    { "export": "ReactFlow", "selector": ".react-flow" },
+    {
+      "export": "ReactFlowProvider",
+      "selector": ".react-flow",
+      "note": "ReactFlow mounts a provider itself unless one already wraps it, so every mounted flow runs this component. The selector cannot tell an explicit provider from the internal one and never could: the dom section is rooted at `.react-flow`, and what an explicit provider buys — hooks outside the flow — renders outside that root"
+    },
+    { "export": "SimpleBezierEdge", "selector": ".react-flow__edge-simplebezier" },
+    { "export": "SmoothStepEdge", "selector": ".react-flow__edge-smoothstep" },
+    { "export": "StepEdge", "selector": ".react-flow__edge-step" },
+    { "export": "StraightEdge", "selector": ".react-flow__edge-straight" },
+    {
+      "export": "ViewportPortal",
+      "selector": ".react-flow__viewport-portal *",
+      "note": "same shape as EdgeLabelRenderer — GraphView draws the empty container for every flow, so only its content witnesses the export"
+    },
+    {
+      "export": "Align",
+      "selector": ".react-flow__node-toolbar[style*=translate]",
+      "note": "align lands in the toolbar's transform, which getNodeToolbarTransform computes; the selector proves a toolbar was positioned, not that a non-default align was"
+    },
+    {
+      "export": "AriaLabelConfig",
+      "selector": ".react-flow__node[aria-describedby]",
+      "note": "the description a node points at is rendered from the aria-label config"
+    },
+    { "export": "BackgroundProps", "selector": ".react-flow__background-pattern" },
+    { "export": "BaseEdgeProps", "selector": "path.react-flow__edge-path[d]" },
+    { "export": "BezierEdgeProps", "selector": ".react-flow__edge-default path.react-flow__edge-path" },
+    { "export": "ColorMode", "selector": ".react-flow.light" },
+    {
+      "export": "ColorModeClass",
+      "selector": ".react-flow.dark",
+      "note": "the resolved class, which is what tells ColorModeClass apart from the ColorMode a consumer sets — `system` resolves to one of these two"
+    },
+    { "export": "ControlButtonProps", "selector": "button.react-flow__controls-button[title]" },
+    { "export": "ControlLinePosition", "selector": ".react-flow__resize-control.line" },
+    { "export": "ControlPosition", "selector": ".react-flow__resize-control.handle" },
+    {
+      "export": "DefaultEdgeOptions",
+      "selector": ".react-flow__edge-smoothstep",
+      "note": "nothing in the DOM is unique to the default options — they are merged into edges that declare none — so the witness names the shape a fixture exercising them should take: a `defaultEdgeOptions.type` of smoothstep over edges that declare no type. It shares its selector with SmoothStepEdge on purpose, and both are holes until such a fixture exists"
+    },
+    { "export": "Edge", "selector": ".react-flow__edge[data-id]" },
+    { "export": "EdgeLabelOptions", "selector": ".react-flow__edge-textbg" },
+    { "export": "EdgeLabelRendererProps", "selector": ".react-flow__edgelabel-renderer *" },
+    { "export": "EdgeMarker", "selector": "marker.react-flow__arrowhead" },
+    {
+      "export": "EdgeMarkerType",
+      "selector": "path[marker-end]",
+      "note": "the reference on the edge path, where EdgeMarker is the definition it points at"
+    },
+    { "export": "EdgeTextProps", "selector": "text.react-flow__edge-text" },
+    { "export": "EdgeToolbarProps", "selector": ".react-flow__edge-toolbar" },
+    {
+      "export": "EdgeTypes",
+      "selector": ".react-flow__edge-custom",
+      "note": "the class an edge takes from a type no built-in registers, the way NodeTypes shows up as react-flow__node-<key>. No fixture passes an edgeTypes map, so this names the key such a fixture is expected to use"
+    },
+    { "export": "EdgeWrapperProps", "selector": ".react-flow__edge" },
+    { "export": "HandleProps", "selector": ".react-flow__handle[data-handlepos]" },
+    { "export": "HandleType", "selector": ".react-flow__handle.source" },
+    {
+      "export": "KeyCode",
+      "selector": ".react-flow__nodesselection",
+      "note": "the selection a held selectionKeyCode produces — the one key code with DOM of its own. The delete key codes are observable only as what is no longer there, which no selector can ask for"
+    },
+    { "export": "MiniMapProps", "selector": ".react-flow__minimap-mask" },
+    { "export": "Node", "selector": ".react-flow__node[data-id]" },
+    {
+      "export": "NodeOrigin",
+      "selector": ".react-flow__node[style*=translate]",
+      "note": "every node's transform is computed through the origin, so the export is reached by any mount. That no fixture sets a non-default origin is a behavior gap, and belongs to the other count"
+    },
+    { "export": "NodeResizerProps", "selector": ".react-flow__resize-control.line" },
+    { "export": "NodeToolbarProps", "selector": ".react-flow__node-toolbar[style*=transform]" },
+    {
+      "export": "NodeTypes",
+      "selector": ".react-flow__node-ToolbarNode",
+      "note": "a node type no built-in registers, so the class names the fixture's own key. A fixture that renames it makes this read undriven, which is the loud failure rather than the quiet one"
+    },
+    { "export": "NodeWrapperProps", "selector": ".react-flow__node" },
+    { "export": "PanelPosition", "selector": ".react-flow__panel.top" },
+    { "export": "PanelProps", "selector": ".react-flow__panel" },
+    {
+      "export": "ProOptions",
+      "selector": ".react-flow__attribution",
+      "note": "the attribution is what proOptions.hideAttribution removes, so its presence is the option being read"
+    },
+    { "export": "ReactFlowProps", "selector": ".react-flow[data-testid]" },
+    {
+      "export": "SelectionRect",
+      "selector": ".react-flow__selection",
+      "note": "the rect exists only while the pointer is down, so a scenario that completes its drag never records one — `selection-box-mid-gesture` is the reserved scenario that will"
+    },
+    { "export": "SimpleBezierEdgeProps", "selector": ".react-flow__edge-simplebezier" },
+    { "export": "SmoothStepEdgeProps", "selector": ".react-flow__edge-smoothstep" },
+    { "export": "StepEdgeProps", "selector": ".react-flow__edge-step" },
+    { "export": "StraightEdgeProps", "selector": ".react-flow__edge-straight" },
+    { "export": "Viewport", "selector": ".react-flow__viewport[style*=transform]" },
+    {
+      "export": "XYZPosition",
+      "selector": ".react-flow__node[style*=z-index]",
+      "note": "the z of a node's x/y/z, which is the part of the triple with DOM of its own"
+    },
+    {
+      "export": "ZIndexMode",
+      "selector": ".react-flow__edges svg[style*=z-index]",
+      "note": "upstream wraps each edge in an svg whose z-index the mode computes, so any flow with edges reaches the export. Which of the two modes was in force is a behavior, and belongs to the other count"
+    },
+
+    { "export": "Connection", "names": ["onConnect"] },
+    { "export": "EdgeAddChange", "names": ["onEdgesChange:add"] },
+    { "export": "EdgeChange", "names": ["onEdgesChange"] },
+    {
+      "export": "EdgeMouseHandler",
+      "names": [
+        "onEdgeClick",
+        "onEdgeDoubleClick",
+        "onEdgeContextMenu",
+        "onEdgeMouseEnter",
+        "onEdgeMouseMove",
+        "onEdgeMouseLeave"
+      ]
+    },
+    { "export": "EdgeRemoveChange", "names": ["onEdgesChange:remove"] },
+    { "export": "EdgeReplaceChange", "names": ["onEdgesChange:replace"] },
+    { "export": "EdgeSelectionChange", "names": ["onEdgesChange:select"] },
+    {
+      "export": "FinalConnectionState",
+      "names": ["onConnectEnd"],
+      "note": "the second argument onConnectEnd is handed, which is the only place this type surfaces"
+    },
+    { "export": "IsValidConnection", "names": ["isValidConnection"] },
+    { "export": "NodeAddChange", "names": ["onNodesChange:add"] },
+    { "export": "NodeChange", "names": ["onNodesChange"] },
+    { "export": "NodeDimensionChange", "names": ["onNodesChange:dimensions"] },
+    {
+      "export": "NodeMouseHandler",
+      "names": [
+        "onNodeClick",
+        "onNodeDoubleClick",
+        "onNodeContextMenu",
+        "onNodeMouseEnter",
+        "onNodeMouseMove",
+        "onNodeMouseLeave"
+      ]
+    },
+    { "export": "NodePositionChange", "names": ["onNodesChange:position"] },
+    { "export": "NodeRemoveChange", "names": ["onNodesChange:remove"] },
+    { "export": "NodeReplaceChange", "names": ["onNodesChange:replace"] },
+    { "export": "NodeSelectionChange", "names": ["onNodesChange:select"] },
+    { "export": "OnBeforeDelete", "names": ["onBeforeDelete"] },
+    { "export": "OnConnect", "names": ["onConnect"] },
+    { "export": "OnConnectEnd", "names": ["onConnectEnd"] },
+    { "export": "OnConnectStart", "names": ["onConnectStart"] },
+    {
+      "export": "OnConnectStartParams",
+      "names": ["onConnectStart"],
+      "note": "the second argument onConnectStart is handed"
+    },
+    { "export": "OnDelete", "names": ["onDelete"] },
+    { "export": "OnEdgesChange", "names": ["onEdgesChange"] },
+    { "export": "OnEdgesDelete", "names": ["onEdgesDelete"] },
+    { "export": "OnError", "names": ["onError"] },
+    { "export": "OnInit", "names": ["onInit"] },
+    { "export": "OnMove", "names": ["onMove"] },
+    { "export": "OnMoveEnd", "names": ["onMoveEnd"] },
+    { "export": "OnMoveStart", "names": ["onMoveStart"] },
+    { "export": "OnNodeDrag", "names": ["onNodeDragStart", "onNodeDrag", "onNodeDragStop"] },
+    { "export": "OnNodesChange", "names": ["onNodesChange"] },
+    { "export": "OnNodesDelete", "names": ["onNodesDelete"] },
+    { "export": "OnReconnect", "names": ["onReconnect"] },
+    { "export": "OnResize", "names": ["onResize"] },
+    { "export": "OnResizeEnd", "names": ["onResizeEnd"] },
+    { "export": "OnResizeStart", "names": ["onResizeStart"] },
+    { "export": "OnSelectionChangeFunc", "names": ["onSelectionChange"] },
+    {
+      "export": "OnSelectionChangeParams",
+      "names": ["onSelectionChange"],
+      "note": "the single argument the handler is called with"
+    },
+    { "export": "OnSelectionDrag", "names": ["onSelectionDragStart", "onSelectionDrag", "onSelectionDragStop"] },
+    {
+      "export": "ResizeDragEvent",
+      "names": ["onResizeStart", "onResize", "onResizeEnd"],
+      "note": "the event argument every resize handler is handed"
+    },
+    { "export": "ResizeParams", "names": ["onResizeStart", "onResizeEnd"] },
+    { "export": "ResizeParamsWithDirection", "names": ["onResize"] },
+    {
+      "export": "SelectionDragHandler",
+      "names": ["onSelectionDragStart", "onSelectionDrag", "onSelectionDragStop"],
+      "note": "the handler type behind the same three props OnSelectionDrag names; upstream declares both"
+    },
+    { "export": "ShouldResize", "names": ["shouldResize"] },
+    {
+      "export": "UseOnSelectionChangeOptions",
+      "names": ["useOnSelectionChange"],
+      "note": "the options record a hook is called with rather than a prop the flow is passed, so what records it is a probe installing the hook"
+    },
+    {
+      "export": "UseOnViewportChangeOptions",
+      "names": ["useOnViewportChange"],
+      "note": "as UseOnSelectionChangeOptions"
+    },
+
+    { "export": "ConnectionInProgress", "names": ["useConnection"] },
+    { "export": "ConnectionState", "names": ["useConnection"] },
+    { "export": "HandleConnection", "names": ["useHandleConnections"] },
+    { "export": "InternalNode", "names": ["useInternalNode"] },
+    { "export": "NodeConnection", "names": ["useNodeConnections"] },
+    { "export": "UseNodesInitializedOptions", "names": ["useNodesInitialized"] },
+    { "export": "experimental_useOnEdgesChangeMiddleware", "names": ["experimental_useOnEdgesChangeMiddleware"] },
+    { "export": "experimental_useOnNodesChangeMiddleware", "names": ["experimental_useOnNodesChangeMiddleware"] },
+    { "export": "useConnection", "names": ["useConnection"] },
+    { "export": "useEdges", "names": ["useEdges"] },
+    { "export": "useEdgesState", "names": ["useEdgesState"] },
+    { "export": "useHandleConnections", "names": ["useHandleConnections"] },
+    { "export": "useInternalNode", "names": ["useInternalNode"] },
+    { "export": "useKeyPress", "names": ["useKeyPress"] },
+    { "export": "useNodeConnections", "names": ["useNodeConnections"] },
+    { "export": "useNodeId", "names": ["useNodeId"] },
+    { "export": "useNodes", "names": ["useNodes"] },
+    { "export": "useNodesData", "names": ["useNodesData"] },
+    { "export": "useNodesInitialized", "names": ["useNodesInitialized"] },
+    { "export": "useNodesState", "names": ["useNodesState"] },
+    { "export": "useOnSelectionChange", "names": ["useOnSelectionChange"] },
+    { "export": "useOnViewportChange", "names": ["useOnViewportChange"] },
+    { "export": "useReactFlow", "names": ["useReactFlow"] },
+    { "export": "useStore", "names": ["useStore"] },
+    { "export": "useStoreApi", "names": ["useStoreApi"] },
+    { "export": "useUpdateNodeInternals", "names": ["useUpdateNodeInternals"] },
+    { "export": "useViewport", "names": ["useViewport"] },
+
+    { "export": "DeleteElementsOptions", "names": ["deleteElements"] },
+    { "export": "FitBounds", "names": ["fitBounds"] },
+    { "export": "FitBoundsOptions", "names": ["fitBounds"] },
+    { "export": "FitView", "names": ["fitView"] },
+    { "export": "FitViewOptions", "names": ["fitView"] },
+    {
+      "export": "ReactFlowInstance",
+      "names": ["getNode", "getNodes", "getEdge", "getEdges", "toObject", "updateNode", "updateEdge"],
+      "note": "the instance is proved by any method only it carries — the viewport helpers ride on it too but are their own export"
+    },
+    { "export": "ReactFlowJsonObject", "names": ["toObject"] },
+    {
+      "export": "ReactFlowState",
+      "names": ["getState"],
+      "note": "the store's own shape, reached through useStoreApi().getState() rather than through the instance"
+    },
+    { "export": "SetCenter", "names": ["setCenter"] },
+    { "export": "SetCenterOptions", "names": ["setCenter"] },
+    { "export": "SetViewport", "names": ["setViewport"] },
+    { "export": "UnselectNodesAndEdgesParams", "names": ["unselectNodesAndEdges"] },
+    {
+      "export": "ViewportHelperFunctionOptions",
+      "names": ["zoomTo", "setCenter", "setViewport", "fitView", "fitBounds"],
+      "note": "the options record every viewport helper takes last"
+    },
+    {
+      "export": "ViewportHelperFunctions",
+      "names": ["zoomIn", "zoomOut", "zoomTo", "getZoom", "setViewport", "getViewport", "setCenter", "fitBounds"],
+      "note": "any one of the helpers proves the bundle"
+    },
+
+    {
+      "export": "ConnectionLineComponentProps",
+      "names": ["connection-line-props"],
+      "note": "a probe id rather than a hook name: the props section is keyed by probe, and the probe names which props type reported"
+    },
+    { "export": "EdgeComponentProps", "names": ["edge-component-props"] },
+    { "export": "EdgeProps", "names": ["edge-props"] },
+    { "export": "NodeProps", "names": ["node-props"] }
+  ]
+}

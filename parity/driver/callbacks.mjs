@@ -66,10 +66,12 @@ export class CallbackDerivationError extends Error {
  * read a decision out of.
  *
  * `callbacks.test.mjs` holds this list to the census, so an entry naming an
- * export the census no longer assigns here **fails stale** — and the coverage
- * artifact ([#57](https://github.com/jonbae/PSFlow/issues/57)) is what will
- * eventually derive the reached side of the same question from runs that
- * happened, rather than taking this file's word for it.
+ * export the census no longer assigns here **fails stale** — and
+ * `parity/system/coverage/` now derives the reached side of the same question
+ * from runs that happened rather than taking this file's word for it. Where the
+ * two disagree the traces win: `OnInit` is a declared hole there whose reason
+ * records that the blocker named below has since landed, which is a thing this
+ * list cannot notice about itself.
  *
  * `prop` appears on the one hole that is a `ReactFlowProps` prop the driver
  * withholds; the others are not props of this component at all.
