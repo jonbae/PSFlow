@@ -8,40 +8,39 @@
 -- |
 -- | ## What a prop can be
 -- |
--- | **Converted** — 121: 72 of the 74 non-callback fields, plus all 49 callback
--- | props bar `onInit`. Three of the callbacks crossed in stage 1 with the
--- | component itself (`onNodesChange`, `onEdgesChange`, `onConnect`); the other
--- | 46 crossed in stage 2, and their converters live in `Boundary.Callbacks`.
+-- | **Converted** — 122: 72 of the 74 non-callback fields, plus all 49 callback
+-- | props. Three of the callbacks crossed in stage 1 with the component itself
+-- | (`onNodesChange`, `onEdgesChange`, `onConnect`); 46 crossed in stage 2; and
+-- | `onInit` crossed in stage 3, once `Boundary.Instance` existed to convert
+-- | the one argument it is handed. Their converters live in
+-- | `Boundary.Callbacks`.
 -- |
--- | **Deferred, and therefore throwing at mount** — 3: `onInit`, `edgeTypes`
--- | and `connectionLineComponent`. A deferred prop that merely did nothing
--- | would be indistinguishable from a prop the consumer never set, which is the
--- | exact failure shape of the unrun `Effect` thunk that produced this whole
--- | effort: `setNodes(fn)` returned a thunk, nobody ran it, and every gate
--- | stayed green. The compiler does not help here — a record forces you to
--- | write *something* per field and `Nothing` compiles perfectly — so the guard
--- | is explicit, it is a table, and it runs before any conversion so the message
+-- | **Deferred, and therefore throwing at mount** — 2: `edgeTypes` and
+-- | `connectionLineComponent`. A deferred prop that merely did nothing would be
+-- | indistinguishable from a prop the consumer never set, which is the exact
+-- | failure shape of the unrun `Effect` thunk that produced this whole effort:
+-- | `setNodes(fn)` returned a thunk, nobody ran it, and every gate stayed
+-- | green. The compiler does not help here — a record forces you to write
+-- | *something* per field and `Nothing` compiles perfectly — so the guard is
+-- | explicit, it is a table, and it runs before any conversion so the message
 -- | names the offending prop rather than whatever happens to blow up first.
 -- |
--- | The three are deferred for one shared reason: **their values have not
--- | crossed**. `edgeTypes` and `connectionLineComponent` hold the consumer's own
--- | components, so crossing them means an outbound converter for the props those
--- | components receive — `nodeTypes` has one
+-- | Both are deferred for the same reason: **their values have not crossed**.
+-- | Each holds the consumer's own components, so crossing it means an outbound
+-- | converter for the props those components receive — `nodeTypes` has one
 -- | (`Boundary.Elements.nodePropsOut`), edge props and connection-line props do
--- | not. `onInit` is handed the imperative `ReactFlowInstance`, which is
--- | boundary stage 3's whole subject.
+-- | not. That is boundary stage 4.
 module Boundary.Flow
   ( JsAriaLabelConfig
   , JsDefaultEdgeOptions
-  , JsFitViewOptions
   , JsFlowProps
   , JsProOptions
-  , fitViewOptionsIn
   , reactFlow
   ) where
 
 import Prelude
 
+import Boundary.FitView (JsFitViewOptions, fitViewOptionsIn)
 import Boundary.Callbacks
   ( JsEdgeMouseHandler
   , JsIsValidConnection
@@ -55,6 +54,7 @@ import Boundary.Callbacks
   , JsOnEdgesChange
   , JsOnEdgesDelete
   , JsOnError
+  , JsOnInit
   , JsOnMove
   , JsOnNodeDrag
   , JsOnNodesChange
@@ -79,6 +79,7 @@ import Boundary.Callbacks
   , onEdgesChangeIn
   , onEdgesDeleteIn
   , onErrorIn
+  , onInitIn
   , onMoveIn
   , onNodeDragIn
   , onNodesChangeIn
@@ -112,21 +113,17 @@ import Boundary.Enums
   , connectionLineTypeIn
   , connectionModeIn
   , handleTypeIn
-  , interpolateModeIn
   , panOnScrollModeIn
   , panelPositionIn
   , selectionModeIn
   , zIndexModeIn
   )
-import Boundary.Refusal (Refusal, componentProp, deferredMessage, instanceProp, refuseFirst)
+import Boundary.Refusal (Refusal, componentProp, deferredMessage, refuseFirst)
 import Boundary.Undefined (Undefinable, fromUndefinable, isDefined)
 import Boundary.Untagged (asArray, asBoolean, asNumber, asString, typeName)
 import Data.Array.NonEmpty (fromArray) as NEA
 import Data.Int (round) as Int
-import Data.Maybe (Maybe(..), fromMaybe, fromMaybe')
-import Data.Newtype (wrap)
-import Data.Number (fromString) as Number
-import Data.String (Pattern(..), stripSuffix)
+import Data.Maybe (Maybe(..))
 import Effect.Exception.Unsafe (unsafeThrow)
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign)
@@ -136,11 +133,9 @@ import React.Basic.Hooks (ReactChildren, reactComponentWithChildren)
 import React.Container.ReactFlow (reactFlow) as PS
 import React.Types.Component (ReactFlowProps)
 import React.Types.Edges (DefaultEdgeOptions, ReconnectHandleType(..))
-import React.Types.General (FitViewOptions, ProOptions)
+import React.Types.General (ProOptions)
 import System.Constants (AriaLabelConfigOverride)
-import System.Types.Connection (Padding(..), PaddingValue(..))
 import System.Types.PanZoom (PanOnDrag(..))
-import Unsafe.Coerce (unsafeCoerce)
 
 -- ────────────────────────────────────────────────────────────────────────
 -- Sub-shapes
@@ -149,17 +144,6 @@ import Unsafe.Coerce (unsafeCoerce)
 type JsProOptions =
   { hideAttribution :: Boolean
   , account :: Undefinable String
-  }
-
-type JsFitViewOptions =
-  { padding :: Undefinable Foreign
-  , includeHiddenNodes :: Undefinable Boolean
-  , minZoom :: Undefinable Number
-  , maxZoom :: Undefinable Number
-  , duration :: Undefinable Number
-  , ease :: Undefinable (Number -> Number)
-  , interpolate :: Undefinable String
-  , nodes :: Undefinable (Array { id :: String })
   }
 
 -- | Upstream's `DefaultEdgeOptions` is `Edge` minus its identity fields — 23
@@ -274,7 +258,7 @@ type JsFlowProps =
   , onConnectEnd :: Undefinable JsOnConnectEnd
   , onClickConnectStart :: Undefinable JsOnConnectStart
   , onClickConnectEnd :: Undefinable JsOnConnectEnd
-  , onInit :: Undefinable Foreign
+  , onInit :: Undefinable JsOnInit
   , onMove :: Undefinable JsOnMove
   , onMoveStart :: Undefinable JsOnMove
   , onMoveEnd :: Undefinable JsOnMove
@@ -366,15 +350,14 @@ type JsFlowProps =
 -- | Every prop that resolves on the JS surface but does not yet cross. Named
 -- | rather than counted, because the count is the thing that drifts.
 -- |
--- | Stage 2 took 46 entries out of this table. The three left are the props
--- | whose *values* have not crossed: `onInit` is handed the imperative
--- | instance, and the other two are handed the props a consumer's own component
--- | receives. None of the three is waiting on a conversion this module could
--- | write.
+-- | Stage 2 took 46 entries out of this table and stage 3 took the 47th:
+-- | `onInit`'s argument is the imperative instance, and `Boundary.Instance` is
+-- | what let it cross. The two left are handed the props a consumer's *own*
+-- | component receives, which is boundary stage 4's subject and not a
+-- | conversion this module could write.
 deferredProps :: Array (Refusal JsFlowProps)
 deferredProps =
-  [ instanceProp "onInit" _.onInit
-  , componentProp "edgeTypes" _.edgeTypes
+  [ componentProp "edgeTypes" _.edgeTypes
   , componentProp "connectionLineComponent" _.connectionLineComponent
   ]
 
@@ -433,7 +416,7 @@ convertProps p =
   , onConnectEnd: map onConnectEndIn (fromUndefinable p.onConnectEnd)
   , onClickConnectStart: map onConnectStartIn (fromUndefinable p.onClickConnectStart)
   , onClickConnectEnd: map onConnectEndIn (fromUndefinable p.onClickConnectEnd)
-  , onInit: Nothing
+  , onInit: map onInitIn (fromUndefinable p.onInit)
   , onMove: map onMoveIn (fromUndefinable p.onMove)
   , onMoveStart: map onMoveIn (fromUndefinable p.onMoveStart)
   , onMoveEnd: map onMoveIn (fromUndefinable p.onMoveEnd)
@@ -608,82 +591,6 @@ proOptionsIn o =
   { hideAttribution: o.hideAttribution
   , account: fromUndefinable o.account
   }
-
--- | Exported because `<Controls />` takes the same options bag, and a second
--- | copy of a nine-field conversion is a second thing to drift.
-fitViewOptionsIn :: JsFitViewOptions -> FitViewOptions
-fitViewOptionsIn o =
-  { padding: map (paddingIn "fitViewOptions.padding") (fromUndefinable o.padding)
-  , includeHiddenNodes: fromMaybe false (fromUndefinable o.includeHiddenNodes)
-  , minZoom: fromUndefinable o.minZoom
-  , maxZoom: fromUndefinable o.maxZoom
-  , duration: map Int.round (fromUndefinable o.duration)
-  , ease: fromUndefinable o.ease
-  , interpolate:
-      map (interpolateModeIn "fitViewOptions.interpolate") (fromUndefinable o.interpolate)
-  , nodes: map (map \n -> { id: wrap n.id }) (fromUndefinable o.nodes)
-  }
-
--- | Upstream's `Padding` is `` `${number}px` | `${number}%` | number `` or a
--- | record of those per side. A bare number is a **ratio** of the viewport,
--- | which is why upstream's default padding of `0.1` means ten percent.
-paddingIn :: String -> Foreign -> Padding
-paddingIn field raw = case paddingValueIn field raw of
-  Just v -> UniformPadding v
-  Nothing -> DirectionalPadding
-    { top: side "top" sides.top
-    , right: side "right" sides.right
-    , bottom: side "bottom" sides.bottom
-    , left: side "left" sides.left
-    , x: side "x" sides.x
-    , y: side "y" sides.y
-    }
-  where
-  sides
-    :: { top :: Undefinable Foreign
-       , right :: Undefinable Foreign
-       , bottom :: Undefinable Foreign
-       , left :: Undefinable Foreign
-       , x :: Undefinable Foreign
-       , y :: Undefinable Foreign
-       }
-  sides = unsafeCoerce raw
-
-  -- The side is passed in, not looked up by name: a name-keyed lookup needs a
-  -- fallback branch, and the fallback would answer a misspelled side with some
-  -- other side's value rather than failing.
-  side :: String -> Undefinable Foreign -> Maybe PaddingValue
-  side name value = fromUndefinable value >>= \v ->
-    case paddingValueIn (field <> "." <> name) v of
-      Just pv -> Just pv
-      Nothing -> badPadding (field <> "." <> name) (typeName v)
-
-paddingValueIn :: String -> Foreign -> Maybe PaddingValue
-paddingValueIn field raw = case asNumber raw of
-  Just n -> Just (RatioPadding n)
-  Nothing -> case asString raw of
-    Just s -> Just (paddingStringIn field s)
-    Nothing -> Nothing
-
-paddingStringIn :: String -> String -> PaddingValue
-paddingStringIn field s =
-  case stripSuffix (Pattern "px") s of
-    Just n -> PxPadding (readNumber n)
-    Nothing -> case stripSuffix (Pattern "%") s of
-      Just n -> PctPadding (readNumber n)
-      Nothing -> badPadding field s
-  where
-  -- `fromMaybe'` and not `fromMaybe`: PureScript is strict, so a `where`
-  -- binding that takes no argument is evaluated on entry, and a bare
-  -- `bad = unsafeThrow …` would throw on every well-formed padding.
-  readNumber n = fromMaybe' (\_ -> badPadding field s) (Number.fromString n)
-
-badPadding :: forall a. String -> String -> a
-badPadding field s =
-  unsafeThrow $
-    "ps-flow: `" <> field <> "` must be a number, \"<n>px\" or \"<n>%\", got "
-      <> show s
-      <> "."
 
 -- | `boolean | number[]` — `true` pans on every button, an array names the
 -- | mouse buttons that pan, and an empty array names none, which is `false`.

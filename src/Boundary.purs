@@ -24,13 +24,17 @@
 -- |
 -- | What has landed so far is this skeleton, the eight TS enum objects below,
 -- | the converters, the three graph utilities a driver calls, the four chrome
--- | components a driver mounts, the four a custom node mounts, two of the 21
--- | hooks, and — since stage 2 — **every callback prop bar `onInit`**. The
--- | enums needed no converter at all: they are plain data on both sides,
--- | `{ Left: "left", … }` against `{ Left: "left", … }`, so there is nothing to
--- | get wrong but member names, which the record types check.
+-- | components a driver mounts, the four a custom node mounts, **every callback
+-- | prop** — the last of them, `onInit`, in stage 3 — and, since stage 3, the
+-- | **imperative instance and all 21 hooks**. The enums needed no converter at
+-- | all: they are plain data on both sides, `{ Left: "left", … }` against
+-- | `{ Left: "left", … }`, so there is nothing to get wrong but member names,
+-- | which the record types check.
 -- |
--- | The converters are the rest, and they live in eleven modules beneath this
+-- | What is left is stage 4: the components no fixture mounts, and with them
+-- | the two props that hand a consumer's own component its props record.
+-- |
+-- | The converters are the rest, and they live in fifteen modules beneath this
 -- | one, none of them on the PureScript surface:
 -- |
 -- |   * `Boundary.Undefined` — `undefined`, which is what a JavaScript caller
@@ -55,8 +59,18 @@
 -- |   * `Boundary.Resizer` — `NodeResizer` and `NodeResizeControl`, mounted the
 -- |     same way and crossed with the callbacks because their lifecycle
 -- |     handlers are callback props.
--- |   * `Boundary.Hooks` — `useNodesState` and `useEdgesState`, the two of the
--- |     21 hooks that do not have to wait for stage 3's instance converter.
+-- |   * `Boundary.FitView` — `FitViewOptions` and the padding inside it, which
+-- |     `ReactFlow`, `<Controls />` and `instance.fitView` all take, and which
+-- |     moved out of `Boundary.Flow` when the third of those appeared.
+-- |   * `Boundary.Promise` — `Aff` as a `Promise`, which is what the eleven
+-- |     asynchronous methods of the instance need.
+-- |   * `Boundary.SetState` — React's `SetStateAction`, shared by the two state
+-- |     hooks and the instance's `setNodes`/`setEdges`.
+-- |   * `Boundary.Instance` — the imperative `ReactFlowInstance`: thirty-two
+-- |     members, reached from `useReactFlow` and from `onInit`.
+-- |   * `Boundary.Hooks` — all 21 hooks. Two of them crossed in stage 1
+-- |     (`useNodesState`, `useEdgesState`) because they touch no instance; the
+-- |     rest could not, because `useReactFlow` returns one.
 -- |
 -- | `ReactFlow` is therefore the first *component* to cross, and `Handle` and
 -- | `NodeToolbar` the last of stage 1's set: each export upstream's fixtures
@@ -103,13 +117,40 @@ module Boundary
 import Boundary.Flow (reactFlow) as CrossedSurface
 import Boundary.Utils (addEdge, applyEdgeChanges, applyNodeChanges) as CrossedSurface
 
--- The four chrome components upstream's drivers mount, and the two hooks the
--- second driver calls. `Boundary.Chrome` and `Boundary.Hooks` say why each
--- needed a wrapper at all; the short version is that a JavaScript caller
--- reaches all six with no props and no `Effect`, and a PureScript value of
--- either shape answers that with a pattern-match failure or a thunk.
+-- The four chrome components upstream's drivers mount. `Boundary.Chrome` says
+-- why each needed a wrapper at all; the short version is that a JavaScript
+-- caller reaches all four with no props, and a PureScript record of `Maybe`s
+-- answers that with a pattern-match failure.
 import Boundary.Chrome (background, controls, miniMap, panel) as CrossedSurface
-import Boundary.Hooks (useEdgesState, useNodesState) as CrossedSurface
+
+-- All twenty-one hooks, and with them the imperative instance: `useReactFlow`
+-- returns it, so `Boundary.Hooks` is where stage 3 becomes reachable from
+-- `index.js`. `useNodesState` and `useEdgesState` were already there — they
+-- crossed in stage 1 because they touch no instance — and the other nineteen
+-- join them here.
+import Boundary.Hooks
+  ( experimental_useOnEdgesChangeMiddleware
+  , experimental_useOnNodesChangeMiddleware
+  , useConnection
+  , useEdges
+  , useEdgesState
+  , useHandleConnections
+  , useInternalNode
+  , useKeyPress
+  , useNodeConnections
+  , useNodeId
+  , useNodes
+  , useNodesData
+  , useNodesInitialized
+  , useNodesState
+  , useOnSelectionChange
+  , useOnViewportChange
+  , useReactFlow
+  , useStore
+  , useStoreApi
+  , useUpdateNodeInternals
+  , useViewport
+  ) as CrossedSurface
 
 -- The two a *custom node* mounts, rather than a driver. `Boundary.NodeChrome`
 -- says why they crossed last of stage 1's set: nothing but a consumer's own
@@ -139,26 +180,6 @@ import React
   , reactFlowProvider
   , edgeLabelRenderer
   , viewportPortal
-  -- Hooks
-  , useReactFlow
-  , useUpdateNodeInternals
-  , useNodes
-  , useEdges
-  , useViewport
-  , useKeyPress
-  , useStore
-  , useStoreApi
-  , useOnViewportChange
-  , useOnSelectionChange
-  , useNodesInitialized
-  , useHandleConnections
-  , useNodeConnections
-  , useNodesData
-  , useConnection
-  , useInternalNode
-  , useNodeId
-  , experimental_useOnNodesChangeMiddleware
-  , experimental_useOnEdgesChangeMiddleware
   -- Utilities
   , isNode
   , isEdge

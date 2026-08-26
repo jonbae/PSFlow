@@ -30,14 +30,13 @@
 -- | else would be invisible to it, which is why they all live here even when
 -- | only one component uses them.
 -- |
--- | ## What does not cross here
+-- | ## The one that arrived a stage late
 -- |
--- | `onInit` is a callback and is still refused, because its single argument is
--- | the imperative `ReactFlowInstance` — thirty methods whose converter is
--- | boundary stage 3's whole subject. Handing the PureScript instance to a
--- | JavaScript consumer would be the silent wrong shape this module exists to
--- | remove, so it is refused with the stage that lands it. It is the one
--- | callback prop whose refusal survives stage 2.
+-- | `onInit` is a callback and stage 2 still refused it, because its single
+-- | argument is the imperative `ReactFlowInstance` — thirty-two members whose
+-- | converter was boundary stage 3's whole subject, and a callback whose
+-- | arguments have not crossed has not crossed. Stage 3 wrote that converter,
+-- | so `onInitIn` joins the others below and this module has no refusals left.
 module Boundary.Callbacks
   ( JsCommandHandler
   , JsConnectStartParams
@@ -56,6 +55,7 @@ module Boundary.Callbacks
   , JsOnEdgesChange
   , JsOnEdgesDelete
   , JsOnError
+  , JsOnInit
   , JsOnMove
   , JsOnNodeDrag
   , JsOnNodesChange
@@ -75,6 +75,7 @@ module Boundary.Callbacks
   , JsSelectionDragHandler
   , JsShouldResize
   , commandHandlerIn
+  , connectionStateOut
   , edgeMouseHandlerIn
   , interactiveChangeHandlerIn
   , isValidConnectionIn
@@ -89,6 +90,7 @@ module Boundary.Callbacks
   , onEdgesChangeIn
   , onEdgesDeleteIn
   , onErrorIn
+  , onInitIn
   , onMoveIn
   , onNodeDragIn
   , onNodesChangeIn
@@ -133,6 +135,7 @@ import Boundary.Elements
   , viewportOut
   )
 import Boundary.Enums (handleTypeOut, positionOut)
+import Boundary.Instance (JsReactFlowInstance, instanceOut)
 import Boundary.Undefined (Undefinable, toUndefinable)
 import Boundary.Untagged (asBoolean, typeName)
 import Data.Either (Either, either)
@@ -165,12 +168,14 @@ import React.Types.General
   , OnDelete
   , OnEdgesChange
   , OnEdgesDelete
+  , OnInit
   , OnMove
   , OnNodesChange
   , OnNodesDelete
   , OnSelectionChangeFunc
   , OnViewportChange
   )
+import React.Types.Instance (ReactFlowInstance)
 import React.Types.Nodes (NodeMouseHandler, OnNodeDrag, SelectionDragHandler)
 import System.Types.Connection (FinalConnectionState)
 import System.Types.Edge (EdgeBase)
@@ -427,6 +432,23 @@ type JsOnSelectionChange = EffectFn1 JsGraphSelection Unit
 
 onSelectionChangeIn :: JsOnSelectionChange -> OnSelectionChangeFunc Foreign Foreign
 onSelectionChangeIn f = \params -> runEffectFn1 f (graphSelectionOut params)
+
+-- | The callback stage 2 could not take with it.
+-- |
+-- | `onInit`'s single argument is the imperative `ReactFlowInstance`, so it was
+-- | refused rather than crossed — a callback whose arguments have not crossed
+-- | has not crossed, and handing a JavaScript consumer thirty-two curried
+-- | `Effect`s and `Aff`s under upstream's method names is the silent wrong
+-- | shape this module exists to remove. `Boundary.Instance` is what changes
+-- | that, and this is the one line of stage 2 it unblocks.
+-- |
+-- | It is also the second way a consumer reaches the instance, and the earlier
+-- | of the two: `onInit` fires once the flow is mounted, where `useReactFlow`
+-- | needs a component inside the provider.
+type JsOnInit = EffectFn1 JsReactFlowInstance Unit
+
+onInitIn :: JsOnInit -> OnInit (ReactFlowInstance Foreign Foreign)
+onInitIn f = \instance_ -> runEffectFn1 f (instanceOut instance_)
 
 type JsOnConnect = EffectFn1 JsConnection Unit
 

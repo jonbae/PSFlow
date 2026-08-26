@@ -24,7 +24,7 @@ its own behavior registry. `crossed` means a JS-shaped wrapper exists; `passthro
 means `index.js` still publishes the PureScript value unchanged. A crossed export
 with no direct JS-surface gate is displayed as `crossed, ungated`, rather than
 being counted as gated on the JS surface merely because its wrapper exists.
-At boundary stage 2, 22 exports have crossed; 0 are crossed but ungated on
+At boundary stage 3, 41 exports have crossed; 0 are crossed but ungated on
 the JS surface. Stage 1 is self-covering; later stages deliberately populate
 that window until system parity gates their converters.
 
@@ -38,7 +38,7 @@ about the shape a JavaScript caller receives.
 | Kind | Total | Gated — PureScript surface | Gated — JS surface | Crossed, ungated — JS surface | Indirect only | Nothing but the name |
 |---|---:|---:|---:|---:|---:|---:|
 | `component` | 22 | 6 | 10 | 0 | 2 | 5 |
-| `hook` | 21 | 0 | 2 | 0 | 0 | 19 |
+| `hook` | 21 | 0 | 21 | 0 | 0 | 0 |
 | `pure-fn` | 17 | 17 | 17 | 0 | 0 | 0 |
 | `enum-value` | 8 | 0 | 8 | 0 | 0 | 0 |
 | `props` | 30 | 3 | 4 | 0 | 5 | 20 |
@@ -49,7 +49,7 @@ about the shape a JavaScript caller receives.
 | `instance-api` | 7 | 0 | 0 | 0 | 1 | 6 |
 | `store` | 3 | 0 | 0 | 0 | 0 | 3 |
 | `internal-type` | 1 | 0 | 0 | 0 | 0 | 1 |
-| **total** | **210** | **38** | **54** | **0** | **17** | **125** |
+| **total** | **210** | **38** | **73** | **0** | **17** | **106** |
 
 ## Summary by mechanism
 
@@ -61,7 +61,7 @@ to reach it.
 | `dual-run-api` | 14 | 0 |
 | `dual-run-callback` | 47 | 2 |
 | `dual-run-dom` | 64 | 28 |
-| `dual-run-hook` | 27 | 2 |
+| `dual-run-hook` | 27 | 21 |
 | `dual-run-props` | 4 | 2 |
 | `dual-run-value` | 8 | 8 |
 | `none` | 20 | 0 |
@@ -103,27 +103,27 @@ JS/TS consumer — the audience this repo exists for — the import is `undefine
 | `StepEdge` | component | `dual-run-dom` | function | passthrough, ungated | Upstream StepEdge is SmoothStepEdge at borderRadius 0, which function parity's generated domain covers; component never mounted. |
 | `StraightEdge` | component | `dual-run-dom` | function | passthrough, ungated | getStraightPath has function parity; component never mounted. |
 | `ViewportPortal` | component | `dual-run-dom` | — | passthrough, ungated | Never mounted. |
-| `experimental_useOnEdgesChangeMiddleware` | hook | `dual-run-hook` | — | passthrough, ungated |  |
-| `experimental_useOnNodesChangeMiddleware` | hook | `dual-run-hook` | — | passthrough, ungated |  |
-| `useConnection` | hook | `dual-run-hook` | — | passthrough, ungated |  |
-| `useEdges` | hook | `dual-run-hook` | — | passthrough, ungated |  |
+| `experimental_useOnEdgesChangeMiddleware` | hook | `dual-run-hook` | — | crossed, gated — boundary | parity:boundary gates that it accepts a JS-shaped middleware function; acceptance is the ceiling, as for the flow-level callbacks. |
+| `experimental_useOnNodesChangeMiddleware` | hook | `dual-run-hook` | — | crossed, gated — boundary | parity:boundary gates that it accepts a JS-shaped middleware function; acceptance is the ceiling, as for the flow-level callbacks. |
+| `useConnection` | hook | `dual-run-hook` | — | crossed, gated — boundary | parity:boundary gates that the connection state it returns is the JS-shaped one `onConnectEnd` receives, not the PureScript sum type. |
+| `useEdges` | hook | `dual-run-hook` | — | crossed, gated — boundary | parity:boundary gates the array it returns and that its edges are JS-shaped. |
 | `useEdgesState` | hook | `dual-run-hook` | — | crossed, gated — boundary + conformance (generic-props) ~ | parity:boundary gates the JS-surface three-slot array, JS-shaped values, and both setter forms. The ColorMode driver also traverses it without a hook-specific assertion. |
-| `useHandleConnections` | hook | `dual-run-hook` | — | passthrough, ungated |  |
-| `useInternalNode` | hook | `dual-run-hook` | — | passthrough, ungated |  |
-| `useKeyPress` | hook | `dual-run-hook` | — | passthrough, ungated | Four test-debt rows (077: #5090, #5118, #5263, #4880) land on this hook's focus handling. |
-| `useNodeConnections` | hook | `dual-run-hook` | — | passthrough, ungated | One test-debt row (077: #4949). |
-| `useNodeId` | hook | `dual-run-hook` | — | passthrough, ungated |  |
-| `useNodes` | hook | `dual-run-hook` | — | passthrough, ungated |  |
-| `useNodesData` | hook | `dual-run-hook` | — | passthrough, ungated |  |
-| `useNodesInitialized` | hook | `dual-run-hook` | — | passthrough, ungated |  |
+| `useHandleConnections` | hook | `dual-run-hook` | — | crossed, gated — boundary | parity:boundary gates that its parameter takes upstream's `type` rather than ps-flow's `handleType`. |
+| `useInternalNode` | hook | `dual-run-hook` | — | crossed, gated — boundary | parity:boundary gates that a node that is not there answers `undefined` rather than a PureScript `Maybe`. |
+| `useKeyPress` | hook | `dual-run-hook` | — | crossed, gated — boundary | parity:boundary gates both call forms — bare, and with a key code and options. Four test-debt rows (077: #5090, #5118, #5263, #4880) land on this hook's focus handling. |
+| `useNodeConnections` | hook | `dual-run-hook` | — | crossed, gated — boundary | parity:boundary gates the `id` rename its parameter carries, and that calling it outside a node reports so as upstream does. One test-debt row (077: #4949). |
+| `useNodeId` | hook | `dual-run-hook` | — | crossed, gated — boundary | parity:boundary gates that it answers `null` outside a node — the one place on this surface where `null` and `undefined` mean different things. |
+| `useNodes` | hook | `dual-run-hook` | — | crossed, gated — boundary | parity:boundary gates the array it returns and that its nodes are JS-shaped. |
+| `useNodesData` | hook | `dual-run-hook` | — | crossed, gated — boundary | parity:boundary gates the overload upstream declares and ps-flow's single signature does not: one id answers one `{ id, type, data }` pick or `null`, an array answers an array. |
+| `useNodesInitialized` | hook | `dual-run-hook` | — | crossed, gated — boundary | parity:boundary gates both call forms — with its options bag and without, which upstream allows by defaulting the parameter. |
 | `useNodesState` | hook | `dual-run-hook` | — | crossed, gated — boundary + conformance (generic-props) ~ | parity:boundary gates the JS-surface three-slot array, JS-shaped values, and both setter forms. The ColorMode driver also traverses it without a hook-specific assertion. One test-debt row (078: #5120, fitView for uncontrolled flows). |
-| `useOnSelectionChange` | hook | `dual-run-hook` | — | passthrough, ungated |  |
-| `useOnViewportChange` | hook | `dual-run-hook` | — | passthrough, ungated |  |
-| `useReactFlow` | hook | `dual-run-hook` | — | passthrough, ungated | The whole imperative API hangs off this hook; four test-debt rows (078: #5276, #5723, #5722, #5012) land on it. |
-| `useStore` | hook | `dual-run-hook` | — | passthrough, ungated |  |
-| `useStoreApi` | hook | `dual-run-hook` | — | passthrough, ungated |  |
-| `useUpdateNodeInternals` | hook | `dual-run-hook` | — | passthrough, ungated |  |
-| `useViewport` | hook | `dual-run-hook` | — | passthrough, ungated |  |
+| `useOnSelectionChange` | hook | `dual-run-hook` | — | crossed, gated — boundary | parity:boundary gates that it accepts a JS-shaped handler; acceptance is the ceiling, as for the flow-level callbacks. |
+| `useOnViewportChange` | hook | `dual-run-hook` | — | crossed, gated — boundary | parity:boundary gates that it accepts JS-shaped handlers. A server render runs no effects, so acceptance is the ceiling here and the installation is the net's. |
+| `useReactFlow` | hook | `dual-run-hook` | — | crossed, gated — boundary | parity:boundary gates the JS-surface instance this returns: all 32 members present, each taking its arguments in one call, the readers answering values rather than unrun `Effect` thunks, and the eleven asynchronous methods answering real promises. The whole imperative API hangs off this hook; four test-debt rows (078: #5276, #5723, #5722, #5012) land on it. |
+| `useStore` | hook | `dual-run-hook` | — | crossed, gated — boundary | Crossed in shape only: callable at upstream's arity, and refusing at the call. What it would hand over is the internal store state, an 85-field PureScript record with no JS shape. parity:boundary gates the refusal, the same way it gates the deferred props'. |
+| `useStoreApi` | hook | `dual-run-hook` | — | crossed, gated — boundary | Crossed in shape only, and refusing at the call, for the same reason as `useStore`. parity:boundary gates the refusal. |
+| `useUpdateNodeInternals` | hook | `dual-run-hook` | — | crossed, gated — boundary | parity:boundary gates that it returns a callable one-argument updater, and that the updater takes upstream's `string | string[]` in both forms. |
+| `useViewport` | hook | `dual-run-hook` | — | crossed, gated — boundary | parity:boundary gates that it returns `{ x, y, zoom }` rather than an unrun thunk. |
 | `addEdge` | pure-fn | `oracle` | function | crossed, gated — surface (behavior) + conformance (generic-nodes) | Function parity compares results and refusals; generic-nodes proves the JS calling convention by connecting nodes through the driver and asserting the added edge. |
 | `applyEdgeChanges` | pure-fn | `oracle` | function | crossed, gated — surface (behavior) + conformance (generic-edges) | Function parity compares semantics; generic-edges proves the JS calling convention by selecting and deleting controlled edges through the driver. |
 | `applyNodeChanges` | pure-fn | `oracle` | function | crossed, gated — surface (behavior) + conformance (generic-nodes) | Function parity compares semantics; generic-nodes proves the JS calling convention by selecting, moving and deleting controlled nodes through the driver. |

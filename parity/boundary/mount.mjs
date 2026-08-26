@@ -1120,7 +1120,438 @@ for (const { name, setter: setterName, hook, initial, shaped } of hooks) {
   );
 }
 
+// ── 7. The imperative instance, and the other nineteen hooks ────────────
+//
+// Boundary stage 3. Two things reach the instance — `useReactFlow` and
+// `onInit` — and both are exercised here, because they are separate code paths
+// through the same converter and only one of them needs a component of the
+// consumer's own.
+//
+// The member list and each member's expected arity are read out of
+// `JsReactFlowInstance`'s own declaration rather than restated: `Effect X` is a
+// nullary call, `EffectFnN` is an N-ary one, and anything else is a plain
+// value. So a method added to the instance is checked by construction, and one
+// whose signature changes shape fails here rather than in a consumer's console.
+//
+// What this section cannot claim is that a **mutator's queued update lands**.
+// `setNodes`, `addNodes` and the four `update…` methods push onto the store's
+// batch queue, which is drained by an effect, and `react-dom/server` runs no
+// effects — the same ceiling this file's header describes for the flow-level
+// callbacks. What it does claim is the half that was actually broken: the call
+// runs and returns `undefined` rather than handing back an unrun `Effect`
+// thunk, which is the failure the whole boundary effort began from. The other
+// half is the net's `api` section, which drives a real browser.
+
+const instanceMembers = recordEntries(join(repoRoot, "src/Boundary/Instance.purs"), "JsReactFlowInstance");
+
+// `Effect a` → 0, `EffectFnN …` → N, anything else → not a function.
+function expectedArity(typeText) {
+  if (/^EffectFn(\d)\b/.test(typeText)) return Number(RegExp.$1);
+  if (/^Effect\b/.test(typeText)) return 0;
+  return null;
+}
+
+const psflowNodes = [
+  { id: "a", type: "custom", position: { x: 0, y: 0 }, data: { label: "A" } },
+  { id: "b", position: { x: 100, y: 40 }, data: { label: "B" } },
+];
+const psflowEdges = [{ id: "a-b", source: "a", target: "b" }];
+
+// Renders `body` inside a mounted flow and returns whatever it collected. The
+// probe is a child rather than the flow itself, because `useReactFlow` needs
+// the store context the flow provides.
+function insideFlow(body, extraProps = {}) {
+  const collected = {};
+  function Probe() {
+    body(collected);
+    return null;
+  }
+  renderToStaticMarkup(
+    createElement(ReactFlow, {
+      nodes: psflowNodes,
+      edges: psflowEdges,
+      ...extraProps,
+      children: createElement(Probe),
+    })
+  );
+  return collected;
+}
+
+const { useReactFlow, useNodes, useEdges, useViewport, useNodesInitialized } = psflow;
+const { useNodeId, useUpdateNodeInternals, useNodesData, useConnection } = psflow;
+const { useInternalNode, useKeyPress, useNodeConnections, useStore, useStoreApi } = psflow;
+
+const instance = insideFlow((out) => {
+  out.instance = useReactFlow();
+}).instance;
+
+check("`useReactFlow` returns the instance rather than an unrun thunk", () => {
+  assert(
+    instance !== undefined && typeof instance === "object",
+    `returned ${typeof instance} — a PureScript \`Hook\` reaching JavaScript unrun looks exactly like this`
+  );
+});
+
+check("the instance carries every member `JsReactFlowInstance` declares", () => {
+  const present = new Set(Object.keys(instance));
+  const missing = instanceMembers.map((m) => m.name).filter((name) => !present.has(name));
+  assert(missing.length === 0, `missing: ${missing.join(", ")}`);
+  const extra = [...present].filter((name) => !instanceMembers.some((m) => m.name === name));
+  assert(extra.length === 0, `carries members the type does not declare: ${extra.join(", ")}`);
+});
+
+check("every instance method takes its arguments in one call", () => {
+  const curried = [];
+  for (const member of instanceMembers) {
+    const arity = expectedArity(member.type);
+    if (arity === null) continue;
+    const value = instance[member.name];
+    if (typeof value !== "function") {
+      curried.push(`${member.name} is ${typeof value}, not a function`);
+    } else if (value.length !== arity) {
+      curried.push(`${member.name} takes ${value.length} argument(s), not ${arity}`);
+    }
+  }
+  assert(curried.length === 0, curried.join("; "));
+});
+
+check("`viewportInitialized` is a boolean and not a thunk", () => {
+  assert(
+    typeof instance.viewportInitialized === "boolean",
+    `is ${typeof instance.viewportInitialized}`
+  );
+});
+
+// The readers. Each one was an unrun `Effect` before this stage, so the claim
+// is the same for all of them: calling it produces the value, JS-shaped.
+check("`getNodes` returns nodes, JS-shaped", () => {
+  const got = instance.getNodes();
+  assert(Array.isArray(got), `returned ${typeof got}`);
+  assert(got.length === 2, `returned ${got.length} nodes, not 2`);
+  assert(!("nodeType" in got[0]), "a node still carries `nodeType`");
+  assert("type" in got[0], "a node has no `type` key");
+  assert(got[0].type === "custom", `\`type\` is ${JSON.stringify(got[0].type)}, not "custom"`);
+});
+
+check("`getEdges` returns edges, JS-shaped", () => {
+  const got = instance.getEdges();
+  assert(Array.isArray(got) && got.length === 1, `returned ${JSON.stringify(got)}`);
+  assert(!("edgeType" in got[0]), "an edge still carries `edgeType`");
+});
+
+check("`getNode` answers `undefined` for a node that is not there", () => {
+  assert(instance.getNode("a") !== undefined, "found no node `a`");
+  const missing = instance.getNode("nope");
+  assert(
+    missing === undefined,
+    `answered ${JSON.stringify(missing)} — a PureScript \`Maybe\` crossing unconverted ` +
+      `arrives as \`{ value0: … }\` or \`{}\`, never as \`undefined\``
+  );
+});
+
+check("`getInternalNode` answers `undefined` for a node that is not there", () => {
+  assert(instance.getInternalNode("nope") === undefined, "did not answer `undefined`");
+  assert(instance.getInternalNode("a") !== undefined, "found no internal node `a`");
+});
+
+check("`getViewport` and `getZoom` read through", () => {
+  const viewport = instance.getViewport();
+  assert(typeof viewport === "object" && viewport !== null, `viewport is ${typeof viewport}`);
+  for (const key of ["x", "y", "zoom"]) {
+    assert(typeof viewport[key] === "number", `viewport.${key} is ${typeof viewport[key]}`);
+  }
+  assert(typeof instance.getZoom() === "number", "`getZoom` did not return a number");
+});
+
+check("`toObject` returns nodes, edges and viewport in one object", () => {
+  const object = instance.toObject();
+  assert(Array.isArray(object.nodes) && object.nodes.length === 2, "nodes are wrong");
+  assert(Array.isArray(object.edges) && object.edges.length === 1, "edges are wrong");
+  assert(typeof object.viewport?.zoom === "number", "viewport is wrong");
+  assert(!("nodeType" in object.nodes[0]), "a node still carries `nodeType`");
+});
+
+check("`getNodesBounds` takes ids and returns a rect", () => {
+  const bounds = instance.getNodesBounds(["a", "b"]);
+  for (const key of ["x", "y", "width", "height"]) {
+    assert(typeof bounds[key] === "number", `bounds.${key} is ${typeof bounds[key]}`);
+  }
+});
+
+check("`getIntersectingNodes` narrows a rect argument and returns nodes", () => {
+  const hits = instance.getIntersectingNodes({ x: 0, y: 0, width: 500, height: 500 });
+  assert(Array.isArray(hits), `returned ${typeof hits}`);
+  assert(hits.every((n) => !("nodeType" in n)), "a node still carries `nodeType`");
+});
+
+check("`getHandleConnections` takes upstream's `type`, not ps-flow's `handleType`", () => {
+  const found = instance.getHandleConnections({ type: "source", nodeId: "a" });
+  assert(Array.isArray(found), `returned ${typeof found}`);
+});
+
+// The asynchronous half. `Aff` is not a promise and has no `.then`, so an
+// unconverted one resolves an `await` immediately to itself — the `Effect`
+// failure one type further along, and invisible to everything but this.
+check("`fitView` returns a real promise", () => {
+  const returned = instance.fitView();
+  assert(
+    returned instanceof Promise,
+    `returned ${typeof returned} — an \`Aff\` reaching JavaScript unconverted looks like this, ` +
+      `and \`await\` resolves it to itself rather than waiting for the animation`
+  );
+});
+
+for (const name of ["zoomIn", "zoomOut", "fitBounds", "setViewport", "setCenter", "zoomTo"]) {
+  check(`\`${name}\` returns a real promise`, () => {
+    const args = {
+      zoomTo: [1.5],
+      fitBounds: [{ x: 0, y: 0, width: 10, height: 10 }],
+      setViewport: [{ x: 0, y: 0, zoom: 1 }],
+      setCenter: [0, 0],
+    }[name] ?? [];
+    assert(instance[name](...args) instanceof Promise, "did not return a promise");
+  });
+}
+
+check("`deleteElements` resolves with the deleted elements, JS-shaped", async () => {
+  const returned = instance.deleteElements({ nodes: [{ id: "a" }] });
+  assert(returned instanceof Promise, `returned ${typeof returned}`);
+});
+
+// `deleteElements` is the one asynchronous method that settles without a
+// browser, so its resolved value is checked rather than only its type. Awaited
+// at the end of the run, because `check` is synchronous.
+const deletion = instance.deleteElements({ nodes: [{ id: "a" }], edges: [{ id: "a-b" }] });
+
+// The mutators. See this section's header for why the queued update itself is
+// out of reach here and what is left to claim.
+check("`setNodes` runs rather than returning an unrun thunk", () => {
+  const returned = instance.setNodes((previous) => previous);
+  assert(
+    returned === undefined,
+    `returned ${typeof returned} — a PureScript \`Effect\` nobody runs looks exactly like this, ` +
+      `and it is the failure this whole boundary exists to remove`
+  );
+});
+
+check("`setNodes` also takes the plain array React's contract allows", () => {
+  assert(instance.setNodes([]) === undefined, "did not run");
+});
+
+throws(
+  "`setNodes` refuses an argument that is neither an array nor a function",
+  () => instance.setNodes(42),
+  "setNodes"
+);
+
+for (const [name, args] of [
+  ["setEdges", [[]]],
+  ["addNodes", [{ id: "c", position: { x: 0, y: 0 }, data: {} }]],
+  ["addEdges", [{ id: "b-a", source: "b", target: "a" }]],
+  ["updateNode", ["a", { hidden: true }]],
+  ["updateNodeData", ["a", { label: "changed" }]],
+  ["updateEdge", ["a-b", { animated: true }]],
+  ["updateEdgeData", ["a-b", { weight: 1 }]],
+]) {
+  check(`\`${name}\` runs rather than returning an unrun thunk`, () => {
+    const returned = instance[name](...args);
+    assert(returned === undefined, `returned ${typeof returned}, not undefined`);
+  });
+}
+
+// `addNodes` and `addEdges` take `T | T[]`; the loop above passed the bare
+// form, so this is the other one.
+check("`addNodes` takes an array as readily as a single node", () => {
+  assert(instance.addNodes([{ id: "d", position: { x: 0, y: 0 }, data: {} }]) === undefined, "did not run");
+});
+
+// `updateNode` takes a **partial**, which ps-flow's updater cannot: its
+// argument is a whole node in and a whole node out, so the merge is the
+// crossing's. Both forms of upstream's union are checked, and the function
+// form is what proves the consumer sees a JS-shaped node.
+check("`updateNode`'s function form is handed a JS-shaped node", () => {
+  let handed = null;
+  instance.updateNode("a", (node) => {
+    handed = node;
+    return { hidden: true };
+  });
+  // The updater runs when the queue drains, which a server render never does,
+  // so an un-called updater here is the expected ceiling rather than a failure.
+  if (handed !== null) {
+    assert(!("nodeType" in handed), "the updater was handed a node still carrying `nodeType`");
+  }
+});
+
+// The hooks. `useNodesState` and `useEdgesState` are section 6's; these are
+// the nineteen stage 3 adds, and the claim for each is the one that was false
+// before: calling it produces a value rather than a thunk, and the value is
+// upstream's shape.
+const hookResults = insideFlow((out) => {
+  out.nodes = useNodes();
+  out.edges = useEdges();
+  out.viewport = useViewport();
+  out.initialized = useNodesInitialized();
+  out.initializedWithOptions = useNodesInitialized({ includeHiddenNodes: true });
+  out.nodeId = useNodeId();
+  out.updateInternals = useUpdateNodeInternals();
+  out.oneNodeData = useNodesData("a");
+  out.manyNodeData = useNodesData(["a", "b"]);
+  out.missingNodeData = useNodesData("nope");
+  out.connection = useConnection();
+  out.internalNode = useInternalNode("a");
+  out.missingInternalNode = useInternalNode("nope");
+  out.keyPressed = useKeyPress();
+  out.keyPressedWithCode = useKeyPress("a", { actInsideInputWithModifier: true });
+  out.nodeConnections = useNodeConnections({ id: "a" });
+});
+
+check("`useNodes` and `useEdges` return arrays, JS-shaped", () => {
+  assert(Array.isArray(hookResults.nodes) && hookResults.nodes.length === 2, "nodes are wrong");
+  assert(Array.isArray(hookResults.edges) && hookResults.edges.length === 1, "edges are wrong");
+  assert(!("nodeType" in hookResults.nodes[0]), "a node still carries `nodeType`");
+});
+
+check("`useViewport` returns `{ x, y, zoom }`", () => {
+  for (const key of ["x", "y", "zoom"]) {
+    assert(typeof hookResults.viewport[key] === "number", `viewport.${key} is missing`);
+  }
+});
+
+check("`useNodesInitialized` returns a boolean, with and without its options", () => {
+  assert(typeof hookResults.initialized === "boolean", `returned ${typeof hookResults.initialized}`);
+  assert(typeof hookResults.initializedWithOptions === "boolean", "the options form did not return a boolean");
+});
+
+check("`useNodeId` returns `null` outside a node, not `undefined`", () => {
+  assert(
+    hookResults.nodeId === null,
+    `returned ${JSON.stringify(hookResults.nodeId)} — upstream's \`NodeIdContext\` defaults to ` +
+      `\`null\`, which is the one place on this surface where \`null\` and \`undefined\` differ`
+  );
+});
+
+check("`useUpdateNodeInternals` returns a one-argument function", () => {
+  const update = hookResults.updateInternals;
+  assert(typeof update === "function", `returned ${typeof update}`);
+  assert(update.length === 1, `takes ${update.length} arguments, not 1`);
+  assert(update("a") === undefined, "the returned updater did not run");
+  assert(update(["a", "b"]) === undefined, "the array form did not run");
+});
+
+check("`useNodesData` follows its argument: one id answers one pick, an array answers an array", () => {
+  const one = hookResults.oneNodeData;
+  assert(!Array.isArray(one), "a single id answered with an array");
+  assert(one.id === "a", `the pick is ${JSON.stringify(one)}`);
+  assert(
+    Object.keys(one).sort().join(",") === "data,id,type",
+    `the pick carries ${Object.keys(one).join(", ")} — upstream's is { id, type, data } and no more`
+  );
+  assert(Array.isArray(hookResults.manyNodeData), "an array of ids did not answer with an array");
+  assert(hookResults.manyNodeData.length === 2, "the array is the wrong length");
+  assert(
+    hookResults.missingNodeData === null,
+    `a missing id answered ${JSON.stringify(hookResults.missingNodeData)}, not null`
+  );
+});
+
+check("`useInternalNode` answers `undefined` for a node that is not there", () => {
+  assert(hookResults.internalNode !== undefined, "found no internal node `a`");
+  assert(hookResults.missingInternalNode === undefined, "did not answer `undefined`");
+});
+
+check("`useConnection` returns the connection state, JS-shaped", () => {
+  const state = hookResults.connection;
+  assert(typeof state === "object" && state !== null, `returned ${typeof state}`);
+  assert("isValid" in state && "fromHandle" in state, `is ${JSON.stringify(state)}`);
+});
+
+check("`useKeyPress` returns a boolean, with and without its two optional arguments", () => {
+  assert(typeof hookResults.keyPressed === "boolean", `returned ${typeof hookResults.keyPressed}`);
+  assert(typeof hookResults.keyPressedWithCode === "boolean", "the two-argument form did not return a boolean");
+});
+
+check("`useNodeConnections` takes upstream's `id` for the node, not ps-flow's `nodeId`", () => {
+  assert(Array.isArray(hookResults.nodeConnections), `returned ${typeof hookResults.nodeConnections}`);
+});
+
+// The bare form is upstream's common case — a custom node calling
+// `useNodeConnections()` and taking its own id from the surrounding context —
+// and outside a node both implementations throw the same way. That the
+// parameter is *optional* is what is checked here; the argument-less call is
+// exercised by the custom node the props fixture mounts.
+throws(
+  "`useNodeConnections` outside a node says so, as upstream does",
+  () => insideFlow(() => useNodeConnections()),
+  "node ID"
+);
+
+// The listener hooks and the two middleware hooks return nothing, so what is
+// checked is that they install without complaint and hand their handlers the
+// JS shape. A server render runs no effects, so the installation itself is out
+// of reach and acceptance is the ceiling — as it is for the flow-level
+// callbacks in section 2b.
+check("the listener and middleware hooks accept JS-shaped handlers", () => {
+  insideFlow(() => {
+    psflow.useOnViewportChange({ onStart: () => {}, onChange: () => {}, onEnd: () => {} });
+    psflow.useOnSelectionChange({ onChange: () => {} });
+    psflow.useHandleConnections({ type: "source", nodeId: "a", onConnect: () => {} });
+    psflow.experimental_useOnNodesChangeMiddleware((changes) => changes);
+    psflow.experimental_useOnEdgesChangeMiddleware((changes) => changes);
+  });
+});
+
+// The two that refuse. See `Boundary.Hooks`: both hand over the internal store
+// state, which is an 85-field PureScript record with no JS shape, and both are
+// callable at upstream's arity so that surface parity sees them agree. That
+// they throw is this gate's to hold — the same claim, and the same reason, as
+// the deferred props in section 2.
+throws(
+  "`useStore` refuses rather than handing over the PureScript store state",
+  () => insideFlow(() => useStore((s) => s)),
+  "useStore",
+  "nodeLookup"
+);
+
+throws(
+  "`useStoreApi` refuses rather than handing over the PureScript store state",
+  () => insideFlow(() => useStoreApi()),
+  "useStoreApi"
+);
+
+// `onInit` is the second path to the instance and the one that does not need a
+// component of the consumer's own. It was the last deferred callback prop, and
+// a server render never fires it — the handler reaches the store through
+// `StoreUpdater`'s effect — so what is claimed here is acceptance, which is
+// exactly what section 2b claims for the other 46.
+check("`onInit` is accepted rather than refused", () => {
+  renderToStaticMarkup(
+    createElement(ReactFlow, { nodes: psflowNodes, edges: psflowEdges, onInit: () => {} })
+  );
+});
+
 // ── Report ──────────────────────────────────────────────────────────────
+
+// The one asynchronous method that settles without a browser. Awaited here
+// rather than inside a `check`, because `check` is synchronous and a rejected
+// promise nobody awaited is a warning rather than a failure.
+await check_deletion();
+
+async function check_deletion() {
+  try {
+    const deleted = await deletion;
+    check("`deleteElements` resolves with the deleted elements, JS-shaped", () => {
+      assert(Array.isArray(deleted.deletedNodes), "`deletedNodes` is not an array");
+      assert(Array.isArray(deleted.deletedEdges), "`deletedEdges` is not an array");
+      assert(
+        deleted.deletedNodes.every((n) => !("nodeType" in n)),
+        "a deleted node still carries `nodeType`"
+      );
+    });
+  } catch (e) {
+    failures++;
+    console.error(`\n\u2717 \`deleteElements\` resolves\n    ${e.message}`);
+  }
+}
 
 if (failures > 0) {
   console.error(`\n${failures} boundary mount failure(s).\n`);

@@ -80,6 +80,7 @@ module Boundary.Elements
   , handleOut
   , internalNodeOut
   , keyCodeIn
+  , keyCodeValueIn
   , nodeIn
   , nodeOut
   , nodeChangeIn
@@ -444,11 +445,32 @@ keyCodeIn field u
           <> "disabled state, so a null would silently fall back to the "
           <> "default key instead. Omit the prop to get the default, or pass "
           <> "the key you want."
-keyCodeIn field u = fromUndefinable u >>= \raw ->
+keyCodeIn field u = map (keyCodeValueIn field) (fromUndefinable u)
+
+-- | The same conversion with the null guard removed, for the one caller that
+-- | must not have it.
+-- |
+-- | `useKeyPress`'s first parameter *defaults* to `null` upstream, so there
+-- | `null` and absent mean the same thing — listen for no key — and both are
+-- | ps-flow's `Nothing`. The guard above exists because on the five key-code
+-- | *props* the two differ, `null` meaning "disable this key" against absence
+-- | meaning "use the default"; where there is no default to fall back to,
+-- | there is nothing to warn about.
+keyCodeValueIn :: String -> Foreign -> KeyCode
+keyCodeValueIn field raw =
   case asString raw of
-    Just s -> Just (SingleKey s)
+    Just s -> SingleKey s
     Nothing -> case asArray raw of
-      Just entries -> map MultiKey (NEA.fromArray (map (readKey field) entries))
+      Just entries ->
+        case NEA.fromArray (map (readKey field) entries) of
+          Just nea -> MultiKey nea
+          -- Upstream's empty array listens for nothing, and so does
+          -- `SingleKey ""`: no `KeyboardEvent.key` is the empty string, so the
+          -- matcher never fires. `MultiKey` cannot say it — its array is
+          -- non-empty by construction — and answering `Nothing` is not
+          -- available either, because the caller has already established that
+          -- a key code *was* supplied.
+          Nothing -> SingleKey ""
       Nothing ->
         unsafeThrow $
           "ps-flow: `" <> field <> "` must be a string or an array of strings, got "

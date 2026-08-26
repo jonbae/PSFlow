@@ -220,7 +220,10 @@ A step of the boundary staging (1–4), counted in **converters**. Orthogonal to
 gates, not a synonym: a stage says how much of the surface has **crossed**, a
 gate says what would go red. Stages 2–4 deliberately open a
 crossed-but-ungated window, and saying "stage" where "layer" used to appear
-does not fix anything.
+does not fix anything. In practice each stage has closed its own window in the
+same commit, because `parity:boundary` mounts what the stage crossed and the
+census counts that as a JS-surface gate; the window is what would open if a
+stage landed converters without one.
 _Avoid_: layer, phase, tier
 
 ### Baselines and upstream

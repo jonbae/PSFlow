@@ -8,22 +8,29 @@
 -- | entirely at runtime; PureScript's sum types carry a tag, so the crossing
 -- | has to do the narrowing itself.
 -- |
--- | Everything here is a fold: each function takes the `Foreign` and returns
--- | `Maybe`, so the caller writes the branch order explicitly and there is no
--- | coercion that could succeed on the wrong shape. A value matching no branch
--- | is the caller's error to report, with the field name it has and this
+-- | Almost everything here is a fold: each function takes the `Foreign` and
+-- | returns `Maybe`, so the caller writes the branch order explicitly and there
+-- | is no coercion that could succeed on the wrong shape. A value matching no
+-- | branch is the caller's error to report, with the field name it has and this
 -- | module does not.
+-- |
+-- | `oneOrMany` is the exception, and answers total rather than `Maybe`,
+-- | because its union has no wrong branch: `T | T[]` is upstream's way of
+-- | letting a caller skip the brackets, both sides mean a list, and a value
+-- | that is not an array is the singleton. There is nothing for a caller to
+-- | report, so there is no `Maybe` to fold.
 module Boundary.Untagged
   ( asArray
   , asBoolean
   , asFunction
   , asNumber
   , asString
+  , oneOrMany
   , typeName
   ) where
 
 import Data.Function.Uncurried (Fn3, runFn3)
-import Data.Maybe (Maybe(..))
+import Data.Maybe (Maybe(..), fromMaybe)
 import Foreign (Foreign)
 
 foreign import asStringImpl :: forall r. Fn3 r (String -> r) Foreign r
@@ -43,6 +50,14 @@ asBoolean = runFn3 asBooleanImpl Nothing Just
 
 asArray :: Foreign -> Maybe (Array Foreign)
 asArray = runFn3 asArrayImpl Nothing Just
+
+-- | `T | T[]`, as the array both sides mean. Upstream spells four members of
+-- | the surface this way — `addNodes`, `addEdges`, the id argument of
+-- | `useUpdateNodeInternals`, and `KeyCode` — so a caller may write
+-- | `addNodes(node)` or `addNodes([node])` and mean the same thing. ps-flow's
+-- | counterparts all take an array, which is the wider of the two.
+oneOrMany :: Foreign -> Array Foreign
+oneOrMany raw = fromMaybe [ raw ] (asArray raw)
 
 -- | The other half of React's `SetStateAction<T>`: `T | ((prev: T) => T)`. A
 -- | JavaScript unary function *is* a `Foreign -> Foreign`, so nothing is

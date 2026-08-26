@@ -58,7 +58,7 @@ import Boundary.Callbacks
   )
 import Boundary.Elements (asCssObject, nodeOut)
 import Boundary.Enums (backgroundVariantIn, orientationIn, panelPositionIn)
-import Boundary.Flow (JsFitViewOptions, fitViewOptionsIn)
+import Boundary.FitView (JsFitViewOptions, fitViewOptionsIn)
 import Boundary.Refusal (Refusal, componentProp, deferredMessage, refuseFirst)
 import Boundary.Undefined (Undefinable, fromUndefinable)
 import Boundary.Untagged (asArray, asFunction, asNumber, asString, typeName)

@@ -253,7 +253,7 @@ const pairs = [
   {
     what: "FitViewOptions",
     ps: { file: "src/System/Utils/Graph.purs", type: "FitViewOptions" },
-    js: { file: "src/Boundary/Flow.purs", type: "JsFitViewOptions" },
+    js: { file: "src/Boundary/FitView.purs", type: "JsFitViewOptions" },
     renames: {},
   },
   {
@@ -279,6 +279,129 @@ const pairs = [
       minimapAriaLabel: "minimap.ariaLabel",
       handleAriaLabel: "handle.ariaLabel",
     },
+  },
+  // ── Boundary stage 3: the imperative instance ─────────────────────────
+  //
+  // `ReactFlowInstance` is the pair that matters most here: it is the only
+  // record on this surface whose *every* member is produced outbound, so the
+  // compiler forces nothing at all about it and this comparison is the whole
+  // check that the crossing names all thirty-two.
+  //
+  // Two shapes it carries are deliberately absent below, both for the same
+  // reason: `getHandleConnections`' argument and `deleteElements`' result are
+  // written inline inside `ReactFlowInstance` rather than as named types, so
+  // there is nothing for this gate to name on the PureScript side. The hook
+  // parameters further down cover the first of them under a different name —
+  // `useHandleConnections` takes the same record and does declare it.
+  {
+    what: "ReactFlowInstance",
+    ps: { file: "src/React/Types/Instance.purs", type: "ReactFlowInstance" },
+    js: { file: "src/Boundary/Instance.purs", type: "JsReactFlowInstance" },
+    renames: {},
+  },
+  {
+    what: "ReactFlowJsonObject",
+    ps: { file: "src/React/Types/Instance.purs", type: "ReactFlowJsonObject" },
+    js: { file: "src/Boundary/Instance.purs", type: "JsReactFlowJsonObject" },
+    renames: {},
+  },
+  {
+    what: "DeleteElementsOptions",
+    ps: { file: "src/React/Types/Instance.purs", type: "DeleteElementsOptions" },
+    js: { file: "src/Boundary/Instance.purs", type: "JsDeleteElementsOptions" },
+    renames: {},
+  },
+  {
+    what: "UpdateOptions",
+    ps: { file: "src/React/Types/Instance.purs", type: "UpdateOptions" },
+    js: { file: "src/Boundary/Instance.purs", type: "JsUpdateOptions" },
+    renames: {},
+  },
+  {
+    what: "Rect",
+    ps: { file: "src/System/Types/Geometry.purs", type: "Rect" },
+    js: { file: "src/Boundary/Instance.purs", type: "JsRect" },
+    renames: {},
+  },
+  // ps-flow's `NodeConnection` is a synonym for its `HandleConnection`, and
+  // upstream's two are the same shape, so one pair covers both queries.
+  {
+    what: "HandleConnection",
+    ps: { file: "src/System/Types/Connection.purs", type: "HandleConnection" },
+    js: { file: "src/Boundary/Instance.purs", type: "JsHandleConnection" },
+    renames: {},
+  },
+  {
+    what: "ZoomOptions",
+    ps: { file: "src/React/Types/Instance.purs", type: "ZoomOptions" },
+    js: { file: "src/Boundary/Instance.purs", type: "JsViewportHelperOptions" },
+    renames: {},
+  },
+  {
+    what: "SetCenterOptions",
+    ps: { file: "src/System/Types/Connection.purs", type: "SetCenterOptions" },
+    js: { file: "src/Boundary/Instance.purs", type: "JsSetCenterOptions" },
+    renames: {},
+  },
+  {
+    what: "FitBoundsOptions",
+    ps: { file: "src/React/Types/Instance.purs", type: "FitBoundsOptions" },
+    js: { file: "src/Boundary/Instance.purs", type: "JsFitBoundsOptions" },
+    renames: {},
+  },
+  {
+    what: "ScreenToFlowOptions",
+    ps: { file: "src/React/Types/Instance.purs", type: "ScreenToFlowOptions" },
+    js: { file: "src/Boundary/Instance.purs", type: "JsScreenToFlowOptions" },
+    renames: {},
+  },
+  // ── Boundary stage 3: the hooks' parameter records ────────────────────
+  //
+  // Inbound, so the compiler already forces every PureScript field to be
+  // constructed; what it does not force is a field *removed* from the
+  // PureScript record leaving an orphan on the JS side that a consumer can set
+  // and nothing reads. Same claim as the component props above.
+  //
+  // The two renames are upstream disagreeing with itself rather than with
+  // ps-flow: `useHandleConnections` calls the handle kind `type` and the node
+  // `nodeId`, while `useNodeConnections` calls the handle kind `handleType`
+  // and the node `id`. ps-flow spells both consistently, so each hook needs
+  // one rename and the two point in opposite directions.
+  {
+    what: "UseKeyPressOptions",
+    ps: { file: "src/React/Hook/KeyPress.purs", type: "UseKeyPressOptions" },
+    js: { file: "src/Boundary/Hooks.purs", type: "JsUseKeyPressOptions" },
+    renames: {},
+  },
+  {
+    what: "UseNodesInitializedOptions",
+    ps: { file: "src/React/Hook/Selectors.purs", type: "UseNodesInitializedOptions" },
+    js: { file: "src/Boundary/Hooks.purs", type: "JsUseNodesInitializedOptions" },
+    renames: {},
+  },
+  {
+    what: "UseOnViewportChangeOptions",
+    ps: { file: "src/React/Hook/Listeners.purs", type: "UseOnViewportChangeOptions" },
+    js: { file: "src/Boundary/Hooks.purs", type: "JsUseOnViewportChangeOptions" },
+    renames: {},
+  },
+  {
+    what: "UseOnSelectionChangeOptions",
+    ps: { file: "src/React/Hook/Listeners.purs", type: "UseOnSelectionChangeOptions" },
+    js: { file: "src/Boundary/Hooks.purs", type: "JsUseOnSelectionChangeOptions" },
+    renames: {},
+  },
+  {
+    what: "UseHandleConnectionsParams",
+    ps: { file: "src/React/Hook/HandleConnections.purs", type: "UseHandleConnectionsParams" },
+    js: { file: "src/Boundary/Hooks.purs", type: "JsUseHandleConnectionsParams" },
+    renames: { handleType: "type" },
+  },
+  {
+    what: "UseNodeConnectionsParams",
+    ps: { file: "src/React/Hook/NodeConnections.purs", type: "UseNodeConnectionsParams" },
+    js: { file: "src/Boundary/Hooks.purs", type: "JsNodeConnectionsParams" },
+    renames: { nodeId: "id" },
   },
 ];
 
