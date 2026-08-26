@@ -104,10 +104,10 @@ export const renderCoverageFailures = (outcomes, behavior) => {
 
   if (outcomes.staleHoles.length) {
     said.push(
-      `${outcomes.staleHoles.length} hole(s) no longer correspond to anything: something drove the export after`,
-      `all, or it left the surface. Delete the entry — a hole is a written reason, and this one stopped being`,
-      `true:`,
-      ...outcomes.staleHoles.map((hole) => `  ${hole.export} — ${hole.reason}`)
+      `${outcomes.staleHoles.length} hole entr(ies) no longer correspond to anything: something drove the`,
+      `export after all, or it left the surface. Split the entry or delete it — a hole is a written reason,`,
+      `and this one stopped being true of what it names:`,
+      ...outcomes.staleHoles.map(({ hole, exports }) => `  ${exports.join(", ")} — ${hole.reason}`)
     );
   }
 
@@ -209,7 +209,9 @@ export const renderCoverage = (
       `**${outcomes.staleHoles.length} hole(s) are stale** — something drove the export after all, or it left` +
         " the surface:",
       "",
-      ...outcomes.staleHoles.map((hole) => `- \`${hole.export}\` — ${esc(hole.reason)}`),
+      ...outcomes.staleHoles.map(
+        ({ hole, exports }) => `- ${exports.map((name) => `\`${name}\``).join(", ")} — ${esc(hole.reason)}`
+      ),
       ""
     );
   }
@@ -266,26 +268,43 @@ export const renderCoverage = (
     ""
   );
 
+  // The register's `note` field, which is where a witness that needed defending
+  // argues its case. Printed rather than left in the JSON: the safeguard against
+  // a derived number being wrong is that someone can read the rule and dispute
+  // it, and the entries worth disputing are exactly the ones carrying a note.
+  const defended = outcomes.exports.filter((entry) => entry.witness?.note);
+  if (defended.length) {
+    lines.push(
+      "## The witnesses that argue their case",
+      "",
+      "A witness can match something the scenario did not really drive — a selector on DOM the renderer draws" +
+        " for every flow, a name that rides on a handler several exports share. Where the rule needed" +
+        " defending, the defence is written down beside it and printed here, because a derived number that" +
+        " nobody can argue with is a declared one wearing better clothes.",
+      "",
+      ...defended.flatMap((entry) => [`- \`${entry.export}\` — \`${esc(entry.witness.describe)}\` — ${entry.witness.note}`, ""])
+    );
+  }
+
   const holes = outcomes.exports.filter((e) => e.outcome === OUTCOME.hole);
   if (holes.length) {
-    // Grouped by the reason itself, in the order the reasons first appear. The
-    // register is written one entry per export, but a reason covers as many as
-    // it covers — eight edge components go undriven for one sentence, and
-    // printing that sentence eight times is a document nobody reads the end of.
+    // Grouped by the register entry itself, in the order the entries first
+    // appear. The register already groups — an entry covers as many exports as
+    // its reason covers — so this keeps that grouping rather than rebuilding one
+    // out of the reasons, and the entry is its own key.
     const byReason = new Map();
     for (const entry of holes) {
-      const key = `${entry.hole.reason} ${entry.hole.ticket ?? ""}`;
-      if (!byReason.has(key)) byReason.set(key, { hole: entry.hole, exports: [] });
-      byReason.get(key).exports.push(entry.export);
+      if (!byReason.has(entry.hole)) byReason.set(entry.hole, { hole: entry.hole, exports: [] });
+      byReason.get(entry.hole).exports.push(entry.export);
     }
 
     lines.push(
       "## The declared holes",
       "",
-      "Machine-readable in `coverage/holes.json`, which is what boundary stage 4 and probed-variant selection" +
-        " are both derived from: the uncovered `hooks` and `props` exports name themselves here rather than" +
-        " being hand-picked. One entry per export there; grouped by reason here, because a reason covers as" +
-        " many exports as it covers.",
+      "Machine-readable in `coverage/holes.json` — one entry per reason, covering as many exports as the" +
+        " reason covers. It is what boundary stage 4 and probed-variant selection are both derived from:" +
+        " `holesIn(outcomes, section)` names the `hooks` and `props` exports nothing drives, rather than" +
+        " anyone hand-picking them.",
       "",
       ...[...byReason.values()].flatMap(({ hole, exports }) => [
         `- ${exports.map((name) => `\`${name}\``).join(", ")}` +

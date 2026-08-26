@@ -163,15 +163,22 @@ export const writeCoverage = (checked, { out = null } = {}) => {
   return COVERAGE;
 };
 
+// A flag whose value went missing is a usage error, never a default — the same
+// reading `net.mjs` gives its own flags, for the same reason: `--out` with
+// nothing after it would otherwise write the artifact to its default place and
+// report success at having done what was asked.
+const value = (argv, name) => {
+  const at = argv.indexOf(name);
+  if (at === -1) return null;
+  const given = argv[at + 1];
+  if (given === undefined || given.startsWith("--")) throw new CoverageError(`${name} needs a value`);
+  return given;
+};
+
 const main = () => {
   const argv = process.argv.slice(2);
-  const at = argv.indexOf("--out");
-  if (at !== -1 && (argv[at + 1] === undefined || argv[at + 1].startsWith("--"))) {
-    throw new CoverageError("--out needs a value");
-  }
-
   const checked = checkCoverage();
-  const written = writeCoverage(checked, { out: at === -1 ? null : argv[at + 1] });
+  const written = writeCoverage(checked, { out: value(argv, "--out") });
 
   console.log(reportCoverage(checked));
   console.log(`The artifact is ${relative(repoRoot, written)}.`);

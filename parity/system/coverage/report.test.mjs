@@ -19,9 +19,9 @@ const witnesses = [
 ];
 
 const holes = [
-  { export: "ViewportPortal", reason: "no fixture mounts one", ticket: "https://github.com/jonbae/PSFlow/issues/60" },
-  { export: "OnConnect", reason: "no scenario draws a connection yet" },
-  { export: "useNodes", reason: "the hooks section needs probes", ticket: "https://github.com/jonbae/PSFlow/issues/59" },
+  { exports: ["ViewportPortal"], reason: "no fixture mounts one", ticket: "https://github.com/jonbae/PSFlow/issues/60" },
+  { exports: ["OnConnect"], reason: "no scenario draws a connection yet" },
+  { exports: ["useNodes"], reason: "the hooks section needs probes", ticket: "https://github.com/jonbae/PSFlow/issues/59" },
 ];
 
 const traces = [
@@ -89,9 +89,8 @@ test("a clean register says so in one line; a broken one says what to fix", () =
 
 test("holes sharing a reason are listed together, so the reason is written once", () => {
   const shared = [
-    { export: "ViewportPortal", reason: "no fixture portals anything" },
-    { export: "OnConnect", reason: "no fixture portals anything" },
-    { export: "useNodes", reason: "the hooks section has no probe" },
+    { exports: ["ViewportPortal", "OnConnect"], reason: "no fixture portals anything" },
+    { exports: ["useNodes"], reason: "the hooks section has no probe" },
   ];
   const report = renderCoverage(outcomesOf({ holes: shared }), behaviorCoverage({}, { scenarioIds: [] }), {
     baseline: "12.11.0",
@@ -101,4 +100,27 @@ test("holes sharing a reason are listed together, so the reason is written once"
   assert.equal(holesSection.match(/no fixture portals anything/g).length, 1);
   assert.match(holesSection, /`OnConnect`, `ViewportPortal`|`ViewportPortal`, `OnConnect`/);
   assert.match(holesSection, /the hooks section has no probe/);
+});
+
+test("a witness that needed defending prints its defence, not just its rule", () => {
+  // The whole safeguard against a derived number being wrong is that the rule is
+  // visible and disputable. A `note` is where the doubtful ones argue their
+  // case, so an artifact that printed the selector and swallowed the note would
+  // hide exactly the entries most worth arguing with.
+  const defended = [
+    { export: "MiniMap", selector: ".react-flow__minimap" },
+    {
+      export: "ViewportPortal",
+      selector: ".react-flow__viewport-portal *",
+      note: "the container is drawn for every flow, so only its content witnesses the export",
+    },
+    { export: "OnConnect", names: ["onConnect"] },
+    { export: "useNodes", names: ["useNodes"] },
+  ];
+  const report = renderCoverage(outcomesOf({ witnesses: defended }), behaviorCoverage({}, { scenarioIds: [] }), {
+    baseline: "12.11.0",
+  });
+
+  assert.match(report, /only its content witnesses the export/);
+  assert.match(report, /## The witnesses that argue their case/);
 });

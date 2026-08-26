@@ -226,8 +226,10 @@ Bumping the baseline is one atomic change:
    under-counting.
 
 `xyflow/` is gitignored, so `parity:surface`, `parity:changelog`,
-`build:oracle`, `build:driver`, `parity:fork`, `parity:coverage` and
-`parity:system` all require it present and hard-fail on a clean clone. The committed artifacts (`parity/surface/report.md`,
+`build:oracle`, `build:driver`, `parity:fork` and `parity:system` all require it
+present and hard-fail on a clean clone. `parity:coverage` is the one that does
+not: it prefers the corpus, falls back to the scenarios the stored traces name,
+and says in both the console and the artifact which it used. The committed artifacts (`parity/surface/report.md`,
 `parity/changelog-audit/report.md`, `oracle/index.js`,
 `parity/driver/dist/psflow.js`, `parity/system/report.md`,
 `parity/system/coverage.md` and the traces under `parity/system/traces/`) are

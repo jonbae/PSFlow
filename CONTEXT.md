@@ -602,12 +602,14 @@ _Avoid_: matcher, assertion, expectation
 
 **Hole**:
 An export the corpus does not drive, recorded with a written reason in
-`parity/system/coverage/holes.json`. A hole is a legitimate resting state; an
+`parity/system/coverage/holes.json` — one entry per reason, covering as many
+exports as that reason covers, the way a **region** claims many differences with
+one pattern. A hole is a legitimate resting state; an
 *undeclared* hole fails, and a hole over an export something did drive fails as
 **stale**. The register is machine-readable because other work is derived from it
 rather than deciding again: boundary stage 4 takes the components no fixture
-mounts, and probed-variant selection takes the uncovered `hooks` and `props`
-exports.
+mounts, and probed-variant selection takes the `hooks` and `props` exports
+nothing drives.
 _Avoid_: gap (reserved for audit buckets), uncovered, todo
 
 **Name** (of a witness):

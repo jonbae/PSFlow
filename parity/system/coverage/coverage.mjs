@@ -46,8 +46,6 @@
 import { normalize } from "../compare/normalize.mjs";
 import { SECTIONS_WITH_EXPORTS, WitnessError, compileWitness } from "./witness.mjs";
 
-export { WitnessError } from "./witness.mjs";
-
 /**
  * The census mechanism each export-bearing section is named by.
  *
@@ -103,19 +101,33 @@ export const exportEntries = (classification) =>
 /**
  * Checks the hole register's shape. Throws; nothing here is a finding.
  *
- * The rule with an argument behind it is the reason: "the corpus has not
+ * **One entry per reason, covering as many exports as the reason covers** — the
+ * same shape a **region** has, where one pattern claims many differences. The
+ * alternative, one entry per export, writes the same sentence out once for every
+ * export it is true of: thirteen copies of "no fixture mounts the component"
+ * that a later edit can put out of step with each other, which is the class of
+ * quiet disagreement this repo builds registers to prevent.
+ *
+ * The rule with an argument behind it is the reason itself: "the corpus has not
  * reached it yet" and "nothing can ever drive it" are the same absence, and
  * telling them apart is the whole value of writing a hole down.
  */
 export const validateHoles = (holes) => {
   if (!Array.isArray(holes)) throw new CoverageError("the hole register must be an array");
 
-  const seen = new Set();
+  const covered = new Map();
   holes.forEach((hole, i) => {
-    const at = `hole ${i} (${hole?.export ?? "no export"})`;
-    if (typeof hole?.export !== "string" || hole.export === "") throw new CoverageError(`${at}: needs an export`);
-    if (seen.has(hole.export)) throw new CoverageError(`${at}: duplicate entry`);
-    seen.add(hole.export);
+    const at = `hole ${i} (${hole?.exports?.[0] ?? "no export"})`;
+    if (!Array.isArray(hole?.exports) || hole.exports.length === 0) {
+      throw new CoverageError(`${at}: needs at least one export — an entry covering nothing says nothing`);
+    }
+    for (const name of hole.exports) {
+      if (typeof name !== "string" || name === "") throw new CoverageError(`${at}: every export must be a name`);
+      // Two reasons for one export is two answers to one question, and the join
+      // would silently take whichever came first.
+      if (covered.has(name)) throw new CoverageError(`${at}: ${name} is already covered by hole ${covered.get(name)}`);
+      covered.set(name, i);
+    }
     if (typeof hole.reason !== "string" || hole.reason === "") {
       throw new CoverageError(`${at}: needs a written reason — an unexplained hole is a dumping ground`);
     }
@@ -159,7 +171,7 @@ export const coverageOutcomes = (entries, { witnesses, holes, traces, rules = []
   validateHoles(holes);
   const sectionOf = new Map(entries.map(({ export: name, section }) => [name, section]));
   const { compiled, stale } = compileRegister(witnesses, sectionOf);
-  const declared = new Map(holes.map((hole) => [hole.export, hole]));
+  const declared = new Map(holes.flatMap((hole) => hole.exports.map((name) => [name, hole])));
 
   const observed = traces.map(({ scenario, sections }) => ({ scenario, sections: normalize(sections, rules).value }));
 
@@ -186,11 +198,21 @@ export const coverageOutcomes = (entries, { witnesses, holes, traces, rules = []
   // *unwitnessed* export's hole is neither — nothing could have reported it
   // driven, so the missing witness is the finding to fix and the hole is not
   // yet wrong.
+  //
+  // Named per export rather than per entry, because an entry covers as many as
+  // its reason covers: a resizer scenario landing makes the entry wrong about
+  // the five exports it now drives and still right about nothing else, and
+  // "split this entry" is only actionable if it says which.
   const byExport = new Map(exports.map((entry) => [entry.export, entry]));
-  const staleHoles = holes.filter((hole) => {
-    const entry = byExport.get(hole.export);
-    return !entry || entry.outcome === OUTCOME.driven;
-  });
+  const staleHoles = holes
+    .map((hole) => ({
+      hole,
+      exports: hole.exports.filter((name) => {
+        const entry = byExport.get(name);
+        return !entry || entry.outcome === OUTCOME.driven;
+      }),
+    }))
+    .filter(({ exports: stale }) => stale.length > 0);
 
   const tally = (outcome) => exports.filter((e) => e.outcome === outcome).length;
   const counts = {
@@ -261,3 +283,20 @@ export const behaviorCoverage = (verdicts, { scenarioIds = [] } = {}) => {
     ok: unnamed.length === 0 && dangling.length === 0,
   };
 };
+
+/**
+ * The holes a run found, optionally in one section — the query the rest of the
+ * map derives from rather than reading the register and guessing.
+ *
+ * Boundary stage 4 ([#62]) asks for the `dom` holes, which are the components no
+ * fixture mounts; probed-variant selection ([#59]) asks for `hooks` and `props`,
+ * because a probed variant doubles the corpus's captures and is worth spending
+ * only on exports a hole actually names. Both ask the *run*: the register alone
+ * carries no section, and deriving one from a ticket link would be a second
+ * reading of the census that could disagree with the first.
+ *
+ * Each entry is the export's own outcome, so `entry.hole` is the register entry
+ * and `entry.hole.reason` is what someone wrote down about it.
+ */
+export const holesIn = (outcomes, section = null) =>
+  outcomes.exports.filter((entry) => entry.outcome === OUTCOME.hole && (!section || entry.section === section));

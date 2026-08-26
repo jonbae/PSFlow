@@ -616,8 +616,11 @@ mounts ([#62]) and interactions no scenario drives ([#60]).
 
 `coverage/holes.json` is read by other work, not only by people. Boundary stage 4
 ([#62]) takes the components no fixture mounts from it, and probed-variant
-selection ([#59]) takes the uncovered `hooks` and `props` exports — both
-*derived* from what is written there rather than hand-picked. A probed variant
+selection ([#59]) takes the `hooks` and `props` exports nothing drives — both
+*derived* from what is written there rather than hand-picked. `holesIn(outcomes,
+section)` is the query they call: it joins the register to the census, so neither
+consumer needs a section field in the register nor a reading of its ticket links,
+and neither can drift from what the run actually found. A probed variant
 doubles the corpus's ~240 captures, so spending that multiplier on the two
 smallest sections is a choice the hole list makes rather than a judgement someone
 repeats.
@@ -648,6 +651,13 @@ It runs as the net's last step and standalone. Standalone is not a convenience �
 the traces are committed, so editing a witness or writing down a hole and
 regenerating the artifact costs milliseconds and no browser, where re-capturing
 the corpus costs a hundred and twenty drives of a real page.
+
+That is also why it is the one `parity:*` script that survives a clean clone. It
+prefers the corpus and falls back to the scenarios the stored traces name,
+because the traces committed for `--compare-only` are runs that happened and that
+is exactly what coverage is a claim about. The fallback is never silent: only the
+corpus can say a stored trace belongs to no scenario any more, so a run that had
+to do without it says so in the console and in the artifact.
 
 [#58]: https://github.com/jonbae/PSFlow/issues/58
 [#59]: https://github.com/jonbae/PSFlow/issues/59

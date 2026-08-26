@@ -204,7 +204,12 @@ export const namesIn = (section, value) => {
 
 // ── The register ───────────────────────────────────────────────────────────
 
-/** The five sections that carry exports, and how many of the 156 land in each. */
+/**
+ * The five sections that carry exports, in the order a report reads them.
+ *
+ * Not a count of anything: how many of the 156 land in each is the census's
+ * answer and is derived, never written here.
+ */
 export const SECTIONS_WITH_EXPORTS = Object.freeze(["dom", "callbacks", "hooks", "api", "props"]);
 
 /**
@@ -231,6 +236,7 @@ export const compileWitness = (entry, section) => {
       section,
       kind: "selector",
       describe: selector,
+      note: entry.note ?? null,
       holdsIn: (sections) => holdsInDom(sections?.dom, matches),
     };
   }
@@ -250,6 +256,7 @@ export const compileWitness = (entry, section) => {
     section,
     kind: "names",
     describe: names.join(", "),
+    note: entry.note ?? null,
     holdsIn: (sections) => {
       const offered = namesIn(section, sections?.[section]);
       return names.some((name) => offered.has(name));

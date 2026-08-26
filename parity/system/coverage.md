@@ -196,9 +196,73 @@ The witness is printed beside each one so a wrong witness can be read and disput
 | `EdgeProps` | props | hole | `edge-props` | declared — [issue](https://github.com/jonbae/PSFlow/issues/59) |
 | `NodeProps` | props | hole | `node-props` | declared — [issue](https://github.com/jonbae/PSFlow/issues/59) |
 
+## The witnesses that argue their case
+
+A witness can match something the scenario did not really drive — a selector on DOM the renderer draws for every flow, a name that rides on a handler several exports share. Where the rule needed defending, the defence is written down beside it and printed here, because a derived number that nobody can argue with is a declared one wearing better clothes.
+
+- `Align` — `.react-flow__node-toolbar[style*=translate]` — align lands in the toolbar's transform, which getNodeToolbarTransform computes; the selector proves a toolbar was positioned, not that a non-default align was
+
+- `AriaLabelConfig` — `.react-flow__node[aria-describedby]` — the description a node points at is rendered from the aria-label config
+
+- `BezierEdge` — `.react-flow__edge-default` — the class an edge wrapper carries for type `default`, which is the type BezierEdge is registered under
+
+- `ColorModeClass` — `.react-flow.dark` — the resolved class, which is what tells ColorModeClass apart from the ColorMode a consumer sets — `system` resolves to one of these two
+
+- `DefaultEdgeOptions` — `.react-flow__edge-smoothstep` — nothing in the DOM is unique to the default options — they are merged into edges that declare none — so the witness names the shape a fixture exercising them should take: a `defaultEdgeOptions.type` of smoothstep over edges that declare no type. It shares its selector with SmoothStepEdge on purpose, and both are holes until such a fixture exists
+
+- `EdgeLabelRenderer` — `.react-flow__edgelabel-renderer *` — the container div is drawn by GraphView whether or not anything is portaled into it, so the descendant is the question
+
+- `EdgeMarkerType` — `path[marker-end]` — the reference on the edge path, where EdgeMarker is the definition it points at
+
+- `EdgeTypes` — `.react-flow__edge-custom` — the class an edge takes from a type no built-in registers, the way NodeTypes shows up as react-flow__node-<key>. No fixture passes an edgeTypes map, so this names the key such a fixture is expected to use
+
+- `KeyCode` — `.react-flow__nodesselection` — the selection a held selectionKeyCode produces — the one key code with DOM of its own. The delete key codes are observable only as what is no longer there, which no selector can ask for
+
+- `NodeOrigin` — `.react-flow__node[style*=translate]` — every node's transform is computed through the origin, so the export is reached by any mount. That no fixture sets a non-default origin is a *behavior* left undriven rather than an export, and it belongs to the hand-declared count — which has no rows until #58 implements the bucket, so today it is written down here and nowhere else
+
+- `NodeResizer` — `.react-flow__resize-control.line` — NodeResizer is the only thing that renders a `line` variant; a bare NodeResizeControl defaults to `handle`
+
+- `NodeTypes` — `.react-flow__node-ToolbarNode` — a node type no built-in registers, so the class names the fixture's own key. A fixture that renames it makes this read undriven, which is the loud failure rather than the quiet one
+
+- `ProOptions` — `.react-flow__attribution` — the attribution is what proOptions.hideAttribution removes. Its presence proves the option was read and left at its default — the *hiding* is what no fixture asks for, and that is a behavior rather than an export
+
+- `ReactFlowProvider` — `.react-flow` — ReactFlow mounts a provider itself unless one already wraps it, so every mounted flow runs this component. The selector cannot tell an explicit provider from the internal one and never could: the dom section is rooted at `.react-flow`, and what an explicit provider buys — hooks outside the flow — renders outside that root
+
+- `SelectionRect` — `.react-flow__selection` — the rect exists only while the pointer is down, so a scenario that completes its drag never records one — `selection-box-mid-gesture` is the reserved scenario that will
+
+- `ViewportPortal` — `.react-flow__viewport-portal *` — same shape as EdgeLabelRenderer — GraphView draws the empty container for every flow, so only its content witnesses the export
+
+- `XYZPosition` — `.react-flow__node[style*=z-index]` — the z of a node's x/y/z, which is the part of the triple with DOM of its own
+
+- `ZIndexMode` — `.react-flow__edges svg[style*=z-index]` — upstream wraps each edge in an svg whose z-index the mode computes, so any flow with edges reaches the export. Which of the two modes was in force is a *behavior* rather than an export, and belongs to the hand-declared count — which has no rows until #58, so today it is written down here and nowhere else
+
+- `FinalConnectionState` — `onConnectEnd` — the second argument onConnectEnd is handed, which is the only place this type surfaces
+
+- `OnConnectStartParams` — `onConnectStart` — the second argument onConnectStart is handed
+
+- `OnSelectionChangeParams` — `onSelectionChange` — the single argument the handler is called with
+
+- `ResizeDragEvent` — `onResizeStart, onResize, onResizeEnd` — the event argument every resize handler is handed
+
+- `SelectionDragHandler` — `onSelectionDragStart, onSelectionDrag, onSelectionDragStop` — the handler type behind the same three props OnSelectionDrag names; upstream declares both
+
+- `UseOnSelectionChangeOptions` — `useOnSelectionChange` — the options record a hook is called with rather than a prop the flow is passed, so what records it is a probe installing the hook
+
+- `UseOnViewportChangeOptions` — `useOnViewportChange` — as UseOnSelectionChangeOptions
+
+- `ReactFlowInstance` — `getNode, getNodes, getEdge, getEdges, toObject, updateNode, updateEdge` — the instance is proved by any method only it carries — the viewport helpers ride on it too but are their own export
+
+- `ReactFlowState` — `getState` — the store's own shape, reached through useStoreApi().getState() rather than through the instance
+
+- `ViewportHelperFunctionOptions` — `zoomTo, setCenter, setViewport, fitView, fitBounds` — the options record every viewport helper takes last
+
+- `ViewportHelperFunctions` — `zoomIn, zoomOut, zoomTo, getZoom, setViewport, getViewport, setCenter, fitBounds` — any one of the helpers proves the bundle
+
+- `ConnectionLineComponentProps` — `connection-line-props` — a probe id rather than a hook name: the props section is keyed by probe, and the probe names which props type reported
+
 ## The declared holes
 
-Machine-readable in `coverage/holes.json`, which is what boundary stage 4 and probed-variant selection are both derived from: the uncovered `hooks` and `props` exports name themselves here rather than being hand-picked. One entry per export there; grouped by reason here, because a reason covers as many exports as it covers.
+Machine-readable in `coverage/holes.json` — one entry per reason, covering as many exports as the reason covers. It is what boundary stage 4 and probed-variant selection are both derived from: `holesIn(outcomes, section)` names the `hooks` and `props` exports nothing drives, rather than anyone hand-picking them.
 
 - `ControlLinePosition`, `ControlPosition`, `NodeResizeControl`, `NodeResizer`, `NodeResizerProps` **(5)** — no fixture mounts a resizer. parity:boundary mounts both components with no props inside a node component, which is below the net and asserts no DOM; nothing in the corpus renders a resize control, and ticket 073 (XYResizer drag lifecycle) is what a scenario driving one would be measuring against. [issue](https://github.com/jonbae/PSFlow/issues/62)
 
@@ -228,7 +292,7 @@ Machine-readable in `coverage/holes.json`, which is what boundary stage 4 and pr
 
 - `ConnectionInProgress`, `ConnectionState`, `experimental_useOnEdgesChangeMiddleware`, `experimental_useOnNodesChangeMiddleware`, `HandleConnection`, `InternalNode`, `NodeConnection`, `useConnection`, `useEdges`, `useEdgesState`, `useHandleConnections`, `useInternalNode`, `useKeyPress`, `useNodeConnections`, `useNodeId`, `useNodes`, `useNodesData`, `useNodesInitialized`, `UseNodesInitializedOptions`, `useNodesState`, `useOnSelectionChange`, `useOnViewportChange`, `useReactFlow`, `useStore`, `useStoreApi`, `useUpdateNodeInternals`, `useViewport` **(27)** — the hooks section is empty in every stored trace: it is keyed by probe id and no probe exists yet. A hook returns a value and leaves nothing on the page, so a component that renders nothing and reports what it was handed is the only thing that can observe one. [issue](https://github.com/jonbae/PSFlow/issues/59)
 
-- `DeleteElementsOptions`, `FitBounds`, `FitBoundsOptions`, `FitView`, `FitViewOptions`, `ReactFlowInstance`, `ReactFlowJsonObject`, `SetCenter`, `SetCenterOptions`, `SetViewport`, `UnselectNodesAndEdgesParams`, `ViewportHelperFunctionOptions`, `ViewportHelperFunctions` **(13)** — no scenario makes an imperative call. The `call` primitive exists and records into `api.calls`, so this is a corpus gap and not a harness one — `viewport-helpers-with-options` is the reserved scenario that drives the helpers with options. [issue](https://github.com/jonbae/PSFlow/issues/60)
+- `DeleteElementsOptions`, `FitBounds`, `FitBoundsOptions`, `FitView`, `FitViewOptions`, `ReactFlowInstance`, `ReactFlowJsonObject`, `SetCenter`, `SetCenterOptions`, `SetViewport`, `UnselectNodesAndEdgesParams`, `ViewportHelperFunctionOptions`, `ViewportHelperFunctions` **(13)** — no scenario makes an imperative call. The `call` primitive exists and records into `api.calls`, so what is missing is a scenario and not a harness — `viewport-helpers-with-options` is the reserved scenario that drives the helpers with options. [issue](https://github.com/jonbae/PSFlow/issues/60)
 
 - `ReactFlowState` — the store's own shape, read through useStoreApi().getState() rather than through the instance the `call` primitive reaches. It needs the same probe the hooks section does. [issue](https://github.com/jonbae/PSFlow/issues/59)
 
