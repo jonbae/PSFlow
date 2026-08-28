@@ -197,6 +197,45 @@ test("a gate-pending row that names no scenario cannot be joined to anything", (
   assert.equal(behavior.ok, false);
 });
 
+// A reserved id is a name the corpus has committed to and no other source may
+// take, so it resolves — but nothing drives it, and a row against one is a
+// second kind of waiting. Counting it as driveable is the fiction; counting it
+// as dangling would say the plan is broken when it is merely unwritten.
+test("a row against a reserved id resolves, and is counted apart from one against a written scenario", () => {
+  const behavior = behaviorCoverage(
+    {
+      5684: { bucket: "gate-pending", gate: "system", scenario: "drag-node-release", stage: 2 },
+      5450: { bucket: "gate-pending", gate: "system", scenario: "drag-node-autopan", stage: 2 },
+    },
+    { scenarioIds: ["drag-node-release"], reservedIds: ["drag-node-autopan"] }
+  );
+
+  assert.deepEqual(behavior.awaiting, [{ pr: "5450", scenario: "drag-node-autopan" }]);
+  assert.deepEqual(behavior.dangling, []);
+  assert.equal(behavior.counts.driveable, 1);
+  assert.equal(behavior.counts.awaiting, 1);
+  assert.equal(behavior.ok, true);
+});
+
+// The rows bound for a unit test or for function parity name prose, not an id.
+// Joining them to the corpus would report five perfectly good plans as dangling.
+test("only a net-bound row joins the corpus; the others are counted and left alone", () => {
+  const behavior = behaviorCoverage(
+    {
+      4880: { bucket: "gate-pending", gate: "unit", test: "a predicate test over isInputDOMNode" },
+      5266: { bucket: "gate-pending", gate: "function", test: "a function-parity entry over XYHandle/Utils" },
+      5684: { bucket: "gate-pending", gate: "system", scenario: "drag-node-release", stage: 2 },
+    },
+    { scenarioIds: ["drag-node-release"] }
+  );
+
+  assert.deepEqual(behavior.counts.byGate, { unit: 1, function: 1, system: 1 });
+  assert.deepEqual(behavior.dangling, []);
+  assert.deepEqual(behavior.unnamed, []);
+  assert.equal(behavior.counts.driveable, 1);
+  assert.equal(behavior.ok, true);
+});
+
 test("the holes are queryable by section, which is what derives from the list", () => {
   // Boundary stage 4 (#62) asks for the dom holes and probed-variant selection
   // (#59) for the hooks ones. Both ask the run rather than reading the register

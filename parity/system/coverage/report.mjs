@@ -70,7 +70,8 @@ const sectionRows = (outcomes) =>
 export const renderCoverageSummary = (outcomes, behavior) =>
   `coverage: ${outcomes.counts.driven} of ${outcomes.counts.total} export-bearing entries driven, ` +
   `${outcomes.counts.holes} declared hole(s), across ${outcomes.scenarios.length} scenario(s) that ran — ` +
-  `and ${behavior.counts.declared} hand-declared behavior(s), counted apart.`;
+  `and ${behavior.counts.declared} hand-declared behavior(s), counted apart` +
+  `${behavior.counts.awaiting ? ` (${behavior.counts.awaiting} against a reserved scenario id)` : ""}.`;
 
 /** What went wrong, as lines. Empty when both registers are clean. */
 export const renderCoverageFailures = (outcomes, behavior) => {
@@ -120,8 +121,9 @@ export const renderCoverageFailures = (outcomes, behavior) => {
 
   if (behavior.dangling.length) {
     said.push(
-      `${behavior.dangling.length} gate-pending row(s) name a scenario the corpus does not hold. The name means`,
-      `nothing until it does — write the scenario, or change the row:`,
+      `${behavior.dangling.length} gate-pending row(s) name a scenario the corpus neither holds nor reserves.`,
+      `The name means nothing until one of the two is true — write the scenario, reserve the id, or change the`,
+      `row:`,
       ...behavior.dangling.map(({ pr, scenario }) => `  #${pr} → ${scenario}`)
     );
   }
@@ -221,16 +223,15 @@ export const renderCoverage = (
     "",
     "Hand-declared, and not derivable: \"drag while autopan is ongoing\" appears as no token in any trace, and" +
       " no selector matches a condition. A `gate-pending` row in the changelog audit names the gate that will" +
-      " prove the behavior and the scenario that will drive it, and the name means nothing until the corpus" +
-      " holds that scenario.",
+      " prove the behavior and the scenario or test that will do it, and a scenario's name means nothing" +
+      " until the corpus holds it or has reserved it.",
     ""
   );
   if (behavior.counts.declared === 0) {
     lines.push(
-      "**No rows declare one yet.** The `gate-pending` bucket is named in the glossary but is not implemented" +
-        " in `parity/changelog-audit/audit.mjs` — that is" +
-        " [#58](https://github.com/jonbae/PSFlow/issues/58). Until it lands this count is zero because nothing" +
-        " has been declared, which is a different statement from zero behaviors being covered.",
+      "**No rows declare one yet.** Nothing in `parity/changelog-audit/verdicts.json` carries the" +
+        " `gate-pending` bucket, so this count is zero because nothing has been declared — which is a" +
+        " different statement from zero behaviors being covered.",
       ""
     );
   } else {
@@ -241,13 +242,32 @@ export const renderCoverage = (
           .join(", ") +
         ".",
       "",
-      "| PR | Target gate | Scenario | In the corpus |",
-      "|---|---|---|---|",
-      ...behavior.rows.map(
-        (row) =>
-          `| ${row.pr} | ${row.gate ?? "—"} | ${row.scenario ? `\`${row.scenario}\`` : "**unnamed**"} | ` +
-          `${behavior.dangling.some((d) => d.pr === row.pr) ? "**no**" : "yes"} |`
-      ),
+      "A net-bound row's scenario is **written** when the corpus holds it and **reserved** when" +
+        " `parity/system/corpus/reserved.mjs` is holding the id for a scenario nobody has written yet. Both" +
+        " resolve — the register is gated, so no other source can take a reserved id and satisfy the row with" +
+        " a scenario written for something else — and they are printed apart because they are different kinds" +
+        " of waiting. A row against a name in neither is the failure, and it is what stops a plan from being" +
+        " a name somebody typed wrong.",
+      "",
+      `**${behavior.counts.driveable} of ${behavior.counts.driveable + behavior.counts.awaiting} net-bound` +
+        ` rows name a scenario that exists**; ${behavior.counts.awaiting} name a reserved id.`,
+      "",
+      "| PR | Target gate | Proven by | Stage | Corpus |",
+      "|---|---|---|---|---|",
+      ...behavior.rows.map((row) => {
+        // A scenario is an id and reads as code; a test is prose that carries
+        // its own backticks, and wrapping it in more would nest them.
+        const proven = row.gate === "system" ? (row.scenario ? `\`${esc(row.scenario)}\`` : null) : esc(row.test);
+        const state =
+          row.gate !== "system"
+            ? "—"
+            : behavior.dangling.some((d) => d.pr === row.pr)
+              ? "**neither**"
+              : behavior.awaiting.some((d) => d.pr === row.pr)
+                ? "reserved"
+                : "written";
+        return `| ${row.pr} | ${row.gate ?? "—"} | ${proven || "**unnamed**"} | ${row.stage ?? "—"} | ${state} |`;
+      }),
       ""
     );
   }

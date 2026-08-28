@@ -130,7 +130,7 @@
     {
       "export": "NodeOrigin",
       "selector": ".react-flow__node[style*=translate]",
-      "note": "every node's transform is computed through the origin, so the export is reached by any mount. That no fixture sets a non-default origin is a *behavior* left undriven rather than an export, and it belongs to the hand-declared count — which has no rows until #58 implements the bucket, so today it is written down here and nowhere else"
+      "note": "every node's transform is computed through the origin, so the export is reached by any mount. That no fixture sets a non-default origin is a *behavior* left undriven rather than an export, and it belongs to the hand-declared count — which is keyed one row per upstream PR and holds no row for this, no in-range PR having touched it, so it is written down here and nowhere else"
     },
     { "export": "NodeResizerProps", "selector": ".react-flow__resize-control.line" },
     { "export": "NodeToolbarProps", "selector": ".react-flow__node-toolbar[style*=transform]" },
@@ -166,7 +166,7 @@
     {
       "export": "ZIndexMode",
       "selector": ".react-flow__edges svg[style*=z-index]",
-      "note": "upstream wraps each edge in an svg whose z-index the mode computes, so any flow with edges reaches the export. Which of the two modes was in force is a *behavior* rather than an export, and belongs to the hand-declared count — which has no rows until #58, so today it is written down here and nowhere else"
+      "note": "upstream wraps each edge in an svg whose z-index the mode computes, so any flow with edges reaches the export. Which of the two modes was in force is a *behavior* rather than an export, and belongs to the hand-declared count — which is keyed one row per upstream PR and holds no row for this, no in-range PR having touched it, so it is written down here and nowhere else"
     },
 
     { "export": "Connection", "names": ["onConnect"] },

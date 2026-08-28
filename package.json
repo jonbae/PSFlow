@@ -18,6 +18,7 @@
     "parity:system": "node parity/system/net.mjs",
     "parity:fork": "node parity/system/fork.mjs",
     "parity:coverage": "node parity/system/coverage.mjs",
+    "test:audit": "node --test \"parity/changelog-audit/**/*.test.mjs\"",
     "test:surface": "node --test \"parity/surface/**/*.test.mjs\"",
     "test:census": "node --test \"parity/census/**/*.test.mjs\"",
     "test:compare": "node --test \"parity/system/trace-format.test.mjs\" \"parity/system/compare/**/*.test.mjs\"",

@@ -247,11 +247,24 @@ export const coverageOutcomes = (entries, { witnesses, holes, traces, rules = []
 // and deferred: **the name means nothing until the corpus holds it.** A row
 // naming a scenario nobody wrote reads as a plan and counts as coverage.
 //
-// The bucket itself is not implemented in `parity/changelog-audit/audit.mjs`
-// yet — that is #58 — so this reads zero rows today and says so rather than
-// pretending the count is meaningful.
+// The name space is wider than the corpus, and deliberately. `reserved.mjs`
+// holds thirty ids for the test-debt scenarios (#60), gated so no other source
+// may take one; a row against a reserved id is planned against a name the corpus
+// has committed to, and it resolves. A row against neither is a typo or an
+// invention. The two are counted apart and printed apart, because "waiting on a
+// run" and "waiting on someone to write the scenario at all" are different
+// sentences, and forty-two rows are currently the second one.
+//
+// Only `system` rows join the corpus. A row bound for a unit test or for
+// function parity names a `test` instead, which is prose and joins to nothing —
+// `parity/changelog-audit/buckets.mjs` is where that field is required, since
+// the changelog audit is the gate that can read the row and this one cannot say
+// whether a sentence names a real test.
 
 const isRow = (name) => !name.startsWith("_");
+
+/** The gate whose rows are driven by the net, and so name a corpus scenario. */
+const NET = "system";
 
 /**
  * The `gate-pending` rows of the changelog audit, against the corpus.
@@ -260,16 +273,28 @@ const isRow = (name) => !name.startsWith("_");
  * sentence saying so: an export driven once would otherwise absorb every
  * untested condition inside it.
  */
-export const behaviorCoverage = (verdicts, { scenarioIds = [] } = {}) => {
-  const known = new Set(scenarioIds);
+export const behaviorCoverage = (verdicts, { scenarioIds = [], reservedIds = [] } = {}) => {
+  const written = new Set(scenarioIds);
+  const reserved = new Set(reservedIds);
   const pending = Object.entries(verdicts)
     .filter(([name, row]) => isRow(name) && row?.bucket === "gate-pending")
-    .map(([pr, row]) => ({ pr, gate: row.gate ?? null, scenario: row.scenario ?? null }))
+    .map(([pr, row]) => ({
+      pr,
+      gate: row.gate ?? null,
+      scenario: row.scenario ?? null,
+      test: row.test ?? null,
+      stage: row.stage ?? null,
+    }))
     .sort((a, b) => a.pr.localeCompare(b.pr));
 
-  const unnamed = pending.filter((row) => !row.scenario).map((row) => row.pr);
-  const dangling = pending
-    .filter((row) => row.scenario && !known.has(row.scenario))
+  const net = pending.filter((row) => row.gate === NET);
+  const unnamed = net.filter((row) => !row.scenario).map((row) => row.pr);
+  const named = net.filter((row) => row.scenario);
+  const dangling = named
+    .filter((row) => !written.has(row.scenario) && !reserved.has(row.scenario))
+    .map(({ pr, scenario }) => ({ pr, scenario }));
+  const awaiting = named
+    .filter((row) => !written.has(row.scenario) && reserved.has(row.scenario))
     .map(({ pr, scenario }) => ({ pr, scenario }));
 
   const byGate = {};
@@ -279,7 +304,13 @@ export const behaviorCoverage = (verdicts, { scenarioIds = [] } = {}) => {
     rows: pending,
     unnamed,
     dangling,
-    counts: { declared: pending.length, byGate },
+    awaiting,
+    counts: {
+      declared: pending.length,
+      byGate,
+      driveable: named.length - awaiting.length - dangling.length,
+      awaiting: awaiting.length,
+    },
     ok: unnamed.length === 0 && dangling.length === 0,
   };
 };

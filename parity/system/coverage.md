@@ -29,9 +29,66 @@ The corpus is done when every one of the export-bearing entries is **either driv
 
 ## Behavior coverage
 
-Hand-declared, and not derivable: "drag while autopan is ongoing" appears as no token in any trace, and no selector matches a condition. A `gate-pending` row in the changelog audit names the gate that will prove the behavior and the scenario that will drive it, and the name means nothing until the corpus holds that scenario.
+Hand-declared, and not derivable: "drag while autopan is ongoing" appears as no token in any trace, and no selector matches a condition. A `gate-pending` row in the changelog audit names the gate that will prove the behavior and the scenario or test that will do it, and a scenario's name means nothing until the corpus holds it or has reserved it.
 
-**No rows declare one yet.** The `gate-pending` bucket is named in the glossary but is not implemented in `parity/changelog-audit/audit.mjs` — that is [#58](https://github.com/jonbae/PSFlow/issues/58). Until it lands this count is zero because nothing has been declared, which is a different statement from zero behaviors being covered.
+**50 behavior(s) declared**, 42 awaiting `system`, 5 awaiting `unit`, 3 awaiting `function`.
+
+A net-bound row's scenario is **written** when the corpus holds it and **reserved** when `parity/system/corpus/reserved.mjs` is holding the id for a scenario nobody has written yet. Both resolve — the register is gated, so no other source can take a reserved id and satisfy the row with a scenario written for something else — and they are printed apart because they are different kinds of waiting. A row against a name in neither is the failure, and it is what stops a plan from being a name somebody typed wrong.
+
+**0 of 42 net-bound rows name a scenario that exists**; 42 name a reserved id.
+
+| PR | Target gate | Proven by | Stage | Corpus |
+|---|---|---|---|---|
+| 4844 | system | `flow-custom-testid` | 1 | reserved |
+| 4855 | system | `custom-edge-baseedge-path` | 1 | reserved |
+| 4862 | system | `arrow-key-selected-node` | 1 | reserved |
+| 4880 | unit | one predicate test over `isInputDOMNode` (src/System/Utils/Dom.purs), covering the node kinds #4880, #5090, #5118 and #5263 all touched | — | — |
+| 4929 | function | a function-parity entry over the selection helpers in `src/System/Utils/Store.purs`, differential against the @psflow/oracle bundle | — | — |
+| 4949 | system | `probe-node-connections` | 3 | reserved |
+| 4991 | system | `keyboard-focus-node` | 1 | reserved |
+| 5012 | system | `viewport-helpers-with-options` | 3 | reserved |
+| 5042 | system | `connect-handle-to-handle` | 2 | reserved |
+| 5043 | system | `drag-child-expand-parent` | 1 | reserved |
+| 5052 | system | `drag-unmeasured-node` | 1 | reserved |
+| 5090 | unit | one predicate test over `isInputDOMNode` (src/System/Utils/Dom.purs), covering the node kinds #4880, #5090, #5118 and #5263 all touched | — | — |
+| 5118 | unit | one predicate test over `isInputDOMNode` (src/System/Utils/Dom.purs), covering the node kinds #4880, #5090, #5118 and #5263 all touched | — | — |
+| 5120 | system | `fitview-onnodeschange-variants` | 2 | reserved |
+| 5127 | system | `fitview-onnodeschange-variants` | 2 | reserved |
+| 5132 | system | `fitview-onnodeschange-variants` | 2 | reserved |
+| 5139 | system | `minimap-custom-mask-colors` | 1 | reserved |
+| 5148 | system | `pinch-over-nowheel-node` | 1 | reserved |
+| 5153 | system | `controls-horizontal` | 1 | reserved |
+| 5249 | system | `uncontrolled-update-node` | 3 | reserved |
+| 5252 | system | `panel-center-positions` | 1 | reserved |
+| 5259 | system | `background-custom-bgcolor` | 1 | reserved |
+| 5263 | unit | one predicate test over `isInputDOMNode` (src/System/Utils/Dom.purs), covering the node kinds #4880, #5090, #5118 and #5263 all touched | — | — |
+| 5266 | function | a function-parity entry over the connection-snapping path in `src/System/XYHandle/Utils.purs`, differential against the @psflow/oracle bundle | — | — |
+| 5362 | system | `selection-box-mid-gesture` | 1 | reserved |
+| 5368 | system | `flow-props-change-after-mount` | 2 | reserved |
+| 5428 | system | `connect-handle-to-handle` | 2 | reserved |
+| 5450 | system | `drag-node-autopan` | 2 | reserved |
+| 5455 | system | `mount-in-display-none` | 1 | reserved |
+| 5480 | system | `connect-second-touch-point` | 2 | reserved |
+| 5512 | system | `pinch-over-nowheel-node` | 1 | reserved |
+| 5515 | unit | a parsing test for static handle ids against `src/React/Handle.purs` | — | — |
+| 5546 | system | `minimap-all-nodes-hidden` | 1 | reserved |
+| 5547 | system | `pan-gesture-complete` | 2 | reserved |
+| 5550 | function | a function-parity entry over the parent-chain walk in `src/System/XYDrag/Utils.purs`, differential against the @psflow/oracle bundle | — | — |
+| 5551 | system | `selection-box-from-node` | 1 | reserved |
+| 5578 | system | `connect-handle-to-handle` | 2 | reserved |
+| 5593 | system | `selection-box-then-click-node` | 1 | reserved |
+| 5635 | system | `connect-then-keyboard-move` | 2 | reserved |
+| 5638 | system | `selection-box-touch` | 1 | reserved |
+| 5682 | system | `drag-node-no-select-on-drag` | 2 | reserved |
+| 5684 | system | `drag-node-release` | 2 | reserved |
+| 5692 | system | `minimap-all-nodes-hidden` | 1 | reserved |
+| 5704 | system | `connect-handle-to-handle` | 2 | reserved |
+| 5722 | system | `viewport-helpers-with-options` | 3 | reserved |
+| 5723 | system | `viewport-helpers-with-options` | 3 | reserved |
+| 5727 | system | `selection-box-then-click-node` | 1 | reserved |
+| 5733 | system | `flow-props-change-after-mount` | 2 | reserved |
+| 5769 | system | `flow-props-change-after-mount` | 2 | reserved |
+| 5803 | system | `drag-node-escape-mid-gesture` | 2 | reserved |
 
 ## Every export-bearing entry
 
@@ -218,7 +275,7 @@ A witness can match something the scenario did not really drive — a selector o
 
 - `KeyCode` — `.react-flow__nodesselection` — the selection a held selectionKeyCode produces — the one key code with DOM of its own. The delete key codes are observable only as what is no longer there, which no selector can ask for
 
-- `NodeOrigin` — `.react-flow__node[style*=translate]` — every node's transform is computed through the origin, so the export is reached by any mount. That no fixture sets a non-default origin is a *behavior* left undriven rather than an export, and it belongs to the hand-declared count — which has no rows until #58 implements the bucket, so today it is written down here and nowhere else
+- `NodeOrigin` — `.react-flow__node[style*=translate]` — every node's transform is computed through the origin, so the export is reached by any mount. That no fixture sets a non-default origin is a *behavior* left undriven rather than an export, and it belongs to the hand-declared count — which is keyed one row per upstream PR and holds no row for this, no in-range PR having touched it, so it is written down here and nowhere else
 
 - `NodeResizer` — `.react-flow__resize-control.line` — NodeResizer is the only thing that renders a `line` variant; a bare NodeResizeControl defaults to `handle`
 
@@ -234,7 +291,7 @@ A witness can match something the scenario did not really drive — a selector o
 
 - `XYZPosition` — `.react-flow__node[style*=z-index]` — the z of a node's x/y/z, which is the part of the triple with DOM of its own
 
-- `ZIndexMode` — `.react-flow__edges svg[style*=z-index]` — upstream wraps each edge in an svg whose z-index the mode computes, so any flow with edges reaches the export. Which of the two modes was in force is a *behavior* rather than an export, and belongs to the hand-declared count — which has no rows until #58, so today it is written down here and nowhere else
+- `ZIndexMode` — `.react-flow__edges svg[style*=z-index]` — upstream wraps each edge in an svg whose z-index the mode computes, so any flow with edges reaches the export. Which of the two modes was in force is a *behavior* rather than an export, and belongs to the hand-declared count — which is keyed one row per upstream PR and holds no row for this, no in-range PR having touched it, so it is written down here and nowhere else
 
 - `FinalConnectionState` — `onConnectEnd` — the second argument onConnectEnd is handed, which is the only place this type surfaces
 
