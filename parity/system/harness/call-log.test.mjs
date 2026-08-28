@@ -20,6 +20,23 @@ test("calls land in the order they were made, with their arguments serialized", 
   ]);
 });
 
+test("probe callbacks are recorded once in deterministic order after flow-prop calls", () => {
+  const log = createCallLog();
+  log.record("onMove", [{ zoom: 2 }]);
+
+  const viewport = log.probe("useOnViewportChange");
+  const selection = log.probe("useOnSelectionChange");
+  viewport({ zoom: 1 });
+  viewport({ zoom: 3 });
+  selection({ nodes: [] });
+
+  assert.deepEqual(log.read().entries, [
+    { name: "onMove", args: [{ zoom: 2 }] },
+    { name: "useOnSelectionChange", args: [{ nodes: [] }] },
+    { name: "useOnViewportChange", args: [{ zoom: 1 }] },
+  ]);
+});
+
 // The whole point of the wrapper: what the fixture asked for still happens, and
 // still answers. A driver that observed a handler by replacing it would change
 // what the page does, and the two runs would no longer be one experiment.

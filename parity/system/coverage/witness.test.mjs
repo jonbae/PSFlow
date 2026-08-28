@@ -82,7 +82,7 @@ test("the callbacks section offers a handler's name, and its changes' discrimina
 });
 
 test("the api section offers its query keys and the names of the calls that were made", () => {
-  const names = namesIn("api", { queries: { getNodes: [] }, calls: [{ name: "fitView", args: [], returned: true }] });
+  const names = namesIn("api", { queries: { getNodes: [] }, calls: [{ method: "fitView", args: [], result: true }] });
 
   assert.deepEqual([...names].sort(), ["fitView", "getNodes"]);
 });
@@ -94,9 +94,8 @@ test("hooks and props are offered by probe id and by what the probe reported", (
 });
 
 test("an empty section offers nothing, which is what makes its exports holes", () => {
-  // The three probe-fed sections are empty until #59 builds the probes, and
-  // every export landing in them is a declared hole until then. That has to
-  // read as "nothing was recorded", never as an error.
+  // Plain scenarios still carry empty probe-fed sections. That has to read as
+  // "nothing was recorded", never as an error.
   assert.equal(namesIn("hooks", {}).size, 0);
   assert.equal(namesIn("api", { queries: {}, calls: [] }).size, 0);
   assert.equal(namesIn("callbacks", []).size, 0);

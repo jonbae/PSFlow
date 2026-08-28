@@ -41,6 +41,8 @@ import {
 } from '@xyflow/react';
 
 import { useObservedHandlers } from './callbacks';
+import { deriveProbeGraph } from '../probe-graph.mjs';
+import { ConnectionLineProbe, EdgeProbe, NetObserver, NodeProbe } from './Probes';
 
 export type FlowConfig = {
   flowProps?: Record<string, unknown> & { nodes: unknown[]; edges: unknown[] };
@@ -55,14 +57,16 @@ type FlowProps = {
 };
 
 export default ({ flowConfig }: FlowProps) => {
-  const [nodes, setNodes] = useState(flowConfig.flowProps?.nodes);
-  const [edges, setEdges] = useState(flowConfig.flowProps?.edges);
+  const variant = new URLSearchParams(window.location.search).get('probe') ?? 'plain';
+  const derived = deriveProbeGraph(flowConfig, variant, { NodeProbe, EdgeProbe, ConnectionLineProbe });
+  const [nodes, setNodes] = useState(derived.flowProps?.nodes);
+  const [edges, setEdges] = useState(derived.flowProps?.edges);
 
   const onNodesChange = useCallback((changes: unknown[]) => setNodes((nds) => applyNodeChanges(changes, nds)), []);
   const onEdgesChange = useCallback((changes: unknown[]) => setEdges((eds) => applyEdgeChanges(changes, eds)), []);
   const onConnect = useCallback((params: unknown) => setEdges((eds) => addEdge(params, eds)), []);
 
-  const props = { ...flowConfig.flowProps, nodes, edges, onNodesChange, onEdgesChange, onConnect };
+  const props = { ...derived.flowProps, nodes, edges, onNodesChange, onEdgesChange, onConnect };
 
   // Every callback prop upstream declares, each recording its call into the
   // in-page log and then deferring to whatever `props` held under the same
@@ -74,6 +78,9 @@ export default ({ flowConfig }: FlowProps) => {
   return (
     <div style={{ height: '100%' }}>
       <ReactFlow {...props} {...observed}>
+        {new URLSearchParams(window.location.search).get('observe') === 'callbacks' && variant === 'flow-node' && (
+          <NetObserver nodeId={(nodes?.[0] as { id?: string } | undefined)?.id} probes />
+        )}
         {flowConfig.controlsProps && <Controls {...flowConfig.controlsProps} />}
         {flowConfig.panelProps && <Panel {...flowConfig.panelProps} />}
         {flowConfig.minimapProps && <MiniMap {...flowConfig.minimapProps} />}

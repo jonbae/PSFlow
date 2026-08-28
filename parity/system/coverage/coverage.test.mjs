@@ -198,9 +198,9 @@ test("a gate-pending row that names no scenario cannot be joined to anything", (
 });
 
 test("the holes are queryable by section, which is what derives from the list", () => {
-  // Boundary stage 4 (#62) asks for the dom holes and probed-variant selection
-  // (#59) for the hooks ones. Both ask the run rather than reading the register
-  // and guessing at a section from a ticket link.
+  // Boundary stage 4 (#62) asks for the dom holes; #59 asked for hook holes to
+  // generate its durable plan. Both ask the run rather than guessing a section
+  // from a ticket link.
   const outcomes = coverageOutcomes([...entries, { export: "useNodes", section: "hooks" }], {
     witnesses: [...witnesses, { export: "useNodes", names: ["useNodes"] }],
     holes: [{ exports: ["OnConnect", "useNodes"], reason: "neither is driven yet" }],

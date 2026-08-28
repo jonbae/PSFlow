@@ -14,6 +14,9 @@ all defined there.
 | `src/Flow.tsx` | the fixture driver: a twin of upstream's `generic-tests/Flow.tsx` |
 | `src/entry.tsx` | the page: route → fixture or direct component, a twin of upstream's `generic-tests/index.tsx` |
 | `src/callbacks.ts` | the call log's driver half: publish it, wrap every callback prop into it |
+| `src/Probes.tsx` | selective flow/node/edge probes for hook returns and received props |
+| `observations.mjs` | the in-page hooks/API/props log and settled API snapshots |
+| `probe-graph.mjs` | fixture-derived node, edge and connection-line probe variants |
 | `src/Smoke.tsx` | the JS-surface smoke page |
 | `src/NodePropsGuard.tsx` | the JS-surface NodeProps guard |
 | `index.html` | the container, whose box feeds `fitView`, and the `?side=` switch |

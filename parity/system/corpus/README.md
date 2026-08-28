@@ -114,9 +114,9 @@ example driver.
 That second kind exists because a scenario can depend on a file it does not lift
 from. Upstream's props spec names the option — `selectOption({ label: 'dark' })`
 — but `selectOption` is not an input event and has no place in the closed
-primitive tier, so `select-dark-color-mode` presses ArrowDown once from `light`.
-The *order* of `ColorMode/index.tsx`'s three options is therefore part of that
-scenario, and a bump reordering them would drive `system` with every spec hash
+primitive tier, so `select-dark-color-mode` reaches it by native-select typeahead
+with `d`. The label in `ColorMode/index.tsx` is therefore part of that scenario,
+and a bump changing it would drive `system` with every spec hash
 still affirmed. `.react-flow__node` first-match, `deleteKeyCode: 'd'`,
 `interactionWidth: 42` and `minZoom: 0.25` are the same shape in the four
 fixtures. Both sides mount those files unmodified, so a change to one is

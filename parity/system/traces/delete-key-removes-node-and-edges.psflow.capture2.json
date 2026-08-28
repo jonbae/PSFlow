@@ -38,7 +38,7 @@
                     "tag": "div",
                     "attrs": {
                       "class": "react-flow__viewport xyflow__viewport react-flow__container",
-                      "style": "transform: translate(537.017px, 32px) scale(1.02983);"
+                      "style": "transform: translate(536.855px, 32px) scale(1.03145);"
                     },
                     "children": [
                       {
@@ -71,7 +71,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(-100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
+                              "style": "z-index: 0; transform: translate(-100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
                             },
                             "text": "Node-2",
                             "children": [
@@ -96,7 +96,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
+                              "style": "z-index: 0; transform: translate(100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
                             },
                             "text": "Node-3",
                             "children": [
@@ -131,7 +131,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(0px, 200px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
+                              "style": "z-index: 0; transform: translate(0px, 200px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
                             },
                             "text": "Node-4",
                             "children": [
@@ -187,7 +187,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(0px, 300px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
+                              "style": "z-index: 0; transform: translate(0px, 300px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
                             },
                             "text": "notConnectable",
                             "children": [
@@ -212,7 +212,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(0px, 600px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
+                              "style": "z-index: 0; transform: translate(0px, 600px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
                             },
                             "text": "notDeletable",
                             "children": [
@@ -247,7 +247,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(0px, 400px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
+                              "style": "z-index: 0; transform: translate(0px, 400px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
                             },
                             "text": "notDraggable",
                             "children": [
@@ -282,7 +282,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(0px, 500px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
+                              "style": "z-index: 0; transform: translate(0px, 500px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
                             },
                             "text": "notSelectable",
                             "children": [
@@ -418,7 +418,7 @@
               "id": "Node-1",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "resizing": false,
               "setAttributes": true
@@ -446,7 +446,7 @@
               "id": "Node-2",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "resizing": false,
               "setAttributes": true
@@ -474,7 +474,7 @@
               "id": "Node-3",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "resizing": false,
               "setAttributes": true
@@ -502,7 +502,7 @@
               "id": "Node-4",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "resizing": false,
               "setAttributes": true
@@ -558,7 +558,7 @@
               "id": "notConnectable",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "resizing": false,
               "setAttributes": true
@@ -586,7 +586,7 @@
               "id": "notDeletable",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "resizing": false,
               "setAttributes": true
@@ -614,7 +614,7 @@
               "id": "notDraggable",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "resizing": false,
               "setAttributes": true
@@ -642,7 +642,7 @@
               "id": "notSelectable",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "resizing": false,
               "setAttributes": true
@@ -654,28 +654,10 @@
         "name": "onViewportChange",
         "args": [
           {
-            "x": 537.0172684458398,
+            "x": 536.8553459119497,
             "y": 32,
-            "zoom": 1.0298273155416013
+            "zoom": 1.0314465408805031
           }
-        ]
-      },
-      {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 537.0172684458398,
-            "y": 32,
-            "zoom": 1.0298273155416013
-          }
-        ]
-      },
-      {
-        "name": "onError",
-        "args": [
-          "002",
-          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
         ]
       },
       {
@@ -688,12 +670,30 @@
         ]
       },
       {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 536.8553459119497,
+            "y": 32,
+            "zoom": 1.0314465408805031
+          }
+        ]
+      },
+      {
+        "name": "onError",
+        "args": [
+          "002",
+          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
+        ]
+      },
+      {
         "name": "onViewportChange",
         "args": [
           {
-            "x": 537.0172684458398,
+            "x": 536.8553459119497,
             "y": 32,
-            "zoom": 1.0298273155416013
+            "zoom": 1.0314465408805031
           }
         ]
       },
@@ -702,9 +702,9 @@
         "args": [
           null,
           {
-            "x": 537.0172684458398,
+            "x": 536.8553459119497,
             "y": 32,
-            "zoom": 1.0298273155416013
+            "zoom": 1.0314465408805031
           }
         ]
       },
@@ -731,19 +731,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 210.69999980926514,
+            "timeStamp": 327.7000000011176,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 614.2543334960938,
-            "screenY": 51.05180358886719,
-            "clientX": 614.2543334960938,
-            "clientY": 51.05180358886719,
-            "pageX": 614.2543334960938,
-            "pageY": 51.05180358886719,
+            "screenX": 614.2138671875,
+            "screenY": 50.5660400390625,
+            "clientX": 614.2138671875,
+            "clientY": 50.5660400390625,
+            "pageX": 614.2138671875,
+            "pageY": 50.5660400390625,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -800,7 +800,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 210.69999980926514,
+            "timeStamp": 327.7000000011176,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -808,11 +808,11 @@
             },
             "detail": 0,
             "screenX": 614,
-            "screenY": 51,
+            "screenY": 50,
             "clientX": 614,
-            "clientY": 51,
+            "clientY": 50,
             "pageX": 614,
-            "pageY": 51,
+            "pageY": 50,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -869,7 +869,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 37,
+            "height": 36,
             "initialWidth": {
               "@undefined": true
             },
@@ -897,7 +897,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -927,19 +927,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 210.69999980926514,
+            "timeStamp": 327.7000000011176,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 614.2543334960938,
-            "screenY": 51.05180358886719,
-            "clientX": 614.2543334960938,
-            "clientY": 51.05180358886719,
-            "pageX": 614.2543334960938,
-            "pageY": 51.05180358886719,
+            "screenX": 614.2138671875,
+            "screenY": 50.5660400390625,
+            "clientX": 614.2138671875,
+            "clientY": 50.5660400390625,
+            "pageX": 614.2138671875,
+            "pageY": 50.5660400390625,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -951,7 +951,7 @@
             "buttons": 0,
             "relatedTarget": null,
             "movementX": 615,
-            "movementY": 52,
+            "movementY": 51,
             "pointerId": 1,
             "width": 1,
             "height": 1,
@@ -992,7 +992,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 210.69999980926514,
+            "timeStamp": 327.7000000011176,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1000,11 +1000,11 @@
             },
             "detail": 0,
             "screenX": 614,
-            "screenY": 51,
+            "screenY": 50,
             "clientX": 614,
-            "clientY": 51,
+            "clientY": 50,
             "pageX": 614,
-            "pageY": 51,
+            "pageY": 50,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -1016,7 +1016,7 @@
             "buttons": 0,
             "relatedTarget": null,
             "movementX": 615,
-            "movementY": 52,
+            "movementY": 51,
             "isDefaultPrevented": {
               "@ref": "function"
             },
@@ -1059,7 +1059,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 37,
+            "height": 36,
             "initialWidth": {
               "@undefined": true
             },
@@ -1087,7 +1087,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -1180,7 +1180,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 37,
+            "height": 36,
             "initialWidth": {
               "@undefined": true
             },
@@ -1208,7 +1208,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -1251,7 +1251,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 37,
+              "height": 36,
               "initialWidth": {
                 "@undefined": true
               },
@@ -1279,7 +1279,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "className": "playwright-test-class-123",
               "style": {
@@ -1336,7 +1336,7 @@
                   "@undefined": true
                 },
                 "width": 150,
-                "height": 37,
+                "height": 36,
                 "initialWidth": {
                   "@undefined": true
                 },
@@ -1364,7 +1364,7 @@
                 },
                 "measured": {
                   "width": 150,
-                  "height": 37
+                  "height": 36
                 },
                 "className": "playwright-test-class-123",
                 "style": {
@@ -1380,9 +1380,9 @@
         "name": "onViewportChange",
         "args": [
           {
-            "x": 537.0172684458398,
+            "x": 536.8553459119497,
             "y": 32,
-            "zoom": 1.0298273155416013
+            "zoom": 1.0314465408805031
           }
         ]
       },
@@ -1428,7 +1428,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 37,
+            "height": 36,
             "initialWidth": {
               "@undefined": true
             },
@@ -1456,7 +1456,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -1499,7 +1499,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 37,
+              "height": 36,
               "initialWidth": {
                 "@undefined": true
               },
@@ -1527,7 +1527,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "className": "playwright-test-class-123",
               "style": {
@@ -1558,7 +1558,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 235.69999980926514,
+            "timeStamp": 353.80000000074506,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1566,11 +1566,11 @@
             },
             "detail": 1,
             "screenX": 614,
-            "screenY": 51,
+            "screenY": 50,
             "clientX": 614,
-            "clientY": 51,
+            "clientY": 50,
             "pageX": 614,
-            "pageY": 51,
+            "pageY": 50,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -1625,7 +1625,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 37,
+            "height": 36,
             "initialWidth": {
               "@undefined": true
             },
@@ -1653,7 +1653,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -1701,6 +1701,17 @@
         ]
       },
       {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 536.8553459119497,
+            "y": 32,
+            "zoom": 1.0314465408805031
+          }
+        ]
+      },
+      {
         "name": "onError",
         "args": [
           "002",
@@ -1708,13 +1719,12 @@
         ]
       },
       {
-        "name": "onMoveEnd",
+        "name": "onViewportChange",
         "args": [
-          null,
           {
-            "x": 537.0172684458398,
+            "x": 536.8553459119497,
             "y": 32,
-            "zoom": 1.0298273155416013
+            "zoom": 1.0314465408805031
           }
         ]
       },
@@ -1728,23 +1738,13 @@
         ]
       },
       {
-        "name": "onViewportChange",
-        "args": [
-          {
-            "x": 537.0172684458398,
-            "y": 32,
-            "zoom": 1.0298273155416013
-          }
-        ]
-      },
-      {
         "name": "onMoveEnd",
         "args": [
           null,
           {
-            "x": 537.0172684458398,
+            "x": 536.8553459119497,
             "y": 32,
-            "zoom": 1.0298273155416013
+            "zoom": 1.0314465408805031
           }
         ]
       },
@@ -1771,19 +1771,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 283.19999980926514,
+            "timeStamp": 411,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 614.2543334960938,
-            "screenY": 51.05180358886719,
-            "clientX": 614.2543334960938,
-            "clientY": 51.05180358886719,
-            "pageX": 614.2543334960938,
-            "pageY": 51.05180358886719,
+            "screenX": 614.2138671875,
+            "screenY": 50.5660400390625,
+            "clientX": 614.2138671875,
+            "clientY": 50.5660400390625,
+            "pageX": 614.2138671875,
+            "pageY": 50.5660400390625,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -1852,14 +1852,14 @@
         "target": ".react-flow__node[data-id=\"Node-1\"]",
         "resolved": true,
         "box": {
-          "x": 537.0172729492188,
+          "x": 536.8553466796875,
           "y": 32,
-          "width": 154.47412109375,
-          "height": 38.103607177734375
+          "width": 154.71697998046875,
+          "height": 37.132080078125
         },
         "dispatched": {
-          "x": 614.2543334960938,
-          "y": 51.05180358886719,
+          "x": 614.2138366699219,
+          "y": 50.5660400390625,
           "button": "left"
         }
       },
@@ -1870,8 +1870,8 @@
         "resolved": true,
         "box": null,
         "dispatched": {
-          "x": 614.2543334960938,
-          "y": 51.05180358886719,
+          "x": 614.2138366699219,
+          "y": 50.5660400390625,
           "button": "left"
         }
       },

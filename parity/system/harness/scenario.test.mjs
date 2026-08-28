@@ -39,12 +39,16 @@ const fakePage = () => {
 const scenario = (run = async () => {}) =>
   defineScenario({ id: "mount-baseline--nodes-general", route: "/tests/generic/nodes/general", run });
 
-const capture = async (run, { boxes = { ".react-flow": FLOW, ".node": NODE }, dom, callLog, ...options } = {}) => {
+const capture = async (
+  run,
+  { boxes = { ".react-flow": FLOW, ".node": NODE }, dom, callLog, observations, ...options } = {}
+) => {
   const page = fakePage();
   const { port, sent } = createFakePort({
     boxes,
     ...(dom === undefined ? {} : { dom }),
     ...(callLog === undefined ? {} : { callLog }),
+    ...(observations === undefined ? {} : { observations }),
   });
   const trace = await runScenario(page, scenario(run), {
     side: "psflow",
@@ -170,6 +174,14 @@ test("both sides load the same page, differing only in which bundle it imports",
     url("/tests/generic/nodes/general", "psflow").replace("psflow", "upstream"),
     url("/tests/generic/nodes/general", "upstream")
   );
+});
+
+test("a probed run names its variant in the driver URL while a plain run does not", () => {
+  assert.equal(
+    driverUrl("/tests/generic/nodes/general", "psflow", "flow-node"),
+    "/parity/driver/index.html?side=psflow&observe=callbacks&probe=flow-node#/tests/generic/nodes/general"
+  );
+  assert.doesNotMatch(driverUrl("/tests/generic/nodes/general", "psflow", "plain"), /probe=/);
 });
 
 test("the run is the envelope's, and the trace validates", async () => {
@@ -333,6 +345,48 @@ test("the callbacks section is the in-page log, read as part of the end state", 
   const { trace } = await capture(undefined, { callLog: { installed: true, entries, failures: [], observing } });
 
   assert.deepEqual(trace.sections.callbacks, entries);
+});
+
+test("hooks, api queries and props are read from the in-page observation bridge", async () => {
+  const observed = {
+    installed: true,
+    hooks: { "flow-probe": { useViewport: { x: 0, y: 0, zoom: 1 } } },
+    api: { queries: { toObject: { nodes: [], edges: [], viewport: { x: 0, y: 0, zoom: 1 } } } },
+    props: { "node-props": { id: "n1", selected: false } },
+    failures: [],
+  };
+  const { trace } = await capture(undefined, { observations: observed });
+
+  assert.deepEqual(trace.sections.hooks, observed.hooks);
+  assert.deepEqual(trace.sections.api.queries, observed.api.queries);
+  assert.deepEqual(trace.sections.props, observed.props);
+});
+
+test("probe observations are read only after the end-state DOM has settled", async () => {
+  const page = fakePage();
+  const settled = flow("settled");
+  const { port } = createFakePort({ boxes: { ".react-flow": FLOW }, dom: [flow("mounting"), settled, settled] });
+  const order = [];
+  const watched = {
+    ...port,
+    async dom(selector) {
+      order.push("dom");
+      return port.dom(selector);
+    },
+    async observations() {
+      order.push("observations");
+      return port.observations();
+    },
+  };
+
+  await runScenario(page, scenario(), {
+    side: "psflow",
+    capture: 1,
+    baseline: "12.11.0",
+    port: watched,
+  });
+
+  assert.equal(order.at(-1), "observations");
 });
 
 // Unlike the imperative bridge, which is legitimately absent until it crosses,

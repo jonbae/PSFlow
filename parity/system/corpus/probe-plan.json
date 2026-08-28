@@ -1,0 +1,43 @@
+{
+  "_comment": [
+    "Generated for #59 by deriveProbePlan(checkCoverage().outcomes) from the committed hole and witness registers.",
+    "It is durable after those holes close: future runs must keep capturing the probes that made them driven.",
+    "The driver derives components and graph variants from these runtime names; this file chooses no fixture or scenario."
+  ],
+  "callbacks": [
+    "useOnSelectionChange",
+    "useOnViewportChange"
+  ],
+  "hooks": [
+    "experimental_useOnEdgesChangeMiddleware",
+    "experimental_useOnNodesChangeMiddleware",
+    "useConnection",
+    "useEdges",
+    "useEdgesState",
+    "useHandleConnections",
+    "useInternalNode",
+    "useKeyPress",
+    "useNodeConnections",
+    "useNodeId",
+    "useNodes",
+    "useNodesData",
+    "useNodesInitialized",
+    "useNodesState",
+    "useOnSelectionChange",
+    "useOnViewportChange",
+    "useReactFlow",
+    "useStore",
+    "useStoreApi",
+    "useUpdateNodeInternals",
+    "useViewport"
+  ],
+  "api": [
+    "getState"
+  ],
+  "props": [
+    "connection-line-props",
+    "edge-component-props",
+    "edge-props",
+    "node-props"
+  ]
+}

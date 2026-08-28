@@ -24,6 +24,7 @@ import { dirname, resolve } from "node:path";
 import { CallbackDerivationError, observedCallbacks } from "./callbacks.mjs";
 import { RegistryError, routeSpace } from "./registry.mjs";
 import { SIDES } from "./sides.mjs";
+import { readProbePlan } from "../system/corpus/probes.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(here, "..", "..");
@@ -142,12 +143,13 @@ const virtualModules = {
   "psflow:fixtures": moduleRegistry(fixtures),
   "psflow:components": moduleRegistry(components, ({ route }) => `#${route}`),
   "psflow:callbacks": `export default ${JSON.stringify(callbacks, null, 2)};\n`,
+  "psflow:probes": `export default ${JSON.stringify(readProbePlan(), null, 2)};\n`,
 };
 
 const registryPlugin = {
   name: "psflow-registries",
   setup(b) {
-    b.onResolve({ filter: /^psflow:(fixtures|components|callbacks)$/ }, (args) => ({
+    b.onResolve({ filter: /^psflow:(fixtures|components|callbacks|probes)$/ }, (args) => ({
       path: args.path,
       namespace: "psflow-registry",
     }));

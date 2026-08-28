@@ -91,6 +91,7 @@ export class CallLogError extends Error {
  */
 export const createCallLog = ({ maxDepth } = {}) => {
   const entries = [];
+  const probeEntries = new Map();
   const failures = [];
 
   // What the fixture driver wrapped, and `null` until one mounts at all. The
@@ -123,6 +124,24 @@ export const createCallLog = ({ maxDepth } = {}) => {
 
   return {
     record,
+
+    /**
+     * A hook probe's callback is evidence that the options handed to the hook
+     * were installed, but its effect scheduling is not part of the flow-prop
+     * callback protocol. Record the first receipt per hook and append those
+     * receipts by name when read, so React effect timing cannot make a side
+     * disagree with its own trace.
+     */
+    probe(name) {
+      return (...args) => {
+        if (probeEntries.has(name)) return;
+        try {
+          probeEntries.set(name, serializeCall(name, args, { maxDepth }));
+        } catch (e) {
+          failures.push({ name, index: entries.length + probeEntries.size, error: String(e?.message ?? e) });
+        }
+      };
+    },
 
     /**
      * Declares which callback props a mounted fixture driver wrapped. Called on
@@ -159,7 +178,12 @@ export const createCallLog = ({ maxDepth } = {}) => {
      * `serialize.mjs` at the moment of the call.
      */
     read() {
-      return { entries: entries.slice(), failures: failures.slice(), observing: observing && [...observing] };
+      const probes = [...probeEntries.values()].sort((left, right) => left.name.localeCompare(right.name));
+      return {
+        entries: [...entries, ...probes],
+        failures: failures.slice(),
+        observing: observing && [...observing],
+      };
     },
   };
 };

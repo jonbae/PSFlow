@@ -171,12 +171,11 @@ test("connecting releases on the target handle, not where the last move landed",
 });
 
 // Upstream reaches for Playwright's `selectOption`, which is not an input event
-// and has no place in the closed primitive tier. A focused `<select>` moves to
-// its next option on ArrowDown and fires `change` the same way, and `light` is
-// the option before `dark`.
+// and has no place in the closed primitive tier. Native-select typeahead with
+// `d` chooses the dark-labelled option and fires `change` the same way.
 test("the colour mode is chosen with a key, inside the closed primitive tier", async () => {
   assert.deepEqual(driven(await drive(byId("select-dark-color-mode"))), [
-    ["key", '[data-testid="colormode-select"]', { key: "ArrowDown", action: "press" }],
+    ["key", '[data-testid="colormode-select"]', { key: "d", action: "press" }],
   ]);
 });
 

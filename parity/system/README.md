@@ -74,7 +74,7 @@ for twice.
 | `dom` | 64 | the full subtree under `.react-flow`, plus enumerated page-level state |
 | `callbacks` | 47 | every handler firing, in order, with serialized arguments |
 | `hooks` | 27 | what each **probe** saw its hooks return |
-| `api` | 14 | imperative queries called during capture, and mutator returns |
+| `api` | 14 | queries snapshotted after settling, and imperative mutator returns |
 | `props` | 4 | the props object each node/edge probe was handed |
 | `console` | 0 | what the page printed |
 | `driving` | 0 | the **driving log**: what was done *to* the page |
@@ -607,23 +607,21 @@ makes it reachable at all. It is what green means here, so the number to watch i
 the hole count: that is the debt, written down. `coverage.md` states the
 condition and evaluates it on every run.
 
-Today: **73 of 156 driven, 83 declared holes, no residue.** Every `hooks`, `api`
-and `props` export is a hole, because those three sections are empty in every
-stored trace until the probes land ([#59]); the rest are components no fixture
-mounts ([#62]) and interactions no scenario drives ([#60]).
+Today: **110 of 156 driven, 46 declared holes, no residue.** Selective probe
+variants drove every issue-59 hook and props witness plus the read-only API
+snapshot; the remaining debt is components no fixture mounts ([#62]) and
+imperative interactions no scenario drives ([#60]).
 
 ### The hole list is machine-readable
 
 `coverage/holes.json` is read by other work, not only by people. Boundary stage 4
-([#62]) takes the components no fixture mounts from it, and probed-variant
-selection ([#59]) takes the `hooks` and `props` exports nothing drives — both
-*derived* from what is written there rather than hand-picked. `holesIn(outcomes,
-section)` is the query they call: it joins the register to the census, so neither
-consumer needs a section field in the register nor a reading of its ticket links,
-and neither can drift from what the run actually found. A probed variant
-doubles the corpus's ~240 captures, so spending that multiplier on the two
-smallest sections is a choice the hole list makes rather than a judgement someone
-repeats.
+([#62]) takes the components no fixture mounts from it. Issue 59 used the same
+query to generate `corpus/probe-plan.json` from its hook, API and props holes;
+that durable plan keeps the variants after the hole entries retire. Neither
+consumer needs a section field in the register nor a reading of ticket links,
+and neither can drift from what the run actually found. Only the source
+scenarios whose declared capabilities satisfy the plan are cloned, so probe
+cost stays explicit rather than multiplying the whole corpus.
 
 ### Behavior coverage stays hand-declared
 
@@ -690,8 +688,6 @@ never about the registers, which are content and go red on their own.
 
 ## Not built here
 
-- **The `hooks`, `props` and `api.queries` sections**, which need probes —
-  [#59](https://github.com/jonbae/PSFlow/issues/59).
 - **The rest of the corpus** — the thirty test-debt scenarios
   ([#60](https://github.com/jonbae/PSFlow/issues/60)), the retirement debt
   ([#61](https://github.com/jonbae/PSFlow/issues/61)) and the hole-closing scenarios after

@@ -28,10 +28,10 @@
 // mount them unmodified, so a change to one is symmetric and lands in the trace
 // diff. What is *not* symmetric is that the transcription reads them. Upstream's
 // `selectOption({ label: 'dark' })` names the option; `select-dark-color-mode`
-// presses ArrowDown once, because `selectOption` is not an input event and has
-// no place in the closed primitive tier — so the option *order* in
-// `ColorMode/index.tsx` is part of that scenario, and a bump reordering it would
-// drive `system` with every spec hash still affirmed. `.react-flow__node`
+// reaches it by native-select typeahead with `d`, because `selectOption` is not
+// an input event and has no place in the closed primitive tier — so the option
+// label in `ColorMode/index.tsx` is part of that scenario, and a bump changing
+// it would drive `system` with every spec hash still affirmed. `.react-flow__node`
 // first-match, `deleteKeyCode: 'd'`, `interactionWidth: 42` and `minZoom: 0.25`
 // are the same shape in the four fixtures. They have no unit structure a
 // scenario cites, so the whole file is the unit.

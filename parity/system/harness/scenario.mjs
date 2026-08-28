@@ -22,6 +22,22 @@ import { createPagePort } from "./port.mjs";
 import { settleDom } from "./settle.mjs";
 import { createVocabulary } from "./vocabulary.mjs";
 
+const observationSections = ({ installed, hooks, api, props, failures }) => {
+  if (!installed) {
+    throw new ScenarioError(
+      "the page published no hooks/api/props observation bridge. Rebuild it with `npm run build:driver`; " +
+        "capturing empty sections on both sides would prove nothing."
+    );
+  }
+  if (failures.length) {
+    throw new ScenarioError(
+      `${failures.length} probe observation(s) could not be serialized:\n` +
+        failures.map(({ path, error }) => `  - ${path}: ${error}`).join("\n")
+    );
+  }
+  return { hooks, queries: api.queries, props };
+};
+
 // The flow's root element. It is what the mount waits for, and its box is the
 // container measurement everything downstream is computed from.
 export const FLOW_ROOT = ".react-flow";
@@ -32,6 +48,7 @@ export const FLOW_ROOT = ".react-flow";
 // from the fixture it runs against (`mount-baseline--nodes-general`).
 const SCENARIO_ID = /^[a-z][a-z0-9]*(-{1,2}[a-z0-9]+)*$/;
 const SEQUENCE_ID = /^s?\d+$/i;
+export const PROBE_VARIANTS = ["plain", "flow-node", "edge", "connection-line"];
 
 export class ScenarioError extends Error {
   constructor(message) {
@@ -50,7 +67,7 @@ export class ScenarioError extends Error {
  * document loads, and enabling it for every scenario would narrow the whole net
  * to a touch-capable browser to serve the two scenarios that need one.
  */
-export const defineScenario = ({ id, route, run, touch = false }) => {
+export const defineScenario = ({ id, route, run, touch = false, variant = "plain", probeCapabilities = [] }) => {
   if (typeof id !== "string" || !SCENARIO_ID.test(id) || SEQUENCE_ID.test(id)) {
     throw new ScenarioError(
       `${JSON.stringify(id)} is not a scenario id — ids are semantic and kebab-cased ` +
@@ -62,8 +79,14 @@ export const defineScenario = ({ id, route, run, touch = false }) => {
   }
   if (typeof run !== "function") throw new ScenarioError(`${id}: a scenario needs a run function`);
   if (typeof touch !== "boolean") throw new ScenarioError(`${id}: touch is declared or it is not — got ${JSON.stringify(touch)}`);
+  if (!PROBE_VARIANTS.includes(variant)) {
+    throw new ScenarioError(`${id}: unknown probe variant ${JSON.stringify(variant)}`);
+  }
+  if (!Array.isArray(probeCapabilities) || probeCapabilities.some((name) => typeof name !== "string" || name === "")) {
+    throw new ScenarioError(`${id}: probe capabilities must be a list of names`);
+  }
 
-  return Object.freeze({ id, route, run, touch });
+  return Object.freeze({ id, route, run, touch, variant, probeCapabilities: Object.freeze([...probeCapabilities]) });
 };
 
 /**
@@ -76,8 +99,10 @@ export const defineScenario = ({ id, route, run, touch = false }) => {
  * the conformance suite drives this same page to measure upstream's fixture as
  * upstream wrote it. Neither parameter is reachable from a scenario.
  */
-export const driverUrl = (route, side) =>
-  `${DRIVER_PAGE}?side=${side}&${OBSERVE.param}=${OBSERVE.callbacks}#${route}`;
+export const driverUrl = (route, side, variant = "plain") =>
+  `${DRIVER_PAGE}?side=${side}&${OBSERVE.param}=${OBSERVE.callbacks}` +
+  (variant === "plain" ? "" : `&probe=${variant}`) +
+  `#${route}`;
 
 /**
  * Drives `scenario` against `side` and returns a validated trace.
@@ -163,7 +188,7 @@ export const runScenario = async (
     await port.mouse("move", { x: -1, y: -1 });
     await port.mouse("up", { x: -1, y: -1 });
 
-    await page.goto(driverUrl(scenario.route, side));
+    await page.goto(driverUrl(scenario.route, side, scenario.variant));
 
     // Waited for, then settled, then measured. Each side waits on its own clock
     // — polling until consecutive snapshots agree, never a duration — because
@@ -201,19 +226,21 @@ export const runScenario = async (
     // same end-state snapshot precisely so that no mid-interaction checkpoint
     // is needed to see it. Nothing accumulates during the read — the
     // serialization already happened, once per call, at the moment of the call.
+    const dom = await settleDom(port, FLOW_ROOT, settle);
+    const observed = observationSections(await port.observations());
     const sections = {
-      dom: await settleDom(port, FLOW_ROOT, settle),
+      dom,
       callbacks: callbacksSection(await port.callbacks()),
-      hooks: {},
-      api: { queries: {}, calls: apiCalls },
-      props: {},
+      hooks: observed.hooks,
+      api: { queries: observed.queries, calls: apiCalls },
+      props: observed.props,
       console: consoleEntries,
       driving: log.entries(),
     };
 
-    // The four sections above that are empty are empty because their capture is
-    // not built, and each is declared in `pending.mjs`. This is what stops one
-    // from being quietly filled in without the declaration going with it.
+    // A future required section that is deliberately empty must be declared in
+    // `pending.mjs`. This is what stops one from being quietly added to the
+    // trace format without its capture landing too.
     assertPendingStillEmpty(sections);
 
     return validateTrace(

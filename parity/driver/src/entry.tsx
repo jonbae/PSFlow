@@ -24,6 +24,7 @@ import type { ComponentType } from 'react';
 
 import Flow, { type FlowConfig } from './Flow';
 import { publishCallLog } from './callbacks';
+import { installObservationLog } from '../observations.mjs';
 import fixtures from 'psflow:fixtures';
 import directComponents from 'psflow:components';
 
@@ -32,6 +33,7 @@ import directComponents from 'psflow:components';
 // that published none is indistinguishable from a driver bundle built before
 // the log existed — which is what capture treats it as (#54).
 publishCallLog();
+installObservationLog(window);
 
 // `#/tests/generic/nodes/general` names `./nodes/general.ts`, the same key
 // upstream's path router derives. The prefix is upstream's route, kept so that

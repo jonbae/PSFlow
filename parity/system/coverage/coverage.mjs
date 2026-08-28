@@ -289,9 +289,8 @@ export const behaviorCoverage = (verdicts, { scenarioIds = [] } = {}) => {
  * map derives from rather than reading the register and guessing.
  *
  * Boundary stage 4 ([#62]) asks for the `dom` holes, which are the components no
- * fixture mounts; probed-variant selection ([#59]) asks for `hooks` and `props`,
- * because a probed variant doubles the corpus's captures and is worth spending
- * only on exports a hole actually names. Both ask the *run*: the register alone
+ * fixture mounts. Issue #59 asked for the hook, API and props holes to generate
+ * the durable selective-probe plan. Both ask the *run*: the register alone
  * carries no section, and deriving one from a ticket link would be a second
  * reading of the census that could disagree with the first.
  *
