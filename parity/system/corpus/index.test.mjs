@@ -2,7 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 
 import { defineScenario } from "../harness/scenario.mjs";
-import { CorpusError, assertDistinctIds, buildCorpus } from "./index.mjs";
+import { CorpusError, RESERVED, assertDistinctIds, buildCorpus, scenarioNames } from "./index.mjs";
 import { seedScenarios } from "./seed.mjs";
 
 const fixtures = (...routes) => routes.map((route) => ({ route, file: `/vendored${route.slice(1)}` }));
@@ -82,4 +82,20 @@ test("every scenario in the corpus has a distinct id", () => {
   );
 
   assert.deepEqual([...new Set(ids(corpus))].length, corpus.length);
+});
+
+// The name space is what the changelog audit's `gate-pending` rows join against
+// (#58). Written and reserved both resolve; the split is what keeps "waiting on
+// a run" and "waiting on someone to write it" from reading as one thing.
+test("the name space is every written id plus every reserved one, kept apart", () => {
+  const names = scenarioNames(fixtures("./nodes/general.ts"), COMPONENTS);
+
+  assert.deepEqual(names.written, ids(buildCorpus(fixtures("./nodes/general.ts"), COMPONENTS)));
+  assert.deepEqual(names.reserved, Object.keys(RESERVED));
+  assert.equal(names.reserved.length, 30);
+  assert.equal(
+    names.written.filter((id) => names.reserved.includes(id)).length,
+    0,
+    "a reserved id no source has taken yet is not also a written one"
+  );
 });

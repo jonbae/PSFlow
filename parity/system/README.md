@@ -632,9 +632,17 @@ trace, and no selector matches a condition. A `gate-pending` row in the changelo
 audit names the gate that will prove the behavior and the scenario that will
 drive it, and what is checkable here is the join — **the name means nothing until
 the corpus holds that scenario**, which is the rule ticket 080 wrote down and
-deferred. The bucket is not implemented in `parity/changelog-audit/audit.mjs`
-yet ([#58]), so the count is zero because nothing has been declared, which
-`coverage.md` says in those words rather than reporting zero behaviors covered.
+[#58] implemented. Fifty rows declare one today.
+
+The name space the join runs against is wider than the corpus, and that is the
+part worth reading twice. `corpus/reserved.mjs` holds thirty ids for the
+test-debt scenarios ([#60]), gated so no other source may take one, and a row
+against a reserved id **resolves**: the corpus has committed to the name, and the
+guarantee that no seed scenario can quietly satisfy it is what makes the
+commitment worth anything. So `coverage.md` counts and prints the two apart —
+forty-two rows are waiting on someone to write the scenario at all, and none is
+merely waiting on a run. A row naming an id in neither is the failure, and it is
+the only mechanical difference between a plan and a name somebody typed wrong.
 
 ### Where it lives, and why not in the census
 
@@ -697,6 +705,7 @@ never about the registers, which are content and go red on their own.
   ([#61](https://github.com/jonbae/PSFlow/issues/61)) and the hole-closing scenarios after
   them. What is here is the mount-only baselines and the conformance seed;
   `corpus/` has its own README.
-- **The `gate-pending` audit bucket** the behavior count reads —
-  [#58](https://github.com/jonbae/PSFlow/issues/58). Coverage joins the rows to
-  the corpus; nothing writes one yet.
+- **The thirty scenarios the behavior count is waiting on**
+  ([#60](https://github.com/jonbae/PSFlow/issues/60)). The `gate-pending` bucket
+  is implemented and fifty rows carry it, but forty-two name an id `reserved.mjs`
+  is holding rather than a scenario that exists, so nothing drives them yet.

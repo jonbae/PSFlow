@@ -124,3 +124,27 @@ test("a witness that needed defending prints its defence, not just its rule", ()
   assert.match(report, /only its content witnesses the export/);
   assert.match(report, /## The witnesses that argue their case/);
 });
+
+// Behavior coverage's whole risk is a plan reading as coverage. The artifact has
+// to say, per row, which of the three a name is: a scenario that exists, an id
+// reserved for one nobody has written, or neither — and the three have to be
+// distinguishable at a glance, not inferable from a count at the top.
+test("each declared behavior says whether its scenario is written, reserved, or neither", () => {
+  const behavior = behaviorCoverage(
+    {
+      5684: { bucket: "gate-pending", gate: "system", scenario: "mount-baseline--nodes-general", stage: 2 },
+      5450: { bucket: "gate-pending", gate: "system", scenario: "drag-node-autopan", stage: 2 },
+      4880: { bucket: "gate-pending", gate: "unit", test: "a predicate test over isInputDOMNode" },
+    },
+    { scenarioIds: ["mount-baseline--nodes-general"], reservedIds: ["drag-node-autopan"] }
+  );
+  const report = renderCoverage(outcomesOf(), behavior, { baseline: "12.11.0" });
+
+  assert.match(report, /3 behavior\(s\) declared/);
+  assert.match(report, /1 of 2 net-bound\s+rows name a scenario that exists/);
+  assert.match(report, /\| 5684 \| system \| `mount-baseline--nodes-general` \| 2 \| written \|/);
+  assert.match(report, /\| 5450 \| system \| `drag-node-autopan` \| 2 \| reserved \|/);
+  // A test is prose that carries its own backticks; only a scenario id is code.
+  assert.match(report, /\| 4880 \| unit \| a predicate test over isInputDOMNode \| — \| — \|/);
+  assert.match(renderCoverageSummary(outcomesOf(), behavior), /1 against a reserved scenario id/);
+});

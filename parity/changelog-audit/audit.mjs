@@ -2,24 +2,42 @@
 // the hand-authored verdicts and writes `report.md` (a committed audit
 // snapshot).
 //
-// Two gates, both non-zero exit:
+// Three gates, all non-zero exit:
 //
 //   1. Coverage — every PR in `entries.json` must have a `verdicts.json` key.
 //      This is what catches the *next* version bump: bumping `xyflow/` surfaces
 //      new PRs, and each one fails the build until it is bucketed. Same
 //      key-presence mechanism as `claim()` in ../surface/allowlist.mjs.
 //
-//   2. Evidence — every verdict in a "covered" bucket must cite non-empty
-//      evidence. Without this the audit degrades into a wall of unfalsifiable
-//      assertions; with it, each no-action claim names a file a reviewer can
-//      open. The two silent-gap buckets instead require a `ticket` or an
-//      in-branch fix, recorded in `note`.
+//   2. Well-formedness — each row satisfies its bucket's rule, in
+//      `buckets.mjs`: a covered bucket cites evidence, a gap names a ticket or
+//      an in-branch fix, an accepted bucket gives a written reason. Without this
+//      the audit degrades into a wall of unfalsifiable assertions; with it, each
+//      no-action claim names something a reviewer can open.
+//
+//   3. The `gate-pending` join — a row whose plan is a gate names the scenario
+//      or test that will prove it, and the name has to resolve. This is the one
+//      gate here that reads something outside this directory: the corpus's
+//      **name space** (`parity/system/corpus/index.mjs`), which is every id a
+//      scenario exists under plus the thirty `reserved.mjs` holds for scenarios
+//      #60 will write. A row against a name in neither is a typo or an
+//      invention, and both look exactly like a plan in a JSON file.
+//
+// Why (3) is worth reaching across the repo for: `gate-pending` is what let
+// fifty test-debt rows stop being silent gaps without any of them being called
+// covered. That trade only holds while the plans are real, and the only
+// mechanical thing about a plan is whether the name in it exists.
 
 import { fileURLToPath } from "node:url";
-import { dirname, join } from "node:path";
+import { dirname, join, resolve } from "node:path";
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 
+import { BUCKETS, NET, rowProblems } from "./buckets.mjs";
+import { RegistryError, routeSpace } from "../driver/registry.mjs";
+import { scenarioNames } from "../system/corpus/index.mjs";
+
 const here = dirname(fileURLToPath(import.meta.url));
+const repoRoot = resolve(here, "..", "..");
 const load = (name) => JSON.parse(readFileSync(join(here, name), "utf8"));
 
 const entriesPath = join(here, "entries.json");
@@ -35,26 +53,23 @@ if (!existsSync(entriesPath)) {
 const { reactVersion, systemVersion, floors, entries } = load("entries.json");
 const verdicts = load("verdicts.json");
 
-// ─── Buckets ──────────────────────────────────────────────────────────────
-// `covered` buckets assert the change needs no action *and* name the artifact
-// that makes that true. `gap` buckets are the two silent-gap outcomes. `n/a`
-// is for changes with no possible PSFlow analogue.
-// Bucket keys are the gate names, deliberately: a covered bucket says which
-// gate would go red. `smoke` is absent because no in-range PR is covered by
-// `smoke.spec.ts` — add it when one is, rather than carrying an empty bucket.
-// `system`, `gate-pending` and `accepted-ungated` are named in the glossary but
-// not implemented here; adding and validating them is issue #58.
-const BUCKETS = {
-  docs: { kind: "covered", label: "Docs / types / tooling only — no runtime behavior" },
-  "ts-only": { kind: "covered", label: "TypeScript-only (type signature, generics, inference)" },
-  surface: { kind: "covered", label: "Surface change — gated by parity:surface" },
-  function: { kind: "covered", label: "Pure-math change — gated by function parity, differential against the @psflow/oracle bundle" },
-  conformance: { kind: "covered", label: "Behavior covered by a spec in the conformance test suite" },
-  unit: { kind: "covered", label: "Behavior covered by a PureScript unit/property test" },
-  "ported-ungated": { kind: "gap", label: "Ported and correct, but no gate exercises it (test debt)" },
-  "not-ported": { kind: "gap", label: "Behavior not present in PSFlow" },
-  "n/a": { kind: "na", label: "No PSFlow analogue (Svelte-only, build tooling, infra)" },
-};
+// The corpus is assembled from the same two registries the driver page is built
+// from, so it needs the vendored tree — which `entries.json` above already
+// implies. There is no degraded mode: an audit that skipped the join because it
+// could not read the corpus would report the `gate-pending` rows as well-formed
+// on exactly the run that could not check them.
+let names;
+try {
+  const { fixtures, components } = routeSpace(repoRoot);
+  names = scenarioNames(fixtures, components);
+} catch (e) {
+  if (!(e instanceof RegistryError)) throw e;
+  console.error(
+    `[audit] FAIL: the corpus could not be assembled, so no gate-pending row's\n` +
+      `scenario could be checked against it:\n\n  ${e.message}\n`
+  );
+  process.exit(1);
+}
 
 const prs = Object.keys(entries).sort((a, b) => Number(a) - Number(b));
 
@@ -63,23 +78,10 @@ const unbucketed = prs.filter(
   (pr) => !Object.prototype.hasOwnProperty.call(verdicts, pr)
 );
 
-// ─── Gate 2: well-formedness ──────────────────────────────────────────────
-const problems = [];
-for (const pr of prs) {
-  const v = verdicts[pr];
-  if (!v) continue; // already reported by gate 1
-  const meta = BUCKETS[v.bucket];
-  if (!meta) {
-    problems.push(`#${pr}: unknown bucket "${v.bucket}"`);
-    continue;
-  }
-  if (meta.kind === "covered" && !String(v.evidence ?? "").trim()) {
-    problems.push(`#${pr}: bucket "${v.bucket}" is a covered bucket and requires non-empty evidence`);
-  }
-  if (meta.kind === "gap" && !v.ticket && !String(v.note ?? "").trim()) {
-    problems.push(`#${pr}: bucket "${v.bucket}" is a silent gap and requires a ticket or a note recording the in-branch fix`);
-  }
-}
+// ─── Gates 2 and 3: well-formedness, and the gate-pending join ────────────
+const problems = prs.flatMap((pr) =>
+  verdicts[pr] ? rowProblems(pr, verdicts[pr], { scenarios: names }) : [] // absent is gate 1's to report
+);
 
 // Verdicts for PRs that are no longer in range (e.g. the floor moved up) are
 // stale bookkeeping, not a build failure — reported so they can be pruned.
@@ -97,38 +99,74 @@ for (const pr of prs) {
 
 const prLink = (pr) => `[#${pr}](https://github.com/xyflow/xyflow/pull/${pr})`;
 const esc = (s) => String(s ?? "").replace(/\|/g, "\\|");
+const rows = (bucket) => byBucket.get(bucket) ?? [];
+const count = (kind) =>
+  Object.keys(BUCKETS)
+    .filter((b) => BUCKETS[b].kind === kind)
+    .reduce((n, b) => n + rows(b).length, 0);
 
-const bucketTable = (bucket) => {
-  const rows = byBucket.get(bucket) ?? [];
-  if (!rows.length) return "_none._\n";
-  const isGap = BUCKETS[bucket].kind === "gap";
-  const lastCol = isGap ? "Ticket / fix" : "Evidence";
-  const cell = (v) =>
-    isGap ? esc(v.ticket ? `ticket ${v.ticket}` : v.note) : esc(v.evidence);
+/** Whether a net-bound row's scenario exists yet, or is still only a name. */
+const written = (v) => names.written.includes(v.scenario);
+const provenBy = (v) =>
+  v.gate === NET ? `\`${esc(v.scenario)}\`${written(v) ? "" : " _(reserved)_"}` : esc(v.test);
+
+/**
+ * The last column of a bucket's table — the thing that would have to be wrong
+ * for the row to be wrong. Covered rows cite evidence, accepted rows give the
+ * reason, gaps point at whoever owns the work.
+ */
+const claimOf = (v) => {
+  if (BUCKETS[v.bucket].kind === "covered") return esc(v.evidence);
+  if (BUCKETS[v.bucket].kind === "accepted") return esc(v.reason);
+  return esc(v.ticket ? `ticket ${v.ticket}` : v.note);
+};
+
+const table = (bucket, columns) => {
+  if (!rows(bucket).length) return "_none._\n";
   return [
-    `| PR | Pkg | Version | Change | ${lastCol} |`,
-    "|---|---|---|---|---|",
-    ...rows.map((pr) => {
-      const v = verdicts[pr];
-      const e = entries[pr];
-      return `| ${prLink(pr)} | ${e.pkg} | ${e.version} | ${esc(e.title)} | ${cell(v)} |`;
+    `| PR | Pkg | Version | Change | ${columns.map(([head]) => head).join(" | ")} |`,
+    `|---|---|---|---|${columns.map(() => "---|").join("")}`,
+    ...rows(bucket).map((pr) => {
+      const [v, e] = [verdicts[pr], entries[pr]];
+      const cells = columns.map(([, cell]) => cell(v)).join(" | ");
+      return `| ${prLink(pr)} | ${e.pkg} | ${e.version} | ${esc(e.title)} | ${cells} |`;
     }),
   ].join("\n") + "\n";
 };
 
+const CLAIM = {
+  covered: "Evidence",
+  accepted: "Reason",
+  gap: "Ticket / fix",
+  na: "Note",
+};
+
+const section = (bucket, columns) =>
+  `### \`${bucket}\` — ${BUCKETS[bucket].label}\n\n` +
+  table(bucket, columns ?? [[CLAIM[BUCKETS[bucket].kind], claimOf]]);
+
+// The test-debt cohort: the rows tickets 076–079 filed as `ported-ungated`, each
+// carrying in `debt` the ticket that filed it. Derived rather than written down,
+// because the correction this audit records is a *count* — one of the fifty-seven
+// turned out not to be ported at all — and a hand-typed count is exactly the
+// thing that goes quietly stale the next time a row moves. `debt` is separate
+// from `ticket` because the two answer different questions: which ticket filed
+// the row, and who owns the work now. Seven rows disagree, which is why one
+// field cannot serve as the other.
+const filed = prs.filter((pr) => verdicts[pr]?.debt);
+const debt = filed.filter((pr) => verdicts[pr].bucket !== "not-ported");
+const misfiled = filed.filter((pr) => verdicts[pr].bucket === "not-ported");
+const debtBuckets = Object.keys(BUCKETS)
+  .map((bucket) => [bucket, debt.filter((pr) => verdicts[pr].bucket === bucket).length])
+  .filter(([, n]) => n > 0);
+
 const counts = Object.keys(BUCKETS)
-  .map((b) => `| \`${b}\` | ${BUCKETS[b].kind} | ${(byBucket.get(b) ?? []).length} | ${BUCKETS[b].label} |`)
+  .map((b) => `| \`${b}\` | ${BUCKETS[b].kind} | ${rows(b).length} | ${BUCKETS[b].label} |`)
   .join("\n");
 
-const coveredTotal = Object.keys(BUCKETS)
-  .filter((b) => BUCKETS[b].kind === "covered")
-  .reduce((n, b) => n + (byBucket.get(b) ?? []).length, 0);
-const gapTotal = Object.keys(BUCKETS)
-  .filter((b) => BUCKETS[b].kind === "gap")
-  .reduce((n, b) => n + (byBucket.get(b) ?? []).length, 0);
-
-const section = (bucket) =>
-  `### \`${bucket}\` — ${BUCKETS[bucket].label}\n\n${bucketTable(bucket)}`;
+const pending = rows("gate-pending").map((pr) => verdicts[pr]);
+const netBound = pending.filter((v) => v.gate === NET);
+const unwritten = netBound.filter((v) => !written(v));
 
 const report = `# Changelog audit — \`@xyflow/react\` 12.3.5 → ${reactVersion}
 
@@ -145,8 +183,10 @@ CHANGELOGs with the same title and is audited once, attributed to \`react\`.
 
 Every PR is bucketed in \`verdicts.json\`. \`npm run parity:changelog\` fails if
 any in-range PR lacks a verdict — that is what catches the next version bump —
-and fails if any *covered* verdict cites no evidence, which is what keeps this
-an audit rather than a list of assertions.
+and fails if any row breaks its bucket's rule: a *covered* row citing no
+evidence, an *accepted* row giving no reason, or a *gate-pending* row naming a
+scenario the corpus neither holds nor reserves. Together those are what keep
+this an audit rather than a list of assertions.
 
 Note that \`verdicts.json\` embeds each PR's title alongside the verdict, so the
 committed half of this audit is self-contained: \`xyflow/\` is gitignored and
@@ -155,24 +195,81 @@ design (as \`parity:surface\` does).
 
 ## Summary
 
-- **covered** (no action): ${coveredTotal}
-- **silent gaps** (fixed in-branch or ticketed): ${gapTotal}
-- **n/a**: ${(byBucket.get("n/a") ?? []).length}
+- **covered** (no action): ${count("covered")}
+- **gaps** (a gate coming, a ticket, or fixed in-branch): ${count("gap")}
+- **accepted** (ungated by decision): ${count("accepted")}
+- **n/a**: ${count("na")}
 
 | Bucket | Kind | Count | Meaning |
 |---|---|---|---|
 ${counts}
 
-## Silent gaps
+## The test debt
 
+Tickets 076–079 filed **${filed.length} rows** as ported-but-ungated after the
+12.3.5 → 12.11.0 sweep, and \`tickets/080-test-debt-dispositions.md\` decided what
+becomes of each. **${debt.length} of them are the debt.**
+
+${
+  misfiled.length
+    ? `${misfiled.length === 1 ? "One row is not" : `${misfiled.length} rows are not`}: ` +
+      `${misfiled.map(prLink).join(", ")}. Filed as ported and correct and found to be neither, so ` +
+      `\`not-ported\` — what was found is in the row's own entry under \`not-ported\` below, and on the ` +
+      `[divergence backlog](https://github.com/jonbae/PSFlow/issues/22). ` +
+      `A row that was never ported was never test debt, which is the whole of the difference between ` +
+      `${filed.length} and ${debt.length}.`
+    : `Every row those four tickets filed is still ported, so the two counts agree.`
+}
+
+Neither number is typed. \`debt\` marks the rows 076–079 filed, and both counts are
+this file reading the buckets those rows now carry — which is what keeps the
+correction from going stale the next time one moves.
+
+Where the ${debt.length} went: ${debtBuckets.map(([b, n]) => `\`${b}\` ${n}`).join(", ")}.
+None of them moved into a covered bucket. A gate that is coming is still a gap.
+
+## Gaps
+
+A gap is a change nothing proves. \`gate-pending\` is a gap with a named gate
+coming, \`ported-ungated\` is one with no plan at all, and \`not-ported\` is
+behavior PSFlow does not have. A planned gate is never a covered bucket, which
+is what makes the first of the three worth having.
+
+${section("gate-pending", [
+  ["Gate", (v) => `\`${esc(v.gate)}\``],
+  ["Proven by", provenBy],
+  ["Stage", (v) => (v.stage ? `${v.stage}` : "—")],
+])}
+${
+  unwritten.length
+    ? `${unwritten.length} of the ${pending.length} \`gate-pending\` rows name a scenario the corpus **reserves but ` +
+      `has not written yet** (marked _(reserved)_ above): the id is spoken for in ` +
+      `\`parity/system/corpus/reserved.mjs\` and no other source may take it, but nothing drives it until the ` +
+      `thirty test-debt scenarios land. Those rows are gaps twice over, and \`parity/system/coverage.md\` counts ` +
+      `them apart from the ones whose scenario exists.\n`
+    : "Every `gate-pending` row names a scenario or test that exists.\n"
+}
 ${section("ported-ungated")}
 ${section("not-ported")}
+## Accepted
+
+An accepted row is ported and will never be gated, by decision rather than by
+omission — which is the only way the gap count can reach zero without something
+being called covered that is not. The reason is the whole record.
+
+${section("accepted-ungated")}
 ## Covered
+
+\`${NET}\` is empty and is carried anyway, which no other bucket is: ${netBound.length} rows name it
+as the gate they graduate into, so it is pointed at even while it holds nothing.
+The rule the rest of the table follows — no bucket without a row — is what keeps
+\`smoke\` out, since no in-range PR is covered by \`smoke.spec.ts\`.
 
 ${section("surface")}
 ${section("function")}
 ${section("conformance")}
 ${section("unit")}
+${section("system")}
 ${section("ts-only")}
 ${section("docs")}
 ## Not applicable
@@ -183,8 +280,12 @@ writeFileSync(join(here, "report.md"), report);
 
 // ─── Console summary + gates ──────────────────────────────────────────────
 console.log(
-  `[audit] ${prs.length} PRs: covered=${coveredTotal} gaps=${gapTotal} ` +
-    `n/a=${(byBucket.get("n/a") ?? []).length}`
+  `[audit] ${prs.length} PRs: covered=${count("covered")} gaps=${count("gap")} ` +
+    `accepted=${count("accepted")} n/a=${count("na")}`
+);
+console.log(
+  `[audit] ${pending.length} gate-pending row(s), ${unwritten.length} naming a scenario the corpus has reserved ` +
+    `but not written`
 );
 console.log(`[audit] report → ${join(here, "report.md")}`);
 
@@ -192,6 +293,20 @@ if (orphans.length) {
   console.warn(
     `[audit] note: ${orphans.length} verdict(s) for PRs no longer in range ` +
       `(prune from verdicts.json): ${orphans.map((p) => `#${p}`).join(", ")}`
+  );
+}
+
+// A reserved id nothing names is a reservation with no purpose left — the row it
+// was held for was rebucketed, or the id was renamed on one side only. A note
+// rather than a failure: the register belongs to the corpus, and #61's
+// retirement scenarios may yet claim one.
+const unclaimed = names.reserved.filter(
+  (id) => !pending.some((v) => v.scenario === id) && !names.written.includes(id)
+);
+if (unclaimed.length) {
+  console.warn(
+    `[audit] note: ${unclaimed.length} reserved scenario id(s) no gate-pending row names and no source has ` +
+      `written: ${unclaimed.join(", ")}`
   );
 }
 
@@ -204,8 +319,9 @@ if (unbucketed.length) {
     console.error(`  - #${pr} (${e.pkg} ${e.version}) ${e.title}`);
   }
   console.error(
-    "\nBucket each in verdicts.json. Covered buckets require evidence; the\n" +
-      "ported-ungated / not-ported buckets require a ticket or an in-branch fix."
+    "\nBucket each in verdicts.json. Covered buckets require evidence; the gap\n" +
+      "buckets require a ticket or an in-branch fix, and a gate-pending row\n" +
+      "also names the gate, the scenario or test, and the boundary stage."
   );
   process.exitCode = 1;
 }

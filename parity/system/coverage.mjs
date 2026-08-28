@@ -35,7 +35,7 @@ import { NormalizationError } from "./compare/normalize.mjs";
 import { CoverageError, behaviorCoverage, coverageOutcomes, exportEntries } from "./coverage/coverage.mjs";
 import { renderCoverage, renderCoverageFailures, renderCoverageSummary } from "./coverage/report.mjs";
 import { WitnessError } from "./coverage/witness.mjs";
-import { CorpusError, buildCorpus } from "./corpus/index.mjs";
+import { CorpusError, RESERVED, buildCorpus } from "./corpus/index.mjs";
 import { TraceStoreError, readRun, storedScenarios } from "./net/traces.mjs";
 import { TraceFormatError } from "./trace-format.mjs";
 
@@ -116,7 +116,11 @@ export const checkCoverage = ({ corpus, scenarioIds } = {}) => {
 
   return {
     outcomes,
-    behavior: behaviorCoverage(readJson(VERDICTS), { scenarioIds: ids }),
+    // The reserved ids come from the register rather than from `ids`, and on
+    // purpose: a `gate-pending` row against a scenario nobody has written is
+    // still a resolved plan, and it stays resolved on a clean clone where `ids`
+    // is the stored traces rather than the corpus.
+    behavior: behaviorCoverage(readJson(VERDICTS), { scenarioIds: ids, reservedIds: Object.keys(RESERVED) }),
     uncaptured,
     // Theirs, not the checkout's: coverage is very often derived from stored
     // traces of an older baseline, and naming the current checkout would
