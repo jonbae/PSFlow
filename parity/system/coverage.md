@@ -37,6 +37,8 @@ A net-bound row's scenario is **written** when the corpus holds it and **reserve
 
 **0 of 42 net-bound rows name a scenario that exists**; 42 name a reserved id.
 
+The rows are the changelog audit's, and `parity/changelog-audit/report.md` is where each one's upstream change and disposition is written. Both tables are generated from `verdicts.json` in the same run, so they are two readings of one register rather than two registers: what is here is the join to the corpus, which is the half that is this artifact's to check.
+
 | PR | Target gate | Proven by | Stage | Corpus |
 |---|---|---|---|---|
 | 4844 | system | `flow-custom-testid` | 1 | reserved |

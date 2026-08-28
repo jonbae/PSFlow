@@ -282,12 +282,15 @@ _Avoid_: census row, coverage row
 
 **Bucket**:
 The label a row carries, naming what proves that behavior — or, for the ungated
-buckets, what does not. Every bucket is one of three kinds: **covered**, which
-must cite evidence; **gap**, which must name a ticket or a plan; and
-**accepted**, which must give a reason. A covered bucket that names a gate uses
-the gate's own name — `surface`, `function`, `conformance`, `system` — because
-the bucket key and the gate name are deliberately the same word. The remaining
-covered buckets (`docs`, `ts-only`, `unit`) name something other than a gate.
+buckets, what does not. Every bucket carries a **kind**, and three of the four
+say what the row owes: **covered**, which must cite evidence; **gap**, which
+must name a ticket or a plan; and **accepted**, which must give a reason. The
+fourth is `n/a`'s own, and is not a kind in that sense — a change with no PSFlow
+analogue is neither proven nor unproven and owes nothing. A covered bucket that
+names a gate uses the gate's own name — `surface`, `function`, `conformance`,
+`system` — because the bucket key and the gate name are deliberately the same
+word. The remaining covered buckets (`docs`, `ts-only`, `unit`) name something
+other than a gate.
 _Avoid_: verdict, status, category
 
 **Ported-ungated**:

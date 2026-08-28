@@ -13,6 +13,7 @@
 // the sentence saying why is printed between them rather than left to a reader
 // who has only the totals in view.
 
+import { NET } from "../../changelog-audit/buckets.mjs";
 import { SECTIONS_WITH_EXPORTS } from "./witness.mjs";
 import { OUTCOME } from "./coverage.mjs";
 
@@ -252,14 +253,19 @@ export const renderCoverage = (
       `**${behavior.counts.driveable} of ${behavior.counts.driveable + behavior.counts.awaiting} net-bound` +
         ` rows name a scenario that exists**; ${behavior.counts.awaiting} name a reserved id.`,
       "",
+      "The rows are the changelog audit's, and `parity/changelog-audit/report.md` is where each one's upstream" +
+        " change and disposition is written. Both tables are generated from `verdicts.json` in the same run," +
+        " so they are two readings of one register rather than two registers: what is here is the join to the" +
+        " corpus, which is the half that is this artifact's to check.",
+      "",
       "| PR | Target gate | Proven by | Stage | Corpus |",
       "|---|---|---|---|---|",
       ...behavior.rows.map((row) => {
         // A scenario is an id and reads as code; a test is prose that carries
         // its own backticks, and wrapping it in more would nest them.
-        const proven = row.gate === "system" ? (row.scenario ? `\`${esc(row.scenario)}\`` : null) : esc(row.test);
+        const proven = row.gate === NET ? (row.scenario ? `\`${esc(row.scenario)}\`` : null) : esc(row.test);
         const state =
-          row.gate !== "system"
+          row.gate !== NET
             ? "—"
             : behavior.dangling.some((d) => d.pr === row.pr)
               ? "**neither**"

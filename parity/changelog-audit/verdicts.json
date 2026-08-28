@@ -57,7 +57,7 @@
     "stage": 1,
     "debt": "079",
     "ticket": "079",
-    "note": "src/React/Edge/Base.purs path attributes; untested."
+    "note": "src/React/Edge/Base.purs path attributes; untested. Stage 1 rather than the 4 that 079 assumed: BaseEdge is not one of the components stage 4 crosses, and parity/system/coverage.md already records it driven by thirty scenarios, so nothing beyond stage 1 blocks the scenario."
   },
   "4862": {
     "pkg": "react",

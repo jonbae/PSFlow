@@ -43,6 +43,7 @@
 // makes it reachable at all. It is what green means here, so the number to watch
 // is the hole count: that is the debt, written down.
 
+import { NET } from "../../changelog-audit/buckets.mjs";
 import { normalize } from "../compare/normalize.mjs";
 import { SECTIONS_WITH_EXPORTS, WitnessError, compileWitness } from "./witness.mjs";
 
@@ -244,8 +245,9 @@ export const coverageOutcomes = (entries, { witnesses, holes, traces, rules = []
 // the behavior and the scenario that will drive it.
 //
 // What is checkable here is the join, and it is the rule ticket 080 wrote down
-// and deferred: **the name means nothing until the corpus holds it.** A row
-// naming a scenario nobody wrote reads as a plan and counts as coverage.
+// and deferred: **a name that resolves to nothing means nothing.** A row citing
+// a scenario nobody wrote and nobody promised reads as a plan and counts as
+// coverage.
 //
 // The name space is wider than the corpus, and deliberately. `reserved.mjs`
 // holds thirty ids for the test-debt scenarios (#60), gated so no other source
@@ -255,16 +257,15 @@ export const coverageOutcomes = (entries, { witnesses, holes, traces, rules = []
 // run" and "waiting on someone to write the scenario at all" are different
 // sentences, and forty-two rows are currently the second one.
 //
-// Only `system` rows join the corpus. A row bound for a unit test or for
-// function parity names a `test` instead, which is prose and joins to nothing —
+// Only `NET` rows join the corpus. A row bound for a unit test or for function
+// parity names a `test` instead, which is prose and joins to nothing —
 // `parity/changelog-audit/buckets.mjs` is where that field is required, since
 // the changelog audit is the gate that can read the row and this one cannot say
-// whether a sentence names a real test.
+// whether a sentence names a real test. The gate's name is imported from there
+// for the same reason: two modules asking the same question of the same rows
+// must not each carry their own copy of the answer.
 
 const isRow = (name) => !name.startsWith("_");
-
-/** The gate whose rows are driven by the net, and so name a corpus scenario. */
-const NET = "system";
 
 /**
  * The `gate-pending` rows of the changelog audit, against the corpus.

@@ -26,7 +26,7 @@ design (as `parity:surface` does).
 ## Summary
 
 - **covered** (no action): 113
-- **gaps** (planned, ticketed or fixed in-branch): 62
+- **gaps** (a gate coming, a ticket, or fixed in-branch): 62
 - **accepted** (ungated by decision): 3
 - **n/a**: 2
 
@@ -49,16 +49,16 @@ design (as `parity:surface` does).
 
 Tickets 076–079 filed **57 rows** as ported-but-ungated after the
 12.3.5 → 12.11.0 sweep, and `tickets/080-test-debt-dispositions.md` decided what
-becomes of each. **56 of them are the debt.** The one that is not is
-[#5276](https://github.com/xyflow/xyflow/pull/5276) — filed as ported and correct
-and neither: upstream's viewport Promise settles when the transition *finishes*
-and PSFlow's `Aff` settles when it *starts*, so it is `not-ported` and sits on
-the [divergence backlog](https://github.com/jonbae/PSFlow/issues/22). The net
-could not have caught it either — it compares end states, and both sides arrive
-at the same viewport whatever path they took.
+becomes of each. **56 of them are the debt.**
+
+One row is not: [#5276](https://github.com/xyflow/xyflow/pull/5276). Filed as ported and correct and found to be neither, so `not-ported` — what was found is in the row's own entry under `not-ported` below, and on the [divergence backlog](https://github.com/jonbae/PSFlow/issues/22). A row that was never ported was never test debt, which is the whole of the difference between 57 and 56.
+
+Neither number is typed. `debt` marks the rows 076–079 filed, and both counts are
+this file reading the buckets those rows now carry — which is what keeps the
+correction from going stale the next time one moves.
 
 Where the 56 went: `gate-pending` 50, `ported-ungated` 2, `accepted-ungated` 3, `n/a` 1.
-None of them moved into a covered bucket. A plan is a gap.
+None of them moved into a covered bucket. A gate that is coming is still a gap.
 
 ## Gaps
 
@@ -162,10 +162,10 @@ being called covered that is not. The reason is the whole record.
 
 ## Covered
 
-`system` is empty and is carried anyway, which no other bucket is: 42 rows name
-it as the gate they graduate into, so it is pointed at even while it holds
-nothing. The rule the rest of the table follows — no bucket without a row —
-is what keeps `smoke` out, since no in-range PR is covered by `smoke.spec.ts`.
+`system` is empty and is carried anyway, which no other bucket is: 42 rows name it
+as the gate they graduate into, so it is pointed at even while it holds nothing.
+The rule the rest of the table follows — no bucket without a row — is what keeps
+`smoke` out, since no in-range PR is covered by `smoke.spec.ts`.
 
 ### `surface` — Surface change — gated by parity:surface
 

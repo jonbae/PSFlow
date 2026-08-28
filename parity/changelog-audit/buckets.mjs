@@ -4,9 +4,10 @@
 // Split out of `audit.mjs` for one reason: `gate-pending` is checkable in a way
 // the older buckets were not. A covered bucket's evidence is a string a reviewer
 // has to open a file to dispute; a `gate-pending` row's scenario is a **name**,
-// and either the corpus holds it or it does not. That check wants tests, and
-// tests want the rules to be a function of a row rather than a walk over the
-// whole verdict file with a report being written on the side.
+// and a name either resolves against the corpus's **name space** or resolves to
+// nothing. That check wants tests, and tests want the rules to be a function of
+// a row rather than a walk over the whole verdict file with a report being
+// written on the side.
 //
 // ## The three kinds, and what each is for
 //
@@ -59,10 +60,19 @@ export const BUCKETS = {
 };
 
 /** The boundary staging is 1–4, counted in converters (`src/Boundary.purs`). */
-const STAGES = [1, 2, 3, 4];
+const STAGES = { first: 1, last: 4 };
+const isStage = (stage) => Number.isInteger(stage) && stage >= STAGES.first && stage <= STAGES.last;
 
-/** The gate whose rows are driven by the net, and so name a corpus scenario. */
-const NET = "system";
+/**
+ * The gate whose rows are driven by the net, and so name a corpus **scenario**
+ * rather than a test.
+ *
+ * Exported because `parity/system/coverage/` asks the same question of the same
+ * rows, and the gate's name written down in two modules that have to agree is
+ * the drift this repo refuses everywhere else. The bucket table is the place it
+ * belongs: `system` is a key of `BUCKETS` here and a string nowhere else.
+ */
+export const NET = "system";
 
 /** Buckets a `gate-pending` row may name as the one it will graduate into. */
 const targets = () => Object.keys(BUCKETS).filter((bucket) => BUCKETS[bucket].target);
@@ -151,10 +161,10 @@ const pendingProblems = (pr, row, scenarios) => {
 
   if (net) {
     if (!filled(row.scenario)) say("names no scenario, so nothing joins it to the corpus");
-    if (!STAGES.includes(row.stage)) {
+    if (!isStage(row.stage)) {
       say(
-        `names no boundary stage in ${STAGES[0]}–${STAGES[STAGES.length - 1]}, and a net-bound row is blocked ` +
-          "until the stage that crosses what it drives has landed"
+        `names no boundary stage in ${STAGES.first}–${STAGES.last}, and a net-bound row is blocked until the ` +
+          "stage that crosses what it drives has landed"
       );
     }
     if (row.test !== undefined) say("names a test as well as a scenario; the net drives scenarios");

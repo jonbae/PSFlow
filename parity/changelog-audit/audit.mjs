@@ -32,7 +32,7 @@ import { fileURLToPath } from "node:url";
 import { dirname, join, resolve } from "node:path";
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 
-import { BUCKETS, rowProblems } from "./buckets.mjs";
+import { BUCKETS, NET, rowProblems } from "./buckets.mjs";
 import { RegistryError, routeSpace } from "../driver/registry.mjs";
 import { scenarioNames } from "../system/corpus/index.mjs";
 
@@ -108,9 +108,7 @@ const count = (kind) =>
 /** Whether a net-bound row's scenario exists yet, or is still only a name. */
 const written = (v) => names.written.includes(v.scenario);
 const provenBy = (v) =>
-  v.gate === "system"
-    ? `\`${esc(v.scenario)}\`${written(v) ? "" : " _(reserved)_"}`
-    : esc(v.test);
+  v.gate === NET ? `\`${esc(v.scenario)}\`${written(v) ? "" : " _(reserved)_"}` : esc(v.test);
 
 /**
  * The last column of a bucket's table — the thing that would have to be wrong
@@ -167,7 +165,8 @@ const counts = Object.keys(BUCKETS)
   .join("\n");
 
 const pending = rows("gate-pending").map((pr) => verdicts[pr]);
-const unwritten = pending.filter((v) => v.gate === "system" && !written(v));
+const netBound = pending.filter((v) => v.gate === NET);
+const unwritten = netBound.filter((v) => !written(v));
 
 const report = `# Changelog audit — \`@xyflow/react\` 12.3.5 → ${reactVersion}
 
@@ -197,7 +196,7 @@ design (as \`parity:surface\` does).
 ## Summary
 
 - **covered** (no action): ${count("covered")}
-- **gaps** (planned, ticketed or fixed in-branch): ${count("gap")}
+- **gaps** (a gate coming, a ticket, or fixed in-branch): ${count("gap")}
 - **accepted** (ungated by decision): ${count("accepted")}
 - **n/a**: ${count("na")}
 
@@ -209,16 +208,25 @@ ${counts}
 
 Tickets 076–079 filed **${filed.length} rows** as ported-but-ungated after the
 12.3.5 → 12.11.0 sweep, and \`tickets/080-test-debt-dispositions.md\` decided what
-becomes of each. **${debt.length} of them are the debt.** The ${misfiled.length === 1 ? "one that is not" : `${misfiled.length} that are not`} is
-${misfiled.map(prLink).join(", ")} — filed as ported and correct
-and neither: upstream's viewport Promise settles when the transition *finishes*
-and PSFlow's \`Aff\` settles when it *starts*, so it is \`not-ported\` and sits on
-the [divergence backlog](https://github.com/jonbae/PSFlow/issues/22). The net
-could not have caught it either — it compares end states, and both sides arrive
-at the same viewport whatever path they took.
+becomes of each. **${debt.length} of them are the debt.**
+
+${
+  misfiled.length
+    ? `${misfiled.length === 1 ? "One row is not" : `${misfiled.length} rows are not`}: ` +
+      `${misfiled.map(prLink).join(", ")}. Filed as ported and correct and found to be neither, so ` +
+      `\`not-ported\` — what was found is in the row's own entry under \`not-ported\` below, and on the ` +
+      `[divergence backlog](https://github.com/jonbae/PSFlow/issues/22). ` +
+      `A row that was never ported was never test debt, which is the whole of the difference between ` +
+      `${filed.length} and ${debt.length}.`
+    : `Every row those four tickets filed is still ported, so the two counts agree.`
+}
+
+Neither number is typed. \`debt\` marks the rows 076–079 filed, and both counts are
+this file reading the buckets those rows now carry — which is what keeps the
+correction from going stale the next time one moves.
 
 Where the ${debt.length} went: ${debtBuckets.map(([b, n]) => `\`${b}\` ${n}`).join(", ")}.
-None of them moved into a covered bucket. A plan is a gap.
+None of them moved into a covered bucket. A gate that is coming is still a gap.
 
 ## Gaps
 
@@ -252,10 +260,10 @@ being called covered that is not. The reason is the whole record.
 ${section("accepted-ungated")}
 ## Covered
 
-\`system\` is empty and is carried anyway, which no other bucket is: ${rows("gate-pending").filter((pr) => verdicts[pr].gate === "system").length} rows name
-it as the gate they graduate into, so it is pointed at even while it holds
-nothing. The rule the rest of the table follows — no bucket without a row —
-is what keeps \`smoke\` out, since no in-range PR is covered by \`smoke.spec.ts\`.
+\`${NET}\` is empty and is carried anyway, which no other bucket is: ${netBound.length} rows name it
+as the gate they graduate into, so it is pointed at even while it holds nothing.
+The rule the rest of the table follows — no bucket without a row — is what keeps
+\`smoke\` out, since no in-range PR is covered by \`smoke.spec.ts\`.
 
 ${section("surface")}
 ${section("function")}
