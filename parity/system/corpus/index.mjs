@@ -10,7 +10,9 @@
 //   2. the thirty test-debt scenarios (#60), whose ids `reserved.mjs` holds
 //   3. the retirement debt (#61), the hand-authored parity assertions whose
 //      retirement was made conditional on the net covering them
-//   4. hole-closing scenarios, until the corpus's termination condition (#57)
+//   4. hole-closing scenarios, until the corpus's termination condition — which
+//      `../coverage/` now evaluates on every run, so what is left to close is
+//      read off `../coverage.md` rather than guessed at (#57)
 //
 // Assembling them is one line and one check. The check is the reason this file
 // exists: the sources are written by different people at different times and

@@ -75,10 +75,20 @@ is not in the tree, and needs `spago build` first for the ps-flow side. Its
 detail is `parity/system/README.md`; the report is `parity/system/report.md`
 and the traces behind it are committed under `parity/system/traces/`.
 
+It also says **what it reached**. `parity/system/coverage.md` is derived from the
+traces that ran rather than declared: every export-bearing census entry carries a
+**witness** — a selector for `dom`, a name mapping for the other four sections —
+and counts as driven only if some captured trace holds it. What nothing drove is
+a **hole** with a written reason, and an *undeclared* hole fails the run. Today
+73 of 156 are driven and 83 are declared holes, which is what the corpus's
+termination condition is stated against. It regenerates from the committed
+traces in milliseconds, with no browser and no vendored checkout.
+
 ```sh
-npm run parity:system                    # build both bundles, capture the corpus, diff
+npm run parity:system                    # build both bundles, capture the corpus, diff, cover
 node parity/system/net.mjs --compare-only  # re-diff the stored traces — seconds, no browser
 node parity/system/net.mjs --scenario mount-baseline--nodes-general
+npm run parity:coverage                  # regenerate coverage.md from the stored traces
 ```
 
 ## Checks that are not gates in that sense
@@ -89,6 +99,7 @@ npm run parity:changelog  # 12.3.5→12.11.0 changelog audit; gates on unbuckete
 npm run test:surface      # node --test over surface parity's shape and allowlist logic
 npm run test:census       # node --test over the standalone census generator and its staleness logic
 npm run test:compare      # node --test over the system-parity comparison core
+npm run test:coverage     # node --test over the witness language, the coverage join and its artifact
 npm run test:harness      # node --test over its capture half and the driver's registries and sides
 npm run test:harness:live # the net harness against a real page — a browser, but no parity claim
 npm run test:ci           # node --test over the gates workflow and the baseline vendoring script
@@ -205,17 +216,24 @@ Bumping the baseline is one atomic change:
    unregistered until someone writes down what to do about it; affirming cannot
    create an entry. `parity:system` runs this first and will not capture until
    it is green,
-7. `npm run parity:system` (commit the re-captured `parity/system/traces/` and
-   `report.md`). Diff the traces against their previous versions before you
-   commit them: what upstream's own render changed under the bump is visible
-   there and nowhere else.
+7. `npm run parity:system` (commit the re-captured `parity/system/traces/`,
+   `report.md` and `coverage.md`). Diff the traces against their previous
+   versions before you commit them: what upstream's own render changed under the
+   bump is visible there and nowhere else. A bump that adds an export fails the
+   census until it is classified and then fails coverage until it has a
+   **witness**, and one that removes an export fails coverage as a stale
+   witness — which is how a bump surfaces new surface instead of silently
+   under-counting.
 
 `xyflow/` is gitignored, so `parity:surface`, `parity:changelog`,
 `build:oracle`, `build:driver`, `parity:fork` and `parity:system` all require it
-present and hard-fail on a clean clone. The committed artifacts (`parity/surface/report.md`,
+present and hard-fail on a clean clone. `parity:coverage` is the one that does
+not: it prefers the corpus, falls back to the scenarios the stored traces name,
+and says in both the console and the artifact which it used. The committed artifacts (`parity/surface/report.md`,
 `parity/changelog-audit/report.md`, `oracle/index.js`,
-`parity/driver/dist/psflow.js`, `parity/system/report.md` and the traces under
-`parity/system/traces/`) are what survive without it.
+`parity/driver/dist/psflow.js`, `parity/system/report.md`,
+`parity/system/coverage.md` and the traces under `parity/system/traces/`) are
+what survive without it.
 
 The traces are committed for a reason beyond a clean clone: re-diffing a
 **stored** trace of one baseline against a trace of the next is what turns a

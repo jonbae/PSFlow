@@ -1,0 +1,216 @@
+{
+  "_comment": [
+    "The hole register (#57). An export the corpus does not drive, recorded with a written reason. A hole is a",
+    "legitimate resting state and passes; an *undeclared* hole fails, which is the whole mechanism.",
+    "",
+    "  exports  the census entries this reason covers. A hole over an export something did drive fails as",
+    "           stale, and so does one naming an export the census no longer carries — named per export, so a",
+    "           reason that stopped being true of one of five says which one",
+    "  reason   required. \"The corpus has not reached it yet\" and \"nothing can ever drive it\" are the same",
+    "           absence, and telling those apart is the entire value of writing one down",
+    "  ticket   optional, and written wherever an issue owns the closing. Its absence says nobody does yet",
+    "",
+    "**One entry per reason, not per export** — the shape a region has, where one pattern claims many",
+    "differences. One entry per export would write the same sentence out thirteen times for the thirteen",
+    "exports it is true of, and a later edit would put the copies out of step with each other.",
+    "",
+    "Failing on holes *themselves* was rejected: the net would be red from day one and stay red for months,",
+    "which trains people to ignore it. What fails is the residue — an export with neither a scenario nor an",
+    "entry here — and that is what the corpus's termination condition is stated against.",
+    "",
+    "**This list is read by other work, not only by people.** Boundary stage 4 (#62) takes the components no",
+    "fixture mounts from it, and probed-variant selection (#59) takes the hooks and props exports nothing",
+    "drives — both derived from what is written here rather than hand-picked, which is why the reasons name",
+    "what would close them. `holesIn(outcomes, section)` in coverage/coverage.mjs is the query they call; it",
+    "joins this register to the census, so a consumer needs neither a section field here nor a reading of",
+    "the ticket links.",
+    "",
+    "A hole does not stand in for a witness. Every export needs a rule in witnesses.json saying what driving it",
+    "would look like, the ones nothing drives included — otherwise nothing could ever report the hole closed."
+  ],
+  "holes": [
+    {
+      "exports": [
+        "EdgeLabelRenderer",
+        "EdgeLabelRendererProps",
+        "ViewportPortal"
+      ],
+      "reason": "no fixture portals anything. GraphView draws both containers for every flow whether or not the export is used, so a container in every trace says nothing — only content inside one does, which is what the witness asks for.",
+      "ticket": "https://github.com/jonbae/PSFlow/issues/62"
+    },
+    {
+      "exports": [
+        "SimpleBezierEdge",
+        "SimpleBezierEdgeProps",
+        "SmoothStepEdge",
+        "SmoothStepEdgeProps",
+        "StepEdge",
+        "StepEdgeProps",
+        "StraightEdge",
+        "StraightEdgeProps"
+      ],
+      "reason": "reachable only by an edge declaring the type, and the edges fixture declares none — every edge in the corpus renders as the default, which is BezierEdge. Each of their path functions has function parity, which is a different claim from the component rendering.",
+      "ticket": "https://github.com/jonbae/PSFlow/issues/62"
+    },
+    {
+      "exports": [
+        "EdgeToolbar",
+        "EdgeToolbarProps"
+      ],
+      "reason": "no fixture renders an edge toolbar. getEdgeToolbarTransform has function parity; the component is mounted by nothing, where its node-level sibling is driven by the node-toolbar fixture.",
+      "ticket": "https://github.com/jonbae/PSFlow/issues/62"
+    },
+    {
+      "exports": [
+        "NodeResizer",
+        "NodeResizerProps",
+        "NodeResizeControl",
+        "ControlLinePosition",
+        "ControlPosition"
+      ],
+      "reason": "no fixture mounts a resizer. parity:boundary mounts both components with no props inside a node component, which is below the net and asserts no DOM; nothing in the corpus renders a resize control, and ticket 073 (XYResizer drag lifecycle) is what a scenario driving one would be measuring against.",
+      "ticket": "https://github.com/jonbae/PSFlow/issues/62"
+    },
+    {
+      "exports": [
+        "EdgeTypes"
+      ],
+      "reason": "no fixture passes an edgeTypes map, so no edge carries a type outside the built-in set. NodeTypes is driven because the node-toolbar fixture registers one; the edges fixture registers no edge type at all.",
+      "ticket": "https://github.com/jonbae/PSFlow/issues/62"
+    },
+    {
+      "exports": [
+        "DefaultEdgeOptions"
+      ],
+      "reason": "no fixture sets defaultEdgeOptions, and it has no DOM of its own — the options are merged into edges that declare none. Closing it needs a fixture whose edges declare no type and whose flow defaults them, which is the shape the witness names. No issue owns that fixture yet."
+    },
+    {
+      "exports": [
+        "SelectionRect"
+      ],
+      "reason": "the rect exists only while the pointer is down, and every scenario that draws a selection box completes its gesture. `selection-box-mid-gesture` is the reserved scenario that ends with the pointer still down, which is the only way transient state is observed at all.",
+      "ticket": "https://github.com/jonbae/PSFlow/issues/60"
+    },
+    {
+      "exports": [
+        "NodeAddChange",
+        "NodeReplaceChange",
+        "EdgeAddChange",
+        "EdgeReplaceChange"
+      ],
+      "reason": "no scenario adds or replaces a node or an edge after mount. Every change the corpus records is a dimensions, position, select or remove; add and replace ride on the same handler, which is why the witness is the discriminant rather than the handler. `uncontrolled-update-node` and `flow-props-change-after-mount` are the reserved scenarios that would fire them.",
+      "ticket": "https://github.com/jonbae/PSFlow/issues/60"
+    },
+    {
+      "exports": [
+        "OnReconnect"
+      ],
+      "reason": "the driver installs onReconnect and no scenario drags an edge endpoint onto another handle, so it never fires. The edgeupdater circles are in every edges-fixture trace, so the target exists and the gesture does not.",
+      "ticket": "https://github.com/jonbae/PSFlow/issues/60"
+    },
+    {
+      "exports": [
+        "OnSelectionDrag",
+        "SelectionDragHandler"
+      ],
+      "reason": "`shift-drag-selects-nodes` draws a selection and never drags the selection it made, which is the separate gesture these props fire on.",
+      "ticket": "https://github.com/jonbae/PSFlow/issues/60"
+    },
+    {
+      "exports": [
+        "OnInit"
+      ],
+      "reason": "the driver withholds the prop (`parity/driver/callbacks.mjs`, HOLES), so no page installs it and no trace can record it. The reason recorded there — that onInit's ReactFlowInstance argument had not crossed the boundary — no longer holds: boundary stage 3 crosses `onInitIn` (`src/Boundary/Callbacks.purs`). Installing it and re-capturing the corpus is what closes this, and it is the first thing this artifact found that its own registers cannot fix."
+    },
+    {
+      "exports": [
+        "OnResize",
+        "OnResizeStart",
+        "OnResizeEnd",
+        "ShouldResize",
+        "ResizeDragEvent",
+        "ResizeParams",
+        "ResizeParamsWithDirection"
+      ],
+      "reason": "a NodeResizer/NodeResizeControl prop rather than a ReactFlow one, so there is no handler for the driver to install and no fixture mounting either component. It needs a fixture that resizes.",
+      "ticket": "https://github.com/jonbae/PSFlow/issues/62"
+    },
+    {
+      "exports": [
+        "UseOnSelectionChangeOptions",
+        "UseOnViewportChangeOptions"
+      ],
+      "reason": "the options record a hook is called with rather than a prop the flow is passed. The census files it under callbacks because what it carries is a callback, but nothing installs one — reaching it needs a probe component that calls the hook.",
+      "ticket": "https://github.com/jonbae/PSFlow/issues/59"
+    },
+    {
+      "exports": [
+        "ConnectionInProgress",
+        "ConnectionState",
+        "HandleConnection",
+        "InternalNode",
+        "NodeConnection",
+        "UseNodesInitializedOptions",
+        "experimental_useOnEdgesChangeMiddleware",
+        "experimental_useOnNodesChangeMiddleware",
+        "useConnection",
+        "useEdges",
+        "useEdgesState",
+        "useHandleConnections",
+        "useInternalNode",
+        "useKeyPress",
+        "useNodeConnections",
+        "useNodeId",
+        "useNodes",
+        "useNodesData",
+        "useNodesInitialized",
+        "useNodesState",
+        "useOnSelectionChange",
+        "useOnViewportChange",
+        "useReactFlow",
+        "useStore",
+        "useStoreApi",
+        "useUpdateNodeInternals",
+        "useViewport"
+      ],
+      "reason": "the hooks section is empty in every stored trace: it is keyed by probe id and no probe exists yet. A hook returns a value and leaves nothing on the page, so a component that renders nothing and reports what it was handed is the only thing that can observe one.",
+      "ticket": "https://github.com/jonbae/PSFlow/issues/59"
+    },
+    {
+      "exports": [
+        "DeleteElementsOptions",
+        "FitBounds",
+        "FitBoundsOptions",
+        "FitView",
+        "FitViewOptions",
+        "ReactFlowInstance",
+        "ReactFlowJsonObject",
+        "SetCenter",
+        "SetCenterOptions",
+        "SetViewport",
+        "UnselectNodesAndEdgesParams",
+        "ViewportHelperFunctionOptions",
+        "ViewportHelperFunctions"
+      ],
+      "reason": "no scenario makes an imperative call. The `call` primitive exists and records into `api.calls`, so what is missing is a scenario and not a harness — `viewport-helpers-with-options` is the reserved scenario that drives the helpers with options.",
+      "ticket": "https://github.com/jonbae/PSFlow/issues/60"
+    },
+    {
+      "exports": [
+        "ReactFlowState"
+      ],
+      "reason": "the store's own shape, read through useStoreApi().getState() rather than through the instance the `call` primitive reaches. It needs the same probe the hooks section does.",
+      "ticket": "https://github.com/jonbae/PSFlow/issues/59"
+    },
+    {
+      "exports": [
+        "ConnectionLineComponentProps",
+        "EdgeComponentProps",
+        "EdgeProps",
+        "NodeProps"
+      ],
+      "reason": "the props section is empty in every stored trace, for the same reason the hooks section is: it is keyed by probe id and no probe exists. A node-level probe replaces a node type rather than wrapping it, which is what makes the props a component was handed observable at all.",
+      "ticket": "https://github.com/jonbae/PSFlow/issues/59"
+    }
+  ]
+}

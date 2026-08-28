@@ -592,10 +592,31 @@ settles mid-gesture, which is the only way transient state is observed.
 **Witness**:
 The rule joining a captured trace back to an export it proves was driven — a name
 mapping for most sections, a selector for `dom`. A witness is evaluated against a
-run that actually happened, which is what stops coverage from being a claim.
+run that actually happened, which is what stops coverage from being a claim. Which
+kind an export takes follows the section the census puts it in, never the register
+entry. The register is `parity/system/coverage/witnesses.json`, and an export with
+no witness fails: a **hole** does not stand in for one, because the two say
+different things — "the corpus does not drive this" and "here is what driving it
+would look like".
 _Avoid_: matcher, assertion, expectation
 
 **Hole**:
-An export the corpus does not drive, recorded with a written reason. A hole is a
-legitimate resting state; an *undeclared* hole fails.
+An export the corpus does not drive, recorded with a written reason in
+`parity/system/coverage/holes.json` — one entry per reason, covering as many
+exports as that reason covers, the way a **region** claims many differences with
+one pattern. A hole is a legitimate resting state; an
+*undeclared* hole fails, and a hole over an export something did drive fails as
+**stale**. The register is machine-readable because other work is derived from it
+rather than deciding again: boundary stage 4 takes the components no fixture
+mounts, and probed-variant selection takes the `hooks` and `props` exports
+nothing drives.
 _Avoid_: gap (reserved for audit buckets), uncovered, todo
+
+**Name** (of a witness):
+What the runtime called something a section recorded — a handler's name, an api
+query key or call name, a probe id, a hook's name. Not always a handler: the
+`NodeChange` and `EdgeChange` members all ride on one handler, so a change's own
+discriminant is a name too, written `onNodesChange:position`. Witnessing
+`NodeAddChange` by the handler alone would count it driven the moment a mount
+fired one dimension change.
+_Avoid_: token, key, identifier

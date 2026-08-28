@@ -39,12 +39,19 @@
 // whole gate — an alias that quietly stopped being applied would leave the net
 // comparing ps-flow against itself and reporting green.
 //
+// **Coverage is its last step**, and it is derived rather than declared: every
+// export-bearing census entry is joined back to the traces just written by a
+// **witness**, and `coverage.md` says which the corpus reached and which are
+// deliberately declared holes. It runs after the comparison because it reads the
+// traces off disk like everything else here, and it fails the run on an
+// undeclared hole — the residue nobody wrote down — never on a hole itself.
+//
 // Exit codes: 0 clean, 1 the run went red — a side that disagrees with itself,
 // a driving divergence, an unclaimed difference, a stale region or weakening, a
-// stored trace no scenario claims — 2 a run that could not be interpreted at
-// all: a malformed trace, an illegal normalization rule, a missing vendored
-// checkout, a corpus that could not be derived. A run that cannot be interpreted
-// is never a pass.
+// stored trace no scenario claims, an export nothing drove and nothing declared
+// — 2 a run that could not be interpreted at all: a malformed trace, an illegal
+// normalization rule, a missing vendored checkout, a corpus that could not be
+// derived. A run that cannot be interpreted is never a pass.
 
 import { chromium } from "@playwright/test";
 import { spawn } from "node:child_process";
@@ -60,6 +67,9 @@ import { ComparisonError } from "./compare/index.mjs";
 import { NormalizationError } from "./compare/normalize.mjs";
 import { RegionError } from "./compare/regions.mjs";
 import { RunError, compareRun } from "./compare/run.mjs";
+import { COVERAGE, checkCoverage, reportCoverage, writeCoverage } from "./coverage.mjs";
+import { CoverageError } from "./coverage/coverage.mjs";
+import { WitnessError } from "./coverage/witness.mjs";
 import { ForkError } from "./corpus/fork.mjs";
 import { CorpusError, buildCorpus } from "./corpus/index.mjs";
 import { checkFork, reportFork } from "./fork.mjs";
@@ -298,6 +308,14 @@ const main = async () => {
   writeFileSync(REPORT, withTrailingNewline(report));
   if (out) writeFileSync(out, withTrailingNewline(report));
 
+  // Derived from the traces just read back, and reported beside the comparison
+  // rather than instead of it — nothing earlier suppresses anything later, here
+  // as everywhere else in the net. A `--scenario` run still covers the whole
+  // stored corpus: coverage is a claim about the runs that happened, and the
+  // other scenarios' traces happened too.
+  const covered = checkCoverage(corpus ? { corpus } : { scenarioIds: all.map((scenario) => scenario.id) });
+  writeCoverage(covered);
+
   const failed = runs.filter((run) => !run.ok);
   const said = [];
   if (failed.length) {
@@ -316,10 +334,13 @@ const main = async () => {
       `captures again is read as a recorded divergence forever.`
     );
   }
-  said.push(`The report is ${relative(repoRoot, REPORT)}.`);
+  said.push(reportCoverage(covered));
+  said.push(
+    `The report is ${relative(repoRoot, REPORT)} and the coverage artifact is ${relative(repoRoot, COVERAGE)}.`
+  );
   console.log("\n" + said.join("\n"));
 
-  return netOk(runs) && !orphans.length ? 0 : 1;
+  return netOk(runs) && !orphans.length && covered.outcomes.ok && covered.behavior.ok ? 0 : 1;
 };
 
 // A run that cannot be interpreted is its own outcome, and never a pass. The
@@ -332,6 +353,8 @@ const INTERPRETABLE = [
   TraceStoreError,
   RegistryError,
   CorpusError,
+  CoverageError,
+  WitnessError,
   SettleError,
   NormalizationError,
   RegionError,

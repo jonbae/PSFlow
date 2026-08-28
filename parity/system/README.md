@@ -12,7 +12,8 @@ The net has two halves, and they are deliberately separate steps:
 | **capture** | drives a scenario against one side and returns a trace | `harness/` — three of the seven sections still to come, see below |
 | **compare** | reads a run's four stored traces and reports what differs | `compare/`, and `compare.mjs` |
 | **the corpus** | what gets driven: the scenarios, and where each one came from | `corpus/` |
-| **the gate** | the only place the two meet: build, capture the corpus, persist, diff | `net.mjs` and `net/` |
+| **coverage** | which exports the traces prove were driven, and which are deliberately declared holes | `coverage/`, and `coverage.mjs` |
+| **the gate** | the only place they meet: build, capture the corpus, persist, diff, cover | `net.mjs` and `net/` |
 
 Capture records **everything** observable; everything the noise policy forgives
 lives in compare. That keeps a capture whitelist from smuggling hand-authored
@@ -413,9 +414,12 @@ node parity/system/net.mjs --scenario mount-baseline--nodes-general
 npm run parity:fork                        # the fork register against the vendored specs
 node parity/system/fork.mjs --affirm       # restamp the entries whose forked spec moved
 
+npm run parity:coverage                    # the coverage artifact, from the stored traces — no browser
+
 node parity/system/compare.mjs <trace.json × 4> [--out report.md] [--record]
 node parity/system/compare.mjs <left.json> <right.json> [--out report.md] [--record]
 npm run test:compare       # the comparison core's own unit tests — no browser
+npm run test:coverage      # the witness language, the join and the artifact, likewise
 npm run test:harness       # the capture half's, the corpus's and the gate's, likewise
 npm run test:harness:live  # the harness against a real page
 ```
@@ -470,9 +474,13 @@ order:
    copies would let the two drift.
 6. **Each run is compared** by `compare/run.mjs`, and the report is
    `report.md` — a verdict per scenario, then every run's report in full.
+7. **Coverage is derived** from the traces just read back (`coverage/`), and the
+   artifact is `coverage.md`. It is reported beside the comparison and never
+   instead of it, and it fails the run on residue — an export nothing drove and
+   nothing declared — never on a hole itself.
 
-Exit codes are the compare step's: `0` clean, `1` a scenario failed, `2` a run
-that could not be interpreted.
+Exit codes are the compare step's: `0` clean, `1` a scenario failed or coverage
+found residue, `2` a run that could not be interpreted.
 
 `--compare-only` skips steps 1–5 and re-diffs what is on disk. That is what a
 revised noise policy asks, and it is the reason the traces are committed: a
@@ -517,6 +525,145 @@ failure class, the one no **region** and no **weakening** may claim. It is on th
 divergence backlog with the rest, and until it is fixed the cross-side callback
 differences beneath it are read with that in mind.
 
+## Coverage — witnesses, holes and termination
+
+`coverage/`, and `coverage.md` beside this file. **Two counts, in different
+currencies, reported separately and never summed.** Export coverage counts
+exports; behavior coverage counts conditional behaviors *within* an export.
+A total would let an export driven once absorb every untested condition inside
+it, which is exactly what the test-debt ticket found.
+
+**Export coverage is derived, never declared.** Each of the 156 export-bearing
+census entries carries a **witness** — the rule joining a captured trace back to
+the export it proves was driven — and an export counts as driven only if some
+trace that actually ran holds it. That costs about what declaring would, roughly
+one hand-written line per export either way, so the choice is purely about
+trustworthiness: a derived number can be *wrong*, where a declared one can be
+*fiction* and stay green forever.
+
+Two kinds, decided by the section the census puts the export in, never by the
+register entry:
+
+| Section | Witness | Example |
+|---|---|---|
+| `dom` (64) | a **selector** | `MiniMap` — `.react-flow__minimap` |
+| `callbacks` / `hooks` / `api` / `props` (92) | a **name mapping** | `NodeMouseHandler` — `onNodeClick`, `onNodeMouseEnter`, and four more |
+
+The mapping is many-to-one in both directions. One handler type sits behind
+several props, and — because twelve of the `callbacks` exports are members of the
+`NodeChange` / `EdgeChange` unions and every one of them rides on `onNodesChange`
+or `onEdgesChange` — a **name** can be a change's own discriminant rather than a
+handler's name: `onNodesChange:position`. Witnessing `NodeAddChange` by the
+handler alone would count it driven the moment a mount fired one dimension
+change.
+
+The selector language is a closed, tiny subset of CSS: compounds separated by
+whitespace, where a compound is `*` or a tag with any number of `.class`,
+`[attr]`, `[attr=value]`, `[attr~=value]` and `[attr*=value]`. Whitespace is the
+descendant combinator and it is the only one — it exists for one recurring shape.
+`GraphView` draws `.react-flow__viewport-portal` and
+`.react-flow__edgelabel-renderer` whether or not anything is portaled into them,
+so a selector on either container would witness the export for every fixture that
+mounts a flow at all; `.react-flow__viewport-portal *` asks the question the
+export is about.
+
+A witness is evaluated against the **normalized** trace, so a field the noise
+policy deletes counts as **unobserved** in coverage rather than as passing — a
+sentence `normalization.json` already carried, made true by construction rather
+than by luck.
+
+### Four outcomes, and two of them fail
+
+| Outcome | Means |
+|---|---|
+| **driven** | some captured trace held the witness |
+| **hole** | nothing did, and `coverage/holes.json` says why |
+| **undeclared** | nothing did, and nothing says why — the failure the whole mechanism exists for |
+| **unwitnessed** | no rule joins the export to a trace at all, so nothing could report it either way |
+
+A **hole is a legitimate resting state.** Failing on holes themselves was
+rejected: the net would be red from day one and stay red for months, which trains
+people to ignore it. What fails is the residue.
+
+A hole does not stand in for a witness, and the two registers are different
+claims: one says "the corpus does not drive this", the other says "here is what
+driving it would look like". A bump that adds an export needs both, which is why
+an export with a hole and no witness still fails.
+
+Both registers go **stale** in the sense every register here uses. A witness
+naming an export the census no longer carries claims something that is not there;
+a hole over an export something did drive carries a reason that stopped being
+true — the entry biting the run once its cause is fixed, rather than rotting
+silently.
+
+### Termination
+
+> The corpus is done when every one of the 156 export-bearing entries is **either
+> driven or a deliberately declared hole**.
+
+A condition rather than a target number, and it deliberately admits a small
+corpus with many written-down holes as a legitimate resting state — which is what
+makes it reachable at all. It is what green means here, so the number to watch is
+the hole count: that is the debt, written down. `coverage.md` states the
+condition and evaluates it on every run.
+
+Today: **73 of 156 driven, 83 declared holes, no residue.** Every `hooks`, `api`
+and `props` export is a hole, because those three sections are empty in every
+stored trace until the probes land ([#59]); the rest are components no fixture
+mounts ([#62]) and interactions no scenario drives ([#60]).
+
+### The hole list is machine-readable
+
+`coverage/holes.json` is read by other work, not only by people. Boundary stage 4
+([#62]) takes the components no fixture mounts from it, and probed-variant
+selection ([#59]) takes the `hooks` and `props` exports nothing drives — both
+*derived* from what is written there rather than hand-picked. `holesIn(outcomes,
+section)` is the query they call: it joins the register to the census, so neither
+consumer needs a section field in the register nor a reading of its ticket links,
+and neither can drift from what the run actually found. A probed variant
+doubles the corpus's ~240 captures, so spending that multiplier on the two
+smallest sections is a choice the hole list makes rather than a judgement someone
+repeats.
+
+### Behavior coverage stays hand-declared
+
+It cannot be derived: "drag while autopan is ongoing" appears as no token in any
+trace, and no selector matches a condition. A `gate-pending` row in the changelog
+audit names the gate that will prove the behavior and the scenario that will
+drive it, and what is checkable here is the join — **the name means nothing until
+the corpus holds that scenario**, which is the rule ticket 080 wrote down and
+deferred. The bucket is not implemented in `parity/changelog-audit/audit.mjs`
+yet ([#58]), so the count is zero because nothing has been declared, which
+`coverage.md` says in those words rather than reporting zero behaviors covered.
+
+### Where it lives, and why not in the census
+
+A separate artifact, with the census carrying a pointer and nothing else. A
+census column was rejected: `parity/census/build.mjs` generates from static
+classification and runs standalone, and feeding it trace-derived coverage would
+make the census unbuildable until someone had run the entire net — a far heavier
+prerequisite than the `spago build` surface parity already reluctantly took on.
+The join runs the other way: coverage reads the census's `Mechanism` column to
+decide which 156 of the 210 exports the net can observe at all, so a bump that
+adds an export fails the census first and coverage second.
+
+It runs as the net's last step and standalone. Standalone is not a convenience —
+the traces are committed, so editing a witness or writing down a hole and
+regenerating the artifact costs milliseconds and no browser, where re-capturing
+the corpus costs a hundred and twenty drives of a real page.
+
+That is also why it is the one `parity:*` script that survives a clean clone. It
+prefers the corpus and falls back to the scenarios the stored traces name,
+because the traces committed for `--compare-only` are runs that happened and that
+is exactly what coverage is a claim about. The fallback is never silent: only the
+corpus can say a stored trace belongs to no scenario any more, so a run that had
+to do without it says so in the console and in the artifact.
+
+[#58]: https://github.com/jonbae/PSFlow/issues/58
+[#59]: https://github.com/jonbae/PSFlow/issues/59
+[#60]: https://github.com/jonbae/PSFlow/issues/60
+[#62]: https://github.com/jonbae/PSFlow/issues/62
+
 ## Tested at this seam
 
 Trace files on disk are the highest seam at which the net's own logic can be
@@ -535,6 +682,12 @@ are named and read back, what makes a stored trace an orphan, what a whole-corpu
 report says — is `net/traces.mjs` and `net/summary.mjs`, tested with no browser;
 what is left in `net.mjs` is the doing.
 
+Coverage is the same shape again, one seam further out: the witness language, the
+join and the artifact are plain functions over traces (`coverage/`, and
+`npm run test:coverage`), and `coverage.mjs` is the file reading. Its tests are
+about the *instrument* — that an undeclared hole fails, that a stale hole fails —
+never about the registers, which are content and go red on their own.
+
 ## Not built here
 
 - **The `hooks`, `props` and `api.queries` sections**, which need probes —
@@ -544,5 +697,6 @@ what is left in `net.mjs` is the doing.
   ([#61](https://github.com/jonbae/PSFlow/issues/61)) and the hole-closing scenarios after
   them. What is here is the mount-only baselines and the conformance seed;
   `corpus/` has its own README.
-- **Witnesses, holes and the coverage artifact** —
-  [#57](https://github.com/jonbae/PSFlow/issues/57).
+- **The `gate-pending` audit bucket** the behavior count reads —
+  [#58](https://github.com/jonbae/PSFlow/issues/58). Coverage joins the rows to
+  the corpus; nothing writes one yet.
