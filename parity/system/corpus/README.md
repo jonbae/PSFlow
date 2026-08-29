@@ -13,6 +13,8 @@ Vocabulary is `CONTEXT.md`. Terms in **bold** are defined there.
 | `routes.mjs` | how a registry key becomes a route and a scenario id |
 | `mount-baselines.mjs` | source 1 — one mount-only scenario per **fixture**, derived |
 | `seed.mjs` | source 2 — the **conformance seed**, upstream's suite transcribed |
+| `probes.mjs` | source 4 — selective probe variants derived from current coverage witnesses |
+| `probe-plan.json` | issue 59's retired hole inputs, kept as the durable source of those variants |
 | `fork.mjs` | the fork staleness gate, and `fork.json` its register |
 | `reserved.mjs` | the thirty ids the test-debt scenarios are already promised |
 
@@ -22,11 +24,11 @@ npm run test:harness   # this directory's unit tests, among the harness's own
 npm run parity:system  # the gate: build, capture the corpus, persist, diff
 ```
 
-`tickets/081-interaction-corpus.md` names four sources, and the first is here:
-the **conformance seed**, and with it the derived **mount-only baselines** —
-one per fixture is the general rule the seed's transcription leans on. The other
-three are the thirty test-debt scenarios ([#60]), the retirement debt ([#61])
-and the hole-closing scenarios after them.
+`tickets/081-interaction-corpus.md` names four sources. Two are here: the
+**conformance seed**, with its derived **mount-only baselines**, and the
+hole-closing probe scenarios generated from issue 59's retired holes through the
+current census and witnesses. The remaining sources are the thirty test-debt
+scenarios ([#60]) and the retirement debt ([#61]).
 
 ---
 

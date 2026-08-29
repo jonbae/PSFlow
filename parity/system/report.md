@@ -13,40 +13,40 @@ claimed by a region — never by loosening what the net looks at.
 | scenario | verdict | failure classes | differences |
 |---|---|---|---|
 | `click-inside-interaction-width` | **failed** | driving-divergence, unclaimed-difference | 385 |
-| `click-reveals-default-toolbar` | **failed** | unclaimed-difference | 320 |
+| `click-reveals-default-toolbar` | **failed** | self-inconsistent, unclaimed-difference | 321 |
 | `click-selects-edge` | **failed** | unclaimed-difference | 375 |
 | `click-selects-node` | **failed** | unclaimed-difference | 300 |
-| `click-selects-node--probe-flow-node` | **failed** | driving-divergence, unclaimed-difference | 1119 |
+| `click-selects-node--probe-flow-node` | **failed** | unclaimed-difference | 1121 |
 | `click-unselectable-edge` | **failed** | driving-divergence, unclaimed-difference | 370 |
 | `click-unselectable-node` | **failed** | unclaimed-difference | 309 |
-| `connect-input-to-input-handle` | **failed** | self-inconsistent, unclaimed-difference | 370 |
+| `connect-input-to-input-handle` | **failed** | unclaimed-difference | 369 |
 | `connect-output-to-output-handle` | **failed** | unclaimed-difference | 335 |
 | `connect-source-handle-to-target-handle` | **failed** | unclaimed-difference | 411 |
-| `connect-source-handle-to-target-handle--probe-connection-line` | **failed** | driving-divergence, unclaimed-difference | 43 |
+| `connect-source-handle-to-target-handle--probe-connection-line` | **failed** | unclaimed-difference | 5 |
 | `connect-to-unconnectable-handle` | **failed** | unclaimed-difference | 326 |
 | `delete-key-removes-edge` | **failed** | self-inconsistent, unclaimed-difference | 378 |
 | `delete-key-removes-node-and-edges` | **failed** | self-inconsistent, unclaimed-difference | 297 |
 | `delete-key-spares-undeletable-edge` | **failed** | self-inconsistent, driving-divergence, unclaimed-difference | 388 |
-| `delete-key-spares-undeletable-node` | **failed** | self-inconsistent, unclaimed-difference | 316 |
+| `delete-key-spares-undeletable-node` | **failed** | unclaimed-difference | 315 |
 | `drag-by-custom-drag-handle` | **failed** | self-inconsistent, unclaimed-difference | 711 |
 | `drag-does-not-move-undraggable-node` | **failed** | unclaimed-difference | 231 |
 | `drag-moves-node` | **failed** | self-inconsistent, unclaimed-difference | 678 |
 | `drag-pans-the-pane` | **failed** | unclaimed-difference | 70 |
 | `mount-baseline--edges-general` | **failed** | unclaimed-difference | 321 |
-| `mount-baseline--edges-general--probe-edge` | **failed** | driving-divergence, unclaimed-difference | 16 |
+| `mount-baseline--edges-general--probe-edge` | **failed** | unclaimed-difference | 6 |
 | `mount-baseline--examples-color-mode` | **failed** | unclaimed-difference | 41 |
 | `mount-baseline--node-toolbar-general` | **failed** | unclaimed-difference | 237 |
 | `mount-baseline--nodes-general` | **failed** | unclaimed-difference | 147 |
-| `mount-baseline--pane-general` | **failed** | unclaimed-difference | 66 |
+| `mount-baseline--pane-general` | **failed** | self-inconsistent, unclaimed-difference | 67 |
 | `mount-baseline--pane-non-defaults` | **failed** | unclaimed-difference | 49 |
-| `multi-select-edges-with-modifier` | **failed** | driving-divergence, unclaimed-difference | 461 |
+| `multi-select-edges-with-modifier` | **failed** | self-inconsistent, driving-divergence, unclaimed-difference | 462 |
 | `select-dark-color-mode` | **failed** | unclaimed-difference | 41 |
-| `shift-drag-selects-nodes` | **failed** | self-inconsistent, unclaimed-difference | 254 |
+| `shift-drag-selects-nodes` | **failed** | unclaimed-difference | 253 |
 | `wheel-pans-with-panonscroll` | **failed** | unclaimed-difference | 60 |
-| `wheel-zooms-in-to-max` | **failed** | self-inconsistent, unclaimed-difference | 62 |
-| `wheel-zooms-out-to-min` | **failed** | unclaimed-difference | 59 |
-| `wheel-zooms-the-pane` | **failed** | unclaimed-difference | 71 |
-| `wheel-zooms-the-pane--probe-flow-node` | **failed** | unclaimed-difference | 443 |
+| `wheel-zooms-in-to-max` | **failed** | self-inconsistent, unclaimed-difference | 61 |
+| `wheel-zooms-out-to-min` | **failed** | self-inconsistent, unclaimed-difference | 60 |
+| `wheel-zooms-the-pane` | **failed** | self-inconsistent, unclaimed-difference | 72 |
+| `wheel-zooms-the-pane--probe-flow-node` | **failed** | unclaimed-difference | 524 |
 
 Every trace behind this report is on disk under `parity/system/traces` — four per scenario, two sides captured
 twice each. They are the artifact: re-diffing them costs seconds and no browser.
@@ -57,12 +57,14 @@ twice each. They are the artifact: re-diffing them costs seconds and no browser.
 
 **Failed:** driving-divergence, unclaimed-difference.
 
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
@@ -74,6 +76,8 @@ between its own captures fails against itself.
 # Comparison report — click-inside-interaction-width
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
 **Failed:** 7 driving divergence(s), 378 unclaimed difference(s).
 
@@ -497,25 +501,39 @@ a real divergence is exactly what would be hiding down there.
 
 # System parity run — click-reveals-default-toolbar
 
-**Failed:** unclaimed-difference.
+**Failed:** self-inconsistent, unclaimed-difference.
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | **disagrees with itself** | 1 |
+
+### psflow disagrees with itself
+
+| path | kind | capture 1 | capture 2 |
+|---|---|---|---|
+| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEn… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEn… |
+
+**psflow did not reproduce.** The comparison below ran anyway —
+capture-everything applies to a failed run as much as to a passing one — but a difference it reports
+cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
 ---
 
 # Comparison report — click-reveals-default-toolbar
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
 **Failed:** 320 unclaimed difference(s).
 
@@ -864,12 +882,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 **Failed:** unclaimed-difference.
 
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
@@ -881,6 +901,8 @@ between its own captures fails against itself.
 # Comparison report — click-selects-edge
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
 **Failed:** 375 unclaimed difference(s).
 
@@ -1284,12 +1306,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 **Failed:** unclaimed-difference.
 
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
@@ -1301,6 +1325,8 @@ between its own captures fails against itself.
 # Comparison report — click-selects-node
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
 **Failed:** 300 unclaimed difference(s).
 
@@ -1627,14 +1653,16 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 # System parity run — click-selects-node--probe-flow-node
 
-**Failed:** driving-divergence, unclaimed-difference.
+**Failed:** unclaimed-difference.
+
+Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
@@ -1647,320 +1675,24 @@ between its own captures fails against itself.
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
 
-**Failed:** 3 driving divergence(s), 1116 unclaimed difference(s).
+Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**The inputs differed.** The driving log records what was done *to* each side — the target, whether
-it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
-own render, so the pointer follows a divergence: two sides that place a node five pixels apart both
-drag successfully while the two runs were not one experiment. Until the log agrees, every section
-below it is a **consequence of the driving divergence**. None of them is suppressed —
-a real divergence is exactly what would be hiding down there.
+**Failed:** 1121 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### driving (3)
+### callbacks (3)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `driving/1/box/width` | differs | 49.49334716796875 | 49.50946044921875 |
-| `driving/1/dispatched/x` | differs | 561.6020202636719 | 561.6100769042969 |
-| `driving/2/dispatched/x` | differs | 561.6020202636719 | 561.6100769042969 |
+| `callbacks/1` | right only | — | {"name":"useOnSelectionChange","args":[{"nodes":[],"edges":[]}],"probe":true} |
+| `callbacks/2` | right only | — | {"name":"useOnSelectionChange","args":[{"nodes":[{"id":"Node-1","position":{"x":0,"y":0},"data":{"label":"Node-1"},"type":"input","sourcePosition":{"@undefined… |
+| `callbacks/0/args/0/nodes/0` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
-### dom (45) — consequence of the driving divergence
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children` | ordered differently | ["Node-1","Node-2","Node-3","Node-4","drag-handle","notConnectable","notDraggable","notSelectable","notDeletable"] | ["Node-1","Node-2","Node-3","Node-4","drag-handle","notConnectable","notDeletable","notDraggable","notSelectable"] |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | background-color: red; pointer-events: all; transform: translate(0px, 0px); visibility: visible; z-index: 1000; | background-color: red; height: 18px; pointer-events: all; transform: translate(0px, 0px); visibility: visible; width: 48px; z-index: 1000; |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-2/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-2/attrs/style` | differs | pointer-events: all; transform: translate(-100px, 100px); visibility: visible; z-index: 0; | height: 36px; pointer-events: all; transform: translate(-100px, 100px); visibility: visible; width: 150px; z-index: 0; |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-2/children/1-Node-2-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-2","data-handlepos":"top","data-id":"1-Node-2-null-target","class":"connectable connectableend connectablestart conne… | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-2/children/1-Node-2--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/attrs/style` | differs | pointer-events: all; transform: translate(100px, 100px); visibility: visible; z-index: 0; | height: 36px; pointer-events: all; transform: translate(100px, 100px); visibility: visible; width: 150px; z-index: 0; |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-3","data-handlepos":"top","data-id":"1-Node-3-null-target","class":"connectable connectableend connectablestart conne… | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-3","data-handlepos":"bottom","data-id":"1-Node-3-null-source","class":"connectable connectableend connectablestart co… | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/attrs/style` | differs | pointer-events: all; transform: translate(0px, 200px); visibility: visible; z-index: 0; | height: 36px; pointer-events: all; transform: translate(0px, 200px); visibility: visible; width: 150px; z-index: 0; |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectable connectableend connectablestart conne… | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/drag-handle/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/drag-handle/attrs/style` | differs | pointer-events: all; transform: translate(200px, 0px); visibility: visible; z-index: 0; | height: 50px; pointer-events: all; transform: translate(200px, 0px); visibility: visible; width: 100px; z-index: 0; |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notConnectable/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notConnectable/attrs/style` | differs | pointer-events: all; transform: translate(0px, 300px); visibility: visible; z-index: 0; | height: 36px; pointer-events: all; transform: translate(0px, 300px); visibility: visible; width: 150px; z-index: 0; |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notConnectable/children/1-notConnectable-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"notConnectable","data-handlepos":"top","data-id":"1-notConnectable-null-target","class":"connectableend connectablestart n… | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notConnectable/children/1-notConnectable--target` | right only | — | {"tag":"div","attrs":{"class":"connectableend connectablestart nodrag nopan react-flow__handle react-flow__handle-top target","data-nodeid":"notConnectable","d… |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDraggable/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDraggable/attrs/style` | differs | pointer-events: all; transform: translate(0px, 400px); visibility: visible; z-index: 0; | height: 36px; pointer-events: all; transform: translate(0px, 400px); visibility: visible; width: 150px; z-index: 0; |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDraggable/children/1-notDraggable-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"notDraggable","data-handlepos":"top","data-id":"1-notDraggable-null-target","class":"connectable connectableend connectabl… | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDraggable/children/1-notDraggable-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"notDraggable","data-handlepos":"bottom","data-id":"1-notDraggable-null-source","class":"connectable connectableend connect… | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDraggable/children/1-notDraggable--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDraggable/children/1-notDraggable--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notSelectable/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notSelectable/attrs/style` | differs | pointer-events: all; transform: translate(0px, 500px); visibility: visible; z-index: 0; | height: 36px; pointer-events: all; transform: translate(0px, 500px); visibility: visible; width: 150px; z-index: 0; |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notSelectable/children/1-notSelectable-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"notSelectable","data-handlepos":"top","data-id":"1-notSelectable-null-target","class":"connectable connectableend connecta… | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notSelectable/children/1-notSelectable-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"notSelectable","data-handlepos":"bottom","data-id":"1-notSelectable-null-source","class":"connectable connectableend conne… | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notSelectable/children/1-notSelectable--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notSelectable/children/1-notSelectable--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/attrs/style` | differs | pointer-events: all; transform: translate(0px, 600px); visibility: visible; z-index: 0; | height: 36px; pointer-events: all; transform: translate(0px, 600px); visibility: visible; width: 150px; z-index: 0; |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"notDeletable","data-handlepos":"top","data-id":"1-notDeletable-null-target","class":"connectable connectableend connectabl… | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"notDeletable","data-handlepos":"bottom","data-id":"1-notDeletable-null-source","class":"connectable connectableend connect… | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
-
-### callbacks (228) — consequence of the driving divergence
+### hooks (294)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/1` | left only | {"name":"onMoveStart","args":[null,{"x":0,"y":0,"zoom":1}]} | — |
-| `callbacks/3` | left only | {"name":"onMove","args":[null,{"x":536.8553459119497,"y":32,"zoom":1.0314465408805031}]} | — |
-| `callbacks/14` | left only | {"name":"onNodeClick","args":[{"@class":"SyntheticBaseEvent","_reactName":"onClick","_targetInst":null,"type":"click","nativeEvent":{"@class":"PointerEvent","i… | — |
-| `callbacks/4` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
-| `callbacks/6` | right only | — | {"name":"onViewportChange","args":[{"x":536.8553459119497,"y":32,"zoom":1.0314465408805031}]} |
-| `callbacks/7` | right only | — | {"name":"onMoveEnd","args":[null,{"x":536.8553459119497,"y":32,"zoom":1.0314465408805031}]} |
-| `callbacks/13` | right only | — | {"name":"onEdgesChange","args":[[]]} |
-| `callbacks/15` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
-| `callbacks/16` | right only | — | {"name":"onSelectionChange","args":[{"nodes":[{"id":"Node-1","position":{"x":0,"y":0},"data":{"label":"Node-1"},"type":"__psflow_node_probe","sourcePosition":{… |
-| `callbacks/17` | right only | — | {"name":"onPaneMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onPointerEnter","_targetInst":{"@ref":"React fiber"},"type":"pointerenter","nat… |
-| `callbacks/18` | right only | — | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… |
-| `callbacks/19` | right only | — | {"name":"onViewportChange","args":[{"x":536.8553459119497,"y":32,"zoom":1.0314465408805031}]} |
-| `callbacks/21` | right only | — | {"name":"onMoveEnd","args":[null,{"x":536.8553459119497,"y":32,"zoom":1.0314465408805031}]} |
-| `callbacks` | ordered differently | ["onSelectionChange#1","onViewportChange#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onSelectionChange#2","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1"… |
-| `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/0/dragging` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/0/selected` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/0/item` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/0/resizing` | right only | — | false |
-| `callbacks/4/args/0/0/setAttributes` | right only | — | true |
-| `callbacks/4/args/0/1/position` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/1/positionAbsolute` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/1/dragging` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/1/selected` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/1/item` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/1/index` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/1/resizing` | right only | — | false |
-| `callbacks/4/args/0/1/setAttributes` | right only | — | true |
-| `callbacks/4/args/0/2/position` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/2/positionAbsolute` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/2/dragging` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/2/selected` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/2/item` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/2/index` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/2/resizing` | right only | — | false |
-| `callbacks/4/args/0/2/setAttributes` | right only | — | true |
-| `callbacks/4/args/0/3/position` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/3/positionAbsolute` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/3/dragging` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/3/selected` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/3/item` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/3/index` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/3/resizing` | right only | — | false |
-| `callbacks/4/args/0/3/setAttributes` | right only | — | true |
-| `callbacks/4/args/0/4/position` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/4/positionAbsolute` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/4/dragging` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/4/selected` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/4/item` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/4/index` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/4/resizing` | right only | — | false |
-| `callbacks/4/args/0/4/setAttributes` | right only | — | true |
-| `callbacks/4/args/0/5/position` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/5/positionAbsolute` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/5/dragging` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/5/selected` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/5/item` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/5/index` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/5/resizing` | right only | — | false |
-| `callbacks/4/args/0/5/setAttributes` | right only | — | true |
-| `callbacks/4/args/0/6/id` | differs | notDraggable | notDeletable |
-| `callbacks/4/args/0/6/position` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/6/positionAbsolute` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/6/dragging` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/6/selected` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/6/item` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/6/index` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/6/resizing` | right only | — | false |
-| `callbacks/4/args/0/6/setAttributes` | right only | — | true |
-| `callbacks/4/args/0/7/id` | differs | notSelectable | notDraggable |
-| `callbacks/4/args/0/7/position` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/7/positionAbsolute` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/7/dragging` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/7/selected` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/7/item` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/7/index` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/7/resizing` | right only | — | false |
-| `callbacks/4/args/0/7/setAttributes` | right only | — | true |
-| `callbacks/4/args/0/8/id` | differs | notDeletable | notSelectable |
-| `callbacks/4/args/0/8/position` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/8/positionAbsolute` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/8/dragging` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/8/selected` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/8/item` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/8/index` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/8/resizing` | right only | — | false |
-| `callbacks/4/args/0/8/setAttributes` | right only | — | true |
-| `callbacks/6/args/0/screenX` | differs | 561.60205078125 | 561.610107421875 |
-| `callbacks/6/args/0/clientX` | differs | 561.60205078125 | 561.610107421875 |
-| `callbacks/6/args/0/pageX` | differs | 561.60205078125 | 561.610107421875 |
-| `callbacks/7/args/1/sourcePosition` | right only | — | {"@undefined":true} |
-| `callbacks/7/args/1/targetPosition` | right only | — | {"@undefined":true} |
-| `callbacks/7/args/1/hidden` | right only | — | false |
-| `callbacks/7/args/1/selected` | right only | — | false |
-| `callbacks/7/args/1/dragging` | right only | — | false |
-| `callbacks/7/args/1/draggable` | right only | — | {"@undefined":true} |
-| `callbacks/7/args/1/selectable` | right only | — | {"@undefined":true} |
-| `callbacks/7/args/1/connectable` | right only | — | {"@undefined":true} |
-| `callbacks/7/args/1/deletable` | right only | — | {"@undefined":true} |
-| `callbacks/7/args/1/dragHandle` | right only | — | {"@undefined":true} |
-| `callbacks/7/args/1/width` | right only | — | 48 |
-| `callbacks/7/args/1/height` | right only | — | 18 |
-| `callbacks/7/args/1/initialWidth` | right only | — | {"@undefined":true} |
-| `callbacks/7/args/1/initialHeight` | right only | — | {"@undefined":true} |
-| `callbacks/7/args/1/parentId` | right only | — | {"@undefined":true} |
-| `callbacks/7/args/1/zIndex` | right only | — | {"@undefined":true} |
-| `callbacks/7/args/1/extent` | right only | — | {"@undefined":true} |
-| `callbacks/7/args/1/expandParent` | right only | — | false |
-| `callbacks/7/args/1/ariaLabel` | right only | — | {"@undefined":true} |
-| `callbacks/7/args/1/origin` | right only | — | {"@undefined":true} |
-| `callbacks/7/args/1/handles` | right only | — | {"@undefined":true} |
-| `callbacks/8/args/0/screenX` | differs | 561.60205078125 | 561.610107421875 |
-| `callbacks/8/args/0/clientX` | differs | 561.60205078125 | 561.610107421875 |
-| `callbacks/8/args/0/pageX` | differs | 561.60205078125 | 561.610107421875 |
-| `callbacks/9/args/1/sourcePosition` | right only | — | {"@undefined":true} |
-| `callbacks/9/args/1/targetPosition` | right only | — | {"@undefined":true} |
-| `callbacks/9/args/1/hidden` | right only | — | false |
-| `callbacks/9/args/1/selected` | right only | — | false |
-| `callbacks/9/args/1/dragging` | right only | — | false |
-| `callbacks/9/args/1/draggable` | right only | — | {"@undefined":true} |
-| `callbacks/9/args/1/selectable` | right only | — | {"@undefined":true} |
-| `callbacks/9/args/1/connectable` | right only | — | {"@undefined":true} |
-| `callbacks/9/args/1/deletable` | right only | — | {"@undefined":true} |
-| `callbacks/9/args/1/dragHandle` | right only | — | {"@undefined":true} |
-| `callbacks/9/args/1/width` | right only | — | 48 |
-| `callbacks/9/args/1/height` | right only | — | 18 |
-| `callbacks/9/args/1/initialWidth` | right only | — | {"@undefined":true} |
-| `callbacks/9/args/1/initialHeight` | right only | — | {"@undefined":true} |
-| `callbacks/9/args/1/parentId` | right only | — | {"@undefined":true} |
-| `callbacks/9/args/1/zIndex` | right only | — | {"@undefined":true} |
-| `callbacks/9/args/1/extent` | right only | — | {"@undefined":true} |
-| `callbacks/9/args/1/expandParent` | right only | — | false |
-| `callbacks/9/args/1/ariaLabel` | right only | — | {"@undefined":true} |
-| `callbacks/9/args/1/origin` | right only | — | {"@undefined":true} |
-| `callbacks/9/args/1/handles` | right only | — | {"@undefined":true} |
-| `callbacks/10/args/0/0/dimensions` | right only | — | {"@undefined":true} |
-| `callbacks/10/args/0/0/resizing` | right only | — | {"@undefined":true} |
-| `callbacks/10/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
-| `callbacks/10/args/0/0/position` | right only | — | {"@undefined":true} |
-| `callbacks/10/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
-| `callbacks/10/args/0/0/dragging` | right only | — | {"@undefined":true} |
-| `callbacks/10/args/0/0/item` | right only | — | {"@undefined":true} |
-| `callbacks/10/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/11/args/1/sourcePosition` | right only | — | {"@undefined":true} |
-| `callbacks/11/args/1/targetPosition` | right only | — | {"@undefined":true} |
-| `callbacks/11/args/1/hidden` | right only | — | false |
-| `callbacks/11/args/1/selected` | right only | — | false |
-| `callbacks/11/args/1/draggable` | right only | — | {"@undefined":true} |
-| `callbacks/11/args/1/selectable` | right only | — | {"@undefined":true} |
-| `callbacks/11/args/1/connectable` | right only | — | {"@undefined":true} |
-| `callbacks/11/args/1/deletable` | right only | — | {"@undefined":true} |
-| `callbacks/11/args/1/dragHandle` | right only | — | {"@undefined":true} |
-| `callbacks/11/args/1/width` | right only | — | 48 |
-| `callbacks/11/args/1/height` | right only | — | 18 |
-| `callbacks/11/args/1/initialWidth` | right only | — | {"@undefined":true} |
-| `callbacks/11/args/1/initialHeight` | right only | — | {"@undefined":true} |
-| `callbacks/11/args/1/parentId` | right only | — | {"@undefined":true} |
-| `callbacks/11/args/1/zIndex` | right only | — | {"@undefined":true} |
-| `callbacks/11/args/1/extent` | right only | — | {"@undefined":true} |
-| `callbacks/11/args/1/expandParent` | right only | — | false |
-| `callbacks/11/args/1/ariaLabel` | right only | — | {"@undefined":true} |
-| `callbacks/11/args/1/origin` | right only | — | {"@undefined":true} |
-| `callbacks/11/args/1/handles` | right only | — | {"@undefined":true} |
-| `callbacks/11/args/2/0/sourcePosition` | right only | — | {"@undefined":true} |
-| `callbacks/11/args/2/0/targetPosition` | right only | — | {"@undefined":true} |
-| `callbacks/11/args/2/0/hidden` | right only | — | false |
-| `callbacks/11/args/2/0/selected` | right only | — | false |
-| `callbacks/11/args/2/0/draggable` | right only | — | {"@undefined":true} |
-| `callbacks/11/args/2/0/selectable` | right only | — | {"@undefined":true} |
-| `callbacks/11/args/2/0/connectable` | right only | — | {"@undefined":true} |
-| `callbacks/11/args/2/0/deletable` | right only | — | {"@undefined":true} |
-| `callbacks/11/args/2/0/dragHandle` | right only | — | {"@undefined":true} |
-| `callbacks/11/args/2/0/width` | right only | — | 48 |
-| `callbacks/11/args/2/0/height` | right only | — | 18 |
-| `callbacks/11/args/2/0/initialWidth` | right only | — | {"@undefined":true} |
-| `callbacks/11/args/2/0/initialHeight` | right only | — | {"@undefined":true} |
-| `callbacks/11/args/2/0/parentId` | right only | — | {"@undefined":true} |
-| `callbacks/11/args/2/0/zIndex` | right only | — | {"@undefined":true} |
-| `callbacks/11/args/2/0/extent` | right only | — | {"@undefined":true} |
-| `callbacks/11/args/2/0/expandParent` | right only | — | false |
-| `callbacks/11/args/2/0/ariaLabel` | right only | — | {"@undefined":true} |
-| `callbacks/11/args/2/0/origin` | right only | — | {"@undefined":true} |
-| `callbacks/11/args/2/0/handles` | right only | — | {"@undefined":true} |
-| `callbacks/12/args/0/nodes/0` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"__psflow_node_probe","className":"playwright-test-class-123","style":{"backgroundColo… | — |
-| `callbacks/13/args/1/sourcePosition` | right only | — | {"@undefined":true} |
-| `callbacks/13/args/1/targetPosition` | right only | — | {"@undefined":true} |
-| `callbacks/13/args/1/hidden` | right only | — | false |
-| `callbacks/13/args/1/draggable` | right only | — | {"@undefined":true} |
-| `callbacks/13/args/1/selectable` | right only | — | {"@undefined":true} |
-| `callbacks/13/args/1/connectable` | right only | — | {"@undefined":true} |
-| `callbacks/13/args/1/deletable` | right only | — | {"@undefined":true} |
-| `callbacks/13/args/1/dragHandle` | right only | — | {"@undefined":true} |
-| `callbacks/13/args/1/width` | right only | — | 48 |
-| `callbacks/13/args/1/height` | right only | — | 18 |
-| `callbacks/13/args/1/initialWidth` | right only | — | {"@undefined":true} |
-| `callbacks/13/args/1/initialHeight` | right only | — | {"@undefined":true} |
-| `callbacks/13/args/1/parentId` | right only | — | {"@undefined":true} |
-| `callbacks/13/args/1/zIndex` | right only | — | {"@undefined":true} |
-| `callbacks/13/args/1/extent` | right only | — | {"@undefined":true} |
-| `callbacks/13/args/1/expandParent` | right only | — | false |
-| `callbacks/13/args/1/ariaLabel` | right only | — | {"@undefined":true} |
-| `callbacks/13/args/1/origin` | right only | — | {"@undefined":true} |
-| `callbacks/13/args/1/handles` | right only | — | {"@undefined":true} |
-| `callbacks/13/args/2/0/sourcePosition` | right only | — | {"@undefined":true} |
-| `callbacks/13/args/2/0/targetPosition` | right only | — | {"@undefined":true} |
-| `callbacks/13/args/2/0/hidden` | right only | — | false |
-| `callbacks/13/args/2/0/draggable` | right only | — | {"@undefined":true} |
-| `callbacks/13/args/2/0/selectable` | right only | — | {"@undefined":true} |
-| `callbacks/13/args/2/0/connectable` | right only | — | {"@undefined":true} |
-| `callbacks/13/args/2/0/deletable` | right only | — | {"@undefined":true} |
-| `callbacks/13/args/2/0/dragHandle` | right only | — | {"@undefined":true} |
-| `callbacks/13/args/2/0/width` | right only | — | 48 |
-| `callbacks/13/args/2/0/height` | right only | — | 18 |
-| `callbacks/13/args/2/0/initialWidth` | right only | — | {"@undefined":true} |
-| `callbacks/13/args/2/0/initialHeight` | right only | — | {"@undefined":true} |
-| `callbacks/13/args/2/0/parentId` | right only | — | {"@undefined":true} |
-| `callbacks/13/args/2/0/zIndex` | right only | — | {"@undefined":true} |
-| `callbacks/13/args/2/0/extent` | right only | — | {"@undefined":true} |
-| `callbacks/13/args/2/0/expandParent` | right only | — | false |
-| `callbacks/13/args/2/0/ariaLabel` | right only | — | {"@undefined":true} |
-| `callbacks/13/args/2/0/origin` | right only | — | {"@undefined":true} |
-| `callbacks/13/args/2/0/handles` | right only | — | {"@undefined":true} |
-| `callbacks/15/args/0/nodes/0` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"__psflow_node_probe","className":"playwright-test-class-123","style":{"backgroundColo… | — |
-| `callbacks/16/args/0/x` | differs | 0 | 536.8553459119497 |
-| `callbacks/16/args/0/y` | differs | 0 | 32 |
-| `callbacks/16/args/0/zoom` | differs | 1 | 1.0314465408805031 |
-
-### hooks (300) — consequence of the driving divergence
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `hooks/node-probe/useHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `hooks/node-probe/useHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `hooks/node-probe/useHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `hooks/node-probe/useHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `hooks/node-probe/useNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `hooks/node-probe/useNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `hooks/node-probe/useNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `hooks/node-probe/useNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `hooks/flow-probe/useConnection/inProgress` | left only | false | — |
 | `hooks/flow-probe/useEdges/0/sourceHandle` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useEdges/0/targetHandle` | right only | — | {"@undefined":true} |
@@ -1992,9 +1724,11 @@ a real divergence is exactly what would be hiding down there.
 | `hooks/flow-probe/useEdges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useEdges/1/className` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useEdges/1/style` | right only | — | {"@undefined":true} |
-| `hooks/flow-probe/useInternalNode/internals/handleBounds/source` | differs | null | [] |
+| `hooks/flow-probe/useInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
+| `hooks/flow-probe/useInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00002272485864 |
+| `hooks/flow-probe/useInternalNode/internals/handleBounds/source/0/y` | differs | 31 | 31.000016331497342 |
 | `hooks/flow-probe/useInternalNode/internals/handleBounds/target` | differs | null | [] |
-| `hooks/flow-probe/useInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"__psflow_node_probe","className":"playwright-test-class-123","style":{"backgroundColo… | — |
+| `hooks/flow-probe/useInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 | `hooks/flow-probe/useInternalNode/internals/rootParentIndex` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useInternalNode/internals/bounds` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useInternalNode/sourcePosition` | right only | — | {"@undefined":true} |
@@ -2006,8 +1740,8 @@ a real divergence is exactly what would be hiding down there.
 | `hooks/flow-probe/useInternalNode/connectable` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useInternalNode/deletable` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useInternalNode/dragHandle` | right only | — | {"@undefined":true} |
-| `hooks/flow-probe/useInternalNode/width` | right only | — | 48 |
-| `hooks/flow-probe/useInternalNode/height` | right only | — | 18 |
+| `hooks/flow-probe/useInternalNode/width` | right only | — | 150 |
+| `hooks/flow-probe/useInternalNode/height` | right only | — | 36 |
 | `hooks/flow-probe/useInternalNode/initialWidth` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useInternalNode/initialHeight` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useInternalNode/parentId` | right only | — | {"@undefined":true} |
@@ -2026,8 +1760,8 @@ a real divergence is exactly what would be hiding down there.
 | `hooks/flow-probe/useNodes/0/connectable` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/0/deletable` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/0/dragHandle` | right only | — | {"@undefined":true} |
-| `hooks/flow-probe/useNodes/0/width` | right only | — | 48 |
-| `hooks/flow-probe/useNodes/0/height` | right only | — | 18 |
+| `hooks/flow-probe/useNodes/0/width` | right only | — | 150 |
+| `hooks/flow-probe/useNodes/0/height` | right only | — | 36 |
 | `hooks/flow-probe/useNodes/0/initialWidth` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/0/initialHeight` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/0/parentId` | right only | — | {"@undefined":true} |
@@ -2197,7 +1931,6 @@ a real divergence is exactly what would be hiding down there.
 | `hooks/flow-probe/useNodes/7/handles` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/7/className` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/7/style` | right only | — | {"@undefined":true} |
-| `hooks/flow-probe/useNodes/8/type` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/8/sourcePosition` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/8/targetPosition` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/8/hidden` | right only | — | false |
@@ -2207,8 +1940,8 @@ a real divergence is exactly what would be hiding down there.
 | `hooks/flow-probe/useNodes/8/selectable` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/8/connectable` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/8/dragHandle` | right only | — | {"@undefined":true} |
-| `hooks/flow-probe/useNodes/8/width` | right only | — | 150 |
-| `hooks/flow-probe/useNodes/8/height` | right only | — | 36 |
+| `hooks/flow-probe/useNodes/8/width` | right only | — | {"@undefined":true} |
+| `hooks/flow-probe/useNodes/8/height` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/8/initialWidth` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/8/initialHeight` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/8/parentId` | right only | — | {"@undefined":true} |
@@ -2218,6 +1951,7 @@ a real divergence is exactly what would be hiding down there.
 | `hooks/flow-probe/useNodes/8/ariaLabel` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/8/origin` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/8/handles` | right only | — | {"@undefined":true} |
+| `hooks/flow-probe/useNodes/8/measured` | right only | — | {"width":{"@undefined":true},"height":{"@undefined":true}} |
 | `hooks/flow-probe/useNodes/8/className` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/8/style` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/9/type` | right only | — | {"@undefined":true} |
@@ -2244,9 +1978,9 @@ a real divergence is exactly what would be hiding down there.
 | `hooks/flow-probe/useNodes/9/measured` | right only | — | {"width":{"@undefined":true},"height":{"@undefined":true}} |
 | `hooks/flow-probe/useNodes/9/className` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/9/style` | right only | — | {"@undefined":true} |
-| `hooks/flow-probe/useStore/nodes` | left only | [{"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"__psflow_node_probe","className":"playwright-test-class-123","style":{"backgroundCol… | — |
+| `hooks/flow-probe/useStore/nodes` | left only | [{"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"me… | — |
 | `hooks/flow-probe/useStore/edges` | left only | [{"id":"1-2","type":"default","source":"Node-1","target":"Node-2","label":"edge"},{"id":"1-3","type":"default","source":"Node-1","target":"Node-3","label":"edg… | — |
-| `hooks/flow-probe/useStore/transform` | left only | [536.8553459119497,32,1.0314465408805031] | — |
+| `hooks/flow-probe/useStore/transform` | left only | [517.6119402985074,32,1.2238805970149254] | — |
 | `hooks/flow-probe/useStore/viewportInitialized` | left only | {"@undefined":true} | — |
 | `hooks/flow-probe/useStore/error` | right only | — | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
 | `hooks/flow-probe/useStoreApi/getState` | left only | {"@ref":"function"} | — |
@@ -2254,11 +1988,11 @@ a real divergence is exactly what would be hiding down there.
 | `hooks/flow-probe/useStoreApi/subscribe` | left only | {"@ref":"function"} | — |
 | `hooks/flow-probe/useStoreApi/error` | right only | — | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
 
-### api (515) — consequence of the driving divergence
+### api (812)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getState` | left only | {"rfId":"1","width":1280,"height":720,"transform":[536.8553459119497,32,1.0314465408805031],"nodes":[{"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0… | — |
+| `api/queries/getState` | left only | {"rfId":"1","width":1280,"height":720,"transform":[517.6119402985074,32,1.2238805970149254],"nodes":[{"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0… | — |
 | `api/queries/getNodes/0/sourcePosition` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/0/targetPosition` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/0/hidden` | right only | — | false |
@@ -2268,8 +2002,8 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getNodes/0/connectable` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/0/deletable` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/0/dragHandle` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/0/width` | right only | — | 48 |
-| `api/queries/getNodes/0/height` | right only | — | 18 |
+| `api/queries/getNodes/0/width` | right only | — | 150 |
+| `api/queries/getNodes/0/height` | right only | — | 36 |
 | `api/queries/getNodes/0/initialWidth` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/0/initialHeight` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/0/parentId` | right only | — | {"@undefined":true} |
@@ -2439,7 +2173,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getNodes/7/handles` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/7/className` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/7/style` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/8/type` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/8/sourcePosition` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/8/targetPosition` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/8/hidden` | right only | — | false |
@@ -2449,8 +2182,8 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getNodes/8/selectable` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/8/connectable` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/8/dragHandle` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/8/width` | right only | — | 150 |
-| `api/queries/getNodes/8/height` | right only | — | 36 |
+| `api/queries/getNodes/8/width` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/8/height` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/8/initialWidth` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/8/initialHeight` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/8/parentId` | right only | — | {"@undefined":true} |
@@ -2460,6 +2193,7 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getNodes/8/ariaLabel` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/8/origin` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/8/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/8/measured` | right only | — | {"width":{"@undefined":true},"height":{"@undefined":true}} |
 | `api/queries/getNodes/8/className` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/8/style` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/9/type` | right only | — | {"@undefined":true} |
@@ -2486,6 +2220,53 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getNodes/9/measured` | right only | — | {"width":{"@undefined":true},"height":{"@undefined":true}} |
 | `api/queries/getNodes/9/className` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/9/style` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/hidden` | right only | — | false |
+| `api/queries/getNode/dragging` | right only | — | false |
+| `api/queries/getNode/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/width` | right only | — | 150 |
+| `api/queries/getNode/height` | right only | — | 36 |
+| `api/queries/getNode/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/expandParent` | right only | — | false |
+| `api/queries/getNode/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
+| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00002272485864 |
+| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 31 | 31.000016331497342 |
+| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
+| `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
+| `api/queries/getInternalNode/internals/rootParentIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/internals/bounds` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/hidden` | right only | — | false |
+| `api/queries/getInternalNode/dragging` | right only | — | false |
+| `api/queries/getInternalNode/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/width` | right only | — | 150 |
+| `api/queries/getInternalNode/height` | right only | — | 36 |
+| `api/queries/getInternalNode/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/expandParent` | right only | — | false |
+| `api/queries/getInternalNode/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/handles` | right only | — | {"@undefined":true} |
 | `api/queries/getEdges/0/sourceHandle` | right only | — | {"@undefined":true} |
 | `api/queries/getEdges/0/targetHandle` | right only | — | {"@undefined":true} |
 | `api/queries/getEdges/0/animated` | right only | — | false |
@@ -2516,6 +2297,256 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getEdges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/getEdges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/getEdges/1/style` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/sourceHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/targetHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/animated` | right only | — | false |
+| `api/queries/getEdge/hidden` | right only | — | false |
+| `api/queries/getEdge/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/data` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/selected` | right only | — | false |
+| `api/queries/getEdge/markerStart` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/markerEnd` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/interactionWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/className` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/style` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/0/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/width` | right only | — | 150 |
+| `api/queries/getIntersectingNodes/0/height` | right only | — | 36 |
+| `api/queries/getIntersectingNodes/0/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
+| `api/queries/getIntersectingNodes/0/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/1/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/width` | right only | — | 150 |
+| `api/queries/getIntersectingNodes/1/height` | right only | — | 36 |
+| `api/queries/getIntersectingNodes/1/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
+| `api/queries/getIntersectingNodes/1/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/className` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/style` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/type` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/2/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/width` | right only | — | 150 |
+| `api/queries/getIntersectingNodes/2/height` | right only | — | 36 |
+| `api/queries/getIntersectingNodes/2/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
+| `api/queries/getIntersectingNodes/2/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/className` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/style` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/3/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/width` | right only | — | 150 |
+| `api/queries/getIntersectingNodes/3/height` | right only | — | 36 |
+| `api/queries/getIntersectingNodes/3/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
+| `api/queries/getIntersectingNodes/3/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/className` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/style` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/4/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/4/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/4/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/4/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/4/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/4/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/4/width` | right only | — | 100 |
+| `api/queries/getIntersectingNodes/4/height` | right only | — | 50 |
+| `api/queries/getIntersectingNodes/4/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/4/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/4/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/4/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/4/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
+| `api/queries/getIntersectingNodes/4/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/4/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/4/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/4/className` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/4/style` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/5/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/5/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/5/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/5/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/5/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/5/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/5/width` | right only | — | 150 |
+| `api/queries/getIntersectingNodes/5/height` | right only | — | 36 |
+| `api/queries/getIntersectingNodes/5/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/5/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/5/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/5/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/5/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
+| `api/queries/getIntersectingNodes/5/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/5/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/5/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/5/className` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/5/style` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/6/type` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/6/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/6/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/6/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/6/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/6/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/6/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/6/width` | right only | — | 150 |
+| `api/queries/getIntersectingNodes/6/height` | right only | — | 36 |
+| `api/queries/getIntersectingNodes/6/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/6/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/6/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/6/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/6/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/6/expandParent` | right only | — | false |
+| `api/queries/getIntersectingNodes/6/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/6/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/6/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/6/className` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/6/style` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/7/type` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/7/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/7/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/7/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/7/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/7/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/7/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/7/width` | right only | — | 150 |
+| `api/queries/getIntersectingNodes/7/height` | right only | — | 36 |
+| `api/queries/getIntersectingNodes/7/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/7/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/7/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/7/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/7/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/7/expandParent` | right only | — | false |
+| `api/queries/getIntersectingNodes/7/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/7/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/7/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/7/className` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/7/style` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/8/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/8/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/8/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/8/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/8/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/8/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/8/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/8/width` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/8/height` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/8/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/8/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/8/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/8/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/8/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/8/expandParent` | right only | — | false |
+| `api/queries/getIntersectingNodes/8/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/8/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/8/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/8/measured` | right only | — | {"width":{"@undefined":true},"height":{"@undefined":true}} |
+| `api/queries/getIntersectingNodes/8/className` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/8/style` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/9/type` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/9/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/9/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/9/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/9/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/9/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/9/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/9/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/9/width` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/9/height` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/9/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/9/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/9/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/9/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/9/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
+| `api/queries/getIntersectingNodes/9/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/9/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/9/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/9/measured` | right only | — | {"width":{"@undefined":true},"height":{"@undefined":true}} |
+| `api/queries/getIntersectingNodes/9/className` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/9/style` | right only | — | {"@undefined":true} |
+| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/sourcePosition` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/targetPosition` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
@@ -2525,8 +2556,8 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/toObject/nodes/0/connectable` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/deletable` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/dragHandle` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/0/width` | right only | — | 48 |
-| `api/queries/toObject/nodes/0/height` | right only | — | 18 |
+| `api/queries/toObject/nodes/0/width` | right only | — | 150 |
+| `api/queries/toObject/nodes/0/height` | right only | — | 36 |
 | `api/queries/toObject/nodes/0/initialWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/initialHeight` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/parentId` | right only | — | {"@undefined":true} |
@@ -2696,7 +2727,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/toObject/nodes/7/handles` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/7/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/7/style` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/8/type` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/8/sourcePosition` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/8/targetPosition` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/8/hidden` | right only | — | false |
@@ -2706,8 +2736,8 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/toObject/nodes/8/selectable` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/8/connectable` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/8/dragHandle` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/8/width` | right only | — | 150 |
-| `api/queries/toObject/nodes/8/height` | right only | — | 36 |
+| `api/queries/toObject/nodes/8/width` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/8/height` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/8/initialWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/8/initialHeight` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/8/parentId` | right only | — | {"@undefined":true} |
@@ -2717,6 +2747,7 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/toObject/nodes/8/ariaLabel` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/8/origin` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/8/handles` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/8/measured` | right only | — | {"width":{"@undefined":true},"height":{"@undefined":true}} |
 | `api/queries/toObject/nodes/8/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/8/style` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/9/type` | right only | — | {"@undefined":true} |
@@ -2774,7 +2805,14 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
 
-### console (28) — consequence of the driving divergence
+### props (2)
+
+| path | kind | upstream | psflow |
+|---|---|---|---|
+| `props/node-props/width` | differs | 0 | {"@undefined":true} |
+| `props/node-props/height` | differs | 0 | {"@undefined":true} |
+
+### console (10)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -2783,35 +2821,11 @@ a real divergence is exactly what would be hiding down there.
 | `console/2/level` | differs | warning | pageerror |
 | `console/2/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
 | `console/3/level` | differs | warning | pageerror |
-| `console/3/text` | differs | [React Flow]: Couldn't create edge for source handle id: "null", edge id: 1-2. Help: https://reactflow.dev/error#008 | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
+| `console/3/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
 | `console/4/level` | differs | warning | pageerror |
-| `console/4/text` | differs | [React Flow]: Couldn't create edge for source handle id: "null", edge id: 1-3. Help: https://reactflow.dev/error#008 | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
-| `console/5/level` | differs | warning | error |
-| `console/5/text` | differs | [React Flow]: Couldn't create edge for source handle id: "null", edge id: 1-2. Help: https://reactflow.dev/error#008 | The above error occurred in the <HookProbe> component:⏎⏎    at HookProbe (http://127.0.0.1:51095/parity/driver/dist/psflow.js:64284:20)⏎    at HookBoundary (ht… |
-| `console/6/level` | differs | warning | error |
-| `console/6/text` | differs | [React Flow]: Couldn't create edge for source handle id: "null", edge id: 1-3. Help: https://reactflow.dev/error#008 | The above error occurred in the <HookProbe> component:⏎⏎    at HookProbe (http://127.0.0.1:51095/parity/driver/dist/psflow.js:64284:20)⏎    at HookBoundary (ht… |
-| `console/7` | left only | {"level":"warning","text":"[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNod… | — |
-| `console/8` | left only | {"level":"warning","text":"[React Flow]: Couldn't create edge for source handle id: \"null\", edge id: 1-2. Help: https://reactflow.dev/error#008"} | — |
-| `console/9` | left only | {"level":"warning","text":"[React Flow]: Couldn't create edge for source handle id: \"null\", edge id: 1-3. Help: https://reactflow.dev/error#008"} | — |
-| `console/10` | left only | {"level":"warning","text":"[React Flow]: Couldn't create edge for source handle id: \"null\", edge id: 1-2. Help: https://reactflow.dev/error#008"} | — |
-| `console/11` | left only | {"level":"warning","text":"[React Flow]: Couldn't create edge for source handle id: \"null\", edge id: 1-3. Help: https://reactflow.dev/error#008"} | — |
-| `console/12` | left only | {"level":"warning","text":"[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNod… | — |
-| `console/13` | left only | {"level":"warning","text":"[React Flow]: Couldn't create edge for source handle id: \"null\", edge id: 1-2. Help: https://reactflow.dev/error#008"} | — |
-| `console/14` | left only | {"level":"warning","text":"[React Flow]: Couldn't create edge for source handle id: \"null\", edge id: 1-3. Help: https://reactflow.dev/error#008"} | — |
-| `console/15` | left only | {"level":"warning","text":"[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNod… | — |
-| `console/16` | left only | {"level":"warning","text":"[React Flow]: Couldn't create edge for source handle id: \"null\", edge id: 1-2. Help: https://reactflow.dev/error#008"} | — |
-| `console/17` | left only | {"level":"warning","text":"[React Flow]: Couldn't create edge for source handle id: \"null\", edge id: 1-3. Help: https://reactflow.dev/error#008"} | — |
-| `console/18` | left only | {"level":"warning","text":"[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNod… | — |
-| `console/19` | left only | {"level":"warning","text":"[React Flow]: Couldn't create edge for source handle id: \"null\", edge id: 1-2. Help: https://reactflow.dev/error#008"} | — |
-| `console/20` | left only | {"level":"warning","text":"[React Flow]: Couldn't create edge for source handle id: \"null\", edge id: 1-3. Help: https://reactflow.dev/error#008"} | — |
-| `console/21` | left only | {"level":"warning","text":"[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNod… | — |
-| `console/22` | left only | {"level":"warning","text":"[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNod… | — |
-
-## Normalization
-
-11 field(s) deleted by name and therefore **unobserved** — not passing:
-
-- `callbacks/**/timeStamp` (9) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+| `console/4/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:54194/parity/driver/dist/psflow.js:64308:… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:54194/parity/driver/dist/psflow.js:64308:… |
 
 
 ---
@@ -2820,12 +2834,14 @@ a real divergence is exactly what would be hiding down there.
 
 **Failed:** driving-divergence, unclaimed-difference.
 
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
@@ -2837,6 +2853,8 @@ between its own captures fails against itself.
 # Comparison report — click-unselectable-edge
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
 **Failed:** 4 driving divergence(s), 366 unclaimed difference(s).
 
@@ -3247,12 +3265,14 @@ a real divergence is exactly what would be hiding down there.
 
 **Failed:** unclaimed-difference.
 
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
@@ -3264,6 +3284,8 @@ between its own captures fails against itself.
 # Comparison report — click-unselectable-node
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
 **Failed:** 309 unclaimed difference(s).
 
@@ -3599,35 +3621,29 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 # System parity run — connect-input-to-input-handle
 
-**Failed:** self-inconsistent, unclaimed-difference.
+**Failed:** unclaimed-difference.
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | **disagrees with itself** | 1 |
-
-### psflow disagrees with itself
-
-| path | kind | capture 1 | capture 2 |
-|---|---|---|---|
-| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEn… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onSelectionChange#2","onMoveEnd#1","onError#1","onViewportChange#2","onMoveEnd#2","onPaneMouseEn… |
-
-**psflow did not reproduce.** The comparison below ran anyway —
-capture-everything applies to a failed run as much as to a passing one — but a difference it reports
-cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
+| psflow | 1, 2 | reproduced | 0 |
 
 ---
 
 # Comparison report — connect-input-to-input-handle
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
 **Failed:** 369 unclaimed difference(s).
 
@@ -4025,12 +4041,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 **Failed:** unclaimed-difference.
 
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
@@ -4042,6 +4060,8 @@ between its own captures fails against itself.
 # Comparison report — connect-output-to-output-handle
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
 **Failed:** 335 unclaimed difference(s).
 
@@ -4405,12 +4425,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 **Failed:** unclaimed-difference.
 
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
@@ -4422,6 +4444,8 @@ between its own captures fails against itself.
 # Comparison report — connect-source-handle-to-target-handle
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
 **Failed:** 411 unclaimed difference(s).
 
@@ -4859,14 +4883,16 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 # System parity run — connect-source-handle-to-target-handle--probe-connection-line
 
-**Failed:** driving-divergence, unclaimed-difference.
+**Failed:** unclaimed-difference.
+
+Compared sections: `props`, `console`. All seven remain captured in the trace.
 
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
@@ -4879,90 +4905,26 @@ between its own captures fails against itself.
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
 
-**Failed:** 15 driving divergence(s), 28 unclaimed difference(s).
+Compared sections: `props`, `console`.
 
-**The inputs differed.** The driving log records what was done *to* each side — the target, whether
-it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
-own render, so the pointer follows a divergence: two sides that place a node five pixels apart both
-drag successfully while the two runs were not one experiment. Until the log agrees, every section
-below it is a **consequence of the driving divergence**. None of them is suppressed —
-a real divergence is exactly what would be hiding down there.
+**Failed:** 5 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### driving (15)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `driving/0/resolved` | differs | true | false |
-| `driving/0/box` | differs | {"x":0,"y":0,"width":1280,"height":720} | null |
-| `driving/0/dispatched` | differs | {"route":"/tests/generic/nodes/general"} | null |
-| `driving/1/resolved` | differs | true | false |
-| `driving/1/box` | differs | {"x":610.0880737304688,"y":63.97484588623047,"width":8.25152587890625,"height":8.251571655273438} | null |
-| `driving/1/dispatched` | differs | {"x":614.2138366699219,"y":68.10063171386719,"button":"left"} | null |
-| `driving/2/resolved` | differs | true | false |
-| `driving/2/box` | differs | {"x":610.0880737304688,"y":63.97484588623047,"width":8.25152587890625,"height":8.251571655273438} | null |
-| `driving/2/dispatched` | differs | {"x":619.2138366699219,"y":73.10063171386719} | null |
-| `driving/3/resolved` | differs | true | false |
-| `driving/3/box` | differs | {"x":610.0880737304688,"y":235.19497680664062,"width":8.25152587890625,"height":8.251571655273438} | null |
-| `driving/3/dispatched` | differs | {"x":614.2138366699219,"y":239.32076263427734} | null |
-| `driving/4/resolved` | differs | true | false |
-| `driving/4/box` | differs | {"x":610.0880737304688,"y":235.19497680664062,"width":8.25152587890625,"height":8.251571655273438} | null |
-| `driving/4/dispatched` | differs | {"x":614.2138366699219,"y":239.32076263427734,"button":"left"} | null |
-
-### dom (1) — consequence of the driving divergence
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root` | differs | {"tag":"div","attrs":{"data-testid":"rf__wrapper","class":"light react-flow","role":"application","style":"height: 100%; overflow: hidden; position: relative; … | null |
-
-### callbacks (22) — consequence of the driving divergence
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `callbacks/0` | left only | {"name":"onSelectionChange","args":[{"nodes":[],"edges":[]}]} | — |
-| `callbacks/1` | left only | {"name":"onMoveStart","args":[null,{"x":0,"y":0,"zoom":1}]} | — |
-| `callbacks/2` | left only | {"name":"onViewportChange","args":[{"x":536.8553459119497,"y":32,"zoom":1.0314465408805031}]} | — |
-| `callbacks/3` | left only | {"name":"onMove","args":[null,{"x":536.8553459119497,"y":32,"zoom":1.0314465408805031}]} | — |
-| `callbacks/4` | left only | {"name":"onNodesChange","args":[[{"id":"Node-1","type":"dimensions","dimensions":{"width":150,"height":36}},{"id":"Node-2","type":"dimensions","dimensions":{"w… | — |
-| `callbacks/5` | left only | {"name":"onMoveEnd","args":[null,{"x":536.8553459119497,"y":32,"zoom":1.0314465408805031}]} | — |
-| `callbacks/6` | left only | {"name":"onPaneMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onPointerEnter","_targetInst":{"@ref":"React fiber"},"type":"pointerenter","nat… | — |
-| `callbacks/7` | left only | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… | — |
-| `callbacks/8` | left only | {"name":"onPaneMouseMove","args":[{"@class":"SyntheticBaseEvent","_reactName":"onPointerMove","_targetInst":null,"type":"pointermove","nativeEvent":{"@class":"… | — |
-| `callbacks/9` | left only | {"name":"onNodeMouseMove","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseMove","_targetInst":null,"type":"mousemove","nativeEvent":{"@class":"Mous… | — |
-| `callbacks/10` | left only | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… | — |
-| `callbacks/11` | left only | {"name":"onEdgeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… | — |
-| `callbacks/12` | left only | {"name":"onPaneMouseMove","args":[{"@class":"SyntheticBaseEvent","_reactName":"onPointerMove","_targetInst":null,"type":"pointermove","nativeEvent":{"@class":"… | — |
-| `callbacks/13` | left only | {"name":"onEdgeMouseMove","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseMove","_targetInst":null,"type":"mousemove","nativeEvent":{"@class":"Mous… | — |
-| `callbacks/14` | left only | {"name":"onConnectStart","args":[{"@class":"MouseEvent","isTrusted":true},{"nodeId":"Node-1","handleId":null,"handleType":"source"}]} | — |
-| `callbacks/15` | left only | {"name":"onEdgeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… | — |
-| `callbacks/16` | left only | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… | — |
-| `callbacks/17` | left only | {"name":"onPaneMouseMove","args":[{"@class":"SyntheticBaseEvent","_reactName":"onPointerMove","_targetInst":null,"type":"pointermove","nativeEvent":{"@class":"… | — |
-| `callbacks/18` | left only | {"name":"onNodeMouseMove","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseMove","_targetInst":null,"type":"mousemove","nativeEvent":{"@class":"Mous… | — |
-| `callbacks/19` | left only | {"name":"isValidConnection","args":[{"source":"Node-1","sourceHandle":null,"target":"Node-4","targetHandle":null}]} | — |
-| `callbacks/20` | left only | {"name":"onConnect","args":[{"source":"Node-1","sourceHandle":null,"target":"Node-4","targetHandle":null}]} | — |
-| `callbacks/21` | left only | {"name":"onConnectEnd","args":[{"@class":"MouseEvent","isTrusted":true},{"isValid":true,"from":{"x":75,"y":35},"fromHandle":{"id":null,"type":"source","nodeId"… | — |
-
-### props (1) — consequence of the driving divergence
+### props (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `props/connection-line-props` | left only | {"connectionLineType":"default","connectionLineStyle":{"@undefined":true},"fromNode":{"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"… | — |
 
-### console (4) — consequence of the driving divergence
+### console (4)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `console/1` | right only | — | {"level":"pageerror","text":"ps-flow: the `connectionLineComponent` prop has not crossed the JavaScript boundary yet — it lands in boundary stage 4 (the props … |
 | `console/2` | right only | — | {"level":"pageerror","text":"ps-flow: the `connectionLineComponent` prop has not crossed the JavaScript boundary yet — it lands in boundary stage 4 (the props … |
-| `console/3` | right only | — | {"level":"error","text":"The above error occurred in the <ReactFlow> component:\n\n    at ReactFlow\n    at div\n    at Flow_default (http://127.0.0.1:51095/pa… |
+| `console/3` | right only | — | {"level":"error","text":"The above error occurred in the <ReactFlow> component:\n\n    at ReactFlow\n    at div\n    at Flow_default (http://127.0.0.1:53337/pa… |
 | `console/4` | right only | — | {"level":"pageerror","text":"ps-flow: the `connectionLineComponent` prop has not crossed the JavaScript boundary yet — it lands in boundary stage 4 (the props … |
-
-## Normalization
-
-12 field(s) deleted by name and therefore **unobserved** — not passing:
-
-- `callbacks/**/timeStamp` (12) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -4971,12 +4933,14 @@ a real divergence is exactly what would be hiding down there.
 
 **Failed:** unclaimed-difference.
 
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
@@ -4988,6 +4952,8 @@ between its own captures fails against itself.
 # Comparison report — connect-to-unconnectable-handle
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
 **Failed:** 326 unclaimed difference(s).
 
@@ -5342,12 +5308,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 **Failed:** self-inconsistent, unclaimed-difference.
 
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
@@ -5370,6 +5338,8 @@ cannot yet be attributed to either implementation. Fix the reproducibility, then
 # Comparison report — delete-key-removes-edge
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
 **Failed:** 376 unclaimed difference(s).
 
@@ -5774,12 +5744,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 **Failed:** self-inconsistent, unclaimed-difference.
 
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
@@ -5790,7 +5762,7 @@ between its own captures fails against itself.
 
 | path | kind | capture 1 | capture 2 |
 |---|---|---|---|
-| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEn… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onSelectionChange#2","onMoveEnd#1","onError#1","onViewportChange#2","onMoveEnd#2","onPaneMouseEn… |
+| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEn… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEn… |
 
 **psflow did not reproduce.** The comparison below ran anyway —
 capture-everything applies to a failed run as much as to a passing one — but a difference it reports
@@ -5801,6 +5773,8 @@ cannot yet be attributed to either implementation. Fix the reproducibility, then
 # Comparison report — delete-key-removes-node-and-edges
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
 **Failed:** 296 unclaimed difference(s).
 
@@ -5872,8 +5846,8 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 | `callbacks/21` | right only | — | {"name":"onMoveEnd","args":[null,{"x":536.8553459119497,"y":32,"zoom":1.0314465408805031}]} |
 | `callbacks/22` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
 | `callbacks/23` | right only | — | {"name":"onViewportChange","args":[{"x":536.8553459119497,"y":32,"zoom":1.0314465408805031}]} |
-| `callbacks/24` | right only | — | {"name":"onSelectionChange","args":[{"nodes":[],"edges":[]}]} |
-| `callbacks/25` | right only | — | {"name":"onMoveEnd","args":[null,{"x":536.8553459119497,"y":32,"zoom":1.0314465408805031}]} |
+| `callbacks/24` | right only | — | {"name":"onMoveEnd","args":[null,{"x":536.8553459119497,"y":32,"zoom":1.0314465408805031}]} |
+| `callbacks/25` | right only | — | {"name":"onSelectionChange","args":[{"nodes":[],"edges":[]}]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onViewportChange#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onSelectionChange#2","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1"… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -6125,12 +6099,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 **Failed:** self-inconsistent, driving-divergence, unclaimed-difference.
 
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
@@ -6152,6 +6128,8 @@ cannot yet be attributed to either implementation. Fix the reproducibility, then
 # Comparison report — delete-key-spares-undeletable-edge
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
 **Failed:** 8 driving divergence(s), 379 unclaimed difference(s).
 
@@ -6577,35 +6555,29 @@ a real divergence is exactly what would be hiding down there.
 
 # System parity run — delete-key-spares-undeletable-node
 
-**Failed:** self-inconsistent, unclaimed-difference.
+**Failed:** unclaimed-difference.
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | **disagrees with itself** | 1 |
-
-### psflow disagrees with itself
-
-| path | kind | capture 1 | capture 2 |
-|---|---|---|---|
-| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEn… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onSelectionChange#2","onMoveEnd#1","onError#1","onViewportChange#2","onMoveEnd#2","onPaneMouseEn… |
-
-**psflow did not reproduce.** The comparison below ran anyway —
-capture-everything applies to a failed run as much as to a passing one — but a difference it reports
-cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
+| psflow | 1, 2 | reproduced | 0 |
 
 ---
 
 # Comparison report — delete-key-spares-undeletable-node
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
 **Failed:** 315 unclaimed difference(s).
 
@@ -6949,12 +6921,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 **Failed:** self-inconsistent, unclaimed-difference.
 
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
@@ -6976,6 +6950,8 @@ cannot yet be attributed to either implementation. Fix the reproducibility, then
 # Comparison report — drag-by-custom-drag-handle
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
 **Failed:** 710 unclaimed difference(s).
 
@@ -7076,10 +7052,10 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 | `callbacks/46` | right only | — | {"name":"onMoveEnd","args":[null,{"x":516.8553459119497,"y":32,"zoom":1.0314465408805031}]} |
 | `callbacks/47` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
 | `callbacks/48` | right only | — | {"name":"onViewportChange","args":[{"x":486.85534591194966,"y":32,"zoom":1.0314465408805031}]} |
-| `callbacks/49` | right only | — | {"name":"onMoveEnd","args":[null,{"x":486.85534591194966,"y":32,"zoom":1.0314465408805031}]} |
+| `callbacks/52` | right only | — | {"name":"onMoveEnd","args":[null,{"x":486.85534591194966,"y":32,"zoom":1.0314465408805031}]} |
 | `callbacks/53` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
 | `callbacks/54` | right only | — | {"name":"onViewportChange","args":[{"x":451.85534591194966,"y":32,"zoom":1.0314465408805031}]} |
-| `callbacks/55` | right only | — | {"name":"onMoveEnd","args":[null,{"x":451.85534591194966,"y":32,"zoom":1.0314465408805031}]} |
+| `callbacks/58` | right only | — | {"name":"onMoveEnd","args":[null,{"x":451.85534591194966,"y":32,"zoom":1.0314465408805031}]} |
 | `callbacks/59` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
 | `callbacks/60` | right only | — | {"name":"onViewportChange","args":[{"x":414.35534591194966,"y":32,"zoom":1.0314465408805031}]} |
 | `callbacks/61` | right only | — | {"name":"onMoveEnd","args":[null,{"x":414.35534591194966,"y":32,"zoom":1.0314465408805031}]} |
@@ -7714,12 +7690,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 **Failed:** unclaimed-difference.
 
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
@@ -7731,6 +7709,8 @@ between its own captures fails against itself.
 # Comparison report — drag-does-not-move-undraggable-node
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
 **Failed:** 231 unclaimed difference(s).
 
@@ -7990,12 +7970,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 **Failed:** self-inconsistent, unclaimed-difference.
 
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
@@ -8017,18 +7999,18 @@ between its own captures fails against itself.
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | 271.4631984828848 | 268.9022228731287 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | background-color: red; height: 36px; pointer-events: all; transform: translate(196.463px, 193.902px); visibility: visible; width: 150px; z-index: 1000; | background-color: red; height: 36px; pointer-events: all; transform: translate(193.902px, 193.902px); visibility: visible; width: 150px; z-index: 1000; |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEn… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEn… |
-| `callbacks/49/args/0/0/position/x` | differs | 196.46341463414637 | 193.90243902439028 |
-| `callbacks/49/args/0/0/positionAbsolute/x` | differs | 196.46341463414637 | 193.90243902439028 |
-| `callbacks/50/args/1/position/x` | differs | 196.46341463414637 | 193.90243902439028 |
-| `callbacks/50/args/2/0/position/x` | differs | 196.46341463414637 | 193.90243902439028 |
+| `callbacks/48/args/0/0/position/x` | differs | 196.46341463414637 | 193.90243902439028 |
+| `callbacks/48/args/0/0/positionAbsolute/x` | differs | 196.46341463414637 | 193.90243902439028 |
+| `callbacks/49/args/1/position/x` | differs | 196.46341463414637 | 193.90243902439028 |
+| `callbacks/49/args/2/0/position/x` | differs | 196.46341463414637 | 193.90243902439028 |
 | `callbacks/52/args/0/0/position/x` | differs | 196.46341463414637 | 193.90243902439028 |
 | `callbacks/52/args/0/0/positionAbsolute/x` | differs | 196.46341463414637 | 193.90243902439028 |
 | `callbacks/53/args/1/position/x` | differs | 196.46341463414637 | 193.90243902439028 |
 | `callbacks/53/args/2/0/position/x` | differs | 196.46341463414637 | 193.90243902439028 |
 | `callbacks/54/args/0/x` | differs | 512.8930817610062 | 514.2138364779873 |
 | `callbacks/56/args/0/x` | differs | 512.8930817610062 | 514.2138364779873 |
-| `callbacks/57/args/1/position/x` | differs | 196.46341463414637 | 193.90243902439028 |
-| `callbacks/58/args/1/x` | differs | 512.8930817610062 | 514.2138364779873 |
+| `callbacks/57/args/1/x` | differs | 512.8930817610062 | 514.2138364779873 |
+| `callbacks/58/args/1/position/x` | differs | 196.46341463414637 | 193.90243902439028 |
 
 **psflow did not reproduce.** The comparison below ran anyway —
 capture-everything applies to a failed run as much as to a passing one — but a difference it reports
@@ -8039,6 +8021,8 @@ cannot yet be attributed to either implementation. Fix the reproducibility, then
 # Comparison report — drag-moves-node
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
 **Failed:** 655 unclaimed difference(s).
 
@@ -8131,21 +8115,21 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 | `callbacks/18` | right only | — | {"name":"onMoveEnd","args":[null,{"x":536.8553459119497,"y":32,"zoom":1.0314465408805031}]} |
 | `callbacks/24` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
 | `callbacks/25` | right only | — | {"name":"onViewportChange","args":[{"x":536.8553459119497,"y":32,"zoom":1.0314465408805031}]} |
-| `callbacks/29` | right only | — | {"name":"onMoveEnd","args":[null,{"x":536.8553459119497,"y":32,"zoom":1.0314465408805031}]} |
+| `callbacks/26` | right only | — | {"name":"onMoveEnd","args":[null,{"x":536.8553459119497,"y":32,"zoom":1.0314465408805031}]} |
 | `callbacks/30` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
 | `callbacks/31` | right only | — | {"name":"onViewportChange","args":[{"x":536.8553459119497,"y":32,"zoom":1.0314465408805031}]} |
-| `callbacks/32` | right only | — | {"name":"onMoveEnd","args":[null,{"x":536.8553459119497,"y":32,"zoom":1.0314465408805031}]} |
+| `callbacks/37` | right only | — | {"name":"onMoveEnd","args":[null,{"x":536.8553459119497,"y":32,"zoom":1.0314465408805031}]} |
 | `callbacks/38` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
 | `callbacks/39` | right only | — | {"name":"onViewportChange","args":[{"x":536.8553459119497,"y":32,"zoom":1.0314465408805031}]} |
-| `callbacks/40` | right only | — | {"name":"onMoveEnd","args":[null,{"x":536.8553459119497,"y":32,"zoom":1.0314465408805031}]} |
+| `callbacks/44` | right only | — | {"name":"onMoveEnd","args":[null,{"x":536.8553459119497,"y":32,"zoom":1.0314465408805031}]} |
 | `callbacks/45` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
 | `callbacks/46` | right only | — | {"name":"onViewportChange","args":[{"x":534.2138364779875,"y":32,"zoom":1.0314465408805031}]} |
-| `callbacks/47` | right only | — | {"name":"onMoveEnd","args":[null,{"x":534.2138364779875,"y":32,"zoom":1.0314465408805031}]} |
+| `callbacks/50` | right only | — | {"name":"onMoveEnd","args":[null,{"x":534.2138364779875,"y":32,"zoom":1.0314465408805031}]} |
 | `callbacks/51` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
 | `callbacks/54` | right only | — | {"name":"onViewportChange","args":[{"x":512.8930817610062,"y":32,"zoom":1.0314465408805031}]} |
 | `callbacks/55` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
 | `callbacks/56` | right only | — | {"name":"onViewportChange","args":[{"x":512.8930817610062,"y":32,"zoom":1.0314465408805031}]} |
-| `callbacks/58` | right only | — | {"name":"onMoveEnd","args":[null,{"x":512.8930817610062,"y":32,"zoom":1.0314465408805031}]} |
+| `callbacks/57` | right only | — | {"name":"onMoveEnd","args":[null,{"x":512.8930817610062,"y":32,"zoom":1.0314465408805031}]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onViewportChange#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onSelectionChange#2","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1"… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -8722,12 +8706,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 **Failed:** unclaimed-difference.
 
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
@@ -8739,6 +8725,8 @@ between its own captures fails against itself.
 # Comparison report — drag-pans-the-pane
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
 **Failed:** 70 unclaimed difference(s).
 
@@ -8837,12 +8825,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 **Failed:** unclaimed-difference.
 
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
@@ -8854,6 +8844,8 @@ between its own captures fails against itself.
 # Comparison report — mount-baseline--edges-general
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
 **Failed:** 321 unclaimed difference(s).
 
@@ -9195,14 +9187,16 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 # System parity run — mount-baseline--edges-general--probe-edge
 
-**Failed:** driving-divergence, unclaimed-difference.
+**Failed:** unclaimed-difference.
+
+Compared sections: `props`, `console`. All seven remain captured in the trace.
 
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
@@ -9215,56 +9209,26 @@ between its own captures fails against itself.
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
 
-**Failed:** 3 driving divergence(s), 13 unclaimed difference(s).
+Compared sections: `props`, `console`.
 
-**The inputs differed.** The driving log records what was done *to* each side — the target, whether
-it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
-own render, so the pointer follows a divergence: two sides that place a node five pixels apart both
-drag successfully while the two runs were not one experiment. Until the log agrees, every section
-below it is a **consequence of the driving divergence**. None of them is suppressed —
-a real divergence is exactly what would be hiding down there.
+**Failed:** 6 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### driving (3)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `driving/0/resolved` | differs | true | false |
-| `driving/0/box` | differs | {"x":0,"y":0,"width":1280,"height":720} | null |
-| `driving/0/dispatched` | differs | {"route":"/tests/generic/edges/general"} | null |
-
-### dom (1) — consequence of the driving divergence
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root` | differs | {"tag":"div","attrs":{"data-testid":"rf__wrapper","class":"light react-flow","role":"application","style":"height: 100%; overflow: hidden; position: relative; … | null |
-
-### callbacks (6) — consequence of the driving divergence
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `callbacks/0` | left only | {"name":"onSelectionChange","args":[{"nodes":[],"edges":[]}]} | — |
-| `callbacks/1` | left only | {"name":"onMoveStart","args":[null,{"x":0,"y":0,"zoom":1}]} | — |
-| `callbacks/2` | left only | {"name":"onViewportChange","args":[{"x":546.2857142857142,"y":32,"zoom":0.9371428571428572}]} | — |
-| `callbacks/3` | left only | {"name":"onMove","args":[null,{"x":546.2857142857142,"y":32,"zoom":0.9371428571428572}]} | — |
-| `callbacks/4` | left only | {"name":"onNodesChange","args":[[{"id":"1","type":"dimensions","dimensions":{"width":150,"height":36}},{"id":"2","type":"dimensions","dimensions":{"width":150,… | — |
-| `callbacks/5` | left only | {"name":"onMoveEnd","args":[null,{"x":546.2857142857142,"y":32,"zoom":0.9371428571428572}]} | — |
-
-### props (2) — consequence of the driving divergence
+### props (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `props/edge-component-props` | left only | {"id":"edge-with-class","source":"1","target":"2","type":"__psflow_edge_probe","selected":{"@undefined":true},"animated":{"@undefined":true},"selectable":true,… | — |
 | `props/edge-props` | left only | {"id":"edge-with-class","source":"1","target":"2","type":"__psflow_edge_probe","selected":{"@undefined":true},"animated":{"@undefined":true},"selectable":true,… | — |
 
-### console (4) — consequence of the driving divergence
+### console (4)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `console/1` | right only | — | {"level":"pageerror","text":"ps-flow: the `edgeTypes` prop has not crossed the JavaScript boundary yet — it lands in boundary stage 4 (the props that hand a co… |
 | `console/2` | right only | — | {"level":"pageerror","text":"ps-flow: the `edgeTypes` prop has not crossed the JavaScript boundary yet — it lands in boundary stage 4 (the props that hand a co… |
-| `console/3` | right only | — | {"level":"error","text":"The above error occurred in the <ReactFlow> component:\n\n    at ReactFlow\n    at div\n    at Flow_default (http://127.0.0.1:51095/pa… |
+| `console/3` | right only | — | {"level":"error","text":"The above error occurred in the <ReactFlow> component:\n\n    at ReactFlow\n    at div\n    at Flow_default (http://127.0.0.1:53337/pa… |
 | `console/4` | right only | — | {"level":"pageerror","text":"ps-flow: the `edgeTypes` prop has not crossed the JavaScript boundary yet — it lands in boundary stage 4 (the props that hand a co… |
 
 
@@ -9274,12 +9238,14 @@ a real divergence is exactly what would be hiding down there.
 
 **Failed:** unclaimed-difference.
 
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
@@ -9291,6 +9257,8 @@ between its own captures fails against itself.
 # Comparison report — mount-baseline--examples-color-mode
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
 **Failed:** 41 unclaimed difference(s).
 
@@ -9349,12 +9317,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 **Failed:** unclaimed-difference.
 
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
@@ -9366,6 +9336,8 @@ between its own captures fails against itself.
 # Comparison report — mount-baseline--node-toolbar-general
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
 **Failed:** 237 unclaimed difference(s).
 
@@ -9625,12 +9597,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 **Failed:** unclaimed-difference.
 
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
@@ -9642,6 +9616,8 @@ between its own captures fails against itself.
 # Comparison report — mount-baseline--nodes-general
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
 **Failed:** 147 unclaimed difference(s).
 
@@ -9809,25 +9785,39 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 # System parity run — mount-baseline--pane-general
 
-**Failed:** unclaimed-difference.
+**Failed:** self-inconsistent, unclaimed-difference.
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | **disagrees with itself** | 1 |
+
+### psflow disagrees with itself
+
+| path | kind | capture 1 | capture 2 |
+|---|---|---|---|
+| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2"] | ["onSelectionChange#1","onSelectionChange#2","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onViewportChange#2","onMoveEnd#2"] |
+
+**psflow did not reproduce.** The comparison below ran anyway —
+capture-everything applies to a failed run as much as to a passing one — but a difference it reports
+cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
 ---
 
 # Comparison report — mount-baseline--pane-general
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
 **Failed:** 66 unclaimed difference(s).
 
@@ -9916,12 +9906,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 **Failed:** unclaimed-difference.
 
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
@@ -9933,6 +9925,8 @@ between its own captures fails against itself.
 # Comparison report — mount-baseline--pane-non-defaults
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
 **Failed:** 49 unclaimed difference(s).
 
@@ -10002,25 +9996,39 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 # System parity run — multi-select-edges-with-modifier
 
-**Failed:** driving-divergence, unclaimed-difference.
+**Failed:** self-inconsistent, driving-divergence, unclaimed-difference.
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | **disagrees with itself** | 1 |
+
+### psflow disagrees with itself
+
+| path | kind | capture 1 | capture 2 |
+|---|---|---|---|
+| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEnter#1","onEd… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEnter#1","onEd… |
+
+**psflow did not reproduce.** The comparison below ran anyway —
+capture-everything applies to a failed run as much as to a passing one — but a difference it reports
+cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
 ---
 
 # Comparison report — multi-select-edges-with-modifier
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
 **Failed:** 3 driving divergence(s), 458 unclaimed difference(s).
 
@@ -10234,7 +10242,7 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/6` | right only | — | {"name":"onMoveEnd","args":[null,{"x":546.2857142857142,"y":32,"zoom":0.9371428571428572}]} |
 | `callbacks/12` | right only | — | {"name":"onNodesChange","args":[[]]} |
 | `callbacks/14` | right only | — | {"name":"onViewportChange","args":[{"x":546.2857142857142,"y":32,"zoom":0.9371428571428572}]} |
-| `callbacks/15` | right only | — | {"name":"onMoveEnd","args":[null,{"x":546.2857142857142,"y":32,"zoom":0.9371428571428572}]} |
+| `callbacks/16` | right only | — | {"name":"onMoveEnd","args":[null,{"x":546.2857142857142,"y":32,"zoom":0.9371428571428572}]} |
 | `callbacks/23` | right only | — | {"name":"onViewportChange","args":[{"x":546.2857142857142,"y":32,"zoom":0.9371428571428572}]} |
 | `callbacks/24` | right only | — | {"name":"onMoveEnd","args":[null,{"x":546.2857142857142,"y":32,"zoom":0.9371428571428572}]} |
 | `callbacks/25` | right only | — | {"name":"onSelectionChange","args":[{"nodes":[],"edges":[{"id":"edge-with-class","type":{"@undefined":true},"source":"1","target":"2","sourceHandle":{"@undefin… |
@@ -10522,12 +10530,14 @@ a real divergence is exactly what would be hiding down there.
 
 **Failed:** unclaimed-difference.
 
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
@@ -10539,6 +10549,8 @@ between its own captures fails against itself.
 # Comparison report — select-dark-color-mode
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
 **Failed:** 41 unclaimed difference(s).
 
@@ -10595,35 +10607,29 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 # System parity run — shift-drag-selects-nodes
 
-**Failed:** self-inconsistent, unclaimed-difference.
+**Failed:** unclaimed-difference.
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | **disagrees with itself** | 1 |
-
-### psflow disagrees with itself
-
-| path | kind | capture 1 | capture 2 |
-|---|---|---|---|
-| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onNodesChange… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onSelectionChange#2","onMoveEnd#1","onError#1","onViewportChange#2","onMoveEnd#2","onNodesChange… |
-
-**psflow did not reproduce.** The comparison below ran anyway —
-capture-everything applies to a failed run as much as to a passing one — but a difference it reports
-cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
+| psflow | 1, 2 | reproduced | 0 |
 
 ---
 
 # Comparison report — shift-drag-selects-nodes
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
 **Failed:** 253 unclaimed difference(s).
 
@@ -10905,12 +10911,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 **Failed:** unclaimed-difference.
 
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
@@ -10922,6 +10930,8 @@ between its own captures fails against itself.
 # Comparison report — wheel-pans-with-panonscroll
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
 **Failed:** 60 unclaimed difference(s).
 
@@ -11008,25 +11018,21 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 # System parity run — wheel-zooms-in-to-max
 
-**Failed:** self-inconsistent, self-inconsistent, unclaimed-difference.
+**Failed:** self-inconsistent, unclaimed-difference.
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
-| upstream | 1, 2 | **disagrees with itself** | 1 |
+| upstream | 1, 2 | reproduced | 0 |
 | psflow | 1, 2 | **disagrees with itself** | 1 |
-
-### upstream disagrees with itself
-
-| path | kind | capture 1 | capture 2 |
-|---|---|---|---|
-| `callbacks/11` | right only | — | {"name":"onMoveEnd","args":[{"@class":"WheelEvent","isTrusted":true},{"x":340,"y":88,"zoom":4}]} |
 
 ### psflow disagrees with itself
 
@@ -11034,7 +11040,7 @@ between its own captures fails against itself.
 |---|---|---|---|
 | `callbacks/10` | left only | {"name":"onMoveEnd","args":[null,{"x":340,"y":88,"zoom":4}]} | — |
 
-**upstream and psflow did not reproduce.** The comparison below ran anyway —
+**psflow did not reproduce.** The comparison below ran anyway —
 capture-everything applies to a failed run as much as to a passing one — but a difference it reports
 cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
@@ -11043,6 +11049,8 @@ cannot yet be attributed to either implementation. Fix the reproducibility, then
 # Comparison report — wheel-zooms-in-to-max
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
 **Failed:** 60 unclaimed difference(s).
 
@@ -11129,25 +11137,39 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 # System parity run — wheel-zooms-out-to-min
 
-**Failed:** unclaimed-difference.
+**Failed:** self-inconsistent, unclaimed-difference.
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | **disagrees with itself** | 1 |
+
+### psflow disagrees with itself
+
+| path | kind | capture 1 | capture 2 |
+|---|---|---|---|
+| `callbacks/10` | right only | — | {"name":"onMoveEnd","args":[null,{"x":621.25,"y":343,"zoom":0.25}]} |
+
+**psflow did not reproduce.** The comparison below ran anyway —
+capture-everything applies to a failed run as much as to a passing one — but a difference it reports
+cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
 ---
 
 # Comparison report — wheel-zooms-out-to-min
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
 **Failed:** 59 unclaimed difference(s).
 
@@ -11233,25 +11255,39 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 # System parity run — wheel-zooms-the-pane
 
-**Failed:** unclaimed-difference.
+**Failed:** self-inconsistent, unclaimed-difference.
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | **disagrees with itself** | 1 |
+
+### psflow disagrees with itself
+
+| path | kind | capture 1 | capture 2 |
+|---|---|---|---|
+| `callbacks/10` | right only | — | {"name":"onMoveEnd","args":[null,{"x":422.8598166407096,"y":163.12623375424337,"zoom":2.8952024447905385}]} |
+
+**psflow did not reproduce.** The comparison below ran anyway —
+capture-everything applies to a failed run as much as to a passing one — but a difference it reports
+cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
 ---
 
 # Comparison report — wheel-zooms-the-pane
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
 **Failed:** 71 unclaimed difference(s).
 
@@ -11351,12 +11387,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 **Failed:** unclaimed-difference.
 
+Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
 ## Self-consistency
 
 Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with
-no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble
-between its own captures fails against itself.
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
 
 | side | captures | verdict | differences |
 |---|---|---|---|
@@ -11369,90 +11407,29 @@ between its own captures fails against itself.
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
 
-**Failed:** 443 unclaimed difference(s).
+Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
+
+**Failed:** 524 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (18)
+### callbacks (6)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/1/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/1/attrs/style` | differs | pointer-events: all; transform: translate(0px, 0px); visibility: visible; z-index: 0; | height: 18px; pointer-events: all; transform: translate(0px, 0px); visibility: visible; width: 8px; z-index: 0; |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/2/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/2/attrs/style` | differs | pointer-events: all; transform: translate(-100px, 100px); visibility: visible; z-index: 0; | height: 36px; pointer-events: all; transform: translate(-100px, 100px); visibility: visible; width: 150px; z-index: 0; |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/2/children/1-2-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"2","data-handlepos":"top","data-id":"1-2-null-target","class":"connectable connectableend connectablestart connectionindic… | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/2/children/1-2-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"2","data-handlepos":"bottom","data-id":"1-2-null-source","class":"connectable connectableend connectablestart connectionin… | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/2/children/1-2--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/2/children/1-2--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/3/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/3/attrs/style` | differs | pointer-events: all; transform: translate(100px, 100px); visibility: visible; z-index: 0; | height: 36px; pointer-events: all; transform: translate(100px, 100px); visibility: visible; width: 150px; z-index: 0; |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/3/children/1-3-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"3","data-handlepos":"top","data-id":"1-3-null-target","class":"connectable connectableend connectablestart connectionindic… | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/3/children/1-3-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"3","data-handlepos":"bottom","data-id":"1-3-null-source","class":"connectable connectableend connectablestart connectionin… | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/3/children/1-3--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/3/children/1-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
+| `callbacks/2` | left only | {"name":"useOnViewportChange","args":[{"x":540,"y":88,"zoom":4}],"probe":true} | — |
+| `callbacks/3` | left only | {"name":"useOnViewportChange","args":[{"x":540,"y":88,"zoom":4}],"probe":true} | — |
+| `callbacks/4` | left only | {"name":"useOnViewportChange","args":[{"x":552.9449436703876,"y":123.21024678345424,"zoom":3.4822022531844965}],"probe":true} | — |
+| `callbacks/0/args/0/x` | differs | 0 | 540 |
+| `callbacks/0/args/0/y` | differs | 0 | 88 |
+| `callbacks/0/args/0/zoom` | differs | 1 | 4 |
 
-### callbacks (40)
+### hooks (147)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/1` | left only | {"name":"onMoveStart","args":[null,{"x":0,"y":0,"zoom":1}]} | — |
-| `callbacks/3` | left only | {"name":"onMove","args":[null,{"x":390.57142857142856,"y":133.85142857142858,"zoom":3.3257142857142856}]} | — |
-| `callbacks/8` | left only | {"name":"onMoveStart","args":[{"@class":"WheelEvent","isTrusted":true},{"x":390.57142857142856,"y":133.85142857142858,"zoom":3.3257142857142856}]} | — |
-| `callbacks/10` | left only | {"name":"onMove","args":[{"@class":"WheelEvent","isTrusted":true},{"x":422.8598166407096,"y":163.12623375424337,"zoom":2.8952024447905385}]} | — |
-| `callbacks/4` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
-| `callbacks/5` | right only | — | {"name":"onSelectionChange","args":[{"nodes":[],"edges":[]}]} |
-| `callbacks/7` | right only | — | {"name":"onMoveEnd","args":[null,{"x":390.57142857142856,"y":133.85142857142858,"zoom":3.3257142857142856}]} |
-| `callbacks/10` | right only | — | {"name":"onViewportChange","args":[{"x":422.8598166407096,"y":163.12623375424337,"zoom":2.8952024447905385}]} |
-| `callbacks/11` | right only | — | {"name":"useOnSelectionChange","args":[{"nodes":[],"edges":[]}]} |
-| `callbacks` | ordered differently | ["onSelectionChange#1","onViewportChange#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onPaneMouseMove#1","onViewportChange#2","useOnViewportChange#… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onViewportChange#2","onPaneMouseEnter#1","onPaneMouseMove#1","useOnViewportChange#… |
-| `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/0/dragging` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/0/selected` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/0/item` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/0/resizing` | right only | — | false |
-| `callbacks/4/args/0/0/setAttributes` | right only | — | true |
-| `callbacks/4/args/0/1/position` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/1/positionAbsolute` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/1/dragging` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/1/selected` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/1/item` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/1/index` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/1/resizing` | right only | — | false |
-| `callbacks/4/args/0/1/setAttributes` | right only | — | true |
-| `callbacks/4/args/0/2/position` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/2/positionAbsolute` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/2/dragging` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/2/selected` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/2/item` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/2/index` | right only | — | {"@undefined":true} |
-| `callbacks/4/args/0/2/resizing` | right only | — | false |
-| `callbacks/4/args/0/2/setAttributes` | right only | — | true |
-| `callbacks/9/args/0/x` | differs | 422.8598166407096 | 390.57142857142856 |
-| `callbacks/9/args/0/y` | differs | 163.12623375424337 | 133.85142857142858 |
-| `callbacks/9/args/0/zoom` | differs | 2.8952024447905385 | 3.3257142857142856 |
-| `callbacks/11/args/0/x` | differs | 0 | 390.57142857142856 |
-| `callbacks/11/args/0/y` | differs | 0 | 133.85142857142858 |
-| `callbacks/11/args/0/zoom` | differs | 1 | 3.3257142857142856 |
-
-### hooks (151)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `hooks/node-probe/useHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `hooks/node-probe/useHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `hooks/node-probe/useHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `hooks/node-probe/useHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `hooks/node-probe/useNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
 | `hooks/node-probe/useNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `hooks/node-probe/useNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `hooks/node-probe/useNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `hooks/flow-probe/useConnection/inProgress` | left only | false | — |
 | `hooks/flow-probe/useEdges/0/type` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useEdges/0/sourceHandle` | right only | — | {"@undefined":true} |
@@ -11488,9 +11465,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 | `hooks/flow-probe/useEdges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useEdges/1/className` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useEdges/1/style` | right only | — | {"@undefined":true} |
-| `hooks/flow-probe/useInternalNode/internals/handleBounds/source` | differs | null | [] |
+| `hooks/flow-probe/useInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
+| `hooks/flow-probe/useInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00003679426798 |
+| `hooks/flow-probe/useInternalNode/internals/handleBounds/source/0/y` | differs | 31 | 31.000018688094766 |
 | `hooks/flow-probe/useInternalNode/internals/handleBounds/target` | differs | null | [] |
-| `hooks/flow-probe/useInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"__psflow_node_probe","measured":{"width":8,"height":18}} | — |
+| `hooks/flow-probe/useInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":36}} | — |
 | `hooks/flow-probe/useInternalNode/internals/rootParentIndex` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useInternalNode/internals/bounds` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useInternalNode/sourcePosition` | right only | — | {"@undefined":true} |
@@ -11503,8 +11482,8 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 | `hooks/flow-probe/useInternalNode/connectable` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useInternalNode/deletable` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useInternalNode/dragHandle` | right only | — | {"@undefined":true} |
-| `hooks/flow-probe/useInternalNode/width` | right only | — | 8 |
-| `hooks/flow-probe/useInternalNode/height` | right only | — | 18 |
+| `hooks/flow-probe/useInternalNode/width` | right only | — | 150 |
+| `hooks/flow-probe/useInternalNode/height` | right only | — | 36 |
 | `hooks/flow-probe/useInternalNode/initialWidth` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useInternalNode/initialHeight` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useInternalNode/parentId` | right only | — | {"@undefined":true} |
@@ -11526,8 +11505,8 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 | `hooks/flow-probe/useNodes/0/connectable` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/0/deletable` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/0/dragHandle` | right only | — | {"@undefined":true} |
-| `hooks/flow-probe/useNodes/0/width` | right only | — | 8 |
-| `hooks/flow-probe/useNodes/0/height` | right only | — | 18 |
+| `hooks/flow-probe/useNodes/0/width` | right only | — | 150 |
+| `hooks/flow-probe/useNodes/0/height` | right only | — | 36 |
 | `hooks/flow-probe/useNodes/0/initialWidth` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/0/initialHeight` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/0/parentId` | right only | — | {"@undefined":true} |
@@ -11563,7 +11542,6 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 | `hooks/flow-probe/useNodes/1/handles` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/1/className` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/1/style` | right only | — | {"@undefined":true} |
-| `hooks/flow-probe/useNodes/2/type` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/2/sourcePosition` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/2/targetPosition` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/2/hidden` | right only | — | false |
@@ -11574,8 +11552,8 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 | `hooks/flow-probe/useNodes/2/connectable` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/2/deletable` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/2/dragHandle` | right only | — | {"@undefined":true} |
-| `hooks/flow-probe/useNodes/2/width` | right only | — | 150 |
-| `hooks/flow-probe/useNodes/2/height` | right only | — | 36 |
+| `hooks/flow-probe/useNodes/2/width` | right only | — | {"@undefined":true} |
+| `hooks/flow-probe/useNodes/2/height` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/2/initialWidth` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/2/initialHeight` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/2/parentId` | right only | — | {"@undefined":true} |
@@ -11585,11 +11563,12 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 | `hooks/flow-probe/useNodes/2/ariaLabel` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/2/origin` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/2/handles` | right only | — | {"@undefined":true} |
+| `hooks/flow-probe/useNodes/2/measured` | right only | — | {"width":{"@undefined":true},"height":{"@undefined":true}} |
 | `hooks/flow-probe/useNodes/2/className` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/2/style` | right only | — | {"@undefined":true} |
-| `hooks/flow-probe/useStore/nodes` | left only | [{"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"__psflow_node_probe","measured":{"width":8,"height":18}},{"id":"2","data":{"label":"2"},"posit… | — |
+| `hooks/flow-probe/useStore/nodes` | left only | [{"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":36}},{"id":"2","data":{"label":"2"},"position":{"x":-1… | — |
 | `hooks/flow-probe/useStore/edges` | left only | [{"id":"first-edge","source":"1","target":"2"},{"id":"second-edge","source":"1","target":"3"}] | — |
-| `hooks/flow-probe/useStore/transform` | left only | [422.8598166407096,163.12623375424337,2.8952024447905385] | — |
+| `hooks/flow-probe/useStore/transform` | left only | [552.9449436703876,123.21024678345424,3.4822022531844965] | — |
 | `hooks/flow-probe/useStore/viewportInitialized` | left only | {"@undefined":true} | — |
 | `hooks/flow-probe/useStore/error` | right only | — | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
 | `hooks/flow-probe/useStoreApi/getState` | left only | {"@ref":"function"} | — |
@@ -11597,11 +11576,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 | `hooks/flow-probe/useStoreApi/subscribe` | left only | {"@ref":"function"} | — |
 | `hooks/flow-probe/useStoreApi/error` | right only | — | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
 
-### api (211)
+### api (360)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getState` | left only | {"rfId":"1","width":1280,"height":720,"transform":[390.57142857142856,133.85142857142858,3.3257142857142856],"nodes":[{"id":"1","data":{"label":"1"},"position"… | — |
+| `api/queries/getState` | left only | {"rfId":"1","width":1280,"height":720,"transform":[552.9449436703876,123.21024678345424,3.4822022531844965],"nodes":[{"id":"1","data":{"label":"1"},"position":… | — |
 | `api/queries/getNodes/0/sourcePosition` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/0/targetPosition` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/0/hidden` | right only | — | false |
@@ -11612,8 +11591,8 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 | `api/queries/getNodes/0/connectable` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/0/deletable` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/0/dragHandle` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/0/width` | right only | — | 8 |
-| `api/queries/getNodes/0/height` | right only | — | 18 |
+| `api/queries/getNodes/0/width` | right only | — | 150 |
+| `api/queries/getNodes/0/height` | right only | — | 36 |
 | `api/queries/getNodes/0/initialWidth` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/0/initialHeight` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/0/parentId` | right only | — | {"@undefined":true} |
@@ -11649,7 +11628,6 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 | `api/queries/getNodes/1/handles` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/2/type` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/2/sourcePosition` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/2/targetPosition` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
@@ -11660,8 +11638,8 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 | `api/queries/getNodes/2/connectable` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/2/deletable` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/2/dragHandle` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/2/width` | right only | — | 150 |
-| `api/queries/getNodes/2/height` | right only | — | 36 |
+| `api/queries/getNodes/2/width` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/height` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/2/initialWidth` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/2/initialHeight` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/2/parentId` | right only | — | {"@undefined":true} |
@@ -11671,8 +11649,62 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 | `api/queries/getNodes/2/ariaLabel` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/2/origin` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/2/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/measured` | right only | — | {"width":{"@undefined":true},"height":{"@undefined":true}} |
 | `api/queries/getNodes/2/className` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/2/style` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/hidden` | right only | — | false |
+| `api/queries/getNode/selected` | right only | — | false |
+| `api/queries/getNode/dragging` | right only | — | false |
+| `api/queries/getNode/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/width` | right only | — | 150 |
+| `api/queries/getNode/height` | right only | — | 36 |
+| `api/queries/getNode/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/expandParent` | right only | — | false |
+| `api/queries/getNode/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/className` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/style` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
+| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00003679426798 |
+| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 31 | 31.000018688094766 |
+| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
+| `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":36}} | — |
+| `api/queries/getInternalNode/internals/rootParentIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/internals/bounds` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/hidden` | right only | — | false |
+| `api/queries/getInternalNode/selected` | right only | — | false |
+| `api/queries/getInternalNode/dragging` | right only | — | false |
+| `api/queries/getInternalNode/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/width` | right only | — | 150 |
+| `api/queries/getInternalNode/height` | right only | — | 36 |
+| `api/queries/getInternalNode/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/expandParent` | right only | — | false |
+| `api/queries/getInternalNode/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/className` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/style` | right only | — | {"@undefined":true} |
 | `api/queries/getEdges/0/type` | right only | — | {"@undefined":true} |
 | `api/queries/getEdges/0/sourceHandle` | right only | — | {"@undefined":true} |
 | `api/queries/getEdges/0/targetHandle` | right only | — | {"@undefined":true} |
@@ -11707,6 +11739,102 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 | `api/queries/getEdges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/getEdges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/getEdges/1/style` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/type` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/sourceHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/targetHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/animated` | right only | — | false |
+| `api/queries/getEdge/hidden` | right only | — | false |
+| `api/queries/getEdge/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/data` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/selected` | right only | — | false |
+| `api/queries/getEdge/markerStart` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/markerEnd` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/label` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/interactionWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/className` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/style` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/0/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/width` | right only | — | 150 |
+| `api/queries/getIntersectingNodes/0/height` | right only | — | 36 |
+| `api/queries/getIntersectingNodes/0/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
+| `api/queries/getIntersectingNodes/0/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/className` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/style` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/type` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/1/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/width` | right only | — | 150 |
+| `api/queries/getIntersectingNodes/1/height` | right only | — | 36 |
+| `api/queries/getIntersectingNodes/1/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
+| `api/queries/getIntersectingNodes/1/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/className` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/style` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/2/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/width` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/height` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
+| `api/queries/getIntersectingNodes/2/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/measured` | right only | — | {"width":{"@undefined":true},"height":{"@undefined":true}} |
+| `api/queries/getIntersectingNodes/2/className` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/style` | right only | — | {"@undefined":true} |
+| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/sourcePosition` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/targetPosition` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
@@ -11717,8 +11845,8 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 | `api/queries/toObject/nodes/0/connectable` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/deletable` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/dragHandle` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/0/width` | right only | — | 8 |
-| `api/queries/toObject/nodes/0/height` | right only | — | 18 |
+| `api/queries/toObject/nodes/0/width` | right only | — | 150 |
+| `api/queries/toObject/nodes/0/height` | right only | — | 36 |
 | `api/queries/toObject/nodes/0/initialWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/initialHeight` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/parentId` | right only | — | {"@undefined":true} |
@@ -11754,7 +11882,6 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 | `api/queries/toObject/nodes/1/handles` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/2/type` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/2/sourcePosition` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/2/targetPosition` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
@@ -11765,8 +11892,8 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 | `api/queries/toObject/nodes/2/connectable` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/2/deletable` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/2/dragHandle` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/2/width` | right only | — | 150 |
-| `api/queries/toObject/nodes/2/height` | right only | — | 36 |
+| `api/queries/toObject/nodes/2/width` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/height` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/2/initialWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/2/initialHeight` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/2/parentId` | right only | — | {"@undefined":true} |
@@ -11776,6 +11903,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 | `api/queries/toObject/nodes/2/ariaLabel` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/2/origin` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/2/handles` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/measured` | right only | — | {"width":{"@undefined":true},"height":{"@undefined":true}} |
 | `api/queries/toObject/nodes/2/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/2/style` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/0/type` | right only | — | {"@undefined":true} |
@@ -11813,7 +11941,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
 
-### console (23)
+### props (2)
+
+| path | kind | upstream | psflow |
+|---|---|---|---|
+| `props/node-props/width` | differs | 0 | {"@undefined":true} |
+| `props/node-props/height` | differs | 0 | {"@undefined":true} |
+
+### console (9)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -11822,28 +11957,8 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 | `console/2/level` | differs | warning | pageerror |
 | `console/2/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
 | `console/3/level` | differs | warning | pageerror |
-| `console/3/text` | differs | [React Flow]: Couldn't create edge for source handle id: "null", edge id: first-edge. Help: https://reactflow.dev/error#008 | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
-| `console/4/level` | differs | warning | pageerror |
-| `console/4/text` | differs | [React Flow]: Couldn't create edge for source handle id: "null", edge id: second-edge. Help: https://reactflow.dev/error#008 | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
-| `console/5/level` | differs | warning | error |
-| `console/5/text` | differs | [React Flow]: Couldn't create edge for source handle id: "null", edge id: first-edge. Help: https://reactflow.dev/error#008 | The above error occurred in the <HookProbe> component:⏎⏎    at HookProbe (http://127.0.0.1:51095/parity/driver/dist/psflow.js:64284:20)⏎    at HookBoundary (ht… |
-| `console/6/level` | differs | warning | error |
-| `console/6/text` | differs | [React Flow]: Couldn't create edge for source handle id: "null", edge id: second-edge. Help: https://reactflow.dev/error#008 | The above error occurred in the <HookProbe> component:⏎⏎    at HookProbe (http://127.0.0.1:51095/parity/driver/dist/psflow.js:64284:20)⏎    at HookBoundary (ht… |
-| `console/7` | left only | {"level":"warning","text":"[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNod… | — |
-| `console/8` | left only | {"level":"warning","text":"[React Flow]: Couldn't create edge for source handle id: \"null\", edge id: first-edge. Help: https://reactflow.dev/error#008"} | — |
-| `console/9` | left only | {"level":"warning","text":"[React Flow]: Couldn't create edge for source handle id: \"null\", edge id: second-edge. Help: https://reactflow.dev/error#008"} | — |
-| `console/10` | left only | {"level":"warning","text":"[React Flow]: Couldn't create edge for source handle id: \"null\", edge id: first-edge. Help: https://reactflow.dev/error#008"} | — |
-| `console/11` | left only | {"level":"warning","text":"[React Flow]: Couldn't create edge for source handle id: \"null\", edge id: second-edge. Help: https://reactflow.dev/error#008"} | — |
-| `console/12` | left only | {"level":"warning","text":"[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNod… | — |
-| `console/13` | left only | {"level":"warning","text":"[React Flow]: Couldn't create edge for source handle id: \"null\", edge id: first-edge. Help: https://reactflow.dev/error#008"} | — |
-| `console/14` | left only | {"level":"warning","text":"[React Flow]: Couldn't create edge for source handle id: \"null\", edge id: second-edge. Help: https://reactflow.dev/error#008"} | — |
-| `console/15` | left only | {"level":"warning","text":"[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNod… | — |
-| `console/16` | left only | {"level":"warning","text":"[React Flow]: Couldn't create edge for source handle id: \"null\", edge id: first-edge. Help: https://reactflow.dev/error#008"} | — |
-| `console/17` | left only | {"level":"warning","text":"[React Flow]: Couldn't create edge for source handle id: \"null\", edge id: second-edge. Help: https://reactflow.dev/error#008"} | — |
-
-## Normalization
-
-4 field(s) deleted by name and therefore **unobserved** — not passing:
-
-- `callbacks/**/timeStamp` (4) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+| `console/3/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
+| `console/4` | right only | — | {"level":"pageerror","text":"ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScri… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:54203/parity/driver/dist/psflow.js:64308:… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:54203/parity/driver/dist/psflow.js:64308:… |
 

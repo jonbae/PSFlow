@@ -91,7 +91,6 @@ export class CallLogError extends Error {
  */
 export const createCallLog = ({ maxDepth } = {}) => {
   const entries = [];
-  const probeEntries = new Map();
   const failures = [];
 
   // What the fixture driver wrapped, and `null` until one mounts at all. The
@@ -110,9 +109,9 @@ export const createCallLog = ({ maxDepth } = {}) => {
    * calls — `onNodesChange` driving a `setState` that fires another — leaves
    * them in the order the library made them.
    */
-  const record = (name, args) => {
+  const record = (name, args, metadata = {}) => {
     try {
-      entries.push(serializeCall(name, args, { maxDepth }));
+      entries.push({ ...serializeCall(name, args, { maxDepth }), ...metadata });
     } catch (e) {
       // Deliberately not rethrown here. Throwing inside a library's own event
       // dispatch changes what the page does — which is the one thing an
@@ -126,21 +125,13 @@ export const createCallLog = ({ maxDepth } = {}) => {
     record,
 
     /**
-     * A hook probe's callback is evidence that the options handed to the hook
-     * were installed, but its effect scheduling is not part of the flow-prop
-     * callback protocol. Record the first receipt per hook and append those
-     * receipts by name when read, so React effect timing cannot make a side
-     * disagree with its own trace.
+     * A hook option callback is still recorded exactly — every call, in the
+     * order it happened. The marker lets the probe comparison select these
+     * receipts without mixing in ordinary flow callbacks caused by replacing
+     * a graph type; it changes no count, order, arguments, or interleaving.
      */
-    probe(name) {
-      return (...args) => {
-        if (probeEntries.has(name)) return;
-        try {
-          probeEntries.set(name, serializeCall(name, args, { maxDepth }));
-        } catch (e) {
-          failures.push({ name, index: entries.length + probeEntries.size, error: String(e?.message ?? e) });
-        }
-      };
+    wrapProbe(name) {
+      return (...args) => record(name, args, { probe: true });
     },
 
     /**
@@ -178,9 +169,8 @@ export const createCallLog = ({ maxDepth } = {}) => {
      * `serialize.mjs` at the moment of the call.
      */
     read() {
-      const probes = [...probeEntries.values()].sort((left, right) => left.name.localeCompare(right.name));
       return {
-        entries: [...entries, ...probes],
+        entries: entries.slice(),
         failures: failures.slice(),
         observing: observing && [...observing],
       };

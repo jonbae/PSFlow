@@ -1,5 +1,5 @@
 {
-  "traceFormat": 1,
+  "traceFormat": 2,
   "scenario": "select-dark-color-mode",
   "side": "psflow",
   "capture": 1,

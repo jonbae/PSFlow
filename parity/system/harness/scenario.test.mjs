@@ -73,6 +73,14 @@ test("a scenario needs a driver route and something to run", () => {
   assert.throws(() => defineScenario({ id: "a-b", route: "tests/x", run() {} }), ScenarioError);
   assert.throws(() => defineScenario({ id: "a-b", route: "/x" }), ScenarioError);
   assert.throws(() => defineScenario({ id: "a-b", route: "/x", run() {}, touch: "yes" }), ScenarioError);
+  assert.throws(
+    () => defineScenario({ id: "a-b", route: "/x", run() {}, probeCallback: "useOnViewportChange" }),
+    /flow-node/
+  );
+  assert.throws(
+    () => defineScenario({ id: "a-b", route: "/x", run() {}, variant: "flow-node", probeCallback: "" }),
+    /probe callback/
+  );
 });
 
 // Emulation applied after the document has loaded leaves every touch inert, so
@@ -182,6 +190,29 @@ test("a probed run names its variant in the driver URL while a plain run does no
     "/parity/driver/index.html?side=psflow&observe=callbacks&probe=flow-node#/tests/generic/nodes/general"
   );
   assert.doesNotMatch(driverUrl("/tests/generic/nodes/general", "psflow", "plain"), /probe=/);
+  assert.equal(
+    driverUrl("/tests/generic/nodes/general", "psflow", "flow-node", "useOnViewportChange"),
+    "/parity/driver/index.html?side=psflow&observe=callbacks&probe=flow-node&probeCallback=useOnViewportChange#/tests/generic/nodes/general"
+  );
+});
+
+test("a run carries its selected hook callback experiment to the driver", async () => {
+  const page = fakePage();
+  const { port } = createFakePort({ boxes: { ".react-flow": FLOW } });
+  const probed = defineScenario({
+    id: "wheel-zooms-the-pane--probe-flow-node",
+    route: "/tests/generic/nodes/general",
+    run: async () => {},
+    variant: "flow-node",
+    probeCallback: "useOnViewportChange",
+  });
+
+  await runScenario(page, probed, { side: "psflow", capture: 1, baseline: "12.11.0", port });
+
+  assert.equal(
+    page.visited.at(-1),
+    "/parity/driver/index.html?side=psflow&observe=callbacks&probe=flow-node&probeCallback=useOnViewportChange#/tests/generic/nodes/general"
+  );
 });
 
 test("the run is the envelope's, and the trace validates", async () => {

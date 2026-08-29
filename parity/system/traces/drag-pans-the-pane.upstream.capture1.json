@@ -1,5 +1,5 @@
 {
-  "traceFormat": 1,
+  "traceFormat": 2,
   "scenario": "drag-pans-the-pane",
   "side": "upstream",
   "capture": 1,
@@ -468,7 +468,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 387.90000000037253,
+            "timeStamp": 708.8000000007451,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -535,7 +535,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 387.90000000037253,
+            "timeStamp": 708.8000000007451,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -614,7 +614,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 398.5,
+            "timeStamp": 732.1999999992549,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

@@ -1,5 +1,5 @@
 {
-  "traceFormat": 1,
+  "traceFormat": 2,
   "scenario": "mount-baseline--node-toolbar-general",
   "side": "psflow",
   "capture": 1,

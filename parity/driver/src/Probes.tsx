@@ -30,6 +30,7 @@ import {
 
 import plan from 'psflow:probes';
 import { installObservationLog } from '../observations.mjs';
+import { selectProbeHooks } from '../probe-hooks.mjs';
 import { publishCallLog } from './callbacks';
 
 type Props = Record<string, unknown>;
@@ -43,7 +44,7 @@ const storeSlice = (state: Props) => ({
   viewportInitialized: state.viewportInitialized,
 });
 
-const callback = (name: string) => publishCallLog().probe(name);
+const callback = (name: string) => publishCallLog().wrapProbe(name);
 
 const hooks: Record<string, (context: HookContext) => unknown> = {
   experimental_useOnEdgesChangeMiddleware: () => experimental_useOnEdgesChangeMiddleware(identity),
@@ -72,7 +73,7 @@ const hooks: Record<string, (context: HookContext) => unknown> = {
   useStore: () => useStore(storeSlice),
   useStoreApi: () => {
     const api = useStoreApi();
-    installObservationLog(window).recordQuery('getState', api.getState());
+    installObservationLog(window).registerQuery('getState', () => api.getState());
     return api;
   },
   useUpdateNodeInternals: () => useUpdateNodeInternals(),
@@ -121,19 +122,18 @@ const HookLevel = ({ probe, names, context }: { probe: string; names: string[]; 
 export const NetObserver = ({ nodeId, probes }: { nodeId?: string; probes: boolean }) => {
   installObservationLog(window).attach(useReactFlow());
   if (!probes) return null;
-  const names = plan.hooks.filter((name: string) => !NODE_HOOKS.has(name));
+  const probeCallback = new URLSearchParams(window.location.search).get('probeCallback');
+  const names = selectProbeHooks(
+    plan.hooks.filter((name: string) => !NODE_HOOKS.has(name)),
+    probeCallback,
+  );
   return <HookLevel probe="flow-probe" names={names} context={{ nodeId }} />;
 };
 
 export const NodeProbe = (props: Props) => {
   installObservationLog(window).recordProps('node-props', props);
   const names = plan.hooks.filter((name: string) => NODE_HOOKS.has(name));
-  return (
-    <div>
-      {String((props.data as Props | undefined)?.label ?? props.id ?? '')}
-      <HookLevel probe="node-probe" names={names} context={{ nodeId: String(props.id) }} />
-    </div>
-  );
+  return <HookLevel probe="node-probe" names={names} context={{ nodeId: String(props.id) }} />;
 };
 
 export const EdgeProbe = (props: Props) => {

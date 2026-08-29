@@ -24467,10 +24467,10 @@ var require_react_jsx_runtime_development = __commonJS({
           }
         }
         var jsx9 = jsxWithValidationDynamic;
-        var jsxs6 = jsxWithValidationStatic;
+        var jsxs5 = jsxWithValidationStatic;
         exports.Fragment = REACT_FRAGMENT_TYPE;
         exports.jsx = jsx9;
-        exports.jsxs = jsxs6;
+        exports.jsxs = jsxs5;
       })();
     }
   }
@@ -63884,12 +63884,11 @@ var CALL_LOG = "__psflowCalls";
 var OBSERVE = { param: "observe", callbacks: "callbacks" };
 var createCallLog = ({ maxDepth } = {}) => {
   const entries = [];
-  const probeEntries = /* @__PURE__ */ new Map();
   const failures = [];
   let observing = null;
-  const record = (name15, args) => {
+  const record = (name15, args, metadata = {}) => {
     try {
-      entries.push(serializeCall(name15, args, { maxDepth }));
+      entries.push({ ...serializeCall(name15, args, { maxDepth }), ...metadata });
     } catch (e) {
       failures.push({ name: name15, index: entries.length, error: String(e?.message ?? e) });
     }
@@ -63897,21 +63896,13 @@ var createCallLog = ({ maxDepth } = {}) => {
   return {
     record,
     /**
-     * A hook probe's callback is evidence that the options handed to the hook
-     * were installed, but its effect scheduling is not part of the flow-prop
-     * callback protocol. Record the first receipt per hook and append those
-     * receipts by name when read, so React effect timing cannot make a side
-     * disagree with its own trace.
+     * A hook option callback is still recorded exactly — every call, in the
+     * order it happened. The marker lets the probe comparison select these
+     * receipts without mixing in ordinary flow callbacks caused by replacing
+     * a graph type; it changes no count, order, arguments, or interleaving.
      */
-    probe(name15) {
-      return (...args) => {
-        if (probeEntries.has(name15)) return;
-        try {
-          probeEntries.set(name15, serializeCall(name15, args, { maxDepth }));
-        } catch (e) {
-          failures.push({ name: name15, index: entries.length + probeEntries.size, error: String(e?.message ?? e) });
-        }
-      };
+    wrapProbe(name15) {
+      return (...args) => record(name15, args, { probe: true });
     },
     /**
      * Declares which callback props a mounted fixture driver wrapped. Called on
@@ -63946,9 +63937,8 @@ var createCallLog = ({ maxDepth } = {}) => {
      * `serialize.mjs` at the moment of the call.
      */
     read() {
-      const probes = [...probeEntries.values()].sort((left, right) => left.name.localeCompare(right.name));
       return {
-        entries: [...entries, ...probes],
+        entries: entries.slice(),
         failures: failures.slice(),
         observing: observing && [...observing]
       };
@@ -64066,12 +64056,13 @@ var deriveProbeGraph = (flowConfig, variant, { NodeProbe: NodeProbe2, EdgeProbe:
   const flowProps = flowPropsOf(flowConfig, variant);
   if (variant === "flow-node") {
     if (!flowProps.nodes?.length) throw new ProbeGraphError(`${variant}: the fixture graph has no node to replace`);
-    const [first, ...rest] = flowProps.nodes;
+    const probeIndex = flowProps.nodes.findLastIndex((node) => node.hidden !== true);
+    if (probeIndex === -1) throw new ProbeGraphError(`${variant}: the fixture graph has no visible node to replace`);
     return {
       ...flowConfig,
       flowProps: {
         ...flowProps,
-        nodes: [{ ...first, type: NODE_TYPE }, ...rest],
+        nodes: flowProps.nodes.map((node, index5) => index5 === probeIndex ? { ...node, type: NODE_TYPE } : node),
         nodeTypes: { ...flowProps.nodeTypes, [NODE_TYPE]: NodeProbe2 }
       }
     };
@@ -64141,12 +64132,30 @@ var psflow_probes_default = {
 var OBSERVATIONS = "__psflowNet";
 var QUERY_READERS = Object.freeze({
   getNodes: (instance) => instance.getNodes(),
+  getNode: (instance) => instance.getNode(instance.getNodes()[0]?.id ?? "__psflow_missing_node"),
+  getInternalNode: (instance) => instance.getInternalNode(instance.getNodes()[0]?.id ?? "__psflow_missing_node"),
   getEdges: (instance) => instance.getEdges(),
+  getEdge: (instance) => instance.getEdge(instance.getEdges()[0]?.id ?? "__psflow_missing_edge"),
+  getIntersectingNodes: (instance) => instance.getIntersectingNodes({ x: 0, y: 0, width: 0, height: 0 }),
+  isNodeIntersecting: (instance) => instance.isNodeIntersecting(
+    { id: instance.getNodes()[0]?.id ?? "__psflow_missing_node" },
+    { x: 0, y: 0, width: 0, height: 0 },
+    true
+  ),
+  getNodesBounds: (instance) => instance.getNodesBounds(instance.getNodes().map(({ id: id3 }) => id3)),
+  getHandleConnections: (instance) => instance.getHandleConnections({
+    type: "source",
+    nodeId: instance.getNodes()[0]?.id ?? "__psflow_missing_node"
+  }),
+  getNodeConnections: (instance) => instance.getNodeConnections({ nodeId: instance.getNodes()[0]?.id ?? "__psflow_missing_node" }),
   toObject: (instance) => instance.toObject(),
   getZoom: (instance) => instance.getZoom(),
   getViewport: (instance) => instance.getViewport(),
+  screenToFlowPosition: (instance) => instance.screenToFlowPosition({ x: 0, y: 0 }),
+  flowToScreenPosition: (instance) => instance.flowToScreenPosition({ x: 0, y: 0 }),
   viewportInitialized: (instance) => instance.viewportInitialized
 });
+var IMPERATIVE_QUERIES = Object.freeze(Object.keys(QUERY_READERS));
 var errorValue = (error3) => ({ error: String(error3?.message ?? error3) });
 var ObservationError = class extends Error {
   constructor(message2) {
@@ -64157,7 +64166,7 @@ var ObservationError = class extends Error {
 var createObservationLog = ({ maxDepth } = {}) => {
   const hooks2 = {};
   const props = {};
-  const extraQueries = {};
+  const queryReaders = /* @__PURE__ */ new Map();
   const failures = [];
   let instance = null;
   const serialize = (value12, path) => serializeValue(value12, { path, maxDepth });
@@ -64169,7 +64178,14 @@ var createObservationLog = ({ maxDepth } = {}) => {
     }
   };
   const snapshotQueries = () => {
-    const queries = { ...extraQueries };
+    const queries = {};
+    for (const [name15, read6] of queryReaders) {
+      try {
+        queries[name15] = serialize(read6(), ["api", "queries", name15]);
+      } catch (error3) {
+        queries[name15] = errorValue(error3);
+      }
+    }
     if (!instance) return queries;
     for (const [name15, read6] of Object.entries(QUERY_READERS)) {
       try {
@@ -64195,8 +64211,12 @@ var createObservationLog = ({ maxDepth } = {}) => {
     recordProps(probe, value12) {
       record(props, probe, value12, ["props", probe]);
     },
-    recordQuery(name15, value12) {
-      record(extraQueries, name15, value12, ["api", "queries", name15]);
+    registerQuery(name15, read6) {
+      if (typeof read6 !== "function") throw new ObservationError(`${name15}: a query reader must be a function`);
+      queryReaders.set(name15, read6);
+      return () => {
+        if (queryReaders.get(name15) === read6) queryReaders.delete(name15);
+      };
     },
     async call(method2, args) {
       if (!instance) throw new ObservationError("no ReactFlow instance is attached");
@@ -64225,6 +64245,10 @@ var installObservationLog = (target5, options2) => {
   return target5[OBSERVATIONS];
 };
 
+// parity/driver/probe-hooks.mjs
+var CALLBACK_HOOKS = /* @__PURE__ */ new Set(["useOnSelectionChange", "useOnViewportChange"]);
+var selectProbeHooks = (names, probeCallback) => names.filter((name15) => !CALLBACK_HOOKS.has(name15) || name15 === probeCallback);
+
 // parity/driver/src/Probes.tsx
 var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
 var identity10 = (value12) => value12;
@@ -64234,7 +64258,7 @@ var storeSlice = (state3) => ({
   transform: state3.transform,
   viewportInitialized: state3.viewportInitialized
 });
-var callback = (name15) => publishCallLog().probe(name15);
+var callback = (name15) => publishCallLog().wrapProbe(name15);
 var hooks = {
   experimental_useOnEdgesChangeMiddleware: () => experimental_useOnEdgesChangeMiddleware(identity10),
   experimental_useOnNodesChangeMiddleware: () => experimental_useOnNodesChangeMiddleware(identity10),
@@ -64262,7 +64286,7 @@ var hooks = {
   useStore: () => useStore29(storeSlice),
   useStoreApi: () => {
     const api = useStoreApi2();
-    installObservationLog(window).recordQuery("getState", api.getState());
+    installObservationLog(window).registerQuery("getState", () => api.getState());
     return api;
   },
   useUpdateNodeInternals: () => useUpdateNodeInternals2(),
@@ -64292,16 +64316,17 @@ var HookLevel = ({ probe, names, context }) => /* @__PURE__ */ (0, import_jsx_ru
 var NetObserver = ({ nodeId, probes }) => {
   installObservationLog(window).attach(useReactFlow2());
   if (!probes) return null;
-  const names = psflow_probes_default.hooks.filter((name15) => !NODE_HOOKS.has(name15));
+  const probeCallback = new URLSearchParams(window.location.search).get("probeCallback");
+  const names = selectProbeHooks(
+    psflow_probes_default.hooks.filter((name15) => !NODE_HOOKS.has(name15)),
+    probeCallback
+  );
   return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HookLevel, { probe: "flow-probe", names, context: { nodeId } });
 };
 var NodeProbe = (props) => {
   installObservationLog(window).recordProps("node-props", props);
   const names = psflow_probes_default.hooks.filter((name15) => NODE_HOOKS.has(name15));
-  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-    String(props.data?.label ?? props.id ?? ""),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HookLevel, { probe: "node-probe", names, context: { nodeId: String(props.id) } })
-  ] });
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HookLevel, { probe: "node-probe", names, context: { nodeId: String(props.id) } });
 };
 var EdgeProbe = (props) => {
   const log3 = installObservationLog(window);

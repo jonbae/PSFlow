@@ -1,5 +1,5 @@
 {
-  "traceFormat": 1,
+  "traceFormat": 2,
   "scenario": "wheel-zooms-in-to-max",
   "side": "upstream",
   "capture": 2,
@@ -468,7 +468,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 599.5999999996275,
+            "timeStamp": 593.3999999985099,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -535,7 +535,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 599.5999999996275,
+            "timeStamp": 593.3999999985099,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -605,20 +605,6 @@
       },
       {
         "name": "onMove",
-        "args": [
-          {
-            "@class": "WheelEvent",
-            "isTrusted": true
-          },
-          {
-            "x": 340,
-            "y": 88,
-            "zoom": 4
-          }
-        ]
-      },
-      {
-        "name": "onMoveEnd",
         "args": [
           {
             "@class": "WheelEvent",

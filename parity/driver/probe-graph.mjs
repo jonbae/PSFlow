@@ -25,12 +25,16 @@ export const deriveProbeGraph = (flowConfig, variant, { NodeProbe, EdgeProbe, Co
 
   if (variant === "flow-node") {
     if (!flowProps.nodes?.length) throw new ProbeGraphError(`${variant}: the fixture graph has no node to replace`);
-    const [first, ...rest] = flowProps.nodes;
+    // The selection-capable source clicks the first node, so replace the last
+    // visible one: the probe observes a mechanically chosen mounted node
+    // without swallowing the ordinary target that makes the hook callback live.
+    const probeIndex = flowProps.nodes.findLastIndex((node) => node.hidden !== true);
+    if (probeIndex === -1) throw new ProbeGraphError(`${variant}: the fixture graph has no visible node to replace`);
     return {
       ...flowConfig,
       flowProps: {
         ...flowProps,
-        nodes: [{ ...first, type: NODE_TYPE }, ...rest],
+        nodes: flowProps.nodes.map((node, index) => (index === probeIndex ? { ...node, type: NODE_TYPE } : node)),
         nodeTypes: { ...flowProps.nodeTypes, [NODE_TYPE]: NodeProbe },
       },
     };

@@ -46,6 +46,7 @@ const differenceTable = (differences, leftColumn, rightColumn) => [
  */
 export const renderRunReport = (run) => {
   const lines = [`# System parity run — ${run.scenario}`, ""];
+  const scope = run.scope ?? run.comparison.scope ?? REPORT_ORDER;
 
   if (run.ok) {
     lines.push("**Passed.** Both sides reproduced themselves, and the two sides agree everywhere unclaimed.", "");
@@ -54,12 +55,14 @@ export const renderRunReport = (run) => {
   }
 
   lines.push(
+    `Compared sections: ${scope.map((section) => `\`${section}\``).join(", ")}. All seven remain captured in the trace.`,
+    "",
     "## Self-consistency",
     "",
     "Each side is captured twice and compared against itself **before** the sides are compared at all: a",
-    "recorded trace baseline is meaningless if traces are not reproducible. The driving log takes part with",
-    "no tolerance applied — it never reaches the normalizer at all — so a side whose resolved boxes wobble",
-    "between its own captures fails against itself.",
+    "recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log",
+    "takes part with no tolerance applied. Probe variants compare only their declared observation level, so",
+    "probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.",
     "",
     "| side | captures | verdict | differences |",
     "|---|---|---|---|"
@@ -96,11 +99,14 @@ export const renderRunReport = (run) => {
 
 export const renderReport = (result) => {
   const { left, right, unclaimed, outcomes, weakenings, deleted } = result;
+  const scope = result.scope ?? REPORT_ORDER;
   const staleWeakenings = outcomesWith(weakenings, OUTCOME.stale);
   const lines = [
     `# Comparison report — ${result.scenario}`,
     "",
     `${sideLabel(left)} against ${sideLabel(right)}.`,
+    "",
+    `Compared sections: ${scope.map((section) => `\`${section}\``).join(", ")}.`,
     "",
   ];
 

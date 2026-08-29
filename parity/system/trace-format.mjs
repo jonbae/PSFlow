@@ -12,7 +12,7 @@
 
 import { readFileSync } from "node:fs";
 
-export const TRACE_FORMAT = 1;
+export const TRACE_FORMAT = 2;
 
 // The receipt for the input side, named because three modules downstream ask
 // whether a difference landed in it.
@@ -82,6 +82,7 @@ const SECTION_CHECKS = {
       if (!isPlainObject(entry)) return void problems.push(`${path}/${i} must be an object`);
       if (typeof entry.name !== "string") problems.push(`${path}/${i}/name must be a string`);
       if (!Array.isArray(entry.args)) problems.push(`${path}/${i}/args must be an array`);
+      if ("probe" in entry && typeof entry.probe !== "boolean") problems.push(`${path}/${i}/probe must be boolean`);
     });
   },
   hooks: (hooks, path, problems) => {

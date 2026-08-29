@@ -12,9 +12,12 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { defineScenario } from "../harness/scenario.mjs";
+import { coverageOutcomes, exportEntries } from "../coverage/coverage.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 export const PROBE_PLAN = join(here, "probe-plan.json");
+const CLASSIFICATION = join(here, "..", "..", "census", "classification.json");
+const WITNESSES = join(here, "..", "coverage", "witnesses.json");
 
 const ISSUE_59 = /(?:^59$|\/issues\/59$)/;
 const PLAN_SECTIONS = ["callbacks", "hooks", "api", "props"];
@@ -42,16 +45,41 @@ export const deriveProbePlan = (outcomes) => {
   return Object.fromEntries(PLAN_SECTIONS.map((section) => [section, [...plan[section]].sort()]));
 };
 
+export const compileProbePlan = (retiredHoles, classification, witnesses) => {
+  const outcomes = coverageOutcomes(exportEntries(classification), {
+    witnesses,
+    holes: retiredHoles,
+    traces: [],
+  });
+  const byExport = new Map(outcomes.exports.map((entry) => [entry.export, entry]));
+
+  for (const hole of retiredHoles) {
+    if (!ISSUE_59.test(String(hole.ticket ?? ""))) {
+      throw new ProbePlanError("the durable probe source contains a hole not owned by issue 59");
+    }
+    for (const name of hole.exports) {
+      const entry = byExport.get(name);
+      if (!entry) throw new ProbePlanError(`${name}: the retired hole no longer joins the public census`);
+      if (!PLAN_SECTIONS.includes(entry.section)) {
+        throw new ProbePlanError(`${name}: ${entry.section} is not a probe-fed section`);
+      }
+      if (entry.witness?.kind !== "names") {
+        throw new ProbePlanError(`${name}: the current witness no longer supplies runtime names`);
+      }
+    }
+  }
+
+  return deriveProbePlan(outcomes);
+};
+
 export const readProbePlan = () => {
   const parsed = JSON.parse(readFileSync(PROBE_PLAN, "utf8"));
-  const plan = {};
-  for (const section of PLAN_SECTIONS) {
-    if (!Array.isArray(parsed[section]) || parsed[section].some((name) => typeof name !== "string" || name === "")) {
-      throw new ProbePlanError(`${PROBE_PLAN}: ${section} must be a list of runtime names`);
-    }
-    plan[section] = [...new Set(parsed[section])].sort();
+  if (!Array.isArray(parsed.retiredHoles) || parsed.retiredHoles.length === 0) {
+    throw new ProbePlanError(`${PROBE_PLAN}: retiredHoles must preserve the issue 59 hole inputs`);
   }
-  return plan;
+  const classification = JSON.parse(readFileSync(CLASSIFICATION, "utf8"));
+  const witnesses = JSON.parse(readFileSync(WITNESSES, "utf8")).witnesses;
+  return compileProbePlan(parsed.retiredHoles, classification, witnesses);
 };
 
 const sourceWith = (scenarios, capability) =>
@@ -60,11 +88,12 @@ const sourceWith = (scenarios, capability) =>
 const firstBaseline = (scenarios) =>
   scenarios.find((scenario) => scenario.id.startsWith("mount-baseline--") && scenario.variant === "plain") ?? null;
 
-const clone = (source, variant) =>
+const clone = (source, variant, probeCallback = null) =>
   defineScenario({
     ...source,
     id: `${source.id}--probe-${variant}`,
     variant,
+    probeCallback,
   });
 
 const requireSource = (source, need) => {
@@ -95,17 +124,30 @@ export const probeVariants = (plainScenarios, plan) => {
     (plan.hooks?.length ?? 0) > 0 ||
     (plan.api ?? []).includes("getState") ||
     props.has("node-props") ||
-    callbacks.has("useOnSelectionChange");
+    callbacks.size > 0;
 
-  if (needsFlowNode) {
-    const source = callbacks.has("useOnSelectionChange")
-      ? requireSource(sourceWith(plainScenarios, "selection"), "selection")
-      : requireSource(firstBaseline(plainScenarios), "mount baseline");
-    variants.push(clone(source, "flow-node"));
+  if (callbacks.has("useOnSelectionChange")) {
+    variants.push(
+      clone(
+        requireSource(sourceWith(plainScenarios, "selection"), "selection"),
+        "flow-node",
+        "useOnSelectionChange"
+      )
+    );
   }
 
   if (callbacks.has("useOnViewportChange")) {
-    variants.push(clone(requireSource(sourceWith(plainScenarios, "viewport"), "viewport"), "flow-node"));
+    variants.push(
+      clone(
+        requireSource(sourceWith(plainScenarios, "viewport"), "viewport"),
+        "flow-node",
+        "useOnViewportChange"
+      )
+    );
+  }
+
+  if (needsFlowNode && callbacks.size === 0) {
+    variants.push(clone(requireSource(firstBaseline(plainScenarios), "mount baseline"), "flow-node"));
   }
 
   if (props.has("edge-props") || props.has("edge-component-props")) {

@@ -14,12 +14,36 @@ export const OBSERVATIONS = "__psflowNet";
 
 const QUERY_READERS = Object.freeze({
   getNodes: (instance) => instance.getNodes(),
+  getNode: (instance) => instance.getNode(instance.getNodes()[0]?.id ?? "__psflow_missing_node"),
+  getInternalNode: (instance) =>
+    instance.getInternalNode(instance.getNodes()[0]?.id ?? "__psflow_missing_node"),
   getEdges: (instance) => instance.getEdges(),
+  getEdge: (instance) => instance.getEdge(instance.getEdges()[0]?.id ?? "__psflow_missing_edge"),
+  getIntersectingNodes: (instance) =>
+    instance.getIntersectingNodes({ x: 0, y: 0, width: 0, height: 0 }),
+  isNodeIntersecting: (instance) =>
+    instance.isNodeIntersecting(
+      { id: instance.getNodes()[0]?.id ?? "__psflow_missing_node" },
+      { x: 0, y: 0, width: 0, height: 0 },
+      true
+    ),
+  getNodesBounds: (instance) => instance.getNodesBounds(instance.getNodes().map(({ id }) => id)),
+  getHandleConnections: (instance) =>
+    instance.getHandleConnections({
+      type: "source",
+      nodeId: instance.getNodes()[0]?.id ?? "__psflow_missing_node",
+    }),
+  getNodeConnections: (instance) =>
+    instance.getNodeConnections({ nodeId: instance.getNodes()[0]?.id ?? "__psflow_missing_node" }),
   toObject: (instance) => instance.toObject(),
   getZoom: (instance) => instance.getZoom(),
   getViewport: (instance) => instance.getViewport(),
+  screenToFlowPosition: (instance) => instance.screenToFlowPosition({ x: 0, y: 0 }),
+  flowToScreenPosition: (instance) => instance.flowToScreenPosition({ x: 0, y: 0 }),
   viewportInitialized: (instance) => instance.viewportInitialized,
 });
+
+export const IMPERATIVE_QUERIES = Object.freeze(Object.keys(QUERY_READERS));
 
 const errorValue = (error) => ({ error: String(error?.message ?? error) });
 
@@ -33,7 +57,7 @@ export class ObservationError extends Error {
 export const createObservationLog = ({ maxDepth } = {}) => {
   const hooks = {};
   const props = {};
-  const extraQueries = {};
+  const queryReaders = new Map();
   const failures = [];
   let instance = null;
 
@@ -48,7 +72,14 @@ export const createObservationLog = ({ maxDepth } = {}) => {
   };
 
   const snapshotQueries = () => {
-    const queries = { ...extraQueries };
+    const queries = {};
+    for (const [name, read] of queryReaders) {
+      try {
+        queries[name] = serialize(read(), ["api", "queries", name]);
+      } catch (error) {
+        queries[name] = errorValue(error);
+      }
+    }
     if (!instance) return queries;
 
     for (const [name, read] of Object.entries(QUERY_READERS)) {
@@ -83,8 +114,12 @@ export const createObservationLog = ({ maxDepth } = {}) => {
       record(props, probe, value, ["props", probe]);
     },
 
-    recordQuery(name, value) {
-      record(extraQueries, name, value, ["api", "queries", name]);
+    registerQuery(name, read) {
+      if (typeof read !== "function") throw new ObservationError(`${name}: a query reader must be a function`);
+      queryReaders.set(name, read);
+      return () => {
+        if (queryReaders.get(name) === read) queryReaders.delete(name);
+      };
     },
 
     async call(method, args) {

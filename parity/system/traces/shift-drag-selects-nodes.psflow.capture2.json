@@ -1,5 +1,5 @@
 {
-  "traceFormat": 1,
+  "traceFormat": 2,
   "scenario": "shift-drag-selects-nodes",
   "side": "psflow",
   "capture": 2,
@@ -900,15 +900,6 @@
         ]
       },
       {
-        "name": "onSelectionChange",
-        "args": [
-          {
-            "nodes": [],
-            "edges": []
-          }
-        ]
-      },
-      {
         "name": "onMoveEnd",
         "args": [
           null,
@@ -924,6 +915,15 @@
         "args": [
           "002",
           "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
+        ]
+      },
+      {
+        "name": "onSelectionChange",
+        "args": [
+          {
+            "nodes": [],
+            "edges": []
+          }
         ]
       },
       {
@@ -980,7 +980,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 425.40000000037253,
+            "timeStamp": 518.7000000029802,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1175,7 +1175,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 446.90000000037253,
+            "timeStamp": 546,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1222,6 +1222,17 @@
       {
         "name": "onViewportChange",
         "args": [
+          {
+            "x": 536.8553459119497,
+            "y": 32,
+            "zoom": 1.0314465408805031
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
           {
             "x": 536.8553459119497,
             "y": 32,
@@ -1545,17 +1556,6 @@
                 }
               }
             ]
-          }
-        ]
-      },
-      {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 536.8553459119497,
-            "y": 32,
-            "zoom": 1.0314465408805031
           }
         ]
       }

@@ -1,5 +1,5 @@
 {
-  "traceFormat": 1,
+  "traceFormat": 2,
   "scenario": "wheel-pans-with-panonscroll",
   "side": "psflow",
   "capture": 1,
@@ -494,7 +494,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 767,
+            "timeStamp": 1383.7999999970198,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -561,7 +561,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 767,
+            "timeStamp": 1383.7999999970198,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

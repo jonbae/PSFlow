@@ -18,8 +18,8 @@
 //     differences. A weakening is the same claim about the same pair, one
 //     section down: a side that fires a handler eleven times and then twelve is
 //     not reproducible, whatever the two sides do about it between them.
-//   * **The driving log carries no tolerance.** It is diffed straight off the
-//     two traces and never handed to the normalizer at all, so no rule that
+//   * **In a plain run, the driving log carries no tolerance.** It is diffed
+//     straight off the two traces and never handed to the normalizer at all, so no rule that
 //     could be written — not one aimed at it, not a `**` one that reaches it by
 //     accident — can forgive a difference there. A side whose resolved boxes
 //     wobble between its own two captures fails against itself. That is the
@@ -30,7 +30,10 @@
 //     differing by 1e-5 is a finding somebody has to judge, and within one side
 //     there is nothing to judge.
 //
-// Every other section normalizes exactly as it does across the sides. Class
+// Probe variants deliberately select their probe observation level before this
+// check, so the rendering and pointer-resolution effects of replacing a node or
+// edge are captured but are not part of that experiment. Every selected
+// non-driving section normalizes exactly as it does across the sides. Class
 // token order is as much noise within one side as between two, and a check that
 // refused the whole ruleset would be red for reasons the noise policy has
 // already settled.
@@ -38,7 +41,7 @@
 import { CALLBACKS, DRIVING, validateTrace } from "../trace-format.mjs";
 import { compareCallbacks } from "./callbacks.mjs";
 import { diffValues } from "./diff.mjs";
-import { REPORT_ORDER } from "./index.mjs";
+import { comparisonScope, selectComparisonSections } from "./index.mjs";
 import { assertNoCollapse, normalize } from "./normalize.mjs";
 
 export class ConsistencyError extends Error {
@@ -49,8 +52,6 @@ export class ConsistencyError extends Error {
 }
 
 /** Everything a rule may touch here — which is everything but the receipt. */
-const tolerated = ({ [DRIVING]: _receipt, ...sections }) => sections;
-
 const sameRun = (first, second) => {
   for (const field of ["scenario", "side", "baseline"]) {
     if (first[field] !== second[field]) {
@@ -76,15 +77,22 @@ const sameRun = (first, second) => {
  * Returns `{ side, scenario, captures, differences, consistent }`. Nothing here
  * claims a difference: the side reproduced itself or it did not.
  */
-export const checkSelfConsistency = (first, second, { rules = [] } = {}) => {
+export const checkSelfConsistency = (
+  first,
+  second,
+  { rules = [], scope = comparisonScope(first?.scenario) } = {}
+) => {
   validateTrace(first, `${first?.side ?? "a"} trace, capture ${first?.capture ?? "?"}`);
   validateTrace(second, `${second?.side ?? "a"} trace, capture ${second?.capture ?? "?"}`);
   sameRun(first, second);
 
-  const left = normalize(tolerated(first.sections), rules);
-  const right = normalize(tolerated(second.sections), rules);
+  const toleratedScope = scope.filter((section) => section !== DRIVING);
+  const firstSelected = selectComparisonSections(first.sections, toleratedScope, first.scenario);
+  const secondSelected = selectComparisonSections(second.sections, toleratedScope, second.scenario);
+  const left = normalize(firstSelected, rules);
+  const right = normalize(secondSelected, rules);
   assertNoCollapse(
-    { left: tolerated(first.sections), right: tolerated(second.sections) },
+    { left: firstSelected, right: secondSelected },
     { left: left.value, right: right.value },
     rules
   );
@@ -93,7 +101,7 @@ export const checkSelfConsistency = (first, second, { rules = [] } = {}) => {
   // same reason it leads there — off the raw traces, since it is the one
   // section the normalizer never saw. `callbacks` takes its own comparison with
   // an empty weakening set: a side has to reproduce its own call log exactly.
-  const differences = REPORT_ORDER.flatMap((section) => {
+  const differences = scope.flatMap((section) => {
     if (section === DRIVING) return diffValues(first.sections[DRIVING], second.sections[DRIVING], [DRIVING]);
     if (section === CALLBACKS) {
       return compareCallbacks(left.value[CALLBACKS], right.value[CALLBACKS], { path: [CALLBACKS] }).differences;
@@ -105,6 +113,7 @@ export const checkSelfConsistency = (first, second, { rules = [] } = {}) => {
     side: first.side,
     scenario: first.scenario,
     captures: [first.capture, second.capture],
+    scope: scope.slice(),
     differences,
     consistent: differences.length === 0,
   };

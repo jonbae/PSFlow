@@ -1,5 +1,5 @@
 {
-  "traceFormat": 1,
+  "traceFormat": 2,
   "scenario": "drag-moves-node",
   "side": "psflow",
   "capture": 1,
@@ -953,7 +953,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 722.6999999992549,
+            "timeStamp": 773.6000000014901,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1022,7 +1022,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 722.6999999992549,
+            "timeStamp": 773.6000000014901,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1149,7 +1149,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 722.6999999992549,
+            "timeStamp": 773.6000000014901,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1214,7 +1214,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 722.6999999992549,
+            "timeStamp": 773.6000000014901,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1642,7 +1642,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 786.5999999996275,
+            "timeStamp": 849.8000000007451,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1771,7 +1771,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 786.5999999996275,
+            "timeStamp": 849.8000000007451,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1874,7 +1874,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 786.5999999996275,
+            "timeStamp": 849.8000000007451,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2125,6 +2125,17 @@
         ]
       },
       {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 536.8553459119497,
+            "y": 32,
+            "zoom": 1.0314465408805031
+          }
+        ]
+      },
+      {
         "name": "onPaneMouseMove",
         "args": [
           {
@@ -2145,7 +2156,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 824.8999999985099,
+            "timeStamp": 894.8000000007451,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2379,17 +2390,6 @@
         ]
       },
       {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 536.8553459119497,
-            "y": 32,
-            "zoom": 1.0314465408805031
-          }
-        ]
-      },
-      {
         "name": "onError",
         "args": [
           "002",
@@ -2399,17 +2399,6 @@
       {
         "name": "onViewportChange",
         "args": [
-          {
-            "x": 536.8553459119497,
-            "y": 32,
-            "zoom": 1.0314465408805031
-          }
-        ]
-      },
-      {
-        "name": "onMoveEnd",
-        "args": [
-          null,
           {
             "x": 536.8553459119497,
             "y": 32,
@@ -2440,7 +2429,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 855.2999999988824,
+            "timeStamp": 940.6000000014901,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2545,7 +2534,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 855.2999999988824,
+            "timeStamp": 940.6000000014901,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2676,7 +2665,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 855.2999999988824,
+            "timeStamp": 940.6000000014901,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2910,6 +2899,17 @@
         ]
       },
       {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 536.8553459119497,
+            "y": 32,
+            "zoom": 1.0314465408805031
+          }
+        ]
+      },
+      {
         "name": "onError",
         "args": [
           "002",
@@ -2919,17 +2919,6 @@
       {
         "name": "onViewportChange",
         "args": [
-          {
-            "x": 536.8553459119497,
-            "y": 32,
-            "zoom": 1.0314465408805031
-          }
-        ]
-      },
-      {
-        "name": "onMoveEnd",
-        "args": [
-          null,
           {
             "x": 536.8553459119497,
             "y": 32,
@@ -2960,7 +2949,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 890.3999999985099,
+            "timeStamp": 973.1999999992549,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3091,7 +3080,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 890.3999999985099,
+            "timeStamp": 973.1999999992549,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3325,6 +3314,17 @@
         ]
       },
       {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 536.8553459119497,
+            "y": 32,
+            "zoom": 1.0314465408805031
+          }
+        ]
+      },
+      {
         "name": "onError",
         "args": [
           "002",
@@ -3334,17 +3334,6 @@
       {
         "name": "onViewportChange",
         "args": [
-          {
-            "x": 534.2138364779875,
-            "y": 32,
-            "zoom": 1.0314465408805031
-          }
-        ]
-      },
-      {
-        "name": "onMoveEnd",
-        "args": [
-          null,
           {
             "x": 534.2138364779875,
             "y": 32,
@@ -3373,7 +3362,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 921,
+            "timeStamp": 1009.6000000014901,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3607,6 +3596,17 @@
         ]
       },
       {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 534.2138364779875,
+            "y": 32,
+            "zoom": 1.0314465408805031
+          }
+        ]
+      },
+      {
         "name": "onError",
         "args": [
           "002",
@@ -3830,6 +3830,17 @@
         ]
       },
       {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 512.8930817610062,
+            "y": 32,
+            "zoom": 1.0314465408805031
+          }
+        ]
+      },
+      {
         "name": "onNodeMouseEnter",
         "args": [
           {
@@ -3852,7 +3863,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 983.3999999985099,
+            "timeStamp": 1109.300000000745,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3955,17 +3966,6 @@
             "style": {
               "backgroundColor": "red"
             }
-          }
-        ]
-      },
-      {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 512.8930817610062,
-            "y": 32,
-            "zoom": 1.0314465408805031
           }
         ]
       }

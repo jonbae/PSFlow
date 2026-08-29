@@ -1,12 +1,12 @@
 // The driver — the React component that mounts a fixture.
 //
-// A twin of `xyflow/examples/react/src/generic-tests/Flow.tsx`, line for line.
+// A hand-maintained twin of `xyflow/examples/react/src/generic-tests/Flow.tsx`.
 // The "make hand-translation impossible" bar that governs fixtures absolutely
 // does not govern this file: a driver mistake shows up identically on both
 // sides, while a boundary mistake is a real bug the net exists to catch. That
 // is why this is hand-written and the fixtures are not.
 //
-// Everything below is upstream's, with three differences. Two are forced:
+// Everything below is upstream's, with four named differences. Two are forced:
 //
 //   * `FlowConfig` is declared here rather than being the ambient global
 //     upstream's `app.d.ts` supplies, because that file's types come from
@@ -22,6 +22,11 @@
 // section agreeing — so a handler no fixture sets would be a handler neither
 // side is ever asked for. Upstream's own `Flow.tsx` has nothing to say about
 // this, since it is not being compared against anything.
+//
+// The fourth is selective probing: a `?probe=` variant derives a replacement
+// node/edge/connection-line type from the fixture graph and, for `flow-node`,
+// mounts `NetObserver`. Plain runs bypass both changes and retain the upstream
+// graph object.
 //
 // `@xyflow/react` is a build-level alias (see `../build.mjs`). It resolves to
 // ps-flow's `index.js` for the conformance run and to the vendored upstream for

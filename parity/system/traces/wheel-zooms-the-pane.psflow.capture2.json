@@ -1,5 +1,5 @@
 {
-  "traceFormat": 1,
+  "traceFormat": 2,
   "scenario": "wheel-zooms-the-pane",
   "side": "psflow",
   "capture": 2,
@@ -536,7 +536,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 310.90000000037253,
+            "timeStamp": 680.6000000014901,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -603,7 +603,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 310.90000000037253,
+            "timeStamp": 680.6000000014901,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -650,6 +650,17 @@
       {
         "name": "onViewportChange",
         "args": [
+          {
+            "x": 422.8598166407096,
+            "y": 163.12623375424337,
+            "zoom": 2.8952024447905385
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
           {
             "x": 422.8598166407096,
             "y": 163.12623375424337,

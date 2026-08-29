@@ -1,5 +1,5 @@
 {
-  "traceFormat": 1,
+  "traceFormat": 2,
   "scenario": "click-selects-node--probe-flow-node",
   "side": "upstream",
   "capture": 1,
@@ -38,7 +38,7 @@
                     "tag": "div",
                     "attrs": {
                       "class": "react-flow__viewport xyflow__viewport react-flow__container",
-                      "style": "transform: translate(536.855px, 32px) scale(1.03145);"
+                      "style": "transform: translate(517.612px, 32px) scale(1.22388);"
                     },
                     "children": [
                       {
@@ -46,7 +46,208 @@
                         "attrs": {
                           "class": "react-flow__edges"
                         },
-                        "children": []
+                        "children": [
+                          {
+                            "tag": "svg",
+                            "attrs": {
+                              "style": "z-index: 0;"
+                            },
+                            "children": [
+                              {
+                                "tag": "g",
+                                "attrs": {
+                                  "class": "react-flow__edge react-flow__edge-default nopan selectable",
+                                  "tabindex": "0",
+                                  "role": "group",
+                                  "aria-roledescription": "edge",
+                                  "data-id": "1-2",
+                                  "data-testid": "rf__edge-1-2",
+                                  "aria-label": "Edge from Node-1 to Node-2",
+                                  "aria-describedby": "react-flow__edge-desc-1"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M75,39 C75,68 -25,68 -25,97",
+                                      "fill": "none",
+                                      "class": "react-flow__edge-path"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M75,39 C75,68 -25,68 -25,97",
+                                      "fill": "none",
+                                      "stroke-opacity": "0",
+                                      "stroke-width": "20",
+                                      "class": "react-flow__edge-interaction"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "g",
+                                    "attrs": {
+                                      "transform": "translate(15.565359115600586 62.28048801422119)",
+                                      "class": "react-flow__edge-textwrapper",
+                                      "visibility": "visible"
+                                    },
+                                    "children": [
+                                      {
+                                        "tag": "rect",
+                                        "attrs": {
+                                          "width": "22.869281768798828",
+                                          "x": "-2",
+                                          "y": "-4",
+                                          "height": "19.439023971557617",
+                                          "class": "react-flow__edge-textbg",
+                                          "rx": "2",
+                                          "ry": "2"
+                                        },
+                                        "children": []
+                                      },
+                                      {
+                                        "tag": "text",
+                                        "attrs": {
+                                          "class": "react-flow__edge-text",
+                                          "y": "5.719511985778809",
+                                          "dy": "0.3em"
+                                        },
+                                        "text": "edge",
+                                        "children": []
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
+                                      "cx": "75",
+                                      "cy": "49",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
+                                      "cx": "-25",
+                                      "cy": "87",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "svg",
+                            "attrs": {
+                              "style": "z-index: 0;"
+                            },
+                            "children": [
+                              {
+                                "tag": "g",
+                                "attrs": {
+                                  "class": "react-flow__edge react-flow__edge-default nopan selectable",
+                                  "tabindex": "0",
+                                  "role": "group",
+                                  "aria-roledescription": "edge",
+                                  "data-id": "1-3",
+                                  "data-testid": "rf__edge-1-3",
+                                  "aria-label": "Edge from Node-1 to Node-3",
+                                  "aria-describedby": "react-flow__edge-desc-1"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M75,39 C75,68 175,68 175,97",
+                                      "fill": "none",
+                                      "class": "react-flow__edge-path"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M75,39 C75,68 175,68 175,97",
+                                      "fill": "none",
+                                      "stroke-opacity": "0",
+                                      "stroke-width": "20",
+                                      "class": "react-flow__edge-interaction"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "g",
+                                    "attrs": {
+                                      "transform": "translate(115.56535911560059 62.28048801422119)",
+                                      "class": "react-flow__edge-textwrapper",
+                                      "visibility": "visible"
+                                    },
+                                    "children": [
+                                      {
+                                        "tag": "rect",
+                                        "attrs": {
+                                          "width": "22.869281768798828",
+                                          "x": "-2",
+                                          "y": "-4",
+                                          "height": "19.439023971557617",
+                                          "class": "react-flow__edge-textbg",
+                                          "rx": "2",
+                                          "ry": "2"
+                                        },
+                                        "children": []
+                                      },
+                                      {
+                                        "tag": "text",
+                                        "attrs": {
+                                          "class": "react-flow__edge-text",
+                                          "y": "5.719511985778809",
+                                          "dy": "0.3em"
+                                        },
+                                        "text": "edge",
+                                        "children": []
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
+                                      "cx": "75",
+                                      "cy": "49",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
+                                      "cx": "175",
+                                      "cy": "87",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
                       },
                       {
                         "tag": "div",
@@ -65,7 +266,7 @@
                           {
                             "tag": "div",
                             "attrs": {
-                              "class": "react-flow__node react-flow__node-__psflow_node_probe nopan playwright-test-class-123 selected selectable draggable",
+                              "class": "react-flow__node react-flow__node-input nopan playwright-test-class-123 selected selectable draggable",
                               "data-id": "Node-1",
                               "data-testid": "rf__node-Node-1",
                               "tabindex": "0",
@@ -74,11 +275,16 @@
                               "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 1000; transform: translate(0px, 0px); pointer-events: all; visibility: visible; background-color: red;"
                             },
+                            "text": "Node-1",
                             "children": [
                               {
                                 "tag": "div",
-                                "attrs": {},
-                                "text": "Node-1",
+                                "attrs": {
+                                  "data-nodeid": "Node-1",
+                                  "data-handlepos": "bottom",
+                                  "data-id": "1-Node-1-null-source",
+                                  "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator"
+                                },
                                 "children": []
                               }
                             ]
@@ -304,38 +510,16 @@
                           {
                             "tag": "div",
                             "attrs": {
-                              "class": "react-flow__node react-flow__node-default nopan selectable draggable",
+                              "class": "react-flow__node react-flow__node-__psflow_node_probe nopan selectable draggable",
                               "data-id": "notDeletable",
                               "data-testid": "rf__node-notDeletable",
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
                               "aria-describedby": "react-flow__node-desc-1",
-                              "style": "z-index: 0; transform: translate(0px, 600px); pointer-events: all; visibility: visible;"
+                              "style": "z-index: 0; transform: translate(0px, 600px); pointer-events: all; visibility: hidden;"
                             },
-                            "text": "notDeletable",
-                            "children": [
-                              {
-                                "tag": "div",
-                                "attrs": {
-                                  "data-nodeid": "notDeletable",
-                                  "data-handlepos": "top",
-                                  "data-id": "1-notDeletable-null-target",
-                                  "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator"
-                                },
-                                "children": []
-                              },
-                              {
-                                "tag": "div",
-                                "attrs": {
-                                  "data-nodeid": "notDeletable",
-                                  "data-handlepos": "bottom",
-                                  "data-id": "1-notDeletable-null-source",
-                                  "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator"
-                                },
-                                "children": []
-                              }
-                            ]
+                            "children": []
                           }
                         ]
                       },
@@ -428,9 +612,9 @@
         "name": "onViewportChange",
         "args": [
           {
-            "x": 536.8553459119497,
+            "x": 517.6119402985074,
             "y": 32,
-            "zoom": 1.0314465408805031
+            "zoom": 1.2238805970149254
           }
         ]
       },
@@ -439,9 +623,9 @@
         "args": [
           null,
           {
-            "x": 536.8553459119497,
+            "x": 517.6119402985074,
             "y": 32,
-            "zoom": 1.0314465408805031
+            "zoom": 1.2238805970149254
           }
         ]
       },
@@ -453,8 +637,8 @@
               "id": "Node-1",
               "type": "dimensions",
               "dimensions": {
-                "width": 48,
-                "height": 18
+                "width": 150,
+                "height": 36
               }
             },
             {
@@ -512,14 +696,6 @@
                 "width": 150,
                 "height": 36
               }
-            },
-            {
-              "id": "notDeletable",
-              "type": "dimensions",
-              "dimensions": {
-                "width": 150,
-                "height": 36
-              }
             }
           ]
         ]
@@ -529,9 +705,9 @@
         "args": [
           null,
           {
-            "x": 536.8553459119497,
+            "x": 517.6119402985074,
             "y": 32,
-            "zoom": 1.0314465408805031
+            "zoom": 1.2238805970149254
           }
         ]
       },
@@ -558,19 +734,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 544.0999999996275,
+            "timeStamp": 321.0999999977648,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 561.60205078125,
-            "screenY": 41.28302001953125,
-            "clientX": 561.60205078125,
-            "clientY": 41.28302001953125,
-            "pageX": 561.60205078125,
-            "pageY": 41.28302001953125,
+            "screenX": 609.4029541015625,
+            "screenY": 54.02985382080078,
+            "clientX": 609.4029541015625,
+            "clientY": 54.02985382080078,
+            "pageX": 609.4029541015625,
+            "pageY": 54.02985382080078,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -627,19 +803,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 544.0999999996275,
+            "timeStamp": 321.0999999977648,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 561,
-            "screenY": 41,
-            "clientX": 561,
-            "clientY": 41,
-            "pageX": 561,
-            "pageY": 41,
+            "screenX": 609,
+            "screenY": 54,
+            "clientX": 609,
+            "clientY": 54,
+            "pageX": 609,
+            "pageY": 54,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -670,14 +846,14 @@
               "x": 0,
               "y": 0
             },
-            "type": "__psflow_node_probe",
+            "type": "input",
             "className": "playwright-test-class-123",
             "style": {
               "backgroundColor": "red"
             },
             "measured": {
-              "width": 48,
-              "height": 18
+              "width": 150,
+              "height": 36
             }
           }
         ]
@@ -703,19 +879,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 544.0999999996275,
+            "timeStamp": 321.0999999977648,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 561.60205078125,
-            "screenY": 41.28302001953125,
-            "clientX": 561.60205078125,
-            "clientY": 41.28302001953125,
-            "pageX": 561.60205078125,
-            "pageY": 41.28302001953125,
+            "screenX": 609.4029541015625,
+            "screenY": 54.02985382080078,
+            "clientX": 609.4029541015625,
+            "clientY": 54.02985382080078,
+            "pageX": 609.4029541015625,
+            "pageY": 54.02985382080078,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -726,8 +902,8 @@
             "button": -1,
             "buttons": 0,
             "relatedTarget": null,
-            "movementX": 562,
-            "movementY": 42,
+            "movementX": 610,
+            "movementY": 55,
             "pointerId": 1,
             "width": 1,
             "height": 1,
@@ -768,19 +944,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 544.0999999996275,
+            "timeStamp": 321.0999999977648,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 561,
-            "screenY": 41,
-            "clientX": 561,
-            "clientY": 41,
-            "pageX": 561,
-            "pageY": 41,
+            "screenX": 609,
+            "screenY": 54,
+            "clientX": 609,
+            "clientY": 54,
+            "pageX": 609,
+            "pageY": 54,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -791,8 +967,8 @@
             "button": 0,
             "buttons": 0,
             "relatedTarget": null,
-            "movementX": 562,
-            "movementY": 42,
+            "movementX": 610,
+            "movementY": 55,
             "isDefaultPrevented": {
               "@ref": "function"
             },
@@ -809,14 +985,14 @@
               "x": 0,
               "y": 0
             },
-            "type": "__psflow_node_probe",
+            "type": "input",
             "className": "playwright-test-class-123",
             "style": {
               "backgroundColor": "red"
             },
             "measured": {
-              "width": 48,
-              "height": 18
+              "width": 150,
+              "height": 36
             }
           }
         ]
@@ -849,14 +1025,14 @@
               "x": 0,
               "y": 0
             },
-            "type": "__psflow_node_probe",
+            "type": "input",
             "className": "playwright-test-class-123",
             "style": {
               "backgroundColor": "red"
             },
             "measured": {
-              "width": 48,
-              "height": 18
+              "width": 150,
+              "height": 36
             },
             "dragging": true
           },
@@ -870,14 +1046,14 @@
                 "x": 0,
                 "y": 0
               },
-              "type": "__psflow_node_probe",
+              "type": "input",
               "className": "playwright-test-class-123",
               "style": {
                 "backgroundColor": "red"
               },
               "measured": {
-                "width": 48,
-                "height": 18
+                "width": 150,
+                "height": 36
               },
               "dragging": true
             }
@@ -898,14 +1074,14 @@
                   "x": 0,
                   "y": 0
                 },
-                "type": "__psflow_node_probe",
+                "type": "input",
                 "className": "playwright-test-class-123",
                 "style": {
                   "backgroundColor": "red"
                 },
                 "measured": {
-                  "width": 48,
-                  "height": 18
+                  "width": 150,
+                  "height": 36
                 },
                 "selected": true
               }
@@ -913,6 +1089,37 @@
             "edges": []
           }
         ]
+      },
+      {
+        "name": "useOnSelectionChange",
+        "args": [
+          {
+            "nodes": [
+              {
+                "id": "Node-1",
+                "data": {
+                  "label": "Node-1"
+                },
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "type": "input",
+                "className": "playwright-test-class-123",
+                "style": {
+                  "backgroundColor": "red"
+                },
+                "measured": {
+                  "width": 150,
+                  "height": 36
+                },
+                "selected": true
+              }
+            ],
+            "edges": []
+          }
+        ],
+        "probe": true
       },
       {
         "name": "onNodeDragStop",
@@ -930,14 +1137,14 @@
               "x": 0,
               "y": 0
             },
-            "type": "__psflow_node_probe",
+            "type": "input",
             "className": "playwright-test-class-123",
             "style": {
               "backgroundColor": "red"
             },
             "measured": {
-              "width": 48,
-              "height": 18
+              "width": 150,
+              "height": 36
             },
             "selected": true,
             "dragging": false
@@ -952,14 +1159,14 @@
                 "x": 0,
                 "y": 0
               },
-              "type": "__psflow_node_probe",
+              "type": "input",
               "className": "playwright-test-class-123",
               "style": {
                 "backgroundColor": "red"
               },
               "measured": {
-                "width": 48,
-                "height": 18
+                "width": 150,
+                "height": 36
               },
               "selected": true,
               "dragging": false
@@ -988,19 +1195,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 583.5999999996275,
+            "timeStamp": 353.5999999977648,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 1,
-            "screenX": 561,
-            "screenY": 41,
-            "clientX": 561,
-            "clientY": 41,
-            "pageX": 561,
-            "pageY": 41,
+            "screenX": 609,
+            "screenY": 54,
+            "clientX": 609,
+            "clientY": 54,
+            "pageX": 609,
+            "pageY": 54,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -1029,95 +1236,25 @@
               "x": 0,
               "y": 0
             },
-            "type": "__psflow_node_probe",
+            "type": "input",
             "className": "playwright-test-class-123",
             "style": {
               "backgroundColor": "red"
             },
             "measured": {
-              "width": 48,
-              "height": 18
+              "width": 150,
+              "height": 36
             },
             "selected": true
-          }
-        ]
-      },
-      {
-        "name": "useOnSelectionChange",
-        "args": [
-          {
-            "nodes": [
-              {
-                "id": "Node-1",
-                "data": {
-                  "label": "Node-1"
-                },
-                "position": {
-                  "x": 0,
-                  "y": 0
-                },
-                "type": "__psflow_node_probe",
-                "className": "playwright-test-class-123",
-                "style": {
-                  "backgroundColor": "red"
-                },
-                "measured": {
-                  "width": 48,
-                  "height": 18
-                },
-                "selected": true
-              }
-            ],
-            "edges": []
-          }
-        ]
-      },
-      {
-        "name": "useOnViewportChange",
-        "args": [
-          {
-            "x": 0,
-            "y": 0,
-            "zoom": 1
           }
         ]
       }
     ],
     "hooks": {
       "node-probe": {
-        "useHandleConnections": [
-          {
-            "edgeId": "1-2",
-            "source": "Node-1",
-            "target": "Node-2",
-            "sourceHandle": null,
-            "targetHandle": null
-          },
-          {
-            "edgeId": "1-3",
-            "source": "Node-1",
-            "target": "Node-3",
-            "sourceHandle": null,
-            "targetHandle": null
-          }
-        ],
-        "useNodeConnections": [
-          {
-            "edgeId": "1-2",
-            "source": "Node-1",
-            "target": "Node-2",
-            "sourceHandle": null,
-            "targetHandle": null
-          },
-          {
-            "edgeId": "1-3",
-            "source": "Node-1",
-            "target": "Node-3",
-            "sourceHandle": null,
-            "targetHandle": null
-          }
-        ],
-        "useNodeId": "Node-1"
+        "useHandleConnections": [],
+        "useNodeConnections": [],
+        "useNodeId": "notDeletable"
       },
       "flow-probe": {
         "experimental_useOnEdgesChangeMiddleware": {
@@ -1173,14 +1310,14 @@
             "x": 0,
             "y": 0
           },
-          "type": "__psflow_node_probe",
+          "type": "input",
           "className": "playwright-test-class-123",
           "style": {
             "backgroundColor": "red"
           },
           "measured": {
-            "width": 48,
-            "height": 18
+            "width": 150,
+            "height": 36
           },
           "selected": true,
           "internals": {
@@ -1189,7 +1326,18 @@
               "y": 0
             },
             "handleBounds": {
-              "source": null,
+              "source": [
+                {
+                  "id": null,
+                  "type": "source",
+                  "nodeId": "Node-1",
+                  "position": "bottom",
+                  "x": 71,
+                  "y": 31,
+                  "width": 8,
+                  "height": 8
+                }
+              ],
               "target": null
             },
             "z": 1000,
@@ -1202,14 +1350,14 @@
                 "x": 0,
                 "y": 0
               },
-              "type": "__psflow_node_probe",
+              "type": "input",
               "className": "playwright-test-class-123",
               "style": {
                 "backgroundColor": "red"
               },
               "measured": {
-                "width": 48,
-                "height": 18
+                "width": 150,
+                "height": 36
               },
               "selected": true
             }
@@ -1226,14 +1374,14 @@
               "x": 0,
               "y": 0
             },
-            "type": "__psflow_node_probe",
+            "type": "input",
             "className": "playwright-test-class-123",
             "style": {
               "backgroundColor": "red"
             },
             "measured": {
-              "width": 48,
-              "height": 18
+              "width": 150,
+              "height": 36
             },
             "selected": true
           },
@@ -1353,10 +1501,7 @@
               "y": 600
             },
             "deletable": false,
-            "measured": {
-              "width": 150,
-              "height": 36
-            }
+            "type": "__psflow_node_probe"
           },
           {
             "id": "hidden",
@@ -1372,12 +1517,12 @@
         ],
         "useNodesData": {
           "id": "Node-1",
-          "type": "__psflow_node_probe",
+          "type": "input",
           "data": {
             "label": "Node-1"
           }
         },
-        "useNodesInitialized": true,
+        "useNodesInitialized": false,
         "useNodesState": [
           [],
           {
@@ -1388,9 +1533,6 @@
           }
         ],
         "useOnSelectionChange": {
-          "@undefined": true
-        },
-        "useOnViewportChange": {
           "@undefined": true
         },
         "useReactFlow": {
@@ -1500,14 +1642,14 @@
                 "x": 0,
                 "y": 0
               },
-              "type": "__psflow_node_probe",
+              "type": "input",
               "className": "playwright-test-class-123",
               "style": {
                 "backgroundColor": "red"
               },
               "measured": {
-                "width": 48,
-                "height": 18
+                "width": 150,
+                "height": 36
               },
               "selected": true
             },
@@ -1627,10 +1769,7 @@
                 "y": 600
               },
               "deletable": false,
-              "measured": {
-                "width": 150,
-                "height": 36
-              }
+              "type": "__psflow_node_probe"
             },
             {
               "id": "hidden",
@@ -1661,9 +1800,9 @@
             }
           ],
           "transform": [
-            536.8553459119497,
+            517.6119402985074,
             32,
-            1.0314465408805031
+            1.2238805970149254
           ],
           "viewportInitialized": {
             "@undefined": true
@@ -1684,9 +1823,9 @@
           "@ref": "function"
         },
         "useViewport": {
-          "x": 536.8553459119497,
+          "x": 517.6119402985074,
           "y": 32,
-          "zoom": 1.0314465408805031
+          "zoom": 1.2238805970149254
         }
       }
     },
@@ -1697,9 +1836,9 @@
           "width": 1280,
           "height": 720,
           "transform": [
-            536.8553459119497,
+            517.6119402985074,
             32,
-            1.0314465408805031
+            1.2238805970149254
           ],
           "nodes": [
             {
@@ -1711,15 +1850,16 @@
                 "x": 0,
                 "y": 0
               },
-              "type": "__psflow_node_probe",
+              "type": "input",
               "className": "playwright-test-class-123",
               "style": {
                 "backgroundColor": "red"
               },
               "measured": {
-                "width": 48,
-                "height": 18
-              }
+                "width": 150,
+                "height": 36
+              },
+              "selected": true
             },
             {
               "id": "Node-2",
@@ -1837,10 +1977,7 @@
                 "y": 600
               },
               "deletable": false,
-              "measured": {
-                "width": 150,
-                "height": 36
-              }
+              "type": "__psflow_node_probe"
             },
             {
               "id": "hidden",
@@ -1854,7 +1991,7 @@
               "hidden": true
             }
           ],
-          "nodesInitialized": true,
+          "nodesInitialized": false,
           "nodeLookup": {
             "@class": "Map"
           },
@@ -2168,15 +2305,6 @@
           },
           "onBeforeDelete": {
             "@ref": "function"
-          },
-          "onViewportChangeStart": {
-            "@ref": "function"
-          },
-          "onViewportChange": {
-            "@ref": "function"
-          },
-          "onViewportChangeEnd": {
-            "@ref": "function"
           }
         },
         "getNodes": [
@@ -2189,14 +2317,14 @@
               "x": 0,
               "y": 0
             },
-            "type": "__psflow_node_probe",
+            "type": "input",
             "className": "playwright-test-class-123",
             "style": {
               "backgroundColor": "red"
             },
             "measured": {
-              "width": 48,
-              "height": 18
+              "width": 150,
+              "height": 36
             },
             "selected": true
           },
@@ -2316,10 +2444,7 @@
               "y": 600
             },
             "deletable": false,
-            "measured": {
-              "width": 150,
-              "height": 36
-            }
+            "type": "__psflow_node_probe"
           },
           {
             "id": "hidden",
@@ -2333,6 +2458,88 @@
             "hidden": true
           }
         ],
+        "getNode": {
+          "id": "Node-1",
+          "data": {
+            "label": "Node-1"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "type": "input",
+          "className": "playwright-test-class-123",
+          "style": {
+            "backgroundColor": "red"
+          },
+          "measured": {
+            "width": 150,
+            "height": 36
+          },
+          "selected": true
+        },
+        "getInternalNode": {
+          "id": "Node-1",
+          "data": {
+            "label": "Node-1"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "type": "input",
+          "className": "playwright-test-class-123",
+          "style": {
+            "backgroundColor": "red"
+          },
+          "measured": {
+            "width": 150,
+            "height": 36
+          },
+          "selected": true,
+          "internals": {
+            "positionAbsolute": {
+              "x": 0,
+              "y": 0
+            },
+            "handleBounds": {
+              "source": [
+                {
+                  "id": null,
+                  "type": "source",
+                  "nodeId": "Node-1",
+                  "position": "bottom",
+                  "x": 71,
+                  "y": 31,
+                  "width": 8,
+                  "height": 8
+                }
+              ],
+              "target": null
+            },
+            "z": 1000,
+            "userNode": {
+              "id": "Node-1",
+              "data": {
+                "label": "Node-1"
+              },
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "type": "input",
+              "className": "playwright-test-class-123",
+              "style": {
+                "backgroundColor": "red"
+              },
+              "measured": {
+                "width": 150,
+                "height": 36
+              },
+              "selected": true
+            }
+          }
+        },
         "getEdges": [
           {
             "id": "1-2",
@@ -2349,6 +2556,203 @@
             "label": "edge"
           }
         ],
+        "getEdge": {
+          "id": "1-2",
+          "type": "default",
+          "source": "Node-1",
+          "target": "Node-2",
+          "label": "edge"
+        },
+        "getIntersectingNodes": [
+          {
+            "id": "Node-1",
+            "data": {
+              "label": "Node-1"
+            },
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "type": "input",
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            },
+            "measured": {
+              "width": 150,
+              "height": 36
+            },
+            "selected": true
+          },
+          {
+            "id": "Node-2",
+            "type": "output",
+            "data": {
+              "label": "Node-2"
+            },
+            "position": {
+              "x": -100,
+              "y": 100
+            },
+            "measured": {
+              "width": 150,
+              "height": 36
+            }
+          },
+          {
+            "id": "Node-3",
+            "data": {
+              "label": "Node-3"
+            },
+            "position": {
+              "x": 100,
+              "y": 100
+            },
+            "measured": {
+              "width": 150,
+              "height": 36
+            }
+          },
+          {
+            "id": "Node-4",
+            "data": {
+              "label": "Node-4"
+            },
+            "position": {
+              "x": 0,
+              "y": 200
+            },
+            "type": "output",
+            "measured": {
+              "width": 150,
+              "height": 36
+            }
+          },
+          {
+            "id": "drag-handle",
+            "data": {
+              "label": "Drag Handle"
+            },
+            "position": {
+              "x": 200,
+              "y": 0
+            },
+            "type": "DragHandleNode",
+            "dragHandle": ".custom-drag-handle",
+            "measured": {
+              "width": 100,
+              "height": 50
+            }
+          },
+          {
+            "id": "notConnectable",
+            "type": "output",
+            "data": {
+              "label": "notConnectable"
+            },
+            "position": {
+              "x": 0,
+              "y": 300
+            },
+            "connectable": false,
+            "measured": {
+              "width": 150,
+              "height": 36
+            }
+          },
+          {
+            "id": "notDraggable",
+            "data": {
+              "label": "notDraggable"
+            },
+            "position": {
+              "x": 0,
+              "y": 400
+            },
+            "draggable": false,
+            "measured": {
+              "width": 150,
+              "height": 36
+            }
+          },
+          {
+            "id": "notSelectable",
+            "data": {
+              "label": "notSelectable"
+            },
+            "position": {
+              "x": 0,
+              "y": 500
+            },
+            "selectable": false,
+            "measured": {
+              "width": 150,
+              "height": 36
+            }
+          },
+          {
+            "id": "notDeletable",
+            "data": {
+              "label": "notDeletable"
+            },
+            "position": {
+              "x": 0,
+              "y": 600
+            },
+            "deletable": false,
+            "type": "__psflow_node_probe"
+          },
+          {
+            "id": "hidden",
+            "data": {
+              "label": "hidden"
+            },
+            "position": {
+              "x": 0,
+              "y": 700
+            },
+            "hidden": true
+          }
+        ],
+        "isNodeIntersecting": true,
+        "getNodesBounds": {
+          "x": -100,
+          "y": 0,
+          "width": 400,
+          "height": 700
+        },
+        "getHandleConnections": [
+          {
+            "edgeId": "1-2",
+            "source": "Node-1",
+            "target": "Node-2",
+            "sourceHandle": null,
+            "targetHandle": null
+          },
+          {
+            "edgeId": "1-3",
+            "source": "Node-1",
+            "target": "Node-3",
+            "sourceHandle": null,
+            "targetHandle": null
+          }
+        ],
+        "getNodeConnections": [
+          {
+            "edgeId": "1-2",
+            "source": "Node-1",
+            "target": "Node-2",
+            "sourceHandle": null,
+            "targetHandle": null
+          },
+          {
+            "edgeId": "1-3",
+            "source": "Node-1",
+            "target": "Node-3",
+            "sourceHandle": null,
+            "targetHandle": null
+          }
+        ],
         "toObject": {
           "nodes": [
             {
@@ -2360,14 +2764,14 @@
                 "x": 0,
                 "y": 0
               },
-              "type": "__psflow_node_probe",
+              "type": "input",
               "className": "playwright-test-class-123",
               "style": {
                 "backgroundColor": "red"
               },
               "measured": {
-                "width": 48,
-                "height": 18
+                "width": 150,
+                "height": 36
               },
               "selected": true
             },
@@ -2487,10 +2891,7 @@
                 "y": 600
               },
               "deletable": false,
-              "measured": {
-                "width": 150,
-                "height": 36
-              }
+              "type": "__psflow_node_probe"
             },
             {
               "id": "hidden",
@@ -2521,16 +2922,24 @@
             }
           ],
           "viewport": {
-            "x": 536.8553459119497,
+            "x": 517.6119402985074,
             "y": 32,
-            "zoom": 1.0314465408805031
+            "zoom": 1.2238805970149254
           }
         },
-        "getZoom": 1.0314465408805031,
+        "getZoom": 1.2238805970149254,
         "getViewport": {
-          "x": 536.8553459119497,
+          "x": 517.6119402985074,
           "y": 32,
-          "zoom": 1.0314465408805031
+          "zoom": 1.2238805970149254
+        },
+        "screenToFlowPosition": {
+          "x": -422.92682926829264,
+          "y": -26.146341463414636
+        },
+        "flowToScreenPosition": {
+          "x": 517.6119402985074,
+          "y": 32
         },
         "viewportInitialized": true
       },
@@ -2538,17 +2947,17 @@
     },
     "props": {
       "node-props": {
-        "id": "Node-1",
+        "id": "notDeletable",
         "data": {
-          "label": "Node-1"
+          "label": "notDeletable"
         },
         "type": "__psflow_node_probe",
         "positionAbsoluteX": 0,
-        "positionAbsoluteY": 0,
-        "selected": true,
+        "positionAbsoluteY": 600,
+        "selected": false,
         "selectable": true,
         "draggable": true,
-        "deletable": true,
+        "deletable": false,
         "isConnectable": true,
         "sourcePosition": {
           "@undefined": true
@@ -2560,12 +2969,12 @@
         "dragHandle": {
           "@undefined": true
         },
-        "zIndex": 1000,
+        "zIndex": 0,
         "parentId": {
           "@undefined": true
         },
-        "width": 48,
-        "height": 18
+        "width": 0,
+        "height": 0
       }
     },
     "console": [
@@ -2580,78 +2989,6 @@
       {
         "level": "warning",
         "text": "[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections"
-      },
-      {
-        "level": "warning",
-        "text": "[React Flow]: Couldn't create edge for source handle id: \"null\", edge id: 1-2. Help: https://reactflow.dev/error#008"
-      },
-      {
-        "level": "warning",
-        "text": "[React Flow]: Couldn't create edge for source handle id: \"null\", edge id: 1-3. Help: https://reactflow.dev/error#008"
-      },
-      {
-        "level": "warning",
-        "text": "[React Flow]: Couldn't create edge for source handle id: \"null\", edge id: 1-2. Help: https://reactflow.dev/error#008"
-      },
-      {
-        "level": "warning",
-        "text": "[React Flow]: Couldn't create edge for source handle id: \"null\", edge id: 1-3. Help: https://reactflow.dev/error#008"
-      },
-      {
-        "level": "warning",
-        "text": "[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections"
-      },
-      {
-        "level": "warning",
-        "text": "[React Flow]: Couldn't create edge for source handle id: \"null\", edge id: 1-2. Help: https://reactflow.dev/error#008"
-      },
-      {
-        "level": "warning",
-        "text": "[React Flow]: Couldn't create edge for source handle id: \"null\", edge id: 1-3. Help: https://reactflow.dev/error#008"
-      },
-      {
-        "level": "warning",
-        "text": "[React Flow]: Couldn't create edge for source handle id: \"null\", edge id: 1-2. Help: https://reactflow.dev/error#008"
-      },
-      {
-        "level": "warning",
-        "text": "[React Flow]: Couldn't create edge for source handle id: \"null\", edge id: 1-3. Help: https://reactflow.dev/error#008"
-      },
-      {
-        "level": "warning",
-        "text": "[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections"
-      },
-      {
-        "level": "warning",
-        "text": "[React Flow]: Couldn't create edge for source handle id: \"null\", edge id: 1-2. Help: https://reactflow.dev/error#008"
-      },
-      {
-        "level": "warning",
-        "text": "[React Flow]: Couldn't create edge for source handle id: \"null\", edge id: 1-3. Help: https://reactflow.dev/error#008"
-      },
-      {
-        "level": "warning",
-        "text": "[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections"
-      },
-      {
-        "level": "warning",
-        "text": "[React Flow]: Couldn't create edge for source handle id: \"null\", edge id: 1-2. Help: https://reactflow.dev/error#008"
-      },
-      {
-        "level": "warning",
-        "text": "[React Flow]: Couldn't create edge for source handle id: \"null\", edge id: 1-3. Help: https://reactflow.dev/error#008"
-      },
-      {
-        "level": "warning",
-        "text": "[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections"
-      },
-      {
-        "level": "warning",
-        "text": "[React Flow]: Couldn't create edge for source handle id: \"null\", edge id: 1-2. Help: https://reactflow.dev/error#008"
-      },
-      {
-        "level": "warning",
-        "text": "[React Flow]: Couldn't create edge for source handle id: \"null\", edge id: 1-3. Help: https://reactflow.dev/error#008"
       },
       {
         "level": "warning",
@@ -2684,14 +3021,14 @@
         "target": ".react-flow__node",
         "resolved": true,
         "box": {
-          "x": 536.8553466796875,
+          "x": 517.6119384765625,
           "y": 32,
-          "width": 49.49334716796875,
-          "height": 18.5660400390625
+          "width": 183.58209228515625,
+          "height": 44.05970764160156
         },
         "dispatched": {
-          "x": 561.6020202636719,
-          "y": 41.28302001953125,
+          "x": 609.4029846191406,
+          "y": 54.02985382080078,
           "button": "left"
         }
       },
@@ -2702,8 +3039,8 @@
         "resolved": true,
         "box": null,
         "dispatched": {
-          "x": 561.6020202636719,
-          "y": 41.28302001953125,
+          "x": 609.4029846191406,
+          "y": 54.02985382080078,
           "button": "left"
         }
       }

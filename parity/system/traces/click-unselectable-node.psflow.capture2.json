@@ -1,5 +1,5 @@
 {
-  "traceFormat": 1,
+  "traceFormat": 2,
   "scenario": "click-unselectable-node",
   "side": "psflow",
   "capture": 2,
@@ -953,7 +953,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 374.09999999962747,
+            "timeStamp": 471.69999999925494,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1022,7 +1022,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 374.09999999962747,
+            "timeStamp": 471.69999999925494,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1151,7 +1151,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 374.09999999962747,
+            "timeStamp": 471.69999999925494,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1216,7 +1216,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 374.09999999962747,
+            "timeStamp": 471.69999999925494,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1682,7 +1682,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 406.90000000037253,
+            "timeStamp": 505.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

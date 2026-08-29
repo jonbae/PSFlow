@@ -148,3 +148,51 @@ test("a stale region fails the run under its own name", () => {
   );
   assert.deepEqual(result.failures[0].regions, ["nothing-here"]);
 });
+
+const asProbeRun = (names, suffix) => names.map((name) => {
+  const trace = fixture(name);
+  trace.scenario += suffix;
+  return trace;
+});
+
+test("flow-node probes compare their observations without comparing probe-induced DOM or driving", () => {
+  const traces = asProbeRun(CLEAN, "--probe-flow-node");
+  for (const trace of traces.filter(({ side }) => side === "psflow")) {
+    trace.sections.dom.root.attrs.class = "probe-render-diff";
+    trace.sections.callbacks.push({ name: "onMove", args: [{ x: 1, y: 2, zoom: 3 }] });
+    trace.sections.driving.push({
+      index: 99,
+      action: "probe-only",
+      target: null,
+      resolved: true,
+      box: null,
+      dispatched: null,
+    });
+  }
+
+  const result = compareRun(traces, { rules: COMMITTED_RULES });
+  assert.equal(result.ok, true);
+  assert.deepEqual(result.comparison.scope, ["callbacks", "hooks", "api", "props", "console"]);
+});
+
+test("flow-node probes still compare the exact sequence of tagged hook callback receipts", () => {
+  const traces = asProbeRun(CLEAN, "--probe-flow-node");
+  for (const trace of traces.filter(({ side }) => side === "psflow")) {
+    trace.sections.callbacks.push({ name: "useOnViewportChange", args: [{ zoom: 2 }], probe: true });
+  }
+
+  const result = compareRun(traces, { rules: COMMITTED_RULES });
+  assert.equal(result.ok, false);
+  assert.equal(result.comparison.unclaimed.some(({ path }) => path[0] === "callbacks"), true);
+});
+
+test("flow-node probes still fail on a props difference", () => {
+  const traces = asProbeRun(CLEAN, "--probe-flow-node");
+  for (const trace of traces.filter(({ side }) => side === "psflow")) {
+    trace.sections.props["node-props"] = { id: "different" };
+  }
+
+  const result = compareRun(traces, { rules: COMMITTED_RULES });
+  assert.equal(result.ok, false);
+  assert.equal(result.failures.some(({ class: kind }) => kind === FAILURE.unclaimed), true);
+});

@@ -63,7 +63,9 @@ names its retiring boundary stage and fails as stale when it stops matching.
 
 **System parity is red, and that is where it is meant to be.** It mounts
 upstream and ps-flow on the same unmodified fixtures, settles each on its own
-clock, captures each twice, and diffs the `dom` and `callbacks` sections; its
+clock, captures each twice, and diffs all seven trace sections. Selective probe
+variants compare only their declared observation level, so a replacement probe's
+DOM cannot be mistaken for library behavior; its
 first run found nine classes of divergence, and the call log added its own —
 handlers ps-flow never fires, handlers it fires twice, and a call sequence it
 does not reproduce between its own two captures. Both lists live on the
@@ -80,8 +82,8 @@ traces that ran rather than declared: every export-bearing census entry carries 
 **witness** — a selector for `dom`, a name mapping for the other four sections —
 and counts as driven only if some captured trace holds it. What nothing drove is
 a **hole** with a written reason, and an *undeclared* hole fails the run. Today
-73 of 156 are driven and 83 are declared holes, which is what the corpus's
-termination condition is stated against. It regenerates from the committed
+110 of 156 are driven and 46 are declared holes, with no undeclared residue.
+That is what the corpus's termination condition is stated against. It regenerates from the committed
 traces in milliseconds, with no browser and no vendored checkout.
 
 ```sh

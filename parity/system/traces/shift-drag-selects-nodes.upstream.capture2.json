@@ -1,5 +1,5 @@
 {
-  "traceFormat": 1,
+  "traceFormat": 2,
   "scenario": "shift-drag-selects-nodes",
   "side": "upstream",
   "capture": 2,
@@ -780,7 +780,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 273.09999999962747,
+            "timeStamp": 318.80000000074506,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1020,7 +1020,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 289.09999999962747,
+            "timeStamp": 339.69999999925494,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

@@ -1,5 +1,5 @@
 {
-  "traceFormat": 1,
+  "traceFormat": 2,
   "scenario": "mount-baseline--edges-general",
   "side": "upstream",
   "capture": 2,

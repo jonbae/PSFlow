@@ -1,5 +1,5 @@
 {
-  "traceFormat": 1,
+  "traceFormat": 2,
   "scenario": "delete-key-removes-node-and-edges",
   "side": "psflow",
   "capture": 1,
@@ -731,7 +731,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 585.9000000003725,
+            "timeStamp": 926.9000000022352,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -800,7 +800,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 585.9000000003725,
+            "timeStamp": 926.9000000022352,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -927,7 +927,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 585.9000000003725,
+            "timeStamp": 926.9000000022352,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -992,7 +992,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 585.9000000003725,
+            "timeStamp": 926.9000000022352,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1558,7 +1558,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 639.7999999988824,
+            "timeStamp": 1007.1000000014901,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1729,15 +1729,6 @@
         ]
       },
       {
-        "name": "onSelectionChange",
-        "args": [
-          {
-            "nodes": [],
-            "edges": []
-          }
-        ]
-      },
-      {
         "name": "onMoveEnd",
         "args": [
           null,
@@ -1745,6 +1736,15 @@
             "x": 536.8553459119497,
             "y": 32,
             "zoom": 1.0314465408805031
+          }
+        ]
+      },
+      {
+        "name": "onSelectionChange",
+        "args": [
+          {
+            "nodes": [],
+            "edges": []
           }
         ]
       },
@@ -1771,7 +1771,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 692.7999999988824,
+            "timeStamp": 1107.7000000029802,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

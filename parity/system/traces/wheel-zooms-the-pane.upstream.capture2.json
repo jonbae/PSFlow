@@ -1,5 +1,5 @@
 {
-  "traceFormat": 1,
+  "traceFormat": 2,
   "scenario": "wheel-zooms-the-pane",
   "side": "upstream",
   "capture": 2,
@@ -468,7 +468,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 186.39999999850988,
+            "timeStamp": 318.80000000074506,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -535,7 +535,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 186.39999999850988,
+            "timeStamp": 318.80000000074506,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

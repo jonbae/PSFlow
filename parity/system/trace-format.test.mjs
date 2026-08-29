@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
-import { SECTIONS, readTrace, validateTrace } from "./trace-format.mjs";
+import { SECTIONS, TRACE_FORMAT, readTrace, validateTrace } from "./trace-format.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const fixture = (name) => join(here, "compare/fixtures", name);
@@ -37,7 +37,7 @@ test("a section the format does not know fails", () => {
 
 test("an unknown trace format version fails", () => {
   const trace = valid();
-  trace.traceFormat = 2;
+  trace.traceFormat = TRACE_FORMAT + 1;
   assert.throws(() => validateTrace(trace, "t.json"), /traceFormat/);
 });
 

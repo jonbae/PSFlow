@@ -1,5 +1,5 @@
 {
-  "traceFormat": 1,
+  "traceFormat": 2,
   "scenario": "shift-drag-selects-nodes",
   "side": "psflow",
   "capture": 1,
@@ -980,7 +980,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 722.3000000007451,
+            "timeStamp": 841.3999999985099,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1175,7 +1175,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 764.2000000011176,
+            "timeStamp": 888.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

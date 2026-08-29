@@ -21,7 +21,7 @@
 
 import { SIDES } from "../../driver/sides.mjs";
 
-import { compareTraces, isDriving } from "./index.mjs";
+import { compareTraces, comparisonScope, isDriving } from "./index.mjs";
 import { checkSelfConsistency } from "./consistency.mjs";
 import { OUTCOME, outcomesWith } from "./regions.mjs";
 
@@ -124,15 +124,19 @@ const failuresOf = (consistency, comparison) => {
  */
 export const compareRun = (traces, { rules = [], regions = [], weakenings = [] } = {}) => {
   const [upstream, psflow] = bySide(traces);
+  const scope = comparisonScope(upstream[0].scenario);
 
   // No weakenings on the way in: a side is held to reproducing its own call log
   // exactly, whatever the two sides are allowed to differ on between them.
-  const consistency = [upstream, psflow].map(([first, second]) => checkSelfConsistency(first, second, { rules }));
-  const comparison = compareTraces(upstream[0], psflow[0], { rules, regions, weakenings });
+  const consistency = [upstream, psflow].map(([first, second]) =>
+    checkSelfConsistency(first, second, { rules, scope })
+  );
+  const comparison = compareTraces(upstream[0], psflow[0], { rules, regions, weakenings, scope });
   const failures = failuresOf(consistency, comparison);
 
   return {
     scenario: comparison.scenario,
+    scope,
     consistency,
     comparison,
     failures,

@@ -6,8 +6,9 @@
 // forgives lives downstream. See `../README.md`.
 //
 // Both sides load **the same page**, `parity/driver/index.html`, differing only
-// in the `?side=` parameter that decides which bundle it imports — the other
-// parameter the net asks for, `?observe=callbacks`, is identical on both.
+// in the `?side=` parameter that decides which bundle it imports. Every other
+// parameter the net asks for — callback observation and any selective probe
+// graph/experiment — is identical on both.
 // Upstream's own vendored app is vite plus a path router where this is a static
 // server plus a hash router, and it wraps the flow in different container
 // markup — which is not cosmetic, because the container's box feeds `fitView`,
@@ -67,7 +68,15 @@ export class ScenarioError extends Error {
  * document loads, and enabling it for every scenario would narrow the whole net
  * to a touch-capable browser to serve the two scenarios that need one.
  */
-export const defineScenario = ({ id, route, run, touch = false, variant = "plain", probeCapabilities = [] }) => {
+export const defineScenario = ({
+  id,
+  route,
+  run,
+  touch = false,
+  variant = "plain",
+  probeCapabilities = [],
+  probeCallback = null,
+}) => {
   if (typeof id !== "string" || !SCENARIO_ID.test(id) || SEQUENCE_ID.test(id)) {
     throw new ScenarioError(
       `${JSON.stringify(id)} is not a scenario id — ids are semantic and kebab-cased ` +
@@ -85,23 +94,42 @@ export const defineScenario = ({ id, route, run, touch = false, variant = "plain
   if (!Array.isArray(probeCapabilities) || probeCapabilities.some((name) => typeof name !== "string" || name === "")) {
     throw new ScenarioError(`${id}: probe capabilities must be a list of names`);
   }
+  if (probeCallback !== null && (typeof probeCallback !== "string" || probeCallback === "")) {
+    throw new ScenarioError(`${id}: a probe callback must be a non-empty name or null`);
+  }
+  if (probeCallback !== null && variant !== "flow-node") {
+    throw new ScenarioError(`${id}: a probe callback is only valid for the flow-node variant`);
+  }
 
-  return Object.freeze({ id, route, run, touch, variant, probeCapabilities: Object.freeze([...probeCapabilities]) });
+  return Object.freeze({
+    id,
+    route,
+    run,
+    touch,
+    variant,
+    probeCapabilities: Object.freeze([...probeCapabilities]),
+    probeCallback,
+  });
 };
 
 /**
  * Relative, and resolved against the browser context's `baseURL`.
  *
- * Two parameters, and both are the net's rather than the page's: which bundle to
- * import, and that the fixture driver should wrap its callback props into the
- * call log. The second is asked for explicitly because installing a callback
+ * Four parameters, and all are the net's rather than the page's: which bundle
+ * to import, that the fixture driver should wrap its callback props into the
+ * call log, and — only for selective variants — which probe graph to derive
+ * and which one hook-callback experiment to install. One callback per graph
+ * keeps its exact receipt sequence meaningful instead of interleaving two
+ * independent React subscriptions.
+ * Callback observation is asked for explicitly because installing a callback
  * prop changes what the page renders — `call-log.mjs`'s `OBSERVE` says how — and
  * the conformance suite drives this same page to measure upstream's fixture as
- * upstream wrote it. Neither parameter is reachable from a scenario.
+ * upstream wrote it. None is reachable from a scenario's run function.
  */
-export const driverUrl = (route, side, variant = "plain") =>
+export const driverUrl = (route, side, variant = "plain", probeCallback = null) =>
   `${DRIVER_PAGE}?side=${side}&${OBSERVE.param}=${OBSERVE.callbacks}` +
   (variant === "plain" ? "" : `&probe=${variant}`) +
+  (probeCallback === null ? "" : `&probeCallback=${encodeURIComponent(probeCallback)}`) +
   `#${route}`;
 
 /**
@@ -188,7 +216,7 @@ export const runScenario = async (
     await port.mouse("move", { x: -1, y: -1 });
     await port.mouse("up", { x: -1, y: -1 });
 
-    await page.goto(driverUrl(scenario.route, side, scenario.variant));
+    await page.goto(driverUrl(scenario.route, side, scenario.variant, scenario.probeCallback));
 
     // Waited for, then settled, then measured. Each side waits on its own clock
     // — polling until consecutive snapshots agree, never a duration — because

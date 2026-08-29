@@ -20,7 +20,7 @@ Vocabulary is `CONTEXT.md`. Terms in **bold** are defined there.
 | `serialize.mjs` | what a callback was handed, as trace content — the third one that runs in the page |
 | `port.mjs` | the only file that knows what a browser is |
 | `fake-port.mjs` | its double, which everything above is tested against |
-| `pending.mjs` | the sections capture does not fill yet, declared |
+| `pending.mjs` | the hard-failing pending-section register (currently empty) |
 | `live.spec.mjs` | the harness against a real page |
 
 *What* gets driven is not here either: it is `../corpus/`, which has its own

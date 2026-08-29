@@ -28,11 +28,24 @@ test("the node probe replaces one derived node type instead of wrapping a builti
   const upstream = fixture();
   const derived = deriveProbeGraph(upstream, "flow-node", probes);
 
-  assert.equal(derived.flowProps.nodes[0].type, "__psflow_node_probe");
-  assert.equal(derived.flowProps.nodes[1], upstream.flowProps.nodes[1]);
+  assert.equal(derived.flowProps.nodes[0], upstream.flowProps.nodes[0]);
+  assert.equal(derived.flowProps.nodes[1].type, "__psflow_node_probe");
   assert.equal(derived.flowProps.nodeTypes.__psflow_node_probe, NodeProbe);
   assert.equal(derived.flowProps.nodeTypes.existing, upstream.flowProps.nodeTypes.existing);
-  assert.equal(upstream.flowProps.nodes[0].type, "input", "the vendored fixture graph was not mutated");
+  assert.equal(upstream.flowProps.nodes[1].type, undefined, "the vendored fixture graph was not mutated");
+});
+
+test("the node probe skips hidden tail nodes and fails when none can mount", () => {
+  const upstream = fixture();
+  upstream.flowProps.nodes.push({ id: "hidden", hidden: true });
+  const derived = deriveProbeGraph(upstream, "flow-node", probes);
+
+  assert.equal(derived.flowProps.nodes[1].type, "__psflow_node_probe");
+  assert.equal(derived.flowProps.nodes[2], upstream.flowProps.nodes[2]);
+  assert.throws(
+    () => deriveProbeGraph({ flowProps: { nodes: [{ id: "hidden", hidden: true }], edges: [] } }, "flow-node", probes),
+    /no visible node/
+  );
 });
 
 test("edge and connection-line probes are separately derived variants", () => {

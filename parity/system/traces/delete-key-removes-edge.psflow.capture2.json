@@ -1,5 +1,5 @@
 {
-  "traceFormat": 1,
+  "traceFormat": 2,
   "scenario": "delete-key-removes-edge",
   "side": "psflow",
   "capture": 2,
@@ -2054,7 +2054,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 1604.4000000003725,
+            "timeStamp": 527.6000000014901,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2123,7 +2123,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 1604.4000000003725,
+            "timeStamp": 527.6000000014901,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2228,7 +2228,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 1604.4000000003725,
+            "timeStamp": 527.6000000014901,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2293,7 +2293,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 1604.4000000003725,
+            "timeStamp": 527.6000000014901,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2420,7 +2420,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 1623.9000000003725,
+            "timeStamp": 553.1999999992549,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

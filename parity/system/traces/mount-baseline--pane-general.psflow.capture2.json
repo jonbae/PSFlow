@@ -1,5 +1,5 @@
 {
-  "traceFormat": 1,
+  "traceFormat": 2,
   "scenario": "mount-baseline--pane-general",
   "side": "psflow",
   "capture": 2,
@@ -372,6 +372,15 @@
         ]
       },
       {
+        "name": "onSelectionChange",
+        "args": [
+          {
+            "nodes": [],
+            "edges": []
+          }
+        ]
+      },
+      {
         "name": "onNodesChange",
         "args": [
           [
@@ -480,15 +489,6 @@
             "x": 390.57142857142856,
             "y": 133.85142857142858,
             "zoom": 3.3257142857142856
-          }
-        ]
-      },
-      {
-        "name": "onSelectionChange",
-        "args": [
-          {
-            "nodes": [],
-            "edges": []
           }
         ]
       },

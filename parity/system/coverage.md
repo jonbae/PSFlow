@@ -43,10 +43,10 @@ The witness is printed beside each one so a wrong witness can be read and disput
 | `AriaLabelConfig` | dom | driven | `.react-flow__node[aria-describedby]` | `click-inside-interaction-width` +34 more |
 | `Background` | dom | driven | `.react-flow__background` | `mount-baseline--examples-color-mode` +1 more |
 | `BackgroundProps` | dom | driven | `.react-flow__background-pattern` | `mount-baseline--examples-color-mode` +1 more |
-| `BaseEdge` | dom | driven | `path.react-flow__edge-path` | `click-inside-interaction-width` +31 more |
-| `BaseEdgeProps` | dom | driven | `path.react-flow__edge-path[d]` | `click-inside-interaction-width` +31 more |
-| `BezierEdge` | dom | driven | `.react-flow__edge-default` | `click-inside-interaction-width` +31 more |
-| `BezierEdgeProps` | dom | driven | `.react-flow__edge-default path.react-flow__edge-path` | `click-inside-interaction-width` +31 more |
+| `BaseEdge` | dom | driven | `path.react-flow__edge-path` | `click-inside-interaction-width` +33 more |
+| `BaseEdgeProps` | dom | driven | `path.react-flow__edge-path[d]` | `click-inside-interaction-width` +33 more |
+| `BezierEdge` | dom | driven | `.react-flow__edge-default` | `click-inside-interaction-width` +33 more |
+| `BezierEdgeProps` | dom | driven | `.react-flow__edge-default path.react-flow__edge-path` | `click-inside-interaction-width` +33 more |
 | `ColorMode` | dom | driven | `.react-flow.light` | `click-inside-interaction-width` +33 more |
 | `ColorModeClass` | dom | driven | `.react-flow.dark` | `select-dark-color-mode` |
 | `ControlButton` | dom | driven | `button.react-flow__controls-button` | `mount-baseline--examples-color-mode` +1 more |
@@ -55,18 +55,18 @@ The witness is printed beside each one so a wrong witness can be read and disput
 | `ControlPosition` | dom | hole | `.react-flow__resize-control.handle` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
 | `Controls` | dom | driven | `.react-flow__controls` | `mount-baseline--examples-color-mode` +1 more |
 | `DefaultEdgeOptions` | dom | hole | `.react-flow__edge-smoothstep` | declared — no issue owns it |
-| `Edge` | dom | driven | `.react-flow__edge[data-id]` | `click-inside-interaction-width` +31 more |
-| `EdgeLabelOptions` | dom | driven | `.react-flow__edge-textbg` | `click-inside-interaction-width` +20 more |
+| `Edge` | dom | driven | `.react-flow__edge[data-id]` | `click-inside-interaction-width` +33 more |
+| `EdgeLabelOptions` | dom | driven | `.react-flow__edge-textbg` | `click-inside-interaction-width` +21 more |
 | `EdgeLabelRenderer` | dom | hole | `.react-flow__edgelabel-renderer *` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
 | `EdgeLabelRendererProps` | dom | hole | `.react-flow__edgelabel-renderer *` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
 | `EdgeMarker` | dom | driven | `marker.react-flow__arrowhead` | `click-inside-interaction-width` +7 more |
 | `EdgeMarkerType` | dom | driven | `path[marker-end]` | `click-inside-interaction-width` +7 more |
-| `EdgeText` | dom | driven | `.react-flow__edge-textwrapper` | `click-inside-interaction-width` +20 more |
-| `EdgeTextProps` | dom | driven | `text.react-flow__edge-text` | `click-inside-interaction-width` +20 more |
+| `EdgeText` | dom | driven | `.react-flow__edge-textwrapper` | `click-inside-interaction-width` +21 more |
+| `EdgeTextProps` | dom | driven | `text.react-flow__edge-text` | `click-inside-interaction-width` +21 more |
 | `EdgeToolbar` | dom | hole | `.react-flow__edge-toolbar` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
 | `EdgeToolbarProps` | dom | hole | `.react-flow__edge-toolbar` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
 | `EdgeTypes` | dom | hole | `.react-flow__edge-custom` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
-| `EdgeWrapperProps` | dom | driven | `.react-flow__edge` | `click-inside-interaction-width` +31 more |
+| `EdgeWrapperProps` | dom | driven | `.react-flow__edge` | `click-inside-interaction-width` +33 more |
 | `Handle` | dom | driven | `.react-flow__handle` | `click-inside-interaction-width` +34 more |
 | `HandleProps` | dom | driven | `.react-flow__handle[data-handlepos]` | `click-inside-interaction-width` +34 more |
 | `HandleType` | dom | driven | `.react-flow__handle.source` | `click-inside-interaction-width` +34 more |
@@ -102,11 +102,11 @@ The witness is printed beside each one so a wrong witness can be read and disput
 | `Viewport` | dom | driven | `.react-flow__viewport[style*=transform]` | `click-inside-interaction-width` +34 more |
 | `ViewportPortal` | dom | hole | `.react-flow__viewport-portal *` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
 | `XYZPosition` | dom | driven | `.react-flow__node[style*=z-index]` | `click-inside-interaction-width` +34 more |
-| `ZIndexMode` | dom | driven | `.react-flow__edges svg[style*=z-index]` | `click-inside-interaction-width` +31 more |
+| `ZIndexMode` | dom | driven | `.react-flow__edges svg[style*=z-index]` | `click-inside-interaction-width` +33 more |
 | `Connection` | callbacks | driven | `onConnect` | `connect-source-handle-to-target-handle` +1 more |
 | `EdgeAddChange` | callbacks | hole | `onEdgesChange:add` | declared — [issue](https://github.com/jonbae/PSFlow/issues/60) |
 | `EdgeChange` | callbacks | driven | `onEdgesChange` | `click-inside-interaction-width` +15 more |
-| `EdgeMouseHandler` | callbacks | driven | `onEdgeClick, onEdgeDoubleClick, onEdgeContextMenu, onEdgeMouseEnter, onEdgeMouseMove, onEdgeMouseLeave` | `click-inside-interaction-width` +10 more |
+| `EdgeMouseHandler` | callbacks | driven | `onEdgeClick, onEdgeDoubleClick, onEdgeContextMenu, onEdgeMouseEnter, onEdgeMouseMove, onEdgeMouseLeave` | `click-inside-interaction-width` +11 more |
 | `EdgeRemoveChange` | callbacks | driven | `onEdgesChange:remove` | `delete-key-removes-edge` +1 more |
 | `EdgeReplaceChange` | callbacks | hole | `onEdgesChange:replace` | declared — [issue](https://github.com/jonbae/PSFlow/issues/60) |
 | `EdgeSelectionChange` | callbacks | driven | `onEdgesChange:select` | `click-inside-interaction-width` +5 more |
@@ -148,8 +148,8 @@ The witness is printed beside each one so a wrong witness can be read and disput
 | `ResizeParamsWithDirection` | callbacks | hole | `onResize` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
 | `SelectionDragHandler` | callbacks | hole | `onSelectionDragStart, onSelectionDrag, onSelectionDragStop` | declared — [issue](https://github.com/jonbae/PSFlow/issues/60) |
 | `ShouldResize` | callbacks | hole | `shouldResize` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
-| `UseOnSelectionChangeOptions` | callbacks | driven | `useOnSelectionChange` | `click-selects-node--probe-flow-node` +1 more |
-| `UseOnViewportChangeOptions` | callbacks | driven | `useOnViewportChange` | `click-selects-node--probe-flow-node` +1 more |
+| `UseOnSelectionChangeOptions` | callbacks | driven | `useOnSelectionChange` | `click-selects-node--probe-flow-node` |
+| `UseOnViewportChangeOptions` | callbacks | driven | `useOnViewportChange` | `wheel-zooms-the-pane--probe-flow-node` |
 | `ConnectionInProgress` | hooks | driven | `useConnection` | `click-selects-node--probe-flow-node` +1 more |
 | `ConnectionState` | hooks | driven | `useConnection` | `click-selects-node--probe-flow-node` +1 more |
 | `experimental_useOnEdgesChangeMiddleware` | hooks | driven | `experimental_useOnEdgesChangeMiddleware` | `click-selects-node--probe-flow-node` +1 more |
@@ -170,8 +170,8 @@ The witness is printed beside each one so a wrong witness can be read and disput
 | `useNodesInitialized` | hooks | driven | `useNodesInitialized` | `click-selects-node--probe-flow-node` +1 more |
 | `UseNodesInitializedOptions` | hooks | driven | `useNodesInitialized` | `click-selects-node--probe-flow-node` +1 more |
 | `useNodesState` | hooks | driven | `useNodesState` | `click-selects-node--probe-flow-node` +1 more |
-| `useOnSelectionChange` | hooks | driven | `useOnSelectionChange` | `click-selects-node--probe-flow-node` +1 more |
-| `useOnViewportChange` | hooks | driven | `useOnViewportChange` | `click-selects-node--probe-flow-node` +1 more |
+| `useOnSelectionChange` | hooks | driven | `useOnSelectionChange` | `click-selects-node--probe-flow-node` |
+| `useOnViewportChange` | hooks | driven | `useOnViewportChange` | `wheel-zooms-the-pane--probe-flow-node` |
 | `useReactFlow` | hooks | driven | `useReactFlow` | `click-selects-node--probe-flow-node` +1 more |
 | `useStore` | hooks | driven | `useStore` | `click-selects-node--probe-flow-node` +1 more |
 | `useStoreApi` | hooks | driven | `useStoreApi` | `click-selects-node--probe-flow-node` +1 more |
