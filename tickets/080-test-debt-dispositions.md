@@ -1,5 +1,15 @@
 # 080 — Dispositions for the 57 test-debt rows
 
+> **Applied.** [Audit buckets: accepted-ungated, system, gate-pending
+> validation](https://github.com/jonbae/PSFlow/issues/58) carried every
+> disposition below into `parity/changelog-audit/verdicts.json` and built the
+> three buckets they need. The `gate-pending` rows name their scenario by the
+> canonical id from [081](081-interaction-corpus.md), and the audit fails on one
+> the corpus neither holds nor reserves. **The count is 56, not 57** — #5276 was
+> misfiled and is `not-ported`; `parity/changelog-audit/report.md` derives both
+> numbers rather than repeating them. This file stays the argument for each
+> fate; the file it decided is now the record of them.
+
 Resolution asset for [Fate of the 57 test-debt rows under the
 net](https://github.com/jonbae/PSFlow/issues/21). Supersedes the open questions
 in [076](076-test-debt-drag-selection-store.md),

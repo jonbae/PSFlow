@@ -282,12 +282,15 @@ _Avoid_: census row, coverage row
 
 **Bucket**:
 The label a row carries, naming what proves that behavior — or, for the ungated
-buckets, what does not. Every bucket is one of three kinds: **covered**, which
-must cite evidence; **gap**, which must name a ticket or a plan; and
-**accepted**, which must give a reason. A covered bucket that names a gate uses
-the gate's own name — `surface`, `function`, `conformance`, `system` — because
-the bucket key and the gate name are deliberately the same word. The remaining
-covered buckets (`docs`, `ts-only`, `unit`) name something other than a gate.
+buckets, what does not. Every bucket carries a **kind**, and three of the four
+say what the row owes: **covered**, which must cite evidence; **gap**, which
+must name a ticket or a plan; and **accepted**, which must give a reason. The
+fourth is `n/a`'s own, and is not a kind in that sense — a change with no PSFlow
+analogue is neither proven nor unproven and owes nothing. A covered bucket that
+names a gate uses the gate's own name — `surface`, `function`, `conformance`,
+`system` — because the bucket key and the gate name are deliberately the same
+word. The remaining covered buckets (`docs`, `ts-only`, `unit`) name something
+other than a gate.
 _Avoid_: verdict, status, category
 
 **Ported-ungated**:
@@ -296,8 +299,11 @@ is planned.
 
 **Gate-pending**:
 A gap bucket: PSFlow implements the change, no gate exercises it, and a named
-gate is the plan. Names the target gate, the scenario or test that will prove
-it, and — where the target is the net — the boundary stage that unblocks it.
+gate is the plan. Names the target gate — which is the covered bucket the row
+will graduate into — the scenario or test that will prove it, and, where the
+target is the net, the boundary **stage** that unblocks it. A named scenario has
+to resolve against the corpus's **name space** or the audit fails: a typo, an
+invention and a plan are otherwise the same three words in a JSON file.
 _Avoid_: net-pending, planned, todo
 
 **Accepted-ungated**:
@@ -357,6 +363,21 @@ A named entry in the corpus: one fixture plus the sequence of actions driven
 against it. Named semantically, never by sequence number — a gate cites scenarios
 by name, and numbers shift when the corpus is trimmed.
 _Avoid_: test case, spec
+
+**Name space** (of the corpus):
+Every id a scenario may be cited by: the ids scenarios exist under, plus the
+**reserved** ones. Wider than the corpus on purpose — a **gate-pending** row
+cites a scenario by name, and the two answers a citation can get are "resolves"
+and "resolves to nothing", not "exists".
+_Avoid_: the corpus (when the reserved ids are also meant), the scenario list
+
+**Reserved id**:
+A scenario id `parity/system/corpus/reserved.mjs` holds for a scenario a later
+ticket will write, which no other source may take. It **resolves** a citation
+and it drives nothing, and those are separate facts that are always reported
+apart: a row against a reserved id is waiting for someone to write the scenario,
+where a row against a written one is waiting for a run.
+_Avoid_: placeholder, stub, planned scenario
 
 **Conformance seed**:
 The scenarios **lifted** from upstream's own end-to-end suite — its interaction

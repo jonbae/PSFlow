@@ -98,6 +98,7 @@ npm run parity:coverage                  # regenerate coverage.md from the store
 ```sh
 npm run parity:boundary   # boundary module — outbound drift + deferred props refused
 npm run parity:changelog  # 12.3.5→12.11.0 changelog audit; gates on unbucketed PRs
+npm run test:audit        # node --test over the audit's bucket table and its rules
 npm run test:surface      # node --test over surface parity's shape and allowlist logic
 npm run test:census       # node --test over the standalone census generator and its staleness logic
 npm run test:compare      # node --test over the system-parity comparison core

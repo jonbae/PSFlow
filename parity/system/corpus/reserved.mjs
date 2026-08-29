@@ -3,8 +3,14 @@
 // `tickets/081-interaction-corpus.md` renamed the test-debt ticket's `S1`–`S30`
 // to semantic ids and published the table. Those thirty scenarios are the
 // corpus's second source and land with the behavioural coverage work (#60);
-// until then the names are spoken for, and `gate-pending` will cite them by
-// name — it fails when the scenario it names is absent from the corpus.
+// until then the names are spoken for, and `gate-pending` cites them by name.
+//
+// This register is half of what makes that citation mean anything (#58). The
+// audit fails a row naming a scenario the corpus's **name space** — written ids
+// plus these — does not hold, so a reserved id resolves and an invented one does
+// not. What is reserved and what is written are counted apart everywhere they
+// are reported: a reserved id promises a scenario and drives nothing, and those
+// have to stay two separate facts or the promise starts reading as coverage.
 //
 // The hazard is quiet. Several of the conformance seed's transcriptions land
 // very close to a reserved scenario: upstream's own "dragging a node" *is*

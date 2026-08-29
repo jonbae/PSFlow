@@ -31,9 +31,11 @@
 import { CorpusError } from "./routes.mjs";
 import { mountBaselines } from "./mount-baselines.mjs";
 import { probeVariants, readProbePlan } from "./probes.mjs";
+import { RESERVED } from "./reserved.mjs";
 import { seedScenarios } from "./seed.mjs";
 
 export { CorpusError, ROUTE_PREFIX, idOf, routeOf } from "./routes.mjs";
+export { RESERVED } from "./reserved.mjs";
 
 /**
  * Every scenario, baselines first.
@@ -57,6 +59,27 @@ export const buildCorpus = (fixtures, components = []) => {
   ];
   return assertDistinctIds([...plain, ...probeVariants(plain, readProbePlan())]);
 };
+
+/**
+ * Every id the corpus answers to, split by whether a scenario exists under it.
+ *
+ * The **name space**, and it is wider than the corpus on purpose. `written` are
+ * the ids scenarios exist under today; `reserved` are the thirty
+ * `reserved.mjs` holds for the test-debt scenarios (#60), which no source may
+ * take in the meantime. A `gate-pending` row in the changelog audit cites a
+ * scenario by name and fails when the name resolves to neither — a typo and an
+ * invention look identical in a JSON file, and this is the only thing that can
+ * tell either from a plan.
+ *
+ * The two are returned apart rather than unioned because the difference is the
+ * interesting half: a row against a `written` id is waiting on a run, and a row
+ * against a `reserved` one is waiting on someone to write the scenario at all.
+ * Collapsing them would make fifty rows read as though they were the same thing.
+ */
+export const scenarioNames = (fixtures, components = []) => ({
+  written: buildCorpus(fixtures, components).map((scenario) => scenario.id),
+  reserved: Object.keys(RESERVED),
+});
 
 /**
  * The check across sources, separately, because the sources it guards between
