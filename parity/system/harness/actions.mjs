@@ -28,6 +28,29 @@
 
 export const PRIMITIVES = ["pointerDown", "pointerMove", "pointerUp", "key", "wheel", "touch", "call"];
 
+// `call` drives state. Read-only members are sampled together by the page's
+// observation bridge after the scenario settles, so a query can never become
+// an intermediate checkpoint or leak its answer back into scenario control.
+export const IMPERATIVE_MUTATORS = Object.freeze([
+  "setNodes",
+  "addNodes",
+  "setEdges",
+  "addEdges",
+  "deleteElements",
+  "updateNode",
+  "updateNodeData",
+  "updateEdge",
+  "updateEdgeData",
+  "fitView",
+  "zoomIn",
+  "zoomOut",
+  "zoomTo",
+  "setViewport",
+  "setCenter",
+  "fitBounds",
+]);
+const MUTATORS = new Set(IMPERATIVE_MUTATORS);
+
 const ORIGINS = ["center", "topLeft"];
 const KEY_ACTIONS = ["press", "down", "up"];
 // The vocabulary says `start`; the trace records what the browser was actually
@@ -195,13 +218,20 @@ export const createPrimitives = (port, log, apiCalls = []) => {
     },
 
     /**
-     * The imperative half: a query or a mutator on the flow instance, reached
-     * through the page's bridge. The bridge does not exist until the instance
+     * The imperative half: a mutator on the flow instance, reached through the
+     * page's bridge. Queries are captured together after settling by the
+     * observations bridge; allowing one here would create an intermediate
+     * checkpoint. The bridge does not exist until the instance
      * crosses (boundary stage 3, #56), and a page without one is a page that
      * cannot answer — which is the same thing as a target that did not resolve,
      * and recorded the same way rather than thrown.
      */
     async call(method, args = []) {
+      if (!MUTATORS.has(method)) {
+        throw new Error(
+          `call only drives imperative mutators; ${JSON.stringify(method)} is not one of ${IMPERATIVE_MUTATORS.join(", ")}`
+        );
+      }
       const { installed, result } = await port.call(method, args);
       if (!installed) return log.record({ action: "call", target: null, resolved: false });
 

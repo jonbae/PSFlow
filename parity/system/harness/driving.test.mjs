@@ -103,7 +103,7 @@ test("what the log produces is what the trace format accepts", () => {
   log.record({ action: "call", resolved: true, dispatched: { method: "zoomIn", args: [] } });
 
   const trace = {
-    traceFormat: 1,
+    traceFormat: 2,
     scenario: "driving-log-shape",
     side: "psflow",
     capture: 1,

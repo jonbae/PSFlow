@@ -154,9 +154,8 @@ export const holdsInDom = (dom, matches) => {
 // One reading per section, and each is a reading of the shape the trace format
 // already fixes rather than an invention: `callbacks` is a list of `{ name,
 // args }`, `api` is `{ queries, calls }`, and `hooks` and `props` are keyed by
-// probe id. The three probe-fed sections are empty until #59 builds the probes;
-// their readings are written now so the register can name something, and every
-// export landing in them is a declared hole until they fill.
+// probe id. Issue #59's probes now fill those sections selectively; an empty
+// reading remains meaningful for plain scenarios and direct component routes.
 
 const changeNames = (name, args, into) => {
   for (const arg of args ?? []) {
@@ -187,7 +186,7 @@ const NAMES_IN = {
   },
   api: (section, into) => {
     for (const key of Object.keys(section?.queries ?? {})) into.add(key);
-    for (const { name } of section?.calls ?? []) into.add(name);
+    for (const { method } of section?.calls ?? []) into.add(method);
   },
   hooks: probeNames,
   props: probeNames,
@@ -255,6 +254,7 @@ export const compileWitness = (entry, section) => {
     export: entry.export,
     section,
     kind: "names",
+    names: [...names],
     describe: names.join(", "),
     note: entry.note ?? null,
     holdsIn: (sections) => {

@@ -14,6 +14,10 @@ all defined there.
 | `src/Flow.tsx` | the fixture driver: a twin of upstream's `generic-tests/Flow.tsx` |
 | `src/entry.tsx` | the page: route → fixture or direct component, a twin of upstream's `generic-tests/index.tsx` |
 | `src/callbacks.ts` | the call log's driver half: publish it, wrap every callback prop into it |
+| `src/Probes.tsx` | selective flow/node/edge probes for hook returns and received props |
+| `observations.mjs` | the in-page hooks/API/props log and settled API snapshots |
+| `probe-graph.mjs` | fixture-derived node, edge and connection-line probe variants |
+| `probe-hooks.mjs` | isolates each hook-callback subscription while retaining ordinary hook probes |
 | `src/Smoke.tsx` | the JS-surface smoke page |
 | `src/NodePropsGuard.tsx` | the JS-surface NodeProps guard |
 | `index.html` | the container, whose box feeds `fitView`, and the `?side=` switch |
@@ -143,6 +147,12 @@ A capture that forgot to ask would record an empty section on both sides, which
 is the silent pass again — so the driver reports what it wrapped on every mount,
 and a fixture driver that wrapped *nothing* fails the capture rather than
 producing a trace.
+
+Selective `flow-node` runs add `?probeCallback=` when a hole requires a hook
+callback. The corpus chooses an existing scenario whose declared capability can
+fire that callback, and `probe-hooks.mjs` installs only that callback hook in the
+run. Non-callback hooks stay together. The split keeps callback receipts exact
+without making their order depend on scheduling between unrelated subscriptions.
 
 This is the driver's **one derived list**, and the exception to everything above
 about a driver being allowed to be hand-written: a driver mistake shows up

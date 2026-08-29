@@ -21,7 +21,7 @@ export const EMPTY_DOM = Object.freeze({
  * entry and the last one repeats forever, which is what a page that eventually
  * settles looks like from up here.
  */
-export const createFakePort = ({ boxes = {}, bridge = null, dom = EMPTY_DOM, callLog = null } = {}) => {
+export const createFakePort = ({ boxes = {}, bridge = null, dom = EMPTY_DOM, callLog = null, observations = null } = {}) => {
   const sent = [];
   const snapshots = Array.isArray(dom) ? [...dom] : [dom];
   let ticks = 0;
@@ -68,6 +68,9 @@ export const createFakePort = ({ boxes = {}, bridge = null, dom = EMPTY_DOM, cal
     // a fixture driver that wrapped nothing, have to be asked for explicitly.
     async callbacks() {
       return callLog ?? { installed: true, entries: [], failures: [], observing: ["onNodesChange"] };
+    },
+    async observations() {
+      return observations ?? { installed: true, hooks: {}, api: { queries: {} }, props: {}, failures: [] };
     },
     async dom() {
       // The last snapshot repeats: a page settles and then stays settled, and a

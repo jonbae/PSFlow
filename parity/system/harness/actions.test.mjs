@@ -260,12 +260,20 @@ test("call dispatches through the bridge when the page has one, and the return l
   assert.deepEqual(sent, [{ kind: "call", method: "setViewport", args: [{ x: 1, y: 2, zoom: 3 }] }]);
 });
 
+test("call refuses queries because their answers belong to the end-state snapshot", async () => {
+  const { actions, sent, apiCalls } = bench({ bridge: () => ({ nodes: [], edges: [] }) });
+
+  await assert.rejects(() => actions.call("toObject"), /mutator/);
+  assert.deepEqual(sent, []);
+  assert.deepEqual(apiCalls, []);
+});
+
 // The scenario is handed the vocabulary and nothing else. A `call` that
 // returned its result would be an aperture onto the running library — the one
 // remaining way a scenario could branch on which side it is driving.
 test("call hands the scenario the driving entry, never the library's answer", async () => {
-  const { actions } = bench({ bridge: () => ({ nodes: [], edges: [] }) });
-  const entry = await actions.call("toObject");
+  const { actions } = bench({ bridge: () => true });
+  const entry = await actions.call("fitView");
 
   assert.deepEqual(Object.keys(entry), ["index", "action", "target", "resolved", "box", "dispatched"]);
 });

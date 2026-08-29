@@ -15,8 +15,11 @@
 //   5. **Claim what is left** with hand-written regions (`regions.mjs`).
 //
 // Capture and compare are separate steps by design (#18): a trace records
-// everything observable and persists to disk, and *everything the noise policy
-// forgives* lives here. That keeps a capture whitelist from smuggling
+// everything observable and persists to disk. A probe scenario then projects
+// that complete trace to its declared observation level before comparison;
+// unlike normalization, this is the definition of that experiment rather than
+// forgiven noise. *Everything the noise policy forgives* still lives here.
+// That keeps a capture whitelist from smuggling
 // hand-authored assertions into the recording, and it means revising the noise
 // policy re-runs this step in seconds rather than re-running a browser.
 
@@ -29,6 +32,30 @@ import { OUTCOME, claimDifferences, outcomesWith, passes } from "./regions.mjs";
 // The driving log is compared ahead of the other sections as its own class:
 // if the inputs differed, the outputs differing tells you nothing new (#26).
 export const REPORT_ORDER = [DRIVING, "dom", "callbacks", "hooks", "api", "props", "console"];
+
+const PROBE_SCOPE = Object.freeze({
+  "flow-node": ["callbacks", "hooks", "api", "props", "console"],
+  edge: ["props", "console"],
+  "connection-line": ["props", "console"],
+});
+
+/** Which persisted observations define this scenario variant's experiment. */
+export const comparisonScope = (scenario) => {
+  const match = String(scenario).match(/--probe-(flow-node|edge|connection-line)$/);
+  return match ? PROBE_SCOPE[match[1]].slice() : REPORT_ORDER.slice();
+};
+
+const isFlowProbe = (scenario) => String(scenario).endsWith("--probe-flow-node");
+
+export const selectComparisonSections = (sections, scope, scenario) =>
+  Object.fromEntries(
+    scope.map((section) => [
+      section,
+      section === CALLBACKS && isFlowProbe(scenario)
+        ? sections[section].filter((entry) => entry.probe === true)
+        : sections[section],
+    ])
+  );
 
 /** Is this difference in the receipt for the input side, rather than in a response? */
 export const isDriving = (difference) => difference.path[0] === DRIVING;
@@ -60,7 +87,11 @@ const identity = (trace) => ({
  * three default to empty, which is the strictest possible run: every difference
  * is unclaimed and the run fails.
  */
-export const compareTraces = (leftTrace, rightTrace, { rules = [], regions = [], weakenings = [] } = {}) => {
+export const compareTraces = (
+  leftTrace,
+  rightTrace,
+  { rules = [], regions = [], weakenings = [], scope = comparisonScope(leftTrace?.scenario) } = {}
+) => {
   validateTrace(leftTrace, `${leftTrace?.side ?? "left"} trace`);
   validateTrace(rightTrace, `${rightTrace?.side ?? "right"} trace`);
 
@@ -71,10 +102,12 @@ export const compareTraces = (leftTrace, rightTrace, { rules = [], regions = [],
     );
   }
 
-  const left = normalize(leftTrace.sections, rules);
-  const right = normalize(rightTrace.sections, rules);
+  const leftSections = selectComparisonSections(leftTrace.sections, scope, leftTrace.scenario);
+  const rightSections = selectComparisonSections(rightTrace.sections, scope, rightTrace.scenario);
+  const left = normalize(leftSections, rules);
+  const right = normalize(rightSections, rules);
   assertNoCollapse(
-    { left: leftTrace.sections, right: rightTrace.sections },
+    { left: leftSections, right: rightSections },
     { left: left.value, right: right.value },
     rules
   );
@@ -82,12 +115,14 @@ export const compareTraces = (leftTrace, rightTrace, { rules = [], regions = [],
   // Normalized first, like every other section: a rule that deletes a field by
   // name reaches inside a serialized argument the same way it reaches inside a
   // DOM attribute. What `callbacks.mjs` adds is what happens to the *sequence*.
-  const callbacks = compareCallbacks(left.value[CALLBACKS], right.value[CALLBACKS], {
-    weakenings,
-    path: [CALLBACKS],
-  });
+  const callbacks = scope.includes(CALLBACKS)
+    ? compareCallbacks(left.value[CALLBACKS], right.value[CALLBACKS], {
+        weakenings,
+        path: [CALLBACKS],
+      })
+    : { differences: [], outcomes: [] };
 
-  const differences = REPORT_ORDER.flatMap((section) =>
+  const differences = scope.flatMap((section) =>
     section === CALLBACKS ? callbacks.differences : diffValues(left.value[section], right.value[section], [section])
   );
 
@@ -102,6 +137,7 @@ export const compareTraces = (leftTrace, rightTrace, { rules = [], regions = [],
 
   return {
     scenario: leftTrace.scenario,
+    scope: scope.slice(),
     left: identity(leftTrace),
     right: identity(rightTrace),
     differences,

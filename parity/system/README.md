@@ -9,7 +9,7 @@ The net has two halves, and they are deliberately separate steps:
 
 | Step | What it does | Where it is |
 |---|---|---|
-| **capture** | drives a scenario against one side and returns a trace | `harness/` — three of the seven sections still to come, see below |
+| **capture** | drives a scenario against one side and returns a complete seven-section trace | `harness/` |
 | **compare** | reads a run's four stored traces and reports what differs | `compare/`, and `compare.mjs` |
 | **the corpus** | what gets driven: the scenarios, and where each one came from | `corpus/` |
 | **coverage** | which exports the traces prove were driven, and which are deliberately declared holes | `coverage/`, and `coverage.mjs` |
@@ -42,7 +42,7 @@ here so nobody has to reconstruct it from them. It is enforced by
 
 ```jsonc
 {
-  "traceFormat": 1,                            // bumped when the shape changes
+  "traceFormat": 2,                            // bumped when the shape changes
   "scenario": "mount-baseline--nodes-general", // semantic id, never a number
   "side": "upstream" | "psflow",
   "capture": 1,                                // each side is captured twice (#19 §8)
@@ -74,7 +74,7 @@ for twice.
 | `dom` | 64 | the full subtree under `.react-flow`, plus enumerated page-level state |
 | `callbacks` | 47 | every handler firing, in order, with serialized arguments |
 | `hooks` | 27 | what each **probe** saw its hooks return |
-| `api` | 14 | imperative queries called during capture, and mutator returns |
+| `api` | 14 | queries snapshotted after settling, and imperative mutator returns |
 | `props` | 4 | the props object each node/edge probe was handed |
 | `console` | 0 | what the page printed |
 | `driving` | 0 | the **driving log**: what was done *to* the page |
@@ -102,7 +102,10 @@ for twice.
   // the driver bundles — because a handler leaves no residue to read afterwards.
   // Arguments serialize every enumerable own property, blacklisting only
   // reference-typed fields (#19 §6) — `harness/serialize.mjs`.
-  "callbacks": [ { "name": "onNodesChange", "args": [ [ { "id": "1", "type": "dimensions" } ] ] } ],
+  "callbacks": [
+    { "name": "onNodesChange", "args": [ [ { "id": "1", "type": "dimensions" } ] ] },
+    { "name": "useOnViewportChange", "args": [ { "x": 0, "y": 0, "zoom": 1 } ], "probe": true }
+  ],
 
   // ── hooks ────────────────────────────────────────────────────────────────
   // Keyed by probe id, then by hook name.
@@ -158,22 +161,37 @@ A **run** is one scenario, two sides, **two captures each** — four traces, rea
 one order, and the order is an interpretation order rather than a pipeline
 (`compare/run.mjs`).
 
+Every trace still carries all seven sections. Comparison first selects the
+experiment declared by the scenario variant: a plain scenario reads all seven;
+`flow-node` reads the exact tagged hook-callback receipts plus `hooks`, `api`,
+`props`, and `console`; `edge` and `connection-line` read `props` and `console`.
+Ordinary flow callbacks remain captured but belong to the plain experiment, so
+replacement-graph effects do not contaminate the hook callback question. Each
+hook-option callback gets its own mechanically selected source scenario and
+probe run, so its exact count and order are preserved without interleaving
+independent subscriptions. This is not a noise tolerance: a probe replaces a node or edge
+and is therefore a different rendering by design. Its DOM and
+pointer-resolution receipt are persisted for audit, while the probe variant
+answers only the hook/API/props question it was generated to answer.
+
 **1. Each side against itself** (`compare/consistency.mjs`). A side disagreeing
 with itself is its own failure class, and it is read first because it invalidates
 everything after it: a cross-side difference between two sides that are not
 reproducible cannot be attributed to either implementation.
 
-**2. The driving log across the sides.** The same argument one level down —
-inputs that differed make output differences uninterpretable.
+**2. The driving log across the sides, in plain scenarios.** The same argument
+one level down — inputs that differed make output differences uninterpretable.
 
 **3. Everything else**, claimed by regions as usual.
 
-**Nothing earlier suppresses anything later.** Capture-everything is the rule the
-whole net is built on, and a run whose first two steps failed still reports the
-third in full — the real divergence may well be down there, and a report that
-stopped at the first bad news would hide it. What the earlier steps buy is
-*framing*: the report says which findings are readings and which are
-**consequences** of a run that was not one experiment.
+**Nothing earlier suppresses anything later within the selected experiment.**
+Capture-everything is the rule the whole net is built on, and all seven sections
+remain persisted even when a probe variant compares only its declared level. A
+run whose first two steps failed still reports the selected third step in full —
+the real divergence may well be down there, and a report that stopped at the
+first bad news would hide it. What the earlier steps buy is *framing*: the report
+says which findings are readings and which are **consequences** of a run that was
+not one experiment.
 
 ### Self-consistency
 
@@ -184,8 +202,8 @@ deliberate differences.
   There is no such thing as a claim that a side disagrees with itself, and
   inventing one would turn the only check that can see non-reproducibility into
   one more register of forgiven differences.
-- **The driving log carries no tolerance.** It is diffed straight off the two
-  traces and **never handed to the normalizer at all**, so no rule that could be
+- **In a plain scenario, the driving log carries no tolerance.** It is diffed
+  straight off the two traces and **never handed to the normalizer at all**, so no rule that could be
   written — not one aimed at it, not a `**` one that would reach it on the way
   past — can forgive a difference there. A side whose resolved boxes wobble
   between its own two captures fails against itself, down to the last sub-pixel.
@@ -607,23 +625,21 @@ makes it reachable at all. It is what green means here, so the number to watch i
 the hole count: that is the debt, written down. `coverage.md` states the
 condition and evaluates it on every run.
 
-Today: **73 of 156 driven, 83 declared holes, no residue.** Every `hooks`, `api`
-and `props` export is a hole, because those three sections are empty in every
-stored trace until the probes land ([#59]); the rest are components no fixture
-mounts ([#62]) and interactions no scenario drives ([#60]).
+Today: **110 of 156 driven, 46 declared holes, no residue.** Selective probe
+variants drove every issue-59 hook and props witness plus the read-only API
+snapshot; the remaining debt is components no fixture mounts ([#62]) and
+imperative interactions no scenario drives ([#60]).
 
 ### The hole list is machine-readable
 
 `coverage/holes.json` is read by other work, not only by people. Boundary stage 4
-([#62]) takes the components no fixture mounts from it, and probed-variant
-selection ([#59]) takes the `hooks` and `props` exports nothing drives — both
-*derived* from what is written there rather than hand-picked. `holesIn(outcomes,
-section)` is the query they call: it joins the register to the census, so neither
-consumer needs a section field in the register nor a reading of its ticket links,
-and neither can drift from what the run actually found. A probed variant
-doubles the corpus's ~240 captures, so spending that multiplier on the two
-smallest sections is a choice the hole list makes rather than a judgement someone
-repeats.
+([#62]) takes the components no fixture mounts from it. Issue 59 used the same
+query to generate `corpus/probe-plan.json` from its hook, API and props holes.
+The artifact preserves those retired hole inputs; every build joins them through
+the current census and witness register to derive the runtime names. That keeps
+the variants after the live holes go stale without turning the result into a
+hand-maintained list. The smallest mechanically valid source scenarios are
+cloned, so probe cost stays explicit rather than multiplying the whole corpus.
 
 ### Behavior coverage stays hand-declared
 
@@ -698,8 +714,6 @@ never about the registers, which are content and go red on their own.
 
 ## Not built here
 
-- **The `hooks`, `props` and `api.queries` sections**, which need probes —
-  [#59](https://github.com/jonbae/PSFlow/issues/59).
 - **The rest of the corpus** — the thirty test-debt scenarios
   ([#60](https://github.com/jonbae/PSFlow/issues/60)), the retirement debt
   ([#61](https://github.com/jonbae/PSFlow/issues/61)) and the hole-closing scenarios after

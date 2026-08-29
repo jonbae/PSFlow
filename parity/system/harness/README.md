@@ -20,7 +20,7 @@ Vocabulary is `CONTEXT.md`. Terms in **bold** are defined there.
 | `serialize.mjs` | what a callback was handed, as trace content — the third one that runs in the page |
 | `port.mjs` | the only file that knows what a browser is |
 | `fake-port.mjs` | its double, which everything above is tested against |
-| `pending.mjs` | the sections capture does not fill yet, declared |
+| `pending.mjs` | the hard-failing pending-section register (currently empty) |
 | `live.spec.mjs` | the harness against a real page |
 
 *What* gets driven is not here either: it is `../corpus/`, which has its own
@@ -379,13 +379,14 @@ of it capture reaches today.
 |---|---:|---|
 | `dom` | 64 | yes — the element tree and the page state, both settled first |
 | `callbacks` | 47 | yes — every call the driver's installed handlers saw, serialized as it was made |
-| `hooks` | 27 | no — needs probes, [#59](https://github.com/jonbae/PSFlow/issues/59) |
-| `api` | 14 | `calls` only, and empty until the bridge exists; `queries` is #59 |
-| `props` | 4 | no — needs probes, #59 |
+| `hooks` | 27 | yes — selective flow/node probes report hook returns and hook errors |
+| `api` | 14 | yes — queries snapshot after settling; mutator calls record their returns |
+| `props` | 4 | yes — replacement node/edge/connection-line probes report what they receive |
 | `console` | 0 | yes, plus uncaught errors |
 | `driving` | 0 | yes |
 
-The three gaps are declared in `pending.mjs` with the issue that lands each.
+The pending register is empty now; a future required section may not quietly
+ship without capture.
 
 The register behaves like every other register here: **an entry that stops
 corresponding to reality fails.** `dom`'s entry was deleted when its capture

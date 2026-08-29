@@ -109,9 +109,9 @@ export const createCallLog = ({ maxDepth } = {}) => {
    * calls — `onNodesChange` driving a `setState` that fires another — leaves
    * them in the order the library made them.
    */
-  const record = (name, args) => {
+  const record = (name, args, metadata = {}) => {
     try {
-      entries.push(serializeCall(name, args, { maxDepth }));
+      entries.push({ ...serializeCall(name, args, { maxDepth }), ...metadata });
     } catch (e) {
       // Deliberately not rethrown here. Throwing inside a library's own event
       // dispatch changes what the page does — which is the one thing an
@@ -123,6 +123,16 @@ export const createCallLog = ({ maxDepth } = {}) => {
 
   return {
     record,
+
+    /**
+     * A hook option callback is still recorded exactly — every call, in the
+     * order it happened. The marker lets the probe comparison select these
+     * receipts without mixing in ordinary flow callbacks caused by replacing
+     * a graph type; it changes no count, order, arguments, or interleaving.
+     */
+    wrapProbe(name) {
+      return (...args) => record(name, args, { probe: true });
+    },
 
     /**
      * Declares which callback props a mounted fixture driver wrapped. Called on
@@ -159,7 +169,11 @@ export const createCallLog = ({ maxDepth } = {}) => {
      * `serialize.mjs` at the moment of the call.
      */
     read() {
-      return { entries: entries.slice(), failures: failures.slice(), observing: observing && [...observing] };
+      return {
+        entries: entries.slice(),
+        failures: failures.slice(),
+        observing: observing && [...observing],
+      };
     },
   };
 };

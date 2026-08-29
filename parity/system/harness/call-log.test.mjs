@@ -20,6 +20,24 @@ test("calls land in the order they were made, with their arguments serialized", 
   ]);
 });
 
+test("hook callbacks keep their exact count, order, and interleaving", () => {
+  const log = createCallLog();
+  log.record("onMove", [{ zoom: 2 }]);
+
+  const viewport = log.wrapProbe("useOnViewportChange");
+  const selection = log.wrapProbe("useOnSelectionChange");
+  viewport({ zoom: 1 });
+  selection({ nodes: [] });
+  viewport({ zoom: 3 });
+
+  assert.deepEqual(log.read().entries, [
+    { name: "onMove", args: [{ zoom: 2 }] },
+    { name: "useOnViewportChange", args: [{ zoom: 1 }], probe: true },
+    { name: "useOnSelectionChange", args: [{ nodes: [] }], probe: true },
+    { name: "useOnViewportChange", args: [{ zoom: 3 }], probe: true },
+  ]);
+});
+
 // The whole point of the wrapper: what the fixture asked for still happens, and
 // still answers. A driver that observed a handler by replacing it would change
 // what the page does, and the two runs would no longer be one experiment.

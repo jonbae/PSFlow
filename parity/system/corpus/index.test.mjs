@@ -13,14 +13,21 @@ const COMPONENTS = [
 ];
 
 const ids = (scenarios) => scenarios.map((s) => s.id);
+const probeIds = (baseline) => [
+  "click-selects-node--probe-flow-node",
+  "wheel-zooms-the-pane--probe-flow-node",
+  `${baseline}--probe-edge`,
+  "connect-source-handle-to-target-handle--probe-connection-line",
+];
 
-test("the corpus is the baselines and then the seed", () => {
+test("the corpus is the baselines, the seed, and the hole-derived probe variants", () => {
   const corpus = buildCorpus(fixtures("./nodes/general.ts"), COMPONENTS);
 
   assert.deepEqual(ids(corpus), [
     "mount-baseline--nodes-general",
     "mount-baseline--examples-color-mode",
     ...ids(seedScenarios),
+    ...probeIds("mount-baseline--nodes-general"),
   ]);
 });
 
@@ -31,7 +38,7 @@ test("the corpus is the baselines and then the seed", () => {
 // with upstream's reading of it, which is not a claim the net makes.
 test("the example driver gets a baseline and the contract components do not", () => {
   const corpus = buildCorpus(fixtures("./nodes/general.ts"), COMPONENTS);
-  const baselines = ids(corpus).filter((id) => id.startsWith("mount-baseline--"));
+  const baselines = corpus.filter((scenario) => scenario.variant === "plain").map((scenario) => scenario.id).filter((id) => id.startsWith("mount-baseline--"));
 
   assert.deepEqual(baselines, ["mount-baseline--nodes-general", "mount-baseline--examples-color-mode"]);
 });
@@ -40,6 +47,7 @@ test("a corpus with no components at all is still the fixtures' baselines and th
   assert.deepEqual(ids(buildCorpus(fixtures("./pane/general.ts"))), [
     "mount-baseline--pane-general",
     ...ids(seedScenarios),
+    ...probeIds("mount-baseline--pane-general"),
   ]);
 });
 

@@ -1,0 +1,88 @@
+{
+  "traceFormat": 2,
+  "scenario": "connect-source-handle-to-target-handle--probe-connection-line",
+  "side": "psflow",
+  "capture": 2,
+  "baseline": "12.11.0",
+  "sections": {
+    "dom": {
+      "page": {
+        "scrollX": 0,
+        "scrollY": 0,
+        "visualViewportScale": 1
+      },
+      "root": null
+    },
+    "callbacks": [],
+    "hooks": {},
+    "api": {
+      "queries": {},
+      "calls": []
+    },
+    "props": {},
+    "console": [
+      {
+        "level": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "level": "pageerror",
+        "text": "ps-flow: the `connectionLineComponent` prop has not crossed the JavaScript boundary yet — it lands in boundary stage 4 (the props that hand a consumer's own component its props record). It is refused rather than ignored so that a prop ps-flow has not implemented fails loudly instead of looking like a prop you did not set."
+      },
+      {
+        "level": "pageerror",
+        "text": "ps-flow: the `connectionLineComponent` prop has not crossed the JavaScript boundary yet — it lands in boundary stage 4 (the props that hand a consumer's own component its props record). It is refused rather than ignored so that a prop ps-flow has not implemented fails loudly instead of looking like a prop you did not set."
+      },
+      {
+        "level": "error",
+        "text": "The above error occurred in the <ReactFlow> component:\n\n    at ReactFlow\n    at div\n    at Flow_default (http://127.0.0.1:53337/parity/driver/dist/psflow.js:64325:23)\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://reactjs.org/link/error-boundaries to learn more about error boundaries."
+      },
+      {
+        "level": "pageerror",
+        "text": "ps-flow: the `connectionLineComponent` prop has not crossed the JavaScript boundary yet — it lands in boundary stage 4 (the props that hand a consumer's own component its props record). It is refused rather than ignored so that a prop ps-flow has not implemented fails loudly instead of looking like a prop you did not set."
+      }
+    ],
+    "driving": [
+      {
+        "index": 0,
+        "action": "mount",
+        "target": ".react-flow",
+        "resolved": false,
+        "box": null,
+        "dispatched": null
+      },
+      {
+        "index": 1,
+        "action": "pointerDown",
+        "target": ".react-flow__handle[data-nodeid=\"Node-1\"]",
+        "resolved": false,
+        "box": null,
+        "dispatched": null
+      },
+      {
+        "index": 2,
+        "action": "pointerMove",
+        "target": ".react-flow__handle[data-nodeid=\"Node-1\"]",
+        "resolved": false,
+        "box": null,
+        "dispatched": null
+      },
+      {
+        "index": 3,
+        "action": "pointerMove",
+        "target": ".react-flow__handle[data-nodeid=\"Node-4\"]",
+        "resolved": false,
+        "box": null,
+        "dispatched": null
+      },
+      {
+        "index": 4,
+        "action": "pointerUp",
+        "target": ".react-flow__handle[data-nodeid=\"Node-4\"]",
+        "resolved": false,
+        "box": null,
+        "dispatched": null
+      }
+    ]
+  }
+}

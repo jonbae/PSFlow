@@ -1,0 +1,2696 @@
+{
+  "traceFormat": 2,
+  "scenario": "wheel-zooms-the-pane--probe-flow-node",
+  "side": "psflow",
+  "capture": 1,
+  "baseline": "12.11.0",
+  "sections": {
+    "dom": {
+      "page": {
+        "scrollX": 0,
+        "scrollY": 0,
+        "visualViewportScale": 1
+      },
+      "root": {
+        "tag": "div",
+        "attrs": {
+          "data-testid": "rf__wrapper",
+          "class": "react-flow light",
+          "role": "application",
+          "style": "width: 100%; height: 100%; overflow: hidden; position: relative; z-index: 0;"
+        },
+        "children": [
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "react-flow__renderer",
+              "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+            },
+            "children": [
+              {
+                "tag": "div",
+                "attrs": {
+                  "class": "react-flow__pane draggable",
+                  "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+                },
+                "children": [
+                  {
+                    "tag": "div",
+                    "attrs": {
+                      "class": "react-flow__viewport xyflow__viewport react-flow__container",
+                      "style": "transform: translate(552.945px, 123.21px) scale(3.4822);"
+                    },
+                    "children": [
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__edges"
+                        },
+                        "children": [
+                          {
+                            "tag": "svg",
+                            "attrs": {
+                              "style": "z-index: 0;"
+                            },
+                            "children": [
+                              {
+                                "tag": "g",
+                                "attrs": {
+                                  "class": "react-flow__edge react-flow__edge-default nopan selectable",
+                                  "tabindex": "0",
+                                  "role": "group",
+                                  "aria-roledescription": "edge",
+                                  "data-id": "first-edge",
+                                  "data-testid": "rf__edge-first-edge"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M75.00003679426798,39.00001868809477 C75.00003679426798,68.00001017135753 -24.99995444185339,68.00001017135753 -24.99995444185339,97.00000165462028",
+                                      "fill": "none",
+                                      "class": "react-flow__edge-path"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M75.00003679426798,39.00001868809477 C75.00003679426798,68.00001017135753 -24.99995444185339,68.00001017135753 -24.99995444185339,97.00000165462028",
+                                      "fill": "none",
+                                      "stroke-opacity": "0",
+                                      "stroke-width": "20",
+                                      "class": "react-flow__edge-interaction"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
+                                      "cx": "75.00003679426798",
+                                      "cy": "49.00001868809477",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
+                                      "cx": "-24.99995444185339",
+                                      "cy": "87.00000165462028",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__edgelabel-renderer"
+                        },
+                        "children": []
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__nodes",
+                          "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+                        },
+                        "children": [
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-input nopan selectable draggable",
+                              "data-id": "1",
+                              "data-testid": "rf__node-1",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "style": "z-index: 0; transform: translate(0px, 0px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
+                            },
+                            "text": "1",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator",
+                                  "data-nodeid": "1",
+                                  "data-handlepos": "bottom",
+                                  "data-id": "1-1--source"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-default nopan selectable draggable",
+                              "data-id": "2",
+                              "data-testid": "rf__node-2",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "style": "z-index: 0; transform: translate(-100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
+                            },
+                            "text": "2",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator",
+                                  "data-nodeid": "2",
+                                  "data-handlepos": "top",
+                                  "data-id": "1-2--target"
+                                },
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator",
+                                  "data-nodeid": "2",
+                                  "data-handlepos": "bottom",
+                                  "data-id": "1-2--source"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-__psflow_node_probe nopan selectable draggable",
+                              "data-id": "3",
+                              "data-testid": "rf__node-3",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "style": "z-index: 0; transform: translate(100px, 100px); pointer-events: all; visibility: hidden;"
+                            },
+                            "children": []
+                          }
+                        ]
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__viewport-portal"
+                        },
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "react-flow__panel bottom right react-flow__attribution"
+            },
+            "children": [
+              {
+                "tag": "span",
+                "attrs": {
+                  "data-message": "Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"
+                },
+                "children": [
+                  {
+                    "tag": "a",
+                    "attrs": {
+                      "href": "https://reactflow.dev",
+                      "target": "_blank",
+                      "rel": "noopener noreferrer",
+                      "aria-label": "React Flow attribution"
+                    },
+                    "text": "React Flow",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__node-desc-1",
+              "style": "display: none;"
+            },
+            "text": "Press enter or space to select a node. Press delete to remove it and escape to cancel.",
+            "children": []
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__edge-desc-1",
+              "style": "display: none;"
+            },
+            "text": "Press enter or space to select an edge. You can then press delete to remove it or escape to cancel.",
+            "children": []
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__aria-live-1",
+              "aria-live": "assertive",
+              "aria-atomic": "true",
+              "style": "position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(100%);"
+            },
+            "children": []
+          }
+        ]
+      }
+    },
+    "callbacks": [
+      {
+        "name": "onSelectionChange",
+        "args": [
+          {
+            "nodes": [],
+            "edges": []
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "position": {
+                "@undefined": true
+              },
+              "positionAbsolute": {
+                "@undefined": true
+              },
+              "dragging": {
+                "@undefined": true
+              },
+              "selected": {
+                "@undefined": true
+              },
+              "item": {
+                "@undefined": true
+              },
+              "index": {
+                "@undefined": true
+              },
+              "type": "dimensions",
+              "id": "1",
+              "dimensions": {
+                "width": 150,
+                "height": 36
+              },
+              "resizing": false,
+              "setAttributes": true
+            },
+            {
+              "position": {
+                "@undefined": true
+              },
+              "positionAbsolute": {
+                "@undefined": true
+              },
+              "dragging": {
+                "@undefined": true
+              },
+              "selected": {
+                "@undefined": true
+              },
+              "item": {
+                "@undefined": true
+              },
+              "index": {
+                "@undefined": true
+              },
+              "type": "dimensions",
+              "id": "2",
+              "dimensions": {
+                "width": 150,
+                "height": 36
+              },
+              "resizing": false,
+              "setAttributes": true
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 540,
+            "y": 88,
+            "zoom": 4
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 540,
+            "y": 88,
+            "zoom": 4
+          }
+        ]
+      },
+      {
+        "name": "useOnViewportChange",
+        "args": [
+          {
+            "x": 540,
+            "y": 88,
+            "zoom": 4
+          }
+        ],
+        "probe": true
+      },
+      {
+        "name": "onError",
+        "args": [
+          "002",
+          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
+        ]
+      },
+      {
+        "name": "onSelectionChange",
+        "args": [
+          {
+            "nodes": [],
+            "edges": []
+          }
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 540,
+            "y": 88,
+            "zoom": 4
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 540,
+            "y": 88,
+            "zoom": 4
+          }
+        ]
+      },
+      {
+        "name": "useOnViewportChange",
+        "args": [
+          {
+            "x": 540,
+            "y": 88,
+            "zoom": 4
+          }
+        ],
+        "probe": true
+      },
+      {
+        "name": "onPaneMouseEnter",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerEnter",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "pointerenter",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "path"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 418.80000000074506,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 640,
+            "screenY": 360,
+            "clientX": 640,
+            "clientY": 360,
+            "pageX": 640,
+            "pageY": 360,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 0,
+            "relatedTarget": {
+              "@ref": "Window"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "pointerId": 1,
+            "width": 1,
+            "height": 1,
+            "pressure": 0,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "mouse",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onEdgeMouseEnter",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseEnter",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseenter",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "path"
+            },
+            "currentTarget": {
+              "@ref": "g"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 418.80000000074506,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 640,
+            "screenY": 360,
+            "clientX": 640,
+            "clientY": 360,
+            "pageX": 640,
+            "pageY": 360,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": {
+              "@ref": "Window"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "first-edge",
+            "type": {
+              "@undefined": true
+            },
+            "source": "1",
+            "target": "2",
+            "sourceHandle": {
+              "@undefined": true
+            },
+            "targetHandle": {
+              "@undefined": true
+            },
+            "animated": false,
+            "hidden": false,
+            "deletable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "data": {
+              "@undefined": true
+            },
+            "selected": false,
+            "markerStart": {
+              "@undefined": true
+            },
+            "markerEnd": {
+              "@undefined": true
+            },
+            "zIndex": {
+              "@undefined": true
+            },
+            "label": {
+              "@undefined": true
+            },
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "interactionWidth": {
+              "@undefined": true
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerMove",
+            "_targetInst": null,
+            "type": "pointermove",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "path"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 418.80000000074506,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 640,
+            "screenY": 360,
+            "clientX": 640,
+            "clientY": 360,
+            "pageX": 640,
+            "pageY": 360,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 0,
+            "relatedTarget": null,
+            "movementX": 641,
+            "movementY": 361,
+            "pointerId": 1,
+            "width": 1,
+            "height": 1,
+            "pressure": 0,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "mouse",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onEdgeMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseMove",
+            "_targetInst": null,
+            "type": "mousemove",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "path"
+            },
+            "currentTarget": {
+              "@ref": "g"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 418.80000000074506,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 640,
+            "screenY": 360,
+            "clientX": 640,
+            "clientY": 360,
+            "pageX": 640,
+            "pageY": 360,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": null,
+            "movementX": 641,
+            "movementY": 361,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "first-edge",
+            "type": {
+              "@undefined": true
+            },
+            "source": "1",
+            "target": "2",
+            "sourceHandle": {
+              "@undefined": true
+            },
+            "targetHandle": {
+              "@undefined": true
+            },
+            "animated": false,
+            "hidden": false,
+            "deletable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "data": {
+              "@undefined": true
+            },
+            "selected": false,
+            "markerStart": {
+              "@undefined": true
+            },
+            "markerEnd": {
+              "@undefined": true
+            },
+            "zIndex": {
+              "@undefined": true
+            },
+            "label": {
+              "@undefined": true
+            },
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "interactionWidth": {
+              "@undefined": true
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          }
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 552.9449436703876,
+            "y": 123.21024678345424,
+            "zoom": 3.4822022531844965
+          }
+        ]
+      }
+    ],
+    "hooks": {
+      "node-probe": {
+        "useHandleConnections": [],
+        "useNodeConnections": [
+          {
+            "source": "1",
+            "target": "3",
+            "sourceHandle": {
+              "@undefined": true
+            },
+            "targetHandle": {
+              "@undefined": true
+            },
+            "edgeId": "second-edge"
+          }
+        ],
+        "useNodeId": "3"
+      },
+      "flow-probe": {
+        "experimental_useOnEdgesChangeMiddleware": {
+          "@undefined": true
+        },
+        "experimental_useOnNodesChangeMiddleware": {
+          "@undefined": true
+        },
+        "useConnection": {
+          "isValid": null,
+          "from": null,
+          "fromHandle": null,
+          "fromPosition": null,
+          "fromNode": null,
+          "to": null,
+          "toHandle": null,
+          "toPosition": null,
+          "toNode": null,
+          "pointer": null
+        },
+        "useEdges": [
+          {
+            "id": "first-edge",
+            "type": {
+              "@undefined": true
+            },
+            "source": "1",
+            "target": "2",
+            "sourceHandle": {
+              "@undefined": true
+            },
+            "targetHandle": {
+              "@undefined": true
+            },
+            "animated": false,
+            "hidden": false,
+            "deletable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "data": {
+              "@undefined": true
+            },
+            "selected": false,
+            "markerStart": {
+              "@undefined": true
+            },
+            "markerEnd": {
+              "@undefined": true
+            },
+            "zIndex": {
+              "@undefined": true
+            },
+            "label": {
+              "@undefined": true
+            },
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "interactionWidth": {
+              "@undefined": true
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          },
+          {
+            "id": "second-edge",
+            "type": {
+              "@undefined": true
+            },
+            "source": "1",
+            "target": "3",
+            "sourceHandle": {
+              "@undefined": true
+            },
+            "targetHandle": {
+              "@undefined": true
+            },
+            "animated": false,
+            "hidden": false,
+            "deletable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "data": {
+              "@undefined": true
+            },
+            "selected": false,
+            "markerStart": {
+              "@undefined": true
+            },
+            "markerEnd": {
+              "@undefined": true
+            },
+            "zIndex": {
+              "@undefined": true
+            },
+            "label": {
+              "@undefined": true
+            },
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "interactionWidth": {
+              "@undefined": true
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          }
+        ],
+        "useEdgesState": [
+          [],
+          {
+            "@ref": "function"
+          },
+          {
+            "@ref": "function"
+          }
+        ],
+        "useInternalNode": {
+          "id": "1",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "data": {
+            "label": "1"
+          },
+          "type": "input",
+          "sourcePosition": {
+            "@undefined": true
+          },
+          "targetPosition": {
+            "@undefined": true
+          },
+          "hidden": false,
+          "selected": false,
+          "dragging": false,
+          "draggable": {
+            "@undefined": true
+          },
+          "selectable": {
+            "@undefined": true
+          },
+          "connectable": {
+            "@undefined": true
+          },
+          "deletable": {
+            "@undefined": true
+          },
+          "dragHandle": {
+            "@undefined": true
+          },
+          "width": 150,
+          "height": 36,
+          "initialWidth": {
+            "@undefined": true
+          },
+          "initialHeight": {
+            "@undefined": true
+          },
+          "parentId": {
+            "@undefined": true
+          },
+          "zIndex": {
+            "@undefined": true
+          },
+          "extent": {
+            "@undefined": true
+          },
+          "expandParent": false,
+          "ariaLabel": {
+            "@undefined": true
+          },
+          "origin": {
+            "@undefined": true
+          },
+          "handles": {
+            "@undefined": true
+          },
+          "measured": {
+            "width": 150,
+            "height": 36
+          },
+          "className": {
+            "@undefined": true
+          },
+          "style": {
+            "@undefined": true
+          },
+          "internals": {
+            "positionAbsolute": {
+              "x": 0,
+              "y": 0
+            },
+            "z": 0,
+            "rootParentIndex": {
+              "@undefined": true
+            },
+            "handleBounds": {
+              "source": [
+                {
+                  "id": {
+                    "@undefined": true
+                  },
+                  "nodeId": "1",
+                  "x": 71.00003679426798,
+                  "y": 31.000018688094766,
+                  "position": "bottom",
+                  "type": "source",
+                  "width": 8,
+                  "height": 8
+                }
+              ],
+              "target": []
+            },
+            "bounds": {
+              "@undefined": true
+            }
+          }
+        },
+        "useKeyPress": false,
+        "useNodes": [
+          {
+            "id": "1",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "data": {
+              "label": "1"
+            },
+            "type": "input",
+            "sourcePosition": {
+              "@undefined": true
+            },
+            "targetPosition": {
+              "@undefined": true
+            },
+            "hidden": false,
+            "selected": false,
+            "dragging": false,
+            "draggable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "connectable": {
+              "@undefined": true
+            },
+            "deletable": {
+              "@undefined": true
+            },
+            "dragHandle": {
+              "@undefined": true
+            },
+            "width": 150,
+            "height": 36,
+            "initialWidth": {
+              "@undefined": true
+            },
+            "initialHeight": {
+              "@undefined": true
+            },
+            "parentId": {
+              "@undefined": true
+            },
+            "zIndex": {
+              "@undefined": true
+            },
+            "extent": {
+              "@undefined": true
+            },
+            "expandParent": false,
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "origin": {
+              "@undefined": true
+            },
+            "handles": {
+              "@undefined": true
+            },
+            "measured": {
+              "width": 150,
+              "height": 36
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          },
+          {
+            "id": "2",
+            "position": {
+              "x": -100,
+              "y": 100
+            },
+            "data": {
+              "label": "2"
+            },
+            "type": {
+              "@undefined": true
+            },
+            "sourcePosition": {
+              "@undefined": true
+            },
+            "targetPosition": {
+              "@undefined": true
+            },
+            "hidden": false,
+            "selected": false,
+            "dragging": false,
+            "draggable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "connectable": {
+              "@undefined": true
+            },
+            "deletable": {
+              "@undefined": true
+            },
+            "dragHandle": {
+              "@undefined": true
+            },
+            "width": 150,
+            "height": 36,
+            "initialWidth": {
+              "@undefined": true
+            },
+            "initialHeight": {
+              "@undefined": true
+            },
+            "parentId": {
+              "@undefined": true
+            },
+            "zIndex": {
+              "@undefined": true
+            },
+            "extent": {
+              "@undefined": true
+            },
+            "expandParent": false,
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "origin": {
+              "@undefined": true
+            },
+            "handles": {
+              "@undefined": true
+            },
+            "measured": {
+              "width": 150,
+              "height": 36
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          },
+          {
+            "id": "3",
+            "position": {
+              "x": 100,
+              "y": 100
+            },
+            "data": {
+              "label": "3"
+            },
+            "type": "__psflow_node_probe",
+            "sourcePosition": {
+              "@undefined": true
+            },
+            "targetPosition": {
+              "@undefined": true
+            },
+            "hidden": false,
+            "selected": false,
+            "dragging": false,
+            "draggable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "connectable": {
+              "@undefined": true
+            },
+            "deletable": {
+              "@undefined": true
+            },
+            "dragHandle": {
+              "@undefined": true
+            },
+            "width": {
+              "@undefined": true
+            },
+            "height": {
+              "@undefined": true
+            },
+            "initialWidth": {
+              "@undefined": true
+            },
+            "initialHeight": {
+              "@undefined": true
+            },
+            "parentId": {
+              "@undefined": true
+            },
+            "zIndex": {
+              "@undefined": true
+            },
+            "extent": {
+              "@undefined": true
+            },
+            "expandParent": false,
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "origin": {
+              "@undefined": true
+            },
+            "handles": {
+              "@undefined": true
+            },
+            "measured": {
+              "width": {
+                "@undefined": true
+              },
+              "height": {
+                "@undefined": true
+              }
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          }
+        ],
+        "useNodesData": {
+          "id": "1",
+          "type": "input",
+          "data": {
+            "label": "1"
+          }
+        },
+        "useNodesInitialized": false,
+        "useNodesState": [
+          [],
+          {
+            "@ref": "function"
+          },
+          {
+            "@ref": "function"
+          }
+        ],
+        "useOnViewportChange": {
+          "@undefined": true
+        },
+        "useReactFlow": {
+          "getNodes": {
+            "@ref": "function"
+          },
+          "setNodes": {
+            "@ref": "function"
+          },
+          "addNodes": {
+            "@ref": "function"
+          },
+          "getNode": {
+            "@ref": "function"
+          },
+          "getInternalNode": {
+            "@ref": "function"
+          },
+          "getEdges": {
+            "@ref": "function"
+          },
+          "setEdges": {
+            "@ref": "function"
+          },
+          "addEdges": {
+            "@ref": "function"
+          },
+          "getEdge": {
+            "@ref": "function"
+          },
+          "toObject": {
+            "@ref": "function"
+          },
+          "deleteElements": {
+            "@ref": "function"
+          },
+          "getIntersectingNodes": {
+            "@ref": "function"
+          },
+          "isNodeIntersecting": {
+            "@ref": "function"
+          },
+          "updateNode": {
+            "@ref": "function"
+          },
+          "updateNodeData": {
+            "@ref": "function"
+          },
+          "updateEdge": {
+            "@ref": "function"
+          },
+          "updateEdgeData": {
+            "@ref": "function"
+          },
+          "getNodesBounds": {
+            "@ref": "function"
+          },
+          "getHandleConnections": {
+            "@ref": "function"
+          },
+          "getNodeConnections": {
+            "@ref": "function"
+          },
+          "fitView": {
+            "@ref": "function"
+          },
+          "zoomIn": {
+            "@ref": "function"
+          },
+          "zoomOut": {
+            "@ref": "function"
+          },
+          "zoomTo": {
+            "@ref": "function"
+          },
+          "getZoom": {
+            "@ref": "function"
+          },
+          "setViewport": {
+            "@ref": "function"
+          },
+          "getViewport": {
+            "@ref": "function"
+          },
+          "setCenter": {
+            "@ref": "function"
+          },
+          "fitBounds": {
+            "@ref": "function"
+          },
+          "screenToFlowPosition": {
+            "@ref": "function"
+          },
+          "flowToScreenPosition": {
+            "@ref": "function"
+          },
+          "viewportInitialized": true
+        },
+        "useUpdateNodeInternals": {
+          "@ref": "function"
+        },
+        "useViewport": {
+          "x": 552.9449436703876,
+          "y": 123.21024678345424,
+          "zoom": 3.4822022531844965
+        },
+        "useStore": {
+          "error": "ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's object: `nodeLookup` is a `Data.Map` where upstream has a `Map`, `transform` is a newtype where upstream has `[x, y, zoom]`, and the other 83 fields are unconverted. It is refused rather than handed over raw so that the selectors which would silently answer `undefined` fail instead. `useReactFlow`, `useNodes`, `useEdges` and `useViewport` have crossed and reach most of the same state."
+        },
+        "useStoreApi": {
+          "error": "ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's object: `nodeLookup` is a `Data.Map` where upstream has a `Map`, `transform` is a newtype where upstream has `[x, y, zoom]`, and the other 83 fields are unconverted. It is refused rather than handed over raw so that the selectors which would silently answer `undefined` fail instead. `useReactFlow`, `useNodes`, `useEdges` and `useViewport` have crossed and reach most of the same state."
+        }
+      }
+    },
+    "api": {
+      "queries": {
+        "getNodes": [
+          {
+            "id": "1",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "data": {
+              "label": "1"
+            },
+            "type": "input",
+            "sourcePosition": {
+              "@undefined": true
+            },
+            "targetPosition": {
+              "@undefined": true
+            },
+            "hidden": false,
+            "selected": false,
+            "dragging": false,
+            "draggable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "connectable": {
+              "@undefined": true
+            },
+            "deletable": {
+              "@undefined": true
+            },
+            "dragHandle": {
+              "@undefined": true
+            },
+            "width": 150,
+            "height": 36,
+            "initialWidth": {
+              "@undefined": true
+            },
+            "initialHeight": {
+              "@undefined": true
+            },
+            "parentId": {
+              "@undefined": true
+            },
+            "zIndex": {
+              "@undefined": true
+            },
+            "extent": {
+              "@undefined": true
+            },
+            "expandParent": false,
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "origin": {
+              "@undefined": true
+            },
+            "handles": {
+              "@undefined": true
+            },
+            "measured": {
+              "width": 150,
+              "height": 36
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          },
+          {
+            "id": "2",
+            "position": {
+              "x": -100,
+              "y": 100
+            },
+            "data": {
+              "label": "2"
+            },
+            "type": {
+              "@undefined": true
+            },
+            "sourcePosition": {
+              "@undefined": true
+            },
+            "targetPosition": {
+              "@undefined": true
+            },
+            "hidden": false,
+            "selected": false,
+            "dragging": false,
+            "draggable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "connectable": {
+              "@undefined": true
+            },
+            "deletable": {
+              "@undefined": true
+            },
+            "dragHandle": {
+              "@undefined": true
+            },
+            "width": 150,
+            "height": 36,
+            "initialWidth": {
+              "@undefined": true
+            },
+            "initialHeight": {
+              "@undefined": true
+            },
+            "parentId": {
+              "@undefined": true
+            },
+            "zIndex": {
+              "@undefined": true
+            },
+            "extent": {
+              "@undefined": true
+            },
+            "expandParent": false,
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "origin": {
+              "@undefined": true
+            },
+            "handles": {
+              "@undefined": true
+            },
+            "measured": {
+              "width": 150,
+              "height": 36
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          },
+          {
+            "id": "3",
+            "position": {
+              "x": 100,
+              "y": 100
+            },
+            "data": {
+              "label": "3"
+            },
+            "type": "__psflow_node_probe",
+            "sourcePosition": {
+              "@undefined": true
+            },
+            "targetPosition": {
+              "@undefined": true
+            },
+            "hidden": false,
+            "selected": false,
+            "dragging": false,
+            "draggable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "connectable": {
+              "@undefined": true
+            },
+            "deletable": {
+              "@undefined": true
+            },
+            "dragHandle": {
+              "@undefined": true
+            },
+            "width": {
+              "@undefined": true
+            },
+            "height": {
+              "@undefined": true
+            },
+            "initialWidth": {
+              "@undefined": true
+            },
+            "initialHeight": {
+              "@undefined": true
+            },
+            "parentId": {
+              "@undefined": true
+            },
+            "zIndex": {
+              "@undefined": true
+            },
+            "extent": {
+              "@undefined": true
+            },
+            "expandParent": false,
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "origin": {
+              "@undefined": true
+            },
+            "handles": {
+              "@undefined": true
+            },
+            "measured": {
+              "width": {
+                "@undefined": true
+              },
+              "height": {
+                "@undefined": true
+              }
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          }
+        ],
+        "getNode": {
+          "id": "1",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "data": {
+            "label": "1"
+          },
+          "type": "input",
+          "sourcePosition": {
+            "@undefined": true
+          },
+          "targetPosition": {
+            "@undefined": true
+          },
+          "hidden": false,
+          "selected": false,
+          "dragging": false,
+          "draggable": {
+            "@undefined": true
+          },
+          "selectable": {
+            "@undefined": true
+          },
+          "connectable": {
+            "@undefined": true
+          },
+          "deletable": {
+            "@undefined": true
+          },
+          "dragHandle": {
+            "@undefined": true
+          },
+          "width": 150,
+          "height": 36,
+          "initialWidth": {
+            "@undefined": true
+          },
+          "initialHeight": {
+            "@undefined": true
+          },
+          "parentId": {
+            "@undefined": true
+          },
+          "zIndex": {
+            "@undefined": true
+          },
+          "extent": {
+            "@undefined": true
+          },
+          "expandParent": false,
+          "ariaLabel": {
+            "@undefined": true
+          },
+          "origin": {
+            "@undefined": true
+          },
+          "handles": {
+            "@undefined": true
+          },
+          "measured": {
+            "width": 150,
+            "height": 36
+          },
+          "className": {
+            "@undefined": true
+          },
+          "style": {
+            "@undefined": true
+          }
+        },
+        "getInternalNode": {
+          "id": "1",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "data": {
+            "label": "1"
+          },
+          "type": "input",
+          "sourcePosition": {
+            "@undefined": true
+          },
+          "targetPosition": {
+            "@undefined": true
+          },
+          "hidden": false,
+          "selected": false,
+          "dragging": false,
+          "draggable": {
+            "@undefined": true
+          },
+          "selectable": {
+            "@undefined": true
+          },
+          "connectable": {
+            "@undefined": true
+          },
+          "deletable": {
+            "@undefined": true
+          },
+          "dragHandle": {
+            "@undefined": true
+          },
+          "width": 150,
+          "height": 36,
+          "initialWidth": {
+            "@undefined": true
+          },
+          "initialHeight": {
+            "@undefined": true
+          },
+          "parentId": {
+            "@undefined": true
+          },
+          "zIndex": {
+            "@undefined": true
+          },
+          "extent": {
+            "@undefined": true
+          },
+          "expandParent": false,
+          "ariaLabel": {
+            "@undefined": true
+          },
+          "origin": {
+            "@undefined": true
+          },
+          "handles": {
+            "@undefined": true
+          },
+          "measured": {
+            "width": 150,
+            "height": 36
+          },
+          "className": {
+            "@undefined": true
+          },
+          "style": {
+            "@undefined": true
+          },
+          "internals": {
+            "positionAbsolute": {
+              "x": 0,
+              "y": 0
+            },
+            "z": 0,
+            "rootParentIndex": {
+              "@undefined": true
+            },
+            "handleBounds": {
+              "source": [
+                {
+                  "id": {
+                    "@undefined": true
+                  },
+                  "nodeId": "1",
+                  "x": 71.00003679426798,
+                  "y": 31.000018688094766,
+                  "position": "bottom",
+                  "type": "source",
+                  "width": 8,
+                  "height": 8
+                }
+              ],
+              "target": []
+            },
+            "bounds": {
+              "@undefined": true
+            }
+          }
+        },
+        "getEdges": [
+          {
+            "id": "first-edge",
+            "type": {
+              "@undefined": true
+            },
+            "source": "1",
+            "target": "2",
+            "sourceHandle": {
+              "@undefined": true
+            },
+            "targetHandle": {
+              "@undefined": true
+            },
+            "animated": false,
+            "hidden": false,
+            "deletable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "data": {
+              "@undefined": true
+            },
+            "selected": false,
+            "markerStart": {
+              "@undefined": true
+            },
+            "markerEnd": {
+              "@undefined": true
+            },
+            "zIndex": {
+              "@undefined": true
+            },
+            "label": {
+              "@undefined": true
+            },
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "interactionWidth": {
+              "@undefined": true
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          },
+          {
+            "id": "second-edge",
+            "type": {
+              "@undefined": true
+            },
+            "source": "1",
+            "target": "3",
+            "sourceHandle": {
+              "@undefined": true
+            },
+            "targetHandle": {
+              "@undefined": true
+            },
+            "animated": false,
+            "hidden": false,
+            "deletable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "data": {
+              "@undefined": true
+            },
+            "selected": false,
+            "markerStart": {
+              "@undefined": true
+            },
+            "markerEnd": {
+              "@undefined": true
+            },
+            "zIndex": {
+              "@undefined": true
+            },
+            "label": {
+              "@undefined": true
+            },
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "interactionWidth": {
+              "@undefined": true
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          }
+        ],
+        "getEdge": {
+          "id": "first-edge",
+          "type": {
+            "@undefined": true
+          },
+          "source": "1",
+          "target": "2",
+          "sourceHandle": {
+            "@undefined": true
+          },
+          "targetHandle": {
+            "@undefined": true
+          },
+          "animated": false,
+          "hidden": false,
+          "deletable": {
+            "@undefined": true
+          },
+          "selectable": {
+            "@undefined": true
+          },
+          "data": {
+            "@undefined": true
+          },
+          "selected": false,
+          "markerStart": {
+            "@undefined": true
+          },
+          "markerEnd": {
+            "@undefined": true
+          },
+          "zIndex": {
+            "@undefined": true
+          },
+          "label": {
+            "@undefined": true
+          },
+          "ariaLabel": {
+            "@undefined": true
+          },
+          "interactionWidth": {
+            "@undefined": true
+          },
+          "className": {
+            "@undefined": true
+          },
+          "style": {
+            "@undefined": true
+          }
+        },
+        "getIntersectingNodes": [
+          {
+            "id": "1",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "data": {
+              "label": "1"
+            },
+            "type": "input",
+            "sourcePosition": {
+              "@undefined": true
+            },
+            "targetPosition": {
+              "@undefined": true
+            },
+            "hidden": false,
+            "selected": false,
+            "dragging": false,
+            "draggable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "connectable": {
+              "@undefined": true
+            },
+            "deletable": {
+              "@undefined": true
+            },
+            "dragHandle": {
+              "@undefined": true
+            },
+            "width": 150,
+            "height": 36,
+            "initialWidth": {
+              "@undefined": true
+            },
+            "initialHeight": {
+              "@undefined": true
+            },
+            "parentId": {
+              "@undefined": true
+            },
+            "zIndex": {
+              "@undefined": true
+            },
+            "extent": {
+              "@undefined": true
+            },
+            "expandParent": false,
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "origin": {
+              "@undefined": true
+            },
+            "handles": {
+              "@undefined": true
+            },
+            "measured": {
+              "width": 150,
+              "height": 36
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          },
+          {
+            "id": "2",
+            "position": {
+              "x": -100,
+              "y": 100
+            },
+            "data": {
+              "label": "2"
+            },
+            "type": {
+              "@undefined": true
+            },
+            "sourcePosition": {
+              "@undefined": true
+            },
+            "targetPosition": {
+              "@undefined": true
+            },
+            "hidden": false,
+            "selected": false,
+            "dragging": false,
+            "draggable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "connectable": {
+              "@undefined": true
+            },
+            "deletable": {
+              "@undefined": true
+            },
+            "dragHandle": {
+              "@undefined": true
+            },
+            "width": 150,
+            "height": 36,
+            "initialWidth": {
+              "@undefined": true
+            },
+            "initialHeight": {
+              "@undefined": true
+            },
+            "parentId": {
+              "@undefined": true
+            },
+            "zIndex": {
+              "@undefined": true
+            },
+            "extent": {
+              "@undefined": true
+            },
+            "expandParent": false,
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "origin": {
+              "@undefined": true
+            },
+            "handles": {
+              "@undefined": true
+            },
+            "measured": {
+              "width": 150,
+              "height": 36
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          },
+          {
+            "id": "3",
+            "position": {
+              "x": 100,
+              "y": 100
+            },
+            "data": {
+              "label": "3"
+            },
+            "type": "__psflow_node_probe",
+            "sourcePosition": {
+              "@undefined": true
+            },
+            "targetPosition": {
+              "@undefined": true
+            },
+            "hidden": false,
+            "selected": false,
+            "dragging": false,
+            "draggable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "connectable": {
+              "@undefined": true
+            },
+            "deletable": {
+              "@undefined": true
+            },
+            "dragHandle": {
+              "@undefined": true
+            },
+            "width": {
+              "@undefined": true
+            },
+            "height": {
+              "@undefined": true
+            },
+            "initialWidth": {
+              "@undefined": true
+            },
+            "initialHeight": {
+              "@undefined": true
+            },
+            "parentId": {
+              "@undefined": true
+            },
+            "zIndex": {
+              "@undefined": true
+            },
+            "extent": {
+              "@undefined": true
+            },
+            "expandParent": false,
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "origin": {
+              "@undefined": true
+            },
+            "handles": {
+              "@undefined": true
+            },
+            "measured": {
+              "width": {
+                "@undefined": true
+              },
+              "height": {
+                "@undefined": true
+              }
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          }
+        ],
+        "isNodeIntersecting": true,
+        "getNodesBounds": {
+          "x": -100,
+          "y": 0,
+          "width": 250,
+          "height": 136
+        },
+        "getHandleConnections": [
+          {
+            "source": "1",
+            "target": "2",
+            "sourceHandle": {
+              "@undefined": true
+            },
+            "targetHandle": {
+              "@undefined": true
+            },
+            "edgeId": "first-edge"
+          },
+          {
+            "source": "1",
+            "target": "3",
+            "sourceHandle": {
+              "@undefined": true
+            },
+            "targetHandle": {
+              "@undefined": true
+            },
+            "edgeId": "second-edge"
+          }
+        ],
+        "getNodeConnections": [
+          {
+            "source": "1",
+            "target": "2",
+            "sourceHandle": {
+              "@undefined": true
+            },
+            "targetHandle": {
+              "@undefined": true
+            },
+            "edgeId": "first-edge"
+          },
+          {
+            "source": "1",
+            "target": "3",
+            "sourceHandle": {
+              "@undefined": true
+            },
+            "targetHandle": {
+              "@undefined": true
+            },
+            "edgeId": "second-edge"
+          }
+        ],
+        "toObject": {
+          "nodes": [
+            {
+              "id": "1",
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "data": {
+                "label": "1"
+              },
+              "type": "input",
+              "sourcePosition": {
+                "@undefined": true
+              },
+              "targetPosition": {
+                "@undefined": true
+              },
+              "hidden": false,
+              "selected": false,
+              "dragging": false,
+              "draggable": {
+                "@undefined": true
+              },
+              "selectable": {
+                "@undefined": true
+              },
+              "connectable": {
+                "@undefined": true
+              },
+              "deletable": {
+                "@undefined": true
+              },
+              "dragHandle": {
+                "@undefined": true
+              },
+              "width": 150,
+              "height": 36,
+              "initialWidth": {
+                "@undefined": true
+              },
+              "initialHeight": {
+                "@undefined": true
+              },
+              "parentId": {
+                "@undefined": true
+              },
+              "zIndex": {
+                "@undefined": true
+              },
+              "extent": {
+                "@undefined": true
+              },
+              "expandParent": false,
+              "ariaLabel": {
+                "@undefined": true
+              },
+              "origin": {
+                "@undefined": true
+              },
+              "handles": {
+                "@undefined": true
+              },
+              "measured": {
+                "width": 150,
+                "height": 36
+              },
+              "className": {
+                "@undefined": true
+              },
+              "style": {
+                "@undefined": true
+              }
+            },
+            {
+              "id": "2",
+              "position": {
+                "x": -100,
+                "y": 100
+              },
+              "data": {
+                "label": "2"
+              },
+              "type": {
+                "@undefined": true
+              },
+              "sourcePosition": {
+                "@undefined": true
+              },
+              "targetPosition": {
+                "@undefined": true
+              },
+              "hidden": false,
+              "selected": false,
+              "dragging": false,
+              "draggable": {
+                "@undefined": true
+              },
+              "selectable": {
+                "@undefined": true
+              },
+              "connectable": {
+                "@undefined": true
+              },
+              "deletable": {
+                "@undefined": true
+              },
+              "dragHandle": {
+                "@undefined": true
+              },
+              "width": 150,
+              "height": 36,
+              "initialWidth": {
+                "@undefined": true
+              },
+              "initialHeight": {
+                "@undefined": true
+              },
+              "parentId": {
+                "@undefined": true
+              },
+              "zIndex": {
+                "@undefined": true
+              },
+              "extent": {
+                "@undefined": true
+              },
+              "expandParent": false,
+              "ariaLabel": {
+                "@undefined": true
+              },
+              "origin": {
+                "@undefined": true
+              },
+              "handles": {
+                "@undefined": true
+              },
+              "measured": {
+                "width": 150,
+                "height": 36
+              },
+              "className": {
+                "@undefined": true
+              },
+              "style": {
+                "@undefined": true
+              }
+            },
+            {
+              "id": "3",
+              "position": {
+                "x": 100,
+                "y": 100
+              },
+              "data": {
+                "label": "3"
+              },
+              "type": "__psflow_node_probe",
+              "sourcePosition": {
+                "@undefined": true
+              },
+              "targetPosition": {
+                "@undefined": true
+              },
+              "hidden": false,
+              "selected": false,
+              "dragging": false,
+              "draggable": {
+                "@undefined": true
+              },
+              "selectable": {
+                "@undefined": true
+              },
+              "connectable": {
+                "@undefined": true
+              },
+              "deletable": {
+                "@undefined": true
+              },
+              "dragHandle": {
+                "@undefined": true
+              },
+              "width": {
+                "@undefined": true
+              },
+              "height": {
+                "@undefined": true
+              },
+              "initialWidth": {
+                "@undefined": true
+              },
+              "initialHeight": {
+                "@undefined": true
+              },
+              "parentId": {
+                "@undefined": true
+              },
+              "zIndex": {
+                "@undefined": true
+              },
+              "extent": {
+                "@undefined": true
+              },
+              "expandParent": false,
+              "ariaLabel": {
+                "@undefined": true
+              },
+              "origin": {
+                "@undefined": true
+              },
+              "handles": {
+                "@undefined": true
+              },
+              "measured": {
+                "width": {
+                  "@undefined": true
+                },
+                "height": {
+                  "@undefined": true
+                }
+              },
+              "className": {
+                "@undefined": true
+              },
+              "style": {
+                "@undefined": true
+              }
+            }
+          ],
+          "edges": [
+            {
+              "id": "first-edge",
+              "type": {
+                "@undefined": true
+              },
+              "source": "1",
+              "target": "2",
+              "sourceHandle": {
+                "@undefined": true
+              },
+              "targetHandle": {
+                "@undefined": true
+              },
+              "animated": false,
+              "hidden": false,
+              "deletable": {
+                "@undefined": true
+              },
+              "selectable": {
+                "@undefined": true
+              },
+              "data": {
+                "@undefined": true
+              },
+              "selected": false,
+              "markerStart": {
+                "@undefined": true
+              },
+              "markerEnd": {
+                "@undefined": true
+              },
+              "zIndex": {
+                "@undefined": true
+              },
+              "label": {
+                "@undefined": true
+              },
+              "ariaLabel": {
+                "@undefined": true
+              },
+              "interactionWidth": {
+                "@undefined": true
+              },
+              "className": {
+                "@undefined": true
+              },
+              "style": {
+                "@undefined": true
+              }
+            },
+            {
+              "id": "second-edge",
+              "type": {
+                "@undefined": true
+              },
+              "source": "1",
+              "target": "3",
+              "sourceHandle": {
+                "@undefined": true
+              },
+              "targetHandle": {
+                "@undefined": true
+              },
+              "animated": false,
+              "hidden": false,
+              "deletable": {
+                "@undefined": true
+              },
+              "selectable": {
+                "@undefined": true
+              },
+              "data": {
+                "@undefined": true
+              },
+              "selected": false,
+              "markerStart": {
+                "@undefined": true
+              },
+              "markerEnd": {
+                "@undefined": true
+              },
+              "zIndex": {
+                "@undefined": true
+              },
+              "label": {
+                "@undefined": true
+              },
+              "ariaLabel": {
+                "@undefined": true
+              },
+              "interactionWidth": {
+                "@undefined": true
+              },
+              "className": {
+                "@undefined": true
+              },
+              "style": {
+                "@undefined": true
+              }
+            }
+          ],
+          "viewport": {
+            "x": 552.9449436703876,
+            "y": 123.21024678345424,
+            "zoom": 3.4822022531844965
+          }
+        },
+        "getZoom": 3.4822022531844965,
+        "getViewport": {
+          "x": 552.9449436703876,
+          "y": 123.21024678345424,
+          "zoom": 3.4822022531844965
+        },
+        "screenToFlowPosition": {
+          "x": -158.7917367995256,
+          "y": -35.38285194973315
+        },
+        "flowToScreenPosition": {
+          "x": 552.9449436703876,
+          "y": 123.21024678345424
+        },
+        "viewportInitialized": true
+      },
+      "calls": []
+    },
+    "props": {
+      "node-props": {
+        "id": "3",
+        "data": {
+          "label": "3"
+        },
+        "width": {
+          "@undefined": true
+        },
+        "height": {
+          "@undefined": true
+        },
+        "sourcePosition": {
+          "@undefined": true
+        },
+        "targetPosition": {
+          "@undefined": true
+        },
+        "dragHandle": {
+          "@undefined": true
+        },
+        "parentId": {
+          "@undefined": true
+        },
+        "type": "__psflow_node_probe",
+        "dragging": false,
+        "zIndex": 0,
+        "selectable": true,
+        "deletable": true,
+        "selected": false,
+        "draggable": true,
+        "isConnectable": true,
+        "positionAbsoluteX": 100,
+        "positionAbsoluteY": 100
+      }
+    },
+    "console": [
+      {
+        "level": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "level": "pageerror",
+        "text": "ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's object: `nodeLookup` is a `Data.Map` where upstream has a `Map`, `transform` is a newtype where upstream has `[x, y, zoom]`, and the other 83 fields are unconverted. It is refused rather than handed over raw so that the selectors which would silently answer `undefined` fail instead. `useReactFlow`, `useNodes`, `useEdges` and `useViewport` have crossed and reach most of the same state."
+      },
+      {
+        "level": "pageerror",
+        "text": "ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's object: `nodeLookup` is a `Data.Map` where upstream has a `Map`, `transform` is a newtype where upstream has `[x, y, zoom]`, and the other 83 fields are unconverted. It is refused rather than handed over raw so that the selectors which would silently answer `undefined` fail instead. `useReactFlow`, `useNodes`, `useEdges` and `useViewport` have crossed and reach most of the same state."
+      },
+      {
+        "level": "pageerror",
+        "text": "ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's object: `nodeLookup` is a `Data.Map` where upstream has a `Map`, `transform` is a newtype where upstream has `[x, y, zoom]`, and the other 83 fields are unconverted. It is refused rather than handed over raw so that the selectors which would silently answer `undefined` fail instead. `useReactFlow`, `useNodes`, `useEdges` and `useViewport` have crossed and reach most of the same state."
+      },
+      {
+        "level": "pageerror",
+        "text": "ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's object: `nodeLookup` is a `Data.Map` where upstream has a `Map`, `transform` is a newtype where upstream has `[x, y, zoom]`, and the other 83 fields are unconverted. It is refused rather than handed over raw so that the selectors which would silently answer `undefined` fail instead. `useReactFlow`, `useNodes`, `useEdges` and `useViewport` have crossed and reach most of the same state."
+      },
+      {
+        "level": "error",
+        "text": "The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:54203/parity/driver/dist/psflow.js:64308:20)\n    at HookBoundary (http://127.0.0.1:54203/parity/driver/dist/psflow.js:64296:20)\n    at HookLevel (http://127.0.0.1:54203/parity/driver/dist/psflow.js:64315:20)\n    at NetObserver (http://127.0.0.1:54203/parity/driver/dist/psflow.js:64316:22)\n    at http://127.0.0.1:54203/parity/driver/dist/psflow.js:32739:61\n    at http://127.0.0.1:54203/parity/driver/dist/psflow.js:32739:61\n    at http://127.0.0.1:54203/parity/driver/dist/psflow.js:32739:61\n    at div\n    at http://127.0.0.1:54203/parity/driver/dist/psflow.js:32739:45\n    at http://127.0.0.1:54203/parity/driver/dist/psflow.js:32739:45\n    at ReactFlow\n    at div\n    at Flow_default (http://127.0.0.1:54203/parity/driver/dist/psflow.js:64344:23)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, HookBoundary."
+      },
+      {
+        "level": "error",
+        "text": "The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:54203/parity/driver/dist/psflow.js:64308:20)\n    at HookBoundary (http://127.0.0.1:54203/parity/driver/dist/psflow.js:64296:20)\n    at HookLevel (http://127.0.0.1:54203/parity/driver/dist/psflow.js:64315:20)\n    at NetObserver (http://127.0.0.1:54203/parity/driver/dist/psflow.js:64316:22)\n    at http://127.0.0.1:54203/parity/driver/dist/psflow.js:32739:61\n    at http://127.0.0.1:54203/parity/driver/dist/psflow.js:32739:61\n    at http://127.0.0.1:54203/parity/driver/dist/psflow.js:32739:61\n    at div\n    at http://127.0.0.1:54203/parity/driver/dist/psflow.js:32739:45\n    at http://127.0.0.1:54203/parity/driver/dist/psflow.js:32739:45\n    at ReactFlow\n    at div\n    at Flow_default (http://127.0.0.1:54203/parity/driver/dist/psflow.js:64344:23)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, HookBoundary."
+      }
+    ],
+    "driving": [
+      {
+        "index": 0,
+        "action": "mount",
+        "target": ".react-flow",
+        "resolved": true,
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "dispatched": {
+          "route": "/tests/generic/pane/general"
+        }
+      },
+      {
+        "index": 1,
+        "action": "wheel",
+        "target": ".react-flow__pane",
+        "resolved": true,
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "dispatched": {
+          "x": 640,
+          "y": 360,
+          "deltaX": 0,
+          "deltaY": 100
+        }
+      }
+    ]
+  }
+}

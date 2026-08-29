@@ -1,0 +1,68 @@
+{
+  "_comment": [
+    "Generated for #59 from the committed hole register at the point the probe-fed holes retired.",
+    "The build joins these source holes through the current census and witness register on every read;",
+    "runtime hook/method/probe names are therefore derived, not preserved as a hand-maintained list.",
+    "Keeping the retired inputs is necessary because successful traces make the live holes go stale."
+  ],
+  "retiredHoles": [
+    {
+      "exports": [
+        "UseOnSelectionChangeOptions",
+        "UseOnViewportChangeOptions"
+      ],
+      "reason": "the options record a hook is called with rather than a prop the flow is passed. The census files it under callbacks because what it carries is a callback, but nothing installs one — reaching it needs a probe component that calls the hook.",
+      "ticket": "https://github.com/jonbae/PSFlow/issues/59"
+    },
+    {
+      "exports": [
+        "ConnectionInProgress",
+        "ConnectionState",
+        "HandleConnection",
+        "InternalNode",
+        "NodeConnection",
+        "UseNodesInitializedOptions",
+        "experimental_useOnEdgesChangeMiddleware",
+        "experimental_useOnNodesChangeMiddleware",
+        "useConnection",
+        "useEdges",
+        "useEdgesState",
+        "useHandleConnections",
+        "useInternalNode",
+        "useKeyPress",
+        "useNodeConnections",
+        "useNodeId",
+        "useNodes",
+        "useNodesData",
+        "useNodesInitialized",
+        "useNodesState",
+        "useOnSelectionChange",
+        "useOnViewportChange",
+        "useReactFlow",
+        "useStore",
+        "useStoreApi",
+        "useUpdateNodeInternals",
+        "useViewport"
+      ],
+      "reason": "the hooks section is empty in every stored trace: it is keyed by probe id and no probe exists yet. A hook returns a value and leaves nothing on the page, so a component that renders nothing and reports what it was handed is the only thing that can observe one.",
+      "ticket": "https://github.com/jonbae/PSFlow/issues/59"
+    },
+    {
+      "exports": [
+        "ReactFlowState"
+      ],
+      "reason": "the store's own shape, read through useStoreApi().getState() rather than through the instance the call primitive reaches. It needs the same probe the hooks section does.",
+      "ticket": "https://github.com/jonbae/PSFlow/issues/59"
+    },
+    {
+      "exports": [
+        "ConnectionLineComponentProps",
+        "EdgeComponentProps",
+        "EdgeProps",
+        "NodeProps"
+      ],
+      "reason": "the props section is empty in every stored trace, for the same reason the hooks section is: it is keyed by probe id and no probe exists. A node-level probe replaces a node type rather than wrapping it, which is what makes the props a component was handed observable at all.",
+      "ticket": "https://github.com/jonbae/PSFlow/issues/59"
+    }
+  ]
+}

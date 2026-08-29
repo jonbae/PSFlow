@@ -11,6 +11,7 @@
 
 import { CALL_LOG } from "./call-log.mjs";
 import { domSection } from "./dom.mjs";
+import { OBSERVATIONS } from "../../driver/observations.mjs";
 
 const CDP_TOUCH = { touchStart: 1, touchMove: 1, touchEnd: 1, touchCancel: 1 };
 
@@ -132,12 +133,12 @@ export const createPagePort = (page, { resolveTimeout = 1_000 } = {}) => {
      */
     async call(method, args) {
       return page.evaluate(
-        ([m, a]) => {
-          const bridge = window.__psflowNet;
+        async ([key, m, a]) => {
+          const bridge = window[key];
           if (!bridge || typeof bridge.call !== "function") return { installed: false, result: null };
-          return { installed: true, result: bridge.call(m, a) };
+          return { installed: true, result: await bridge.call(m, a) };
         },
-        [method, args]
+        [OBSERVATIONS, method, args]
       );
     },
 
@@ -171,6 +172,17 @@ export const createPagePort = (page, { resolveTimeout = 1_000 } = {}) => {
         if (!log || typeof log.read !== "function") return { installed: false, entries: [], failures: [] };
         return { installed: true, ...log.read() };
       }, CALL_LOG);
+    },
+
+    /** The three probe-fed sections and snapshot API queries. */
+    async observations() {
+      return page.evaluate((key) => {
+        const log = window[key];
+        if (!log || typeof log.read !== "function") {
+          return { installed: false, hooks: {}, api: { queries: {} }, props: {}, failures: [] };
+        }
+        return { installed: true, ...log.read() };
+      }, OBSERVATIONS);
     },
 
     /**

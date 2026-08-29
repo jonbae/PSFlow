@@ -534,7 +534,7 @@
       "scenarios": [
         "select-dark-color-mode"
       ],
-      "reason": "The sharpest of these. Upstream's spec names the option — `selectOption({ label: 'dark' })` — but `selectOption` is not an input event and has no place in the closed primitive tier, so `select-dark-color-mode` presses ArrowDown once from `light`. That makes the *order* of this file's three options part of the scenario. Reorder them in a bump and it drives `system` while every spec hash stays affirmed, which is exactly the silent drift this register exists to stop.",
+      "reason": "The sharpest of these. Upstream's spec names the option — `selectOption({ label: 'dark' })` — but `selectOption` is not an input event and has no place in the closed primitive tier, so `select-dark-color-mode` reaches it by native-select typeahead with `d`. That makes the label in this example part of the scenario. Change it in a bump and it drives `system` while every spec hash stays affirmed, which is exactly the silent drift this register exists to stop.",
       "affirmedAgainst": "12.11.0"
     }
   ]

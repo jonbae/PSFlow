@@ -8,7 +8,7 @@ import { TraceFormatError } from "../trace-format.mjs";
 import { TraceStoreError, orphanedTraces, readRun, runNames, storedScenarios, traceName, writeTrace } from "./traces.mjs";
 
 const trace = (side, capture, scenario = "mount-baseline--nodes-general") => ({
-  traceFormat: 1,
+  traceFormat: 2,
   scenario,
   side,
   capture,

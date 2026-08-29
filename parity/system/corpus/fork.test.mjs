@@ -268,23 +268,19 @@ test("the committed register is affirmed against the vendored source", () => {
   assert.equal(result.ok, true);
 });
 
-// The transcription that made whole-file units necessary. Upstream's spec names
-// the option; `select-dark-color-mode` presses ArrowDown once, so the *order*
-// of ColorMode's three options is part of the scenario and no spec hash would
-// notice a reorder.
-test("falsify: reordering the colour-mode options fails the register", () => {
+// The transcription that made whole-file units necessary. The scenario reaches
+// the option by typeahead, so its label in the example is part of the scenario
+// even though no forked spec hash covers that source file.
+test("falsify: renaming the colour-mode option fails the register", () => {
   const colorMode = "xyflow/examples/react/src/examples/ColorMode/index.tsx";
   // Normalized first, because `hashOf` normalizes too and the vendored tree's
   // line endings depend on how it was checked out.
   const source = readFileSync(resolve(repoRoot, colorMode), "utf8").replace(/\r\n/g, "\n");
-  const swapped = source.replace(
-    /(<option value="dark">dark<\/option>)(\s*)(<option value="system">system<\/option>)/,
-    "$3$2$1"
-  );
-  assert.notEqual(swapped, source, "the options the probe reorders are still in upstream's example");
+  const renamed = source.replace('<option value="dark">dark</option>', '<option value="dark">night</option>');
+  assert.notEqual(renamed, source, "the option the probe renames is still in upstream's example");
 
   const units = committedUnits().map((u) =>
-    u.spec === colorMode ? { ...u, hash: hashOf(swapped) } : u
+    u.spec === colorMode ? { ...u, hash: hashOf(renamed) } : u
   );
   const result = forkOutcomes(register.forked, units, { scenarioIds: seedIds(), seedIds: seedIds() });
 

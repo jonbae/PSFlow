@@ -1,5 +1,5 @@
 {
-  "traceFormat": 1,
+  "traceFormat": 2,
   "scenario": "drag-pans-the-pane",
   "side": "psflow",
   "capture": 1,
@@ -38,7 +38,7 @@
                     "tag": "div",
                     "attrs": {
                       "class": "react-flow__viewport xyflow__viewport react-flow__container",
-                      "style": "transform: translate(490.571px, 232.189px) scale(3.32571);"
+                      "style": "transform: translate(490.571px, 233.851px) scale(3.32571);"
                     },
                     "children": [
                       {
@@ -67,7 +67,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M75.00008777202368,40.00003955922194 C75.00008777202368,68.50001333714268 -24.99990305171677,68.50001333714268 -24.99990305171677,96.9999871150634",
+                                      "d": "M75.00008777202368,39.00004291112603 C75.00008777202368,68.00002418935426 -24.99990305171677,68.00002418935426 -24.99990305171677,97.00000546758248",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -76,7 +76,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M75.00008777202368,40.00003955922194 C75.00008777202368,68.50001333714268 -24.99990305171677,68.50001333714268 -24.99990305171677,96.9999871150634",
+                                      "d": "M75.00008777202368,39.00004291112603 C75.00008777202368,68.00002418935426 -24.99990305171677,68.00002418935426 -24.99990305171677,97.00000546758248",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -89,7 +89,7 @@
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
                                       "cx": "75.00008777202368",
-                                      "cy": "50.00003955922194",
+                                      "cy": "49.00004291112603",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -101,7 +101,7 @@
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
                                       "cx": "-24.99990305171677",
-                                      "cy": "86.9999871150634",
+                                      "cy": "87.00000546758248",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -132,7 +132,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M75.00008777202368,40.00003955922194 C75.00008777202368,68.50001333714268 175.00007859576414,68.50001333714268 175.00007859576414,96.9999871150634",
+                                      "d": "M75.00008777202368,39.00004291112603 C75.00008777202368,68.00002418935426 175.00007859576414,68.00002418935426 175.00007859576414,97.00000546758248",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -141,7 +141,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M75.00008777202368,40.00003955922194 C75.00008777202368,68.50001333714268 175.00007859576414,68.50001333714268 175.00007859576414,96.9999871150634",
+                                      "d": "M75.00008777202368,39.00004291112603 C75.00008777202368,68.00002418935426 175.00007859576414,68.00002418935426 175.00007859576414,97.00000546758248",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -154,7 +154,7 @@
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
                                       "cx": "75.00008777202368",
-                                      "cy": "50.00003955922194",
+                                      "cy": "49.00004291112603",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -166,7 +166,7 @@
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
                                       "cx": "175.00007859576414",
-                                      "cy": "86.9999871150634",
+                                      "cy": "87.00000546758248",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -202,7 +202,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(0px, 0px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
+                              "style": "z-index: 0; transform: translate(0px, 0px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
                             },
                             "text": "1",
                             "children": [
@@ -227,7 +227,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(-100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
+                              "style": "z-index: 0; transform: translate(-100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
                             },
                             "text": "2",
                             "children": [
@@ -262,7 +262,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
+                              "style": "z-index: 0; transform: translate(100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
                             },
                             "text": "3",
                             "children": [
@@ -398,7 +398,7 @@
               "id": "1",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "resizing": false,
               "setAttributes": true
@@ -426,7 +426,7 @@
               "id": "2",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "resizing": false,
               "setAttributes": true
@@ -454,7 +454,7 @@
               "id": "3",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "resizing": false,
               "setAttributes": true
@@ -467,7 +467,7 @@
         "args": [
           {
             "x": 390.57142857142856,
-            "y": 132.18857142857144,
+            "y": 133.85142857142858,
             "zoom": 3.3257142857142856
           }
         ]
@@ -478,7 +478,7 @@
           null,
           {
             "x": 390.57142857142856,
-            "y": 132.18857142857144,
+            "y": 133.85142857142858,
             "zoom": 3.3257142857142856
           }
         ]
@@ -497,7 +497,7 @@
         "args": [
           {
             "x": 390.57142857142856,
-            "y": 132.18857142857144,
+            "y": 133.85142857142858,
             "zoom": 3.3257142857142856
           }
         ]
@@ -508,7 +508,7 @@
           null,
           {
             "x": 390.57142857142856,
-            "y": 132.18857142857144,
+            "y": 133.85142857142858,
             "zoom": 3.3257142857142856
           }
         ]
@@ -536,7 +536,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 379.7000000476837,
+            "timeStamp": 1219.800000000745,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -603,7 +603,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 379.7000000476837,
+            "timeStamp": 1219.800000000745,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -668,7 +668,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 388,
+            "timeStamp": 1268.0999999977648,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -717,7 +717,7 @@
         "args": [
           {
             "x": 490.57142857142856,
-            "y": 232.18857142857144,
+            "y": 233.85142857142858,
             "zoom": 3.3257142857142856
           }
         ]

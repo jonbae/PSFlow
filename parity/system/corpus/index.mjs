@@ -30,6 +30,7 @@
 
 import { CorpusError } from "./routes.mjs";
 import { mountBaselines } from "./mount-baselines.mjs";
+import { probeVariants, readProbePlan } from "./probes.mjs";
 import { RESERVED } from "./reserved.mjs";
 import { seedScenarios } from "./seed.mjs";
 
@@ -48,14 +49,16 @@ export { RESERVED } from "./reserved.mjs";
  * whose mount already diverges tells you why every scenario driving it did too,
  * and reading that first is the same ordering the report gives the driving log.
  */
-export const buildCorpus = (fixtures, components = []) =>
-  assertDistinctIds([
+export const buildCorpus = (fixtures, components = []) => {
+  const plain = [
     ...mountBaselines(
       fixtures,
       components.filter(({ kind }) => kind === "example-driver")
     ),
     ...seedScenarios,
-  ]);
+  ];
+  return assertDistinctIds([...plain, ...probeVariants(plain, readProbePlan())]);
+};
 
 /**
  * Every id the corpus answers to, split by whether a scenario exists under it.

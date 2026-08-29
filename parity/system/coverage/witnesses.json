@@ -26,9 +26,9 @@
     "\"some onNodesChange call carried a change of type position\". Witnessing NodeAddChange by the handler",
     "alone would count it driven the moment a mount fired one dimension change.",
     "",
-    "The hooks, api and props sections are empty until #59 builds the probes, so their names are written",
-    "forward: the hook's own name, an imperative method's name, and — for props — the probe id naming which",
-    "props type reported. A probe #59 names differently makes its export read as an undeclared hole, which is",
+    "The hooks, api and props names were written before #59 built the probes: the hook's own name, an",
+    "imperative method's name, and — for props — the probe id naming which props type reported. A probe that",
+    "names one differently makes its export read as an undeclared hole, which is",
     "the loud failure and the intended one."
   ],
   "witnesses": [

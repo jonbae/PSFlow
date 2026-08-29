@@ -1,5 +1,5 @@
 {
-  "traceFormat": 1,
+  "traceFormat": 2,
   "scenario": "select-dark-color-mode",
   "side": "upstream",
   "capture": 1,
@@ -38,7 +38,7 @@
                     "tag": "div",
                     "attrs": {
                       "class": "react-flow__viewport xyflow__viewport react-flow__container",
-                      "style": "transform: translate(250.682px, 32px) scale(1.94659);"
+                      "style": "transform: translate(249.524px, 32px) scale(1.95238);"
                     },
                     "children": [
                       {
@@ -69,7 +69,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M153,168.5 C200,168.5 200,18.5 247,18.5",
+                                      "d": "M153,168 C200,168 200,18 247,18",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -78,7 +78,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M153,168.5 C200,168.5 200,18.5 247,18.5",
+                                      "d": "M153,168 C200,168 200,18 247,18",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -112,7 +112,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M153,168.5 C200,168.5 200,168.5 247,168.5",
+                                      "d": "M153,168 C200,168 200,168 247,168",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -121,7 +121,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M153,168.5 C200,168.5 200,168.5 247,168.5",
+                                      "d": "M153,168 C200,168 200,168 247,168",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -155,7 +155,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M153,168.5 C200,168.5 200,318.5 247,318.5",
+                                      "d": "M153,168 C200,168 200,318 247,318",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -164,7 +164,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M153,168.5 C200,168.5 200,318.5 247,318.5",
+                                      "d": "M153,168 C200,168 200,318 247,318",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -353,7 +353,7 @@
                 "attrs": {
                   "width": "200",
                   "height": "150",
-                  "viewBox": "-145.21951219512195 -94.52439024390245 690.439024390244 526.048780487805",
+                  "viewBox": "-144.1951219512195 -94.24390243902434 688.3902439024389 524.4878048780487",
                   "class": "react-flow__minimap-svg",
                   "role": "img",
                   "aria-labelledby": "react-flow__minimap-desc-1"
@@ -376,7 +376,7 @@
                       "rx": "5",
                       "ry": "5",
                       "width": "150",
-                      "height": "37",
+                      "height": "36",
                       "shape-rendering": "geometricPrecision"
                     },
                     "children": []
@@ -390,7 +390,7 @@
                       "rx": "5",
                       "ry": "5",
                       "width": "150",
-                      "height": "37",
+                      "height": "36",
                       "shape-rendering": "geometricPrecision"
                     },
                     "children": []
@@ -404,7 +404,7 @@
                       "rx": "5",
                       "ry": "5",
                       "width": "150",
-                      "height": "37",
+                      "height": "36",
                       "shape-rendering": "geometricPrecision"
                     },
                     "children": []
@@ -418,7 +418,7 @@
                       "rx": "5",
                       "ry": "5",
                       "width": "150",
-                      "height": "37",
+                      "height": "36",
                       "shape-rendering": "geometricPrecision"
                     },
                     "children": []
@@ -427,7 +427,7 @@
                     "tag": "path",
                     "attrs": {
                       "class": "react-flow__minimap-mask",
-                      "d": "M-161.65853658536585,-110.96341463414635h723.3170731707318v558.9268292682927h-723.3170731707318z\n        M-128.78048780487805,-16.439024390243905h657.5609756097562v369.8780487804878h-657.5609756097562z",
+                      "d": "M-160.58536585365852,-110.63414634146336h721.1707317073169v557.2682926829267h-721.1707317073169z\n        M-127.8048780487805,-16.390243902439025h655.609756097561v368.7804878048781h-655.609756097561z",
                       "fill-rule": "evenodd",
                       "pointer-events": "none"
                     },
@@ -449,20 +449,20 @@
                 "tag": "pattern",
                 "attrs": {
                   "id": "pattern-1",
-                  "x": "17.091988130563806",
+                  "x": "15.238095238095255",
                   "y": "32",
-                  "width": "38.931750741839764",
-                  "height": "38.931750741839764",
+                  "width": "39.047619047619044",
+                  "height": "39.047619047619044",
                   "patternUnits": "userSpaceOnUse",
-                  "patternTransform": "translate(-20.465875370919882,-20.465875370919882)"
+                  "patternTransform": "translate(-20.523809523809522,-20.523809523809522)"
                 },
                 "children": [
                   {
                     "tag": "circle",
                     "attrs": {
-                      "cx": "0.973293768545994",
-                      "cy": "0.973293768545994",
-                      "r": "0.973293768545994",
+                      "cx": "0.9761904761904762",
+                      "cy": "0.9761904761904762",
+                      "r": "0.9761904761904762",
                       "class": "react-flow__background-pattern dots"
                     },
                     "children": []
@@ -732,7 +732,7 @@
           "height": 19
         },
         "dispatched": {
-          "key": "ArrowDown",
+          "key": "d",
           "action": "press"
         }
       }

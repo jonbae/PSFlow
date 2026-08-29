@@ -1,5 +1,5 @@
 {
-  "traceFormat": 1,
+  "traceFormat": 2,
   "scenario": "mount-baseline--node-toolbar-general",
   "side": "upstream",
   "capture": 2,
@@ -38,7 +38,7 @@
                     "tag": "div",
                     "attrs": {
                       "class": "react-flow__viewport xyflow__viewport react-flow__container",
-                      "style": "transform: translate(58px, 339.491px) scale(1.10857);"
+                      "style": "transform: translate(58px, 340.046px) scale(1.10857);"
                     },
                     "children": [
                       {
@@ -69,7 +69,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M153,-181.5 C231.06247497997998,-181.5 -81.06247497997998,18.5 -3,18.5",
+                                      "d": "M153,-182 C231.06247497997998,-182 -81.06247497997998,18 -3,18",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -78,7 +78,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M153,-181.5 C231.06247497997998,-181.5 -81.06247497997998,18.5 -3,18.5",
+                                      "d": "M153,-182 C231.06247497997998,-182 -81.06247497997998,18 -3,18",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -91,7 +91,7 @@
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
                                       "cx": "163",
-                                      "cy": "-181.5",
+                                      "cy": "-182",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -103,7 +103,7 @@
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
                                       "cx": "-13",
-                                      "cy": "18.5",
+                                      "cy": "18",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -681,7 +681,7 @@
                 "attrs": {
                   "class": "react-flow__node-toolbar",
                   "data-id": "node-start-top",
-                  "style": "position: absolute; transform: translate(58px, 329.491px) translate(0%, -100%); z-index: 1;"
+                  "style": "position: absolute; transform: translate(58px, 330.046px) translate(0%, -100%); z-index: 1;"
                 },
                 "children": [
                   {
@@ -709,7 +709,7 @@
                 "attrs": {
                   "class": "react-flow__node-toolbar",
                   "data-id": "node-center-top",
-                  "style": "position: absolute; transform: translate(141.143px, 440.349px) translate(-50%, -100%); z-index: 1;"
+                  "style": "position: absolute; transform: translate(141.143px, 440.903px) translate(-50%, -100%); z-index: 1;"
                 },
                 "children": [
                   {
@@ -737,7 +737,7 @@
                 "attrs": {
                   "class": "react-flow__node-toolbar",
                   "data-id": "node-end-top",
-                  "style": "position: absolute; transform: translate(224.286px, 551.206px) translate(-100%, -100%); z-index: 1;"
+                  "style": "position: absolute; transform: translate(224.286px, 551.76px) translate(-100%, -100%); z-index: 1;"
                 },
                 "children": [
                   {
@@ -765,7 +765,7 @@
                 "attrs": {
                   "class": "react-flow__node-toolbar",
                   "data-id": "node-start-right",
-                  "style": "position: absolute; transform: translate(566.857px, 339.491px) translate(0%, 0%); z-index: 1;"
+                  "style": "position: absolute; transform: translate(566.857px, 340.046px) translate(0%, 0%); z-index: 1;"
                 },
                 "children": [
                   {
@@ -821,7 +821,7 @@
                 "attrs": {
                   "class": "react-flow__node-toolbar",
                   "data-id": "node-end-right",
-                  "style": "position: absolute; transform: translate(566.857px, 602.223px) translate(0%, -100%); z-index: 1;"
+                  "style": "position: absolute; transform: translate(566.857px, 601.669px) translate(0%, -100%); z-index: 1;"
                 },
                 "children": [
                   {
@@ -849,7 +849,7 @@
                 "attrs": {
                   "class": "react-flow__node-toolbar",
                   "data-id": "node-start-bottom",
-                  "style": "position: absolute; transform: translate(723.143px, 390.509px) translate(0%, 0%); z-index: 1;"
+                  "style": "position: absolute; transform: translate(723.143px, 389.954px) translate(0%, 0%); z-index: 1;"
                 },
                 "children": [
                   {
@@ -877,7 +877,7 @@
                 "attrs": {
                   "class": "react-flow__node-toolbar",
                   "data-id": "node-center-bottom",
-                  "style": "position: absolute; transform: translate(806.286px, 501.366px) translate(-50%, 0%); z-index: 1;"
+                  "style": "position: absolute; transform: translate(806.286px, 500.811px) translate(-50%, 0%); z-index: 1;"
                 },
                 "children": [
                   {
@@ -905,7 +905,7 @@
                 "attrs": {
                   "class": "react-flow__node-toolbar",
                   "data-id": "node-end-bottom",
-                  "style": "position: absolute; transform: translate(889.429px, 612.223px) translate(-100%, 0%); z-index: 1;"
+                  "style": "position: absolute; transform: translate(889.429px, 611.669px) translate(-100%, 0%); z-index: 1;"
                 },
                 "children": [
                   {
@@ -933,7 +933,7 @@
                 "attrs": {
                   "class": "react-flow__node-toolbar",
                   "data-id": "node-start-left",
-                  "style": "position: absolute; transform: translate(1045.71px, 339.491px) translate(-100%, 0%); z-index: 1;"
+                  "style": "position: absolute; transform: translate(1045.71px, 340.046px) translate(-100%, 0%); z-index: 1;"
                 },
                 "children": [
                   {
@@ -989,7 +989,7 @@
                 "attrs": {
                   "class": "react-flow__node-toolbar",
                   "data-id": "node-end-left",
-                  "style": "position: absolute; transform: translate(1045.71px, 602.223px) translate(-100%, -100%); z-index: 1;"
+                  "style": "position: absolute; transform: translate(1045.71px, 601.669px) translate(-100%, -100%); z-index: 1;"
                 },
                 "children": [
                   {
@@ -1091,7 +1091,7 @@
         "args": [
           {
             "x": 58,
-            "y": 339.49142857142857,
+            "y": 340.04571428571427,
             "zoom": 1.1085714285714285
           }
         ]
@@ -1102,7 +1102,7 @@
           null,
           {
             "x": 58,
-            "y": 339.49142857142857,
+            "y": 340.04571428571427,
             "zoom": 1.1085714285714285
           }
         ]
@@ -1116,7 +1116,7 @@
               "type": "dimensions",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               }
             },
             {
@@ -1124,7 +1124,7 @@
               "type": "dimensions",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               }
             },
             {
@@ -1132,7 +1132,7 @@
               "type": "dimensions",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               }
             },
             {
@@ -1140,7 +1140,7 @@
               "type": "dimensions",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               }
             },
             {
@@ -1148,7 +1148,7 @@
               "type": "dimensions",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               }
             },
             {
@@ -1156,7 +1156,7 @@
               "type": "dimensions",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               }
             },
             {
@@ -1164,7 +1164,7 @@
               "type": "dimensions",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               }
             },
             {
@@ -1172,7 +1172,7 @@
               "type": "dimensions",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               }
             },
             {
@@ -1180,7 +1180,7 @@
               "type": "dimensions",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               }
             },
             {
@@ -1188,7 +1188,7 @@
               "type": "dimensions",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               }
             },
             {
@@ -1196,7 +1196,7 @@
               "type": "dimensions",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               }
             },
             {
@@ -1204,7 +1204,7 @@
               "type": "dimensions",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               }
             },
             {
@@ -1212,7 +1212,7 @@
               "type": "dimensions",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               }
             }
           ]
@@ -1224,7 +1224,7 @@
           null,
           {
             "x": 58,
-            "y": 339.49142857142857,
+            "y": 340.04571428571427,
             "zoom": 1.1085714285714285
           }
         ]

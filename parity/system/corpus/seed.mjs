@@ -124,7 +124,12 @@ const seed = [
 
   // 'selection > selecting a node by click'. A bare class resolves to the first
   // match on both sides, which is what upstream's `.first()` asks for.
-  { id: "click-selects-node", route: NODES, run: (a) => a.click(".react-flow__node") },
+  {
+    id: "click-selects-node",
+    route: NODES,
+    probeCapabilities: ["selection"],
+    run: (a) => a.click(".react-flow__node"),
+  },
 
   // 'selection > selecting multiple nodes with shift drag'. Both corners are
   // measured from the first node's **top left**, which is the form upstream
@@ -189,6 +194,7 @@ const seed = [
   {
     id: "connect-source-handle-to-target-handle",
     route: NODES,
+    probeCapabilities: ["connection"],
     run: (a) => a.connect('.react-flow__handle[data-nodeid="Node-1"]', '.react-flow__handle[data-nodeid="Node-4"]'),
   },
 
@@ -251,7 +257,12 @@ const seed = [
   },
 
   // 'pan & zoom > scrolling the default pane zooms it'
-  { id: "wheel-zooms-the-pane", route: PANE, run: (a) => a.wheel(".react-flow__pane", { deltaY: 100 }) },
+  {
+    id: "wheel-zooms-the-pane",
+    route: PANE,
+    probeCapabilities: ["viewport"],
+    run: (a) => a.wheel(".react-flow__pane", { deltaY: 100 }),
+  },
 
   // 'minZoom & maxZoom > minZoom' — one wheel far past the fixture's floor of
   // 0.25, so what is observed is the clamp rather than the step.
@@ -293,14 +304,14 @@ const seed = [
 
   // props.spec's 'colorMode > render dark color mode'. Upstream reaches for
   // Playwright's `selectOption`, which is not an input event and has no place
-  // in the primitive tier; a focused `<select>` moves to its next option on
-  // ArrowDown and fires `change` exactly as a chosen option does, and `light`
-  // is the option before `dark`. Staying inside the closed tier is the point —
-  // extending it is a decision, and one scenario is not a reason to make it.
+  // in the primitive tier. Native-select typeahead chooses the option whose
+  // label starts with `d` and fires `change` exactly as a chosen option does.
+  // Staying inside the closed tier is the point — extending it is a decision,
+  // and one scenario is not a reason.
   {
     id: "select-dark-color-mode",
     route: COLOR_MODE,
-    run: (a) => a.key("ArrowDown", { target: '[data-testid="colormode-select"]' }),
+    run: (a) => a.key("d", { target: '[data-testid="colormode-select"]' }),
   },
 ];
 

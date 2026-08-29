@@ -1,12 +1,12 @@
 // The driver — the React component that mounts a fixture.
 //
-// A twin of `xyflow/examples/react/src/generic-tests/Flow.tsx`, line for line.
+// A hand-maintained twin of `xyflow/examples/react/src/generic-tests/Flow.tsx`.
 // The "make hand-translation impossible" bar that governs fixtures absolutely
 // does not govern this file: a driver mistake shows up identically on both
 // sides, while a boundary mistake is a real bug the net exists to catch. That
 // is why this is hand-written and the fixtures are not.
 //
-// Everything below is upstream's, with three differences. Two are forced:
+// Everything below is upstream's, with four named differences. Two are forced:
 //
 //   * `FlowConfig` is declared here rather than being the ambient global
 //     upstream's `app.d.ts` supplies, because that file's types come from
@@ -22,6 +22,11 @@
 // section agreeing — so a handler no fixture sets would be a handler neither
 // side is ever asked for. Upstream's own `Flow.tsx` has nothing to say about
 // this, since it is not being compared against anything.
+//
+// The fourth is selective probing: a `?probe=` variant derives a replacement
+// node/edge/connection-line type from the fixture graph and, for `flow-node`,
+// mounts `NetObserver`. Plain runs bypass both changes and retain the upstream
+// graph object.
 //
 // `@xyflow/react` is a build-level alias (see `../build.mjs`). It resolves to
 // ps-flow's `index.js` for the conformance run and to the vendored upstream for
@@ -41,6 +46,8 @@ import {
 } from '@xyflow/react';
 
 import { useObservedHandlers } from './callbacks';
+import { deriveProbeGraph } from '../probe-graph.mjs';
+import { ConnectionLineProbe, EdgeProbe, NetObserver, NodeProbe } from './Probes';
 
 export type FlowConfig = {
   flowProps?: Record<string, unknown> & { nodes: unknown[]; edges: unknown[] };
@@ -55,14 +62,16 @@ type FlowProps = {
 };
 
 export default ({ flowConfig }: FlowProps) => {
-  const [nodes, setNodes] = useState(flowConfig.flowProps?.nodes);
-  const [edges, setEdges] = useState(flowConfig.flowProps?.edges);
+  const variant = new URLSearchParams(window.location.search).get('probe') ?? 'plain';
+  const derived = deriveProbeGraph(flowConfig, variant, { NodeProbe, EdgeProbe, ConnectionLineProbe });
+  const [nodes, setNodes] = useState(derived.flowProps?.nodes);
+  const [edges, setEdges] = useState(derived.flowProps?.edges);
 
   const onNodesChange = useCallback((changes: unknown[]) => setNodes((nds) => applyNodeChanges(changes, nds)), []);
   const onEdgesChange = useCallback((changes: unknown[]) => setEdges((eds) => applyEdgeChanges(changes, eds)), []);
   const onConnect = useCallback((params: unknown) => setEdges((eds) => addEdge(params, eds)), []);
 
-  const props = { ...flowConfig.flowProps, nodes, edges, onNodesChange, onEdgesChange, onConnect };
+  const props = { ...derived.flowProps, nodes, edges, onNodesChange, onEdgesChange, onConnect };
 
   // Every callback prop upstream declares, each recording its call into the
   // in-page log and then deferring to whatever `props` held under the same
@@ -74,6 +83,9 @@ export default ({ flowConfig }: FlowProps) => {
   return (
     <div style={{ height: '100%' }}>
       <ReactFlow {...props} {...observed}>
+        {new URLSearchParams(window.location.search).get('observe') === 'callbacks' && variant === 'flow-node' && (
+          <NetObserver nodeId={(nodes?.[0] as { id?: string } | undefined)?.id} probes />
+        )}
         {flowConfig.controlsProps && <Controls {...flowConfig.controlsProps} />}
         {flowConfig.panelProps && <Panel {...flowConfig.panelProps} />}
         {flowConfig.minimapProps && <MiniMap {...flowConfig.minimapProps} />}

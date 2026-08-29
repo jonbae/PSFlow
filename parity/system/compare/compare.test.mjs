@@ -8,7 +8,7 @@ import { dirname, join } from "node:path";
 
 import { SECTIONS, readTrace } from "../trace-format.mjs";
 import { validateWeakenings } from "./callbacks.mjs";
-import { REPORT_ORDER, compareTraces } from "./index.mjs";
+import { REPORT_ORDER, compareTraces, comparisonScope } from "./index.mjs";
 import { validateRules } from "./normalize.mjs";
 import { formatPath } from "./paths.mjs";
 import { validateRegions } from "./regions.mjs";
@@ -28,6 +28,19 @@ test("the report leads with the driving log, because inputs that differed frame 
   // A section added to the format and not to the report order would be captured
   // and never compared, which is the silent-pass shape this repo keeps paying for.
   assert.deepEqual([...REPORT_ORDER].sort(), [...SECTIONS].sort());
+});
+
+test("plain and probe variants select mutually exclusive comparison experiments", () => {
+  assert.deepEqual(comparisonScope("mount-baseline--nodes-general"), REPORT_ORDER);
+  assert.deepEqual(comparisonScope("mount-baseline--nodes-general--probe-flow-node"), [
+    "callbacks",
+    "hooks",
+    "api",
+    "props",
+    "console",
+  ]);
+  assert.deepEqual(comparisonScope("mount-baseline--nodes-general--probe-edge"), ["props", "console"]);
+  assert.deepEqual(comparisonScope("connect--probe-connection-line"), ["props", "console"]);
 });
 
 test("two traces that agree compare clean", () => {

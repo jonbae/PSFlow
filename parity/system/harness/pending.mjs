@@ -1,11 +1,11 @@
-// The sections capture does not fill yet — declared, so they cannot be silent.
+// Sections capture does not fill yet are declared here, so they cannot be silent.
 //
 // The trace format requires all seven sections to be present, because an absent
 // section would compare as "nothing differed there". A section that is present
 // and *empty because nobody built its capture yet* has exactly the same
-// problem, and the harness (#35) left five of them that way; `dom` (#51) and
-// `callbacks` (#54) have since landed and their entries are gone, which is the
-// register working.
+// problem, and the harness (#35) left five of them that way. `dom` (#51),
+// `callbacks` (#54), and finally `hooks`, `api` and `props` (#59) have landed;
+// their entries being gone is the register working.
 //
 // The gaps are written down, and the register behaves the way every other
 // register in this repo does: **an entry that stops corresponding to reality
@@ -19,34 +19,15 @@
 // traces whose sections are all empty on both sides reports no differences and
 // means nothing, which is why `parity:system` waited for `dom`: it is the
 // section that carries 64 of the trace's 156 exports and the one a mount-only
-// scenario is almost entirely made of. The three entries left are what the gate
-// still cannot see.
+// scenario is almost entirely made of. The register is empty now, and remains
+// as the stable guard a future trace-format section must pass through.
 
 /**
  * Each entry says which section, what is missing from it, who lands it, and how
  * to recognise that it has landed. `empty` returning false means the entry is
  * stale.
  */
-export const PENDING = [
-  {
-    section: "hooks",
-    what: "what each probe saw its hooks return",
-    issue: 59,
-    empty: (hooks) => Object.keys(hooks).length === 0,
-  },
-  {
-    section: "api",
-    what: "the imperative queries; `api.calls` is captured, and stays empty until the bridge exists",
-    issue: 59,
-    empty: (api) => Object.keys(api.queries).length === 0,
-  },
-  {
-    section: "props",
-    what: "the props object each probe was handed",
-    issue: 59,
-    empty: (props) => Object.keys(props).length === 0,
-  },
-];
+export const PENDING = [];
 
 export class PendingSectionError extends Error {
   constructor(message) {

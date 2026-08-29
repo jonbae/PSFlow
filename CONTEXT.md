@@ -492,30 +492,38 @@ records.
 _Avoid_: comparison, pass (of the net), execution
 
 **Self-consistency**:
-A side's two **captures** compared **against itself**, before the two sides are
-compared at all: a recorded **trace baseline** is meaningless if traces are not
-reproducible. A side disagreeing with itself is its own failure class, and it is
-the one comparison no **region** may claim — a region says the two
+A side's two **captures** compared **against itself**, within the scenario's
+declared comparison experiment and before the two sides are compared at all: a
+recorded **trace baseline** is meaningless if traces are not reproducible. A
+plain scenario's experiment is all seven sections; a probe scenario's is the
+hook/API/props level it was generated to observe, while its complete trace is
+still persisted. A side disagreeing with itself is its own failure class, and it
+is the one comparison no **region** may claim — a region says the two
 implementations differ for a stated reason, and there is no such statement about
-a side differing from itself. The **driving log** takes part with no tolerance:
-it never reaches the normalizer, which is how sub-pixel box wobble is caught.
-Every other section normalizes as usual.
+a side differing from itself. In a plain scenario the **driving log** takes part
+with no tolerance: it never reaches the normalizer, which is how sub-pixel box
+wobble is caught. Every other selected section normalizes as usual.
 _Avoid_: flake check, stability check, reproducibility test
 
 **Consequence**:
-Of a difference: it sits in a section the diverging **driving log** has made
-unreadable, so it is a reading of two runs that were not one experiment. Named
-in the report and **never suppressed** — capture-everything applies to a failed
-run as much as to a passing one, and a real divergence is exactly what would be
-hiding underneath. Says nothing about whether the difference is real; only that
-it cannot yet be attributed, which is what distinguishes it from a **claimed**
-difference.
+Of a difference in the selected experiment: it sits in a section the diverging
+**driving log** has made unreadable, so it is a reading of two runs that were not
+one experiment. Named in the report and **never suppressed within that
+experiment** — capture-everything applies to a failed run as much as to a
+passing one, and a real divergence is exactly what would be hiding underneath.
+Says nothing about whether the difference is real; only that it cannot yet be
+attributed, which is what distinguishes it from a **claimed** difference.
 _Avoid_: symptom, knock-on, downstream difference
 
 **Probe**:
 A component that renders nothing and exists only to report what hooks return and
 what props it was handed. A node-level probe replaces a node type rather than
-wrapping it. In parity prose a bare "probe" is always this component — never the
+wrapping it. A callback installed as a hook option is tagged in the exact
+**call log**, so the probe experiment can select its receipts without mixing
+in ordinary flow callbacks caused by the replacement graph. Independent hook
+callback subscriptions get separate mechanically derived probe scenarios, so
+their exact receipt sequences do not interleave. In parity prose a bare "probe"
+is always this component — never the
 throwaway investigative script the hole-driven-development agents run to falsify
 an assumption about the domain, which is a **scratch script** and lives in
 `.hdd/scratch/`, not in the repo.

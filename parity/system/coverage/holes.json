@@ -19,9 +19,9 @@
     "entry here — and that is what the corpus's termination condition is stated against.",
     "",
     "**This list is read by other work, not only by people.** Boundary stage 4 (#62) takes the components no",
-    "fixture mounts from it, and probed-variant selection (#59) takes the hooks and props exports nothing",
-    "drives — both derived from what is written here rather than hand-picked, which is why the reasons name",
-    "what would close them. `holesIn(outcomes, section)` in coverage/coverage.mjs is the query they call; it",
+    "fixture mounts from it. Issue #59 used the same query to generate its durable probe plan from the hook,",
+    "API and props holes rather than hand-picking exports. `holesIn(outcomes, section)` in",
+    "coverage/coverage.mjs is the query they call; it",
     "joins this register to the census, so a consumer needs neither a section field here nor a reading of",
     "the ticket links.",
     "",
@@ -137,80 +137,19 @@
     },
     {
       "exports": [
-        "UseOnSelectionChangeOptions",
-        "UseOnViewportChangeOptions"
-      ],
-      "reason": "the options record a hook is called with rather than a prop the flow is passed. The census files it under callbacks because what it carries is a callback, but nothing installs one — reaching it needs a probe component that calls the hook.",
-      "ticket": "https://github.com/jonbae/PSFlow/issues/59"
-    },
-    {
-      "exports": [
-        "ConnectionInProgress",
-        "ConnectionState",
-        "HandleConnection",
-        "InternalNode",
-        "NodeConnection",
-        "UseNodesInitializedOptions",
-        "experimental_useOnEdgesChangeMiddleware",
-        "experimental_useOnNodesChangeMiddleware",
-        "useConnection",
-        "useEdges",
-        "useEdgesState",
-        "useHandleConnections",
-        "useInternalNode",
-        "useKeyPress",
-        "useNodeConnections",
-        "useNodeId",
-        "useNodes",
-        "useNodesData",
-        "useNodesInitialized",
-        "useNodesState",
-        "useOnSelectionChange",
-        "useOnViewportChange",
-        "useReactFlow",
-        "useStore",
-        "useStoreApi",
-        "useUpdateNodeInternals",
-        "useViewport"
-      ],
-      "reason": "the hooks section is empty in every stored trace: it is keyed by probe id and no probe exists yet. A hook returns a value and leaves nothing on the page, so a component that renders nothing and reports what it was handed is the only thing that can observe one.",
-      "ticket": "https://github.com/jonbae/PSFlow/issues/59"
-    },
-    {
-      "exports": [
         "DeleteElementsOptions",
         "FitBounds",
         "FitBoundsOptions",
         "FitView",
         "FitViewOptions",
-        "ReactFlowInstance",
-        "ReactFlowJsonObject",
         "SetCenter",
         "SetCenterOptions",
         "SetViewport",
         "UnselectNodesAndEdgesParams",
-        "ViewportHelperFunctionOptions",
-        "ViewportHelperFunctions"
+        "ViewportHelperFunctionOptions"
       ],
       "reason": "no scenario makes an imperative call. The `call` primitive exists and records into `api.calls`, so what is missing is a scenario and not a harness — `viewport-helpers-with-options` is the reserved scenario that drives the helpers with options.",
       "ticket": "https://github.com/jonbae/PSFlow/issues/60"
-    },
-    {
-      "exports": [
-        "ReactFlowState"
-      ],
-      "reason": "the store's own shape, read through useStoreApi().getState() rather than through the instance the `call` primitive reaches. It needs the same probe the hooks section does.",
-      "ticket": "https://github.com/jonbae/PSFlow/issues/59"
-    },
-    {
-      "exports": [
-        "ConnectionLineComponentProps",
-        "EdgeComponentProps",
-        "EdgeProps",
-        "NodeProps"
-      ],
-      "reason": "the props section is empty in every stored trace, for the same reason the hooks section is: it is keyed by probe id and no probe exists. A node-level probe replaces a node type rather than wrapping it, which is what makes the props a component was handed observable at all.",
-      "ticket": "https://github.com/jonbae/PSFlow/issues/59"
     }
   ]
 }

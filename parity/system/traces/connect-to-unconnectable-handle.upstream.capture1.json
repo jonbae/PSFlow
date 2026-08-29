@@ -1,5 +1,5 @@
 {
-  "traceFormat": 1,
+  "traceFormat": 2,
   "scenario": "connect-to-unconnectable-handle",
   "side": "upstream",
   "capture": 1,
@@ -38,7 +38,7 @@
                     "tag": "div",
                     "attrs": {
                       "class": "react-flow__viewport xyflow__viewport react-flow__container",
-                      "style": "transform: translate(537.017px, 32px) scale(1.02983);"
+                      "style": "transform: translate(536.855px, 32px) scale(1.03145);"
                     },
                     "children": [
                       {
@@ -69,7 +69,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M75,40 C75,68.5 -25,68.5 -25,97",
+                                      "d": "M75,39 C75,68 -25,68 -25,97",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -78,7 +78,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M75,40 C75,68.5 -25,68.5 -25,97",
+                                      "d": "M75,39 C75,68 -25,68 -25,97",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -89,7 +89,7 @@
                                   {
                                     "tag": "g",
                                     "attrs": {
-                                      "transform": "translate(15.35898494720459 63.15929889678955)",
+                                      "transform": "translate(15.56240463256836 61.69817113876343)",
                                       "class": "react-flow__edge-textwrapper",
                                       "visibility": "visible"
                                     },
@@ -97,10 +97,10 @@
                                       {
                                         "tag": "rect",
                                         "attrs": {
-                                          "width": "23.28203010559082",
+                                          "width": "22.87519073486328",
                                           "x": "-2",
                                           "y": "-4",
-                                          "height": "18.6814022064209",
+                                          "height": "20.603657722473145",
                                           "class": "react-flow__edge-textbg",
                                           "rx": "2",
                                           "ry": "2"
@@ -111,7 +111,7 @@
                                         "tag": "text",
                                         "attrs": {
                                           "class": "react-flow__edge-text",
-                                          "y": "5.340701103210449",
+                                          "y": "6.301828861236572",
                                           "dy": "0.3em"
                                         },
                                         "text": "edge",
@@ -124,7 +124,7 @@
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
                                       "cx": "75",
-                                      "cy": "50",
+                                      "cy": "49",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -169,7 +169,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M75,40 C75,68.5 175,68.5 175,97",
+                                      "d": "M75,39 C75,68 175,68 175,97",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -178,7 +178,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M75,40 C75,68.5 175,68.5 175,97",
+                                      "d": "M75,39 C75,68 175,68 175,97",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -189,7 +189,7 @@
                                   {
                                     "tag": "g",
                                     "attrs": {
-                                      "transform": "translate(115.35898494720459 63.15929889678955)",
+                                      "transform": "translate(115.56240463256836 61.69817113876343)",
                                       "class": "react-flow__edge-textwrapper",
                                       "visibility": "visible"
                                     },
@@ -197,10 +197,10 @@
                                       {
                                         "tag": "rect",
                                         "attrs": {
-                                          "width": "23.28203010559082",
+                                          "width": "22.87519073486328",
                                           "x": "-2",
                                           "y": "-4",
-                                          "height": "18.6814022064209",
+                                          "height": "20.603657722473145",
                                           "class": "react-flow__edge-textbg",
                                           "rx": "2",
                                           "ry": "2"
@@ -211,7 +211,7 @@
                                         "tag": "text",
                                         "attrs": {
                                           "class": "react-flow__edge-text",
-                                          "y": "5.340701103210449",
+                                          "y": "6.301828861236572",
                                           "dy": "0.3em"
                                         },
                                         "text": "edge",
@@ -224,7 +224,7 @@
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
                                       "cx": "75",
-                                      "cy": "50",
+                                      "cy": "49",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -634,9 +634,9 @@
         "name": "onViewportChange",
         "args": [
           {
-            "x": 537.0172684458398,
+            "x": 536.8553459119497,
             "y": 32,
-            "zoom": 1.0298273155416013
+            "zoom": 1.0314465408805031
           }
         ]
       },
@@ -645,9 +645,9 @@
         "args": [
           null,
           {
-            "x": 537.0172684458398,
+            "x": 536.8553459119497,
             "y": 32,
-            "zoom": 1.0298273155416013
+            "zoom": 1.0314465408805031
           }
         ]
       },
@@ -660,7 +660,7 @@
               "type": "dimensions",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               }
             },
             {
@@ -668,7 +668,7 @@
               "type": "dimensions",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               }
             },
             {
@@ -676,7 +676,7 @@
               "type": "dimensions",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               }
             },
             {
@@ -684,7 +684,7 @@
               "type": "dimensions",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               }
             },
             {
@@ -700,7 +700,7 @@
               "type": "dimensions",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               }
             },
             {
@@ -708,7 +708,7 @@
               "type": "dimensions",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               }
             },
             {
@@ -716,7 +716,7 @@
               "type": "dimensions",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               }
             },
             {
@@ -724,7 +724,7 @@
               "type": "dimensions",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               }
             }
           ]
@@ -735,9 +735,9 @@
         "args": [
           null,
           {
-            "x": 537.0172684458398,
+            "x": 536.8553459119497,
             "y": 32,
-            "zoom": 1.0298273155416013
+            "zoom": 1.0314465408805031
           }
         ]
       },
@@ -764,19 +764,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 298,
+            "timeStamp": 835.1999999992549,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 614.2543334960938,
-            "screenY": 69.07378387451172,
-            "clientX": 614.2543334960938,
-            "clientY": 69.07378387451172,
-            "pageX": 614.2543334960938,
-            "pageY": 69.07378387451172,
+            "screenX": 614.2138671875,
+            "screenY": 68.10063171386719,
+            "clientX": 614.2138671875,
+            "clientY": 68.10063171386719,
+            "pageX": 614.2138671875,
+            "pageY": 68.10063171386719,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -833,7 +833,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 298,
+            "timeStamp": 835.1999999992549,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -841,11 +841,11 @@
             },
             "detail": 0,
             "screenX": 614,
-            "screenY": 69,
+            "screenY": 68,
             "clientX": 614,
-            "clientY": 69,
+            "clientY": 68,
             "pageX": 614,
-            "pageY": 69,
+            "pageY": 68,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -883,7 +883,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             }
           }
         ]
@@ -909,19 +909,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 298,
+            "timeStamp": 835.1999999992549,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 614.2543334960938,
-            "screenY": 69.07378387451172,
-            "clientX": 614.2543334960938,
-            "clientY": 69.07378387451172,
-            "pageX": 614.2543334960938,
-            "pageY": 69.07378387451172,
+            "screenX": 614.2138671875,
+            "screenY": 68.10063171386719,
+            "clientX": 614.2138671875,
+            "clientY": 68.10063171386719,
+            "pageX": 614.2138671875,
+            "pageY": 68.10063171386719,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -933,7 +933,7 @@
             "buttons": 0,
             "relatedTarget": null,
             "movementX": 615,
-            "movementY": 70,
+            "movementY": 69,
             "pointerId": 1,
             "width": 1,
             "height": 1,
@@ -974,7 +974,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 298,
+            "timeStamp": 835.1999999992549,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -982,11 +982,11 @@
             },
             "detail": 0,
             "screenX": 614,
-            "screenY": 69,
+            "screenY": 68,
             "clientX": 614,
-            "clientY": 69,
+            "clientY": 68,
             "pageX": 614,
-            "pageY": 69,
+            "pageY": 68,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -998,7 +998,7 @@
             "buttons": 0,
             "relatedTarget": null,
             "movementX": 615,
-            "movementY": 70,
+            "movementY": 69,
             "isDefaultPrevented": {
               "@ref": "function"
             },
@@ -1022,7 +1022,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             }
           }
         ]
@@ -1050,7 +1050,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 310.5,
+            "timeStamp": 885.8999999985099,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1058,11 +1058,11 @@
             },
             "detail": 0,
             "screenX": 619,
-            "screenY": 74,
+            "screenY": 73,
             "clientX": 619,
-            "clientY": 74,
+            "clientY": 73,
             "pageX": 619,
-            "pageY": 74,
+            "pageY": 73,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -1100,7 +1100,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             }
           }
         ]
@@ -1128,7 +1128,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 310.5,
+            "timeStamp": 885.8999999985099,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1136,11 +1136,11 @@
             },
             "detail": 0,
             "screenX": 619,
-            "screenY": 74,
+            "screenY": 73,
             "clientX": 619,
-            "clientY": 74,
+            "clientY": 73,
             "pageX": 619,
-            "pageY": 74,
+            "pageY": 73,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -1192,19 +1192,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 310.5,
+            "timeStamp": 885.8999999985099,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 619.2543334960938,
-            "screenY": 74.07378387451172,
-            "clientX": 619.2543334960938,
-            "clientY": 74.07378387451172,
-            "pageX": 619.2543334960938,
-            "pageY": 74.07378387451172,
+            "screenX": 619.2138671875,
+            "screenY": 73.10063171386719,
+            "clientX": 619.2138671875,
+            "clientY": 73.10063171386719,
+            "pageX": 619.2138671875,
+            "pageY": 73.10063171386719,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -1257,7 +1257,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 310.5,
+            "timeStamp": 885.8999999985099,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1265,11 +1265,11 @@
             },
             "detail": 0,
             "screenX": 619,
-            "screenY": 74,
+            "screenY": 73,
             "clientX": 619,
-            "clientY": 74,
+            "clientY": 73,
             "pageX": 619,
-            "pageY": 74,
+            "pageY": 73,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -1335,7 +1335,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 326.90000009536743,
+            "timeStamp": 936.6999999992549,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1343,11 +1343,11 @@
             },
             "detail": 0,
             "screenX": 612,
-            "screenY": 339,
+            "screenY": 340,
             "clientX": 612,
-            "clientY": 339,
+            "clientY": 340,
             "pageX": 612,
-            "pageY": 339,
+            "pageY": 340,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -1399,19 +1399,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 326.90000009536743,
+            "timeStamp": 936.6999999992549,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 612.135009765625,
-            "screenY": 339.8587341308594,
-            "clientX": 612.135009765625,
-            "clientY": 339.8587341308594,
-            "pageX": 612.135009765625,
-            "pageY": 339.8587341308594,
+            "screenX": 612.0880737304688,
+            "screenY": 340.3396301269531,
+            "clientX": 612.0880737304688,
+            "clientY": 340.3396301269531,
+            "pageX": 612.0880737304688,
+            "pageY": 340.3396301269531,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -1423,7 +1423,7 @@
             "buttons": 1,
             "relatedTarget": null,
             "movementX": -7,
-            "movementY": 265,
+            "movementY": 267,
             "pointerId": 1,
             "width": 1,
             "height": 1,
@@ -1454,7 +1454,7 @@
             "isValid": false,
             "from": {
               "x": 75,
-              "y": 36
+              "y": 35
             },
             "fromHandle": {
               "id": null,
@@ -1462,7 +1462,7 @@
               "nodeId": "Node-1",
               "position": "bottom",
               "x": 71,
-              "y": 32,
+              "y": 31,
               "width": 8,
               "height": 8
             },
@@ -1483,7 +1483,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "internals": {
                 "positionAbsolute": {
@@ -1498,7 +1498,7 @@
                       "nodeId": "Node-1",
                       "position": "bottom",
                       "x": 71,
-                      "y": 32,
+                      "y": 31,
                       "width": 8,
                       "height": 8
                     }
@@ -1522,14 +1522,14 @@
                   },
                   "measured": {
                     "width": 150,
-                    "height": 37
+                    "height": 36
                   }
                 }
               }
             },
             "to": {
               "x": 612,
-              "y": 339
+              "y": 340
             },
             "toHandle": {
               "id": null,
@@ -1555,7 +1555,7 @@
               "connectable": false,
               "measured": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "internals": {
                 "positionAbsolute": {
@@ -1591,14 +1591,14 @@
                   "connectable": false,
                   "measured": {
                     "width": 150,
-                    "height": 37
+                    "height": 36
                   }
                 }
               }
             },
             "pointer": {
               "x": 612,
-              "y": 339
+              "y": 340
             }
           }
         ]
@@ -1624,7 +1624,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 340.09999990463257,
+            "timeStamp": 971.1999999992549,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1632,11 +1632,11 @@
             },
             "detail": 1,
             "screenX": 612,
-            "screenY": 339,
+            "screenY": 340,
             "clientX": 612,
-            "clientY": 339,
+            "clientY": 340,
             "pageX": 612,
-            "pageY": 339,
+            "pageY": 340,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -1693,14 +1693,14 @@
         "target": ".react-flow__handle[data-nodeid=\"Node-1\"]",
         "resolved": true,
         "box": {
-          "x": 610.135009765625,
-          "y": 64.95447540283203,
-          "width": 8.2386474609375,
-          "height": 8.238616943359375
+          "x": 610.0880737304688,
+          "y": 63.97484588623047,
+          "width": 8.25152587890625,
+          "height": 8.251571655273438
         },
         "dispatched": {
-          "x": 614.2543334960938,
-          "y": 69.07378387451172,
+          "x": 614.2138366699219,
+          "y": 68.10063171386719,
           "button": "left"
         }
       },
@@ -1710,14 +1710,14 @@
         "target": ".react-flow__handle[data-nodeid=\"Node-1\"]",
         "resolved": true,
         "box": {
-          "x": 610.135009765625,
-          "y": 64.95447540283203,
-          "width": 8.2386474609375,
-          "height": 8.238616943359375
+          "x": 610.0880737304688,
+          "y": 63.97484588623047,
+          "width": 8.25152587890625,
+          "height": 8.251571655273438
         },
         "dispatched": {
-          "x": 619.2543334960938,
-          "y": 74.07378387451172
+          "x": 619.2138366699219,
+          "y": 73.10063171386719
         }
       },
       {
@@ -1726,14 +1726,14 @@
         "target": ".react-flow__handle[data-nodeid=\"notConnectable\"]",
         "resolved": true,
         "box": {
-          "x": 610.135009765625,
-          "y": 337.8587341308594,
-          "width": 8.2386474609375,
-          "height": 8.238616943359375
+          "x": 610.0880737304688,
+          "y": 338.3396301269531,
+          "width": 8.25152587890625,
+          "height": 8.2515869140625
         },
         "dispatched": {
-          "x": 612.135009765625,
-          "y": 339.8587341308594
+          "x": 612.0880737304688,
+          "y": 340.3396301269531
         }
       },
       {
@@ -1742,14 +1742,14 @@
         "target": ".react-flow__handle[data-nodeid=\"notConnectable\"]",
         "resolved": true,
         "box": {
-          "x": 610.135009765625,
-          "y": 337.8587341308594,
-          "width": 8.2386474609375,
-          "height": 8.238616943359375
+          "x": 610.0880737304688,
+          "y": 338.3396301269531,
+          "width": 8.25152587890625,
+          "height": 8.2515869140625
         },
         "dispatched": {
-          "x": 612.135009765625,
-          "y": 339.8587341308594,
+          "x": 612.0880737304688,
+          "y": 340.3396301269531,
           "button": "left"
         }
       }
