@@ -34,6 +34,46 @@
 -- |      type — there is no payload to alias, so an alias would be
 -- |      misleading. Consumers pattern-match on `ConnectionState(..)` or
 -- |      use the `noConnection` helper. This is intentional and final.
+-- |   5. Where upstream names a record after the function or component that
+-- |      takes it and PS names it after the thing itself, **both names are
+-- |      surfaced**: `GetBezierPathParams`/`BezierPathParams`,
+-- |      `GetStraightPathParams`, `GetSmoothStepPathParams`,
+-- |      `MiniMapNodes`/`MiniMapNodesProps`,
+-- |      `ResizeControlProps`/`NodeResizeControlProps`. The upstream name is a
+-- |      type alias in the defining module, so a reader following upstream's
+-- |      documentation and a reader following PS convention both land on the
+-- |      same type. An alias makes upstream's *name* resolve and claims
+-- |      nothing about the record's members: `MiniMapNodes` reaches a record
+-- |      whose `nodeBorderRadius` is required where upstream's is optional,
+-- |      and surface parity would not see that — its prop comparison is
+-- |      name-only, and covers three records, none of them these.
+-- |   6. `ReactFlowStore` is `ReactFlowState`, and `ReactFlowActions` has no
+-- |      PS counterpart. Upstream defines `ReactFlowState = ReactFlowStore &
+-- |      ReactFlowActions`; PS models the action half as constructors of
+-- |      `React.Store.Action.Action`, a sum type a pure reducer folds, rather
+-- |      than as a record of methods hanging off the state. So the state
+-- |      record here *is* upstream's `ReactFlowStore`, and there is no record
+-- |      for `ReactFlowActions` to denote. The cost lands on the third name:
+-- |      PS `ReactFlowState` is the store half alone, so it is *narrower* than
+-- |      the upstream export it shares a name with, and a gate comparing names
+-- |      cannot see the difference. Intentional and final.
+-- |   7. `BuiltInNode` and `BuiltInEdge` are not modelled. Upstream unions the
+-- |      built-in variants by discriminating on a string-literal `type`; PS
+-- |      `Node n` and `Edge e` carry `type :: Maybe String`, so the variants
+-- |      are not distinct types there is a union of. Intentional and final.
+-- |   8. `ResizeControlLineProps` is not modelled. It is the props record of
+-- |      upstream's internal `ResizeControlLine`; PS has no such component —
+-- |      `nodeResizeControl` serves both variants off one
+-- |      `ResizeControlProps`, selected by its `variant` field — so a second
+-- |      props record would describe nothing that exists. Intentional and
+-- |      final.
+-- |   9. `ConnectionLineComponent` is surfaced, but as
+-- |      `ConnectionLineComponentProps n -> JSX` rather than upstream's
+-- |      `ComponentType<Props>`. It is the one name here whose PS type is a
+-- |      different *construct* from upstream's rather than a different
+-- |      spelling, and it is that shape because it is the shape
+-- |      `ReactFlowProps.connectionLineComponent` has always held — naming it
+-- |      changed nothing about what a consumer passes.
 module React
   ( module ReExportComponents
   , module ReExportProvider
@@ -65,6 +105,7 @@ module React
   , module ReExportAdditionalControls
   , module ReExportAdditionalControlsButton
   , module ReExportAdditionalMiniMap
+  , module ReExportAdditionalMiniMapNode
   , module ReExportAdditionalNodeToolbar
   , module ReExportAdditionalNodeResizer
   , module ReExportAdditionalNodeResizerControl
@@ -154,7 +195,7 @@ import React.Hook.Listeners
 import React.Hook.Middleware (useOnNodesChangeMiddleware, useOnEdgesChangeMiddleware) as ReExportHookMiddleware
 import React.Hook.UpdateNodeInternals (useUpdateNodeInternals) as ReExportHookUpdateNodeInternals
 import React.Hook.HandleConnections (useHandleConnections) as ReExportHookHandleConnections
-import React.Hook.NodeConnections (useNodeConnections) as ReExportHookNodeConnections
+import React.Hook.NodeConnections (UseNodeConnectionsParams, useNodeConnections) as ReExportHookNodeConnections
 import React.Context.NodeId (useNodeId) as ReExportContextNodeId
 
 -- ────────────────────────────────────────────────────────────────────────
@@ -172,6 +213,7 @@ import React.Additional.Background (background) as ReExportAdditionalBackground
 import React.Additional.Controls (controls) as ReExportAdditionalControls
 import React.Additional.Controls.Button (controlButton) as ReExportAdditionalControlsButton
 import React.Additional.MiniMap (miniMap) as ReExportAdditionalMiniMap
+import React.Additional.MiniMap.Node (miniMapNode) as ReExportAdditionalMiniMapNode
 import React.Additional.NodeToolbar (nodeToolbar) as ReExportAdditionalNodeToolbar
 import React.Additional.NodeResizer (nodeResizer) as ReExportAdditionalNodeResizer
 import React.Additional.NodeResizer.Control (nodeResizeControl) as ReExportAdditionalNodeResizerControl
@@ -189,19 +231,27 @@ import React.Types
   , EdgeLabelRendererProps
   , EdgeToolbarProps
   , HandleProps
+  , GetMiniMapNodeAttribute
+  , MiniMapNodeProps
+  , MiniMapNodes
+  , MiniMapNodesProps
   , MiniMapProps
+  , NodeResizeControlProps
   , NodeResizerProps
   , NodeToolbarProps
   , PanelProps
   , ReactFlowProps
+  , ResizeControlProps
   , ViewportPortalProps
   , BaseEdgeProps
   , BezierEdgeProps
+  , ConnectionLineComponent
   , ConnectionLineComponentProps
   , ConnectionStatus(..)
   , DefaultEdgeOptions
   , Edge
   , EdgeComponentProps
+  , EdgeComponentWithPathOptions
   , EdgeLabelOptions
   , EdgeMouseHandler
   , EdgeProps
@@ -238,6 +288,7 @@ import React.Types
   , DeleteElementsOptions
   , NodeOrIdOrRect(..)
   , NodeRefForBounds(..)
+  , GeneralHelpers
   , ReactFlowInstance
   , ReactFlowJsonObject
   , ScreenToFlowOptions
@@ -250,6 +301,7 @@ import React.Types
   , InternalNode
   , Node
   , NodeMouseHandler
+  , NodeProps
   , NodeTypesMap
   , NodeWrapperProps
   , OnNodeDrag
@@ -258,6 +310,7 @@ import React.Types
   , ConnectionClickStartHandle
   , MiddlewareKey(..)
   , ReactFlowState
+  , ReactFlowStore
   ) as ReExportReactTypes
 
 -- ────────────────────────────────────────────────────────────────────────
@@ -313,6 +366,7 @@ import System.Types.Edge
 import System.Types.Node
   ( Align(..)
   , NodeChange(..)
+  , NodeHandle
   , OnError
   ) as ReExportSystemNode
 
@@ -346,7 +400,8 @@ import System.XYResizer
 import System.Utils.General (getViewportForBounds) as ReExportSystemUtilsGeneral
 
 import System.Utils.Graph
-  ( getNodesBounds
+  ( FitViewParams
+  , getNodesBounds
   , getIncomers
   , getOutgoers
   , getConnectedEdges
@@ -359,13 +414,23 @@ import System.Utils.Edges.General
   ) as ReExportSystemUtilsEdgesGeneral
 
 import System.Utils.Edges.Bezier
-  ( getBezierEdgeCenter
+  ( BezierPathParams
+  , GetBezierPathParams
+  , getBezierEdgeCenter
   , getBezierPath
   ) as ReExportSystemUtilsEdgesBezier
 
-import System.Utils.Edges.Straight (getStraightPath) as ReExportSystemUtilsEdgesStraight
+import System.Utils.Edges.Straight
+  ( StraightPathParams
+  , GetStraightPathParams
+  , getStraightPath
+  ) as ReExportSystemUtilsEdgesStraight
 
-import System.Utils.Edges.SmoothStep (getSmoothStepPath) as ReExportSystemUtilsEdgesSmoothStep
+import System.Utils.Edges.SmoothStep
+  ( SmoothStepPathParams
+  , GetSmoothStepPathParams
+  , getSmoothStepPath
+  ) as ReExportSystemUtilsEdgesSmoothStep
 
 import System.Utils.Edges.SimpleBezier (getSimpleBezierPath) as ReExportSystemUtilsEdgesSimpleBezier
 

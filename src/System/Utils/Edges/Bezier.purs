@@ -1,6 +1,7 @@
 -- | Cubic-bezier edge path. Mirrors `bezier-edge.ts`.
 module System.Utils.Edges.Bezier
   ( BezierPathParams
+  , GetBezierPathParams
   , BezierControlPoints
   , getBezierEdgeCenter
   , getBezierPath
@@ -22,6 +23,12 @@ type BezierPathParams =
   , targetPosition :: Position
   , curvature :: Number
   }
+
+-- | TS-name alias for `BezierPathParams`. Upstream names the argument
+-- | record after the function that takes it (`GetBezierPathParams`); PS
+-- | drops the `Get` prefix. Both names are on the surface so the upstream
+-- | one resolves and the PS one stays the idiomatic spelling.
+type GetBezierPathParams = BezierPathParams
 
 type BezierControlPoints =
   { sourceX :: Number

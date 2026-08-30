@@ -12,7 +12,10 @@ module React.Types.Instance
   ( ReactFlowInstance
   , ReactFlowJsonObject
   , DeleteElementsOptions
+  , GeneralHelpers
+  , GeneralHelpersRow
   , ViewportHelperFunctions
+  , ViewportHelperFunctionsRow
   , NodeOrIdOrRect(..)
   , NodeRefForBounds(..)
   , UpdateOptions
@@ -113,8 +116,12 @@ type ScreenToFlowOptions =
 -- | drive the animation. The non-animated readers (`getZoom`,
 -- | `getViewport`, `screenToFlowPosition`, `flowToScreenPosition`) stay
 -- | `Effect`.
-type ViewportHelperFunctions =
-  { zoomIn :: ZoomOptions -> Aff Boolean
+-- |
+-- | Written as an open row so `ReactFlowInstance` can extend it rather than
+-- | restate its ten members. Upstream reaches the same shape with `&`; PS
+-- | spells an intersection of records as one row extended by another.
+type ViewportHelperFunctionsRow r =
+  ( zoomIn :: ZoomOptions -> Aff Boolean
   , zoomOut :: ZoomOptions -> Aff Boolean
   , zoomTo :: Number -> ZoomOptions -> Aff Boolean
   , getZoom :: Effect Number
@@ -124,13 +131,20 @@ type ViewportHelperFunctions =
   , fitBounds :: FitBounds
   , screenToFlowPosition :: XYPosition -> ScreenToFlowOptions -> Effect XYPosition
   , flowToScreenPosition :: XYPosition -> Effect XYPosition
-  }
+  | r
+  )
 
--- | The full `ReactFlowInstance n e` — TS `GeneralHelpers & ViewportHelperFunctions & { viewportInitialized }`.
--- | A record of `Effect`/`Aff`-typed methods.
-type ReactFlowInstance n e =
-  { -- General helpers
-    getNodes :: Effect (Array (Node n))
+type ViewportHelperFunctions = Record (ViewportHelperFunctionsRow ())
+
+-- | The graph-manipulation half of `ReactFlowInstance`. Mirrors
+-- | `xyflow-main/packages/react/src/types/instance.ts GeneralHelpers` — the
+-- | same twenty-one members, in upstream's order.
+-- |
+-- | Open, for the same reason `ViewportHelperFunctionsRow` is: upstream's
+-- | `ReactFlowInstance` is an intersection of the two, and a closed record
+-- | here would mean writing both halves out twice.
+type GeneralHelpersRow n e r =
+  ( getNodes :: Effect (Array (Node n))
   , setNodes :: (Array (Node n) -> Array (Node n)) -> Effect Unit
   , addNodes :: Array (Node n) -> Effect Unit
   , getNode :: String -> Effect (Maybe (Node n))
@@ -161,16 +175,13 @@ type ReactFlowInstance n e =
       { handleType :: Maybe HandleType, nodeId :: String, handleId :: Maybe String }
       -> Effect (Array NodeConnection)
   , fitView :: FitView
-  -- Viewport helpers (flattened into the same record per the TS intersection)
-  , zoomIn :: ZoomOptions -> Aff Boolean
-  , zoomOut :: ZoomOptions -> Aff Boolean
-  , zoomTo :: Number -> ZoomOptions -> Aff Boolean
-  , getZoom :: Effect Number
-  , setViewport :: SetViewport
-  , getViewport :: Effect Viewport
-  , setCenter :: SetCenter
-  , fitBounds :: FitBounds
-  , screenToFlowPosition :: XYPosition -> ScreenToFlowOptions -> Effect XYPosition
-  , flowToScreenPosition :: XYPosition -> Effect XYPosition
-  , viewportInitialized :: Boolean
-  }
+  | r
+  )
+
+type GeneralHelpers n e = Record (GeneralHelpersRow n e ())
+
+-- | The full `ReactFlowInstance n e` — TS `GeneralHelpers & ViewportHelperFunctions & { viewportInitialized }`.
+-- | A record of `Effect`/`Aff`-typed methods, assembled from the two rows
+-- | above so the intersection is stated once rather than transcribed.
+type ReactFlowInstance n e =
+  Record (GeneralHelpersRow n e (ViewportHelperFunctionsRow (viewportInitialized :: Boolean)))

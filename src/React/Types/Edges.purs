@@ -15,6 +15,9 @@ module React.Types.Edges
   , EdgeProps
   , BaseEdgeProps
   , EdgeComponentProps
+  , EdgeComponentRow
+  , EdgeComponentWithPathOptions
+  , StraightEdgeRow
   , BezierEdgeProps
   , SmoothStepEdgeProps
   , StepEdgeProps
@@ -22,6 +25,7 @@ module React.Types.Edges
   , SimpleBezierEdgeProps
   , EdgeTextProps
   , ConnectionLineComponentProps
+  , ConnectionLineComponent
   , ConnectionStatus(..)
   , PathOptions
   , Style
@@ -31,6 +35,7 @@ import Prelude
 
 import Data.Maybe (Maybe)
 import Effect (Effect)
+import React.Basic (JSX)
 import React.Types.Nodes (InternalNode)
 import System.Types.Connection (Connection, FinalConnectionState)
 import System.Types.Edge
@@ -180,14 +185,17 @@ type BaseEdgeProps =
   , className :: Maybe String
   }
 
-type EdgeComponentProps =
-  { id :: Maybe String
+-- | What every built-in edge component is handed — the seventeen members that
+-- | do not depend on which side of a node the path meets. It is spelled as the
+-- | smaller row and extended, where upstream spells the larger record and
+-- | `Omit`s from it; the two describe the same pair of shapes, and PureScript
+-- | can extend a row but not subtract from one.
+type StraightEdgeRow r =
+  ( id :: Maybe String
   , sourceX :: Number
   , sourceY :: Number
   , targetX :: Number
   , targetY :: Number
-  , sourcePosition :: Position
-  , targetPosition :: Position
   , markerStart :: Maybe String
   , markerEnd :: Maybe String
   , interactionWidth :: Maybe Number
@@ -200,96 +208,37 @@ type EdgeComponentProps =
   , labelBgStyle :: Maybe Style
   , labelBgPadding :: Maybe { x :: Number, y :: Number }
   , labelBgBorderRadius :: Maybe Number
-  }
+  | r
+  )
 
-type BezierEdgeProps =
-  { id :: Maybe String
-  , sourceX :: Number
-  , sourceY :: Number
-  , targetX :: Number
-  , targetY :: Number
-  , sourcePosition :: Position
-  , targetPosition :: Position
-  , markerStart :: Maybe String
-  , markerEnd :: Maybe String
-  , interactionWidth :: Maybe Number
-  , style :: Maybe Style
-  , sourceHandleId :: Maybe String
-  , targetHandleId :: Maybe String
-  , label :: Maybe String
-  , labelStyle :: Maybe Style
-  , labelShowBg :: Maybe Boolean
-  , labelBgStyle :: Maybe Style
-  , labelBgPadding :: Maybe { x :: Number, y :: Number }
-  , labelBgBorderRadius :: Maybe Number
-  , pathOptions :: Maybe BezierPathOptions
-  }
+-- | TS `Omit<EdgeComponentProps, 'sourcePosition' | 'targetPosition'>`. A
+-- | straight line leaves and enters wherever the handles are, so it is the one
+-- | built-in edge with no use for the two positions.
+type StraightEdgeProps = Record (StraightEdgeRow ())
 
-type SmoothStepEdgeProps =
-  { id :: Maybe String
-  , sourceX :: Number
-  , sourceY :: Number
-  , targetX :: Number
-  , targetY :: Number
-  , sourcePosition :: Position
+-- | The above plus the two handle sides — the props of every built-in edge
+-- | whose path bends. `EdgeComponentWithPathOptions` extends it once more with
+-- | the field the three path-shaped variants add, which is upstream's `&`
+-- | written the PS way, and is why `BezierEdgeProps`, `SmoothStepEdgeProps` and
+-- | `StepEdgeProps` no longer transcribe these nineteen members three more
+-- | times.
+type EdgeComponentRow r =
+  ( sourcePosition :: Position
   , targetPosition :: Position
-  , markerStart :: Maybe String
-  , markerEnd :: Maybe String
-  , interactionWidth :: Maybe Number
-  , style :: Maybe Style
-  , sourceHandleId :: Maybe String
-  , targetHandleId :: Maybe String
-  , label :: Maybe String
-  , labelStyle :: Maybe Style
-  , labelShowBg :: Maybe Boolean
-  , labelBgStyle :: Maybe Style
-  , labelBgPadding :: Maybe { x :: Number, y :: Number }
-  , labelBgBorderRadius :: Maybe Number
-  , pathOptions :: Maybe SmoothStepPathOptions
-  }
+  | StraightEdgeRow r
+  )
 
-type StepEdgeProps =
-  { id :: Maybe String
-  , sourceX :: Number
-  , sourceY :: Number
-  , targetX :: Number
-  , targetY :: Number
-  , sourcePosition :: Position
-  , targetPosition :: Position
-  , markerStart :: Maybe String
-  , markerEnd :: Maybe String
-  , interactionWidth :: Maybe Number
-  , style :: Maybe Style
-  , sourceHandleId :: Maybe String
-  , targetHandleId :: Maybe String
-  , label :: Maybe String
-  , labelStyle :: Maybe Style
-  , labelShowBg :: Maybe Boolean
-  , labelBgStyle :: Maybe Style
-  , labelBgPadding :: Maybe { x :: Number, y :: Number }
-  , labelBgBorderRadius :: Maybe Number
-  , pathOptions :: Maybe StepPathOptions
-  }
+type EdgeComponentProps = Record (EdgeComponentRow ())
 
-type StraightEdgeProps =
-  { id :: Maybe String
-  , sourceX :: Number
-  , sourceY :: Number
-  , targetX :: Number
-  , targetY :: Number
-  , markerStart :: Maybe String
-  , markerEnd :: Maybe String
-  , interactionWidth :: Maybe Number
-  , style :: Maybe Style
-  , sourceHandleId :: Maybe String
-  , targetHandleId :: Maybe String
-  , label :: Maybe String
-  , labelStyle :: Maybe Style
-  , labelShowBg :: Maybe Boolean
-  , labelBgStyle :: Maybe Style
-  , labelBgPadding :: Maybe { x :: Number, y :: Number }
-  , labelBgBorderRadius :: Maybe Number
-  }
+-- | TS `EdgeComponentWithPathOptions<PathOptions>` — the component props of
+-- | an edge whose path takes options, parameterised by the option record.
+type EdgeComponentWithPathOptions o = Record (EdgeComponentRow (pathOptions :: Maybe o))
+
+type BezierEdgeProps = EdgeComponentWithPathOptions BezierPathOptions
+
+type SmoothStepEdgeProps = EdgeComponentWithPathOptions SmoothStepPathOptions
+
+type StepEdgeProps = EdgeComponentWithPathOptions StepPathOptions
 
 type SimpleBezierEdgeProps = EdgeComponentProps
 
@@ -330,3 +279,9 @@ type ConnectionLineComponentProps n =
   , toHandle :: Maybe Handle
   , pointer :: XYPosition
   }
+
+-- | TS `ConnectionLineComponent<NodeType>` — what a consumer passes as
+-- | `connectionLineComponent`. Upstream types it `ComponentType<Props>`; PS
+-- | takes a plain props-to-`JSX` function, which is the shape
+-- | `ReactFlowProps.connectionLineComponent` has always held.
+type ConnectionLineComponent n = ConnectionLineComponentProps n -> JSX

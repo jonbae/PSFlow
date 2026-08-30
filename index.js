@@ -92,6 +92,7 @@ export {
   controls as Controls,
   controlButton as ControlButton,
   miniMap as MiniMap,
+  miniMapNode as MiniMapNode,
   nodeToolbar as NodeToolbar,
   nodeResizer as NodeResizer,
   nodeResizeControl as NodeResizeControl,

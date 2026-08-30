@@ -20,6 +20,7 @@
     "parity:coverage": "node parity/system/coverage.mjs",
     "test:audit": "node --test \"parity/changelog-audit/**/*.test.mjs\"",
     "test:surface": "node --test \"parity/surface/**/*.test.mjs\"",
+    "test:boundary": "node --test \"parity/boundary/**/*.test.mjs\"",
     "test:census": "node --test \"parity/census/**/*.test.mjs\"",
     "test:compare": "node --test \"parity/system/trace-format.test.mjs\" \"parity/system/compare/**/*.test.mjs\"",
     "test:coverage": "node --test \"parity/system/coverage/**/*.test.mjs\"",

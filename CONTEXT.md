@@ -20,7 +20,7 @@ _Avoid_: incidental surface, the barrel, the internals
 
 **Boundary module**:
 `src/Boundary.purs`, the single PureScript module standing between the internals
-and the JS surface. It re-exports all 60 public symbols, crossing each into a
+and the JS surface. It re-exports all 69 public symbols, crossing each into a
 JS-native shape as the staging reaches it, and `index.js` is a bare re-export of
 its compiled output. The conversion lives in PureScript so the compiler checks
 it; the internals and the PureScript surface are untouched by it.
@@ -56,7 +56,7 @@ _Avoid_: the export list, the crossing table
 
 **Converter**:
 One translation between a PureScript type and its JS-native shape, in
-`src/Boundary/`. The **unit of work** in the boundary staging — the 60 exports
+`src/Boundary/`. The **unit of work** in the boundary staging — the 69 exports
 collapse onto a handful of shared types, and the flow-props record is largely
 indivisible, so a stage is measured in converters and not in exports.
 _Avoid_: adapter, marshaller, codec (reserved for the enum string tables)
@@ -73,9 +73,9 @@ _Avoid_: unsupported prop, unimplemented prop, TODO prop
 Something that goes red. There are five, and each is named for what its red
 means. Never numbered — see *Layer* below. Other things in this repo also go
 red without being one of the five: `parity:boundary`, `parity:changelog`,
-`parity:fork`, `test:surface`, `test:compare`, `test:harness`,
-`test:harness:live`, `test:census`, `test:ci`, `test:node-props`, and the
-**unit tests**. Each entry below says where it sits.
+`parity:fork`, `test:surface`, `test:boundary`, `test:compare`,
+`test:harness`, `test:harness:live`, `test:census`, `test:ci`,
+`test:node-props`, and the **unit tests**. Each entry below says where it sits.
 _Avoid_: layer, check, suite (when a gate is meant)
 
 **The four cheap gates**:
@@ -181,13 +181,13 @@ explicitly as **outside the gate scheme**: they prove PSFlow's internals are
 self-consistent, which is a different claim from "PSFlow matches xyflow".
 _Avoid_: the test suite, the PureScript tests
 
-**Gate self-tests** (`npm run test:surface`, `test:census`, `test:compare`,
-`test:harness`, `test:ci`):
+**Gate self-tests** (`npm run test:surface`, `test:boundary`, `test:census`,
+`test:compare`, `test:harness`, `test:ci`):
 `node --test` over an instrument's *own* logic — surface parity's shape and
-allowlist modules, the census generator and its staleness logic, system parity's
-comparison core, the net harness and the driver's registries, and the gates
-workflow's agreement with README's table plus the baseline vendoring script it
-runs. Outside the gate
+allowlist modules, the PureScript record reader both boundary checks share, the
+census generator and its staleness logic, system parity's comparison core, the
+net harness and the driver's registries, and the gates workflow's agreement with
+README's table plus the baseline vendoring script it runs. Outside the gate
 scheme for the same reason the **unit tests** are:
 they prove an instrument does what it claims, which is a different claim from "PSFlow
 matches xyflow". A red one means the instrument is broken, not the port.
