@@ -24,9 +24,12 @@ module React.Types.Component
   , MiniMapProps
   , MiniMapNodeProps
   , MiniMapNodesProps
+  , MiniMapNodes
+  , GetMiniMapNodeAttribute
   , NodeToolbarProps
   , NodeResizerProps
   , NodeResizeControlProps
+  , ResizeControlProps
   , EdgeToolbarProps
   , NodeRendererProps
   , EdgeRendererProps
@@ -53,7 +56,7 @@ import Foreign.Object (Object)
 import React.Basic (JSX, ReactComponent)
 import React.Basic.Hooks (ReactChildren)
 import React.Types.Edges
-  ( ConnectionLineComponentProps
+  ( ConnectionLineComponent
   , DefaultEdgeOptions
   , Edge
   , EdgeMouseHandler
@@ -185,7 +188,7 @@ type ReactFlowProps n e =
   , edgeTypes :: Maybe EdgeTypesMap
   , connectionLineType :: Maybe ConnectionLineType
   , connectionLineStyle :: Maybe Style
-  , connectionLineComponent :: Maybe (ConnectionLineComponentProps n -> JSX)
+  , connectionLineComponent :: Maybe (ConnectionLineComponent n)
   , connectionLineContainerStyle :: Maybe Style
   -- Interaction settings
   , connectionMode :: Maybe ConnectionMode
@@ -381,7 +384,7 @@ type ZoomPaneProps =
 
 -- Ticket 036 — internal connection-line component props.
 type ConnectionLineProps n =
-  { connectionLineComponent :: Maybe (ConnectionLineComponentProps n -> JSX)
+  { connectionLineComponent :: Maybe (ConnectionLineComponent n)
   , connectionLineStyle :: Maybe Style
   , connectionLineType :: Maybe ConnectionLineType
   , connectionLineContainerStyle :: Maybe Style
@@ -480,11 +483,15 @@ type ControlButtonProps =
   , children :: ReactChildren JSX
   }
 
+-- | TS `GetMiniMapNodeAttribute<NodeType>` — how the minimap asks a node for
+-- | one of its own presentation attributes (fill, stroke, class name).
+type GetMiniMapNodeAttribute n = Node n -> String
+
 -- Ticket 047 — `<MiniMap />`.
 type MiniMapProps n =
-  { nodeColor :: Maybe (Node n -> String)
-  , nodeStrokeColor :: Maybe (Node n -> String)
-  , nodeClassName :: Maybe (Node n -> String)
+  { nodeColor :: Maybe (GetMiniMapNodeAttribute n)
+  , nodeStrokeColor :: Maybe (GetMiniMapNodeAttribute n)
+  , nodeClassName :: Maybe (GetMiniMapNodeAttribute n)
   , nodeBorderRadius :: Maybe Number
   , nodeStrokeWidth :: Maybe Number
   , nodeComponent :: Maybe (ReactComponent MiniMapNodeProps)
@@ -526,14 +533,20 @@ type MiniMapNodeProps =
 
 -- Ticket 047 — props for the inner mapping component.
 type MiniMapNodesProps n =
-  { nodeColor :: Maybe (Node n -> String)
-  , nodeStrokeColor :: Maybe (Node n -> String)
-  , nodeClassName :: Maybe (Node n -> String)
+  { nodeColor :: Maybe (GetMiniMapNodeAttribute n)
+  , nodeStrokeColor :: Maybe (GetMiniMapNodeAttribute n)
+  , nodeClassName :: Maybe (GetMiniMapNodeAttribute n)
   , nodeBorderRadius :: Number
   , nodeStrokeWidth :: Maybe Number
   , nodeComponent :: Maybe (ReactComponent MiniMapNodeProps)
   , onClick :: Maybe (MouseEvent -> String -> Effect Unit)
   }
+
+-- | TS-name alias for `MiniMapNodesProps`. Upstream names this props record
+-- | after the component that takes it (`MiniMapNodes`) rather than with the
+-- | `Props` suffix every other record here carries; both names are surfaced
+-- | so the upstream one resolves without the PS ones losing their pattern.
+type MiniMapNodes n = MiniMapNodesProps n
 
 -- Ticket 048 — `<NodeToolbar />`. `nodeId` accepts a single id or an array.
 type NodeToolbarProps =
@@ -589,6 +602,12 @@ type NodeResizeControlProps =
   , style :: Maybe (Object String)
   , children :: ReactChildren JSX
   }
+
+-- | TS-name alias for `NodeResizeControlProps`. Upstream drops the `Node`
+-- | prefix its own component keeps (`NodeResizeControl` takes
+-- | `ResizeControlProps`); PS names the record after the component. Both
+-- | names are surfaced.
+type ResizeControlProps = NodeResizeControlProps
 
 -- Ticket 048 — `<EdgeToolbar />`. Anchors a portal to an edge midpoint.
 type EdgeToolbarProps =
@@ -760,7 +779,7 @@ type GraphViewProps n e =
   , edgeTypes :: Maybe EdgeTypesMap
   , nodeExtent :: Maybe CoordinateExtent
   , connectionLineStyle :: Maybe Style
-  , connectionLineComponent :: Maybe (ConnectionLineComponentProps n -> JSX)
+  , connectionLineComponent :: Maybe (ConnectionLineComponent n)
   , connectionLineContainerStyle :: Maybe Style
   -- Node mouse events
   , onNodeClick :: Maybe (NodeMouseHandler n)

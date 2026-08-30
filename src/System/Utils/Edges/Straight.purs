@@ -1,6 +1,7 @@
 -- | Straight-line edge path. Mirrors `straight-edge.ts`.
 module System.Utils.Edges.Straight
   ( StraightPathParams
+  , GetStraightPathParams
   , getStraightPath
   ) where
 
@@ -15,6 +16,9 @@ type StraightPathParams =
   , targetX :: Number
   , targetY :: Number
   }
+
+-- | TS-name alias for `StraightPathParams` — see `GetBezierPathParams`.
+type GetStraightPathParams = StraightPathParams
 
 showN :: Number -> String
 showN = NumberFormat.toString

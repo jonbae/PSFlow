@@ -119,6 +119,7 @@ export const manifest = Object.freeze({
     "EdgeLabelRenderer",
     "EdgeText",
     "EdgeToolbar",
+    "MiniMapNode",
     "ReactFlowProvider",
     "ReactFlowWithRef",
     "SimpleBezierEdge",

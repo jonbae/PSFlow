@@ -164,9 +164,11 @@ import Boundary.NodeChrome (handle, nodeToolbar) as CrossedSurface
 -- and a callback cannot cross without the record it hangs off.
 import Boundary.Resizer (nodeResizeControl, nodeResizer) as CrossedSurface
 
--- The other 48 symbols of the public surface, passing through raw. Ordered to
--- mirror `xyflow/packages/react/src/index.ts`, as `index.js` is, so future
--- audits stay mechanical.
+-- The rest of the public surface, passing through raw. How many that is, is
+-- `manifest.passthrough`'s to say and not this comment's — the number written
+-- here was last true two stages ago. Ordered to mirror
+-- `xyflow/packages/react/src/index.ts`, as `index.js` is, so future audits
+-- stay mechanical.
 import React
   ( -- Components
     reactFlowWithRef
@@ -199,6 +201,7 @@ import React
   -- Additional components
   , controlButton
   , edgeToolbar
+  , miniMapNode
   ) as PublicSurface
 
 -- | `Object.freeze`. The enum objects are built above it in PureScript so the

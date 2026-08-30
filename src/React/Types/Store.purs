@@ -6,6 +6,7 @@
 -- | side by side.
 module React.Types.Store
   ( ReactFlowState
+  , ReactFlowStore
   , MiddlewareKey(..)
   , ConnectionClickStartHandle
   ) where
@@ -169,3 +170,11 @@ type ReactFlowState n e =
   , onEdgesChangeMiddlewareMap ::
       Map MiddlewareKey (Array (EdgeChange e) -> Array (EdgeChange e))
   }
+
+-- | TS-name alias for `ReactFlowState`. Upstream splits the store in two —
+-- | `ReactFlowStore` (the state) and `ReactFlowActions` (the methods) — and
+-- | defines `ReactFlowState = ReactFlowStore & ReactFlowActions`. PS models
+-- | the actions half as constructors of `React.Store.Action.Action` rather
+-- | than as record fields, so the record above is upstream's `ReactFlowStore`
+-- | exactly, and the two upstream names denote the same PS type here.
+type ReactFlowStore n e = ReactFlowState n e

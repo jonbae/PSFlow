@@ -18,21 +18,29 @@ import React.Types.Component
   , EdgeLabelRendererProps
   , EdgeToolbarProps
   , HandleProps
+  , GetMiniMapNodeAttribute
+  , MiniMapNodeProps
+  , MiniMapNodes
+  , MiniMapNodesProps
   , MiniMapProps
+  , NodeResizeControlProps
   , NodeResizerProps
   , NodeToolbarProps
   , PanelProps
   , ReactFlowProps
+  , ResizeControlProps
   , ViewportPortalProps
   ) as ReexportComponent
 import React.Types.Edges
   ( BaseEdgeProps
   , BezierEdgeProps
+  , ConnectionLineComponent
   , ConnectionLineComponentProps
   , ConnectionStatus(..)
   , DefaultEdgeOptions
   , Edge
   , EdgeComponentProps
+  , EdgeComponentWithPathOptions
   , EdgeLabelOptions
   , EdgeMouseHandler
   , EdgeProps
@@ -72,6 +80,7 @@ import React.Types.General
 import React.Types.Instance
   ( DeleteElementsOptions
   , FitBounds
+  , GeneralHelpers
   , NodeOrIdOrRect(..)
   , NodeRefForBounds(..)
   , ReactFlowInstance
@@ -87,6 +96,7 @@ import React.Types.Nodes
   ( InternalNode
   , Node
   , NodeMouseHandler
+  , NodeProps
   , NodeTypesMap
   , NodeWrapperProps
   , OnNodeDrag
@@ -97,4 +107,5 @@ import React.Types.Store
   ( ConnectionClickStartHandle
   , MiddlewareKey(..)
   , ReactFlowState
+  , ReactFlowStore
   ) as ReexportStore

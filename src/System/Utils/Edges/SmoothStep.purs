@@ -1,6 +1,7 @@
 -- | Smooth-step (orthogonal) edge path. Mirrors `smoothstep-edge.ts`.
 module System.Utils.Edges.SmoothStep
   ( SmoothStepPathParams
+  , GetSmoothStepPathParams
   , getSmoothStepPath
   ) where
 
@@ -27,6 +28,9 @@ type SmoothStepPathParams =
   , offset :: Number
   , stepPosition :: Number
   }
+
+-- | TS-name alias for `SmoothStepPathParams` — see `GetBezierPathParams`.
+type GetSmoothStepPathParams = SmoothStepPathParams
 
 showN :: Number -> String
 showN = NumberFormat.toString

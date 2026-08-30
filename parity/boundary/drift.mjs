@@ -54,14 +54,17 @@ const pairs = [
     renames: { nodeType: "type" },
   },
   // An internal node is a node plus `internals`, on both sides and by the same
-  // mechanism: each extends the row above rather than restating it. So there is
-  // exactly one field left for this pair to compare, and the 28 it does not
-  // compare are the ones the pair above already holds.
+  // mechanism: each extends the row above rather than restating it. The reader
+  // expands that composition, so this pair compares all 29 — the 28 the pair
+  // above holds and the one this one adds — which is why it repeats that pair's
+  // rename. It read as a one-field pair until the reader learned to follow a
+  // row, and a pair comparing one field out of 29 is a pair that would have
+  // agreed with almost anything.
   {
     what: "InternalNode",
     ps: { file: "src/System/Types/Node.purs", type: "InternalNodeBase" },
     js: { file: "src/Boundary/Elements.purs", type: "JsInternalNode" },
-    renames: {},
+    renames: { nodeType: "type" },
   },
   {
     what: "NodeInternals",

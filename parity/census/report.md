@@ -80,13 +80,16 @@ to reach it.
 
 ## Upstream values with no PSFlow runtime counterpart
 
-Surface parity compares names as a value-union-type set, so an upstream **runtime
-object** that PSFlow surfaces only as a PureScript **type** passes the gate. For a
-JS/TS consumer — the audience this repo exists for — the import is `undefined`.
+An upstream **runtime object** that PSFlow surfaces only as a PureScript **type**,
+or not at all: for a JS/TS consumer — the audience this repo exists for — the
+import is `undefined`. Surface parity merged the value and type name sets until
+ticket 041, which is how nine of these passed the gate by construction; it now
+fails on each one, so anything left below is an allowlisted divergence rather
+than an unnoticed absence.
 
 | Export | PSFlow surfaces | Reachable by |
 |---|---|---|
-| `MiniMapNode` | nothing | — |
+| _none_ | | |
 
 ## Full census
 
@@ -102,7 +105,7 @@ JS/TS consumer — the audience this repo exists for — the import is `undefine
 | `EdgeToolbar` | component | `dual-run-dom` | — | passthrough, ungated | getEdgeToolbarTransform has function parity; the component is never mounted. |
 | `Handle` | component | `dual-run-dom` | — | crossed, gated — boundary + conformance (generic-nodes) + conformance (generic-node-toolbar) ~ + smoke | connect/connectable=false/connectingfrom class asserted. Upstream's two defaults and the enum conversion are gated on the JS surface by parity:boundary, mounted inside a node component rather than in the flow. ToolbarNode.tsx mounts a target and a source handle, which is the only place a consumer's own component mounts one, but asserts nothing about either. |
 | `MiniMap` | component | `dual-run-dom` | — | crossed, gated — boundary + smoke + conformance (generic-props) ~ | Renders + clickable only; no node-rendering, mask or pan/zoom coverage. Its JS-shaped props and no-props mount are gated on the JS surface by parity:boundary; the ColorMode driver also mounts it without a specific assertion. |
-| `MiniMapNode` | component | `dual-run-dom` | — | no runtime value, ungated | Not exported by PSFlow at all (allowlisted). A JS consumer importing it gets undefined. |
+| `MiniMapNode` | component | `dual-run-dom` | — | passthrough, ungated | Surfaced by ticket 058 — `miniMapNode` on the PureScript surface, and passthrough on the JS surface, so a JS consumer importing it now gets a value rather than undefined. Its shape already agrees with upstream (memoized, arity 1); boundary stage 4 crosses its props. |
 | `NodeResizeControl` | component | `dual-run-dom` | — | crossed, gated — boundary | parity:boundary mounts it with no props inside a node component and holds its three enum converters; nothing drives a resize, so its handlers are reachable and undriven. Known-wrong — ticket 073 (XYResizer drag lifecycle). |
 | `NodeResizer` | component | `dual-run-dom` | — | crossed, gated — boundary | parity:boundary mounts it with no props inside a node component. Its four handlers cross but nothing drives a resize. Known-wrong — ticket 073. |
 | `NodeToolbar` | component | `dual-run-dom` | function | crossed, gated — boundary + conformance (generic-node-toolbar) | getNodeToolbarTransform has function parity; positioning and default behaviour asserted by generic-node-toolbar. parity:boundary holds the pattern-match case and that its converters run, mounted inside a node component; it cannot assert the DOM, because the toolbar portals into a flow root a server render does not have. |
@@ -163,20 +166,20 @@ JS/TS consumer — the audience this repo exists for — the import is `undefine
 | `BackgroundProps` | props | `dual-run-dom` | — | no runtime value, ungated — conformance (generic-props) ~ | Background is mounted with every prop unset on both surfaces; no prop is asserted. |
 | `BaseEdgeProps` | props | `dual-run-dom` | — | no runtime value, ungated — conformance (generic-edges) ~ | interactionWidth and path exercised via the fixture edges. |
 | `BezierEdgeProps` | props | `dual-run-dom` | — | no runtime value, ungated |  |
-| `ConnectionLineComponent` | props | `none` | — | no runtime value, ungated | Upstream component-type alias; PSFlow does not model it (allowlisted). Out of scope — issue #17. |
+| `ConnectionLineComponent` | props | `none` | — | no runtime value, ungated | Surfaced on the PureScript surface by ticket 058. PS types it `ConnectionLineComponentProps n -> JSX` — the shape `ReactFlowProps.connectionLineComponent` has always held — rather than upstream's `ComponentType<Props>`. |
 | `ConnectionLineComponentProps` | props | `dual-run-props` | — | no runtime value, ungated | The connection line is never rendered by any fixture. |
 | `ControlButtonProps` | props | `dual-run-dom` | — | no runtime value, ungated |  |
 | `ControlProps` | props | `none` | — | no runtime value, ungated | PSFlow renames it ControlsProps; cancelled on both sides by the allowlist. Type-only, so the rename cannot reach a JS consumer. |
 | `EdgeComponentProps` | props | `dual-run-props` | — | no runtime value, ungated |  |
-| `EdgeComponentWithPathOptions` | props | `none` | — | no runtime value, ungated | PSFlow does not model it (allowlisted). Out of scope — issue #17. |
+| `EdgeComponentWithPathOptions` | props | `none` | — | no runtime value, ungated | Surfaced on the PureScript surface by ticket 058, and load-bearing: `BezierEdgeProps`, `SmoothStepEdgeProps` and `StepEdgeProps` are now defined through it instead of restating the nineteen shared members each. |
 | `EdgeLabelRendererProps` | props | `dual-run-dom` | — | no runtime value, ungated |  |
 | `EdgeProps` | props | `dual-run-props` | surface-props | no runtime value, ungated | Prop-member names gated on the PureScript surface by the surface-parity prop diff (ticket 071 renamed edgeType to type). No component reads the props object at runtime — unlike the NodeProps guard. |
 | `EdgeTextProps` | props | `dual-run-dom` | — | no runtime value, ungated | EdgeText is never mounted. |
 | `EdgeToolbarProps` | props | `dual-run-dom` | — | no runtime value, ungated | EdgeToolbar is never mounted. |
 | `EdgeWrapperProps` | props | `dual-run-dom` | — | no runtime value, ungated | Internal wrapper; observable only as the DOM it produces. |
 | `HandleProps` | props | `dual-run-dom` | — | no runtime value, gated — conformance (generic-nodes) + conformance (generic-node-toolbar) ~ + smoke | connectable=false and handle position attributes asserted. ToolbarNode.tsx sets type and position on both of its handles and asserts neither. |
-| `MiniMapNodeProps` | props | `none` | — | no runtime value, ungated | Not surfaced by PSFlow (allowlisted, ticket 058). |
-| `MiniMapNodes` | props | `none` | — | no runtime value, ungated | Component exists in PSFlow but is not in the public barrel (allowlisted, ticket 058). |
+| `MiniMapNodeProps` | props | `none` | — | no runtime value, ungated | Surfaced on the PureScript surface by ticket 058 (`React.Types.Component`). |
+| `MiniMapNodes` | props | `none` | — | no runtime value, ungated | Upstream names this props record after the component that takes it. Surfaced on the PureScript surface by ticket 058, as a TS-name alias of PS `MiniMapNodesProps`; both names resolve. |
 | `MiniMapProps` | props | `dual-run-dom` | — | no runtime value, ungated — conformance (generic-props) ~ | MiniMap is mounted with every prop unset on both surfaces; no prop is asserted. |
 | `NodeProps` | props | `dual-run-props` | surface-props | no runtime value, gated — node-props | The one type with a runtime guard: node-props.spec.ts mounts a custom node and renders values from the props object. Ticket 069 closed the xPos/yPos rename here after it survived from 12.3.5 as a printed-not-failed diff. |
 | `NodeResizerProps` | props | `dual-run-dom` | — | no runtime value, ungated | NodeResizer is never mounted and is known-wrong (073). |
@@ -184,8 +187,8 @@ JS/TS consumer — the audience this repo exists for — the import is `undefine
 | `NodeWrapperProps` | props | `dual-run-dom` | — | no runtime value, ungated — conformance (generic-nodes) ~ | Internal wrapper; observable as the .react-flow__node DOM the node specs assert on. |
 | `PanelProps` | props | `dual-run-dom` | — | no runtime value, ungated — conformance (generic-props) ~ | See PanelPosition. |
 | `ReactFlowProps` | props | `dual-run-dom` | surface-props | no runtime value, gated — conformance (generic-nodes) + conformance (generic-pane) + conformance (generic-edges) + conformance (generic-props) | Prop-member names gated on the PureScript surface by the surface-parity prop diff; a minority of members (selectable/draggable/deletable/connectable/minZoom/maxZoom/panOnScroll/defaultViewport/autoPan*/colorMode/nodeTypes) are driven by the conformance specs. The gate is name-only — a member whose type changed upstream still passes. |
-| `ResizeControlLineProps` | props | `none` | — | no runtime value, ungated | Not modelled by PSFlow (allowlisted). Out of scope — issue #17. |
-| `ResizeControlProps` | props | `none` | — | no runtime value, ungated | Not modelled by PSFlow (allowlisted). Out of scope — issue #17. |
+| `ResizeControlLineProps` | props | `none` | — | no runtime value, ungated | Props of upstream's internal `ResizeControlLine`. PS has no such component — `nodeResizeControl` serves both variants off one props record, selected by `variant` — so there is nothing for a second record to describe. Documented divergence — allowlisted, and src/React.purs's header. |
+| `ResizeControlProps` | props | `none` | — | no runtime value, ungated | Surfaced on the PureScript surface by ticket 058, as a TS-name alias of PS `NodeResizeControlProps`; both names resolve. |
 | `SimpleBezierEdgeProps` | props | `dual-run-dom` | — | no runtime value, ungated |  |
 | `SmoothStepEdgeProps` | props | `dual-run-dom` | — | no runtime value, ungated |  |
 | `StepEdgeProps` | props | `dual-run-dom` | — | no runtime value, ungated |  |
@@ -230,8 +233,8 @@ JS/TS consumer — the audience this repo exists for — the import is `undefine
 | `NodeSelectionChange` | change | `dual-run-callback` | — | no runtime value, ungated | Constructor of the PS NodeChange sum type. |
 | `Align` | data | `dual-run-dom` | function | no runtime value, gated — conformance (generic-node-toolbar) | getNodeToolbarTransform takes align; toolbar positioning asserted. |
 | `Box` | data | `oracle` | function | no runtime value, ungated | Shape marshalled by rectToBox/boxToRect/getBoundsOfBoxes properties. |
-| `BuiltInEdge` | data | `none` | — | no runtime value, ungated | Type-only both sides; PSFlow does not model it (allowlisted). Ruled out of scope on the map — issue #17. |
-| `BuiltInNode` | data | `none` | — | no runtime value, ungated | Type-only both sides; PSFlow does not model it (allowlisted). Ruled out of scope on the map — issue #17. |
+| `BuiltInEdge` | data | `none` | — | no runtime value, ungated | Type-only both sides. Upstream unions the built-in variants by discriminating on a string-literal `type`; PS `Edge e` carries `type :: Maybe String`, so there are no distinct types to union. Documented divergence — allowlisted, and src/React.purs's header. |
+| `BuiltInNode` | data | `none` | — | no runtime value, ungated | Type-only both sides. As `BuiltInEdge`: PS `Node n` carries `type :: Maybe String`. Documented divergence — allowlisted, and src/React.purs's header. |
 | `ColorMode` | data | `dual-run-dom` | — | no runtime value, gated — conformance (generic-props) | generic-props asserts the light and dark wrapper classes. |
 | `ColorModeClass` | data | `dual-run-dom` | — | no runtime value, gated — conformance (generic-props) | Same assertion as ColorMode. |
 | `Connection` | data | `dual-run-callback` | — | no runtime value, ungated — conformance (generic-nodes) ~ + smoke ~ | click-connect asserts an edge appears; the onConnect payload shape is never inspected. |
@@ -253,7 +256,7 @@ JS/TS consumer — the audience this repo exists for — the import is `undefine
 | `NoConnection` | data | `none` | — | no runtime value, ungated | Nullary constructor of the PS ConnectionState, not a standalone type (allowlisted, ticket 054). |
 | `Node` | data | `dual-run-dom` | — | no runtime value, gated — conformance (generic-nodes) | Selection, drag, delete, hidden, class, style all asserted by generic-nodes. |
 | `NodeConnection` | data | `dual-run-hook` | — | no runtime value, ungated | useNodeConnections return value. |
-| `NodeHandle` | data | `none` | — | no runtime value, ungated | Not surfaced by PSFlow (allowlisted, ticket 058). |
+| `NodeHandle` | data | `none` | — | no runtime value, ungated | Surfaced on the PureScript surface by ticket 058 (`System.Types.Node`). |
 | `NodeOrigin` | data | `dual-run-dom` | — | no runtime value, ungated | Never set by any fixture. |
 | `NodeTypes` | data | `dual-run-dom` | — | no runtime value, ungated — node-props ~ | PSFlow renames it NodeTypesMap. A custom nodeTypes map is mounted by the NodeProps guard; the custom-default fallback is known-wrong (ticket 075). |
 | `OnConnectStartParams` | data | `dual-run-callback` | — | no runtime value, ungated |  |
@@ -278,27 +281,27 @@ JS/TS consumer — the audience this repo exists for — the import is `undefine
 | `EdgeLabelOptions` | options | `dual-run-dom` | — | no runtime value, ungated — conformance (generic-edges) ~ | String labels and the default measured background are reached by generic-edges; custom label styles, padding, visibility and border radius are still undriven. |
 | `FitBoundsOptions` | options | `dual-run-api` | — | no runtime value, ungated |  |
 | `FitViewOptions` | options | `dual-run-api` | — | no runtime value, ungated |  |
-| `FitViewParams` | options | `none` | — | no runtime value, ungated | Not surfaced by PSFlow (allowlisted, ticket 058). |
-| `GetBezierPathParams` | options | `none` | — | no runtime value, ungated | PSFlow has BezierPathParams but does not re-export it through the React barrel (allowlisted). |
-| `GetSmoothStepPathParams` | options | `none` | — | no runtime value, ungated | PSFlow has SmoothStepPathParams but does not re-export it (allowlisted). |
-| `GetStraightPathParams` | options | `none` | — | no runtime value, ungated | PSFlow has StraightPathParams but does not re-export it (allowlisted). |
+| `FitViewParams` | options | `none` | — | no runtime value, ungated | Surfaced on the PureScript surface by ticket 058 (`System.Utils.Graph`). |
+| `GetBezierPathParams` | options | `none` | — | no runtime value, ungated | Surfaced on the PureScript surface by ticket 058, as a TS-name alias of PS `BezierPathParams`; both names resolve. |
+| `GetSmoothStepPathParams` | options | `none` | — | no runtime value, ungated | Surfaced on the PureScript surface by ticket 058, as a TS-name alias of PS `SmoothStepPathParams`. |
+| `GetStraightPathParams` | options | `none` | — | no runtime value, ungated | Surfaced on the PureScript surface by ticket 058, as a TS-name alias of PS `StraightPathParams`. |
 | `ProOptions` | options | `dual-run-dom` | — | no runtime value, ungated |  |
 | `SetCenterOptions` | options | `dual-run-api` | — | no runtime value, ungated |  |
 | `SmoothStepPathOptions` | options | `oracle` | function | no runtime value, ungated | borderRadius, offset and stepPosition swept by the getSmoothStepPath property. |
 | `UnselectNodesAndEdgesParams` | options | `dual-run-api` | — | no runtime value, ungated |  |
-| `UseNodeConnectionsParams` | options | `none` | — | no runtime value, ungated | Not surfaced by PSFlow (allowlisted, ticket 058). |
+| `UseNodeConnectionsParams` | options | `none` | — | no runtime value, ungated | Surfaced on the PureScript surface by ticket 058 (`React.Hook.NodeConnections`). |
 | `UseNodesInitializedOptions` | options | `dual-run-hook` | — | no runtime value, ungated |  |
 | `UseOnSelectionChangeOptions` | options | `dual-run-callback` | — | no runtime value, ungated |  |
 | `UseOnViewportChangeOptions` | options | `dual-run-callback` | — | no runtime value, ungated |  |
 | `ViewportHelperFunctionOptions` | options | `dual-run-api` | — | no runtime value, ungated | Carries the ease/interpolate members from upstream #5276 — the test-debt row ticket 078 flags as most worth attention. |
 | `FitBounds` | instance-api | `dual-run-api` | — | no runtime value, ungated |  |
 | `FitView` | instance-api | `dual-run-api` | — | no runtime value, ungated — node-props ~ | fitView runs on the NodeProps guard page, but no assertion targets the resulting viewport. The spike's fitView zoom divergence lives here. |
-| `GeneralHelpers` | instance-api | `none` | — | no runtime value, ungated | Not surfaced by PSFlow (allowlisted, ticket 058). |
+| `GeneralHelpers` | instance-api | `none` | — | no runtime value, ungated | Surfaced on the PureScript surface by ticket 058. `ReactFlowInstance` is now assembled from `GeneralHelpersRow` extended by `ViewportHelperFunctionsRow`, which is upstream's `&` written the PS way, instead of transcribing both halves into one record. |
 | `ReactFlowInstance` | instance-api | `dual-run-api` | — | no runtime value, ungated | The entire imperative API — zoomIn/zoomOut/setViewport/screenToFlowPosition/toObject/updateNode/deleteElements — is reachable by no gate. Six test-debt rows land here. |
 | `SetCenter` | instance-api | `dual-run-api` | — | no runtime value, ungated |  |
 | `SetViewport` | instance-api | `dual-run-api` | — | no runtime value, ungated |  |
 | `ViewportHelperFunctions` | instance-api | `dual-run-api` | — | no runtime value, ungated |  |
-| `ReactFlowActions` | store | `none` | — | no runtime value, ungated | Store type; not surfaced by PSFlow (allowlisted, ticket 058). |
+| `ReactFlowActions` | store | `none` | — | no runtime value, ungated | PS models the action half of the store as constructors of `React.Store.Action.Action`, a sum type a pure reducer folds, so there is no record for this name to denote. Documented divergence — allowlisted, and src/React.purs's header. |
 | `ReactFlowState` | store | `dual-run-api` | — | no runtime value, ungated | Observable through useStore selectors; no gate uses one. |
-| `ReactFlowStore` | store | `none` | — | no runtime value, ungated | Store type; not surfaced by PSFlow (allowlisted, ticket 058). |
-| `GetMiniMapNodeAttribute` | internal-type | `none` | — | no runtime value, ungated | MiniMap-internal accessor type; not modelled. Out of scope — issue #17. |
+| `ReactFlowStore` | store | `none` | — | no runtime value, ungated | Surfaced on the PureScript surface by ticket 058, as a TS-name alias of `ReactFlowState`, which mirrors upstream's `ReactFlowStore` field by field. |
+| `GetMiniMapNodeAttribute` | internal-type | `none` | — | no runtime value, ungated | Surfaced on the PureScript surface by ticket 058; the minimap's three node-attribute accessors on `MiniMapProps` and `MiniMapNodesProps` are typed through it. |

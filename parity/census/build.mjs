@@ -370,15 +370,21 @@ out.push("");
 const jsUnreachable = rows.filter((r) => r.upstreamValue && !r.psValue);
 out.push("## Upstream values with no PSFlow runtime counterpart");
 out.push("");
-out.push("Surface parity compares names as a value-union-type set, so an upstream **runtime");
-out.push("object** that PSFlow surfaces only as a PureScript **type** passes the gate. For a");
-out.push("JS/TS consumer — the audience this repo exists for — the import is `undefined`.");
+out.push("An upstream **runtime object** that PSFlow surfaces only as a PureScript **type**,");
+out.push("or not at all: for a JS/TS consumer — the audience this repo exists for — the");
+out.push("import is `undefined`. Surface parity merged the value and type name sets until");
+out.push("ticket 041, which is how nine of these passed the gate by construction; it now");
+out.push("fails on each one, so anything left below is an allowlisted divergence rather");
+out.push("than an unnoticed absence.");
 out.push("");
 out.push("| Export | PSFlow surfaces | Reachable by |");
 out.push("|---|---|---|");
 for (const r of jsUnreachable) {
   out.push(`| \`${r.name}\` | ${r.psType ? "PureScript type only" : "nothing"} | ${allGatesCell(r)} |`);
 }
+// An empty table is a claim — every upstream value has a PSFlow value now —
+// and three header rows with nothing under them do not read as one.
+if (jsUnreachable.length === 0) out.push("| _none_ | | |");
 out.push("");
 
 out.push("## Full census");
