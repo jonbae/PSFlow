@@ -13,10 +13,11 @@ Vocabulary is `CONTEXT.md`. Terms in **bold** are defined there.
 | `routes.mjs` | how a registry key becomes a route and a scenario id |
 | `mount-baselines.mjs` | source 1 — one mount-only scenario per **fixture**, derived |
 | `seed.mjs` | source 2 — the **conformance seed**, upstream's suite transcribed |
+| `test-debt.mjs` | source 3 — the thirty **test-debt scenarios** |
 | `probes.mjs` | source 4 — selective probe variants derived from current coverage witnesses |
 | `probe-plan.json` | issue 59's retired hole inputs, kept as the durable source of those variants |
 | `fork.mjs` | the fork staleness gate, and `fork.json` its register |
-| `reserved.mjs` | the thirty ids the test-debt scenarios are already promised |
+| `reserved.mjs` | the register those thirty ids are held in |
 
 ```sh
 npm run parity:fork    # the fork register against the vendored specs
@@ -24,11 +25,11 @@ npm run test:harness   # this directory's unit tests, among the harness's own
 npm run parity:system  # the gate: build, capture the corpus, persist, diff
 ```
 
-`tickets/081-interaction-corpus.md` names four sources. Two are here: the
-**conformance seed**, with its derived **mount-only baselines**, and the
-hole-closing probe scenarios generated from issue 59's retired holes through the
-current census and witnesses. The remaining sources are the thirty test-debt
-scenarios ([#60]) and the retirement debt ([#61]).
+`tickets/081-interaction-corpus.md` names four sources. Three are here: the
+**conformance seed** with its derived **mount-only baselines**, the thirty
+**test-debt scenarios** ([#60]), and the hole-closing probe scenarios generated
+from issue 59's retired holes through the current census and witnesses. The one
+still outstanding is the retirement debt ([#61]).
 
 ---
 
@@ -90,7 +91,43 @@ invisible afterwards: upstream's "dragging a node" *is* `drag-node-release` in
 outline and its "connecting two nodes" *is* `connect-handle-to-handle`, and
 `gate-pending` only ever asks whether the name is in the corpus — a seed
 scenario holding one would report a changelog row as driven that nothing drove.
-[#60] decides, when it gets there, whether a seed scenario already covers a row.
+
+[#60] answered that question by writing all thirty rather than by pointing a row
+at a seed scenario. The seed lifts *upstream's* sequence, and a row is about a
+condition upstream's own suite mostly does not set: `drag-moves-node` and
+`drag-node-release` are the closest pair in the corpus and they are still not
+the same experiment — one drags a pristine flow, the other one that already has
+a selection on it, which is the half #5684 was about.
+
+---
+
+## The test-debt scenarios
+
+Forty-two changelog rows collapsed onto thirty conditions, under the ids
+`reserved.mjs` had been holding. This is where a `gate-pending` row stops
+reading as *reserved* — waiting on somebody to write the scenario at all — and
+starts reading as driven.
+
+They are counted in a **different currency from export coverage, and never
+summed with it**: the census counts exports, and these count conditional
+behaviours *within* an export. Driving `onNodeDrag` once does not cover "call
+`onNodeDrag` while autopan is ongoing", which is why this half stays
+hand-declared while the other is derived from real traces.
+
+Eighteen of them need a flow no vendored fixture provides, and those live in
+`../fixtures/`, which has its own README. Four settle **mid-gesture** — with the
+pointer or a finger still down — because a selection rectangle, an aborted drag
+and a connection line all stop existing the moment the input is released. A
+fifth, `drag-node-autopan`, dwells and then releases: autopan runs on a frame
+loop, so a page still holding it never settles and the run would abort instead
+of recording anything.
+
+Four carry three or four rows each and are the ones to review if the corpus is
+ever trimmed: `connect-handle-to-handle` (4), `flow-props-change-after-mount`,
+`viewport-helpers-with-options` and `fitview-onnodeschange-variants` (3 each).
+`flow-props-change-after-mount` is the sharpest — its three StoreUpdater rows are
+reachable **only** because callbacks compare as an exact sequence, so a weakening
+against any handler it fires would make all three invisible at once.
 
 ---
 

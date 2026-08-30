@@ -7,7 +7,10 @@
 //      with it the **mount-only baselines** (`mount-baselines.mjs`), one per
 //      fixture, *derived* from the driver's two registries rather than written
 //      down, since one is the general rule the seed's transcription leans on
-//   2. the thirty test-debt scenarios (#60), whose ids `reserved.mjs` holds
+//   2. the **thirty test-debt scenarios** (`test-debt.mjs`), the forty-two
+//      audit rows bound for the net collapsed onto thirty conditions, under the
+//      ids `reserved.mjs` had been holding for them — the source that turns a
+//      `gate-pending` row from *reserved* into driven
 //   3. the retirement debt (#61), the hand-authored parity assertions whose
 //      retirement was made conditional on the net covering them
 //   4. hole-closing scenarios, until the corpus's termination condition — which
@@ -33,6 +36,7 @@ import { mountBaselines } from "./mount-baselines.mjs";
 import { probeVariants, readProbePlan } from "./probes.mjs";
 import { RESERVED } from "./reserved.mjs";
 import { seedScenarios } from "./seed.mjs";
+import { testDebtScenarios } from "./test-debt.mjs";
 
 export { CorpusError, ROUTE_PREFIX, idOf, routeOf } from "./routes.mjs";
 export { RESERVED } from "./reserved.mjs";
@@ -56,6 +60,7 @@ export const buildCorpus = (fixtures, components = []) => {
       components.filter(({ kind }) => kind === "example-driver")
     ),
     ...seedScenarios,
+    ...testDebtScenarios,
   ];
   return assertDistinctIds([...plain, ...probeVariants(plain, readProbePlan())]);
 };
@@ -65,16 +70,23 @@ export const buildCorpus = (fixtures, components = []) => {
  *
  * The **name space**, and it is wider than the corpus on purpose. `written` are
  * the ids scenarios exist under today; `reserved` are the thirty
- * `reserved.mjs` holds for the test-debt scenarios (#60), which no source may
- * take in the meantime. A `gate-pending` row in the changelog audit cites a
- * scenario by name and fails when the name resolves to neither — a typo and an
- * invention look identical in a JSON file, and this is the only thing that can
- * tell either from a plan.
+ * `reserved.mjs` holds for the test-debt scenarios, which no other source may
+ * take. A `gate-pending` row in the changelog audit cites a scenario by name and
+ * fails when the name resolves to neither — a typo and an invention look
+ * identical in a JSON file, and this is the only thing that can tell either from
+ * a plan.
  *
  * The two are returned apart rather than unioned because the difference is the
  * interesting half: a row against a `written` id is waiting on a run, and a row
  * against a `reserved` one is waiting on someone to write the scenario at all.
  * Collapsing them would make fifty rows read as though they were the same thing.
+ *
+ * Since #60 the thirty are written *as well as* reserved, so the second list no
+ * longer holds anything the first does not. It stays because the register is
+ * what a name is checked against: a scenario deleted from `test-debt.mjs`
+ * without its rows being re-decided would otherwise stop being reserved at the
+ * same moment it stopped being written, and fifty rows would go from resolving
+ * to dangling in one commit with nothing having said so.
  */
 export const scenarioNames = (fixtures, components = []) => ({
   written: buildCorpus(fixtures, components).map((scenario) => scenario.id),

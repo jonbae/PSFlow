@@ -1,16 +1,19 @@
-// Ids the corpus's *other* sources have already been promised.
+// The register of the thirty test-debt scenario ids.
 //
 // `tickets/081-interaction-corpus.md` renamed the test-debt ticket's `S1`–`S30`
-// to semantic ids and published the table. Those thirty scenarios are the
-// corpus's second source and land with the behavioural coverage work (#60);
-// until then the names are spoken for, and `gate-pending` cites them by name.
+// to semantic ids and published the table. `test-debt.mjs` writes all thirty
+// (#60) and is the **only** source allowed to take one: it checks itself against
+// this list in both directions, so a name here that nothing writes and a name
+// written that is not here both fail.
 //
 // This register is half of what makes that citation mean anything (#58). The
 // audit fails a row naming a scenario the corpus's **name space** — written ids
 // plus these — does not hold, so a reserved id resolves and an invented one does
 // not. What is reserved and what is written are counted apart everywhere they
-// are reported: a reserved id promises a scenario and drives nothing, and those
-// have to stay two separate facts or the promise starts reading as coverage.
+// are reported, and they still are now that the two lists coincide: an id that
+// is only reserved promises a scenario and drives nothing, and if one ever
+// returns to that state it has to be legible as a promise rather than as
+// coverage.
 //
 // The hazard is quiet. Several of the conformance seed's transcriptions land
 // very close to a reserved scenario: upstream's own "dragging a node" *is*
@@ -18,8 +21,14 @@
 // `connect-handle-to-handle`. A seed scenario that took one of those names
 // would satisfy the pending gate with a scenario written for a different
 // purpose, and the row the name was reserved for would count as driven while
-// nothing drove it. So the seed refuses the name and #60 decides, when it gets
-// there, whether a seed scenario already covers the row or a new one is needed.
+// nothing drove it. So the seed refuses these names, and it refuses them
+// whether or not #60 has written them yet.
+//
+// And the register outlives the writing, because it is what a name is checked
+// *against*. A scenario deleted from `test-debt.mjs` without its rows being
+// re-decided would otherwise stop being written at the same moment it stopped
+// being reserved, and its rows would go from resolving to dangling in one
+// commit with nothing having said so.
 //
 // The `S`-numbers stay as a cross-reference, because
 // `tickets/080-test-debt-dispositions.md` still reads in them.

@@ -4,6 +4,7 @@ import assert from "node:assert/strict";
 import { defineScenario } from "../harness/scenario.mjs";
 import { CorpusError, RESERVED, assertDistinctIds, buildCorpus, scenarioNames } from "./index.mjs";
 import { seedScenarios } from "./seed.mjs";
+import { testDebtScenarios } from "./test-debt.mjs";
 
 const fixtures = (...routes) => routes.map((route) => ({ route, file: `/vendored${route.slice(1)}` }));
 
@@ -20,13 +21,14 @@ const probeIds = (baseline) => [
   "connect-source-handle-to-target-handle--probe-connection-line",
 ];
 
-test("the corpus is the baselines, the seed, and the hole-derived probe variants", () => {
+test("the corpus is the baselines, the seed, the test-debt scenarios and the hole-derived probe variants", () => {
   const corpus = buildCorpus(fixtures("./nodes/general.ts"), COMPONENTS);
 
   assert.deepEqual(ids(corpus), [
     "mount-baseline--nodes-general",
     "mount-baseline--examples-color-mode",
     ...ids(seedScenarios),
+    ...ids(testDebtScenarios),
     ...probeIds("mount-baseline--nodes-general"),
   ]);
 });
@@ -47,6 +49,7 @@ test("a corpus with no components at all is still the fixtures' baselines and th
   assert.deepEqual(ids(buildCorpus(fixtures("./pane/general.ts"))), [
     "mount-baseline--pane-general",
     ...ids(seedScenarios),
+    ...ids(testDebtScenarios),
     ...probeIds("mount-baseline--pane-general"),
   ]);
 });
@@ -101,9 +104,15 @@ test("the name space is every written id plus every reserved one, kept apart", (
   assert.deepEqual(names.written, ids(buildCorpus(fixtures("./nodes/general.ts"), COMPONENTS)));
   assert.deepEqual(names.reserved, Object.keys(RESERVED));
   assert.equal(names.reserved.length, 30);
-  assert.equal(
-    names.written.filter((id) => names.reserved.includes(id)).length,
-    0,
-    "a reserved id no source has taken yet is not also a written one"
+
+  // Since #60 wrote them, every reserved id is also a written one — which is
+  // the register doing its job rather than going quiet. The two lists stay
+  // separate because they answer different questions, and a name that fell out
+  // of `test-debt.mjs` would drop out of `written` while staying `reserved`,
+  // so its rows would keep resolving and say so.
+  assert.deepEqual(
+    names.reserved.filter((id) => !names.written.includes(id)),
+    [],
+    "every reserved id is written now that the test-debt scenarios exist"
   );
 });

@@ -1,0 +1,1425 @@
+{
+  "traceFormat": 2,
+  "scenario": "mount-baseline--nodes-connections",
+  "side": "upstream",
+  "capture": 2,
+  "baseline": "12.11.0",
+  "sections": {
+    "dom": {
+      "page": {
+        "scrollX": 0,
+        "scrollY": 0,
+        "visualViewportScale": 1
+      },
+      "root": {
+        "tag": "div",
+        "attrs": {
+          "data-testid": "rf__wrapper",
+          "class": "react-flow light",
+          "role": "application",
+          "style": "width: 100%; height: 100%; overflow: hidden; position: relative; z-index: 0;"
+        },
+        "children": [
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "react-flow__renderer",
+              "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+            },
+            "children": [
+              {
+                "tag": "div",
+                "attrs": {
+                  "class": "react-flow__pane draggable",
+                  "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+                },
+                "children": [
+                  {
+                    "tag": "div",
+                    "attrs": {
+                      "class": "react-flow__viewport xyflow__viewport react-flow__container",
+                      "style": "transform: translate(58px, 74.4906px) scale(1.6894);"
+                    },
+                    "children": [
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__edges"
+                        },
+                        "children": [
+                          {
+                            "tag": "svg",
+                            "attrs": {
+                              "style": "z-index: 0;"
+                            },
+                            "children": [
+                              {
+                                "tag": "g",
+                                "attrs": {
+                                  "class": "react-flow__edge react-flow__edge-default nopan selectable",
+                                  "tabindex": "0",
+                                  "role": "group",
+                                  "aria-roledescription": "edge",
+                                  "data-id": "up-1-hub",
+                                  "data-testid": "rf__edge-up-1-hub",
+                                  "aria-label": "Edge from up-1 to hub",
+                                  "aria-describedby": "react-flow__edge-desc-1"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M14.65625,22 C14.65625,89 172,89 172,156",
+                                      "fill": "none",
+                                      "class": "react-flow__edge-path"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M14.65625,22 C14.65625,89 172,89 172,156",
+                                      "fill": "none",
+                                      "stroke-opacity": "0",
+                                      "stroke-width": "20",
+                                      "class": "react-flow__edge-interaction"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
+                                      "cx": "14.65625",
+                                      "cy": "32",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
+                                      "cx": "172",
+                                      "cy": "146",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "svg",
+                            "attrs": {
+                              "style": "z-index: 0;"
+                            },
+                            "children": [
+                              {
+                                "tag": "g",
+                                "attrs": {
+                                  "class": "react-flow__edge react-flow__edge-default nopan selectable",
+                                  "tabindex": "0",
+                                  "role": "group",
+                                  "aria-roledescription": "edge",
+                                  "data-id": "up-2-hub",
+                                  "data-testid": "rf__edge-up-2-hub",
+                                  "aria-label": "Edge from up-2 to hub",
+                                  "aria-describedby": "react-flow__edge-desc-1"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M334.65625,22 C334.65625,89 172,89 172,156",
+                                      "fill": "none",
+                                      "class": "react-flow__edge-path"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M334.65625,22 C334.65625,89 172,89 172,156",
+                                      "fill": "none",
+                                      "stroke-opacity": "0",
+                                      "stroke-width": "20",
+                                      "class": "react-flow__edge-interaction"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
+                                      "cx": "334.65625",
+                                      "cy": "32",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
+                                      "cx": "172",
+                                      "cy": "146",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "svg",
+                            "attrs": {
+                              "style": "z-index: 0;"
+                            },
+                            "children": [
+                              {
+                                "tag": "g",
+                                "attrs": {
+                                  "class": "react-flow__edge react-flow__edge-default nopan selectable",
+                                  "tabindex": "0",
+                                  "role": "group",
+                                  "aria-roledescription": "edge",
+                                  "data-id": "hub-down-1",
+                                  "data-testid": "rf__edge-hub-down-1",
+                                  "aria-label": "Edge from hub to down-1",
+                                  "aria-describedby": "react-flow__edge-desc-1"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M172,182 C172,249 24.4375,249 24.4375,316",
+                                      "fill": "none",
+                                      "class": "react-flow__edge-path"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M172,182 C172,249 24.4375,249 24.4375,316",
+                                      "fill": "none",
+                                      "stroke-opacity": "0",
+                                      "stroke-width": "20",
+                                      "class": "react-flow__edge-interaction"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
+                                      "cx": "172",
+                                      "cy": "192",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
+                                      "cx": "24.4375",
+                                      "cy": "306",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "svg",
+                            "attrs": {
+                              "style": "z-index: 0;"
+                            },
+                            "children": [
+                              {
+                                "tag": "g",
+                                "attrs": {
+                                  "class": "react-flow__edge react-flow__edge-default nopan selectable",
+                                  "tabindex": "0",
+                                  "role": "group",
+                                  "aria-roledescription": "edge",
+                                  "data-id": "hub-down-2",
+                                  "data-testid": "rf__edge-hub-down-2",
+                                  "aria-label": "Edge from hub to down-2",
+                                  "aria-describedby": "react-flow__edge-desc-1"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M172,182 C172,249 344.4375,249 344.4375,316",
+                                      "fill": "none",
+                                      "class": "react-flow__edge-path"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M172,182 C172,249 344.4375,249 344.4375,316",
+                                      "fill": "none",
+                                      "stroke-opacity": "0",
+                                      "stroke-width": "20",
+                                      "class": "react-flow__edge-interaction"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
+                                      "cx": "172",
+                                      "cy": "192",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
+                                      "cx": "344.4375",
+                                      "cy": "306",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "svg",
+                            "attrs": {
+                              "style": "z-index: 0;"
+                            },
+                            "children": [
+                              {
+                                "tag": "g",
+                                "attrs": {
+                                  "class": "react-flow__edge react-flow__edge-default nopan selectable",
+                                  "tabindex": "0",
+                                  "role": "group",
+                                  "aria-roledescription": "edge",
+                                  "data-id": "hub-down-3",
+                                  "data-testid": "rf__edge-hub-down-3",
+                                  "aria-label": "Edge from hub to down-3",
+                                  "aria-describedby": "react-flow__edge-desc-1"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M172,182 C172,249 664.4375,249 664.4375,316",
+                                      "fill": "none",
+                                      "class": "react-flow__edge-path"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M172,182 C172,249 664.4375,249 664.4375,316",
+                                      "fill": "none",
+                                      "stroke-opacity": "0",
+                                      "stroke-width": "20",
+                                      "class": "react-flow__edge-interaction"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
+                                      "cx": "172",
+                                      "cy": "192",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
+                                      "cx": "664.4375",
+                                      "cy": "306",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__edgelabel-renderer"
+                        },
+                        "children": []
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__nodes",
+                          "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+                        },
+                        "children": [
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-connections nopan selectable draggable",
+                              "data-id": "hub",
+                              "data-testid": "rf__node-hub",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(160px, 160px); pointer-events: all; visibility: visible;"
+                            },
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-psflow-connections": "[[\"up-1-hub\",\"up-1\",\"hub\",\"out\",\"in\"],[\"up-2-hub\",\"up-2\",\"hub\",\"out\",\"in\"],[\"hub-down-1\",\"hub\",\"down-1\",\"out\",\"in\"],[\"hub-down-2\",\"hub\",\"down-2\",\"out\",\"in\"],[\"hub-down-3\",\"hub\",\"down-3\",\"out\",\"in\"]]",
+                                  "data-psflow-connections-source": "[[\"hub-down-1\",\"hub\",\"down-1\",\"out\",\"in\"],[\"hub-down-2\",\"hub\",\"down-2\",\"out\",\"in\"],[\"hub-down-3\",\"hub\",\"down-3\",\"out\",\"in\"]]",
+                                  "data-psflow-connections-target": "[[\"up-1-hub\",\"up-1\",\"hub\",\"out\",\"in\"],[\"up-2-hub\",\"up-2\",\"hub\",\"out\",\"in\"]]",
+                                  "data-psflow-connections-count": "5"
+                                },
+                                "text": "hub",
+                                "children": [
+                                  {
+                                    "tag": "div",
+                                    "attrs": {
+                                      "data-handleid": "in",
+                                      "data-nodeid": "hub",
+                                      "data-handlepos": "top",
+                                      "data-id": "1-hub-in-target",
+                                      "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "div",
+                                    "attrs": {
+                                      "data-handleid": "out",
+                                      "data-nodeid": "hub",
+                                      "data-handlepos": "bottom",
+                                      "data-id": "1-hub-out-source",
+                                      "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-connections nopan selectable draggable",
+                              "data-id": "up-1",
+                              "data-testid": "rf__node-up-1",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(0px, 0px); pointer-events: all; visibility: visible;"
+                            },
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-psflow-connections": "[[\"up-1-hub\",\"up-1\",\"hub\",\"out\",\"in\"]]",
+                                  "data-psflow-connections-source": "[[\"up-1-hub\",\"up-1\",\"hub\",\"out\",\"in\"]]",
+                                  "data-psflow-connections-target": "[]",
+                                  "data-psflow-connections-count": "1"
+                                },
+                                "text": "up-1",
+                                "children": [
+                                  {
+                                    "tag": "div",
+                                    "attrs": {
+                                      "data-handleid": "in",
+                                      "data-nodeid": "up-1",
+                                      "data-handlepos": "top",
+                                      "data-id": "1-up-1-in-target",
+                                      "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "div",
+                                    "attrs": {
+                                      "data-handleid": "out",
+                                      "data-nodeid": "up-1",
+                                      "data-handlepos": "bottom",
+                                      "data-id": "1-up-1-out-source",
+                                      "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-connections nopan selectable draggable",
+                              "data-id": "up-2",
+                              "data-testid": "rf__node-up-2",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(320px, 0px); pointer-events: all; visibility: visible;"
+                            },
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-psflow-connections": "[[\"up-2-hub\",\"up-2\",\"hub\",\"out\",\"in\"]]",
+                                  "data-psflow-connections-source": "[[\"up-2-hub\",\"up-2\",\"hub\",\"out\",\"in\"]]",
+                                  "data-psflow-connections-target": "[]",
+                                  "data-psflow-connections-count": "1"
+                                },
+                                "text": "up-2",
+                                "children": [
+                                  {
+                                    "tag": "div",
+                                    "attrs": {
+                                      "data-handleid": "in",
+                                      "data-nodeid": "up-2",
+                                      "data-handlepos": "top",
+                                      "data-id": "1-up-2-in-target",
+                                      "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "div",
+                                    "attrs": {
+                                      "data-handleid": "out",
+                                      "data-nodeid": "up-2",
+                                      "data-handlepos": "bottom",
+                                      "data-id": "1-up-2-out-source",
+                                      "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-connections nopan selectable draggable",
+                              "data-id": "down-1",
+                              "data-testid": "rf__node-down-1",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(0px, 320px); pointer-events: all; visibility: visible;"
+                            },
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-psflow-connections": "[[\"hub-down-1\",\"hub\",\"down-1\",\"out\",\"in\"]]",
+                                  "data-psflow-connections-source": "[]",
+                                  "data-psflow-connections-target": "[[\"hub-down-1\",\"hub\",\"down-1\",\"out\",\"in\"]]",
+                                  "data-psflow-connections-count": "1"
+                                },
+                                "text": "down-1",
+                                "children": [
+                                  {
+                                    "tag": "div",
+                                    "attrs": {
+                                      "data-handleid": "in",
+                                      "data-nodeid": "down-1",
+                                      "data-handlepos": "top",
+                                      "data-id": "1-down-1-in-target",
+                                      "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "div",
+                                    "attrs": {
+                                      "data-handleid": "out",
+                                      "data-nodeid": "down-1",
+                                      "data-handlepos": "bottom",
+                                      "data-id": "1-down-1-out-source",
+                                      "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-connections nopan selectable draggable",
+                              "data-id": "down-2",
+                              "data-testid": "rf__node-down-2",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(320px, 320px); pointer-events: all; visibility: visible;"
+                            },
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-psflow-connections": "[[\"hub-down-2\",\"hub\",\"down-2\",\"out\",\"in\"]]",
+                                  "data-psflow-connections-source": "[]",
+                                  "data-psflow-connections-target": "[[\"hub-down-2\",\"hub\",\"down-2\",\"out\",\"in\"]]",
+                                  "data-psflow-connections-count": "1"
+                                },
+                                "text": "down-2",
+                                "children": [
+                                  {
+                                    "tag": "div",
+                                    "attrs": {
+                                      "data-handleid": "in",
+                                      "data-nodeid": "down-2",
+                                      "data-handlepos": "top",
+                                      "data-id": "1-down-2-in-target",
+                                      "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "div",
+                                    "attrs": {
+                                      "data-handleid": "out",
+                                      "data-nodeid": "down-2",
+                                      "data-handlepos": "bottom",
+                                      "data-id": "1-down-2-out-source",
+                                      "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-connections nopan selectable draggable",
+                              "data-id": "down-3",
+                              "data-testid": "rf__node-down-3",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(640px, 320px); pointer-events: all; visibility: visible;"
+                            },
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-psflow-connections": "[[\"hub-down-3\",\"hub\",\"down-3\",\"out\",\"in\"]]",
+                                  "data-psflow-connections-source": "[]",
+                                  "data-psflow-connections-target": "[[\"hub-down-3\",\"hub\",\"down-3\",\"out\",\"in\"]]",
+                                  "data-psflow-connections-count": "1"
+                                },
+                                "text": "down-3",
+                                "children": [
+                                  {
+                                    "tag": "div",
+                                    "attrs": {
+                                      "data-handleid": "in",
+                                      "data-nodeid": "down-3",
+                                      "data-handlepos": "top",
+                                      "data-id": "1-down-3-in-target",
+                                      "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "div",
+                                    "attrs": {
+                                      "data-handleid": "out",
+                                      "data-nodeid": "down-3",
+                                      "data-handlepos": "bottom",
+                                      "data-id": "1-down-3-out-source",
+                                      "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__viewport-portal"
+                        },
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "react-flow__panel react-flow__attribution bottom right",
+              "data-message": "Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"
+            },
+            "children": [
+              {
+                "tag": "a",
+                "attrs": {
+                  "href": "https://reactflow.dev",
+                  "target": "_blank",
+                  "rel": "noopener noreferrer",
+                  "aria-label": "React Flow attribution"
+                },
+                "text": "React Flow",
+                "children": []
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__node-desc-1",
+              "style": "display: none;"
+            },
+            "text": "Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel.",
+            "children": []
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__edge-desc-1",
+              "style": "display: none;"
+            },
+            "text": "Press enter or space to select an edge. You can then press delete to remove it or escape to cancel.",
+            "children": []
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__aria-live-1",
+              "aria-live": "assertive",
+              "aria-atomic": "true",
+              "style": "position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(100%);"
+            },
+            "children": []
+          }
+        ]
+      }
+    },
+    "callbacks": [
+      {
+        "name": "onSelectionChange",
+        "args": [
+          {
+            "nodes": [],
+            "edges": []
+          }
+        ]
+      },
+      {
+        "name": "onMoveStart",
+        "args": [
+          null,
+          {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          }
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 58,
+            "y": 74.49056603773585,
+            "zoom": 1.6894049346879536
+          }
+        ]
+      },
+      {
+        "name": "onMove",
+        "args": [
+          null,
+          {
+            "x": 58,
+            "y": 74.49056603773585,
+            "zoom": 1.6894049346879536
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "id": "hub",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 24,
+                "height": 18
+              }
+            },
+            {
+              "id": "up-1",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 29,
+                "height": 18
+              }
+            },
+            {
+              "id": "up-2",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 29,
+                "height": 18
+              }
+            },
+            {
+              "id": "down-1",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 49,
+                "height": 18
+              }
+            },
+            {
+              "id": "down-2",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 49,
+                "height": 18
+              }
+            },
+            {
+              "id": "down-3",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 49,
+                "height": 18
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 58,
+            "y": 74.49056603773585,
+            "zoom": 1.6894049346879536
+          }
+        ]
+      }
+    ],
+    "hooks": {},
+    "api": {
+      "queries": {
+        "getNodes": [
+          {
+            "id": "hub",
+            "type": "connections",
+            "data": {
+              "label": "hub"
+            },
+            "position": {
+              "x": 160,
+              "y": 160
+            },
+            "measured": {
+              "width": 24,
+              "height": 18
+            }
+          },
+          {
+            "id": "up-1",
+            "type": "connections",
+            "data": {
+              "label": "up-1"
+            },
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "measured": {
+              "width": 29,
+              "height": 18
+            }
+          },
+          {
+            "id": "up-2",
+            "type": "connections",
+            "data": {
+              "label": "up-2"
+            },
+            "position": {
+              "x": 320,
+              "y": 0
+            },
+            "measured": {
+              "width": 29,
+              "height": 18
+            }
+          },
+          {
+            "id": "down-1",
+            "type": "connections",
+            "data": {
+              "label": "down-1"
+            },
+            "position": {
+              "x": 0,
+              "y": 320
+            },
+            "measured": {
+              "width": 49,
+              "height": 18
+            }
+          },
+          {
+            "id": "down-2",
+            "type": "connections",
+            "data": {
+              "label": "down-2"
+            },
+            "position": {
+              "x": 320,
+              "y": 320
+            },
+            "measured": {
+              "width": 49,
+              "height": 18
+            }
+          },
+          {
+            "id": "down-3",
+            "type": "connections",
+            "data": {
+              "label": "down-3"
+            },
+            "position": {
+              "x": 640,
+              "y": 320
+            },
+            "measured": {
+              "width": 49,
+              "height": 18
+            }
+          }
+        ],
+        "getNode": {
+          "id": "hub",
+          "type": "connections",
+          "data": {
+            "label": "hub"
+          },
+          "position": {
+            "x": 160,
+            "y": 160
+          },
+          "measured": {
+            "width": 24,
+            "height": 18
+          }
+        },
+        "getInternalNode": {
+          "id": "hub",
+          "type": "connections",
+          "data": {
+            "label": "hub"
+          },
+          "position": {
+            "x": 160,
+            "y": 160
+          },
+          "measured": {
+            "width": 24,
+            "height": 18
+          },
+          "internals": {
+            "positionAbsolute": {
+              "x": 160,
+              "y": 160
+            },
+            "handleBounds": {
+              "source": [
+                {
+                  "id": "out",
+                  "type": "source",
+                  "nodeId": "hub",
+                  "position": "bottom",
+                  "x": 8,
+                  "y": 14,
+                  "width": 8,
+                  "height": 8
+                }
+              ],
+              "target": [
+                {
+                  "id": "in",
+                  "type": "target",
+                  "nodeId": "hub",
+                  "position": "top",
+                  "x": 8,
+                  "y": -4,
+                  "width": 8,
+                  "height": 8
+                }
+              ]
+            },
+            "z": 0,
+            "userNode": {
+              "id": "hub",
+              "type": "connections",
+              "data": {
+                "label": "hub"
+              },
+              "position": {
+                "x": 160,
+                "y": 160
+              },
+              "measured": {
+                "width": 24,
+                "height": 18
+              }
+            }
+          }
+        },
+        "getEdges": [
+          {
+            "id": "up-1-hub",
+            "source": "up-1",
+            "sourceHandle": "out",
+            "target": "hub",
+            "targetHandle": "in"
+          },
+          {
+            "id": "up-2-hub",
+            "source": "up-2",
+            "sourceHandle": "out",
+            "target": "hub",
+            "targetHandle": "in"
+          },
+          {
+            "id": "hub-down-1",
+            "source": "hub",
+            "sourceHandle": "out",
+            "target": "down-1",
+            "targetHandle": "in"
+          },
+          {
+            "id": "hub-down-2",
+            "source": "hub",
+            "sourceHandle": "out",
+            "target": "down-2",
+            "targetHandle": "in"
+          },
+          {
+            "id": "hub-down-3",
+            "source": "hub",
+            "sourceHandle": "out",
+            "target": "down-3",
+            "targetHandle": "in"
+          }
+        ],
+        "getEdge": {
+          "id": "up-1-hub",
+          "source": "up-1",
+          "sourceHandle": "out",
+          "target": "hub",
+          "targetHandle": "in"
+        },
+        "getIntersectingNodes": [
+          {
+            "id": "hub",
+            "type": "connections",
+            "data": {
+              "label": "hub"
+            },
+            "position": {
+              "x": 160,
+              "y": 160
+            },
+            "measured": {
+              "width": 24,
+              "height": 18
+            }
+          },
+          {
+            "id": "up-1",
+            "type": "connections",
+            "data": {
+              "label": "up-1"
+            },
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "measured": {
+              "width": 29,
+              "height": 18
+            }
+          },
+          {
+            "id": "up-2",
+            "type": "connections",
+            "data": {
+              "label": "up-2"
+            },
+            "position": {
+              "x": 320,
+              "y": 0
+            },
+            "measured": {
+              "width": 29,
+              "height": 18
+            }
+          },
+          {
+            "id": "down-1",
+            "type": "connections",
+            "data": {
+              "label": "down-1"
+            },
+            "position": {
+              "x": 0,
+              "y": 320
+            },
+            "measured": {
+              "width": 49,
+              "height": 18
+            }
+          },
+          {
+            "id": "down-2",
+            "type": "connections",
+            "data": {
+              "label": "down-2"
+            },
+            "position": {
+              "x": 320,
+              "y": 320
+            },
+            "measured": {
+              "width": 49,
+              "height": 18
+            }
+          },
+          {
+            "id": "down-3",
+            "type": "connections",
+            "data": {
+              "label": "down-3"
+            },
+            "position": {
+              "x": 640,
+              "y": 320
+            },
+            "measured": {
+              "width": 49,
+              "height": 18
+            }
+          }
+        ],
+        "isNodeIntersecting": true,
+        "getNodesBounds": {
+          "x": 0,
+          "y": 0,
+          "width": 689,
+          "height": 338
+        },
+        "getHandleConnections": [
+          {
+            "edgeId": "hub-down-1",
+            "source": "hub",
+            "target": "down-1",
+            "sourceHandle": "out",
+            "targetHandle": "in"
+          },
+          {
+            "edgeId": "hub-down-2",
+            "source": "hub",
+            "target": "down-2",
+            "sourceHandle": "out",
+            "targetHandle": "in"
+          },
+          {
+            "edgeId": "hub-down-3",
+            "source": "hub",
+            "target": "down-3",
+            "sourceHandle": "out",
+            "targetHandle": "in"
+          }
+        ],
+        "getNodeConnections": [
+          {
+            "edgeId": "up-1-hub",
+            "source": "up-1",
+            "target": "hub",
+            "sourceHandle": "out",
+            "targetHandle": "in"
+          },
+          {
+            "edgeId": "up-2-hub",
+            "source": "up-2",
+            "target": "hub",
+            "sourceHandle": "out",
+            "targetHandle": "in"
+          },
+          {
+            "edgeId": "hub-down-1",
+            "source": "hub",
+            "target": "down-1",
+            "sourceHandle": "out",
+            "targetHandle": "in"
+          },
+          {
+            "edgeId": "hub-down-2",
+            "source": "hub",
+            "target": "down-2",
+            "sourceHandle": "out",
+            "targetHandle": "in"
+          },
+          {
+            "edgeId": "hub-down-3",
+            "source": "hub",
+            "target": "down-3",
+            "sourceHandle": "out",
+            "targetHandle": "in"
+          }
+        ],
+        "toObject": {
+          "nodes": [
+            {
+              "id": "hub",
+              "type": "connections",
+              "data": {
+                "label": "hub"
+              },
+              "position": {
+                "x": 160,
+                "y": 160
+              },
+              "measured": {
+                "width": 24,
+                "height": 18
+              }
+            },
+            {
+              "id": "up-1",
+              "type": "connections",
+              "data": {
+                "label": "up-1"
+              },
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "measured": {
+                "width": 29,
+                "height": 18
+              }
+            },
+            {
+              "id": "up-2",
+              "type": "connections",
+              "data": {
+                "label": "up-2"
+              },
+              "position": {
+                "x": 320,
+                "y": 0
+              },
+              "measured": {
+                "width": 29,
+                "height": 18
+              }
+            },
+            {
+              "id": "down-1",
+              "type": "connections",
+              "data": {
+                "label": "down-1"
+              },
+              "position": {
+                "x": 0,
+                "y": 320
+              },
+              "measured": {
+                "width": 49,
+                "height": 18
+              }
+            },
+            {
+              "id": "down-2",
+              "type": "connections",
+              "data": {
+                "label": "down-2"
+              },
+              "position": {
+                "x": 320,
+                "y": 320
+              },
+              "measured": {
+                "width": 49,
+                "height": 18
+              }
+            },
+            {
+              "id": "down-3",
+              "type": "connections",
+              "data": {
+                "label": "down-3"
+              },
+              "position": {
+                "x": 640,
+                "y": 320
+              },
+              "measured": {
+                "width": 49,
+                "height": 18
+              }
+            }
+          ],
+          "edges": [
+            {
+              "id": "up-1-hub",
+              "source": "up-1",
+              "sourceHandle": "out",
+              "target": "hub",
+              "targetHandle": "in"
+            },
+            {
+              "id": "up-2-hub",
+              "source": "up-2",
+              "sourceHandle": "out",
+              "target": "hub",
+              "targetHandle": "in"
+            },
+            {
+              "id": "hub-down-1",
+              "source": "hub",
+              "sourceHandle": "out",
+              "target": "down-1",
+              "targetHandle": "in"
+            },
+            {
+              "id": "hub-down-2",
+              "source": "hub",
+              "sourceHandle": "out",
+              "target": "down-2",
+              "targetHandle": "in"
+            },
+            {
+              "id": "hub-down-3",
+              "source": "hub",
+              "sourceHandle": "out",
+              "target": "down-3",
+              "targetHandle": "in"
+            }
+          ],
+          "viewport": {
+            "x": 58,
+            "y": 74.49056603773585,
+            "zoom": 1.6894049346879536
+          }
+        },
+        "getZoom": 1.6894049346879536,
+        "getViewport": {
+          "x": 58,
+          "y": 74.49056603773585,
+          "zoom": 1.6894049346879536
+        },
+        "screenToFlowPosition": {
+          "x": -34.33161512027491,
+          "y": -44.092783505154635
+        },
+        "flowToScreenPosition": {
+          "x": 58,
+          "y": 74.49056603773585
+        },
+        "viewportInitialized": true
+      },
+      "calls": []
+    },
+    "props": {},
+    "console": [
+      {
+        "level": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      }
+    ],
+    "driving": [
+      {
+        "index": 0,
+        "action": "mount",
+        "target": ".react-flow",
+        "resolved": true,
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "dispatched": {
+          "route": "/tests/generic/nodes/connections"
+        }
+      }
+    ]
+  }
+}

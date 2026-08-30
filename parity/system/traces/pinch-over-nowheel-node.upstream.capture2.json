@@ -1,0 +1,1627 @@
+{
+  "traceFormat": 2,
+  "scenario": "pinch-over-nowheel-node",
+  "side": "upstream",
+  "capture": 2,
+  "baseline": "12.11.0",
+  "sections": {
+    "dom": {
+      "page": {
+        "scrollX": 0,
+        "scrollY": 0,
+        "visualViewportScale": 1
+      },
+      "root": {
+        "tag": "div",
+        "attrs": {
+          "data-testid": "rf__wrapper",
+          "class": "react-flow light",
+          "role": "application",
+          "style": "width: 100%; height: 100%; overflow: hidden; position: relative; z-index: 0;"
+        },
+        "children": [
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "react-flow__renderer",
+              "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+            },
+            "children": [
+              {
+                "tag": "div",
+                "attrs": {
+                  "class": "react-flow__pane draggable",
+                  "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+                },
+                "children": [
+                  {
+                    "tag": "div",
+                    "attrs": {
+                      "class": "react-flow__viewport xyflow__viewport react-flow__container",
+                      "style": "transform: translate(58px, 54.6885px) scale(1.9082);"
+                    },
+                    "children": [
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__edges"
+                        },
+                        "children": [
+                          {
+                            "tag": "svg",
+                            "attrs": {
+                              "style": "z-index: 0;"
+                            },
+                            "children": [
+                              {
+                                "tag": "g",
+                                "attrs": {
+                                  "class": "react-flow__edge react-flow__edge-default nopan selectable",
+                                  "tabindex": "0",
+                                  "role": "group",
+                                  "aria-roledescription": "edge",
+                                  "data-id": "nowheel-plain",
+                                  "data-testid": "rf__edge-nowheel-plain",
+                                  "aria-label": "Edge from nowheel to plain",
+                                  "aria-describedby": "react-flow__edge-desc-1"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M200,323 C200,435.8466880329237 535,-115.84668803292368 535,-3",
+                                      "fill": "none",
+                                      "class": "react-flow__edge-path"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M200,323 C200,435.8466880329237 535,-115.84668803292368 535,-3",
+                                      "fill": "none",
+                                      "stroke-opacity": "0",
+                                      "stroke-width": "20",
+                                      "class": "react-flow__edge-interaction"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
+                                      "cx": "200",
+                                      "cy": "333",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
+                                      "cx": "535",
+                                      "cy": "-13",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__edgelabel-renderer"
+                        },
+                        "children": []
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__nodes",
+                          "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+                        },
+                        "children": [
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-default nopan nowheel selectable draggable",
+                              "data-id": "nowheel",
+                              "data-testid": "rf__node-nowheel",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(0px, 0px); pointer-events: all; visibility: visible; width: 400px; height: 320px; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+                            },
+                            "text": "nowheel",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "nowheel",
+                                  "data-handlepos": "top",
+                                  "data-id": "1-nowheel-null-target",
+                                  "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "nowheel",
+                                  "data-handlepos": "bottom",
+                                  "data-id": "1-nowheel-null-source",
+                                  "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-default nopan selectable draggable",
+                              "data-id": "plain",
+                              "data-testid": "rf__node-plain",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(460px, 0px); pointer-events: all; visibility: visible; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+                            },
+                            "text": "plain",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "plain",
+                                  "data-handlepos": "top",
+                                  "data-id": "1-plain-null-target",
+                                  "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "plain",
+                                  "data-handlepos": "bottom",
+                                  "data-id": "1-plain-null-source",
+                                  "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__viewport-portal"
+                        },
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "react-flow__panel react-flow__attribution bottom right",
+              "data-message": "Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"
+            },
+            "children": [
+              {
+                "tag": "a",
+                "attrs": {
+                  "href": "https://reactflow.dev",
+                  "target": "_blank",
+                  "rel": "noopener noreferrer",
+                  "aria-label": "React Flow attribution"
+                },
+                "text": "React Flow",
+                "children": []
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__node-desc-1",
+              "style": "display: none;"
+            },
+            "text": "Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel.",
+            "children": []
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__edge-desc-1",
+              "style": "display: none;"
+            },
+            "text": "Press enter or space to select an edge. You can then press delete to remove it or escape to cancel.",
+            "children": []
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__aria-live-1",
+              "aria-live": "assertive",
+              "aria-atomic": "true",
+              "style": "position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(100%);"
+            },
+            "children": []
+          }
+        ]
+      }
+    },
+    "callbacks": [
+      {
+        "name": "onSelectionChange",
+        "args": [
+          {
+            "nodes": [],
+            "edges": []
+          }
+        ]
+      },
+      {
+        "name": "onMoveStart",
+        "args": [
+          null,
+          {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          }
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 58,
+            "y": 54.68852459016392,
+            "zoom": 1.9081967213114754
+          }
+        ]
+      },
+      {
+        "name": "onMove",
+        "args": [
+          null,
+          {
+            "x": 58,
+            "y": 54.68852459016392,
+            "zoom": 1.9081967213114754
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "id": "nowheel",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 400,
+                "height": 320
+              }
+            },
+            {
+              "id": "plain",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 58,
+            "y": 54.68852459016392,
+            "zoom": 1.9081967213114754
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseEnter",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerEnter",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "pointerenter",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 99.79999995231628,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 379.63934326171875,
+            "screenY": 360,
+            "clientX": 379.63934326171875,
+            "clientY": 360,
+            "pageX": 379.63934326171875,
+            "pageY": 360,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 1,
+            "relatedTarget": {
+              "@ref": "Window"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "pointerId": 2,
+            "width": 2,
+            "height": 2,
+            "pressure": 1,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "touch",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseEnter",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerEnter",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "pointerenter",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 99.79999995231628,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 499.63934326171875,
+            "screenY": 360,
+            "clientX": 499.63934326171875,
+            "clientY": 360,
+            "pageX": 499.63934326171875,
+            "pageY": 360,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 1,
+            "relatedTarget": {
+              "@ref": "Window"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "pointerId": 3,
+            "width": 2,
+            "height": 2,
+            "pressure": 1,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "touch",
+            "isPrimary": false,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerMove",
+            "_targetInst": null,
+            "type": "pointermove",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 110.10000002384186,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 522.1393432617188,
+            "screenY": 360,
+            "clientX": 522.1393432617188,
+            "clientY": 360,
+            "pageX": 522.1393432617188,
+            "pageY": 360,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 1,
+            "relatedTarget": null,
+            "movementX": 23,
+            "movementY": 0,
+            "pointerId": 3,
+            "width": 2,
+            "height": 2,
+            "pressure": 1,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "touch",
+            "isPrimary": false,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerMove",
+            "_targetInst": null,
+            "type": "pointermove",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 110.10000002384186,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 357.13934326171875,
+            "screenY": 360,
+            "clientX": 357.13934326171875,
+            "clientY": 360,
+            "pageX": 357.13934326171875,
+            "pageY": 360,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 1,
+            "relatedTarget": null,
+            "movementX": -22,
+            "movementY": 0,
+            "pointerId": 2,
+            "width": 2,
+            "height": 2,
+            "pressure": 1,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "touch",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerMove",
+            "_targetInst": null,
+            "type": "pointermove",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 141.29999995231628,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 544.6393432617188,
+            "screenY": 360,
+            "clientX": 544.6393432617188,
+            "clientY": 360,
+            "pageX": 544.6393432617188,
+            "pageY": 360,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 1,
+            "relatedTarget": null,
+            "movementX": 22,
+            "movementY": 0,
+            "pointerId": 3,
+            "width": 2,
+            "height": 2,
+            "pressure": 1,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "touch",
+            "isPrimary": false,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerMove",
+            "_targetInst": null,
+            "type": "pointermove",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 141.29999995231628,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 334.63934326171875,
+            "screenY": 360,
+            "clientX": 334.63934326171875,
+            "clientY": 360,
+            "pageX": 334.63934326171875,
+            "pageY": 360,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 1,
+            "relatedTarget": null,
+            "movementX": -23,
+            "movementY": 0,
+            "pointerId": 2,
+            "width": 2,
+            "height": 2,
+            "pressure": 1,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "touch",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerMove",
+            "_targetInst": null,
+            "type": "pointermove",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 174.69999992847443,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 567.1393432617188,
+            "screenY": 360,
+            "clientX": 567.1393432617188,
+            "clientY": 360,
+            "pageX": 567.1393432617188,
+            "pageY": 360,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 1,
+            "relatedTarget": null,
+            "movementX": 23,
+            "movementY": 0,
+            "pointerId": 3,
+            "width": 2,
+            "height": 2,
+            "pressure": 1,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "touch",
+            "isPrimary": false,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerMove",
+            "_targetInst": null,
+            "type": "pointermove",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 174.69999992847443,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 312.13934326171875,
+            "screenY": 360,
+            "clientX": 312.13934326171875,
+            "clientY": 360,
+            "pageX": 312.13934326171875,
+            "pageY": 360,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 1,
+            "relatedTarget": null,
+            "movementX": -22,
+            "movementY": 0,
+            "pointerId": 2,
+            "width": 2,
+            "height": 2,
+            "pressure": 1,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "touch",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerMove",
+            "_targetInst": null,
+            "type": "pointermove",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 208,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 589.6393432617188,
+            "screenY": 360,
+            "clientX": 589.6393432617188,
+            "clientY": 360,
+            "pageX": 589.6393432617188,
+            "pageY": 360,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 1,
+            "relatedTarget": null,
+            "movementX": 22,
+            "movementY": 0,
+            "pointerId": 3,
+            "width": 2,
+            "height": 2,
+            "pressure": 1,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "touch",
+            "isPrimary": false,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerMove",
+            "_targetInst": null,
+            "type": "pointermove",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 208,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 289.63934326171875,
+            "screenY": 360,
+            "clientX": 289.63934326171875,
+            "clientY": 360,
+            "pageX": 289.63934326171875,
+            "pageY": 360,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 1,
+            "relatedTarget": null,
+            "movementX": -23,
+            "movementY": 0,
+            "pointerId": 2,
+            "width": 2,
+            "height": 2,
+            "pressure": 1,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "touch",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseLeave",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerLeave",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "pointerleave",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 233.10000002384186,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 289.63934326171875,
+            "screenY": 360,
+            "clientX": 289.63934326171875,
+            "clientY": 360,
+            "pageX": 289.63934326171875,
+            "pageY": 360,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": {
+              "@ref": "Window"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "pointerId": 2,
+            "width": 1,
+            "height": 1,
+            "pressure": 0,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "touch",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseLeave",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerLeave",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "pointerleave",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 233.10000002384186,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 589.6393432617188,
+            "screenY": 360,
+            "clientX": 589.6393432617188,
+            "clientY": 360,
+            "pageX": 589.6393432617188,
+            "pageY": 360,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": {
+              "@ref": "Window"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "pointerId": 3,
+            "width": 1,
+            "height": 1,
+            "pressure": 0,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "touch",
+            "isPrimary": false,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      }
+    ],
+    "hooks": {},
+    "api": {
+      "queries": {
+        "getNodes": [
+          {
+            "id": "nowheel",
+            "data": {
+              "label": "nowheel"
+            },
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "className": "nowheel",
+            "style": {
+              "width": 400,
+              "height": 320
+            },
+            "measured": {
+              "width": 400,
+              "height": 320
+            }
+          },
+          {
+            "id": "plain",
+            "data": {
+              "label": "plain"
+            },
+            "position": {
+              "x": 460,
+              "y": 0
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          }
+        ],
+        "getNode": {
+          "id": "nowheel",
+          "data": {
+            "label": "nowheel"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "className": "nowheel",
+          "style": {
+            "width": 400,
+            "height": 320
+          },
+          "measured": {
+            "width": 400,
+            "height": 320
+          }
+        },
+        "getInternalNode": {
+          "id": "nowheel",
+          "data": {
+            "label": "nowheel"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "className": "nowheel",
+          "style": {
+            "width": 400,
+            "height": 320
+          },
+          "measured": {
+            "width": 400,
+            "height": 320
+          },
+          "internals": {
+            "positionAbsolute": {
+              "x": 0,
+              "y": 0
+            },
+            "handleBounds": {
+              "source": [
+                {
+                  "id": null,
+                  "type": "source",
+                  "nodeId": "nowheel",
+                  "position": "bottom",
+                  "x": 196,
+                  "y": 315,
+                  "width": 8,
+                  "height": 8
+                }
+              ],
+              "target": [
+                {
+                  "id": null,
+                  "type": "target",
+                  "nodeId": "nowheel",
+                  "position": "top",
+                  "x": 196,
+                  "y": -3,
+                  "width": 8,
+                  "height": 8
+                }
+              ]
+            },
+            "z": 0,
+            "userNode": {
+              "id": "nowheel",
+              "data": {
+                "label": "nowheel"
+              },
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "className": "nowheel",
+              "style": {
+                "width": 400,
+                "height": 320
+              },
+              "measured": {
+                "width": 400,
+                "height": 320
+              }
+            }
+          }
+        },
+        "getEdges": [
+          {
+            "id": "nowheel-plain",
+            "source": "nowheel",
+            "target": "plain"
+          }
+        ],
+        "getEdge": {
+          "id": "nowheel-plain",
+          "source": "nowheel",
+          "target": "plain"
+        },
+        "getIntersectingNodes": [
+          {
+            "id": "nowheel",
+            "data": {
+              "label": "nowheel"
+            },
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "className": "nowheel",
+            "style": {
+              "width": 400,
+              "height": 320
+            },
+            "measured": {
+              "width": 400,
+              "height": 320
+            }
+          },
+          {
+            "id": "plain",
+            "data": {
+              "label": "plain"
+            },
+            "position": {
+              "x": 460,
+              "y": 0
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          }
+        ],
+        "isNodeIntersecting": true,
+        "getNodesBounds": {
+          "x": 0,
+          "y": 0,
+          "width": 610,
+          "height": 320
+        },
+        "getHandleConnections": [
+          {
+            "edgeId": "nowheel-plain",
+            "source": "nowheel",
+            "target": "plain",
+            "sourceHandle": null,
+            "targetHandle": null
+          }
+        ],
+        "getNodeConnections": [
+          {
+            "edgeId": "nowheel-plain",
+            "source": "nowheel",
+            "target": "plain",
+            "sourceHandle": null,
+            "targetHandle": null
+          }
+        ],
+        "toObject": {
+          "nodes": [
+            {
+              "id": "nowheel",
+              "data": {
+                "label": "nowheel"
+              },
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "className": "nowheel",
+              "style": {
+                "width": 400,
+                "height": 320
+              },
+              "measured": {
+                "width": 400,
+                "height": 320
+              }
+            },
+            {
+              "id": "plain",
+              "data": {
+                "label": "plain"
+              },
+              "position": {
+                "x": 460,
+                "y": 0
+              },
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          ],
+          "edges": [
+            {
+              "id": "nowheel-plain",
+              "source": "nowheel",
+              "target": "plain"
+            }
+          ],
+          "viewport": {
+            "x": 58,
+            "y": 54.68852459016392,
+            "zoom": 1.9081967213114754
+          }
+        },
+        "getZoom": 1.9081967213114754,
+        "getViewport": {
+          "x": 58,
+          "y": 54.68852459016392,
+          "zoom": 1.9081967213114754
+        },
+        "screenToFlowPosition": {
+          "x": -30.395189003436425,
+          "y": -28.659793814432984
+        },
+        "flowToScreenPosition": {
+          "x": 58,
+          "y": 54.68852459016392
+        },
+        "viewportInitialized": true
+      },
+      "calls": []
+    },
+    "props": {},
+    "console": [
+      {
+        "level": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      }
+    ],
+    "driving": [
+      {
+        "index": 0,
+        "action": "mount",
+        "target": ".react-flow",
+        "resolved": true,
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "dispatched": {
+          "route": "/tests/generic/nodes/nowheel"
+        }
+      },
+      {
+        "index": 1,
+        "action": "touch",
+        "target": ".react-flow__node[data-id=\"nowheel\"], .react-flow__node[data-id=\"nowheel\"]",
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "type": "touchStart",
+          "points": [
+            {
+              "target": ".react-flow__node[data-id=\"nowheel\"]",
+              "box": {
+                "x": 58,
+                "y": 54.68852615356445,
+                "width": 763.2786865234375,
+                "height": 610.6229362487793
+              },
+              "x": 379.63934326171875,
+              "y": 359.9999942779541,
+              "id": 1
+            },
+            {
+              "target": ".react-flow__node[data-id=\"nowheel\"]",
+              "box": {
+                "x": 58,
+                "y": 54.68852615356445,
+                "width": 763.2786865234375,
+                "height": 610.6229362487793
+              },
+              "x": 499.63934326171875,
+              "y": 359.9999942779541,
+              "id": 2
+            }
+          ]
+        }
+      },
+      {
+        "index": 2,
+        "action": "touch",
+        "target": ".react-flow__node[data-id=\"nowheel\"], .react-flow__node[data-id=\"nowheel\"]",
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "type": "touchMove",
+          "points": [
+            {
+              "target": ".react-flow__node[data-id=\"nowheel\"]",
+              "box": {
+                "x": 58,
+                "y": 54.68852615356445,
+                "width": 763.2786865234375,
+                "height": 610.6229362487793
+              },
+              "x": 357.13934326171875,
+              "y": 359.9999942779541,
+              "id": 1
+            },
+            {
+              "target": ".react-flow__node[data-id=\"nowheel\"]",
+              "box": {
+                "x": 58,
+                "y": 54.68852615356445,
+                "width": 763.2786865234375,
+                "height": 610.6229362487793
+              },
+              "x": 522.1393432617188,
+              "y": 359.9999942779541,
+              "id": 2
+            }
+          ]
+        }
+      },
+      {
+        "index": 3,
+        "action": "touch",
+        "target": ".react-flow__node[data-id=\"nowheel\"], .react-flow__node[data-id=\"nowheel\"]",
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "type": "touchMove",
+          "points": [
+            {
+              "target": ".react-flow__node[data-id=\"nowheel\"]",
+              "box": {
+                "x": 58,
+                "y": 54.68852615356445,
+                "width": 763.2786865234375,
+                "height": 610.6229362487793
+              },
+              "x": 334.63934326171875,
+              "y": 359.9999942779541,
+              "id": 1
+            },
+            {
+              "target": ".react-flow__node[data-id=\"nowheel\"]",
+              "box": {
+                "x": 58,
+                "y": 54.68852615356445,
+                "width": 763.2786865234375,
+                "height": 610.6229362487793
+              },
+              "x": 544.6393432617188,
+              "y": 359.9999942779541,
+              "id": 2
+            }
+          ]
+        }
+      },
+      {
+        "index": 4,
+        "action": "touch",
+        "target": ".react-flow__node[data-id=\"nowheel\"], .react-flow__node[data-id=\"nowheel\"]",
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "type": "touchMove",
+          "points": [
+            {
+              "target": ".react-flow__node[data-id=\"nowheel\"]",
+              "box": {
+                "x": 58,
+                "y": 54.68852615356445,
+                "width": 763.2786865234375,
+                "height": 610.6229362487793
+              },
+              "x": 312.13934326171875,
+              "y": 359.9999942779541,
+              "id": 1
+            },
+            {
+              "target": ".react-flow__node[data-id=\"nowheel\"]",
+              "box": {
+                "x": 58,
+                "y": 54.68852615356445,
+                "width": 763.2786865234375,
+                "height": 610.6229362487793
+              },
+              "x": 567.1393432617188,
+              "y": 359.9999942779541,
+              "id": 2
+            }
+          ]
+        }
+      },
+      {
+        "index": 5,
+        "action": "touch",
+        "target": ".react-flow__node[data-id=\"nowheel\"], .react-flow__node[data-id=\"nowheel\"]",
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "type": "touchMove",
+          "points": [
+            {
+              "target": ".react-flow__node[data-id=\"nowheel\"]",
+              "box": {
+                "x": 58,
+                "y": 54.68852615356445,
+                "width": 763.2786865234375,
+                "height": 610.6229362487793
+              },
+              "x": 289.63934326171875,
+              "y": 359.9999942779541,
+              "id": 1
+            },
+            {
+              "target": ".react-flow__node[data-id=\"nowheel\"]",
+              "box": {
+                "x": 58,
+                "y": 54.68852615356445,
+                "width": 763.2786865234375,
+                "height": 610.6229362487793
+              },
+              "x": 589.6393432617188,
+              "y": 359.9999942779541,
+              "id": 2
+            }
+          ]
+        }
+      },
+      {
+        "index": 6,
+        "action": "touch",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "type": "touchEnd",
+          "points": []
+        }
+      }
+    ]
+  }
+}
