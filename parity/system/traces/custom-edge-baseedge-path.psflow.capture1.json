@@ -35,7 +35,7 @@
       },
       {
         "level": "error",
-        "text": "The above error occurred in the <ReactFlow> component:\n\n    at ReactFlow\n    at div\n    at Flow_default (http://127.0.0.1:54954/parity/driver/dist/psflow.js:64349:23)\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://reactjs.org/link/error-boundaries to learn more about error boundaries."
+        "text": "The above error occurred in the <ReactFlow> component:\n\n    at ReactFlow\n    at div\n    at Flow_default (http://127.0.0.1:65523/parity/driver/dist/psflow.js:64349:23)\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://reactjs.org/link/error-boundaries to learn more about error boundaries."
       },
       {
         "level": "pageerror",
@@ -73,17 +73,6 @@
       },
       {
         "index": 3,
-        "action": "key",
-        "target": null,
-        "resolved": true,
-        "box": null,
-        "dispatched": {
-          "key": "s",
-          "action": "down"
-        }
-      },
-      {
-        "index": 4,
         "action": "pointerDown",
         "target": "[data-id=\"custom-2\"]",
         "resolved": false,
@@ -91,7 +80,7 @@
         "dispatched": null
       },
       {
-        "index": 5,
+        "index": 4,
         "action": "pointerUp",
         "target": null,
         "resolved": true,
@@ -100,17 +89,6 @@
           "x": 0,
           "y": 0,
           "button": "left"
-        }
-      },
-      {
-        "index": 6,
-        "action": "key",
-        "target": null,
-        "resolved": true,
-        "box": null,
-        "dispatched": {
-          "key": "s",
-          "action": "up"
         }
       }
     ]

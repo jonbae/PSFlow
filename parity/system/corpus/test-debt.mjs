@@ -1,4 +1,4 @@
-// The thirty test-debt scenarios — the corpus's third source (#60).
+// The thirty test-debt scenarios — the corpus's second source (#60).
 //
 // Forty-two rows of the changelog audit are bound for the net, and they collapse
 // onto these thirty scenarios. `tickets/080-test-debt-dispositions.md` decided
@@ -40,6 +40,39 @@
 // `runScenario` settles after the last action rather than after the last
 // *gesture*, which is what makes that legal — and the next capture is given a
 // pointer-up on `about:blank`, so a held button never leaks into the run after.
+//
+// ## Where these differ from ticket 080, and why
+//
+// The dispositions ticket assigned each row a **section** before any of this was
+// driven, and three of its predictions turned out to be wrong about *where* the
+// observation lands. They are wrong in a way that costs nothing — the behaviour
+// is still observed — but the ticket's own table is the thing a reader trusts,
+// so the drift is written down rather than left to be noticed:
+//
+//   * `drag-unmeasured-node` was filed under `console`. Upstream raises the
+//     error through `onError`, which the driver installs and observes like every
+//     other callback prop, so it lands in **`callbacks`** — a better witness,
+//     since the call is compared with its arguments and its position. It leaves
+//     ticket 080's "seventh `console` section" amendment resting on
+//     `mount-in-display-none` alone.
+//   * `probe-node-connections` was filed under `hooks`. It is written as a plain
+//     scenario whose fixture renders the hook's own reading, so it lands in
+//     **`dom`** and is compared at full scope; the scenario says why.
+//   * `minimap-all-nodes-hidden` was filed under `dom`, and both are true: a
+//     minimap that renders is a `dom` observation and one that throws is a
+//     `console` one. The scenario drives for either.
+//
+// And three rows are **partially** driven, which is worth more than a green
+// name. `custom-edge-baseedge-path` cannot mount on ps-flow at all until
+// `edgeTypes` crosses in stage 4 (#62), so today it captures a thrown error
+// rather than the behaviour. `fitview-onnodeschange-variants` reaches two of its
+// three conditions, because the net installs every callback prop and so
+// `onNodesChange` is never literally undefined. And two of
+// `viewport-helpers-with-options`'s three rows are about a **query**, which the
+// `call` primitive refuses by design — they ride on the settled `api.queries`
+// snapshot against a fixture that snaps, which is *reachable* rather than driven
+// in ticket 080's rule-1 sense, and is the one place in these thirty where that
+// distinction is not honoured. Each of the three fixtures says so in full.
 //
 // ## Concentration risk
 //
@@ -84,7 +117,7 @@ const VIEWPORT_HELPERS = routeOf("./viewport/helpers.ts");
 const UNMEASURED = routeOf("./nodes/unmeasured.ts");
 
 const PANE_SELECTOR = ".react-flow__pane";
-const MINIMAP = ".react-flow__minimap";
+const MINIMAP_SELECTOR = ".react-flow__minimap";
 
 const node = (id) => `.react-flow__node[data-id="${id}"]`;
 const handle = (nodeId, handleId) =>
@@ -93,13 +126,20 @@ const handle = (nodeId, handleId) =>
     : `.react-flow__handle[data-nodeid="${nodeId}"][data-handleid="${handleId}"]`;
 const control = (name) => `[data-testid="${name}"]`;
 
-// Upstream's fixtures set `multiSelectionKeyCode: 's'` — Meta does not survive
-// their runner — so a scenario driving one presses what it listens for. Spelled
-// out here rather than imported from `seed.mjs`: that module is a transcription
-// of upstream's suite and this one is not, and a change to what upstream's
-// fixtures set must not silently re-aim a scenario written against a ps-flow
-// fixture that never had the setting.
-const MULTI_SELECT = "s";
+// Selectors are rebuilt here rather than shared with `seed.mjs`, and
+// deliberately: that module is a transcription of upstream's own suite and this
+// one is not. A selector the seed changed because a lifted spec moved must not
+// silently re-aim a scenario written against a ps-flow fixture, so the two
+// duplicate the string and each owns its reason for it.
+//
+// **No multi-selection modifier appears below.** The seed presses `s`, because
+// every fixture it drives is one of upstream's and they all set
+// `multiSelectionKeyCode: 's'` — Meta does not survive upstream's runner. The
+// ps-flow fixtures set no such key, so the same press here would be an inert
+// keystroke and the click after it would *replace* the selection instead of
+// adding to it: a scenario that read as multi-select and was not one. Where two
+// things have to end up selected, the fixture selects them (`nodes/unmeasured.ts`
+// does exactly that, for a reason of its own).
 
 const testDebt = [
   // ── drag ────────────────────────────────────────────────────────────────
@@ -464,7 +504,7 @@ const testDebt = [
     async run(a) {
       await a.click(node("Node-1"));
       await a.click(control(AFTER_MOUNT));
-      await a.click(node("Node-3"), { modifier: MULTI_SELECT });
+      await a.click(node("Node-3"));
       await a.dragNode(node("Node-3"), { dx: 60, dy: 40 });
     },
   },
@@ -491,8 +531,8 @@ const testDebt = [
     id: "minimap-all-nodes-hidden",
     route: MINIMAP_HIDDEN,
     async run(a) {
-      await a.click(MINIMAP);
-      await a.wheel(MINIMAP, { deltaY: -120 });
+      await a.click(MINIMAP_SELECTOR);
+      await a.wheel(MINIMAP_SELECTOR, { deltaY: -120 });
     },
   },
 
@@ -505,7 +545,7 @@ const testDebt = [
     route: MINIMAP_COLORS,
     async run(a) {
       await a.click(node("Node-1"));
-      await a.click(MINIMAP);
+      await a.click(MINIMAP_SELECTOR);
     },
   },
 
@@ -570,7 +610,7 @@ const testDebt = [
     route: BASE_EDGE_PATH,
     async run(a) {
       await a.click('[data-psflow-edge="base-edge-path"]');
-      await a.click('[data-id="custom-2"]', { modifier: MULTI_SELECT });
+      await a.click('[data-id="custom-2"]');
     },
   },
 

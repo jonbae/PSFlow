@@ -4,19 +4,19 @@
     "legitimate resting state and passes; an *undeclared* hole fails, which is the whole mechanism.",
     "",
     "  exports  the census entries this reason covers. A hole over an export something did drive fails as",
-    "           stale, and so does one naming an export the census no longer carries \u2014 named per export, so a",
+    "           stale, and so does one naming an export the census no longer carries — named per export, so a",
     "           reason that stopped being true of one of five says which one",
     "  reason   required. \"The corpus has not reached it yet\" and \"nothing can ever drive it\" are the same",
     "           absence, and telling those apart is the entire value of writing one down",
     "  ticket   optional, and written wherever an issue owns the closing. Its absence says nobody does yet",
     "",
-    "**One entry per reason, not per export** \u2014 the shape a region has, where one pattern claims many",
+    "**One entry per reason, not per export** — the shape a region has, where one pattern claims many",
     "differences. One entry per export would write the same sentence out thirteen times for the thirteen",
     "exports it is true of, and a later edit would put the copies out of step with each other.",
     "",
     "Failing on holes *themselves* was rejected: the net would be red from day one and stay red for months,",
-    "which trains people to ignore it. What fails is the residue \u2014 an export with neither a scenario nor an",
-    "entry here \u2014 and that is what the corpus's termination condition is stated against.",
+    "which trains people to ignore it. What fails is the residue — an export with neither a scenario nor an",
+    "entry here — and that is what the corpus's termination condition is stated against.",
     "",
     "**This list is read by other work, not only by people.** Boundary stage 4 (#62) takes the components no",
     "fixture mounts from it. Issue #59 used the same query to generate its durable probe plan from the hook,",
@@ -26,7 +26,7 @@
     "the ticket links.",
     "",
     "A hole does not stand in for a witness. Every export needs a rule in witnesses.json saying what driving it",
-    "would look like, the ones nothing drives included \u2014 otherwise nothing could ever report the hole closed."
+    "would look like, the ones nothing drives included — otherwise nothing could ever report the hole closed."
   ],
   "holes": [
     {
@@ -35,7 +35,7 @@
         "EdgeLabelRendererProps",
         "ViewportPortal"
       ],
-      "reason": "no fixture portals anything. GraphView draws both containers for every flow whether or not the export is used, so a container in every trace says nothing \u2014 only content inside one does, which is what the witness asks for.",
+      "reason": "no fixture portals anything. GraphView draws both containers for every flow whether or not the export is used, so a container in every trace says nothing — only content inside one does, which is what the witness asks for.",
       "ticket": "https://github.com/jonbae/PSFlow/issues/62"
     },
     {
@@ -49,7 +49,7 @@
         "StraightEdge",
         "StraightEdgeProps"
       ],
-      "reason": "reachable only by an edge declaring the type, and the edges fixture declares none \u2014 every edge in the corpus renders as the default, which is BezierEdge. Each of their path functions has function parity, which is a different claim from the component rendering.",
+      "reason": "reachable only by an edge declaring the type, and the edges fixture declares none — every edge in the corpus renders as the default, which is BezierEdge. Each of their path functions has function parity, which is a different claim from the component rendering.",
       "ticket": "https://github.com/jonbae/PSFlow/issues/62"
     },
     {
@@ -82,26 +82,26 @@
       "exports": [
         "DefaultEdgeOptions"
       ],
-      "reason": "no fixture sets defaultEdgeOptions, and it has no DOM of its own \u2014 the options are merged into edges that declare none. Closing it needs a fixture whose edges declare no type and whose flow defaults them, which is the shape the witness names. No issue owns that fixture yet."
+      "reason": "no fixture sets defaultEdgeOptions, and it has no DOM of its own — the options are merged into edges that declare none. Closing it needs a fixture whose edges declare no type and whose flow defaults them, which is the shape the witness names. No issue owns that fixture yet."
     },
     {
       "exports": [
         "EdgeAddChange",
         "EdgeReplaceChange"
       ],
-      "reason": "the node pair is driven by `uncontrolled-update-node`, and the edge pair cannot be, for a reason that is upstream's rather than the corpus's: `addEdges` and `updateEdge` on an uncontrolled flow set the edges directly and raise no change at all \u2014 only `triggerNodeChanges` is called, which is why the same scenario produces `add` and `replace` on the node side and nothing on the edge side. Connecting does not fire one either: the driver's `onConnect` calls `addEdge` itself, which is a prop changing rather than a change being reported. Closing this needs a path that reports an edge add or replace, and no issue owns finding one yet."
+      "reason": "the node pair is driven by `uncontrolled-update-node`, and the edge pair cannot be, for a reason that is upstream's rather than the corpus's: `addEdges` and `updateEdge` on an uncontrolled flow set the edges directly and raise no change at all — only `triggerNodeChanges` is called, which is why the same scenario produces `add` and `replace` on the node side and nothing on the edge side. Connecting does not fire one either: the driver's `onConnect` calls `addEdge` itself, which is a prop changing rather than a change being reported. Closing this needs a path that reports an edge add or replace, and no issue owns finding one yet."
     },
     {
       "exports": [
         "OnReconnect"
       ],
-      "reason": "the driver installs onReconnect and no scenario drags an edge endpoint onto another handle, so it never fires. The edgeupdater circles are in every edges-fixture trace, so the target exists and the gesture does not \u2014 reconnecting is not in the gesture tier, and adding one is a reviewable act rather than a scenario detail. None of the thirty test-debt scenarios is about reconnection, so this is a hole-closing scenario and no issue owns it yet."
+      "reason": "the driver installs onReconnect and no scenario drags an edge endpoint onto another handle, so it never fires. The edgeupdater circles are in every edges-fixture trace, so the target exists and the gesture does not — reconnecting is not in the gesture tier, and adding one is a reviewable act rather than a scenario detail. None of the thirty test-debt scenarios is about reconnection, so this is a hole-closing scenario and no issue owns it yet."
     },
     {
       "exports": [
         "OnInit"
       ],
-      "reason": "the driver withholds the prop (`parity/driver/callbacks.mjs`, HOLES), so no page installs it and no trace can record it. The reason recorded there \u2014 that onInit's ReactFlowInstance argument had not crossed the boundary \u2014 no longer holds: boundary stage 3 crosses `onInitIn` (`src/Boundary/Callbacks.purs`). Installing it and re-capturing the corpus is what closes this, and it is the first thing this artifact found that its own registers cannot fix."
+      "reason": "the driver withholds the prop (`parity/driver/callbacks.mjs`, HOLES), so no page installs it and no trace can record it. The reason recorded there — that onInit's ReactFlowInstance argument had not crossed the boundary — no longer holds: boundary stage 3 crosses `onInitIn` (`src/Boundary/Callbacks.purs`). Installing it and re-capturing the corpus is what closes this, and it is the first thing this artifact found that its own registers cannot fix."
     },
     {
       "exports": [
@@ -120,7 +120,7 @@
       "exports": [
         "UnselectNodesAndEdgesParams"
       ],
-      "reason": "`unselectNodesAndEdges` is a store action and is **not on `ReactFlowInstance`** \u2014 it is absent from `JsReactFlowInstance` in src/Boundary/Instance.purs because it is absent from upstream's instance too. The `api` section witnesses a name only as a query key or a called method, so no scenario can reach this one however it is written; the nine helper exports beside it were closed by `viewport-helpers-with-options` and this one was never in reach. Closing it needs the witness to name something the section can actually offer, which is a question about the register rather than about the corpus."
+      "reason": "`unselectNodesAndEdges` is a store action and is **not on `ReactFlowInstance`** — it is absent from `JsReactFlowInstance` in src/Boundary/Instance.purs because it is absent from upstream's instance too. The `api` section witnesses a name only as a query key or a called method, so no scenario can reach this one however it is written; the nine helper exports beside it were closed by `viewport-helpers-with-options` and this one was never in reach. Closing it needs the witness to name something the section can actually offer, which is a question about the register rather than about the corpus."
     }
   ]
 }

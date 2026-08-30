@@ -11,9 +11,9 @@ Vocabulary is `CONTEXT.md`. Terms in **bold** are defined there.
 |---|---|
 | `index.mjs` | the assembly, and the id no two sources may both claim |
 | `routes.mjs` | how a registry key becomes a route and a scenario id |
-| `mount-baselines.mjs` | source 1 — one mount-only scenario per **fixture**, derived |
-| `seed.mjs` | source 2 — the **conformance seed**, upstream's suite transcribed |
-| `test-debt.mjs` | source 3 — the thirty **test-debt scenarios** |
+| `seed.mjs` | source 1 — the **conformance seed**, upstream's suite transcribed |
+| `mount-baselines.mjs` | one mount-only scenario per **fixture**, derived; the rule the seed leans on |
+| `test-debt.mjs` | source 2 — the thirty **test-debt scenarios** |
 | `probes.mjs` | source 4 — selective probe variants derived from current coverage witnesses |
 | `probe-plan.json` | issue 59's retired hole inputs, kept as the durable source of those variants |
 | `fork.mjs` | the fork staleness gate, and `fork.json` its register |

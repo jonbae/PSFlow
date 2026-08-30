@@ -453,6 +453,15 @@
         ]
       },
       {
+        "name": "onSelectionChange",
+        "args": [
+          {
+            "nodes": [],
+            "edges": []
+          }
+        ]
+      },
+      {
         "name": "onNodesChange",
         "args": [
           [
@@ -593,15 +602,6 @@
         ]
       },
       {
-        "name": "onSelectionChange",
-        "args": [
-          {
-            "nodes": [],
-            "edges": []
-          }
-        ]
-      },
-      {
         "name": "onViewportChange",
         "args": [
           {
@@ -645,7 +645,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 183.30000007152557,
+            "timeStamp": 183.20000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -714,7 +714,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 183.30000007152557,
+            "timeStamp": 183.20000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -843,7 +843,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 183.30000007152557,
+            "timeStamp": 183.20000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -908,7 +908,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 183.30000007152557,
+            "timeStamp": 183.20000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1469,7 +1469,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 210.40000009536743,
+            "timeStamp": 213,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1619,7 +1619,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 223.10000002384186,
+            "timeStamp": 222.30000007152557,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1688,7 +1688,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 223.10000002384186,
+            "timeStamp": 222.30000007152557,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1840,7 +1840,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 254.40000009536743,
+            "timeStamp": 253.30000007152557,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1909,7 +1909,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 254.40000009536743,
+            "timeStamp": 253.30000007152557,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2040,7 +2040,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 254.40000009536743,
+            "timeStamp": 253.30000007152557,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2105,7 +2105,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 254.40000009536743,
+            "timeStamp": 253.30000007152557,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2234,7 +2234,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 267.3000000715256,
+            "timeStamp": 268.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2363,7 +2363,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 276.40000009536743,
+            "timeStamp": 276.7000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2428,7 +2428,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 284.8000000715256,
+            "timeStamp": 286,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2493,7 +2493,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 302,
+            "timeStamp": 301.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2558,7 +2558,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 315.3000000715256,
+            "timeStamp": 319.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -4118,17 +4118,6 @@
       },
       {
         "index": 5,
-        "action": "key",
-        "target": null,
-        "resolved": true,
-        "box": null,
-        "dispatched": {
-          "key": "s",
-          "action": "down"
-        }
-      },
-      {
-        "index": 6,
         "action": "pointerDown",
         "target": ".react-flow__node[data-id=\"Node-3\"]",
         "resolved": true,
@@ -4145,7 +4134,7 @@
         }
       },
       {
-        "index": 7,
+        "index": 6,
         "action": "pointerUp",
         "target": null,
         "resolved": true,
@@ -4157,18 +4146,7 @@
         }
       },
       {
-        "index": 8,
-        "action": "key",
-        "target": null,
-        "resolved": true,
-        "box": null,
-        "dispatched": {
-          "key": "s",
-          "action": "up"
-        }
-      },
-      {
-        "index": 9,
+        "index": 7,
         "action": "pointerDown",
         "target": ".react-flow__node[data-id=\"Node-3\"]",
         "resolved": true,
@@ -4185,7 +4163,7 @@
         }
       },
       {
-        "index": 10,
+        "index": 8,
         "action": "pointerMove",
         "target": null,
         "resolved": true,
@@ -4196,7 +4174,7 @@
         }
       },
       {
-        "index": 11,
+        "index": 9,
         "action": "pointerMove",
         "target": null,
         "resolved": true,
@@ -4207,7 +4185,7 @@
         }
       },
       {
-        "index": 12,
+        "index": 10,
         "action": "pointerMove",
         "target": null,
         "resolved": true,
@@ -4218,7 +4196,7 @@
         }
       },
       {
-        "index": 13,
+        "index": 11,
         "action": "pointerMove",
         "target": null,
         "resolved": true,
@@ -4229,7 +4207,7 @@
         }
       },
       {
-        "index": 14,
+        "index": 12,
         "action": "pointerMove",
         "target": null,
         "resolved": true,
@@ -4240,7 +4218,7 @@
         }
       },
       {
-        "index": 15,
+        "index": 13,
         "action": "pointerUp",
         "target": null,
         "resolved": true,

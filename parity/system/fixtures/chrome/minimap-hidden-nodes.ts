@@ -2,9 +2,12 @@
 //
 // Both rows are crashes rather than differences: a minimap with no visible node
 // has no bounds to compute, and an undefined node reaching the minimap's node
-// renderer throws. A thrown render leaves no DOM and no callback — it is the
-// `console` section, via `pageerror`, that carries it, which is the same
-// section the two mount-time rows use and the reason it exists.
+// renderer throws. So the observation lands in whichever of two sections the
+// implementation puts it in, and the scenario drives for either — a minimap that
+// renders is a `dom` observation, which is where ticket 080 filed these, and one
+// that throws leaves no DOM and no callback at all and is carried by `console`
+// through `pageerror`. A side that crashes where the other draws differs in both
+// sections at once.
 //
 // Every node hidden, not merely an empty list: an empty `nodes` array is a flow
 // that was never given anything, where this is a flow that has nodes and can

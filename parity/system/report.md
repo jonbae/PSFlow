@@ -47,7 +47,7 @@ claimed by a region — never by loosening what the net looks at.
 | `drag-unmeasured-node` | **failed** | self-inconsistent, unclaimed-difference | 1058 |
 | `fitview-onnodeschange-variants` | **failed** | self-inconsistent, unclaimed-difference | 866 |
 | `flow-custom-testid` | **failed** | self-inconsistent, driving-divergence, unclaimed-difference | 502 |
-| `flow-props-change-after-mount` | **failed** | self-inconsistent, driving-divergence, unclaimed-difference | 840 |
+| `flow-props-change-after-mount` | **failed** | self-inconsistent, driving-divergence, unclaimed-difference | 836 |
 | `keyboard-focus-node` | **failed** | self-inconsistent, unclaimed-difference | 526 |
 | `minimap-all-nodes-hidden` | **failed** | unclaimed-difference | 324 |
 | `minimap-custom-mask-colors` | **failed** | self-inconsistent, unclaimed-difference | 579 |
@@ -11332,11 +11332,11 @@ a real divergence is exactly what would be hiding down there.
 | `driving/1/dispatched` | differs | {"x":500,"y":360,"button":"left"} | null |
 | `driving/2/dispatched/x` | differs | 500 | 0 |
 | `driving/2/dispatched/y` | differs | 360 | 0 |
-| `driving/4/resolved` | differs | true | false |
-| `driving/4/box` | differs | {"x":619,"y":259,"width":322,"height":202} | null |
-| `driving/4/dispatched` | differs | {"x":780,"y":360,"button":"left"} | null |
-| `driving/5/dispatched/x` | differs | 780 | 0 |
-| `driving/5/dispatched/y` | differs | 360 | 0 |
+| `driving/3/resolved` | differs | true | false |
+| `driving/3/box` | differs | {"x":619,"y":259,"width":322,"height":202} | null |
+| `driving/3/dispatched` | differs | {"x":780,"y":360,"button":"left"} | null |
+| `driving/4/dispatched/x` | differs | 780 | 0 |
+| `driving/4/dispatched/y` | differs | 360 | 0 |
 
 ### dom (1) — consequence of the driving divergence
 
@@ -11396,7 +11396,7 @@ a real divergence is exactly what would be hiding down there.
 |---|---|---|---|
 | `console/1` | right only | — | {"level":"pageerror","text":"ps-flow: the `edgeTypes` prop has not crossed the JavaScript boundary yet — it lands in boundary stage 4 (the props that hand a co… |
 | `console/2` | right only | — | {"level":"pageerror","text":"ps-flow: the `edgeTypes` prop has not crossed the JavaScript boundary yet — it lands in boundary stage 4 (the props that hand a co… |
-| `console/3` | right only | — | {"level":"error","text":"The above error occurred in the <ReactFlow> component:\n\n    at ReactFlow\n    at div\n    at Flow_default (http://127.0.0.1:54954/pa… |
+| `console/3` | right only | — | {"level":"error","text":"The above error occurred in the <ReactFlow> component:\n\n    at ReactFlow\n    at div\n    at Flow_default (http://127.0.0.1:65523/pa… |
 | `console/4` | right only | — | {"level":"pageerror","text":"ps-flow: the `edgeTypes` prop has not crossed the JavaScript boundary yet — it lands in boundary stage 4 (the props that hand a co… |
 
 ## Normalization
@@ -24925,17 +24925,13 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | **disagrees with itself** | 5 |
+| psflow | 1, 2 | **disagrees with itself** | 1 |
 
 ### psflow disagrees with itself
 
 | path | kind | capture 1 | capture 2 |
 |---|---|---|---|
-| `callbacks/22` | right only | — | {"name":"onMoveEnd","args":[null,{"x":432.40506329113924,"y":32,"zoom":2.7679324894514767}]} |
-| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEnter#1","onNo… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEnter#1","onNo… |
-| `callbacks/21/args/1/x` | differs | 432.40506329113924 | 490 |
-| `callbacks/21/args/1/y` | differs | 32 | 123 |
-| `callbacks/21/args/1/zoom` | differs | 2.7679324894514767 | 2 |
+| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEnter#1","onNo… | ["onSelectionChange#1","onSelectionChange#2","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onViewportChange#2","onMoveEnd#2","onPaneMouseEnter#1","onNo… |
 
 **psflow did not reproduce.** The comparison below ran anyway —
 capture-everything applies to a failed run as much as to a passing one — but a difference it reports
@@ -24964,32 +24960,32 @@ a real divergence is exactly what would be hiding down there.
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `driving/6/box/x` | differs | 690 | 709.1983032226562 |
-| `driving/6/box/y` | differs | 323 | 308.7932434082031 |
-| `driving/6/box/width` | differs | 300 | 415.18988037109375 |
-| `driving/6/box/height` | differs | 74 | 102.41348266601562 |
+| `driving/5/box/x` | differs | 690 | 709.1983032226562 |
+| `driving/5/box/y` | differs | 323 | 308.7932434082031 |
+| `driving/5/box/width` | differs | 300 | 415.18988037109375 |
+| `driving/5/box/height` | differs | 74 | 102.41348266601562 |
+| `driving/5/dispatched/x` | differs | 840 | 916.7932434082031 |
+| `driving/5/dispatched/y` | differs | 360 | 359.99998474121094 |
 | `driving/6/dispatched/x` | differs | 840 | 916.7932434082031 |
 | `driving/6/dispatched/y` | differs | 360 | 359.99998474121094 |
+| `driving/7/box/x` | differs | 690 | 709.1983032226562 |
+| `driving/7/box/y` | differs | 323 | 308.7932434082031 |
+| `driving/7/box/width` | differs | 300 | 415.18988037109375 |
+| `driving/7/box/height` | differs | 74 | 102.41348266601562 |
 | `driving/7/dispatched/x` | differs | 840 | 916.7932434082031 |
 | `driving/7/dispatched/y` | differs | 360 | 359.99998474121094 |
-| `driving/9/box/x` | differs | 690 | 709.1983032226562 |
-| `driving/9/box/y` | differs | 323 | 308.7932434082031 |
-| `driving/9/box/width` | differs | 300 | 415.18988037109375 |
-| `driving/9/box/height` | differs | 74 | 102.41348266601562 |
-| `driving/9/dispatched/x` | differs | 840 | 916.7932434082031 |
-| `driving/9/dispatched/y` | differs | 360 | 359.99998474121094 |
-| `driving/10/dispatched/x` | differs | 852 | 928.7932434082031 |
-| `driving/10/dispatched/y` | differs | 368 | 367.99998474121094 |
-| `driving/11/dispatched/x` | differs | 864 | 940.7932434082031 |
-| `driving/11/dispatched/y` | differs | 376 | 375.99998474121094 |
-| `driving/12/dispatched/x` | differs | 876 | 952.7932434082031 |
-| `driving/12/dispatched/y` | differs | 384 | 383.99998474121094 |
-| `driving/13/dispatched/x` | differs | 888 | 964.7932434082031 |
-| `driving/13/dispatched/y` | differs | 392 | 391.99998474121094 |
-| `driving/14/dispatched/x` | differs | 900 | 976.7932434082031 |
-| `driving/14/dispatched/y` | differs | 400 | 399.99998474121094 |
-| `driving/15/dispatched/x` | differs | 900 | 976.7932434082031 |
-| `driving/15/dispatched/y` | differs | 400 | 399.99998474121094 |
+| `driving/8/dispatched/x` | differs | 852 | 928.7932434082031 |
+| `driving/8/dispatched/y` | differs | 368 | 367.99998474121094 |
+| `driving/9/dispatched/x` | differs | 864 | 940.7932434082031 |
+| `driving/9/dispatched/y` | differs | 376 | 375.99998474121094 |
+| `driving/10/dispatched/x` | differs | 876 | 952.7932434082031 |
+| `driving/10/dispatched/y` | differs | 384 | 383.99998474121094 |
+| `driving/11/dispatched/x` | differs | 888 | 964.7932434082031 |
+| `driving/11/dispatched/y` | differs | 392 | 391.99998474121094 |
+| `driving/12/dispatched/x` | differs | 900 | 976.7932434082031 |
+| `driving/12/dispatched/y` | differs | 400 | 399.99998474121094 |
+| `driving/13/dispatched/x` | differs | 900 | 976.7932434082031 |
+| `driving/13/dispatched/y` | differs | 400 | 399.99998474121094 |
 
 ### dom (41) — consequence of the driving divergence
 
@@ -25054,6 +25050,7 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/39` | left only | {"name":"onMove","args":[{"@class":"MouseEvent","isTrusted":true},{"x":550,"y":163,"zoom":2}]} | — |
 | `callbacks/12` | right only | — | {"name":"onEdgesChange","args":[[]]} |
 | `callbacks/14` | right only | — | {"name":"onSelectionChange","args":[{"nodes":[{"id":"Node-1","position":{"x":0,"y":0},"data":{"label":"Node-1"},"type":"input","sourcePosition":{"@undefined":t… |
+| `callbacks/22` | right only | — | {"name":"onMoveEnd","args":[null,{"x":432.40506329113924,"y":32,"zoom":2.7679324894514767}]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onViewportChange#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onSelectionChange#2","onViewportChange#2","onMoveEnd#2","onPaneMouseEnter#1","onNo… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -25385,9 +25382,8 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/37/args/0/clientX` | differs | 900 | 976.793212890625 |
 | `callbacks/37/args/0/pageX` | differs | 900 | 976.793212890625 |
 | `callbacks/40/args/0` | differs | {"@class":"MouseEvent","isTrusted":true} | null |
-| `callbacks/40/args/1/x` | differs | 550 | 432.40506329113924 |
-| `callbacks/40/args/1/y` | differs | 163 | 32 |
-| `callbacks/40/args/1/zoom` | differs | 2 | 2.7679324894514767 |
+| `callbacks/40/args/1/x` | differs | 550 | 490 |
+| `callbacks/40/args/1/y` | differs | 163 | 123 |
 
 ### api (421) — consequence of the driving divergence
 
@@ -25819,7 +25815,7 @@ a real divergence is exactly what would be hiding down there.
 
 34 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (24) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (25) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---

@@ -64345,7 +64345,7 @@ var ConnectionLineProbe = (props) => {
 
 // parity/driver/src/Flow.tsx
 var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
-var chrome = (props) => props === void 0 ? [] : Array.isArray(props) ? props : [props];
+var asList = (props) => props === void 0 ? [] : Array.isArray(props) ? props : [props];
 var Flow_default = ({ flowConfig }) => {
   const variant = new URLSearchParams(window.location.search).get("probe") ?? "plain";
   const derived = deriveProbeGraph(flowConfig, variant, { NodeProbe, EdgeProbe, ConnectionLineProbe });
@@ -64372,10 +64372,10 @@ var Flow_default = ({ flowConfig }) => {
     ),
     /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(reactFlow2, { ...props, ...observed, children: [
       new URLSearchParams(window.location.search).get("observe") === "callbacks" && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(NetObserver, { nodeId: nodes4?.[0]?.id, probes: variant === "flow-node" }),
-      chrome(flowConfig.controlsProps).map((one3, i) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(controls2, { ...one3 }, i)),
-      chrome(flowConfig.panelProps).map((one3, i) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(panel2, { ...one3 }, i)),
-      chrome(flowConfig.minimapProps).map((one3, i) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(miniMap2, { ...one3 }, i)),
-      chrome(flowConfig.backgroundProps).map((one3, i) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(background2, { ...one3 }, i))
+      asList(flowConfig.controlsProps).map((one3, i) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(controls2, { ...one3 }, i)),
+      asList(flowConfig.panelProps).map((one3, i) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(panel2, { ...one3 }, i)),
+      asList(flowConfig.minimapProps).map((one3, i) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(miniMap2, { ...one3 }, i)),
+      asList(flowConfig.backgroundProps).map((one3, i) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(background2, { ...one3 }, i))
     ] })
   ] });
 };

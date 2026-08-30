@@ -1,4 +1,4 @@
-// The conformance seed — the corpus's second source (#55).
+// The conformance seed — the corpus's first source (#55).
 //
 // Upstream's own end-to-end suite, transcribed. Forty-one `generic-*` tests
 // drive the four vendored fixtures and two more drive the **example driver**;

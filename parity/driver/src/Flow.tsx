@@ -6,7 +6,7 @@
 // sides, while a boundary mistake is a real bug the net exists to catch. That
 // is why this is hand-written and the fixtures are not.
 //
-// Everything below is upstream's, with six named differences. Two are forced:
+// Everything below is upstream's, with seven named differences. Two are forced:
 //
 //   * `FlowConfig` is declared here rather than being the ambient global
 //     upstream's `app.d.ts` supplies, because that file's types come from
@@ -27,9 +27,9 @@
 // node/edge/connection-line type from the fixture graph. Plain runs bypass that
 // and retain the upstream graph object.
 //
-// It is also where `NetObserver` is mounted, and it is mounted for **every**
-// observed run rather than only for a probe variant, which is what its own
-// `probes` prop is for and what its doc comment always said. It renders nothing unless probing; what it does
+// The fifth is where `NetObserver` is mounted: for **every** observed run
+// rather than only for a probe variant, which is what its own `probes` prop is
+// for and what its doc comment always said. It renders nothing unless probing; what it does
 // unconditionally is hand the flow instance to the observation bridge, which is
 // the only way the harness can reach it. Gated on the variant instead, the
 // `call` primitive answered "no ReactFlow instance is attached" for every plain
@@ -37,10 +37,10 @@
 // used, which is not a thing a corpus can see from the outside: the three
 // scenarios that drive it are the first ones ever to have tried (#60).
 //
-// The fifth and sixth arrived with the thirty test-debt scenarios (#60), which
-// name conditions no vendored fixture sets. Both are **fixture-declared and
-// inert unless a fixture asks**, so every scenario written before them drives
-// the same component it always did:
+// The sixth and seventh arrived with the thirty test-debt scenarios (#60),
+// which name conditions no vendored fixture sets. Both are **fixture-declared
+// and inert unless a fixture asks**, so every scenario written before them
+// drives the same component it always did:
 //
 //   * **chrome props may be a list.** `<Panel>` renders once per entry, and so
 //     do the other three. One upstream row is a claim about centring a panel at
@@ -103,7 +103,10 @@ export type FlowConfig = {
   afterMount?: Record<string, unknown>;
 };
 
-const chrome = (props: ChromeProps | undefined): Record<string, unknown>[] =>
+// One entry, several, or none. The four chrome components each render once per
+// entry, so a fixture setting one keeps upstream's shape and a fixture needing
+// two says so by writing a list.
+const asList = (props: ChromeProps | undefined): Record<string, unknown>[] =>
   props === undefined ? [] : Array.isArray(props) ? props : [props];
 
 type FlowProps = {
@@ -129,6 +132,10 @@ export default ({ flowConfig }: FlowProps) => {
     ? { nodes, edges, onNodesChange, onEdgesChange, onConnect }
     : { onConnect };
 
+  // `afterMount` is read off `flowConfig` rather than `derived`, as the chrome
+  // props are: it holds flow props, never a graph, so there is nothing in it for
+  // `deriveProbeGraph` to have replaced. A fixture that put nodes in here would
+  // hand a probe variant an underived graph, which is why no fixture does.
   const props = { ...derived.flowProps, ...graph, ...(changed ? flowConfig.afterMount : null) };
 
   // Every callback prop upstream declares, each recording its call into the
@@ -154,16 +161,16 @@ export default ({ flowConfig }: FlowProps) => {
         {new URLSearchParams(window.location.search).get('observe') === 'callbacks' && (
           <NetObserver nodeId={(nodes?.[0] as { id?: string } | undefined)?.id} probes={variant === 'flow-node'} />
         )}
-        {chrome(flowConfig.controlsProps).map((one, i) => (
+        {asList(flowConfig.controlsProps).map((one, i) => (
           <Controls key={i} {...one} />
         ))}
-        {chrome(flowConfig.panelProps).map((one, i) => (
+        {asList(flowConfig.panelProps).map((one, i) => (
           <Panel key={i} {...one} />
         ))}
-        {chrome(flowConfig.minimapProps).map((one, i) => (
+        {asList(flowConfig.minimapProps).map((one, i) => (
           <MiniMap key={i} {...one} />
         ))}
-        {chrome(flowConfig.backgroundProps).map((one, i) => (
+        {asList(flowConfig.backgroundProps).map((one, i) => (
           <Background key={i} {...one} />
         ))}
       </ReactFlow>
