@@ -1,0 +1,1450 @@
+{
+  "traceFormat": 2,
+  "scenario": "viewport-helpers-with-options",
+  "side": "upstream",
+  "capture": 1,
+  "baseline": "12.11.0",
+  "sections": {
+    "dom": {
+      "page": {
+        "scrollX": 0,
+        "scrollY": 0,
+        "visualViewportScale": 1
+      },
+      "root": {
+        "tag": "div",
+        "attrs": {
+          "data-testid": "rf__wrapper",
+          "class": "react-flow light",
+          "role": "application",
+          "style": "width: 100%; height: 100%; overflow: hidden; position: relative; z-index: 0;"
+        },
+        "children": [
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "react-flow__renderer",
+              "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+            },
+            "children": [
+              {
+                "tag": "div",
+                "attrs": {
+                  "class": "react-flow__pane draggable",
+                  "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+                },
+                "children": [
+                  {
+                    "tag": "div",
+                    "attrs": {
+                      "class": "react-flow__viewport xyflow__viewport react-flow__container",
+                      "style": "transform: translate(440px, 260px) scale(2);"
+                    },
+                    "children": [
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__edges"
+                        },
+                        "children": [
+                          {
+                            "tag": "svg",
+                            "attrs": {
+                              "style": "z-index: 0;"
+                            },
+                            "children": [
+                              {
+                                "tag": "g",
+                                "attrs": {
+                                  "class": "react-flow__edge react-flow__edge-default nopan selectable",
+                                  "tabindex": "0",
+                                  "role": "group",
+                                  "aria-roledescription": "edge",
+                                  "data-id": "first-edge",
+                                  "data-testid": "rf__edge-first-edge",
+                                  "aria-label": "Edge from 1 to 2",
+                                  "aria-describedby": "react-flow__edge-desc-1"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M75,40 C75,138.5 -185,138.5 -185,237",
+                                      "fill": "none",
+                                      "class": "react-flow__edge-path"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M75,40 C75,138.5 -185,138.5 -185,237",
+                                      "fill": "none",
+                                      "stroke-opacity": "0",
+                                      "stroke-width": "20",
+                                      "class": "react-flow__edge-interaction"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
+                                      "cx": "75",
+                                      "cy": "50",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
+                                      "cx": "-185",
+                                      "cy": "227",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "svg",
+                            "attrs": {
+                              "style": "z-index: 0;"
+                            },
+                            "children": [
+                              {
+                                "tag": "g",
+                                "attrs": {
+                                  "class": "react-flow__edge react-flow__edge-default nopan selectable",
+                                  "tabindex": "0",
+                                  "role": "group",
+                                  "aria-roledescription": "edge",
+                                  "data-id": "third-edge",
+                                  "data-testid": "rf__edge-third-edge",
+                                  "aria-label": "Edge from 2 to 4",
+                                  "aria-describedby": "react-flow__edge-desc-1"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M-185,280 C-185,398.5 75,398.5 75,517",
+                                      "fill": "none",
+                                      "class": "react-flow__edge-path"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M-185,280 C-185,398.5 75,398.5 75,517",
+                                      "fill": "none",
+                                      "stroke-opacity": "0",
+                                      "stroke-width": "20",
+                                      "class": "react-flow__edge-interaction"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
+                                      "cx": "-185",
+                                      "cy": "290",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
+                                      "cx": "75",
+                                      "cy": "507",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__edgelabel-renderer"
+                        },
+                        "children": []
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__nodes",
+                          "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+                        },
+                        "children": [
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-input nopan selectable draggable",
+                              "data-id": "1",
+                              "data-testid": "rf__node-1",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(0px, 0px); pointer-events: all; visibility: visible;"
+                            },
+                            "text": "1",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "1",
+                                  "data-handlepos": "bottom",
+                                  "data-id": "1-1-null-source",
+                                  "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-default nopan selectable draggable",
+                              "data-id": "2",
+                              "data-testid": "rf__node-2",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(-260px, 240px); pointer-events: all; visibility: visible;"
+                            },
+                            "text": "2",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "2",
+                                  "data-handlepos": "top",
+                                  "data-id": "1-2-null-target",
+                                  "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "2",
+                                  "data-handlepos": "bottom",
+                                  "data-id": "1-2-null-source",
+                                  "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-output nopan selectable draggable",
+                              "data-id": "4",
+                              "data-testid": "rf__node-4",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(0px, 520px); pointer-events: all; visibility: visible;"
+                            },
+                            "text": "4",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "4",
+                                  "data-handlepos": "top",
+                                  "data-id": "1-4-null-target",
+                                  "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__viewport-portal"
+                        },
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "react-flow__panel react-flow__attribution bottom right",
+              "data-message": "Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"
+            },
+            "children": [
+              {
+                "tag": "a",
+                "attrs": {
+                  "href": "https://reactflow.dev",
+                  "target": "_blank",
+                  "rel": "noopener noreferrer",
+                  "aria-label": "React Flow attribution"
+                },
+                "text": "React Flow",
+                "children": []
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__node-desc-1",
+              "style": "display: none;"
+            },
+            "text": "Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel.",
+            "children": []
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__edge-desc-1",
+              "style": "display: none;"
+            },
+            "text": "Press enter or space to select an edge. You can then press delete to remove it or escape to cancel.",
+            "children": []
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__aria-live-1",
+              "aria-live": "assertive",
+              "aria-atomic": "true",
+              "style": "position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(100%);"
+            },
+            "children": []
+          }
+        ]
+      }
+    },
+    "callbacks": [
+      {
+        "name": "onSelectionChange",
+        "args": [
+          {
+            "nodes": [],
+            "edges": []
+          }
+        ]
+      },
+      {
+        "name": "onMoveStart",
+        "args": [
+          null,
+          {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          }
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 551.669658886894,
+            "y": 32,
+            "zoom": 1.177737881508079
+          }
+        ]
+      },
+      {
+        "name": "onMove",
+        "args": [
+          null,
+          {
+            "x": 551.669658886894,
+            "y": 32,
+            "zoom": 1.177737881508079
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "id": "1",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "2",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "3",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "4",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 551.669658886894,
+            "y": 32,
+            "zoom": 1.177737881508079
+          }
+        ]
+      },
+      {
+        "name": "onMoveStart",
+        "args": [
+          null,
+          {
+            "x": 551.669658886894,
+            "y": 32,
+            "zoom": 1.177737881508079
+          }
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 40,
+            "y": -20,
+            "zoom": 1.5
+          }
+        ]
+      },
+      {
+        "name": "onMove",
+        "args": [
+          null,
+          {
+            "x": 40,
+            "y": -20,
+            "zoom": 1.5
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 40,
+            "y": -20,
+            "zoom": 1.5
+          }
+        ]
+      },
+      {
+        "name": "onMoveStart",
+        "args": [
+          null,
+          {
+            "x": 40,
+            "y": -20,
+            "zoom": 1.5
+          }
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 140,
+            "y": 43.333333333333314,
+            "zoom": 1.25
+          }
+        ]
+      },
+      {
+        "name": "onMove",
+        "args": [
+          null,
+          {
+            "x": 140,
+            "y": 43.333333333333314,
+            "zoom": 1.25
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 140,
+            "y": 43.333333333333314,
+            "zoom": 1.25
+          }
+        ]
+      },
+      {
+        "name": "onMoveStart",
+        "args": [
+          null,
+          {
+            "x": 140,
+            "y": 43.333333333333314,
+            "zoom": 1.25
+          }
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 40,
+            "y": -20,
+            "zoom": 1.5
+          }
+        ]
+      },
+      {
+        "name": "onMove",
+        "args": [
+          null,
+          {
+            "x": 40,
+            "y": -20,
+            "zoom": 1.5
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 40,
+            "y": -20,
+            "zoom": 1.5
+          }
+        ]
+      },
+      {
+        "name": "onMoveStart",
+        "args": [
+          null,
+          {
+            "x": 40,
+            "y": -20,
+            "zoom": 1.5
+          }
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 140,
+            "y": 43.333333333333314,
+            "zoom": 1.25
+          }
+        ]
+      },
+      {
+        "name": "onMove",
+        "args": [
+          null,
+          {
+            "x": 140,
+            "y": 43.333333333333314,
+            "zoom": 1.25
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 140,
+            "y": 43.333333333333314,
+            "zoom": 1.25
+          }
+        ]
+      },
+      {
+        "name": "onMoveStart",
+        "args": [
+          null,
+          {
+            "x": 140,
+            "y": 43.333333333333314,
+            "zoom": 1.25
+          }
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 570.5206463195691,
+            "y": 102,
+            "zoom": 0.926391382405745
+          }
+        ]
+      },
+      {
+        "name": "onMove",
+        "args": [
+          null,
+          {
+            "x": 570.5206463195691,
+            "y": 102,
+            "zoom": 0.926391382405745
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 570.5206463195691,
+            "y": 102,
+            "zoom": 0.926391382405745
+          }
+        ]
+      },
+      {
+        "name": "onMoveStart",
+        "args": [
+          null,
+          {
+            "x": 570.5206463195691,
+            "y": 102,
+            "zoom": 0.926391382405745
+          }
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 400,
+            "y": 200,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onMove",
+        "args": [
+          null,
+          {
+            "x": 400,
+            "y": 200,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 400,
+            "y": 200,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onMoveStart",
+        "args": [
+          null,
+          {
+            "x": 400,
+            "y": 200,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 440,
+            "y": 260,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onMove",
+        "args": [
+          null,
+          {
+            "x": 440,
+            "y": 260,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 440,
+            "y": 260,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onBeforeDelete",
+        "args": [
+          {
+            "nodes": [
+              {
+                "id": "3",
+                "data": {
+                  "label": "3"
+                },
+                "position": {
+                  "x": 260,
+                  "y": 240
+                },
+                "measured": {
+                  "width": 150,
+                  "height": 37
+                }
+              }
+            ],
+            "edges": [
+              {
+                "id": "second-edge",
+                "source": "1",
+                "target": "3"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "onEdgesDelete",
+        "args": [
+          [
+            {
+              "id": "second-edge",
+              "source": "1",
+              "target": "3"
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onEdgesChange",
+        "args": [
+          [
+            {
+              "id": "second-edge",
+              "type": "remove"
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodesDelete",
+        "args": [
+          [
+            {
+              "id": "3",
+              "data": {
+                "label": "3"
+              },
+              "position": {
+                "x": 260,
+                "y": 240
+              },
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "id": "3",
+              "type": "remove"
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onDelete",
+        "args": [
+          {
+            "nodes": [
+              {
+                "id": "3",
+                "data": {
+                  "label": "3"
+                },
+                "position": {
+                  "x": 260,
+                  "y": 240
+                },
+                "measured": {
+                  "width": 150,
+                  "height": 37
+                }
+              }
+            ],
+            "edges": [
+              {
+                "id": "second-edge",
+                "source": "1",
+                "target": "3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "hooks": {},
+    "api": {
+      "queries": {
+        "getNodes": [
+          {
+            "id": "1",
+            "data": {
+              "label": "1"
+            },
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "type": "input",
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "2",
+            "data": {
+              "label": "2"
+            },
+            "position": {
+              "x": -260,
+              "y": 240
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "4",
+            "data": {
+              "label": "4"
+            },
+            "position": {
+              "x": 0,
+              "y": 520
+            },
+            "type": "output",
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          }
+        ],
+        "getNode": {
+          "id": "1",
+          "data": {
+            "label": "1"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "type": "input",
+          "measured": {
+            "width": 150,
+            "height": 37
+          }
+        },
+        "getInternalNode": {
+          "id": "1",
+          "data": {
+            "label": "1"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "type": "input",
+          "measured": {
+            "width": 150,
+            "height": 37
+          },
+          "internals": {
+            "positionAbsolute": {
+              "x": 0,
+              "y": 0
+            },
+            "handleBounds": {
+              "source": [
+                {
+                  "id": null,
+                  "type": "source",
+                  "nodeId": "1",
+                  "position": "bottom",
+                  "x": 71,
+                  "y": 32,
+                  "width": 8,
+                  "height": 8
+                }
+              ],
+              "target": null
+            },
+            "z": 0,
+            "userNode": {
+              "id": "1",
+              "data": {
+                "label": "1"
+              },
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "type": "input",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          }
+        },
+        "getEdges": [
+          {
+            "id": "first-edge",
+            "source": "1",
+            "target": "2"
+          },
+          {
+            "id": "third-edge",
+            "source": "2",
+            "target": "4"
+          }
+        ],
+        "getEdge": {
+          "id": "first-edge",
+          "source": "1",
+          "target": "2"
+        },
+        "getIntersectingNodes": [
+          {
+            "id": "1",
+            "data": {
+              "label": "1"
+            },
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "type": "input",
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "2",
+            "data": {
+              "label": "2"
+            },
+            "position": {
+              "x": -260,
+              "y": 240
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "4",
+            "data": {
+              "label": "4"
+            },
+            "position": {
+              "x": 0,
+              "y": 520
+            },
+            "type": "output",
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          }
+        ],
+        "isNodeIntersecting": true,
+        "getNodesBounds": {
+          "x": -260,
+          "y": 0,
+          "width": 410,
+          "height": 557
+        },
+        "getHandleConnections": [
+          {
+            "edgeId": "first-edge",
+            "source": "1",
+            "target": "2",
+            "sourceHandle": null,
+            "targetHandle": null
+          }
+        ],
+        "getNodeConnections": [
+          {
+            "edgeId": "first-edge",
+            "source": "1",
+            "target": "2",
+            "sourceHandle": null,
+            "targetHandle": null
+          }
+        ],
+        "toObject": {
+          "nodes": [
+            {
+              "id": "1",
+              "data": {
+                "label": "1"
+              },
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "type": "input",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "2",
+              "data": {
+                "label": "2"
+              },
+              "position": {
+                "x": -260,
+                "y": 240
+              },
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "4",
+              "data": {
+                "label": "4"
+              },
+              "position": {
+                "x": 0,
+                "y": 520
+              },
+              "type": "output",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          ],
+          "edges": [
+            {
+              "id": "first-edge",
+              "source": "1",
+              "target": "2"
+            },
+            {
+              "id": "third-edge",
+              "source": "2",
+              "target": "4"
+            }
+          ],
+          "viewport": {
+            "x": 440,
+            "y": 260,
+            "zoom": 2
+          }
+        },
+        "getZoom": 2,
+        "getViewport": {
+          "x": 440,
+          "y": 260,
+          "zoom": 2
+        },
+        "screenToFlowPosition": {
+          "x": -225,
+          "y": -125
+        },
+        "flowToScreenPosition": {
+          "x": 440,
+          "y": 260
+        },
+        "viewportInitialized": true
+      },
+      "calls": [
+        {
+          "method": "setViewport",
+          "args": [
+            {
+              "x": 40,
+              "y": -20,
+              "zoom": 1.5
+            },
+            {
+              "duration": 0
+            }
+          ],
+          "result": true
+        },
+        {
+          "method": "zoomTo",
+          "args": [
+            1.25,
+            {
+              "duration": 0
+            }
+          ],
+          "result": true
+        },
+        {
+          "method": "zoomIn",
+          "args": [
+            {
+              "duration": 0
+            }
+          ],
+          "result": true
+        },
+        {
+          "method": "zoomOut",
+          "args": [
+            {
+              "duration": 0
+            }
+          ],
+          "result": true
+        },
+        {
+          "method": "fitView",
+          "args": [
+            {
+              "padding": 0.4,
+              "includeHiddenNodes": false,
+              "minZoom": 0.2,
+              "maxZoom": 3,
+              "duration": 0
+            }
+          ],
+          "result": true
+        },
+        {
+          "method": "setCenter",
+          "args": [
+            120,
+            80,
+            {
+              "zoom": 2,
+              "duration": 0
+            }
+          ],
+          "result": true
+        },
+        {
+          "method": "fitBounds",
+          "args": [
+            {
+              "x": -100,
+              "y": -100,
+              "width": 400,
+              "height": 300
+            },
+            {
+              "padding": 0.2,
+              "duration": 0
+            }
+          ],
+          "result": true
+        },
+        {
+          "method": "deleteElements",
+          "args": [
+            {
+              "nodes": [
+                {
+                  "id": "3"
+                }
+              ],
+              "edges": [
+                {
+                  "id": "second-edge"
+                }
+              ]
+            }
+          ],
+          "result": {
+            "deletedNodes": [
+              {
+                "id": "3",
+                "data": {
+                  "label": "3"
+                },
+                "position": {
+                  "x": 260,
+                  "y": 240
+                },
+                "measured": {
+                  "width": 150,
+                  "height": 37
+                }
+              }
+            ],
+            "deletedEdges": [
+              {
+                "id": "second-edge",
+                "source": "1",
+                "target": "3"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "props": {},
+    "console": [
+      {
+        "level": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      }
+    ],
+    "driving": [
+      {
+        "index": 0,
+        "action": "mount",
+        "target": ".react-flow",
+        "resolved": true,
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "dispatched": {
+          "route": "/tests/generic/viewport/helpers"
+        }
+      },
+      {
+        "index": 1,
+        "action": "call",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "method": "setViewport",
+          "args": [
+            {
+              "x": 40,
+              "y": -20,
+              "zoom": 1.5
+            },
+            {
+              "duration": 0
+            }
+          ]
+        }
+      },
+      {
+        "index": 2,
+        "action": "call",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "method": "zoomTo",
+          "args": [
+            1.25,
+            {
+              "duration": 0
+            }
+          ]
+        }
+      },
+      {
+        "index": 3,
+        "action": "call",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "method": "zoomIn",
+          "args": [
+            {
+              "duration": 0
+            }
+          ]
+        }
+      },
+      {
+        "index": 4,
+        "action": "call",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "method": "zoomOut",
+          "args": [
+            {
+              "duration": 0
+            }
+          ]
+        }
+      },
+      {
+        "index": 5,
+        "action": "call",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "method": "fitView",
+          "args": [
+            {
+              "padding": 0.4,
+              "includeHiddenNodes": false,
+              "minZoom": 0.2,
+              "maxZoom": 3,
+              "duration": 0
+            }
+          ]
+        }
+      },
+      {
+        "index": 6,
+        "action": "call",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "method": "setCenter",
+          "args": [
+            120,
+            80,
+            {
+              "zoom": 2,
+              "duration": 0
+            }
+          ]
+        }
+      },
+      {
+        "index": 7,
+        "action": "call",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "method": "fitBounds",
+          "args": [
+            {
+              "x": -100,
+              "y": -100,
+              "width": 400,
+              "height": 300
+            },
+            {
+              "padding": 0.2,
+              "duration": 0
+            }
+          ]
+        }
+      },
+      {
+        "index": 8,
+        "action": "call",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "method": "deleteElements",
+          "args": [
+            {
+              "nodes": [
+                {
+                  "id": "3"
+                }
+              ],
+              "edges": [
+                {
+                  "id": "second-edge"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

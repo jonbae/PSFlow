@@ -1,0 +1,5297 @@
+{
+  "traceFormat": 2,
+  "scenario": "drag-child-expand-parent",
+  "side": "psflow",
+  "capture": 1,
+  "baseline": "12.11.0",
+  "sections": {
+    "dom": {
+      "page": {
+        "scrollX": 0,
+        "scrollY": 0,
+        "visualViewportScale": 1
+      },
+      "root": {
+        "tag": "div",
+        "attrs": {
+          "data-testid": "rf__wrapper",
+          "class": "react-flow light",
+          "role": "application",
+          "style": "width: 100%; height: 100%; overflow: hidden; position: relative; z-index: 0;"
+        },
+        "children": [
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "react-flow__renderer",
+              "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+            },
+            "children": [
+              {
+                "tag": "div",
+                "attrs": {
+                  "class": "react-flow__pane draggable",
+                  "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+                },
+                "children": [
+                  {
+                    "tag": "div",
+                    "attrs": {
+                      "class": "react-flow__viewport xyflow__viewport react-flow__container",
+                      "style": "transform: translate(70px, 129.875px) scale(2);"
+                    },
+                    "children": [
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__edges"
+                        },
+                        "children": [
+                          {
+                            "tag": "svg",
+                            "attrs": {
+                              "style": "z-index: 1000;"
+                            },
+                            "children": [
+                              {
+                                "tag": "g",
+                                "attrs": {
+                                  "class": "react-flow__edge react-flow__edge-default nopan selectable",
+                                  "tabindex": "0",
+                                  "role": "group",
+                                  "aria-roledescription": "edge",
+                                  "data-id": "child-outside",
+                                  "data-testid": "rf__edge-child-outside"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M255,233.125 C255,329.16474600393315 495,-99.03974600393317 495,-3",
+                                      "fill": "none",
+                                      "class": "react-flow__edge-path"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M255,233.125 C255,329.16474600393315 495,-99.03974600393317 495,-3",
+                                      "fill": "none",
+                                      "stroke-opacity": "0",
+                                      "stroke-width": "20",
+                                      "class": "react-flow__edge-interaction"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
+                                      "cx": "255",
+                                      "cy": "243.125",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
+                                      "cx": "495",
+                                      "cy": "-13",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__edgelabel-renderer"
+                        },
+                        "children": []
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__nodes",
+                          "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+                        },
+                        "children": [
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-default nopan selected selectable draggable",
+                              "data-id": "child",
+                              "data-testid": "rf__node-child",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "style": "z-index: 1000; transform: translate(180px, 193.125px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
+                            },
+                            "text": "child",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator",
+                                  "data-nodeid": "child",
+                                  "data-handlepos": "top",
+                                  "data-id": "1-child--target"
+                                },
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator",
+                                  "data-nodeid": "child",
+                                  "data-handlepos": "bottom",
+                                  "data-id": "1-child--source"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-default nopan selectable draggable",
+                              "data-id": "outside",
+                              "data-testid": "rf__node-outside",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "style": "z-index: 0; transform: translate(420px, 0px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
+                            },
+                            "text": "outside",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator",
+                                  "data-nodeid": "outside",
+                                  "data-handlepos": "top",
+                                  "data-id": "1-outside--target"
+                                },
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator",
+                                  "data-nodeid": "outside",
+                                  "data-handlepos": "bottom",
+                                  "data-id": "1-outside--source"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-default nopan selectable parent draggable",
+                              "data-id": "parent",
+                              "data-testid": "rf__node-parent",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "style": "z-index: 0; transform: translate(0px, 0px); pointer-events: all; visibility: visible; background-color: rgba(80, 120, 200, 0.12); width: 190px; height: 77px;"
+                            },
+                            "text": "parent",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator",
+                                  "data-nodeid": "parent",
+                                  "data-handlepos": "top",
+                                  "data-id": "1-parent--target"
+                                },
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator",
+                                  "data-nodeid": "parent",
+                                  "data-handlepos": "bottom",
+                                  "data-id": "1-parent--source"
+                                },
+                                "children": []
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__viewport-portal"
+                        },
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "react-flow__panel bottom right react-flow__attribution"
+            },
+            "children": [
+              {
+                "tag": "span",
+                "attrs": {
+                  "data-message": "Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"
+                },
+                "children": [
+                  {
+                    "tag": "a",
+                    "attrs": {
+                      "href": "https://reactflow.dev",
+                      "target": "_blank",
+                      "rel": "noopener noreferrer",
+                      "aria-label": "React Flow attribution"
+                    },
+                    "text": "React Flow",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__node-desc-1",
+              "style": "display: none;"
+            },
+            "text": "Press enter or space to select a node. Press delete to remove it and escape to cancel.",
+            "children": []
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__edge-desc-1",
+              "style": "display: none;"
+            },
+            "text": "Press enter or space to select an edge. You can then press delete to remove it or escape to cancel.",
+            "children": []
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__aria-live-1",
+              "aria-live": "assertive",
+              "aria-atomic": "true",
+              "style": "position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(100%);"
+            },
+            "children": []
+          }
+        ]
+      }
+    },
+    "callbacks": [
+      {
+        "name": "onSelectionChange",
+        "args": [
+          {
+            "nodes": [],
+            "edges": []
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "position": {
+                "@undefined": true
+              },
+              "positionAbsolute": {
+                "@undefined": true
+              },
+              "dragging": {
+                "@undefined": true
+              },
+              "selected": {
+                "@undefined": true
+              },
+              "item": {
+                "@undefined": true
+              },
+              "index": {
+                "@undefined": true
+              },
+              "type": "dimensions",
+              "id": "child",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              },
+              "resizing": false,
+              "setAttributes": true
+            },
+            {
+              "position": {
+                "@undefined": true
+              },
+              "positionAbsolute": {
+                "@undefined": true
+              },
+              "dragging": {
+                "@undefined": true
+              },
+              "selected": {
+                "@undefined": true
+              },
+              "item": {
+                "@undefined": true
+              },
+              "index": {
+                "@undefined": true
+              },
+              "type": "dimensions",
+              "id": "outside",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              },
+              "resizing": false,
+              "setAttributes": true
+            },
+            {
+              "position": {
+                "@undefined": true
+              },
+              "positionAbsolute": {
+                "@undefined": true
+              },
+              "dragging": {
+                "@undefined": true
+              },
+              "selected": {
+                "@undefined": true
+              },
+              "item": {
+                "@undefined": true
+              },
+              "index": {
+                "@undefined": true
+              },
+              "type": "dimensions",
+              "id": "parent",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              },
+              "resizing": false,
+              "setAttributes": true
+            },
+            {
+              "position": {
+                "@undefined": true
+              },
+              "positionAbsolute": {
+                "@undefined": true
+              },
+              "dragging": {
+                "@undefined": true
+              },
+              "selected": {
+                "@undefined": true
+              },
+              "item": {
+                "@undefined": true
+              },
+              "index": {
+                "@undefined": true
+              },
+              "type": "dimensions",
+              "id": "parent",
+              "dimensions": {
+                "width": 190,
+                "height": 77
+              },
+              "resizing": false,
+              "setAttributes": true
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 70,
+            "y": 283,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 70,
+            "y": 283,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onSelectionChange",
+        "args": [
+          {
+            "nodes": [],
+            "edges": []
+          }
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 70,
+            "y": 283,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 70,
+            "y": 283,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseEnter",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerEnter",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "pointerenter",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 316.7000000476837,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 300,
+            "screenY": 400,
+            "clientX": 300,
+            "clientY": 400,
+            "pageX": 300,
+            "pageY": 400,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 0,
+            "relatedTarget": {
+              "@ref": "Window"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "pointerId": 1,
+            "width": 1,
+            "height": 1,
+            "pressure": 0,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "mouse",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodeMouseEnter",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseEnter",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseenter",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 316.7000000476837,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 300,
+            "screenY": 400,
+            "clientX": 300,
+            "clientY": 400,
+            "pageX": 300,
+            "pageY": 400,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": {
+              "@ref": "Window"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "child",
+            "position": {
+              "x": 40,
+              "y": 40
+            },
+            "data": {
+              "label": "child"
+            },
+            "type": {
+              "@undefined": true
+            },
+            "sourcePosition": {
+              "@undefined": true
+            },
+            "targetPosition": {
+              "@undefined": true
+            },
+            "hidden": false,
+            "selected": false,
+            "dragging": false,
+            "draggable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "connectable": {
+              "@undefined": true
+            },
+            "deletable": {
+              "@undefined": true
+            },
+            "dragHandle": {
+              "@undefined": true
+            },
+            "width": 150,
+            "height": 37,
+            "initialWidth": {
+              "@undefined": true
+            },
+            "initialHeight": {
+              "@undefined": true
+            },
+            "parentId": "parent",
+            "zIndex": {
+              "@undefined": true
+            },
+            "extent": {
+              "@undefined": true
+            },
+            "expandParent": true,
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "origin": {
+              "@undefined": true
+            },
+            "handles": {
+              "@undefined": true
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerMove",
+            "_targetInst": null,
+            "type": "pointermove",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 316.7000000476837,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 300,
+            "screenY": 400,
+            "clientX": 300,
+            "clientY": 400,
+            "pageX": 300,
+            "pageY": 400,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 0,
+            "relatedTarget": null,
+            "movementX": 301,
+            "movementY": 401,
+            "pointerId": 1,
+            "width": 1,
+            "height": 1,
+            "pressure": 0,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "mouse",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodeMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseMove",
+            "_targetInst": null,
+            "type": "mousemove",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 316.7000000476837,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 300,
+            "screenY": 400,
+            "clientX": 300,
+            "clientY": 400,
+            "pageX": 300,
+            "pageY": 400,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": null,
+            "movementX": 301,
+            "movementY": 401,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "child",
+            "position": {
+              "x": 40,
+              "y": 40
+            },
+            "data": {
+              "label": "child"
+            },
+            "type": {
+              "@undefined": true
+            },
+            "sourcePosition": {
+              "@undefined": true
+            },
+            "targetPosition": {
+              "@undefined": true
+            },
+            "hidden": false,
+            "selected": false,
+            "dragging": false,
+            "draggable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "connectable": {
+              "@undefined": true
+            },
+            "deletable": {
+              "@undefined": true
+            },
+            "dragHandle": {
+              "@undefined": true
+            },
+            "width": 150,
+            "height": 37,
+            "initialWidth": {
+              "@undefined": true
+            },
+            "initialHeight": {
+              "@undefined": true
+            },
+            "parentId": "parent",
+            "zIndex": {
+              "@undefined": true
+            },
+            "extent": {
+              "@undefined": true
+            },
+            "expandParent": true,
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "origin": {
+              "@undefined": true
+            },
+            "handles": {
+              "@undefined": true
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "dimensions": {
+                "@undefined": true
+              },
+              "resizing": {
+                "@undefined": true
+              },
+              "setAttributes": {
+                "@undefined": true
+              },
+              "position": {
+                "@undefined": true
+              },
+              "positionAbsolute": {
+                "@undefined": true
+              },
+              "dragging": {
+                "@undefined": true
+              },
+              "item": {
+                "@undefined": true
+              },
+              "index": {
+                "@undefined": true
+              },
+              "type": "select",
+              "id": "child",
+              "selected": true
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onEdgesChange",
+        "args": [
+          []
+        ]
+      },
+      {
+        "name": "onNodeDragStart",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "id": "child",
+            "position": {
+              "x": 40,
+              "y": 40
+            },
+            "data": {
+              "label": "child"
+            },
+            "type": {
+              "@undefined": true
+            },
+            "sourcePosition": {
+              "@undefined": true
+            },
+            "targetPosition": {
+              "@undefined": true
+            },
+            "hidden": false,
+            "selected": false,
+            "dragging": true,
+            "draggable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "connectable": {
+              "@undefined": true
+            },
+            "deletable": {
+              "@undefined": true
+            },
+            "dragHandle": {
+              "@undefined": true
+            },
+            "width": 150,
+            "height": 37,
+            "initialWidth": {
+              "@undefined": true
+            },
+            "initialHeight": {
+              "@undefined": true
+            },
+            "parentId": "parent",
+            "zIndex": {
+              "@undefined": true
+            },
+            "extent": {
+              "@undefined": true
+            },
+            "expandParent": true,
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "origin": {
+              "@undefined": true
+            },
+            "handles": {
+              "@undefined": true
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          },
+          [
+            {
+              "id": "child",
+              "position": {
+                "x": 40,
+                "y": 40
+              },
+              "data": {
+                "label": "child"
+              },
+              "type": {
+                "@undefined": true
+              },
+              "sourcePosition": {
+                "@undefined": true
+              },
+              "targetPosition": {
+                "@undefined": true
+              },
+              "hidden": false,
+              "selected": false,
+              "dragging": true,
+              "draggable": {
+                "@undefined": true
+              },
+              "selectable": {
+                "@undefined": true
+              },
+              "connectable": {
+                "@undefined": true
+              },
+              "deletable": {
+                "@undefined": true
+              },
+              "dragHandle": {
+                "@undefined": true
+              },
+              "width": 150,
+              "height": 37,
+              "initialWidth": {
+                "@undefined": true
+              },
+              "initialHeight": {
+                "@undefined": true
+              },
+              "parentId": "parent",
+              "zIndex": {
+                "@undefined": true
+              },
+              "extent": {
+                "@undefined": true
+              },
+              "expandParent": true,
+              "ariaLabel": {
+                "@undefined": true
+              },
+              "origin": {
+                "@undefined": true
+              },
+              "handles": {
+                "@undefined": true
+              },
+              "measured": {
+                "width": 150,
+                "height": 37
+              },
+              "className": {
+                "@undefined": true
+              },
+              "style": {
+                "@undefined": true
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onSelectionChange",
+        "args": [
+          {
+            "nodes": [
+              {
+                "id": "child",
+                "position": {
+                  "x": 40,
+                  "y": 40
+                },
+                "data": {
+                  "label": "child"
+                },
+                "type": {
+                  "@undefined": true
+                },
+                "sourcePosition": {
+                  "@undefined": true
+                },
+                "targetPosition": {
+                  "@undefined": true
+                },
+                "hidden": false,
+                "selected": true,
+                "dragging": false,
+                "draggable": {
+                  "@undefined": true
+                },
+                "selectable": {
+                  "@undefined": true
+                },
+                "connectable": {
+                  "@undefined": true
+                },
+                "deletable": {
+                  "@undefined": true
+                },
+                "dragHandle": {
+                  "@undefined": true
+                },
+                "width": 150,
+                "height": 37,
+                "initialWidth": {
+                  "@undefined": true
+                },
+                "initialHeight": {
+                  "@undefined": true
+                },
+                "parentId": "parent",
+                "zIndex": {
+                  "@undefined": true
+                },
+                "extent": {
+                  "@undefined": true
+                },
+                "expandParent": true,
+                "ariaLabel": {
+                  "@undefined": true
+                },
+                "origin": {
+                  "@undefined": true
+                },
+                "handles": {
+                  "@undefined": true
+                },
+                "measured": {
+                  "width": 150,
+                  "height": 37
+                },
+                "className": {
+                  "@undefined": true
+                },
+                "style": {
+                  "@undefined": true
+                }
+              }
+            ],
+            "edges": []
+          }
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 70,
+            "y": 283,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 70,
+            "y": 283,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerMove",
+            "_targetInst": null,
+            "type": "pointermove",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 350.60000002384186,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 335,
+            "screenY": 425,
+            "clientX": 335,
+            "clientY": 425,
+            "pageX": 335,
+            "pageY": 425,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 1,
+            "relatedTarget": null,
+            "movementX": 35,
+            "movementY": 25,
+            "pointerId": 1,
+            "width": 1,
+            "height": 1,
+            "pressure": 0.5,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "mouse",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "dimensions": {
+                "@undefined": true
+              },
+              "resizing": {
+                "@undefined": true
+              },
+              "setAttributes": {
+                "@undefined": true
+              },
+              "selected": {
+                "@undefined": true
+              },
+              "item": {
+                "@undefined": true
+              },
+              "index": {
+                "@undefined": true
+              },
+              "type": "position",
+              "id": "child",
+              "position": {
+                "x": 57.5,
+                "y": 52.5
+              },
+              "positionAbsolute": {
+                "x": 57.5,
+                "y": 52.5
+              },
+              "dragging": true
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodeDrag",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "id": "child",
+            "position": {
+              "x": 57.5,
+              "y": 52.5
+            },
+            "data": {
+              "label": "child"
+            },
+            "type": {
+              "@undefined": true
+            },
+            "sourcePosition": {
+              "@undefined": true
+            },
+            "targetPosition": {
+              "@undefined": true
+            },
+            "hidden": false,
+            "selected": true,
+            "dragging": true,
+            "draggable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "connectable": {
+              "@undefined": true
+            },
+            "deletable": {
+              "@undefined": true
+            },
+            "dragHandle": {
+              "@undefined": true
+            },
+            "width": 150,
+            "height": 37,
+            "initialWidth": {
+              "@undefined": true
+            },
+            "initialHeight": {
+              "@undefined": true
+            },
+            "parentId": "parent",
+            "zIndex": {
+              "@undefined": true
+            },
+            "extent": {
+              "@undefined": true
+            },
+            "expandParent": true,
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "origin": {
+              "@undefined": true
+            },
+            "handles": {
+              "@undefined": true
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          },
+          [
+            {
+              "id": "child",
+              "position": {
+                "x": 57.5,
+                "y": 52.5
+              },
+              "data": {
+                "label": "child"
+              },
+              "type": {
+                "@undefined": true
+              },
+              "sourcePosition": {
+                "@undefined": true
+              },
+              "targetPosition": {
+                "@undefined": true
+              },
+              "hidden": false,
+              "selected": true,
+              "dragging": true,
+              "draggable": {
+                "@undefined": true
+              },
+              "selectable": {
+                "@undefined": true
+              },
+              "connectable": {
+                "@undefined": true
+              },
+              "deletable": {
+                "@undefined": true
+              },
+              "dragHandle": {
+                "@undefined": true
+              },
+              "width": 150,
+              "height": 37,
+              "initialWidth": {
+                "@undefined": true
+              },
+              "initialHeight": {
+                "@undefined": true
+              },
+              "parentId": "parent",
+              "zIndex": {
+                "@undefined": true
+              },
+              "extent": {
+                "@undefined": true
+              },
+              "expandParent": true,
+              "ariaLabel": {
+                "@undefined": true
+              },
+              "origin": {
+                "@undefined": true
+              },
+              "handles": {
+                "@undefined": true
+              },
+              "measured": {
+                "width": 150,
+                "height": 37
+              },
+              "className": {
+                "@undefined": true
+              },
+              "style": {
+                "@undefined": true
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onPaneMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerMove",
+            "_targetInst": null,
+            "type": "pointermove",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 373.60000002384186,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 370,
+            "screenY": 450,
+            "clientX": 370,
+            "clientY": 450,
+            "pageX": 370,
+            "pageY": 450,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 1,
+            "relatedTarget": null,
+            "movementX": 35,
+            "movementY": 25,
+            "pointerId": 1,
+            "width": 1,
+            "height": 1,
+            "pressure": 0.5,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "mouse",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "dimensions": {
+                "@undefined": true
+              },
+              "resizing": {
+                "@undefined": true
+              },
+              "setAttributes": {
+                "@undefined": true
+              },
+              "selected": {
+                "@undefined": true
+              },
+              "item": {
+                "@undefined": true
+              },
+              "index": {
+                "@undefined": true
+              },
+              "type": "position",
+              "id": "child",
+              "position": {
+                "x": 75,
+                "y": 65
+              },
+              "positionAbsolute": {
+                "x": 75,
+                "y": 65
+              },
+              "dragging": true
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodeDrag",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "id": "child",
+            "position": {
+              "x": 75,
+              "y": 65
+            },
+            "data": {
+              "label": "child"
+            },
+            "type": {
+              "@undefined": true
+            },
+            "sourcePosition": {
+              "@undefined": true
+            },
+            "targetPosition": {
+              "@undefined": true
+            },
+            "hidden": false,
+            "selected": true,
+            "dragging": true,
+            "draggable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "connectable": {
+              "@undefined": true
+            },
+            "deletable": {
+              "@undefined": true
+            },
+            "dragHandle": {
+              "@undefined": true
+            },
+            "width": 150,
+            "height": 37,
+            "initialWidth": {
+              "@undefined": true
+            },
+            "initialHeight": {
+              "@undefined": true
+            },
+            "parentId": "parent",
+            "zIndex": {
+              "@undefined": true
+            },
+            "extent": {
+              "@undefined": true
+            },
+            "expandParent": true,
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "origin": {
+              "@undefined": true
+            },
+            "handles": {
+              "@undefined": true
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          },
+          [
+            {
+              "id": "child",
+              "position": {
+                "x": 75,
+                "y": 65
+              },
+              "data": {
+                "label": "child"
+              },
+              "type": {
+                "@undefined": true
+              },
+              "sourcePosition": {
+                "@undefined": true
+              },
+              "targetPosition": {
+                "@undefined": true
+              },
+              "hidden": false,
+              "selected": true,
+              "dragging": true,
+              "draggable": {
+                "@undefined": true
+              },
+              "selectable": {
+                "@undefined": true
+              },
+              "connectable": {
+                "@undefined": true
+              },
+              "deletable": {
+                "@undefined": true
+              },
+              "dragHandle": {
+                "@undefined": true
+              },
+              "width": 150,
+              "height": 37,
+              "initialWidth": {
+                "@undefined": true
+              },
+              "initialHeight": {
+                "@undefined": true
+              },
+              "parentId": "parent",
+              "zIndex": {
+                "@undefined": true
+              },
+              "extent": {
+                "@undefined": true
+              },
+              "expandParent": true,
+              "ariaLabel": {
+                "@undefined": true
+              },
+              "origin": {
+                "@undefined": true
+              },
+              "handles": {
+                "@undefined": true
+              },
+              "measured": {
+                "width": 150,
+                "height": 37
+              },
+              "className": {
+                "@undefined": true
+              },
+              "style": {
+                "@undefined": true
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 70,
+            "y": 270.5,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 70,
+            "y": 270.5,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onNodeMouseLeave",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseLeave",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseleave",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 389.2999999523163,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 405,
+            "screenY": 475,
+            "clientX": 405,
+            "clientY": 475,
+            "pageX": 405,
+            "pageY": 475,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 1,
+            "relatedTarget": {
+              "@ref": "DIV"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "child",
+            "position": {
+              "x": 75,
+              "y": 65
+            },
+            "data": {
+              "label": "child"
+            },
+            "type": {
+              "@undefined": true
+            },
+            "sourcePosition": {
+              "@undefined": true
+            },
+            "targetPosition": {
+              "@undefined": true
+            },
+            "hidden": false,
+            "selected": true,
+            "dragging": true,
+            "draggable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "connectable": {
+              "@undefined": true
+            },
+            "deletable": {
+              "@undefined": true
+            },
+            "dragHandle": {
+              "@undefined": true
+            },
+            "width": 150,
+            "height": 37,
+            "initialWidth": {
+              "@undefined": true
+            },
+            "initialHeight": {
+              "@undefined": true
+            },
+            "parentId": "parent",
+            "zIndex": {
+              "@undefined": true
+            },
+            "extent": {
+              "@undefined": true
+            },
+            "expandParent": true,
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "origin": {
+              "@undefined": true
+            },
+            "handles": {
+              "@undefined": true
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerMove",
+            "_targetInst": null,
+            "type": "pointermove",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 389.2999999523163,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 405,
+            "screenY": 475,
+            "clientX": 405,
+            "clientY": 475,
+            "pageX": 405,
+            "pageY": 475,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 1,
+            "relatedTarget": null,
+            "movementX": 35,
+            "movementY": 25,
+            "pointerId": 1,
+            "width": 1,
+            "height": 1,
+            "pressure": 0.5,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "mouse",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "dimensions": {
+                "@undefined": true
+              },
+              "resizing": {
+                "@undefined": true
+              },
+              "setAttributes": {
+                "@undefined": true
+              },
+              "selected": {
+                "@undefined": true
+              },
+              "item": {
+                "@undefined": true
+              },
+              "index": {
+                "@undefined": true
+              },
+              "type": "position",
+              "id": "child",
+              "position": {
+                "x": 92.5,
+                "y": 83.75
+              },
+              "positionAbsolute": {
+                "x": 92.5,
+                "y": 83.75
+              },
+              "dragging": true
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodeDrag",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "id": "child",
+            "position": {
+              "x": 92.5,
+              "y": 83.75
+            },
+            "data": {
+              "label": "child"
+            },
+            "type": {
+              "@undefined": true
+            },
+            "sourcePosition": {
+              "@undefined": true
+            },
+            "targetPosition": {
+              "@undefined": true
+            },
+            "hidden": false,
+            "selected": true,
+            "dragging": true,
+            "draggable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "connectable": {
+              "@undefined": true
+            },
+            "deletable": {
+              "@undefined": true
+            },
+            "dragHandle": {
+              "@undefined": true
+            },
+            "width": 150,
+            "height": 37,
+            "initialWidth": {
+              "@undefined": true
+            },
+            "initialHeight": {
+              "@undefined": true
+            },
+            "parentId": "parent",
+            "zIndex": {
+              "@undefined": true
+            },
+            "extent": {
+              "@undefined": true
+            },
+            "expandParent": true,
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "origin": {
+              "@undefined": true
+            },
+            "handles": {
+              "@undefined": true
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          },
+          [
+            {
+              "id": "child",
+              "position": {
+                "x": 92.5,
+                "y": 83.75
+              },
+              "data": {
+                "label": "child"
+              },
+              "type": {
+                "@undefined": true
+              },
+              "sourcePosition": {
+                "@undefined": true
+              },
+              "targetPosition": {
+                "@undefined": true
+              },
+              "hidden": false,
+              "selected": true,
+              "dragging": true,
+              "draggable": {
+                "@undefined": true
+              },
+              "selectable": {
+                "@undefined": true
+              },
+              "connectable": {
+                "@undefined": true
+              },
+              "deletable": {
+                "@undefined": true
+              },
+              "dragHandle": {
+                "@undefined": true
+              },
+              "width": 150,
+              "height": 37,
+              "initialWidth": {
+                "@undefined": true
+              },
+              "initialHeight": {
+                "@undefined": true
+              },
+              "parentId": "parent",
+              "zIndex": {
+                "@undefined": true
+              },
+              "extent": {
+                "@undefined": true
+              },
+              "expandParent": true,
+              "ariaLabel": {
+                "@undefined": true
+              },
+              "origin": {
+                "@undefined": true
+              },
+              "handles": {
+                "@undefined": true
+              },
+              "measured": {
+                "width": 150,
+                "height": 37
+              },
+              "className": {
+                "@undefined": true
+              },
+              "style": {
+                "@undefined": true
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 70,
+            "y": 258,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 70,
+            "y": 258,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerMove",
+            "_targetInst": null,
+            "type": "pointermove",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 406.2000000476837,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 440,
+            "screenY": 500,
+            "clientX": 440,
+            "clientY": 500,
+            "pageX": 440,
+            "pageY": 500,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 1,
+            "relatedTarget": null,
+            "movementX": 35,
+            "movementY": 25,
+            "pointerId": 1,
+            "width": 1,
+            "height": 1,
+            "pressure": 0.5,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "mouse",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "dimensions": {
+                "@undefined": true
+              },
+              "resizing": {
+                "@undefined": true
+              },
+              "setAttributes": {
+                "@undefined": true
+              },
+              "selected": {
+                "@undefined": true
+              },
+              "item": {
+                "@undefined": true
+              },
+              "index": {
+                "@undefined": true
+              },
+              "type": "position",
+              "id": "child",
+              "position": {
+                "x": 110,
+                "y": 102.5
+              },
+              "positionAbsolute": {
+                "x": 110,
+                "y": 102.5
+              },
+              "dragging": true
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodeDrag",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "id": "child",
+            "position": {
+              "x": 110,
+              "y": 102.5
+            },
+            "data": {
+              "label": "child"
+            },
+            "type": {
+              "@undefined": true
+            },
+            "sourcePosition": {
+              "@undefined": true
+            },
+            "targetPosition": {
+              "@undefined": true
+            },
+            "hidden": false,
+            "selected": true,
+            "dragging": true,
+            "draggable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "connectable": {
+              "@undefined": true
+            },
+            "deletable": {
+              "@undefined": true
+            },
+            "dragHandle": {
+              "@undefined": true
+            },
+            "width": 150,
+            "height": 37,
+            "initialWidth": {
+              "@undefined": true
+            },
+            "initialHeight": {
+              "@undefined": true
+            },
+            "parentId": "parent",
+            "zIndex": {
+              "@undefined": true
+            },
+            "extent": {
+              "@undefined": true
+            },
+            "expandParent": true,
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "origin": {
+              "@undefined": true
+            },
+            "handles": {
+              "@undefined": true
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          },
+          [
+            {
+              "id": "child",
+              "position": {
+                "x": 110,
+                "y": 102.5
+              },
+              "data": {
+                "label": "child"
+              },
+              "type": {
+                "@undefined": true
+              },
+              "sourcePosition": {
+                "@undefined": true
+              },
+              "targetPosition": {
+                "@undefined": true
+              },
+              "hidden": false,
+              "selected": true,
+              "dragging": true,
+              "draggable": {
+                "@undefined": true
+              },
+              "selectable": {
+                "@undefined": true
+              },
+              "connectable": {
+                "@undefined": true
+              },
+              "deletable": {
+                "@undefined": true
+              },
+              "dragHandle": {
+                "@undefined": true
+              },
+              "width": 150,
+              "height": 37,
+              "initialWidth": {
+                "@undefined": true
+              },
+              "initialHeight": {
+                "@undefined": true
+              },
+              "parentId": "parent",
+              "zIndex": {
+                "@undefined": true
+              },
+              "extent": {
+                "@undefined": true
+              },
+              "expandParent": true,
+              "ariaLabel": {
+                "@undefined": true
+              },
+              "origin": {
+                "@undefined": true
+              },
+              "handles": {
+                "@undefined": true
+              },
+              "measured": {
+                "width": 150,
+                "height": 37
+              },
+              "className": {
+                "@undefined": true
+              },
+              "style": {
+                "@undefined": true
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 70,
+            "y": 239.25,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 70,
+            "y": 239.25,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerMove",
+            "_targetInst": null,
+            "type": "pointermove",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 422.7000000476837,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 475,
+            "screenY": 525,
+            "clientX": 475,
+            "clientY": 525,
+            "pageX": 475,
+            "pageY": 525,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 1,
+            "relatedTarget": null,
+            "movementX": 35,
+            "movementY": 25,
+            "pointerId": 1,
+            "width": 1,
+            "height": 1,
+            "pressure": 0.5,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "mouse",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "dimensions": {
+                "@undefined": true
+              },
+              "resizing": {
+                "@undefined": true
+              },
+              "setAttributes": {
+                "@undefined": true
+              },
+              "selected": {
+                "@undefined": true
+              },
+              "item": {
+                "@undefined": true
+              },
+              "index": {
+                "@undefined": true
+              },
+              "type": "position",
+              "id": "child",
+              "position": {
+                "x": 127.5,
+                "y": 124.375
+              },
+              "positionAbsolute": {
+                "x": 127.5,
+                "y": 124.375
+              },
+              "dragging": true
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodeDrag",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "id": "child",
+            "position": {
+              "x": 127.5,
+              "y": 124.375
+            },
+            "data": {
+              "label": "child"
+            },
+            "type": {
+              "@undefined": true
+            },
+            "sourcePosition": {
+              "@undefined": true
+            },
+            "targetPosition": {
+              "@undefined": true
+            },
+            "hidden": false,
+            "selected": true,
+            "dragging": true,
+            "draggable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "connectable": {
+              "@undefined": true
+            },
+            "deletable": {
+              "@undefined": true
+            },
+            "dragHandle": {
+              "@undefined": true
+            },
+            "width": 150,
+            "height": 37,
+            "initialWidth": {
+              "@undefined": true
+            },
+            "initialHeight": {
+              "@undefined": true
+            },
+            "parentId": "parent",
+            "zIndex": {
+              "@undefined": true
+            },
+            "extent": {
+              "@undefined": true
+            },
+            "expandParent": true,
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "origin": {
+              "@undefined": true
+            },
+            "handles": {
+              "@undefined": true
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          },
+          [
+            {
+              "id": "child",
+              "position": {
+                "x": 127.5,
+                "y": 124.375
+              },
+              "data": {
+                "label": "child"
+              },
+              "type": {
+                "@undefined": true
+              },
+              "sourcePosition": {
+                "@undefined": true
+              },
+              "targetPosition": {
+                "@undefined": true
+              },
+              "hidden": false,
+              "selected": true,
+              "dragging": true,
+              "draggable": {
+                "@undefined": true
+              },
+              "selectable": {
+                "@undefined": true
+              },
+              "connectable": {
+                "@undefined": true
+              },
+              "deletable": {
+                "@undefined": true
+              },
+              "dragHandle": {
+                "@undefined": true
+              },
+              "width": 150,
+              "height": 37,
+              "initialWidth": {
+                "@undefined": true
+              },
+              "initialHeight": {
+                "@undefined": true
+              },
+              "parentId": "parent",
+              "zIndex": {
+                "@undefined": true
+              },
+              "extent": {
+                "@undefined": true
+              },
+              "expandParent": true,
+              "ariaLabel": {
+                "@undefined": true
+              },
+              "origin": {
+                "@undefined": true
+              },
+              "handles": {
+                "@undefined": true
+              },
+              "measured": {
+                "width": 150,
+                "height": 37
+              },
+              "className": {
+                "@undefined": true
+              },
+              "style": {
+                "@undefined": true
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 70,
+            "y": 220.5,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 70,
+            "y": 220.5,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerMove",
+            "_targetInst": null,
+            "type": "pointermove",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 437.7000000476837,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 510,
+            "screenY": 550,
+            "clientX": 510,
+            "clientY": 550,
+            "pageX": 510,
+            "pageY": 550,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 1,
+            "relatedTarget": null,
+            "movementX": 35,
+            "movementY": 25,
+            "pointerId": 1,
+            "width": 1,
+            "height": 1,
+            "pressure": 0.5,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "mouse",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "dimensions": {
+                "@undefined": true
+              },
+              "resizing": {
+                "@undefined": true
+              },
+              "setAttributes": {
+                "@undefined": true
+              },
+              "selected": {
+                "@undefined": true
+              },
+              "item": {
+                "@undefined": true
+              },
+              "index": {
+                "@undefined": true
+              },
+              "type": "position",
+              "id": "child",
+              "position": {
+                "x": 145,
+                "y": 146.25
+              },
+              "positionAbsolute": {
+                "x": 145,
+                "y": 146.25
+              },
+              "dragging": true
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodeDrag",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "id": "child",
+            "position": {
+              "x": 145,
+              "y": 146.25
+            },
+            "data": {
+              "label": "child"
+            },
+            "type": {
+              "@undefined": true
+            },
+            "sourcePosition": {
+              "@undefined": true
+            },
+            "targetPosition": {
+              "@undefined": true
+            },
+            "hidden": false,
+            "selected": true,
+            "dragging": true,
+            "draggable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "connectable": {
+              "@undefined": true
+            },
+            "deletable": {
+              "@undefined": true
+            },
+            "dragHandle": {
+              "@undefined": true
+            },
+            "width": 150,
+            "height": 37,
+            "initialWidth": {
+              "@undefined": true
+            },
+            "initialHeight": {
+              "@undefined": true
+            },
+            "parentId": "parent",
+            "zIndex": {
+              "@undefined": true
+            },
+            "extent": {
+              "@undefined": true
+            },
+            "expandParent": true,
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "origin": {
+              "@undefined": true
+            },
+            "handles": {
+              "@undefined": true
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          },
+          [
+            {
+              "id": "child",
+              "position": {
+                "x": 145,
+                "y": 146.25
+              },
+              "data": {
+                "label": "child"
+              },
+              "type": {
+                "@undefined": true
+              },
+              "sourcePosition": {
+                "@undefined": true
+              },
+              "targetPosition": {
+                "@undefined": true
+              },
+              "hidden": false,
+              "selected": true,
+              "dragging": true,
+              "draggable": {
+                "@undefined": true
+              },
+              "selectable": {
+                "@undefined": true
+              },
+              "connectable": {
+                "@undefined": true
+              },
+              "deletable": {
+                "@undefined": true
+              },
+              "dragHandle": {
+                "@undefined": true
+              },
+              "width": 150,
+              "height": 37,
+              "initialWidth": {
+                "@undefined": true
+              },
+              "initialHeight": {
+                "@undefined": true
+              },
+              "parentId": "parent",
+              "zIndex": {
+                "@undefined": true
+              },
+              "extent": {
+                "@undefined": true
+              },
+              "expandParent": true,
+              "ariaLabel": {
+                "@undefined": true
+              },
+              "origin": {
+                "@undefined": true
+              },
+              "handles": {
+                "@undefined": true
+              },
+              "measured": {
+                "width": 150,
+                "height": 37
+              },
+              "className": {
+                "@undefined": true
+              },
+              "style": {
+                "@undefined": true
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 70,
+            "y": 198.625,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 70,
+            "y": 198.625,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onEdgeMouseEnter",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseEnter",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseenter",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "path"
+            },
+            "currentTarget": {
+              "@ref": "g"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 456.2000000476837,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 545,
+            "screenY": 575,
+            "clientX": 545,
+            "clientY": 575,
+            "pageX": 545,
+            "pageY": 575,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 1,
+            "relatedTarget": {
+              "@ref": "DIV"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "child-outside",
+            "type": {
+              "@undefined": true
+            },
+            "source": "child",
+            "target": "outside",
+            "sourceHandle": {
+              "@undefined": true
+            },
+            "targetHandle": {
+              "@undefined": true
+            },
+            "animated": false,
+            "hidden": false,
+            "deletable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "data": {
+              "@undefined": true
+            },
+            "selected": false,
+            "markerStart": {
+              "@undefined": true
+            },
+            "markerEnd": {
+              "@undefined": true
+            },
+            "zIndex": {
+              "@undefined": true
+            },
+            "label": {
+              "@undefined": true
+            },
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "interactionWidth": {
+              "@undefined": true
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerMove",
+            "_targetInst": null,
+            "type": "pointermove",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "path"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 456.2000000476837,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 545,
+            "screenY": 575,
+            "clientX": 545,
+            "clientY": 575,
+            "pageX": 545,
+            "pageY": 575,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 1,
+            "relatedTarget": null,
+            "movementX": 35,
+            "movementY": 25,
+            "pointerId": 1,
+            "width": 1,
+            "height": 1,
+            "pressure": 0.5,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "mouse",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "dimensions": {
+                "@undefined": true
+              },
+              "resizing": {
+                "@undefined": true
+              },
+              "setAttributes": {
+                "@undefined": true
+              },
+              "selected": {
+                "@undefined": true
+              },
+              "item": {
+                "@undefined": true
+              },
+              "index": {
+                "@undefined": true
+              },
+              "type": "position",
+              "id": "child",
+              "position": {
+                "x": 162.5,
+                "y": 169.6875
+              },
+              "positionAbsolute": {
+                "x": 162.5,
+                "y": 169.6875
+              },
+              "dragging": true
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodeDrag",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "id": "child",
+            "position": {
+              "x": 162.5,
+              "y": 169.6875
+            },
+            "data": {
+              "label": "child"
+            },
+            "type": {
+              "@undefined": true
+            },
+            "sourcePosition": {
+              "@undefined": true
+            },
+            "targetPosition": {
+              "@undefined": true
+            },
+            "hidden": false,
+            "selected": true,
+            "dragging": true,
+            "draggable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "connectable": {
+              "@undefined": true
+            },
+            "deletable": {
+              "@undefined": true
+            },
+            "dragHandle": {
+              "@undefined": true
+            },
+            "width": 150,
+            "height": 37,
+            "initialWidth": {
+              "@undefined": true
+            },
+            "initialHeight": {
+              "@undefined": true
+            },
+            "parentId": "parent",
+            "zIndex": {
+              "@undefined": true
+            },
+            "extent": {
+              "@undefined": true
+            },
+            "expandParent": true,
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "origin": {
+              "@undefined": true
+            },
+            "handles": {
+              "@undefined": true
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          },
+          [
+            {
+              "id": "child",
+              "position": {
+                "x": 162.5,
+                "y": 169.6875
+              },
+              "data": {
+                "label": "child"
+              },
+              "type": {
+                "@undefined": true
+              },
+              "sourcePosition": {
+                "@undefined": true
+              },
+              "targetPosition": {
+                "@undefined": true
+              },
+              "hidden": false,
+              "selected": true,
+              "dragging": true,
+              "draggable": {
+                "@undefined": true
+              },
+              "selectable": {
+                "@undefined": true
+              },
+              "connectable": {
+                "@undefined": true
+              },
+              "deletable": {
+                "@undefined": true
+              },
+              "dragHandle": {
+                "@undefined": true
+              },
+              "width": 150,
+              "height": 37,
+              "initialWidth": {
+                "@undefined": true
+              },
+              "initialHeight": {
+                "@undefined": true
+              },
+              "parentId": "parent",
+              "zIndex": {
+                "@undefined": true
+              },
+              "extent": {
+                "@undefined": true
+              },
+              "expandParent": true,
+              "ariaLabel": {
+                "@undefined": true
+              },
+              "origin": {
+                "@undefined": true
+              },
+              "handles": {
+                "@undefined": true
+              },
+              "measured": {
+                "width": 150,
+                "height": 37
+              },
+              "className": {
+                "@undefined": true
+              },
+              "style": {
+                "@undefined": true
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 70,
+            "y": 176.75,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 70,
+            "y": 176.75,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerMove",
+            "_targetInst": null,
+            "type": "pointermove",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "path"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 471.60000002384186,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 580,
+            "screenY": 600,
+            "clientX": 580,
+            "clientY": 600,
+            "pageX": 580,
+            "pageY": 600,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 1,
+            "relatedTarget": null,
+            "movementX": 35,
+            "movementY": 25,
+            "pointerId": 1,
+            "width": 1,
+            "height": 1,
+            "pressure": 0.5,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "mouse",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "dimensions": {
+                "@undefined": true
+              },
+              "resizing": {
+                "@undefined": true
+              },
+              "setAttributes": {
+                "@undefined": true
+              },
+              "selected": {
+                "@undefined": true
+              },
+              "item": {
+                "@undefined": true
+              },
+              "index": {
+                "@undefined": true
+              },
+              "type": "position",
+              "id": "child",
+              "position": {
+                "x": 180,
+                "y": 193.125
+              },
+              "positionAbsolute": {
+                "x": 180,
+                "y": 193.125
+              },
+              "dragging": true
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodeDrag",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "id": "child",
+            "position": {
+              "x": 180,
+              "y": 193.125
+            },
+            "data": {
+              "label": "child"
+            },
+            "type": {
+              "@undefined": true
+            },
+            "sourcePosition": {
+              "@undefined": true
+            },
+            "targetPosition": {
+              "@undefined": true
+            },
+            "hidden": false,
+            "selected": true,
+            "dragging": true,
+            "draggable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "connectable": {
+              "@undefined": true
+            },
+            "deletable": {
+              "@undefined": true
+            },
+            "dragHandle": {
+              "@undefined": true
+            },
+            "width": 150,
+            "height": 37,
+            "initialWidth": {
+              "@undefined": true
+            },
+            "initialHeight": {
+              "@undefined": true
+            },
+            "parentId": "parent",
+            "zIndex": {
+              "@undefined": true
+            },
+            "extent": {
+              "@undefined": true
+            },
+            "expandParent": true,
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "origin": {
+              "@undefined": true
+            },
+            "handles": {
+              "@undefined": true
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          },
+          [
+            {
+              "id": "child",
+              "position": {
+                "x": 180,
+                "y": 193.125
+              },
+              "data": {
+                "label": "child"
+              },
+              "type": {
+                "@undefined": true
+              },
+              "sourcePosition": {
+                "@undefined": true
+              },
+              "targetPosition": {
+                "@undefined": true
+              },
+              "hidden": false,
+              "selected": true,
+              "dragging": true,
+              "draggable": {
+                "@undefined": true
+              },
+              "selectable": {
+                "@undefined": true
+              },
+              "connectable": {
+                "@undefined": true
+              },
+              "deletable": {
+                "@undefined": true
+              },
+              "dragHandle": {
+                "@undefined": true
+              },
+              "width": 150,
+              "height": 37,
+              "initialWidth": {
+                "@undefined": true
+              },
+              "initialHeight": {
+                "@undefined": true
+              },
+              "parentId": "parent",
+              "zIndex": {
+                "@undefined": true
+              },
+              "extent": {
+                "@undefined": true
+              },
+              "expandParent": true,
+              "ariaLabel": {
+                "@undefined": true
+              },
+              "origin": {
+                "@undefined": true
+              },
+              "handles": {
+                "@undefined": true
+              },
+              "measured": {
+                "width": 150,
+                "height": 37
+              },
+              "className": {
+                "@undefined": true
+              },
+              "style": {
+                "@undefined": true
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 70,
+            "y": 153.3125,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 70,
+            "y": 153.3125,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onEdgeMouseLeave",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseLeave",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseleave",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "path"
+            },
+            "currentTarget": {
+              "@ref": "g"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 486.2000000476837,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 580,
+            "screenY": 600,
+            "clientX": 580,
+            "clientY": 600,
+            "pageX": 580,
+            "pageY": 600,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": {
+              "@ref": "DIV"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "child-outside",
+            "type": {
+              "@undefined": true
+            },
+            "source": "child",
+            "target": "outside",
+            "sourceHandle": {
+              "@undefined": true
+            },
+            "targetHandle": {
+              "@undefined": true
+            },
+            "animated": false,
+            "hidden": false,
+            "deletable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "data": {
+              "@undefined": true
+            },
+            "selected": false,
+            "markerStart": {
+              "@undefined": true
+            },
+            "markerEnd": {
+              "@undefined": true
+            },
+            "zIndex": {
+              "@undefined": true
+            },
+            "label": {
+              "@undefined": true
+            },
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "interactionWidth": {
+              "@undefined": true
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodeMouseEnter",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseEnter",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseenter",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 486.2000000476837,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 580,
+            "screenY": 600,
+            "clientX": 580,
+            "clientY": 600,
+            "pageX": 580,
+            "pageY": 600,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": {
+              "@ref": "path"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "child",
+            "position": {
+              "x": 180,
+              "y": 193.125
+            },
+            "data": {
+              "label": "child"
+            },
+            "type": {
+              "@undefined": true
+            },
+            "sourcePosition": {
+              "@undefined": true
+            },
+            "targetPosition": {
+              "@undefined": true
+            },
+            "hidden": false,
+            "selected": true,
+            "dragging": true,
+            "draggable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "connectable": {
+              "@undefined": true
+            },
+            "deletable": {
+              "@undefined": true
+            },
+            "dragHandle": {
+              "@undefined": true
+            },
+            "width": 150,
+            "height": 37,
+            "initialWidth": {
+              "@undefined": true
+            },
+            "initialHeight": {
+              "@undefined": true
+            },
+            "parentId": "parent",
+            "zIndex": {
+              "@undefined": true
+            },
+            "extent": {
+              "@undefined": true
+            },
+            "expandParent": true,
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "origin": {
+              "@undefined": true
+            },
+            "handles": {
+              "@undefined": true
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "dimensions": {
+                "@undefined": true
+              },
+              "resizing": {
+                "@undefined": true
+              },
+              "setAttributes": {
+                "@undefined": true
+              },
+              "selected": {
+                "@undefined": true
+              },
+              "item": {
+                "@undefined": true
+              },
+              "index": {
+                "@undefined": true
+              },
+              "type": "position",
+              "id": "child",
+              "position": {
+                "x": 180,
+                "y": 193.125
+              },
+              "positionAbsolute": {
+                "x": 180,
+                "y": 193.125
+              },
+              "dragging": false
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodeDragStop",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "id": "child",
+            "position": {
+              "x": 180,
+              "y": 193.125
+            },
+            "data": {
+              "label": "child"
+            },
+            "type": {
+              "@undefined": true
+            },
+            "sourcePosition": {
+              "@undefined": true
+            },
+            "targetPosition": {
+              "@undefined": true
+            },
+            "hidden": false,
+            "selected": true,
+            "dragging": false,
+            "draggable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "connectable": {
+              "@undefined": true
+            },
+            "deletable": {
+              "@undefined": true
+            },
+            "dragHandle": {
+              "@undefined": true
+            },
+            "width": 150,
+            "height": 37,
+            "initialWidth": {
+              "@undefined": true
+            },
+            "initialHeight": {
+              "@undefined": true
+            },
+            "parentId": "parent",
+            "zIndex": {
+              "@undefined": true
+            },
+            "extent": {
+              "@undefined": true
+            },
+            "expandParent": true,
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "origin": {
+              "@undefined": true
+            },
+            "handles": {
+              "@undefined": true
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          },
+          [
+            {
+              "id": "child",
+              "position": {
+                "x": 180,
+                "y": 193.125
+              },
+              "data": {
+                "label": "child"
+              },
+              "type": {
+                "@undefined": true
+              },
+              "sourcePosition": {
+                "@undefined": true
+              },
+              "targetPosition": {
+                "@undefined": true
+              },
+              "hidden": false,
+              "selected": true,
+              "dragging": false,
+              "draggable": {
+                "@undefined": true
+              },
+              "selectable": {
+                "@undefined": true
+              },
+              "connectable": {
+                "@undefined": true
+              },
+              "deletable": {
+                "@undefined": true
+              },
+              "dragHandle": {
+                "@undefined": true
+              },
+              "width": 150,
+              "height": 37,
+              "initialWidth": {
+                "@undefined": true
+              },
+              "initialHeight": {
+                "@undefined": true
+              },
+              "parentId": "parent",
+              "zIndex": {
+                "@undefined": true
+              },
+              "extent": {
+                "@undefined": true
+              },
+              "expandParent": true,
+              "ariaLabel": {
+                "@undefined": true
+              },
+              "origin": {
+                "@undefined": true
+              },
+              "handles": {
+                "@undefined": true
+              },
+              "measured": {
+                "width": 150,
+                "height": 37
+              },
+              "className": {
+                "@undefined": true
+              },
+              "style": {
+                "@undefined": true
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 70,
+            "y": 129.875,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 70,
+            "y": 129.875,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 70,
+            "y": 129.875,
+            "zoom": 2
+          }
+        ]
+      }
+    ],
+    "hooks": {},
+    "api": {
+      "queries": {
+        "getNodes": [
+          {
+            "id": "parent",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "data": {
+              "label": "parent"
+            },
+            "type": {
+              "@undefined": true
+            },
+            "sourcePosition": {
+              "@undefined": true
+            },
+            "targetPosition": {
+              "@undefined": true
+            },
+            "hidden": false,
+            "selected": false,
+            "dragging": false,
+            "draggable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "connectable": {
+              "@undefined": true
+            },
+            "deletable": {
+              "@undefined": true
+            },
+            "dragHandle": {
+              "@undefined": true
+            },
+            "width": 190,
+            "height": 77,
+            "initialWidth": {
+              "@undefined": true
+            },
+            "initialHeight": {
+              "@undefined": true
+            },
+            "parentId": {
+              "@undefined": true
+            },
+            "zIndex": {
+              "@undefined": true
+            },
+            "extent": {
+              "@undefined": true
+            },
+            "expandParent": false,
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "origin": {
+              "@undefined": true
+            },
+            "handles": {
+              "@undefined": true
+            },
+            "measured": {
+              "width": 190,
+              "height": 77
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "width": 320,
+              "height": 220,
+              "backgroundColor": "rgba(80, 120, 200, 0.12)"
+            }
+          },
+          {
+            "id": "child",
+            "position": {
+              "x": 180,
+              "y": 193.125
+            },
+            "data": {
+              "label": "child"
+            },
+            "type": {
+              "@undefined": true
+            },
+            "sourcePosition": {
+              "@undefined": true
+            },
+            "targetPosition": {
+              "@undefined": true
+            },
+            "hidden": false,
+            "selected": true,
+            "dragging": false,
+            "draggable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "connectable": {
+              "@undefined": true
+            },
+            "deletable": {
+              "@undefined": true
+            },
+            "dragHandle": {
+              "@undefined": true
+            },
+            "width": 150,
+            "height": 37,
+            "initialWidth": {
+              "@undefined": true
+            },
+            "initialHeight": {
+              "@undefined": true
+            },
+            "parentId": "parent",
+            "zIndex": {
+              "@undefined": true
+            },
+            "extent": {
+              "@undefined": true
+            },
+            "expandParent": true,
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "origin": {
+              "@undefined": true
+            },
+            "handles": {
+              "@undefined": true
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          },
+          {
+            "id": "outside",
+            "position": {
+              "x": 420,
+              "y": 0
+            },
+            "data": {
+              "label": "outside"
+            },
+            "type": {
+              "@undefined": true
+            },
+            "sourcePosition": {
+              "@undefined": true
+            },
+            "targetPosition": {
+              "@undefined": true
+            },
+            "hidden": false,
+            "selected": false,
+            "dragging": false,
+            "draggable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "connectable": {
+              "@undefined": true
+            },
+            "deletable": {
+              "@undefined": true
+            },
+            "dragHandle": {
+              "@undefined": true
+            },
+            "width": 150,
+            "height": 37,
+            "initialWidth": {
+              "@undefined": true
+            },
+            "initialHeight": {
+              "@undefined": true
+            },
+            "parentId": {
+              "@undefined": true
+            },
+            "zIndex": {
+              "@undefined": true
+            },
+            "extent": {
+              "@undefined": true
+            },
+            "expandParent": false,
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "origin": {
+              "@undefined": true
+            },
+            "handles": {
+              "@undefined": true
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          }
+        ],
+        "getNode": {
+          "id": "parent",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "data": {
+            "label": "parent"
+          },
+          "type": {
+            "@undefined": true
+          },
+          "sourcePosition": {
+            "@undefined": true
+          },
+          "targetPosition": {
+            "@undefined": true
+          },
+          "hidden": false,
+          "selected": false,
+          "dragging": false,
+          "draggable": {
+            "@undefined": true
+          },
+          "selectable": {
+            "@undefined": true
+          },
+          "connectable": {
+            "@undefined": true
+          },
+          "deletable": {
+            "@undefined": true
+          },
+          "dragHandle": {
+            "@undefined": true
+          },
+          "width": 190,
+          "height": 77,
+          "initialWidth": {
+            "@undefined": true
+          },
+          "initialHeight": {
+            "@undefined": true
+          },
+          "parentId": {
+            "@undefined": true
+          },
+          "zIndex": {
+            "@undefined": true
+          },
+          "extent": {
+            "@undefined": true
+          },
+          "expandParent": false,
+          "ariaLabel": {
+            "@undefined": true
+          },
+          "origin": {
+            "@undefined": true
+          },
+          "handles": {
+            "@undefined": true
+          },
+          "measured": {
+            "width": 190,
+            "height": 77
+          },
+          "className": {
+            "@undefined": true
+          },
+          "style": {
+            "width": 320,
+            "height": 220,
+            "backgroundColor": "rgba(80, 120, 200, 0.12)"
+          }
+        },
+        "getInternalNode": {
+          "id": "parent",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "data": {
+            "label": "parent"
+          },
+          "type": {
+            "@undefined": true
+          },
+          "sourcePosition": {
+            "@undefined": true
+          },
+          "targetPosition": {
+            "@undefined": true
+          },
+          "hidden": false,
+          "selected": false,
+          "dragging": false,
+          "draggable": {
+            "@undefined": true
+          },
+          "selectable": {
+            "@undefined": true
+          },
+          "connectable": {
+            "@undefined": true
+          },
+          "deletable": {
+            "@undefined": true
+          },
+          "dragHandle": {
+            "@undefined": true
+          },
+          "width": 190,
+          "height": 77,
+          "initialWidth": {
+            "@undefined": true
+          },
+          "initialHeight": {
+            "@undefined": true
+          },
+          "parentId": {
+            "@undefined": true
+          },
+          "zIndex": {
+            "@undefined": true
+          },
+          "extent": {
+            "@undefined": true
+          },
+          "expandParent": false,
+          "ariaLabel": {
+            "@undefined": true
+          },
+          "origin": {
+            "@undefined": true
+          },
+          "handles": {
+            "@undefined": true
+          },
+          "measured": {
+            "width": 190,
+            "height": 77
+          },
+          "className": {
+            "@undefined": true
+          },
+          "style": {
+            "width": 320,
+            "height": 220,
+            "backgroundColor": "rgba(80, 120, 200, 0.12)"
+          },
+          "internals": {
+            "positionAbsolute": {
+              "x": 0,
+              "y": 0
+            },
+            "z": 0,
+            "rootParentIndex": {
+              "@undefined": true
+            },
+            "handleBounds": {
+              "source": [
+                {
+                  "id": {
+                    "@undefined": true
+                  },
+                  "nodeId": "parent",
+                  "x": 91,
+                  "y": 72,
+                  "position": "bottom",
+                  "type": "source",
+                  "width": 8,
+                  "height": 8
+                }
+              ],
+              "target": [
+                {
+                  "id": {
+                    "@undefined": true
+                  },
+                  "nodeId": "parent",
+                  "x": 91,
+                  "y": -3,
+                  "position": "top",
+                  "type": "target",
+                  "width": 8,
+                  "height": 8
+                }
+              ]
+            },
+            "bounds": {
+              "@undefined": true
+            }
+          }
+        },
+        "getEdges": [
+          {
+            "id": "child-outside",
+            "type": {
+              "@undefined": true
+            },
+            "source": "child",
+            "target": "outside",
+            "sourceHandle": {
+              "@undefined": true
+            },
+            "targetHandle": {
+              "@undefined": true
+            },
+            "animated": false,
+            "hidden": false,
+            "deletable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "data": {
+              "@undefined": true
+            },
+            "selected": false,
+            "markerStart": {
+              "@undefined": true
+            },
+            "markerEnd": {
+              "@undefined": true
+            },
+            "zIndex": {
+              "@undefined": true
+            },
+            "label": {
+              "@undefined": true
+            },
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "interactionWidth": {
+              "@undefined": true
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          }
+        ],
+        "getEdge": {
+          "id": "child-outside",
+          "type": {
+            "@undefined": true
+          },
+          "source": "child",
+          "target": "outside",
+          "sourceHandle": {
+            "@undefined": true
+          },
+          "targetHandle": {
+            "@undefined": true
+          },
+          "animated": false,
+          "hidden": false,
+          "deletable": {
+            "@undefined": true
+          },
+          "selectable": {
+            "@undefined": true
+          },
+          "data": {
+            "@undefined": true
+          },
+          "selected": false,
+          "markerStart": {
+            "@undefined": true
+          },
+          "markerEnd": {
+            "@undefined": true
+          },
+          "zIndex": {
+            "@undefined": true
+          },
+          "label": {
+            "@undefined": true
+          },
+          "ariaLabel": {
+            "@undefined": true
+          },
+          "interactionWidth": {
+            "@undefined": true
+          },
+          "className": {
+            "@undefined": true
+          },
+          "style": {
+            "@undefined": true
+          }
+        },
+        "getIntersectingNodes": [
+          {
+            "id": "parent",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "data": {
+              "label": "parent"
+            },
+            "type": {
+              "@undefined": true
+            },
+            "sourcePosition": {
+              "@undefined": true
+            },
+            "targetPosition": {
+              "@undefined": true
+            },
+            "hidden": false,
+            "selected": false,
+            "dragging": false,
+            "draggable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "connectable": {
+              "@undefined": true
+            },
+            "deletable": {
+              "@undefined": true
+            },
+            "dragHandle": {
+              "@undefined": true
+            },
+            "width": 190,
+            "height": 77,
+            "initialWidth": {
+              "@undefined": true
+            },
+            "initialHeight": {
+              "@undefined": true
+            },
+            "parentId": {
+              "@undefined": true
+            },
+            "zIndex": {
+              "@undefined": true
+            },
+            "extent": {
+              "@undefined": true
+            },
+            "expandParent": false,
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "origin": {
+              "@undefined": true
+            },
+            "handles": {
+              "@undefined": true
+            },
+            "measured": {
+              "width": 190,
+              "height": 77
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "width": 320,
+              "height": 220,
+              "backgroundColor": "rgba(80, 120, 200, 0.12)"
+            }
+          },
+          {
+            "id": "child",
+            "position": {
+              "x": 180,
+              "y": 193.125
+            },
+            "data": {
+              "label": "child"
+            },
+            "type": {
+              "@undefined": true
+            },
+            "sourcePosition": {
+              "@undefined": true
+            },
+            "targetPosition": {
+              "@undefined": true
+            },
+            "hidden": false,
+            "selected": true,
+            "dragging": false,
+            "draggable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "connectable": {
+              "@undefined": true
+            },
+            "deletable": {
+              "@undefined": true
+            },
+            "dragHandle": {
+              "@undefined": true
+            },
+            "width": 150,
+            "height": 37,
+            "initialWidth": {
+              "@undefined": true
+            },
+            "initialHeight": {
+              "@undefined": true
+            },
+            "parentId": "parent",
+            "zIndex": {
+              "@undefined": true
+            },
+            "extent": {
+              "@undefined": true
+            },
+            "expandParent": true,
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "origin": {
+              "@undefined": true
+            },
+            "handles": {
+              "@undefined": true
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          },
+          {
+            "id": "outside",
+            "position": {
+              "x": 420,
+              "y": 0
+            },
+            "data": {
+              "label": "outside"
+            },
+            "type": {
+              "@undefined": true
+            },
+            "sourcePosition": {
+              "@undefined": true
+            },
+            "targetPosition": {
+              "@undefined": true
+            },
+            "hidden": false,
+            "selected": false,
+            "dragging": false,
+            "draggable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "connectable": {
+              "@undefined": true
+            },
+            "deletable": {
+              "@undefined": true
+            },
+            "dragHandle": {
+              "@undefined": true
+            },
+            "width": 150,
+            "height": 37,
+            "initialWidth": {
+              "@undefined": true
+            },
+            "initialHeight": {
+              "@undefined": true
+            },
+            "parentId": {
+              "@undefined": true
+            },
+            "zIndex": {
+              "@undefined": true
+            },
+            "extent": {
+              "@undefined": true
+            },
+            "expandParent": false,
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "origin": {
+              "@undefined": true
+            },
+            "handles": {
+              "@undefined": true
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          }
+        ],
+        "isNodeIntersecting": true,
+        "getNodesBounds": {
+          "x": 0,
+          "y": 0,
+          "width": 570,
+          "height": 230.125
+        },
+        "getHandleConnections": [],
+        "getNodeConnections": [],
+        "toObject": {
+          "nodes": [
+            {
+              "id": "parent",
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "data": {
+                "label": "parent"
+              },
+              "type": {
+                "@undefined": true
+              },
+              "sourcePosition": {
+                "@undefined": true
+              },
+              "targetPosition": {
+                "@undefined": true
+              },
+              "hidden": false,
+              "selected": false,
+              "dragging": false,
+              "draggable": {
+                "@undefined": true
+              },
+              "selectable": {
+                "@undefined": true
+              },
+              "connectable": {
+                "@undefined": true
+              },
+              "deletable": {
+                "@undefined": true
+              },
+              "dragHandle": {
+                "@undefined": true
+              },
+              "width": 190,
+              "height": 77,
+              "initialWidth": {
+                "@undefined": true
+              },
+              "initialHeight": {
+                "@undefined": true
+              },
+              "parentId": {
+                "@undefined": true
+              },
+              "zIndex": {
+                "@undefined": true
+              },
+              "extent": {
+                "@undefined": true
+              },
+              "expandParent": false,
+              "ariaLabel": {
+                "@undefined": true
+              },
+              "origin": {
+                "@undefined": true
+              },
+              "handles": {
+                "@undefined": true
+              },
+              "measured": {
+                "width": 190,
+                "height": 77
+              },
+              "className": {
+                "@undefined": true
+              },
+              "style": {
+                "width": 320,
+                "height": 220,
+                "backgroundColor": "rgba(80, 120, 200, 0.12)"
+              }
+            },
+            {
+              "id": "child",
+              "position": {
+                "x": 180,
+                "y": 193.125
+              },
+              "data": {
+                "label": "child"
+              },
+              "type": {
+                "@undefined": true
+              },
+              "sourcePosition": {
+                "@undefined": true
+              },
+              "targetPosition": {
+                "@undefined": true
+              },
+              "hidden": false,
+              "selected": true,
+              "dragging": false,
+              "draggable": {
+                "@undefined": true
+              },
+              "selectable": {
+                "@undefined": true
+              },
+              "connectable": {
+                "@undefined": true
+              },
+              "deletable": {
+                "@undefined": true
+              },
+              "dragHandle": {
+                "@undefined": true
+              },
+              "width": 150,
+              "height": 37,
+              "initialWidth": {
+                "@undefined": true
+              },
+              "initialHeight": {
+                "@undefined": true
+              },
+              "parentId": "parent",
+              "zIndex": {
+                "@undefined": true
+              },
+              "extent": {
+                "@undefined": true
+              },
+              "expandParent": true,
+              "ariaLabel": {
+                "@undefined": true
+              },
+              "origin": {
+                "@undefined": true
+              },
+              "handles": {
+                "@undefined": true
+              },
+              "measured": {
+                "width": 150,
+                "height": 37
+              },
+              "className": {
+                "@undefined": true
+              },
+              "style": {
+                "@undefined": true
+              }
+            },
+            {
+              "id": "outside",
+              "position": {
+                "x": 420,
+                "y": 0
+              },
+              "data": {
+                "label": "outside"
+              },
+              "type": {
+                "@undefined": true
+              },
+              "sourcePosition": {
+                "@undefined": true
+              },
+              "targetPosition": {
+                "@undefined": true
+              },
+              "hidden": false,
+              "selected": false,
+              "dragging": false,
+              "draggable": {
+                "@undefined": true
+              },
+              "selectable": {
+                "@undefined": true
+              },
+              "connectable": {
+                "@undefined": true
+              },
+              "deletable": {
+                "@undefined": true
+              },
+              "dragHandle": {
+                "@undefined": true
+              },
+              "width": 150,
+              "height": 37,
+              "initialWidth": {
+                "@undefined": true
+              },
+              "initialHeight": {
+                "@undefined": true
+              },
+              "parentId": {
+                "@undefined": true
+              },
+              "zIndex": {
+                "@undefined": true
+              },
+              "extent": {
+                "@undefined": true
+              },
+              "expandParent": false,
+              "ariaLabel": {
+                "@undefined": true
+              },
+              "origin": {
+                "@undefined": true
+              },
+              "handles": {
+                "@undefined": true
+              },
+              "measured": {
+                "width": 150,
+                "height": 37
+              },
+              "className": {
+                "@undefined": true
+              },
+              "style": {
+                "@undefined": true
+              }
+            }
+          ],
+          "edges": [
+            {
+              "id": "child-outside",
+              "type": {
+                "@undefined": true
+              },
+              "source": "child",
+              "target": "outside",
+              "sourceHandle": {
+                "@undefined": true
+              },
+              "targetHandle": {
+                "@undefined": true
+              },
+              "animated": false,
+              "hidden": false,
+              "deletable": {
+                "@undefined": true
+              },
+              "selectable": {
+                "@undefined": true
+              },
+              "data": {
+                "@undefined": true
+              },
+              "selected": false,
+              "markerStart": {
+                "@undefined": true
+              },
+              "markerEnd": {
+                "@undefined": true
+              },
+              "zIndex": {
+                "@undefined": true
+              },
+              "label": {
+                "@undefined": true
+              },
+              "ariaLabel": {
+                "@undefined": true
+              },
+              "interactionWidth": {
+                "@undefined": true
+              },
+              "className": {
+                "@undefined": true
+              },
+              "style": {
+                "@undefined": true
+              }
+            }
+          ],
+          "viewport": {
+            "x": 70,
+            "y": 129.875,
+            "zoom": 2
+          }
+        },
+        "getZoom": 2,
+        "getViewport": {
+          "x": 70,
+          "y": 129.875,
+          "zoom": 2
+        },
+        "screenToFlowPosition": {
+          "x": -35,
+          "y": -64.9375
+        },
+        "flowToScreenPosition": {
+          "x": 70,
+          "y": 129.875
+        },
+        "viewportInitialized": true
+      },
+      "calls": []
+    },
+    "props": {},
+    "console": [
+      {
+        "level": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      }
+    ],
+    "driving": [
+      {
+        "index": 0,
+        "action": "mount",
+        "target": ".react-flow",
+        "resolved": true,
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "dispatched": {
+          "route": "/tests/generic/nodes/expand-parent"
+        }
+      },
+      {
+        "index": 1,
+        "action": "pointerDown",
+        "target": ".react-flow__node[data-id=\"child\"]",
+        "resolved": true,
+        "box": {
+          "x": 150,
+          "y": 363,
+          "width": 300,
+          "height": 74
+        },
+        "dispatched": {
+          "x": 300,
+          "y": 400,
+          "button": "left"
+        }
+      },
+      {
+        "index": 2,
+        "action": "pointerMove",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "x": 335,
+          "y": 425
+        }
+      },
+      {
+        "index": 3,
+        "action": "pointerMove",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "x": 370,
+          "y": 450
+        }
+      },
+      {
+        "index": 4,
+        "action": "pointerMove",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "x": 405,
+          "y": 475
+        }
+      },
+      {
+        "index": 5,
+        "action": "pointerMove",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "x": 440,
+          "y": 500
+        }
+      },
+      {
+        "index": 6,
+        "action": "pointerMove",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "x": 475,
+          "y": 525
+        }
+      },
+      {
+        "index": 7,
+        "action": "pointerMove",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "x": 510,
+          "y": 550
+        }
+      },
+      {
+        "index": 8,
+        "action": "pointerMove",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "x": 545,
+          "y": 575
+        }
+      },
+      {
+        "index": 9,
+        "action": "pointerMove",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "x": 580,
+          "y": 600
+        }
+      },
+      {
+        "index": 10,
+        "action": "pointerUp",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "x": 580,
+          "y": 600,
+          "button": "left"
+        }
+      }
+    ]
+  }
+}

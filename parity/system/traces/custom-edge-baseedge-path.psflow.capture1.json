@@ -1,0 +1,96 @@
+{
+  "traceFormat": 2,
+  "scenario": "custom-edge-baseedge-path",
+  "side": "psflow",
+  "capture": 1,
+  "baseline": "12.11.0",
+  "sections": {
+    "dom": {
+      "page": {
+        "scrollX": 0,
+        "scrollY": 0,
+        "visualViewportScale": 1
+      },
+      "root": null
+    },
+    "callbacks": [],
+    "hooks": {},
+    "api": {
+      "queries": {},
+      "calls": []
+    },
+    "props": {},
+    "console": [
+      {
+        "level": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "level": "pageerror",
+        "text": "ps-flow: the `edgeTypes` prop has not crossed the JavaScript boundary yet — it lands in boundary stage 4 (the props that hand a consumer's own component its props record). It is refused rather than ignored so that a prop ps-flow has not implemented fails loudly instead of looking like a prop you did not set."
+      },
+      {
+        "level": "pageerror",
+        "text": "ps-flow: the `edgeTypes` prop has not crossed the JavaScript boundary yet — it lands in boundary stage 4 (the props that hand a consumer's own component its props record). It is refused rather than ignored so that a prop ps-flow has not implemented fails loudly instead of looking like a prop you did not set."
+      },
+      {
+        "level": "error",
+        "text": "The above error occurred in the <ReactFlow> component:\n\n    at ReactFlow\n    at div\n    at Flow_default (http://127.0.0.1:65523/parity/driver/dist/psflow.js:64349:23)\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://reactjs.org/link/error-boundaries to learn more about error boundaries."
+      },
+      {
+        "level": "pageerror",
+        "text": "ps-flow: the `edgeTypes` prop has not crossed the JavaScript boundary yet — it lands in boundary stage 4 (the props that hand a consumer's own component its props record). It is refused rather than ignored so that a prop ps-flow has not implemented fails loudly instead of looking like a prop you did not set."
+      }
+    ],
+    "driving": [
+      {
+        "index": 0,
+        "action": "mount",
+        "target": ".react-flow",
+        "resolved": false,
+        "box": null,
+        "dispatched": null
+      },
+      {
+        "index": 1,
+        "action": "pointerDown",
+        "target": "[data-psflow-edge=\"base-edge-path\"]",
+        "resolved": false,
+        "box": null,
+        "dispatched": null
+      },
+      {
+        "index": 2,
+        "action": "pointerUp",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "x": 0,
+          "y": 0,
+          "button": "left"
+        }
+      },
+      {
+        "index": 3,
+        "action": "pointerDown",
+        "target": "[data-id=\"custom-2\"]",
+        "resolved": false,
+        "box": null,
+        "dispatched": null
+      },
+      {
+        "index": 4,
+        "action": "pointerUp",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "x": 0,
+          "y": 0,
+          "button": "left"
+        }
+      }
+    ]
+  }
+}

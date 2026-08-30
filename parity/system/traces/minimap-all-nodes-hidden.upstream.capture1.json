@@ -1,0 +1,530 @@
+{
+  "traceFormat": 2,
+  "scenario": "minimap-all-nodes-hidden",
+  "side": "upstream",
+  "capture": 1,
+  "baseline": "12.11.0",
+  "sections": {
+    "dom": {
+      "page": {
+        "scrollX": 0,
+        "scrollY": 0,
+        "visualViewportScale": 1
+      },
+      "root": {
+        "tag": "div",
+        "attrs": {
+          "data-testid": "rf__wrapper",
+          "class": "react-flow light",
+          "role": "application",
+          "style": "width: 100%; height: 100%; overflow: hidden; position: relative; z-index: 0;"
+        },
+        "children": [
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "react-flow__renderer",
+              "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+            },
+            "children": [
+              {
+                "tag": "div",
+                "attrs": {
+                  "class": "react-flow__pane draggable",
+                  "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+                },
+                "children": [
+                  {
+                    "tag": "div",
+                    "attrs": {
+                      "class": "react-flow__viewport xyflow__viewport react-flow__container",
+                      "style": "transform: translate(-115.835px, -65.1574px) scale(1.18099);"
+                    },
+                    "children": [
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__edges"
+                        },
+                        "children": []
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__edgelabel-renderer"
+                        },
+                        "children": []
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__nodes",
+                          "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+                        },
+                        "children": []
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__viewport-portal"
+                        },
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "react-flow__panel react-flow__minimap bottom right",
+              "data-testid": "rf__minimap"
+            },
+            "children": [
+              {
+                "tag": "svg",
+                "attrs": {
+                  "width": "200",
+                  "height": "150",
+                  "viewBox": "-29.547924997800436 -140.352643739552 1241.0128499076184 945.533599929614",
+                  "class": "react-flow__minimap-svg",
+                  "role": "img",
+                  "aria-labelledby": "react-flow__minimap-desc-1"
+                },
+                "children": [
+                  {
+                    "tag": "title",
+                    "attrs": {
+                      "id": "react-flow__minimap-desc-1"
+                    },
+                    "text": "Mini Map",
+                    "children": []
+                  },
+                  {
+                    "tag": "path",
+                    "attrs": {
+                      "class": "react-flow__minimap-mask",
+                      "d": "M-59.09584999560087,-169.90056873735244h1300.1086999032193v1004.6294499252149h-1300.1086999032193z\n        M98.0830000879826,55.17168754949017h1083.833999824035v609.6566249010197h-1083.833999824035z",
+                      "fill-rule": "evenodd",
+                      "pointer-events": "none"
+                    },
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "react-flow__panel react-flow__attribution bottom right",
+              "data-message": "Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"
+            },
+            "children": [
+              {
+                "tag": "a",
+                "attrs": {
+                  "href": "https://reactflow.dev",
+                  "target": "_blank",
+                  "rel": "noopener noreferrer",
+                  "aria-label": "React Flow attribution"
+                },
+                "text": "React Flow",
+                "children": []
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__node-desc-1",
+              "style": "display: none;"
+            },
+            "text": "Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel.",
+            "children": []
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__edge-desc-1",
+              "style": "display: none;"
+            },
+            "text": "Press enter or space to select an edge. You can then press delete to remove it or escape to cancel.",
+            "children": []
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__aria-live-1",
+              "aria-live": "assertive",
+              "aria-atomic": "true",
+              "style": "position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(100%);"
+            },
+            "children": []
+          }
+        ]
+      }
+    },
+    "callbacks": [
+      {
+        "name": "onSelectionChange",
+        "args": [
+          {
+            "nodes": [],
+            "edges": []
+          }
+        ]
+      },
+      {
+        "name": "onMoveStart",
+        "args": [
+          null,
+          {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          }
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": -115.83530331489942,
+            "y": -65.15735811463088,
+            "zoom": 1.1809926614295303
+          }
+        ]
+      },
+      {
+        "name": "onMove",
+        "args": [
+          null,
+          {
+            "x": -115.83530331489942,
+            "y": -65.15735811463088,
+            "zoom": 1.1809926614295303
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": -115.83530331489942,
+            "y": -65.15735811463088,
+            "zoom": 1.1809926614295303
+          }
+        ]
+      }
+    ],
+    "hooks": {},
+    "api": {
+      "queries": {
+        "getNodes": [
+          {
+            "id": "Node-1",
+            "data": {
+              "label": "Node-1"
+            },
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "type": "input",
+            "hidden": true
+          },
+          {
+            "id": "Node-2",
+            "data": {
+              "label": "Node-2"
+            },
+            "position": {
+              "x": -100,
+              "y": 100
+            },
+            "hidden": true
+          },
+          {
+            "id": "Node-3",
+            "data": {
+              "label": "Node-3"
+            },
+            "position": {
+              "x": 100,
+              "y": 100
+            },
+            "hidden": true
+          }
+        ],
+        "getNode": {
+          "id": "Node-1",
+          "data": {
+            "label": "Node-1"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "type": "input",
+          "hidden": true
+        },
+        "getInternalNode": {
+          "id": "Node-1",
+          "data": {
+            "label": "Node-1"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "type": "input",
+          "hidden": true,
+          "measured": {
+            "width": {
+              "@undefined": true
+            },
+            "height": {
+              "@undefined": true
+            }
+          },
+          "internals": {
+            "positionAbsolute": {
+              "x": 0,
+              "y": 0
+            },
+            "handleBounds": {
+              "@undefined": true
+            },
+            "z": 0,
+            "userNode": {
+              "id": "Node-1",
+              "data": {
+                "label": "Node-1"
+              },
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "type": "input",
+              "hidden": true
+            }
+          }
+        },
+        "getEdges": [
+          {
+            "id": "1-2",
+            "source": "Node-1",
+            "target": "Node-2"
+          }
+        ],
+        "getEdge": {
+          "id": "1-2",
+          "source": "Node-1",
+          "target": "Node-2"
+        },
+        "getIntersectingNodes": [
+          {
+            "id": "Node-1",
+            "data": {
+              "label": "Node-1"
+            },
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "type": "input",
+            "hidden": true
+          },
+          {
+            "id": "Node-2",
+            "data": {
+              "label": "Node-2"
+            },
+            "position": {
+              "x": -100,
+              "y": 100
+            },
+            "hidden": true
+          },
+          {
+            "id": "Node-3",
+            "data": {
+              "label": "Node-3"
+            },
+            "position": {
+              "x": 100,
+              "y": 100
+            },
+            "hidden": true
+          }
+        ],
+        "isNodeIntersecting": true,
+        "getNodesBounds": {
+          "x": -100,
+          "y": 0,
+          "width": 200,
+          "height": 100
+        },
+        "getHandleConnections": [
+          {
+            "edgeId": "1-2",
+            "source": "Node-1",
+            "target": "Node-2",
+            "sourceHandle": null,
+            "targetHandle": null
+          }
+        ],
+        "getNodeConnections": [
+          {
+            "edgeId": "1-2",
+            "source": "Node-1",
+            "target": "Node-2",
+            "sourceHandle": null,
+            "targetHandle": null
+          }
+        ],
+        "toObject": {
+          "nodes": [
+            {
+              "id": "Node-1",
+              "data": {
+                "label": "Node-1"
+              },
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "type": "input",
+              "hidden": true
+            },
+            {
+              "id": "Node-2",
+              "data": {
+                "label": "Node-2"
+              },
+              "position": {
+                "x": -100,
+                "y": 100
+              },
+              "hidden": true
+            },
+            {
+              "id": "Node-3",
+              "data": {
+                "label": "Node-3"
+              },
+              "position": {
+                "x": 100,
+                "y": 100
+              },
+              "hidden": true
+            }
+          ],
+          "edges": [
+            {
+              "id": "1-2",
+              "source": "Node-1",
+              "target": "Node-2"
+            }
+          ],
+          "viewport": {
+            "x": -115.83530331489942,
+            "y": -65.15735811463088,
+            "zoom": 1.1809926614295303
+          }
+        },
+        "getZoom": 1.1809926614295303,
+        "getViewport": {
+          "x": -115.83530331489942,
+          "y": -65.15735811463088,
+          "zoom": 1.1809926614295303
+        },
+        "screenToFlowPosition": {
+          "x": 98.0830000879826,
+          "y": 55.17168754949017
+        },
+        "flowToScreenPosition": {
+          "x": -115.83530331489942,
+          "y": -65.15735811463088
+        },
+        "viewportInitialized": true
+      },
+      "calls": []
+    },
+    "props": {},
+    "console": [
+      {
+        "level": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      }
+    ],
+    "driving": [
+      {
+        "index": 0,
+        "action": "mount",
+        "target": ".react-flow",
+        "resolved": true,
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "dispatched": {
+          "route": "/tests/generic/chrome/minimap-hidden-nodes"
+        }
+      },
+      {
+        "index": 1,
+        "action": "pointerDown",
+        "target": ".react-flow__minimap",
+        "resolved": true,
+        "box": {
+          "x": 1065,
+          "y": 555,
+          "width": 200,
+          "height": 150
+        },
+        "dispatched": {
+          "x": 1165,
+          "y": 630,
+          "button": "left"
+        }
+      },
+      {
+        "index": 2,
+        "action": "pointerUp",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "x": 1165,
+          "y": 630,
+          "button": "left"
+        }
+      },
+      {
+        "index": 3,
+        "action": "wheel",
+        "target": ".react-flow__minimap",
+        "resolved": true,
+        "box": {
+          "x": 1065,
+          "y": 555,
+          "width": 200,
+          "height": 150
+        },
+        "dispatched": {
+          "x": 1165,
+          "y": 630,
+          "deltaX": 0,
+          "deltaY": -120
+        }
+      }
+    ]
+  }
+}

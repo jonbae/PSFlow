@@ -86,35 +86,16 @@
     },
     {
       "exports": [
-        "SelectionRect"
-      ],
-      "reason": "the rect exists only while the pointer is down, and every scenario that draws a selection box completes its gesture. `selection-box-mid-gesture` is the reserved scenario that ends with the pointer still down, which is the only way transient state is observed at all.",
-      "ticket": "https://github.com/jonbae/PSFlow/issues/60"
-    },
-    {
-      "exports": [
-        "NodeAddChange",
-        "NodeReplaceChange",
         "EdgeAddChange",
         "EdgeReplaceChange"
       ],
-      "reason": "no scenario adds or replaces a node or an edge after mount. Every change the corpus records is a dimensions, position, select or remove; add and replace ride on the same handler, which is why the witness is the discriminant rather than the handler. `uncontrolled-update-node` and `flow-props-change-after-mount` are the reserved scenarios that would fire them.",
-      "ticket": "https://github.com/jonbae/PSFlow/issues/60"
+      "reason": "the node pair is driven by `uncontrolled-update-node`, and the edge pair cannot be, for a reason that is upstream's rather than the corpus's: `addEdges` and `updateEdge` on an uncontrolled flow set the edges directly and raise no change at all — only `triggerNodeChanges` is called, which is why the same scenario produces `add` and `replace` on the node side and nothing on the edge side. Connecting does not fire one either: the driver's `onConnect` calls `addEdge` itself, which is a prop changing rather than a change being reported. Closing this needs a path that reports an edge add or replace, and no issue owns finding one yet."
     },
     {
       "exports": [
         "OnReconnect"
       ],
-      "reason": "the driver installs onReconnect and no scenario drags an edge endpoint onto another handle, so it never fires. The edgeupdater circles are in every edges-fixture trace, so the target exists and the gesture does not.",
-      "ticket": "https://github.com/jonbae/PSFlow/issues/60"
-    },
-    {
-      "exports": [
-        "OnSelectionDrag",
-        "SelectionDragHandler"
-      ],
-      "reason": "`shift-drag-selects-nodes` draws a selection and never drags the selection it made, which is the separate gesture these props fire on.",
-      "ticket": "https://github.com/jonbae/PSFlow/issues/60"
+      "reason": "the driver installs onReconnect and no scenario drags an edge endpoint onto another handle, so it never fires. The edgeupdater circles are in every edges-fixture trace, so the target exists and the gesture does not — reconnecting is not in the gesture tier, and adding one is a reviewable act rather than a scenario detail. None of the thirty test-debt scenarios is about reconnection, so this is a hole-closing scenario and no issue owns it yet."
     },
     {
       "exports": [
@@ -137,19 +118,9 @@
     },
     {
       "exports": [
-        "DeleteElementsOptions",
-        "FitBounds",
-        "FitBoundsOptions",
-        "FitView",
-        "FitViewOptions",
-        "SetCenter",
-        "SetCenterOptions",
-        "SetViewport",
-        "UnselectNodesAndEdgesParams",
-        "ViewportHelperFunctionOptions"
+        "UnselectNodesAndEdgesParams"
       ],
-      "reason": "no scenario makes an imperative call. The `call` primitive exists and records into `api.calls`, so what is missing is a scenario and not a harness — `viewport-helpers-with-options` is the reserved scenario that drives the helpers with options.",
-      "ticket": "https://github.com/jonbae/PSFlow/issues/60"
+      "reason": "`unselectNodesAndEdges` is a store action and is **not on `ReactFlowInstance`** — it is absent from `JsReactFlowInstance` in src/Boundary/Instance.purs because it is absent from upstream's instance too. The `api` section witnesses a name only as a query key or a called method, so no scenario can reach this one however it is written; the nine helper exports beside it were closed by `viewport-helpers-with-options` and this one was never in reach. Closing it needs the witness to name something the section can actually offer, which is a question about the register rather than about the corpus."
     }
   ]
 }
