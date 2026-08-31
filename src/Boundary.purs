@@ -141,7 +141,7 @@ module Boundary
 -- three utilities come from `Boundary.Utils` for the same reason: a driver
 -- calls them with every argument at once, which a curried PureScript function
 -- is not.
-import Boundary.Flow (reactFlow, reactFlowProvider, reactFlowWithRef) as CrossedSurface
+import Boundary.Flow (reactFlow, reactFlowProvider) as CrossedSurface
 import Boundary.Utils (addEdge, applyEdgeChanges, applyNodeChanges) as CrossedSurface
 
 -- The four chrome components upstream's drivers mount. `Boundary.Chrome` says

@@ -142,7 +142,7 @@ import System.Types.Node (NodeChange)
 -- Components
 -- ────────────────────────────────────────────────────────────────────────
 
-import React.Container.ReactFlow (reactFlow, reactFlowWithRef) as ReExportComponents
+import React.Container.ReactFlow (reactFlow) as ReExportComponents
 import React.Provider (reactFlowProvider) as ReExportProvider
 import React.Handle (handle) as ReExportHandle
 

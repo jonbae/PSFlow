@@ -27,7 +27,11 @@ and will stay there until a fixture resizes — but that is a fixture, not a
 converter, and nothing about stage 4 touches it.
 
 **Four components the issue did not name were still `passthrough`**:
-`MiniMapNode`, `ReactFlowProvider`, `ReactFlowWithRef` and `BaseEdge`. None is
+`MiniMapNode`, `ReactFlowProvider`, `ReactFlowWithRef` and `BaseEdge`.
+(`ReactFlowWithRef` no longer exists. It crossed here, as this ticket records,
+and [#27](https://github.com/jonbae/PSFlow/issues/27) then deleted it by giving
+`<ReactFlow />` the ref it was published to supply. The count of fourteen is
+what stage 4 crossed, and stays.) None is
 in the hole register, and `BaseEdge` is recorded as *driven* in
 `parity/system/coverage.md` — so a set derived from the hole list alone would
 have left the manifest's `passthrough` holding four components beside the

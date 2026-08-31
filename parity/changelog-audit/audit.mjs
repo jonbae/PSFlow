@@ -159,6 +159,13 @@ const misfiled = filed.filter((pr) => verdicts[pr].bucket === "not-ported");
 const debtBuckets = Object.keys(BUCKETS)
   .map((bucket) => [bucket, debt.filter((pr) => verdicts[pr].bucket === bucket).length])
   .filter(([, n]) => n > 0);
+// Derived for the reason the two counts above it are. The sentence under the
+// `debtBuckets` line used to assert that none of these rows had reached a
+// covered bucket, which was true when it was written and stopped being true
+// the first time one graduated — #4826, once its `forwardRef` family landed.
+// A hand-written claim about a computed list is the staleness this section's
+// own prose warns about two lines earlier.
+const debtCovered = debt.filter((pr) => BUCKETS[verdicts[pr].bucket].kind === "covered");
 
 const counts = Object.keys(BUCKETS)
   .map((b) => `| \`${b}\` | ${BUCKETS[b].kind} | ${rows(b).length} | ${BUCKETS[b].label} |`)
@@ -226,7 +233,13 @@ this file reading the buckets those rows now carry — which is what keeps the
 correction from going stale the next time one moves.
 
 Where the ${debt.length} went: ${debtBuckets.map(([b, n]) => `\`${b}\` ${n}`).join(", ")}.
-None of them moved into a covered bucket. A gate that is coming is still a gap.
+${
+  debtCovered.length === 0
+    ? `None of them has moved into a covered bucket. A gate that is coming is still a gap.`
+    : `${debtCovered.length} of them ${debtCovered.length === 1 ? "has" : "have"} since moved into a ` +
+      `covered bucket (${debtCovered.map((pr) => `#${pr}`).join(", ")}); the rest are still gaps, and a ` +
+      `gate that is coming is still one.`
+}
 
 ## Gaps
 

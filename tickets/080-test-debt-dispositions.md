@@ -218,7 +218,7 @@ Stay `ported-ungated` with a ticket reference; the work belongs elsewhere.
 | PR | Change | Owner |
 |---|---|---|
 | #5472 | Remove `dangerouslySetInnerHTML` from `domAttributes` | [074](074-node-edge-domattributes-ariarole.md) — PSFlow cannot spread `domAttributes` at all, so the vulnerability being removed does not exist here. Re-bucket when 074 lands. |
-| #4826 | Forward ref of the div inside Panel | [ReactFlow does not accept a ref](https://github.com/jonbae/PSFlow/issues/27) — one `forwardRef` deferral, already documented at `NodeWrapper.purs:28` and `EdgeWrapper.purs:25`. |
+| #4826 | Forward ref of the div inside Panel | [ReactFlow does not accept a ref](https://github.com/jonbae/PSFlow/issues/27) — **Graduated to `surface`.** The family landed: `<Panel />` — this PR's own subject — in boundary stage 4, `<ReactFlow />` and the two wrappers in #27. The wrapper half was misfiled here as `forwardRef` debt; neither wrapper is a `forwardRef` upstream, and what was actually missing was the ref each holds for itself and the `blur()` that drops focus from a deselected node or edge. |
 
 ## Corrections to the four source tickets
 

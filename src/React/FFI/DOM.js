@@ -26,3 +26,10 @@ export const scrollResetHandlerImpl = (cb) => (event) => {
   }
   cb();
 };
+
+// Unguarded, as TS's `edgeRef.current?.blur()` is: its `?.` guards the ref
+// being null, which the caller already does, and every browser this port
+// targets has `blur` on an SVG element.
+export const blurElement = (element) => () => {
+  element.blur();
+};

@@ -1,19 +1,21 @@
 -- | `<ReactFlow />`, crossing.
 -- |
 -- | This is the indivisible part of the boundary. The flow props are one record
--- | of 124 fields, and a JavaScript consumer who sets seven of them still gets a
--- | props object whose other 117 keys are absent — so the conversion has to
--- | name all 124 whatever any one fixture needs. There is no vertical slice
+-- | of 125 fields, and a JavaScript consumer who sets seven of them still gets a
+-- | props object whose other 118 keys are absent — so the conversion has to
+-- | name all 125 whatever any one fixture needs. There is no vertical slice
 -- | here to take.
 -- |
 -- | ## What a prop can be
 -- |
--- | **Converted** — all 124, as of boundary stage 4: 74 of 74 non-callback
--- | fields, plus all 49 callback props. Three of the callbacks crossed in
--- | stage 1 with the component itself (`onNodesChange`, `onEdgesChange`,
--- | `onConnect`); 46 crossed in stage 2; and `onInit` crossed in stage 3, once
--- | `Boundary.Instance` existed to convert the one argument it is handed.
--- | Their converters live in `Boundary.Callbacks`.
+-- | **Converted** — all 125: 75 of 75 non-callback fields, all 49 callback
+-- | props, and `children`. All but one as of boundary stage 4; the one is
+-- | `innerRef`, which #27 added along with the `forwardRef` that fills it.
+-- | Three of the callbacks crossed in stage 1 with the component itself
+-- | (`onNodesChange`, `onEdgesChange`, `onConnect`); 46 crossed in stage 2;
+-- | and `onInit` crossed in stage 3, once `Boundary.Instance` existed to
+-- | convert the one argument it is handed. Their converters live in
+-- | `Boundary.Callbacks`.
 -- |
 -- | **Deferred, and therefore throwing at mount** — 0, as of stage 4. There
 -- | were two: `edgeTypes` and `connectionLineComponent`, both deferred for the
@@ -36,16 +38,17 @@
 -- | wired to a literal `Nothing`, which is the stronger claim: while props were
 -- | being refused it could only ask whether each one was declared.
 -- |
--- | ## The three components this module publishes
+-- | ## The two components this module publishes
 -- |
--- | `reactFlow`, and — since stage 4 — `reactFlowWithRef` and
--- | `reactFlowProvider`.
+-- | `reactFlow`, and — since stage 4 — `reactFlowProvider`.
 -- |
--- | `reactFlowWithRef` is ps-flow's own export, where upstream has one
--- | component and makes it a `forwardRef`; crossing it lets a JavaScript
--- | consumer who needs the wrapper div's ref reach it with upstream's props
--- | rather than through the PureScript nesting. `ReactFlow` itself is still not
--- | a `forwardRef`, which is #27 and not this stage.
+-- | There were three until #27. Stage 4 crossed `reactFlowWithRef`, ps-flow's
+-- | own second export, so that a JavaScript consumer who needed the wrapper
+-- | div's ref could reach it with upstream's props rather than through the
+-- | PureScript nesting; `ReactFlow` itself was not a `forwardRef`, which stage
+-- | 4 recorded as #27's and not its own. #27 made it one, and that is what
+-- | removed the second component rather than merely deprecating it — the
+-- | export existed to supply a capability `ReactFlow` now has.
 -- |
 -- | `reactFlowProvider` is here rather than in a module of its own because its
 -- | thirteen initial values are flow props by another name, and they cross
@@ -58,7 +61,6 @@ module Boundary.Flow
   , JsReactFlowProviderProps
   , reactFlow
   , reactFlowProvider
-  , reactFlowWithRef
   ) where
 
 import Prelude
@@ -148,19 +150,20 @@ import Boundary.Enums
   , zIndexModeIn
   )
 import Boundary.Refusal (Refusal, refuseFirst)
-import Boundary.Undefined (Undefinable, fromUndefinable, isDefined)
+import Boundary.Undefined (Undefinable, fromUndefinable, isDefined, orNullable)
 import Boundary.Untagged (asArray, asBoolean, asNumber, asString, typeName)
 import Data.Array.NonEmpty (fromArray) as NEA
 import Data.Int (round) as Int
 import Data.Maybe (Maybe(..))
+import Data.Nullable (Nullable)
 import Effect.Exception.Unsafe (unsafeThrow)
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign)
 import Foreign.Object (Object)
 import React.Basic (JSX, ReactComponent, element)
 import React.Basic.Hooks (ReactChildren, reactComponentWithChildren)
-import React.Container.ReactFlow (reactFlow, reactFlowWithRef) as PS
-import React.FFI.ForwardRef (elementWithNullableRef, forwardNullableRef)
+import React.Container.ReactFlow (reactFlow) as PS
+import React.FFI.ForwardRef (forwardNullableRef)
 import React.Provider (reactFlowProvider) as PS
 import React.Types.Component (ReactFlowProps, ReactFlowProviderProps)
 import React.Types.Edges (DefaultEdgeOptions, ReconnectHandleType(..))
@@ -372,6 +375,13 @@ type JsFlowProps =
   , connectionRadius :: Undefinable Number
   , debug :: Undefinable Boolean
   , zIndexMode :: Undefinable String
+  -- | Upstream's name for what ps-flow spells `innerRef`, and the reason this
+  -- | component is a `forwardRef`. `Boundary.Undefined.orNullable` says why it
+  -- | is read from the props object as well as from the forwarded argument.
+  -- | Last, because `ReactFlowProps.innerRef` is — the two records are kept in
+  -- | one order so they read side by side, and `PanelProps` pairs the same two
+  -- | spellings in the same place.
+  , ref :: Undefinable Foreign
   }
 
 -- ────────────────────────────────────────────────────────────────────────
@@ -397,8 +407,8 @@ type JsFlowProps =
 -- lost its `miniMapPropsIn` in the same commit and for the same reason.
 -- ────────────────────────────────────────────────────────────────────────
 
-convertProps :: JsFlowProps -> ReactFlowProps Foreign Foreign
-convertProps p =
+convertProps :: JsFlowProps -> Nullable Foreign -> ReactFlowProps Foreign Foreign
+convertProps p forwarded =
   { children: p.children
   , nodes: map (map nodeIn) (fromUndefinable p.nodes)
   , edges: map (map edgeIn) (fromUndefinable p.edges)
@@ -530,6 +540,7 @@ convertProps p =
   , connectionRadius: fromUndefinable p.connectionRadius
   , debug: fromUndefinable p.debug
   , zIndexMode: map (zIndexModeIn "zIndexMode") (fromUndefinable p.zIndexMode)
+  , innerRef: orNullable p.ref forwarded
   }
 
 -- | The thirteen `defaultEdgeOptions` members ps-flow's own record has no room
@@ -669,25 +680,22 @@ ariaLabelConfigIn c =
 
 -- | What `index.js` exports as `ReactFlow`. A JavaScript consumer's props go
 -- | in; the PureScript component built in `React.Container.ReactFlow` renders.
+-- |
+-- | A `forwardRef`, which is upstream's shape and — since #27 — the PureScript
+-- | component's capability. It was a plain component beside a second export,
+-- | `ReactFlowWithRef`, and the pair is gone: a `ref` handed to this one was
+-- | silently dropped, and the one that took a ref nested every prop under a
+-- | `props` field and read `children` from inside it, so neither was the
+-- | element upstream's documentation writes.
+-- |
+-- | The ref does not need `elementWithNullableRef` here the way `Panel` and
+-- | `Handle` do not: it travels as `innerRef` on the props record, a field
+-- | React does not reserve, and `React.Container.ReactFlow` puts it on the
+-- | wrapper `<div>`.
 reactFlow :: ReactComponent JsFlowProps
 reactFlow =
-  unsafePerformEffect $ reactComponentWithChildren "ReactFlow"
-    \(props :: JsFlowProps) -> pure (element PS.reactFlow (convertProps props))
-
--- | ps-flow's own second component, crossing. Upstream has one `<ReactFlow />`
--- | and makes it a `forwardRef`; ps-flow splits the two so that the common
--- | case does not pay for ref plumbing, and this is the half that takes one.
--- |
--- | The ref is forwarded rather than accepted and dropped, which is what
--- | `elementWithNullableRef` is for: `React.Basic`'s `element` takes a props
--- | record, and React removes `ref` from one before the component sees it, so
--- | a wrapper cannot pass a ref on as a field. Accepting a ref and losing it
--- | is worse here than anywhere else on the surface — it is the whole reason
--- | this component exists.
-reactFlowWithRef :: ReactComponent JsFlowProps
-reactFlowWithRef =
-  forwardNullableRef "ReactFlowWithRef" \(props :: JsFlowProps) forwarded ->
-    elementWithNullableRef PS.reactFlowWithRef { props: convertProps props } forwarded
+  forwardNullableRef "ReactFlow" \(props :: JsFlowProps) forwarded ->
+    element PS.reactFlow (convertProps props forwarded)
 
 -- ────────────────────────────────────────────────────────────────────────
 -- ReactFlowProvider

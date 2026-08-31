@@ -266,6 +266,16 @@ type ReactFlowProps n e =
   -- Debug / z-indexing
   , debug :: Maybe Boolean
   , zIndexMode :: Maybe ZIndexMode
+  -- | The ref `<ReactFlow />` puts on the outer wrapper `<div>`, spelled
+  -- | `innerRef` for the reason `PanelProps.innerRef` and
+  -- | `HandleProps.innerRef` are: React reserves `ref`, and one sitting in a
+  -- | props record is stripped by `createElement` before the component sees
+  -- | it. Upstream is a `forwardRef` for this; `Boundary.Flow` is where the
+  -- | two spellings meet, and it is the JS surface that has to publish `ref`.
+  -- |
+  -- | `Nullable` and not `Maybe`: the value is React's, goes straight back to
+  -- | React unread, and `forwardRef` hands `null` when the caller passed none.
+  , innerRef :: Nullable Foreign
   }
 
 -- The remaining records are scaffolded with the fields the upstream

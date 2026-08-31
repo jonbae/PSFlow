@@ -28,6 +28,7 @@ module React.FFI.DOM
   , textContent
   , opt
   , scrollResetHandler
+  , blurElement
   ) where
 
 import Prelude
@@ -39,6 +40,7 @@ import Effect.Uncurried (EffectFn1, mkEffectFn1)
 import React.Basic (JSX)
 import React.Basic.Events (EventHandler)
 import Unsafe.Coerce (unsafeCoerce)
+import Web.DOM.Element (Element)
 
 foreign import div_ :: forall p. Record p -> Array JSX -> JSX
 foreign import span_ :: forall p. Record p -> Array JSX -> JSX
@@ -78,3 +80,21 @@ foreign import scrollResetHandlerImpl
 
 scrollResetHandler :: Effect Unit -> EventHandler
 scrollResetHandler cb = scrollResetHandlerImpl (mkEffectFn1 (\_ -> cb))
+
+-- | `element.blur()`, at the widest type the DOM will honestly give it.
+-- |
+-- | `blur` belongs to `HTMLOrSVGElement`, and PureScript's web bindings model
+-- | only the HTML half: `Web.HTML.HTMLElement.blur` wants an `HTMLElement`,
+-- | which an `SVGGElement` is not. `React.Component.EdgeWrapper` is the
+-- | caller and an edge's element is a `<g>`, so the typed binding cannot
+-- | reach it, and coercing the `<g>` to `HTMLElement` to borrow that binding
+-- | would be a lie about the element rather than a gap in the bindings.
+-- |
+-- | `Element` and not an SVG type because there is no SVG type here to name —
+-- | which is the whole reason this binding exists — and the name says no more
+-- | than the signature can keep.
+-- |
+-- | `React.Node.Util` deliberately does *not* come through here: a node's
+-- | element is a real `<div>`, so it uses `Web.HTML.HTMLElement.blur` and
+-- | keeps the typed route where a typed route exists.
+foreign import blurElement :: Element -> Effect Unit

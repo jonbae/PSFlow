@@ -21,10 +21,11 @@
     "pkg": "react",
     "version": "12.3.6",
     "title": "Forward ref of the div inside Panel components.",
-    "bucket": "ported-ungated",
+    "bucket": "surface",
     "debt": "079",
     "ticket": null,
-    "note": "Panel ref forwarding is deferred in PSFlow (src/React/FFI/ForwardRef.purs exists but Panel does not use it). One instance of a surface-wide deferral rather than test debt — ReactFlow does not accept a ref either, documented at NodeWrapper.purs:28 and EdgeWrapper.purs:25 — and re-homed to https://github.com/jonbae/PSFlow/issues/27."
+    "evidence": "Surface parity compares `Panel`'s wrapper kind against upstream's with nothing allowlisting it, so a regression to a plain component — which is what silently drops a `ref` — goes red. `parity/boundary/mount.mjs` holds the other half, that the ref reaches the element, by reading `ref: props.innerRef` out of `src/React/Portal/Panel.purs`; the two together are the change this PR made.",
+    "note": "Re-homed to https://github.com/jonbae/PSFlow/issues/27 as one instance of a surface-wide deferral rather than test debt, and held at `ported-ungated` until that family landed. It has: `<Panel />` — this PR's own subject — and `<Handle />` in boundary stage 4, `<ReactFlow />` and the two wrappers in #27. The wrappers turned out not to be this family at all. Neither `NodeWrapper` nor `EdgeWrapper` is a `forwardRef` upstream, so there was no ref to forward; what was missing was the ref each holds for itself and the `blur()` that drops focus from a deselected node or edge."
   },
   "4844": {
     "pkg": "react",
@@ -990,7 +991,7 @@
     "bucket": "not-ported",
     "evidence": "",
     "ticket": "074",
-    "note": "src/React/Component/NodeWrapper.purs:33 and src/React/Component/EdgeWrapper.purs:27 document that ariaRole is not carried; EdgeWrapper substitutes a fixed \"img\"/\"group\"."
+    "note": "src/React/Component/NodeWrapper.purs:38 and src/React/Component/EdgeWrapper.purs:33 document that ariaRole is not carried; EdgeWrapper substitutes a fixed \"img\"/\"group\"."
   },
   "5308": {
     "pkg": "react",
@@ -1008,7 +1009,7 @@
     "bucket": "not-ported",
     "evidence": "",
     "ticket": "074",
-    "note": "src/React/Component/NodeWrapper.purs:33 and src/React/Component/EdgeWrapper.purs:27 both document that domAttributes is not carried on NodeBase/EdgeBase."
+    "note": "src/React/Component/NodeWrapper.purs:38 and src/React/Component/EdgeWrapper.purs:33 both document that domAttributes is not carried on NodeBase/EdgeBase."
   },
   "5321": {
     "pkg": "system",
@@ -1131,7 +1132,7 @@
     "bucket": "not-ported",
     "evidence": "",
     "ticket": "075",
-    "note": "src/React/Component/NodeWrapper.purs:191 falls back to `Object.lookup \"default\" builtinNodeTypes`, ignoring a user-supplied `default` in nodeTypes. Upstream NodeWrapper/index.tsx:61 is `nodeTypes?.['default'] || builtinNodeTypes.default`."
+    "note": "src/React/Component/NodeWrapper.purs:196 falls back to `Object.lookup \"default\" builtinNodeTypes`, ignoring a user-supplied `default` in nodeTypes. Upstream NodeWrapper/index.tsx:61 is `nodeTypes?.['default'] || builtinNodeTypes.default`."
   },
   "5394": {
     "pkg": "react",
@@ -1690,7 +1691,7 @@
     "bucket": "not-ported",
     "evidence": "",
     "ticket": "075",
-    "note": "Same resolution path as #5384: src/React/Component/NodeWrapper.purs:183-195 defaults a missing type to \"default\" correctly, but the custom-default fallback is wrong. Bundled into the same ticket."
+    "note": "Same resolution path as #5384: src/React/Component/NodeWrapper.purs:188-200 defaults a missing type to \"default\" correctly, but the custom-default fallback is wrong. Bundled into the same ticket."
   },
   "5755": {
     "pkg": "react",

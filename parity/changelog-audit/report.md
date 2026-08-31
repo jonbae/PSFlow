@@ -25,8 +25,8 @@ design (as `parity:surface` does).
 
 ## Summary
 
-- **covered** (no action): 113
-- **gaps** (a gate coming, a ticket, or fixed in-branch): 62
+- **covered** (no action): 114
+- **gaps** (a gate coming, a ticket, or fixed in-branch): 61
 - **accepted** (ungated by decision): 3
 - **n/a**: 2
 
@@ -34,13 +34,13 @@ design (as `parity:surface` does).
 |---|---|---|---|
 | `docs` | covered | 44 | Docs / types / tooling only — no runtime behavior |
 | `ts-only` | covered | 11 | TypeScript-only (type signature, generics, inference) |
-| `surface` | covered | 23 | Surface change — gated by parity:surface |
+| `surface` | covered | 24 | Surface change — gated by parity:surface |
 | `function` | covered | 14 | Pure-math change — gated by function parity, differential against the @psflow/oracle bundle |
 | `conformance` | covered | 15 | Behavior covered by a spec in the conformance test suite |
 | `unit` | covered | 6 | Behavior covered by a PureScript unit/property test |
 | `system` | covered | 0 | Behavior driven by the dual-run net — gated by parity:system |
 | `gate-pending` | gap | 50 | Ported and ungated, with a named gate coming (a gap, never a covered bucket) |
-| `ported-ungated` | gap | 2 | Ported and correct, but no gate exercises it and none is planned (test debt) |
+| `ported-ungated` | gap | 1 | Ported and correct, but no gate exercises it and none is planned (test debt) |
 | `not-ported` | gap | 10 | Behavior not present in PSFlow |
 | `accepted-ungated` | accepted | 3 | Ported, and deliberately never gated — carries the written reason |
 | `n/a` | na | 2 | No PSFlow analogue (Svelte-only, build tooling, infra) |
@@ -57,8 +57,8 @@ Neither number is typed. `debt` marks the rows 076–079 filed, and both counts 
 this file reading the buckets those rows now carry — which is what keeps the
 correction from going stale the next time one moves.
 
-Where the 56 went: `gate-pending` 50, `ported-ungated` 2, `accepted-ungated` 3, `n/a` 1.
-None of them moved into a covered bucket. A gate that is coming is still a gap.
+Where the 56 went: `surface` 1, `gate-pending` 50, `ported-ungated` 1, `accepted-ungated` 3, `n/a` 1.
+1 of them has since moved into a covered bucket (#4826); the rest are still gaps, and a gate that is coming is still one.
 
 ## Gaps
 
@@ -128,7 +128,6 @@ Every `gate-pending` row names a scenario or test that exists.
 
 | PR | Pkg | Version | Change | Ticket / fix |
 |---|---|---|---|---|
-| [#4826](https://github.com/xyflow/xyflow/pull/4826) | react | 12.3.6 | Forward ref of the div inside Panel components. | Panel ref forwarding is deferred in PSFlow (src/React/FFI/ForwardRef.purs exists but Panel does not use it). One instance of a surface-wide deferral rather than test debt — ReactFlow does not accept a ref either, documented at NodeWrapper.purs:28 and EdgeWrapper.purs:25 — and re-homed to https://github.com/jonbae/PSFlow/issues/27. |
 | [#5472](https://github.com/xyflow/xyflow/pull/5472) | react | 12.8.4 | Remove dangerouslySetInnerHTML from domAttributes | ticket 074 |
 
 ### `not-ported` — Behavior not present in PSFlow
@@ -172,6 +171,7 @@ The rule the rest of the table follows — no bucket without a row — is what k
 | PR | Pkg | Version | Change | Evidence |
 |---|---|---|---|---|
 | [#4725](https://github.com/xyflow/xyflow/pull/4725) | react | 12.4.0 | Add useNodeConnections hook to track all connections to a node. Can be filtered by handleType and handleId. | `useNodeConnections` present in psflow.json valueExports; src/React/Hook/NodeConnections.purs. |
+| [#4826](https://github.com/xyflow/xyflow/pull/4826) | react | 12.3.6 | Forward ref of the div inside Panel components. | Surface parity compares `Panel`'s wrapper kind against upstream's with nothing allowlisting it, so a regression to a plain component — which is what silently drops a `ref` — goes red. `parity/boundary/mount.mjs` holds the other half, that the ref reaches the element, by reading `ref: props.innerRef` out of `src/React/Portal/Panel.purs`; the two together are the change this PR made. |
 | [#4865](https://github.com/xyflow/xyflow/pull/4865) | react | 12.3.6 | Add group node to BuiltInNode type. Thanks [@sjdemartini](https://github.com/sjdemartini)! | Group node present as a built-in: src/React/Node/Group.purs, registered in builtinNodeTypes. |
 | [#4947](https://github.com/xyflow/xyflow/pull/4947) | react | 12.4.0 | Export ResizeControlVariant correctly as a value. | `ResizeControlVariant` present in psflow.json exports; src/React/Types/Component.purs. |
 | [#5091](https://github.com/xyflow/xyflow/pull/5091) | system | 0.0.53 | Add center-left and center-right as a panel position | `CenterLeft`/`CenterRight` panel positions at src/React/Portal/Panel.purs:33-34. |

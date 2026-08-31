@@ -9,7 +9,7 @@ carries the pre-fix behavior of upstream
 
 When a node's `type` matches neither `nodeTypes` nor the built-in registry,
 `resolveNodeComponent` falls back to a default component.
-`src/React/Component/NodeWrapper.purs:183-195`:
+`src/React/Component/NodeWrapper.purs:188-200`:
 
 ```purescript
 Nothing -> do
@@ -58,7 +58,7 @@ case Object.lookup "default" typesObj of
 ```
 
 Check whether `resolveEdgeComponent`
-(`src/React/Component/EdgeWrapper.purs:217-229`) has the same shape — it looks
+(`src/React/Component/EdgeWrapper.purs:225-237`) has the same shape — it looks
 structurally identical and likely needs the same fix for `edgeTypes`.
 
 ## Acceptance criteria
@@ -74,6 +74,6 @@ structurally identical and likely needs the same fix for `edgeTypes`.
 
 ## Source files
 
-- `src/React/Component/NodeWrapper.purs:183-195` — the defect
-- `src/React/Component/EdgeWrapper.purs:217-229` — check for the same shape
+- `src/React/Component/NodeWrapper.purs:188-200` — the defect
+- `src/React/Component/EdgeWrapper.purs:225-237` — check for the same shape
 - `xyflow/packages/react/src/components/NodeWrapper/index.tsx:55-61` — upstream

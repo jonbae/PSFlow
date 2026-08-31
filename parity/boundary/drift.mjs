@@ -122,11 +122,14 @@ const pairs = [
     js: { file: "src/Boundary/Elements.purs", type: "JsConnection" },
     renames: {},
   },
+  // `innerRef` -> `ref` is the same rename `PanelProps` and `HandleProps`
+  // carry, and it arrived here last: #27 made `<ReactFlow />` the third
+  // component to take a ref, after boundary stage 4 did the other two.
   {
     what: "ReactFlowProps",
     ps: { file: "src/React/Types/Component.purs", type: "ReactFlowProps" },
     js: { file: "src/Boundary/Flow.purs", type: "JsFlowProps" },
-    renames: {},
+    renames: { innerRef: "ref" },
   },
   {
     what: "DefaultEdgeOptions",
