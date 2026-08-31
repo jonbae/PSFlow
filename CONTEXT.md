@@ -74,8 +74,9 @@ Something that goes red. There are five, and each is named for what its red
 means. Never numbered — see *Layer* below. Other things in this repo also go
 red without being one of the five: `parity:boundary`, `parity:changelog`,
 `parity:fork`, `test:surface`, `test:boundary`, `test:compare`,
-`test:harness`, `test:harness:live`, `test:census`, `test:ci`,
-`test:node-props`, and the **unit tests**. Each entry below says where it sits.
+`test:harness`, `test:harness:live`, `test:census`, `test:coverage`,
+`test:audit`, `test:ci`, and the **unit tests**. Each entry below says where it
+sits.
 _Avoid_: layer, check, suite (when a gate is meant)
 
 **The four cheap gates**:
@@ -133,8 +134,10 @@ The parity gate at the grain of a whole mounted app — the **net**. The audit
 bucket named `system` and this gate name coincide deliberately. It builds both
 bundles, drives the **corpus** against each side twice, writes every **trace**
 to `parity/system/traces/`, and diffs the runs it reads back off disk. Its
-corpus today is **mount-only baselines**, one per **fixture**; the rest arrives
-with the corpus ticket. Red is its expected state while the divergence backlog
+corpus today is the **mount-only baselines**, one per **fixture**, plus three
+hand-written sources: the **conformance seed**, the thirty test-debt scenarios,
+and the **retirement debt**. Hole-closing scenarios are what is left.
+Red is its expected state while the divergence backlog
 is being worked — a failing run is recording what the two implementations do,
 and the answer is a fix or a **region**, never a looser comparison.
 _Avoid_: Layer 2, the e2e gate
@@ -148,25 +151,41 @@ does not retire it.
 _Avoid_: Layer 2, the generic specs, e2e
 
 **Smoke test suite** (`npm run test:smoke`):
-`smoke.spec.ts`: liveness — the `pageerror` trap and the no-console-errors
-session — plus the hand-authored interaction assertions that have not been
-retired yet. Retirement is recorded **per test**, as a header comment naming
-the exact condition, rather than per file: four of its tests retire on the
-net's `dom` section and `node drag fires onNodesChange` retires on
-`callbacks`, and not before — it is the repo's only callback assertion.
-Writing those comments is part of the retirement work
-([#61](https://github.com/jonbae/PSFlow/issues/61)); the file does not carry
-them yet.
+`smoke.spec.ts`: **liveness, and nothing else** — the `pageerror` trap and the
+no-console-errors session. It was ten tests; the other eight were the repo's
+densest hand-authored parity assertions and retired into the net
+([#61](https://github.com/jonbae/PSFlow/issues/61)). It runs against a
+**driver** now rather than the ps-flow contract page it used to mount: the flow
+is `parity/system/fixtures/flow/chrome-defaults.ts`, so the page whose liveness
+is checked is the page the net drives.
 _Avoid_: Layer 2, the e2e suite
 
+**Retirement** (of a hand-authored assertion):
+Recorded **per test, never per file**, in
+`parity/system/corpus/retirement-debt.mjs`: each entry names the spec, the exact
+test title, what it proved, and the scenario that re-reports it. Per test
+because one of the eight, `node drag fires onNodesChange`, was the only callback
+assertion on either surface, and a file-level retirement would have dropped it
+with nothing saying so. The register is **gated in both directions**: a citation
+that resolves to no scenario fails the net, and a retired title still present as
+a `test(` call in its spec fails `test:harness`. Nothing retires for
+redundancy — only what the net *re-reports*.
+_Avoid_: deprecation, removal, cleanup
+
 **Outside the scheme**:
-Two browser specs are not gates in the five-gate sense and get their own
-Playwright projects rather than a home inside one. `node-props.spec.ts`
-(`npm run test:node-props`) is a PSFlow-specific guard on the `NodeProps`
-record, and retires when the net's `props` section is green (#61).
-`screenshot.spec.ts` asserts nothing at all and only writes an artifact. The
-census names them as gates on individual rows because *something* would go red;
-neither is one of the five.
+One browser spec is not a gate in the five-gate sense and gets its own
+Playwright project rather than a home inside one: `screenshot.spec.ts` asserts
+nothing at all and only writes an artifact. `node-props.spec.ts` stood beside it
+until #61 — a PSFlow-specific guard on the `NodeProps` record, whose two tests
+are re-reported by `node-props-record-parented`. It did **not** retire on the
+condition written down for it ("when the net's `props` section is green"): both
+of its claims are about the graph, and a probed run compares only its own
+observation level and not the graph the probe replaced, so they are re-reported
+through `dom` instead. The `props` section is still red, on three things the
+spec never saw — `edgeTypes` and `connectionLineComponent` not having crossed
+(#62), and `NodeProps.width`/`height` reading `undefined` against upstream's `0`
+on an unmeasured node (#22). The census names the screenshot spec as a gate on
+individual rows because *something* would go red; it is not one of the five.
 
 `parity:boundary` is likewise not one of the five gates, but the census names
 its mount check as row-level JS-surface proof for the crossings it directly
@@ -182,12 +201,15 @@ self-consistent, which is a different claim from "PSFlow matches xyflow".
 _Avoid_: the test suite, the PureScript tests
 
 **Gate self-tests** (`npm run test:surface`, `test:boundary`, `test:census`,
-`test:compare`, `test:harness`, `test:ci`):
+`test:compare`, `test:coverage`, `test:harness`, `test:audit`, `test:ci`):
 `node --test` over an instrument's *own* logic — surface parity's shape and
 allowlist modules, the PureScript record reader both boundary checks share, the
-census generator and its staleness logic, system parity's comparison core, the
-net harness and the driver's registries, and the gates workflow's agreement with
-README's table plus the baseline vendoring script it runs. Outside the gate
+census generator and its staleness logic, system parity's comparison core and
+its coverage join, the net harness, the corpus's registers — including the
+**retirement** one, which is where a retired assertion still running beside the
+net is caught — and the driver's registries, the audit's bucket rules, and the
+gates workflow's agreement with README's table plus the baseline vendoring
+script it runs. Outside the gate
 scheme for the same reason the **unit tests** are:
 they prove an instrument does what it claims, which is a different claim from "PSFlow
 matches xyflow". A red one means the instrument is broken, not the port.
@@ -383,8 +405,8 @@ _Avoid_: placeholder, stub, planned scenario
 The scenarios **lifted** from upstream's own end-to-end suite — its interaction
 sequences, transcribed with every assertion dropped. One of the corpus's sources,
 beside the derived **mount-only baselines**; the others are the test-debt
-scenarios and the hole-closing scenarios after them. Say *the seed* only where
-the corpus is already in view.
+scenarios, the **retirement debt**, and the hole-closing scenarios after them.
+Say *the seed* only where the corpus is already in view.
 _Avoid_: the ported tests, the conformance suite (which is a **gate**, and drives
 PSFlow alone), the baseline
 

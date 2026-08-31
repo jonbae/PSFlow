@@ -155,7 +155,7 @@
     "version": "12.4.2",
     "title": "Narrow properties selected, selectable, deletable, draggable of NodeProps type to be required.",
     "bucket": "ts-only",
-    "evidence": "Narrows NodeProps.selected/selectable/deletable/draggable to required. PSFlow declares them non-Maybe in src/React/Types/Nodes.purs and guards the threading in examples/react-smoke/tests/node-props.spec.ts (ticket 069 probe).",
+    "evidence": "Narrows NodeProps.selected/selectable/deletable/draggable to required. PSFlow declares them non-Maybe in src/React/Types/Nodes.purs; the threading is driven by the net's `node-props-record-parented` against parity/system/fixtures/nodes/props-record.ts, whose nodes render the record they receive. The hand-authored guard that used to hold it, examples/react-smoke/tests/node-props.spec.ts (ticket 069), retired into that scenario (issue 61).",
     "ticket": null,
     "note": ""
   },

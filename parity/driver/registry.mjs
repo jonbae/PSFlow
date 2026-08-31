@@ -119,11 +119,18 @@ export const collectFixtures = (roots) => {
 /**
  * What a directly-mounted component *is*, and the corpus's question in one
  * field. An **example driver** declares its own flow inline, so it is its own
- * **fixture** and gets a mount-only baseline like every other fixture does. A
- * **contract** component renders a ps-flow-specific guard for one of the two
- * project suites and is a fixture of nothing, so it gets none — mounting it on
- * the upstream side would compare a page written against ps-flow's own contract
- * with upstream's reading of it, which is not a claim the net makes.
+ * **fixture** and gets a mount-only baseline like every other fixture does.
+ *
+ * `contract` is the other kind and has no members. A contract component
+ * rendered a ps-flow-specific guard for one of the project suites and was a
+ * fixture of nothing, so it got no baseline — mounting it on the upstream side
+ * would compare a page written against ps-flow's own contract with upstream's
+ * reading of it, which is not a claim the net makes. Both of them (`Smoke.tsx`
+ * and `NodePropsGuard.tsx`) went when their assertions retired into the net
+ * (#61), and their flows are fixtures now. The kind stays because it is the
+ * distinction `mountBaselines` filters on: with one kind the filter would read
+ * as ceremony, and the next contract page would join the corpus by being added
+ * to a list.
  */
 export const COMPONENT_KINDS = ["example-driver", "contract"];
 
@@ -154,20 +161,6 @@ export const DIRECT_COMPONENTS = [
     missing:
       `upstream's ColorMode example is not in the vendored tree. It is imported unmodified — it is ` +
       `its own fixture — so re-vendor \`xyflow/\`, or follow the example if a baseline bump moved it.`,
-  },
-  {
-    name: "smoke",
-    route: "/smoke",
-    kind: "contract",
-    file: "parity/driver/src/Smoke.tsx",
-    missing: `ps-flow's smoke component is missing — it is this repo's own and committed. Restore it from git.`,
-  },
-  {
-    name: "node-props",
-    route: "/examples/node-props",
-    kind: "contract",
-    file: "parity/driver/src/NodePropsGuard.tsx",
-    missing: `ps-flow's NodeProps guard is missing — it is this repo's own and committed. Restore it from git.`,
   },
 ];
 

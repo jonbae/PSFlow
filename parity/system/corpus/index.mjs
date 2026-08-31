@@ -11,8 +11,10 @@
 //      audit rows bound for the net collapsed onto thirty conditions, under the
 //      ids `reserved.mjs` had been holding for them — the source that turns a
 //      `gate-pending` row from *reserved* into driven
-//   3. the retirement debt (#61), the hand-authored parity assertions whose
-//      retirement was made conditional on the net covering them
+//   3. the **retirement debt** (`retirement-debt.mjs`), the hand-authored parity
+//      assertions in the two ps-flow browser specs, whose retirement was made
+//      conditional on the net covering them — and, beside the scenarios, the
+//      per-test record of which one replaced which assertion (#61)
 //   4. hole-closing scenarios, until the corpus's termination condition — which
 //      `../coverage/` now evaluates on every run, so what is left to close is
 //      read off `../coverage.md` rather than guessed at (#57)
@@ -23,6 +25,15 @@
 // two scenarios' traces on one set of file names — and the run would compare
 // one experiment against another while reporting the difference as a library
 // divergence.
+//
+// A second check lives here without being part of the assembly:
+// `assertRetirementsResolve` asks whether every scenario a **retirement** names
+// is one the corpus holds, and only the assembled corpus knows every name there
+// is. It is called by `../net.mjs` beside the fork register rather than by
+// `buildCorpus`, because it is a property of the corpus the *real* registry
+// produces — a caller assembling a two-fixture corpus to test the assembly is
+// not making a claim about a retirement, and failing it there would say
+// otherwise.
 //
 // `mountBaselines` guards the same hazard *within* the derived source, and the
 // two are not one function because they can say different things. Two fixtures
@@ -35,11 +46,13 @@ import { CorpusError } from "./routes.mjs";
 import { mountBaselines } from "./mount-baselines.mjs";
 import { probeVariants, readProbePlan } from "./probes.mjs";
 import { RESERVED } from "./reserved.mjs";
+import { RETIREMENTS, retirementDebtScenarios } from "./retirement-debt.mjs";
 import { seedScenarios } from "./seed.mjs";
 import { testDebtScenarios } from "./test-debt.mjs";
 
 export { CorpusError, ROUTE_PREFIX, idOf, routeOf } from "./routes.mjs";
 export { RESERVED } from "./reserved.mjs";
+export { RETIREMENTS, retiredTestProblems } from "./retirement-debt.mjs";
 
 /**
  * Every scenario, baselines first.
@@ -61,6 +74,7 @@ export const buildCorpus = (fixtures, components = []) => {
     ),
     ...seedScenarios,
     ...testDebtScenarios,
+    ...retirementDebtScenarios,
   ];
   return assertDistinctIds([...plain, ...probeVariants(plain, readProbePlan())]);
 };
@@ -97,13 +111,14 @@ export const scenarioNames = (fixtures, components = []) => ({
  * The check across sources, separately, because the sources it guards between
  * do not all exist yet.
  *
- * Today a derived baseline's id always leads with `mount-baseline--` and no
- * hand-written scenario's does, so the two sources in the corpus cannot in fact
- * collide. The next two can: the test-debt scenarios (#60) and the hole-closing
- * scenarios after them are hand-named, arrive later, and are written by someone
- * reading a changelog row rather than this file. That is precisely when a
- * duplicate is easiest to introduce and hardest to see, so the check ships with
- * the assembly rather than with the source that will need it.
+ * A derived baseline's id always leads with `mount-baseline--` and no
+ * hand-written scenario's does, so the derived source cannot collide with any of
+ * them. The three hand-named ones can collide with each other: the seed, the
+ * test-debt scenarios (#60) and the retirement debt (#61) arrived at different
+ * times, written by someone reading an upstream spec, a changelog row or a
+ * retiring assertion rather than this file, and the hole-closing scenarios after
+ * them will arrive the same way. That is precisely when a duplicate is easiest
+ * to introduce and hardest to see.
  */
 export const assertDistinctIds = (scenarios) => {
   const seen = new Map();
@@ -119,6 +134,39 @@ export const assertDistinctIds = (scenarios) => {
       );
     }
     seen.set(scenario.id, scenario.route);
+  }
+
+  return scenarios;
+};
+
+/**
+ * Every scenario a **retirement** names has to be one the corpus holds.
+ *
+ * The retirement register is the record of which hand-authored assertion was
+ * handed over to which scenario, and a citation that resolves to nothing is how
+ * the handover silently fails to happen: the assertion is deleted, the register
+ * says a scenario replaced it, and the name is a typo or a scenario somebody
+ * renamed afterwards. Exactly the hazard `reserved.mjs` exists for one source
+ * along, and answered the same way.
+ *
+ * Checked against the **written** ids alone, not the name space the changelog
+ * audit resolves against. A reserved id promises a scenario and drives nothing,
+ * which is a legitimate state for a plan and never one for a retirement: an
+ * assertion has already been deleted by the time this is asked.
+ */
+export const assertRetirementsResolve = (scenarios) => {
+  const written = new Set(scenarios.map((scenario) => scenario.id));
+  const dangling = RETIREMENTS.flatMap(({ spec, test, scenarios: cited }) =>
+    cited.filter((id) => !written.has(id)).map((id) => `  ${spec} — ${test}: ${id}`)
+  );
+
+  if (dangling.length) {
+    throw new CorpusError(
+      `${dangling.length} retirement citation(s) name a scenario the corpus does not hold:\n` +
+        dangling.join("\n") +
+        `\nThe assertion each one replaced has already been deleted, so a name that resolves to ` +
+        `nothing is coverage the repo believes it has and does not.`
+    );
   }
 
   return scenarios;

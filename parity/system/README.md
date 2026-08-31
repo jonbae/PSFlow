@@ -714,12 +714,9 @@ never about the registers, which are content and go red on their own.
 
 ## Not built here
 
-- **The rest of the corpus** — the thirty test-debt scenarios
+- **The rest of the corpus** — the hole-closing scenarios, until the termination
+  condition `coverage/` evaluates on every run. What is here is the mount-only
+  baselines, the conformance seed, the thirty test-debt scenarios
   ([#60](https://github.com/jonbae/PSFlow/issues/60)), the retirement debt
-  ([#61](https://github.com/jonbae/PSFlow/issues/61)) and the hole-closing scenarios after
-  them. What is here is the mount-only baselines and the conformance seed;
-  `corpus/` has its own README.
-- **The thirty scenarios the behavior count is waiting on**
-  ([#60](https://github.com/jonbae/PSFlow/issues/60)). The `gate-pending` bucket
-  is implemented and fifty rows carry it, but forty-two name an id `reserved.mjs`
-  is holding rather than a scenario that exists, so nothing drives them yet.
+  ([#61](https://github.com/jonbae/PSFlow/issues/61)) and the probe variants
+  derived from issue 59's retired holes; `corpus/` has its own README.

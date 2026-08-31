@@ -110,11 +110,7 @@ test("one empty root is fine; every root empty is not", () => {
 test("the directly mounted components are named once, and each says what it is", () => {
   assert.deepEqual(
     directComponents("/repo").map(({ route, kind }) => [route, kind]),
-    [
-      ["/examples/color-mode", "example-driver"],
-      ["/smoke", "contract"],
-      ["/examples/node-props", "contract"],
-    ]
+    [["/examples/color-mode", "example-driver"]]
   );
 });
 

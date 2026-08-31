@@ -24,7 +24,7 @@ mean something.
 | **surface parity** | `npm run parity:surface` | exported *values*, shapes and selected JS-barrel behavior, plus prop members, against vendored upstream |
 | **function parity** | `spago test` | pure-function return values, against the `@psflow/oracle` bundle |
 | **conformance test suite** | `npm run test:conformance` | upstream's own e2e specs, ported — upstream's *asserted intent* |
-| **smoke test suite** | `npm run test:smoke` | liveness, plus the hand-authored interaction assertions not yet retired |
+| **smoke test suite** | `npm run test:smoke` | liveness: that the driver page comes up, and that a session with it prints nothing |
 | **system parity** | `npm run parity:system` | a mounted app's whole end-state trace, against vendored upstream mounted beside it |
 
 `spago test` is deliberately broader than function parity: it also runs the
@@ -33,13 +33,34 @@ self-consistent. Those are outside the gate scheme — a different claim from
 "PSFlow matches xyflow". "Function parity green" collapsing to "`spago test`
 green" is stricter than needed, never weaker.
 
-Two browser specs sit outside the scheme as well:
+The smoke suite was ten tests until [#61](https://github.com/jonbae/PSFlow/issues/61):
+two liveness ones and eight hand-authored parity assertions, the densest in the
+repo. The eight retired when the net began re-reporting each of them, **recorded
+per test** in `parity/system/corpus/retirement-debt.mjs` — which names, for each,
+what it proved and the scenario that replaced it. Nothing retired for redundancy;
+per test rather than per file because one of the eight was the only callback
+assertion on either surface. The register is gated both ways: a citation naming
+no scenario fails `parity:system`, and a retired title still present as a `test(`
+call fails `test:harness`.
+
+One browser spec sits outside the scheme as well:
 
 ```sh
-npm run test:node-props   # PSFlow-only NodeProps guard; retires on the net's props section
 npx playwright test --config examples/react-smoke/playwright.config.ts --project=screenshot
 # writes parity/driver/dist/smoke.png
 ```
+
+`node-props.spec.ts` stood beside it until #61 — a PSFlow-only guard on the
+`NodeProps` record. Its two tests are re-reported by `node-props-record-parented`,
+which drives a fixture whose nodes render the record into the DOM on both sides.
+It did **not** retire on the condition written down for it, "when the net's
+`props` section is green": both of its claims are about the graph, and a probed
+run compares only its own observation level rather than the graph the probe
+replaced. That section is still red on three things the spec never saw —
+`edgeTypes` and `connectionLineComponent` not having crossed
+([#62](https://github.com/jonbae/PSFlow/issues/62)), and `NodeProps.width` /
+`height` reading `undefined` against upstream's `0` on an unmeasured node
+([#22](https://github.com/jonbae/PSFlow/issues/22)).
 
 **Ordering.** Surface parity green is a hard precondition — its failures are
 interop-shaped and shadow every other gate at once. Everything else is
@@ -82,7 +103,7 @@ traces that ran rather than declared: every export-bearing census entry carries 
 **witness** — a selector for `dom`, a name mapping for the other four sections —
 and counts as driven only if some captured trace holds it. What nothing drove is
 a **hole** with a written reason, and an *undeclared* hole fails the run. Today
-110 of 156 are driven and 46 are declared holes, with no undeclared residue.
+124 of 156 are driven and 32 are declared holes, with no undeclared residue.
 That is what the corpus's termination condition is stated against. It regenerates from the committed
 traces in milliseconds, with no browser and no vendored checkout.
 

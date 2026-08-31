@@ -3,14 +3,18 @@ import assert from "node:assert/strict";
 
 import { defineScenario } from "../harness/scenario.mjs";
 import { CorpusError, RESERVED, assertDistinctIds, buildCorpus, scenarioNames } from "./index.mjs";
+import { retirementDebtScenarios } from "./retirement-debt.mjs";
 import { seedScenarios } from "./seed.mjs";
 import { testDebtScenarios } from "./test-debt.mjs";
 
 const fixtures = (...routes) => routes.map((route) => ({ route, file: `/vendored${route.slice(1)}` }));
 
+// A contract component beside the example driver, though the registry has held
+// none since #61: the filter that decides which components get a baseline is
+// what these tests are about, and a list with one kind in it cannot exercise it.
 const COMPONENTS = [
   { route: "/examples/color-mode", kind: "example-driver", file: "/vendored/ColorMode/index.tsx" },
-  { route: "/smoke", kind: "contract", file: "/repo/Smoke.tsx" },
+  { route: "/guard", kind: "contract", file: "/repo/Guard.tsx" },
 ];
 
 const ids = (scenarios) => scenarios.map((s) => s.id);
@@ -21,7 +25,7 @@ const probeIds = (baseline) => [
   "connect-source-handle-to-target-handle--probe-connection-line",
 ];
 
-test("the corpus is the baselines, the seed, the test-debt scenarios and the hole-derived probe variants", () => {
+test("the corpus is the baselines, the seed, the test-debt and retirement-debt scenarios, and the hole-derived probe variants", () => {
   const corpus = buildCorpus(fixtures("./nodes/general.ts"), COMPONENTS);
 
   assert.deepEqual(ids(corpus), [
@@ -29,6 +33,7 @@ test("the corpus is the baselines, the seed, the test-debt scenarios and the hol
     "mount-baseline--examples-color-mode",
     ...ids(seedScenarios),
     ...ids(testDebtScenarios),
+    ...ids(retirementDebtScenarios),
     ...probeIds("mount-baseline--nodes-general"),
   ]);
 });
@@ -45,21 +50,22 @@ test("the example driver gets a baseline and the contract components do not", ()
   assert.deepEqual(baselines, ["mount-baseline--nodes-general", "mount-baseline--examples-color-mode"]);
 });
 
-test("a corpus with no components at all is still the fixtures' baselines and the seed", () => {
+test("a corpus with no components at all is still the fixtures' baselines and the written sources", () => {
   assert.deepEqual(ids(buildCorpus(fixtures("./pane/general.ts"))), [
     "mount-baseline--pane-general",
     ...ids(seedScenarios),
     ...ids(testDebtScenarios),
+    ...ids(retirementDebtScenarios),
     ...probeIds("mount-baseline--pane-general"),
   ]);
 });
 
 // The hazard this file exists for, tested where it can be reached. A derived
 // baseline's id always leads with `mount-baseline--` and no hand-written
-// scenario's does, so today's two sources cannot collide — the two that arrive
-// later are hand-named, written by someone reading a changelog row rather than
-// this file, and that is when a duplicate is easiest to introduce and hardest
-// to see afterwards.
+// scenario's does, so the derived source cannot collide with any of them — the
+// three hand-named sources can, being written at different times by people
+// reading a changelog row or a retiring spec rather than this file, and that is
+// when a duplicate is easiest to introduce and hardest to see afterwards.
 test("an id two sources both claim fails rather than sharing trace files", () => {
   const twice = ["/tests/generic/nodes/general", "/tests/generic/pane/general"].map((route) =>
     defineScenario({ id: "drag-node-release", route, run: async () => {} })

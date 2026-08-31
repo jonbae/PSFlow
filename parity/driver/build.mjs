@@ -87,10 +87,13 @@ if (!Object.hasOwn(sides, side)) {
 // `registry.mjs`, which also refuses a route two roots both claim.
 //
 // **Directly mounted components**: the second kind of route, where a component
-// is mounted itself rather than handed a fixture by `src/Flow.tsx`. The
-// conformance suite's ColorMode **example driver** is imported unmodified from
-// upstream; PSFlow's smoke and NodeProps components are project-specific
-// contracts. `generic-props.spec.ts` needs the upstream page: upstream's own
+// is mounted itself rather than handed a fixture by `src/Flow.tsx`. There is one
+// left — the conformance suite's ColorMode **example driver**, imported
+// unmodified from upstream. PSFlow's two project-specific **contract** pages
+// went when the hand-authored assertions they carried retired into the net
+// (#61); their flows are fixtures under `parity/system/fixtures/` now, so both
+// implementations mount them. `generic-props.spec.ts` needs the upstream page:
+// upstream's own
 // props spec drives `examples/color-mode` rather than a generic-test fixture,
 // because there is no props fixture to twin — upstream's `generic-tests/` holds
 // exactly `edges`, `node-toolbar`, `nodes` and `pane`.

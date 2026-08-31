@@ -1,7 +1,7 @@
 # The driver page — bundled once per side
 
 One page routes fixture data through the `Flow.tsx` **driver**, or directly
-mounts the upstream **example driver** and PSFlow-local contract components. It
+mounts the upstream **example driver**. It
 is bundled twice, and the two bundles differ in exactly one thing: what
 `@xyflow/react` resolves to. A driver difference can therefore never be
 mistaken for a library difference.
@@ -18,8 +18,6 @@ all defined there.
 | `observations.mjs` | the in-page hooks/API/props log and settled API snapshots |
 | `probe-graph.mjs` | fixture-derived node, edge and connection-line probe variants |
 | `probe-hooks.mjs` | isolates each hook-callback subscription while retaining ordinary hook probes |
-| `src/Smoke.tsx` | the JS-surface smoke page |
-| `src/NodePropsGuard.tsx` | the JS-surface NodeProps guard |
 | `index.html` | the container, whose box feeds `fitView`, and the `?side=` switch |
 | `registry.mjs` | the two fixture roots, the glob over them, and the collision it can hit |
 | `callbacks.mjs` | which callback props the page installs, derived from upstream, and the two registers it cannot derive |
@@ -55,16 +53,24 @@ fixture's path would shadow it and every spec driving that route would keep
 passing against something else. `registry.mjs` fails on the collision rather
 than letting one win, and it is where the two roots are *named*, because the
 net's corpus derives a mount-only baseline per fixture from the same pair. Its
-second root is empty while every scenario in the corpus is lifted from
-upstream's own suite and so drives a fixture upstream already ships
-([#55](https://github.com/jonbae/PSFlow/issues/55)); emptiness only fails in the
+second root holds twenty flows, one per condition no vendored fixture sets;
+it was legitimately empty while every scenario in the corpus was lifted from
+upstream's own suite and so drove a fixture upstream already ships
+([#55](https://github.com/jonbae/PSFlow/issues/55)). Emptiness only fails in the
 aggregate, which would be a page answering every route with a 404.
 
-The other hashes select components mounted directly. `generic-props.spec.ts`
-needs upstream's **example driver**, `examples/ColorMode/index.tsx`, because
-upstream has no props fixture to twin. `#/smoke` and `#/examples/node-props`
-select PSFlow-authored components that preserve the local smoke and NodeProps
-contracts without reopening the compiled PureScript page.
+The other hashes select components mounted directly. There is one:
+`generic-props.spec.ts` needs upstream's **example driver**,
+`examples/ColorMode/index.tsx`, because upstream has no props fixture to twin.
+
+`#/smoke` and `#/examples/node-props` used to be two more — PSFlow-authored
+**contract** components carrying the smoke suite's eight hand-authored parity
+assertions and the NodeProps guard. Both retired into the net
+([#61](https://github.com/jonbae/PSFlow/issues/61)) and their flows are
+fixtures now, `flow/chrome-defaults.ts` and `nodes/props-record.ts`, so
+upstream mounts them too and the assertions are comparisons instead. The two
+liveness tests that were never parity assertions stayed, and run against the
+first of those fixtures through `Flow.tsx`.
 
 Direct components are **written down** in `registry.mjs` rather than globbed,
 unlike the fixtures. Upstream's `examples/` holds dozens of directories, most of them
@@ -78,8 +84,10 @@ They sit beside the fixture roots rather than in `build.mjs` for the reason the
 roots do: the net's corpus reads the same list. Each entry says which **kind** it
 is, and the corpus's question is that field — an **example driver** declares its
 own flow inline, so it *is* a fixture and gets a mount-only baseline like every
-other fixture, while a **contract** component renders a ps-flow-specific guard
-for one of the project suites and is a fixture of nothing.
+other fixture, while a **contract** component rendered a ps-flow-specific guard
+for one of the project suites and was a fixture of nothing. The `contract` kind
+has no members today and stays: it is the distinction the baseline filter turns
+on, and with one kind left that filter would read as ceremony.
 
 That import list is not free. `ColorMode/index.tsx` pulls `useNodesState` and
 `useEdgesState` into boundary stage 1 from stage 3, and its line 56 is
@@ -91,8 +99,8 @@ what proves it.
 
 ## Who uses it
 
-All five specs in the conformance test suite, the smoke suite, the NodeProps
-guard, and the screenshot helper run against this page and therefore enter
+All five specs in the conformance test suite, the smoke suite's two liveness
+tests, and the screenshot helper run against this page and therefore enter
 through **the JS surface**. The compiled `Example.Main` door and its translated
 fixtures were deleted in [#50](https://github.com/jonbae/PSFlow/issues/50).
 

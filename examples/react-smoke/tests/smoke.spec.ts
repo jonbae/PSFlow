@@ -1,9 +1,29 @@
 import { expect, test } from "@playwright/test";
 
-// Walks the runtime checklist from tickets/053-react-runtime-verification.md.
-// Items annotated with `test.skip(...)` are blocked by a 052 follow-up
-// — link the issue ID in the skip reason so the gap is auditable.
-const APP = "/parity/driver/index.html#/smoke";
+// The smoke test suite — **liveness, and nothing else** (issue #61).
+//
+// It used to be ten tests: two liveness ones and eight hand-authored parity
+// assertions, which were the densest such assertions in the repo. The eight
+// retired when the dual-run net began re-reporting each of them, recorded **per
+// test** in `parity/system/corpus/retirement-debt.mjs` — which names, for each,
+// what it proved and the scenario that replaced it. Per test rather than per
+// file because `node drag fires onNodesChange` was the only callback assertion
+// on either surface, and a file-level retirement would have dropped it with
+// nothing saying so.
+//
+// **These two do not retire.** What is left is the claim no differential
+// instrument makes: that the page comes up at all and says nothing while it is
+// used. The net compares ps-flow against upstream, so two sides that were both
+// broken in the same way compare clean — and a page that never mounted compares
+// two empty traces. That is a different question from "does ps-flow match
+// xyflow", and it is the one this file answers.
+//
+// It runs against a **driver** now, rather than against the ps-flow contract
+// component it used to mount: `Smoke.tsx` existed to carry the eight
+// assertions, its flow is `parity/system/fixtures/flow/chrome-defaults.ts`
+// since they retired, and the driver mounts that fixture on both sides. So the
+// page whose liveness is checked here is the same page the net drives.
+const APP = "/parity/driver/index.html#/tests/generic/flow/chrome-defaults";
 
 test.describe("ps-flow smoke test", () => {
   test.beforeEach(async ({ page }) => {
@@ -17,71 +37,20 @@ test.describe("ps-flow smoke test", () => {
     await page.waitForSelector(".react-flow", { timeout: 10_000 });
   });
 
-  test("two nodes and one edge render", async ({ page }) => {
-    const nodes = page.locator(".react-flow__node");
-    await expect(nodes).toHaveCount(2);
-    const edges = page.locator(".react-flow__edge");
-    await expect(edges).toHaveCount(1);
+  // Liveness, and the test the `pageerror` trap above rides on: a trap
+  // registered in a hook needs some test to run for it to fire in. The counts
+  // are the fixture's own — two nodes and one edge — and they are here because
+  // a `.react-flow` wrapper with nothing inside it is what a mount that threw
+  // half way looks like.
+  test("the driver page mounts and renders its fixture", async ({ page }) => {
+    await expect(page.locator(".react-flow__node")).toHaveCount(2);
+    await expect(page.locator(".react-flow__edge")).toHaveCount(1);
   });
 
-  test("Background renders behind the flow", async ({ page }) => {
-    await expect(page.locator(".react-flow__background")).toBeVisible();
-  });
-
-  test("MiniMap renders and is clickable", async ({ page }) => {
-    const minimap = page.locator(".react-flow__minimap");
-    await expect(minimap).toBeVisible();
-    // The pan-on-minimap-click interaction itself is a deeper wiring step
-    // (handler -> panBy through XYMinimap); the smoke test only verifies
-    // the surface here. A future ticket should add a regression for the
-    // pan behaviour once handle-drag wiring lands.
-    await minimap.click({ position: { x: 50, y: 50 } });
-  });
-
-  test("Controls render and clicking zoom-in changes the transform", async ({
-    page,
-  }) => {
-    const controls = page.locator(".react-flow__controls");
-    await expect(controls).toBeVisible();
-    const zoomIn = page.locator(".react-flow__controls-zoomin");
-    const zoomOut = page.locator(".react-flow__controls-zoomout");
-    const fitView = page.locator(".react-flow__controls-fitview");
-    await expect(zoomIn).toBeVisible();
-    await expect(zoomOut).toBeVisible();
-    await expect(fitView).toBeVisible();
-    const before = await viewportTransform(page);
-    await zoomIn.click();
-    await page.waitForTimeout(300);
-    const after = await viewportTransform(page);
-    expect(after).not.toBe(before);
-  });
-
-  test("wheel-zoom changes the viewport transform", async ({ page }) => {
-    const before = await viewportTransform(page);
-    const pane = page.locator(".react-flow__pane").first();
-    await pane.hover();
-    await page.mouse.wheel(0, -200);
-    await page.waitForTimeout(200);
-    const after = await viewportTransform(page);
-    expect(after).not.toBe(before);
-  });
-
-  test("background drag pans the viewport", async ({ page }) => {
-    const before = await viewportTransform(page);
-    const pane = page.locator(".react-flow__pane").first();
-    const box = await pane.boundingBox();
-    if (!box) throw new Error("pane has no bounding box");
-    const startX = box.x + box.width / 2;
-    const startY = box.y + box.height / 2;
-    await page.mouse.move(startX, startY);
-    await page.mouse.down();
-    await page.mouse.move(startX + 100, startY + 50, { steps: 10 });
-    await page.mouse.up();
-    await page.waitForTimeout(200);
-    const after = await viewportTransform(page);
-    expect(after).not.toBe(before);
-  });
-
+  // Liveness, the second half: a session that drives the flow through the wheel
+  // and through two of the Controls buttons, and prints nothing. The net records
+  // the console as a section and compares it, which catches ps-flow saying
+  // something upstream does not — this catches both of them saying it.
   test("no console errors during a 5-second interaction session", async ({
     page,
   }) => {
@@ -97,81 +66,4 @@ test.describe("ps-flow smoke test", () => {
     await page.waitForTimeout(1500);
     expect(errors).toEqual([]);
   });
-
-  // Node drag flows through `System.XYDrag`. The example app wires an
-  // `onNodesChange` callback that mirrors each change array to
-  // `window.__lastNodeChanges` so this test can observe the fact that
-  // changes fired without depending on the internal NodeChange shape.
-  test("node drag fires onNodesChange", async ({ page }) => {
-    const n1 = page.locator('.react-flow__node[data-id="n1"]');
-    const box = await n1.boundingBox();
-    if (!box) throw new Error("n1 has no bounding box");
-    const startX = box.x + box.width / 2;
-    const startY = box.y + box.height / 2;
-    await page.mouse.move(startX, startY);
-    await page.mouse.down();
-    await page.mouse.move(startX + 50, startY + 50, { steps: 10 });
-    await page.mouse.up();
-    await page.waitForTimeout(200);
-    const changesCount = await page.evaluate(
-      () => (window as unknown as { __lastNodeChangesCount?: number })
-        .__lastNodeChangesCount ?? 0
-    );
-    expect(changesCount).toBeGreaterThan(0);
-    const lastChanges = await page.evaluate(
-      () => (window as unknown as { __lastNodeChanges?: unknown[] })
-        .__lastNodeChanges ?? []
-    );
-    expect(Array.isArray(lastChanges)).toBe(true);
-    expect(lastChanges.length).toBeGreaterThan(0);
-  });
-
-  // Click-connect is gated on `connectOnClick: Just true` and uses the
-  // store's `hasDefaultEdges` branch in `Handle.onConnectExtended` to
-  // dispatch the new edge through `SetEdges`. We assert the visible edge
-  // count goes 1 → 2.
-  //
-  // We click n2.source → n1.target (the reverse of the seeded edge). The
-  // store's `connectionExists` predicate dedupes identical source/target
-  // pairs, so connecting in the same direction would silently no-op.
-  test("click-connect creates an edge", async ({ page }) => {
-    await expect(page.locator(".react-flow__edge")).toHaveCount(1);
-    const sourceHandle = page.locator(
-      '.react-flow__handle[data-nodeid="n2"][data-handlepos="right"]'
-    );
-    const targetHandle = page.locator(
-      '.react-flow__handle[data-nodeid="n1"][data-handlepos="left"]'
-    );
-    await sourceHandle.click();
-    await targetHandle.click();
-    await expect(page.locator(".react-flow__edge")).toHaveCount(2);
-  });
-
-  // Drag-connect visual classes. The source handle should pick up
-  // `connectingfrom` during a drag and lose it on drop.
-  test("connection-state classes flip during drag", async ({ page }) => {
-    const sourceHandle = page.locator(
-      '.react-flow__handle[data-nodeid="n1"][data-handlepos="right"]'
-    );
-    const box = await sourceHandle.boundingBox();
-    if (!box) throw new Error("source handle has no bounding box");
-    const startX = box.x + box.width / 2;
-    const startY = box.y + box.height / 2;
-    await page.mouse.move(startX, startY);
-    await page.mouse.down();
-    await page.mouse.move(startX + 80, startY + 40, { steps: 8 });
-    await expect(sourceHandle).toHaveClass(/connectingfrom/);
-    await page.mouse.up();
-    await expect(sourceHandle).not.toHaveClass(/connectingfrom/);
-  });
 });
-
-// Read the inline transform CSS applied to `.react-flow__viewport`. ReactFlow
-// stores pan/zoom as `transform: translate(x, y) scale(z)`; we use the raw
-// string for change detection.
-async function viewportTransform(page: import("@playwright/test").Page): Promise<string> {
-  return await page.evaluate(() => {
-    const vp = document.querySelector<HTMLElement>(".react-flow__viewport");
-    return vp ? vp.style.transform : "";
-  });
-}
