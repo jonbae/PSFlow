@@ -16,6 +16,7 @@ module React.Node.Util
 
 import Prelude
 
+import Data.Foldable (for_)
 import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..))
 import Data.Nullable (Nullable, toMaybe)
@@ -77,8 +78,6 @@ handleNodeClick args = do
         args.store.dispatch
           (UnselectNodesAndEdges { nodes: Just [ asNode ], edges: Nothing })
         mDiv <- toMaybe <$> readRef args.nodeRef
-        case mDiv of
-          Nothing -> pure unit
-          Just div -> void $ requestAnimationFrame (blur (toHTMLElement div))
+        for_ mDiv \div -> requestAnimationFrame (blur (toHTMLElement div))
       else
         pure unit

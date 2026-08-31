@@ -58,7 +58,7 @@ The three 063 fixes are validated **only** by the e2e smoke suite
 1. `reduceTriggerEdgeChanges` (`Reduce.purs:304`) — uncontrolled `edgeLookup` /
    `connectionLookup` rebuild.
 2. `reduceAddSelectedEdges` (`Reduce.purs:356`) — the `multiSelectionActive` branch.
-3. `EdgeWrapper` `isSelectable` (`EdgeWrapper.purs:343`) — the
+3. `EdgeWrapper` `isSelectable` (`EdgeWrapper.purs:355`) — the
    `edge.selectable || (elementsSelectable && isNothing edge.selectable)` form.
 
 `test/Test/React/Store/Reduce.purs` already exercises the reducers with

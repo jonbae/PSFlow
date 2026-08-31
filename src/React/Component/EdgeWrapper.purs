@@ -62,7 +62,7 @@ import React.Basic.Hooks as React
 import React.Component.EdgeWrapper.UpdateAnchors (edgeUpdateAnchors)
 import React.Component.EdgeWrapper.Util (EdgePositionSlice, builtinEdgeTypes, nullPosition)
 import React.Edge.Bezier (bezierEdgeInternal)
-import React.FFI.DOM (blurSvgElement, g_, opt)
+import React.FFI.DOM (blurElement, g_, opt)
 import React.Hook.Store (UseStoreApi, useStore, useStoreApi)
 import React.Store.Action (Action(..))
 import React.Types.Edges
@@ -374,11 +374,7 @@ edgeWrapper =
         -- so without this the edge loses its selection and keeps its focus
         -- ring, and the next Escape or Enter still reaches it.
         blurEdge :: Effect Unit
-        blurEdge = do
-          mEl <- toMaybe <$> readRef edgeRef
-          case mEl of
-            Nothing -> pure unit
-            Just el -> blurSvgElement el
+        blurEdge = readRef edgeRef >>= toMaybe >>> flip for_ blurElement
 
         onClickHandler :: EventHandler
         onClickHandler = handler syntheticEvent \se -> do

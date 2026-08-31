@@ -85,14 +85,14 @@ audited in [071](071-version-drift-audit-12-3-to-12-11.md).
 
 ## Why it's low-effort
 
-`mkNodeProps` (`src/React/Component/NodeWrapper.purs:289`) **already receives**
+`mkNodeProps` (`src/React/Component/NodeWrapper.purs:294`) **already receives**
 `_selectable` and `_draggable` as parameters and discards them (underscore-
 prefixed); only `_connectable` is placed in the record. `NodeBase` already carries
 `width`/`height`/`parentId`/`deletable`. So the change is:
 
 1. `src/React/Types/Nodes.purs:43` — add the 6 fields, rename `xPos`/`yPos` →
    `positionAbsoluteX`/`positionAbsoluteY`.
-2. `src/React/Component/NodeWrapper.purs:289` — stop discarding `_selectable`/
+2. `src/React/Component/NodeWrapper.purs:294` — stop discarding `_selectable`/
    `_draggable`, add them plus `deletable`/`width`/`height`/`parentId` to the
    record, rename the two position fields.
 3. Any internal read of `props.xPos`/`props.yPos` (built-in nodes) follows the

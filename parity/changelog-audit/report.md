@@ -58,7 +58,7 @@ this file reading the buckets those rows now carry — which is what keeps the
 correction from going stale the next time one moves.
 
 Where the 56 went: `surface` 1, `gate-pending` 50, `ported-ungated` 1, `accepted-ungated` 3, `n/a` 1.
-None of them moved into a covered bucket. A gate that is coming is still a gap.
+1 of them has since moved into a covered bucket (#4826); the rest are still gaps, and a gate that is coming is still one.
 
 ## Gaps
 

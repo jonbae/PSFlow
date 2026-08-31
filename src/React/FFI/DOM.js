@@ -27,12 +27,9 @@ export const scrollResetHandlerImpl = (cb) => (event) => {
   cb();
 };
 
-// Guarded, because `blur` is `HTMLOrSVGElement`'s and not every element has
-// one: an SVG element in a browser old enough to predate that interface has
-// the ref but not the method, and the edge would throw on Escape rather than
-// merely keep its focus ring.
-export const blurSvgElement = (element) => () => {
-  if (element && typeof element.blur === "function") {
-    element.blur();
-  }
+// Unguarded, as TS's `edgeRef.current?.blur()` is: its `?.` guards the ref
+// being null, which the caller already does, and every browser this port
+// targets has `blur` on an SVG element.
+export const blurElement = (element) => () => {
+  element.blur();
 };

@@ -16,9 +16,9 @@ model:
 Neither field exists on `NodeBase` / `EdgeBase`, so neither wrapper can honour
 it. Both wrappers already say so in their fidelity notes:
 
-- `src/React/Component/NodeWrapper.purs:33` — "`node.domAttributes` spread and
+- `src/React/Component/NodeWrapper.purs:38` — "`node.domAttributes` spread and
   `node.ariaRole` aren't carried on `NodeBase` yet."
-- `src/React/Component/EdgeWrapper.purs:27` — "`edge.ariaRole` /
+- `src/React/Component/EdgeWrapper.purs:33` — "`edge.ariaRole` /
   `edge.domAttributes` / `edge.reconnectable` aren't carried on `EdgeBase`; the
   wrapper substitutes `"img"`/`"group"` for `role`, skips the dom-attribute
   spread, and keys reconnect off the global `edgesReconnectable` flag alone."
@@ -66,5 +66,5 @@ sequence.
 ## Source files
 
 - `src/System/Types/Node.purs`, `src/System/Types/Edge.purs`
-- `src/React/Component/NodeWrapper.purs:33`, `src/React/Component/EdgeWrapper.purs:27`
+- `src/React/Component/NodeWrapper.purs:38`, `src/React/Component/EdgeWrapper.purs:33`
 - `parity/surface/prop-types.mjs` — where data-record coverage would be added

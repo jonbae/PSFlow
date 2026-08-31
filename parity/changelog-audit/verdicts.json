@@ -991,7 +991,7 @@
     "bucket": "not-ported",
     "evidence": "",
     "ticket": "074",
-    "note": "src/React/Component/NodeWrapper.purs:33 and src/React/Component/EdgeWrapper.purs:27 document that ariaRole is not carried; EdgeWrapper substitutes a fixed \"img\"/\"group\"."
+    "note": "src/React/Component/NodeWrapper.purs:38 and src/React/Component/EdgeWrapper.purs:33 document that ariaRole is not carried; EdgeWrapper substitutes a fixed \"img\"/\"group\"."
   },
   "5308": {
     "pkg": "react",
@@ -1009,7 +1009,7 @@
     "bucket": "not-ported",
     "evidence": "",
     "ticket": "074",
-    "note": "src/React/Component/NodeWrapper.purs:33 and src/React/Component/EdgeWrapper.purs:27 both document that domAttributes is not carried on NodeBase/EdgeBase."
+    "note": "src/React/Component/NodeWrapper.purs:38 and src/React/Component/EdgeWrapper.purs:33 both document that domAttributes is not carried on NodeBase/EdgeBase."
   },
   "5321": {
     "pkg": "system",
@@ -1132,7 +1132,7 @@
     "bucket": "not-ported",
     "evidence": "",
     "ticket": "075",
-    "note": "src/React/Component/NodeWrapper.purs:191 falls back to `Object.lookup \"default\" builtinNodeTypes`, ignoring a user-supplied `default` in nodeTypes. Upstream NodeWrapper/index.tsx:61 is `nodeTypes?.['default'] || builtinNodeTypes.default`."
+    "note": "src/React/Component/NodeWrapper.purs:196 falls back to `Object.lookup \"default\" builtinNodeTypes`, ignoring a user-supplied `default` in nodeTypes. Upstream NodeWrapper/index.tsx:61 is `nodeTypes?.['default'] || builtinNodeTypes.default`."
   },
   "5394": {
     "pkg": "react",
@@ -1691,7 +1691,7 @@
     "bucket": "not-ported",
     "evidence": "",
     "ticket": "075",
-    "note": "Same resolution path as #5384: src/React/Component/NodeWrapper.purs:183-195 defaults a missing type to \"default\" correctly, but the custom-default fallback is wrong. Bundled into the same ticket."
+    "note": "Same resolution path as #5384: src/React/Component/NodeWrapper.purs:188-200 defaults a missing type to \"default\" correctly, but the custom-default fallback is wrong. Bundled into the same ticket."
   },
   "5755": {
     "pkg": "react",
