@@ -625,15 +625,22 @@ makes it reachable at all. It is what green means here, so the number to watch i
 the hole count: that is the debt, written down. `coverage.md` states the
 condition and evaluates it on every run.
 
-Today: **110 of 156 driven, 46 declared holes, no residue.** Selective probe
+Today: **124 of 156 driven, 32 declared holes, no residue.** Selective probe
 variants drove every issue-59 hook and props witness plus the read-only API
-snapshot; the remaining debt is components no fixture mounts ([#62]) and
-imperative interactions no scenario drives ([#60]).
+snapshot; the remaining debt is components no fixture mounts and imperative
+interactions no scenario drives ([#60]). The first of those was two problems
+wearing one label until boundary stage 4 ([#62]) separated them: those
+components could not be mounted from JavaScript *and* nothing mounted them.
+Stage 4 fixed the first, deliberately and on its own — so every one of those
+holes is still open, and closing one is now a fixture rather than a converter.
 
 ### The hole list is machine-readable
 
 `coverage/holes.json` is read by other work, not only by people. Boundary stage 4
-([#62]) takes the components no fixture mounts from it. Issue 59 used the same
+([#62]) took the components no fixture mounts from it and crossed them —
+selection by register rather than by hand, which is why `EdgeToolbar` and the
+four non-default built-in edges are in that stage's set at all and why the two
+resizer components, already crossed, were left alone. Issue 59 used the same
 query to generate `corpus/probe-plan.json` from its hook, API and props holes.
 The artifact preserves those retired hole inputs; every build joins them through
 the current census and witness register to derive the runtime names. That keeps

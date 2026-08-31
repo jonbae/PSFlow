@@ -110,21 +110,21 @@ The witness is printed beside each one so a wrong witness can be read and disput
 | `ColorModeClass` | dom | driven | `.react-flow.dark` | `select-dark-color-mode` |
 | `ControlButton` | dom | driven | `button.react-flow__controls-button` | `click-connect-reverse-direction` +12 more |
 | `ControlButtonProps` | dom | driven | `button.react-flow__controls-button[title]` | `click-connect-reverse-direction` +12 more |
-| `ControlLinePosition` | dom | hole | `.react-flow__resize-control.line` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
-| `ControlPosition` | dom | hole | `.react-flow__resize-control.handle` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
+| `ControlLinePosition` | dom | hole | `.react-flow__resize-control.line` | declared — no issue owns it |
+| `ControlPosition` | dom | hole | `.react-flow__resize-control.handle` | declared — no issue owns it |
 | `Controls` | dom | driven | `.react-flow__controls` | `click-connect-reverse-direction` +12 more |
 | `DefaultEdgeOptions` | dom | hole | `.react-flow__edge-smoothstep` | declared — no issue owns it |
 | `Edge` | dom | driven | `.react-flow__edge[data-id]` | `arrow-key-selected-node` +88 more |
 | `EdgeLabelOptions` | dom | driven | `.react-flow__edge-textbg` | `background-custom-bgcolor` +49 more |
-| `EdgeLabelRenderer` | dom | hole | `.react-flow__edgelabel-renderer *` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
-| `EdgeLabelRendererProps` | dom | hole | `.react-flow__edgelabel-renderer *` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
+| `EdgeLabelRenderer` | dom | hole | `.react-flow__edgelabel-renderer *` | declared — no issue owns it |
+| `EdgeLabelRendererProps` | dom | hole | `.react-flow__edgelabel-renderer *` | declared — no issue owns it |
 | `EdgeMarker` | dom | driven | `marker.react-flow__arrowhead` | `click-inside-interaction-width` +7 more |
 | `EdgeMarkerType` | dom | driven | `path[marker-end]` | `click-inside-interaction-width` +7 more |
 | `EdgeText` | dom | driven | `.react-flow__edge-textwrapper` | `background-custom-bgcolor` +49 more |
 | `EdgeTextProps` | dom | driven | `text.react-flow__edge-text` | `background-custom-bgcolor` +49 more |
-| `EdgeToolbar` | dom | hole | `.react-flow__edge-toolbar` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
-| `EdgeToolbarProps` | dom | hole | `.react-flow__edge-toolbar` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
-| `EdgeTypes` | dom | hole | `.react-flow__edge-custom` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
+| `EdgeToolbar` | dom | hole | `.react-flow__edge-toolbar` | declared — no issue owns it |
+| `EdgeToolbarProps` | dom | hole | `.react-flow__edge-toolbar` | declared — no issue owns it |
+| `EdgeTypes` | dom | hole | `.react-flow__edge-custom` | declared — no issue owns it |
 | `EdgeWrapperProps` | dom | driven | `.react-flow__edge` | `arrow-key-selected-node` +88 more |
 | `Handle` | dom | driven | `.react-flow__handle` | `arrow-key-selected-node` +89 more |
 | `HandleProps` | dom | driven | `.react-flow__handle[data-handlepos]` | `arrow-key-selected-node` +89 more |
@@ -135,9 +135,9 @@ The witness is printed beside each one so a wrong witness can be read and disput
 | `MiniMapProps` | dom | driven | `.react-flow__minimap-mask` | `click-connect-reverse-direction` +14 more |
 | `Node` | dom | driven | `.react-flow__node[data-id]` | `arrow-key-selected-node` +91 more |
 | `NodeOrigin` | dom | driven | `.react-flow__node[style*=translate]` | `arrow-key-selected-node` +91 more |
-| `NodeResizeControl` | dom | hole | `.react-flow__resize-control` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
-| `NodeResizer` | dom | hole | `.react-flow__resize-control.line` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
-| `NodeResizerProps` | dom | hole | `.react-flow__resize-control.line` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
+| `NodeResizeControl` | dom | hole | `.react-flow__resize-control` | declared — no issue owns it |
+| `NodeResizer` | dom | hole | `.react-flow__resize-control.line` | declared — no issue owns it |
+| `NodeResizerProps` | dom | hole | `.react-flow__resize-control.line` | declared — no issue owns it |
 | `NodeToolbar` | dom | driven | `.react-flow__node-toolbar` | `click-reveals-default-toolbar` +1 more |
 | `NodeToolbarProps` | dom | driven | `.react-flow__node-toolbar[style*=transform]` | `click-reveals-default-toolbar` +1 more |
 | `NodeTypes` | dom | driven | `.react-flow__node-ToolbarNode` | `click-reveals-default-toolbar` +1 more |
@@ -150,16 +150,16 @@ The witness is printed beside each one so a wrong witness can be read and disput
 | `ReactFlowProps` | dom | driven | `.react-flow[data-testid]` | `arrow-key-selected-node` +93 more |
 | `ReactFlowProvider` | dom | driven | `.react-flow` | `arrow-key-selected-node` +93 more |
 | `SelectionRect` | dom | driven | `.react-flow__selection` | `selection-box-mid-gesture` |
-| `SimpleBezierEdge` | dom | hole | `.react-flow__edge-simplebezier` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
-| `SimpleBezierEdgeProps` | dom | hole | `.react-flow__edge-simplebezier` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
-| `SmoothStepEdge` | dom | hole | `.react-flow__edge-smoothstep` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
-| `SmoothStepEdgeProps` | dom | hole | `.react-flow__edge-smoothstep` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
-| `StepEdge` | dom | hole | `.react-flow__edge-step` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
-| `StepEdgeProps` | dom | hole | `.react-flow__edge-step` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
-| `StraightEdge` | dom | hole | `.react-flow__edge-straight` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
-| `StraightEdgeProps` | dom | hole | `.react-flow__edge-straight` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
+| `SimpleBezierEdge` | dom | hole | `.react-flow__edge-simplebezier` | declared — no issue owns it |
+| `SimpleBezierEdgeProps` | dom | hole | `.react-flow__edge-simplebezier` | declared — no issue owns it |
+| `SmoothStepEdge` | dom | hole | `.react-flow__edge-smoothstep` | declared — no issue owns it |
+| `SmoothStepEdgeProps` | dom | hole | `.react-flow__edge-smoothstep` | declared — no issue owns it |
+| `StepEdge` | dom | hole | `.react-flow__edge-step` | declared — no issue owns it |
+| `StepEdgeProps` | dom | hole | `.react-flow__edge-step` | declared — no issue owns it |
+| `StraightEdge` | dom | hole | `.react-flow__edge-straight` | declared — no issue owns it |
+| `StraightEdgeProps` | dom | hole | `.react-flow__edge-straight` | declared — no issue owns it |
 | `Viewport` | dom | driven | `.react-flow__viewport[style*=transform]` | `arrow-key-selected-node` +93 more |
-| `ViewportPortal` | dom | hole | `.react-flow__viewport-portal *` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
+| `ViewportPortal` | dom | hole | `.react-flow__viewport-portal *` | declared — no issue owns it |
 | `XYZPosition` | dom | driven | `.react-flow__node[style*=z-index]` | `arrow-key-selected-node` +91 more |
 | `ZIndexMode` | dom | driven | `.react-flow__edges svg[style*=z-index]` | `arrow-key-selected-node` +88 more |
 | `Connection` | callbacks | driven | `onConnect` | `click-connect-reverse-direction` +4 more |
@@ -196,17 +196,17 @@ The witness is printed beside each one so a wrong witness can be read and disput
 | `OnNodesChange` | callbacks | driven | `onNodesChange` | `arrow-key-selected-node` +83 more |
 | `OnNodesDelete` | callbacks | driven | `onNodesDelete` | `delete-key-removes-node-and-edges` +1 more |
 | `OnReconnect` | callbacks | hole | `onReconnect` | declared — no issue owns it |
-| `OnResize` | callbacks | hole | `onResize` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
-| `OnResizeEnd` | callbacks | hole | `onResizeEnd` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
-| `OnResizeStart` | callbacks | hole | `onResizeStart` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
+| `OnResize` | callbacks | hole | `onResize` | declared — no issue owns it |
+| `OnResizeEnd` | callbacks | hole | `onResizeEnd` | declared — no issue owns it |
+| `OnResizeStart` | callbacks | hole | `onResizeStart` | declared — no issue owns it |
 | `OnSelectionChangeFunc` | callbacks | driven | `onSelectionChange` | `arrow-key-selected-node` +91 more |
 | `OnSelectionChangeParams` | callbacks | driven | `onSelectionChange` | `arrow-key-selected-node` +91 more |
 | `OnSelectionDrag` | callbacks | driven | `onSelectionDragStart, onSelectionDrag, onSelectionDragStop` | `drag-node-autopan` +1 more |
-| `ResizeDragEvent` | callbacks | hole | `onResizeStart, onResize, onResizeEnd` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
-| `ResizeParams` | callbacks | hole | `onResizeStart, onResizeEnd` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
-| `ResizeParamsWithDirection` | callbacks | hole | `onResize` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
+| `ResizeDragEvent` | callbacks | hole | `onResizeStart, onResize, onResizeEnd` | declared — no issue owns it |
+| `ResizeParams` | callbacks | hole | `onResizeStart, onResizeEnd` | declared — no issue owns it |
+| `ResizeParamsWithDirection` | callbacks | hole | `onResize` | declared — no issue owns it |
 | `SelectionDragHandler` | callbacks | driven | `onSelectionDragStart, onSelectionDrag, onSelectionDragStop` | `drag-node-autopan` +1 more |
-| `ShouldResize` | callbacks | hole | `shouldResize` | declared — [issue](https://github.com/jonbae/PSFlow/issues/62) |
+| `ShouldResize` | callbacks | hole | `shouldResize` | declared — no issue owns it |
 | `UseOnSelectionChangeOptions` | callbacks | driven | `useOnSelectionChange` | `click-selects-node--probe-flow-node` |
 | `UseOnViewportChangeOptions` | callbacks | driven | `useOnViewportChange` | `wheel-zooms-the-pane--probe-flow-node` |
 | `ConnectionInProgress` | hooks | driven | `useConnection` | `click-selects-node--probe-flow-node` +1 more |
@@ -323,17 +323,17 @@ A witness can match something the scenario did not really drive — a selector o
 
 Machine-readable in `coverage/holes.json` — one entry per reason, covering as many exports as the reason covers. It is what boundary stage 4 and probed-variant selection are both derived from: `holesIn(outcomes, section)` names the `hooks` and `props` exports nothing drives, rather than anyone hand-picking them.
 
-- `ControlLinePosition`, `ControlPosition`, `NodeResizeControl`, `NodeResizer`, `NodeResizerProps` **(5)** — no fixture mounts a resizer. parity:boundary mounts both components with no props inside a node component, which is below the net and asserts no DOM; nothing in the corpus renders a resize control, and ticket 073 (XYResizer drag lifecycle) is what a scenario driving one would be measuring against. [issue](https://github.com/jonbae/PSFlow/issues/62)
+- `ControlLinePosition`, `ControlPosition`, `NodeResizeControl`, `NodeResizer`, `NodeResizerProps` **(5)** — no fixture mounts a resizer. parity:boundary mounts both components with no props inside a node component, which is below the net and asserts no DOM; nothing in the corpus renders a resize control, and ticket 073 (XYResizer drag lifecycle) is what a scenario driving one would be measuring against. The two components had already crossed in boundary stage 2; boundary stage 4 (#62) read this entry and left them alone, which is the register working — the reason here is about a fixture, not about a wrapper.
 
 - `DefaultEdgeOptions` — no fixture sets defaultEdgeOptions, and it has no DOM of its own — the options are merged into edges that declare none. Closing it needs a fixture whose edges declare no type and whose flow defaults them, which is the shape the witness names. No issue owns that fixture yet.
 
-- `EdgeLabelRenderer`, `EdgeLabelRendererProps`, `ViewportPortal` **(3)** — no fixture portals anything. GraphView draws both containers for every flow whether or not the export is used, so a container in every trace says nothing — only content inside one does, which is what the witness asks for. [issue](https://github.com/jonbae/PSFlow/issues/62)
+- `EdgeLabelRenderer`, `EdgeLabelRendererProps`, `ViewportPortal` **(3)** — no fixture portals anything. GraphView draws both containers for every flow whether or not the export is used, so a container in every trace says nothing — only content inside one does, which is what the witness asks for. Boundary stage 4 (#62) crossed the component, so a fixture can now hand it upstream's props from JavaScript; what is missing is the fixture, and no issue owns writing one yet.
 
-- `EdgeToolbar`, `EdgeToolbarProps` **(2)** — no fixture renders an edge toolbar. getEdgeToolbarTransform has function parity; the component is mounted by nothing, where its node-level sibling is driven by the node-toolbar fixture. [issue](https://github.com/jonbae/PSFlow/issues/62)
+- `EdgeToolbar`, `EdgeToolbarProps` **(2)** — no fixture renders an edge toolbar. getEdgeToolbarTransform has function parity; the component is mounted by nothing, where its node-level sibling is driven by the node-toolbar fixture. Boundary stage 4 (#62) crossed the component, so a fixture can now hand it upstream's props from JavaScript; what is missing is the fixture, and no issue owns writing one yet.
 
-- `EdgeTypes` — no fixture passes an edgeTypes map, so no edge carries a type outside the built-in set. NodeTypes is driven because the node-toolbar fixture registers one; the edges fixture registers no edge type at all. [issue](https://github.com/jonbae/PSFlow/issues/62)
+- `EdgeTypes` — no fixture passes an edgeTypes map, so no edge carries a type outside the built-in set. NodeTypes is driven because the node-toolbar fixture registers one; the edges fixture registers no edge type at all. The prop itself crossed in boundary stage 4 (#62) — until then no fixture *could* pass one, because `edgeTypes`' values are the consumer's own components and the props record ps-flow hands them had not crossed. That blocker is gone and the fixture is still missing; no issue owns writing one yet.
 
-- `SimpleBezierEdge`, `SimpleBezierEdgeProps`, `SmoothStepEdge`, `SmoothStepEdgeProps`, `StepEdge`, `StepEdgeProps`, `StraightEdge`, `StraightEdgeProps` **(8)** — reachable only by an edge declaring the type, and the edges fixture declares none — every edge in the corpus renders as the default, which is BezierEdge. Each of their path functions has function parity, which is a different claim from the component rendering. [issue](https://github.com/jonbae/PSFlow/issues/62)
+- `SimpleBezierEdge`, `SimpleBezierEdgeProps`, `SmoothStepEdge`, `SmoothStepEdgeProps`, `StepEdge`, `StepEdgeProps`, `StraightEdge`, `StraightEdgeProps` **(8)** — reachable only by an edge declaring the type, and the edges fixture declares none — every edge in the corpus renders as the default, which is BezierEdge. Each of their path functions has function parity, which is a different claim from the component rendering. Boundary stage 4 (#62) crossed all four, so a fixture can now register one as an edge type from JavaScript; what is missing is the fixture, and no issue owns writing one yet.
 
 - `EdgeAddChange`, `EdgeReplaceChange` **(2)** — the node pair is driven by `uncontrolled-update-node`, and the edge pair cannot be, for a reason that is upstream's rather than the corpus's: `addEdges` and `updateEdge` on an uncontrolled flow set the edges directly and raise no change at all — only `triggerNodeChanges` is called, which is why the same scenario produces `add` and `replace` on the node side and nothing on the edge side. Connecting does not fire one either: the driver's `onConnect` calls `addEdge` itself, which is a prop changing rather than a change being reported. Closing this needs a path that reports an edge add or replace, and no issue owns finding one yet.
 
@@ -341,7 +341,7 @@ Machine-readable in `coverage/holes.json` — one entry per reason, covering as 
 
 - `OnReconnect` — the driver installs onReconnect and no scenario drags an edge endpoint onto another handle, so it never fires. The edgeupdater circles are in every edges-fixture trace, so the target exists and the gesture does not — reconnecting is not in the gesture tier, and adding one is a reviewable act rather than a scenario detail. None of the thirty test-debt scenarios is about reconnection, so this is a hole-closing scenario and no issue owns it yet.
 
-- `OnResize`, `OnResizeEnd`, `OnResizeStart`, `ResizeDragEvent`, `ResizeParams`, `ResizeParamsWithDirection`, `ShouldResize` **(7)** — a NodeResizer/NodeResizeControl prop rather than a ReactFlow one, so there is no handler for the driver to install and no fixture mounting either component. It needs a fixture that resizes. [issue](https://github.com/jonbae/PSFlow/issues/62)
+- `OnResize`, `OnResizeEnd`, `OnResizeStart`, `ResizeDragEvent`, `ResizeParams`, `ResizeParamsWithDirection`, `ShouldResize` **(7)** — a NodeResizer/NodeResizeControl prop rather than a ReactFlow one, so there is no handler for the driver to install and no fixture mounting either component. It needs a fixture that resizes. Boundary stage 4 (#62) changed nothing here — the two components it is a prop of crossed in stage 2, and what this needs is still a fixture that resizes. No issue owns writing one.
 
 - `UnselectNodesAndEdgesParams` — `unselectNodesAndEdges` is a store action and is **not on `ReactFlowInstance`** — it is absent from `JsReactFlowInstance` in src/Boundary/Instance.purs because it is absent from upstream's instance too. The `api` section witnesses a name only as a query key or a called method, so no scenario can reach this one however it is written; the nine helper exports beside it were closed by `viewport-helpers-with-options` and this one was never in reach. Closing it needs the witness to name something the section can actually offer, which is a question about the register rather than about the corpus.
 

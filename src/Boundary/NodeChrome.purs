@@ -56,16 +56,18 @@ import Prelude
 import Boundary.Callbacks (JsIsValidConnection, JsOnConnect, isValidConnectionIn, onConnectIn)
 import Boundary.Elements (asCssObject, asCssStyle)
 import Boundary.Enums (alignIn, handleTypeIn, positionIn)
-import Boundary.Undefined (Undefinable, fromUndefinable)
+import Boundary.Undefined (Undefinable, fromUndefinable, orNullable)
 import Boundary.Untagged (asArray, asString, typeName)
 import Data.Either (Either(..))
 import Data.Maybe (Maybe(..), maybe)
+import Data.Nullable (Nullable)
 import Effect.Exception.Unsafe (unsafeThrow)
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign)
 import React.Additional.NodeToolbar (nodeToolbar) as PS
 import React.Basic (JSX, ReactComponent, element)
-import React.Basic.Hooks (ReactChildren, memo, reactComponent, reactComponentWithChildren)
+import React.Basic.Hooks (ReactChildren, memo, reactComponentWithChildren)
+import React.FFI.ForwardRef (forwardNullableRef)
 import React.Handle (handle) as PS
 import React.Types.Component (HandleProps, NodeToolbarProps)
 import System.Types.Geometry (Position(..))
@@ -88,10 +90,18 @@ type JsHandleProps =
   , isValidConnection :: Undefinable JsIsValidConnection
   , className :: Undefinable String
   , style :: Undefinable Foreign
+  -- | Upstream's name for what ps-flow spells `innerRef`, and the reason this
+  -- | component is a `forwardRef`. React 18 strips `ref` from the props object
+  -- | before the component sees it and hands it to the render function
+  -- | separately, so the field below is normally absent and the value comes
+  -- | from the second argument — but it is read either way, because `ref` is
+  -- | an ordinary prop again in React 19 and a crossing that ignored the field
+  -- | would silently drop it on the release that starts filling it in.
+  , ref :: Undefinable Foreign
   }
 
-convertHandle :: JsHandleProps -> HandleProps
-convertHandle p =
+convertHandle :: JsHandleProps -> Nullable Foreign -> HandleProps
+convertHandle p forwarded =
   { handleType: maybe Source (handleTypeIn "Handle.type") (fromUndefinable p.type)
   , position: maybe PosTop (positionIn "Handle.position") (fromUndefinable p.position)
   , id: fromUndefinable p.id
@@ -102,18 +112,21 @@ convertHandle p =
   , isValidConnection: map isValidConnectionIn (fromUndefinable p.isValidConnection)
   , className: fromUndefinable p.className
   , style: map asCssStyle (fromUndefinable p.style)
+  , innerRef: orNullable p.ref forwarded
   }
 
--- | Memoized, because upstream's is and the component ps-flow wraps is: a
--- | wrapper that dropped it would re-render every handle of every node on each
--- | store notification, which is the divergence `Boundary.Chrome` took on the
--- | four chrome components and is recorded against them in the surface-parity
--- | allowlist. Upstream's inner component is a `forwardRef` and this one is
--- | not; that half is boundary stage 4's.
+-- | `memo(forwardRef(…))`, which is upstream's shape exactly.
+-- |
+-- | The `memo` was always right: a wrapper that dropped it would re-render
+-- | every handle of every node on each store notification. The `forwardRef` is
+-- | boundary stage 4's, and it is not only a shape — until it landed, a `ref`
+-- | on a `<Handle />` was accepted by React and dropped on the floor, because
+-- | a plain function component has nowhere to put one.
 handle :: ReactComponent JsHandleProps
 handle =
-  unsafePerformEffect $ memo $ reactComponent "Handle"
-    \(props :: JsHandleProps) -> pure (element PS.handle (convertHandle props))
+  unsafePerformEffect $ memo $ pure $ forwardNullableRef "Handle"
+    \(props :: JsHandleProps) forwarded ->
+      element PS.handle (convertHandle props forwarded)
 
 -- ────────────────────────────────────────────────────────────────────────
 -- NodeToolbar

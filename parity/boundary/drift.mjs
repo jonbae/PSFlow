@@ -200,11 +200,17 @@ const pairs = [
   // the other direction: a field *removed* from the PureScript record leaves
   // an orphan on the JS side that a consumer can still set and nothing reads,
   // which is the silent-drop failure wearing the other hat.
+  // `innerRef` -> `ref` is the third kind of rename in this table, after the
+  // nested type tags and upstream's dotted aria keys: React reserves `ref` and
+  // strips it out of a props object before the component sees it, so a
+  // PureScript record that wants one has to spell it something else. The JS
+  // side names it `ref` because that is what a consumer writes, and boundary
+  // stage 4 made both components `forwardRef`s so the value actually arrives.
   {
     what: "PanelProps",
     ps: { file: "src/React/Types/Component.purs", type: "PanelProps" },
     js: { file: "src/Boundary/Chrome.purs", type: "JsPanelProps" },
-    renames: {},
+    renames: { innerRef: "ref" },
   },
   {
     what: "BackgroundProps",
@@ -231,7 +237,7 @@ const pairs = [
     what: "HandleProps",
     ps: { file: "src/React/Types/Component.purs", type: "HandleProps" },
     js: { file: "src/Boundary/NodeChrome.purs", type: "JsHandleProps" },
-    renames: { handleType: "type" },
+    renames: { handleType: "type", innerRef: "ref" },
   },
   {
     what: "NodeToolbarProps",
@@ -282,6 +288,142 @@ const pairs = [
       minimapAriaLabel: "minimap.ariaLabel",
       handleAriaLabel: "handle.ariaLabel",
     },
+  },
+  // ── Boundary stage 4: the components no fixture mounts ────────────────
+  //
+  // Eighteen pairs, and they split three ways.
+  //
+  // **Inbound only** — fifteen: eleven component props records and the three
+  // per-variant path-option records inside three of them, plus the provider's.
+  // The compiler already forces every PureScript field to be constructed; what
+  // it does not force is a field *removed* from the PureScript record leaving
+  // an orphan on the JS side that a consumer can set and nothing reads. Same
+  // claim as the chrome props above.
+  //
+  // **Outbound only** — `EdgeProps`, `ConnectionLineComponentProps`, and
+  // `MiniMapNodeProps` in its second direction. These are the props ps-flow
+  // hands a component the *consumer* wrote, so they are in the position `Node`
+  // and `Edge` are in and this comparison is the whole check that the crossing
+  // names every member.
+  //
+  // **Both** — `MiniMapNodeProps`, which is the only record on this surface
+  // that crosses each way: `<MiniMapNode />` is an export a consumer renders,
+  // and `MiniMap.nodeComponent` is ps-flow rendering their replacement for it.
+  //
+  // The five built-in edge props records are spelled as rows on both sides, so
+  // the reader expands the composition before comparing: `StraightEdgeProps`
+  // is seventeen fields, the four bending variants are those plus two, and
+  // three of those four are those plus a `pathOptions` whose own record is a
+  // pair further down.
+  {
+    what: "EdgeTextProps",
+    ps: { file: "src/React/Types/Edges.purs", type: "EdgeTextProps" },
+    js: { file: "src/Boundary/Edges.purs", type: "JsEdgeTextProps" },
+    renames: {},
+  },
+  {
+    what: "BaseEdgeProps",
+    ps: { file: "src/React/Types/Edges.purs", type: "BaseEdgeProps" },
+    js: { file: "src/Boundary/Edges.purs", type: "JsBaseEdgeProps" },
+    renames: {},
+  },
+  {
+    what: "StraightEdgeProps",
+    ps: { file: "src/React/Types/Edges.purs", type: "StraightEdgeProps" },
+    js: { file: "src/Boundary/Edges.purs", type: "JsStraightEdgeProps" },
+    renames: {},
+  },
+  {
+    what: "SimpleBezierEdgeProps",
+    ps: { file: "src/React/Types/Edges.purs", type: "SimpleBezierEdgeProps" },
+    js: { file: "src/Boundary/Edges.purs", type: "JsSimpleBezierEdgeProps" },
+    renames: {},
+  },
+  {
+    what: "BezierEdgeProps",
+    ps: { file: "src/React/Types/Edges.purs", type: "BezierEdgeProps" },
+    js: { file: "src/Boundary/Edges.purs", type: "JsBezierEdgeProps" },
+    renames: {},
+  },
+  {
+    what: "SmoothStepEdgeProps",
+    ps: { file: "src/React/Types/Edges.purs", type: "SmoothStepEdgeProps" },
+    js: { file: "src/Boundary/Edges.purs", type: "JsSmoothStepEdgeProps" },
+    renames: {},
+  },
+  {
+    what: "StepEdgeProps",
+    ps: { file: "src/React/Types/Edges.purs", type: "StepEdgeProps" },
+    js: { file: "src/Boundary/Edges.purs", type: "JsStepEdgeProps" },
+    renames: {},
+  },
+  {
+    what: "BezierPathOptions",
+    ps: { file: "src/System/Types/Edge.purs", type: "BezierPathOptions" },
+    js: { file: "src/Boundary/Edges.purs", type: "JsBezierPathOptions" },
+    renames: {},
+  },
+  {
+    what: "SmoothStepPathOptions",
+    ps: { file: "src/System/Types/Edge.purs", type: "SmoothStepPathOptions" },
+    js: { file: "src/Boundary/Edges.purs", type: "JsSmoothStepPathOptions" },
+    renames: {},
+  },
+  {
+    what: "StepPathOptions",
+    ps: { file: "src/System/Types/Edge.purs", type: "StepPathOptions" },
+    js: { file: "src/Boundary/Edges.purs", type: "JsStepPathOptions" },
+    renames: {},
+  },
+  {
+    what: "EdgeToolbarProps",
+    ps: { file: "src/React/Types/Component.purs", type: "EdgeToolbarProps" },
+    js: { file: "src/Boundary/Edges.purs", type: "JsEdgeToolbarProps" },
+    renames: {},
+  },
+  // The props a consumer's own edge component receives — `edgeTypes`' whole
+  // conversion, and the edge-side twin of the `NodeProps` pair above.
+  {
+    what: "EdgeProps",
+    ps: { file: "src/React/Types/Edges.purs", type: "EdgeProps" },
+    js: { file: "src/Boundary/Edges.purs", type: "JsEdgeProps" },
+    renames: {},
+  },
+  {
+    what: "ConnectionLineComponentProps",
+    ps: { file: "src/React/Types/Edges.purs", type: "ConnectionLineComponentProps" },
+    js: { file: "src/Boundary/Edges.purs", type: "JsConnectionLineComponentProps" },
+    renames: {},
+  },
+  {
+    what: "ControlButtonProps",
+    ps: { file: "src/React/Types/Component.purs", type: "ControlButtonProps" },
+    js: { file: "src/Boundary/Chrome.purs", type: "JsControlButtonProps" },
+    renames: {},
+  },
+  {
+    what: "MiniMapNodeProps",
+    ps: { file: "src/React/Types/Component.purs", type: "MiniMapNodeProps" },
+    js: { file: "src/Boundary/Chrome.purs", type: "JsMiniMapNodeProps" },
+    renames: {},
+  },
+  {
+    what: "EdgeLabelRendererProps",
+    ps: { file: "src/React/Types/Component.purs", type: "EdgeLabelRendererProps" },
+    js: { file: "src/Boundary/Portals.purs", type: "JsEdgeLabelRendererProps" },
+    renames: {},
+  },
+  {
+    what: "ViewportPortalProps",
+    ps: { file: "src/React/Types/Component.purs", type: "ViewportPortalProps" },
+    js: { file: "src/Boundary/Portals.purs", type: "JsViewportPortalProps" },
+    renames: {},
+  },
+  {
+    what: "ReactFlowProviderProps",
+    ps: { file: "src/React/Types/Component.purs", type: "ReactFlowProviderProps" },
+    js: { file: "src/Boundary/Flow.purs", type: "JsReactFlowProviderProps" },
+    renames: {},
   },
   // ── Boundary stage 3: the imperative instance ─────────────────────────
   //

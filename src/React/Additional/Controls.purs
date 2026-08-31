@@ -9,6 +9,7 @@ import Prelude
 
 import Data.Foldable (for_)
 import Data.Maybe (Maybe(..), fromMaybe)
+import Data.Nullable (null)
 import Data.Newtype (class Newtype)
 import Effect (Effect)
 import Effect.Aff (launchAff_)
@@ -168,4 +169,5 @@ controls =
             (fromMaybe aria.controlsAriaLabel props."aria-label")
         , "data-testid": Just "rf__controls"
         , children: reactChildrenFromArray allChildren
+        , innerRef: null
         }

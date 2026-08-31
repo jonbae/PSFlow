@@ -12,6 +12,7 @@ import Prelude
 import Control.Monad.Except (runExcept)
 import Data.Either (hush)
 import Data.Maybe (Maybe(..), fromMaybe)
+import Data.Nullable (null)
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign, readString)
 import Foreign.Index ((!))
@@ -47,5 +48,6 @@ outputNode = unsafePerformEffect $ reactComponent "OutputNode" \(props :: NodePr
         , isValidConnection: Nothing
         , className: Nothing
         , style: Nothing
+        , innerRef: null
         }
         <> label

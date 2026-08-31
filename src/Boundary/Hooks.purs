@@ -551,8 +551,8 @@ experimental_useOnEdgesChangeMiddleware = mkEffectFn1 \middleware ->
 -- See the module header. Both are callable and both throw, because the value
 -- they would hand over is the internal store state and no converter for it
 -- exists. Their arity is upstream's, so `parity/surface/diff.mjs` sees them
--- agree; that they refuse is `parity/boundary/mount.mjs`'s to hold, the same
--- way it holds the deferred props.
+-- agree; that they refuse is `parity/boundary/mount.mjs`'s to hold, by calling
+-- each one and reading the message it throws.
 
 -- | `Effect.Exception.throw` and not `unsafeThrow`: the refusal has to happen
 -- | when the hook is *called*, and `useStoreApi` is nullary, so an

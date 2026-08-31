@@ -18,12 +18,18 @@
     "which trains people to ignore it. What fails is the residue — an export with neither a scenario nor an",
     "entry here — and that is what the corpus's termination condition is stated against.",
     "",
-    "**This list is read by other work, not only by people.** Boundary stage 4 (#62) takes the components no",
-    "fixture mounts from it. Issue #59 used the same query to generate its durable probe plan from the hook,",
-    "API and props holes rather than hand-picking exports. `holesIn(outcomes, section)` in",
+    "**This list is read by other work, not only by people.** Boundary stage 4 (#62) took the components no",
+    "fixture mounts from it and crossed them. Issue #59 used the same query to generate its durable probe plan",
+    "from the hook, API and props holes rather than hand-picking exports. `holesIn(outcomes, section)` in",
     "coverage/coverage.mjs is the query they call; it",
     "joins this register to the census, so a consumer needs neither a section field here nor a reading of",
     "the ticket links.",
+    "",
+    "**Crossing is not driving, and #62 is the entry that proves it.** Four of the reasons below were written",
+    "against exports that stage 4 has since crossed, and not one of them closed: a component a JavaScript",
+    "caller can now mount is still a component no fixture mounts. What the stage removed was the reason a",
+    "scenario could not be written, and those four now say so and name no ticket — because nobody owns writing",
+    "the fixtures yet, and an entry that named a closed issue would read as though somebody did.",
     "",
     "A hole does not stand in for a witness. Every export needs a rule in witnesses.json saying what driving it",
     "would look like, the ones nothing drives included — otherwise nothing could ever report the hole closed."
@@ -35,8 +41,7 @@
         "EdgeLabelRendererProps",
         "ViewportPortal"
       ],
-      "reason": "no fixture portals anything. GraphView draws both containers for every flow whether or not the export is used, so a container in every trace says nothing — only content inside one does, which is what the witness asks for.",
-      "ticket": "https://github.com/jonbae/PSFlow/issues/62"
+      "reason": "no fixture portals anything. GraphView draws both containers for every flow whether or not the export is used, so a container in every trace says nothing — only content inside one does, which is what the witness asks for. Boundary stage 4 (#62) crossed the component, so a fixture can now hand it upstream's props from JavaScript; what is missing is the fixture, and no issue owns writing one yet."
     },
     {
       "exports": [
@@ -49,16 +54,14 @@
         "StraightEdge",
         "StraightEdgeProps"
       ],
-      "reason": "reachable only by an edge declaring the type, and the edges fixture declares none — every edge in the corpus renders as the default, which is BezierEdge. Each of their path functions has function parity, which is a different claim from the component rendering.",
-      "ticket": "https://github.com/jonbae/PSFlow/issues/62"
+      "reason": "reachable only by an edge declaring the type, and the edges fixture declares none — every edge in the corpus renders as the default, which is BezierEdge. Each of their path functions has function parity, which is a different claim from the component rendering. Boundary stage 4 (#62) crossed all four, so a fixture can now register one as an edge type from JavaScript; what is missing is the fixture, and no issue owns writing one yet."
     },
     {
       "exports": [
         "EdgeToolbar",
         "EdgeToolbarProps"
       ],
-      "reason": "no fixture renders an edge toolbar. getEdgeToolbarTransform has function parity; the component is mounted by nothing, where its node-level sibling is driven by the node-toolbar fixture.",
-      "ticket": "https://github.com/jonbae/PSFlow/issues/62"
+      "reason": "no fixture renders an edge toolbar. getEdgeToolbarTransform has function parity; the component is mounted by nothing, where its node-level sibling is driven by the node-toolbar fixture. Boundary stage 4 (#62) crossed the component, so a fixture can now hand it upstream's props from JavaScript; what is missing is the fixture, and no issue owns writing one yet."
     },
     {
       "exports": [
@@ -68,15 +71,13 @@
         "ControlLinePosition",
         "ControlPosition"
       ],
-      "reason": "no fixture mounts a resizer. parity:boundary mounts both components with no props inside a node component, which is below the net and asserts no DOM; nothing in the corpus renders a resize control, and ticket 073 (XYResizer drag lifecycle) is what a scenario driving one would be measuring against.",
-      "ticket": "https://github.com/jonbae/PSFlow/issues/62"
+      "reason": "no fixture mounts a resizer. parity:boundary mounts both components with no props inside a node component, which is below the net and asserts no DOM; nothing in the corpus renders a resize control, and ticket 073 (XYResizer drag lifecycle) is what a scenario driving one would be measuring against. The two components had already crossed in boundary stage 2; boundary stage 4 (#62) read this entry and left them alone, which is the register working — the reason here is about a fixture, not about a wrapper."
     },
     {
       "exports": [
         "EdgeTypes"
       ],
-      "reason": "no fixture passes an edgeTypes map, so no edge carries a type outside the built-in set. NodeTypes is driven because the node-toolbar fixture registers one; the edges fixture registers no edge type at all.",
-      "ticket": "https://github.com/jonbae/PSFlow/issues/62"
+      "reason": "no fixture passes an edgeTypes map, so no edge carries a type outside the built-in set. NodeTypes is driven because the node-toolbar fixture registers one; the edges fixture registers no edge type at all. The prop itself crossed in boundary stage 4 (#62) — until then no fixture *could* pass one, because `edgeTypes`' values are the consumer's own components and the props record ps-flow hands them had not crossed. That blocker is gone and the fixture is still missing; no issue owns writing one yet."
     },
     {
       "exports": [
@@ -113,8 +114,7 @@
         "ResizeParams",
         "ResizeParamsWithDirection"
       ],
-      "reason": "a NodeResizer/NodeResizeControl prop rather than a ReactFlow one, so there is no handler for the driver to install and no fixture mounting either component. It needs a fixture that resizes.",
-      "ticket": "https://github.com/jonbae/PSFlow/issues/62"
+      "reason": "a NodeResizer/NodeResizeControl prop rather than a ReactFlow one, so there is no handler for the driver to install and no fixture mounting either component. It needs a fixture that resizes. Boundary stage 4 (#62) changed nothing here — the two components it is a prop of crossed in stage 2, and what this needs is still a fixture that resizes. No issue owns writing one."
     },
     {
       "exports": [

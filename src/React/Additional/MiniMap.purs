@@ -12,7 +12,7 @@ import Data.Map (isEmpty, lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Newtype (class Newtype)
 import Data.Number.Format (toString) as NumberFormat
-import Data.Nullable (Nullable, toMaybe, toNullable)
+import Data.Nullable (Nullable, null, toMaybe, toNullable)
 import Effect (Effect)
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign.Object (Object)
@@ -335,6 +335,7 @@ miniMap =
         , "aria-label": Nothing
         , "data-testid": Just "rf__minimap"
         , children: reactChildrenFromArray [ svgEl ]
+        , innerRef: null
         }
 
 -- | The TS source accepts either a callback or a string for `nodeColor`

@@ -17,25 +17,37 @@
 -- |
 -- | ## Staging
 -- |
--- | The surface crosses in four stages, ordered by how detectable a mistake in
--- | each is. Everything that has not yet crossed is re-exported **unchanged** — it
--- | resolves, but its shape is still the PureScript one. The `manifest` says
--- | which is which, and is the only place that answer is written down.
+-- | The surface crossed in four stages, ordered by how detectable a mistake in
+-- | each is. Anything that had not yet crossed was re-exported **unchanged** —
+-- | it resolved, but its shape was still the PureScript one. The `manifest`
+-- | says which is which, and is the only place that answer is written down.
 -- |
--- | What has landed so far is this skeleton, the eight TS enum objects below,
--- | the converters, the three graph utilities a driver calls, the four chrome
--- | components a driver mounts, the four a custom node mounts, **every callback
--- | prop** — the last of them, `onInit`, in stage 3 — and, since stage 3, the
--- | **imperative instance and all 21 hooks**. The enums needed no converter at
--- | all: they are plain data on both sides, `{ Left: "left", … }` against
--- | `{ Left: "left", … }`, so there is nothing to get wrong but member names,
--- | which the record types check.
+-- | **Every component and every prop has now crossed.** Stage 1 landed this
+-- | skeleton, the eight TS enum objects below, the converters, the three graph
+-- | utilities a driver calls, the four chrome components a driver mounts and
+-- | the four a custom node mounts; stage 2 landed the callback props; stage 3
+-- | the imperative instance and all 21 hooks, `onInit` with them; and stage 4
+-- | the components no fixture mounts, the two sub-components inside `Controls`
+-- | and `MiniMap`, and the three props whose values are components the
+-- | consumer wrote. The enums needed no converter at all: they are plain data
+-- | on both sides, `{ Left: "left", … }` against `{ Left: "left", … }`, so
+-- | there is nothing to get wrong but member names, which the record types
+-- | check.
 -- |
--- | What is left is stage 4: the components no fixture mounts, and with them
--- | the two props that hand a consumer's own component its props record.
+-- | **What is left in `passthrough` is fourteen pure functions**, and no stage
+-- | is scheduled to cross them. The decision on whether a fifth stage is
+-- | warranted is recorded on
+-- | [#62](https://github.com/jonbae/PSFlow/issues/62) and in
+-- | `parity/surface/allowlist.json`, which carries one entry per difference
+-- | they publish: they are curried where upstream takes every argument at
+-- | once, three return labelled records where upstream returns positional
+-- | arrays, and two still consume PureScript `Position` constructors. Surface
+-- | parity calls all seventeen and compares the results, so the differences
+-- | are measured rather than assumed — which is what makes deferring them a
+-- | decision instead of an oversight.
 -- |
--- | The converters are the rest, and they live in fifteen modules beneath this
--- | one, none of them on the PureScript surface:
+-- | The converters are the rest, and they live in nineteen modules beneath
+-- | this one, none of them on the PureScript surface:
 -- |
 -- |   * `Boundary.Undefined` — `undefined`, which is what a JavaScript caller
 -- |     means by a prop they did not set.
@@ -53,7 +65,17 @@
 -- |     `addEdge`, which a controlled flow's own change handlers call, so a
 -- |     driver reaches them on the first interaction.
 -- |   * `Boundary.Chrome` — `Panel`, `Background`, `Controls` and `MiniMap`,
--- |     which a driver mounts inside the flow.
+-- |     which a driver mounts inside the flow, and since stage 4 the two
+-- |     pieces a consumer reaches *inside* two of them, `ControlButton` and
+-- |     `MiniMapNode`.
+-- |   * `Boundary.Edges` — the five built-in edge components, `BaseEdge`,
+-- |     `EdgeText`, `EdgeToolbar`, and the two props whose values are the
+-- |     consumer's own edge-side components: `edgeTypes` and
+-- |     `connectionLineComponent`.
+-- |   * `Boundary.Portals` — `EdgeLabelRenderer` and `ViewportPortal`, whose
+-- |     only prop is `children` and whose whole crossing is that one.
+-- |   * `Boundary.Wrapper` — the one FFI shared by the three props that hold
+-- |     components the consumer wrote.
 -- |   * `Boundary.NodeChrome` — `Handle` and `NodeToolbar`, which a consumer's
 -- |     own node component mounts one level down.
 -- |   * `Boundary.Resizer` — `NodeResizer` and `NodeResizeControl`, mounted the
@@ -74,7 +96,12 @@
 -- |
 -- | `ReactFlow` is therefore the first *component* to cross, and `Handle` and
 -- | `NodeToolbar` the last of stage 1's set: each export upstream's fixtures
--- | import crossed with the fixture that imports it.
+-- | import crossed with the fixture that imports it. Stage 4 is the opposite
+-- | selection and is why it is last: its set is everything `passthrough` still
+-- | held, which no fixture imports — and the **hole** register is what says
+-- | which of them the corpus does not drive. A crossing nothing mounts is
+-- | exactly the one nothing would have caught, so `parity/boundary/mount.mjs`
+-- | mounts all fourteen.
 -- |
 -- | The enums are not a consumer nit. `Position` and `MarkerType` were not on
 -- | the JS surface at all, and two of upstream's five test fixtures import
@@ -114,14 +141,34 @@ module Boundary
 -- three utilities come from `Boundary.Utils` for the same reason: a driver
 -- calls them with every argument at once, which a curried PureScript function
 -- is not.
-import Boundary.Flow (reactFlow) as CrossedSurface
+import Boundary.Flow (reactFlow, reactFlowProvider, reactFlowWithRef) as CrossedSurface
 import Boundary.Utils (addEdge, applyEdgeChanges, applyNodeChanges) as CrossedSurface
 
 -- The four chrome components upstream's drivers mount. `Boundary.Chrome` says
 -- why each needed a wrapper at all; the short version is that a JavaScript
 -- caller reaches all four with no props, and a PureScript record of `Maybe`s
 -- answers that with a pattern-match failure.
-import Boundary.Chrome (background, controls, miniMap, panel) as CrossedSurface
+import Boundary.Chrome (background, controlButton, controls, miniMap, miniMapNode, panel) as CrossedSurface
+
+-- The edge-side components, stage 4. `Boundary.Edges` says why they cross
+-- together: `edgeTypes`' values are the consumer's own edge components, so the
+-- props record ps-flow hands them had to cross too, and that record is the
+-- built-in components' own.
+import Boundary.Edges
+  ( baseEdge
+  , bezierEdge
+  , edgeText
+  , edgeToolbar
+  , simpleBezierEdge
+  , smoothStepEdge
+  , stepEdge
+  , straightEdge
+  ) as CrossedSurface
+
+-- The two portal targets, stage 4. `children` is the only prop either takes,
+-- and it is the one prop a JavaScript caller cannot pass to an un-crossed
+-- PureScript component at all.
+import Boundary.Portals (edgeLabelRenderer, viewportPortal) as CrossedSurface
 
 -- All twenty-one hooks, and with them the imperative instance: `useReactFlow`
 -- returns it, so `Boundary.Hooks` is where stage 3 becomes reachable from
@@ -165,25 +212,14 @@ import Boundary.NodeChrome (handle, nodeToolbar) as CrossedSurface
 import Boundary.Resizer (nodeResizeControl, nodeResizer) as CrossedSurface
 
 -- The rest of the public surface, passing through raw. How many that is, is
--- `manifest.passthrough`'s to say and not this comment's — the number written
--- here was last true two stages ago. Ordered to mirror
+-- `manifest.passthrough`'s to say and not this comment's, but what *kind* of
+-- thing they are is worth writing here: after stage 4 they are all pure
+-- functions, and not one of them is a component. Ordered to mirror
 -- `xyflow/packages/react/src/index.ts`, as `index.js` is, so future audits
 -- stay mechanical.
 import React
-  ( -- Components
-    reactFlowWithRef
-  , edgeText
-  , straightEdge
-  , stepEdge
-  , bezierEdge
-  , simpleBezierEdge
-  , smoothStepEdge
-  , baseEdge
-  , reactFlowProvider
-  , edgeLabelRenderer
-  , viewportPortal
-  -- Utilities
-  , isNode
+  ( -- Utilities
+    isNode
   , isEdge
   -- System functions
   , getBezierEdgeCenter
@@ -198,10 +234,6 @@ import React
   , reconnectEdge
   , getConnectedEdges
   , getSimpleBezierPath
-  -- Additional components
-  , controlButton
-  , edgeToolbar
-  , miniMapNode
   ) as PublicSurface
 
 -- | `Object.freeze`. The enum objects are built above it in PureScript so the

@@ -78,9 +78,11 @@
 //
 // Held to the letter, the retirement could not have happened at all. Three
 // things are red in `props` today and none of them is what the spec proved:
-// `EdgeProps` and `EdgeComponentProps` are `left only` because `edgeTypes` has
-// not crossed, `ConnectionLineComponentProps` likewise for
-// `connectionLineComponent` (both boundary stage 4, #62), and
+// `EdgeProps` and `EdgeComponentProps` are `left only`, and
+// `ConnectionLineComponentProps` likewise — both were blocked on `edgeTypes`
+// and `connectionLineComponent` not having crossed, which boundary stage 4
+// (#62) has since done, leaving a fixture that sets one as the remaining half
+// of each — and
 // `NodeProps.width`/`height` differ as upstream's `0` against ps-flow's
 // `undefined` on a node whose size nothing set — a divergence on the backlog
 // (#22) that the retired spec **could not see**, because its own fixture gave

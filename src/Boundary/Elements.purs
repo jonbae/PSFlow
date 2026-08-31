@@ -67,6 +67,7 @@ module Boundary.Elements
   , JsXYPosition
   , asCssObject
   , asCssStyle
+  , fromCssStyle
   , fromCssObject
   , coordinateExtentIn
   , coordinateExtentOut
@@ -106,6 +107,7 @@ import Boundary.Enums
   )
 import Boundary.Undefined (Undefinable, fromUndefinable, isNull, toUndefinable, undefined)
 import Boundary.Untagged (asArray, asBoolean, asString, typeName)
+import Boundary.Wrapper (mkComponentWrapper)
 import Data.Array (length) as Array
 import Data.Array.NonEmpty (fromArray) as NEA
 import Data.Int (round, toNumber) as Int
@@ -113,11 +115,11 @@ import Data.Maybe (Maybe(..), fromMaybe, fromMaybe', maybe)
 import Data.Newtype (unwrap, wrap)
 import Data.Nullable (Nullable, toMaybe, toNullable)
 import Effect.Exception.Unsafe (unsafeThrow)
-import Effect.Uncurried (EffectFn1, mkEffectFn1)
+import Effect.Uncurried (mkEffectFn1)
 import Foreign (Foreign, unsafeToForeign)
 import Foreign.Object (Object)
 import Foreign.Object (mapWithKey) as Object
-import React.Basic (JSX, ReactComponent, element)
+import React.Basic (ReactComponent, element)
 import React.Types.Edges (Style)
 import React.Types.Nodes (NodeProps, NodeTypesMap)
 import System.Types.Connection (Connection, KeyCode(..), Viewport)
@@ -701,10 +703,14 @@ fromCssObject :: Object String -> Foreign
 fromCssObject = unsafeCoerce
 
 -- The opaque `React.Types.Edges.Style`, which is what the connection-line
--- props and `<Handle />` carry instead. Inbound only: nothing on this
--- surface hands one back, and an opaque type has nothing to read out of it.
+-- props and `<Handle />` carry instead. It went one way only until boundary
+-- stage 4: `edgeTypes` and `connectionLineComponent` hand a consumer's own
+-- component the styles ps-flow resolved for it, so the way back is needed now.
 asCssStyle :: Foreign -> Style
 asCssStyle = unsafeCoerce
+
+fromCssStyle :: Style -> Foreign
+fromCssStyle = unsafeCoerce
 
 -- ────────────────────────────────────────────────────────────────────────
 -- Edge
@@ -839,20 +845,8 @@ wrapNodeComponent
   :: ReactComponent JsNodeProps
   -> ReactComponent (NodeProps Foreign)
 wrapNodeComponent userComponent =
-  mkNodeComponentWrapper userComponent
+  mkComponentWrapper userComponent
     (mkEffectFn1 \psProps -> pure (element userComponent (nodePropsOut psProps)))
-
--- | React reads `displayName` and the component's identity off the function it
--- | is handed, so the wrapper has to be a real component rather than a call to
--- | the user's one — and it takes the wrapped component along so it can keep
--- | that name rather than replacing every custom node type in the React tree
--- | with one shared boundary name. One line of FFI, because `react-basic`'s
--- | `reactComponent` is in `Effect` and this is called from the pure prop
--- | conversion.
-foreign import mkNodeComponentWrapper
-  :: ReactComponent JsNodeProps
-  -> EffectFn1 (NodeProps Foreign) JSX
-  -> ReactComponent (NodeProps Foreign)
 
 -- ────────────────────────────────────────────────────────────────────────
 -- Changes, and connections

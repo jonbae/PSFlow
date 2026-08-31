@@ -14,6 +14,7 @@ import Prelude
 
 import Data.Either (hush)
 import Data.Maybe (Maybe(..), fromMaybe)
+import Data.Nullable (null)
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign, readString)
 import Foreign.Index ((!))
@@ -51,6 +52,7 @@ defaultNode = unsafePerformEffect $ reactComponent "DefaultNode" \(props :: Node
         , isValidConnection: Nothing
         , className: Nothing
         , style: Nothing
+        , innerRef: null
         }
         <> label
         <> element handle
@@ -64,4 +66,5 @@ defaultNode = unsafePerformEffect $ reactComponent "DefaultNode" \(props :: Node
           , isValidConnection: Nothing
           , className: Nothing
           , style: Nothing
+          , innerRef: null
           }
