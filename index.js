@@ -20,7 +20,6 @@
 export {
   // ─── Components ────────────────────────────────────────────────────────
   reactFlow as ReactFlow,
-  reactFlowWithRef as ReactFlowWithRef,
   handle as Handle,
   edgeText as EdgeText,
   straightEdge as StraightEdge,

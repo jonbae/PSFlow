@@ -39,7 +39,7 @@ passes.
 ## Top-level exports
 
 - upstream: 210 names (68 value + 142 type)
-- PSFlow: 224 names (69 value + 163 type)
+- PSFlow: 223 names (68 value + 163 type)
 
 ### ❌ Missing in PSFlow (parity gaps — gates CI)
 
@@ -65,7 +65,6 @@ _none — full parity (modulo the allowlist below)._
 - `OnBeforeDeleteResult`
 - `OnReconnectEnd`
 - `OnViewportChange`
-- `ReactFlowWithRef`
 - `ReconnectHandleType`
 - `ResizeObserver`
 - `ScreenToFlowOptions`
@@ -124,7 +123,7 @@ so an arity difference is occasionally a legitimate difference in how the two
 sides declare their parameters rather than a currying gap. Those entries are
 permanent rather than transitional.
 
-- compared: 69 · same shape: 59 · differ: 10
+- compared: 68 · same shape: 60 · differ: 8
 
 ### ❌ Un-allowlisted shape divergence (gates CI)
 
@@ -139,8 +138,6 @@ done is mechanical: delete that stage's entries and this gate must stay green.
 
 | Symbol | upstream | PSFlow | Retired by |
 |--------|----------|--------|------------|
-| `ReactFlow` | `forwardRef(fn/2)` | `fn/1` | Upstream is a `forwardRef`, PSFlow a plain function — `ReactFlow` is not a drop-in for upstream's because it does not accept a `ref`. This is ticket #27, which a ~20-line scratch script rediscovered independently. Retired by #27. |
-| `ReactFlowWithRef` | `absent` | `forwardRef(fn/2)` | PSFlow-only, so upstream has no shape to agree with: it is the ref-taking wrapper that exists precisely because `ReactFlow` is not one. Retired by #27, which makes `ReactFlow` a drop-in and removes the reason for a second component. |
 | `getConnectedEdges` | `fn/2` | `fn/1` | Curried: upstream takes (nodes, edges) in one call, PSFlow one argument at a time. Retired by boundary stage 5, which ticket 082 owns: #62 found that stage 4's `edgeTypes` makes this reachable — a custom edge component's first line calls one of these — and recorded that the fifth stage is warranted. |
 | `getIncomers` | `fn/3` | `fn/1` | Curried: upstream (node, nodes, edges), PSFlow one at a time. Retired by boundary stage 5, which ticket 082 owns: #62 found that stage 4's `edgeTypes` makes this reachable — a custom edge component's first line calls one of these — and recorded that the fifth stage is warranted. |
 | `getOutgoers` | `fn/3` | `fn/1` | Curried: upstream (node, nodes, edges), PSFlow one at a time. Retired by boundary stage 5, which ticket 082 owns: #62 found that stage 4's `edgeTypes` makes this reachable — a custom edge component's first line calls one of these — and recorded that the fifth stage is warranted. |
@@ -217,10 +214,10 @@ separately; do not read a passing prop gate as a guarantee of type parity.
 
 ### ReactFlowProps
 
-- upstream members: 122, PSFlow members: 124
+- upstream members: 122, PSFlow members: 125
 - **missing in PSFlow** (0): _none_
 - **extra in PSFlow** (0): _none_
-- allowlisted extra: `children` _(React children are an explicit record field in PureScript rather than an implicit JSX slot; upstream gets them from React.PropsWithChildren, which the TS extractor does not attribute to the xyflow sources.)_, `onScroll` _(Inherited by upstream from HTMLAttributes<HTMLDivElement>, which the extractor excludes on both sides by design; PSFlow must declare it explicitly to expose it at all.)_
+- allowlisted extra: `children` _(React children are an explicit record field in PureScript rather than an implicit JSX slot; upstream gets them from React.PropsWithChildren, which the TS extractor does not attribute to the xyflow sources.)_, `innerRef` _(Upstream's `ref` reaches the component through `fixedForwardRef`'s second argument, not through `ReactFlowProps`, so there is no upstream member for this to match and a `rename` entry would cancel nothing. Same class as `children` and `onScroll`: a member PSFlow must declare to expose at all. The name differs because React reserves `ref` and strips one out of a props record before the component sees it, so a PureScript component cannot receive it under that spelling; `Boundary.Flow` is where the two meet, and the JS surface publishes `ref`. Permanent — it goes stale only if upstream moves `ref` onto the props type.)_, `onScroll` _(Inherited by upstream from HTMLAttributes<HTMLDivElement>, which the extractor excludes on both sides by design; PSFlow must declare it explicitly to expose it at all.)_
 
 ### NodeProps
 

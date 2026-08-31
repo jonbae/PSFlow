@@ -27,12 +27,23 @@
 -- | `unsafePerformEffect isMacOs`; `navigator.userAgent` doesn't change
 -- | between page loads, so the constant is sound.
 -- |
--- | **`reactFlowWithRef`.** TS exports `<ReactFlow>` wrapped in
--- | `fixedForwardRef` so consumers can grab the outer-div ref. PS
--- | exports two components: `reactFlow` (no ref slot, the common case)
--- | and `reactFlowWithRef` (forwardRef-wrapped; the ref attaches to the
--- | outer `<div>`). The split avoids forcing every caller through
--- | `forwardRef` plumbing.
+-- | **`innerRef`.** TS exports `<ReactFlow>` wrapped in `fixedForwardRef`
+-- | so consumers can grab the outer-div ref. PS reaches the same place
+-- | through a props field: `props.innerRef` goes on the outer `<div>`,
+-- | and `Boundary.Flow` publishes it to JavaScript under React's own
+-- | spelling. `PanelProps.innerRef` says why the field cannot be called
+-- | `ref`.
+-- |
+-- | This is one component, matching TS. It was two — `reactFlow` and a
+-- | `forwardRef`-wrapped `reactFlowWithRef` — because `react-basic-hooks`
+-- | cannot express "one component that optionally accepts a ref" as a
+-- | single value, and the split cost more than it saved: `<ReactFlow>`
+-- | dropped any `ref` handed to it without a word, and the component that
+-- | did take one nested every prop a level down and dropped its JSX
+-- | children, so it substituted for neither TS's component nor this one.
+-- | Making the ref a prop removes the thing `forwardRef` was needed for
+-- | here, and with it the second component
+-- | ([#27](https://github.com/jonbae/PSFlow/issues/27)).
 -- |
 -- | **`wrapperOnScroll`.** The outer div installs a scroll handler that
 -- | immediately resets the wrapper's scroll position to `(0, 0)`. Without
@@ -46,26 +57,23 @@
 -- | `fromMaybe` when a use case appears.
 module React.Container.ReactFlow
   ( reactFlow
-  , reactFlowWithRef
   ) where
 
 import Prelude
 
 import Control.Alt ((<|>))
 import Data.Maybe (Maybe(..), fromMaybe)
-import Data.Nullable (Nullable)
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign)
-import React.Basic (JSX, ReactComponent, Ref, element)
-import React.Basic.Hooks (ReactChildren, reactChildrenFromArray, reactChildrenToArray, reactComponentWithChildren)
+import React.Basic (JSX, ReactComponent, element)
+import React.Basic.Hooks (reactChildrenFromArray, reactChildrenToArray, reactComponentWithChildren)
 import React.Basic.Hooks as React
 import React.Container.A11yDescriptions (a11yDescriptions)
 import React.Container.Attribution (attribution)
 import React.Container.GraphView (graphView)
 import React.Container.InitValues (defaultNodeOrigin, defaultViewport) as Init
 import React.Container.Wrapper (wrapper)
-import React.FFI.DOM (div_, opt, scrollResetHandler)
-import React.FFI.ForwardRef (forwardRef)
+import React.FFI.DOM (div_, scrollResetHandler)
 import React.Hook.ColorModeClass (useColorModeClass)
 import React.Provider.SelectionListener (selectionListener)
 import React.Provider.StoreUpdater (storeUpdater)
@@ -81,7 +89,6 @@ import System.Types.Edge (ConnectionLineType(..))
 import System.Types.PanZoom (PanOnDrag(..))
 import System.Utils.General (isMacOs)
 import Unsafe.Coerce (unsafeCoerce)
-import Web.HTML.HTMLDivElement (HTMLDivElement)
 
 -- | Stable outer-div style. Mirrors the inline `wrapperStyle` constant
 -- | in TS.
@@ -142,25 +149,19 @@ defaultMultiSelKey =
   SingleKey (if isMacOsCached then "Meta" else "Control")
 
 -- ────────────────────────────────────────────────────────────────────────
--- Inner component
+-- The component
 --
--- Holds the entire render body. Accepts the user's `ReactFlowProps`
--- nested under `rfProps` plus a `Maybe` outer-ref slot. Two top-level
--- components delegate here: `reactFlow` (ref = Nothing) and
--- `reactFlowWithRef` (ref = Just, threaded through `forwardRef`).
+-- Holds the entire render body, and takes the user's `ReactFlowProps`
+-- flat. There was a `reactFlowInner` under here holding the same body,
+-- nesting these props under an `rfProps` field and carrying a separate
+-- `Maybe` ref slot beside them. It existed to be shared by two public
+-- components; #27 leaves one, so the nesting had nothing left to serve.
 -- ────────────────────────────────────────────────────────────────────────
 
-type ReactFlowInnerProps n e =
-  { children :: ReactChildren JSX
-  , rfProps :: ReactFlowProps n e
-  , outerRef :: Maybe (Ref (Nullable HTMLDivElement))
-  }
-
-reactFlowInner :: forall n e. ReactComponent (ReactFlowInnerProps n e)
-reactFlowInner =
-  unsafePerformEffect $ reactComponentWithChildren "ReactFlowInner"
-    \(p :: ReactFlowInnerProps n e) -> React.do
-      let props = p.rfProps
+reactFlow :: forall n e. ReactComponent (ReactFlowProps n e)
+reactFlow =
+  unsafePerformEffect $ reactComponentWithChildren "ReactFlow"
+    \(props :: ReactFlowProps n e) -> React.do
       colorModeCls <- useColorModeClass props.colorMode
       let
         rfId = "1"
@@ -374,34 +375,9 @@ reactFlowInner =
           , style: mergeStyle Nothing
           , className: outerClass
           , role: "application"
-          , ref: opt p.outerRef
+          -- Straight through, `null` included: React reads a null ref as no
+          -- ref, which is exactly what the caller who passed none meant.
+          , ref: props.innerRef
           , onScroll: wrapperOnScroll
           }
           [ wrapperEl ]
-
--- ────────────────────────────────────────────────────────────────────────
--- Public components
--- ────────────────────────────────────────────────────────────────────────
-
-reactFlow :: forall n e. ReactComponent (ReactFlowProps n e)
-reactFlow =
-  unsafePerformEffect $ reactComponentWithChildren "ReactFlow"
-    \(props :: ReactFlowProps n e) ->
-      pure $ element reactFlowInner
-        { rfProps: props
-        , outerRef: Nothing
-        , children: props.children
-        }
-
--- | `reactFlow` wrapped in `React.forwardRef`. The ref attaches to the
--- | outer wrapper `<div>`; the rest of the props are identical.
-reactFlowWithRef
-  :: forall n e
-   . ReactComponent
-       { props :: ReactFlowProps n e }
-reactFlowWithRef = forwardRef "ReactFlowWithRef" \p ref ->
-  element reactFlowInner
-    { rfProps: p.props
-    , outerRef: Just ref
-    , children: p.props.children
-    }

@@ -128,7 +128,7 @@ Every `gate-pending` row names a scenario or test that exists.
 
 | PR | Pkg | Version | Change | Ticket / fix |
 |---|---|---|---|---|
-| [#4826](https://github.com/xyflow/xyflow/pull/4826) | react | 12.3.6 | Forward ref of the div inside Panel components. | Panel ref forwarding is deferred in PSFlow (src/React/FFI/ForwardRef.purs exists but Panel does not use it). One instance of a surface-wide deferral rather than test debt — ReactFlow does not accept a ref either, documented at NodeWrapper.purs:28 and EdgeWrapper.purs:25 — and re-homed to https://github.com/jonbae/PSFlow/issues/27. |
+| [#4826](https://github.com/xyflow/xyflow/pull/4826) | react | 12.3.6 | Forward ref of the div inside Panel components. | One instance of a surface-wide deferral rather than test debt, re-homed to https://github.com/jonbae/PSFlow/issues/27. Two of the family have landed since that was written: boundary stage 4 made `<Panel />` — this PR's own subject — a `forwardRef` that puts the ref on its own div, and #27 did the same for `<ReactFlow />`. What is left is `NodeWrapper.purs:28` and `EdgeWrapper.purs:25`, which still forward no ref; #27 stays open for them. The bucket has not been reviewed since Panel's half landed, and it is the half this PR is about: surface parity now compares Panel's wrapper kind with nothing allowlisting it, and `parity/boundary/mount.mjs` reads the ref onto its element, which between them is a covered bucket's worth of evidence on the JS surface. #27 owns that re-bucket. |
 | [#5472](https://github.com/xyflow/xyflow/pull/5472) | react | 12.8.4 | Remove dangerouslySetInnerHTML from domAttributes | ticket 074 |
 
 ### `not-ported` — Behavior not present in PSFlow

@@ -414,7 +414,11 @@ for (const name of flowCallbacks) {
 // (fromUndefinable p.onNodeDrag)` converts, compiles, mounts and is silently
 // the wrong handler — 46 near-identical lines is exactly where that happens.
 check("every callback prop is converted from its own field", () => {
-  const convertProps = /^convertProps p =\n([\s\S]*?)\n  \}$/m.exec(flowText);
+  // `converterBody` rather than a regex of its own: it already tolerates the
+  // extra parameters a converter can take, and this one grew a `forwarded`
+  // when #27 made `<ReactFlow />` a `forwardRef`. Two readers of the same
+  // declaration is one too many to keep in step.
+  const convertProps = converterBody(flowText, "Props");
   assert(convertProps !== null, "cannot find `convertProps` in Boundary.Flow — the parse is wrong");
   const wired = new Map(
     [...convertProps[1].matchAll(/^\s*[,{]\s*(\w+):([\s\S]*?)(?=\n\s*[,}])/gm)].map((m) => [
@@ -697,7 +701,7 @@ const { Handle, NodeToolbar, NodeResizer, NodeResizeControl } = psflow;
 // what a driver was already rendering.
 const { ControlButton, MiniMapNode, EdgeText, BaseEdge, EdgeToolbar } = psflow;
 const { StraightEdge, SimpleBezierEdge, BezierEdge, SmoothStepEdge, StepEdge } = psflow;
-const { EdgeLabelRenderer, ViewportPortal, ReactFlowProvider, ReactFlowWithRef } = psflow;
+const { EdgeLabelRenderer, ViewportPortal, ReactFlowProvider } = psflow;
 
 mounts(
   "`<Panel />` converts its position and passes its children through",
@@ -1114,8 +1118,9 @@ mounts(
 
 // The two flow-level components, which mount at the top rather than inside
 // one. `<ReactFlowProvider />` is what a consumer wraps their own tree in to
-// reach the hooks outside `<ReactFlow />`; `<ReactFlowWithRef />` is ps-flow's
-// own second component, and stage 4 is what let it take upstream's props.
+// reach the hooks outside `<ReactFlow />`; `<ReactFlow />` is the flow itself,
+// and #27 is what made it one component that takes a ref where ps-flow used to
+// publish two that split the capability between them.
 check("`<ReactFlowProvider />` converts its initial values", () => {
   const html = renderToStaticMarkup(
     createElement(
@@ -1134,24 +1139,67 @@ check("`<ReactFlowProvider />` converts its initial values", () => {
   assert(html.includes("provider-child"), "the provider swallowed its children");
 });
 
-check("`<ReactFlowWithRef />` takes upstream's props and forwards its ref", () => {
+// #27: the one call upstream's own docs write. A ref, flat props and JSX
+// children in a single element — the three things ps-flow could not do at once
+// while `ReactFlow` was a plain component and `ReactFlowWithRef` nested its
+// props one level down. Children are the half a shape comparison cannot see:
+// `ReactFlowWithRef` read them from inside its props record, so this exact
+// element rendered without them.
+check("`<ReactFlow />` takes upstream's props, its children and a ref together", () => {
   const ref = { current: null };
   const html = renderToStaticMarkup(
-    createElement(ReactFlowWithRef, { ...convertedProps, ref })
+    createElement(
+      ReactFlow,
+      { ...convertedProps, ref },
+      createElement("div", { className: "flow-child" })
+    )
   );
   assert(html.includes("react-flow"), "render produced no flow wrapper");
-  // The ref itself cannot be observed here — `react-dom/server` attaches none —
-  // so what this asserts is that the props crossed. That the ref is forwarded
-  // rather than dropped is a shape claim, and surface parity holds it: the
-  // export is a `forwardRef`, which a plain function component cannot be.
+  assert(html.includes("flow-child"), "`<ReactFlow />` dropped its JSX children");
+  // Where the ref *goes* is the next check. `react-dom/server` attaches no
+  // refs, so a rendered mount cannot see one.
 });
 
-// What the two ref-taking components gained, which is the half of their
+// The ref actually arriving, which the mount above cannot show and the shape
+// comparison cannot either — `forwardRef` is a wrapper kind, and a wrapper
+// that hands its ref nowhere has the same shape as one that does.
+//
+// No DOM needed. A `forwardRef` exposes its render function, and calling it
+// runs the boundary conversion and returns an element rather than rendering
+// one, so no hook runs and nothing needs mounting. What comes back is the
+// element for the PureScript component, and the converted props are on it.
+check("`<ReactFlow />` hands the forwarded ref to the PureScript component", () => {
+  const sentinel = { current: null };
+  const withRef = ReactFlow.render({ ...convertedProps }, sentinel);
+  assert(
+    withRef.props.innerRef === sentinel,
+    "the forwarded ref never reached `ReactFlowProps.innerRef` — it is accepted and dropped"
+  );
+  // The other half, and the reason the field is `Nullable Foreign` rather than
+  // a `Maybe`: React passes `null` when the caller supplied no ref, and that
+  // has to survive as the `null` React reads back as "no ref". A conversion
+  // that turned it into anything else would put a truthy non-ref on the div.
+  const withNone = ReactFlow.render({ ...convertedProps }, null);
+  assert(
+    withNone.props.innerRef === null,
+    `no-ref mount put ${JSON.stringify(withNone.props.innerRef)} on \`innerRef\`, not null`
+  );
+});
+
+check("`ReactFlowWithRef` is gone from the surface", () => {
+  assert(
+    !("ReactFlowWithRef" in psflow),
+    "`ReactFlowWithRef` still resolves — #27 removes the reason for a second component"
+  );
+});
+
+// What the three ref-taking components gained, which is the half of their
 // divergence a shape comparison cannot see. `forwardRef` makes them the right
 // *shape*; putting the ref on the element is what makes them useful, and
 // nothing but the DOM says whether that happened.
-check("`<Panel />` and `<Handle />` put the forwarded ref on their element", () => {
+check("`<ReactFlow />`, `<Panel />` and `<Handle />` put the forwarded ref on their element", () => {
   for (const [what, source] of [
+    ["ReactFlow", join(repoRoot, "src/React/Container/ReactFlow.purs")],
     ["Panel", join(repoRoot, "src/React/Portal/Panel.purs")],
     ["Handle", join(repoRoot, "src/React/Handle.purs")],
   ]) {

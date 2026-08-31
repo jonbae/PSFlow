@@ -49,8 +49,9 @@ export const manifest = Object.freeze({
 
   // The eight TS enums are plain data on both sides, so crossing them was the
   // whole conversion: no wrapper, no arity change, no representation to
-  // translate. `ReactFlow` is the opposite — 124 props, every one of which
-  // converts as of stage 4; two were refused outright until then, and
+  // translate. `ReactFlow` is the opposite — 125 props, every one of which
+  // converts; 124 of them as of stage 4, and `innerRef` when #27 made the
+  // component a `forwardRef`. Two were refused outright until stage 4, and
   // `Boundary.Flow` says what landed them. It was listed as crossed from stage
   // 1 anyway, because the claim this list makes is that a JavaScript caller
   // gets upstream's prop shapes or an error, never silence.
@@ -116,7 +117,6 @@ export const manifest = Object.freeze({
     "Position",
     "ReactFlow",
     "ReactFlowProvider",
-    "ReactFlowWithRef",
     "ResizeControlVariant",
     "SelectionMode",
     "SimpleBezierEdge",

@@ -27,9 +27,9 @@ var __toESM = (mod2, isNodeMode, target5) => (target5 = mod2 != null ? __create(
   mod2
 ));
 
-// node_modules/react/cjs/react.development.js
+// ../../../node_modules/react/cjs/react.development.js
 var require_react_development = __commonJS({
-  "node_modules/react/cjs/react.development.js"(exports, module) {
+  "../../../node_modules/react/cjs/react.development.js"(exports, module) {
     "use strict";
     if (true) {
       (function() {
@@ -512,7 +512,7 @@ var require_react_development = __commonJS({
           }
           return element2;
         };
-        function createElement7(type, config, children3) {
+        function createElement6(type, config, children3) {
           var propName;
           var props = {};
           var key2 = null;
@@ -973,7 +973,7 @@ var require_react_development = __commonJS({
           }
           return lazyType;
         }
-        function forwardRef3(render2) {
+        function forwardRef2(render2) {
           {
             if (render2 != null && render2.$$typeof === REACT_MEMO_TYPE) {
               error3("forwardRef requires a render function but received a `memo` component. Instead of forwardRef(memo(...)), use memo(forwardRef(...)).");
@@ -1611,7 +1611,7 @@ var require_react_development = __commonJS({
               error3("React.createElement: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", typeString, info2);
             }
           }
-          var element2 = createElement7.apply(this, arguments);
+          var element2 = createElement6.apply(this, arguments);
           if (element2 == null) {
             return element2;
           }
@@ -1871,7 +1871,7 @@ var require_react_development = __commonJS({
         exports.createElement = createElement$1;
         exports.createFactory = createFactory;
         exports.createRef = createRef;
-        exports.forwardRef = forwardRef3;
+        exports.forwardRef = forwardRef2;
         exports.isValidElement = isValidElement;
         exports.lazy = lazy;
         exports.memo = memo3;
@@ -1901,9 +1901,9 @@ var require_react_development = __commonJS({
   }
 });
 
-// node_modules/react/index.js
+// ../../../node_modules/react/index.js
 var require_react = __commonJS({
-  "node_modules/react/index.js"(exports, module) {
+  "../../../node_modules/react/index.js"(exports, module) {
     "use strict";
     if (false) {
       module.exports = null;
@@ -1913,9 +1913,9 @@ var require_react = __commonJS({
   }
 });
 
-// node_modules/scheduler/cjs/scheduler.development.js
+// ../../../node_modules/scheduler/cjs/scheduler.development.js
 var require_scheduler_development = __commonJS({
-  "node_modules/scheduler/cjs/scheduler.development.js"(exports) {
+  "../../../node_modules/scheduler/cjs/scheduler.development.js"(exports) {
     "use strict";
     if (true) {
       (function() {
@@ -2363,9 +2363,9 @@ var require_scheduler_development = __commonJS({
   }
 });
 
-// node_modules/scheduler/index.js
+// ../../../node_modules/scheduler/index.js
 var require_scheduler = __commonJS({
-  "node_modules/scheduler/index.js"(exports, module) {
+  "../../../node_modules/scheduler/index.js"(exports, module) {
     "use strict";
     if (false) {
       module.exports = null;
@@ -2375,9 +2375,9 @@ var require_scheduler = __commonJS({
   }
 });
 
-// node_modules/react-dom/cjs/react-dom.development.js
+// ../../../node_modules/react-dom/cjs/react-dom.development.js
 var require_react_dom_development = __commonJS({
-  "node_modules/react-dom/cjs/react-dom.development.js"(exports) {
+  "../../../node_modules/react-dom/cjs/react-dom.development.js"(exports) {
     "use strict";
     if (true) {
       (function() {
@@ -9418,7 +9418,7 @@ var require_react_dom_development = __commonJS({
             }
           }
         }
-        function createElement7(type, props, rootContainerElement, parentNamespace) {
+        function createElement6(type, props, rootContainerElement, parentNamespace) {
           var isCustomComponentTag;
           var ownerDocument = getOwnerDocumentFromRootContainer(rootContainerElement);
           var domElement;
@@ -10288,7 +10288,7 @@ var require_react_dom_development = __commonJS({
             }
             parentNamespace = hostContextDev.namespace;
           }
-          var domElement = createElement7(type, props, rootContainerInstance, parentNamespace);
+          var domElement = createElement6(type, props, rootContainerInstance, parentNamespace);
           precacheFiberNode(internalInstanceHandle, domElement);
           updateFiberProps(domElement, props);
           return domElement;
@@ -23539,9 +23539,9 @@ var require_react_dom_development = __commonJS({
   }
 });
 
-// node_modules/react-dom/index.js
+// ../../../node_modules/react-dom/index.js
 var require_react_dom = __commonJS({
-  "node_modules/react-dom/index.js"(exports, module) {
+  "../../../node_modules/react-dom/index.js"(exports, module) {
     "use strict";
     if (false) {
       checkDCE();
@@ -23552,9 +23552,9 @@ var require_react_dom = __commonJS({
   }
 });
 
-// node_modules/react-dom/client.js
+// ../../../node_modules/react-dom/client.js
 var require_client = __commonJS({
-  "node_modules/react-dom/client.js"(exports) {
+  "../../../node_modules/react-dom/client.js"(exports) {
     "use strict";
     var m = require_react_dom();
     if (false) {
@@ -23583,9 +23583,9 @@ var require_client = __commonJS({
   }
 });
 
-// node_modules/react/cjs/react-jsx-runtime.development.js
+// ../../../node_modules/react/cjs/react-jsx-runtime.development.js
 var require_react_jsx_runtime_development = __commonJS({
-  "node_modules/react/cjs/react-jsx-runtime.development.js"(exports) {
+  "../../../node_modules/react/cjs/react-jsx-runtime.development.js"(exports) {
     "use strict";
     if (true) {
       (function() {
@@ -24476,9 +24476,9 @@ var require_react_jsx_runtime_development = __commonJS({
   }
 });
 
-// node_modules/react/jsx-runtime.js
+// ../../../node_modules/react/jsx-runtime.js
 var require_jsx_runtime = __commonJS({
-  "node_modules/react/jsx-runtime.js"(exports, module) {
+  "../../../node_modules/react/jsx-runtime.js"(exports, module) {
     "use strict";
     if (false) {
       module.exports = null;
@@ -24524,8 +24524,9 @@ var manifest = Object.freeze({
   stage: 4,
   // The eight TS enums are plain data on both sides, so crossing them was the
   // whole conversion: no wrapper, no arity change, no representation to
-  // translate. `ReactFlow` is the opposite — 124 props, every one of which
-  // converts as of stage 4; two were refused outright until then, and
+  // translate. `ReactFlow` is the opposite — 125 props, every one of which
+  // converts; 124 of them as of stage 4, and `innerRef` when #27 made the
+  // component a `forwardRef`. Two were refused outright until stage 4, and
   // `Boundary.Flow` says what landed them. It was listed as crossed from stage
   // 1 anyway, because the claim this list makes is that a JavaScript caller
   // gets upstream's prop shapes or an error, never silence.
@@ -24591,7 +24592,6 @@ var manifest = Object.freeze({
     "Position",
     "ReactFlow",
     "ReactFlowProvider",
-    "ReactFlowWithRef",
     "ResizeControlVariant",
     "SelectionMode",
     "SimpleBezierEdge",
@@ -25057,12 +25057,12 @@ var discardUnit = {
 // output/Control.Monad/index.js
 var ap = function(dictMonad) {
   var bind61 = bind(dictMonad.Bind1());
-  var pure82 = pure(dictMonad.Applicative0());
+  var pure81 = pure(dictMonad.Applicative0());
   return function(f) {
     return function(a) {
       return bind61(f)(function(f$prime) {
         return bind61(a)(function(a$prime) {
-          return pure82(f$prime(a$prime));
+          return pure81(f$prime(a$prime));
         });
       });
     };
@@ -26051,13 +26051,13 @@ var oneOf = function(dictFoldable) {
 };
 var traverse_ = function(dictApplicative) {
   var applySecond7 = applySecond(dictApplicative.Apply0());
-  var pure82 = pure(dictApplicative);
+  var pure81 = pure(dictApplicative);
   return function(dictFoldable) {
     var foldr22 = foldr(dictFoldable);
     return function(f) {
       return foldr22(function($454) {
         return applySecond7(f($454));
-      })(pure82(unit));
+      })(pure81(unit));
     };
   };
 };
@@ -26176,14 +26176,14 @@ var foldM = function(dictFoldable) {
   var foldl22 = foldl(dictFoldable);
   return function(dictMonad) {
     var bind61 = bind(dictMonad.Bind1());
-    var pure82 = pure(dictMonad.Applicative0());
+    var pure81 = pure(dictMonad.Applicative0());
     return function(f) {
       return function(b0) {
         return foldl22(function(b) {
           return function(a) {
             return bind61(b)(flip(f)(a));
           };
-        })(pure82(b0));
+        })(pure81(b0));
       };
     };
   };
@@ -26294,13 +26294,13 @@ var traverseArrayImpl = /* @__PURE__ */ function() {
   }
   return function(apply3) {
     return function(map66) {
-      return function(pure82) {
+      return function(pure81) {
         return function(f) {
           return function(array4) {
             function go2(bot, top3) {
               switch (top3 - bot) {
                 case 0:
-                  return pure82([]);
+                  return pure81([]);
                 case 1:
                   return map66(array1)(f(array4[bot]));
                 case 2:
@@ -27621,7 +27621,7 @@ var eqNodeExtent = {
   }
 };
 
-// node_modules/d3-dispatch/src/dispatch.js
+// ../../../node_modules/d3-dispatch/src/dispatch.js
 var noop = { value: () => {
 } };
 function dispatch() {
@@ -27691,7 +27691,7 @@ function set(type, name15, callback2) {
 }
 var dispatch_default = dispatch;
 
-// node_modules/d3-selection/src/namespaces.js
+// ../../../node_modules/d3-selection/src/namespaces.js
 var xhtml = "http://www.w3.org/1999/xhtml";
 var namespaces_default = {
   svg: "http://www.w3.org/2000/svg",
@@ -27701,14 +27701,14 @@ var namespaces_default = {
   xmlns: "http://www.w3.org/2000/xmlns/"
 };
 
-// node_modules/d3-selection/src/namespace.js
+// ../../../node_modules/d3-selection/src/namespace.js
 function namespace_default(name15) {
   var prefix = name15 += "", i = prefix.indexOf(":");
   if (i >= 0 && (prefix = name15.slice(0, i)) !== "xmlns") name15 = name15.slice(i + 1);
   return namespaces_default.hasOwnProperty(prefix) ? { space: namespaces_default[prefix], local: name15 } : name15;
 }
 
-// node_modules/d3-selection/src/creator.js
+// ../../../node_modules/d3-selection/src/creator.js
 function creatorInherit(name15) {
   return function() {
     var document3 = this.ownerDocument, uri = this.namespaceURI;
@@ -27725,7 +27725,7 @@ function creator_default(name15) {
   return (fullname.local ? creatorFixed : creatorInherit)(fullname);
 }
 
-// node_modules/d3-selection/src/selector.js
+// ../../../node_modules/d3-selection/src/selector.js
 function none() {
 }
 function selector_default(selector4) {
@@ -27734,7 +27734,7 @@ function selector_default(selector4) {
   };
 }
 
-// node_modules/d3-selection/src/selection/select.js
+// ../../../node_modules/d3-selection/src/selection/select.js
 function select_default(select3) {
   if (typeof select3 !== "function") select3 = selector_default(select3);
   for (var groups = this._groups, m = groups.length, subgroups = new Array(m), j = 0; j < m; ++j) {
@@ -27748,12 +27748,12 @@ function select_default(select3) {
   return new Selection(subgroups, this._parents);
 }
 
-// node_modules/d3-selection/src/array.js
+// ../../../node_modules/d3-selection/src/array.js
 function array(x) {
   return x == null ? [] : Array.isArray(x) ? x : Array.from(x);
 }
 
-// node_modules/d3-selection/src/selectorAll.js
+// ../../../node_modules/d3-selection/src/selectorAll.js
 function empty2() {
   return [];
 }
@@ -27763,7 +27763,7 @@ function selectorAll_default(selector4) {
   };
 }
 
-// node_modules/d3-selection/src/selection/selectAll.js
+// ../../../node_modules/d3-selection/src/selection/selectAll.js
 function arrayAll(select3) {
   return function() {
     return array(select3.apply(this, arguments));
@@ -27783,7 +27783,7 @@ function selectAll_default(select3) {
   return new Selection(subgroups, parents);
 }
 
-// node_modules/d3-selection/src/matcher.js
+// ../../../node_modules/d3-selection/src/matcher.js
 function matcher_default(selector4) {
   return function() {
     return this.matches(selector4);
@@ -27795,7 +27795,7 @@ function childMatcher(selector4) {
   };
 }
 
-// node_modules/d3-selection/src/selection/selectChild.js
+// ../../../node_modules/d3-selection/src/selection/selectChild.js
 var find3 = Array.prototype.find;
 function childFind(match) {
   return function() {
@@ -27809,7 +27809,7 @@ function selectChild_default(match) {
   return this.select(match == null ? childFirst : childFind(typeof match === "function" ? match : childMatcher(match)));
 }
 
-// node_modules/d3-selection/src/selection/selectChildren.js
+// ../../../node_modules/d3-selection/src/selection/selectChildren.js
 var filter2 = Array.prototype.filter;
 function children() {
   return Array.from(this.children);
@@ -27823,7 +27823,7 @@ function selectChildren_default(match) {
   return this.selectAll(match == null ? children : childrenFilter(typeof match === "function" ? match : childMatcher(match)));
 }
 
-// node_modules/d3-selection/src/selection/filter.js
+// ../../../node_modules/d3-selection/src/selection/filter.js
 function filter_default(match) {
   if (typeof match !== "function") match = matcher_default(match);
   for (var groups = this._groups, m = groups.length, subgroups = new Array(m), j = 0; j < m; ++j) {
@@ -27836,12 +27836,12 @@ function filter_default(match) {
   return new Selection(subgroups, this._parents);
 }
 
-// node_modules/d3-selection/src/selection/sparse.js
+// ../../../node_modules/d3-selection/src/selection/sparse.js
 function sparse_default(update2) {
   return new Array(update2.length);
 }
 
-// node_modules/d3-selection/src/selection/enter.js
+// ../../../node_modules/d3-selection/src/selection/enter.js
 function enter_default() {
   return new Selection(this._enter || this._groups.map(sparse_default), this._parents);
 }
@@ -27868,14 +27868,14 @@ EnterNode.prototype = {
   }
 };
 
-// node_modules/d3-selection/src/constant.js
+// ../../../node_modules/d3-selection/src/constant.js
 function constant_default(x) {
   return function() {
     return x;
   };
 }
 
-// node_modules/d3-selection/src/selection/data.js
+// ../../../node_modules/d3-selection/src/selection/data.js
 function bindIndex(parent2, group4, enter, update2, exit, data) {
   var i = 0, node, groupLength = group4.length, dataLength = data.length;
   for (; i < dataLength; ++i) {
@@ -27947,12 +27947,12 @@ function arraylike(data) {
   return typeof data === "object" && "length" in data ? data : Array.from(data);
 }
 
-// node_modules/d3-selection/src/selection/exit.js
+// ../../../node_modules/d3-selection/src/selection/exit.js
 function exit_default() {
   return new Selection(this._exit || this._groups.map(sparse_default), this._parents);
 }
 
-// node_modules/d3-selection/src/selection/join.js
+// ../../../node_modules/d3-selection/src/selection/join.js
 function join_default(onenter, onupdate, onexit) {
   var enter = this.enter(), update2 = this, exit = this.exit();
   if (typeof onenter === "function") {
@@ -27970,7 +27970,7 @@ function join_default(onenter, onupdate, onexit) {
   return enter && update2 ? enter.merge(update2).order() : update2;
 }
 
-// node_modules/d3-selection/src/selection/merge.js
+// ../../../node_modules/d3-selection/src/selection/merge.js
 function merge_default(context) {
   var selection2 = context.selection ? context.selection() : context;
   for (var groups0 = this._groups, groups1 = selection2._groups, m0 = groups0.length, m1 = groups1.length, m = Math.min(m0, m1), merges = new Array(m0), j = 0; j < m; ++j) {
@@ -27986,7 +27986,7 @@ function merge_default(context) {
   return new Selection(merges, this._parents);
 }
 
-// node_modules/d3-selection/src/selection/order.js
+// ../../../node_modules/d3-selection/src/selection/order.js
 function order_default() {
   for (var groups = this._groups, j = -1, m = groups.length; ++j < m; ) {
     for (var group4 = groups[j], i = group4.length - 1, next = group4[i], node; --i >= 0; ) {
@@ -27999,7 +27999,7 @@ function order_default() {
   return this;
 }
 
-// node_modules/d3-selection/src/selection/sort.js
+// ../../../node_modules/d3-selection/src/selection/sort.js
 function sort_default(compare3) {
   if (!compare3) compare3 = ascending;
   function compareNode(a, b) {
@@ -28019,7 +28019,7 @@ function ascending(a, b) {
   return a < b ? -1 : a > b ? 1 : a >= b ? 0 : NaN;
 }
 
-// node_modules/d3-selection/src/selection/call.js
+// ../../../node_modules/d3-selection/src/selection/call.js
 function call_default() {
   var callback2 = arguments[0];
   arguments[0] = this;
@@ -28027,12 +28027,12 @@ function call_default() {
   return this;
 }
 
-// node_modules/d3-selection/src/selection/nodes.js
+// ../../../node_modules/d3-selection/src/selection/nodes.js
 function nodes_default() {
   return Array.from(this);
 }
 
-// node_modules/d3-selection/src/selection/node.js
+// ../../../node_modules/d3-selection/src/selection/node.js
 function node_default() {
   for (var groups = this._groups, j = 0, m = groups.length; j < m; ++j) {
     for (var group4 = groups[j], i = 0, n = group4.length; i < n; ++i) {
@@ -28043,19 +28043,19 @@ function node_default() {
   return null;
 }
 
-// node_modules/d3-selection/src/selection/size.js
+// ../../../node_modules/d3-selection/src/selection/size.js
 function size_default() {
   let size6 = 0;
   for (const node of this) ++size6;
   return size6;
 }
 
-// node_modules/d3-selection/src/selection/empty.js
+// ../../../node_modules/d3-selection/src/selection/empty.js
 function empty_default() {
   return !this.node();
 }
 
-// node_modules/d3-selection/src/selection/each.js
+// ../../../node_modules/d3-selection/src/selection/each.js
 function each_default(callback2) {
   for (var groups = this._groups, j = 0, m = groups.length; j < m; ++j) {
     for (var group4 = groups[j], i = 0, n = group4.length, node; i < n; ++i) {
@@ -28065,7 +28065,7 @@ function each_default(callback2) {
   return this;
 }
 
-// node_modules/d3-selection/src/selection/attr.js
+// ../../../node_modules/d3-selection/src/selection/attr.js
 function attrRemove(name15) {
   return function() {
     this.removeAttribute(name15);
@@ -28109,12 +28109,12 @@ function attr_default(name15, value12) {
   return this.each((value12 == null ? fullname.local ? attrRemoveNS : attrRemove : typeof value12 === "function" ? fullname.local ? attrFunctionNS : attrFunction : fullname.local ? attrConstantNS : attrConstant)(fullname, value12));
 }
 
-// node_modules/d3-selection/src/window.js
+// ../../../node_modules/d3-selection/src/window.js
 function window_default(node) {
   return node.ownerDocument && node.ownerDocument.defaultView || node.document && node || node.defaultView;
 }
 
-// node_modules/d3-selection/src/selection/style.js
+// ../../../node_modules/d3-selection/src/selection/style.js
 function styleRemove(name15) {
   return function() {
     this.style.removeProperty(name15);
@@ -28139,7 +28139,7 @@ function styleValue(node, name15) {
   return node.style.getPropertyValue(name15) || window_default(node).getComputedStyle(node, null).getPropertyValue(name15);
 }
 
-// node_modules/d3-selection/src/selection/property.js
+// ../../../node_modules/d3-selection/src/selection/property.js
 function propertyRemove(name15) {
   return function() {
     delete this[name15];
@@ -28161,7 +28161,7 @@ function property_default(name15, value12) {
   return arguments.length > 1 ? this.each((value12 == null ? propertyRemove : typeof value12 === "function" ? propertyFunction : propertyConstant)(name15, value12)) : this.node()[name15];
 }
 
-// node_modules/d3-selection/src/selection/classed.js
+// ../../../node_modules/d3-selection/src/selection/classed.js
 function classArray(string) {
   return string.trim().split(/^|\s+/);
 }
@@ -28224,7 +28224,7 @@ function classed_default(name15, value12) {
   return this.each((typeof value12 === "function" ? classedFunction : value12 ? classedTrue : classedFalse)(names, value12));
 }
 
-// node_modules/d3-selection/src/selection/text.js
+// ../../../node_modules/d3-selection/src/selection/text.js
 function textRemove() {
   this.textContent = "";
 }
@@ -28243,7 +28243,7 @@ function text_default(value12) {
   return arguments.length ? this.each(value12 == null ? textRemove : (typeof value12 === "function" ? textFunction : textConstant)(value12)) : this.node().textContent;
 }
 
-// node_modules/d3-selection/src/selection/html.js
+// ../../../node_modules/d3-selection/src/selection/html.js
 function htmlRemove() {
   this.innerHTML = "";
 }
@@ -28262,7 +28262,7 @@ function html_default(value12) {
   return arguments.length ? this.each(value12 == null ? htmlRemove : (typeof value12 === "function" ? htmlFunction : htmlConstant)(value12)) : this.node().innerHTML;
 }
 
-// node_modules/d3-selection/src/selection/raise.js
+// ../../../node_modules/d3-selection/src/selection/raise.js
 function raise() {
   if (this.nextSibling) this.parentNode.appendChild(this);
 }
@@ -28270,7 +28270,7 @@ function raise_default() {
   return this.each(raise);
 }
 
-// node_modules/d3-selection/src/selection/lower.js
+// ../../../node_modules/d3-selection/src/selection/lower.js
 function lower() {
   if (this.previousSibling) this.parentNode.insertBefore(this, this.parentNode.firstChild);
 }
@@ -28278,7 +28278,7 @@ function lower_default() {
   return this.each(lower);
 }
 
-// node_modules/d3-selection/src/selection/append.js
+// ../../../node_modules/d3-selection/src/selection/append.js
 function append_default(name15) {
   var create4 = typeof name15 === "function" ? name15 : creator_default(name15);
   return this.select(function() {
@@ -28286,7 +28286,7 @@ function append_default(name15) {
   });
 }
 
-// node_modules/d3-selection/src/selection/insert.js
+// ../../../node_modules/d3-selection/src/selection/insert.js
 function constantNull() {
   return null;
 }
@@ -28297,7 +28297,7 @@ function insert_default(name15, before) {
   });
 }
 
-// node_modules/d3-selection/src/selection/remove.js
+// ../../../node_modules/d3-selection/src/selection/remove.js
 function remove() {
   var parent2 = this.parentNode;
   if (parent2) parent2.removeChild(this);
@@ -28306,7 +28306,7 @@ function remove_default() {
   return this.each(remove);
 }
 
-// node_modules/d3-selection/src/selection/clone.js
+// ../../../node_modules/d3-selection/src/selection/clone.js
 function selection_cloneShallow() {
   var clone = this.cloneNode(false), parent2 = this.parentNode;
   return parent2 ? parent2.insertBefore(clone, this.nextSibling) : clone;
@@ -28319,12 +28319,12 @@ function clone_default(deep) {
   return this.select(deep ? selection_cloneDeep : selection_cloneShallow);
 }
 
-// node_modules/d3-selection/src/selection/datum.js
+// ../../../node_modules/d3-selection/src/selection/datum.js
 function datum_default(value12) {
   return arguments.length ? this.property("__data__", value12) : this.node().__data__;
 }
 
-// node_modules/d3-selection/src/selection/on.js
+// ../../../node_modules/d3-selection/src/selection/on.js
 function contextListener(listener) {
   return function(event) {
     listener.call(this, event, this.__data__);
@@ -28387,7 +28387,7 @@ function on_default(typename, value12, options2) {
   return this;
 }
 
-// node_modules/d3-selection/src/selection/dispatch.js
+// ../../../node_modules/d3-selection/src/selection/dispatch.js
 function dispatchEvent(node, type, params) {
   var window2 = window_default(node), event = window2.CustomEvent;
   if (typeof event === "function") {
@@ -28413,7 +28413,7 @@ function dispatch_default2(type, params) {
   return this.each((typeof params === "function" ? dispatchFunction : dispatchConstant)(type, params));
 }
 
-// node_modules/d3-selection/src/selection/iterator.js
+// ../../../node_modules/d3-selection/src/selection/iterator.js
 function* iterator_default() {
   for (var groups = this._groups, j = 0, m = groups.length; j < m; ++j) {
     for (var group4 = groups[j], i = 0, n = group4.length, node; i < n; ++i) {
@@ -28422,7 +28422,7 @@ function* iterator_default() {
   }
 }
 
-// node_modules/d3-selection/src/selection/index.js
+// ../../../node_modules/d3-selection/src/selection/index.js
 var root = [null];
 function Selection(groups, parents) {
   this._groups = groups;
@@ -28474,19 +28474,19 @@ Selection.prototype = selection.prototype = {
 };
 var selection_default = selection;
 
-// node_modules/d3-selection/src/select.js
+// ../../../node_modules/d3-selection/src/select.js
 function select_default2(selector4) {
   return typeof selector4 === "string" ? new Selection([[document.querySelector(selector4)]], [document.documentElement]) : new Selection([[selector4]], root);
 }
 
-// node_modules/d3-selection/src/sourceEvent.js
+// ../../../node_modules/d3-selection/src/sourceEvent.js
 function sourceEvent_default(event) {
   let sourceEvent;
   while (sourceEvent = event.sourceEvent) event = sourceEvent;
   return event;
 }
 
-// node_modules/d3-selection/src/pointer.js
+// ../../../node_modules/d3-selection/src/pointer.js
 function pointer_default(event, node) {
   event = sourceEvent_default(event);
   if (node === void 0) node = event.currentTarget;
@@ -28506,7 +28506,7 @@ function pointer_default(event, node) {
   return [event.pageX, event.pageY];
 }
 
-// node_modules/d3-drag/src/noevent.js
+// ../../../node_modules/d3-drag/src/noevent.js
 var nonpassive = { passive: false };
 var nonpassivecapture = { capture: true, passive: false };
 function nopropagation(event) {
@@ -28517,7 +28517,7 @@ function noevent_default(event) {
   event.stopImmediatePropagation();
 }
 
-// node_modules/d3-drag/src/nodrag.js
+// ../../../node_modules/d3-drag/src/nodrag.js
 function nodrag_default(view) {
   var root3 = view.document.documentElement, selection2 = select_default2(view).on("dragstart.drag", noevent_default, nonpassivecapture);
   if ("onselectstart" in root3) {
@@ -28543,10 +28543,10 @@ function yesdrag(view, noclick) {
   }
 }
 
-// node_modules/d3-drag/src/constant.js
+// ../../../node_modules/d3-drag/src/constant.js
 var constant_default2 = (x) => () => x;
 
-// node_modules/d3-drag/src/event.js
+// ../../../node_modules/d3-drag/src/event.js
 function DragEvent(type, {
   sourceEvent,
   subject,
@@ -28578,7 +28578,7 @@ DragEvent.prototype.on = function() {
   return value12 === this._ ? this : value12;
 };
 
-// node_modules/d3-drag/src/drag.js
+// ../../../node_modules/d3-drag/src/drag.js
 function defaultFilter(event) {
   return !event.ctrlKey && !event.button;
 }
@@ -29099,10 +29099,10 @@ var $$try = function(dictMonadError) {
   var catchError1 = catchError(dictMonadError);
   var Monad0 = dictMonadError.MonadThrow0().Monad0();
   var map66 = map(Monad0.Bind1().Apply0().Functor0());
-  var pure82 = pure(Monad0.Applicative0());
+  var pure81 = pure(Monad0.Applicative0());
   return function(a) {
     return catchError1(map66(Right.create)(a))(function($52) {
-      return pure82(Left.create($52));
+      return pure81(Left.create($52));
     });
   };
 };
@@ -29174,12 +29174,12 @@ var monadExceptT = function(dictMonad) {
 };
 var bindExceptT = function(dictMonad) {
   var bind61 = bind(dictMonad.Bind1());
-  var pure82 = pure(dictMonad.Applicative0());
+  var pure81 = pure(dictMonad.Applicative0());
   return {
     bind: function(v) {
       return function(k) {
         return bind61(v)(either(function($193) {
-          return pure82(Left.create($193));
+          return pure81(Left.create($193));
         })(function(a) {
           var v1 = k(a);
           return v1;
@@ -37682,7 +37682,7 @@ var sourceDeltaMode = (event) => () => event && typeof event.deltaMode === "numb
 var logN = (n) => Math.log(n);
 var powN = (base) => (exp2) => Math.pow(base, exp2);
 
-// node_modules/d3-color/src/define.js
+// ../../../node_modules/d3-color/src/define.js
 function define_default(constructor, factory, prototype) {
   constructor.prototype = factory.prototype = prototype;
   prototype.constructor = constructor;
@@ -37693,7 +37693,7 @@ function extend2(parent2, definition) {
   return prototype;
 }
 
-// node_modules/d3-color/src/color.js
+// ../../../node_modules/d3-color/src/color.js
 function Color() {
 }
 var darker = 0.7;
@@ -38030,7 +38030,7 @@ function hsl2rgb(h, m1, m2) {
   return (h < 60 ? m1 + (m2 - m1) * h / 60 : h < 180 ? m2 : h < 240 ? m1 + (m2 - m1) * (240 - h) / 60 : m1) * 255;
 }
 
-// node_modules/d3-interpolate/src/basis.js
+// ../../../node_modules/d3-interpolate/src/basis.js
 function basis(t1, v0, v1, v2, v3) {
   var t2 = t1 * t1, t3 = t2 * t1;
   return ((1 - 3 * t1 + 3 * t2 - t3) * v0 + (4 - 6 * t2 + 3 * t3) * v1 + (1 + 3 * t1 + 3 * t2 - 3 * t3) * v2 + t3 * v3) / 6;
@@ -38043,7 +38043,7 @@ function basis_default(values2) {
   };
 }
 
-// node_modules/d3-interpolate/src/basisClosed.js
+// ../../../node_modules/d3-interpolate/src/basisClosed.js
 function basisClosed_default(values2) {
   var n = values2.length;
   return function(t) {
@@ -38052,10 +38052,10 @@ function basisClosed_default(values2) {
   };
 }
 
-// node_modules/d3-interpolate/src/constant.js
+// ../../../node_modules/d3-interpolate/src/constant.js
 var constant_default3 = (x) => () => x;
 
-// node_modules/d3-interpolate/src/color.js
+// ../../../node_modules/d3-interpolate/src/color.js
 function linear(a, d) {
   return function(t) {
     return a + t * d;
@@ -38076,7 +38076,7 @@ function nogamma(a, b) {
   return d ? linear(a, d) : constant_default3(isNaN(a) ? b : a);
 }
 
-// node_modules/d3-interpolate/src/rgb.js
+// ../../../node_modules/d3-interpolate/src/rgb.js
 var rgb_default = function rgbGamma(y) {
   var color2 = gamma(y);
   function rgb2(start3, end) {
@@ -38116,7 +38116,7 @@ function rgbSpline(spline) {
 var rgbBasis = rgbSpline(basis_default);
 var rgbBasisClosed = rgbSpline(basisClosed_default);
 
-// node_modules/d3-interpolate/src/numberArray.js
+// ../../../node_modules/d3-interpolate/src/numberArray.js
 function numberArray_default(a, b) {
   if (!b) b = [];
   var n = a ? Math.min(b.length, a.length) : 0, c = b.slice(), i;
@@ -38129,7 +38129,7 @@ function isNumberArray(x) {
   return ArrayBuffer.isView(x) && !(x instanceof DataView);
 }
 
-// node_modules/d3-interpolate/src/array.js
+// ../../../node_modules/d3-interpolate/src/array.js
 function genericArray(a, b) {
   var nb = b ? b.length : 0, na = a ? Math.min(nb, a.length) : 0, x = new Array(na), c = new Array(nb), i;
   for (i = 0; i < na; ++i) x[i] = value_default(a[i], b[i]);
@@ -38140,7 +38140,7 @@ function genericArray(a, b) {
   };
 }
 
-// node_modules/d3-interpolate/src/date.js
+// ../../../node_modules/d3-interpolate/src/date.js
 function date_default(a, b) {
   var d = /* @__PURE__ */ new Date();
   return a = +a, b = +b, function(t) {
@@ -38148,14 +38148,14 @@ function date_default(a, b) {
   };
 }
 
-// node_modules/d3-interpolate/src/number.js
+// ../../../node_modules/d3-interpolate/src/number.js
 function number_default(a, b) {
   return a = +a, b = +b, function(t) {
     return a * (1 - t) + b * t;
   };
 }
 
-// node_modules/d3-interpolate/src/object.js
+// ../../../node_modules/d3-interpolate/src/object.js
 function object_default(a, b) {
   var i = {}, c = {}, k;
   if (a === null || typeof a !== "object") a = {};
@@ -38173,7 +38173,7 @@ function object_default(a, b) {
   };
 }
 
-// node_modules/d3-interpolate/src/string.js
+// ../../../node_modules/d3-interpolate/src/string.js
 var reA = /[-+]?(?:\d+\.?\d*|\.?\d+)(?:[eE][-+]?\d+)?/g;
 var reB = new RegExp(reA.source, "g");
 function zero2(b) {
@@ -38215,13 +38215,13 @@ function string_default(a, b) {
   });
 }
 
-// node_modules/d3-interpolate/src/value.js
+// ../../../node_modules/d3-interpolate/src/value.js
 function value_default(a, b) {
   var t = typeof b, c;
   return b == null || t === "boolean" ? constant_default3(b) : (t === "number" ? number_default : t === "string" ? (c = color(b)) ? (b = c, rgb_default) : string_default : b instanceof color ? rgb_default : b instanceof Date ? date_default : isNumberArray(b) ? numberArray_default : Array.isArray(b) ? genericArray : typeof b.valueOf !== "function" && typeof b.toString !== "function" || isNaN(b) ? object_default : number_default)(a, b);
 }
 
-// node_modules/d3-interpolate/src/transform/decompose.js
+// ../../../node_modules/d3-interpolate/src/transform/decompose.js
 var degrees = 180 / Math.PI;
 var identity8 = {
   translateX: 0,
@@ -38247,7 +38247,7 @@ function decompose_default(a, b, c, d, e, f) {
   };
 }
 
-// node_modules/d3-interpolate/src/transform/parse.js
+// ../../../node_modules/d3-interpolate/src/transform/parse.js
 var svgNode;
 function parseCss(value12) {
   const m = new (typeof DOMMatrix === "function" ? DOMMatrix : WebKitCSSMatrix)(value12 + "");
@@ -38262,7 +38262,7 @@ function parseSvg(value12) {
   return decompose_default(value12.a, value12.b, value12.c, value12.d, value12.e, value12.f);
 }
 
-// node_modules/d3-interpolate/src/transform/index.js
+// ../../../node_modules/d3-interpolate/src/transform/index.js
 function interpolateTransform(parse7, pxComma, pxParen, degParen) {
   function pop2(s) {
     return s.length ? s.pop() + " " : "";
@@ -38317,7 +38317,7 @@ function interpolateTransform(parse7, pxComma, pxParen, degParen) {
 var interpolateTransformCss = interpolateTransform(parseCss, "px, ", "px)", "deg)");
 var interpolateTransformSvg = interpolateTransform(parseSvg, ", ", ")", ")");
 
-// node_modules/d3-interpolate/src/zoom.js
+// ../../../node_modules/d3-interpolate/src/zoom.js
 var epsilon2 = 1e-12;
 function cosh(x) {
   return ((x = Math.exp(x)) + 1 / x) / 2;
@@ -38362,7 +38362,7 @@ var zoom_default = function zoomRho(rho, rho2, rho4) {
   return zoom;
 }(Math.SQRT2, 2, 4);
 
-// node_modules/d3-timer/src/timer.js
+// ../../../node_modules/d3-timer/src/timer.js
 var frame = 0;
 var timeout = 0;
 var interval = 0;
@@ -38464,7 +38464,7 @@ function sleep(time2) {
   }
 }
 
-// node_modules/d3-timer/src/timeout.js
+// ../../../node_modules/d3-timer/src/timeout.js
 function timeout_default(callback2, delay, time2) {
   var t = new Timer();
   delay = delay == null ? 0 : +delay;
@@ -38475,7 +38475,7 @@ function timeout_default(callback2, delay, time2) {
   return t;
 }
 
-// node_modules/d3-transition/src/transition/schedule.js
+// ../../../node_modules/d3-transition/src/transition/schedule.js
 var emptyOn = dispatch_default("start", "end", "cancel", "interrupt");
 var emptyTween = [];
 var CREATED = 0;
@@ -38586,7 +38586,7 @@ function create(node, id3, self) {
   }
 }
 
-// node_modules/d3-transition/src/interrupt.js
+// ../../../node_modules/d3-transition/src/interrupt.js
 function interrupt_default(node, name15) {
   var schedules = node.__transition, schedule, active, empty8 = true, i;
   if (!schedules) return;
@@ -38605,14 +38605,14 @@ function interrupt_default(node, name15) {
   if (empty8) delete node.__transition;
 }
 
-// node_modules/d3-transition/src/selection/interrupt.js
+// ../../../node_modules/d3-transition/src/selection/interrupt.js
 function interrupt_default2(name15) {
   return this.each(function() {
     interrupt_default(this, name15);
   });
 }
 
-// node_modules/d3-transition/src/transition/tween.js
+// ../../../node_modules/d3-transition/src/transition/tween.js
 function tweenRemove(id3, name15) {
   var tween0, tween1;
   return function() {
@@ -38673,13 +38673,13 @@ function tweenValue(transition2, name15, value12) {
   };
 }
 
-// node_modules/d3-transition/src/transition/interpolate.js
+// ../../../node_modules/d3-transition/src/transition/interpolate.js
 function interpolate_default(a, b) {
   var c;
   return (typeof b === "number" ? number_default : b instanceof color ? rgb_default : (c = color(b)) ? (b = c, rgb_default) : string_default)(a, b);
 }
 
-// node_modules/d3-transition/src/transition/attr.js
+// ../../../node_modules/d3-transition/src/transition/attr.js
 function attrRemove2(name15) {
   return function() {
     this.removeAttribute(name15);
@@ -38729,7 +38729,7 @@ function attr_default2(name15, value12) {
   return this.attrTween(name15, typeof value12 === "function" ? (fullname.local ? attrFunctionNS2 : attrFunction2)(fullname, i, tweenValue(this, "attr." + name15, value12)) : value12 == null ? (fullname.local ? attrRemoveNS2 : attrRemove2)(fullname) : (fullname.local ? attrConstantNS2 : attrConstant2)(fullname, i, value12));
 }
 
-// node_modules/d3-transition/src/transition/attrTween.js
+// ../../../node_modules/d3-transition/src/transition/attrTween.js
 function attrInterpolate(name15, i) {
   return function(t) {
     this.setAttribute(name15, i.call(this, t));
@@ -38769,7 +38769,7 @@ function attrTween_default(name15, value12) {
   return this.tween(key2, (fullname.local ? attrTweenNS : attrTween)(fullname, value12));
 }
 
-// node_modules/d3-transition/src/transition/delay.js
+// ../../../node_modules/d3-transition/src/transition/delay.js
 function delayFunction(id3, value12) {
   return function() {
     init3(this, id3).delay = +value12.apply(this, arguments);
@@ -38785,7 +38785,7 @@ function delay_default(value12) {
   return arguments.length ? this.each((typeof value12 === "function" ? delayFunction : delayConstant)(id3, value12)) : get4(this.node(), id3).delay;
 }
 
-// node_modules/d3-transition/src/transition/duration.js
+// ../../../node_modules/d3-transition/src/transition/duration.js
 function durationFunction(id3, value12) {
   return function() {
     set2(this, id3).duration = +value12.apply(this, arguments);
@@ -38801,7 +38801,7 @@ function duration_default(value12) {
   return arguments.length ? this.each((typeof value12 === "function" ? durationFunction : durationConstant)(id3, value12)) : get4(this.node(), id3).duration;
 }
 
-// node_modules/d3-transition/src/transition/ease.js
+// ../../../node_modules/d3-transition/src/transition/ease.js
 function easeConstant(id3, value12) {
   if (typeof value12 !== "function") throw new Error();
   return function() {
@@ -38813,7 +38813,7 @@ function ease_default(value12) {
   return arguments.length ? this.each(easeConstant(id3, value12)) : get4(this.node(), id3).ease;
 }
 
-// node_modules/d3-transition/src/transition/easeVarying.js
+// ../../../node_modules/d3-transition/src/transition/easeVarying.js
 function easeVarying(id3, value12) {
   return function() {
     var v = value12.apply(this, arguments);
@@ -38826,7 +38826,7 @@ function easeVarying_default(value12) {
   return this.each(easeVarying(this._id, value12));
 }
 
-// node_modules/d3-transition/src/transition/filter.js
+// ../../../node_modules/d3-transition/src/transition/filter.js
 function filter_default2(match) {
   if (typeof match !== "function") match = matcher_default(match);
   for (var groups = this._groups, m = groups.length, subgroups = new Array(m), j = 0; j < m; ++j) {
@@ -38839,7 +38839,7 @@ function filter_default2(match) {
   return new Transition(subgroups, this._parents, this._name, this._id);
 }
 
-// node_modules/d3-transition/src/transition/merge.js
+// ../../../node_modules/d3-transition/src/transition/merge.js
 function merge_default2(transition2) {
   if (transition2._id !== this._id) throw new Error();
   for (var groups0 = this._groups, groups1 = transition2._groups, m0 = groups0.length, m1 = groups1.length, m = Math.min(m0, m1), merges = new Array(m0), j = 0; j < m; ++j) {
@@ -38855,7 +38855,7 @@ function merge_default2(transition2) {
   return new Transition(merges, this._parents, this._name, this._id);
 }
 
-// node_modules/d3-transition/src/transition/on.js
+// ../../../node_modules/d3-transition/src/transition/on.js
 function start(name15) {
   return (name15 + "").trim().split(/^|\s+/).every(function(t) {
     var i = t.indexOf(".");
@@ -38876,7 +38876,7 @@ function on_default2(name15, listener) {
   return arguments.length < 2 ? get4(this.node(), id3).on.on(name15) : this.each(onFunction(id3, name15, listener));
 }
 
-// node_modules/d3-transition/src/transition/remove.js
+// ../../../node_modules/d3-transition/src/transition/remove.js
 function removeFunction(id3) {
   return function() {
     var parent2 = this.parentNode;
@@ -38888,7 +38888,7 @@ function remove_default2() {
   return this.on("end.remove", removeFunction(this._id));
 }
 
-// node_modules/d3-transition/src/transition/select.js
+// ../../../node_modules/d3-transition/src/transition/select.js
 function select_default3(select3) {
   var name15 = this._name, id3 = this._id;
   if (typeof select3 !== "function") select3 = selector_default(select3);
@@ -38904,7 +38904,7 @@ function select_default3(select3) {
   return new Transition(subgroups, this._parents, name15, id3);
 }
 
-// node_modules/d3-transition/src/transition/selectAll.js
+// ../../../node_modules/d3-transition/src/transition/selectAll.js
 function selectAll_default2(select3) {
   var name15 = this._name, id3 = this._id;
   if (typeof select3 !== "function") select3 = selectorAll_default(select3);
@@ -38924,13 +38924,13 @@ function selectAll_default2(select3) {
   return new Transition(subgroups, parents, name15, id3);
 }
 
-// node_modules/d3-transition/src/transition/selection.js
+// ../../../node_modules/d3-transition/src/transition/selection.js
 var Selection2 = selection_default.prototype.constructor;
 function selection_default2() {
   return new Selection2(this._groups, this._parents);
 }
 
-// node_modules/d3-transition/src/transition/style.js
+// ../../../node_modules/d3-transition/src/transition/style.js
 function styleNull(name15, interpolate) {
   var string00, string10, interpolate0;
   return function() {
@@ -38971,7 +38971,7 @@ function style_default2(name15, value12, priority) {
   return value12 == null ? this.styleTween(name15, styleNull(name15, i)).on("end.style." + name15, styleRemove2(name15)) : typeof value12 === "function" ? this.styleTween(name15, styleFunction2(name15, i, tweenValue(this, "style." + name15, value12))).each(styleMaybeRemove(this._id, name15)) : this.styleTween(name15, styleConstant2(name15, i, value12), priority).on("end.style." + name15, null);
 }
 
-// node_modules/d3-transition/src/transition/styleTween.js
+// ../../../node_modules/d3-transition/src/transition/styleTween.js
 function styleInterpolate(name15, i, priority) {
   return function(t) {
     this.style.setProperty(name15, i.call(this, t), priority);
@@ -38995,7 +38995,7 @@ function styleTween_default(name15, value12, priority) {
   return this.tween(key2, styleTween(name15, value12, priority == null ? "" : priority));
 }
 
-// node_modules/d3-transition/src/transition/text.js
+// ../../../node_modules/d3-transition/src/transition/text.js
 function textConstant2(value12) {
   return function() {
     this.textContent = value12;
@@ -39011,7 +39011,7 @@ function text_default2(value12) {
   return this.tween("text", typeof value12 === "function" ? textFunction2(tweenValue(this, "text", value12)) : textConstant2(value12 == null ? "" : value12 + ""));
 }
 
-// node_modules/d3-transition/src/transition/textTween.js
+// ../../../node_modules/d3-transition/src/transition/textTween.js
 function textInterpolate(i) {
   return function(t) {
     this.textContent = i.call(this, t);
@@ -39035,7 +39035,7 @@ function textTween_default(value12) {
   return this.tween(key2, textTween(value12));
 }
 
-// node_modules/d3-transition/src/transition/transition.js
+// ../../../node_modules/d3-transition/src/transition/transition.js
 function transition_default() {
   var name15 = this._name, id0 = this._id, id1 = newId();
   for (var groups = this._groups, m = groups.length, j = 0; j < m; ++j) {
@@ -39054,7 +39054,7 @@ function transition_default() {
   return new Transition(groups, this._parents, name15, id1);
 }
 
-// node_modules/d3-transition/src/transition/end.js
+// ../../../node_modules/d3-transition/src/transition/end.js
 function end_default() {
   var on0, on1, that = this, id3 = that._id, size6 = that.size();
   return new Promise(function(resolve, reject) {
@@ -39075,7 +39075,7 @@ function end_default() {
   });
 }
 
-// node_modules/d3-transition/src/transition/index.js
+// ../../../node_modules/d3-transition/src/transition/index.js
 var id = 0;
 function Transition(groups, parents, name15, id3) {
   this._groups = groups;
@@ -39123,12 +39123,12 @@ Transition.prototype = transition.prototype = {
   [Symbol.iterator]: selection_prototype[Symbol.iterator]
 };
 
-// node_modules/d3-ease/src/cubic.js
+// ../../../node_modules/d3-ease/src/cubic.js
 function cubicInOut(t) {
   return ((t *= 2) <= 1 ? t * t * t : (t -= 2) * t * t + 2) / 2;
 }
 
-// node_modules/d3-transition/src/selection/transition.js
+// ../../../node_modules/d3-transition/src/selection/transition.js
 var defaultTiming = {
   time: null,
   // Set on use.
@@ -39162,14 +39162,14 @@ function transition_default2(name15) {
   return new Transition(groups, this._parents, name15, id3);
 }
 
-// node_modules/d3-transition/src/selection/index.js
+// ../../../node_modules/d3-transition/src/selection/index.js
 selection_default.prototype.interrupt = interrupt_default2;
 selection_default.prototype.transition = transition_default2;
 
-// node_modules/d3-zoom/src/constant.js
+// ../../../node_modules/d3-zoom/src/constant.js
 var constant_default4 = (x) => () => x;
 
-// node_modules/d3-zoom/src/event.js
+// ../../../node_modules/d3-zoom/src/event.js
 function ZoomEvent(type, {
   sourceEvent,
   target: target5,
@@ -39185,7 +39185,7 @@ function ZoomEvent(type, {
   });
 }
 
-// node_modules/d3-zoom/src/transform.js
+// ../../../node_modules/d3-zoom/src/transform.js
 function Transform(k, x, y) {
   this.k = k;
   this.x = x;
@@ -39234,7 +39234,7 @@ function transform(node) {
   return node.__zoom;
 }
 
-// node_modules/d3-zoom/src/noevent.js
+// ../../../node_modules/d3-zoom/src/noevent.js
 function nopropagation2(event) {
   event.stopImmediatePropagation();
 }
@@ -39243,7 +39243,7 @@ function noevent_default2(event) {
   event.stopImmediatePropagation();
 }
 
-// node_modules/d3-zoom/src/zoom.js
+// ../../../node_modules/d3-zoom/src/zoom.js
 function defaultFilter2(event) {
   return (!event.ctrlKey || event.type === "wheel") && !event.button;
 }
@@ -40153,12 +40153,11 @@ var miniMap = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PUR
 
 // output/React.FFI.ForwardRef/foreign.js
 var React4 = __toESM(require_react(), 1);
-var forwardRefImpl = (name15) => (renderFn) => {
+var forwardNullableRefImpl = (name15) => (renderFn) => {
   const fwd = React4.forwardRef((props, ref) => renderFn(props)(ref));
   fwd.displayName = name15;
   return fwd;
 };
-var forwardNullableRefImpl = forwardRefImpl;
 
 // output/React.FFI.ForwardRef/index.js
 var forwardNullableRef = forwardNullableRefImpl;
@@ -42507,11 +42506,11 @@ var runStateT = function(v) {
 var monadTransStateT = {
   lift: function(dictMonad) {
     var bind61 = bind(dictMonad.Bind1());
-    var pure82 = pure(dictMonad.Applicative0());
+    var pure81 = pure(dictMonad.Applicative0());
     return function(m) {
       return function(s) {
         return bind61(m)(function(x) {
-          return pure82(new Tuple(x, s));
+          return pure81(new Tuple(x, s));
         });
       };
     };
@@ -42570,11 +42569,11 @@ var applyStateT = function(dictMonad) {
   };
 };
 var applicativeStateT = function(dictMonad) {
-  var pure82 = pure(dictMonad.Applicative0());
+  var pure81 = pure(dictMonad.Applicative0());
   return {
     pure: function(a) {
       return function(s) {
-        return pure82(new Tuple(a, s));
+        return pure81(new Tuple(a, s));
       };
     },
     Apply0: function() {
@@ -42599,12 +42598,12 @@ var monadEffectState = function(dictMonadEffect) {
   };
 };
 var monadStateStateT = function(dictMonad) {
-  var pure82 = pure(dictMonad.Applicative0());
+  var pure81 = pure(dictMonad.Applicative0());
   var monadStateT1 = monadStateT(dictMonad);
   return {
     state: function(f) {
       return function($206) {
-        return pure82(f($206));
+        return pure81(f($206));
       };
     },
     Monad0: function() {
@@ -45203,10 +45202,10 @@ function unsafeHasProperty(prop, value12) {
 // output/Foreign.Index/index.js
 var unsafeReadProp = function(dictMonad) {
   var fail2 = fail(dictMonad);
-  var pure82 = pure(applicativeExceptT(dictMonad));
+  var pure81 = pure(applicativeExceptT(dictMonad));
   return function(k) {
     return function(value12) {
-      return unsafeReadPropImpl(fail2(new TypeMismatch("object", typeOf(value12))), pure82, k, value12);
+      return unsafeReadPropImpl(fail2(new TypeMismatch("object", typeOf(value12))), pure81, k, value12);
     };
   };
 };
@@ -62084,7 +62083,6 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
 }));
 
 // output/React.Container.ReactFlow/index.js
-var reactComponentWithChildren3 = /* @__PURE__ */ reactComponentWithChildren()();
 var bind52 = /* @__PURE__ */ bind4(ixBindRender);
 var alt7 = /* @__PURE__ */ alt(altMaybe);
 var pure74 = /* @__PURE__ */ pure(applicativeEffect);
@@ -62106,7 +62104,7 @@ var mergeStyle = function(v) {
     return wrapperStyle;
   }
   ;
-  throw new Error("Failed pattern match at React.Container.ReactFlow (line 98, column 14 - line 100, column 26): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at React.Container.ReactFlow (line 105, column 14 - line 107, column 26): " + [v.constructor.name]);
 };
 var isMacOsCached = /* @__PURE__ */ unsafePerformEffect(isMacOs);
 var defaultMultiSelKey = /* @__PURE__ */ function() {
@@ -62131,7 +62129,7 @@ var colorModeClass = function(v) {
     return "";
   }
   ;
-  throw new Error("Failed pattern match at React.Container.ReactFlow (line 109, column 18 - line 112, column 16): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at React.Container.ReactFlow (line 116, column 18 - line 119, column 16): " + [v.constructor.name]);
 };
 var buildOuterClass = function(cmc) {
   return function(userClass) {
@@ -62140,103 +62138,103 @@ var buildOuterClass = function(cmc) {
     return joinWithSpaceImpl(nonEmpty);
   };
 };
-var reactFlowInner = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponentWithChildren3("ReactFlowInner")(function(v) {
-  return bind52(useColorModeClass(v.rfProps.colorMode))(function(colorModeCls) {
-    var zoomOnScroll = fromMaybe(true)(v.rfProps.zoomOnScroll);
-    var zoomOnPinch = fromMaybe(true)(v.rfProps.zoomOnPinch);
-    var zoomOnDoubleClick = fromMaybe(true)(v.rfProps.zoomOnDoubleClick);
-    var zoomActivationKeyCode = alt7(v.rfProps.zoomActivationKeyCode)(new Just(defaultMultiSelKey));
-    var wrapperOnScroll = scrollResetHandler(fromMaybe(pure74(unit))(v.rfProps.onScroll));
-    var translateExtent = fromMaybe(infiniteExtent)(v.rfProps.translateExtent);
-    var selectionOnDrag = fromMaybe(false)(v.rfProps.selectionOnDrag);
-    var selectionMode2 = fromMaybe(Full.value)(v.rfProps.selectionMode);
-    var selectionKeyCode = alt7(v.rfProps.selectionKeyCode)(new Just(new SingleKey("Shift")));
-    var reconnectRadius = alt7(v.rfProps.reconnectRadius)(new Just(10));
-    var preventScrolling = fromMaybe(true)(v.rfProps.preventScrolling);
-    var paneClickDistance = fromMaybe(1)(v.rfProps.paneClickDistance);
-    var panOnScrollSpeed = fromMaybe(0.5)(v.rfProps.panOnScrollSpeed);
-    var panOnScrollMode2 = fromMaybe(Free.value)(v.rfProps.panOnScrollMode);
-    var panOnScroll = fromMaybe(false)(v.rfProps.panOnScroll);
-    var panOnDrag = fromMaybe(PanAlways.value)(v.rfProps.panOnDrag);
-    var panActivationKeyCode = alt7(v.rfProps.panActivationKeyCode)(new Just(new SingleKey("Space")));
+var reactFlow = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponentWithChildren()()("ReactFlow")(function(v) {
+  return bind52(useColorModeClass(v.colorMode))(function(colorModeCls) {
+    var zoomOnScroll = fromMaybe(true)(v.zoomOnScroll);
+    var zoomOnPinch = fromMaybe(true)(v.zoomOnPinch);
+    var zoomOnDoubleClick = fromMaybe(true)(v.zoomOnDoubleClick);
+    var zoomActivationKeyCode = alt7(v.zoomActivationKeyCode)(new Just(defaultMultiSelKey));
+    var wrapperOnScroll = scrollResetHandler(fromMaybe(pure74(unit))(v.onScroll));
+    var translateExtent = fromMaybe(infiniteExtent)(v.translateExtent);
+    var selectionOnDrag = fromMaybe(false)(v.selectionOnDrag);
+    var selectionMode2 = fromMaybe(Full.value)(v.selectionMode);
+    var selectionKeyCode = alt7(v.selectionKeyCode)(new Just(new SingleKey("Shift")));
+    var reconnectRadius = alt7(v.reconnectRadius)(new Just(10));
+    var preventScrolling = fromMaybe(true)(v.preventScrolling);
+    var paneClickDistance = fromMaybe(1)(v.paneClickDistance);
+    var panOnScrollSpeed = fromMaybe(0.5)(v.panOnScrollSpeed);
+    var panOnScrollMode2 = fromMaybe(Free.value)(v.panOnScrollMode);
+    var panOnScroll = fromMaybe(false)(v.panOnScroll);
+    var panOnDrag = fromMaybe(PanAlways.value)(v.panOnDrag);
+    var panActivationKeyCode = alt7(v.panActivationKeyCode)(new Just(new SingleKey("Space")));
     var outerClass = buildOuterClass(colorModeClass(colorModeCls))(Nothing.value);
-    var onlyRenderVisibleElements = fromMaybe(false)(v.rfProps.onlyRenderVisibleElements);
-    var nodeOrigin = fromMaybe(defaultNodeOrigin)(v.rfProps.nodeOrigin);
+    var onlyRenderVisibleElements = fromMaybe(false)(v.onlyRenderVisibleElements);
+    var nodeOrigin = fromMaybe(defaultNodeOrigin)(v.nodeOrigin);
     var storeUpdaterEl = element(storeUpdater)({
       rfId: "1",
-      nodes: v.rfProps.nodes,
-      edges: v.rfProps.edges,
-      defaultNodes: v.rfProps.defaultNodes,
-      defaultEdges: v.rfProps.defaultEdges,
-      onConnect: v.rfProps.onConnect,
-      onConnectStart: v.rfProps.onConnectStart,
-      onConnectEnd: v.rfProps.onConnectEnd,
-      onClickConnectStart: v.rfProps.onClickConnectStart,
-      onClickConnectEnd: v.rfProps.onClickConnectEnd,
-      nodesDraggable: v.rfProps.nodesDraggable,
-      autoPanOnNodeFocus: v.rfProps.autoPanOnNodeFocus,
-      nodesConnectable: v.rfProps.nodesConnectable,
-      nodesFocusable: v.rfProps.nodesFocusable,
-      edgesFocusable: v.rfProps.edgesFocusable,
-      edgesReconnectable: v.rfProps.edgesReconnectable,
-      elevateNodesOnSelect: v.rfProps.elevateNodesOnSelect,
-      elevateEdgesOnSelect: v.rfProps.elevateEdgesOnSelect,
-      minZoom: v.rfProps.minZoom,
-      maxZoom: v.rfProps.maxZoom,
-      nodeExtent: v.rfProps.nodeExtent,
-      onNodesChange: v.rfProps.onNodesChange,
-      onEdgesChange: v.rfProps.onEdgesChange,
-      elementsSelectable: v.rfProps.elementsSelectable,
-      connectionMode: v.rfProps.connectionMode,
-      snapGrid: v.rfProps.snapGrid,
-      snapToGrid: v.rfProps.snapToGrid,
-      translateExtent: v.rfProps.translateExtent,
-      connectOnClick: v.rfProps.connectOnClick,
-      defaultEdgeOptions: v.rfProps.defaultEdgeOptions,
-      fitView: v.rfProps.fitView,
-      fitViewOptions: v.rfProps.fitViewOptions,
-      onNodesDelete: v.rfProps.onNodesDelete,
-      onEdgesDelete: v.rfProps.onEdgesDelete,
-      onDelete: v.rfProps.onDelete,
-      onNodeDrag: v.rfProps.onNodeDrag,
-      onNodeDragStart: v.rfProps.onNodeDragStart,
-      onNodeDragStop: v.rfProps.onNodeDragStop,
-      onSelectionDrag: v.rfProps.onSelectionDrag,
-      onSelectionDragStart: v.rfProps.onSelectionDragStart,
-      onSelectionDragStop: v.rfProps.onSelectionDragStop,
-      onMoveStart: v.rfProps.onMoveStart,
-      onMove: v.rfProps.onMove,
-      onMoveEnd: v.rfProps.onMoveEnd,
-      noPanClassName: v.rfProps.noPanClassName,
+      nodes: v.nodes,
+      edges: v.edges,
+      defaultNodes: v.defaultNodes,
+      defaultEdges: v.defaultEdges,
+      onConnect: v.onConnect,
+      onConnectStart: v.onConnectStart,
+      onConnectEnd: v.onConnectEnd,
+      onClickConnectStart: v.onClickConnectStart,
+      onClickConnectEnd: v.onClickConnectEnd,
+      nodesDraggable: v.nodesDraggable,
+      autoPanOnNodeFocus: v.autoPanOnNodeFocus,
+      nodesConnectable: v.nodesConnectable,
+      nodesFocusable: v.nodesFocusable,
+      edgesFocusable: v.edgesFocusable,
+      edgesReconnectable: v.edgesReconnectable,
+      elevateNodesOnSelect: v.elevateNodesOnSelect,
+      elevateEdgesOnSelect: v.elevateEdgesOnSelect,
+      minZoom: v.minZoom,
+      maxZoom: v.maxZoom,
+      nodeExtent: v.nodeExtent,
+      onNodesChange: v.onNodesChange,
+      onEdgesChange: v.onEdgesChange,
+      elementsSelectable: v.elementsSelectable,
+      connectionMode: v.connectionMode,
+      snapGrid: v.snapGrid,
+      snapToGrid: v.snapToGrid,
+      translateExtent: v.translateExtent,
+      connectOnClick: v.connectOnClick,
+      defaultEdgeOptions: v.defaultEdgeOptions,
+      fitView: v.fitView,
+      fitViewOptions: v.fitViewOptions,
+      onNodesDelete: v.onNodesDelete,
+      onEdgesDelete: v.onEdgesDelete,
+      onDelete: v.onDelete,
+      onNodeDrag: v.onNodeDrag,
+      onNodeDragStart: v.onNodeDragStart,
+      onNodeDragStop: v.onNodeDragStop,
+      onSelectionDrag: v.onSelectionDrag,
+      onSelectionDragStart: v.onSelectionDragStart,
+      onSelectionDragStop: v.onSelectionDragStop,
+      onMoveStart: v.onMoveStart,
+      onMove: v.onMove,
+      onMoveEnd: v.onMoveEnd,
+      noPanClassName: v.noPanClassName,
       nodeOrigin: new Just(nodeOrigin),
-      autoPanOnConnect: v.rfProps.autoPanOnConnect,
-      autoPanOnNodeDrag: v.rfProps.autoPanOnNodeDrag,
-      onError: v.rfProps.onError,
-      connectionRadius: v.rfProps.connectionRadius,
-      isValidConnection: v.rfProps.isValidConnection,
-      selectNodesOnDrag: v.rfProps.selectNodesOnDrag,
-      nodeDragThreshold: v.rfProps.nodeDragThreshold,
-      connectionDragThreshold: v.rfProps.connectionDragThreshold,
-      onBeforeDelete: v.rfProps.onBeforeDelete,
-      debug: v.rfProps.debug,
-      autoPanSpeed: v.rfProps.autoPanSpeed,
-      ariaLabelConfig: v.rfProps.ariaLabelConfig,
-      zIndexMode: v.rfProps.zIndexMode
+      autoPanOnConnect: v.autoPanOnConnect,
+      autoPanOnNodeDrag: v.autoPanOnNodeDrag,
+      onError: v.onError,
+      connectionRadius: v.connectionRadius,
+      isValidConnection: v.isValidConnection,
+      selectNodesOnDrag: v.selectNodesOnDrag,
+      nodeDragThreshold: v.nodeDragThreshold,
+      connectionDragThreshold: v.connectionDragThreshold,
+      onBeforeDelete: v.onBeforeDelete,
+      debug: v.debug,
+      autoPanSpeed: v.autoPanSpeed,
+      ariaLabelConfig: v.ariaLabelConfig,
+      zIndexMode: v.zIndexMode
     });
-    var nodeClickDistance = fromMaybe(0)(v.rfProps.nodeClickDistance);
-    var noWheelClassName = fromMaybe("nowheel")(v.rfProps.noWheelClassName);
-    var noPanClassName = fromMaybe("nopan")(v.rfProps.noPanClassName);
-    var noDragClassName = fromMaybe("nodrag")(v.rfProps.noDragClassName);
-    var multiSelectionKeyCode = alt7(v.rfProps.multiSelectionKeyCode)(new Just(defaultMultiSelKey));
-    var minZoom = fromMaybe(0.5)(v.rfProps.minZoom);
-    var maxZoom = fromMaybe(2)(v.rfProps.maxZoom);
-    var elementsSelectable = fromMaybe(true)(v.rfProps.elementsSelectable);
-    var disableKeyboardA11y = fromMaybe(false)(v.rfProps.disableKeyboardA11y);
-    var deleteKeyCode = alt7(v.rfProps.deleteKeyCode)(new Just(new SingleKey("Backspace")));
-    var defaultViewport2 = fromMaybe(defaultViewport)(v.rfProps.defaultViewport);
-    var defaultMarkerColor = fromMaybe("#b1b1b7")(v.rfProps.defaultMarkerColor);
-    var connectionLineType2 = fromMaybe(BezierLine.value)(v.rfProps.connectionLineType);
-    var autoPanOnSelection = fromMaybe(true)(v.rfProps.autoPanOnSelection);
+    var nodeClickDistance = fromMaybe(0)(v.nodeClickDistance);
+    var noWheelClassName = fromMaybe("nowheel")(v.noWheelClassName);
+    var noPanClassName = fromMaybe("nopan")(v.noPanClassName);
+    var noDragClassName = fromMaybe("nodrag")(v.noDragClassName);
+    var multiSelectionKeyCode = alt7(v.multiSelectionKeyCode)(new Just(defaultMultiSelKey));
+    var minZoom = fromMaybe(0.5)(v.minZoom);
+    var maxZoom = fromMaybe(2)(v.maxZoom);
+    var elementsSelectable = fromMaybe(true)(v.elementsSelectable);
+    var disableKeyboardA11y = fromMaybe(false)(v.disableKeyboardA11y);
+    var deleteKeyCode = alt7(v.deleteKeyCode)(new Just(new SingleKey("Backspace")));
+    var defaultViewport2 = fromMaybe(defaultViewport)(v.defaultViewport);
+    var defaultMarkerColor = fromMaybe("#b1b1b7")(v.defaultMarkerColor);
+    var connectionLineType2 = fromMaybe(BezierLine.value)(v.connectionLineType);
+    var autoPanOnSelection = fromMaybe(true)(v.autoPanOnSelection);
     var graphViewEl = element(graphView)({
       rfId: "1",
       connectionLineType: connectionLineType2,
@@ -62269,64 +62267,64 @@ var reactFlowInner = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCo
       multiSelectionKeyCode,
       panActivationKeyCode,
       zoomActivationKeyCode,
-      onInit: v.rfProps.onInit,
-      viewport: v.rfProps.viewport,
-      onViewportChange: v.rfProps.onViewportChange,
-      nodeTypes: v.rfProps.nodeTypes,
-      edgeTypes: v.rfProps.edgeTypes,
-      nodeExtent: v.rfProps.nodeExtent,
-      connectionLineStyle: v.rfProps.connectionLineStyle,
-      connectionLineComponent: v.rfProps.connectionLineComponent,
-      connectionLineContainerStyle: v.rfProps.connectionLineContainerStyle,
-      onNodeClick: v.rfProps.onNodeClick,
-      onNodeDoubleClick: v.rfProps.onNodeDoubleClick,
-      onNodeMouseEnter: v.rfProps.onNodeMouseEnter,
-      onNodeMouseMove: v.rfProps.onNodeMouseMove,
-      onNodeMouseLeave: v.rfProps.onNodeMouseLeave,
-      onNodeContextMenu: v.rfProps.onNodeContextMenu,
-      onEdgeClick: v.rfProps.onEdgeClick,
-      onEdgeDoubleClick: v.rfProps.onEdgeDoubleClick,
-      onEdgeContextMenu: v.rfProps.onEdgeContextMenu,
-      onEdgeMouseEnter: v.rfProps.onEdgeMouseEnter,
-      onEdgeMouseMove: v.rfProps.onEdgeMouseMove,
-      onEdgeMouseLeave: v.rfProps.onEdgeMouseLeave,
-      onReconnect: v.rfProps.onReconnect,
-      onReconnectStart: v.rfProps.onReconnectStart,
-      onReconnectEnd: v.rfProps.onReconnectEnd,
+      onInit: v.onInit,
+      viewport: v.viewport,
+      onViewportChange: v.onViewportChange,
+      nodeTypes: v.nodeTypes,
+      edgeTypes: v.edgeTypes,
+      nodeExtent: v.nodeExtent,
+      connectionLineStyle: v.connectionLineStyle,
+      connectionLineComponent: v.connectionLineComponent,
+      connectionLineContainerStyle: v.connectionLineContainerStyle,
+      onNodeClick: v.onNodeClick,
+      onNodeDoubleClick: v.onNodeDoubleClick,
+      onNodeMouseEnter: v.onNodeMouseEnter,
+      onNodeMouseMove: v.onNodeMouseMove,
+      onNodeMouseLeave: v.onNodeMouseLeave,
+      onNodeContextMenu: v.onNodeContextMenu,
+      onEdgeClick: v.onEdgeClick,
+      onEdgeDoubleClick: v.onEdgeDoubleClick,
+      onEdgeContextMenu: v.onEdgeContextMenu,
+      onEdgeMouseEnter: v.onEdgeMouseEnter,
+      onEdgeMouseMove: v.onEdgeMouseMove,
+      onEdgeMouseLeave: v.onEdgeMouseLeave,
+      onReconnect: v.onReconnect,
+      onReconnectStart: v.onReconnectStart,
+      onReconnectEnd: v.onReconnectEnd,
       reconnectRadius,
-      onSelectionContextMenu: v.rfProps.onSelectionContextMenu,
-      onSelectionStart: v.rfProps.onSelectionStart,
-      onSelectionEnd: v.rfProps.onSelectionEnd,
-      onPaneClick: v.rfProps.onPaneClick,
-      onPaneMouseEnter: v.rfProps.onPaneMouseEnter,
-      onPaneMouseMove: v.rfProps.onPaneMouseMove,
-      onPaneMouseLeave: v.rfProps.onPaneMouseLeave,
-      onPaneContextMenu: v.rfProps.onPaneContextMenu,
-      onPaneScroll: v.rfProps.onPaneScroll
+      onSelectionContextMenu: v.onSelectionContextMenu,
+      onSelectionStart: v.onSelectionStart,
+      onSelectionEnd: v.onSelectionEnd,
+      onPaneClick: v.onPaneClick,
+      onPaneMouseEnter: v.onPaneMouseEnter,
+      onPaneMouseMove: v.onPaneMouseMove,
+      onPaneMouseLeave: v.onPaneMouseLeave,
+      onPaneContextMenu: v.onPaneContextMenu,
+      onPaneScroll: v.onPaneScroll
     });
-    var innerChildren = append21([storeUpdaterEl, graphViewEl])(append21(reactChildrenToArray(v.rfProps.children))([element(selectionListener)({
-      onSelectionChange: v.rfProps.onSelectionChange
+    var innerChildren = append21([storeUpdaterEl, graphViewEl])(append21(reactChildrenToArray(v.children))([element(selectionListener)({
+      onSelectionChange: v.onSelectionChange
     }), element(attribution)({
-      proOptions: v.rfProps.proOptions,
-      position: v.rfProps.attributionPosition
+      proOptions: v.proOptions,
+      position: v.attributionPosition
     }), element(a11yDescriptions)({
       rfId: "1",
       disableKeyboardA11y
     })]));
     var wrapperEl = element(wrapper)({
-      initialNodes: v.rfProps.nodes,
-      initialEdges: v.rfProps.edges,
-      defaultNodes: v.rfProps.defaultNodes,
-      defaultEdges: v.rfProps.defaultEdges,
-      initialWidth: v.rfProps.width,
-      initialHeight: v.rfProps.height,
-      fitView: v.rfProps.fitView,
-      initialFitViewOptions: v.rfProps.fitViewOptions,
-      initialMinZoom: v.rfProps.minZoom,
-      initialMaxZoom: v.rfProps.maxZoom,
+      initialNodes: v.nodes,
+      initialEdges: v.edges,
+      defaultNodes: v.defaultNodes,
+      defaultEdges: v.defaultEdges,
+      initialWidth: v.width,
+      initialHeight: v.height,
+      fitView: v.fitView,
+      initialFitViewOptions: v.fitViewOptions,
+      initialMinZoom: v.minZoom,
+      initialMaxZoom: v.maxZoom,
       nodeOrigin: new Just(nodeOrigin),
-      nodeExtent: v.rfProps.nodeExtent,
-      zIndexMode: v.rfProps.zIndexMode,
+      nodeExtent: v.nodeExtent,
+      zIndexMode: v.zIndexMode,
       children: reactChildrenFromArray(innerChildren)
     });
     return pure132(div_({
@@ -62334,24 +62332,15 @@ var reactFlowInner = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCo
       style: mergeStyle(Nothing.value),
       className: outerClass,
       role: "application",
-      ref: opt(v.outerRef),
+      ref: v.innerRef,
       onScroll: wrapperOnScroll
     })([wrapperEl]));
   });
-}));
-var reactFlow = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponentWithChildren3("ReactFlow")(function(v) {
-  return pure132(element(reactFlowInner)({
-    rfProps: v,
-    outerRef: Nothing.value,
-    children: v.children
-  }));
 }));
 
 // output/Boundary.Flow/index.js
 var map59 = /* @__PURE__ */ map(functorArray);
 var map115 = /* @__PURE__ */ map(functorMaybe);
-var reactComponentWithChildren4 = /* @__PURE__ */ reactComponentWithChildren()();
-var pure75 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var bind53 = /* @__PURE__ */ bind(bindMaybe);
 var unmodelledOption = function(name15) {
   return function(get7) {
@@ -62385,10 +62374,10 @@ var reconnectableIn = function(raw) {
       return unsafeThrow("ps-flow: `defaultEdgeOptions.reconnectable` must be a boolean, " + ('"source" or "target", got ' + (typeName(raw) + ".")));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Flow (line 608, column 14 - line 615, column 17): " + [v1.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Flow (line 619, column 14 - line 626, column 17): " + [v1.constructor.name]);
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Flow (line 605, column 23 - line 615, column 17): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Flow (line 616, column 23 - line 626, column 17): " + [v.constructor.name]);
 };
 var proOptionsIn = function(o) {
   return {
@@ -62407,7 +62396,7 @@ var panOnDragIn = function(raw) {
       return unsafeThrow("ps-flow: every entry of `panOnDrag` must be a mouse-button number, got " + (typeName(b) + "."));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Flow (line 641, column 18 - line 647, column 17): " + [v3.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Flow (line 652, column 18 - line 658, column 17): " + [v3.constructor.name]);
   };
   var v = asBoolean(raw);
   if (v instanceof Just && v.value0) {
@@ -62430,17 +62419,17 @@ var panOnDragIn = function(raw) {
         return NoPan.value;
       }
       ;
-      throw new Error("Failed pattern match at Boundary.Flow (line 631, column 7 - line 633, column 25): " + [v2.constructor.name]);
+      throw new Error("Failed pattern match at Boundary.Flow (line 642, column 7 - line 644, column 25): " + [v2.constructor.name]);
     }
     ;
     if (v1 instanceof Nothing) {
       return unsafeThrow("ps-flow: `panOnDrag` must be a boolean or an array of mouse-button " + ("numbers, got " + (typeName(raw) + ".")));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Flow (line 629, column 14 - line 639, column 17): " + [v1.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Flow (line 640, column 14 - line 650, column 17): " + [v1.constructor.name]);
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Flow (line 626, column 19 - line 639, column 17): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Flow (line 637, column 19 - line 650, column 17): " + [v.constructor.name]);
 };
 var droppedOption = function(name15) {
   return function(get7) {
@@ -62501,8 +62490,8 @@ var convertEdgeOptions = function(o) {
     reconnectable: bind53(fromUndefinable(o.reconnectable))(reconnectableIn)
   };
 };
-var defaultEdgeOptionsIn = function($48) {
-  return convertEdgeOptions(guardEdgeOptions($48));
+var defaultEdgeOptionsIn = function($46) {
+  return convertEdgeOptions(guardEdgeOptions($46));
 };
 var ariaLabelConfigIn = function(c) {
   return {
@@ -62520,136 +62509,141 @@ var ariaLabelConfigIn = function(c) {
   };
 };
 var convertProps = function(p) {
-  return {
-    children: p.children,
-    nodes: map115(map59(nodeIn))(fromUndefinable(p.nodes)),
-    edges: map115(map59(edgeIn))(fromUndefinable(p.edges)),
-    defaultNodes: map115(map59(nodeIn))(fromUndefinable(p.defaultNodes)),
-    defaultEdges: map115(map59(edgeIn))(fromUndefinable(p.defaultEdges)),
-    defaultEdgeOptions: map115(defaultEdgeOptionsIn)(fromUndefinable(p.defaultEdgeOptions)),
-    onNodeClick: map115(nodeMouseHandlerIn)(fromUndefinable(p.onNodeClick)),
-    onNodeDoubleClick: map115(nodeMouseHandlerIn)(fromUndefinable(p.onNodeDoubleClick)),
-    onNodeMouseEnter: map115(nodeMouseHandlerIn)(fromUndefinable(p.onNodeMouseEnter)),
-    onNodeMouseMove: map115(nodeMouseHandlerIn)(fromUndefinable(p.onNodeMouseMove)),
-    onNodeMouseLeave: map115(nodeMouseHandlerIn)(fromUndefinable(p.onNodeMouseLeave)),
-    onNodeContextMenu: map115(nodeMouseHandlerIn)(fromUndefinable(p.onNodeContextMenu)),
-    onNodeDragStart: map115(onNodeDragIn)(fromUndefinable(p.onNodeDragStart)),
-    onNodeDrag: map115(onNodeDragIn)(fromUndefinable(p.onNodeDrag)),
-    onNodeDragStop: map115(onNodeDragIn)(fromUndefinable(p.onNodeDragStop)),
-    onEdgeClick: map115(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeClick)),
-    onEdgeContextMenu: map115(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeContextMenu)),
-    onEdgeMouseEnter: map115(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeMouseEnter)),
-    onEdgeMouseMove: map115(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeMouseMove)),
-    onEdgeMouseLeave: map115(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeMouseLeave)),
-    onEdgeDoubleClick: map115(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeDoubleClick)),
-    onReconnect: map115(onReconnectIn)(fromUndefinable(p.onReconnect)),
-    onReconnectStart: map115(onReconnectStartIn)(fromUndefinable(p.onReconnectStart)),
-    onReconnectEnd: map115(onReconnectEndIn)(fromUndefinable(p.onReconnectEnd)),
-    onNodesChange: map115(onNodesChangeIn)(fromUndefinable(p.onNodesChange)),
-    onEdgesChange: map115(onEdgesChangeIn)(fromUndefinable(p.onEdgesChange)),
-    onNodesDelete: map115(onNodesDeleteIn)(fromUndefinable(p.onNodesDelete)),
-    onEdgesDelete: map115(onEdgesDeleteIn)(fromUndefinable(p.onEdgesDelete)),
-    onDelete: map115(onDeleteIn)(fromUndefinable(p.onDelete)),
-    onSelectionDragStart: map115(selectionDragHandlerIn)(fromUndefinable(p.onSelectionDragStart)),
-    onSelectionDrag: map115(selectionDragHandlerIn)(fromUndefinable(p.onSelectionDrag)),
-    onSelectionDragStop: map115(selectionDragHandlerIn)(fromUndefinable(p.onSelectionDragStop)),
-    onSelectionStart: map115(mouseEventHandlerIn)(fromUndefinable(p.onSelectionStart)),
-    onSelectionEnd: map115(mouseEventHandlerIn)(fromUndefinable(p.onSelectionEnd)),
-    onSelectionContextMenu: map115(selectionDragHandlerIn)(fromUndefinable(p.onSelectionContextMenu)),
-    onSelectionChange: map115(onSelectionChangeIn)(fromUndefinable(p.onSelectionChange)),
-    onConnect: map115(onConnectIn)(fromUndefinable(p.onConnect)),
-    onConnectStart: map115(onConnectStartIn)(fromUndefinable(p.onConnectStart)),
-    onConnectEnd: map115(onConnectEndIn)(fromUndefinable(p.onConnectEnd)),
-    onClickConnectStart: map115(onConnectStartIn)(fromUndefinable(p.onClickConnectStart)),
-    onClickConnectEnd: map115(onConnectEndIn)(fromUndefinable(p.onClickConnectEnd)),
-    onInit: map115(onInitIn)(fromUndefinable(p.onInit)),
-    onMove: map115(onMoveIn)(fromUndefinable(p.onMove)),
-    onMoveStart: map115(onMoveIn)(fromUndefinable(p.onMoveStart)),
-    onMoveEnd: map115(onMoveIn)(fromUndefinable(p.onMoveEnd)),
-    onScroll: map115(onScrollIn)(fromUndefinable(p.onScroll)),
-    onPaneScroll: map115(onPaneScrollIn)(fromUndefinable(p.onPaneScroll)),
-    onPaneClick: map115(mouseEventHandlerIn)(fromUndefinable(p.onPaneClick)),
-    onPaneContextMenu: map115(mouseEventHandlerIn)(fromUndefinable(p.onPaneContextMenu)),
-    onPaneMouseEnter: map115(mouseEventHandlerIn)(fromUndefinable(p.onPaneMouseEnter)),
-    onPaneMouseMove: map115(mouseEventHandlerIn)(fromUndefinable(p.onPaneMouseMove)),
-    onPaneMouseLeave: map115(mouseEventHandlerIn)(fromUndefinable(p.onPaneMouseLeave)),
-    paneClickDistance: fromUndefinable(p.paneClickDistance),
-    nodeClickDistance: fromUndefinable(p.nodeClickDistance),
-    onBeforeDelete: map115(onBeforeDeleteIn)(fromUndefinable(p.onBeforeDelete)),
-    isValidConnection: map115(isValidConnectionIn)(fromUndefinable(p.isValidConnection)),
-    onError: map115(onErrorIn)(fromUndefinable(p.onError)),
-    nodeTypes: map115(nodeTypesIn)(fromUndefinable(p.nodeTypes)),
-    edgeTypes: map115(edgeTypesIn)(fromUndefinable(p.edgeTypes)),
-    connectionLineType: map115(connectionLineTypeIn("connectionLineType"))(fromUndefinable(p.connectionLineType)),
-    connectionLineStyle: map115(asCssStyle)(fromUndefinable(p.connectionLineStyle)),
-    connectionLineComponent: map115(connectionLineComponentIn)(fromUndefinable(p.connectionLineComponent)),
-    connectionLineContainerStyle: map115(asCssStyle)(fromUndefinable(p.connectionLineContainerStyle)),
-    connectionMode: map115(connectionModeIn("connectionMode"))(fromUndefinable(p.connectionMode)),
-    deleteKeyCode: keyCodeIn("deleteKeyCode")(p.deleteKeyCode),
-    selectionKeyCode: keyCodeIn("selectionKeyCode")(p.selectionKeyCode),
-    selectionOnDrag: fromUndefinable(p.selectionOnDrag),
-    selectionMode: map115(selectionModeIn("selectionMode"))(fromUndefinable(p.selectionMode)),
-    panActivationKeyCode: keyCodeIn("panActivationKeyCode")(p.panActivationKeyCode),
-    multiSelectionKeyCode: keyCodeIn("multiSelectionKeyCode")(p.multiSelectionKeyCode),
-    zoomActivationKeyCode: keyCodeIn("zoomActivationKeyCode")(p.zoomActivationKeyCode),
-    snapToGrid: fromUndefinable(p.snapToGrid),
-    snapGrid: map115(snapGridIn("snapGrid"))(fromUndefinable(p.snapGrid)),
-    onlyRenderVisibleElements: fromUndefinable(p.onlyRenderVisibleElements),
-    nodesDraggable: fromUndefinable(p.nodesDraggable),
-    nodesConnectable: fromUndefinable(p.nodesConnectable),
-    nodesFocusable: fromUndefinable(p.nodesFocusable),
-    nodeDragThreshold: fromUndefinable(p.nodeDragThreshold),
-    nodeOrigin: map115(nodeOriginIn("nodeOrigin"))(fromUndefinable(p.nodeOrigin)),
-    nodeExtent: map115(coordinateExtentIn("nodeExtent"))(fromUndefinable(p.nodeExtent)),
-    autoPanOnNodeFocus: fromUndefinable(p.autoPanOnNodeFocus),
-    autoPanOnNodeDrag: fromUndefinable(p.autoPanOnNodeDrag),
-    noDragClassName: fromUndefinable(p.noDragClassName),
-    edgesFocusable: fromUndefinable(p.edgesFocusable),
-    edgesReconnectable: fromUndefinable(p.edgesReconnectable),
-    reconnectRadius: fromUndefinable(p.reconnectRadius),
-    connectionDragThreshold: fromUndefinable(p.connectionDragThreshold),
-    elementsSelectable: fromUndefinable(p.elementsSelectable),
-    selectNodesOnDrag: fromUndefinable(p.selectNodesOnDrag),
-    elevateNodesOnSelect: fromUndefinable(p.elevateNodesOnSelect),
-    elevateEdgesOnSelect: fromUndefinable(p.elevateEdgesOnSelect),
-    panOnDrag: map115(panOnDragIn)(fromUndefinable(p.panOnDrag)),
-    minZoom: fromUndefinable(p.minZoom),
-    maxZoom: fromUndefinable(p.maxZoom),
-    translateExtent: map115(coordinateExtentIn("translateExtent"))(fromUndefinable(p.translateExtent)),
-    zoomOnScroll: fromUndefinable(p.zoomOnScroll),
-    zoomOnPinch: fromUndefinable(p.zoomOnPinch),
-    zoomOnDoubleClick: fromUndefinable(p.zoomOnDoubleClick),
-    panOnScroll: fromUndefinable(p.panOnScroll),
-    panOnScrollSpeed: fromUndefinable(p.panOnScrollSpeed),
-    panOnScrollMode: map115(panOnScrollModeIn("panOnScrollMode"))(fromUndefinable(p.panOnScrollMode)),
-    preventScrolling: fromUndefinable(p.preventScrolling),
-    viewport: map115(viewportIn)(fromUndefinable(p.viewport)),
-    defaultViewport: map115(viewportIn)(fromUndefinable(p.defaultViewport)),
-    onViewportChange: map115(onViewportChangeIn)(fromUndefinable(p.onViewportChange)),
-    fitView: fromUndefinable(p.fitView),
-    fitViewOptions: map115(fitViewOptionsIn)(fromUndefinable(p.fitViewOptions)),
-    defaultMarkerColor: fromUndefinable(p.defaultMarkerColor),
-    width: fromUndefinable(p.width),
-    height: fromUndefinable(p.height),
-    colorMode: map115(colorModeIn("colorMode"))(fromUndefinable(p.colorMode)),
-    attributionPosition: map115(panelPositionIn("attributionPosition"))(fromUndefinable(p.attributionPosition)),
-    proOptions: map115(proOptionsIn)(fromUndefinable(p.proOptions)),
-    noWheelClassName: fromUndefinable(p.noWheelClassName),
-    noPanClassName: fromUndefinable(p.noPanClassName),
-    disableKeyboardA11y: fromUndefinable(p.disableKeyboardA11y),
-    ariaLabelConfig: map115(ariaLabelConfigIn)(fromUndefinable(p.ariaLabelConfig)),
-    autoPanOnConnect: fromUndefinable(p.autoPanOnConnect),
-    autoPanSpeed: fromUndefinable(p.autoPanSpeed),
-    autoPanOnSelection: fromUndefinable(p.autoPanOnSelection),
-    connectOnClick: fromUndefinable(p.connectOnClick),
-    connectionRadius: fromUndefinable(p.connectionRadius),
-    debug: fromUndefinable(p.debug),
-    zIndexMode: map115(zIndexModeIn("zIndexMode"))(fromUndefinable(p.zIndexMode))
+  return function(forwarded) {
+    return {
+      children: p.children,
+      nodes: map115(map59(nodeIn))(fromUndefinable(p.nodes)),
+      edges: map115(map59(edgeIn))(fromUndefinable(p.edges)),
+      defaultNodes: map115(map59(nodeIn))(fromUndefinable(p.defaultNodes)),
+      defaultEdges: map115(map59(edgeIn))(fromUndefinable(p.defaultEdges)),
+      defaultEdgeOptions: map115(defaultEdgeOptionsIn)(fromUndefinable(p.defaultEdgeOptions)),
+      onNodeClick: map115(nodeMouseHandlerIn)(fromUndefinable(p.onNodeClick)),
+      onNodeDoubleClick: map115(nodeMouseHandlerIn)(fromUndefinable(p.onNodeDoubleClick)),
+      onNodeMouseEnter: map115(nodeMouseHandlerIn)(fromUndefinable(p.onNodeMouseEnter)),
+      onNodeMouseMove: map115(nodeMouseHandlerIn)(fromUndefinable(p.onNodeMouseMove)),
+      onNodeMouseLeave: map115(nodeMouseHandlerIn)(fromUndefinable(p.onNodeMouseLeave)),
+      onNodeContextMenu: map115(nodeMouseHandlerIn)(fromUndefinable(p.onNodeContextMenu)),
+      onNodeDragStart: map115(onNodeDragIn)(fromUndefinable(p.onNodeDragStart)),
+      onNodeDrag: map115(onNodeDragIn)(fromUndefinable(p.onNodeDrag)),
+      onNodeDragStop: map115(onNodeDragIn)(fromUndefinable(p.onNodeDragStop)),
+      onEdgeClick: map115(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeClick)),
+      onEdgeContextMenu: map115(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeContextMenu)),
+      onEdgeMouseEnter: map115(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeMouseEnter)),
+      onEdgeMouseMove: map115(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeMouseMove)),
+      onEdgeMouseLeave: map115(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeMouseLeave)),
+      onEdgeDoubleClick: map115(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeDoubleClick)),
+      onReconnect: map115(onReconnectIn)(fromUndefinable(p.onReconnect)),
+      onReconnectStart: map115(onReconnectStartIn)(fromUndefinable(p.onReconnectStart)),
+      onReconnectEnd: map115(onReconnectEndIn)(fromUndefinable(p.onReconnectEnd)),
+      onNodesChange: map115(onNodesChangeIn)(fromUndefinable(p.onNodesChange)),
+      onEdgesChange: map115(onEdgesChangeIn)(fromUndefinable(p.onEdgesChange)),
+      onNodesDelete: map115(onNodesDeleteIn)(fromUndefinable(p.onNodesDelete)),
+      onEdgesDelete: map115(onEdgesDeleteIn)(fromUndefinable(p.onEdgesDelete)),
+      onDelete: map115(onDeleteIn)(fromUndefinable(p.onDelete)),
+      onSelectionDragStart: map115(selectionDragHandlerIn)(fromUndefinable(p.onSelectionDragStart)),
+      onSelectionDrag: map115(selectionDragHandlerIn)(fromUndefinable(p.onSelectionDrag)),
+      onSelectionDragStop: map115(selectionDragHandlerIn)(fromUndefinable(p.onSelectionDragStop)),
+      onSelectionStart: map115(mouseEventHandlerIn)(fromUndefinable(p.onSelectionStart)),
+      onSelectionEnd: map115(mouseEventHandlerIn)(fromUndefinable(p.onSelectionEnd)),
+      onSelectionContextMenu: map115(selectionDragHandlerIn)(fromUndefinable(p.onSelectionContextMenu)),
+      onSelectionChange: map115(onSelectionChangeIn)(fromUndefinable(p.onSelectionChange)),
+      onConnect: map115(onConnectIn)(fromUndefinable(p.onConnect)),
+      onConnectStart: map115(onConnectStartIn)(fromUndefinable(p.onConnectStart)),
+      onConnectEnd: map115(onConnectEndIn)(fromUndefinable(p.onConnectEnd)),
+      onClickConnectStart: map115(onConnectStartIn)(fromUndefinable(p.onClickConnectStart)),
+      onClickConnectEnd: map115(onConnectEndIn)(fromUndefinable(p.onClickConnectEnd)),
+      onInit: map115(onInitIn)(fromUndefinable(p.onInit)),
+      onMove: map115(onMoveIn)(fromUndefinable(p.onMove)),
+      onMoveStart: map115(onMoveIn)(fromUndefinable(p.onMoveStart)),
+      onMoveEnd: map115(onMoveIn)(fromUndefinable(p.onMoveEnd)),
+      onScroll: map115(onScrollIn)(fromUndefinable(p.onScroll)),
+      onPaneScroll: map115(onPaneScrollIn)(fromUndefinable(p.onPaneScroll)),
+      onPaneClick: map115(mouseEventHandlerIn)(fromUndefinable(p.onPaneClick)),
+      onPaneContextMenu: map115(mouseEventHandlerIn)(fromUndefinable(p.onPaneContextMenu)),
+      onPaneMouseEnter: map115(mouseEventHandlerIn)(fromUndefinable(p.onPaneMouseEnter)),
+      onPaneMouseMove: map115(mouseEventHandlerIn)(fromUndefinable(p.onPaneMouseMove)),
+      onPaneMouseLeave: map115(mouseEventHandlerIn)(fromUndefinable(p.onPaneMouseLeave)),
+      paneClickDistance: fromUndefinable(p.paneClickDistance),
+      nodeClickDistance: fromUndefinable(p.nodeClickDistance),
+      onBeforeDelete: map115(onBeforeDeleteIn)(fromUndefinable(p.onBeforeDelete)),
+      isValidConnection: map115(isValidConnectionIn)(fromUndefinable(p.isValidConnection)),
+      onError: map115(onErrorIn)(fromUndefinable(p.onError)),
+      nodeTypes: map115(nodeTypesIn)(fromUndefinable(p.nodeTypes)),
+      edgeTypes: map115(edgeTypesIn)(fromUndefinable(p.edgeTypes)),
+      connectionLineType: map115(connectionLineTypeIn("connectionLineType"))(fromUndefinable(p.connectionLineType)),
+      connectionLineStyle: map115(asCssStyle)(fromUndefinable(p.connectionLineStyle)),
+      connectionLineComponent: map115(connectionLineComponentIn)(fromUndefinable(p.connectionLineComponent)),
+      connectionLineContainerStyle: map115(asCssStyle)(fromUndefinable(p.connectionLineContainerStyle)),
+      connectionMode: map115(connectionModeIn("connectionMode"))(fromUndefinable(p.connectionMode)),
+      deleteKeyCode: keyCodeIn("deleteKeyCode")(p.deleteKeyCode),
+      selectionKeyCode: keyCodeIn("selectionKeyCode")(p.selectionKeyCode),
+      selectionOnDrag: fromUndefinable(p.selectionOnDrag),
+      selectionMode: map115(selectionModeIn("selectionMode"))(fromUndefinable(p.selectionMode)),
+      panActivationKeyCode: keyCodeIn("panActivationKeyCode")(p.panActivationKeyCode),
+      multiSelectionKeyCode: keyCodeIn("multiSelectionKeyCode")(p.multiSelectionKeyCode),
+      zoomActivationKeyCode: keyCodeIn("zoomActivationKeyCode")(p.zoomActivationKeyCode),
+      snapToGrid: fromUndefinable(p.snapToGrid),
+      snapGrid: map115(snapGridIn("snapGrid"))(fromUndefinable(p.snapGrid)),
+      onlyRenderVisibleElements: fromUndefinable(p.onlyRenderVisibleElements),
+      nodesDraggable: fromUndefinable(p.nodesDraggable),
+      nodesConnectable: fromUndefinable(p.nodesConnectable),
+      nodesFocusable: fromUndefinable(p.nodesFocusable),
+      nodeDragThreshold: fromUndefinable(p.nodeDragThreshold),
+      nodeOrigin: map115(nodeOriginIn("nodeOrigin"))(fromUndefinable(p.nodeOrigin)),
+      nodeExtent: map115(coordinateExtentIn("nodeExtent"))(fromUndefinable(p.nodeExtent)),
+      autoPanOnNodeFocus: fromUndefinable(p.autoPanOnNodeFocus),
+      autoPanOnNodeDrag: fromUndefinable(p.autoPanOnNodeDrag),
+      noDragClassName: fromUndefinable(p.noDragClassName),
+      edgesFocusable: fromUndefinable(p.edgesFocusable),
+      edgesReconnectable: fromUndefinable(p.edgesReconnectable),
+      reconnectRadius: fromUndefinable(p.reconnectRadius),
+      connectionDragThreshold: fromUndefinable(p.connectionDragThreshold),
+      elementsSelectable: fromUndefinable(p.elementsSelectable),
+      selectNodesOnDrag: fromUndefinable(p.selectNodesOnDrag),
+      elevateNodesOnSelect: fromUndefinable(p.elevateNodesOnSelect),
+      elevateEdgesOnSelect: fromUndefinable(p.elevateEdgesOnSelect),
+      panOnDrag: map115(panOnDragIn)(fromUndefinable(p.panOnDrag)),
+      minZoom: fromUndefinable(p.minZoom),
+      maxZoom: fromUndefinable(p.maxZoom),
+      translateExtent: map115(coordinateExtentIn("translateExtent"))(fromUndefinable(p.translateExtent)),
+      zoomOnScroll: fromUndefinable(p.zoomOnScroll),
+      zoomOnPinch: fromUndefinable(p.zoomOnPinch),
+      zoomOnDoubleClick: fromUndefinable(p.zoomOnDoubleClick),
+      panOnScroll: fromUndefinable(p.panOnScroll),
+      panOnScrollSpeed: fromUndefinable(p.panOnScrollSpeed),
+      panOnScrollMode: map115(panOnScrollModeIn("panOnScrollMode"))(fromUndefinable(p.panOnScrollMode)),
+      preventScrolling: fromUndefinable(p.preventScrolling),
+      viewport: map115(viewportIn)(fromUndefinable(p.viewport)),
+      defaultViewport: map115(viewportIn)(fromUndefinable(p.defaultViewport)),
+      onViewportChange: map115(onViewportChangeIn)(fromUndefinable(p.onViewportChange)),
+      fitView: fromUndefinable(p.fitView),
+      fitViewOptions: map115(fitViewOptionsIn)(fromUndefinable(p.fitViewOptions)),
+      defaultMarkerColor: fromUndefinable(p.defaultMarkerColor),
+      width: fromUndefinable(p.width),
+      height: fromUndefinable(p.height),
+      colorMode: map115(colorModeIn("colorMode"))(fromUndefinable(p.colorMode)),
+      attributionPosition: map115(panelPositionIn("attributionPosition"))(fromUndefinable(p.attributionPosition)),
+      proOptions: map115(proOptionsIn)(fromUndefinable(p.proOptions)),
+      noWheelClassName: fromUndefinable(p.noWheelClassName),
+      noPanClassName: fromUndefinable(p.noPanClassName),
+      disableKeyboardA11y: fromUndefinable(p.disableKeyboardA11y),
+      ariaLabelConfig: map115(ariaLabelConfigIn)(fromUndefinable(p.ariaLabelConfig)),
+      autoPanOnConnect: fromUndefinable(p.autoPanOnConnect),
+      autoPanSpeed: fromUndefinable(p.autoPanSpeed),
+      autoPanOnSelection: fromUndefinable(p.autoPanOnSelection),
+      connectOnClick: fromUndefinable(p.connectOnClick),
+      connectionRadius: fromUndefinable(p.connectionRadius),
+      debug: fromUndefinable(p.debug),
+      zIndexMode: map115(zIndexModeIn("zIndexMode"))(fromUndefinable(p.zIndexMode)),
+      innerRef: orNullable(p.ref)(forwarded)
+    };
   };
 };
-var reactFlow2 = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponentWithChildren4("ReactFlow")(function(v) {
-  return pure75(element(reactFlow)(convertProps(v)));
-}));
+var reactFlow2 = /* @__PURE__ */ forwardNullableRef("ReactFlow")(function(v) {
+  return function(forwarded) {
+    return element(reactFlow)(convertProps(v)(forwarded));
+  };
+});
 
 // output/Boundary.Hooks/foreign.js
 var mkTriple = (first, second, third) => [first, second, third];
@@ -62689,7 +62683,7 @@ var useEffect18 = /* @__PURE__ */ useEffect(eqUnsafeReference);
 var when22 = /* @__PURE__ */ when(applicativeEffect);
 var for_19 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var map60 = /* @__PURE__ */ map(functorArray);
-var pure76 = /* @__PURE__ */ pure(applicativeEffect);
+var pure75 = /* @__PURE__ */ pure(applicativeEffect);
 var pure133 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var toConnection = function(c) {
   return {
@@ -62760,7 +62754,7 @@ var useHandleConnections = function(params) {
             return cb(map60(toConnection)(addedConns));
           }))();
           writeRef(prevRef)(connections)();
-          return pure76(unit);
+          return pure75(unit);
         }))(function() {
           return pure133(connections);
         });
@@ -62860,7 +62854,7 @@ var discard23 = /* @__PURE__ */ discard2(ixBindRender);
 var useEffect20 = /* @__PURE__ */ useEffect(eqUnsafeReference);
 var when23 = /* @__PURE__ */ when(applicativeEffect);
 var for_20 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
-var pure77 = /* @__PURE__ */ pure(applicativeEffect);
+var pure76 = /* @__PURE__ */ pure(applicativeEffect);
 var pure134 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var notIn2 = function(xs) {
   return function(x) {
@@ -62942,7 +62936,7 @@ var useNodeConnections = function(params) {
             return cb(addedConns);
           }))();
           writeRef(prevRef)(connections)();
-          return pure77(unit);
+          return pure76(unit);
         }))(function() {
           return pure134(connections);
         });
@@ -62954,11 +62948,11 @@ var useNodeConnections = function(params) {
 // output/React.Hook.NodesEdgesState/index.js
 var coerceHook15 = /* @__PURE__ */ coerceHook();
 var bind57 = /* @__PURE__ */ bind4(ixBindRender);
-var pure78 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var pure77 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var useEdgesState = function(initialEdges2) {
   return coerceHook15(bind57(useState([]))(function() {
     return bind57(useState(initialEdges2))(function(v) {
-      return pure78({
+      return pure77({
         edges: v.value0,
         setEdges: v.value1,
         onEdgesChange: function(changes) {
@@ -62971,7 +62965,7 @@ var useEdgesState = function(initialEdges2) {
 var useNodesState = function(initialNodes2) {
   return coerceHook15(bind57(useState(initialNodes2))(function(v) {
     return bind57(useState([]))(function() {
-      return pure78({
+      return pure77({
         nodes: v.value0,
         setNodes: v.value1,
         onNodesChange: function(changes) {
@@ -63664,7 +63658,7 @@ var useHandleConnections2 = function(params) {
 // output/React.Additional.NodeToolbar.Portal/index.js
 var bind58 = /* @__PURE__ */ bind4(ixBindRender);
 var useStore30 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqMaybe(eqUnsafeReference));
-var pure79 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var pure78 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty19 = /* @__PURE__ */ mempty(monoidJSX);
 var selectTarget = function(s) {
   if (s.domNode instanceof Nothing) {
@@ -63679,7 +63673,7 @@ var selectTarget = function(s) {
 };
 var nodeToolbarPortal = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponentWithChildren()()("NodeToolbarPortal")(function(v) {
   return bind58(useStore30(selectTarget))(function(mTarget) {
-    return pure79(function() {
+    return pure78(function() {
       if (mTarget instanceof Nothing) {
         return mempty19;
       }
@@ -63700,7 +63694,7 @@ var map63 = /* @__PURE__ */ map(functorArray);
 var eq28 = /* @__PURE__ */ eq(eqUnsafeReference);
 var bind59 = /* @__PURE__ */ bind4(ixBindRender);
 var fromFoldable21 = /* @__PURE__ */ fromFoldable(foldableList);
-var pure80 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var pure79 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty20 = /* @__PURE__ */ mempty(monoidJSX);
 var max14 = /* @__PURE__ */ max(ordNumber);
 var unwrap22 = /* @__PURE__ */ unwrap();
@@ -63794,7 +63788,7 @@ var nodeToolbar = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompo
       }();
       var $48 = !isActive || isEmpty(v1.nodes);
       if ($48) {
-        return pure80(mempty20);
+        return pure79(mempty20);
       }
       ;
       var viewport2 = {
@@ -63833,7 +63827,7 @@ var nodeToolbar = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompo
         className: className3,
         "data-id": dataIdStr
       })(reactChildrenToArray(v.children));
-      return pure80(element(nodeToolbarPortal)({
+      return pure79(element(nodeToolbarPortal)({
         children: reactChildrenFromArray([toolbarDiv])
       }));
     });
@@ -63843,7 +63837,7 @@ var nodeToolbar = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompo
 // output/Boundary.NodeChrome/index.js
 var map64 = /* @__PURE__ */ map(functorArray);
 var map117 = /* @__PURE__ */ map(functorMaybe);
-var pure81 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var pure80 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var nodeIdIn = function(raw) {
   var readId = function(entry) {
     var v2 = asString(entry);
@@ -63890,7 +63884,7 @@ var convertNodeToolbar = function(p) {
   };
 };
 var nodeToolbar2 = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponentWithChildren()()("NodeToolbar")(function(v) {
-  return pure81(element(nodeToolbar)(convertNodeToolbar(v)));
+  return pure80(element(nodeToolbar)(convertNodeToolbar(v)));
 }));
 var convertHandle = function(p) {
   return function(forwarded) {
@@ -64641,7 +64635,7 @@ var Flow_default = ({ flowConfig }) => {
   ] });
 };
 
-// xyflow/examples/react/src/generic-tests/edges/general.ts
+// ../../../xyflow/examples/react/src/generic-tests/edges/general.ts
 var general_default = {
   flowProps: {
     fitView: true,
@@ -64839,7 +64833,7 @@ var general_default = {
   }
 };
 
-// xyflow/examples/react/src/generic-tests/node-toolbar/components/ToolbarNode.tsx
+// ../../../xyflow/examples/react/src/generic-tests/node-toolbar/components/ToolbarNode.tsx
 var import_react12 = __toESM(require_react(), 1);
 var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
 var CustomNode = ({ id: id3, data }) => {
@@ -64856,7 +64850,7 @@ var CustomNode = ({ id: id3, data }) => {
 };
 var ToolbarNode_default = (0, import_react12.memo)(CustomNode);
 
-// xyflow/examples/react/src/generic-tests/node-toolbar/general.ts
+// ../../../xyflow/examples/react/src/generic-tests/node-toolbar/general.ts
 var positions = ["top", "right", "bottom", "left"];
 var alignments = ["start", "center", "end"];
 var nodes = [
@@ -64902,7 +64896,7 @@ var general_default2 = {
   }
 };
 
-// xyflow/examples/react/src/generic-tests/nodes/components/DragHandleNode.tsx
+// ../../../xyflow/examples/react/src/generic-tests/nodes/components/DragHandleNode.tsx
 var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
 var DragHandleNode_default = () => {
   return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
@@ -64933,7 +64927,7 @@ var DragHandleNode_default = () => {
   );
 };
 
-// xyflow/examples/react/src/generic-tests/nodes/general.ts
+// ../../../xyflow/examples/react/src/generic-tests/nodes/general.ts
 var general_default3 = {
   flowProps: {
     fitView: true,
@@ -65027,7 +65021,7 @@ var general_default3 = {
   }
 };
 
-// xyflow/examples/react/src/generic-tests/pane/general.ts
+// ../../../xyflow/examples/react/src/generic-tests/pane/general.ts
 var general_default4 = {
   flowProps: {
     minZoom: 0.25,
@@ -65066,7 +65060,7 @@ var general_default4 = {
   }
 };
 
-// xyflow/examples/react/src/generic-tests/pane/non-defaults.ts
+// ../../../xyflow/examples/react/src/generic-tests/pane/non-defaults.ts
 var non_defaults_default = {
   flowProps: {
     panOnScroll: true,
@@ -65580,7 +65574,7 @@ var psflow_fixtures_default = {
   "./viewport/helpers.ts": helpers_default
 };
 
-// xyflow/examples/react/src/examples/ColorMode/index.tsx
+// ../../../xyflow/examples/react/src/examples/ColorMode/index.tsx
 var import_react17 = __toESM(require_react(), 1);
 var import_jsx_runtime8 = __toESM(require_jsx_runtime(), 1);
 var nodeDefaults = {
