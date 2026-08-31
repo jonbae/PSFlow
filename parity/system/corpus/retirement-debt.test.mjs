@@ -5,12 +5,19 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { routeSpace } from "../../driver/registry.mjs";
-import { CorpusError, assertRetirementsResolve, buildCorpus } from "./index.mjs";
-import { RETIREMENTS, retiredTestProblems, retirementDebtScenarios } from "./retirement-debt.mjs";
+import { CorpusError, buildCorpus } from "./index.mjs";
+import {
+  LIVENESS,
+  RETIREMENTS,
+  assertRetirementsResolve,
+  retiredTestProblems,
+  retirementDebtScenarios,
+} from "./retirement-debt.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const repoRoot = join(here, "..", "..", "..");
 const SPEC_DIR = join(repoRoot, "examples", "react-smoke", "tests");
+const TRACES = join(repoRoot, "parity", "system", "traces");
 
 // The real registry, not a synthetic one. The register's whole claim is about
 // the corpus the net actually drives: a citation that resolves against a corpus
@@ -25,21 +32,13 @@ const specSource = (spec) => {
   return existsSync(path) ? readFileSync(path, "utf8") : null;
 };
 
-// The two liveness tests are what the smoke suite is *for* after the
-// retirement, and nothing else in this file would notice them going: a
-// retirement register only ever says what left.
-const LIVENESS = ["the driver page mounts and renders its fixture", "no console errors during a 5-second interaction session"];
+const trace = (scenario, side) => {
+  const path = join(TRACES, `${scenario}.${side}.capture1.json`);
+  return existsSync(path) ? JSON.parse(readFileSync(path, "utf8")) : null;
+};
 
 test("every retirement names a scenario the real corpus holds", () => {
-  const corpus = realCorpus();
-  const written = new Set(corpus.map((scenario) => scenario.id));
-
-  for (const { spec, test: title, scenarios } of RETIREMENTS) {
-    assert.ok(scenarios.length > 0, `${spec} — ${title}: retired with no scenario named`);
-    for (const id of scenarios) {
-      assert.ok(written.has(id), `${spec} — ${title}: cites ${id}, which the corpus does not hold`);
-    }
-  }
+  assert.deepEqual(assertRetirementsResolve(realCorpus()).length > 0, true);
 });
 
 // The falsification the check above is worth nothing without: a green result is
@@ -51,6 +50,25 @@ test("a citation the corpus does not hold fails", () => {
     () => assertRetirementsResolve(corpus),
     (error) => error instanceof CorpusError && /minimap-default-click/.test(error.message)
   );
+});
+
+// What `section` buys over the citation. A name that resolves says a scenario
+// exists; this says the scenario does the work where the register claims it
+// does — on both sides, since a section only one side recorded is not a
+// comparison. Read off the stored traces, so it is a fact about a run that
+// happened rather than a second declaration.
+test("every retirement's scenario recorded something in the section it retires into", () => {
+  for (const { spec, test: title, section, scenarios } of RETIREMENTS) {
+    for (const id of scenarios) {
+      for (const side of ["upstream", "psflow"]) {
+        const captured = trace(id, side);
+        assert.ok(captured, `${spec} — ${title}: ${id} has no stored ${side} trace`);
+        const observed = captured.sections[section];
+        const empty = observed === null || (Array.isArray(observed) ? observed.length === 0 : Object.keys(observed).length === 0);
+        assert.ok(!empty, `${spec} — ${title}: ${id}'s ${side} trace has nothing in \`${section}\``);
+      }
+    }
+  }
 });
 
 test("no retired test is still in the spec that held it", () => {
@@ -68,20 +86,28 @@ test("a spec that still holds a retired title is reported", () => {
 
 // Per test rather than per file is the whole shape of this register, and this
 // is what it buys: `node-props.spec.ts` retired whole and `smoke.spec.ts` did
-// not, and the file that survived kept exactly the two tests that are not
+// not, and the file that survived kept exactly the two tests that were never
 // parity assertions.
 test("the smoke spec retired eight tests and kept its two liveness ones", () => {
   const source = specSource("smoke.spec.ts");
   assert.ok(source !== null, "smoke.spec.ts is the liveness suite and does not retire");
 
-  const smoke = RETIREMENTS.filter((retirement) => retirement.spec === "smoke.spec.ts");
-  assert.equal(smoke.length, 8);
-  for (const title of LIVENESS) assert.ok(source.includes(title), `smoke.spec.ts no longer holds ${title}`);
+  const retired = RETIREMENTS.filter((retirement) => retirement.spec === "smoke.spec.ts");
+  const live = LIVENESS.filter((entry) => entry.spec === "smoke.spec.ts");
+  assert.equal(retired.length, 8);
+  assert.equal(live.length, 2);
+
+  // Ten titles went in and ten are accounted for. Without `LIVENESS` a renamed
+  // survivor would read as a title that is neither retired nor present, which
+  // is exactly the reading "no coverage is lost" has to rule out.
+  assert.equal(retired.length + live.length, 10);
+  for (const { test: title } of live) assert.ok(source.includes(title), `smoke.spec.ts no longer holds ${title}`);
 });
 
 test("the node-props spec retired whole", () => {
   assert.equal(specSource("node-props.spec.ts"), null);
   assert.equal(RETIREMENTS.filter((retirement) => retirement.spec === "node-props.spec.ts").length, 2);
+  assert.equal(LIVENESS.filter((entry) => entry.spec === "node-props.spec.ts").length, 0);
 });
 
 test("every retirement-debt scenario is cited by a retirement", () => {

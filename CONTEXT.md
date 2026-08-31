@@ -163,13 +163,17 @@ _Avoid_: Layer 2, the e2e suite
 **Retirement** (of a hand-authored assertion):
 Recorded **per test, never per file**, in
 `parity/system/corpus/retirement-debt.mjs`: each entry names the spec, the exact
-test title, what it proved, and the scenario that re-reports it. Per test
-because one of the eight, `node drag fires onNodesChange`, was the only callback
-assertion on either surface, and a file-level retirement would have dropped it
-with nothing saying so. The register is **gated in both directions**: a citation
-that resolves to no scenario fails the net, and a retired title still present as
-a `test(` call in its spec fails `test:harness`. Nothing retires for
-redundancy — only what the net *re-reports*.
+test title, what it proved, the trace **section** the re-report lands in, and the
+scenario that does it. Per test because one of the eight, `node drag fires
+onNodesChange`, was the only callback assertion on either surface, and a
+file-level retirement would have dropped it with nothing saying so. Three things
+go red: a citation resolving to no scenario fails the net, a retired title still
+present as a `test(` call in its spec fails `test:harness`, and a cited scenario
+whose stored traces are empty in the section it retires into fails there too.
+The same file's `LIVENESS` holds the tests that did **not** retire, each with the
+title it had before, so that every title in the split is accounted for and a
+rename cannot read as a deletion. Nothing retires for redundancy — only what the
+net *re-reports*.
 _Avoid_: deprecation, removal, cleanup
 
 **Outside the scheme**:

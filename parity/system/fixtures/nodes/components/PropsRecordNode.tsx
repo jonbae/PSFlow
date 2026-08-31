@@ -21,6 +21,14 @@
 // case: `parentId` is `undefined` on a root node and `String(undefined)` would
 // put the word "undefined" in an attribute, which reads as a value rather than
 // as an absence.
+//
+// Nine attributes where the retired spec asserted eight. `type` is the ninth,
+// and it is here because it is the one member whose being wrong would let every
+// other attribute agree for the wrong reason: a node rendered by the default
+// component instead of this one has no attributes at all, but one rendered by
+// this component under a `type` neither side resolved would still be mounted
+// from the fixture's own graph and look right. It costs a string in a section
+// both sides already record in full.
 
 const say = (value: unknown) => (value === undefined || value === null ? '' : String(value));
 

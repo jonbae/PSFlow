@@ -37,11 +37,14 @@ The smoke suite was ten tests until [#61](https://github.com/jonbae/PSFlow/issue
 two liveness ones and eight hand-authored parity assertions, the densest in the
 repo. The eight retired when the net began re-reporting each of them, **recorded
 per test** in `parity/system/corpus/retirement-debt.mjs` — which names, for each,
-what it proved and the scenario that replaced it. Nothing retired for redundancy;
-per test rather than per file because one of the eight was the only callback
-assertion on either surface. The register is gated both ways: a citation naming
-no scenario fails `parity:system`, and a retired title still present as a `test(`
-call fails `test:harness`.
+what it proved, the trace section the re-report lands in, and the scenario that
+does it. Nothing retired for redundancy; per test rather than per file because
+one of the eight was the only callback assertion on either surface. Three things
+go red: a citation naming no scenario fails `parity:system`, a retired title
+still present as a `test(` call fails `test:harness`, and so does a cited
+scenario whose stored traces are empty in the section it retires into. The two
+tests that did *not* retire are recorded beside them, each with the title it had
+before, so every title in the split is accounted for.
 
 One browser spec sits outside the scheme as well:
 

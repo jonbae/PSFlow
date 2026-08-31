@@ -88,6 +88,7 @@
 // retirement on an instrument the assertions do not live in, and on two blockers
 // neither of them is about.
 
+import { SECTIONS } from "../trace-format.mjs";
 import { defineScenario } from "../harness/scenario.mjs";
 import { CorpusError, routeOf } from "./routes.mjs";
 import { RESERVED } from "./reserved.mjs";
@@ -99,7 +100,15 @@ const PANE_SELECTOR = ".react-flow__pane";
 const MINIMAP_SELECTOR = ".react-flow__minimap";
 
 const node = (id) => `.react-flow__node[data-id="${id}"]`;
-const handle = (nodeId, position) =>
+
+// `handleAt`, never `handle`. `test-debt.mjs` has a `handle(nodeId, handleId)`
+// of the same arity that aims at `data-handleid`, and the two sources rebuild
+// their selectors separately on purpose — a selector one of them re-aims must
+// not silently re-aim the other. Two builders of one name and one arity meaning
+// different attributes is how that decision turns into a trap, so this one says
+// in its name which attribute it reads. The retired assertions located handles
+// by side, because the smoke page's nodes carry no handle ids.
+const handleAt = (nodeId, position) =>
   `.react-flow__handle[data-nodeid="${nodeId}"][data-handlepos="${position}"]`;
 
 const retirementDebt = [
@@ -212,8 +221,8 @@ const retirementDebt = [
     id: "click-connect-reverse-direction",
     route: CHROME_DEFAULTS,
     async run(a) {
-      await a.click(handle("n2", "right"));
-      await a.click(handle("n1", "left"));
+      await a.click(handleAt("n2", "right"));
+      await a.click(handleAt("n1", "left"));
     },
   },
 
@@ -227,7 +236,7 @@ const retirementDebt = [
     id: "connect-drag-holding-source",
     route: CHROME_DEFAULTS,
     async run(a) {
-      await a.pointerDown(handle("n1", "right"));
+      await a.pointerDown(handleAt("n1", "right"));
       await a.pointerMove(null, { dx: 40, dy: 20 });
       await a.pointerMove(null, { dx: 40, dy: 20 });
     },
@@ -241,7 +250,7 @@ const retirementDebt = [
     id: "connect-drag-released-on-pane",
     route: CHROME_DEFAULTS,
     async run(a) {
-      await a.pointerDown(handle("n1", "right"));
+      await a.pointerDown(handleAt("n1", "right"));
       await a.pointerMove(null, { dx: 40, dy: 20 });
       await a.pointerMove(null, { dx: 40, dy: 20 });
       await a.pointerUp(null);
@@ -275,12 +284,19 @@ const retirementDebt = [
  *
  * **Per test, not per file**, because the eight assertions in `smoke.spec.ts`
  * were eight different claims and one of them was the only callback assertion
- * the repo had. `scenarios` are cited by name and resolved against the corpus's
- * **name space** in `index.mjs`; `test` is the exact title, and
- * `retiredTestProblems` holds the spec sources to it — a retirement whose test
- * is still in the file has not happened, and a retired title that quietly came
- * back would be two gates asserting one thing with only one of them written
- * down.
+ * the repo had. `test` is the exact title; `scenarios` are cited by name and
+ * resolved against the corpus by `assertRetirementsResolve`; and
+ * `retiredTestProblems` holds the spec sources to the titles — a retirement
+ * whose test is still in the file has not happened, and a retired title that
+ * quietly came back would be two gates asserting one thing with only one of them
+ * written down.
+ *
+ * `section` is the **trace section the re-report lands in**, and it is the field
+ * that keeps the substitution above from living only in prose. A citation that
+ * resolves says a scenario exists; this says where that scenario does the work,
+ * and `retirement-debt.test.mjs` reads the stored traces to check the section is
+ * not empty on either side. A scenario that stopped observing what it was
+ * written to observe would otherwise keep satisfying the register by name.
  */
 export const RETIREMENTS = Object.freeze(
   [
@@ -288,42 +304,49 @@ export const RETIREMENTS = Object.freeze(
       spec: "smoke.spec.ts",
       test: "Background renders behind the flow",
       proved: "a default Background renders inside a mounted flow",
+      section: "dom",
       scenarios: ["mount-baseline--flow-chrome-defaults"],
     },
     {
       spec: "smoke.spec.ts",
       test: "MiniMap renders and is clickable",
       proved: "a default MiniMap renders and survives being clicked",
+      section: "dom",
       scenarios: ["minimap-default-click"],
     },
     {
       spec: "smoke.spec.ts",
       test: "Controls render and clicking zoom-in changes the transform",
       proved: "the three default Controls buttons render, and zoom-in moves the viewport",
+      section: "dom",
       scenarios: ["controls-default-zoom"],
     },
     {
       spec: "smoke.spec.ts",
       test: "wheel-zoom changes the viewport transform",
       proved: "a wheel over the pane changes the viewport transform",
+      section: "dom",
       scenarios: ["wheel-zoom-from-identity-viewport"],
     },
     {
       spec: "smoke.spec.ts",
       test: "background drag pans the viewport",
       proved: "a completed pointer drag on the pane changes the viewport transform",
+      section: "dom",
       scenarios: ["pane-drag-from-identity-viewport"],
     },
     {
       spec: "smoke.spec.ts",
       test: "node drag fires onNodesChange",
       proved: "dragging a node calls onNodesChange with a non-empty change array",
+      section: "callbacks",
       scenarios: ["drag-node-reports-changes"],
     },
     {
       spec: "smoke.spec.ts",
       test: "click-connect creates an edge",
       proved: "clicking a source handle and then a target handle adds an edge",
+      section: "dom",
       scenarios: ["click-connect-reverse-direction"],
     },
     {
@@ -331,6 +354,7 @@ export const RETIREMENTS = Object.freeze(
       test: "connection-state classes flip during drag",
       proved:
         "connectingfrom is on the source handle while a connection is dragged, and gone after the drop",
+      section: "dom",
       scenarios: ["connect-drag-holding-source", "connect-drag-released-on-pane"],
     },
     {
@@ -338,12 +362,14 @@ export const RETIREMENTS = Object.freeze(
       test: "threads explicit flags, dimensions, parentId and absolute position",
       proved:
         "a parented node's NodeProps carries its explicit flags, its measured size, its parentId and its absolute position",
+      section: "dom",
       scenarios: ["node-props-record-parented"],
     },
     {
       spec: "node-props.spec.ts",
       test: "defaults unset flags from the flow-level props",
       proved: "a node that sets none of the three flags takes them from the flow-level props",
+      section: "dom",
       scenarios: ["node-props-record-parented"],
     },
   ].map(Object.freeze)
@@ -384,23 +410,93 @@ export const retiredTestProblems = (specSource) => {
   return problems;
 };
 
+/**
+ * The two tests that did **not** retire, and what each was called before.
+ *
+ * Here rather than only in the spec because the register's claim is "no coverage
+ * is lost", and that is checkable per test only if every one of the original ten
+ * titles is accounted for. Eight are in `RETIREMENTS`; without these two an
+ * auditor diffing the old file against the register finds a title that is
+ * neither retired nor present, and cannot tell a rename from a deletion.
+ *
+ * `was` is the old title and `test` the current one. The mount test was renamed
+ * because `two nodes and one edge render` describes what it looks at, where what
+ * it is *for* is that the page came up at all — the counts are how a mount that
+ * threw half way is told from one that worked. The console session kept its
+ * name; `was` is written out for it all the same, so the pair reads as a table
+ * rather than as one entry with an exception beside it.
+ */
+export const LIVENESS = Object.freeze(
+  [
+    {
+      spec: "smoke.spec.ts",
+      was: "two nodes and one edge render",
+      test: "the driver page mounts and renders its fixture",
+    },
+    {
+      spec: "smoke.spec.ts",
+      was: "no console errors during a 5-second interaction session",
+      test: "no console errors during a 5-second interaction session",
+    },
+  ].map(Object.freeze)
+);
+
+/**
+ * Every scenario a **retirement** names has to be one the corpus holds.
+ *
+ * A citation that resolves to nothing is how the handover silently fails to
+ * happen: the assertion is deleted, the register says a scenario replaced it,
+ * and the name is a typo or a scenario somebody renamed afterwards. Exactly the
+ * hazard `reserved.mjs` exists for one source along, and answered the same way.
+ *
+ * It is handed the corpus rather than reading one, because only the assembled
+ * corpus knows every name there is and this module cannot see it — `../net.mjs`
+ * is where the two meet. Checked against the ids the corpus actually holds,
+ * never the wider **name space** the changelog audit resolves against: a
+ * reserved id promises a scenario and drives nothing, which is a legitimate
+ * state for a plan and never one for a retirement, since an assertion has
+ * already been deleted by the time this is asked.
+ */
+export const assertRetirementsResolve = (scenarios) => {
+  const held = new Set(scenarios.map((scenario) => scenario.id));
+  const dangling = RETIREMENTS.flatMap(({ spec, test, scenarios: cited }) =>
+    cited.filter((id) => !held.has(id)).map((id) => `  ${spec} — ${test}: ${id}`)
+  );
+
+  if (dangling.length) {
+    throw new CorpusError(
+      `${dangling.length} retirement citation(s) name a scenario the corpus does not hold:\n` +
+        dangling.join("\n") +
+        `\nThe assertion each one replaced has already been deleted, so a name that resolves to ` +
+        `nothing is coverage the repo believes it has and does not.`
+    );
+  }
+
+  return scenarios;
+};
+
 // The two halves have to name each other. A scenario here that no retirement
 // cites is a scenario in the wrong source — the retirement debt is *defined* by
 // what it retires, and one written for its own sake belongs with the
 // hole-closing scenarios. A retirement citing nothing has retired an assertion
-// into thin air.
+// into thin air, and one naming a section the trace format does not have has
+// recorded where its re-report lands in a word nothing can check.
 const cited = new Set(RETIREMENTS.flatMap(({ scenarios }) => scenarios));
 const written = retirementDebt.map(({ id }) => id);
 const uncited = written.filter((id) => !cited.has(id));
 const reserved = written.filter((id) => id in RESERVED);
 const empty = RETIREMENTS.filter(({ scenarios }) => scenarios.length === 0);
+const unknownSection = RETIREMENTS.filter(({ section }) => !SECTIONS.includes(section));
 
-if (uncited.length || reserved.length || empty.length) {
+if (uncited.length || reserved.length || empty.length || unknownSection.length) {
   throw new CorpusError(
     `the retirement debt does not line up with the retirements it was written for:\n` +
       (uncited.length ? `  written and cited by no retirement: ${uncited.join(", ")}\n` : "") +
       (reserved.length ? `  taking an id reserved for a test-debt scenario: ${reserved.join(", ")}\n` : "") +
-      (empty.length ? `  retiring with no scenario named: ${empty.map(({ test }) => test).join(", ")}\n` : "")
+      (empty.length ? `  retiring with no scenario named: ${empty.map(({ test }) => test).join(", ")}\n` : "") +
+      (unknownSection.length
+        ? `  retiring into no section of the trace: ${unknownSection.map(({ test }) => test).join(", ")}\n`
+        : "")
   );
 }
 

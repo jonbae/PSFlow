@@ -50,9 +50,11 @@ the page serves and the net never mounts — a hole nothing reports, because
 neither list knows the other exists. Adding a fixture adds its baseline.
 
 The **example driver** gets one too. It declares its own flow inline rather than
-being handed one, so it *is* a fixture; the two ps-flow **contract** components
-the page also serves are not, and `parity/driver/registry.mjs` is where that
-distinction is recorded, in the same list the build reads.
+being handed one, so it *is* a fixture; a ps-flow **contract** component is not,
+and `parity/driver/registry.mjs` is where that distinction is recorded, in the
+same list the build reads. The page served two until [#61] retired the
+assertions they carried, and it serves none now — the distinction survives the
+count, which is why the filter does too.
 
 ## The conformance seed
 
@@ -141,7 +143,8 @@ spec made their retirement **conditional on the net covering them**, not on
 anyone deciding they were redundant. Nine scenarios and one derived baseline are
 what the net covers them with, and `retirement-debt.mjs` carries both halves:
 the scenarios, and `RETIREMENTS`, the per-test record naming the spec, the exact
-title, what it proved and the scenario that replaced it.
+title, what it proved, the **section** of the trace the re-report lands in, and
+the scenario that does it.
 
 **Per test, never per file.** One of the eight, `node drag fires onNodesChange`,
 was the only callback assertion on either surface; a file-level retirement would
@@ -157,18 +160,30 @@ page comes up at all and says nothing while it is used is the one claim a
 differential instrument cannot make, since two sides broken the same way compare
 clean. They run against the first of those fixtures, through the driver.
 
-The register is gated in both directions, and each half catches a different way
-the handover fails silently:
+Three things go red, and each catches a different way the handover fails
+silently:
 
 | | |
 |---|---|
-| `assertRetirementsResolve` | in `index.mjs`, run by `../net.mjs`: a citation naming no scenario the corpus holds is coverage the repo believes it has and does not |
-| `retiredTestProblems` | in `retirement-debt.mjs`, run by `retirement-debt.test.mjs`: a retired title still present as a `test(` call means the assertion is running beside the net |
+| `assertRetirementsResolve` | run by `../net.mjs`: a citation naming no scenario the corpus holds is coverage the repo believes it has and does not |
+| `retiredTestProblems` | run by `retirement-debt.test.mjs`: a retired title still present as a `test(` call means the assertion is running beside the net |
+| the `section` field | run by `retirement-debt.test.mjs` against the stored traces: the cited scenario has to have recorded something in the section it retires into, on **both** sides |
 
 The second looks for the **call**, not the title as text — `smoke.spec.ts`'s own
 header names several of the retired tests while saying what happened to them, and
 a register that could not tell an explanation from a live assertion would make
 writing the explanation the thing that failed.
+
+The third is what keeps a citation from being a name alone. Nine of the ten
+retirements land in `dom` and one — `node drag fires onNodesChange` — lands in
+`callbacks`, and a scenario that stopped observing what it was written to
+observe would go on satisfying the register by id.
+
+`LIVENESS` sits beside `RETIREMENTS` and holds the two tests that did **not**
+retire, each with the title it had before. Ten titles went into the split and
+ten are accounted for: without it the renamed survivor reads as a title that is
+neither retired nor present, and a rename cannot be told from a deletion in a
+register built so that "no coverage is lost" is checkable per test.
 
 ---
 

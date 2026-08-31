@@ -25,8 +25,9 @@ const suites = [
   { name: "smoke", testMatch: /(^|[\\/])smoke\.spec\.ts$/, use: chrome },
   // Outside the five-gate scheme, and never was a gate: `screenshot` asserts
   // nothing at all and only writes an artifact. A `node-props` project stood
-  // beside it until that PSFlow-specific guard retired on the net's `props`
-  // section (issue #61).
+  // beside it until that PSFlow-specific guard retired into the net (issue #61)
+  // — through the `dom` section rather than the `props` one its condition named,
+  // for the reason `parity/system/corpus/retirement-debt.mjs` gives.
   { name: "screenshot", testMatch: /screenshot\.spec\.ts$/, use: chrome },
 ];
 

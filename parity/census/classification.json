@@ -38,7 +38,7 @@
       "conformance-indirect:<spec>": "npm run test:conformance — mounted or traversed by that spec, but nothing specific to it is asserted",
       "smoke:<spec>": "npm run test:smoke — that spec asserts this directly. No row carries one since issue 61: the smoke suite is liveness only, and its eight hand-authored parity assertions retired into the net per test, recorded in parity/system/corpus/retirement-debt.mjs.",
       "smoke-indirect:<spec>": "npm run test:smoke — mounted or traversed, nothing specific asserted",
-      "_retired": "A node-props:<spec> pair stood beside these for the PSFlow-specific NodeProps guard. It retired on the net's props section (issue 61) and its spec is gone; what the net drove instead is parity/system/coverage.md, never a column here."
+      "_retired": "A node-props:<spec> pair stood beside these for the PSFlow-specific NodeProps guard. It retired into the net (issue 61) through the dom section rather than the props one its condition named — parity/system/corpus/retirement-debt.mjs says why — and its spec is gone; what the net drives is parity/system/coverage.md, never a column here."
     }
   },
 
