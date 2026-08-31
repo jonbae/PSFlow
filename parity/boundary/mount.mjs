@@ -1230,9 +1230,20 @@ check("deselecting a node or an edge takes focus off its element", () => {
   // unselect branch of `handleNodeClick`. The frame matters — blurring inside
   // the tick that dispatched the unselect fights the re-render — so the check
   // is for the deferred form and not for a bare `blur`.
+  const raf = nodeUtil.indexOf("requestAnimationFrame do");
   assert(
-    /requestAnimationFrame \(blur \(toHTMLElement \w+\)\)/.test(nodeUtil),
+    raf !== -1 && /for_ mDiv \(blur <<< toHTMLElement\)/.test(nodeUtil),
     "`handleNodeClick` unselects the node without blurring it on the next frame"
+  );
+  // And the ref is read *inside* that frame, as TS reads `.current` inside its
+  // callback. Reading it at dispatch time still compiles, still blurs, and
+  // still passes a check that only looked for the two lines above — it just
+  // captures the `<div>` from before the re-render this function triggered.
+  // Position is the only thing that separates the two, so position is the
+  // claim.
+  assert(
+    nodeUtil.indexOf("readRef args.nodeRef") > raf,
+    "`handleNodeClick` reads `nodeRef` before scheduling the frame, so it blurs the pre-render element"
   );
 
   const edgeWrapper = readModule(join(repoRoot, "src/React/Component/EdgeWrapper.purs"));

@@ -58,6 +58,15 @@ type HandleNodeClickArgs n e =
 -- | frame is not a detail: `unselectNodesAndEdges` re-renders, and
 -- | blurring inside the same tick fights the render that is still
 -- | placing the element.
+-- |
+-- | The ref is read *inside* the frame, as TS's
+-- | `requestAnimationFrame(() => nodeRef?.current?.blur())` reads
+-- | `.current` inside its callback — and for the same reason the frame
+-- | exists at all. Reading at dispatch time captures whatever `<div>`
+-- | the ref held before the re-render this function just triggered, so
+-- | a render that replaces the element would leave the blur landing on
+-- | a detached node, and a ref still empty at dispatch would schedule
+-- | nothing where TS would still blur.
 handleNodeClick :: forall n e. HandleNodeClickArgs n e -> Effect Unit
 handleNodeClick args = do
   state <- args.store.getState
@@ -77,7 +86,8 @@ handleNodeClick args = do
       else if args.unselect || (asNode.selected && state.multiSelectionActive) then do
         args.store.dispatch
           (UnselectNodesAndEdges { nodes: Just [ asNode ], edges: Nothing })
-        mDiv <- toMaybe <$> readRef args.nodeRef
-        for_ mDiv \div -> requestAnimationFrame (blur (toHTMLElement div))
+        void $ requestAnimationFrame do
+          mDiv <- toMaybe <$> readRef args.nodeRef
+          for_ mDiv (blur <<< toHTMLElement)
       else
         pure unit

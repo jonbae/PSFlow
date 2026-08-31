@@ -51662,6 +51662,7 @@ var useNodeObserver = function(params) {
 // output/React.Node.Util/index.js
 var lookup20 = /* @__PURE__ */ lookup2(ordNodeId);
 var unwrap15 = /* @__PURE__ */ unwrap();
+var $$void9 = /* @__PURE__ */ $$void(functorEffect);
 var map52 = /* @__PURE__ */ map(functorEffect);
 var for_16 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var handleNodeClick = function(args) {
@@ -51677,31 +51678,33 @@ var handleNodeClick = function(args) {
         return unit;
       }
       ;
-      throw new Error("Failed pattern match at React.Node.Util (line 65, column 16 - line 67, column 27): " + [state3.onError.constructor.name]);
+      throw new Error("Failed pattern match at React.Node.Util (line 74, column 16 - line 76, column 27): " + [state3.onError.constructor.name]);
     }
     ;
     if (v instanceof Just) {
-      var $16 = !v.value0.selected;
-      if ($16) {
+      var $18 = !v.value0.selected;
+      if ($18) {
         return args.store.dispatch(new AddSelectedNodes([args.id]))();
       }
       ;
-      var $17 = args.unselect || v.value0.selected && state3.multiSelectionActive;
-      if ($17) {
+      var $19 = args.unselect || v.value0.selected && state3.multiSelectionActive;
+      if ($19) {
         args.store.dispatch(new UnselectNodesAndEdges({
           nodes: new Just([v.value0]),
           edges: Nothing.value
         }))();
-        var mDiv = map52(toMaybe)(readRef(args.nodeRef))();
-        return for_16(mDiv)(function(div2) {
-          return requestAnimationFrame(blur(toHTMLElement(div2)));
-        })();
+        return $$void9(requestAnimationFrame(function __do4() {
+          var mDiv = map52(toMaybe)(readRef(args.nodeRef))();
+          return for_16(mDiv)(function($21) {
+            return blur(toHTMLElement($21));
+          })();
+        }))();
       }
       ;
       return unit;
     }
     ;
-    throw new Error("Failed pattern match at React.Node.Util (line 64, column 3 - line 83, column 18): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at React.Node.Util (line 73, column 3 - line 93, column 18): " + [v.constructor.name]);
   };
 };
 
