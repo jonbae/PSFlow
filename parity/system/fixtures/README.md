@@ -48,11 +48,13 @@ a hand-written act in `parity/system/corpus/`, which has its own README.
 
 ## What is here
 
-Eighteen flows, one per condition no vendored fixture sets, written for the
-thirty test-debt scenarios ([#60]). Grouped by what the condition is *about*
-rather than by which scenario drives it — several are driven by more than one,
-and a fixture named after its first scenario would read wrongly the moment a
-second arrived.
+Twenty flows, one per condition no vendored fixture sets. Eighteen were written
+for the thirty test-debt scenarios ([#60]) and two for the retirement debt
+([#61]) — the two ps-flow **contract** pages, turned into data when the
+hand-authored assertions they carried retired into the net. Grouped by what the
+condition is *about* rather than by which scenario drives it — several are driven
+by more than one, and a fixture named after its first scenario would read wrongly
+the moment a second arrived.
 
 | | The condition it sets |
 |---|---|
@@ -63,6 +65,7 @@ second arrived.
 | `chrome/background.ts` | a `Background` given an explicit `bgColor` |
 | `edges/base-edge-path.ts` | a custom edge handing `BaseEdge` path attributes |
 | `fitview/uncontrolled.ts` | uncontrolled, with no change handlers at all |
+| `flow/chrome-defaults.ts` | `Background`, `Controls` and `MiniMap` all at their defaults, on a flow that does not fit its view |
 | `flow/custom-testid.ts` | a custom `data-testid` on `<ReactFlow>` |
 | `flow/display-none.ts` | a container that is hidden *after* it mounted |
 | `flow/props-change.ts` | a dozen tracked props that change after the mount |
@@ -71,6 +74,7 @@ second arrived.
 | `nodes/expand-parent.ts` | a child that pushes its parent open as it is dragged |
 | `nodes/no-select-on-drag.ts` | `selectNodesOnDrag: false` |
 | `nodes/nowheel.ts` | a `nowheel` node big enough to pinch on |
+| `nodes/props-record.ts` | a child parented to a node that sits somewhere else, rendering its own `NodeProps` |
 | `nodes/tall.ts` | a flow taller than the window, so the page can scroll |
 | `nodes/unmeasured.ts` | controlled, with dimension changes never applied back |
 | `viewport/helpers.ts` | a flow that snaps, so a no-options helper says something |
@@ -78,6 +82,21 @@ second arrived.
 Each file's own header says why it is shaped the way it is, and several of those
 are the interesting half — `nodes/autopan.ts` in particular, which is where the
 question ticket 081 left open about expressing a *dwell* is settled.
+
+### The two that were pages
+
+`flow/chrome-defaults.ts` and `nodes/props-record.ts` are `parity/driver/src/`'s
+two retired **contract** components as data. They are the only fixtures here
+whose condition is not a changelog row: what they set is what a hand-authored
+assertion happened to be written against, which is why one of them is the only
+flow in the corpus mounting the three chrome components on upstream's own
+defaults, and the other the only one with a `parentId` in it.
+
+`nodes/props-record.ts` keeps its own node component, for the reason
+`nodes/connections.ts` does: a probed run is compared only at its own observation
+level, and both of its claims are about the graph a probe would have replaced. So
+the record is rendered into the DOM instead, where the comparison is at full
+scope.
 
 ### `shared/graph.tsx`, and why it is not `.ts`
 
@@ -111,3 +130,4 @@ And a rule rather than a third knob: **change handlers, and the `nodes` and
 itself to controlled on its first change.
 
 [#60]: https://github.com/jonbae/PSFlow/issues/60
+[#61]: https://github.com/jonbae/PSFlow/issues/61

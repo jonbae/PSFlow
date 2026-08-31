@@ -71,7 +71,7 @@ import { COVERAGE, checkCoverage, reportCoverage, writeCoverage } from "./covera
 import { CoverageError } from "./coverage/coverage.mjs";
 import { WitnessError } from "./coverage/witness.mjs";
 import { ForkError } from "./corpus/fork.mjs";
-import { CorpusError, buildCorpus } from "./corpus/index.mjs";
+import { CorpusError, assertRetirementsResolve, buildCorpus } from "./corpus/index.mjs";
 import { checkFork, reportFork } from "./fork.mjs";
 import { SettleError } from "./harness/settle.mjs";
 import { runScenario } from "./harness/scenario.mjs";
@@ -218,7 +218,16 @@ const workFor = (compareOnly) => {
   }
 
   const { fixtures, components } = routeSpace(repoRoot);
-  const corpus = buildCorpus(fixtures, components);
+  // Assembly first, then the claim made *about* the assembled corpus: every
+  // scenario a **retirement** names has to be one the corpus holds. It is not
+  // part of `buildCorpus` because it is a property of the real registry rather
+  // than of the assembly — a caller building a two-fixture corpus to test the
+  // assembly is making no claim about a retirement, and failing it there would
+  // say otherwise. It runs before the fork check for the same reason the fork
+  // check runs before the browser: the assertions it stands in for are already
+  // deleted, so a citation that has stopped resolving is coverage the repo
+  // believes it has, and no number of captured traces answers that.
+  const corpus = assertRetirementsResolve(buildCorpus(fixtures, components));
   return { scenarios: corpus, corpus, baseline: readJson(vendored).version };
 };
 

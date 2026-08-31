@@ -16,9 +16,11 @@
 // The **example driver** is a fixture too — it declares its own flow inline
 // rather than being handed one — so it gets a baseline on the same rule, from
 // the same registry (`parity/driver/registry.mjs`, which marks which directly
-// mounted components are example drivers). The two ps-flow **contract**
-// components the page also serves are not: they render a ps-flow-specific
-// guard for one of the project suites and are fixtures of nothing.
+// mounted components are example drivers). A ps-flow **contract** component is
+// not: it renders a ps-flow-specific guard for one of the project suites and is
+// a fixture of nothing. The page served two until #61 retired the assertions
+// they carried; the filter stays, because it is the distinction and not the
+// count that decides.
 
 import { defineScenario } from "../harness/scenario.mjs";
 import { CorpusError, idOf, routeOf } from "./routes.mjs";

@@ -11,8 +11,10 @@
 //      audit rows bound for the net collapsed onto thirty conditions, under the
 //      ids `reserved.mjs` had been holding for them — the source that turns a
 //      `gate-pending` row from *reserved* into driven
-//   3. the retirement debt (#61), the hand-authored parity assertions whose
-//      retirement was made conditional on the net covering them
+//   3. the **retirement debt** (`retirement-debt.mjs`), the hand-authored parity
+//      assertions in the two ps-flow browser specs, whose retirement was made
+//      conditional on the net covering them — and, beside the scenarios, the
+//      per-test record of which one replaced which assertion (#61)
 //   4. hole-closing scenarios, until the corpus's termination condition — which
 //      `../coverage/` now evaluates on every run, so what is left to close is
 //      read off `../coverage.md` rather than guessed at (#57)
@@ -23,6 +25,15 @@
 // two scenarios' traces on one set of file names — and the run would compare
 // one experiment against another while reporting the difference as a library
 // divergence.
+//
+// One claim is deliberately *not* made here. `assertRetirementsResolve` — every
+// scenario a **retirement** names is one the corpus holds — lives with the
+// register in `retirement-debt.mjs` and is re-exported through this file, since
+// it needs nothing from the assembly but a set of ids. `../net.mjs` hands it the
+// assembled corpus rather than `buildCorpus` calling it, because it is a
+// property of the corpus the *real* registry produces: a caller assembling a
+// two-fixture corpus to test the assembly is making no claim about a
+// retirement, and failing it there would say otherwise.
 //
 // `mountBaselines` guards the same hazard *within* the derived source, and the
 // two are not one function because they can say different things. Two fixtures
@@ -35,11 +46,13 @@ import { CorpusError } from "./routes.mjs";
 import { mountBaselines } from "./mount-baselines.mjs";
 import { probeVariants, readProbePlan } from "./probes.mjs";
 import { RESERVED } from "./reserved.mjs";
+import { retirementDebtScenarios } from "./retirement-debt.mjs";
 import { seedScenarios } from "./seed.mjs";
 import { testDebtScenarios } from "./test-debt.mjs";
 
 export { CorpusError, ROUTE_PREFIX, idOf, routeOf } from "./routes.mjs";
 export { RESERVED } from "./reserved.mjs";
+export { LIVENESS, RETIREMENTS, assertRetirementsResolve, retiredTestProblems } from "./retirement-debt.mjs";
 
 /**
  * Every scenario, baselines first.
@@ -61,6 +74,7 @@ export const buildCorpus = (fixtures, components = []) => {
     ),
     ...seedScenarios,
     ...testDebtScenarios,
+    ...retirementDebtScenarios,
   ];
   return assertDistinctIds([...plain, ...probeVariants(plain, readProbePlan())]);
 };
@@ -97,13 +111,14 @@ export const scenarioNames = (fixtures, components = []) => ({
  * The check across sources, separately, because the sources it guards between
  * do not all exist yet.
  *
- * Today a derived baseline's id always leads with `mount-baseline--` and no
- * hand-written scenario's does, so the two sources in the corpus cannot in fact
- * collide. The next two can: the test-debt scenarios (#60) and the hole-closing
- * scenarios after them are hand-named, arrive later, and are written by someone
- * reading a changelog row rather than this file. That is precisely when a
- * duplicate is easiest to introduce and hardest to see, so the check ships with
- * the assembly rather than with the source that will need it.
+ * A derived baseline's id always leads with `mount-baseline--` and no
+ * hand-written scenario's does, so the derived source cannot collide with any of
+ * them. The three hand-named ones can collide with each other: the seed, the
+ * test-debt scenarios (#60) and the retirement debt (#61) arrived at different
+ * times, written by someone reading an upstream spec, a changelog row or a
+ * retiring assertion rather than this file, and the hole-closing scenarios after
+ * them will arrive the same way. That is precisely when a duplicate is easiest
+ * to introduce and hardest to see.
  */
 export const assertDistinctIds = (scenarios) => {
   const seen = new Map();

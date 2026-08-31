@@ -19,13 +19,15 @@ const suites = [
   // The conformance test suite — upstream's own framework-parameterized e2e
   // specs, ported. `npm run test:conformance`.
   { name: "conformance", testMatch: /generic-[\w-]+\.spec\.ts$/, use: chrome },
-  // The smoke test suite — liveness plus the hand-authored interaction
-  // assertions that have not been retired yet. `npm run test:smoke`.
+  // The smoke test suite — liveness, and since issue #61 nothing else: its
+  // eight hand-authored parity assertions retired into the net, per test.
+  // `npm run test:smoke`.
   { name: "smoke", testMatch: /(^|[\\/])smoke\.spec\.ts$/, use: chrome },
-  // Outside the five-gate scheme. `node-props` is a PSFlow-specific guard that
-  // retires when the net's `props` section is green (issue #61);
-  // `screenshot` never was a gate and only writes an artifact.
-  { name: "node-props", testMatch: /node-props\.spec\.ts$/, use: chrome },
+  // Outside the five-gate scheme, and never was a gate: `screenshot` asserts
+  // nothing at all and only writes an artifact. A `node-props` project stood
+  // beside it until that PSFlow-specific guard retired into the net (issue #61)
+  // — through the `dom` section rather than the `props` one its condition named,
+  // for the reason `parity/system/corpus/retirement-debt.mjs` gives.
   { name: "screenshot", testMatch: /screenshot\.spec\.ts$/, use: chrome },
 ];
 

@@ -14,6 +14,7 @@ Vocabulary is `CONTEXT.md`. Terms in **bold** are defined there.
 | `seed.mjs` | source 1 — the **conformance seed**, upstream's suite transcribed |
 | `mount-baselines.mjs` | one mount-only scenario per **fixture**, derived; the rule the seed leans on |
 | `test-debt.mjs` | source 2 — the thirty **test-debt scenarios** |
+| `retirement-debt.mjs` | source 3 — the **retirement debt**, and the per-test record of what it retired |
 | `probes.mjs` | source 4 — selective probe variants derived from current coverage witnesses |
 | `probe-plan.json` | issue 59's retired hole inputs, kept as the durable source of those variants |
 | `fork.mjs` | the fork staleness gate, and `fork.json` its register |
@@ -25,11 +26,12 @@ npm run test:harness   # this directory's unit tests, among the harness's own
 npm run parity:system  # the gate: build, capture the corpus, persist, diff
 ```
 
-`tickets/081-interaction-corpus.md` names four sources. Three are here: the
-**conformance seed** with its derived **mount-only baselines**, the thirty
-**test-debt scenarios** ([#60]), and the hole-closing probe scenarios generated
-from issue 59's retired holes through the current census and witnesses. The one
-still outstanding is the retirement debt ([#61]).
+`tickets/081-interaction-corpus.md` names four sources, and all four are here:
+the **conformance seed** with its derived **mount-only baselines**, the thirty
+**test-debt scenarios** ([#60]), the **retirement debt** ([#61]), and the
+hole-closing probe scenarios generated from issue 59's retired holes through the
+current census and witnesses. What is left is hole-closing scenarios, until the
+termination condition `../coverage/` evaluates on every run.
 
 ---
 
@@ -48,9 +50,11 @@ the page serves and the net never mounts — a hole nothing reports, because
 neither list knows the other exists. Adding a fixture adds its baseline.
 
 The **example driver** gets one too. It declares its own flow inline rather than
-being handed one, so it *is* a fixture; the two ps-flow **contract** components
-the page also serves are not, and `parity/driver/registry.mjs` is where that
-distinction is recorded, in the same list the build reads.
+being handed one, so it *is* a fixture; a ps-flow **contract** component is not,
+and `parity/driver/registry.mjs` is where that distinction is recorded, in the
+same list the build reads. The page served two until [#61] retired the
+assertions they carried, and it serves none now — the distinction survives the
+count, which is why the filter does too.
 
 ## The conformance seed
 
@@ -128,6 +132,58 @@ ever trimmed: `connect-handle-to-handle` (4), `flow-props-change-after-mount`,
 `flow-props-change-after-mount` is the sharpest — its three StoreUpdater rows are
 reachable **only** because callbacks compare as an exact sequence, so a weakening
 against any handler it fires would make all three invisible at once.
+
+---
+
+## The retirement debt
+
+Ten hand-authored parity assertions lived in two ps-flow browser specs —
+`smoke.spec.ts`'s eight and `node-props.spec.ts`'s two — and the gate-topology
+spec made their retirement **conditional on the net covering them**, not on
+anyone deciding they were redundant. Nine scenarios and one derived baseline are
+what the net covers them with, and `retirement-debt.mjs` carries both halves:
+the scenarios, and `RETIREMENTS`, the per-test record naming the spec, the exact
+title, what it proved, the **section** of the trace the re-report lands in, and
+the scenario that does it.
+
+**Per test, never per file.** One of the eight, `node drag fires onNodesChange`,
+was the only callback assertion on either surface; a file-level retirement would
+have dropped it with nothing reporting that it had gone.
+
+Both specs drove a ps-flow **contract** component — a page only ps-flow ever
+mounted — and asserted values somebody had read out of xyflow and written down.
+Both flows are fixtures now, `../fixtures/flow/chrome-defaults.ts` and
+`../fixtures/nodes/props-record.ts`, so upstream mounts them too and every
+assertion that was a string in a spec is a comparison against a running xyflow.
+`smoke.spec.ts`'s two **liveness** tests did not retire and never will: that the
+page comes up at all and says nothing while it is used is the one claim a
+differential instrument cannot make, since two sides broken the same way compare
+clean. They run against the first of those fixtures, through the driver.
+
+Three things go red, and each catches a different way the handover fails
+silently:
+
+| | |
+|---|---|
+| `assertRetirementsResolve` | run by `../net.mjs`: a citation naming no scenario the corpus holds is coverage the repo believes it has and does not |
+| `retiredTestProblems` | run by `retirement-debt.test.mjs`: a retired title still present as a `test(` call means the assertion is running beside the net |
+| the `section` field | run by `retirement-debt.test.mjs` against the stored traces: the cited scenario has to have recorded something in the section it retires into, on **both** sides |
+
+The second looks for the **call**, not the title as text — `smoke.spec.ts`'s own
+header names several of the retired tests while saying what happened to them, and
+a register that could not tell an explanation from a live assertion would make
+writing the explanation the thing that failed.
+
+The third is what keeps a citation from being a name alone. Nine of the ten
+retirements land in `dom` and one — `node drag fires onNodesChange` — lands in
+`callbacks`, and a scenario that stopped observing what it was written to
+observe would go on satisfying the register by id.
+
+`LIVENESS` sits beside `RETIREMENTS` and holds the two tests that did **not**
+retire, each with the title it had before. Ten titles went into the split and
+ten are accounted for: without it the renamed survivor reads as a title that is
+neither retired nor present, and a rename cannot be told from a deletion in a
+register built so that "no coverage is lost" is checkable per test.
 
 ---
 

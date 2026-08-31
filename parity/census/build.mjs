@@ -75,7 +75,13 @@ const FLAT_GATES = {
 // point of this ticket is that the retired names must not survive anywhere:
 // without this, `L2:generic-edges.spec.ts` would parse, print, and keep the
 // numbering alive in the register that is supposed to have shed it.
-const SPEC_SUITES = new Set(["conformance", "smoke", "node-props"]);
+// `node-props` was a third, for the PSFlow-specific `NodeProps` guard. It
+// retired into the net (#61) — through the `dom` section, not the `props` one
+// its condition named; `parity/system/corpus/retirement-debt.mjs` says why —
+// and its spec is gone, so the name goes with it: leaving it here would let a
+// row keep claiming a suite that no longer runs, which is the same failure the
+// numbered names were removed to prevent.
+const SPEC_SUITES = new Set(["conformance", "smoke"]);
 
 // Every browser spec enters through the driver page, which is bundled with
 // `@xyflow/react` aliased to `index.js`. The compiled `Example.Main` page was
