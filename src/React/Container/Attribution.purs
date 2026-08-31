@@ -8,6 +8,7 @@ module React.Container.Attribution
 import Prelude
 
 import Data.Maybe (Maybe(..), fromMaybe)
+import Data.Nullable (null)
 import Effect.Unsafe (unsafePerformEffect)
 import React.Basic (JSX, ReactComponent, element)
 import React.Basic.Hooks (reactChildrenFromArray, reactComponent)
@@ -53,4 +54,5 @@ attribution =
             , "aria-label": Nothing
             , "data-testid": Nothing
             , children: reactChildrenFromArray [ messageWrap ]
+            , innerRef: null
             }

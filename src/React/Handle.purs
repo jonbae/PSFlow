@@ -443,6 +443,7 @@ handle = unsafePerformEffect $ memo $ reactComponent "Handle" \(props :: HandleP
 
   pure $ div_
     { className
+    , ref: props.innerRef
     , style: opt props.style
     , "data-handleid": opt handleId
     , "data-nodeid": nodeIdStr

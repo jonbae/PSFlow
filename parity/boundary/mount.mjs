@@ -6,12 +6,15 @@
 // enter by a different one. That normally means a browser, but the claims this
 // ticket has to stand behind are reachable from a server render:
 //
-//   1. **Every deferred prop throws at mount.** A prop the boundary has not
+//   1. **No prop is dropped in silence.** A prop the boundary has not
 //      converted must fail loudly rather than be ignored, because a prop that
 //      is silently dropped is indistinguishable from a prop the consumer never
 //      set — the exact failure shape of the unrun `Effect` thunk that produced
 //      this whole effort. `Nothing` compiles perfectly, so nothing but a gate
-//      can hold this.
+//      can hold this. Until boundary stage 4 this was read as "every deferred
+//      prop throws at mount", and it mounted `<ReactFlow />` once per entry in
+//      the refusal table; stage 4 crossed the last of them, and the check now
+//      reads the converters and fails on a prop wired to `Nothing`.
 //
 //   2. **A converted prop set mounts clean and arrives JS-shaped.** This is
 //      the falsification half of (1): without it, a `ReactFlow` that threw on
@@ -240,7 +243,22 @@ check("node props arrive JS-shaped, not PureScript-shaped", () => {
   assert(typeof p.positionAbsoluteX === "number", "`positionAbsoluteX` is not a number");
 });
 
-// ── 2. Every deferred prop throws ───────────────────────────────────────
+// ── 2. Nothing is left to defer ─────────────────────────────────────────
+//
+// This section used to mount `<ReactFlow />` once per **deferred prop** and
+// assert each one threw naming the stage that would land it. Boundary stage 4
+// crossed the last two, `edgeTypes` and `connectionLineComponent`, so there
+// are none — and the check inverts rather than going away, because the
+// failure it guards against did not.
+//
+// What it holds now is the **residue**: no prop of `convertProps` is wired to
+// a literal `Nothing`. While props were being refused, the claim was that
+// each one was declared in a table; with nothing refused, the claim is that
+// nothing is dropped, and that is the stronger of the two. It also still
+// catches a re-introduced deferral, because a deferred prop is wired to
+// `Nothing` *and* named in a table — so a future prop that cannot cross turns
+// this red, and whoever adds it has to bring the table and this section's
+// other half back together.
 
 // Line endings normalised: the repo stores LF and checks out CRLF on Windows,
 // and every pattern below anchors on `\n`. Without this the parse finds
@@ -248,94 +266,44 @@ check("node props arrive JS-shaped, not PureScript-shaped", () => {
 // one — but a loud failure on the wrong thing is still the wrong report.
 const readModule = (path) => readFileSync(path, "utf8").replace(/\r\n/g, "\n");
 
-// The one shape a deferred entry is written in, wherever the table lives.
-// `Boundary.Refusal` owns the entry constructors, and *which* constructors
-// exist is read out of that module rather than listed here: stage 2 removed
-// `callbackProp` and added `instanceProp`, and a list would have gone stale
-// silently in both directions — the removed one matching nothing, the added
-// one leaving a whole table unread and the section green.
-const refusalKinds = [
-  ...readModule(join(repoRoot, "src/Boundary/Refusal.purs")).matchAll(
-    /^(\w+Prop) :: forall/gm
-  ),
-].map((m) => m[1]);
-
-if (refusalKinds.length === 0) {
-  fail("found no refusal constructors in Boundary.Refusal — the parse is wrong");
-}
-
-const deferredEntries = (text) => [
-  ...text.matchAll(
-    new RegExp(`^\\s*[[,]?\\s*(?:${refusalKinds.join("|")})\\s+"([^"]+)"`, "gm")
-  ),
-].map((m) => m[1]);
-
 const flowText = readModule(flowSource);
 const flowFields = new Set(recordFields(flowSource, "JsFlowProps"));
-const deferred = deferredEntries(flowText);
 
-// The table is read, not restated, so a parse that found nothing has to be
-// told apart from a boundary with nothing left to defer. The declaration is
-// the anchor: while it exists it must yield entries, and when the last stage
-// empties it, it goes and this check goes with it.
-const deferredTable = /^deferredProps =\n([\s\S]*?)\n  \]$/m.exec(flowText);
-if (deferredTable === null) {
-  fail(`cannot find \`deferredProps\` in ${flowSource} — the parse is wrong`);
-}
-if (deferred.length === 0) {
-  fail(`read no deferred props from ${flowSource}'s table — the parse is wrong`);
-}
+// The body of one `convert<Something> p =` declaration, or null. Extra
+// parameters are allowed: `Boundary.Chrome`'s `convertPanel` takes the
+// forwarded ref as a second one, and a converter skipped by a too-strict
+// pattern is a converter nothing below checks.
+const converterBody = (text, name) =>
+  new RegExp(`^convert${name} p(?: \\w+)* =\\n([\\s\\S]*?)\\n  \\}$`, "m").exec(text);
 
-check("every deferred prop is a real JsFlowProps field", () => {
-  const unknown = deferred.filter((name) => !flowFields.has(name));
+// `[,{] name: Nothing` — a field the conversion fills in with absence rather
+// than with the consumer's value.
+const wiredToNothing = (body) =>
+  [...body.matchAll(/^\s*[,{]\s*(\w+): Nothing$/gm)].map((m) => m[1]);
+
+check("no flow prop is wired to `Nothing`", () => {
+  const body = converterBody(flowText, "Props");
+  assert(body !== null, "cannot find `convertProps` in Boundary.Flow — the parse is wrong");
+
+  // The guard against a parse that stopped working, which the old deferred
+  // table used to provide. It cannot be "at least one prop is wired to
+  // `Nothing`" any more, because zero is the answer this section now asserts —
+  // so it is the size of the record instead.
+  const fields = [...body[1].matchAll(/^\s*[,{]\s*("?[\w-]+"?):/gm)].map((m) => m[1]);
   assert(
-    unknown.length === 0,
-    `deferred entries naming no such prop: ${unknown.join(", ")} — stale entries in Boundary.Flow`
+    fields.length > 100,
+    `read only ${fields.length} converted props from \`convertProps\` — the parse is wrong, ` +
+      `and it would pass anything`
+  );
+
+  const dropped = wiredToNothing(body[1]);
+  assert(
+    dropped.length === 0,
+    `props wired to \`Nothing\`, so they are silently ignored: ${dropped.join(", ")}. ` +
+      `Convert them, or refuse them the way \`defaultEdgeOptions\`' dropped members are — ` +
+      `a prop ps-flow ignores in silence is indistinguishable from one the consumer never set.`
   );
 });
-
-// The other direction, and the one that can go wrong quietly. `convertProps`
-// hands the PureScript component a literal `Nothing` for every prop that has
-// not crossed; the deferred table is what turns that into an error. A prop
-// wired to `Nothing` with no table entry is ignored in silence — the exact
-// failure the table exists to prevent, one field along.
-check("every prop wired to `Nothing` has a deferred entry", () => {
-  const convertProps = /^convertProps p =\n([\s\S]*?)\n  \}$/m.exec(flowText);
-  assert(convertProps !== null, "cannot find `convertProps` in Boundary.Flow — the parse is wrong");
-  const wiredToNothing = [...convertProps[1].matchAll(/^\s*[,{]\s*(\w+): Nothing$/gm)].map(
-    (m) => m[1]
-  );
-  assert(
-    wiredToNothing.length > 0,
-    "found no props wired to `Nothing` — the parse is wrong, and it would pass anything"
-  );
-  const deferredSet = new Set(deferred);
-  const unguarded = wiredToNothing.filter((name) => !deferredSet.has(name));
-  assert(
-    unguarded.length === 0,
-    `props wired to \`Nothing\` with no deferred entry, so they are silently ignored: ${unguarded.join(", ")}`
-  );
-});
-
-for (const name of deferred) {
-  check(`\`${name}\` is refused at mount`, () => {
-    let threw = null;
-    try {
-      renderToStaticMarkup(createElement(ReactFlow, { ...convertedProps, [name]: () => {} }));
-    } catch (e) {
-      threw = e;
-    }
-    assert(threw !== null, "mounted without complaint — the prop is being silently ignored");
-    assert(
-      threw.message.includes(`\`${name}\``),
-      `threw, but the message does not name the prop: ${threw.message}`
-    );
-    assert(
-      /boundary stage \d/.test(threw.message),
-      `threw, but the message does not name the stage that lands it: ${threw.message}`
-    );
-  });
-}
 
 // ── 2b. Every callback prop is accepted, and fires JS-shaped ────────────
 //
@@ -426,24 +394,14 @@ const callbackPropsOf = (path, typeName) =>
 
 const flowCallbacks = callbackPropsOf(flowSource, "JsFlowProps");
 
-// Upstream's `ReactFlowProps` has 49 callback props and `onInit` is the one
-// still refused, so anything under 40 here is a parse that stopped working
-// rather than a boundary that lost its callbacks.
+// Upstream's `ReactFlowProps` has 49 callback props and every one of them has
+// crossed, so anything under 40 here is a parse that stopped working rather
+// than a boundary that lost its callbacks.
 if (flowCallbacks.length < 40) {
   fail(
     `read only ${flowCallbacks.length} callback props from ${flowSource} — the parse is wrong`
   );
 }
-
-check("no callback prop is also a deferred prop", () => {
-  const deferredSet = new Set(deferred);
-  const both = flowCallbacks.filter((name) => deferredSet.has(name));
-  assert(
-    both.length === 0,
-    `props that are typed as handlers and refused anyway: ${both.join(", ")} — ` +
-      `a crossed callback with a stale table entry throws on a prop that works`
-  );
-});
 
 for (const name of flowCallbacks) {
   check(`\`${name}\` is accepted at mount`, () => {
@@ -733,6 +691,13 @@ const mountsInNode = mountsIn(inNode);
 
 const { Panel, Background, Controls, MiniMap } = psflow;
 const { Handle, NodeToolbar, NodeResizer, NodeResizeControl } = psflow;
+// Boundary stage 4: the fourteen components no fixture mounts. This file is
+// the first thing in the repo that mounts any of them at all, which is the
+// whole reason the stage needed a section here — every earlier stage crossed
+// what a driver was already rendering.
+const { ControlButton, MiniMapNode, EdgeText, BaseEdge, EdgeToolbar } = psflow;
+const { StraightEdge, SimpleBezierEdge, BezierEdge, SmoothStepEdge, StepEdge } = psflow;
+const { EdgeLabelRenderer, ViewportPortal, ReactFlowProvider, ReactFlowWithRef } = psflow;
 
 mounts(
   "`<Panel />` converts its position and passes its children through",
@@ -882,25 +847,30 @@ nodeChromeThrows(
   "horizontal"
 );
 
-// The refused lists are read out of the modules, never restated: a second copy
-// is a second thing to go stale, and this file already checks the one copy.
-// The three converter modules differ in nothing but where their components
-// mount, so all three go through the same checks below.
+// The five converter modules, and what mounts where. The three chrome-shaped
+// checks below are derived from these rather than written per component, so a
+// component that crosses is picked up here instead of waiting for someone to
+// extend a list.
 //
-// Each entry names its components' JS prop records too, because the callback
-// half of these checks is derived from a record's field types the same way the
-// flow's is. `Boundary.NodeChrome` is the module with an empty refusal table
-// after stage 2 — both of `<Handle />`'s deferred props were callbacks — which
-// is why a module with none is a legitimate state here and not a broken parse.
+// Each entry names its components' JS prop records, because the callback half
+// of these checks is derived from a record's field types the same way the
+// flow's is. `baseProps` is the props a component cannot mount *without* —
+// only `<MiniMapNode />` has any, because it is the one component here whose
+// required members are geometry rather than configuration.
 const converterModules = [
   {
     source: join(repoRoot, "src/Boundary/Chrome.purs"),
-    components: { Panel, Background, Controls, MiniMap },
+    components: { Panel, Background, Controls, MiniMap, ControlButton, MiniMapNode },
     propRecords: {
       Panel: "JsPanelProps",
       Background: "JsBackgroundProps",
       Controls: "JsControlsProps",
       MiniMap: "JsMiniMapProps",
+      ControlButton: "JsControlButtonProps",
+      MiniMapNode: "JsMiniMapNodeProps",
+    },
+    baseProps: {
+      MiniMapNode: { id: "a", x: 0, y: 0, width: 10, height: 10, borderRadius: 2 },
     },
     mount: inFlow,
   },
@@ -919,95 +889,96 @@ const converterModules = [
     },
     mount: inNode,
   },
+  // Boundary stage 4. The edge-side components mount as children of the flow
+  // like the chrome does — none of them is rendered by an edge in this file,
+  // because what is under test is the crossing and not the renderer that
+  // would normally place them.
+  {
+    source: join(repoRoot, "src/Boundary/Edges.purs"),
+    components: {
+      EdgeText,
+      BaseEdge,
+      StraightEdge,
+      SimpleBezierEdge,
+      BezierEdge,
+      SmoothStepEdge,
+      StepEdge,
+      EdgeToolbar,
+    },
+    propRecords: {
+      EdgeText: "JsEdgeTextProps",
+      BaseEdge: "JsBaseEdgeProps",
+      StraightEdge: "JsStraightEdgeProps",
+      SimpleBezierEdge: "JsSimpleBezierEdgeProps",
+      BezierEdge: "JsBezierEdgeProps",
+      SmoothStepEdge: "JsSmoothStepEdgeProps",
+      StepEdge: "JsStepEdgeProps",
+      EdgeToolbar: "JsEdgeToolbarProps",
+    },
+    mount: inFlow,
+  },
+  {
+    source: join(repoRoot, "src/Boundary/Portals.purs"),
+    components: { EdgeLabelRenderer, ViewportPortal },
+    propRecords: {
+      EdgeLabelRenderer: "JsEdgeLabelRendererProps",
+      ViewportPortal: "JsViewportPortalProps",
+    },
+    mount: inFlow,
+  },
 ];
 
-// Across the three, something must still be refused — otherwise every refusal
-// check below is vacuous and a broken parse looks exactly like a finished
-// staging. The per-module count may legitimately be zero; the total may not,
-// until the stage that empties the last table.
-const refusedSomewhere = converterModules.flatMap(({ source }) =>
-  deferredEntries(readModule(source))
-);
-if (refusedSomewhere.length === 0) {
-  fail("read no deferred props from any converter module — the parse is wrong");
-}
-
-for (const { source, components, propRecords, mount } of converterModules) {
+for (const { source, components, propRecords, baseProps = {}, mount } of converterModules) {
   const text = readModule(source);
   const known = Object.keys(components).join(", ");
-  const componentDeferred = deferredEntries(text);
 
   // The callback props these components take, derived from their own prop
   // records exactly as the flow's are. Six of `Controls`' and `MiniMap`'s and
-  // both of `<Handle />`'s threw at mount until stage 2, and the resizer's
-  // seven are the reason its two components crossed at all.
+  // both of `<Handle />`'s threw at mount until stage 2, the resizer's seven
+  // are the reason its two components crossed at all, and stage 4 adds
+  // `<ControlButton />`'s one and `<MiniMapNode />`'s — the latter being the
+  // only handler on this surface that also crosses outbound.
   for (const [component, record] of Object.entries(propRecords)) {
     for (const prop of callbackPropsOf(source, record)) {
       check(`\`${component}.${prop}\` is accepted at mount`, () => {
-        mount(createElement(components[component], { [prop]: () => {} }));
+        mount(createElement(components[component], { ...baseProps[component], [prop]: () => {} }));
       });
     }
   }
 
-  for (const qualified of componentDeferred) {
-    const [component, prop] = qualified.split(".");
-    check(`\`${qualified}\` is refused at mount`, () => {
-      assert(
-        Object.hasOwn(components, component),
-        `names \`${component}\`, which is not one of ${known} — a deferred entry ` +
-          `must be written \`<Component>.<prop>\``
-      );
-      let threw = null;
-      try {
-        mount(createElement(components[component], { [prop]: () => {} }));
-      } catch (e) {
-        threw = e;
-      }
-      assert(threw !== null, "mounted without complaint — the prop is being silently ignored");
-      assert(
-        threw.message.includes(`\`${qualified}\``),
-        `threw, but the message does not name the prop: ${threw.message}`
-      );
-      assert(
-        /boundary stage \d/.test(threw.message),
-        `threw, but the message does not name the stage that lands it: ${threw.message}`
-      );
-    });
-  }
-
-  // The other direction, exactly as for the flow props: a prop handed
-  // `Nothing` with no table entry is ignored in silence.
+  // A prop handed `Nothing` is one the conversion drops in silence — the same
+  // claim section 2 makes about the flow props, and the one that outlived the
+  // deferred tables. There were three refusals across these modules until
+  // stage 4 (`MiniMap.nodeComponent` was the last), and the check that each
+  // was declared went with them; this is what is left, and it is what would
+  // catch the next one.
   //
   // The converters are found by name — `convert<Component>`, which is why
   // every one of them is spelled that way — rather than listed, so a component
-  // crossing is picked up here instead of waiting for someone to extend a
-  // list. The component half of the name is what qualifies the lookup: an
-  // unqualified match would let `Controls.onFitView` cover `MiniMap`'s.
-  const converters = [...text.matchAll(/^convert(\w+) p =$/gm)].map((m) => m[1]);
+  // crossing is picked up here too. The component half of the name is what
+  // qualifies the lookup: an unqualified match would let `Controls.onFitView`
+  // cover `MiniMap`'s.
+  const converters = [...text.matchAll(/^convert(\w+) p(?: \w+)* =$/gm)].map((m) => m[1]);
 
   if (converters.length === 0) {
     fail(`found no \`convert<Component>\` converters in ${source} — the parse is wrong`);
   }
 
-  check(`every ${known} prop wired to \`Nothing\` has a deferred entry`, () => {
-    const deferredSet = new Set(componentDeferred);
-    const unguarded = [];
+  check(`no ${known} prop is wired to \`Nothing\``, () => {
+    const dropped = [];
     for (const component of converters) {
       assert(
         Object.hasOwn(components, component),
         `\`convert${component}\` names no exported component — a converter must be ` +
-          `\`convert<Component>\`, or the qualified lookup below cannot find its refusals`
+          `\`convert<Component>\`, so that what it converts can be mounted here`
       );
-      const body = new RegExp(`^convert${component} p =\\n([\\s\\S]*?)\\n  \\}$`, "m").exec(text);
+      const body = converterBody(text, component);
       assert(body !== null, `cannot read \`convert${component}\`'s body — the parse is wrong`);
-      for (const [, name] of body[1].matchAll(/^\s*[,{]\s*(\w+): Nothing$/gm)) {
-        if (!deferredSet.has(`${component}.${name}`)) unguarded.push(`${component}.${name}`);
-      }
+      for (const name of wiredToNothing(body[1])) dropped.push(`${component}.${name}`);
     }
     assert(
-      unguarded.length === 0,
-      `props wired to \`Nothing\` with no deferred entry, so they are silently ` +
-        `ignored: ${unguarded.join(", ")}`
+      dropped.length === 0,
+      `props wired to \`Nothing\`, so they are silently ignored: ${dropped.join(", ")}`
     );
   });
 }
@@ -1031,6 +1002,312 @@ chromeThrows(
   createElement(MiniMap, { nodeColor: "#f00" }),
   "MiniMap.nodeColor",
   "string form"
+);
+
+// ── 5b. Boundary stage 4: the components no fixture mounts ──────────────
+//
+// The fourteen components stage 4 crossed, taken from the hole register
+// rather than from a driver — which is exactly why they need a section here.
+// Every earlier stage crossed what something was already about to render, so
+// a mistake in it had a gate waiting; these had nothing waiting at all, and a
+// crossing nothing mounts is the one that would have shipped broken.
+//
+// Two claims, and the second is the one that has to be said out loud: a
+// component that mounts is not a component that is **driven**. The holes these
+// sit in stay open until a scenario renders one. What this section holds is
+// that a JavaScript caller can now reach them at upstream's shapes — which
+// was not true before, and is what a scenario would need.
+
+const edgeGeometry = { sourceX: 0, sourceY: 0, targetX: 100, targetY: 100 };
+const bendingEdge = { ...edgeGeometry, sourcePosition: "right", targetPosition: "left" };
+
+mounts(
+  "`<EdgeText />` converts its label group",
+  createElement(EdgeText, { x: 5, y: 6, label: "e" }),
+  "react-flow__edge-textwrapper"
+);
+mounts(
+  "`<BaseEdge />` renders the path it is given",
+  createElement(BaseEdge, { path: "M0,0 L10,10" }),
+  "react-flow__edge-path",
+  "M0,0 L10,10"
+);
+mounts(
+  "`<StraightEdge />` mounts with the four coordinates and no positions",
+  createElement(StraightEdge, edgeGeometry),
+  "react-flow__edge-path"
+);
+mounts(
+  "`<SimpleBezierEdge />` mounts with the two handle sides",
+  createElement(SimpleBezierEdge, bendingEdge),
+  "react-flow__edge-path"
+);
+// Upstream defaults these two in its parameter list
+// (`sourcePosition = Position.Bottom, targetPosition = Position.Top`, in
+// BezierEdge.tsx, SimpleBezierEdge.tsx and SmoothStepEdge.tsx), so its own
+// documented example passes the four coordinates and nothing else. ps-flow's
+// record has no absent state for a sum type, which is what makes supplying
+// them the crossing's job rather than the component's — the same claim
+// `<Handle />` takes no props makes one section up.
+mounts(
+  "a bending edge takes upstream's default handle sides",
+  createElement(BezierEdge, edgeGeometry),
+  "react-flow__edge-path"
+);
+mounts(
+  "`<BezierEdge />` converts its own `pathOptions` record",
+  createElement(BezierEdge, { ...bendingEdge, pathOptions: { curvature: 0.5 } }),
+  "react-flow__edge-path"
+);
+mounts(
+  "`<SmoothStepEdge />` converts its own `pathOptions` record",
+  createElement(SmoothStepEdge, {
+    ...bendingEdge,
+    pathOptions: { offset: 5, borderRadius: 2, stepPosition: 0.5 },
+  }),
+  "react-flow__edge-path"
+);
+mounts(
+  "`<StepEdge />` converts its own `pathOptions` record",
+  createElement(StepEdge, { ...bendingEdge, pathOptions: { offset: 5 } }),
+  "react-flow__edge-path"
+);
+mounts(
+  "`<ControlButton />` mounts with no props and passes its children through",
+  createElement(ControlButton, {}, "button-child"),
+  "react-flow__controls-button",
+  "button-child"
+);
+mounts(
+  "`<MiniMapNode />` converts its geometry",
+  createElement(MiniMapNode, {
+    id: "a",
+    x: 1,
+    y: 2,
+    width: 10,
+    height: 20,
+    borderRadius: 3,
+    selected: true,
+  }),
+  "react-flow__minimap-node selected"
+);
+
+// The three that render nothing from a server render, and mount clean anyway.
+// Both portal targets resolve their container by querying the flow's own DOM
+// node, which a server render does not have, so each returns an empty
+// fragment — and `<EdgeToolbar />` renders through one of them. That is the
+// ceiling here and it is still the claim that matters: before stage 4 these
+// took a `ReactChildren JSX` a JavaScript caller had no way to construct, so
+// `<ViewportPortal>x</ViewportPortal>` reached a `case` on `undefined`.
+mounts(
+  "`<EdgeLabelRenderer />` accepts JSX children",
+  createElement(EdgeLabelRenderer, {}, createElement("span", null, "label"))
+);
+mounts(
+  "`<ViewportPortal />` accepts JSX children",
+  createElement(ViewportPortal, {}, createElement("span", null, "in-viewport"))
+);
+mounts(
+  "`<EdgeToolbar />` converts its two alignments",
+  createElement(EdgeToolbar, { edgeId: "a-b", x: 1, y: 2, alignX: "left", alignY: "top" })
+);
+
+// The two flow-level components, which mount at the top rather than inside
+// one. `<ReactFlowProvider />` is what a consumer wraps their own tree in to
+// reach the hooks outside `<ReactFlow />`; `<ReactFlowWithRef />` is ps-flow's
+// own second component, and stage 4 is what let it take upstream's props.
+check("`<ReactFlowProvider />` converts its initial values", () => {
+  const html = renderToStaticMarkup(
+    createElement(
+      ReactFlowProvider,
+      {
+        initialNodes: convertedProps.nodes,
+        initialEdges: convertedProps.edges,
+        nodeOrigin: [0.5, 0.5],
+        nodeExtent: [[-10, -10], [10, 10]],
+        zIndexMode: "basic",
+        fitView: true,
+      },
+      createElement("div", { className: "provider-child" })
+    )
+  );
+  assert(html.includes("provider-child"), "the provider swallowed its children");
+});
+
+check("`<ReactFlowWithRef />` takes upstream's props and forwards its ref", () => {
+  const ref = { current: null };
+  const html = renderToStaticMarkup(
+    createElement(ReactFlowWithRef, { ...convertedProps, ref })
+  );
+  assert(html.includes("react-flow"), "render produced no flow wrapper");
+  // The ref itself cannot be observed here — `react-dom/server` attaches none —
+  // so what this asserts is that the props crossed. That the ref is forwarded
+  // rather than dropped is a shape claim, and surface parity holds it: the
+  // export is a `forwardRef`, which a plain function component cannot be.
+});
+
+// What the two ref-taking components gained, which is the half of their
+// divergence a shape comparison cannot see. `forwardRef` makes them the right
+// *shape*; putting the ref on the element is what makes them useful, and
+// nothing but the DOM says whether that happened.
+check("`<Panel />` and `<Handle />` put the forwarded ref on their element", () => {
+  for (const [what, source] of [
+    ["Panel", join(repoRoot, "src/React/Portal/Panel.purs")],
+    ["Handle", join(repoRoot, "src/React/Handle.purs")],
+  ]) {
+    const text = readModule(source);
+    assert(
+      /^\s*,?\s*ref: props\.innerRef$/m.test(text),
+      `${what} never puts \`innerRef\` on its element — it accepts a ref and drops it`
+    );
+  }
+});
+
+// ── 5c. The three props whose values are the consumer's own components ──
+//
+// `nodeTypes` crossed in stage 1 and section 1 reads the props it delivers.
+// These are the other two of the three, plus `MiniMap.nodeComponent`: each
+// wraps a component ps-flow did not write, and each has to hand it upstream's
+// props record rather than the PureScript one. That outbound direction is the
+// half the compiler forces nothing about, which is why it is checked by
+// reading what the component actually received.
+
+check("`edgeTypes` hands a consumer's edge component JS-shaped props", () => {
+  let seen = null;
+  const CustomEdge = (props) => {
+    seen = props;
+    return createElement("path", { className: "custom-edge", d: "M0,0" });
+  };
+  // Both endpoints measured **and handled**. An edge renders only once the
+  // store can place both of its ends, and a server render runs no effects, so
+  // neither the dimensions nor the handle bounds a browser would measure
+  // exist. Upstream's `Node.handles` is the way to supply them as data, and
+  // it is the only reason this claim is reachable here at all — without it
+  // the `react-flow__edges` container renders empty and a check looking for a
+  // class name would have passed on `react-flow__edgelabel-renderer`.
+  const measured = (id, x) => ({
+    id,
+    position: { x, y: 0 },
+    data: {},
+    width: 100,
+    height: 40,
+    measured: { width: 100, height: 40 },
+    handles: [
+      { x: 50, y: 40, position: "bottom", type: "source", width: 6, height: 6 },
+      { x: 50, y: 0, position: "top", type: "target", width: 6, height: 6 },
+    ],
+  });
+  const html = renderToStaticMarkup(
+    createElement(ReactFlow, {
+      ...convertedProps,
+      nodes: [measured("a", 0), measured("b", 200)],
+      nodeTypes: {},
+      edges: [{ ...convertedProps.edges[0], type: "custom" }],
+      edgeTypes: { custom: CustomEdge },
+    })
+  );
+  assert(html.includes("custom-edge"), "the custom edge type did not render");
+  assert(seen !== null, "the custom edge component was never called");
+  assert("type" in seen, "edge props have no `type` — a consumer destructures that, not `edgeType`");
+  assert(!("edgeType" in seen), "edge props still carry `edgeType`");
+  assert(seen.type === "custom", `edge props \`type\` was ${JSON.stringify(seen.type)}`);
+  assert(
+    seen.sourcePosition === "bottom",
+    `\`sourcePosition\` was ${JSON.stringify(seen.sourcePosition)}, not the string literal ` +
+      `"bottom" — a consumer switches on these, and a PureScript constructor is not one`
+  );
+  assert(typeof seen.sourceX === "number", "`sourceX` is not a number");
+  assert(typeof seen.selected === "boolean", "`selected` is not a plain boolean");
+  assert(
+    seen.labelBgPadding === undefined || Array.isArray(seen.labelBgPadding),
+    "`labelBgPadding` crossed as ps-flow's `{ x, y }` rather than upstream's pair"
+  );
+});
+
+check("`MiniMap.nodeComponent` hands a consumer's component JS-shaped props", () => {
+  let seen = null;
+  const CustomMiniMapNode = (props) => {
+    seen = props;
+    return createElement("rect", { className: "custom-minimap-node" });
+  };
+  const html = inFlow(createElement(MiniMap, { nodeComponent: CustomMiniMapNode }));
+  assert(html.includes("custom-minimap-node"), "the replacement minimap node did not render");
+  assert(seen !== null, "the replacement minimap node was never called");
+  assert(typeof seen.id === "string", "`id` is not a string");
+  assert(typeof seen.x === "number", "`x` is not a number");
+  assert(typeof seen.selected === "boolean", "`selected` is not a plain boolean");
+  assert(
+    seen.style === undefined || typeof seen.style === "object",
+    "`style` did not cross as a plain object"
+  );
+});
+
+check("`connectionLineComponent` is accepted at mount", () => {
+  renderToStaticMarkup(
+    createElement(ReactFlow, {
+      ...convertedProps,
+      connectionLineComponent: () => null,
+    })
+  );
+  // Nothing calls it here: it renders only while a connection is being
+  // dragged, which a server render cannot reach. What holds its props
+  // conversion is `parity/boundary/drift.mjs`'s `ConnectionLineComponentProps`
+  // pair, which is a claim about the label sets and not about the values;
+  // driving it is a hole-closing scenario's.
+});
+
+// ── 5d. What the stage-4 crossings refuse ───────────────────────────────
+//
+// The same claim section 3 makes about the flow props, one level down. Two of
+// these are worth reading twice.
+//
+// `EdgeToolbar.alignX` and `alignY` have **separate** member tables from
+// `NodeToolbar.align`, because the node toolbar aligns along one axis with
+// `start`/`center`/`end` and the edge toolbar names its ends by the side they
+// are on. A shared codec would accept `"start"` for `alignX`, which upstream's
+// own `alignXToPercent` has no entry for.
+
+chromeThrows(
+  "`<BaseEdge />` without a path says so rather than failing a pattern match",
+  createElement(BaseEdge, {}),
+  "BaseEdge.path",
+  "required"
+);
+chromeThrows(
+  "`<EdgeText />` without its coordinates says which one",
+  createElement(EdgeText, { label: "e" }),
+  "EdgeText.x",
+  "required"
+);
+chromeThrows(
+  "a bending edge's position is refused by the same enum table",
+  createElement(BezierEdge, { ...bendingEdge, sourcePosition: "rightish" }),
+  "BezierEdge.sourcePosition",
+  "right"
+);
+chromeThrows(
+  "`<EdgeToolbar />`'s alignX does not accept the node toolbar's members",
+  createElement(EdgeToolbar, { edgeId: "a-b", x: 1, y: 2, alignX: "start" }),
+  "EdgeToolbar.alignX",
+  "left"
+);
+chromeThrows(
+  "`<EdgeToolbar />` without an edge id says so",
+  createElement(EdgeToolbar, { x: 1, y: 2 }),
+  "EdgeToolbar.edgeId",
+  "required"
+);
+chromeThrows(
+  "`<MiniMapNode />` without its geometry says which member",
+  createElement(MiniMapNode, { id: "a" }),
+  "MiniMapNode.x",
+  "required"
+);
+chromeThrows(
+  "a label padding that is not a pair is refused",
+  createElement(BaseEdge, { path: "M0,0", labelBgPadding: [1, 2, 3] }),
+  "BaseEdge.labelBgPadding",
+  "paddingX"
 );
 
 // ── 6. The two hooks ────────────────────────────────────────────────────
@@ -1503,8 +1780,9 @@ check("the listener and middleware hooks accept JS-shaped handlers", () => {
 // The two that refuse. See `Boundary.Hooks`: both hand over the internal store
 // state, which is an 85-field PureScript record with no JS shape, and both are
 // callable at upstream's arity so that surface parity sees them agree. That
-// they throw is this gate's to hold — the same claim, and the same reason, as
-// the deferred props in section 2.
+// they throw is this gate's to hold, and it is held the way the refused
+// `defaultEdgeOptions` members are — by making the call and reading the
+// message.
 throws(
   "`useStore` refuses rather than handing over the PureScript store state",
   () => insideFlow(() => useStore((s) => s)),
@@ -1558,6 +1836,6 @@ if (failures > 0) {
   process.exit(1);
 }
 
-console.log(`boundary mount: ${notes.length} checks, ${deferred.length} deferred props refused.`);
+console.log(`boundary mount: ${notes.length} checks, ${refusedOptions.length} defaultEdgeOptions members refused, 0 deferred props.`);
 console.log(notes.slice(0, 5).join("\n"));
 console.log(`  ✓ … and ${notes.length - 5} more`);

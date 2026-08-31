@@ -32,9 +32,12 @@
 -- | `MarkerType.ArrowClosed` is `"arrowclosed"`, all lowercase.
 module Boundary.Enums
   ( alignIn
+  , alignXIn
+  , alignYIn
   , backgroundVariantIn
   , colorModeIn
   , connectionLineTypeIn
+  , connectionLineTypeOut
   , connectionModeIn
   , controlPositionIn
   , handleTypeIn
@@ -73,7 +76,7 @@ import System.Types.Connection
   , SelectionMode(..)
   , ZIndexMode(..)
   )
-import System.Types.Edge (ConnectionLineType(..), MarkerType(..))
+import System.Types.Edge (AlignX(..), AlignY(..), ConnectionLineType(..), MarkerType(..))
 import System.Types.Geometry (Position(..))
 import System.Types.Handle (HandleType(..))
 import System.Types.Node (Align(..))
@@ -173,6 +176,17 @@ connectionLineTypeIn field = fromEnumString field
   , Tuple "simplebezier" SimpleBezierLine
   ]
 
+-- | The way back out, which boundary stage 4 is the first thing to need:
+-- | `connectionLineComponent` hands a consumer's own component the type the
+-- | flow is drawing with. `Bezier` is `"default"` in this direction too.
+connectionLineTypeOut :: ConnectionLineType -> String
+connectionLineTypeOut = case _ of
+  BezierLine -> "default"
+  StraightLine -> "straight"
+  StepLine -> "step"
+  SmoothStepLine -> "smoothstep"
+  SimpleBezierLine -> "simplebezier"
+
 panOnScrollModeIn :: String -> String -> PanOnScrollMode
 panOnScrollModeIn field = fromEnumString field
   [ Tuple "free" Free
@@ -238,6 +252,25 @@ alignIn field = fromEnumString field
   [ Tuple "center" AlignCenter
   , Tuple "start" AlignStart
   , Tuple "end" AlignEnd
+  ]
+
+-- | `<EdgeToolbar alignX>` / `<EdgeToolbar alignY>`. Two axes and two string
+-- | unions, deliberately not `alignIn`'s: the node toolbar aligns along one
+-- | axis with `start`/`center`/`end`, and the edge toolbar names its ends by
+-- | the side they are on. Sharing a codec between them would accept `"start"`
+-- | for `alignX`, which upstream's `alignXToPercent` has no entry for.
+alignXIn :: String -> String -> AlignX
+alignXIn field = fromEnumString field
+  [ Tuple "left" AlignXLeft
+  , Tuple "center" AlignXCenter
+  , Tuple "right" AlignXRight
+  ]
+
+alignYIn :: String -> String -> AlignY
+alignYIn field = fromEnumString field
+  [ Tuple "top" AlignYTop
+  , Tuple "center" AlignYCenter
+  , Tuple "bottom" AlignYBottom
   ]
 
 -- | `FitViewOptions.interpolate`.

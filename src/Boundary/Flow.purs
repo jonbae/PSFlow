@@ -8,34 +8,57 @@
 -- |
 -- | ## What a prop can be
 -- |
--- | **Converted** — 122: 72 of the 74 non-callback fields, plus all 49 callback
--- | props. Three of the callbacks crossed in stage 1 with the component itself
--- | (`onNodesChange`, `onEdgesChange`, `onConnect`); 46 crossed in stage 2; and
--- | `onInit` crossed in stage 3, once `Boundary.Instance` existed to convert
--- | the one argument it is handed. Their converters live in
--- | `Boundary.Callbacks`.
+-- | **Converted** — all 124, as of boundary stage 4: 74 of 74 non-callback
+-- | fields, plus all 49 callback props. Three of the callbacks crossed in
+-- | stage 1 with the component itself (`onNodesChange`, `onEdgesChange`,
+-- | `onConnect`); 46 crossed in stage 2; and `onInit` crossed in stage 3, once
+-- | `Boundary.Instance` existed to convert the one argument it is handed.
+-- | Their converters live in `Boundary.Callbacks`.
 -- |
--- | **Deferred, and therefore throwing at mount** — 2: `edgeTypes` and
--- | `connectionLineComponent`. A deferred prop that merely did nothing would be
+-- | **Deferred, and therefore throwing at mount** — 0, as of stage 4. There
+-- | were two: `edgeTypes` and `connectionLineComponent`, both deferred for the
+-- | same reason — **their values had not crossed**. Each holds the consumer's
+-- | own components, so crossing it means an outbound converter for the props
+-- | those components receive; `nodeTypes` had one from stage 1
+-- | (`Boundary.Elements.nodePropsOut`), and edge props and connection-line
+-- | props are `Boundary.Edges`'.
+-- |
+-- | The `deferredProps` table that refused them is **gone**, and so is the
+-- | `guardDeferred` that ran in front of `convertProps`. That is not the guard
+-- | being dropped — it is the guard changing shape, because the failure it
+-- | existed for has not gone anywhere. A prop that merely did nothing would be
 -- | indistinguishable from a prop the consumer never set, which is the exact
 -- | failure shape of the unrun `Effect` thunk that produced this whole effort:
 -- | `setNodes(fn)` returned a thunk, nobody ran it, and every gate stayed
--- | green. The compiler does not help here — a record forces you to write
--- | *something* per field and `Nothing` compiles perfectly — so the guard is
--- | explicit, it is a table, and it runs before any conversion so the message
--- | names the offending prop rather than whatever happens to blow up first.
+-- | green. The compiler does not help — a record forces you to write
+-- | *something* per field and `Nothing` compiles perfectly. So
+-- | `parity/boundary/mount.mjs` now reads `convertProps` and fails on any prop
+-- | wired to a literal `Nothing`, which is the stronger claim: while props were
+-- | being refused it could only ask whether each one was declared.
 -- |
--- | Both are deferred for the same reason: **their values have not crossed**.
--- | Each holds the consumer's own components, so crossing it means an outbound
--- | converter for the props those components receive — `nodeTypes` has one
--- | (`Boundary.Elements.nodePropsOut`), edge props and connection-line props do
--- | not. That is boundary stage 4.
+-- | ## The three components this module publishes
+-- |
+-- | `reactFlow`, and — since stage 4 — `reactFlowWithRef` and
+-- | `reactFlowProvider`.
+-- |
+-- | `reactFlowWithRef` is ps-flow's own export, where upstream has one
+-- | component and makes it a `forwardRef`; crossing it lets a JavaScript
+-- | consumer who needs the wrapper div's ref reach it with upstream's props
+-- | rather than through the PureScript nesting. `ReactFlow` itself is still not
+-- | a `forwardRef`, which is #27 and not this stage.
+-- |
+-- | `reactFlowProvider` is here rather than in a module of its own because its
+-- | thirteen initial values are flow props by another name, and they cross
+-- | through the converters above.
 module Boundary.Flow
   ( JsAriaLabelConfig
   , JsDefaultEdgeOptions
   , JsFlowProps
   , JsProOptions
+  , JsReactFlowProviderProps
   , reactFlow
+  , reactFlowProvider
+  , reactFlowWithRef
   ) where
 
 import Prelude
@@ -108,6 +131,12 @@ import Boundary.Elements
   , snapGridIn
   , viewportIn
   )
+import Boundary.Edges
+  ( JsConnectionLineComponentProps
+  , JsEdgeProps
+  , connectionLineComponentIn
+  , edgeTypesIn
+  )
 import Boundary.Enums
   ( colorModeIn
   , connectionLineTypeIn
@@ -118,7 +147,7 @@ import Boundary.Enums
   , selectionModeIn
   , zIndexModeIn
   )
-import Boundary.Refusal (Refusal, componentProp, deferredMessage, refuseFirst)
+import Boundary.Refusal (Refusal, refuseFirst)
 import Boundary.Undefined (Undefinable, fromUndefinable, isDefined)
 import Boundary.Untagged (asArray, asBoolean, asNumber, asString, typeName)
 import Data.Array.NonEmpty (fromArray) as NEA
@@ -130,8 +159,10 @@ import Foreign (Foreign)
 import Foreign.Object (Object)
 import React.Basic (JSX, ReactComponent, element)
 import React.Basic.Hooks (ReactChildren, reactComponentWithChildren)
-import React.Container.ReactFlow (reactFlow) as PS
-import React.Types.Component (ReactFlowProps)
+import React.Container.ReactFlow (reactFlow, reactFlowWithRef) as PS
+import React.FFI.ForwardRef (elementWithNullableRef, forwardNullableRef)
+import React.Provider (reactFlowProvider) as PS
+import React.Types.Component (ReactFlowProps, ReactFlowProviderProps)
 import React.Types.Edges (DefaultEdgeOptions, ReconnectHandleType(..))
 import React.Types.General (ProOptions)
 import System.Constants (AriaLabelConfigOverride)
@@ -275,10 +306,10 @@ type JsFlowProps =
   , isValidConnection :: Undefinable JsIsValidConnection
   , onError :: Undefinable JsOnError
   , nodeTypes :: Undefinable (Object (ReactComponent JsNodeProps))
-  , edgeTypes :: Undefinable Foreign
+  , edgeTypes :: Undefinable (Object (ReactComponent JsEdgeProps))
   , connectionLineType :: Undefinable String
   , connectionLineStyle :: Undefinable Foreign
-  , connectionLineComponent :: Undefinable Foreign
+  , connectionLineComponent :: Undefinable (ReactComponent JsConnectionLineComponentProps)
   , connectionLineContainerStyle :: Undefinable Foreign
   , connectionMode :: Undefinable String
   , deleteKeyCode :: Undefinable Foreign
@@ -344,34 +375,27 @@ type JsFlowProps =
   }
 
 -- ────────────────────────────────────────────────────────────────────────
--- The deferred-prop guard
--- ────────────────────────────────────────────────────────────────────────
-
--- | Every prop that resolves on the JS surface but does not yet cross. Named
--- | rather than counted, because the count is the thing that drifts.
--- |
--- | Stage 2 took 46 entries out of this table and stage 3 took the 47th:
--- | `onInit`'s argument is the imperative instance, and `Boundary.Instance` is
--- | what let it cross. The two left are handed the props a consumer's *own*
--- | component receives, which is boundary stage 4's subject and not a
--- | conversion this module could write.
-deferredProps :: Array (Refusal JsFlowProps)
-deferredProps =
-  [ componentProp "edgeTypes" _.edgeTypes
-  , componentProp "connectionLineComponent" _.connectionLineComponent
-  ]
-
--- | Throws on the first deferred prop the consumer supplied, and otherwise
--- | hands the props straight back.
-guardDeferred :: JsFlowProps -> JsFlowProps
-guardDeferred = refuseFirst deferredMessage deferredProps
-
--- ────────────────────────────────────────────────────────────────────────
 -- The conversion
+--
+-- There was a `deferredProps` table here, and a `guardDeferred` in front of
+-- this function, from stage 1 until stage 4. It held every prop that resolved
+-- on the JS surface and had no converter, and it threw on the first one a
+-- consumer supplied. Stage 2 emptied 46 of its entries, stage 3 the 47th, and
+-- stage 4 the last two — so it is gone, along with the entry kind it was the
+-- last user of (`Boundary.Refusal`).
+--
+-- What replaces it is not a smaller guard but a differently-shaped check:
+-- `parity/boundary/mount.mjs` reads this function and fails if *any* prop is
+-- wired to `Nothing`. While props were being refused that check asked whether
+-- each one was declared; with nothing refused it asks whether anything is
+-- dropped, which is the stronger of the two and the one worth keeping.
+--
+-- The `flowPropsIn` that stood in front of this went with the guard. It existed
+-- to make the guard unskippable — `convert <<< guard` has no way to reach a
+-- converted field without going through the guard first — and with nothing to
+-- guard it was a name for `convertProps` and nothing else. `Boundary.Chrome`
+-- lost its `miniMapPropsIn` in the same commit and for the same reason.
 -- ────────────────────────────────────────────────────────────────────────
-
-flowPropsIn :: JsFlowProps -> ReactFlowProps Foreign Foreign
-flowPropsIn = convertProps <<< guardDeferred
 
 convertProps :: JsFlowProps -> ReactFlowProps Foreign Foreign
 convertProps p =
@@ -433,12 +457,13 @@ convertProps p =
   , isValidConnection: map isValidConnectionIn (fromUndefinable p.isValidConnection)
   , onError: map onErrorIn (fromUndefinable p.onError)
   , nodeTypes: map nodeTypesIn (fromUndefinable p.nodeTypes)
-  , edgeTypes: Nothing
+  , edgeTypes: map edgeTypesIn (fromUndefinable p.edgeTypes)
   , connectionLineType:
       map (connectionLineTypeIn "connectionLineType")
         (fromUndefinable p.connectionLineType)
   , connectionLineStyle: map asCssStyle (fromUndefinable p.connectionLineStyle)
-  , connectionLineComponent: Nothing
+  , connectionLineComponent:
+      map connectionLineComponentIn (fromUndefinable p.connectionLineComponent)
   , connectionLineContainerStyle:
       map asCssStyle (fromUndefinable p.connectionLineContainerStyle)
   , connectionMode: map (connectionModeIn "connectionMode") (fromUndefinable p.connectionMode)
@@ -508,8 +533,11 @@ convertProps p =
   }
 
 -- | The thirteen `defaultEdgeOptions` members ps-flow's own record has no room
--- | for. Same shape as `deferredProps` and for the same reason — the guard has
--- | to name them, because nothing about writing the conversion would.
+-- | for. The last refusal table on this surface, and the one the deferred
+-- | props were never quite the same as: these are refused because the
+-- | internals do not model them, not because a converter is pending, so no
+-- | stage retires them. The guard has to name them because nothing about
+-- | writing the conversion would.
 refusedEdgeOptions :: Array (Refusal JsDefaultEdgeOptions)
 refusedEdgeOptions =
   [ droppedOption "type" _.type
@@ -644,4 +672,74 @@ ariaLabelConfigIn c =
 reactFlow :: ReactComponent JsFlowProps
 reactFlow =
   unsafePerformEffect $ reactComponentWithChildren "ReactFlow"
-    \(props :: JsFlowProps) -> pure (element PS.reactFlow (flowPropsIn props))
+    \(props :: JsFlowProps) -> pure (element PS.reactFlow (convertProps props))
+
+-- | ps-flow's own second component, crossing. Upstream has one `<ReactFlow />`
+-- | and makes it a `forwardRef`; ps-flow splits the two so that the common
+-- | case does not pay for ref plumbing, and this is the half that takes one.
+-- |
+-- | The ref is forwarded rather than accepted and dropped, which is what
+-- | `elementWithNullableRef` is for: `React.Basic`'s `element` takes a props
+-- | record, and React removes `ref` from one before the component sees it, so
+-- | a wrapper cannot pass a ref on as a field. Accepting a ref and losing it
+-- | is worse here than anywhere else on the surface — it is the whole reason
+-- | this component exists.
+reactFlowWithRef :: ReactComponent JsFlowProps
+reactFlowWithRef =
+  forwardNullableRef "ReactFlowWithRef" \(props :: JsFlowProps) forwarded ->
+    elementWithNullableRef PS.reactFlowWithRef { props: convertProps props } forwarded
+
+-- ────────────────────────────────────────────────────────────────────────
+-- ReactFlowProvider
+--
+-- The context provider a consumer wraps their own tree in when they want the
+-- hooks outside `<ReactFlow />`. Thirteen initial values and `children`, all
+-- optional, and every one of them a shape some flow prop already crosses — so
+-- this record shares `nodeIn`, `edgeIn`, `fitViewOptionsIn`, `nodeOriginIn`,
+-- `coordinateExtentIn` and `zIndexModeIn` with the props record above rather
+-- than restating them.
+-- ────────────────────────────────────────────────────────────────────────
+
+type JsReactFlowProviderProps =
+  { initialNodes :: Undefinable (Array JsNode)
+  , initialEdges :: Undefinable (Array JsEdge)
+  , defaultNodes :: Undefinable (Array JsNode)
+  , defaultEdges :: Undefinable (Array JsEdge)
+  , initialWidth :: Undefinable Number
+  , initialHeight :: Undefinable Number
+  , fitView :: Undefinable Boolean
+  , initialFitViewOptions :: Undefinable JsFitViewOptions
+  , initialMinZoom :: Undefinable Number
+  , initialMaxZoom :: Undefinable Number
+  , nodeOrigin :: Undefinable (Array Number)
+  , nodeExtent :: Undefinable (Array (Array Number))
+  , zIndexMode :: Undefinable String
+  , children :: ReactChildren JSX
+  }
+
+convertProvider :: JsReactFlowProviderProps -> ReactFlowProviderProps Foreign Foreign
+convertProvider p =
+  { initialNodes: map (map nodeIn) (fromUndefinable p.initialNodes)
+  , initialEdges: map (map edgeIn) (fromUndefinable p.initialEdges)
+  , defaultNodes: map (map nodeIn) (fromUndefinable p.defaultNodes)
+  , defaultEdges: map (map edgeIn) (fromUndefinable p.defaultEdges)
+  , initialWidth: fromUndefinable p.initialWidth
+  , initialHeight: fromUndefinable p.initialHeight
+  , fitView: fromUndefinable p.fitView
+  , initialFitViewOptions: map fitViewOptionsIn (fromUndefinable p.initialFitViewOptions)
+  , initialMinZoom: fromUndefinable p.initialMinZoom
+  , initialMaxZoom: fromUndefinable p.initialMaxZoom
+  , nodeOrigin:
+      map (nodeOriginIn "ReactFlowProvider.nodeOrigin") (fromUndefinable p.nodeOrigin)
+  , nodeExtent:
+      map (coordinateExtentIn "ReactFlowProvider.nodeExtent") (fromUndefinable p.nodeExtent)
+  , zIndexMode:
+      map (zIndexModeIn "ReactFlowProvider.zIndexMode") (fromUndefinable p.zIndexMode)
+  , children: p.children
+  }
+
+reactFlowProvider :: ReactComponent JsReactFlowProviderProps
+reactFlowProvider =
+  unsafePerformEffect $ reactComponentWithChildren "ReactFlowProvider"
+    \(props :: JsReactFlowProviderProps) ->
+      pure (element PS.reactFlowProvider (convertProvider props))

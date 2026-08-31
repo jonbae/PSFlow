@@ -47,5 +47,8 @@ panel =
           , style: opt props.style
           , "aria-label": opt props."aria-label"
           , "data-testid": opt props."data-testid"
+          -- Straight through, `null` included: React reads a null ref as no
+          -- ref, which is exactly what the caller who passed none meant.
+          , ref: props.innerRef
           }
           (reactChildrenToArray props.children)

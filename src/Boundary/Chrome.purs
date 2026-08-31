@@ -1,5 +1,7 @@
--- | The four chrome components, crossing: `<Panel />`, `<Background />`,
--- | `<Controls />` and `<MiniMap />`.
+-- | The chrome components, crossing: `<Panel />`, `<Background />`,
+-- | `<Controls />` and `<MiniMap />` — the four a driver mounts inside the
+-- | flow — and, since boundary stage 4, `<ControlButton />` and
+-- | `<MiniMapNode />`, the two a consumer reaches inside two of those.
 -- |
 -- | All four have been in stage 1's set since it was derived — upstream's
 -- | `generic-tests/Flow.tsx` mounts each of them from a fixture's
@@ -16,16 +18,24 @@
 -- | "takes no props" is exactly the case a crossing is needed for, and it is
 -- | why these four cross whole rather than field by field.
 -- |
+-- | ## The two sub-components, and the prop that waited for one
+-- |
+-- | Boundary stage 4 adds `<ControlButton />` and `<MiniMapNode />` — the two
+-- | pieces of chrome a consumer reaches *inside* one of the four above, the way
+-- | `Boundary.NodeChrome`'s pair is reached inside a custom node. Neither had
+-- | crossed, so neither could be mounted from JavaScript, and one of them was
+-- | blocking a prop: `MiniMap.nodeComponent` is a consumer's own component
+-- | receiving `MiniMapNodeProps`, so crossing it needed an outbound converter
+-- | for that record. It is the third and last of the three props whose values
+-- | are consumer components (`Boundary.Wrapper`), and it crosses here now.
+-- |
 -- | ## What is refused, and what that costs
 -- |
--- | One prop resolves here and does not cross. `MiniMap.nodeComponent` is a
--- | consumer's own component receiving `MiniMapNodeProps`, so crossing it means
--- | an outbound converter for that record — the same reason `edgeTypes` is
--- | deferred and `nodeTypes` is not.
--- |
--- | `Controls`' four handlers and `MiniMap`'s two were refused beside it until
--- | boundary stage 2, which crossed the callbacks wherever they appear; their
--- | converters are in `Boundary.Callbacks` with the flow's.
+-- | Nothing on these six records is deferred any more. `Controls`' four
+-- | handlers and `MiniMap`'s two were refused until boundary stage 2, which
+-- | crossed the callbacks wherever they appear; their converters are in
+-- | `Boundary.Callbacks` with the flow's. `MiniMap.nodeComponent` was the last
+-- | one standing and stage 4 is what lands it.
 -- |
 -- | Three more are refused **by value rather than by name**:
 -- | `nodeColor`, `nodeStrokeColor` and `nodeClassName` are
@@ -35,12 +45,17 @@
 -- | gets told that rather than a minimap of undefined-coloured nodes.
 module Boundary.Chrome
   ( JsBackgroundProps
+  , JsControlButtonProps
   , JsControlsProps
+  , JsMiniMapNodeProps
   , JsMiniMapProps
   , JsPanelProps
   , background
+  , controlButton
   , controls
   , miniMap
+  , miniMapNode
+  , miniMapNodePropsOut
   , panel
   ) where
 
@@ -50,31 +65,52 @@ import Boundary.Callbacks
   ( JsCommandHandler
   , JsInteractiveChangeHandler
   , JsMiniMapClickHandler
+  , JsMiniMapNodeClickHandler
   , JsNodeMouseHandler
   , commandHandlerIn
   , interactiveChangeHandlerIn
   , miniMapClickHandlerIn
+  , miniMapNodeClickHandlerIn
+  , miniMapNodeClickHandlerOut
   , nodeMouseHandlerIn
   )
-import Boundary.Elements (asCssObject, nodeOut)
+import Boundary.Elements (asCssObject, fromCssObject, nodeOut)
 import Boundary.Enums (backgroundVariantIn, orientationIn, panelPositionIn)
 import Boundary.FitView (JsFitViewOptions, fitViewOptionsIn)
-import Boundary.Refusal (Refusal, componentProp, deferredMessage, refuseFirst)
-import Boundary.Undefined (Undefinable, fromUndefinable)
+import Boundary.Undefined
+  ( Undefinable
+  , fromUndefinable
+  , orNullable
+  , requiredProp
+  , toUndefinable
+  )
 import Boundary.Untagged (asArray, asFunction, asNumber, asString, typeName)
+import Boundary.Wrapper (mkComponentWrapper)
 import Data.Either (Either(..))
-import Data.Maybe (Maybe(..))
+import Data.Maybe (Maybe(..), fromMaybe)
+import Data.Nullable (Nullable)
 import Data.Tuple (Tuple(..))
 import Effect.Exception.Unsafe (unsafeThrow)
+import Effect.Uncurried (mkEffectFn1)
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign)
 import React.Additional.Background (background) as PS
 import React.Additional.Controls (controls) as PS
+import React.Additional.Controls.Button (controlButton) as PS
 import React.Additional.MiniMap (miniMap) as PS
+import React.Additional.MiniMap.Node (miniMapNode) as PS
 import React.Basic (JSX, ReactComponent, element)
-import React.Basic.Hooks (ReactChildren, reactComponent, reactComponentWithChildren)
+import React.Basic.Hooks (ReactChildren, memo, reactComponent, reactComponentWithChildren)
+import React.FFI.ForwardRef (forwardNullableRef)
 import React.Portal.Panel (panel) as PS
-import React.Types.Component (BackgroundProps, ControlsProps, MiniMapProps, PanelProps)
+import React.Types.Component
+  ( BackgroundProps
+  , ControlButtonProps
+  , ControlsProps
+  , MiniMapNodeProps
+  , MiniMapProps
+  , PanelProps
+  )
 import React.Types.Nodes (Node)
 import Unsafe.Coerce (unsafeCoerce)
 
@@ -82,20 +118,11 @@ import Unsafe.Coerce (unsafeCoerce)
 -- Shared
 -- ────────────────────────────────────────────────────────────────────────
 
--- | Every refusal below names its component — `MiniMap.onClick`, not
--- | `onClick`. Four records meet here, `ReactFlow` has props of its own by
+-- | Every message below names its component — `MiniMap.onClick`, not
+-- | `onClick`. Six records meet here, `ReactFlow` has props of its own by
 -- | some of the same names, and the message is the only thing that says which
--- | element the consumer has to go and look at.
-
--- | A prop upstream declares required. It is typed `Undefinable` here anyway,
--- | because a JavaScript caller can always omit it and TypeScript is not
--- | running — and an omission met by a pattern-match failure names nothing.
-requiredProp :: forall a. String -> Undefinable a -> a
-requiredProp field u = case fromUndefinable u of
-  Just v -> v
-  Nothing ->
-    unsafeThrow $
-      "ps-flow: `" <> field <> "` is required and was not supplied."
+-- | element the consumer has to go and look at. `Boundary.Undefined`'s
+-- | `requiredProp` takes that qualified path for the same reason.
 
 -- ────────────────────────────────────────────────────────────────────────
 -- Panel
@@ -113,22 +140,32 @@ type JsPanelProps =
   , "aria-label" :: Undefinable String
   , "data-testid" :: Undefinable String
   , children :: ReactChildren JSX
+  -- | Upstream's name for what ps-flow spells `innerRef`, and the reason this
+  -- | component is a `forwardRef`. `Boundary.Undefined.orNullable` says why it
+  -- | is read from the props object as well as from the forwarded argument.
+  , ref :: Undefinable Foreign
   }
 
-convertPanel :: JsPanelProps -> PanelProps
-convertPanel p =
+convertPanel :: JsPanelProps -> Nullable Foreign -> PanelProps
+convertPanel p forwarded =
   { position: panelPositionIn "Panel.position" (requiredProp "Panel.position" p.position)
   , className: fromUndefinable p.className
   , style: map asCssObject (fromUndefinable p.style)
   , "aria-label": fromUndefinable p."aria-label"
   , "data-testid": fromUndefinable p."data-testid"
   , children: p.children
+  , innerRef: orNullable p.ref forwarded
   }
 
+-- | `forwardRef`, and no `memo` — which is upstream's shape and not the one
+-- | the PureScript component underneath has. `React.Portal.Panel.panel` is
+-- | memoized; `<Panel />` upstream is not, and the wrapper is what a
+-- | JavaScript caller sees. Boundary stage 4 is where the four chrome
+-- | components stopped guessing at this and started copying it.
 panel :: ReactComponent JsPanelProps
 panel =
-  unsafePerformEffect $ reactComponentWithChildren "Panel"
-    \(props :: JsPanelProps) -> pure (element PS.panel (convertPanel props))
+  forwardNullableRef "Panel"
+    \(props :: JsPanelProps) forwarded -> element PS.panel (convertPanel props forwarded)
 
 -- ────────────────────────────────────────────────────────────────────────
 -- Background
@@ -185,9 +222,13 @@ numberPairIn field raw = case asNumber raw of
           <> typeName value
           <> "."
 
+-- | `memo`, because upstream's is. Stage 1's wrapper was a plain
+-- | `reactComponent`, so crossing a memoized PureScript component published an
+-- | un-memoized one; the same three-word fix lands on `<Controls />` and
+-- | `<MiniMap />` below.
 background :: ReactComponent JsBackgroundProps
 background =
-  unsafePerformEffect $ reactComponent "Background"
+  unsafePerformEffect $ memo $ reactComponent "Background"
     \(props :: JsBackgroundProps) -> pure (element PS.background (convertBackground props))
 
 -- ────────────────────────────────────────────────────────────────────────
@@ -232,7 +273,7 @@ convertControls p =
 
 controls :: ReactComponent JsControlsProps
 controls =
-  unsafePerformEffect $ reactComponentWithChildren "Controls"
+  unsafePerformEffect $ memo $ reactComponentWithChildren "Controls"
     \(props :: JsControlsProps) -> pure (element PS.controls (convertControls props))
 
 -- ────────────────────────────────────────────────────────────────────────
@@ -248,7 +289,7 @@ type JsMiniMapProps =
   , nodeClassName :: Undefinable Foreign
   , nodeBorderRadius :: Undefinable Number
   , nodeStrokeWidth :: Undefinable Number
-  , nodeComponent :: Undefinable Foreign
+  , nodeComponent :: Undefinable (ReactComponent JsMiniMapNodeProps)
   , bgColor :: Undefinable String
   , maskColor :: Undefinable String
   , maskStrokeColor :: Undefinable String
@@ -267,14 +308,6 @@ type JsMiniMapProps =
   , className :: Undefinable String
   }
 
-deferredMiniMapProps :: Array (Refusal JsMiniMapProps)
-deferredMiniMapProps =
-  [ componentProp "MiniMap.nodeComponent" _.nodeComponent
-  ]
-
-miniMapPropsIn :: JsMiniMapProps -> MiniMapProps Foreign
-miniMapPropsIn = convertMiniMap <<< refuseFirst deferredMessage deferredMiniMapProps
-
 convertMiniMap :: JsMiniMapProps -> MiniMapProps Foreign
 convertMiniMap p =
   { nodeColor: map (nodeAttributeIn "MiniMap.nodeColor") (fromUndefinable p.nodeColor)
@@ -284,7 +317,7 @@ convertMiniMap p =
       map (nodeAttributeIn "MiniMap.nodeClassName") (fromUndefinable p.nodeClassName)
   , nodeBorderRadius: fromUndefinable p.nodeBorderRadius
   , nodeStrokeWidth: fromUndefinable p.nodeStrokeWidth
-  , nodeComponent: Nothing
+  , nodeComponent: map wrapMiniMapNodeComponent (fromUndefinable p.nodeComponent)
   , bgColor: fromUndefinable p.bgColor
   , maskColor: fromUndefinable p.maskColor
   , maskStrokeColor: fromUndefinable p.maskStrokeColor
@@ -336,5 +369,138 @@ nodeAttributeIn field raw = case asFunction raw of
 
 miniMap :: ReactComponent JsMiniMapProps
 miniMap =
-  unsafePerformEffect $ reactComponentWithChildren "MiniMap"
-    \(props :: JsMiniMapProps) -> pure (element PS.miniMap (miniMapPropsIn props))
+  unsafePerformEffect $ memo $ reactComponentWithChildren "MiniMap"
+    \(props :: JsMiniMapProps) -> pure (element PS.miniMap (convertMiniMap props))
+
+-- ────────────────────────────────────────────────────────────────────────
+-- ControlButton
+--
+-- The button `<Controls />` renders for each of its own controls, and the one
+-- a consumer adds their own beside them with. Upstream's props are
+-- `ButtonHTMLAttributes<HTMLButtonElement>`, of which ps-flow models the six
+-- its component forwards. The rest is missing from the internals, exactly as
+-- it is on `JsPanelProps` against `HTMLAttributes`: this record cannot name
+-- what it does not know the shape of, so an unmodelled DOM attribute is
+-- dropped here as silently as it is on the PureScript surface.
+-- ────────────────────────────────────────────────────────────────────────
+
+type JsControlButtonProps =
+  { onClick :: Undefinable JsCommandHandler
+  , disabled :: Undefinable Boolean
+  , className :: Undefinable String
+  , title :: Undefinable String
+  , "aria-label" :: Undefinable String
+  , style :: Undefinable Foreign
+  , children :: ReactChildren JSX
+  }
+
+convertControlButton :: JsControlButtonProps -> ControlButtonProps
+convertControlButton p =
+  { onClick: map commandHandlerIn (fromUndefinable p.onClick)
+  , disabled: fromUndefinable p.disabled
+  , className: fromUndefinable p.className
+  , title: fromUndefinable p.title
+  , "aria-label": fromUndefinable p."aria-label"
+  , style: map asCssObject (fromUndefinable p.style)
+  , children: p.children
+  }
+
+-- | Not memoized, because upstream's is not — the opposite direction to
+-- | `<Background />` and its two siblings above, and why the surface-parity
+-- | allowlist listed this one class of divergence pointing both ways.
+-- | ps-flow's own `<ControlButton />` is memoized; that is a fact about the
+-- | internals, and the JS surface publishes upstream's shape.
+controlButton :: ReactComponent JsControlButtonProps
+controlButton =
+  unsafePerformEffect $ reactComponentWithChildren "ControlButton"
+    \(props :: JsControlButtonProps) ->
+      pure (element PS.controlButton (convertControlButton props))
+
+-- ────────────────────────────────────────────────────────────────────────
+-- MiniMapNode
+--
+-- The per-node rect inside the minimap, and the only component on this
+-- surface that crosses in **both** directions: a consumer can render it
+-- themselves, and `MiniMap.nodeComponent` is ps-flow rendering the consumer's
+-- replacement for it. So this record has a converter each way, and neither is
+-- the other's inverse — `miniMapNodePropsOut` is what the wrapper below hands
+-- a component ps-flow did not write.
+-- ────────────────────────────────────────────────────────────────────────
+
+type JsMiniMapNodeProps =
+  { id :: Undefinable String
+  , x :: Undefinable Number
+  , y :: Undefinable Number
+  , width :: Undefinable Number
+  , height :: Undefinable Number
+  , borderRadius :: Undefinable Number
+  , className :: Undefinable String
+  , color :: Undefinable String
+  , shapeRendering :: Undefinable String
+  , strokeColor :: Undefinable String
+  , strokeWidth :: Undefinable Number
+  , style :: Undefinable Foreign
+  , selected :: Undefinable Boolean
+  , onClick :: Undefinable JsMiniMapNodeClickHandler
+  }
+
+-- | Six members upstream declares required, and three ps-flow makes required
+-- | that upstream does not. `className`, `shapeRendering` and `selected` have
+-- | an answer a rect nobody configured can carry — the empty string and
+-- | `false` — so they default rather than throwing; the six that name the
+-- | rect's identity and geometry have no such answer.
+convertMiniMapNode :: JsMiniMapNodeProps -> MiniMapNodeProps
+convertMiniMapNode p =
+  { id: requiredProp "MiniMapNode.id" p.id
+  , x: requiredProp "MiniMapNode.x" p.x
+  , y: requiredProp "MiniMapNode.y" p.y
+  , width: requiredProp "MiniMapNode.width" p.width
+  , height: requiredProp "MiniMapNode.height" p.height
+  , borderRadius: requiredProp "MiniMapNode.borderRadius" p.borderRadius
+  , className: fromMaybe "" (fromUndefinable p.className)
+  , color: fromUndefinable p.color
+  , shapeRendering: fromMaybe "" (fromUndefinable p.shapeRendering)
+  , strokeColor: fromUndefinable p.strokeColor
+  , strokeWidth: fromUndefinable p.strokeWidth
+  , style: map asCssObject (fromUndefinable p.style)
+  , selected: fromMaybe false (fromUndefinable p.selected)
+  , onClick: map miniMapNodeClickHandlerIn (fromUndefinable p.onClick)
+  }
+
+miniMapNodePropsOut :: MiniMapNodeProps -> JsMiniMapNodeProps
+miniMapNodePropsOut p =
+  { id: toUndefinable (Just p.id)
+  , x: toUndefinable (Just p.x)
+  , y: toUndefinable (Just p.y)
+  , width: toUndefinable (Just p.width)
+  , height: toUndefinable (Just p.height)
+  , borderRadius: toUndefinable (Just p.borderRadius)
+  , className: toUndefinable (Just p.className)
+  , color: toUndefinable p.color
+  , shapeRendering: toUndefinable (Just p.shapeRendering)
+  , strokeColor: toUndefinable p.strokeColor
+  , strokeWidth: toUndefinable p.strokeWidth
+  , style: toUndefinable (map fromCssObject p.style)
+  , selected: toUndefinable (Just p.selected)
+  , onClick: toUndefinable (map miniMapNodeClickHandlerOut p.onClick)
+  }
+
+-- | `MiniMap.nodeComponent`, crossing: the consumer's component wrapped so
+-- | that what reaches it is `JsMiniMapNodeProps`. The third and last of the
+-- | three props whose values are components the consumer wrote — `nodeTypes`
+-- | in stage 1, `edgeTypes` and this one in stage 4 — and all three go through
+-- | `Boundary.Wrapper`, which says why the wrapper has to be a component
+-- | rather than a call.
+wrapMiniMapNodeComponent
+  :: ReactComponent JsMiniMapNodeProps
+  -> ReactComponent MiniMapNodeProps
+wrapMiniMapNodeComponent userComponent =
+  mkComponentWrapper userComponent
+    (mkEffectFn1 \psProps -> pure (element userComponent (miniMapNodePropsOut psProps)))
+
+-- | `memo`, because upstream's is.
+miniMapNode :: ReactComponent JsMiniMapNodeProps
+miniMapNode =
+  unsafePerformEffect $ memo $ reactComponent "MiniMapNode"
+    \(props :: JsMiniMapNodeProps) ->
+      pure (element PS.miniMapNode (convertMiniMapNode props))

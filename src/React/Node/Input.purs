@@ -12,6 +12,7 @@ import Prelude
 import Control.Monad.Except (runExcept)
 import Data.Either (hush)
 import Data.Maybe (Maybe(..), fromMaybe)
+import Data.Nullable (null)
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign, readString)
 import Foreign.Index ((!))
@@ -48,4 +49,5 @@ inputNode = unsafePerformEffect $ reactComponent "InputNode" \(props :: NodeProp
           , isValidConnection: Nothing
           , className: Nothing
           , style: Nothing
+          , innerRef: null
           }

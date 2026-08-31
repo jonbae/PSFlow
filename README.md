@@ -60,10 +60,13 @@ It did **not** retire on the condition written down for it, "when the net's
 `props` section is green": both of its claims are about the graph, and a probed
 run compares only its own observation level rather than the graph the probe
 replaced. That section is still red on three things the spec never saw —
-`edgeTypes` and `connectionLineComponent` not having crossed
-([#62](https://github.com/jonbae/PSFlow/issues/62)), and `NodeProps.width` /
-`height` reading `undefined` against upstream's `0` on an unmeasured node
-([#22](https://github.com/jonbae/PSFlow/issues/22)).
+`EdgeProps` and `ConnectionLineComponentProps` reaching it from one side only,
+and `NodeProps.width` / `height` reading `undefined` against upstream's `0` on
+an unmeasured node ([#22](https://github.com/jonbae/PSFlow/issues/22)). The
+first two were blocked on `edgeTypes` and `connectionLineComponent` not having
+crossed, which boundary stage 4
+([#62](https://github.com/jonbae/PSFlow/issues/62)) has since done; what is left
+there is a fixture that sets one.
 
 **Ordering.** Surface parity green is a hard precondition — its failures are
 interop-shaped and shadow every other gate at once. Everything else is
@@ -120,7 +123,7 @@ npm run parity:coverage                  # regenerate coverage.md from the store
 ## Checks that are not gates in that sense
 
 ```sh
-npm run parity:boundary   # boundary module — outbound drift + deferred props refused
+npm run parity:boundary   # boundary module — outbound drift + every crossing mounted
 npm run parity:changelog  # 12.3.5→12.11.0 changelog audit; gates on unbucketed PRs
 npm run test:audit        # node --test over the audit's bucket table and its rules
 npm run test:surface      # node --test over surface parity's shape and allowlist logic

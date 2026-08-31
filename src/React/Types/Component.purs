@@ -49,9 +49,11 @@ import Prelude
 import Data.Either (Either)
 import Data.Generic.Rep (class Generic)
 import Data.Maybe (Maybe)
+import Data.Nullable (Nullable)
 import Data.Show.Generic (genericShow)
 import Data.Tuple (Tuple)
 import Effect (Effect)
+import Foreign (Foreign)
 import Foreign.Object (Object)
 import React.Basic (JSX, ReactComponent)
 import React.Basic.Hooks (ReactChildren)
@@ -289,6 +291,10 @@ type HandleProps =
   , isValidConnection :: Maybe (IsValidConnection Unit)
   , className :: Maybe String
   , style :: Maybe Style
+  -- | The ref the handle puts on its own `<div>`. Spelled and typed for the
+  -- | reason `PanelProps.innerRef` is, and upstream's `<Handle />` is a
+  -- | `memo(forwardRef(…))` for the same one.
+  , innerRef :: Nullable Foreign
   }
 
 -- | Ticket 038 — `<Pane />`. The pan/select interaction surface that
@@ -328,6 +334,16 @@ type PanelProps =
   , "aria-label" :: Maybe String
   , "data-testid" :: Maybe String
   , children :: ReactChildren JSX
+  -- | The ref the panel puts on its own `<div>`, spelled `innerRef` because
+  -- | React reserves `ref`: a `ref` in a props record is stripped by
+  -- | `createElement` and never reaches the component. Upstream's `<Panel />`
+  -- | is a `forwardRef` for this, and `Boundary.Chrome` is where the two
+  -- | spellings meet — it is the JS surface that has to publish `ref`.
+  -- |
+  -- | `Nullable` and not `Maybe`: the value is React's and goes straight back
+  -- | to React unread, and `forwardRef` hands `null` when the caller passed
+  -- | none.
+  , innerRef :: Nullable Foreign
   }
 
 -- Ticket 044 — `<EdgeLabelRenderer />` portal target.

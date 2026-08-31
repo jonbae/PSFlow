@@ -65,6 +65,13 @@ _Avoid_: adapter, marshaller, codec (reserved for the enum string tables)
 A prop that resolves on the JS surface but whose converter has not landed. It
 **throws at mount**, naming the stage that will land it, because a prop that was
 silently ignored would be indistinguishable from a prop the consumer never set.
+**There are none**: boundary stage 4 crossed the last two, and the entry kinds
+that constructed them went with their tables (`Boundary.Refusal`). The term
+stays because the failure it names does not, and `parity/boundary`'s mount check
+now asserts the residue instead — no prop of any converter is wired to
+`Nothing`. What still refuses is `defaultEdgeOptions`' thirteen dropped members,
+which were never deferred props: no stage retires them, because ps-flow's record
+does not model them at all.
 _Avoid_: unsupported prop, unimplemented prop, TODO prop
 
 ### The gates
@@ -186,9 +193,12 @@ condition written down for it ("when the net's `props` section is green"): both
 of its claims are about the graph, and a probed run compares only its own
 observation level and not the graph the probe replaced, so they are re-reported
 through `dom` instead. The `props` section is still red, on three things the
-spec never saw — `edgeTypes` and `connectionLineComponent` not having crossed
-(#62), and `NodeProps.width`/`height` reading `undefined` against upstream's `0`
-on an unmeasured node (#22). The census names the screenshot spec as a gate on
+spec never saw — `EdgeProps` and `ConnectionLineComponentProps` being `left
+only`, and `NodeProps.width`/`height` reading `undefined` against upstream's `0`
+on an unmeasured node (#22). The first two were blocked on `edgeTypes` and
+`connectionLineComponent` not having crossed; boundary stage 4 (#62) crossed
+both, so what is left there is a fixture that sets one, which is the `EdgeTypes`
+**hole**. The census names the screenshot spec as a gate on
 individual rows because *something* would go red; it is not one of the five.
 
 `parity:boundary` is likewise not one of the five gates, but the census names
@@ -249,7 +259,18 @@ crossed-but-ungated window, and saying "stage" where "layer" used to appear
 does not fix anything. In practice each stage has closed its own window in the
 same commit, because `parity:boundary` mounts what the stage crossed and the
 census counts that as a JS-surface gate; the window is what would open if a
-stage landed converters without one.
+stage landed converters without one. Stage 4's window was the widest, because
+its set was everything `passthrough` still held rather than what some fixture
+was about to import: every earlier stage crossed something a driver was already
+about to render, and most of stage 4's fourteen are named by the **hole**
+register as exports the corpus does not drive.
+
+All four have landed. `passthrough` holds fourteen pure functions and no
+component, and **stage 5** — which would cross those — is a decision recorded
+on [#62](https://github.com/jonbae/PSFlow/issues/62) rather than a stage that
+exists: warranted, owned by ticket 082, not yet done. So "the staging is
+finished" and "the surface has finished crossing" are different statements, and
+the manifest's `stage: 4` is the first.
 _Avoid_: layer, phase, tier
 
 ### Baselines and upstream
@@ -662,9 +683,13 @@ exports as that reason covers, the way a **region** claims many differences with
 one pattern. A hole is a legitimate resting state; an
 *undeclared* hole fails, and a hole over an export something did drive fails as
 **stale**. The register is machine-readable because other work is derived from it
-rather than deciding again: boundary stage 4 takes the components no fixture
-mounts, and probed-variant selection takes the `hooks` and `props` exports
-nothing drives.
+rather than deciding again: boundary stage 4 read it to decide which of the
+components it crossed were undriven and, just as usefully, which were already
+crossed and should be left alone; probed-variant selection takes the `hooks`
+and `props` exports nothing drives. Neither closes a hole — stage 4 crossed
+exports named by four of the entries below and all four are still open, because
+a component a JavaScript caller can mount is still a component no fixture
+mounts.
 _Avoid_: gap (reserved for audit buckets), uncovered, todo
 
 **Name** (of a witness):

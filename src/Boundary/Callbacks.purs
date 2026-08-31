@@ -45,6 +45,7 @@ module Boundary.Callbacks
   , JsInteractiveChangeHandler
   , JsIsValidConnection
   , JsMiniMapClickHandler
+  , JsMiniMapNodeClickHandler
   , JsMouseEventHandler
   , JsNodeMouseHandler
   , JsOnBeforeDelete
@@ -80,6 +81,8 @@ module Boundary.Callbacks
   , interactiveChangeHandlerIn
   , isValidConnectionIn
   , miniMapClickHandlerIn
+  , miniMapNodeClickHandlerIn
+  , miniMapNodeClickHandlerOut
   , mouseEventHandlerIn
   , nodeMouseHandlerIn
   , onBeforeDeleteIn
@@ -154,6 +157,7 @@ import Effect.Uncurried
   , EffectFn2
   , EffectFn3
   , EffectFn4
+  , mkEffectFn2
   , runEffectFn1
   , runEffectFn2
   , runEffectFn3
@@ -533,6 +537,30 @@ type JsMiniMapClickHandler = EffectFn2 Foreign JsXYPosition Unit
 
 miniMapClickHandlerIn :: JsMiniMapClickHandler -> (MouseEvent -> XYPosition -> Effect Unit)
 miniMapClickHandlerIn f = \event position -> runEffectFn2 f (eventOut event) position
+
+-- | `<MiniMapNode onClick>` — `(event, id) => void`, and the one handler on
+-- | this surface that crosses in **both** directions. Inbound because
+-- | `MiniMapNode` is an export a consumer can render themselves; outbound
+-- | because `MiniMap.nodeComponent` is the consumer's own component and
+-- | ps-flow is what hands it this handler.
+-- |
+-- | The two are not each other's inverse and neither is a coercion: one wraps
+-- | a JavaScript function so PureScript can apply it curried, the other wraps
+-- | a curried PureScript function so JavaScript can call it with both
+-- | arguments at once.
+type JsMiniMapNodeClickHandler = EffectFn2 Foreign String Unit
+
+miniMapNodeClickHandlerIn :: JsMiniMapNodeClickHandler -> (MouseEvent -> String -> Effect Unit)
+miniMapNodeClickHandlerIn f = \event nodeId -> runEffectFn2 f (eventOut event) nodeId
+
+miniMapNodeClickHandlerOut :: (MouseEvent -> String -> Effect Unit) -> JsMiniMapNodeClickHandler
+miniMapNodeClickHandlerOut f = mkEffectFn2 \event nodeId -> f (eventIn event) nodeId
+
+-- | The way back through `eventOut`'s coercion, and sound for the same reason
+-- | it is: the object a consumer's handler is called with is the synthetic
+-- | event ps-flow was handed, and nothing reads a DOM-only member of it.
+eventIn :: forall event. Foreign -> event
+eventIn = unsafeCoerce
 
 -- ────────────────────────────────────────────────────────────────────────
 -- The two handlers that are not `… -> Effect Unit`
