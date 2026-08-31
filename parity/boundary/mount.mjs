@@ -1211,6 +1211,45 @@ check("`<ReactFlow />`, `<Panel />` and `<Handle />` put the forwarded ref on th
   }
 });
 
+// The other ref family #27 covers, and a different shape of gap. `NodeWrapper`
+// and `EdgeWrapper` are internal — nothing hands either of them a ref, and
+// upstream's are plain components too — so there is no `forwardRef` here to
+// compare. What upstream does with the ref each one holds *for itself* is drop
+// focus when the element stops being selected, and that is what these three
+// call sites are: an unselected node or edge that keeps the browser's focus
+// keeps its focus ring and the next keystroke, so it looks deselected and
+// behaves selected.
+//
+// Read from source for the reason the `innerRef` check above is: this file
+// renders with `react-dom/server`, which attaches no refs and dispatches no
+// events, so neither `blur()` can be provoked here. The claim is that the call
+// exists and is reachable, not that a browser ran it.
+check("deselecting a node or an edge takes focus off its element", () => {
+  const nodeUtil = readModule(join(repoRoot, "src/React/Node/Util.purs"));
+  // TS: `requestAnimationFrame(() => nodeRef?.current?.blur())`, in the
+  // unselect branch of `handleNodeClick`. The frame matters — blurring inside
+  // the tick that dispatched the unselect fights the re-render — so the check
+  // is for the deferred form and not for a bare `blur`.
+  assert(
+    /requestAnimationFrame \(blur \(toHTMLElement \w+\)\)/.test(nodeUtil),
+    "`handleNodeClick` unselects the node without blurring it on the next frame"
+  );
+
+  const edgeWrapper = readModule(join(repoRoot, "src/React/Component/EdgeWrapper.purs"));
+  assert(
+    /^\s*,?\s*ref: edgeRef$/m.test(edgeWrapper),
+    "`EdgeWrapper` never puts its own ref on the `<g>`, so it has nothing to blur"
+  );
+  // Two call sites upstream, and they are not interchangeable: the click path
+  // blurs *after* unselecting and the Escape path *before*. Counting them is
+  // what catches one being dropped while the other stays.
+  const blurs = edgeWrapper.match(/^\s+blurEdge$/gm) ?? [];
+  assert(
+    blurs.length === 2,
+    `\`EdgeWrapper\` blurs on ${blurs.length} path(s), not the 2 TS has (click-deselect and Escape)`
+  );
+});
+
 // ── 5c. The three props whose values are the consumer's own components ──
 //
 // `nodeTypes` crossed in stage 1 and section 1 reads the props it delivers.

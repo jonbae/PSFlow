@@ -54,6 +54,17 @@ quietly claiming coverage PSFlow does not have.
 inner element is deferred generally. It may belong with those as one
 `forwardRef` ticket rather than here.
 
+> **Settled, and the reading above was half wrong.** It did become one ticket,
+> [#27](https://github.com/jonbae/PSFlow/issues/27), and the row is now
+> `surface`. But only `Panel`, `Handle` and `ReactFlow` were ever missing a
+> `forwardRef`. The two wrapper notes this paragraph cites were describing a
+> deferral that upstream does not have either — neither `NodeWrapper` nor
+> `EdgeWrapper` is a `forwardRef` there, both being internal components nothing
+> hands a ref to. What was actually missing was the ref each one holds *for
+> itself*, and the `blur()` calls that drop focus from a node or edge the user
+> has just deselected. Both notes have been replaced with what the elements
+> now do.
+
 ## Acceptance criteria
 
 - Each row is covered, re-bucketed to `n/a` with a stated reason, or moved to the

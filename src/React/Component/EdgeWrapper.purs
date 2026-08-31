@@ -22,8 +22,14 @@
 -- |     equality won't actually skip renders for record props
 -- |     (records are freshly allocated each call); this matches the
 -- |     existing `React.Handle` / built-in edge port idiom.
--- |   * `forwardRef` to the inner `<g>` is deferred — same gap as
--- |     `Handle.purs`.
+-- |   * The `<g>` carries a `useRef` of its own, which deselecting the
+-- |     edge blurs. It is **not** a `forwardRef` and TS's is not either:
+-- |     `EdgeWrapper` is internal, nothing hands it a ref, and the note
+-- |     that used to stand here called it a deferred `forwardRef` and
+-- |     pointed at `Handle.purs`. The real gap was the ref itself —
+-- |     there was none, so neither of TS's two `edgeRef.current?.blur()`
+-- |     calls had anything to call, and a deselected edge kept the focus
+-- |     ring and the keyboard. See [#27](https://github.com/jonbae/PSFlow/issues/27).
 -- |   * `edge.ariaRole` / `edge.domAttributes` / `edge.reconnectable`
 -- |     aren't carried on `EdgeBase`; the wrapper substitutes
 -- |     "img"/"group" for `role`, skips the dom-attribute spread, and
@@ -42,6 +48,7 @@ import Data.Array (elem) as Array
 import Data.Foldable (for_)
 import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe, isNothing)
+import Data.Nullable (Nullable, toMaybe, toNullable)
 import Data.Tuple.Nested ((/\))
 import Effect (Effect)
 import Effect.Unsafe (unsafePerformEffect)
@@ -50,12 +57,12 @@ import Foreign.Object (Object)
 import Foreign.Object (lookup) as Object
 import React.Basic (JSX, ReactComponent, element)
 import React.Basic.Events (EventHandler, handler, handler_, syntheticEvent)
-import React.Basic.Hooks (UnsafeReference(..), memo, reactComponent, useState)
+import React.Basic.Hooks (UnsafeReference(..), memo, reactComponent, readRef, useRef, useState)
 import React.Basic.Hooks as React
 import React.Component.EdgeWrapper.UpdateAnchors (edgeUpdateAnchors)
 import React.Component.EdgeWrapper.Util (EdgePositionSlice, builtinEdgeTypes, nullPosition)
 import React.Edge.Bezier (bezierEdgeInternal)
-import React.FFI.DOM (g_, opt)
+import React.FFI.DOM (blurSvgElement, g_, opt)
 import React.Hook.Store (UseStoreApi, useStore, useStoreApi)
 import React.Store.Action (Action(..))
 import React.Types.Edges
@@ -78,6 +85,7 @@ import System.Utils.Edges.General (getElevatedEdgeZIndex)
 import System.Utils.Edges.Positions (getEdgePosition)
 import System.Utils.Marker (getMarkerId)
 import Unsafe.Coerce (unsafeCoerce)
+import Web.DOM.Element (Element)
 import Web.UIEvent.KeyboardEvent (KeyboardEvent)
 import Web.UIEvent.KeyboardEvent (key) as KE
 import Web.UIEvent.MouseEvent (MouseEvent)
@@ -326,6 +334,10 @@ edgeWrapper =
         edgeComponent = resolved.component
 
       store <- (useStoreApi :: React.Hook UseStoreApi _)
+      -- The edge's own `<g>`, so deselecting it can take focus off it. Not a
+      -- ref handed down from a parent: TS's `EdgeWrapper` is a plain component
+      -- holding a `useRef` of its own, and this mirrors that.
+      edgeRef <- useRef (toNullable Nothing :: Nullable Element)
       updateHover /\ setUpdateHover <- useState false
       reconnecting /\ setReconnecting <- useState false
 
@@ -357,6 +369,17 @@ edgeWrapper =
           || isNothing positionSlice.targetX
           || isNothing positionSlice.targetY
 
+        -- TS spells this `edgeRef.current?.blur()`, at both of the call sites
+        -- below. Deselecting an edge leaves the browser's focus on its `<g>`,
+        -- so without this the edge loses its selection and keeps its focus
+        -- ring, and the next Escape or Enter still reaches it.
+        blurEdge :: Effect Unit
+        blurEdge = do
+          mEl <- toMaybe <$> readRef edgeRef
+          case mEl of
+            Nothing -> pure unit
+            Just el -> blurSvgElement el
+
         onClickHandler :: EventHandler
         onClickHandler = handler syntheticEvent \se -> do
           state <- store.getState
@@ -364,9 +387,10 @@ edgeWrapper =
           when isSelectable do
             store.dispatch
               (PatchState (\s -> s { nodesSelectionActive = false }))
-            if edge.selected && state.multiSelectionActive then
+            if edge.selected && state.multiSelectionActive then do
               store.dispatch
                 (UnselectNodesAndEdges { nodes: Nothing, edges: Just [ edge ] })
+              blurEdge
             else
               store.dispatch (AddSelectedEdges [ props.id ])
           fireEdgeHandler props.onClick me edge
@@ -393,7 +417,8 @@ edgeWrapper =
                 && isSelectable
             )
             do
-              if k == "Escape" then
+              if k == "Escape" then do
+                blurEdge
                 store.dispatch
                   (UnselectNodesAndEdges { nodes: Nothing, edges: Just [ edge ] })
               else
@@ -415,6 +440,7 @@ edgeWrapper =
                     , updating: updateHover
                     , className: fromMaybe "" edge.className
                     }
+                , ref: edgeRef
                 , onClick: onClickHandler
                 , onDoubleClick: onDoubleClickHandler
                 , onContextMenu: onContextMenuHandler

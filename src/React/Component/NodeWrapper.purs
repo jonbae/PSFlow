@@ -25,8 +25,13 @@
 -- |     equality won't actually skip renders for record props
 -- |     (records are freshly allocated each call); same gap as
 -- |     `React.Handle` and the built-in edge ports.
--- |   * `forwardRef` to the inner `<div>` is deferred — the local
--- |     `useRef` is only fed to `useDrag` and `useNodeObserver`.
+-- |   * The local `useRef` is on the `<div>`, and feeds `useDrag`,
+-- |     `useNodeObserver` and — since [#27](https://github.com/jonbae/PSFlow/issues/27)
+-- |     — `handleNodeClick`, which blurs it on the next animation frame
+-- |     when a click deselects the node. It is **not** a `forwardRef`,
+-- |     and TS's is not either: `NodeWrapper` is internal and nothing
+-- |     hands it a ref. The note that used to stand here called that a
+-- |     deferral; there was nothing to defer.
 -- |   * `node.style.width` / `node.style.height` string fallbacks for
 -- |     inline dimensions are deferred (`Style` is `Foreign` with no
 -- |     typed accessor yet).
@@ -353,7 +358,7 @@ nodeWrapper =
         , onDragStart: Nothing
         , onDragEnd: Nothing
         , onNodeMouseDown: Just \nid ->
-            handleNodeClick { id: nid, store, unselect: false }
+            handleNodeClick { id: nid, store, unselect: false, nodeRef }
         }
 
       _ <- useNodeObserver
@@ -443,7 +448,8 @@ nodeWrapper =
                   )
             )
             do
-              handleNodeClick { id: NodeId props.id, store, unselect: false }
+              handleNodeClick
+                { id: NodeId props.id, store, unselect: false, nodeRef }
           fireMouseHandler props.onClick me
 
         onKeyDownHandler :: KeyboardEvent -> Effect Unit
@@ -458,6 +464,7 @@ nodeWrapper =
                 { id: NodeId props.id
                 , store
                 , unselect: k == "Escape"
+                , nodeRef
                 }
             else case Map.lookup k arrowKeyDiffs of
               Just delta

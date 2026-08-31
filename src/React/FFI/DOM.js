@@ -26,3 +26,13 @@ export const scrollResetHandlerImpl = (cb) => (event) => {
   }
   cb();
 };
+
+// Guarded, because `blur` is `HTMLOrSVGElement`'s and not every element has
+// one: an SVG element in a browser old enough to predate that interface has
+// the ref but not the method, and the edge would throw on Escape rather than
+// merely keep its focus ring.
+export const blurSvgElement = (element) => () => {
+  if (element && typeof element.blur === "function") {
+    element.blur();
+  }
+};
