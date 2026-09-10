@@ -502,15 +502,6 @@
         ]
       },
       {
-        "name": "onSelectionChange",
-        "args": [
-          {
-            "nodes": [],
-            "edges": []
-          }
-        ]
-      },
-      {
         "name": "onViewportChange",
         "args": [
           {
@@ -1037,8 +1028,9 @@
         ]
       },
       {
-        "name": "onViewportChange",
+        "name": "onMoveEnd",
         "args": [
+          null,
           {
             "x": 570.5206463195691,
             "y": 102,
@@ -1047,9 +1039,8 @@
         ]
       },
       {
-        "name": "onMoveEnd",
+        "name": "onViewportChange",
         "args": [
-          null,
           {
             "x": 570.5206463195691,
             "y": 102,
@@ -2732,7 +2723,7 @@
           "x": 690.951526032316,
           "y": 102
         },
-        "viewportInitialized": true
+        "viewportInitialized": false
       },
       "calls": [
         {

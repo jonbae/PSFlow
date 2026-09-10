@@ -617,15 +617,6 @@
         ]
       },
       {
-        "name": "onSelectionChange",
-        "args": [
-          {
-            "nodes": [],
-            "edges": []
-          }
-        ]
-      },
-      {
         "name": "onViewportChange",
         "args": [
           {
@@ -679,7 +670,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 347.8000000715256,
+            "timeStamp": 306.3999999985099,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2108,7 +2099,7 @@
           "x": 490,
           "y": 123
         },
-        "viewportInitialized": true
+        "viewportInitialized": false
       },
       "calls": []
     },

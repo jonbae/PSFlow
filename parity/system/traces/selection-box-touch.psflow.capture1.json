@@ -901,15 +901,6 @@
         ]
       },
       {
-        "name": "onSelectionChange",
-        "args": [
-          {
-            "nodes": [],
-            "edges": []
-          }
-        ]
-      },
-      {
         "name": "onViewportChange",
         "args": [
           {
@@ -1283,7 +1274,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 398.60000002384186,
+            "timeStamp": 344,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1396,7 +1387,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 453.3000000715256,
+            "timeStamp": 399,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1463,7 +1454,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 453.3000000715256,
+            "timeStamp": 399,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -4177,7 +4168,7 @@
           "x": 537.0172684458398,
           "y": 32
         },
-        "viewportInitialized": true
+        "viewportInitialized": false
       },
       "calls": []
     },

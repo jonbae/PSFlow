@@ -57076,8 +57076,6 @@ var createStore = function(opts) {
                 key: key2
               }]);
             })(subsRef)();
-            var s = read(stateRef)();
-            cb(selector4(s))();
             return modify_(filter(function(sub2) {
               return sub2.key !== key2;
             }))(subsRef);

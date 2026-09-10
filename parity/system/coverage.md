@@ -187,7 +187,7 @@ The witness is printed beside each one so a wrong witness can be read and disput
 | `OnDelete` | callbacks | driven | `onDelete` | `delete-key-removes-edge` +2 more |
 | `OnEdgesChange` | callbacks | driven | `onEdgesChange` | `arrow-key-selected-node` +38 more |
 | `OnEdgesDelete` | callbacks | driven | `onEdgesDelete` | `delete-key-removes-edge` +2 more |
-| `OnError` | callbacks | driven | `onError` | `click-reveals-default-toolbar` +28 more |
+| `OnError` | callbacks | driven | `onError` | `click-reveals-default-toolbar` +30 more |
 | `OnInit` | callbacks | hole | `onInit` | declared — no issue owns it |
 | `OnMove` | callbacks | driven | `onMove` | `background-custom-bgcolor` +79 more |
 | `OnMoveEnd` | callbacks | driven | `onMoveEnd` | `background-custom-bgcolor` +80 more |
@@ -201,11 +201,11 @@ The witness is printed beside each one so a wrong witness can be read and disput
 | `OnResizeStart` | callbacks | hole | `onResizeStart` | declared — no issue owns it |
 | `OnSelectionChangeFunc` | callbacks | driven | `onSelectionChange` | `arrow-key-selected-node` +91 more |
 | `OnSelectionChangeParams` | callbacks | driven | `onSelectionChange` | `arrow-key-selected-node` +91 more |
-| `OnSelectionDrag` | callbacks | driven | `onSelectionDragStart, onSelectionDrag, onSelectionDragStop` | `drag-node-autopan` +1 more |
+| `OnSelectionDrag` | callbacks | driven | `onSelectionDragStart, onSelectionDrag, onSelectionDragStop` | `drag-node-autopan` |
 | `ResizeDragEvent` | callbacks | hole | `onResizeStart, onResize, onResizeEnd` | declared — no issue owns it |
 | `ResizeParams` | callbacks | hole | `onResizeStart, onResizeEnd` | declared — no issue owns it |
 | `ResizeParamsWithDirection` | callbacks | hole | `onResize` | declared — no issue owns it |
-| `SelectionDragHandler` | callbacks | driven | `onSelectionDragStart, onSelectionDrag, onSelectionDragStop` | `drag-node-autopan` +1 more |
+| `SelectionDragHandler` | callbacks | driven | `onSelectionDragStart, onSelectionDrag, onSelectionDragStop` | `drag-node-autopan` |
 | `ShouldResize` | callbacks | hole | `shouldResize` | declared — no issue owns it |
 | `UseOnSelectionChangeOptions` | callbacks | driven | `useOnSelectionChange` | `click-selects-node--probe-flow-node` |
 | `UseOnViewportChangeOptions` | callbacks | driven | `useOnViewportChange` | `wheel-zooms-the-pane--probe-flow-node` |
@@ -241,15 +241,15 @@ The witness is printed beside each one so a wrong witness can be read and disput
 | `FitBoundsOptions` | api | driven | `fitBounds` | `viewport-helpers-with-options` |
 | `FitView` | api | driven | `fitView` | `fitview-onnodeschange-variants` +1 more |
 | `FitViewOptions` | api | driven | `fitView` | `fitview-onnodeschange-variants` +1 more |
-| `ReactFlowInstance` | api | driven | `getNode, getNodes, getEdge, getEdges, toObject, updateNode, updateEdge` | `arrow-key-selected-node` +60 more |
-| `ReactFlowJsonObject` | api | driven | `toObject` | `arrow-key-selected-node` +60 more |
+| `ReactFlowInstance` | api | driven | `getNode, getNodes, getEdge, getEdges, toObject, updateNode, updateEdge` | `arrow-key-selected-node` +91 more |
+| `ReactFlowJsonObject` | api | driven | `toObject` | `arrow-key-selected-node` +91 more |
 | `ReactFlowState` | api | driven | `getState` | `click-selects-node--probe-flow-node` +1 more |
 | `SetCenter` | api | driven | `setCenter` | `viewport-helpers-with-options` |
 | `SetCenterOptions` | api | driven | `setCenter` | `viewport-helpers-with-options` |
 | `SetViewport` | api | driven | `setViewport` | `viewport-helpers-with-options` |
 | `UnselectNodesAndEdgesParams` | api | hole | `unselectNodesAndEdges` | declared — no issue owns it |
 | `ViewportHelperFunctionOptions` | api | driven | `zoomTo, setCenter, setViewport, fitView, fitBounds` | `fitview-onnodeschange-variants` +1 more |
-| `ViewportHelperFunctions` | api | driven | `zoomIn, zoomOut, zoomTo, getZoom, setViewport, getViewport, setCenter, fitBounds` | `arrow-key-selected-node` +60 more |
+| `ViewportHelperFunctions` | api | driven | `zoomIn, zoomOut, zoomTo, getZoom, setViewport, getViewport, setCenter, fitBounds` | `arrow-key-selected-node` +91 more |
 | `ConnectionLineComponentProps` | props | driven | `connection-line-props` | `connect-source-handle-to-target-handle--probe-connection-line` |
 | `EdgeComponentProps` | props | driven | `edge-component-props` | `mount-baseline--edges-general--probe-edge` |
 | `EdgeProps` | props | driven | `edge-props` | `mount-baseline--edges-general--probe-edge` |

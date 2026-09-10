@@ -901,15 +901,6 @@
         ]
       },
       {
-        "name": "onSelectionChange",
-        "args": [
-          {
-            "nodes": [],
-            "edges": []
-          }
-        ]
-      },
-      {
         "name": "onViewportChange",
         "args": [
           {
@@ -953,7 +944,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 205.29999995231628,
+            "timeStamp": 178,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1080,7 +1071,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 205.29999995231628,
+            "timeStamp": 178,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1217,7 +1208,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 223.89999997615814,
+            "timeStamp": 190.90000000037253,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1289,7 +1280,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 244.5,
+            "timeStamp": 211.80000000074506,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1356,7 +1347,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 244.5,
+            "timeStamp": 211.80000000074506,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1485,7 +1476,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 244.5,
+            "timeStamp": 211.80000000074506,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -4280,7 +4271,7 @@
           "x": 537.0172684458398,
           "y": 32
         },
-        "viewportInitialized": true
+        "viewportInitialized": false
       },
       "calls": []
     },

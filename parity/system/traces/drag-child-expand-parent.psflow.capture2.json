@@ -207,7 +207,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(0px, 0px); pointer-events: all; visibility: visible; background-color: rgba(80, 120, 200, 0.12); width: 150px; height: 37px;"
+                              "style": "z-index: 0; transform: translate(0px, 0px); pointer-events: all; visibility: visible; background-color: rgba(80, 120, 200, 0.12); width: 190px; height: 77px;"
                             },
                             "text": "parent",
                             "children": [
@@ -457,71 +457,6 @@
         ]
       },
       {
-        "name": "onSelectionChange",
-        "args": [
-          {
-            "nodes": [],
-            "edges": []
-          }
-        ]
-      },
-      {
-        "name": "onNodesChange",
-        "args": [
-          [
-            {
-              "position": {
-                "@undefined": true
-              },
-              "positionAbsolute": {
-                "@undefined": true
-              },
-              "dragging": {
-                "@undefined": true
-              },
-              "selected": {
-                "@undefined": true
-              },
-              "item": {
-                "@undefined": true
-              },
-              "index": {
-                "@undefined": true
-              },
-              "type": "dimensions",
-              "id": "parent",
-              "dimensions": {
-                "width": 150,
-                "height": 37
-              },
-              "resizing": false,
-              "setAttributes": true
-            }
-          ]
-        ]
-      },
-      {
-        "name": "onViewportChange",
-        "args": [
-          {
-            "x": 70,
-            "y": 283,
-            "zoom": 2
-          }
-        ]
-      },
-      {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 70,
-            "y": 283,
-            "zoom": 2
-          }
-        ]
-      },
-      {
         "name": "onViewportChange",
         "args": [
           {
@@ -565,7 +500,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 179.70000004768372,
+            "timeStamp": 161.40000000037253,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -634,7 +569,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 179.70000004768372,
+            "timeStamp": 161.40000000037253,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -763,7 +698,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 179.70000004768372,
+            "timeStamp": 161.40000000037253,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -828,7 +763,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 179.70000004768372,
+            "timeStamp": 161.40000000037253,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1234,7 +1169,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 208.10000002384186,
+            "timeStamp": 175.19999999925494,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1513,7 +1448,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 223.5,
+            "timeStamp": 191.80000000074506,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1794,7 +1729,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 240,
+            "timeStamp": 207.69999999925494,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1923,7 +1858,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 240,
+            "timeStamp": 207.69999999925494,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2202,7 +2137,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 255.5,
+            "timeStamp": 224.69999999925494,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2481,7 +2416,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 273.60000002384186,
+            "timeStamp": 241.30000000074506,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2760,7 +2695,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 289,
+            "timeStamp": 256.19999999925494,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3041,7 +2976,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 305.89999997615814,
+            "timeStamp": 273.59999999962747,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3148,7 +3083,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 305.89999997615814,
+            "timeStamp": 273.59999999962747,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3427,7 +3362,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 322.2999999523163,
+            "timeStamp": 291.30000000074506,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3708,7 +3643,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 338.7000000476837,
+            "timeStamp": 305.90000000037253,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3817,7 +3752,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 338.7000000476837,
+            "timeStamp": 305.90000000037253,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -4190,8 +4125,8 @@
             "dragHandle": {
               "@undefined": true
             },
-            "width": 150,
-            "height": 37,
+            "width": 190,
+            "height": 77,
             "initialWidth": {
               "@undefined": true
             },
@@ -4218,8 +4153,8 @@
               "@undefined": true
             },
             "measured": {
-              "width": 150,
-              "height": 37
+              "width": 190,
+              "height": 77
             },
             "className": {
               "@undefined": true
@@ -4413,8 +4348,8 @@
           "dragHandle": {
             "@undefined": true
           },
-          "width": 150,
-          "height": 37,
+          "width": 190,
+          "height": 77,
           "initialWidth": {
             "@undefined": true
           },
@@ -4441,8 +4376,8 @@
             "@undefined": true
           },
           "measured": {
-            "width": 150,
-            "height": 37
+            "width": 190,
+            "height": 77
           },
           "className": {
             "@undefined": true
@@ -4489,8 +4424,8 @@
           "dragHandle": {
             "@undefined": true
           },
-          "width": 150,
-          "height": 37,
+          "width": 190,
+          "height": 77,
           "initialWidth": {
             "@undefined": true
           },
@@ -4517,8 +4452,8 @@
             "@undefined": true
           },
           "measured": {
-            "width": 150,
-            "height": 37
+            "width": 190,
+            "height": 77
           },
           "className": {
             "@undefined": true
@@ -4544,8 +4479,8 @@
                     "@undefined": true
                   },
                   "nodeId": "parent",
-                  "x": 71,
-                  "y": 32,
+                  "x": 91,
+                  "y": 72,
                   "position": "bottom",
                   "type": "source",
                   "width": 8,
@@ -4558,7 +4493,7 @@
                     "@undefined": true
                   },
                   "nodeId": "parent",
-                  "x": 71,
+                  "x": 91,
                   "y": -3,
                   "position": "top",
                   "type": "target",
@@ -4711,8 +4646,8 @@
             "dragHandle": {
               "@undefined": true
             },
-            "width": 150,
-            "height": 37,
+            "width": 190,
+            "height": 77,
             "initialWidth": {
               "@undefined": true
             },
@@ -4739,8 +4674,8 @@
               "@undefined": true
             },
             "measured": {
-              "width": 150,
-              "height": 37
+              "width": 190,
+              "height": 77
             },
             "className": {
               "@undefined": true
@@ -4945,8 +4880,8 @@
               "dragHandle": {
                 "@undefined": true
               },
-              "width": 150,
-              "height": 37,
+              "width": 190,
+              "height": 77,
               "initialWidth": {
                 "@undefined": true
               },
@@ -4973,8 +4908,8 @@
                 "@undefined": true
               },
               "measured": {
-                "width": 150,
-                "height": 37
+                "width": 190,
+                "height": 77
               },
               "className": {
                 "@undefined": true
@@ -5204,7 +5139,7 @@
           "x": 70,
           "y": 129.875
         },
-        "viewportInitialized": true
+        "viewportInitialized": false
       },
       "calls": []
     },

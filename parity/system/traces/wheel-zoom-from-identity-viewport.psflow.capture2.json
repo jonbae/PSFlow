@@ -519,15 +519,6 @@
         ]
       },
       {
-        "name": "onSelectionChange",
-        "args": [
-          {
-            "nodes": [],
-            "edges": []
-          }
-        ]
-      },
-      {
         "name": "onPaneMouseEnter",
         "args": [
           {
@@ -550,7 +541,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 198,
+            "timeStamp": 162.59999999962747,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -617,7 +608,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 198,
+            "timeStamp": 162.59999999962747,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1492,7 +1483,7 @@
           "x": -204.4850628946523,
           "y": -115.02284787824192
         },
-        "viewportInitialized": true
+        "viewportInitialized": false
       },
       "calls": []
     },

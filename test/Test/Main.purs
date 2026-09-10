@@ -47,6 +47,7 @@ import Test.Parity.Toolbar (runToolbarParity)
 import Test.Properties (runProperties)
 import Test.React.Hook.VisibleIds (runVisibleIdsTests)
 import Test.React.Store.Reduce (runReactStoreTests)
+import Test.React.Store.Shell (runStoreShellTests)
 import Test.System.Utils.Store (runStoreProperties)
 
 assert :: String -> Boolean -> Effect Unit
@@ -1056,6 +1057,7 @@ main = do
   runProperties
   runStoreProperties
   runReactStoreTests
+  runStoreShellTests
   runVisibleIdsTests
 
   -- Function parity — live differential against XYFlow (via the @psflow/oracle bundle).
