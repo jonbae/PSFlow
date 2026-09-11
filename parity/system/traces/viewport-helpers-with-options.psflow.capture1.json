@@ -1028,17 +1028,6 @@
         ]
       },
       {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 570.5206463195691,
-            "y": 102,
-            "zoom": 0.926391382405745
-          }
-        ]
-      },
-      {
         "name": "onViewportChange",
         "args": [
           {

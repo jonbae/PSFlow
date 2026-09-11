@@ -27,10 +27,14 @@ module System.XYDrag
   , PanBy
   , UpdateNodePositions
   , createXYDrag
+  , DragState
+  , initialDragState
+  , autoPanLoop
   ) where
 
 import Prelude
 
+import Control.Lazy (defer)
 import Control.Monad.Except (runExcept)
 import Control.Monad.State (StateT, get, modify_, runStateT)
 import Data.Either (Either(..))
@@ -69,6 +73,7 @@ import System.FFI.D3Selection
   , d3Select
   , d3SelectionOnNull
   )
+import System.FFI.Microtask (awaitMicrotask)
 import System.Types.Edge (EdgeBase)
 import System.Types.Geometry
   ( CoordinateExtent
@@ -182,6 +187,13 @@ type XYDragInstance =
 -- | `StateT DragState Effect` and a single outer `Ref DragState`
 -- | carries the snapshot across the d3-callback boundary via `runOnRef`.
 -- | Mirrors the shape `System.XYHandle` uses for its drag lifecycle.
+-- |
+-- | `runOnRef` is not re-entrant: a nested call reads the snapshot the outer
+-- | one has not yet written, and the outer write then discards the inner's.
+-- | Anything that re-enters from a callback has to run after its caller has
+-- | returned — see `autoPanStep`.
+-- |
+-- | Public for testing, with `initialDragState`.
 type DragState =
   { lastPos :: { x :: Maybe Number, y :: Maybe Number }
   , autoPanId :: Maybe RafHandle
@@ -488,17 +500,36 @@ startDrag params upd ev = do
         for_ store.onSelectionDragStart \cb ->
           cb mouseEv eventArgs.allNodes
 
--- | Recursive auto-pan loop. `autoPanStep` runs inside the StateT and
--- | re-schedules itself via `autoPanLoop`, which re-enters the StateT
--- | at each rAF tick. The launched `panBy` aff callback also re-enters
--- | via `runOnRef` once `panBy` resolves.
+-- | One auto-pan frame, as `requestAnimationFrame` runs it.
+-- |
+-- | The loop refers to itself — `autoPanStep` asks for the next frame by
+-- | building this `Effect` — and PureScript is strict, so the step is
+-- | `defer`red. Without it, building one frame builds the step, which builds
+-- | the next frame, until the stack runs out: at the first drag event, inside
+-- | d3's handler, before `runOnRef` has written anything back, so the node
+-- | never moves. `System.XYHandle` breaks the same cycle by eta-expansion.
+-- |
+-- | Public for testing.
 autoPanLoop
   :: forall n e
    . XYDragParams n e
   -> Ref DragState
   -> Effect Unit
-autoPanLoop params stateRef = runOnRef stateRef (autoPanStep params stateRef)
+autoPanLoop params stateRef =
+  runOnRef stateRef (defer \_ -> autoPanStep params stateRef)
 
+-- | TS `autoPan`. Near an edge it pans, waits for the pan to land, moves the
+-- | dragged nodes by the distance panned, and only then asks for the next
+-- | frame; elsewhere it asks straight away. One pan is in flight at most.
+-- |
+-- | The wait is `awaitMicrotask` as well as the `panBy` bind. ps-flow's
+-- | `panBy` completes synchronously, and an `Aff` bound after a synchronous
+-- | one continues on the same stack — here, inside the `runOnRef` of the drag
+-- | handler or frame that called this step. The continuation would read the
+-- | state as it stood before that caller began, and its writes would be lost
+-- | when the caller wrote back. The next frame's handle is one of them, which
+-- | leaves `onEnd` cancelling a frame that has already run while the loop
+-- | carries on. TS gets the same yield from `await`.
 autoPanStep
   :: forall n e
    . XYDragParams n e
@@ -521,7 +552,7 @@ autoPanStep params stateRef = do
             speed
             40.0
           Transform t = store.transform
-        when (mv.x /= 0.0 || mv.y /= 0.0) do
+        if mv.x /= 0.0 || mv.y /= 0.0 then do
           let
             newLp =
               { x: Just ((fromMaybe 0.0 s.lastPos.x) - mv.x / t.scale)
@@ -530,14 +561,19 @@ autoPanStep params stateRef = do
           modify_ _ { lastPos = newLp }
           liftEffect $ launchAff_ do
             ok <- store.panBy { x: mv.x, y: mv.y }
-            liftEffect $ when ok $ runOnRef stateRef do
-              s2 <- get
-              case xyOf s2.lastPos of
-                Just xy -> updateNodes params Nothing xy
-                Nothing -> pure unit
-        handle <- liftEffect $ requestAnimationFrame (autoPanLoop params stateRef)
-        modify_ _ { autoPanId = Just handle }
+            awaitMicrotask
+            liftEffect $ runOnRef stateRef do
+              when ok do
+                s2 <- get
+                case xyOf s2.lastPos of
+                  Just xy -> updateNodes params Nothing xy
+                  Nothing -> pure unit
+              scheduleNextFrame
+        else scheduleNextFrame
   where
+  scheduleNextFrame = do
+    handle <- liftEffect $ requestAnimationFrame (autoPanLoop params stateRef)
+    modify_ _ { autoPanId = Just handle }
   xyOf r = case r.x, r.y of
     Just x, Just y -> Just { x, y }
     _, _ -> Nothing

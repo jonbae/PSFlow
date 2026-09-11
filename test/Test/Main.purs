@@ -49,6 +49,7 @@ import Test.React.Hook.VisibleIds (runVisibleIdsTests)
 import Test.React.Store.Reduce (runReactStoreTests)
 import Test.React.Store.Shell (runStoreShellTests)
 import Test.System.Utils.Store (runStoreProperties)
+import Test.System.XYDrag (runXYDragTests)
 
 assert :: String -> Boolean -> Effect Unit
 assert label cond =
@@ -1059,6 +1060,7 @@ main = do
   runReactStoreTests
   runStoreShellTests
   runVisibleIdsTests
+  runXYDragTests
 
   -- Function parity — live differential against XYFlow (via the @psflow/oracle bundle).
   -- Requires `npm run build:oracle` to have produced oracle/index.js.

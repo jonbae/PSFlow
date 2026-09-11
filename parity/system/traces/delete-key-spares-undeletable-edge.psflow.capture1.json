@@ -2110,7 +2110,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 345.09999999962747,
+            "timeStamp": 362.20000000298023,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2179,7 +2179,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 345.09999999962747,
+            "timeStamp": 362.20000000298023,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2282,7 +2282,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 345.09999999962747,
+            "timeStamp": 362.20000000298023,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2347,7 +2347,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 345.09999999962747,
+            "timeStamp": 362.20000000298023,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2472,7 +2472,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 353.40000000037253,
+            "timeStamp": 371.40000000596046,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2563,17 +2563,6 @@
         ]
       },
       {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 546.2857142857142,
-            "y": 32,
-            "zoom": 0.9371428571428572
-          }
-        ]
-      },
-      {
         "name": "onSelectionChange",
         "args": [
           {
@@ -2626,6 +2615,17 @@
                 }
               }
             ]
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 546.2857142857142,
+            "y": 32,
+            "zoom": 0.9371428571428572
           }
         ]
       }
