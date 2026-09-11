@@ -13,10 +13,178 @@
       },
       "root": null
     },
-    "callbacks": [],
+    "callbacks": [
+      {
+        "name": "onSelectionChange",
+        "args": [
+          {
+            "nodes": [],
+            "edges": []
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "position": {
+                "@undefined": true
+              },
+              "positionAbsolute": {
+                "@undefined": true
+              },
+              "dragging": {
+                "@undefined": true
+              },
+              "selected": {
+                "@undefined": true
+              },
+              "item": {
+                "@undefined": true
+              },
+              "index": {
+                "@undefined": true
+              },
+              "type": "dimensions",
+              "id": "Node-1",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              },
+              "resizing": false,
+              "setAttributes": true
+            },
+            {
+              "position": {
+                "@undefined": true
+              },
+              "positionAbsolute": {
+                "@undefined": true
+              },
+              "dragging": {
+                "@undefined": true
+              },
+              "selected": {
+                "@undefined": true
+              },
+              "item": {
+                "@undefined": true
+              },
+              "index": {
+                "@undefined": true
+              },
+              "type": "dimensions",
+              "id": "Node-2",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              },
+              "resizing": false,
+              "setAttributes": true
+            },
+            {
+              "position": {
+                "@undefined": true
+              },
+              "positionAbsolute": {
+                "@undefined": true
+              },
+              "dragging": {
+                "@undefined": true
+              },
+              "selected": {
+                "@undefined": true
+              },
+              "item": {
+                "@undefined": true
+              },
+              "index": {
+                "@undefined": true
+              },
+              "type": "dimensions",
+              "id": "Node-3",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              },
+              "resizing": false,
+              "setAttributes": true
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 490,
+            "y": 183,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 490,
+            "y": 183,
+            "zoom": 2
+          }
+        ]
+      }
+    ],
     "hooks": {},
     "api": {
-      "queries": {},
+      "queries": {
+        "getNodes": [],
+        "getNode": {
+          "@undefined": true
+        },
+        "getInternalNode": {
+          "@undefined": true
+        },
+        "getEdges": [],
+        "getEdge": {
+          "@undefined": true
+        },
+        "getIntersectingNodes": [],
+        "isNodeIntersecting": false,
+        "getNodesBounds": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "getHandleConnections": [],
+        "getNodeConnections": [],
+        "toObject": {
+          "nodes": [],
+          "edges": [],
+          "viewport": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          }
+        },
+        "getZoom": 1,
+        "getViewport": {
+          "x": 0,
+          "y": 0,
+          "zoom": 1
+        },
+        "screenToFlowPosition": {
+          "x": 0,
+          "y": 0
+        },
+        "flowToScreenPosition": {
+          "x": 0,
+          "y": 0
+        },
+        "viewportInitialized": false
+      },
       "calls": []
     },
     "props": {},
@@ -27,19 +195,31 @@
       },
       {
         "level": "pageerror",
-        "text": "ps-flow: the `edgeTypes` prop has not crossed the JavaScript boundary yet — it lands in boundary stage 4 (the props that hand a consumer's own component its props record). It is refused rather than ignored so that a prop ps-flow has not implemented fails loudly instead of looking like a prop you did not set."
+        "text": "Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"
       },
       {
         "level": "pageerror",
-        "text": "ps-flow: the `edgeTypes` prop has not crossed the JavaScript boundary yet — it lands in boundary stage 4 (the props that hand a consumer's own component its props record). It is refused rather than ignored so that a prop ps-flow has not implemented fails loudly instead of looking like a prop you did not set."
+        "text": "Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"
+      },
+      {
+        "level": "pageerror",
+        "text": "Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"
+      },
+      {
+        "level": "pageerror",
+        "text": "Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"
       },
       {
         "level": "error",
-        "text": "The above error occurred in the <ReactFlow> component:\n\n    at ReactFlow\n    at div\n    at Flow_default (http://127.0.0.1:54311/parity/driver/dist/psflow.js:64349:23)\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://reactjs.org/link/error-boundaries to learn more about error boundaries."
+        "text": "The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:63684/parity/driver/dist/psflow.js:65171:7)\n    at Wrapper (http://127.0.0.1:63684/parity/driver/dist/psflow.js:28976:30)\n    at g\n    at svg\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:45\n    at div\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:61\n    at div\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:61\n    at div\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:61\n    at div\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:61\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:61\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:45\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:61\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:61\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:61\n    at div\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:45\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:45\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:45\n    at div\n    at Flow_default (http://127.0.0.1:63684/parity/driver/dist/psflow.js:64608:23)\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://reactjs.org/link/error-boundaries to learn more about error boundaries."
+      },
+      {
+        "level": "error",
+        "text": "The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:63684/parity/driver/dist/psflow.js:65171:7)\n    at Wrapper (http://127.0.0.1:63684/parity/driver/dist/psflow.js:28976:30)\n    at g\n    at svg\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:45\n    at div\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:61\n    at div\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:61\n    at div\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:61\n    at div\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:61\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:61\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:45\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:61\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:61\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:61\n    at div\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:45\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:45\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:45\n    at div\n    at Flow_default (http://127.0.0.1:63684/parity/driver/dist/psflow.js:64608:23)\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://reactjs.org/link/error-boundaries to learn more about error boundaries."
       },
       {
         "level": "pageerror",
-        "text": "ps-flow: the `edgeTypes` prop has not crossed the JavaScript boundary yet — it lands in boundary stage 4 (the props that hand a consumer's own component its props record). It is refused rather than ignored so that a prop ps-flow has not implemented fails loudly instead of looking like a prop you did not set."
+        "text": "Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"
       }
     ],
     "driving": [

@@ -38,7 +38,7 @@
                     "tag": "div",
                     "attrs": {
                       "class": "react-flow__viewport xyflow__viewport react-flow__container",
-                      "style": "transform: translate(517.612px, 32px) scale(1.22388);"
+                      "style": "transform: translate(517.84px, 32px) scale(1.2216);"
                     },
                     "children": [
                       {
@@ -67,7 +67,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M75.00002272485864,39.00001633149734 C75.00002272485864,68.00001190003022 -24.99997727514136,68.00001190003022 -24.99997727514136,97.0000074685631",
+                                      "d": "M75.00008481768275,40.000038931396325 C75.00008481768275,68.50001529875969 -24.999915182317253,68.50001529875969 -24.999915182317253,96.99999166612307",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -76,7 +76,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M75.00002272485864,39.00001633149734 C75.00002272485864,68.00001190003022 -24.99997727514136,68.00001190003022 -24.99997727514136,97.0000074685631",
+                                      "d": "M75.00008481768275,40.000038931396325 C75.00008481768275,68.50001529875969 -24.999915182317253,68.50001529875969 -24.999915182317253,96.99999166612307",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -87,7 +87,7 @@
                                   {
                                     "tag": "g",
                                     "attrs": {
-                                      "transform": "translate(15.565381840459224 62.28049991425141)",
+                                      "transform": "translate(15.32861512926722 62.769832651054614)",
                                       "class": "react-flow__edge-textwrapper",
                                       "visibility": "visible"
                                     },
@@ -97,8 +97,8 @@
                                         "attrs": {
                                           "x": "-2",
                                           "y": "-4",
-                                          "width": "22.869281768798828",
-                                          "height": "19.439023971557617",
+                                          "width": "23.342939376831055",
+                                          "height": "19.460365295410156",
                                           "class": "react-flow__edge-textbg",
                                           "rx": "2",
                                           "ry": "2"
@@ -109,7 +109,7 @@
                                         "tag": "text",
                                         "attrs": {
                                           "class": "react-flow__edge-text",
-                                          "y": "5.719511985778809",
+                                          "y": "5.730182647705078",
                                           "dy": "0.3em"
                                         },
                                         "text": "edge",
@@ -121,8 +121,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
-                                      "cx": "75.00002272485864",
-                                      "cy": "49.00001633149734",
+                                      "cx": "75.00008481768275",
+                                      "cy": "50.000038931396325",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -133,8 +133,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
-                                      "cx": "-24.99997727514136",
-                                      "cy": "87.0000074685631",
+                                      "cx": "-24.999915182317253",
+                                      "cy": "86.99999166612307",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -165,7 +165,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M75.00002272485864,39.00001633149734 C75.00002272485864,68.00001190003022 175.00002272485864,68.00001190003022 175.00002272485864,97.0000074685631",
+                                      "d": "M75.00008481768275,40.000038931396325 C75.00008481768275,68.50001529875969 175.00008481768276,68.50001529875969 175.00008481768276,96.99999166612307",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -174,7 +174,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M75.00002272485864,39.00001633149734 C75.00002272485864,68.00001190003022 175.00002272485864,68.00001190003022 175.00002272485864,97.0000074685631",
+                                      "d": "M75.00008481768275,40.000038931396325 C75.00008481768275,68.50001529875969 175.00008481768276,68.50001529875969 175.00008481768276,96.99999166612307",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -185,7 +185,7 @@
                                   {
                                     "tag": "g",
                                     "attrs": {
-                                      "transform": "translate(115.56538184045922 62.28049991425141)",
+                                      "transform": "translate(115.32861512926723 62.769832651054614)",
                                       "class": "react-flow__edge-textwrapper",
                                       "visibility": "visible"
                                     },
@@ -195,8 +195,8 @@
                                         "attrs": {
                                           "x": "-2",
                                           "y": "-4",
-                                          "width": "22.869281768798828",
-                                          "height": "19.439023971557617",
+                                          "width": "23.342939376831055",
+                                          "height": "19.460365295410156",
                                           "class": "react-flow__edge-textbg",
                                           "rx": "2",
                                           "ry": "2"
@@ -207,7 +207,7 @@
                                         "tag": "text",
                                         "attrs": {
                                           "class": "react-flow__edge-text",
-                                          "y": "5.719511985778809",
+                                          "y": "5.730182647705078",
                                           "dy": "0.3em"
                                         },
                                         "text": "edge",
@@ -219,8 +219,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
-                                      "cx": "75.00002272485864",
-                                      "cy": "49.00001633149734",
+                                      "cx": "75.00008481768275",
+                                      "cy": "50.000038931396325",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -231,8 +231,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
-                                      "cx": "175.00002272485864",
-                                      "cy": "87.0000074685631",
+                                      "cx": "175.00008481768276",
+                                      "cy": "86.99999166612307",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -268,7 +268,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 1000; transform: translate(0px, 0px); pointer-events: all; visibility: visible; background-color: red; width: 150px; height: 36px;"
+                              "style": "z-index: 1000; transform: translate(0px, 0px); pointer-events: all; visibility: visible; background-color: red; width: 150px; height: 37px;"
                             },
                             "text": "Node-1",
                             "children": [
@@ -293,7 +293,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(-100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
+                              "style": "z-index: 0; transform: translate(-100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "Node-2",
                             "children": [
@@ -318,7 +318,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
+                              "style": "z-index: 0; transform: translate(100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "Node-3",
                             "children": [
@@ -353,7 +353,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(0px, 200px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
+                              "style": "z-index: 0; transform: translate(0px, 200px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "Node-4",
                             "children": [
@@ -409,7 +409,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(0px, 300px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
+                              "style": "z-index: 0; transform: translate(0px, 300px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "notConnectable",
                             "children": [
@@ -447,7 +447,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(0px, 400px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
+                              "style": "z-index: 0; transform: translate(0px, 400px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "notDraggable",
                             "children": [
@@ -482,7 +482,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(0px, 500px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
+                              "style": "z-index: 0; transform: translate(0px, 500px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "notSelectable",
                             "children": [
@@ -628,7 +628,7 @@
               "id": "Node-1",
               "dimensions": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "resizing": false,
               "setAttributes": true
@@ -656,7 +656,7 @@
               "id": "Node-2",
               "dimensions": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "resizing": false,
               "setAttributes": true
@@ -684,7 +684,7 @@
               "id": "Node-3",
               "dimensions": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "resizing": false,
               "setAttributes": true
@@ -712,7 +712,7 @@
               "id": "Node-4",
               "dimensions": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "resizing": false,
               "setAttributes": true
@@ -768,7 +768,7 @@
               "id": "notConnectable",
               "dimensions": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "resizing": false,
               "setAttributes": true
@@ -796,7 +796,7 @@
               "id": "notDraggable",
               "dimensions": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "resizing": false,
               "setAttributes": true
@@ -824,7 +824,7 @@
               "id": "notSelectable",
               "dimensions": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "resizing": false,
               "setAttributes": true
@@ -836,9 +836,9 @@
         "name": "onViewportChange",
         "args": [
           {
-            "x": 517.6119402985074,
+            "x": 517.8398510242085,
             "y": 32,
-            "zoom": 1.2238805970149254
+            "zoom": 1.2216014897579144
           }
         ]
       },
@@ -847,9 +847,9 @@
         "args": [
           null,
           {
-            "x": 517.6119402985074,
+            "x": 517.8398510242085,
             "y": 32,
-            "zoom": 1.2238805970149254
+            "zoom": 1.2216014897579144
           }
         ]
       },
@@ -861,31 +861,12 @@
         ]
       },
       {
-        "name": "onSelectionChange",
-        "args": [
-          {
-            "nodes": [],
-            "edges": []
-          }
-        ]
-      },
-      {
-        "name": "useOnSelectionChange",
-        "args": [
-          {
-            "nodes": [],
-            "edges": []
-          }
-        ],
-        "probe": true
-      },
-      {
         "name": "onViewportChange",
         "args": [
           {
-            "x": 517.6119402985074,
+            "x": 517.8398510242085,
             "y": 32,
-            "zoom": 1.2238805970149254
+            "zoom": 1.2216014897579144
           }
         ]
       },
@@ -894,9 +875,9 @@
         "args": [
           null,
           {
-            "x": 517.6119402985074,
+            "x": 517.8398510242085,
             "y": 32,
-            "zoom": 1.2238805970149254
+            "zoom": 1.2216014897579144
           }
         ]
       },
@@ -923,19 +904,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 469,
+            "timeStamp": 320.40000000037253,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 609.4029541015625,
-            "screenY": 54.02985382080078,
-            "clientX": 609.4029541015625,
-            "clientY": 54.02985382080078,
-            "pageX": 609.4029541015625,
-            "pageY": 54.02985382080078,
+            "screenX": 609.4599609375,
+            "screenY": 54.59962844848633,
+            "clientX": 609.4599609375,
+            "clientY": 54.59962844848633,
+            "pageX": 609.4599609375,
+            "pageY": 54.59962844848633,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -992,7 +973,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 469,
+            "timeStamp": 320.40000000037253,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1061,7 +1042,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -1089,7 +1070,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -1119,19 +1100,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 469,
+            "timeStamp": 320.40000000037253,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 609.4029541015625,
-            "screenY": 54.02985382080078,
-            "clientX": 609.4029541015625,
-            "clientY": 54.02985382080078,
-            "pageX": 609.4029541015625,
-            "pageY": 54.02985382080078,
+            "screenX": 609.4599609375,
+            "screenY": 54.59962844848633,
+            "clientX": 609.4599609375,
+            "clientY": 54.59962844848633,
+            "pageX": 609.4599609375,
+            "pageY": 54.59962844848633,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -1184,7 +1165,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 469,
+            "timeStamp": 320.40000000037253,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1251,7 +1232,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -1279,7 +1260,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -1372,7 +1353,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -1400,7 +1381,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -1443,7 +1424,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -1471,7 +1452,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": "playwright-test-class-123",
               "style": {
@@ -1528,7 +1509,7 @@
                   "@undefined": true
                 },
                 "width": 150,
-                "height": 36,
+                "height": 37,
                 "initialWidth": {
                   "@undefined": true
                 },
@@ -1556,7 +1537,7 @@
                 },
                 "measured": {
                   "width": 150,
-                  "height": 36
+                  "height": 37
                 },
                 "className": "playwright-test-class-123",
                 "style": {
@@ -1608,7 +1589,7 @@
                   "@undefined": true
                 },
                 "width": 150,
-                "height": 36,
+                "height": 37,
                 "initialWidth": {
                   "@undefined": true
                 },
@@ -1636,7 +1617,7 @@
                 },
                 "measured": {
                   "width": 150,
-                  "height": 36
+                  "height": 37
                 },
                 "className": "playwright-test-class-123",
                 "style": {
@@ -1653,20 +1634,9 @@
         "name": "onViewportChange",
         "args": [
           {
-            "x": 517.6119402985074,
+            "x": 517.8398510242085,
             "y": 32,
-            "zoom": 1.2238805970149254
-          }
-        ]
-      },
-      {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 517.6119402985074,
-            "y": 32,
-            "zoom": 1.2238805970149254
+            "zoom": 1.2216014897579144
           }
         ]
       },
@@ -1712,7 +1682,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -1740,7 +1710,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -1783,7 +1753,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -1811,7 +1781,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": "playwright-test-class-123",
               "style": {
@@ -1842,7 +1812,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 537.7999999970198,
+            "timeStamp": 357.90000000037253,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1909,7 +1879,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -1937,12 +1907,23 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": "playwright-test-class-123",
             "style": {
               "backgroundColor": "red"
             }
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 517.8398510242085,
+            "y": 32,
+            "zoom": 1.2216014897579144
           }
         ]
       }
@@ -2110,7 +2091,7 @@
             "@undefined": true
           },
           "width": 150,
-          "height": 36,
+          "height": 37,
           "initialWidth": {
             "@undefined": true
           },
@@ -2138,7 +2119,7 @@
           },
           "measured": {
             "width": 150,
-            "height": 36
+            "height": 37
           },
           "className": "playwright-test-class-123",
           "style": {
@@ -2160,8 +2141,8 @@
                     "@undefined": true
                   },
                   "nodeId": "Node-1",
-                  "x": 71.00002272485864,
-                  "y": 31.000016331497342,
+                  "x": 71.00008481768275,
+                  "y": 32.000038931396325,
                   "position": "bottom",
                   "type": "source",
                   "width": 8,
@@ -2212,7 +2193,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -2240,7 +2221,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -2282,7 +2263,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -2310,7 +2291,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -2356,7 +2337,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -2384,7 +2365,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -2428,7 +2409,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -2456,7 +2437,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -2568,7 +2549,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -2596,7 +2577,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -2640,7 +2621,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -2668,7 +2649,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -2712,7 +2693,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -2740,7 +2721,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -3024,15 +3005,15 @@
           "flowToScreenPosition": {
             "@ref": "function"
           },
-          "viewportInitialized": true
+          "viewportInitialized": false
         },
         "useUpdateNodeInternals": {
           "@ref": "function"
         },
         "useViewport": {
-          "x": 517.6119402985074,
+          "x": 517.8398510242085,
           "y": 32,
-          "zoom": 1.2238805970149254
+          "zoom": 1.2216014897579144
         },
         "useStore": {
           "error": "ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's object: `nodeLookup` is a `Data.Map` where upstream has a `Map`, `transform` is a newtype where upstream has `[x, y, zoom]`, and the other 83 fields are unconverted. It is refused rather than handed over raw so that the selectors which would silently answer `undefined` fail instead. `useReactFlow`, `useNodes`, `useEdges` and `useViewport` have crossed and reach most of the same state."
@@ -3080,7 +3061,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -3108,7 +3089,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -3150,7 +3131,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -3178,7 +3159,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -3224,7 +3205,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -3252,7 +3233,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -3296,7 +3277,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -3324,7 +3305,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -3436,7 +3417,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -3464,7 +3445,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -3508,7 +3489,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -3536,7 +3517,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -3580,7 +3561,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -3608,7 +3589,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -3813,7 +3794,7 @@
             "@undefined": true
           },
           "width": 150,
-          "height": 36,
+          "height": 37,
           "initialWidth": {
             "@undefined": true
           },
@@ -3841,7 +3822,7 @@
           },
           "measured": {
             "width": 150,
-            "height": 36
+            "height": 37
           },
           "className": "playwright-test-class-123",
           "style": {
@@ -3883,7 +3864,7 @@
             "@undefined": true
           },
           "width": 150,
-          "height": 36,
+          "height": 37,
           "initialWidth": {
             "@undefined": true
           },
@@ -3911,7 +3892,7 @@
           },
           "measured": {
             "width": 150,
-            "height": 36
+            "height": 37
           },
           "className": "playwright-test-class-123",
           "style": {
@@ -3933,8 +3914,8 @@
                     "@undefined": true
                   },
                   "nodeId": "Node-1",
-                  "x": 71.00002272485864,
-                  "y": 31.000016331497342,
+                  "x": 71.00008481768275,
+                  "y": 32.000038931396325,
                   "position": "bottom",
                   "type": "source",
                   "width": 8,
@@ -4124,7 +4105,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -4152,7 +4133,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -4194,7 +4175,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -4222,7 +4203,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -4268,7 +4249,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -4296,7 +4277,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -4340,7 +4321,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -4368,7 +4349,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -4480,7 +4461,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -4508,7 +4489,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -4552,7 +4533,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -4580,7 +4561,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -4624,7 +4605,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -4652,7 +4633,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -4914,7 +4895,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -4942,7 +4923,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": "playwright-test-class-123",
               "style": {
@@ -4984,7 +4965,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -5012,7 +4993,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -5058,7 +5039,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -5086,7 +5067,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -5130,7 +5111,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -5158,7 +5139,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -5270,7 +5251,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -5298,7 +5279,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -5342,7 +5323,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -5370,7 +5351,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -5414,7 +5395,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -5442,7 +5423,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -5707,26 +5688,26 @@
             }
           ],
           "viewport": {
-            "x": 517.6119402985074,
+            "x": 517.8398510242085,
             "y": 32,
-            "zoom": 1.2238805970149254
+            "zoom": 1.2216014897579144
           }
         },
-        "getZoom": 1.2238805970149254,
+        "getZoom": 1.2216014897579144,
         "getViewport": {
-          "x": 517.6119402985074,
+          "x": 517.8398510242085,
           "y": 32,
-          "zoom": 1.2238805970149254
+          "zoom": 1.2216014897579144
         },
         "screenToFlowPosition": {
-          "x": -422.92682926829264,
-          "y": -26.146341463414636
+          "x": -423.9024390243902,
+          "y": -26.195121951219512
         },
         "flowToScreenPosition": {
-          "x": 517.6119402985074,
+          "x": 517.8398510242085,
           "y": 32
         },
-        "viewportInitialized": true
+        "viewportInitialized": false
       },
       "calls": []
     },
@@ -5789,11 +5770,11 @@
       },
       {
         "level": "error",
-        "text": "The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:54194/parity/driver/dist/psflow.js:64308:20)\n    at HookBoundary (http://127.0.0.1:54194/parity/driver/dist/psflow.js:64296:20)\n    at HookLevel (http://127.0.0.1:54194/parity/driver/dist/psflow.js:64315:20)\n    at NetObserver (http://127.0.0.1:54194/parity/driver/dist/psflow.js:64316:22)\n    at http://127.0.0.1:54194/parity/driver/dist/psflow.js:32739:61\n    at http://127.0.0.1:54194/parity/driver/dist/psflow.js:32739:61\n    at http://127.0.0.1:54194/parity/driver/dist/psflow.js:32739:61\n    at div\n    at http://127.0.0.1:54194/parity/driver/dist/psflow.js:32739:45\n    at http://127.0.0.1:54194/parity/driver/dist/psflow.js:32739:45\n    at ReactFlow\n    at div\n    at Flow_default (http://127.0.0.1:54194/parity/driver/dist/psflow.js:64344:23)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, HookBoundary."
+        "text": "The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:63684/parity/driver/dist/psflow.js:64571:20)\n    at HookBoundary (http://127.0.0.1:63684/parity/driver/dist/psflow.js:64559:20)\n    at HookLevel (http://127.0.0.1:63684/parity/driver/dist/psflow.js:64578:20)\n    at NetObserver (http://127.0.0.1:63684/parity/driver/dist/psflow.js:64579:22)\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:61\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:61\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:61\n    at div\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:45\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:45\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:45\n    at div\n    at Flow_default (http://127.0.0.1:63684/parity/driver/dist/psflow.js:64608:23)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, HookBoundary."
       },
       {
         "level": "error",
-        "text": "The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:54194/parity/driver/dist/psflow.js:64308:20)\n    at HookBoundary (http://127.0.0.1:54194/parity/driver/dist/psflow.js:64296:20)\n    at HookLevel (http://127.0.0.1:54194/parity/driver/dist/psflow.js:64315:20)\n    at NetObserver (http://127.0.0.1:54194/parity/driver/dist/psflow.js:64316:22)\n    at http://127.0.0.1:54194/parity/driver/dist/psflow.js:32739:61\n    at http://127.0.0.1:54194/parity/driver/dist/psflow.js:32739:61\n    at http://127.0.0.1:54194/parity/driver/dist/psflow.js:32739:61\n    at div\n    at http://127.0.0.1:54194/parity/driver/dist/psflow.js:32739:45\n    at http://127.0.0.1:54194/parity/driver/dist/psflow.js:32739:45\n    at ReactFlow\n    at div\n    at Flow_default (http://127.0.0.1:54194/parity/driver/dist/psflow.js:64344:23)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, HookBoundary."
+        "text": "The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:63684/parity/driver/dist/psflow.js:64571:20)\n    at HookBoundary (http://127.0.0.1:63684/parity/driver/dist/psflow.js:64559:20)\n    at HookLevel (http://127.0.0.1:63684/parity/driver/dist/psflow.js:64578:20)\n    at NetObserver (http://127.0.0.1:63684/parity/driver/dist/psflow.js:64579:22)\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:61\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:61\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:61\n    at div\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:45\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:45\n    at http://127.0.0.1:63684/parity/driver/dist/psflow.js:32793:45\n    at div\n    at Flow_default (http://127.0.0.1:63684/parity/driver/dist/psflow.js:64608:23)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, HookBoundary."
       }
     ],
     "driving": [
@@ -5818,14 +5799,14 @@
         "target": ".react-flow__node",
         "resolved": true,
         "box": {
-          "x": 517.6119384765625,
+          "x": 517.83984375,
           "y": 32,
-          "width": 183.58209228515625,
-          "height": 44.05970764160156
+          "width": 183.240234375,
+          "height": 45.199256896972656
         },
         "dispatched": {
-          "x": 609.4029846191406,
-          "y": 54.02985382080078,
+          "x": 609.4599609375,
+          "y": 54.59962844848633,
           "button": "left"
         }
       },
@@ -5836,8 +5817,8 @@
         "resolved": true,
         "box": null,
         "dispatched": {
-          "x": 609.4029846191406,
-          "y": 54.02985382080078,
+          "x": 609.4599609375,
+          "y": 54.59962844848633,
           "button": "left"
         }
       }

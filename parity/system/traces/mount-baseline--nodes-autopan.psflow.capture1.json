@@ -461,15 +461,6 @@
             }
           ]
         ]
-      },
-      {
-        "name": "onSelectionChange",
-        "args": [
-          {
-            "nodes": [],
-            "edges": []
-          }
-        ]
       }
     ],
     "hooks": {},
@@ -1645,7 +1636,7 @@
           "x": 0,
           "y": 0
         },
-        "viewportInitialized": true
+        "viewportInitialized": false
       },
       "calls": []
     },

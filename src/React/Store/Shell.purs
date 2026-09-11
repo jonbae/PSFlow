@@ -182,9 +182,19 @@ createStore opts = do
             if prevV == nextV then pure unit
             else cb nextV
       Ref.modify_ (\xs -> xs <> [ { onUpdate, key } ]) subsRef
-      -- Zustand-compatible default: fire once with the current value.
-      s <- Ref.read stateRef
-      cb (selector s)
+      -- No fire on subscribe. Zustand's `subscribe` does not call back with
+      -- the current value; only `subscribeWithSelector` under an explicit
+      -- `fireImmediately` does, and upstream never asks for it. The one
+      -- caller, `React.Hook.Store.useStore`, seeds its own `useState` from
+      -- `store.getState` before this runs, so firing here was a second
+      -- `setValue` with a value the consumer already held.
+      --
+      -- It was also nondeterministic. Every consumer's subscription lands in
+      -- its own `useEffect`, so the extra `setValue`s arrived in mount order
+      -- and React batched them differently run to run — which is what put 52
+      -- of 94 scenarios into `callbacks | ordered differently` against their
+      -- own second capture. See "Diagnose why ps-flow does not reproduce
+      -- itself on 52 of 94 scenarios" (#94).
       pure (Ref.modify_ (Array.filter (\sub -> sub.key /= key)) subsRef)
 
     freshMiddlewareKey = do

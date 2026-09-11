@@ -462,15 +462,6 @@
         ]
       },
       {
-        "name": "onSelectionChange",
-        "args": [
-          {
-            "nodes": [],
-            "edges": []
-          }
-        ]
-      },
-      {
         "name": "onNodesChange",
         "args": [
           [
@@ -2057,7 +2048,7 @@
           "x": 0,
           "y": 0
         },
-        "viewportInitialized": true
+        "viewportInitialized": false
       },
       "calls": []
     },

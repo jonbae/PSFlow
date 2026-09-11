@@ -38,7 +38,7 @@
                     "tag": "div",
                     "attrs": {
                       "class": "react-flow__viewport xyflow__viewport react-flow__container",
-                      "style": "transform: translate(-115.835px, -65.1574px) scale(1.18099);"
+                      "style": "transform: translate(0px, 0px) scale(1);"
                     },
                     "children": [
                       {
@@ -88,7 +88,7 @@
                 "attrs": {
                   "width": "200",
                   "height": "150",
-                  "viewBox": "-29.547924997800436 -140.352643739552 1241.0128499076184 945.533599929614",
+                  "viewBox": "0 0 0 0",
                   "class": "react-flow__minimap-svg",
                   "role": "img",
                   "aria-labelledby": "react-flow__minimap-desc-1"
@@ -106,7 +106,7 @@
                     "tag": "path",
                     "attrs": {
                       "class": "react-flow__minimap-mask",
-                      "d": "M-59.09584999560087,-169.90056873735244h1300.1086999032193v1004.6294499252149h-1300.1086999032193z M98.0830000879826,55.17168754949017h1083.833999824035v609.6566249010197h-1083.833999824035z",
+                      "d": "M0,0h0v0h0z M0,0h0v0h0z",
                       "fill-rule": "evenodd",
                       "pointer-events": "none"
                     },
@@ -181,36 +181,6 @@
           {
             "nodes": [],
             "edges": []
-          }
-        ]
-      },
-      {
-        "name": "onSelectionChange",
-        "args": [
-          {
-            "nodes": [],
-            "edges": []
-          }
-        ]
-      },
-      {
-        "name": "onViewportChange",
-        "args": [
-          {
-            "x": -115.83530331489942,
-            "y": -65.15735811463088,
-            "zoom": 1.1809926614295303
-          }
-        ]
-      },
-      {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": -115.83530331489942,
-            "y": -65.15735811463088,
-            "zoom": 1.1809926614295303
           }
         ]
       }
@@ -1321,26 +1291,26 @@
             }
           ],
           "viewport": {
-            "x": -115.83530331489942,
-            "y": -65.15735811463088,
-            "zoom": 1.1809926614295303
+            "x": 0,
+            "y": 0,
+            "zoom": 1
           }
         },
-        "getZoom": 1.1809926614295303,
+        "getZoom": 1,
         "getViewport": {
-          "x": -115.83530331489942,
-          "y": -65.15735811463088,
-          "zoom": 1.1809926614295303
+          "x": 0,
+          "y": 0,
+          "zoom": 1
         },
         "screenToFlowPosition": {
-          "x": 98.0830000879826,
-          "y": 55.17168754949017
+          "x": 0,
+          "y": 0
         },
         "flowToScreenPosition": {
-          "x": -115.83530331489942,
-          "y": -65.15735811463088
+          "x": 0,
+          "y": 0
         },
-        "viewportInitialized": true
+        "viewportInitialized": false
       },
       "calls": []
     },

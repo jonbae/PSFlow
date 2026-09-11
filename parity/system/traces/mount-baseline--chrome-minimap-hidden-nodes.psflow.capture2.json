@@ -88,7 +88,7 @@
                 "attrs": {
                   "width": "200",
                   "height": "150",
-                  "viewBox": "-32 -152 1344 1024",
+                  "viewBox": "0 0 0 0",
                   "class": "react-flow__minimap-svg",
                   "role": "img",
                   "aria-labelledby": "react-flow__minimap-desc-1"
@@ -106,7 +106,7 @@
                     "tag": "path",
                     "attrs": {
                       "class": "react-flow__minimap-mask",
-                      "d": "M-64,-184h1408v1088h-1408z M0,0h1280v720h-1280z",
+                      "d": "M0,0h0v0h0z M0,0h0v0h0z",
                       "fill-rule": "evenodd",
                       "pointer-events": "none"
                     },
@@ -175,15 +175,6 @@
       }
     },
     "callbacks": [
-      {
-        "name": "onSelectionChange",
-        "args": [
-          {
-            "nodes": [],
-            "edges": []
-          }
-        ]
-      },
       {
         "name": "onSelectionChange",
         "args": [
@@ -1319,7 +1310,7 @@
           "x": 0,
           "y": 0
         },
-        "viewportInitialized": true
+        "viewportInitialized": false
       },
       "calls": []
     },
