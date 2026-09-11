@@ -201,11 +201,11 @@ The witness is printed beside each one so a wrong witness can be read and disput
 | `OnResizeStart` | callbacks | hole | `onResizeStart` | declared — no issue owns it |
 | `OnSelectionChangeFunc` | callbacks | driven | `onSelectionChange` | `arrow-key-selected-node` +91 more |
 | `OnSelectionChangeParams` | callbacks | driven | `onSelectionChange` | `arrow-key-selected-node` +91 more |
-| `OnSelectionDrag` | callbacks | driven | `onSelectionDragStart, onSelectionDrag, onSelectionDragStop` | `drag-node-autopan` |
+| `OnSelectionDrag` | callbacks | driven | `onSelectionDragStart, onSelectionDrag, onSelectionDragStop` | `drag-node-autopan` +1 more |
 | `ResizeDragEvent` | callbacks | hole | `onResizeStart, onResize, onResizeEnd` | declared — no issue owns it |
 | `ResizeParams` | callbacks | hole | `onResizeStart, onResizeEnd` | declared — no issue owns it |
 | `ResizeParamsWithDirection` | callbacks | hole | `onResize` | declared — no issue owns it |
-| `SelectionDragHandler` | callbacks | driven | `onSelectionDragStart, onSelectionDrag, onSelectionDragStop` | `drag-node-autopan` |
+| `SelectionDragHandler` | callbacks | driven | `onSelectionDragStart, onSelectionDrag, onSelectionDragStop` | `drag-node-autopan` +1 more |
 | `ShouldResize` | callbacks | hole | `shouldResize` | declared — no issue owns it |
 | `UseOnSelectionChangeOptions` | callbacks | driven | `useOnSelectionChange` | `click-selects-node--probe-flow-node` |
 | `UseOnViewportChangeOptions` | callbacks | driven | `useOnViewportChange` | `wheel-zooms-the-pane--probe-flow-node` |
