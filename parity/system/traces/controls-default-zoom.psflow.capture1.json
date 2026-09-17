@@ -530,8 +530,30 @@
         ]
       },
       {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": -128,
+            "y": -72,
+            "zoom": 1.2
+          }
+        ]
+      },
+      {
         "name": "onViewportChange",
         "args": [
+          {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
           {
             "x": 0,
             "y": 0,

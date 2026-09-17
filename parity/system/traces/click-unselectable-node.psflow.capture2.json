@@ -901,27 +901,6 @@
         ]
       },
       {
-        "name": "onViewportChange",
-        "args": [
-          {
-            "x": 537.0172684458398,
-            "y": 32,
-            "zoom": 1.0298273155416013
-          }
-        ]
-      },
-      {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 537.0172684458398,
-            "y": 32,
-            "zoom": 1.0298273155416013
-          }
-        ]
-      },
-      {
         "name": "onPaneMouseEnter",
         "args": [
           {
@@ -944,7 +923,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 200.39999999850988,
+            "timeStamp": 191.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1013,7 +992,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 200.39999999850988,
+            "timeStamp": 191.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1142,7 +1121,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 200.39999999850988,
+            "timeStamp": 191.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1207,7 +1186,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 200.39999999850988,
+            "timeStamp": 191.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1663,7 +1642,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 229.5,
+            "timeStamp": 212.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1766,27 +1745,6 @@
             "style": {
               "@undefined": true
             }
-          }
-        ]
-      },
-      {
-        "name": "onViewportChange",
-        "args": [
-          {
-            "x": 537.0172684458398,
-            "y": 32,
-            "zoom": 1.0298273155416013
-          }
-        ]
-      },
-      {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 537.0172684458398,
-            "y": 32,
-            "zoom": 1.0298273155416013
           }
         ]
       }

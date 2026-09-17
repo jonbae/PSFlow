@@ -2067,27 +2067,6 @@
         ]
       },
       {
-        "name": "onViewportChange",
-        "args": [
-          {
-            "x": 546.2857142857142,
-            "y": 32,
-            "zoom": 0.9371428571428572
-          }
-        ]
-      },
-      {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 546.2857142857142,
-            "y": 32,
-            "zoom": 0.9371428571428572
-          }
-        ]
-      },
-      {
         "name": "onPaneMouseEnter",
         "args": [
           {
@@ -2110,7 +2089,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 231.10000000149012,
+            "timeStamp": 272.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2179,7 +2158,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 231.10000000149012,
+            "timeStamp": 272.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2282,7 +2261,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 231.10000000149012,
+            "timeStamp": 272.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2347,7 +2326,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 231.10000000149012,
+            "timeStamp": 272.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2448,7 +2427,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 253.89999999850988,
+            "timeStamp": 285.0999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

@@ -2067,27 +2067,6 @@
         ]
       },
       {
-        "name": "onViewportChange",
-        "args": [
-          {
-            "x": 546.2857142857142,
-            "y": 32,
-            "zoom": 0.9371428571428572
-          }
-        ]
-      },
-      {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 546.2857142857142,
-            "y": 32,
-            "zoom": 0.9371428571428572
-          }
-        ]
-      },
-      {
         "name": "onPaneMouseEnter",
         "args": [
           {
@@ -2110,7 +2089,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 374.09999999403954,
+            "timeStamp": 406.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2179,7 +2158,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 374.09999999403954,
+            "timeStamp": 406.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2284,7 +2263,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 374.09999999403954,
+            "timeStamp": 406.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2349,7 +2328,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 374.09999999403954,
+            "timeStamp": 406.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2476,7 +2455,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 390.09999999403954,
+            "timeStamp": 420.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2555,27 +2534,6 @@
             "style": {
               "@undefined": true
             }
-          }
-        ]
-      },
-      {
-        "name": "onViewportChange",
-        "args": [
-          {
-            "x": 546.2857142857142,
-            "y": 32,
-            "zoom": 0.9371428571428572
-          }
-        ]
-      },
-      {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 546.2857142857142,
-            "y": 32,
-            "zoom": 0.9371428571428572
           }
         ]
       },

@@ -4,7 +4,7 @@
 // they are all about *timing*: which effect copies a changed prop into the
 // store, and in what order relative to the render that reads it. ps-flow
 // diverges structurally here — one `useEffect` per tracked prop against
-// upstream's single effect over a field list (`StoreUpdater.purs:5-8`) — which
+// upstream's single effect over a field list (`StoreUpdater.purs:5-12`) — which
 // is exactly the divergence those rows could perturb.
 //
 // So what is changed is a **spread of tracked fields at once**, not one: a
