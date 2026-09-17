@@ -46,6 +46,7 @@ import Test.Parity.Marker (runMarkerParity)
 import Test.Parity.Toolbar (runToolbarParity)
 import Test.Properties (runProperties)
 import Test.React.Hook.VisibleIds (runVisibleIdsTests)
+import Test.React.Provider.TrackedProp (runTrackedPropTests)
 import Test.React.Store.Reduce (runReactStoreTests)
 import Test.React.Store.Shell (runStoreShellTests)
 import Test.System.Utils.Store (runStoreProperties)
@@ -1061,6 +1062,7 @@ main = do
   runStoreShellTests
   runVisibleIdsTests
   runXYDragTests
+  runTrackedPropTests
 
   -- Function parity — live differential against XYFlow (via the @psflow/oracle bundle).
   -- Requires `npm run build:oracle` to have produced oracle/index.js.

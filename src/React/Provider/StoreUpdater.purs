@@ -4,10 +4,12 @@
 -- |
 -- | TS uses a single `useEffect` with `fieldsToTrack.map((f) => props[f])`
 -- | as the dep array and a `previousFields` ref to gate per-field
--- | dispatches. The PS port spreads each field into its own
--- | `useEffect (UnsafeReference props.fieldName)` — React's
--- | per-call effect ordering and identity-based gating combine to give
--- | the same observable behaviour without the manual prev-value bookkeeping.
+-- | dispatches. The PS port spreads each field into its own `useEffect`,
+-- | which caches that field's previous value and re-runs only when the `Eq`
+-- | instance says it changed — the same per-field gate, with React keeping
+-- | the ref. `React.Provider.TrackedProp` supplies the instance, and its
+-- | docstring says why `UnsafeReference` could not: it compared the `Maybe`
+-- | wrapper, which the boundary rebuilds on every render.
 -- |
 -- | **Dispatch routing.**
 -- |   * Setter-action fields (`SetNodes`, `SetEdges`, `SetMinZoom`,
@@ -23,8 +25,8 @@
 -- | **Mount/unmount.** On mount, `SetDefaultNodesAndEdges` seeds the
 -- | controlled-default branch. On unmount, the reducer's `Reset` action
 -- | wipes the store. TS additionally resets `previousFields.current` to
--- | `initPrevValues` on unmount — irrelevant in PS because we don't
--- | maintain a prev-ref.
+-- | `initPrevValues` on unmount — irrelevant in PS, where the previous
+-- | values belong to the hooks and go when the component instance does.
 module React.Provider.StoreUpdater
   ( storeUpdater
   ) where
@@ -38,12 +40,13 @@ import React.Basic (ReactComponent)
 import React.Basic.Hooks (Hook, UnsafeReference(..), UseEffect, reactComponent, useEffect, useEffectOnce)
 import React.Basic.Hooks as React
 import React.Hook.Store (useStoreApi)
+import React.Provider.TrackedProp (TrackedProp(..))
 import React.Store.Action (Action(..))
 import React.Types.Component (StoreUpdaterProps)
 import System.Constants (mergeAriaLabelConfig)
 
--- | One `useEffect` per tracked prop. Fires when the prop's JS
--- | reference changes, dispatches if it is `Just _`, no-ops on `Nothing`.
+-- | One `useEffect` per tracked prop. Fires when the prop's value changes,
+-- | dispatches if it is `Just _`, no-ops on `Nothing`.
 -- |
 -- | `dispatch` here is `store.dispatch`. We pass `Action n e` values that
 -- | mention the same `n`/`e` as the inferred store; no annotation
@@ -180,19 +183,20 @@ storeUpdater =
 
       pure mempty
 
--- | Helper: `useEffect (UnsafeReference m)` that dispatches `mkAction v`
--- | when `m == Just v`, otherwise no-ops. Each call is one hook (PS's
--- | rules of hooks require a fixed sequence of hook calls per render —
--- | which is what this gives us when each `effectOnJust` is at the same
--- | source position every render).
+-- | Helper: a `useEffect` that dispatches `mkAction v` when the field is
+-- | `Just v` and its value has changed since the last render, and otherwise
+-- | no-ops. `TrackedProp` is what makes "has changed" mean what it means
+-- | upstream. Each call is one hook (PS's rules of hooks require a fixed
+-- | sequence of hook calls per render — which is what this gives us when each
+-- | `effectOnJust` is at the same source position every render).
 effectOnJust
   :: forall a action
    . (action -> Effect Unit)
   -> Maybe a
   -> (a -> action)
-  -> Hook (UseEffect (UnsafeReference (Maybe a))) Unit
+  -> Hook (UseEffect (TrackedProp a)) Unit
 effectOnJust dispatch mValue mkAction =
-  useEffect (UnsafeReference mValue) do
+  useEffect (TrackedProp mValue) do
     case mValue of
       Just v -> dispatch (mkAction v)
       Nothing -> pure unit
