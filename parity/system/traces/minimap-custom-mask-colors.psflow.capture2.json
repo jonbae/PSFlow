@@ -737,7 +737,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 184.09999999962747,
+            "timeStamp": 180.19999999552965,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -806,7 +806,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 184.09999999962747,
+            "timeStamp": 180.19999999552965,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -935,7 +935,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 184.09999999962747,
+            "timeStamp": 180.19999999552965,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1000,7 +1000,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 184.09999999962747,
+            "timeStamp": 180.19999999552965,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1169,7 +1169,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 201.40000000037253,
+            "timeStamp": 184.89999999850988,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1401,7 +1401,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 220.80000000074506,
+            "timeStamp": 203.79999999701977,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1470,7 +1470,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 220.80000000074506,
+            "timeStamp": 203.79999999701977,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
