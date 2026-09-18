@@ -715,27 +715,6 @@
         "name": "onViewportChange",
         "args": [
           {
-            "x": 490,
-            "y": 123,
-            "zoom": 2
-          }
-        ]
-      },
-      {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 490,
-            "y": 123,
-            "zoom": 2
-          }
-        ]
-      },
-      {
-        "name": "onViewportChange",
-        "args": [
-          {
             "x": 515,
             "y": 162.5,
             "zoom": 1.6666666666666667
@@ -1149,16 +1128,6 @@
               }
             }
           ]
-        ]
-      },
-      {
-        "name": "onViewportChange",
-        "args": [
-          {
-            "x": 490,
-            "y": 123,
-            "zoom": 2
-          }
         ]
       },
       {

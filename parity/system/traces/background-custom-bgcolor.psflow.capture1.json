@@ -644,27 +644,6 @@
         ]
       },
       {
-        "name": "onViewportChange",
-        "args": [
-          {
-            "x": 490,
-            "y": 123,
-            "zoom": 2
-          }
-        ]
-      },
-      {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 490,
-            "y": 123,
-            "zoom": 2
-          }
-        ]
-      },
-      {
         "name": "onPaneMouseEnter",
         "args": [
           {
@@ -687,7 +666,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 281,
+            "timeStamp": 319.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -754,7 +733,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 281,
+            "timeStamp": 319.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -819,7 +798,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 307.79999999701977,
+            "timeStamp": 339.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -863,16 +842,6 @@
         "name": "onEdgesChange",
         "args": [
           []
-        ]
-      },
-      {
-        "name": "onViewportChange",
-        "args": [
-          {
-            "x": 490,
-            "y": 123,
-            "zoom": 2
-          }
         ]
       },
       {

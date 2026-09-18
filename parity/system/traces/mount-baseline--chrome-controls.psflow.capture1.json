@@ -710,27 +710,6 @@
             "zoom": 2
           }
         ]
-      },
-      {
-        "name": "onViewportChange",
-        "args": [
-          {
-            "x": 490,
-            "y": 123,
-            "zoom": 2
-          }
-        ]
-      },
-      {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 490,
-            "y": 123,
-            "zoom": 2
-          }
-        ]
       }
     ],
     "hooks": {},

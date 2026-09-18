@@ -1465,27 +1465,6 @@
           "002",
           "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
         ]
-      },
-      {
-        "name": "onViewportChange",
-        "args": [
-          {
-            "x": 58,
-            "y": 339.49142857142857,
-            "zoom": 1.1085714285714285
-          }
-        ]
-      },
-      {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 58,
-            "y": 339.49142857142857,
-            "zoom": 1.1085714285714285
-          }
-        ]
       }
     ],
     "hooks": {},

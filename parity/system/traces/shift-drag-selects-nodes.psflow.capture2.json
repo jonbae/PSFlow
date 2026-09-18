@@ -918,27 +918,6 @@
         ]
       },
       {
-        "name": "onViewportChange",
-        "args": [
-          {
-            "x": 537.0172684458398,
-            "y": 32,
-            "zoom": 1.0298273155416013
-          }
-        ]
-      },
-      {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 537.0172684458398,
-            "y": 32,
-            "zoom": 1.0298273155416013
-          }
-        ]
-      },
-      {
         "name": "onNodesChange",
         "args": [
           []
@@ -971,7 +950,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 206.39999999850988,
+            "timeStamp": 228.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1485,7 +1464,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 229.79999999701977,
+            "timeStamp": 247.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1526,27 +1505,6 @@
             "isPropagationStopped": {
               "@ref": "function"
             }
-          }
-        ]
-      },
-      {
-        "name": "onViewportChange",
-        "args": [
-          {
-            "x": 537.0172684458398,
-            "y": 32,
-            "zoom": 1.0298273155416013
-          }
-        ]
-      },
-      {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 537.0172684458398,
-            "y": 32,
-            "zoom": 1.0298273155416013
           }
         ]
       }

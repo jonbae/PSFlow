@@ -901,27 +901,6 @@
         ]
       },
       {
-        "name": "onViewportChange",
-        "args": [
-          {
-            "x": 537.0172684458398,
-            "y": 32,
-            "zoom": 1.0298273155416013
-          }
-        ]
-      },
-      {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 537.0172684458398,
-            "y": 32,
-            "zoom": 1.0298273155416013
-          }
-        ]
-      },
-      {
         "name": "onPaneMouseEnter",
         "args": [
           {
@@ -944,7 +923,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 351.6000000014901,
+            "timeStamp": 340.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1013,7 +992,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 351.6000000014901,
+            "timeStamp": 340.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1142,7 +1121,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 351.6000000014901,
+            "timeStamp": 340.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1207,7 +1186,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 351.6000000014901,
+            "timeStamp": 340.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1600,16 +1579,6 @@
         ]
       },
       {
-        "name": "onViewportChange",
-        "args": [
-          {
-            "x": 537.0172684458398,
-            "y": 32,
-            "zoom": 1.0298273155416013
-          }
-        ]
-      },
-      {
         "name": "onNodeDragStop",
         "args": [
           {
@@ -1785,7 +1754,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 385.6000000014901,
+            "timeStamp": 370.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1888,17 +1857,6 @@
             "style": {
               "@undefined": true
             }
-          }
-        ]
-      },
-      {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 537.0172684458398,
-            "y": 32,
-            "zoom": 1.0298273155416013
           }
         ]
       }
