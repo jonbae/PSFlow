@@ -506,7 +506,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 163.0999999642372,
+            "timeStamp": 162.29999995231628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -573,7 +573,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 163.0999999642372,
+            "timeStamp": 162.29999995231628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
