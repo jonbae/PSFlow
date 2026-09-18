@@ -51,6 +51,7 @@ import Test.React.Store.Reduce (runReactStoreTests)
 import Test.React.Store.Shell (runStoreShellTests)
 import Test.React.Store.ZoomLimits (runZoomLimitsTests)
 import Test.System.Utils.Store (runStoreProperties)
+import Test.System.Utils.StorePanBy (runStorePanByTests)
 import Test.System.XYDrag (runXYDragTests)
 
 assert :: String -> Boolean -> Effect Unit
@@ -1064,6 +1065,7 @@ main = do
   runZoomLimitsTests
   runVisibleIdsTests
   runXYDragTests
+  runStorePanByTests
   runTrackedPropTests
 
   -- Function parity — live differential against XYFlow (via the @psflow/oracle bundle).

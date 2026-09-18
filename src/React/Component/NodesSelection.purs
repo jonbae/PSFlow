@@ -47,8 +47,6 @@ import Data.Nullable (Nullable, toNullable)
 import Data.Number (isFinite, isNaN) as Number
 import Data.Number.Format (toString) as NumberFormat
 import Effect (Effect)
-import Effect.Aff (Aff)
-import Effect.Class (liftEffect)
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign)
 import React.Basic (ReactComponent)
@@ -61,6 +59,7 @@ import React.Hook.Drag (useDrag)
 import React.Hook.MoveSelectedNodes (useMoveSelectedNodes)
 import React.Hook.Store (UseStoreApi, useStore, useStoreApi)
 import React.Store.Action (Action(..))
+import React.Store.PanBy as StorePanBy
 import React.Store.Shell (Store)
 import React.Types.Component (NodesSelectionProps)
 import React.Types.Store (ReactFlowState)
@@ -140,7 +139,7 @@ mkDragStoreItems store = do
     , nodesDraggable: s.nodesDraggable
     , selectNodesOnDrag: s.selectNodesOnDrag
     , nodeDragThreshold: s.nodeDragThreshold
-    , panBy: panByAdapter store
+    , panBy: StorePanBy.panBy store
     , unselectNodesAndEdges:
         store.dispatch
           (UnselectNodesAndEdges { nodes: Nothing, edges: Nothing })
@@ -158,14 +157,6 @@ mkDragStoreItems store = do
           )
     , autoPanSpeed: Just s.autoPanSpeed
     }
-
-panByAdapter
-  :: forall n e
-   . Store n e
-  -> { x :: Number, y :: Number }
-  -> Aff Boolean
-panByAdapter store delta =
-  liftEffect (store.dispatch (PanBy delta)) *> pure true
 
 -- ----------------------------------------------------------------------------
 -- The component

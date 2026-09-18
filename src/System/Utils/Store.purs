@@ -42,6 +42,7 @@ import Effect (Effect)
 import Effect.Aff (Aff)
 import Web.HTML.HTMLElement (HTMLElement)
 import System.Constants (infiniteExtent)
+import System.FFI.D3Zoom (zoomTransformK, zoomTransformX, zoomTransformY)
 import System.Types.Connection
   ( ConnectionLookup
   , HandleConnection
@@ -933,6 +934,17 @@ updateConnectionLookup edges =
 
 -- Pan-by ------------------------------------------------------------------
 
+-- | TS `panBy`. Constrain the requested viewport, apply it, and report
+-- | whether it moved.
+-- |
+-- | The Boolean is what an auto-pan loop reads to decide whether to move the
+-- | dragged nodes, so it has to distinguish "the viewport moved" from "d3
+-- | gave us a transform". At a `translateExtent` boundary `constrain` returns
+-- | the transform the viewport is already at, which is a refusal; a caller
+-- | that reads a transform as success moves its nodes every frame while the
+-- | viewport holds still. Upstream's `transformChanged` compares the
+-- | constrained transform with the current one component by component, and
+-- | this does the same.
 panBy
   :: XYPosition
   -> Maybe PanZoomInstance
@@ -954,5 +966,8 @@ panBy delta mPanZoom (Transform t) translateExtent width height =
           )
           translateExtent
         pure case next of
-          Just _ -> true
           Nothing -> false
+          Just zt ->
+            zoomTransformX zt /= t.tx
+              || zoomTransformY zt /= t.ty
+              || zoomTransformK zt /= t.scale

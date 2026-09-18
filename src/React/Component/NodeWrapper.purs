@@ -42,8 +42,6 @@
 -- |   * `ariaLiveMessage` on arrow-key nudges is deferred (the
 -- |     `AriaLabelConfig` method isn't surfaced through the wrapper
 -- |     in a form that's ready for this call site).
--- |   * `panBy` returns `Aff Boolean` but `Action PanBy` is
--- |     fire-and-forget — the adapter reports success unconditionally.
 module React.Component.NodeWrapper
   ( nodeWrapper
   ) where
@@ -57,8 +55,6 @@ import Data.Maybe (Maybe(..), fromMaybe, isJust)
 import Data.Newtype (unwrap)
 import Data.Nullable (Nullable, toNullable)
 import Effect (Effect)
-import Effect.Aff (Aff)
-import Effect.Class (liftEffect)
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign, unsafeToForeign)
 import Foreign.Object (Object)
@@ -76,6 +72,7 @@ import React.Hook.NodeObserver (useNodeObserver)
 import React.Hook.Store (UseStoreApi, useStore, useStoreApi)
 import React.Node.Util (handleNodeClick)
 import React.Store.Action (Action(..))
+import React.Store.PanBy as StorePanBy
 import React.Store.Shell (Store)
 import React.Types.Nodes
   ( InternalNode
@@ -226,7 +223,7 @@ mkDragStoreItems store = do
     , nodesDraggable: s.nodesDraggable
     , selectNodesOnDrag: s.selectNodesOnDrag
     , nodeDragThreshold: s.nodeDragThreshold
-    , panBy: panByAdapter store
+    , panBy: StorePanBy.panBy store
     , unselectNodesAndEdges:
         store.dispatch
           (UnselectNodesAndEdges { nodes: Nothing, edges: Nothing })
@@ -244,14 +241,6 @@ mkDragStoreItems store = do
           )
     , autoPanSpeed: Just s.autoPanSpeed
     }
-
-panByAdapter
-  :: forall n e
-   . Store n e
-  -> { x :: Number, y :: Number }
-  -> Aff Boolean
-panByAdapter store delta =
-  liftEffect (store.dispatch (PanBy delta)) *> pure true
 
 -- ----------------------------------------------------------------------------
 -- Class-name and props for the wrapping <div>
