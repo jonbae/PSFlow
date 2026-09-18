@@ -527,7 +527,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 95.89999997615814,
+            "timeStamp": 144.80000007152557,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -596,7 +596,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 95.89999997615814,
+            "timeStamp": 144.80000007152557,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -668,7 +668,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 95.89999997615814,
+            "timeStamp": 144.80000007152557,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -733,7 +733,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 95.89999997615814,
+            "timeStamp": 144.80000007152557,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -929,7 +929,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 102.59999996423721,
+            "timeStamp": 153,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1044,6 +1044,22 @@
         ]
       },
       {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "id": "Node-1",
+              "type": "position",
+              "position": {
+                "x": 5,
+                "y": 20
+              },
+              "dragging": false
+            }
+          ]
+        ]
+      },
+      {
         "name": "onNodeMouseLeave",
         "args": [
           {
@@ -1066,7 +1082,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 115,
+            "timeStamp": 165.70000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1106,7 +1122,7 @@
               "label": "Node-1"
             },
             "position": {
-              "x": 0,
+              "x": 5,
               "y": 20
             },
             "type": "input",
@@ -1117,22 +1133,6 @@
             "selected": true,
             "dragging": false
           }
-        ]
-      },
-      {
-        "name": "onNodesChange",
-        "args": [
-          [
-            {
-              "id": "Node-1",
-              "type": "position",
-              "position": {
-                "x": 5,
-                "y": 20
-              },
-              "dragging": false
-            }
-          ]
         ]
       },
       {

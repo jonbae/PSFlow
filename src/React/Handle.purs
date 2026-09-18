@@ -11,8 +11,10 @@
 -- | `React.Component.EdgeWrapper.UpdateAnchors`, which solved the same
 -- | "synthetic event -> XYHandle.onPointerDown" problem for reconnect
 -- | drags. A few small helpers (`syntheticToMouse`, `currentTargetElement`,
--- | `panByAdapter`, `extractFromHandle`) are duplicated here rather than
--- | extracted to a shared module — if a third caller appears, lift them.
+-- | `extractFromHandle`) are duplicated here rather than extracted to a
+-- | shared module — if a third caller appears, lift them. `panBy` was one of
+-- | them and now comes from `React.Store.PanBy`, because a copy that answers
+-- | `pure true` is a wrong answer four times over.
 module React.Handle
   ( handle
   ) where
@@ -24,8 +26,6 @@ import Data.Either (Either(..))
 import Data.Foldable (for_)
 import Data.Maybe (Maybe(..), fromMaybe, isJust)
 import Effect (Effect)
-import Effect.Aff (Aff)
-import Effect.Class (liftEffect)
 import Effect.Exception.Unsafe (unsafeThrow)
 import Effect.Unsafe (unsafePerformEffect)
 import React.Basic (ReactComponent)
@@ -36,6 +36,7 @@ import React.Context.NodeId (useNodeId)
 import React.FFI.DOM (div_, opt)
 import React.Hook.Store (UseStoreApi, useStore, useStoreApi)
 import React.Store.Action (Action(..))
+import React.Store.PanBy as StorePanBy
 import React.Store.Shell (Store)
 import React.Types.Component (HandleProps)
 import React.Types.Edges (DefaultEdgeOptions)
@@ -214,17 +215,6 @@ currentTargetElement se =
   map unsafeCoerce
     (Event.currentTarget (ME.toEvent (syntheticToMouse se)))
 
--- | Fire-and-forget pan adapter. `Action PanBy` has no `Aff`-completing
--- | path; we dispatch and immediately report success. Acceptable because
--- | the reducer applies the delta synchronously.
-panByAdapter
-  :: forall n e
-   . Store n e
-  -> { x :: Number, y :: Number }
-  -> Aff Boolean
-panByAdapter store delta =
-  liftEffect (store.dispatch (PanBy delta)) *> pure true
-
 extractFromHandle :: forall node. ConnectionState node -> Maybe Handle
 extractFromHandle = case _ of
   NoConnection -> Nothing
@@ -358,7 +348,7 @@ handle = unsafePerformEffect $ memo $ reactComponent "Handle" \(props :: HandleP
             , flowId: Just state.rfId
             , edgeUpdaterType: Nothing
             , updateConnection: \cs -> store.dispatch (UpdateConnection cs)
-            , panBy: panByAdapter store
+            , panBy: StorePanBy.panBy store
             , cancelConnection: store.dispatch CancelConnection
             , onConnectStart: state.onConnectStart
             , onConnect: Just (onConnectExtended store props.onConnect)

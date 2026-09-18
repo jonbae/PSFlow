@@ -13,10 +13,6 @@
 -- |   * Touch reconnect is skipped — only the `Left MouseEvent` half of
 -- |     `Either MouseEvent TouchEvent` is wired. Same deferment as
 -- |     `React.Handle`.
--- |   * `panBy` is fire-and-forget — `Action PanBy` has no `Aff Boolean`
--- |     completion, so the adapter unconditionally reports `pure true`.
--- |     The auto-pan controller sees every dispatch as "panned",
--- |     visually correct because the reducer always applies the delta.
 -- |   * The React-layer `IsValidConnection` carries an `edge :: Maybe
 -- |     (Edge e)` field that the system-layer's `Connection -> Boolean`
 -- |     doesn't expose. The adapter drops `edge` (validation predicates
@@ -32,8 +28,6 @@ import Data.Either (Either(..))
 import Data.Foldable (for_)
 import Data.Maybe (Maybe(..))
 import Effect (Effect)
-import Effect.Aff (Aff)
-import Effect.Class (liftEffect)
 import Effect.Unsafe (unsafePerformEffect)
 import React.Basic (ReactComponent, element)
 import React.Basic.Events (EventHandler, SyntheticEvent, handler, handler_, syntheticEvent)
@@ -42,7 +36,7 @@ import React.Basic.Hooks as React
 import React.Edge.Anchor (edgeAnchor)
 import React.Hook.Store (UseStoreApi, useStoreApi)
 import React.Store.Action (Action(..))
-import React.Store.Shell (Store)
+import React.Store.PanBy as StorePanBy
 import React.Types.Edges (Edge, OnReconnect, ReconnectHandleType(..))
 import System.Types.Connection
   ( ConnectionState(..)
@@ -97,17 +91,6 @@ currentTargetElement :: SyntheticEvent -> Maybe Element
 currentTargetElement se =
   map unsafeCoerce
     (Event.currentTarget (ME.toEvent (syntheticToMouse se)))
-
--- | Fire-and-forget pan adapter. `Action PanBy` has no `Aff`-completing
--- | path; we dispatch and immediately report success. Acceptable
--- | because the reducer always applies the delta synchronously.
-panByAdapter
-  :: forall n e
-   . Store n e
-  -> { x :: Number, y :: Number }
-  -> Aff Boolean
-panByAdapter store delta =
-  liftEffect (store.dispatch (PanBy delta)) *> pure true
 
 -- | Pluck the source handle out of an in-progress connection state.
 -- | Returns `Nothing` when no connection is in progress.
@@ -167,7 +150,7 @@ edgeUpdateAnchors =
                 , flowId: Just state.rfId
                 , edgeUpdaterType: Just oppositeHandle.handleType
                 , updateConnection: \cs -> store.dispatch (UpdateConnection cs)
-                , panBy: panByAdapter store
+                , panBy: StorePanBy.panBy store
                 , cancelConnection: store.dispatch CancelConnection
                 , onConnectStart: Just \evtUnion params' -> do
                     props.setReconnecting true
