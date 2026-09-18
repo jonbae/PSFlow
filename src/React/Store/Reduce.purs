@@ -71,9 +71,24 @@ reduce state = case _ of
   AddSelectedNodes ids -> reduceAddSelectedNodes state ids
   AddSelectedEdges ids -> reduceAddSelectedEdges state ids
   UnselectNodesAndEdges params -> reduceUnselectNodesAndEdges state params
-  SetMinZoom z -> { state: state { minZoom = z }, effects: [] }
-  SetMaxZoom z -> { state: state { maxZoom = z }, effects: [] }
-  SetTranslateExtent ext -> { state: state { translateExtent = ext }, effects: [] }
+  -- The limits live in two places: store state, which `panBy` and the
+  -- viewport helpers read, and the d3 zoom behavior, which enforces them
+  -- on a gesture. Writing only the first leaves a flow that changes any
+  -- of the three after mount still bounded by the values it was created
+  -- with. Each bound is read from the pre-update state, which is what
+  -- upstream's `get()` before its `set()` gives it.
+  SetMinZoom z ->
+    { state: state { minZoom = z }
+    , effects: [ RunSetScaleExtent z state.maxZoom ]
+    }
+  SetMaxZoom z ->
+    { state: state { maxZoom = z }
+    , effects: [ RunSetScaleExtent state.minZoom z ]
+    }
+  SetTranslateExtent ext ->
+    { state: state { translateExtent = ext }
+    , effects: [ RunSetTranslateExtent ext ]
+    }
   SetNodeExtent ext -> reduceSetNodeExtent state ext
   PanBy delta -> { state, effects: [ RunPanBy delta ] }
   SetCenter x y opts -> { state, effects: [ RunSetCenter x y opts ] }

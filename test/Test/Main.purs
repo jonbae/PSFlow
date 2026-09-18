@@ -49,6 +49,7 @@ import Test.React.Hook.VisibleIds (runVisibleIdsTests)
 import Test.React.Provider.TrackedProp (runTrackedPropTests)
 import Test.React.Store.Reduce (runReactStoreTests)
 import Test.React.Store.Shell (runStoreShellTests)
+import Test.React.Store.ZoomLimits (runZoomLimitsTests)
 import Test.System.Utils.Store (runStoreProperties)
 import Test.System.XYDrag (runXYDragTests)
 
@@ -1060,6 +1061,7 @@ main = do
   runStoreProperties
   runReactStoreTests
   runStoreShellTests
+  runZoomLimitsTests
   runVisibleIdsTests
   runXYDragTests
   runTrackedPropTests

@@ -207,7 +207,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(0px, 0px); pointer-events: all; visibility: visible; background-color: rgba(80, 120, 200, 0.12); width: 150px; height: 37px;"
+                              "style": "z-index: 0; transform: translate(0px, 0px); pointer-events: all; visibility: visible; background-color: rgba(80, 120, 200, 0.12); width: 190px; height: 77px;"
                             },
                             "text": "parent",
                             "children": [
@@ -457,41 +457,6 @@
         ]
       },
       {
-        "name": "onNodesChange",
-        "args": [
-          [
-            {
-              "position": {
-                "@undefined": true
-              },
-              "positionAbsolute": {
-                "@undefined": true
-              },
-              "dragging": {
-                "@undefined": true
-              },
-              "selected": {
-                "@undefined": true
-              },
-              "item": {
-                "@undefined": true
-              },
-              "index": {
-                "@undefined": true
-              },
-              "type": "dimensions",
-              "id": "parent",
-              "dimensions": {
-                "width": 150,
-                "height": 37
-              },
-              "resizing": false,
-              "setAttributes": true
-            }
-          ]
-        ]
-      },
-      {
         "name": "onPaneMouseEnter",
         "args": [
           {
@@ -514,7 +479,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 181.80000001192093,
+            "timeStamp": 161,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -583,7 +548,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 181.80000001192093,
+            "timeStamp": 161,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -712,7 +677,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 181.80000001192093,
+            "timeStamp": 161,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -777,7 +742,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 181.80000001192093,
+            "timeStamp": 161,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1183,7 +1148,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 209.5,
+            "timeStamp": 174.79999995231628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1441,7 +1406,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 223.5,
+            "timeStamp": 190.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1699,7 +1664,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 240.69999998807907,
+            "timeStamp": 206.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1957,7 +1922,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 256.0999999642372,
+            "timeStamp": 223.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2215,7 +2180,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 272.80000001192093,
+            "timeStamp": 239,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2473,7 +2438,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 290.69999998807907,
+            "timeStamp": 256.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2731,7 +2696,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 307.5999999642372,
+            "timeStamp": 274,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2989,7 +2954,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 322.5,
+            "timeStamp": 289.7999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3460,8 +3425,8 @@
             "dragHandle": {
               "@undefined": true
             },
-            "width": 150,
-            "height": 37,
+            "width": 190,
+            "height": 77,
             "initialWidth": {
               "@undefined": true
             },
@@ -3488,8 +3453,8 @@
               "@undefined": true
             },
             "measured": {
-              "width": 150,
-              "height": 37
+              "width": 190,
+              "height": 77
             },
             "className": {
               "@undefined": true
@@ -3683,8 +3648,8 @@
           "dragHandle": {
             "@undefined": true
           },
-          "width": 150,
-          "height": 37,
+          "width": 190,
+          "height": 77,
           "initialWidth": {
             "@undefined": true
           },
@@ -3711,8 +3676,8 @@
             "@undefined": true
           },
           "measured": {
-            "width": 150,
-            "height": 37
+            "width": 190,
+            "height": 77
           },
           "className": {
             "@undefined": true
@@ -3759,8 +3724,8 @@
           "dragHandle": {
             "@undefined": true
           },
-          "width": 150,
-          "height": 37,
+          "width": 190,
+          "height": 77,
           "initialWidth": {
             "@undefined": true
           },
@@ -3787,8 +3752,8 @@
             "@undefined": true
           },
           "measured": {
-            "width": 150,
-            "height": 37
+            "width": 190,
+            "height": 77
           },
           "className": {
             "@undefined": true
@@ -3814,8 +3779,8 @@
                     "@undefined": true
                   },
                   "nodeId": "parent",
-                  "x": 71,
-                  "y": 32,
+                  "x": 91,
+                  "y": 72,
                   "position": "bottom",
                   "type": "source",
                   "width": 8,
@@ -3828,7 +3793,7 @@
                     "@undefined": true
                   },
                   "nodeId": "parent",
-                  "x": 71,
+                  "x": 91,
                   "y": -3,
                   "position": "top",
                   "type": "target",
@@ -3981,8 +3946,8 @@
             "dragHandle": {
               "@undefined": true
             },
-            "width": 150,
-            "height": 37,
+            "width": 190,
+            "height": 77,
             "initialWidth": {
               "@undefined": true
             },
@@ -4009,8 +3974,8 @@
               "@undefined": true
             },
             "measured": {
-              "width": 150,
-              "height": 37
+              "width": 190,
+              "height": 77
             },
             "className": {
               "@undefined": true
@@ -4215,8 +4180,8 @@
               "dragHandle": {
                 "@undefined": true
               },
-              "width": 150,
-              "height": 37,
+              "width": 190,
+              "height": 77,
               "initialWidth": {
                 "@undefined": true
               },
@@ -4243,8 +4208,8 @@
                 "@undefined": true
               },
               "measured": {
-                "width": 150,
-                "height": 37
+                "width": 190,
+                "height": 77
               },
               "className": {
                 "@undefined": true

@@ -923,7 +923,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 373.4000000357628,
+            "timeStamp": 301.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -992,7 +992,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 373.4000000357628,
+            "timeStamp": 301.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1119,7 +1119,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 373.4000000357628,
+            "timeStamp": 301.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1184,7 +1184,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 373.4000000357628,
+            "timeStamp": 301.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1591,7 +1591,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 409.5,
+            "timeStamp": 342.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1718,7 +1718,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 409.5,
+            "timeStamp": 342.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1979,7 +1979,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 434.5,
+            "timeStamp": 368.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2291,7 +2291,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 477.5,
+            "timeStamp": 406.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2398,15 +2398,6 @@
         ]
       },
       {
-        "name": "onSelectionChange",
-        "args": [
-          {
-            "nodes": [],
-            "edges": []
-          }
-        ]
-      },
-      {
         "name": "onNodeMouseLeave",
         "args": [
           {
@@ -2429,7 +2420,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 485.80000001192093,
+            "timeStamp": 410.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2480,7 +2471,7 @@
               "@undefined": true
             },
             "hidden": false,
-            "selected": false,
+            "selected": true,
             "dragging": true,
             "draggable": {
               "@undefined": true
@@ -2558,7 +2549,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 485.80000001192093,
+            "timeStamp": 410.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2689,7 +2680,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 485.80000001192093,
+            "timeStamp": 410.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2927,6 +2918,15 @@
         "args": [
           "002",
           "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
+        ]
+      },
+      {
+        "name": "onSelectionChange",
+        "args": [
+          {
+            "nodes": [],
+            "edges": []
+          }
         ]
       }
     ],

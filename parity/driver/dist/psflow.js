@@ -35732,6 +35732,29 @@ var RunSetCenter = /* @__PURE__ */ function() {
   };
   return RunSetCenter2;
 }();
+var RunSetScaleExtent = /* @__PURE__ */ function() {
+  function RunSetScaleExtent2(value0, value1) {
+    this.value0 = value0;
+    this.value1 = value1;
+  }
+  ;
+  RunSetScaleExtent2.create = function(value0) {
+    return function(value1) {
+      return new RunSetScaleExtent2(value0, value1);
+    };
+  };
+  return RunSetScaleExtent2;
+}();
+var RunSetTranslateExtent = /* @__PURE__ */ function() {
+  function RunSetTranslateExtent2(value0) {
+    this.value0 = value0;
+  }
+  ;
+  RunSetTranslateExtent2.create = function(value0) {
+    return new RunSetTranslateExtent2(value0);
+  };
+  return RunSetTranslateExtent2;
+}();
 var ResolveFitView = /* @__PURE__ */ function() {
   function ResolveFitView2(value0) {
     this.value0 = value0;
@@ -55153,7 +55176,7 @@ var reduceSetDefaults = function(state3) {
           };
         }
         ;
-        throw new Error("Failed pattern match at React.Store.Reduce (line 207, column 18 - line 213, column 40): " + [mNs.constructor.name]);
+        throw new Error("Failed pattern match at React.Store.Reduce (line 222, column 18 - line 228, column 40): " + [mNs.constructor.name]);
       }();
       var afterEdges = function() {
         if (mEs instanceof Just) {
@@ -55254,7 +55277,7 @@ var reduceSetDefaults = function(state3) {
           return afterNodes;
         }
         ;
-        throw new Error("Failed pattern match at React.Store.Reduce (line 214, column 18 - line 222, column 28): " + [mEs.constructor.name]);
+        throw new Error("Failed pattern match at React.Store.Reduce (line 229, column 18 - line 237, column 28): " + [mEs.constructor.name]);
       }();
       return afterEdges;
     };
@@ -55396,7 +55419,7 @@ var reduceAddSelectedEdges = function(state3) {
       };
     }
     ;
-    throw new Error("Failed pattern match at React.Store.Reduce (line 359, column 1 - line 363, column 22): " + [state3.constructor.name, ids.constructor.name]);
+    throw new Error("Failed pattern match at React.Store.Reduce (line 374, column 1 - line 378, column 22): " + [state3.constructor.name, ids.constructor.name]);
   };
 };
 var reduceAddSelectedNodes = function(state3) {
@@ -55519,7 +55542,7 @@ var reduceAddSelectedNodes = function(state3) {
       };
     }
     ;
-    throw new Error("Failed pattern match at React.Store.Reduce (line 328, column 1 - line 332, column 22): " + [state3.constructor.name, ids.constructor.name]);
+    throw new Error("Failed pattern match at React.Store.Reduce (line 343, column 1 - line 347, column 22): " + [state3.constructor.name, ids.constructor.name]);
   };
 };
 var reduceMergeNodeInternals = function(state3) {
@@ -55776,7 +55799,7 @@ var reduceUnselectNodesAndEdges = function(state3) {
         return state3.nodes;
       }
       ;
-      throw new Error("Failed pattern match at React.Store.Reduce (line 396, column 19 - line 398, column 29): " + [params.nodes.constructor.name]);
+      throw new Error("Failed pattern match at React.Store.Reduce (line 411, column 19 - line 413, column 29): " + [params.nodes.constructor.name]);
     }();
     var targetEdges = function() {
       if (params.edges instanceof Just) {
@@ -55787,7 +55810,7 @@ var reduceUnselectNodesAndEdges = function(state3) {
         return state3.edges;
       }
       ;
-      throw new Error("Failed pattern match at React.Store.Reduce (line 399, column 19 - line 401, column 29): " + [params.edges.constructor.name]);
+      throw new Error("Failed pattern match at React.Store.Reduce (line 414, column 19 - line 416, column 29): " + [params.edges.constructor.name]);
     }();
     var nodeChanges = map58(function(n) {
       return new NodeSelectionChange({
@@ -55966,7 +55989,7 @@ var reduce = function(state3) {
           onEdgesChangeMiddlewareMap: state3.onEdgesChangeMiddlewareMap,
           minZoom: v.value0
         },
-        effects: []
+        effects: [new RunSetScaleExtent(v.value0, state3.maxZoom)]
       };
     }
     ;
@@ -56059,7 +56082,7 @@ var reduce = function(state3) {
           onEdgesChangeMiddlewareMap: state3.onEdgesChangeMiddlewareMap,
           maxZoom: v.value0
         },
-        effects: []
+        effects: [new RunSetScaleExtent(state3.minZoom, v.value0)]
       };
     }
     ;
@@ -56152,7 +56175,7 @@ var reduce = function(state3) {
           onEdgesChangeMiddlewareMap: state3.onEdgesChangeMiddlewareMap,
           translateExtent: v.value0
         },
-        effects: []
+        effects: [new RunSetTranslateExtent(v.value0)]
       };
     }
     ;
@@ -56946,7 +56969,7 @@ var reduce = function(state3) {
       };
     }
     ;
-    throw new Error("Failed pattern match at React.Store.Reduce (line 60, column 16 - line 129, column 50): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at React.Store.Reduce (line 60, column 16 - line 144, column 50): " + [v.constructor.name]);
   };
 };
 
@@ -57068,6 +57091,36 @@ var createStore = function(opts) {
           return pure68(unit);
         }
         ;
+        if (eff instanceof RunSetScaleExtent) {
+          return function __do4() {
+            var s = read(stateRef)();
+            if (s.panZoom instanceof Just) {
+              return s.panZoom.value0.setScaleExtent(eff.value0)(eff.value1)();
+            }
+            ;
+            if (s.panZoom instanceof Nothing) {
+              return unit;
+            }
+            ;
+            throw new Error("Failed pattern match at React.Store.Shell (line 133, column 9 - line 135, column 31): " + [s.panZoom.constructor.name]);
+          };
+        }
+        ;
+        if (eff instanceof RunSetTranslateExtent) {
+          return function __do4() {
+            var s = read(stateRef)();
+            if (s.panZoom instanceof Just) {
+              return s.panZoom.value0.setTranslateExtent(eff.value0)();
+            }
+            ;
+            if (s.panZoom instanceof Nothing) {
+              return unit;
+            }
+            ;
+            throw new Error("Failed pattern match at React.Store.Shell (line 138, column 9 - line 140, column 31): " + [s.panZoom.constructor.name]);
+          };
+        }
+        ;
         if (eff instanceof ResolveFitView) {
           return function __do4() {
             var s = read(stateRef)();
@@ -57080,7 +57133,7 @@ var createStore = function(opts) {
                 return pure128(unit);
               }
               ;
-              throw new Error("Failed pattern match at React.Store.Shell (line 136, column 25 - line 138, column 33): " + [s.fitViewResolver.constructor.name]);
+              throw new Error("Failed pattern match at React.Store.Shell (line 149, column 25 - line 151, column 33): " + [s.fitViewResolver.constructor.name]);
             }();
             if (s.panZoom instanceof Nothing) {
               return launchAff_(resolveAVar)();
@@ -57099,7 +57152,7 @@ var createStore = function(opts) {
               }))();
             }
             ;
-            throw new Error("Failed pattern match at React.Store.Shell (line 139, column 9 - line 151, column 24): " + [s.panZoom.constructor.name]);
+            throw new Error("Failed pattern match at React.Store.Shell (line 152, column 9 - line 164, column 24): " + [s.panZoom.constructor.name]);
           };
         }
         ;
@@ -57114,11 +57167,11 @@ var createStore = function(opts) {
               return unit;
             }
             ;
-            throw new Error("Failed pattern match at React.Store.Shell (line 154, column 9 - line 156, column 31): " + [s.onError.constructor.name]);
+            throw new Error("Failed pattern match at React.Store.Shell (line 167, column 9 - line 169, column 31): " + [s.onError.constructor.name]);
           };
         }
         ;
-        throw new Error("Failed pattern match at React.Store.Shell (line 77, column 37 - line 156, column 31): " + [eff.constructor.name]);
+        throw new Error("Failed pattern match at React.Store.Shell (line 77, column 37 - line 169, column 31): " + [eff.constructor.name]);
       };
     };
     var subscribe = function(dictEq) {
@@ -57133,8 +57186,8 @@ var createStore = function(opts) {
               return function(next) {
                 var prevV = selector4(prev);
                 var nextV = selector4(next);
-                var $46 = eq29(prevV)(nextV);
-                if ($46) {
+                var $53 = eq29(prevV)(nextV);
+                if ($53) {
                   return pure68(unit);
                 }
                 ;
