@@ -125,6 +125,19 @@ createStore opts = do
         -- own AVar. This descriptor exists so middleware observers see
         -- the intent.
         pure unit
+      RunSetScaleExtent mn mx -> do
+        -- No instance yet means the flow has not mounted its pane, and
+        -- `createXYPanZoom` seeds the extent from the same state when it
+        -- does. That is upstream's `panZoom?.` optional call.
+        s <- Ref.read stateRef
+        case s.panZoom of
+          Just pz -> pz.setScaleExtent mn mx
+          Nothing -> pure unit
+      RunSetTranslateExtent ext -> do
+        s <- Ref.read stateRef
+        case s.panZoom of
+          Just pz -> pz.setTranslateExtent ext
+          Nothing -> pure unit
       ResolveFitView b -> do
         -- Mirror the React store's `resolveFitView`: apply the fitted
         -- viewport via `panZoom.setViewport` (which fires d3's zoom event,

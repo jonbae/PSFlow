@@ -128,6 +128,13 @@ data Effect_ n e
       { triggerFitView :: Boolean }
   | RunPanBy XYPosition
   | RunSetCenter Number Number SetCenterOptions
+  -- Zoom and pan limits, pushed onto the live pan-zoom instance. The
+  -- reducer carries the values rather than leaving the shell to read
+  -- them back, so the descriptor says what it asks for — and so it
+  -- matches upstream's explicit `setScaleExtent([minZoom, maxZoom])`,
+  -- which passes the changed bound beside the one already in state.
+  | RunSetScaleExtent Number Number
+  | RunSetTranslateExtent CoordinateExtent
   -- Resolution of the queued fitView promise.
   | ResolveFitView Boolean
   -- Error logging — swallowed if `state.onError` is `Nothing`.
