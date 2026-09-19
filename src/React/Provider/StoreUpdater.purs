@@ -11,6 +11,18 @@
 -- | docstring says why `UnsafeReference` could not: it compared the `Maybe`
 -- | wrapper, which the boundary rebuilds on every render.
 -- |
+-- | **The seven seeded fields.** `previousFields` does not start empty. It
+-- | starts as `initPrevValues`, so on the mount render `translateExtent`,
+-- | `nodeOrigin`, `minZoom`, `maxZoom`, `elementsSelectable`,
+-- | `noPanClassName` and `rfId` are skipped when they hold the value an
+-- | omitted prop resolves to. React's deps cache cannot express that, because
+-- | React runs every effect on mount whatever its deps. So those seven go
+-- | through `effectOnJustFrom`, which keeps its own ref the way upstream
+-- | does. It matters most for `nodeOrigin` and `rfId`. `<ReactFlow />` always
+-- | hands both over, so without a seed they would dispatch on every flow's
+-- | mount. It also matters for `minZoom`, `maxZoom` and `translateExtent`,
+-- | whose dispatch reaches the pan-zoom instance as well as the state.
+-- |
 -- | **Dispatch routing.**
 -- |   * Setter-action fields (`SetNodes`, `SetEdges`, `SetMinZoom`,
 -- |     `SetMaxZoom`, `SetTranslateExtent`, `SetNodeExtent`) get a
@@ -24,23 +36,25 @@
 -- |
 -- | **Mount/unmount.** On mount, `SetDefaultNodesAndEdges` seeds the
 -- | controlled-default branch. On unmount, the reducer's `Reset` action
--- | wipes the store. TS additionally resets `previousFields.current` to
--- | `initPrevValues` on unmount — irrelevant in PS, where the previous
--- | values belong to the hooks and go when the component instance does.
+-- | wipes the store. TS also resets `previousFields.current` to
+-- | `initPrevValues` there, and each seeded field does the same with its own
+-- | ref. `effectOnJustFrom` says why that is needed.
 module React.Provider.StoreUpdater
   ( storeUpdater
   ) where
 
 import Prelude
 
+import Data.Foldable (for_)
 import Data.Maybe (Maybe(..))
+import Data.Newtype (class Newtype)
 import Effect (Effect)
 import Effect.Unsafe (unsafePerformEffect)
 import React.Basic (ReactComponent)
-import React.Basic.Hooks (Hook, UnsafeReference(..), UseEffect, reactComponent, useEffect, useEffectOnce)
+import React.Basic.Hooks (Hook, UseEffect, UseRef, coerceHook, reactComponent, readRef, useEffect, useEffectOnce, useRef, writeRef)
 import React.Basic.Hooks as React
 import React.Hook.Store (useStoreApi)
-import React.Provider.TrackedProp (TrackedProp(..))
+import React.Provider.TrackedProp (TrackedProp(..), dispatchable, initPrevValues)
 import React.Store.Action (Action(..))
 import React.Types.Component (StoreUpdaterProps)
 import System.Constants (mergeAriaLabelConfig)
@@ -67,9 +81,10 @@ storeUpdater =
       -- Setter-action fields
       effectOnJust dispatch props.nodes SetNodes
       effectOnJust dispatch props.edges SetEdges
-      effectOnJust dispatch props.minZoom SetMinZoom
-      effectOnJust dispatch props.maxZoom SetMaxZoom
-      effectOnJust dispatch props.translateExtent SetTranslateExtent
+      effectOnJustFrom initPrevValues.minZoom dispatch props.minZoom SetMinZoom
+      effectOnJustFrom initPrevValues.maxZoom dispatch props.maxZoom SetMaxZoom
+      effectOnJustFrom initPrevValues.translateExtent dispatch props.translateExtent
+        SetTranslateExtent
       effectOnJust dispatch props.nodeExtent SetNodeExtent
 
       -- Renamed / wrapped fields
@@ -111,7 +126,7 @@ storeUpdater =
         PatchState \s -> s { onNodesChange = Just v }
       effectOnJust dispatch props.onEdgesChange \v ->
         PatchState \s -> s { onEdgesChange = Just v }
-      effectOnJust dispatch props.elementsSelectable \v ->
+      effectOnJustFrom initPrevValues.elementsSelectable dispatch props.elementsSelectable \v ->
         PatchState \s -> s { elementsSelectable = v }
       effectOnJust dispatch props.connectionMode \v ->
         PatchState \s -> s { connectionMode = v }
@@ -147,9 +162,9 @@ storeUpdater =
         PatchState \s -> s { onMove = Just v }
       effectOnJust dispatch props.onMoveEnd \v ->
         PatchState \s -> s { onMoveEnd = Just v }
-      effectOnJust dispatch props.noPanClassName \v ->
+      effectOnJustFrom initPrevValues.noPanClassName dispatch props.noPanClassName \v ->
         PatchState \s -> s { noPanClassName = v }
-      effectOnJust dispatch props.nodeOrigin \v ->
+      effectOnJustFrom initPrevValues.nodeOrigin dispatch props.nodeOrigin \v ->
         PatchState \s -> s { nodeOrigin = v }
       effectOnJust dispatch props.autoPanOnConnect \v ->
         PatchState \s -> s { autoPanOnConnect = v }
@@ -176,10 +191,9 @@ storeUpdater =
       effectOnJust dispatch props.zIndexMode \v ->
         PatchState \s -> s { zIndexMode = v }
 
-      -- rfId — always present (not Maybe). One-off sync.
-      useEffect (UnsafeReference props.rfId) do
-        dispatch (PatchState \s -> s { rfId = props.rfId })
-        pure (pure unit)
+      -- rfId — always present (not Maybe), and seeded like the six above.
+      effectOnJustFrom initPrevValues.rfId dispatch (Just props.rfId) \v ->
+        PatchState \s -> s { rfId = v }
 
       pure mempty
 
@@ -200,4 +214,48 @@ effectOnJust dispatch mValue mkAction =
     case mValue of
       Just v -> dispatch (mkAction v)
       Nothing -> pure unit
+    pure (pure unit)
+
+-- | Hook tag for `effectOnJustFrom`: `useRef` → `useEffectOnce` →
+-- | `useEffect`.
+newtype UseSeededProp a hooks =
+  UseSeededProp
+    ( UseEffect (TrackedProp a)
+        (UseEffect Unit
+            (UseRef (Maybe a) hooks)
+        )
+    )
+
+derive instance newtypeUseSeededProp ::
+  Newtype (UseSeededProp a hooks) _
+
+-- | `effectOnJust` for a field that upstream seeds in `initPrevValues`. The
+-- | first run compares against the seed, and later runs compare against the
+-- | previous prop. `effectOnJust` is this with a seed of `Nothing`, which is
+-- | what every unseeded field starts from upstream too. It needs no ref,
+-- | because comparing against `Nothing` is just a check for `Just`.
+-- |
+-- | The previous value lives in a ref, as upstream's does, because the deps
+-- | cache cannot say what the first run compares against. The ref goes back
+-- | to the seed on unmount, which is upstream's
+-- | `previousFields.current = initPrevValues` next to its `reset()`. A real
+-- | unmount discards the ref anyway. The remount that keeps it is StrictMode's
+-- | simulated one, which runs every cleanup, `Reset` included, before it runs
+-- | any effect again. Without the write-back, a field would compare against a
+-- | value that `Reset` had just removed from the store, and skip putting it
+-- | back.
+effectOnJustFrom
+  :: forall a action
+   . Maybe a
+  -> (action -> Effect Unit)
+  -> Maybe a
+  -> (a -> action)
+  -> Hook (UseSeededProp a) Unit
+effectOnJustFrom seed dispatch mValue mkAction = coerceHook React.do
+  previous <- useRef seed
+  useEffectOnce (pure (writeRef previous seed))
+  useEffect (TrackedProp mValue) do
+    prev <- readRef previous
+    writeRef previous mValue
+    for_ (dispatchable prev mValue) (dispatch <<< mkAction)
     pure (pure unit)

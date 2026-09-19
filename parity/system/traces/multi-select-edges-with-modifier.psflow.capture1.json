@@ -2089,7 +2089,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 344.5,
+            "timeStamp": 343.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2158,7 +2158,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 344.5,
+            "timeStamp": 343.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2263,7 +2263,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 344.5,
+            "timeStamp": 343.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2328,7 +2328,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 344.5,
+            "timeStamp": 343.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2455,7 +2455,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 354.40000009536743,
+            "timeStamp": 352,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2560,7 +2560,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 380.7000000476837,
+            "timeStamp": 379,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2667,7 +2667,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 380.7000000476837,
+            "timeStamp": 379,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2774,7 +2774,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 380.7000000476837,
+            "timeStamp": 379,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2839,7 +2839,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 380.7000000476837,
+            "timeStamp": 379,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2863,129 +2863,6 @@
             "buttons": 0,
             "relatedTarget": null,
             "movementX": 94,
-            "movementY": 0,
-            "isDefaultPrevented": {
-              "@ref": "function"
-            },
-            "isPropagationStopped": {
-              "@ref": "function"
-            }
-          },
-          {
-            "id": "edge-with-style",
-            "type": {
-              "@undefined": true
-            },
-            "source": "1",
-            "target": "3",
-            "sourceHandle": {
-              "@undefined": true
-            },
-            "targetHandle": {
-              "@undefined": true
-            },
-            "animated": false,
-            "hidden": false,
-            "deletable": {
-              "@undefined": true
-            },
-            "selectable": {
-              "@undefined": true
-            },
-            "data": {
-              "@undefined": true
-            },
-            "selected": false,
-            "markerStart": {
-              "@undefined": true
-            },
-            "markerEnd": {
-              "@undefined": true
-            },
-            "zIndex": {
-              "@undefined": true
-            },
-            "label": {
-              "@undefined": true
-            },
-            "ariaLabel": {
-              "@undefined": true
-            },
-            "interactionWidth": {
-              "@undefined": true
-            },
-            "className": {
-              "@undefined": true
-            },
-            "style": {
-              "stroke": "red"
-            }
-          }
-        ]
-      },
-      {
-        "name": "onEdgesChange",
-        "args": [
-          [
-            {
-              "item": {
-                "@undefined": true
-              },
-              "index": {
-                "@undefined": true
-              },
-              "type": "select",
-              "id": "edge-with-style",
-              "selected": true
-            }
-          ]
-        ]
-      },
-      {
-        "name": "onEdgeClick",
-        "args": [
-          {
-            "@class": "SyntheticBaseEvent",
-            "_reactName": "onClick",
-            "_targetInst": null,
-            "type": "click",
-            "nativeEvent": {
-              "@class": "PointerEvent",
-              "isTrusted": true
-            },
-            "target": {
-              "@ref": "path"
-            },
-            "currentTarget": {
-              "@ref": "g"
-            },
-            "eventPhase": 3,
-            "bubbles": true,
-            "cancelable": true,
-            "timeStamp": 390,
-            "defaultPrevented": false,
-            "isTrusted": true,
-            "view": {
-              "@ref": "Window"
-            },
-            "detail": 1,
-            "screenX": 663,
-            "screenY": 96,
-            "clientX": 663,
-            "clientY": 96,
-            "pageX": 663,
-            "pageY": 96,
-            "ctrlKey": false,
-            "shiftKey": false,
-            "altKey": false,
-            "metaKey": false,
-            "getModifierState": {
-              "@ref": "function"
-            },
-            "button": 0,
-            "buttons": 0,
-            "relatedTarget": null,
-            "movementX": 0,
             "movementY": 0,
             "isDefaultPrevented": {
               "@ref": "function"
@@ -3101,6 +2978,129 @@
                 }
               }
             ]
+          }
+        ]
+      },
+      {
+        "name": "onEdgesChange",
+        "args": [
+          [
+            {
+              "item": {
+                "@undefined": true
+              },
+              "index": {
+                "@undefined": true
+              },
+              "type": "select",
+              "id": "edge-with-style",
+              "selected": true
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onEdgeClick",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onClick",
+            "_targetInst": null,
+            "type": "click",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "path"
+            },
+            "currentTarget": {
+              "@ref": "g"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 389.5,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 1,
+            "screenX": 663,
+            "screenY": 96,
+            "clientX": 663,
+            "clientY": 96,
+            "pageX": 663,
+            "pageY": 96,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": null,
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "edge-with-style",
+            "type": {
+              "@undefined": true
+            },
+            "source": "1",
+            "target": "3",
+            "sourceHandle": {
+              "@undefined": true
+            },
+            "targetHandle": {
+              "@undefined": true
+            },
+            "animated": false,
+            "hidden": false,
+            "deletable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "data": {
+              "@undefined": true
+            },
+            "selected": false,
+            "markerStart": {
+              "@undefined": true
+            },
+            "markerEnd": {
+              "@undefined": true
+            },
+            "zIndex": {
+              "@undefined": true
+            },
+            "label": {
+              "@undefined": true
+            },
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "interactionWidth": {
+              "@undefined": true
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "stroke": "red"
+            }
           }
         ]
       },

@@ -53,8 +53,8 @@
 -- | `onScroll :: Maybe (Effect Unit)` prop.
 -- |
 -- | **Skipped from TS.** The `id` prop: not present on `ReactFlowProps`
--- | in the PS port; `rfId` is hard-coded to `"1"`. Add the field and
--- | `fromMaybe` when a use case appears.
+-- | in the PS port; `rfId` is always `InitValues.defaultRfId`, `"1"`. Add
+-- | the field and `fromMaybe` when a use case appears.
 module React.Container.ReactFlow
   ( reactFlow
   ) where
@@ -71,7 +71,15 @@ import React.Basic.Hooks as React
 import React.Container.A11yDescriptions (a11yDescriptions)
 import React.Container.Attribution (attribution)
 import React.Container.GraphView (graphView)
-import React.Container.InitValues (defaultNodeOrigin, defaultViewport) as Init
+import React.Container.InitValues
+  ( defaultElementsSelectable
+  , defaultMaxZoom
+  , defaultMinZoom
+  , defaultNoPanClassName
+  , defaultNodeOrigin
+  , defaultRfId
+  , defaultViewport
+  ) as Init
 import React.Container.Wrapper (wrapper)
 import React.FFI.DOM (div_, scrollResetHandler)
 import React.Hook.ColorModeClass (useColorModeClass)
@@ -164,7 +172,7 @@ reactFlow =
     \(props :: ReactFlowProps n e) -> React.do
       colorModeCls <- useColorModeClass props.colorMode
       let
-        rfId = "1"
+        rfId = Init.defaultRfId
         -- Resolved defaults — matches TS destructure-with-defaults.
         connectionLineType = fromMaybe BezierLine props.connectionLineType
         deleteKeyCode = props.deleteKeyCode <|> Just (SingleKey "Backspace")
@@ -176,10 +184,10 @@ reactFlow =
         zoomActivationKeyCode = props.zoomActivationKeyCode <|> Just defaultMultiSelKey
         onlyRenderVisibleElements = fromMaybe false props.onlyRenderVisibleElements
         nodeOrigin = fromMaybe Init.defaultNodeOrigin props.nodeOrigin
-        elementsSelectable = fromMaybe true props.elementsSelectable
+        elementsSelectable = fromMaybe Init.defaultElementsSelectable props.elementsSelectable
         defaultViewport = fromMaybe Init.defaultViewport props.defaultViewport
-        minZoom = fromMaybe 0.5 props.minZoom
-        maxZoom = fromMaybe 2.0 props.maxZoom
+        minZoom = fromMaybe Init.defaultMinZoom props.minZoom
+        maxZoom = fromMaybe Init.defaultMaxZoom props.maxZoom
         translateExtent = fromMaybe infiniteExtent props.translateExtent
         preventScrolling = fromMaybe true props.preventScrolling
         defaultMarkerColor = fromMaybe "#b1b1b7" props.defaultMarkerColor
@@ -195,7 +203,7 @@ reactFlow =
         reconnectRadius = props.reconnectRadius <|> Just 10.0
         noDragClassName = fromMaybe "nodrag" props.noDragClassName
         noWheelClassName = fromMaybe "nowheel" props.noWheelClassName
-        noPanClassName = fromMaybe "nopan" props.noPanClassName
+        noPanClassName = fromMaybe Init.defaultNoPanClassName props.noPanClassName
         disableKeyboardA11y = fromMaybe false props.disableKeyboardA11y
         autoPanOnSelection = fromMaybe true props.autoPanOnSelection
 
