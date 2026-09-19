@@ -24,3 +24,8 @@ export const installFrameClock = () => {
     },
   };
 };
+
+// A stand-in for the `MouseEvent` the drag handler stores on the state. The
+// callbacks under test pass it straight through to the consumer, so nothing
+// reads it; `DragState.dragEvent` only has to be a `Just` for them to fire.
+export const stubMouseEvent = {};

@@ -47744,7 +47744,7 @@ var liftEffect1 = /* @__PURE__ */ liftEffect(monadEffectAff);
 var defer2 = /* @__PURE__ */ defer(lazyStateT);
 var notEq15 = /* @__PURE__ */ notEq(/* @__PURE__ */ eqMaybe(eqNumber));
 var updateNodes = function(params) {
-  return function(mUpd) {
+  return function(mNodeId) {
     return function(pos) {
       return bind33(liftEffect8(params.getStoreItems))(function(store) {
         return discard12(modify_4(function(v) {
@@ -47802,7 +47802,7 @@ var updateNodes = function(params) {
                       };
                     }
                     ;
-                    throw new Error("Failed pattern match at System.XYDrag (line 610, column 22 - line 625, column 18): " + [multiSnap.constructor.name]);
+                    throw new Error("Failed pattern match at System.XYDrag (line 619, column 22 - line 634, column 18): " + [multiSnap.constructor.name]);
                   }();
                   var v2 = calculateNodePosition({
                     nodeId: v.value0,
@@ -47845,10 +47845,10 @@ var updateNodes = function(params) {
                     });
                   }
                   ;
-                  throw new Error("Failed pattern match at System.XYDrag (line 626, column 9 - line 655, column 16): " + [v2.constructor.name]);
+                  throw new Error("Failed pattern match at System.XYDrag (line 635, column 9 - line 664, column 16): " + [v2.constructor.name]);
                 }
                 ;
-                throw new Error("Failed pattern match at System.XYDrag (line 606, column 36 - line 655, column 16): " + [v1.constructor.name]);
+                throw new Error("Failed pattern match at System.XYDrag (line 615, column 36 - line 664, column 16): " + [v1.constructor.name]);
               };
             };
             var entries = toUnfoldable9(s.dragItems);
@@ -47868,18 +47868,7 @@ var updateNodes = function(params) {
                 return bind33(get6)(function(s2) {
                   return discard12(liftEffect8(store.updateNodePositions(s2.dragItems)(true)))(function() {
                     return liftEffect8(traverse_2(function(ev) {
-                      var nodeId = function() {
-                        if (mUpd instanceof Just) {
-                          return mUpd.value0.nodeId;
-                        }
-                        ;
-                        if (mUpd instanceof Nothing) {
-                          return Nothing.value;
-                        }
-                        ;
-                        throw new Error("Failed pattern match at System.XYDrag (line 666, column 22 - line 668, column 33): " + [mUpd.constructor.name]);
-                      }();
-                      var eventArgs = getEventHandlerParams(nodeId)(s2.dragItems)(store.nodeLookup)(true);
+                      var eventArgs = getEventHandlerParams(mNodeId)(s2.dragItems)(store.nodeLookup)(true);
                       return function __do3() {
                         for_11(eventArgs.currentNode)(function(cn) {
                           return function __do4() {
@@ -47891,7 +47880,7 @@ var updateNodes = function(params) {
                             })();
                           };
                         })();
-                        return when12(isNothing(nodeId))(for_11(store.onSelectionDrag)(function(cb) {
+                        return when12(isNothing(mNodeId))(for_11(store.onSelectionDrag)(function(cb) {
                           return cb(ev)(eventArgs.allNodes);
                         }))();
                       };
@@ -47968,32 +47957,32 @@ var onEnd = function(params) {
         return bind33(get6)(function(s0) {
           return unless3(!s0.dragStarted || s0.abortDrag)(discard12(liftEffect8(for_11(s0.autoPanId)(cancelAnimationFrame)))(function() {
             return discard12(modify_4(function(v) {
-              var $107 = {};
-              for (var $108 in v) {
-                if ({}.hasOwnProperty.call(v, $108)) {
-                  $107[$108] = v[$108];
+              var $105 = {};
+              for (var $106 in v) {
+                if ({}.hasOwnProperty.call(v, $106)) {
+                  $105[$106] = v[$106];
                 }
                 ;
               }
               ;
-              $107.autoPanStarted = false;
-              $107.dragStarted = false;
-              $107.autoPanId = Nothing.value;
-              return $107;
+              $105.autoPanStarted = false;
+              $105.dragStarted = false;
+              $105.autoPanId = Nothing.value;
+              return $105;
             }))(function() {
               return when9(size2(s0.dragItems) > 0)(bind33(liftEffect8(params.getStoreItems))(function(store) {
                 return discard12(when9(s0.nodePositionsChanged)(discard12(liftEffect8(store.updateNodePositions(s0.dragItems)(false)))(function() {
                   return modify_4(function(v) {
-                    var $110 = {};
-                    for (var $111 in v) {
-                      if ({}.hasOwnProperty.call(v, $111)) {
-                        $110[$111] = v[$111];
+                    var $108 = {};
+                    for (var $109 in v) {
+                      if ({}.hasOwnProperty.call(v, $109)) {
+                        $108[$109] = v[$109];
                       }
                       ;
                     }
                     ;
-                    $110.nodePositionsChanged = false;
-                    return $110;
+                    $108.nodePositionsChanged = false;
+                    return $108;
                   });
                 })))(function() {
                   var mouseEv = foreignAsMouseEvent(src9);
@@ -48028,16 +48017,16 @@ var startDrag = function(params) {
       return bind33(liftEffect8(params.getStoreItems))(function(store) {
         return bind33(liftEffect8(dragSourceEvent(ev)))(function(src9) {
           return discard12(modify_4(function(v) {
-            var $113 = {};
-            for (var $114 in v) {
-              if ({}.hasOwnProperty.call(v, $114)) {
-                $113[$114] = v[$114];
+            var $111 = {};
+            for (var $112 in v) {
+              if ({}.hasOwnProperty.call(v, $112)) {
+                $111[$112] = v[$112];
               }
               ;
             }
             ;
-            $113.dragStarted = true;
-            return $113;
+            $111.dragStarted = true;
+            return $111;
           }))(function() {
             var deselectFirst = (!store.selectNodesOnDrag || !upd.isSelectable) && !store.multiSelectionActive;
             return discard12(liftEffect8(function() {
@@ -48080,20 +48069,20 @@ var startDrag = function(params) {
                       y: pp.y
                     })(upd.nodeId);
                     return discard12(modify_4(function(v) {
-                      var $122 = {};
-                      for (var $123 in v) {
-                        if ({}.hasOwnProperty.call(v, $123)) {
-                          $122[$123] = v[$123];
+                      var $120 = {};
+                      for (var $121 in v) {
+                        if ({}.hasOwnProperty.call(v, $121)) {
+                          $120[$121] = v[$121];
                         }
                         ;
                       }
                       ;
-                      $122.lastPos = {
+                      $120.lastPos = {
                         x: new Just(pp.x),
                         y: new Just(pp.y)
                       };
-                      $122.dragItems = items;
-                      return $122;
+                      $120.dragItems = items;
+                      return $120;
                     }))(function() {
                       return when9(size2(items) > 0)(function() {
                         var mouseEv = foreignAsMouseEvent(src9);
@@ -48142,19 +48131,19 @@ var onStart = function(params) {
             throw new Error("Failed pattern match at System.XYDrag (line 312, column 26 - line 314, column 28): " + [store.domNode.constructor.name]);
           }()))(function(bounds) {
             return discard12(modify_4(function(v) {
-              var $127 = {};
-              for (var $128 in v) {
-                if ({}.hasOwnProperty.call(v, $128)) {
-                  $127[$128] = v[$128];
+              var $125 = {};
+              for (var $126 in v) {
+                if ({}.hasOwnProperty.call(v, $126)) {
+                  $125[$126] = v[$126];
                 }
                 ;
               }
               ;
-              $127.containerBounds = bounds;
-              $127.abortDrag = false;
-              $127.nodePositionsChanged = false;
-              $127.dragEvent = new Just(foreignAsMouseEvent(src9));
-              return $127;
+              $125.containerBounds = bounds;
+              $125.abortDrag = false;
+              $125.nodePositionsChanged = false;
+              $125.dragEvent = new Just(foreignAsMouseEvent(src9));
+              return $125;
             }))(function() {
               return discard12(when9(store.nodeDragThreshold === 0)(startDrag(params)(upd)(ev)))(function() {
                 return bind33(liftEffect8(getPointerPosition(foreignAsTouchOrMouse(src9))({
@@ -48165,20 +48154,20 @@ var onStart = function(params) {
                 })))(function(pp) {
                   return bind33(liftEffect8(getEventPosition(foreignAsTouchOrMouse(src9))(bounds)))(function(mp) {
                     return modify_4(function(v) {
-                      var $130 = {};
-                      for (var $131 in v) {
-                        if ({}.hasOwnProperty.call(v, $131)) {
-                          $130[$131] = v[$131];
+                      var $128 = {};
+                      for (var $129 in v) {
+                        if ({}.hasOwnProperty.call(v, $129)) {
+                          $128[$129] = v[$129];
                         }
                         ;
                       }
                       ;
-                      $130.lastPos = {
+                      $128.lastPos = {
                         x: new Just(pp.x),
                         y: new Just(pp.y)
                       };
-                      $130.mousePosition = mp;
-                      return $130;
+                      $128.mousePosition = mp;
+                      return $128;
                     });
                   });
                 });
@@ -48226,117 +48215,121 @@ var filterPredicate = function(upd) {
   };
 };
 var autoPanStep = function(params) {
-  return function(stateRef) {
-    var xyOf = function(r) {
-      if (r.x instanceof Just && r.y instanceof Just) {
-        return new Just({
-          x: r.x.value0,
-          y: r.y.value0
-        });
-      }
-      ;
-      return Nothing.value;
-    };
-    var scheduleNextFrame = bind33(liftEffect8(requestAnimationFrame(autoPanLoop(params)(stateRef))))(function(handle3) {
-      return modify_4(function(v) {
-        var $141 = {};
-        for (var $142 in v) {
-          if ({}.hasOwnProperty.call(v, $142)) {
-            $141[$142] = v[$142];
-          }
-          ;
+  return function(mNodeId) {
+    return function(stateRef) {
+      var xyOf = function(r) {
+        if (r.x instanceof Just && r.y instanceof Just) {
+          return new Just({
+            x: r.x.value0,
+            y: r.y.value0
+          });
         }
         ;
-        $141.autoPanId = new Just(handle3);
-        return $141;
+        return Nothing.value;
+      };
+      var scheduleNextFrame = bind33(liftEffect8(requestAnimationFrame(autoPanLoop(params)(mNodeId)(stateRef))))(function(handle3) {
+        return modify_4(function(v) {
+          var $139 = {};
+          for (var $140 in v) {
+            if ({}.hasOwnProperty.call(v, $140)) {
+              $139[$140] = v[$140];
+            }
+            ;
+          }
+          ;
+          $139.autoPanId = new Just(handle3);
+          return $139;
+        });
       });
-    });
-    return bind33(get6)(function(s) {
-      if (s.containerBounds instanceof Nothing) {
-        return pure46(unit);
-      }
-      ;
-      if (s.containerBounds instanceof Just) {
-        return bind33(liftEffect8(params.getStoreItems))(function(store) {
-          var $145 = !store.autoPanOnNodeDrag;
-          if ($145) {
-            return discard12(liftEffect8(for_11(s.autoPanId)(cancelAnimationFrame)))(function() {
-              return modify_4(function(v) {
-                var $146 = {};
-                for (var $147 in v) {
-                  if ({}.hasOwnProperty.call(v, $147)) {
-                    $146[$147] = v[$147];
+      return bind33(get6)(function(s) {
+        if (s.containerBounds instanceof Nothing) {
+          return pure46(unit);
+        }
+        ;
+        if (s.containerBounds instanceof Just) {
+          return bind33(liftEffect8(params.getStoreItems))(function(store) {
+            var $143 = !store.autoPanOnNodeDrag;
+            if ($143) {
+              return discard12(liftEffect8(for_11(s.autoPanId)(cancelAnimationFrame)))(function() {
+                return modify_4(function(v) {
+                  var $144 = {};
+                  for (var $145 in v) {
+                    if ({}.hasOwnProperty.call(v, $145)) {
+                      $144[$145] = v[$145];
+                    }
+                    ;
+                  }
+                  ;
+                  $144.autoPanStarted = false;
+                  $144.autoPanId = Nothing.value;
+                  return $144;
+                });
+              });
+            }
+            ;
+            var speed = fromMaybe(15)(store.autoPanSpeed);
+            var mv = calcAutoPan(s.mousePosition)({
+              width: s.containerBounds.value0.width,
+              height: s.containerBounds.value0.height
+            })(speed)(40);
+            var $148 = mv.x !== 0 || mv.y !== 0;
+            if ($148) {
+              var newLp = {
+                x: new Just(fromMaybe(0)(s.lastPos.x) - mv.x / store.transform.scale),
+                y: new Just(fromMaybe(0)(s.lastPos.y) - mv.y / store.transform.scale)
+              };
+              return discard12(modify_4(function(v) {
+                var $149 = {};
+                for (var $150 in v) {
+                  if ({}.hasOwnProperty.call(v, $150)) {
+                    $149[$150] = v[$150];
                   }
                   ;
                 }
                 ;
-                $146.autoPanStarted = false;
-                $146.autoPanId = Nothing.value;
-                return $146;
+                $149.lastPos = newLp;
+                return $149;
+              }))(function() {
+                return liftEffect8(launchAff_(bind210(store.panBy({
+                  x: mv.x,
+                  y: mv.y
+                }))(function(ok) {
+                  return discard32(awaitMicrotask)(function() {
+                    return liftEffect1(runOnRef2(stateRef)(discard12(when9(ok)(bind33(get6)(function(s2) {
+                      var v = xyOf(s2.lastPos);
+                      if (v instanceof Just) {
+                        return updateNodes(params)(mNodeId)(v.value0);
+                      }
+                      ;
+                      if (v instanceof Nothing) {
+                        return pure46(unit);
+                      }
+                      ;
+                      throw new Error("Failed pattern match at System.XYDrag (line 577, column 17 - line 579, column 39): " + [v.constructor.name]);
+                    })))(function() {
+                      return scheduleNextFrame;
+                    })));
+                  });
+                })));
               });
-            });
-          }
-          ;
-          var speed = fromMaybe(15)(store.autoPanSpeed);
-          var mv = calcAutoPan(s.mousePosition)({
-            width: s.containerBounds.value0.width,
-            height: s.containerBounds.value0.height
-          })(speed)(40);
-          var $150 = mv.x !== 0 || mv.y !== 0;
-          if ($150) {
-            var newLp = {
-              x: new Just(fromMaybe(0)(s.lastPos.x) - mv.x / store.transform.scale),
-              y: new Just(fromMaybe(0)(s.lastPos.y) - mv.y / store.transform.scale)
-            };
-            return discard12(modify_4(function(v) {
-              var $151 = {};
-              for (var $152 in v) {
-                if ({}.hasOwnProperty.call(v, $152)) {
-                  $151[$152] = v[$152];
-                }
-                ;
-              }
-              ;
-              $151.lastPos = newLp;
-              return $151;
-            }))(function() {
-              return liftEffect8(launchAff_(bind210(store.panBy({
-                x: mv.x,
-                y: mv.y
-              }))(function(ok) {
-                return discard32(awaitMicrotask)(function() {
-                  return liftEffect1(runOnRef2(stateRef)(discard12(when9(ok)(bind33(get6)(function(s2) {
-                    var v = xyOf(s2.lastPos);
-                    if (v instanceof Just) {
-                      return updateNodes(params)(Nothing.value)(v.value0);
-                    }
-                    ;
-                    if (v instanceof Nothing) {
-                      return pure46(unit);
-                    }
-                    ;
-                    throw new Error("Failed pattern match at System.XYDrag (line 568, column 17 - line 570, column 39): " + [v.constructor.name]);
-                  })))(function() {
-                    return scheduleNextFrame;
-                  })));
-                });
-              })));
-            });
-          }
-          ;
-          return scheduleNextFrame;
-        });
-      }
-      ;
-      throw new Error("Failed pattern match at System.XYDrag (line 540, column 3 - line 572, column 31): " + [s.containerBounds.constructor.name]);
-    });
+            }
+            ;
+            return scheduleNextFrame;
+          });
+        }
+        ;
+        throw new Error("Failed pattern match at System.XYDrag (line 549, column 3 - line 581, column 31): " + [s.containerBounds.constructor.name]);
+      });
+    };
   };
 };
 var autoPanLoop = function(params) {
-  return function(stateRef) {
-    return runOnRef2(stateRef)(defer2(function(v) {
-      return autoPanStep(params)(stateRef);
-    }));
+  return function(mNodeId) {
+    return function(stateRef) {
+      return runOnRef2(stateRef)(defer2(function(v) {
+        return autoPanStep(params)(mNodeId)(stateRef);
+      }));
+    };
   };
 };
 var onDragHandler = function(params) {
@@ -48353,16 +48346,16 @@ var onDragHandler = function(params) {
                 containerBounds: s0.containerBounds
               })))(function(pp) {
                 return discard12(modify_4(function(v) {
-                  var $157 = {};
-                  for (var $158 in v) {
-                    if ({}.hasOwnProperty.call(v, $158)) {
-                      $157[$158] = v[$158];
+                  var $155 = {};
+                  for (var $156 in v) {
+                    if ({}.hasOwnProperty.call(v, $156)) {
+                      $155[$156] = v[$156];
                     }
                     ;
                   }
                   ;
-                  $157.dragEvent = new Just(foreignAsMouseEvent(src9));
-                  return $157;
+                  $155.dragEvent = new Just(foreignAsMouseEvent(src9));
+                  return $155;
                 }))(function() {
                   return bind33(liftEffect8(isMultiTouchSourceEvent(src9)))(function(multi) {
                     var deletedDuringDrag = function() {
@@ -48377,31 +48370,31 @@ var onDragHandler = function(params) {
                       throw new Error("Failed pattern match at System.XYDrag (line 355, column 25 - line 357, column 23): " + [upd.nodeId.constructor.name]);
                     }();
                     return discard12(when9(multi || deletedDuringDrag)(modify_4(function(v) {
-                      var $162 = {};
-                      for (var $163 in v) {
-                        if ({}.hasOwnProperty.call(v, $163)) {
-                          $162[$163] = v[$163];
+                      var $160 = {};
+                      for (var $161 in v) {
+                        if ({}.hasOwnProperty.call(v, $161)) {
+                          $160[$161] = v[$161];
                         }
                         ;
                       }
                       ;
-                      $162.abortDrag = true;
-                      return $162;
+                      $160.abortDrag = true;
+                      return $160;
                     })))(function() {
                       return bind33(get6)(function(s1) {
                         return when9(!s1.abortDrag)(discard12(when9(!s1.autoPanStarted && (store.autoPanOnNodeDrag && s1.dragStarted))(discard12(modify_4(function(v) {
-                          var $165 = {};
-                          for (var $166 in v) {
-                            if ({}.hasOwnProperty.call(v, $166)) {
-                              $165[$166] = v[$166];
+                          var $163 = {};
+                          for (var $164 in v) {
+                            if ({}.hasOwnProperty.call(v, $164)) {
+                              $163[$164] = v[$164];
                             }
                             ;
                           }
                           ;
-                          $165.autoPanStarted = true;
-                          return $165;
+                          $163.autoPanStarted = true;
+                          return $163;
                         }))(function() {
-                          return autoPanStep(params)(stateRef);
+                          return autoPanStep(params)(upd.nodeId)(stateRef);
                         })))(function() {
                           return discard12(when9(!s1.dragStarted)(bind33(liftEffect8(getEventPosition(foreignAsTouchOrMouse(src9))(s1.containerBounds)))(function(curMP) {
                             var dy = curMP.y - s1.mousePosition.y;
@@ -48413,18 +48406,18 @@ var onDragHandler = function(params) {
                               var moved = notEq15(s2.lastPos.x)(new Just(pp.xSnapped)) || notEq15(s2.lastPos.y)(new Just(pp.ySnapped));
                               return when9(moved && (size2(s2.dragItems) > 0 && s2.dragStarted))(bind33(liftEffect8(getEventPosition(foreignAsTouchOrMouse(src9))(s2.containerBounds)))(function(mp) {
                                 return discard12(modify_4(function(v) {
-                                  var $168 = {};
-                                  for (var $169 in v) {
-                                    if ({}.hasOwnProperty.call(v, $169)) {
-                                      $168[$169] = v[$169];
+                                  var $166 = {};
+                                  for (var $167 in v) {
+                                    if ({}.hasOwnProperty.call(v, $167)) {
+                                      $166[$167] = v[$167];
                                     }
                                     ;
                                   }
                                   ;
-                                  $168.mousePosition = mp;
-                                  return $168;
+                                  $166.mousePosition = mp;
+                                  return $166;
                                 }))(function() {
-                                  return updateNodes(params)(new Just(upd))({
+                                  return updateNodes(params)(upd.nodeId)({
                                     x: pp.x,
                                     y: pp.y
                                   });

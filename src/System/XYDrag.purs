@@ -361,7 +361,7 @@ onDragHandler params stateRef upd ev = do
   when (not s1.abortDrag) do
     when (not s1.autoPanStarted && store.autoPanOnNodeDrag && s1.dragStarted) do
       modify_ _ { autoPanStarted = true }
-      autoPanStep params stateRef
+      autoPanStep params upd.nodeId stateRef
 
     when (not s1.dragStarted) do
       curMP <- liftEffect $ getEventPosition (foreignAsTouchOrMouse src) s1.containerBounds
@@ -376,7 +376,7 @@ onDragHandler params stateRef upd ev = do
     when (moved && Map.size s2.dragItems > 0 && s2.dragStarted) do
       mp <- liftEffect $ getEventPosition (foreignAsTouchOrMouse src) s2.containerBounds
       modify_ _ { mousePosition = mp }
-      updateNodes params (Just upd) { x: pp.x, y: pp.y }
+      updateNodes params upd.nodeId { x: pp.x, y: pp.y }
 
 onEnd
   :: forall n e
@@ -513,10 +513,11 @@ startDrag params upd ev = do
 autoPanLoop
   :: forall n e
    . XYDragParams n e
+  -> Maybe NodeId
   -> Ref DragState
   -> Effect Unit
-autoPanLoop params stateRef =
-  runOnRef stateRef (defer \_ -> autoPanStep params stateRef)
+autoPanLoop params mNodeId stateRef =
+  runOnRef stateRef (defer \_ -> autoPanStep params mNodeId stateRef)
 
 -- | TS `autoPan`. Near an edge it pans, waits for the pan to land, moves the
 -- | dragged nodes by the distance panned, and only then asks for the next
@@ -530,12 +531,20 @@ autoPanLoop params stateRef =
 -- | when the caller wrote back. The next frame's handle is one of them, which
 -- | leaves `onEnd` cancelling a frame that has already run while the loop
 -- | carries on. TS gets the same yield from `await`.
+-- |
+-- | The node id is the grabbed node of the drag that started the loop, and it
+-- | rides every frame. TS gets it from scope: `autoPan` is a closure inside
+-- | `update({ nodeId, … })`, so a frame reports against the same node as the
+-- | pointer-driven steps around it. Passing `Nothing` here instead would make
+-- | `getEventHandlerParams` take whichever drag item sorts first and fire
+-- | `onSelectionDrag`, which TS reserves for a selection drag.
 autoPanStep
   :: forall n e
    . XYDragParams n e
+  -> Maybe NodeId
   -> Ref DragState
   -> StateT DragState Effect Unit
-autoPanStep params stateRef = do
+autoPanStep params mNodeId stateRef = do
   s <- get
   case s.containerBounds of
     Nothing -> pure unit
@@ -566,13 +575,13 @@ autoPanStep params stateRef = do
               when ok do
                 s2 <- get
                 case xyOf s2.lastPos of
-                  Just xy -> updateNodes params Nothing xy
+                  Just xy -> updateNodes params mNodeId xy
                   Nothing -> pure unit
               scheduleNextFrame
         else scheduleNextFrame
   where
   scheduleNextFrame = do
-    handle <- liftEffect $ requestAnimationFrame (autoPanLoop params stateRef)
+    handle <- liftEffect $ requestAnimationFrame (autoPanLoop params mNodeId stateRef)
     modify_ _ { autoPanId = Just handle }
   xyOf r = case r.x, r.y of
     Just x, Just y -> Just { x, y }
@@ -581,10 +590,10 @@ autoPanStep params stateRef = do
 updateNodes
   :: forall n e
    . XYDragParams n e
-  -> Maybe DragUpdateParams
+  -> Maybe NodeId
   -> XYPosition
   -> StateT DragState Effect Unit
-updateNodes params mUpd pos = do
+updateNodes params mNodeId pos = do
   store <- liftEffect params.getStoreItems
   modify_ _ { lastPos = { x: Just pos.x, y: Just pos.y } }
 
@@ -663,14 +672,11 @@ updateNodes params mUpd pos = do
     liftEffect $ traverse_
       ( \ev -> do
           let
-            nodeId = case mUpd of
-              Just u -> u.nodeId
-              Nothing -> Nothing
-            eventArgs = getEventHandlerParams nodeId s2.dragItems store.nodeLookup true
+            eventArgs = getEventHandlerParams mNodeId s2.dragItems store.nodeLookup true
           for_ eventArgs.currentNode \cn -> do
             for_ params.onDrag \cb -> cb ev s2.dragItems cn eventArgs.allNodes
             for_ store.onNodeDrag \cb -> cb ev cn eventArgs.allNodes
-          when (isNothing nodeId) do
+          when (isNothing mNodeId) do
             for_ store.onSelectionDrag \cb -> cb ev eventArgs.allNodes
       )
       s2.dragEvent

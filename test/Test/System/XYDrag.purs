@@ -16,6 +16,12 @@
 -- |     the loop eagerly and overflows the stack — every check, since
 -- |     building the first frame never returns.
 -- |
+-- | The last two checks are the proxy for "Give auto-pan frames the grabbed
+-- | node's id, so a single-node drag stops firing onSelectionDrag" (#100).
+-- | TS reads `nodeId` from the scope `autoPan` was defined in; ps-flow passed
+-- | `Nothing` and so reported every frame against the head of the drag items,
+-- | as a selection drag.
+-- |
 -- | The net measures reproducibility and needs a browser and the vendored
 -- | upstream. This runs in `spago test`, against a frame clock that counts
 -- | requests and runs none of them.
@@ -45,6 +51,7 @@ import System.Types.Ids (NodeId(..))
 import System.Types.Node (InternalNodeBase, NodeDragItem, NodeLookup)
 import System.XYDrag (DragState, PanBy, XYDragParams, autoPanLoop, initialDragState)
 import System.XYDrag.Utils (getDragItems)
+import Web.UIEvent.MouseEvent (MouseEvent)
 
 type FrameClock =
   { requests :: Effect Int
@@ -53,6 +60,11 @@ type FrameClock =
   }
 
 foreign import installFrameClock :: Effect FrameClock
+
+-- | Stands in for the `MouseEvent` the drag handler stores on the state. The
+-- | drag callbacks only fire when `dragEvent` is a `Just`, and they pass it
+-- | straight through, so nothing reads it.
+foreign import stubMouseEvent :: MouseEvent
 
 assert :: String -> Boolean -> Aff Unit
 assert label cond = liftEffect $
@@ -111,6 +123,23 @@ draggedNode =
 lookup :: NodeLookup Unit
 lookup = Map.singleton nodeId draggedNode
 
+-- | A second node dragged alongside the grabbed one. Its id sorts before
+-- | `nodeId`, so it is the head of the drag items and therefore the node a
+-- | frame reports when it carries no id of its own.
+otherId :: NodeId
+otherId = NodeId "a"
+
+otherNode :: InternalNodeBase Unit
+otherNode = draggedNode
+  { id = otherId
+  , position = { x: 300.0, y: 100.0 }
+  , internals = draggedNode.internals
+      { positionAbsolute = { x: 300.0, y: 100.0 } }
+  }
+
+multiLookup :: NodeLookup Unit
+multiLookup = Map.insert otherId otherNode lookup
+
 -- | Where the pointer grabbed the node, in flow coordinates. The viewport is
 -- | the identity, so these are screen coordinates too.
 grab :: XYPosition
@@ -119,13 +148,19 @@ grab = { x: 150.0, y: 120.0 }
 -- | A drag already under way, with the pointer at `mouse` in an 800 × 600
 -- | container. 40px from an edge is where auto-pan starts.
 dragUnderWay :: XYPosition -> DragState
-dragUnderWay mouse = initialDragState
+dragUnderWay = dragUnderWayIn lookup
+
+-- | `dragUnderWay` over a given lookup, for the multi-node checks. Every node
+-- | in the lookup is selected, so all of them are drag items.
+dragUnderWayIn :: NodeLookup Unit -> XYPosition -> DragState
+dragUnderWayIn nodeLookup mouse = initialDragState
   { lastPos = { x: Just grab.x, y: Just grab.y }
-  , dragItems = getDragItems lookup true grab (Just nodeId)
+  , dragItems = getDragItems nodeLookup true grab (Just nodeId)
   , autoPanStarted = true
   , mousePosition = mouse
   , containerBounds = Just { left: 0.0, top: 0.0, width: 800.0, height: 600.0 }
   , dragStarted = true
+  , dragEvent = Just stubMouseEvent
   }
 
 awayFromEdges :: XYPosition
@@ -139,13 +174,15 @@ nearLeftEdge = { x: 10.0, y: 300.0 }
 type Recorded =
   { pans :: Ref Int
   , moved :: Ref (Maybe (Map.Map NodeId NodeDragItem))
+  , nodeDrags :: Ref (Array NodeId)
+  , selectionDrags :: Ref Int
   }
 
-paramsWith :: Recorded -> PanBy -> XYDragParams Unit Unit
-paramsWith rec panBy =
+paramsWith :: NodeLookup Unit -> Recorded -> PanBy -> XYDragParams Unit Unit
+paramsWith nodeLookup rec panBy =
   { getStoreItems: pure
       { nodes: []
-      , nodeLookup: lookup
+      , nodeLookup
       , edges: []
       , nodeExtent: infiniteExtent
       , snapGrid: mkSnapGrid 15.0 15.0
@@ -161,10 +198,10 @@ paramsWith rec panBy =
       , panBy: \delta -> liftEffect (Ref.modify_ (_ + 1) rec.pans) *> panBy delta
       , unselectNodesAndEdges: pure unit
       , onNodeDragStart: Nothing
-      , onNodeDrag: Nothing
+      , onNodeDrag: Just (\_ cn _ -> Ref.modify_ (_ <> [ cn.id ]) rec.nodeDrags)
       , onNodeDragStop: Nothing
       , onSelectionDragStart: Nothing
-      , onSelectionDrag: Nothing
+      , onSelectionDrag: Just (\_ _ -> Ref.modify_ (_ + 1) rec.selectionDrags)
       , onSelectionDragStop: Nothing
       , updateNodePositions: \items _ -> Ref.write (Just items) rec.moved
       , autoPanSpeed: Nothing
@@ -180,7 +217,9 @@ record :: Effect Recorded
 record = do
   pans <- Ref.new 0
   moved <- Ref.new Nothing
-  pure { pans, moved }
+  nodeDrags <- Ref.new []
+  selectionDrags <- Ref.new 0
+  pure { pans, moved, nodeDrags, selectionDrags }
 
 movedTo :: Recorded -> Effect (Maybe XYPosition)
 movedTo rec = do
@@ -194,11 +233,21 @@ withFrame
   -> PanBy
   -> (FrameClock -> Ref DragState -> Recorded -> Aff Unit)
   -> Aff Unit
-withFrame mouse panBy check = do
+withFrame mouse = withFrameIn lookup (dragUnderWay mouse)
+
+-- | `withFrame` over a given lookup and starting state. The frame carries the
+-- | grabbed node id either way, which is what `onDragHandler` hands the loop.
+withFrameIn
+  :: NodeLookup Unit
+  -> DragState
+  -> PanBy
+  -> (FrameClock -> Ref DragState -> Recorded -> Aff Unit)
+  -> Aff Unit
+withFrameIn nodeLookup st panBy check = do
   clock <- liftEffect installFrameClock
   rec <- liftEffect record
-  stateRef <- liftEffect $ Ref.new (dragUnderWay mouse)
-  liftEffect $ autoPanLoop (paramsWith rec panBy) stateRef
+  stateRef <- liftEffect $ Ref.new st
+  liftEffect $ autoPanLoop (paramsWith nodeLookup rec panBy) (Just nodeId) stateRef
   check clock stateRef rec
   liftEffect clock.restore
 
@@ -257,3 +306,25 @@ runXYDragTests = launchAff_ do
     assert "a frame whose pan was refused moves nothing" (at == Nothing)
     assert "a frame whose pan was refused still asks for the next one"
       (requests == 1)
+
+  -- The frame carries the grabbed node id, as TS's `autoPan` closure does.
+  -- Without it `getEventHandlerParams` takes whichever drag item sorts first,
+  -- and `updateNodes` fires `onSelectionDrag` because no id was given.
+  withFrame nearLeftEdge (\_ -> pure true) \_ _ rec -> do
+    settle
+    selections <- liftEffect (Ref.read rec.selectionDrags)
+    dragged <- liftEffect (Ref.read rec.nodeDrags)
+    assert "a single-node auto-pan frame fires no onSelectionDrag"
+      (selections == 0)
+    assert "a single-node auto-pan frame reports the grabbed node to onNodeDrag"
+      (dragged == [ nodeId ])
+
+  -- Two nodes drag together and the grabbed one sorts second, so a frame that
+  -- reported the head of the drag items would name the wrong node.
+  withFrameIn multiLookup (dragUnderWayIn multiLookup nearLeftEdge)
+    (\_ -> pure true)
+    \_ _ rec -> do
+      settle
+      dragged <- liftEffect (Ref.read rec.nodeDrags)
+      assert "a multi-node auto-pan frame reports the grabbed node, not the first"
+        (dragged == [ nodeId ])
