@@ -1,6 +1,11 @@
 -- | Pure builder for the initial `ReactFlowState`. Mirrors
 -- | `xyflow-main/packages/react/src/store/initialState.ts`. Public-API
 -- | defaults match the TS source field-for-field.
+-- |
+-- | The seven that `<ReactFlow />` also resolves, and that `<StoreUpdater />`
+-- | seeds its previous values with, are read from
+-- | `React.Container.InitValues` rather than written here. That module says
+-- | why the three copies upstream keeps have to be one here.
 module React.Store.InitialState
   ( InitialStateOptions
   , defaultInitialStateOptions
@@ -12,6 +17,14 @@ import Prelude
 import Control.Alt ((<|>))
 import Data.Map as Map
 import Data.Maybe (Maybe(..), fromMaybe)
+import React.Container.InitValues
+  ( defaultElementsSelectable
+  , defaultMaxZoom
+  , defaultMinZoom
+  , defaultNoPanClassName
+  , defaultNodeOrigin
+  , defaultRfId
+  )
 import React.Types.Edges (Edge)
 import React.Types.Nodes (Node)
 import React.Types.Store (ReactFlowState)
@@ -28,7 +41,6 @@ import System.Types.Geometry
   ( CoordinateExtent
   , NodeOrigin
   , Transform
-  , mkNodeOrigin
   , mkSnapGrid
   , mkTransform
   )
@@ -82,10 +94,10 @@ initialState opts =
     nodes = fromMaybe [] (opts.defaultNodes <|> opts.nodes)
     edges = fromMaybe [] (opts.defaultEdges <|> opts.edges)
 
-    nodeOrigin = fromMaybe (mkNodeOrigin 0.0 0.0) opts.nodeOrigin
+    nodeOrigin = fromMaybe defaultNodeOrigin opts.nodeOrigin
     nodeExtent = fromMaybe infiniteExtent opts.nodeExtent
-    minZoom = fromMaybe 0.5 opts.minZoom
-    maxZoom = fromMaybe 2.0 opts.maxZoom
+    minZoom = fromMaybe defaultMinZoom opts.minZoom
+    maxZoom = fromMaybe defaultMaxZoom opts.maxZoom
     zIndexMode = fromMaybe ZBasic opts.zIndexMode
     width = fromMaybe 0.0 opts.width
     height = fromMaybe 0.0 opts.height
@@ -122,7 +134,7 @@ initialState opts =
           mkTransform viewport.x viewport.y viewport.zoom
       else identityTransform
   in
-    { rfId: "1"
+    { rfId: defaultRfId
     , width
     , height
     , transform
@@ -143,7 +155,7 @@ initialState opts =
         Nothing -> false
     , domNode: Nothing
     , paneDragging: false
-    , noPanClassName: "nopan"
+    , noPanClassName: defaultNoPanClassName
     , panZoom: Nothing
     , minZoom
     , maxZoom
@@ -166,7 +178,7 @@ initialState opts =
     , nodesFocusable: true
     , edgesFocusable: true
     , edgesReconnectable: true
-    , elementsSelectable: true
+    , elementsSelectable: defaultElementsSelectable
     , elevateNodesOnSelect: true
     , elevateEdgesOnSelect: false
     , selectNodesOnDrag: true

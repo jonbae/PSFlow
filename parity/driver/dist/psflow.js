@@ -1098,7 +1098,7 @@ var require_react_development = __commonJS({
           var dispatcher = resolveDispatcher();
           return dispatcher.useRef(initialValue);
         }
-        function useEffect22(create4, deps) {
+        function useEffect21(create4, deps) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useEffect(create4, deps);
         }
@@ -1881,7 +1881,7 @@ var require_react_development = __commonJS({
         exports.useContext = useContext2;
         exports.useDebugValue = useDebugValue;
         exports.useDeferredValue = useDeferredValue;
-        exports.useEffect = useEffect22;
+        exports.useEffect = useEffect21;
         exports.useId = useId;
         exports.useImperativeHandle = useImperativeHandle;
         exports.useInsertionEffect = useInsertionEffect;
@@ -54042,7 +54042,12 @@ var defaultViewport = {
   y: 0,
   zoom: 1
 };
+var defaultRfId = "1";
 var defaultNodeOrigin = /* @__PURE__ */ mkNodeOrigin(0)(0);
+var defaultNoPanClassName = "nopan";
+var defaultMinZoom = 0.5;
+var defaultMaxZoom = 2;
+var defaultElementsSelectable = true;
 
 // output/React.Hook.IsomorphicLayoutEffect/index.js
 var useIsomorphicLayoutEffect = function(dictEq) {
@@ -54135,10 +54140,10 @@ var initialState = function(opts) {
   var zIndexMode = fromMaybe(ZBasic.value)(opts.zIndexMode);
   var width8 = fromMaybe(0)(opts.width);
   var nodes3 = fromMaybe([])(alt6(opts.defaultNodes)(opts.nodes));
-  var nodeOrigin = fromMaybe(mkNodeOrigin(0)(0))(opts.nodeOrigin);
+  var nodeOrigin = fromMaybe(defaultNodeOrigin)(opts.nodeOrigin);
   var nodeExtent = fromMaybe(infiniteExtent)(opts.nodeExtent);
-  var minZoom = fromMaybe(0.5)(opts.minZoom);
-  var maxZoom = fromMaybe(2)(opts.maxZoom);
+  var minZoom = fromMaybe(defaultMinZoom)(opts.minZoom);
+  var maxZoom = fromMaybe(defaultMaxZoom)(opts.maxZoom);
   var height8 = fromMaybe(0)(opts.height);
   var fitViewRequested = fromMaybe(false)(opts.fitView) && (width8 > 0 && height8 > 0);
   var edges2 = fromMaybe([])(alt6(opts.defaultEdges)(opts.edges));
@@ -54164,7 +54169,7 @@ var initialState = function(opts) {
           return maxZoom;
         }
         ;
-        throw new Error("Failed pattern match at React.Store.InitialState (line 117, column 16 - line 119, column 31): " + [opts.fitViewOptions.constructor.name]);
+        throw new Error("Failed pattern match at React.Store.InitialState (line 129, column 16 - line 131, column 31): " + [opts.fitViewOptions.constructor.name]);
       }();
       var padding = function() {
         if (opts.fitViewOptions instanceof Just) {
@@ -54175,7 +54180,7 @@ var initialState = function(opts) {
           return defaultFitViewPaddingLocal;
         }
         ;
-        throw new Error("Failed pattern match at React.Store.InitialState (line 111, column 21 - line 113, column 50): " + [opts.fitViewOptions.constructor.name]);
+        throw new Error("Failed pattern match at React.Store.InitialState (line 123, column 21 - line 125, column 50): " + [opts.fitViewOptions.constructor.name]);
       }();
       var mz = function() {
         if (opts.fitViewOptions instanceof Just) {
@@ -54186,7 +54191,7 @@ var initialState = function(opts) {
           return minZoom;
         }
         ;
-        throw new Error("Failed pattern match at React.Store.InitialState (line 114, column 16 - line 116, column 31): " + [opts.fitViewOptions.constructor.name]);
+        throw new Error("Failed pattern match at React.Store.InitialState (line 126, column 16 - line 128, column 31): " + [opts.fitViewOptions.constructor.name]);
       }();
       var bounds = getInternalNodesBounds(adopted.nodeLookup)(Nothing.value);
       var viewport2 = getViewportForBounds(bounds)(width8)(height8)(mz)(xz)(padding);
@@ -54196,7 +54201,7 @@ var initialState = function(opts) {
     return identityTransform;
   }();
   return {
-    rfId: "1",
+    rfId: defaultRfId,
     width: width8,
     height: height8,
     transform: transform2,
@@ -54218,7 +54223,7 @@ var initialState = function(opts) {
         return false;
       }
       ;
-      throw new Error("Failed pattern match at React.Store.InitialState (line 138, column 24 - line 140, column 25): " + [opts.defaultNodes.constructor.name]);
+      throw new Error("Failed pattern match at React.Store.InitialState (line 150, column 24 - line 152, column 25): " + [opts.defaultNodes.constructor.name]);
     }(),
     hasDefaultEdges: function() {
       if (opts.defaultEdges instanceof Just) {
@@ -54229,11 +54234,11 @@ var initialState = function(opts) {
         return false;
       }
       ;
-      throw new Error("Failed pattern match at React.Store.InitialState (line 141, column 24 - line 143, column 25): " + [opts.defaultEdges.constructor.name]);
+      throw new Error("Failed pattern match at React.Store.InitialState (line 153, column 24 - line 155, column 25): " + [opts.defaultEdges.constructor.name]);
     }(),
     domNode: Nothing.value,
     paneDragging: false,
-    noPanClassName: "nopan",
+    noPanClassName: defaultNoPanClassName,
     panZoom: Nothing.value,
     minZoom,
     maxZoom,
@@ -54256,7 +54261,7 @@ var initialState = function(opts) {
     nodesFocusable: true,
     edgesFocusable: true,
     edgesReconnectable: true,
-    elementsSelectable: true,
+    elementsSelectable: defaultElementsSelectable,
     elevateNodesOnSelect: true,
     elevateEdgesOnSelect: false,
     selectNodesOnDrag: true,
@@ -57434,6 +57439,17 @@ var selectionListener = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reac
 }));
 
 // output/React.Provider.TrackedProp/index.js
+var initPrevValues = /* @__PURE__ */ function() {
+  return {
+    translateExtent: new Just(infiniteExtent),
+    nodeOrigin: new Just(defaultNodeOrigin),
+    minZoom: new Just(defaultMinZoom),
+    maxZoom: new Just(defaultMaxZoom),
+    elementsSelectable: new Just(defaultElementsSelectable),
+    noPanClassName: new Just(defaultNoPanClassName),
+    rfId: new Just(defaultRfId)
+  };
+}();
 var eqTrackedProp = {
   eq: function(v) {
     return function(v1) {
@@ -57449,15 +57465,52 @@ var eqTrackedProp = {
     };
   }
 };
+var notEq9 = /* @__PURE__ */ notEq(eqTrackedProp);
+var changed = function(prev) {
+  return function(next) {
+    return notEq9(prev)(next);
+  };
+};
+var dispatchable = function(previous) {
+  return function(next) {
+    var $7 = changed(previous)(next);
+    if ($7) {
+      return next;
+    }
+    ;
+    return Nothing.value;
+  };
+};
 
 // output/React.Provider.StoreUpdater/index.js
-var useEffect17 = /* @__PURE__ */ useEffect(eqTrackedProp);
-var pure73 = /* @__PURE__ */ pure(applicativeEffect);
+var coerceHook12 = /* @__PURE__ */ coerceHook();
 var bind52 = /* @__PURE__ */ bind4(ixBindRender);
-var discard110 = /* @__PURE__ */ discard2(ixBindRender);
-var useEffect18 = /* @__PURE__ */ useEffect(eqUnsafeReference);
+var discard21 = /* @__PURE__ */ discard2(ixBindRender);
+var pure73 = /* @__PURE__ */ pure(applicativeEffect);
+var useEffect17 = /* @__PURE__ */ useEffect(eqTrackedProp);
+var for_20 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var pure131 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty18 = /* @__PURE__ */ mempty(monoidJSX);
+var effectOnJustFrom = function(seed) {
+  return function(dispatch2) {
+    return function(mValue) {
+      return function(mkAction) {
+        return coerceHook12(bind52(useRef(seed))(function(previous) {
+          return discard21(useEffectOnce(pure73(writeRef(previous)(seed))))(function() {
+            return useEffect17(mValue)(function __do3() {
+              var prev = readRef(previous)();
+              writeRef(previous)(mValue)();
+              for_20(dispatchable(prev)(mValue))(function($72) {
+                return dispatch2(mkAction($72));
+              })();
+              return pure73(unit);
+            });
+          });
+        }));
+      };
+    };
+  };
+};
 var effectOnJust = function(dispatch2) {
   return function(mValue) {
     return function(mkAction) {
@@ -57471,7 +57524,7 @@ var effectOnJust = function(dispatch2) {
             return unit;
           }
           ;
-          throw new Error("Failed pattern match at React.Provider.StoreUpdater (line 200, column 5 - line 202, column 27): " + [mValue.constructor.name]);
+          throw new Error("Failed pattern match at React.Provider.StoreUpdater (line 214, column 5 - line 216, column 27): " + [mValue.constructor.name]);
         })();
         return pure73(unit);
       });
@@ -57480,17 +57533,17 @@ var effectOnJust = function(dispatch2) {
 };
 var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponent()()()("StoreUpdater")(function(v) {
   return bind52(useStoreApi)(function(store) {
-    return discard110(useEffectOnce(function __do3() {
+    return discard21(useEffectOnce(function __do3() {
       store.dispatch(new SetDefaultNodesAndEdges(v.defaultNodes, v.defaultEdges))();
       return store.dispatch(Reset.value);
     }))(function() {
-      return discard110(effectOnJust(store.dispatch)(v.nodes)(SetNodes.create))(function() {
-        return discard110(effectOnJust(store.dispatch)(v.edges)(SetEdges.create))(function() {
-          return discard110(effectOnJust(store.dispatch)(v.minZoom)(SetMinZoom.create))(function() {
-            return discard110(effectOnJust(store.dispatch)(v.maxZoom)(SetMaxZoom.create))(function() {
-              return discard110(effectOnJust(store.dispatch)(v.translateExtent)(SetTranslateExtent.create))(function() {
-                return discard110(effectOnJust(store.dispatch)(v.nodeExtent)(SetNodeExtent.create))(function() {
-                  return discard110(effectOnJust(store.dispatch)(v.fitView)(function(v1) {
+      return discard21(effectOnJust(store.dispatch)(v.nodes)(SetNodes.create))(function() {
+        return discard21(effectOnJust(store.dispatch)(v.edges)(SetEdges.create))(function() {
+          return discard21(effectOnJustFrom(initPrevValues.minZoom)(store.dispatch)(v.minZoom)(SetMinZoom.create))(function() {
+            return discard21(effectOnJustFrom(initPrevValues.maxZoom)(store.dispatch)(v.maxZoom)(SetMaxZoom.create))(function() {
+              return discard21(effectOnJustFrom(initPrevValues.translateExtent)(store.dispatch)(v.translateExtent)(SetTranslateExtent.create))(function() {
+                return discard21(effectOnJust(store.dispatch)(v.nodeExtent)(SetNodeExtent.create))(function() {
+                  return discard21(effectOnJust(store.dispatch)(v.fitView)(function(v1) {
                     return new PatchState(function(s) {
                       return {
                         rfId: s.rfId,
@@ -57581,7 +57634,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                       };
                     });
                   }))(function() {
-                    return discard110(effectOnJust(store.dispatch)(v.fitViewOptions)(function(v1) {
+                    return discard21(effectOnJust(store.dispatch)(v.fitViewOptions)(function(v1) {
                       return new PatchState(function(s) {
                         return {
                           rfId: s.rfId,
@@ -57672,7 +57725,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                         };
                       });
                     }))(function() {
-                      return discard110(effectOnJust(store.dispatch)(v.ariaLabelConfig)(function(v1) {
+                      return discard21(effectOnJust(store.dispatch)(v.ariaLabelConfig)(function(v1) {
                         return new PatchState(function(s) {
                           return {
                             rfId: s.rfId,
@@ -57763,7 +57816,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                           };
                         });
                       }))(function() {
-                        return discard110(effectOnJust(store.dispatch)(v.onConnect)(function(v1) {
+                        return discard21(effectOnJust(store.dispatch)(v.onConnect)(function(v1) {
                           return new PatchState(function(s) {
                             return {
                               rfId: s.rfId,
@@ -57854,7 +57907,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                             };
                           });
                         }))(function() {
-                          return discard110(effectOnJust(store.dispatch)(v.onConnectStart)(function(v1) {
+                          return discard21(effectOnJust(store.dispatch)(v.onConnectStart)(function(v1) {
                             return new PatchState(function(s) {
                               return {
                                 rfId: s.rfId,
@@ -57945,7 +57998,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                               };
                             });
                           }))(function() {
-                            return discard110(effectOnJust(store.dispatch)(v.onConnectEnd)(function(v1) {
+                            return discard21(effectOnJust(store.dispatch)(v.onConnectEnd)(function(v1) {
                               return new PatchState(function(s) {
                                 return {
                                   rfId: s.rfId,
@@ -58036,7 +58089,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                 };
                               });
                             }))(function() {
-                              return discard110(effectOnJust(store.dispatch)(v.onClickConnectStart)(function(v1) {
+                              return discard21(effectOnJust(store.dispatch)(v.onClickConnectStart)(function(v1) {
                                 return new PatchState(function(s) {
                                   return {
                                     rfId: s.rfId,
@@ -58127,7 +58180,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                   };
                                 });
                               }))(function() {
-                                return discard110(effectOnJust(store.dispatch)(v.onClickConnectEnd)(function(v1) {
+                                return discard21(effectOnJust(store.dispatch)(v.onClickConnectEnd)(function(v1) {
                                   return new PatchState(function(s) {
                                     return {
                                       rfId: s.rfId,
@@ -58218,7 +58271,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                     };
                                   });
                                 }))(function() {
-                                  return discard110(effectOnJust(store.dispatch)(v.nodesDraggable)(function(v1) {
+                                  return discard21(effectOnJust(store.dispatch)(v.nodesDraggable)(function(v1) {
                                     return new PatchState(function(s) {
                                       return {
                                         rfId: s.rfId,
@@ -58309,7 +58362,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                       };
                                     });
                                   }))(function() {
-                                    return discard110(effectOnJust(store.dispatch)(v.autoPanOnNodeFocus)(function(v1) {
+                                    return discard21(effectOnJust(store.dispatch)(v.autoPanOnNodeFocus)(function(v1) {
                                       return new PatchState(function(s) {
                                         return {
                                           rfId: s.rfId,
@@ -58400,7 +58453,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                         };
                                       });
                                     }))(function() {
-                                      return discard110(effectOnJust(store.dispatch)(v.nodesConnectable)(function(v1) {
+                                      return discard21(effectOnJust(store.dispatch)(v.nodesConnectable)(function(v1) {
                                         return new PatchState(function(s) {
                                           return {
                                             rfId: s.rfId,
@@ -58491,7 +58544,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                           };
                                         });
                                       }))(function() {
-                                        return discard110(effectOnJust(store.dispatch)(v.nodesFocusable)(function(v1) {
+                                        return discard21(effectOnJust(store.dispatch)(v.nodesFocusable)(function(v1) {
                                           return new PatchState(function(s) {
                                             return {
                                               rfId: s.rfId,
@@ -58582,7 +58635,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                             };
                                           });
                                         }))(function() {
-                                          return discard110(effectOnJust(store.dispatch)(v.edgesFocusable)(function(v1) {
+                                          return discard21(effectOnJust(store.dispatch)(v.edgesFocusable)(function(v1) {
                                             return new PatchState(function(s) {
                                               return {
                                                 rfId: s.rfId,
@@ -58673,7 +58726,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                               };
                                             });
                                           }))(function() {
-                                            return discard110(effectOnJust(store.dispatch)(v.edgesReconnectable)(function(v1) {
+                                            return discard21(effectOnJust(store.dispatch)(v.edgesReconnectable)(function(v1) {
                                               return new PatchState(function(s) {
                                                 return {
                                                   rfId: s.rfId,
@@ -58764,7 +58817,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                 };
                                               });
                                             }))(function() {
-                                              return discard110(effectOnJust(store.dispatch)(v.elevateNodesOnSelect)(function(v1) {
+                                              return discard21(effectOnJust(store.dispatch)(v.elevateNodesOnSelect)(function(v1) {
                                                 return new PatchState(function(s) {
                                                   return {
                                                     rfId: s.rfId,
@@ -58855,7 +58908,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                   };
                                                 });
                                               }))(function() {
-                                                return discard110(effectOnJust(store.dispatch)(v.elevateEdgesOnSelect)(function(v1) {
+                                                return discard21(effectOnJust(store.dispatch)(v.elevateEdgesOnSelect)(function(v1) {
                                                   return new PatchState(function(s) {
                                                     return {
                                                       rfId: s.rfId,
@@ -58946,7 +58999,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                     };
                                                   });
                                                 }))(function() {
-                                                  return discard110(effectOnJust(store.dispatch)(v.onNodesChange)(function(v1) {
+                                                  return discard21(effectOnJust(store.dispatch)(v.onNodesChange)(function(v1) {
                                                     return new PatchState(function(s) {
                                                       return {
                                                         rfId: s.rfId,
@@ -59037,7 +59090,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                       };
                                                     });
                                                   }))(function() {
-                                                    return discard110(effectOnJust(store.dispatch)(v.onEdgesChange)(function(v1) {
+                                                    return discard21(effectOnJust(store.dispatch)(v.onEdgesChange)(function(v1) {
                                                       return new PatchState(function(s) {
                                                         return {
                                                           rfId: s.rfId,
@@ -59128,7 +59181,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                         };
                                                       });
                                                     }))(function() {
-                                                      return discard110(effectOnJust(store.dispatch)(v.elementsSelectable)(function(v1) {
+                                                      return discard21(effectOnJustFrom(initPrevValues.elementsSelectable)(store.dispatch)(v.elementsSelectable)(function(v1) {
                                                         return new PatchState(function(s) {
                                                           return {
                                                             rfId: s.rfId,
@@ -59219,7 +59272,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                           };
                                                         });
                                                       }))(function() {
-                                                        return discard110(effectOnJust(store.dispatch)(v.connectionMode)(function(v1) {
+                                                        return discard21(effectOnJust(store.dispatch)(v.connectionMode)(function(v1) {
                                                           return new PatchState(function(s) {
                                                             return {
                                                               rfId: s.rfId,
@@ -59310,7 +59363,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                             };
                                                           });
                                                         }))(function() {
-                                                          return discard110(effectOnJust(store.dispatch)(v.snapGrid)(function(v1) {
+                                                          return discard21(effectOnJust(store.dispatch)(v.snapGrid)(function(v1) {
                                                             return new PatchState(function(s) {
                                                               return {
                                                                 rfId: s.rfId,
@@ -59401,7 +59454,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                               };
                                                             });
                                                           }))(function() {
-                                                            return discard110(effectOnJust(store.dispatch)(v.snapToGrid)(function(v1) {
+                                                            return discard21(effectOnJust(store.dispatch)(v.snapToGrid)(function(v1) {
                                                               return new PatchState(function(s) {
                                                                 return {
                                                                   rfId: s.rfId,
@@ -59492,7 +59545,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                 };
                                                               });
                                                             }))(function() {
-                                                              return discard110(effectOnJust(store.dispatch)(v.connectOnClick)(function(v1) {
+                                                              return discard21(effectOnJust(store.dispatch)(v.connectOnClick)(function(v1) {
                                                                 return new PatchState(function(s) {
                                                                   return {
                                                                     rfId: s.rfId,
@@ -59583,7 +59636,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                   };
                                                                 });
                                                               }))(function() {
-                                                                return discard110(effectOnJust(store.dispatch)(v.defaultEdgeOptions)(function(v1) {
+                                                                return discard21(effectOnJust(store.dispatch)(v.defaultEdgeOptions)(function(v1) {
                                                                   return new PatchState(function(s) {
                                                                     return {
                                                                       rfId: s.rfId,
@@ -59674,7 +59727,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                     };
                                                                   });
                                                                 }))(function() {
-                                                                  return discard110(effectOnJust(store.dispatch)(v.onNodesDelete)(function(v1) {
+                                                                  return discard21(effectOnJust(store.dispatch)(v.onNodesDelete)(function(v1) {
                                                                     return new PatchState(function(s) {
                                                                       return {
                                                                         rfId: s.rfId,
@@ -59765,7 +59818,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                       };
                                                                     });
                                                                   }))(function() {
-                                                                    return discard110(effectOnJust(store.dispatch)(v.onEdgesDelete)(function(v1) {
+                                                                    return discard21(effectOnJust(store.dispatch)(v.onEdgesDelete)(function(v1) {
                                                                       return new PatchState(function(s) {
                                                                         return {
                                                                           rfId: s.rfId,
@@ -59856,7 +59909,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                         };
                                                                       });
                                                                     }))(function() {
-                                                                      return discard110(effectOnJust(store.dispatch)(v.onDelete)(function(v1) {
+                                                                      return discard21(effectOnJust(store.dispatch)(v.onDelete)(function(v1) {
                                                                         return new PatchState(function(s) {
                                                                           return {
                                                                             rfId: s.rfId,
@@ -59947,7 +60000,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                           };
                                                                         });
                                                                       }))(function() {
-                                                                        return discard110(effectOnJust(store.dispatch)(v.onNodeDrag)(function(v1) {
+                                                                        return discard21(effectOnJust(store.dispatch)(v.onNodeDrag)(function(v1) {
                                                                           return new PatchState(function(s) {
                                                                             return {
                                                                               rfId: s.rfId,
@@ -60038,7 +60091,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                             };
                                                                           });
                                                                         }))(function() {
-                                                                          return discard110(effectOnJust(store.dispatch)(v.onNodeDragStart)(function(v1) {
+                                                                          return discard21(effectOnJust(store.dispatch)(v.onNodeDragStart)(function(v1) {
                                                                             return new PatchState(function(s) {
                                                                               return {
                                                                                 rfId: s.rfId,
@@ -60129,7 +60182,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                               };
                                                                             });
                                                                           }))(function() {
-                                                                            return discard110(effectOnJust(store.dispatch)(v.onNodeDragStop)(function(v1) {
+                                                                            return discard21(effectOnJust(store.dispatch)(v.onNodeDragStop)(function(v1) {
                                                                               return new PatchState(function(s) {
                                                                                 return {
                                                                                   rfId: s.rfId,
@@ -60220,7 +60273,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                 };
                                                                               });
                                                                             }))(function() {
-                                                                              return discard110(effectOnJust(store.dispatch)(v.onSelectionDrag)(function(v1) {
+                                                                              return discard21(effectOnJust(store.dispatch)(v.onSelectionDrag)(function(v1) {
                                                                                 return new PatchState(function(s) {
                                                                                   return {
                                                                                     rfId: s.rfId,
@@ -60311,7 +60364,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                   };
                                                                                 });
                                                                               }))(function() {
-                                                                                return discard110(effectOnJust(store.dispatch)(v.onSelectionDragStart)(function(v1) {
+                                                                                return discard21(effectOnJust(store.dispatch)(v.onSelectionDragStart)(function(v1) {
                                                                                   return new PatchState(function(s) {
                                                                                     return {
                                                                                       rfId: s.rfId,
@@ -60402,7 +60455,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                     };
                                                                                   });
                                                                                 }))(function() {
-                                                                                  return discard110(effectOnJust(store.dispatch)(v.onSelectionDragStop)(function(v1) {
+                                                                                  return discard21(effectOnJust(store.dispatch)(v.onSelectionDragStop)(function(v1) {
                                                                                     return new PatchState(function(s) {
                                                                                       return {
                                                                                         rfId: s.rfId,
@@ -60493,7 +60546,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                       };
                                                                                     });
                                                                                   }))(function() {
-                                                                                    return discard110(effectOnJust(store.dispatch)(v.onMoveStart)(function(v1) {
+                                                                                    return discard21(effectOnJust(store.dispatch)(v.onMoveStart)(function(v1) {
                                                                                       return new PatchState(function(s) {
                                                                                         return {
                                                                                           rfId: s.rfId,
@@ -60584,7 +60637,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                         };
                                                                                       });
                                                                                     }))(function() {
-                                                                                      return discard110(effectOnJust(store.dispatch)(v.onMove)(function(v1) {
+                                                                                      return discard21(effectOnJust(store.dispatch)(v.onMove)(function(v1) {
                                                                                         return new PatchState(function(s) {
                                                                                           return {
                                                                                             rfId: s.rfId,
@@ -60675,7 +60728,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                           };
                                                                                         });
                                                                                       }))(function() {
-                                                                                        return discard110(effectOnJust(store.dispatch)(v.onMoveEnd)(function(v1) {
+                                                                                        return discard21(effectOnJust(store.dispatch)(v.onMoveEnd)(function(v1) {
                                                                                           return new PatchState(function(s) {
                                                                                             return {
                                                                                               rfId: s.rfId,
@@ -60766,7 +60819,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                             };
                                                                                           });
                                                                                         }))(function() {
-                                                                                          return discard110(effectOnJust(store.dispatch)(v.noPanClassName)(function(v1) {
+                                                                                          return discard21(effectOnJustFrom(initPrevValues.noPanClassName)(store.dispatch)(v.noPanClassName)(function(v1) {
                                                                                             return new PatchState(function(s) {
                                                                                               return {
                                                                                                 rfId: s.rfId,
@@ -60857,7 +60910,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                               };
                                                                                             });
                                                                                           }))(function() {
-                                                                                            return discard110(effectOnJust(store.dispatch)(v.nodeOrigin)(function(v1) {
+                                                                                            return discard21(effectOnJustFrom(initPrevValues.nodeOrigin)(store.dispatch)(v.nodeOrigin)(function(v1) {
                                                                                               return new PatchState(function(s) {
                                                                                                 return {
                                                                                                   rfId: s.rfId,
@@ -60948,7 +61001,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                 };
                                                                                               });
                                                                                             }))(function() {
-                                                                                              return discard110(effectOnJust(store.dispatch)(v.autoPanOnConnect)(function(v1) {
+                                                                                              return discard21(effectOnJust(store.dispatch)(v.autoPanOnConnect)(function(v1) {
                                                                                                 return new PatchState(function(s) {
                                                                                                   return {
                                                                                                     rfId: s.rfId,
@@ -61039,7 +61092,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                   };
                                                                                                 });
                                                                                               }))(function() {
-                                                                                                return discard110(effectOnJust(store.dispatch)(v.autoPanOnNodeDrag)(function(v1) {
+                                                                                                return discard21(effectOnJust(store.dispatch)(v.autoPanOnNodeDrag)(function(v1) {
                                                                                                   return new PatchState(function(s) {
                                                                                                     return {
                                                                                                       rfId: s.rfId,
@@ -61130,7 +61183,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                     };
                                                                                                   });
                                                                                                 }))(function() {
-                                                                                                  return discard110(effectOnJust(store.dispatch)(v.onError)(function(v1) {
+                                                                                                  return discard21(effectOnJust(store.dispatch)(v.onError)(function(v1) {
                                                                                                     return new PatchState(function(s) {
                                                                                                       return {
                                                                                                         rfId: s.rfId,
@@ -61221,7 +61274,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                       };
                                                                                                     });
                                                                                                   }))(function() {
-                                                                                                    return discard110(effectOnJust(store.dispatch)(v.connectionRadius)(function(v1) {
+                                                                                                    return discard21(effectOnJust(store.dispatch)(v.connectionRadius)(function(v1) {
                                                                                                       return new PatchState(function(s) {
                                                                                                         return {
                                                                                                           rfId: s.rfId,
@@ -61312,7 +61365,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                         };
                                                                                                       });
                                                                                                     }))(function() {
-                                                                                                      return discard110(effectOnJust(store.dispatch)(v.isValidConnection)(function(v1) {
+                                                                                                      return discard21(effectOnJust(store.dispatch)(v.isValidConnection)(function(v1) {
                                                                                                         return new PatchState(function(s) {
                                                                                                           return {
                                                                                                             rfId: s.rfId,
@@ -61403,7 +61456,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                           };
                                                                                                         });
                                                                                                       }))(function() {
-                                                                                                        return discard110(effectOnJust(store.dispatch)(v.selectNodesOnDrag)(function(v1) {
+                                                                                                        return discard21(effectOnJust(store.dispatch)(v.selectNodesOnDrag)(function(v1) {
                                                                                                           return new PatchState(function(s) {
                                                                                                             return {
                                                                                                               rfId: s.rfId,
@@ -61494,7 +61547,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                             };
                                                                                                           });
                                                                                                         }))(function() {
-                                                                                                          return discard110(effectOnJust(store.dispatch)(v.nodeDragThreshold)(function(v1) {
+                                                                                                          return discard21(effectOnJust(store.dispatch)(v.nodeDragThreshold)(function(v1) {
                                                                                                             return new PatchState(function(s) {
                                                                                                               return {
                                                                                                                 rfId: s.rfId,
@@ -61585,7 +61638,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                               };
                                                                                                             });
                                                                                                           }))(function() {
-                                                                                                            return discard110(effectOnJust(store.dispatch)(v.connectionDragThreshold)(function(v1) {
+                                                                                                            return discard21(effectOnJust(store.dispatch)(v.connectionDragThreshold)(function(v1) {
                                                                                                               return new PatchState(function(s) {
                                                                                                                 return {
                                                                                                                   rfId: s.rfId,
@@ -61676,7 +61729,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                                 };
                                                                                                               });
                                                                                                             }))(function() {
-                                                                                                              return discard110(effectOnJust(store.dispatch)(v.onBeforeDelete)(function(v1) {
+                                                                                                              return discard21(effectOnJust(store.dispatch)(v.onBeforeDelete)(function(v1) {
                                                                                                                 return new PatchState(function(s) {
                                                                                                                   return {
                                                                                                                     rfId: s.rfId,
@@ -61767,7 +61820,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                                   };
                                                                                                                 });
                                                                                                               }))(function() {
-                                                                                                                return discard110(effectOnJust(store.dispatch)(v.debug)(function(v1) {
+                                                                                                                return discard21(effectOnJust(store.dispatch)(v.debug)(function(v1) {
                                                                                                                   return new PatchState(function(s) {
                                                                                                                     return {
                                                                                                                       rfId: s.rfId,
@@ -61858,7 +61911,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                                     };
                                                                                                                   });
                                                                                                                 }))(function() {
-                                                                                                                  return discard110(effectOnJust(store.dispatch)(v.autoPanSpeed)(function(v1) {
+                                                                                                                  return discard21(effectOnJust(store.dispatch)(v.autoPanSpeed)(function(v1) {
                                                                                                                     return new PatchState(function(s) {
                                                                                                                       return {
                                                                                                                         rfId: s.rfId,
@@ -61949,7 +62002,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                                       };
                                                                                                                     });
                                                                                                                   }))(function() {
-                                                                                                                    return discard110(effectOnJust(store.dispatch)(v.zIndexMode)(function(v1) {
+                                                                                                                    return discard21(effectOnJust(store.dispatch)(v.zIndexMode)(function(v1) {
                                                                                                                       return new PatchState(function(s) {
                                                                                                                         return {
                                                                                                                           rfId: s.rfId,
@@ -62040,8 +62093,8 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                                         };
                                                                                                                       });
                                                                                                                     }))(function() {
-                                                                                                                      return discard110(useEffect18(v.rfId)(function __do3() {
-                                                                                                                        store.dispatch(new PatchState(function(s) {
+                                                                                                                      return discard21(effectOnJustFrom(initPrevValues.rfId)(store.dispatch)(new Just(v.rfId))(function(v1) {
+                                                                                                                        return new PatchState(function(s) {
                                                                                                                           return {
                                                                                                                             width: s.width,
                                                                                                                             height: s.height,
@@ -62127,10 +62180,9 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                                             zIndexMode: s.zIndexMode,
                                                                                                                             onNodesChangeMiddlewareMap: s.onNodesChangeMiddlewareMap,
                                                                                                                             onEdgesChangeMiddlewareMap: s.onEdgesChangeMiddlewareMap,
-                                                                                                                            rfId: v.rfId
+                                                                                                                            rfId: v1
                                                                                                                           };
-                                                                                                                        }))();
-                                                                                                                        return pure73(unit);
+                                                                                                                        });
                                                                                                                       }))(function() {
                                                                                                                         return pure131(mempty18);
                                                                                                                       });
@@ -62216,7 +62268,7 @@ var mergeStyle = function(v) {
     return wrapperStyle;
   }
   ;
-  throw new Error("Failed pattern match at React.Container.ReactFlow (line 105, column 14 - line 107, column 26): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at React.Container.ReactFlow (line 113, column 14 - line 115, column 26): " + [v.constructor.name]);
 };
 var isMacOsCached = /* @__PURE__ */ unsafePerformEffect(isMacOs);
 var defaultMultiSelKey = /* @__PURE__ */ function() {
@@ -62241,7 +62293,7 @@ var colorModeClass = function(v) {
     return "";
   }
   ;
-  throw new Error("Failed pattern match at React.Container.ReactFlow (line 116, column 18 - line 119, column 16): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at React.Container.ReactFlow (line 124, column 18 - line 127, column 16): " + [v.constructor.name]);
 };
 var buildOuterClass = function(cmc) {
   return function(userClass) {
@@ -62273,7 +62325,7 @@ var reactFlow = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompone
     var onlyRenderVisibleElements = fromMaybe(false)(v.onlyRenderVisibleElements);
     var nodeOrigin = fromMaybe(defaultNodeOrigin)(v.nodeOrigin);
     var storeUpdaterEl = element(storeUpdater)({
-      rfId: "1",
+      rfId: defaultRfId,
       nodes: v.nodes,
       edges: v.edges,
       defaultNodes: v.defaultNodes,
@@ -62335,12 +62387,12 @@ var reactFlow = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompone
     });
     var nodeClickDistance = fromMaybe(0)(v.nodeClickDistance);
     var noWheelClassName = fromMaybe("nowheel")(v.noWheelClassName);
-    var noPanClassName = fromMaybe("nopan")(v.noPanClassName);
+    var noPanClassName = fromMaybe(defaultNoPanClassName)(v.noPanClassName);
     var noDragClassName = fromMaybe("nodrag")(v.noDragClassName);
     var multiSelectionKeyCode = alt7(v.multiSelectionKeyCode)(new Just(defaultMultiSelKey));
-    var minZoom = fromMaybe(0.5)(v.minZoom);
-    var maxZoom = fromMaybe(2)(v.maxZoom);
-    var elementsSelectable = fromMaybe(true)(v.elementsSelectable);
+    var minZoom = fromMaybe(defaultMinZoom)(v.minZoom);
+    var maxZoom = fromMaybe(defaultMaxZoom)(v.maxZoom);
+    var elementsSelectable = fromMaybe(defaultElementsSelectable)(v.elementsSelectable);
     var disableKeyboardA11y = fromMaybe(false)(v.disableKeyboardA11y);
     var deleteKeyCode = alt7(v.deleteKeyCode)(new Just(new SingleKey("Backspace")));
     var defaultViewport2 = fromMaybe(defaultViewport)(v.defaultViewport);
@@ -62348,7 +62400,7 @@ var reactFlow = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompone
     var connectionLineType2 = fromMaybe(BezierLine.value)(v.connectionLineType);
     var autoPanOnSelection = fromMaybe(true)(v.autoPanOnSelection);
     var graphViewEl = element(graphView)({
-      rfId: "1",
+      rfId: defaultRfId,
       connectionLineType: connectionLineType2,
       onlyRenderVisibleElements,
       translateExtent,
@@ -62420,7 +62472,7 @@ var reactFlow = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompone
       proOptions: v.proOptions,
       position: v.attributionPosition
     }), element(a11yDescriptions)({
-      rfId: "1",
+      rfId: defaultRfId,
       disableKeyboardA11y
     })]));
     var wrapperEl = element(wrapper)({
@@ -62784,16 +62836,16 @@ var eqRec9 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ e
   }
 })(eqString));
 var eq20 = /* @__PURE__ */ eq(eqRec9);
-var coerceHook12 = /* @__PURE__ */ coerceHook();
+var coerceHook13 = /* @__PURE__ */ coerceHook();
 var bind55 = /* @__PURE__ */ bind4(ixBindRender);
 var alt8 = /* @__PURE__ */ alt(altMaybe);
 var useStore26 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqArray(eqRec9));
 var lookup25 = /* @__PURE__ */ lookup2(ordString);
 var fromFoldable19 = /* @__PURE__ */ fromFoldable(foldableList);
-var discard21 = /* @__PURE__ */ discard2(ixBindRender);
-var useEffect19 = /* @__PURE__ */ useEffect(eqUnsafeReference);
+var discard23 = /* @__PURE__ */ discard2(ixBindRender);
+var useEffect18 = /* @__PURE__ */ useEffect(eqUnsafeReference);
 var when22 = /* @__PURE__ */ when(applicativeEffect);
-var for_20 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
+var for_21 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var map61 = /* @__PURE__ */ map(functorArray);
 var pure75 = /* @__PURE__ */ pure(applicativeEffect);
 var pure133 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
@@ -62839,7 +62891,7 @@ var handleLookupKey = function(nodeId) {
   };
 };
 var useHandleConnections = function(params) {
-  return coerceHook12(bind55(useNodeId)(function(mContextId) {
+  return coerceHook13(bind55(useNodeId)(function(mContextId) {
     var currentNodeId = fromMaybe("")(alt8(params.nodeId)(mContextId));
     var key2 = handleLookupKey(currentNodeId)(params.handleType)(params.id);
     return bind55(useStore26(function(s) {
@@ -62855,14 +62907,14 @@ var useHandleConnections = function(params) {
       throw new Error("Failed pattern match at React.Hook.HandleConnections (line 95, column 5 - line 97, column 58): " + [v.constructor.name]);
     }))(function(connections) {
       return bind55(useRef([]))(function(prevRef) {
-        return discard21(useEffect19(connections)(function __do3() {
+        return discard23(useEffect18(connections)(function __do3() {
           var prev = readRef(prevRef)();
           var droppedConns = filter(notIn(connections))(prev);
           var addedConns = filter(notIn(prev))(connections);
-          when22(!$$null(droppedConns))(for_20(params.onDisconnect)(function(cb) {
+          when22(!$$null(droppedConns))(for_21(params.onDisconnect)(function(cb) {
             return cb(map61(toConnection)(droppedConns));
           }))();
-          when22(!$$null(addedConns))(for_20(params.onConnect)(function(cb) {
+          when22(!$$null(addedConns))(for_21(params.onConnect)(function(cb) {
             return cb(map61(toConnection)(addedConns));
           }))();
           writeRef(prevRef)(connections)();
@@ -62876,13 +62928,13 @@ var useHandleConnections = function(params) {
 };
 
 // output/React.Hook.Middleware/index.js
-var coerceHook13 = /* @__PURE__ */ coerceHook();
+var coerceHook14 = /* @__PURE__ */ coerceHook();
 var bind56 = /* @__PURE__ */ bind4(ixBindRender);
-var useEffect20 = /* @__PURE__ */ useEffect(eqUnsafeReference);
+var useEffect19 = /* @__PURE__ */ useEffect(eqUnsafeReference);
 var useOnEdgesChangeMiddleware = function(fn) {
-  return coerceHook13(bind56(useStoreApi)(function(store) {
+  return coerceHook14(bind56(useStoreApi)(function(store) {
     return bind56(useRef(Nothing.value))(function(keyRef) {
-      return useEffect20(fn)(function __do3() {
+      return useEffect19(fn)(function __do3() {
         var key2 = store.freshMiddlewareKey();
         writeRef(keyRef)(new Just(key2))();
         store.dispatch(new AddOnEdgesChangeMiddleware(key2, fn))();
@@ -62906,9 +62958,9 @@ var useOnEdgesChangeMiddleware = function(fn) {
   }));
 };
 var useOnNodesChangeMiddleware = function(fn) {
-  return coerceHook13(bind56(useStoreApi)(function(store) {
+  return coerceHook14(bind56(useStoreApi)(function(store) {
     return bind56(useRef(Nothing.value))(function(keyRef) {
-      return useEffect20(fn)(function __do3() {
+      return useEffect19(fn)(function __do3() {
         var key2 = store.freshMiddlewareKey();
         writeRef(keyRef)(new Just(key2))();
         store.dispatch(new AddOnNodesChangeMiddleware(key2, fn))();
@@ -62956,16 +63008,16 @@ var eqRec10 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ 
   }
 })(eqString));
 var eq21 = /* @__PURE__ */ eq(eqRec10);
-var coerceHook14 = /* @__PURE__ */ coerceHook();
+var coerceHook15 = /* @__PURE__ */ coerceHook();
 var bind57 = /* @__PURE__ */ bind4(ixBindRender);
 var alt9 = /* @__PURE__ */ alt(altMaybe);
 var useStore27 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqArray(eqRec10));
 var lookup26 = /* @__PURE__ */ lookup2(ordString);
 var fromFoldable20 = /* @__PURE__ */ fromFoldable(foldableList);
-var discard23 = /* @__PURE__ */ discard2(ixBindRender);
-var useEffect21 = /* @__PURE__ */ useEffect(eqUnsafeReference);
+var discard24 = /* @__PURE__ */ discard2(ixBindRender);
+var useEffect20 = /* @__PURE__ */ useEffect(eqUnsafeReference);
 var when23 = /* @__PURE__ */ when(applicativeEffect);
-var for_21 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
+var for_22 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var pure76 = /* @__PURE__ */ pure(applicativeEffect);
 var pure134 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var notIn2 = function(xs) {
@@ -63010,7 +63062,7 @@ var nodeLookupKey = function(nodeId) {
   };
 };
 var useNodeConnections = function(params) {
-  return coerceHook14(bind57(useNodeId)(function(mContextId) {
+  return coerceHook15(bind57(useNodeId)(function(mContextId) {
     var currentNodeId = function() {
       var v = alt9(params.nodeId)(mContextId);
       if (v instanceof Just) {
@@ -63037,14 +63089,14 @@ var useNodeConnections = function(params) {
       throw new Error("Failed pattern match at React.Hook.NodeConnections (line 91, column 5 - line 93, column 58): " + [v.constructor.name]);
     }))(function(connections) {
       return bind57(useRef([]))(function(prevRef) {
-        return discard23(useEffect21(connections)(function __do3() {
+        return discard24(useEffect20(connections)(function __do3() {
           var prev = readRef(prevRef)();
           var droppedConns = filter(notIn2(connections))(prev);
           var addedConns = filter(notIn2(prev))(connections);
-          when23(!$$null(droppedConns))(for_21(params.onDisconnect)(function(cb) {
+          when23(!$$null(droppedConns))(for_22(params.onDisconnect)(function(cb) {
             return cb(droppedConns);
           }))();
-          when23(!$$null(addedConns))(for_21(params.onConnect)(function(cb) {
+          when23(!$$null(addedConns))(for_22(params.onConnect)(function(cb) {
             return cb(addedConns);
           }))();
           writeRef(prevRef)(connections)();
@@ -63058,11 +63110,11 @@ var useNodeConnections = function(params) {
 };
 
 // output/React.Hook.NodesEdgesState/index.js
-var coerceHook15 = /* @__PURE__ */ coerceHook();
+var coerceHook16 = /* @__PURE__ */ coerceHook();
 var bind58 = /* @__PURE__ */ bind4(ixBindRender);
 var pure77 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var useEdgesState = function(initialEdges2) {
-  return coerceHook15(bind58(useState([]))(function() {
+  return coerceHook16(bind58(useState([]))(function() {
     return bind58(useState(initialEdges2))(function(v) {
       return pure77({
         edges: v.value0,
@@ -63075,7 +63127,7 @@ var useEdgesState = function(initialEdges2) {
   }));
 };
 var useNodesState = function(initialNodes2) {
-  return coerceHook15(bind58(useState(initialNodes2))(function(v) {
+  return coerceHook16(bind58(useState(initialNodes2))(function(v) {
     return bind58(useState([]))(function() {
       return pure77({
         nodes: v.value0,
@@ -64718,13 +64770,13 @@ var Flow_default = ({ flowConfig }) => {
   const derived = deriveProbeGraph(flowConfig, variant, { NodeProbe, EdgeProbe, ConnectionLineProbe });
   const [nodes3, setNodes] = (0, import_react9.useState)(derived.flowProps?.nodes);
   const [edges2, setEdges] = (0, import_react9.useState)(derived.flowProps?.edges);
-  const [changed, setChanged] = (0, import_react9.useState)(false);
+  const [changed2, setChanged] = (0, import_react9.useState)(false);
   const onNodesChange = (0, import_react9.useCallback)((changes) => setNodes((nds) => applyNodeChanges2(changes, nds)), []);
   const onEdgesChange = (0, import_react9.useCallback)((changes) => setEdges((eds) => applyEdgeChanges2(changes, eds)), []);
   const onConnect = (0, import_react9.useCallback)((params) => setEdges((eds) => addEdge2(params, eds)), []);
   const controlled = derived.flowProps?.nodes !== void 0;
   const graph = controlled ? { nodes: nodes3, edges: edges2, onNodesChange, onEdgesChange, onConnect } : { onConnect };
-  const props = { ...derived.flowProps, ...graph, ...changed ? flowConfig.afterMount : null };
+  const props = { ...derived.flowProps, ...graph, ...changed2 ? flowConfig.afterMount : null };
   const observed = useObservedHandlers(props);
   return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { height: "100%" }, children: [
     flowConfig.afterMount && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
