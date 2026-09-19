@@ -262,13 +262,13 @@
                           {
                             "tag": "div",
                             "attrs": {
-                              "class": "react-flow__node react-flow__node-input selected",
+                              "class": "react-flow__node react-flow__node-input",
                               "data-id": "Node-1",
                               "data-testid": "rf__node-Node-1",
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 1000; transform: translate(0px, 0px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
+                              "style": "z-index: 0; transform: translate(0px, 0px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "Node-1",
                             "children": [
@@ -312,7 +312,7 @@
                           {
                             "tag": "div",
                             "attrs": {
-                              "class": "react-flow__node react-flow__node-default",
+                              "class": "react-flow__node react-flow__node-default selected",
                               "data-id": "Node-3",
                               "data-testid": "rf__node-Node-3",
                               "tabindex": "0",
@@ -615,7 +615,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 178,
+            "timeStamp": 162.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -684,7 +684,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 178,
+            "timeStamp": 162.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -813,7 +813,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 178,
+            "timeStamp": 162.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -878,7 +878,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 178,
+            "timeStamp": 162.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1439,7 +1439,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 192,
+            "timeStamp": 175.80000007152557,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1568,7 +1568,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 197.89999997615814,
+            "timeStamp": 181.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1637,7 +1637,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 197.89999997615814,
+            "timeStamp": 181.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1768,7 +1768,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 231.39999997615814,
+            "timeStamp": 197.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1837,7 +1837,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 231.39999997615814,
+            "timeStamp": 197.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1968,7 +1968,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 231.39999997615814,
+            "timeStamp": 197.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2033,7 +2033,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 231.39999997615814,
+            "timeStamp": 197.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2142,6 +2142,77 @@
         ]
       },
       {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "dimensions": {
+                "@undefined": true
+              },
+              "resizing": {
+                "@undefined": true
+              },
+              "setAttributes": {
+                "@undefined": true
+              },
+              "position": {
+                "@undefined": true
+              },
+              "positionAbsolute": {
+                "@undefined": true
+              },
+              "dragging": {
+                "@undefined": true
+              },
+              "item": {
+                "@undefined": true
+              },
+              "index": {
+                "@undefined": true
+              },
+              "type": "select",
+              "id": "Node-1",
+              "selected": false
+            },
+            {
+              "dimensions": {
+                "@undefined": true
+              },
+              "resizing": {
+                "@undefined": true
+              },
+              "setAttributes": {
+                "@undefined": true
+              },
+              "position": {
+                "@undefined": true
+              },
+              "positionAbsolute": {
+                "@undefined": true
+              },
+              "dragging": {
+                "@undefined": true
+              },
+              "item": {
+                "@undefined": true
+              },
+              "index": {
+                "@undefined": true
+              },
+              "type": "select",
+              "id": "Node-3",
+              "selected": true
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onEdgesChange",
+        "args": [
+          []
+        ]
+      },
+      {
         "name": "onNodeClick",
         "args": [
           {
@@ -2162,7 +2233,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 252.89999997615814,
+            "timeStamp": 201.20000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2271,6 +2342,90 @@
         ]
       },
       {
+        "name": "onSelectionChange",
+        "args": [
+          {
+            "nodes": [
+              {
+                "id": "Node-3",
+                "position": {
+                  "x": 100,
+                  "y": 100
+                },
+                "data": {
+                  "label": "Node-3"
+                },
+                "type": {
+                  "@undefined": true
+                },
+                "sourcePosition": {
+                  "@undefined": true
+                },
+                "targetPosition": {
+                  "@undefined": true
+                },
+                "hidden": false,
+                "selected": true,
+                "dragging": false,
+                "draggable": {
+                  "@undefined": true
+                },
+                "selectable": {
+                  "@undefined": true
+                },
+                "connectable": {
+                  "@undefined": true
+                },
+                "deletable": {
+                  "@undefined": true
+                },
+                "dragHandle": {
+                  "@undefined": true
+                },
+                "width": 150,
+                "height": 37,
+                "initialWidth": {
+                  "@undefined": true
+                },
+                "initialHeight": {
+                  "@undefined": true
+                },
+                "parentId": {
+                  "@undefined": true
+                },
+                "zIndex": {
+                  "@undefined": true
+                },
+                "extent": {
+                  "@undefined": true
+                },
+                "expandParent": false,
+                "ariaLabel": {
+                  "@undefined": true
+                },
+                "origin": {
+                  "@undefined": true
+                },
+                "handles": {
+                  "@undefined": true
+                },
+                "measured": {
+                  "width": 150,
+                  "height": 37
+                },
+                "className": {
+                  "@undefined": true
+                },
+                "style": {
+                  "@undefined": true
+                }
+              }
+            ],
+            "edges": []
+          }
+        ]
+      },
+      {
         "name": "onPaneMouseMove",
         "args": [
           {
@@ -2291,7 +2446,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 259.7999999523163,
+            "timeStamp": 215,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2356,7 +2511,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 267.2999999523163,
+            "timeStamp": 237.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2421,7 +2576,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 283.1999999284744,
+            "timeStamp": 251.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2486,7 +2641,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 300,
+            "timeStamp": 268.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2553,7 +2708,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 318,
+            "timeStamp": 284.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2606,7 +2761,7 @@
               "@undefined": true
             },
             "hidden": false,
-            "selected": false,
+            "selected": true,
             "dragging": false,
             "draggable": {
               "@undefined": true
@@ -2684,7 +2839,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 318,
+            "timeStamp": 284.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2750,7 +2905,7 @@
               "@undefined": true
             },
             "hidden": false,
-            "selected": true,
+            "selected": false,
             "dragging": false,
             "draggable": {
               "@undefined": true
@@ -2896,7 +3051,7 @@
               "@undefined": true
             },
             "hidden": false,
-            "selected": false,
+            "selected": true,
             "dragging": false,
             "draggable": {
               "@undefined": true
@@ -3041,7 +3196,7 @@
             "@undefined": true
           },
           "hidden": false,
-          "selected": true,
+          "selected": false,
           "dragging": false,
           "draggable": {
             "@undefined": true
@@ -3113,7 +3268,7 @@
             "@undefined": true
           },
           "hidden": false,
-          "selected": true,
+          "selected": false,
           "dragging": false,
           "draggable": {
             "@undefined": true
@@ -3172,7 +3327,7 @@
               "x": 0,
               "y": 0
             },
-            "z": 1000,
+            "z": 0,
             "rootParentIndex": {
               "@undefined": true
             },
@@ -3356,7 +3511,7 @@
               "@undefined": true
             },
             "hidden": false,
-            "selected": true,
+            "selected": false,
             "dragging": false,
             "draggable": {
               "@undefined": true
@@ -3502,7 +3657,7 @@
               "@undefined": true
             },
             "hidden": false,
-            "selected": false,
+            "selected": true,
             "dragging": false,
             "draggable": {
               "@undefined": true
@@ -3704,7 +3859,7 @@
                 "@undefined": true
               },
               "hidden": false,
-              "selected": true,
+              "selected": false,
               "dragging": false,
               "draggable": {
                 "@undefined": true
@@ -3850,7 +4005,7 @@
                 "@undefined": true
               },
               "hidden": false,
-              "selected": false,
+              "selected": true,
               "dragging": false,
               "draggable": {
                 "@undefined": true
