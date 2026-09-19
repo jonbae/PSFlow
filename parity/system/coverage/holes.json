@@ -121,6 +121,14 @@
         "UnselectNodesAndEdgesParams"
       ],
       "reason": "`unselectNodesAndEdges` is a store action and is **not on `ReactFlowInstance`** — it is absent from `JsReactFlowInstance` in src/Boundary/Instance.purs because it is absent from upstream's instance too. The `api` section witnesses a name only as a query key or a called method, so no scenario can reach this one however it is written; the nine helper exports beside it were closed by `viewport-helpers-with-options` and this one was never in reach. Closing it needs the witness to name something the section can actually offer, which is a question about the register rather than about the corpus."
+    },
+    {
+      "exports": [
+        "OnSelectionDrag",
+        "SelectionDragHandler"
+      ],
+      "reason": "no scenario drags a selection. Four selection-box scenarios draw a lasso and none drags what it selected, and the witness needs a pointer down on a selected node while more than one is selected. The export read as driven until ticket-100: psflow fired onSelectionDrag on single-node drags because an auto-pan frame carried no node id, so the only witness in the corpus was the divergence being reported as coverage. Upstream fired none of the three in any capture.",
+      "ticket": "https://github.com/jonbae/PSFlow/issues/111"
     }
   ]
 }

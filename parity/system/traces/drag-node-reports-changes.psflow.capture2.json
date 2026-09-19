@@ -541,7 +541,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 163.30000007152557,
+            "timeStamp": 163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -610,7 +610,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 163.30000007152557,
+            "timeStamp": 163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -737,7 +737,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 163.30000007152557,
+            "timeStamp": 163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -802,7 +802,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 163.30000007152557,
+            "timeStamp": 163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -927,7 +927,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 171,
+            "timeStamp": 169.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1265,7 +1265,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 192.20000004768372,
+            "timeStamp": 192,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1708,87 +1708,6 @@
         ]
       },
       {
-        "name": "onSelectionDrag",
-        "args": [
-          {
-            "@class": "MouseEvent",
-            "isTrusted": true
-          },
-          [
-            {
-              "id": "n1",
-              "position": {
-                "x": 5,
-                "y": 1.25
-              },
-              "data": {
-                "label": "n1"
-              },
-              "type": {
-                "@undefined": true
-              },
-              "sourcePosition": "right",
-              "targetPosition": "left",
-              "hidden": false,
-              "selected": true,
-              "dragging": true,
-              "draggable": {
-                "@undefined": true
-              },
-              "selectable": {
-                "@undefined": true
-              },
-              "connectable": {
-                "@undefined": true
-              },
-              "deletable": {
-                "@undefined": true
-              },
-              "dragHandle": {
-                "@undefined": true
-              },
-              "width": 100,
-              "height": 40,
-              "initialWidth": {
-                "@undefined": true
-              },
-              "initialHeight": {
-                "@undefined": true
-              },
-              "parentId": {
-                "@undefined": true
-              },
-              "zIndex": {
-                "@undefined": true
-              },
-              "extent": {
-                "@undefined": true
-              },
-              "expandParent": false,
-              "ariaLabel": {
-                "@undefined": true
-              },
-              "origin": {
-                "@undefined": true
-              },
-              "handles": {
-                "@undefined": true
-              },
-              "measured": {
-                "width": 100,
-                "height": 40
-              },
-              "className": {
-                "@undefined": true
-              },
-              "style": {
-                "@undefined": true
-              }
-            }
-          ]
-        ]
-      },
-      {
         "name": "onMoveEnd",
         "args": [
           null,
@@ -1820,7 +1739,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 209.60000002384186,
+            "timeStamp": 208.20000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2253,87 +2172,6 @@
         ]
       },
       {
-        "name": "onSelectionDrag",
-        "args": [
-          {
-            "@class": "MouseEvent",
-            "isTrusted": true
-          },
-          [
-            {
-              "id": "n1",
-              "position": {
-                "x": 10,
-                "y": -3.125
-              },
-              "data": {
-                "label": "n1"
-              },
-              "type": {
-                "@undefined": true
-              },
-              "sourcePosition": "right",
-              "targetPosition": "left",
-              "hidden": false,
-              "selected": true,
-              "dragging": true,
-              "draggable": {
-                "@undefined": true
-              },
-              "selectable": {
-                "@undefined": true
-              },
-              "connectable": {
-                "@undefined": true
-              },
-              "deletable": {
-                "@undefined": true
-              },
-              "dragHandle": {
-                "@undefined": true
-              },
-              "width": 100,
-              "height": 40,
-              "initialWidth": {
-                "@undefined": true
-              },
-              "initialHeight": {
-                "@undefined": true
-              },
-              "parentId": {
-                "@undefined": true
-              },
-              "zIndex": {
-                "@undefined": true
-              },
-              "extent": {
-                "@undefined": true
-              },
-              "expandParent": false,
-              "ariaLabel": {
-                "@undefined": true
-              },
-              "origin": {
-                "@undefined": true
-              },
-              "handles": {
-                "@undefined": true
-              },
-              "measured": {
-                "width": 100,
-                "height": 40
-              },
-              "className": {
-                "@undefined": true
-              },
-              "style": {
-                "@undefined": true
-              }
-            }
-          ]
-        ]
-      },
-      {
         "name": "onMoveEnd",
         "args": [
           null,
@@ -2365,7 +2203,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 226.40000009536743,
+            "timeStamp": 226.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2619,7 +2457,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 242.20000004768372,
+            "timeStamp": 241.70000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2873,7 +2711,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 259,
+            "timeStamp": 257.2000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3127,7 +2965,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 274,
+            "timeStamp": 272.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3381,7 +3219,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 290.5,
+            "timeStamp": 289.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3635,7 +3473,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 306.90000009536743,
+            "timeStamp": 305.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3889,7 +3727,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 324.3000000715256,
+            "timeStamp": 324.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

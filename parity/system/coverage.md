@@ -12,20 +12,20 @@ Derived from 94 scenario(s) whose traces are on disk, captured against vendored 
 
 The corpus is done when every one of the export-bearing entries is **either driven or a deliberately declared hole** — a condition, not a target number. It deliberately admits a small corpus with many written-down holes as a legitimate resting state, which is what makes it reachable at all.
 
-**The condition holds.** 124 driven + 32 declared holes = all 156 export-bearing entries; nothing is undeclared residue.
+**The condition holds.** 122 driven + 34 declared holes = all 156 export-bearing entries; nothing is undeclared residue.
 
 ## Export coverage
 
-**124 of 156 export-bearing entries driven**, 32 declared holes, 0 undeclared, 0 unwitnessed.
+**122 of 156 export-bearing entries driven**, 34 declared holes, 0 undeclared, 0 unwitnessed.
 
 | Section | Exports | Driven | Declared holes | Undeclared | No witness |
 |---|---:|---:|---:|---:|---:|
 | `dom` | 64 | 44 | 20 | 0 | 0 |
-| `callbacks` | 47 | 36 | 11 | 0 | 0 |
+| `callbacks` | 47 | 34 | 13 | 0 | 0 |
 | `hooks` | 27 | 27 | 0 | 0 | 0 |
 | `api` | 14 | 13 | 1 | 0 | 0 |
 | `props` | 4 | 4 | 0 | 0 | 0 |
-| **total** | **156** | **124** | **32** | **0** | **0** |
+| **total** | **156** | **122** | **34** | **0** | **0** |
 
 ## Behavior coverage
 
@@ -201,11 +201,11 @@ The witness is printed beside each one so a wrong witness can be read and disput
 | `OnResizeStart` | callbacks | hole | `onResizeStart` | declared — no issue owns it |
 | `OnSelectionChangeFunc` | callbacks | driven | `onSelectionChange` | `arrow-key-selected-node` +91 more |
 | `OnSelectionChangeParams` | callbacks | driven | `onSelectionChange` | `arrow-key-selected-node` +91 more |
-| `OnSelectionDrag` | callbacks | driven | `onSelectionDragStart, onSelectionDrag, onSelectionDragStop` | `drag-node-autopan` +1 more |
+| `OnSelectionDrag` | callbacks | hole | `onSelectionDragStart, onSelectionDrag, onSelectionDragStop` | declared — [issue](https://github.com/jonbae/PSFlow/issues/111) |
 | `ResizeDragEvent` | callbacks | hole | `onResizeStart, onResize, onResizeEnd` | declared — no issue owns it |
 | `ResizeParams` | callbacks | hole | `onResizeStart, onResizeEnd` | declared — no issue owns it |
 | `ResizeParamsWithDirection` | callbacks | hole | `onResize` | declared — no issue owns it |
-| `SelectionDragHandler` | callbacks | driven | `onSelectionDragStart, onSelectionDrag, onSelectionDragStop` | `drag-node-autopan` +1 more |
+| `SelectionDragHandler` | callbacks | hole | `onSelectionDragStart, onSelectionDrag, onSelectionDragStop` | declared — [issue](https://github.com/jonbae/PSFlow/issues/111) |
 | `ShouldResize` | callbacks | hole | `shouldResize` | declared — no issue owns it |
 | `UseOnSelectionChangeOptions` | callbacks | driven | `useOnSelectionChange` | `click-selects-node--probe-flow-node` |
 | `UseOnViewportChangeOptions` | callbacks | driven | `useOnViewportChange` | `wheel-zooms-the-pane--probe-flow-node` |
@@ -342,6 +342,8 @@ Machine-readable in `coverage/holes.json` — one entry per reason, covering as 
 - `OnReconnect` — the driver installs onReconnect and no scenario drags an edge endpoint onto another handle, so it never fires. The edgeupdater circles are in every edges-fixture trace, so the target exists and the gesture does not — reconnecting is not in the gesture tier, and adding one is a reviewable act rather than a scenario detail. None of the thirty test-debt scenarios is about reconnection, so this is a hole-closing scenario and no issue owns it yet.
 
 - `OnResize`, `OnResizeEnd`, `OnResizeStart`, `ResizeDragEvent`, `ResizeParams`, `ResizeParamsWithDirection`, `ShouldResize` **(7)** — a NodeResizer/NodeResizeControl prop rather than a ReactFlow one, so there is no handler for the driver to install and no fixture mounting either component. It needs a fixture that resizes. Boundary stage 4 (#62) changed nothing here — the two components it is a prop of crossed in stage 2, and what this needs is still a fixture that resizes. No issue owns writing one.
+
+- `OnSelectionDrag`, `SelectionDragHandler` **(2)** — no scenario drags a selection. Four selection-box scenarios draw a lasso and none drags what it selected, and the witness needs a pointer down on a selected node while more than one is selected. The export read as driven until ticket-100: psflow fired onSelectionDrag on single-node drags because an auto-pan frame carried no node id, so the only witness in the corpus was the divergence being reported as coverage. Upstream fired none of the three in any capture. [issue](https://github.com/jonbae/PSFlow/issues/111)
 
 - `UnselectNodesAndEdgesParams` — `unselectNodesAndEdges` is a store action and is **not on `ReactFlowInstance`** — it is absent from `JsReactFlowInstance` in src/Boundary/Instance.purs because it is absent from upstream's instance too. The `api` section witnesses a name only as a query key or a called method, so no scenario can reach this one however it is written; the nine helper exports beside it were closed by `viewport-helpers-with-options` and this one was never in reach. Closing it needs the witness to name something the section can actually offer, which is a question about the register rather than about the corpus.
 
