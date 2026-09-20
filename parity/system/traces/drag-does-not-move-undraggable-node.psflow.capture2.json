@@ -883,13 +883,6 @@
         ]
       },
       {
-        "name": "onError",
-        "args": [
-          "002",
-          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
-        ]
-      },
-      {
         "name": "onMoveEnd",
         "args": [
           null,
@@ -898,6 +891,13 @@
             "y": 32,
             "zoom": 1.0298273155416013
           }
+        ]
+      },
+      {
+        "name": "onError",
+        "args": [
+          "002",
+          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
         ]
       },
       {
@@ -923,7 +923,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 166.29999995231628,
+            "timeStamp": 181.70000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -992,7 +992,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 166.29999995231628,
+            "timeStamp": 181.70000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1121,7 +1121,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 166.29999995231628,
+            "timeStamp": 181.70000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1186,7 +1186,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 166.29999995231628,
+            "timeStamp": 181.70000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1315,7 +1315,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 187.29999995231628,
+            "timeStamp": 202.90000009536743,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1444,7 +1444,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 187.29999995231628,
+            "timeStamp": 202.90000009536743,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1509,7 +1509,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 201.89999997615814,
+            "timeStamp": 218.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1574,7 +1574,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 218.69999992847443,
+            "timeStamp": 234.20000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1639,7 +1639,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 234.69999992847443,
+            "timeStamp": 251.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1704,7 +1704,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 252.5,
+            "timeStamp": 267.90000009536743,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
