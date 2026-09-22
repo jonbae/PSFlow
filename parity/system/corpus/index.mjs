@@ -1,6 +1,6 @@
 // The corpus — every scenario the net drives, assembled from its sources.
 //
-// `tickets/081-interaction-corpus.md` names four sources. The first exists:
+// `tickets/081-interaction-corpus.md` names four sources. All four exist:
 //
 //   1. the **conformance seed** (`seed.mjs`), upstream's own suite transcribed
 //      with the assertions dropped, gated against drift by `fork.mjs` — and
@@ -15,9 +15,11 @@
 //      assertions in the two ps-flow browser specs, whose retirement was made
 //      conditional on the net covering them — and, beside the scenarios, the
 //      per-test record of which one replaced which assertion (#61)
-//   4. hole-closing scenarios, until the corpus's termination condition — which
-//      `../coverage/` now evaluates on every run, so what is left to close is
-//      read off `../coverage.md` rather than guessed at (#57)
+//   4. the **hole-closing scenarios** (`hole-closing.mjs`), written from a fix
+//      ticket that found the corpus could not see the class it was fixing —
+//      running until the corpus's termination condition, which `../coverage/`
+//      evaluates on every run, so what is left to close is read off
+//      `../coverage.md` rather than guessed at (#57)
 //
 // Assembling them is one line and one check. The check is the reason this file
 // exists: the sources are written by different people at different times and
@@ -43,6 +45,7 @@
 // worth more than the shared line, and it runs first.
 
 import { CorpusError } from "./routes.mjs";
+import { holeClosingScenarios } from "./hole-closing.mjs";
 import { mountBaselines } from "./mount-baselines.mjs";
 import { probeVariants, readProbePlan } from "./probes.mjs";
 import { RESERVED } from "./reserved.mjs";
@@ -75,6 +78,7 @@ export const buildCorpus = (fixtures, components = []) => {
     ...seedScenarios,
     ...testDebtScenarios,
     ...retirementDebtScenarios,
+    ...holeClosingScenarios,
   ];
   return assertDistinctIds([...plain, ...probeVariants(plain, readProbePlan())]);
 };

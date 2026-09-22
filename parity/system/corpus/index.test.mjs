@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 
 import { defineScenario } from "../harness/scenario.mjs";
 import { CorpusError, RESERVED, assertDistinctIds, buildCorpus, scenarioNames } from "./index.mjs";
+import { holeClosingScenarios } from "./hole-closing.mjs";
 import { retirementDebtScenarios } from "./retirement-debt.mjs";
 import { seedScenarios } from "./seed.mjs";
 import { testDebtScenarios } from "./test-debt.mjs";
@@ -25,7 +26,7 @@ const probeIds = (baseline) => [
   "connect-source-handle-to-target-handle--probe-connection-line",
 ];
 
-test("the corpus is the baselines, the seed, the test-debt and retirement-debt scenarios, and the hole-derived probe variants", () => {
+test("the corpus is the baselines, the seed, the test-debt, retirement-debt and hole-closing scenarios, and the hole-derived probe variants", () => {
   const corpus = buildCorpus(fixtures("./nodes/general.ts"), COMPONENTS);
 
   assert.deepEqual(ids(corpus), [
@@ -34,6 +35,7 @@ test("the corpus is the baselines, the seed, the test-debt and retirement-debt s
     ...ids(seedScenarios),
     ...ids(testDebtScenarios),
     ...ids(retirementDebtScenarios),
+    ...ids(holeClosingScenarios),
     ...probeIds("mount-baseline--nodes-general"),
   ]);
 });
@@ -56,6 +58,7 @@ test("a corpus with no components at all is still the fixtures' baselines and th
     ...ids(seedScenarios),
     ...ids(testDebtScenarios),
     ...ids(retirementDebtScenarios),
+    ...ids(holeClosingScenarios),
     ...probeIds("mount-baseline--pane-general"),
   ]);
 });
