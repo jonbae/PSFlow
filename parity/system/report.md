@@ -31,7 +31,7 @@ claimed by a region — never by loosening what the net looks at.
 | `mount-baseline--flow-props-change` | **failed** | unclaimed-difference | 475 |
 | `mount-baseline--nodes-autopan` | **failed** | unclaimed-difference | 406 |
 | `mount-baseline--nodes-connections` | **failed** | unclaimed-difference | 769 |
-| `mount-baseline--nodes-expand-parent` | **failed** | self-inconsistent, unclaimed-difference | 415 |
+| `mount-baseline--nodes-expand-parent` | **failed** | self-inconsistent, unclaimed-difference | 393 |
 | `mount-baseline--nodes-no-select-on-drag` | **failed** | unclaimed-difference | 475 |
 | `mount-baseline--nodes-nowheel` | **failed** | unclaimed-difference | 310 |
 | `mount-baseline--nodes-props-record` | **failed** | unclaimed-difference | 171 |
@@ -48,9 +48,9 @@ claimed by a region — never by loosening what the net looks at.
 | `click-selects-node` | **failed** | unclaimed-difference | 1126 |
 | `shift-drag-selects-nodes` | **failed** | unclaimed-difference | 1025 |
 | `click-unselectable-node` | **failed** | unclaimed-difference | 1121 |
-| `drag-moves-node` | **failed** | unclaimed-difference | 1457 |
+| `drag-moves-node` | **failed** | self-inconsistent, unclaimed-difference | 1459 |
 | `drag-does-not-move-undraggable-node` | **failed** | unclaimed-difference | 1052 |
-| `drag-by-custom-drag-handle` | **failed** | self-inconsistent, unclaimed-difference | 1534 |
+| `drag-by-custom-drag-handle` | **failed** | self-inconsistent, unclaimed-difference | 1518 |
 | `delete-key-removes-node-and-edges` | **failed** | unclaimed-difference | 1008 |
 | `delete-key-spares-undeletable-node` | **failed** | unclaimed-difference | 1145 |
 | `connect-source-handle-to-target-handle` | **failed** | unclaimed-difference | 1261 |
@@ -65,10 +65,10 @@ claimed by a region — never by loosening what the net looks at.
 | `click-reveals-default-toolbar` | **failed** | unclaimed-difference | 1297 |
 | `select-dark-color-mode` | **failed** | unclaimed-difference | 41 |
 | `drag-node-release` | **failed** | unclaimed-difference | 1887 |
-| `drag-node-escape-mid-gesture` | **failed** | self-inconsistent, unclaimed-difference | 1284 |
-| `drag-node-autopan` | **failed** | self-inconsistent, unclaimed-difference | 1232 |
+| `drag-node-escape-mid-gesture` | **failed** | self-inconsistent, unclaimed-difference | 1330 |
+| `drag-node-autopan` | **failed** | self-inconsistent, unclaimed-difference | 1240 |
 | `drag-node-no-select-on-drag` | **failed** | unclaimed-difference | 1311 |
-| `drag-child-expand-parent` | **failed** | self-inconsistent, driving-divergence, unclaimed-difference | 1066 |
+| `drag-child-expand-parent` | **failed** | driving-divergence, unclaimed-difference | 996 |
 | `drag-unmeasured-node` | **failed** | unclaimed-difference | 966 |
 | `selection-box-from-node` | **failed** | unclaimed-difference | 1049 |
 | `selection-box-then-click-node` | **failed** | unclaimed-difference | 1360 |
@@ -80,29 +80,29 @@ claimed by a region — never by loosening what the net looks at.
 | `connect-then-keyboard-move` | **failed** | unclaimed-difference | 1300 |
 | `connect-second-touch-point` | **failed** | unclaimed-difference | 1040 |
 | `probe-node-connections` | **failed** | driving-divergence, unclaimed-difference | 1044 |
-| `viewport-helpers-with-options` | **failed** | self-inconsistent, unclaimed-difference | 605 |
-| `pan-gesture-complete` | **failed** | unclaimed-difference | 437 |
+| `viewport-helpers-with-options` | **failed** | unclaimed-difference | 604 |
+| `pan-gesture-complete` | **failed** | self-inconsistent, unclaimed-difference | 438 |
 | `fitview-onnodeschange-variants` | **failed** | unclaimed-difference | 884 |
 | `uncontrolled-update-node` | **failed** | unclaimed-difference | 612 |
 | `flow-props-change-after-mount` | **failed** | unclaimed-difference | 773 |
 | `mount-in-display-none` | **failed** | unclaimed-difference | 476 |
 | `minimap-all-nodes-hidden` | **failed** | unclaimed-difference | 339 |
 | `minimap-custom-mask-colors` | **failed** | unclaimed-difference | 593 |
-| `controls-horizontal` | **failed** | unclaimed-difference | 480 |
+| `controls-horizontal` | **failed** | self-inconsistent, unclaimed-difference | 485 |
 | `panel-center-positions` | **failed** | unclaimed-difference | 475 |
 | `background-custom-bgcolor` | **failed** | unclaimed-difference | 481 |
 | `flow-custom-testid` | **failed** | driving-divergence, unclaimed-difference | 498 |
 | `custom-edge-baseedge-path` | **failed** | driving-divergence, unclaimed-difference | 116 |
 | `pinch-over-nowheel-node` | **failed** | driving-divergence, unclaimed-difference | 404 |
 | `minimap-default-click` | **failed** | unclaimed-difference | 241 |
-| `controls-default-zoom` | **failed** | self-inconsistent, unclaimed-difference | 252 |
+| `controls-default-zoom` | **failed** | unclaimed-difference | 247 |
 | `wheel-zoom-from-identity-viewport` | **failed** | unclaimed-difference | 252 |
 | `pane-drag-from-identity-viewport` | **failed** | unclaimed-difference | 252 |
-| `drag-node-reports-changes` | **failed** | self-inconsistent, unclaimed-difference | 1191 |
+| `drag-node-reports-changes` | **failed** | self-inconsistent, unclaimed-difference | 1038 |
 | `click-connect-reverse-direction` | **failed** | unclaimed-difference | 503 |
 | `connect-drag-holding-source` | **failed** | unclaimed-difference | 376 |
 | `connect-drag-released-on-pane` | **failed** | unclaimed-difference | 406 |
-| `node-props-record-parented` | **failed** | unclaimed-difference | 315 |
+| `node-props-record-parented` | **failed** | unclaimed-difference | 354 |
 | `wheel-zooms-to-changed-limits` | **failed** | unclaimed-difference | 479 |
 | `drag-pans-into-changed-extent` | **failed** | unclaimed-difference | 476 |
 | `click-selects-node--probe-flow-node` | **failed** | unclaimed-difference | 1122 |
@@ -7727,8 +7727,8 @@ a real divergence is exactly what would be hiding down there.
 | `console/2` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/3` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/4` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:49700/parity/driver/dist/… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:49700/parity/driver/dist/… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:50543/parity/driver/dist/… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:50543/parity/driver/dist/… |
 | `console/7` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 
 
@@ -11918,37 +11918,14 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | **disagrees with itself** | 25 |
+| psflow | 1, 2 | **disagrees with itself** | 2 |
 
 ### psflow disagrees with itself
 
 | path | kind | capture 1 | capture 2 |
 |---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/parent/attrs/style` | differs | background-color: rgba(80, 120, 200, 0.12); height: 36px; pointer-events: all; transform: translate(0px, 0px); visibility: visible; width: 150px; z-index: 0; | background-color: rgba(80, 120, 200, 0.12); height: 76px; pointer-events: all; transform: translate(0px, 0px); visibility: visible; width: 190px; z-index: 0; |
-| `callbacks/5` | right only | — | {"name":"onNodesChange","args":[[{"position":{"@undefined":true},"positionAbsolute":{"@undefined":true},"dragging":{"@undefined":true},"selected":{"@undefined"… |
-| `api/queries/getNodes/0/width` | differs | 150 | 190 |
-| `api/queries/getNodes/0/height` | differs | 36 | 76 |
-| `api/queries/getNodes/0/measured/width` | differs | 150 | 190 |
-| `api/queries/getNodes/0/measured/height` | differs | 36 | 76 |
-| `api/queries/getNode/width` | differs | 150 | 190 |
-| `api/queries/getNode/height` | differs | 36 | 76 |
-| `api/queries/getNode/measured/width` | differs | 150 | 190 |
-| `api/queries/getNode/measured/height` | differs | 36 | 76 |
-| `api/queries/getInternalNode/width` | differs | 150 | 190 |
-| `api/queries/getInternalNode/height` | differs | 36 | 76 |
-| `api/queries/getInternalNode/measured/width` | differs | 150 | 190 |
-| `api/queries/getInternalNode/measured/height` | differs | 36 | 76 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 91 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 31 | 71 |
-| `api/queries/getInternalNode/internals/handleBounds/target/0/x` | differs | 71 | 91 |
-| `api/queries/getIntersectingNodes/0/width` | differs | 150 | 190 |
-| `api/queries/getIntersectingNodes/0/height` | differs | 36 | 76 |
-| `api/queries/getIntersectingNodes/0/measured/width` | differs | 150 | 190 |
-| `api/queries/getIntersectingNodes/0/measured/height` | differs | 36 | 76 |
-| `api/queries/toObject/nodes/0/width` | differs | 150 | 190 |
-| `api/queries/toObject/nodes/0/height` | differs | 36 | 76 |
-| `api/queries/toObject/nodes/0/measured/width` | differs | 150 | 190 |
-| `api/queries/toObject/nodes/0/measured/height` | differs | 36 | 76 |
+| `callbacks/4` | left only | {"name":"onNodesChange","args":[[{"position":{"@undefined":true},"positionAbsolute":{"@undefined":true},"dragging":{"@undefined":true},"selected":{"@undefined"… | — |
+| `callbacks/5` | left only | {"name":"onNodesChange","args":[[{"position":{"@undefined":true},"positionAbsolute":{"@undefined":true},"dragging":{"@undefined":true},"selected":{"@undefined"… | — |
 
 **psflow did not reproduce.** The comparison below ran anyway —
 capture-everything applies to a failed run as much as to a passing one — but a difference it reports
@@ -11962,7 +11939,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 390 unclaimed difference(s).
+**Failed:** 391 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -11975,7 +11952,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/child-outside/attrs/aria-describedby` | left only | react-flow__edge-desc-1 | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children` | ordered differently | ["parent","child","outside"] | ["child","outside","parent"] |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/parent/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/parent/attrs/style` | differs | background-color: rgba(80, 120, 200, 0.12); height: 220px; pointer-events: all; transform: translate(0px, 0px); visibility: visible; width: 320px; z-index: 0; | background-color: rgba(80, 120, 200, 0.12); height: 36px; pointer-events: all; transform: translate(0px, 0px); visibility: visible; width: 150px; z-index: 0; |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/parent/attrs/style` | differs | background-color: rgba(80, 120, 200, 0.12); height: 220px; pointer-events: all; transform: translate(0px, 0px); visibility: visible; width: 320px; z-index: 0; | background-color: rgba(80, 120, 200, 0.12); height: 76px; pointer-events: all; transform: translate(0px, 0px); visibility: visible; width: 190px; z-index: 0; |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/parent/children/1-parent-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"parent","data-handlepos":"top","data-id":"1-parent-null-target","class":"connectable connectableend connectablestart conne… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/parent/children/1-parent-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"parent","data-handlepos":"bottom","data-id":"1-parent-null-source","class":"connectable connectableend connectablestart co… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/parent/children/1-parent--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
@@ -11997,13 +11974,14 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (36)
+### callbacks (37)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `callbacks/1` | left only | {"name":"onMoveStart","args":[null,{"x":0,"y":0,"zoom":1}]} | — |
 | `callbacks/3` | left only | {"name":"onMove","args":[null,{"x":70,"y":140,"zoom":2}]} | — |
 | `callbacks/4` | right only | — | {"name":"onNodesChange","args":[[{"position":{"@undefined":true},"positionAbsolute":{"@undefined":true},"dragging":{"@undefined":true},"selected":{"@undefined"… |
+| `callbacks/5` | right only | — | {"name":"onNodesChange","args":[[{"position":{"@undefined":true},"positionAbsolute":{"@undefined":true},"dragging":{"@undefined":true},"selected":{"@undefined"… |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onViewportChange#1","onNodesChange#1","onMoveEnd#1"] | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1"] |
 | `callbacks/2/args/0/y` | differs | 140 | 284 |
 | `callbacks/4/args/0/0/id` | differs | parent | child |
@@ -12042,8 +12020,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getNodes/0/measured/width` | differs | 320 | 150 |
-| `api/queries/getNodes/0/measured/height` | differs | 220 | 36 |
+| `api/queries/getNodes/0/measured/width` | differs | 320 | 190 |
+| `api/queries/getNodes/0/measured/height` | differs | 220 | 76 |
 | `api/queries/getNodes/0/type` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/0/sourcePosition` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/0/targetPosition` | right only | — | {"@undefined":true} |
@@ -12055,8 +12033,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getNodes/0/connectable` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/0/deletable` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/0/dragHandle` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/0/width` | right only | — | 150 |
-| `api/queries/getNodes/0/height` | right only | — | 36 |
+| `api/queries/getNodes/0/width` | right only | — | 190 |
+| `api/queries/getNodes/0/height` | right only | — | 76 |
 | `api/queries/getNodes/0/initialWidth` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/0/initialHeight` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/0/parentId` | right only | — | {"@undefined":true} |
@@ -12113,8 +12091,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getNodes/2/handles` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/2/className` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/2/style` | right only | — | {"@undefined":true} |
-| `api/queries/getNode/measured/width` | differs | 320 | 150 |
-| `api/queries/getNode/measured/height` | differs | 220 | 36 |
+| `api/queries/getNode/measured/width` | differs | 320 | 190 |
+| `api/queries/getNode/measured/height` | differs | 220 | 76 |
 | `api/queries/getNode/type` | right only | — | {"@undefined":true} |
 | `api/queries/getNode/sourcePosition` | right only | — | {"@undefined":true} |
 | `api/queries/getNode/targetPosition` | right only | — | {"@undefined":true} |
@@ -12126,8 +12104,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getNode/connectable` | right only | — | {"@undefined":true} |
 | `api/queries/getNode/deletable` | right only | — | {"@undefined":true} |
 | `api/queries/getNode/dragHandle` | right only | — | {"@undefined":true} |
-| `api/queries/getNode/width` | right only | — | 150 |
-| `api/queries/getNode/height` | right only | — | 36 |
+| `api/queries/getNode/width` | right only | — | 190 |
+| `api/queries/getNode/height` | right only | — | 76 |
 | `api/queries/getNode/initialWidth` | right only | — | {"@undefined":true} |
 | `api/queries/getNode/initialHeight` | right only | — | {"@undefined":true} |
 | `api/queries/getNode/parentId` | right only | — | {"@undefined":true} |
@@ -12138,13 +12116,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getNode/origin` | right only | — | {"@undefined":true} |
 | `api/queries/getNode/handles` | right only | — | {"@undefined":true} |
 | `api/queries/getNode/className` | right only | — | {"@undefined":true} |
-| `api/queries/getInternalNode/measured/width` | differs | 320 | 150 |
-| `api/queries/getInternalNode/measured/height` | differs | 220 | 36 |
+| `api/queries/getInternalNode/measured/width` | differs | 320 | 190 |
+| `api/queries/getInternalNode/measured/height` | differs | 220 | 76 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 156 | 71 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 215 | 31 |
+| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 156 | 91 |
+| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 215 | 71 |
 | `api/queries/getInternalNode/internals/handleBounds/target/0/id` | differs | null | {"@undefined":true} |
-| `api/queries/getInternalNode/internals/handleBounds/target/0/x` | differs | 156 | 71 |
+| `api/queries/getInternalNode/internals/handleBounds/target/0/x` | differs | 156 | 91 |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"parent","data":{"label":"parent"},"position":{"x":0,"y":0},"style":{"width":320,"height":220,"backgroundColor":"rgba(80, 120, 200, 0.12)"},"measured":{"… | — |
 | `api/queries/getInternalNode/internals/rootParentIndex` | right only | — | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/bounds` | right only | — | {"@undefined":true} |
@@ -12159,8 +12137,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/connectable` | right only | — | {"@undefined":true} |
 | `api/queries/getInternalNode/deletable` | right only | — | {"@undefined":true} |
 | `api/queries/getInternalNode/dragHandle` | right only | — | {"@undefined":true} |
-| `api/queries/getInternalNode/width` | right only | — | 150 |
-| `api/queries/getInternalNode/height` | right only | — | 36 |
+| `api/queries/getInternalNode/width` | right only | — | 190 |
+| `api/queries/getInternalNode/height` | right only | — | 76 |
 | `api/queries/getInternalNode/initialWidth` | right only | — | {"@undefined":true} |
 | `api/queries/getInternalNode/initialHeight` | right only | — | {"@undefined":true} |
 | `api/queries/getInternalNode/parentId` | right only | — | {"@undefined":true} |
@@ -12205,8 +12183,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getEdge/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/getEdge/className` | right only | — | {"@undefined":true} |
 | `api/queries/getEdge/style` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/0/measured/width` | differs | 320 | 150 |
-| `api/queries/getIntersectingNodes/0/measured/height` | differs | 220 | 36 |
+| `api/queries/getIntersectingNodes/0/measured/width` | differs | 320 | 190 |
+| `api/queries/getIntersectingNodes/0/measured/height` | differs | 220 | 76 |
 | `api/queries/getIntersectingNodes/0/type` | right only | — | {"@undefined":true} |
 | `api/queries/getIntersectingNodes/0/sourcePosition` | right only | — | {"@undefined":true} |
 | `api/queries/getIntersectingNodes/0/targetPosition` | right only | — | {"@undefined":true} |
@@ -12218,8 +12196,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/0/connectable` | right only | — | {"@undefined":true} |
 | `api/queries/getIntersectingNodes/0/deletable` | right only | — | {"@undefined":true} |
 | `api/queries/getIntersectingNodes/0/dragHandle` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/0/width` | right only | — | 150 |
-| `api/queries/getIntersectingNodes/0/height` | right only | — | 36 |
+| `api/queries/getIntersectingNodes/0/width` | right only | — | 190 |
+| `api/queries/getIntersectingNodes/0/height` | right only | — | 76 |
 | `api/queries/getIntersectingNodes/0/initialWidth` | right only | — | {"@undefined":true} |
 | `api/queries/getIntersectingNodes/0/initialHeight` | right only | — | {"@undefined":true} |
 | `api/queries/getIntersectingNodes/0/parentId` | right only | — | {"@undefined":true} |
@@ -12277,8 +12255,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/2/className` | right only | — | {"@undefined":true} |
 | `api/queries/getIntersectingNodes/2/style` | right only | — | {"@undefined":true} |
 | `api/queries/getNodesBounds/height` | differs | 220 | 76 |
-| `api/queries/toObject/nodes/0/measured/width` | differs | 320 | 150 |
-| `api/queries/toObject/nodes/0/measured/height` | differs | 220 | 36 |
+| `api/queries/toObject/nodes/0/measured/width` | differs | 320 | 190 |
+| `api/queries/toObject/nodes/0/measured/height` | differs | 220 | 76 |
 | `api/queries/toObject/nodes/0/type` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/sourcePosition` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/targetPosition` | right only | — | {"@undefined":true} |
@@ -12290,8 +12268,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/0/connectable` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/deletable` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/dragHandle` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/0/width` | right only | — | 150 |
-| `api/queries/toObject/nodes/0/height` | right only | — | 36 |
+| `api/queries/toObject/nodes/0/width` | right only | — | 190 |
+| `api/queries/toObject/nodes/0/height` | right only | — | 76 |
 | `api/queries/toObject/nodes/0/initialWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/initialHeight` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/parentId` | right only | — | {"@undefined":true} |
@@ -30023,7 +30001,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 # System parity run — drag-moves-node
 
-**Failed:** unclaimed-difference.
+**Failed:** self-inconsistent, unclaimed-difference.
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -30037,7 +30015,18 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | **disagrees with itself** | 2 |
+
+### psflow disagrees with itself
+
+| path | kind | capture 1 | capture 2 |
+|---|---|---|---|
+| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMo… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMo… |
+| `callbacks/42/args/1/dragging` | differs | false | true |
+
+**psflow did not reproduce.** The comparison below ran anyway —
+capture-everything applies to a failed run as much as to a passing one — but a difference it reports
+cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
 ---
 
@@ -32654,34 +32643,16 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | **disagrees with itself** | 22 |
+| psflow | 1, 2 | **disagrees with itself** | 4 |
 
 ### psflow disagrees with itself
 
 | path | kind | capture 1 | capture 2 |
 |---|---|---|---|
-| `callbacks/30` | left only | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… | — |
-| `callbacks/53` | right only | — | {"name":"onPaneMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onPointerEnter","_targetInst":{"@ref":"React fiber"},"type":"pointerenter","nat… |
+| `callbacks/55` | left only | {"name":"onPaneMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onPointerEnter","_targetInst":{"@ref":"React fiber"},"type":"pointerenter","nat… | — |
+| `callbacks/56` | left only | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… | — |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMo… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMo… |
-| `callbacks/28/args/0/screenX` | differs | 794.717041015625 | 834.717041015625 |
-| `callbacks/28/args/0/screenY` | differs | 57.786163330078125 | 97.78616333007812 |
-| `callbacks/28/args/0/clientX` | differs | 794.717041015625 | 834.717041015625 |
-| `callbacks/28/args/0/clientY` | differs | 57.786163330078125 | 97.78616333007812 |
-| `callbacks/28/args/0/pageX` | differs | 794.717041015625 | 834.717041015625 |
-| `callbacks/28/args/0/pageY` | differs | 57.786163330078125 | 97.78616333007812 |
-| `callbacks/29/args/0/screenX` | differs | 794 | 994 |
-| `callbacks/29/args/0/screenY` | differs | 57 | 257 |
-| `callbacks/29/args/0/clientX` | differs | 794 | 994 |
-| `callbacks/29/args/0/clientY` | differs | 57 | 257 |
-| `callbacks/29/args/0/pageX` | differs | 794 | 994 |
-| `callbacks/29/args/0/pageY` | differs | 57 | 257 |
-| `callbacks/29/args/0/buttons` | differs | 1 | 0 |
-| `callbacks/29/args/0/relatedTarget/@ref` | differs | Window | DIV |
-| `callbacks/29/args/1/position/x` | differs | 200 | 393.9024390243902 |
-| `callbacks/29/args/1/position/y` | differs | 0 | 193.90243902439025 |
-| `callbacks/29/args/1/dragging` | differs | false | true |
-| `callbacks/54/args/0/relatedTarget/@ref` | differs | DIV | Window |
-| `callbacks/54/args/1/dragging` | differs | false | true |
+| `callbacks/51/args/1/dragging` | differs | true | false |
 
 **psflow did not reproduce.** The comparison below ran anyway —
 capture-everything applies to a failed run as much as to a passing one — but a difference it reports
@@ -32695,7 +32666,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1512 unclaimed difference(s).
+**Failed:** 1514 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -32769,7 +32740,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (636)
+### callbacks (638)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -32786,9 +32757,11 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/42` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
 | `callbacks/46` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
 | `callbacks/50` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
-| `callbacks/51` | right only | — | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… |
-| `callbacks/53` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
-| `callbacks/54` | right only | — | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… |
+| `callbacks/51` | right only | — | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… |
+| `callbacks/52` | right only | — | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… |
+| `callbacks/54` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
+| `callbacks/55` | right only | — | {"name":"onPaneMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onPointerEnter","_targetInst":{"@ref":"React fiber"},"type":"pointerenter","nat… |
+| `callbacks/56` | right only | — | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onViewportChange#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -34228,9 +34201,9 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 ## Normalization
 
-46 field(s) deleted by name and therefore **unobserved** — not passing:
+48 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (32) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (34) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -47175,7 +47148,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 # System parity run — drag-node-escape-mid-gesture
 
-**Failed:** self-inconsistent, unclaimed-difference.
+**Failed:** self-inconsistent, self-inconsistent, unclaimed-difference.
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -47189,7 +47162,7 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | **disagrees with itself** | 17 |
-| psflow | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | **disagrees with itself** | 19 |
 
 ### upstream disagrees with itself
 
@@ -47213,7 +47186,31 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | `callbacks/22/args/1/selected` | left only | false | — |
 | `callbacks/22/args/1/dragging` | left only | true | — |
 
-**upstream did not reproduce.** The comparison below ran anyway —
+### psflow disagrees with itself
+
+| path | kind | capture 1 | capture 2 |
+|---|---|---|---|
+| `callbacks/28` | left only | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… | — |
+| `callbacks/29` | left only | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… | — |
+| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMo… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onError#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMo… |
+| `callbacks/26/args/0/screenX` | differs | 734 | 794 |
+| `callbacks/26/args/0/screenY` | differs | 130 | 170 |
+| `callbacks/26/args/0/clientX` | differs | 734 | 794 |
+| `callbacks/26/args/0/clientY` | differs | 130 | 170 |
+| `callbacks/26/args/0/pageX` | differs | 734 | 794 |
+| `callbacks/26/args/0/pageY` | differs | 130 | 170 |
+| `callbacks/26/args/1/id` | differs | Node-1 | Node-3 |
+| `callbacks/26/args/1/position/x` | differs | 116.34146341463413 | 100 |
+| `callbacks/26/args/1/position/y` | differs | 77.5609756097561 | 100 |
+| `callbacks/26/args/1/data/label` | differs | Node-1 | Node-3 |
+| `callbacks/26/args/1/type` | differs | input | {"@undefined":true} |
+| `callbacks/26/args/1/selected` | differs | true | false |
+| `callbacks/26/args/1/dragging` | differs | true | false |
+| `callbacks/26/args/1/className` | differs | playwright-test-class-123 | {"@undefined":true} |
+| `callbacks/26/args/1/style/backgroundColor` | left only | red | — |
+| `callbacks/26/args/1/style/@undefined` | right only | — | true |
+
+**upstream and psflow did not reproduce.** The comparison below ran anyway —
 capture-everything applies to a failed run as much as to a passing one — but a difference it reports
 cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
@@ -47225,7 +47222,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1267 unclaimed difference(s).
+**Failed:** 1294 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -47299,14 +47296,12 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (395)
+### callbacks (422)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `callbacks/1` | left only | {"name":"onMoveStart","args":[null,{"x":0,"y":0,"zoom":1}]} | — |
 | `callbacks/3` | left only | {"name":"onMove","args":[null,{"x":536.8553459119497,"y":32,"zoom":1.0314465408805031}]} | — |
-| `callbacks/23` | left only | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… | — |
-| `callbacks/24` | left only | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… | — |
 | `callbacks/4` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
 | `callbacks/10` | right only | — | {"name":"onEdgesChange","args":[[]]} |
 | `callbacks/12` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
@@ -47314,7 +47309,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/22` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
 | `callbacks/24` | right only | — | {"name":"onEdgesChange","args":[[]]} |
 | `callbacks/25` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
-| `callbacks/31` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
+| `callbacks/33` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onViewportChange#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -47619,21 +47614,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/20/args/0/0/dragging` | right only | — | {"@undefined":true} |
 | `callbacks/20/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/20/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/22/args/0/screenX` | differs | 734 | 794 |
-| `callbacks/22/args/0/screenY` | differs | 130 | 170 |
-| `callbacks/22/args/0/clientX` | differs | 734 | 794 |
-| `callbacks/22/args/0/clientY` | differs | 130 | 170 |
-| `callbacks/22/args/0/pageX` | differs | 734 | 794 |
-| `callbacks/22/args/0/pageY` | differs | 130 | 170 |
-| `callbacks/22/args/1/id` | differs | Node-1 | Node-3 |
-| `callbacks/22/args/1/data/label` | differs | Node-1 | Node-3 |
-| `callbacks/22/args/1/position/x` | differs | 116.34146341463413 | 100 |
-| `callbacks/22/args/1/position/y` | differs | 77.5609756097561 | 100 |
-| `callbacks/22/args/1/type` | differs | input | {"@undefined":true} |
-| `callbacks/22/args/1/className` | differs | playwright-test-class-123 | {"@undefined":true} |
-| `callbacks/22/args/1/style/backgroundColor` | left only | red | — |
-| `callbacks/22/args/1/style/@undefined` | right only | — | true |
-| `callbacks/22/args/1/dragging` | differs | true | false |
+| `callbacks/22/args/1/selected` | differs | false | true |
 | `callbacks/22/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/22/args/1/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/22/args/1/hidden` | right only | — | false |
@@ -47653,6 +47634,49 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/22/args/1/ariaLabel` | right only | — | {"@undefined":true} |
 | `callbacks/22/args/1/origin` | right only | — | {"@undefined":true} |
 | `callbacks/22/args/1/handles` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/1/sourcePosition` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/1/targetPosition` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/1/hidden` | right only | — | false |
+| `callbacks/23/args/1/draggable` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/1/selectable` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/1/connectable` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/1/deletable` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/1/dragHandle` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/1/width` | right only | — | 150 |
+| `callbacks/23/args/1/height` | right only | — | 36 |
+| `callbacks/23/args/1/initialWidth` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/1/initialHeight` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/1/parentId` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/1/zIndex` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/1/extent` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/1/expandParent` | right only | — | false |
+| `callbacks/23/args/1/ariaLabel` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/1/origin` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/1/handles` | right only | — | {"@undefined":true} |
+| `callbacks/24/args/1/type` | right only | — | {"@undefined":true} |
+| `callbacks/24/args/1/sourcePosition` | right only | — | {"@undefined":true} |
+| `callbacks/24/args/1/targetPosition` | right only | — | {"@undefined":true} |
+| `callbacks/24/args/1/hidden` | right only | — | false |
+| `callbacks/24/args/1/selected` | right only | — | false |
+| `callbacks/24/args/1/dragging` | right only | — | false |
+| `callbacks/24/args/1/draggable` | right only | — | {"@undefined":true} |
+| `callbacks/24/args/1/selectable` | right only | — | {"@undefined":true} |
+| `callbacks/24/args/1/connectable` | right only | — | {"@undefined":true} |
+| `callbacks/24/args/1/deletable` | right only | — | {"@undefined":true} |
+| `callbacks/24/args/1/dragHandle` | right only | — | {"@undefined":true} |
+| `callbacks/24/args/1/width` | right only | — | 150 |
+| `callbacks/24/args/1/height` | right only | — | 36 |
+| `callbacks/24/args/1/initialWidth` | right only | — | {"@undefined":true} |
+| `callbacks/24/args/1/initialHeight` | right only | — | {"@undefined":true} |
+| `callbacks/24/args/1/parentId` | right only | — | {"@undefined":true} |
+| `callbacks/24/args/1/zIndex` | right only | — | {"@undefined":true} |
+| `callbacks/24/args/1/extent` | right only | — | {"@undefined":true} |
+| `callbacks/24/args/1/expandParent` | right only | — | false |
+| `callbacks/24/args/1/ariaLabel` | right only | — | {"@undefined":true} |
+| `callbacks/24/args/1/origin` | right only | — | {"@undefined":true} |
+| `callbacks/24/args/1/handles` | right only | — | {"@undefined":true} |
+| `callbacks/24/args/1/className` | right only | — | {"@undefined":true} |
+| `callbacks/24/args/1/style` | right only | — | {"@undefined":true} |
 | `callbacks/26/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/26/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/26/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
@@ -48513,9 +48537,9 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 ## Normalization
 
-20 field(s) deleted by name and therefore **unobserved** — not passing:
+22 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (16) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (18) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -48536,7 +48560,7 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | **disagrees with itself** | 6 |
-| psflow | 1, 2 | **disagrees with itself** | 42 |
+| psflow | 1, 2 | **disagrees with itself** | 12 |
 
 ### upstream disagrees with itself
 
@@ -48553,48 +48577,18 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 
 | path | kind | capture 1 | capture 2 |
 |---|---|---|---|
-| `callbacks/53` | left only | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/43` | right only | — | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… |
-| `callbacks/49` | right only | — | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… |
 | `callbacks/56` | right only | — | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onEdgesChange#1",… | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onEdgesChange#1",… |
 | `callbacks/20/args/1/x` | differs | 680 | 340 |
 | `callbacks/20/args/1/y` | differs | 900 | 560 |
-| `callbacks/21/args/1/position/x` | differs | -409 | -749 |
-| `callbacks/21/args/1/position/y` | differs | -352 | -692 |
-| `callbacks/28/args/1/x` | differs | 1360 | 680 |
-| `callbacks/28/args/1/y` | differs | 1580 | 900 |
-| `callbacks/29/args/0/x` | differs | 1700 | 1710 |
-| `callbacks/30/args/0/0/position/x` | differs | -1769 | -1430 |
-| `callbacks/30/args/0/0/position/y` | differs | -1712 | -1592 |
-| `callbacks/30/args/0/0/positionAbsolute/x` | differs | -1769 | -1430 |
-| `callbacks/30/args/0/0/positionAbsolute/y` | differs | -1712 | -1592 |
-| `callbacks/31/args/1/position/x` | differs | -1769 | -1430 |
-| `callbacks/31/args/1/position/y` | differs | -1712 | -1592 |
-| `callbacks/31/args/2/0/position/x` | differs | -1769 | -1430 |
-| `callbacks/31/args/2/0/position/y` | differs | -1712 | -1592 |
-| `callbacks/32/args/1/x` | differs | 1700 | 1020 |
-| `callbacks/32/args/1/y` | differs | 1920 | 1240 |
-| `callbacks/34/args/0/0/position/x` | differs | -1770 | -1780 |
-| `callbacks/34/args/0/0/positionAbsolute/x` | differs | -1770 | -1780 |
-| `callbacks/35/args/1/position/x` | differs | -1770 | -1780 |
-| `callbacks/35/args/2/0/position/x` | differs | -1770 | -1780 |
-| `callbacks/37/args/0/0/position/x` | differs | -2120 | -2130 |
-| `callbacks/37/args/0/0/positionAbsolute/x` | differs | -2120 | -2130 |
-| `callbacks/38/args/1/position/x` | differs | -2120 | -2130 |
-| `callbacks/38/args/2/0/position/x` | differs | -2120 | -2130 |
-| `callbacks/39/args/1/x` | differs | 2000 | 1360 |
-| `callbacks/39/args/1/y` | differs | 2000 | 1580 |
+| `callbacks/25/args/1/x` | differs | 1020 | 680 |
+| `callbacks/25/args/1/y` | differs | 1240 | 900 |
+| `callbacks/29/args/1/x` | differs | 1360 | 1020 |
+| `callbacks/29/args/1/y` | differs | 1580 | 1240 |
+| `callbacks/36/args/1/x` | differs | 1710 | 1360 |
+| `callbacks/36/args/1/y` | differs | 1920 | 1580 |
 | `callbacks/41/args/1/x` | differs | 2000 | 1710 |
 | `callbacks/41/args/1/y` | differs | 2000 | 1920 |
-| `callbacks/47/args/0/screenX` | differs | 6 | 5 |
-| `callbacks/47/args/0/screenY` | differs | 5 | 6 |
-| `callbacks/47/args/0/clientX` | differs | 6 | 5 |
-| `callbacks/47/args/0/clientY` | differs | 5 | 6 |
-| `callbacks/47/args/0/pageX` | differs | 6 | 5 |
-| `callbacks/47/args/0/pageY` | differs | 5 | 6 |
-| `callbacks/47/args/1/position/x` | differs | -2069 | -1780 |
-| `callbacks/47/args/1/position/y` | differs | -2013 | -1932 |
 
 **upstream and psflow did not reproduce.** The comparison below ran anyway —
 capture-everything applies to a failed run as much as to a passing one — but a difference it reports
@@ -48608,7 +48602,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1184 unclaimed difference(s).
+**Failed:** 1222 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -48641,7 +48635,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (812)
+### callbacks (850)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -48659,15 +48653,12 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/49` | left only | {"name":"onMove","args":[null,{"x":1720,"y":1930,"zoom":1}]} | — |
 | `callbacks/53` | left only | {"name":"onMoveStart","args":[null,{"x":1720,"y":1930,"zoom":1}]} | — |
 | `callbacks/55` | left only | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/59` | left only | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… | — |
 | `callbacks/63` | left only | {"name":"onMoveStart","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
 | `callbacks/65` | left only | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/67` | left only | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… | — |
 | `callbacks/7` | right only | — | {"name":"onEdgesChange","args":[[]]} |
-| `callbacks/45` | right only | — | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/48` | right only | — | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/53` | right only | — | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/54` | right only | — | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
+| `callbacks/49` | right only | — | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} |
+| `callbacks/54` | right only | — | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} |
+| `callbacks/55` | right only | — | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… |
 | `callbacks/1/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/1/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -48962,13 +48953,11 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/25/args/2/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/25/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/25/args/2/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/26/args/1/x` | differs | 680 | 1360 |
-| `callbacks/26/args/1/y` | differs | 900 | 1580 |
+| `callbacks/26/args/1/x` | differs | 680 | 1020 |
+| `callbacks/26/args/1/y` | differs | 900 | 1240 |
 | `callbacks/27/args/0/screenX` | differs | 5 | 6 |
 | `callbacks/27/args/0/clientX` | differs | 5 | 6 |
 | `callbacks/27/args/0/pageX` | differs | 5 | 6 |
-| `callbacks/27/args/1/position/x` | differs | -749 | -409 |
-| `callbacks/27/args/1/position/y` | differs | -692 | -352 |
 | `callbacks/27/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/27/args/1/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/27/args/1/hidden` | right only | — | false |
@@ -49101,16 +49090,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/35/args/2/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/35/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/35/args/2/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/36/args/1/x` | differs | 1030 | 1700 |
-| `callbacks/36/args/1/y` | differs | 1240 | 1920 |
-| `callbacks/37/args/0/screenX` | differs | 5 | 6 |
-| `callbacks/37/args/0/screenY` | differs | 6 | 5 |
-| `callbacks/37/args/0/clientX` | differs | 5 | 6 |
-| `callbacks/37/args/0/clientY` | differs | 6 | 5 |
-| `callbacks/37/args/0/pageX` | differs | 5 | 6 |
-| `callbacks/37/args/0/pageY` | differs | 6 | 5 |
-| `callbacks/37/args/1/position/x` | differs | -1100 | -2069 |
-| `callbacks/37/args/1/position/y` | differs | -1252 | -2013 |
+| `callbacks/36/args/1/x` | differs | 1030 | 1360 |
+| `callbacks/36/args/1/y` | differs | 1240 | 1580 |
+| `callbacks/37/args/1/position/x` | differs | -1100 | -1780 |
+| `callbacks/37/args/1/position/y` | differs | -1252 | -1932 |
 | `callbacks/37/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/37/args/1/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/37/args/1/hidden` | right only | — | false |
@@ -49133,17 +49116,15 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/37/args/1/className` | right only | — | {"@undefined":true} |
 | `callbacks/37/args/1/style` | right only | — | {"@undefined":true} |
 | `callbacks/39/args/0/x` | differs | 1380 | 1360 |
-| `callbacks/41/args/0/0/position/x` | differs | -1450 | -1769 |
-| `callbacks/41/args/0/0/position/y` | differs | -1592 | -1712 |
+| `callbacks/41/args/0/0/position/x` | differs | -1450 | -1430 |
 | `callbacks/41/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/41/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/41/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
 | `callbacks/41/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/41/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/41/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/41/args/0/0/positionAbsolute` | right only | — | {"x":-1769,"y":-1712} |
-| `callbacks/42/args/1/position/x` | differs | -1450 | -1769 |
-| `callbacks/42/args/1/position/y` | differs | -1592 | -1712 |
+| `callbacks/41/args/0/0/positionAbsolute` | right only | — | {"x":-1430,"y":-1592} |
+| `callbacks/42/args/1/position/x` | differs | -1450 | -1430 |
 | `callbacks/42/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/42/args/1/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/42/args/1/hidden` | right only | — | false |
@@ -49165,8 +49146,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/42/args/1/handles` | right only | — | {"@undefined":true} |
 | `callbacks/42/args/1/className` | right only | — | {"@undefined":true} |
 | `callbacks/42/args/1/style` | right only | — | {"@undefined":true} |
-| `callbacks/42/args/2/0/position/x` | differs | -1450 | -1769 |
-| `callbacks/42/args/2/0/position/y` | differs | -1592 | -1712 |
+| `callbacks/42/args/2/0/position/x` | differs | -1450 | -1430 |
 | `callbacks/42/args/2/0/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/42/args/2/0/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/42/args/2/0/hidden` | right only | — | false |
@@ -49188,9 +49168,9 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/42/args/2/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/42/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/42/args/2/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/43/args/1/x` | differs | 1380 | 2000 |
-| `callbacks/43/args/1/y` | differs | 1580 | 2000 |
-| `callbacks/45/args/0/0/position/x` | differs | -1449 | -1770 |
+| `callbacks/43/args/1/x` | differs | 1380 | 1710 |
+| `callbacks/43/args/1/y` | differs | 1580 | 1920 |
+| `callbacks/45/args/0/0/position/x` | differs | -1449 | -1780 |
 | `callbacks/45/args/0/0/position/y` | differs | -1593 | -1932 |
 | `callbacks/45/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/45/args/0/0/resizing` | right only | — | {"@undefined":true} |
@@ -49198,8 +49178,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/45/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/45/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/45/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/45/args/0/0/positionAbsolute` | right only | — | {"x":-1770,"y":-1932} |
-| `callbacks/46/args/1/position/x` | differs | -1449 | -1770 |
+| `callbacks/45/args/0/0/positionAbsolute` | right only | — | {"x":-1780,"y":-1932} |
+| `callbacks/46/args/1/position/x` | differs | -1449 | -1780 |
 | `callbacks/46/args/1/position/y` | differs | -1593 | -1932 |
 | `callbacks/46/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/46/args/1/targetPosition` | right only | — | {"@undefined":true} |
@@ -49222,7 +49202,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/46/args/1/handles` | right only | — | {"@undefined":true} |
 | `callbacks/46/args/1/className` | right only | — | {"@undefined":true} |
 | `callbacks/46/args/1/style` | right only | — | {"@undefined":true} |
-| `callbacks/46/args/2/0/position/x` | differs | -1449 | -1770 |
+| `callbacks/46/args/2/0/position/x` | differs | -1449 | -1780 |
 | `callbacks/46/args/2/0/position/y` | differs | -1593 | -1932 |
 | `callbacks/46/args/2/0/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/46/args/2/0/targetPosition` | right only | — | {"@undefined":true} |
@@ -49245,9 +49225,9 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/46/args/2/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/46/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/46/args/2/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/48/args/0/x` | differs | 1720 | 1700 |
+| `callbacks/48/args/0/x` | differs | 1720 | 1710 |
 | `callbacks/48/args/0/y` | differs | 1930 | 1920 |
-| `callbacks/50/args/0/0/position/x` | differs | -1789 | -2120 |
+| `callbacks/50/args/0/0/position/x` | differs | -1789 | -2130 |
 | `callbacks/50/args/0/0/position/y` | differs | -1943 | -2272 |
 | `callbacks/50/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/50/args/0/0/resizing` | right only | — | {"@undefined":true} |
@@ -49255,8 +49235,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/50/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/50/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/50/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/50/args/0/0/positionAbsolute` | right only | — | {"x":-2120,"y":-2272} |
-| `callbacks/51/args/1/position/x` | differs | -1789 | -2120 |
+| `callbacks/50/args/0/0/positionAbsolute` | right only | — | {"x":-2130,"y":-2272} |
+| `callbacks/51/args/1/position/x` | differs | -1789 | -2130 |
 | `callbacks/51/args/1/position/y` | differs | -1943 | -2272 |
 | `callbacks/51/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/51/args/1/targetPosition` | right only | — | {"@undefined":true} |
@@ -49279,7 +49259,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/51/args/1/handles` | right only | — | {"@undefined":true} |
 | `callbacks/51/args/1/className` | right only | — | {"@undefined":true} |
 | `callbacks/51/args/1/style` | right only | — | {"@undefined":true} |
-| `callbacks/51/args/2/0/position/x` | differs | -1789 | -2120 |
+| `callbacks/51/args/2/0/position/x` | differs | -1789 | -2130 |
 | `callbacks/51/args/2/0/position/y` | differs | -1943 | -2272 |
 | `callbacks/51/args/2/0/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/51/args/2/0/targetPosition` | right only | — | {"@undefined":true} |
@@ -49359,6 +49339,32 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/57/args/2/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/57/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/57/args/2/0/style` | right only | — | {"@undefined":true} |
+| `callbacks/59/args/0/screenX` | differs | 5 | 6 |
+| `callbacks/59/args/0/clientX` | differs | 5 | 6 |
+| `callbacks/59/args/0/pageX` | differs | 5 | 6 |
+| `callbacks/59/args/1/position/x` | differs | -2129 | -2130 |
+| `callbacks/59/args/1/position/y` | differs | -2293 | -2272 |
+| `callbacks/59/args/1/sourcePosition` | right only | — | {"@undefined":true} |
+| `callbacks/59/args/1/targetPosition` | right only | — | {"@undefined":true} |
+| `callbacks/59/args/1/hidden` | right only | — | false |
+| `callbacks/59/args/1/draggable` | right only | — | {"@undefined":true} |
+| `callbacks/59/args/1/selectable` | right only | — | {"@undefined":true} |
+| `callbacks/59/args/1/connectable` | right only | — | {"@undefined":true} |
+| `callbacks/59/args/1/deletable` | right only | — | {"@undefined":true} |
+| `callbacks/59/args/1/dragHandle` | right only | — | {"@undefined":true} |
+| `callbacks/59/args/1/width` | right only | — | 150 |
+| `callbacks/59/args/1/height` | right only | — | 36 |
+| `callbacks/59/args/1/initialWidth` | right only | — | {"@undefined":true} |
+| `callbacks/59/args/1/initialHeight` | right only | — | {"@undefined":true} |
+| `callbacks/59/args/1/parentId` | right only | — | {"@undefined":true} |
+| `callbacks/59/args/1/zIndex` | right only | — | {"@undefined":true} |
+| `callbacks/59/args/1/extent` | right only | — | {"@undefined":true} |
+| `callbacks/59/args/1/expandParent` | right only | — | false |
+| `callbacks/59/args/1/ariaLabel` | right only | — | {"@undefined":true} |
+| `callbacks/59/args/1/origin` | right only | — | {"@undefined":true} |
+| `callbacks/59/args/1/handles` | right only | — | {"@undefined":true} |
+| `callbacks/59/args/1/className` | right only | — | {"@undefined":true} |
+| `callbacks/59/args/1/style` | right only | — | {"@undefined":true} |
 | `callbacks/61/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/61/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/61/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
@@ -49408,6 +49414,32 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/62/args/2/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/62/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/62/args/2/0/style` | right only | — | {"@undefined":true} |
+| `callbacks/67/args/0/screenX` | differs | 5 | 6 |
+| `callbacks/67/args/0/clientX` | differs | 5 | 6 |
+| `callbacks/67/args/0/pageX` | differs | 5 | 6 |
+| `callbacks/67/args/0/buttons` | differs | 0 | 1 |
+| `callbacks/67/args/1/position/x` | differs | -2070 | -2069 |
+| `callbacks/67/args/1/sourcePosition` | right only | — | {"@undefined":true} |
+| `callbacks/67/args/1/targetPosition` | right only | — | {"@undefined":true} |
+| `callbacks/67/args/1/hidden` | right only | — | false |
+| `callbacks/67/args/1/draggable` | right only | — | {"@undefined":true} |
+| `callbacks/67/args/1/selectable` | right only | — | {"@undefined":true} |
+| `callbacks/67/args/1/connectable` | right only | — | {"@undefined":true} |
+| `callbacks/67/args/1/deletable` | right only | — | {"@undefined":true} |
+| `callbacks/67/args/1/dragHandle` | right only | — | {"@undefined":true} |
+| `callbacks/67/args/1/width` | right only | — | 150 |
+| `callbacks/67/args/1/height` | right only | — | 36 |
+| `callbacks/67/args/1/initialWidth` | right only | — | {"@undefined":true} |
+| `callbacks/67/args/1/initialHeight` | right only | — | {"@undefined":true} |
+| `callbacks/67/args/1/parentId` | right only | — | {"@undefined":true} |
+| `callbacks/67/args/1/zIndex` | right only | — | {"@undefined":true} |
+| `callbacks/67/args/1/extent` | right only | — | {"@undefined":true} |
+| `callbacks/67/args/1/expandParent` | right only | — | false |
+| `callbacks/67/args/1/ariaLabel` | right only | — | {"@undefined":true} |
+| `callbacks/67/args/1/origin` | right only | — | {"@undefined":true} |
+| `callbacks/67/args/1/handles` | right only | — | {"@undefined":true} |
+| `callbacks/67/args/1/className` | right only | — | {"@undefined":true} |
+| `callbacks/67/args/1/style` | right only | — | {"@undefined":true} |
 | `callbacks/68/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/68/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/68/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
@@ -49813,9 +49845,9 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 ## Normalization
 
-22 field(s) deleted by name and therefore **unobserved** — not passing:
+24 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (18) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (19) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -51187,7 +51219,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 # System parity run — drag-child-expand-parent
 
-**Failed:** self-inconsistent, driving-divergence, unclaimed-difference.
+**Failed:** driving-divergence, unclaimed-difference.
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -51201,79 +51233,7 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | **disagrees with itself** | 63 |
-
-### psflow disagrees with itself
-
-| path | kind | capture 1 | capture 2 |
-|---|---|---|---|
-| `callbacks/36` | left only | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… | — |
-| `callbacks/38` | left only | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… | — |
-| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onNodesChange#2","onNodesChange#3","onPaneMouseEnter#1","onNodeMouseEnter#1","onPa… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","… |
-| `callbacks/4/args/0/0/selected` | differs | {"@undefined":true} | true |
-| `callbacks/4/args/0/0/type` | differs | dimensions | select |
-| `callbacks/4/args/0/0/id` | differs | parent | child |
-| `callbacks/4/args/0/0/dimensions/width` | left only | 150 | — |
-| `callbacks/4/args/0/0/dimensions/height` | left only | 36 | — |
-| `callbacks/4/args/0/0/dimensions/@undefined` | right only | — | true |
-| `callbacks/4/args/0/0/resizing` | differs | false | {"@undefined":true} |
-| `callbacks/4/args/0/0/setAttributes` | differs | true | {"@undefined":true} |
-| `callbacks/5/args/0/0/position/@undefined` | left only | true | — |
-| `callbacks/5/args/0/0/position/x` | right only | — | 57.5 |
-| `callbacks/5/args/0/0/position/y` | right only | — | 52.5 |
-| `callbacks/5/args/0/0/positionAbsolute/@undefined` | left only | true | — |
-| `callbacks/5/args/0/0/positionAbsolute/x` | right only | — | 57.5 |
-| `callbacks/5/args/0/0/positionAbsolute/y` | right only | — | 52.5 |
-| `callbacks/5/args/0/0/dragging` | differs | {"@undefined":true} | true |
-| `callbacks/5/args/0/0/type` | differs | dimensions | position |
-| `callbacks/5/args/0/0/id` | differs | parent | child |
-| `callbacks/5/args/0/0/dimensions/width` | left only | 190 | — |
-| `callbacks/5/args/0/0/dimensions/height` | left only | 76 | — |
-| `callbacks/5/args/0/0/dimensions/@undefined` | right only | — | true |
-| `callbacks/5/args/0/0/resizing` | differs | false | {"@undefined":true} |
-| `callbacks/5/args/0/0/setAttributes` | differs | true | {"@undefined":true} |
-| `callbacks/10/args/0/0/position/@undefined` | left only | true | — |
-| `callbacks/10/args/0/0/position/x` | right only | — | 75 |
-| `callbacks/10/args/0/0/position/y` | right only | — | 65 |
-| `callbacks/10/args/0/0/positionAbsolute/@undefined` | left only | true | — |
-| `callbacks/10/args/0/0/positionAbsolute/x` | right only | — | 75 |
-| `callbacks/10/args/0/0/positionAbsolute/y` | right only | — | 65 |
-| `callbacks/10/args/0/0/dragging` | differs | {"@undefined":true} | true |
-| `callbacks/10/args/0/0/type` | differs | select | position |
-| `callbacks/10/args/0/0/selected` | differs | true | {"@undefined":true} |
-| `callbacks/15/args/0/0/position/x` | differs | 57.5 | 92.5 |
-| `callbacks/15/args/0/0/position/y` | differs | 52.5 | 77.5 |
-| `callbacks/15/args/0/0/positionAbsolute/x` | differs | 57.5 | 92.5 |
-| `callbacks/15/args/0/0/positionAbsolute/y` | differs | 52.5 | 77.5 |
-| `callbacks/18/args/0/0/position/x` | differs | 75 | 110 |
-| `callbacks/18/args/0/0/position/y` | differs | 65 | 90 |
-| `callbacks/18/args/0/0/positionAbsolute/x` | differs | 75 | 110 |
-| `callbacks/18/args/0/0/positionAbsolute/y` | differs | 65 | 90 |
-| `callbacks/21/args/0/0/position/x` | differs | 92.5 | 127.5 |
-| `callbacks/21/args/0/0/position/y` | differs | 77.5 | 102.5 |
-| `callbacks/21/args/0/0/positionAbsolute/x` | differs | 92.5 | 127.5 |
-| `callbacks/21/args/0/0/positionAbsolute/y` | differs | 77.5 | 102.5 |
-| `callbacks/24/args/0/0/position/x` | differs | 110 | 145 |
-| `callbacks/24/args/0/0/position/y` | differs | 90 | 115 |
-| `callbacks/24/args/0/0/positionAbsolute/x` | differs | 110 | 145 |
-| `callbacks/24/args/0/0/positionAbsolute/y` | differs | 90 | 115 |
-| `callbacks/27/args/0/0/position/x` | differs | 127.5 | 162.5 |
-| `callbacks/27/args/0/0/position/y` | differs | 102.5 | 127.5 |
-| `callbacks/27/args/0/0/positionAbsolute/x` | differs | 127.5 | 162.5 |
-| `callbacks/27/args/0/0/positionAbsolute/y` | differs | 102.5 | 127.5 |
-| `callbacks/30/args/0/0/position/x` | differs | 145 | 180 |
-| `callbacks/30/args/0/0/position/y` | differs | 115 | 140 |
-| `callbacks/30/args/0/0/positionAbsolute/x` | differs | 145 | 180 |
-| `callbacks/30/args/0/0/positionAbsolute/y` | differs | 115 | 140 |
-| `callbacks/33/args/0/0/position/x` | differs | 162.5 | 180 |
-| `callbacks/33/args/0/0/position/y` | differs | 127.5 | 140 |
-| `callbacks/33/args/0/0/positionAbsolute/x` | differs | 162.5 | 180 |
-| `callbacks/33/args/0/0/positionAbsolute/y` | differs | 127.5 | 140 |
-| `callbacks/33/args/0/0/dragging` | differs | true | false |
-
-**psflow did not reproduce.** The comparison below ran anyway —
-capture-everything applies to a failed run as much as to a passing one — but a difference it reports
-cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
+| psflow | 1, 2 | reproduced | 0 |
 
 ---
 
@@ -51283,7 +51243,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 11 driving divergence(s), 992 unclaimed difference(s).
+**Failed:** 11 driving divergence(s), 985 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -51319,7 +51279,7 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/child-outside/attrs/aria-describedby` | left only | react-flow__edge-desc-1 | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children` | ordered differently | ["parent","child","outside"] | ["child","outside","parent"] |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/parent/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/parent/attrs/style` | differs | background-color: rgba(80, 120, 200, 0.12); height: 220px; pointer-events: all; transform: translate(0px, 0px); visibility: visible; width: 330px; z-index: 0; | background-color: rgba(80, 120, 200, 0.12); height: 76px; pointer-events: all; transform: translate(0px, 0px); visibility: visible; width: 190px; z-index: 0; |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/parent/attrs/style` | differs | background-color: rgba(80, 120, 200, 0.12); height: 220px; pointer-events: all; transform: translate(0px, 0px); visibility: visible; width: 330px; z-index: 0; | background-color: rgba(80, 120, 200, 0.12); height: 36px; pointer-events: all; transform: translate(0px, 0px); visibility: visible; width: 150px; z-index: 0; |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/parent/children/1-parent-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"parent","data-handlepos":"top","data-id":"1-parent-null-target","class":"connectable connectableend connectablestart conne… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/parent/children/1-parent-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"parent","data-handlepos":"bottom","data-id":"1-parent-null-source","class":"connectable connectableend connectablestart co… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/parent/children/1-parent--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
@@ -51341,16 +51301,15 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (644) — consequence of the driving divergence
+### callbacks (637) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `callbacks/1` | left only | {"name":"onMoveStart","args":[null,{"x":0,"y":0,"zoom":1}]} | — |
 | `callbacks/3` | left only | {"name":"onMove","args":[null,{"x":70,"y":140,"zoom":2}]} | — |
-| `callbacks/11` | right only | — | {"name":"onEdgesChange","args":[[]]} |
-| `callbacks/36` | right only | — | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… |
-| `callbacks/38` | right only | — | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… |
-| `callbacks` | ordered differently | ["onSelectionChange#1","onViewportChange#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onNodesChange#2","onNodesChange#3","onPaneMouseEnter#1","onNodeMouseEnter#1","onPa… |
+| `callbacks/10` | right only | — | {"name":"onEdgesChange","args":[[]]} |
+| `callbacks/37` | right only | — | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… |
+| `callbacks` | ordered differently | ["onSelectionChange#1","onViewportChange#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onNodesChange#2","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","on… |
 | `callbacks/2/args/0/y` | differs | 140 | 284 |
 | `callbacks/4/args/0/0/id` | differs | parent | child |
 | `callbacks/4/args/0/0/dimensions/width` | differs | 320 | 150 |
@@ -51518,19 +51477,18 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/13/args/0/screenY` | differs | 281 | 425 |
 | `callbacks/13/args/0/clientY` | differs | 281 | 425 |
 | `callbacks/13/args/0/pageY` | differs | 281 | 425 |
-| `callbacks/14/args/0/0/id` | differs | child | parent |
-| `callbacks/14/args/0/0/type` | differs | position | dimensions |
+| `callbacks/14/args/0/0/type` | differs | position | select |
 | `callbacks/14/args/0/0/position/x` | left only | 57.5 | — |
 | `callbacks/14/args/0/0/position/y` | left only | 52.5 | — |
 | `callbacks/14/args/0/0/position/@undefined` | right only | — | true |
 | `callbacks/14/args/0/0/dragging` | differs | true | {"@undefined":true} |
+| `callbacks/14/args/0/0/dimensions` | right only | — | {"@undefined":true} |
+| `callbacks/14/args/0/0/resizing` | right only | — | {"@undefined":true} |
+| `callbacks/14/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
 | `callbacks/14/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
-| `callbacks/14/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/14/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/14/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/14/args/0/0/dimensions` | right only | — | {"width":190,"height":76} |
-| `callbacks/14/args/0/0/resizing` | right only | — | false |
-| `callbacks/14/args/0/0/setAttributes` | right only | — | true |
+| `callbacks/14/args/0/0/selected` | right only | — | true |
 | `callbacks/15/args/1/type` | right only | — | {"@undefined":true} |
 | `callbacks/15/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/15/args/1/targetPosition` | right only | — | {"@undefined":true} |
@@ -51574,18 +51532,15 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/16/args/0/screenY` | differs | 306 | 450 |
 | `callbacks/16/args/0/clientY` | differs | 306 | 450 |
 | `callbacks/16/args/0/pageY` | differs | 306 | 450 |
-| `callbacks/17/args/0/0/type` | differs | position | select |
-| `callbacks/17/args/0/0/position/x` | left only | 75 | — |
-| `callbacks/17/args/0/0/position/y` | left only | 65 | — |
-| `callbacks/17/args/0/0/position/@undefined` | right only | — | true |
-| `callbacks/17/args/0/0/dragging` | differs | true | {"@undefined":true} |
+| `callbacks/17/args/0/0/position/x` | differs | 75 | 57.5 |
+| `callbacks/17/args/0/0/position/y` | differs | 65 | 52.5 |
 | `callbacks/17/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/17/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/17/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
-| `callbacks/17/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
+| `callbacks/17/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/17/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/17/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/17/args/0/0/selected` | right only | — | true |
+| `callbacks/17/args/0/0/positionAbsolute` | right only | — | {"x":57.5,"y":52.5} |
 | `callbacks/18/args/1/type` | right only | — | {"@undefined":true} |
 | `callbacks/18/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/18/args/1/targetPosition` | right only | — | {"@undefined":true} |
@@ -51629,15 +51584,15 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/19/args/0/screenY` | differs | 331 | 475 |
 | `callbacks/19/args/0/clientY` | differs | 331 | 475 |
 | `callbacks/19/args/0/pageY` | differs | 331 | 475 |
-| `callbacks/20/args/0/0/position/x` | differs | 92.5 | 57.5 |
-| `callbacks/20/args/0/0/position/y` | differs | 77.5 | 52.5 |
+| `callbacks/20/args/0/0/position/x` | differs | 92.5 | 75 |
+| `callbacks/20/args/0/0/position/y` | differs | 77.5 | 65 |
 | `callbacks/20/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/20/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/20/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
 | `callbacks/20/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/20/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/20/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/20/args/0/0/positionAbsolute` | right only | — | {"x":57.5,"y":52.5} |
+| `callbacks/20/args/0/0/positionAbsolute` | right only | — | {"x":75,"y":65} |
 | `callbacks/21/args/1/type` | right only | — | {"@undefined":true} |
 | `callbacks/21/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/21/args/1/targetPosition` | right only | — | {"@undefined":true} |
@@ -51681,15 +51636,15 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/22/args/0/screenY` | differs | 356 | 500 |
 | `callbacks/22/args/0/clientY` | differs | 356 | 500 |
 | `callbacks/22/args/0/pageY` | differs | 356 | 500 |
-| `callbacks/23/args/0/0/position/x` | differs | 110 | 75 |
-| `callbacks/23/args/0/0/position/y` | differs | 90 | 65 |
+| `callbacks/23/args/0/0/position/x` | differs | 110 | 92.5 |
+| `callbacks/23/args/0/0/position/y` | differs | 90 | 77.5 |
 | `callbacks/23/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/23/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/23/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
 | `callbacks/23/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/23/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/23/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/23/args/0/0/positionAbsolute` | right only | — | {"x":75,"y":65} |
+| `callbacks/23/args/0/0/positionAbsolute` | right only | — | {"x":92.5,"y":77.5} |
 | `callbacks/24/args/1/type` | right only | — | {"@undefined":true} |
 | `callbacks/24/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/24/args/1/targetPosition` | right only | — | {"@undefined":true} |
@@ -51733,15 +51688,15 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/25/args/0/screenY` | differs | 381 | 525 |
 | `callbacks/25/args/0/clientY` | differs | 381 | 525 |
 | `callbacks/25/args/0/pageY` | differs | 381 | 525 |
-| `callbacks/26/args/0/0/position/x` | differs | 127.5 | 92.5 |
-| `callbacks/26/args/0/0/position/y` | differs | 102.5 | 77.5 |
+| `callbacks/26/args/0/0/position/x` | differs | 127.5 | 110 |
+| `callbacks/26/args/0/0/position/y` | differs | 102.5 | 90 |
 | `callbacks/26/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/26/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/26/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
 | `callbacks/26/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/26/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/26/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/26/args/0/0/positionAbsolute` | right only | — | {"x":92.5,"y":77.5} |
+| `callbacks/26/args/0/0/positionAbsolute` | right only | — | {"x":110,"y":90} |
 | `callbacks/27/args/1/type` | right only | — | {"@undefined":true} |
 | `callbacks/27/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/27/args/1/targetPosition` | right only | — | {"@undefined":true} |
@@ -51785,15 +51740,15 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/28/args/0/screenY` | differs | 406 | 550 |
 | `callbacks/28/args/0/clientY` | differs | 406 | 550 |
 | `callbacks/28/args/0/pageY` | differs | 406 | 550 |
-| `callbacks/29/args/0/0/position/x` | differs | 145 | 110 |
-| `callbacks/29/args/0/0/position/y` | differs | 115 | 90 |
+| `callbacks/29/args/0/0/position/x` | differs | 145 | 127.5 |
+| `callbacks/29/args/0/0/position/y` | differs | 115 | 102.5 |
 | `callbacks/29/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/29/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/29/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
 | `callbacks/29/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/29/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/29/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/0/0/positionAbsolute` | right only | — | {"x":110,"y":90} |
+| `callbacks/29/args/0/0/positionAbsolute` | right only | — | {"x":127.5,"y":102.5} |
 | `callbacks/30/args/1/type` | right only | — | {"@undefined":true} |
 | `callbacks/30/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/30/args/1/targetPosition` | right only | — | {"@undefined":true} |
@@ -51837,15 +51792,15 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/31/args/0/screenY` | differs | 431 | 575 |
 | `callbacks/31/args/0/clientY` | differs | 431 | 575 |
 | `callbacks/31/args/0/pageY` | differs | 431 | 575 |
-| `callbacks/32/args/0/0/position/x` | differs | 162.5 | 127.5 |
-| `callbacks/32/args/0/0/position/y` | differs | 127.5 | 102.5 |
+| `callbacks/32/args/0/0/position/x` | differs | 162.5 | 145 |
+| `callbacks/32/args/0/0/position/y` | differs | 127.5 | 115 |
 | `callbacks/32/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/32/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/32/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
 | `callbacks/32/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/32/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/32/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/32/args/0/0/positionAbsolute` | right only | — | {"x":127.5,"y":102.5} |
+| `callbacks/32/args/0/0/positionAbsolute` | right only | — | {"x":145,"y":115} |
 | `callbacks/33/args/1/type` | right only | — | {"@undefined":true} |
 | `callbacks/33/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/33/args/1/targetPosition` | right only | — | {"@undefined":true} |
@@ -51889,15 +51844,15 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/34/args/0/screenY` | differs | 456 | 600 |
 | `callbacks/34/args/0/clientY` | differs | 456 | 600 |
 | `callbacks/34/args/0/pageY` | differs | 456 | 600 |
-| `callbacks/35/args/0/0/position/x` | differs | 180 | 145 |
-| `callbacks/35/args/0/0/position/y` | differs | 140 | 115 |
+| `callbacks/35/args/0/0/position/x` | differs | 180 | 162.5 |
+| `callbacks/35/args/0/0/position/y` | differs | 140 | 127.5 |
 | `callbacks/35/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/35/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/35/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
 | `callbacks/35/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/35/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/35/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/35/args/0/0/positionAbsolute` | right only | — | {"x":145,"y":115} |
+| `callbacks/35/args/0/0/positionAbsolute` | right only | — | {"x":162.5,"y":127.5} |
 | `callbacks/35/args/0/1` | left only | {"id":"parent","type":"dimensions","setAttributes":true,"dimensions":{"width":330,"height":220}} | — |
 | `callbacks/36/args/1/type` | right only | — | {"@undefined":true} |
 | `callbacks/36/args/1/sourcePosition` | right only | — | {"@undefined":true} |
@@ -51939,8 +51894,6 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/36/args/2/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/36/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/36/args/2/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/37/args/0/0/position/x` | differs | 180 | 162.5 |
-| `callbacks/37/args/0/0/position/y` | differs | 140 | 127.5 |
 | `callbacks/37/args/0/0/dragging` | differs | false | true |
 | `callbacks/37/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/37/args/0/0/resizing` | right only | — | {"@undefined":true} |
@@ -51948,7 +51901,7 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/37/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/37/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/37/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/37/args/0/0/positionAbsolute` | right only | — | {"x":162.5,"y":127.5} |
+| `callbacks/37/args/0/0/positionAbsolute` | right only | — | {"x":180,"y":140} |
 | `callbacks/38/args/1/type` | right only | — | {"@undefined":true} |
 | `callbacks/38/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/38/args/1/targetPosition` | right only | — | {"@undefined":true} |
@@ -51994,10 +51947,10 @@ a real divergence is exactly what would be hiding down there.
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getNodes/0/measured/width` | differs | 330 | 190 |
-| `api/queries/getNodes/0/measured/height` | differs | 220 | 76 |
-| `api/queries/getNodes/0/width` | differs | 330 | 190 |
-| `api/queries/getNodes/0/height` | differs | 220 | 76 |
+| `api/queries/getNodes/0/measured/width` | differs | 330 | 150 |
+| `api/queries/getNodes/0/measured/height` | differs | 220 | 36 |
+| `api/queries/getNodes/0/width` | differs | 330 | 150 |
+| `api/queries/getNodes/0/height` | differs | 220 | 36 |
 | `api/queries/getNodes/0/type` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/0/sourcePosition` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/0/targetPosition` | right only | — | {"@undefined":true} |
@@ -52063,10 +52016,10 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getNodes/2/handles` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/2/className` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/2/style` | right only | — | {"@undefined":true} |
-| `api/queries/getNode/measured/width` | differs | 330 | 190 |
-| `api/queries/getNode/measured/height` | differs | 220 | 76 |
-| `api/queries/getNode/width` | differs | 330 | 190 |
-| `api/queries/getNode/height` | differs | 220 | 76 |
+| `api/queries/getNode/measured/width` | differs | 330 | 150 |
+| `api/queries/getNode/measured/height` | differs | 220 | 36 |
+| `api/queries/getNode/width` | differs | 330 | 150 |
+| `api/queries/getNode/height` | differs | 220 | 36 |
 | `api/queries/getNode/type` | right only | — | {"@undefined":true} |
 | `api/queries/getNode/sourcePosition` | right only | — | {"@undefined":true} |
 | `api/queries/getNode/targetPosition` | right only | — | {"@undefined":true} |
@@ -52088,15 +52041,15 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getNode/origin` | right only | — | {"@undefined":true} |
 | `api/queries/getNode/handles` | right only | — | {"@undefined":true} |
 | `api/queries/getNode/className` | right only | — | {"@undefined":true} |
-| `api/queries/getInternalNode/measured/width` | differs | 330 | 190 |
-| `api/queries/getInternalNode/measured/height` | differs | 220 | 76 |
-| `api/queries/getInternalNode/width` | differs | 330 | 190 |
-| `api/queries/getInternalNode/height` | differs | 220 | 76 |
+| `api/queries/getInternalNode/measured/width` | differs | 330 | 150 |
+| `api/queries/getInternalNode/measured/height` | differs | 220 | 36 |
+| `api/queries/getInternalNode/width` | differs | 330 | 150 |
+| `api/queries/getInternalNode/height` | differs | 220 | 36 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 161 | 91 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 215 | 71 |
+| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 161 | 71 |
+| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 215 | 31 |
 | `api/queries/getInternalNode/internals/handleBounds/target/0/id` | differs | null | {"@undefined":true} |
-| `api/queries/getInternalNode/internals/handleBounds/target/0/x` | differs | 161 | 91 |
+| `api/queries/getInternalNode/internals/handleBounds/target/0/x` | differs | 161 | 71 |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"parent","data":{"label":"parent"},"position":{"x":0,"y":0},"style":{"width":320,"height":220,"backgroundColor":"rgba(80, 120, 200, 0.12)"},"measured":{"… | — |
 | `api/queries/getInternalNode/internals/rootParentIndex` | right only | — | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/bounds` | right only | — | {"@undefined":true} |
@@ -52155,10 +52108,10 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getEdge/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/getEdge/className` | right only | — | {"@undefined":true} |
 | `api/queries/getEdge/style` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/0/measured/width` | differs | 330 | 190 |
-| `api/queries/getIntersectingNodes/0/measured/height` | differs | 220 | 76 |
-| `api/queries/getIntersectingNodes/0/width` | differs | 330 | 190 |
-| `api/queries/getIntersectingNodes/0/height` | differs | 220 | 76 |
+| `api/queries/getIntersectingNodes/0/measured/width` | differs | 330 | 150 |
+| `api/queries/getIntersectingNodes/0/measured/height` | differs | 220 | 36 |
+| `api/queries/getIntersectingNodes/0/width` | differs | 330 | 150 |
+| `api/queries/getIntersectingNodes/0/height` | differs | 220 | 36 |
 | `api/queries/getIntersectingNodes/0/type` | right only | — | {"@undefined":true} |
 | `api/queries/getIntersectingNodes/0/sourcePosition` | right only | — | {"@undefined":true} |
 | `api/queries/getIntersectingNodes/0/targetPosition` | right only | — | {"@undefined":true} |
@@ -52225,10 +52178,10 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getIntersectingNodes/2/className` | right only | — | {"@undefined":true} |
 | `api/queries/getIntersectingNodes/2/style` | right only | — | {"@undefined":true} |
 | `api/queries/getNodesBounds/height` | differs | 220 | 176 |
-| `api/queries/toObject/nodes/0/measured/width` | differs | 330 | 190 |
-| `api/queries/toObject/nodes/0/measured/height` | differs | 220 | 76 |
-| `api/queries/toObject/nodes/0/width` | differs | 330 | 190 |
-| `api/queries/toObject/nodes/0/height` | differs | 220 | 76 |
+| `api/queries/toObject/nodes/0/measured/width` | differs | 330 | 150 |
+| `api/queries/toObject/nodes/0/measured/height` | differs | 220 | 36 |
+| `api/queries/toObject/nodes/0/width` | differs | 330 | 150 |
+| `api/queries/toObject/nodes/0/height` | differs | 220 | 36 |
 | `api/queries/toObject/nodes/0/type` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/sourcePosition` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/targetPosition` | right only | — | {"@undefined":true} |
@@ -52321,7 +52274,7 @@ a real divergence is exactly what would be hiding down there.
 
 24 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (20) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (13) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -57529,7 +57482,7 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | path | kind | capture 1 | capture 2 |
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… |
-| `callbacks/17/args/1/position/x` | differs | 10 | 0 |
+| `callbacks/15/args/1/position/x` | differs | 0 | 10 |
 
 **upstream did not reproduce.** The comparison below ran anyway —
 capture-everything applies to a failed run as much as to a passing one — but a difference it reports
@@ -57591,7 +57544,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/17` | left only | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… | — |
+| `callbacks/15` | left only | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… | — |
 | `callbacks/7` | right only | — | {"name":"onEdgesChange","args":[[]]} |
 | `callbacks/1/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/1/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -57841,16 +57794,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/14/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/14/args/0/0/index` | right only | — | {"@undefined":true} |
 | `callbacks/14/args/0/0/positionAbsolute` | right only | — | {"x":0,"y":3} |
-| `callbacks/15/args/0/0/position/x` | differs | 5 | 1 |
-| `callbacks/15/args/0/0/position/y` | differs | 20 | 4 |
-| `callbacks/15/args/0/0/dimensions` | right only | — | {"@undefined":true} |
-| `callbacks/15/args/0/0/resizing` | right only | — | {"@undefined":true} |
-| `callbacks/15/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
-| `callbacks/15/args/0/0/selected` | right only | — | {"@undefined":true} |
-| `callbacks/15/args/0/0/item` | right only | — | {"@undefined":true} |
-| `callbacks/15/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/15/args/0/0/positionAbsolute` | right only | — | {"x":0,"y":4} |
-| `callbacks/16/args/0/0/position/x` | differs | 10 | 2 |
+| `callbacks/16/args/0/0/position/x` | differs | 5 | 1 |
 | `callbacks/16/args/0/0/position/y` | differs | 20 | 4 |
 | `callbacks/16/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/16/args/0/0/resizing` | right only | — | {"@undefined":true} |
@@ -57858,7 +57802,16 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/16/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/16/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/16/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/16/args/0/0/positionAbsolute` | right only | — | {"x":1,"y":4} |
+| `callbacks/16/args/0/0/positionAbsolute` | right only | — | {"x":0,"y":4} |
+| `callbacks/17/args/0/0/position/x` | differs | 10 | 2 |
+| `callbacks/17/args/0/0/position/y` | differs | 20 | 4 |
+| `callbacks/17/args/0/0/dimensions` | right only | — | {"@undefined":true} |
+| `callbacks/17/args/0/0/resizing` | right only | — | {"@undefined":true} |
+| `callbacks/17/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
+| `callbacks/17/args/0/0/selected` | right only | — | {"@undefined":true} |
+| `callbacks/17/args/0/0/item` | right only | — | {"@undefined":true} |
+| `callbacks/17/args/0/0/index` | right only | — | {"@undefined":true} |
+| `callbacks/17/args/0/0/positionAbsolute` | right only | — | {"x":1,"y":4} |
 
 ### api (462)
 
@@ -64071,7 +64024,7 @@ a real divergence is exactly what would be hiding down there.
 
 # System parity run — viewport-helpers-with-options
 
-**Failed:** self-inconsistent, unclaimed-difference.
+**Failed:** unclaimed-difference.
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -64085,17 +64038,7 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | **disagrees with itself** | 1 |
-
-### psflow disagrees with itself
-
-| path | kind | capture 1 | capture 2 |
-|---|---|---|---|
-| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onViewportChange#2","onMoveEnd#2","onViewportChange#3","onMoveEnd#3","onViewportCh… | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onViewportChange#2","onMoveEnd#2","onViewportChange#3","onMoveEnd#3","onViewportCh… |
-
-**psflow did not reproduce.** The comparison below ran anyway —
-capture-everything applies to a failed run as much as to a passing one — but a difference it reports
-cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
+| psflow | 1, 2 | reproduced | 0 |
 
 ---
 
@@ -64733,7 +64676,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 # System parity run — pan-gesture-complete
 
-**Failed:** unclaimed-difference.
+**Failed:** self-inconsistent, unclaimed-difference.
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -64746,8 +64689,18 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 
 | side | captures | verdict | differences |
 |---|---|---|---|
-| upstream | 1, 2 | reproduced | 0 |
+| upstream | 1, 2 | **disagrees with itself** | 1 |
 | psflow | 1, 2 | reproduced | 0 |
+
+### upstream disagrees with itself
+
+| path | kind | capture 1 | capture 2 |
+|---|---|---|---|
+| `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveStart#2"… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveStart#2"… |
+
+**upstream did not reproduce.** The comparison below ran anyway —
+capture-everything applies to a failed run as much as to a passing one — but a difference it reports
+cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
 ---
 
@@ -64845,7 +64798,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/index` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/2/setAttributes` | right only | — | true |
-| `callbacks/24/args/0` | differs | {"@class":"MouseEvent","isTrusted":true} | null |
+| `callbacks/25/args/0` | differs | {"@class":"MouseEvent","isTrusted":true} | null |
 | `callbacks/42/args/0` | differs | {"@class":"MouseEvent","isTrusted":true} | null |
 
 ### api (360)
@@ -65217,7 +65170,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 26 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (23) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (22) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -69207,7 +69160,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 # System parity run — controls-horizontal
 
-**Failed:** unclaimed-difference.
+**Failed:** self-inconsistent, unclaimed-difference.
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -69221,7 +69174,21 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | **disagrees with itself** | 5 |
+
+### psflow disagrees with itself
+
+| path | kind | capture 1 | capture 2 |
+|---|---|---|---|
+| `callbacks/8` | left only | {"name":"onMoveEnd","args":[null,{"x":490,"y":124,"zoom":2}]} | — |
+| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onViewportChange#2","onMoveEnd#2","onNodesChange#2","onViewportChange#3"] | ["onSelectionChange#1","onNodesChange#1","onViewportChange#1","onMoveEnd#1","onViewportChange#2","onNodesChange#2","onViewportChange#3","onMoveEnd#2"] |
+| `callbacks/5/args/1/x` | differs | 515 | 490 |
+| `callbacks/5/args/1/y` | differs | 163.33333333333331 | 124 |
+| `callbacks/5/args/1/zoom` | differs | 1.6666666666666667 | 2 |
+
+**psflow did not reproduce.** The comparison below ran anyway —
+capture-everything applies to a failed run as much as to a passing one — but a difference it reports
+cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
 ---
 
@@ -71529,8 +71496,8 @@ a real divergence is exactly what would be hiding down there.
 | `console/2` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/3` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/4` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:49700/parity/driver/dist/… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:49700/parity/driver/dist/… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:50543/parity/driver/dist/… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:50543/parity/driver/dist/… |
 | `console/7` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 
 ## Normalization
@@ -72298,7 +72265,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 # System parity run — controls-default-zoom
 
-**Failed:** self-inconsistent, unclaimed-difference.
+**Failed:** unclaimed-difference.
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -72312,21 +72279,7 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | **disagrees with itself** | 5 |
-
-### psflow disagrees with itself
-
-| path | kind | capture 1 | capture 2 |
-|---|---|---|---|
-| `callbacks/7` | left only | {"name":"onMoveEnd","args":[null,{"x":290,"y":220,"zoom":2}]} | — |
-| `callbacks` | ordered differently | ["onSelectionChange#1","onViewportChange#1","onMoveEnd#1","onViewportChange#2","onMoveEnd#2","onNodesChange#1","onViewportChange#3"] | ["onSelectionChange#1","onViewportChange#1","onMoveEnd#1","onViewportChange#2","onNodesChange#1","onViewportChange#3","onMoveEnd#2"] |
-| `callbacks/4/args/1/x` | differs | 0 | 290 |
-| `callbacks/4/args/1/y` | differs | 0 | 220 |
-| `callbacks/4/args/1/zoom` | differs | 1 | 2 |
-
-**psflow did not reproduce.** The comparison below ran anyway —
-capture-everything applies to a failed run as much as to a passing one — but a difference it reports
-cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
+| psflow | 1, 2 | reproduced | 0 |
 
 ---
 
@@ -73219,7 +73172,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 # System parity run — drag-node-reports-changes
 
-**Failed:** self-inconsistent, self-inconsistent, unclaimed-difference.
+**Failed:** self-inconsistent, unclaimed-difference.
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -73232,219 +73185,108 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 
 | side | captures | verdict | differences |
 |---|---|---|---|
-| upstream | 1, 2 | **disagrees with itself** | 87 |
-| psflow | 1, 2 | **disagrees with itself** | 112 |
-
-### upstream disagrees with itself
-
-| path | kind | capture 1 | capture 2 |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/attrs/style` | differs | transform: translate(0px, 16.875px) scale(1); | transform: translate(0px, 13.125px) scale(1); |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/path[0]/attrs/d` | differs | M148,48.125 C197.5,48.125 197.5,120 247,120 | M148,51.875 C197.5,51.875 197.5,120 247,120 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/path[1]/attrs/d` | differs | M148,48.125 C197.5,48.125 197.5,120 247,120 | M148,51.875 C197.5,51.875 197.5,120 247,120 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/circle[0]/attrs/cy` | differs | 48.125 | 51.875 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n1/attrs/style` | differs | height: 40px; pointer-events: all; transform: translate(45px, 28.125px); visibility: visible; width: 100px; z-index: 1000; | height: 40px; pointer-events: all; transform: translate(45px, 31.875px); visibility: visible; width: 100px; z-index: 1000; |
-| `dom/root/children/div[2]/children/svg[0]/attrs/viewBox` | differs | -32 -168.875 1344 1024 | -32 -165.125 1344 1024 |
-| `dom/root/children/div[2]/children/svg[0]/children/rect[0]/attrs/y` | differs | 28.125 | 31.875 |
-| `dom/root/children/div[2]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-200.875h1408v1088h-1408z⏎        M0,-16.875h1280v720h-1280z | M-64,-197.125h1408v1088h-1408z⏎        M0,-13.125h1280v720h-1280z |
-| `dom/root/children/svg[0]/children/pattern-1/attrs/y` | differs | 16.875 | 13.125 |
-| `callbacks/30` | left only | {"name":"onMoveStart","args":[null,{"x":0,"y":15,"zoom":1}]} | — |
-| `callbacks/31` | left only | {"name":"onViewportChange","args":[{"x":0,"y":16.875,"zoom":1}]} | — |
-| `callbacks/32` | left only | {"name":"onMove","args":[null,{"x":0,"y":16.875,"zoom":1}]} | — |
-| `callbacks/35` | left only | {"name":"onMoveEnd","args":[null,{"x":0,"y":16.875,"zoom":1}]} | — |
-| `callbacks/56` | left only | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"n1","data":{"label":"n1"},"position":{"x":45,"y":28.125},"sourcePosition":"right",… | — |
-| `callbacks/57` | left only | {"name":"onNodesChange","args":[[{"id":"n1","type":"position","position":{"x":45,"y":28.125},"dragging":false}]]} | — |
-| `callbacks` | ordered differently | ["onSelectionChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onPaneMouseMove#2","onNodesChange#1","onNodeDragStart… | ["onSelectionChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onPaneMouseMove#2","onNodesChange#1","onNodeDragStart… |
-| `callbacks/22/args/0/y` | differs | 15 | 13.125 |
-| `callbacks/23/args/1/y` | differs | 15 | 13.125 |
-| `callbacks/24/args/0/0/position/x` | differs | 5 | 10 |
-| `callbacks/24/args/0/0/position/y` | differs | -2.5 | -1.25 |
-| `callbacks/25/args/1/position/x` | differs | 5 | 10 |
-| `callbacks/25/args/1/position/y` | differs | -2.5 | -1.25 |
-| `callbacks/25/args/2/0/position/x` | differs | 5 | 10 |
-| `callbacks/25/args/2/0/position/y` | differs | -2.5 | -1.25 |
-| `callbacks/26/args/1/y` | differs | 15 | 13.125 |
-| `callbacks/28/args/0/0/position/y` | differs | -5 | -3.125 |
-| `callbacks/29/args/1/position/y` | differs | -5 | -3.125 |
-| `callbacks/29/args/2/0/position/y` | differs | -5 | -3.125 |
-| `callbacks/33/args/0/0/position/x` | differs | 10 | 15 |
-| `callbacks/33/args/0/0/position/y` | differs | -6.875 | 1.875 |
-| `callbacks/34/args/1/position/x` | differs | 10 | 15 |
-| `callbacks/34/args/1/position/y` | differs | -6.875 | 1.875 |
-| `callbacks/34/args/2/0/position/x` | differs | 10 | 15 |
-| `callbacks/34/args/2/0/position/y` | differs | -6.875 | 1.875 |
-| `callbacks/37/args/0/0/position/x` | differs | 15 | 20 |
-| `callbacks/37/args/0/0/position/y` | differs | -1.875 | 6.875 |
-| `callbacks/38/args/1/position/x` | differs | 15 | 20 |
-| `callbacks/38/args/1/position/y` | differs | -1.875 | 6.875 |
-| `callbacks/38/args/2/0/position/x` | differs | 15 | 20 |
-| `callbacks/38/args/2/0/position/y` | differs | -1.875 | 6.875 |
-| `callbacks/40/args/0/0/position/x` | differs | 20 | 25 |
-| `callbacks/40/args/0/0/position/y` | differs | 3.125 | 11.875 |
-| `callbacks/41/args/1/position/x` | differs | 20 | 25 |
-| `callbacks/41/args/1/position/y` | differs | 3.125 | 11.875 |
-| `callbacks/41/args/2/0/position/x` | differs | 20 | 25 |
-| `callbacks/41/args/2/0/position/y` | differs | 3.125 | 11.875 |
-| `callbacks/43/args/0/0/position/x` | differs | 25 | 30 |
-| `callbacks/43/args/0/0/position/y` | differs | 8.125 | 16.875 |
-| `callbacks/44/args/1/position/x` | differs | 25 | 30 |
-| `callbacks/44/args/1/position/y` | differs | 8.125 | 16.875 |
-| `callbacks/44/args/2/0/position/x` | differs | 25 | 30 |
-| `callbacks/44/args/2/0/position/y` | differs | 8.125 | 16.875 |
-| `callbacks/46/args/0/0/position/x` | differs | 30 | 35 |
-| `callbacks/46/args/0/0/position/y` | differs | 13.125 | 21.875 |
-| `callbacks/47/args/1/position/x` | differs | 30 | 35 |
-| `callbacks/47/args/1/position/y` | differs | 13.125 | 21.875 |
-| `callbacks/47/args/2/0/position/x` | differs | 30 | 35 |
-| `callbacks/47/args/2/0/position/y` | differs | 13.125 | 21.875 |
-| `callbacks/49/args/0/0/position/x` | differs | 35 | 40 |
-| `callbacks/49/args/0/0/position/y` | differs | 18.125 | 26.875 |
-| `callbacks/50/args/1/position/x` | differs | 35 | 40 |
-| `callbacks/50/args/1/position/y` | differs | 18.125 | 26.875 |
-| `callbacks/50/args/2/0/position/x` | differs | 35 | 40 |
-| `callbacks/50/args/2/0/position/y` | differs | 18.125 | 26.875 |
-| `callbacks/52/args/0/0/position/x` | differs | 40 | 45 |
-| `callbacks/52/args/0/0/position/y` | differs | 23.125 | 31.875 |
-| `callbacks/53/args/1/position/x` | differs | 40 | 45 |
-| `callbacks/53/args/1/position/y` | differs | 23.125 | 31.875 |
-| `callbacks/53/args/2/0/position/x` | differs | 40 | 45 |
-| `callbacks/53/args/2/0/position/y` | differs | 23.125 | 31.875 |
-| `callbacks/55/args/0/0/position/y` | differs | 28.125 | 31.875 |
-| `callbacks/55/args/0/0/dragging` | differs | true | false |
-| `callbacks/58/args/1/position/y` | differs | 28.125 | 31.875 |
-| `callbacks/58/args/2/0/position/y` | differs | 28.125 | 31.875 |
-| `api/queries/getNodes/0/position/y` | differs | 28.125 | 31.875 |
-| `api/queries/getNode/position/y` | differs | 28.125 | 31.875 |
-| `api/queries/getInternalNode/position/y` | differs | 28.125 | 31.875 |
-| `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | 28.125 | 31.875 |
-| `api/queries/getInternalNode/internals/userNode/position/y` | differs | 28.125 | 31.875 |
-| `api/queries/getIntersectingNodes/0/position/y` | differs | 28.125 | 31.875 |
-| `api/queries/getNodesBounds/y` | differs | 28.125 | 31.875 |
-| `api/queries/getNodesBounds/height` | differs | 111.875 | 108.125 |
-| `api/queries/toObject/nodes/0/position/y` | differs | 28.125 | 31.875 |
-| `api/queries/toObject/viewport/y` | differs | 16.875 | 13.125 |
-| `api/queries/getViewport/y` | differs | 16.875 | 13.125 |
-| `api/queries/screenToFlowPosition/y` | differs | -16.875 | -13.125 |
-| `api/queries/flowToScreenPosition/y` | differs | 16.875 | 13.125 |
+| upstream | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | **disagrees with itself** | 93 |
 
 ### psflow disagrees with itself
 
 | path | kind | capture 1 | capture 2 |
 |---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/attrs/style` | differs | transform: translate(0px, 24.375px) scale(1); | transform: translate(0px, 18.75px) scale(1); |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/path[0]/attrs/d` | differs | M148,40.625 C197.5,40.625 197.5,120 247,120 | M148,46.25 C197.5,46.25 197.5,120 247,120 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/path[1]/attrs/d` | differs | M148,40.625 C197.5,40.625 197.5,120 247,120 | M148,46.25 C197.5,46.25 197.5,120 247,120 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/circle[0]/attrs/cy` | differs | 40.625 | 46.25 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n1/attrs/style` | differs | height: 40px; pointer-events: all; transform: translate(45px, 20.625px); visibility: visible; width: 100px; z-index: 1000; | height: 40px; pointer-events: all; transform: translate(45px, 26.25px); visibility: visible; width: 100px; z-index: 1000; |
-| `dom/root/children/div[2]/children/svg[0]/attrs/viewBox` | differs | -32 -176.375 1344 1024 | -32 -170.75 1344 1024 |
-| `dom/root/children/div[2]/children/svg[0]/children/rect[0]/attrs/y` | differs | 20.625 | 26.25 |
-| `dom/root/children/div[2]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-208.375h1408v1088h-1408z M0,-24.375h1280v720h-1280z | M-64,-202.75h1408v1088h-1408z M0,-18.75h1280v720h-1280z |
-| `dom/root/children/svg[0]/children/defs[0]/children/pattern-1/attrs/y` | differs | 4.375 | 18.75 |
-| `callbacks/29` | left only | {"name":"onViewportChange","args":[{"x":0,"y":22.5,"zoom":1}]} | — |
-| `callbacks/33` | left only | {"name":"onViewportChange","args":[{"x":0,"y":24.375,"zoom":1}]} | — |
-| `callbacks/54` | left only | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"n1","position":{"x":40,"y":15.625},"data":{"label":"n1"},"type":{"@undefined":true… | — |
-| `callbacks/56` | left only | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… | — |
-| `callbacks/57` | left only | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"n1","position":{"x":45,"y":20.625},"data":{"label":"n1"},"type":{"@undefined":true… | — |
-| `callbacks/58` | left only | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… | — |
-| `callbacks/34` | right only | — | {"name":"onMoveEnd","args":[null,{"x":0,"y":18.75,"zoom":1}]} |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/attrs/style` | differs | transform: translate(0px, 20.625px) scale(1); | transform: translate(0px, 16.875px) scale(1); |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/path[0]/attrs/d` | differs | M148,44.375 C197.5,44.375 197.5,120 247,120 | M148,48.125 C197.5,48.125 197.5,120 247,120 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/path[1]/attrs/d` | differs | M148,44.375 C197.5,44.375 197.5,120 247,120 | M148,48.125 C197.5,48.125 197.5,120 247,120 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/circle[0]/attrs/cy` | differs | 44.375 | 48.125 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n1/attrs/style` | differs | height: 40px; pointer-events: all; transform: translate(45px, 24.375px); visibility: visible; width: 100px; z-index: 1000; | height: 40px; pointer-events: all; transform: translate(45px, 28.125px); visibility: visible; width: 100px; z-index: 1000; |
+| `dom/root/children/div[2]/children/svg[0]/attrs/viewBox` | differs | -32 -172.625 1344 1024 | -32 -168.875 1344 1024 |
+| `dom/root/children/div[2]/children/svg[0]/children/rect[0]/attrs/y` | differs | 24.375 | 28.125 |
+| `dom/root/children/div[2]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-204.625h1408v1088h-1408z M0,-20.625h1280v720h-1280z | M-64,-200.875h1408v1088h-1408z M0,-16.875h1280v720h-1280z |
+| `dom/root/children/svg[0]/children/defs[0]/children/pattern-1/attrs/y` | differs | 0.625 | 16.875 |
+| `callbacks/27` | left only | {"name":"onViewportChange","args":[{"x":0,"y":18.75,"zoom":1}]} | — |
+| `callbacks/30` | left only | {"name":"onViewportChange","args":[{"x":0,"y":20.625,"zoom":1}]} | — |
+| `callbacks/51` | left only | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"n1","position":{"x":40,"y":19.375},"data":{"label":"n1"},"type":{"@undefined":true… | — |
+| `callbacks/53` | left only | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… | — |
+| `callbacks/54` | left only | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"n1","position":{"x":45,"y":24.375},"data":{"label":"n1"},"type":{"@undefined":true… | — |
+| `callbacks/55` | left only | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… | — |
+| `callbacks/28` | right only | — | {"name":"onMoveEnd","args":[null,{"x":0,"y":16.875,"zoom":1}]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onPaneMouseMove#2","onNodesChange#1","onEdgesChange#1… | ["onSelectionChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onPaneMouseMove#2","onNodesChange#1","onEdgesChange#1… |
-| `callbacks/20/args/0/y` | differs | 18.75 | 16.875 |
-| `callbacks/21/args/0/0/position/x` | differs | 5 | 10 |
-| `callbacks/21/args/0/0/position/y` | differs | -6.25 | -5 |
-| `callbacks/21/args/0/0/positionAbsolute/x` | differs | 5 | 10 |
-| `callbacks/21/args/0/0/positionAbsolute/y` | differs | -6.25 | -5 |
-| `callbacks/22/args/1/position/x` | differs | 5 | 10 |
-| `callbacks/22/args/1/position/y` | differs | -6.25 | -5 |
-| `callbacks/22/args/2/0/position/x` | differs | 5 | 10 |
-| `callbacks/22/args/2/0/position/y` | differs | -6.25 | -5 |
-| `callbacks/24/args/0/0/position/y` | differs | -8.75 | -6.875 |
-| `callbacks/24/args/0/0/positionAbsolute/y` | differs | -8.75 | -6.875 |
-| `callbacks/25/args/1/position/y` | differs | -8.75 | -6.875 |
-| `callbacks/25/args/2/0/position/y` | differs | -8.75 | -6.875 |
-| `callbacks/26/args/0/y` | differs | 20.625 | 18.75 |
-| `callbacks/27/args/0/0/position/y` | differs | -10.625 | -8.75 |
-| `callbacks/27/args/0/0/positionAbsolute/y` | differs | -10.625 | -8.75 |
-| `callbacks/28/args/1/position/y` | differs | -10.625 | -8.75 |
-| `callbacks/28/args/2/0/position/y` | differs | -10.625 | -8.75 |
-| `callbacks/30/args/0/0/position/x` | differs | 10 | 15 |
-| `callbacks/30/args/0/0/position/y` | differs | -12.5 | -3.75 |
-| `callbacks/30/args/0/0/positionAbsolute/x` | differs | 10 | 15 |
-| `callbacks/30/args/0/0/positionAbsolute/y` | differs | -12.5 | -3.75 |
-| `callbacks/31/args/1/position/x` | differs | 10 | 15 |
-| `callbacks/31/args/1/position/y` | differs | -12.5 | -3.75 |
-| `callbacks/31/args/2/0/position/x` | differs | 10 | 15 |
-| `callbacks/31/args/2/0/position/y` | differs | -12.5 | -3.75 |
-| `callbacks/32/args/1/y` | differs | 22.5 | 11.25 |
-| `callbacks/34/args/0/0/position/x` | differs | 10 | 20 |
-| `callbacks/34/args/0/0/position/y` | differs | -14.375 | 1.25 |
-| `callbacks/34/args/0/0/positionAbsolute/x` | differs | 10 | 20 |
-| `callbacks/34/args/0/0/positionAbsolute/y` | differs | -14.375 | 1.25 |
-| `callbacks/35/args/1/position/x` | differs | 10 | 20 |
-| `callbacks/35/args/1/position/y` | differs | -14.375 | 1.25 |
-| `callbacks/35/args/2/0/position/x` | differs | 10 | 20 |
-| `callbacks/35/args/2/0/position/y` | differs | -14.375 | 1.25 |
-| `callbacks/37/args/0/0/position/x` | differs | 15 | 25 |
-| `callbacks/37/args/0/0/position/y` | differs | -9.375 | 6.25 |
-| `callbacks/37/args/0/0/positionAbsolute/x` | differs | 15 | 25 |
-| `callbacks/37/args/0/0/positionAbsolute/y` | differs | -9.375 | 6.25 |
-| `callbacks/38/args/1/position/x` | differs | 15 | 25 |
-| `callbacks/38/args/1/position/y` | differs | -9.375 | 6.25 |
-| `callbacks/38/args/2/0/position/x` | differs | 15 | 25 |
-| `callbacks/38/args/2/0/position/y` | differs | -9.375 | 6.25 |
-| `callbacks/39/args/1/y` | differs | 24.375 | 16.875 |
-| `callbacks/41/args/0/0/position/x` | differs | 20 | 30 |
-| `callbacks/41/args/0/0/position/y` | differs | -4.375 | 11.25 |
-| `callbacks/41/args/0/0/positionAbsolute/x` | differs | 20 | 30 |
-| `callbacks/41/args/0/0/positionAbsolute/y` | differs | -4.375 | 11.25 |
-| `callbacks/42/args/1/position/x` | differs | 20 | 30 |
-| `callbacks/42/args/1/position/y` | differs | -4.375 | 11.25 |
-| `callbacks/42/args/2/0/position/x` | differs | 20 | 30 |
-| `callbacks/42/args/2/0/position/y` | differs | -4.375 | 11.25 |
-| `callbacks/44/args/0/0/position/x` | differs | 25 | 35 |
-| `callbacks/44/args/0/0/position/y` | differs | 0.625 | 16.25 |
-| `callbacks/44/args/0/0/positionAbsolute/x` | differs | 25 | 35 |
-| `callbacks/44/args/0/0/positionAbsolute/y` | differs | 0.625 | 16.25 |
-| `callbacks/45/args/1/position/x` | differs | 25 | 35 |
-| `callbacks/45/args/1/position/y` | differs | 0.625 | 16.25 |
-| `callbacks/45/args/2/0/position/x` | differs | 25 | 35 |
-| `callbacks/45/args/2/0/position/y` | differs | 0.625 | 16.25 |
-| `callbacks/47/args/0/0/position/x` | differs | 30 | 40 |
-| `callbacks/47/args/0/0/position/y` | differs | 5.625 | 21.25 |
-| `callbacks/47/args/0/0/positionAbsolute/x` | differs | 30 | 40 |
-| `callbacks/47/args/0/0/positionAbsolute/y` | differs | 5.625 | 21.25 |
-| `callbacks/48/args/1/position/x` | differs | 30 | 40 |
-| `callbacks/48/args/1/position/y` | differs | 5.625 | 21.25 |
-| `callbacks/48/args/2/0/position/x` | differs | 30 | 40 |
-| `callbacks/48/args/2/0/position/y` | differs | 5.625 | 21.25 |
-| `callbacks/50/args/0/0/position/x` | differs | 35 | 45 |
-| `callbacks/50/args/0/0/position/y` | differs | 10.625 | 26.25 |
-| `callbacks/50/args/0/0/positionAbsolute/x` | differs | 35 | 45 |
-| `callbacks/50/args/0/0/positionAbsolute/y` | differs | 10.625 | 26.25 |
-| `callbacks/51/args/1/position/x` | differs | 35 | 45 |
-| `callbacks/51/args/1/position/y` | differs | 10.625 | 26.25 |
-| `callbacks/51/args/2/0/position/x` | differs | 35 | 45 |
-| `callbacks/51/args/2/0/position/y` | differs | 10.625 | 26.25 |
-| `callbacks/53/args/0/0/position/x` | differs | 40 | 45 |
-| `callbacks/53/args/0/0/position/y` | differs | 15.625 | 26.25 |
-| `callbacks/53/args/0/0/positionAbsolute/x` | differs | 40 | 45 |
-| `callbacks/53/args/0/0/positionAbsolute/y` | differs | 15.625 | 26.25 |
-| `callbacks/53/args/0/0/dragging` | differs | true | false |
-| `callbacks/59/args/1/position/y` | differs | 20.625 | 26.25 |
-| `callbacks/59/args/2/0/position/y` | differs | 20.625 | 26.25 |
-| `api/queries/getNodes/0/position/y` | differs | 20.625 | 26.25 |
-| `api/queries/getNode/position/y` | differs | 20.625 | 26.25 |
-| `api/queries/getInternalNode/position/y` | differs | 20.625 | 26.25 |
-| `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | 20.625 | 26.25 |
-| `api/queries/getIntersectingNodes/0/position/y` | differs | 20.625 | 26.25 |
-| `api/queries/getNodesBounds/y` | differs | 20.625 | 26.25 |
-| `api/queries/getNodesBounds/height` | differs | 119.375 | 113.75 |
-| `api/queries/toObject/nodes/0/position/y` | differs | 20.625 | 26.25 |
-| `api/queries/toObject/viewport/y` | differs | 24.375 | 18.75 |
-| `api/queries/getViewport/y` | differs | 24.375 | 18.75 |
-| `api/queries/screenToFlowPosition/y` | differs | -24.375 | -18.75 |
-| `api/queries/flowToScreenPosition/y` | differs | 24.375 | 18.75 |
+| `callbacks/28/args/0/0/position/x` | differs | 10 | 15 |
+| `callbacks/28/args/0/0/position/y` | differs | -8.75 | -1.875 |
+| `callbacks/28/args/0/0/positionAbsolute/x` | differs | 10 | 15 |
+| `callbacks/28/args/0/0/positionAbsolute/y` | differs | -8.75 | -1.875 |
+| `callbacks/29/args/1/position/x` | differs | 10 | 15 |
+| `callbacks/29/args/1/position/y` | differs | -8.75 | -1.875 |
+| `callbacks/29/args/2/0/position/x` | differs | 10 | 15 |
+| `callbacks/29/args/2/0/position/y` | differs | -8.75 | -1.875 |
+| `callbacks/31/args/0/0/position/x` | differs | 10 | 20 |
+| `callbacks/31/args/0/0/position/y` | differs | -10.625 | 3.125 |
+| `callbacks/31/args/0/0/positionAbsolute/x` | differs | 10 | 20 |
+| `callbacks/31/args/0/0/positionAbsolute/y` | differs | -10.625 | 3.125 |
+| `callbacks/32/args/1/position/x` | differs | 10 | 20 |
+| `callbacks/32/args/1/position/y` | differs | -10.625 | 3.125 |
+| `callbacks/32/args/2/0/position/x` | differs | 10 | 20 |
+| `callbacks/32/args/2/0/position/y` | differs | -10.625 | 3.125 |
+| `callbacks/33/args/1/y` | differs | 20.625 | 15 |
+| `callbacks/35/args/0/0/position/x` | differs | 15 | 25 |
+| `callbacks/35/args/0/0/position/y` | differs | -5.625 | 8.125 |
+| `callbacks/35/args/0/0/positionAbsolute/x` | differs | 15 | 25 |
+| `callbacks/35/args/0/0/positionAbsolute/y` | differs | -5.625 | 8.125 |
+| `callbacks/36/args/1/position/x` | differs | 15 | 25 |
+| `callbacks/36/args/1/position/y` | differs | -5.625 | 8.125 |
+| `callbacks/36/args/2/0/position/x` | differs | 15 | 25 |
+| `callbacks/36/args/2/0/position/y` | differs | -5.625 | 8.125 |
+| `callbacks/38/args/0/0/position/x` | differs | 20 | 30 |
+| `callbacks/38/args/0/0/position/y` | differs | -0.625 | 13.125 |
+| `callbacks/38/args/0/0/positionAbsolute/x` | differs | 20 | 30 |
+| `callbacks/38/args/0/0/positionAbsolute/y` | differs | -0.625 | 13.125 |
+| `callbacks/39/args/1/position/x` | differs | 20 | 30 |
+| `callbacks/39/args/1/position/y` | differs | -0.625 | 13.125 |
+| `callbacks/39/args/2/0/position/x` | differs | 20 | 30 |
+| `callbacks/39/args/2/0/position/y` | differs | -0.625 | 13.125 |
+| `callbacks/41/args/0/0/position/x` | differs | 25 | 35 |
+| `callbacks/41/args/0/0/position/y` | differs | 4.375 | 18.125 |
+| `callbacks/41/args/0/0/positionAbsolute/x` | differs | 25 | 35 |
+| `callbacks/41/args/0/0/positionAbsolute/y` | differs | 4.375 | 18.125 |
+| `callbacks/42/args/1/position/x` | differs | 25 | 35 |
+| `callbacks/42/args/1/position/y` | differs | 4.375 | 18.125 |
+| `callbacks/42/args/2/0/position/x` | differs | 25 | 35 |
+| `callbacks/42/args/2/0/position/y` | differs | 4.375 | 18.125 |
+| `callbacks/44/args/0/0/position/x` | differs | 30 | 40 |
+| `callbacks/44/args/0/0/position/y` | differs | 9.375 | 23.125 |
+| `callbacks/44/args/0/0/positionAbsolute/x` | differs | 30 | 40 |
+| `callbacks/44/args/0/0/positionAbsolute/y` | differs | 9.375 | 23.125 |
+| `callbacks/45/args/1/position/x` | differs | 30 | 40 |
+| `callbacks/45/args/1/position/y` | differs | 9.375 | 23.125 |
+| `callbacks/45/args/2/0/position/x` | differs | 30 | 40 |
+| `callbacks/45/args/2/0/position/y` | differs | 9.375 | 23.125 |
+| `callbacks/47/args/0/0/position/x` | differs | 35 | 45 |
+| `callbacks/47/args/0/0/position/y` | differs | 14.375 | 28.125 |
+| `callbacks/47/args/0/0/positionAbsolute/x` | differs | 35 | 45 |
+| `callbacks/47/args/0/0/positionAbsolute/y` | differs | 14.375 | 28.125 |
+| `callbacks/48/args/1/position/x` | differs | 35 | 45 |
+| `callbacks/48/args/1/position/y` | differs | 14.375 | 28.125 |
+| `callbacks/48/args/2/0/position/x` | differs | 35 | 45 |
+| `callbacks/48/args/2/0/position/y` | differs | 14.375 | 28.125 |
+| `callbacks/50/args/0/0/position/x` | differs | 40 | 45 |
+| `callbacks/50/args/0/0/position/y` | differs | 19.375 | 28.125 |
+| `callbacks/50/args/0/0/positionAbsolute/x` | differs | 40 | 45 |
+| `callbacks/50/args/0/0/positionAbsolute/y` | differs | 19.375 | 28.125 |
+| `callbacks/50/args/0/0/dragging` | differs | true | false |
+| `callbacks/56/args/1/position/y` | differs | 24.375 | 28.125 |
+| `callbacks/56/args/2/0/position/y` | differs | 24.375 | 28.125 |
+| `api/queries/getNodes/0/position/y` | differs | 24.375 | 28.125 |
+| `api/queries/getNode/position/y` | differs | 24.375 | 28.125 |
+| `api/queries/getInternalNode/position/y` | differs | 24.375 | 28.125 |
+| `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | 24.375 | 28.125 |
+| `api/queries/getIntersectingNodes/0/position/y` | differs | 24.375 | 28.125 |
+| `api/queries/getNodesBounds/y` | differs | 24.375 | 28.125 |
+| `api/queries/getNodesBounds/height` | differs | 115.625 | 111.875 |
+| `api/queries/toObject/nodes/0/position/y` | differs | 24.375 | 28.125 |
+| `api/queries/toObject/viewport/y` | differs | 20.625 | 16.875 |
+| `api/queries/getViewport/y` | differs | 20.625 | 16.875 |
+| `api/queries/screenToFlowPosition/y` | differs | -20.625 | -16.875 |
+| `api/queries/flowToScreenPosition/y` | differs | 20.625 | 16.875 |
 
-**upstream and psflow did not reproduce.** The comparison below ran anyway —
+**psflow did not reproduce.** The comparison below ran anyway —
 capture-everything applies to a failed run as much as to a passing one — but a difference it reports
 cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
@@ -73456,7 +73298,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 992 unclaimed difference(s).
+**Failed:** 945 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -73464,14 +73306,14 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/attrs/style` | differs | transform: translate(0px, 16.875px) scale(1); | transform: translate(0px, 24.375px) scale(1); |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/attrs/style` | differs | transform: translate(0px, 13.125px) scale(1); | transform: translate(0px, 20.625px) scale(1); |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/attrs/aria-label` | left only | Edge from n1 to n2 | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/attrs/aria-describedby` | left only | react-flow__edge-desc-1 | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/path[0]/attrs/d` | differs | M148,48.125 C197.5,48.125 197.5,120 247,120 | M148,40.625 C197.5,40.625 197.5,120 247,120 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/path[1]/attrs/d` | differs | M148,48.125 C197.5,48.125 197.5,120 247,120 | M148,40.625 C197.5,40.625 197.5,120 247,120 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/circle[0]/attrs/cy` | differs | 48.125 | 40.625 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/path[0]/attrs/d` | differs | M148,51.875 C197.5,51.875 197.5,120 247,120 | M148,44.375 C197.5,44.375 197.5,120 247,120 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/path[1]/attrs/d` | differs | M148,51.875 C197.5,51.875 197.5,120 247,120 | M148,44.375 C197.5,44.375 197.5,120 247,120 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/circle[0]/attrs/cy` | differs | 51.875 | 44.375 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n1/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n1/attrs/style` | differs | height: 40px; pointer-events: all; transform: translate(45px, 28.125px); visibility: visible; width: 100px; z-index: 1000; | height: 40px; pointer-events: all; transform: translate(45px, 20.625px); visibility: visible; width: 100px; z-index: 1000; |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n1/attrs/style` | differs | height: 40px; pointer-events: all; transform: translate(45px, 31.875px); visibility: visible; width: 100px; z-index: 1000; | height: 40px; pointer-events: all; transform: translate(45px, 24.375px); visibility: visible; width: 100px; z-index: 1000; |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n1/children/1-n1-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"n1","data-handlepos":"left","data-id":"1-n1-null-target","class":"connectable connectableend connectablestart connectionin… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n1/children/1-n1-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"n1","data-handlepos":"right","data-id":"1-n1-null-source","class":"connectable connectableend connectablestart connectioni… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n1/children/1-n1--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-left target",… |
@@ -73481,17 +73323,17 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n2/children/1-n2-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"n2","data-handlepos":"right","data-id":"1-n2-null-source","class":"connectable connectableend connectablestart connectioni… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n2/children/1-n2--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-left target",… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n2/children/1-n2--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-right source"… |
-| `dom/root/children/div[2]/children/svg[0]/attrs/viewBox` | differs | -32 -168.875 1344 1024 | -32 -176.375 1344 1024 |
-| `dom/root/children/div[2]/children/svg[0]/children/rect[0]/attrs/y` | differs | 28.125 | 20.625 |
-| `dom/root/children/div[2]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-200.875h1408v1088h-1408z⏎        M0,-16.875h1280v720h-1280z | M-64,-208.375h1408v1088h-1408z M0,-24.375h1280v720h-1280z |
-| `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"16.875","width":"20","height":"20","patternUnits":"userSpaceOnUse","patternTransform":"translate(-11,-1… | — |
-| `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"4.375","width":"20","height":"20","patternUnits":"userSpaceOnUse",… |
+| `dom/root/children/div[2]/children/svg[0]/attrs/viewBox` | differs | -32 -165.125 1344 1024 | -32 -172.625 1344 1024 |
+| `dom/root/children/div[2]/children/svg[0]/children/rect[0]/attrs/y` | differs | 31.875 | 24.375 |
+| `dom/root/children/div[2]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-197.125h1408v1088h-1408z⏎        M0,-13.125h1280v720h-1280z | M-64,-204.625h1408v1088h-1408z M0,-20.625h1280v720h-1280z |
+| `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"13.125","width":"20","height":"20","patternUnits":"userSpaceOnUse","patternTransform":"translate(-11,-1… | — |
+| `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0.625","width":"20","height":"20","patternUnits":"userSpaceOnUse",… |
 | `dom/root/children/div[3]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[3]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[3]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (743)
+### callbacks (696)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -73499,21 +73341,18 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/12` | left only | {"name":"onMove","args":[null,{"x":0,"y":7.5,"zoom":1}]} | — |
 | `callbacks/15` | left only | {"name":"onMoveStart","args":[null,{"x":0,"y":7.5,"zoom":1}]} | — |
 | `callbacks/17` | left only | {"name":"onMove","args":[null,{"x":0,"y":11.25,"zoom":1}]} | — |
-| `callbacks/21` | left only | {"name":"onMoveStart","args":[null,{"x":0,"y":11.25,"zoom":1}]} | — |
-| `callbacks/23` | left only | {"name":"onMove","args":[null,{"x":0,"y":15,"zoom":1}]} | — |
-| `callbacks/30` | left only | {"name":"onMoveStart","args":[null,{"x":0,"y":15,"zoom":1}]} | — |
-| `callbacks/32` | left only | {"name":"onMove","args":[null,{"x":0,"y":16.875,"zoom":1}]} | — |
-| `callbacks/35` | left only | {"name":"onMoveEnd","args":[null,{"x":0,"y":16.875,"zoom":1}]} | — |
+| `callbacks/24` | left only | {"name":"onMoveStart","args":[null,{"x":0,"y":11.25,"zoom":1}]} | — |
+| `callbacks/26` | left only | {"name":"onMove","args":[null,{"x":0,"y":13.125,"zoom":1}]} | — |
 | `callbacks/7` | right only | — | {"name":"onEdgesChange","args":[[]]} |
-| `callbacks/26` | right only | — | {"name":"onViewportChange","args":[{"x":0,"y":20.625,"zoom":1}]} |
-| `callbacks/29` | right only | — | {"name":"onViewportChange","args":[{"x":0,"y":22.5,"zoom":1}]} |
-| `callbacks/33` | right only | — | {"name":"onViewportChange","args":[{"x":0,"y":24.375,"zoom":1}]} |
-| `callbacks/51` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"n1","position":{"x":35,"y":10.625},"data":{"label":"n1"},"type":{"@undefined":true… |
+| `callbacks/24` | right only | — | {"name":"onViewportChange","args":[{"x":0,"y":16.875,"zoom":1}]} |
+| `callbacks/27` | right only | — | {"name":"onViewportChange","args":[{"x":0,"y":18.75,"zoom":1}]} |
+| `callbacks/30` | right only | — | {"name":"onViewportChange","args":[{"x":0,"y":20.625,"zoom":1}]} |
+| `callbacks/48` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"n1","position":{"x":35,"y":14.375},"data":{"label":"n1"},"type":{"@undefined":true… |
+| `callbacks/50` | right only | — | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… |
+| `callbacks/51` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"n1","position":{"x":40,"y":19.375},"data":{"label":"n1"},"type":{"@undefined":true… |
 | `callbacks/53` | right only | — | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… |
-| `callbacks/54` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"n1","position":{"x":40,"y":15.625},"data":{"label":"n1"},"type":{"@undefined":true… |
-| `callbacks/56` | right only | — | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… |
-| `callbacks/57` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"n1","position":{"x":45,"y":20.625},"data":{"label":"n1"},"type":{"@undefined":true… |
-| `callbacks/58` | right only | — | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… |
+| `callbacks/54` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"n1","position":{"x":45,"y":24.375},"data":{"label":"n1"},"type":{"@undefined":true… |
+| `callbacks/55` | right only | — | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onPaneMouseMove#2","onNodesChange#1","onNodeDragStart… | ["onSelectionChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onPaneMouseMove#2","onNodesChange#1","onNodeDragStart… |
 | `callbacks/2/args/1/type` | right only | — | {"@undefined":true} |
 | `callbacks/2/args/1/hidden` | right only | — | false |
@@ -73706,149 +73545,203 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/19/args/2/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/19/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/19/args/2/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/20/args/1/y` | differs | 11.25 | 22.5 |
-| `callbacks/24/args/0/0/dimensions` | right only | — | {"@undefined":true} |
-| `callbacks/24/args/0/0/resizing` | right only | — | {"@undefined":true} |
-| `callbacks/24/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
-| `callbacks/24/args/0/0/selected` | right only | — | {"@undefined":true} |
-| `callbacks/24/args/0/0/item` | right only | — | {"@undefined":true} |
-| `callbacks/24/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/24/args/0/0/positionAbsolute` | right only | — | {"x":5,"y":-2.5} |
-| `callbacks/25/args/1/type` | right only | — | {"@undefined":true} |
-| `callbacks/25/args/1/hidden` | right only | — | false |
-| `callbacks/25/args/1/draggable` | right only | — | {"@undefined":true} |
-| `callbacks/25/args/1/selectable` | right only | — | {"@undefined":true} |
-| `callbacks/25/args/1/connectable` | right only | — | {"@undefined":true} |
-| `callbacks/25/args/1/deletable` | right only | — | {"@undefined":true} |
-| `callbacks/25/args/1/dragHandle` | right only | — | {"@undefined":true} |
-| `callbacks/25/args/1/initialWidth` | right only | — | {"@undefined":true} |
-| `callbacks/25/args/1/initialHeight` | right only | — | {"@undefined":true} |
-| `callbacks/25/args/1/parentId` | right only | — | {"@undefined":true} |
-| `callbacks/25/args/1/zIndex` | right only | — | {"@undefined":true} |
-| `callbacks/25/args/1/extent` | right only | — | {"@undefined":true} |
-| `callbacks/25/args/1/expandParent` | right only | — | false |
-| `callbacks/25/args/1/ariaLabel` | right only | — | {"@undefined":true} |
-| `callbacks/25/args/1/origin` | right only | — | {"@undefined":true} |
-| `callbacks/25/args/1/handles` | right only | — | {"@undefined":true} |
-| `callbacks/25/args/1/className` | right only | — | {"@undefined":true} |
-| `callbacks/25/args/1/style` | right only | — | {"@undefined":true} |
-| `callbacks/25/args/2/0/type` | right only | — | {"@undefined":true} |
-| `callbacks/25/args/2/0/hidden` | right only | — | false |
-| `callbacks/25/args/2/0/draggable` | right only | — | {"@undefined":true} |
-| `callbacks/25/args/2/0/selectable` | right only | — | {"@undefined":true} |
-| `callbacks/25/args/2/0/connectable` | right only | — | {"@undefined":true} |
-| `callbacks/25/args/2/0/deletable` | right only | — | {"@undefined":true} |
-| `callbacks/25/args/2/0/dragHandle` | right only | — | {"@undefined":true} |
-| `callbacks/25/args/2/0/initialWidth` | right only | — | {"@undefined":true} |
-| `callbacks/25/args/2/0/initialHeight` | right only | — | {"@undefined":true} |
-| `callbacks/25/args/2/0/parentId` | right only | — | {"@undefined":true} |
-| `callbacks/25/args/2/0/zIndex` | right only | — | {"@undefined":true} |
-| `callbacks/25/args/2/0/extent` | right only | — | {"@undefined":true} |
-| `callbacks/25/args/2/0/expandParent` | right only | — | false |
-| `callbacks/25/args/2/0/ariaLabel` | right only | — | {"@undefined":true} |
-| `callbacks/25/args/2/0/origin` | right only | — | {"@undefined":true} |
-| `callbacks/25/args/2/0/handles` | right only | — | {"@undefined":true} |
-| `callbacks/25/args/2/0/className` | right only | — | {"@undefined":true} |
-| `callbacks/25/args/2/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/26/args/1/y` | differs | 15 | 24.375 |
-| `callbacks/28/args/0/0/position/x` | differs | 10 | 5 |
-| `callbacks/28/args/0/0/position/y` | differs | -5 | -6.25 |
-| `callbacks/28/args/0/0/dimensions` | right only | — | {"@undefined":true} |
-| `callbacks/28/args/0/0/resizing` | right only | — | {"@undefined":true} |
-| `callbacks/28/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
-| `callbacks/28/args/0/0/selected` | right only | — | {"@undefined":true} |
-| `callbacks/28/args/0/0/item` | right only | — | {"@undefined":true} |
-| `callbacks/28/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/28/args/0/0/positionAbsolute` | right only | — | {"x":5,"y":-6.25} |
-| `callbacks/29/args/1/position/x` | differs | 10 | 5 |
-| `callbacks/29/args/1/position/y` | differs | -5 | -6.25 |
-| `callbacks/29/args/1/type` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/1/hidden` | right only | — | false |
-| `callbacks/29/args/1/draggable` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/1/selectable` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/1/connectable` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/1/deletable` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/1/dragHandle` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/1/initialWidth` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/1/initialHeight` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/1/parentId` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/1/zIndex` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/1/extent` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/1/expandParent` | right only | — | false |
-| `callbacks/29/args/1/ariaLabel` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/1/origin` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/1/handles` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/1/className` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/1/style` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/2/0/position/x` | differs | 10 | 5 |
-| `callbacks/29/args/2/0/position/y` | differs | -5 | -6.25 |
-| `callbacks/29/args/2/0/type` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/2/0/hidden` | right only | — | false |
-| `callbacks/29/args/2/0/draggable` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/2/0/selectable` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/2/0/connectable` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/2/0/deletable` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/2/0/dragHandle` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/2/0/initialWidth` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/2/0/initialHeight` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/2/0/parentId` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/2/0/zIndex` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/2/0/extent` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/2/0/expandParent` | right only | — | false |
-| `callbacks/29/args/2/0/ariaLabel` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/2/0/origin` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/2/0/handles` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/2/0/className` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/2/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/31/args/0/y` | differs | 16.875 | 18.75 |
-| `callbacks/33/args/0/0/position/y` | differs | -6.875 | -8.75 |
-| `callbacks/33/args/0/0/dimensions` | right only | — | {"@undefined":true} |
-| `callbacks/33/args/0/0/resizing` | right only | — | {"@undefined":true} |
-| `callbacks/33/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
-| `callbacks/33/args/0/0/selected` | right only | — | {"@undefined":true} |
-| `callbacks/33/args/0/0/item` | right only | — | {"@undefined":true} |
-| `callbacks/33/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/33/args/0/0/positionAbsolute` | right only | — | {"x":10,"y":-8.75} |
-| `callbacks/34/args/1/position/y` | differs | -6.875 | -8.75 |
-| `callbacks/34/args/1/type` | right only | — | {"@undefined":true} |
-| `callbacks/34/args/1/hidden` | right only | — | false |
-| `callbacks/34/args/1/draggable` | right only | — | {"@undefined":true} |
-| `callbacks/34/args/1/selectable` | right only | — | {"@undefined":true} |
-| `callbacks/34/args/1/connectable` | right only | — | {"@undefined":true} |
-| `callbacks/34/args/1/deletable` | right only | — | {"@undefined":true} |
-| `callbacks/34/args/1/dragHandle` | right only | — | {"@undefined":true} |
-| `callbacks/34/args/1/initialWidth` | right only | — | {"@undefined":true} |
-| `callbacks/34/args/1/initialHeight` | right only | — | {"@undefined":true} |
-| `callbacks/34/args/1/parentId` | right only | — | {"@undefined":true} |
-| `callbacks/34/args/1/zIndex` | right only | — | {"@undefined":true} |
-| `callbacks/34/args/1/extent` | right only | — | {"@undefined":true} |
-| `callbacks/34/args/1/expandParent` | right only | — | false |
-| `callbacks/34/args/1/ariaLabel` | right only | — | {"@undefined":true} |
-| `callbacks/34/args/1/origin` | right only | — | {"@undefined":true} |
-| `callbacks/34/args/1/handles` | right only | — | {"@undefined":true} |
-| `callbacks/34/args/1/className` | right only | — | {"@undefined":true} |
-| `callbacks/34/args/1/style` | right only | — | {"@undefined":true} |
-| `callbacks/34/args/2/0/position/y` | differs | -6.875 | -8.75 |
-| `callbacks/34/args/2/0/type` | right only | — | {"@undefined":true} |
-| `callbacks/34/args/2/0/hidden` | right only | — | false |
-| `callbacks/34/args/2/0/draggable` | right only | — | {"@undefined":true} |
-| `callbacks/34/args/2/0/selectable` | right only | — | {"@undefined":true} |
-| `callbacks/34/args/2/0/connectable` | right only | — | {"@undefined":true} |
-| `callbacks/34/args/2/0/deletable` | right only | — | {"@undefined":true} |
-| `callbacks/34/args/2/0/dragHandle` | right only | — | {"@undefined":true} |
-| `callbacks/34/args/2/0/initialWidth` | right only | — | {"@undefined":true} |
-| `callbacks/34/args/2/0/initialHeight` | right only | — | {"@undefined":true} |
-| `callbacks/34/args/2/0/parentId` | right only | — | {"@undefined":true} |
-| `callbacks/34/args/2/0/zIndex` | right only | — | {"@undefined":true} |
-| `callbacks/34/args/2/0/extent` | right only | — | {"@undefined":true} |
-| `callbacks/34/args/2/0/expandParent` | right only | — | false |
-| `callbacks/34/args/2/0/ariaLabel` | right only | — | {"@undefined":true} |
-| `callbacks/34/args/2/0/origin` | right only | — | {"@undefined":true} |
-| `callbacks/34/args/2/0/handles` | right only | — | {"@undefined":true} |
-| `callbacks/34/args/2/0/className` | right only | — | {"@undefined":true} |
-| `callbacks/34/args/2/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/37/args/0/0/position/x` | differs | 15 | 10 |
-| `callbacks/37/args/0/0/position/y` | differs | -1.875 | -10.625 |
+| `callbacks/22/args/0/0/position/x` | differs | 10 | 5 |
+| `callbacks/22/args/0/0/position/y` | differs | -1.25 | -2.5 |
+| `callbacks/22/args/0/0/dimensions` | right only | — | {"@undefined":true} |
+| `callbacks/22/args/0/0/resizing` | right only | — | {"@undefined":true} |
+| `callbacks/22/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
+| `callbacks/22/args/0/0/selected` | right only | — | {"@undefined":true} |
+| `callbacks/22/args/0/0/item` | right only | — | {"@undefined":true} |
+| `callbacks/22/args/0/0/index` | right only | — | {"@undefined":true} |
+| `callbacks/22/args/0/0/positionAbsolute` | right only | — | {"x":5,"y":-2.5} |
+| `callbacks/23/args/1/position/x` | differs | 10 | 5 |
+| `callbacks/23/args/1/position/y` | differs | -1.25 | -2.5 |
+| `callbacks/23/args/1/type` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/1/hidden` | right only | — | false |
+| `callbacks/23/args/1/draggable` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/1/selectable` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/1/connectable` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/1/deletable` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/1/dragHandle` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/1/initialWidth` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/1/initialHeight` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/1/parentId` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/1/zIndex` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/1/extent` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/1/expandParent` | right only | — | false |
+| `callbacks/23/args/1/ariaLabel` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/1/origin` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/1/handles` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/1/className` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/1/style` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/2/0/position/x` | differs | 10 | 5 |
+| `callbacks/23/args/2/0/position/y` | differs | -1.25 | -2.5 |
+| `callbacks/23/args/2/0/type` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/2/0/hidden` | right only | — | false |
+| `callbacks/23/args/2/0/draggable` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/2/0/selectable` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/2/0/connectable` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/2/0/deletable` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/2/0/dragHandle` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/2/0/initialWidth` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/2/0/initialHeight` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/2/0/parentId` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/2/0/zIndex` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/2/0/extent` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/2/0/expandParent` | right only | — | false |
+| `callbacks/23/args/2/0/ariaLabel` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/2/0/origin` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/2/0/handles` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/2/0/className` | right only | — | {"@undefined":true} |
+| `callbacks/23/args/2/0/style` | right only | — | {"@undefined":true} |
+| `callbacks/25/args/0/y` | differs | 13.125 | 15 |
+| `callbacks/27/args/0/0/position/y` | differs | -3.125 | -5 |
+| `callbacks/27/args/0/0/dimensions` | right only | — | {"@undefined":true} |
+| `callbacks/27/args/0/0/resizing` | right only | — | {"@undefined":true} |
+| `callbacks/27/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
+| `callbacks/27/args/0/0/selected` | right only | — | {"@undefined":true} |
+| `callbacks/27/args/0/0/item` | right only | — | {"@undefined":true} |
+| `callbacks/27/args/0/0/index` | right only | — | {"@undefined":true} |
+| `callbacks/27/args/0/0/positionAbsolute` | right only | — | {"x":10,"y":-5} |
+| `callbacks/28/args/1/position/y` | differs | -3.125 | -5 |
+| `callbacks/28/args/1/type` | right only | — | {"@undefined":true} |
+| `callbacks/28/args/1/hidden` | right only | — | false |
+| `callbacks/28/args/1/draggable` | right only | — | {"@undefined":true} |
+| `callbacks/28/args/1/selectable` | right only | — | {"@undefined":true} |
+| `callbacks/28/args/1/connectable` | right only | — | {"@undefined":true} |
+| `callbacks/28/args/1/deletable` | right only | — | {"@undefined":true} |
+| `callbacks/28/args/1/dragHandle` | right only | — | {"@undefined":true} |
+| `callbacks/28/args/1/initialWidth` | right only | — | {"@undefined":true} |
+| `callbacks/28/args/1/initialHeight` | right only | — | {"@undefined":true} |
+| `callbacks/28/args/1/parentId` | right only | — | {"@undefined":true} |
+| `callbacks/28/args/1/zIndex` | right only | — | {"@undefined":true} |
+| `callbacks/28/args/1/extent` | right only | — | {"@undefined":true} |
+| `callbacks/28/args/1/expandParent` | right only | — | false |
+| `callbacks/28/args/1/ariaLabel` | right only | — | {"@undefined":true} |
+| `callbacks/28/args/1/origin` | right only | — | {"@undefined":true} |
+| `callbacks/28/args/1/handles` | right only | — | {"@undefined":true} |
+| `callbacks/28/args/1/className` | right only | — | {"@undefined":true} |
+| `callbacks/28/args/1/style` | right only | — | {"@undefined":true} |
+| `callbacks/28/args/2/0/position/y` | differs | -3.125 | -5 |
+| `callbacks/28/args/2/0/type` | right only | — | {"@undefined":true} |
+| `callbacks/28/args/2/0/hidden` | right only | — | false |
+| `callbacks/28/args/2/0/draggable` | right only | — | {"@undefined":true} |
+| `callbacks/28/args/2/0/selectable` | right only | — | {"@undefined":true} |
+| `callbacks/28/args/2/0/connectable` | right only | — | {"@undefined":true} |
+| `callbacks/28/args/2/0/deletable` | right only | — | {"@undefined":true} |
+| `callbacks/28/args/2/0/dragHandle` | right only | — | {"@undefined":true} |
+| `callbacks/28/args/2/0/initialWidth` | right only | — | {"@undefined":true} |
+| `callbacks/28/args/2/0/initialHeight` | right only | — | {"@undefined":true} |
+| `callbacks/28/args/2/0/parentId` | right only | — | {"@undefined":true} |
+| `callbacks/28/args/2/0/zIndex` | right only | — | {"@undefined":true} |
+| `callbacks/28/args/2/0/extent` | right only | — | {"@undefined":true} |
+| `callbacks/28/args/2/0/expandParent` | right only | — | false |
+| `callbacks/28/args/2/0/ariaLabel` | right only | — | {"@undefined":true} |
+| `callbacks/28/args/2/0/origin` | right only | — | {"@undefined":true} |
+| `callbacks/28/args/2/0/handles` | right only | — | {"@undefined":true} |
+| `callbacks/28/args/2/0/className` | right only | — | {"@undefined":true} |
+| `callbacks/28/args/2/0/style` | right only | — | {"@undefined":true} |
+| `callbacks/29/args/1/y` | differs | 13.125 | 20.625 |
+| `callbacks/31/args/0/0/position/x` | differs | 15 | 10 |
+| `callbacks/31/args/0/0/position/y` | differs | 1.875 | -6.875 |
+| `callbacks/31/args/0/0/dimensions` | right only | — | {"@undefined":true} |
+| `callbacks/31/args/0/0/resizing` | right only | — | {"@undefined":true} |
+| `callbacks/31/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
+| `callbacks/31/args/0/0/selected` | right only | — | {"@undefined":true} |
+| `callbacks/31/args/0/0/item` | right only | — | {"@undefined":true} |
+| `callbacks/31/args/0/0/index` | right only | — | {"@undefined":true} |
+| `callbacks/31/args/0/0/positionAbsolute` | right only | — | {"x":10,"y":-6.875} |
+| `callbacks/32/args/1/position/x` | differs | 15 | 10 |
+| `callbacks/32/args/1/position/y` | differs | 1.875 | -6.875 |
+| `callbacks/32/args/1/type` | right only | — | {"@undefined":true} |
+| `callbacks/32/args/1/hidden` | right only | — | false |
+| `callbacks/32/args/1/draggable` | right only | — | {"@undefined":true} |
+| `callbacks/32/args/1/selectable` | right only | — | {"@undefined":true} |
+| `callbacks/32/args/1/connectable` | right only | — | {"@undefined":true} |
+| `callbacks/32/args/1/deletable` | right only | — | {"@undefined":true} |
+| `callbacks/32/args/1/dragHandle` | right only | — | {"@undefined":true} |
+| `callbacks/32/args/1/initialWidth` | right only | — | {"@undefined":true} |
+| `callbacks/32/args/1/initialHeight` | right only | — | {"@undefined":true} |
+| `callbacks/32/args/1/parentId` | right only | — | {"@undefined":true} |
+| `callbacks/32/args/1/zIndex` | right only | — | {"@undefined":true} |
+| `callbacks/32/args/1/extent` | right only | — | {"@undefined":true} |
+| `callbacks/32/args/1/expandParent` | right only | — | false |
+| `callbacks/32/args/1/ariaLabel` | right only | — | {"@undefined":true} |
+| `callbacks/32/args/1/origin` | right only | — | {"@undefined":true} |
+| `callbacks/32/args/1/handles` | right only | — | {"@undefined":true} |
+| `callbacks/32/args/1/className` | right only | — | {"@undefined":true} |
+| `callbacks/32/args/1/style` | right only | — | {"@undefined":true} |
+| `callbacks/32/args/2/0/position/x` | differs | 15 | 10 |
+| `callbacks/32/args/2/0/position/y` | differs | 1.875 | -6.875 |
+| `callbacks/32/args/2/0/type` | right only | — | {"@undefined":true} |
+| `callbacks/32/args/2/0/hidden` | right only | — | false |
+| `callbacks/32/args/2/0/draggable` | right only | — | {"@undefined":true} |
+| `callbacks/32/args/2/0/selectable` | right only | — | {"@undefined":true} |
+| `callbacks/32/args/2/0/connectable` | right only | — | {"@undefined":true} |
+| `callbacks/32/args/2/0/deletable` | right only | — | {"@undefined":true} |
+| `callbacks/32/args/2/0/dragHandle` | right only | — | {"@undefined":true} |
+| `callbacks/32/args/2/0/initialWidth` | right only | — | {"@undefined":true} |
+| `callbacks/32/args/2/0/initialHeight` | right only | — | {"@undefined":true} |
+| `callbacks/32/args/2/0/parentId` | right only | — | {"@undefined":true} |
+| `callbacks/32/args/2/0/zIndex` | right only | — | {"@undefined":true} |
+| `callbacks/32/args/2/0/extent` | right only | — | {"@undefined":true} |
+| `callbacks/32/args/2/0/expandParent` | right only | — | false |
+| `callbacks/32/args/2/0/ariaLabel` | right only | — | {"@undefined":true} |
+| `callbacks/32/args/2/0/origin` | right only | — | {"@undefined":true} |
+| `callbacks/32/args/2/0/handles` | right only | — | {"@undefined":true} |
+| `callbacks/32/args/2/0/className` | right only | — | {"@undefined":true} |
+| `callbacks/32/args/2/0/style` | right only | — | {"@undefined":true} |
+| `callbacks/34/args/0/0/position/x` | differs | 20 | 10 |
+| `callbacks/34/args/0/0/position/y` | differs | 6.875 | -8.75 |
+| `callbacks/34/args/0/0/dimensions` | right only | — | {"@undefined":true} |
+| `callbacks/34/args/0/0/resizing` | right only | — | {"@undefined":true} |
+| `callbacks/34/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
+| `callbacks/34/args/0/0/selected` | right only | — | {"@undefined":true} |
+| `callbacks/34/args/0/0/item` | right only | — | {"@undefined":true} |
+| `callbacks/34/args/0/0/index` | right only | — | {"@undefined":true} |
+| `callbacks/34/args/0/0/positionAbsolute` | right only | — | {"x":10,"y":-8.75} |
+| `callbacks/35/args/1/position/x` | differs | 20 | 10 |
+| `callbacks/35/args/1/position/y` | differs | 6.875 | -8.75 |
+| `callbacks/35/args/1/type` | right only | — | {"@undefined":true} |
+| `callbacks/35/args/1/hidden` | right only | — | false |
+| `callbacks/35/args/1/draggable` | right only | — | {"@undefined":true} |
+| `callbacks/35/args/1/selectable` | right only | — | {"@undefined":true} |
+| `callbacks/35/args/1/connectable` | right only | — | {"@undefined":true} |
+| `callbacks/35/args/1/deletable` | right only | — | {"@undefined":true} |
+| `callbacks/35/args/1/dragHandle` | right only | — | {"@undefined":true} |
+| `callbacks/35/args/1/initialWidth` | right only | — | {"@undefined":true} |
+| `callbacks/35/args/1/initialHeight` | right only | — | {"@undefined":true} |
+| `callbacks/35/args/1/parentId` | right only | — | {"@undefined":true} |
+| `callbacks/35/args/1/zIndex` | right only | — | {"@undefined":true} |
+| `callbacks/35/args/1/extent` | right only | — | {"@undefined":true} |
+| `callbacks/35/args/1/expandParent` | right only | — | false |
+| `callbacks/35/args/1/ariaLabel` | right only | — | {"@undefined":true} |
+| `callbacks/35/args/1/origin` | right only | — | {"@undefined":true} |
+| `callbacks/35/args/1/handles` | right only | — | {"@undefined":true} |
+| `callbacks/35/args/1/className` | right only | — | {"@undefined":true} |
+| `callbacks/35/args/1/style` | right only | — | {"@undefined":true} |
+| `callbacks/35/args/2/0/position/x` | differs | 20 | 10 |
+| `callbacks/35/args/2/0/position/y` | differs | 6.875 | -8.75 |
+| `callbacks/35/args/2/0/type` | right only | — | {"@undefined":true} |
+| `callbacks/35/args/2/0/hidden` | right only | — | false |
+| `callbacks/35/args/2/0/draggable` | right only | — | {"@undefined":true} |
+| `callbacks/35/args/2/0/selectable` | right only | — | {"@undefined":true} |
+| `callbacks/35/args/2/0/connectable` | right only | — | {"@undefined":true} |
+| `callbacks/35/args/2/0/deletable` | right only | — | {"@undefined":true} |
+| `callbacks/35/args/2/0/dragHandle` | right only | — | {"@undefined":true} |
+| `callbacks/35/args/2/0/initialWidth` | right only | — | {"@undefined":true} |
+| `callbacks/35/args/2/0/initialHeight` | right only | — | {"@undefined":true} |
+| `callbacks/35/args/2/0/parentId` | right only | — | {"@undefined":true} |
+| `callbacks/35/args/2/0/zIndex` | right only | — | {"@undefined":true} |
+| `callbacks/35/args/2/0/extent` | right only | — | {"@undefined":true} |
+| `callbacks/35/args/2/0/expandParent` | right only | — | false |
+| `callbacks/35/args/2/0/ariaLabel` | right only | — | {"@undefined":true} |
+| `callbacks/35/args/2/0/origin` | right only | — | {"@undefined":true} |
+| `callbacks/35/args/2/0/handles` | right only | — | {"@undefined":true} |
+| `callbacks/35/args/2/0/className` | right only | — | {"@undefined":true} |
+| `callbacks/35/args/2/0/style` | right only | — | {"@undefined":true} |
+| `callbacks/37/args/0/0/position/x` | differs | 25 | 10 |
+| `callbacks/37/args/0/0/position/y` | differs | 11.875 | -10.625 |
 | `callbacks/37/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/37/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/37/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
@@ -73856,8 +73749,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/37/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/37/args/0/0/index` | right only | — | {"@undefined":true} |
 | `callbacks/37/args/0/0/positionAbsolute` | right only | — | {"x":10,"y":-10.625} |
-| `callbacks/38/args/1/position/x` | differs | 15 | 10 |
-| `callbacks/38/args/1/position/y` | differs | -1.875 | -10.625 |
+| `callbacks/38/args/1/position/x` | differs | 25 | 10 |
+| `callbacks/38/args/1/position/y` | differs | 11.875 | -10.625 |
 | `callbacks/38/args/1/type` | right only | — | {"@undefined":true} |
 | `callbacks/38/args/1/hidden` | right only | — | false |
 | `callbacks/38/args/1/draggable` | right only | — | {"@undefined":true} |
@@ -73876,8 +73769,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/38/args/1/handles` | right only | — | {"@undefined":true} |
 | `callbacks/38/args/1/className` | right only | — | {"@undefined":true} |
 | `callbacks/38/args/1/style` | right only | — | {"@undefined":true} |
-| `callbacks/38/args/2/0/position/x` | differs | 15 | 10 |
-| `callbacks/38/args/2/0/position/y` | differs | -1.875 | -10.625 |
+| `callbacks/38/args/2/0/position/x` | differs | 25 | 10 |
+| `callbacks/38/args/2/0/position/y` | differs | 11.875 | -10.625 |
 | `callbacks/38/args/2/0/type` | right only | — | {"@undefined":true} |
 | `callbacks/38/args/2/0/hidden` | right only | — | false |
 | `callbacks/38/args/2/0/draggable` | right only | — | {"@undefined":true} |
@@ -73896,17 +73789,17 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/38/args/2/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/38/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/38/args/2/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/40/args/0/0/position/x` | differs | 20 | 10 |
-| `callbacks/40/args/0/0/position/y` | differs | 3.125 | -12.5 |
+| `callbacks/40/args/0/0/position/x` | differs | 30 | 15 |
+| `callbacks/40/args/0/0/position/y` | differs | 16.875 | -5.625 |
 | `callbacks/40/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/40/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/40/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
 | `callbacks/40/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/40/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/40/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/40/args/0/0/positionAbsolute` | right only | — | {"x":10,"y":-12.5} |
-| `callbacks/41/args/1/position/x` | differs | 20 | 10 |
-| `callbacks/41/args/1/position/y` | differs | 3.125 | -12.5 |
+| `callbacks/40/args/0/0/positionAbsolute` | right only | — | {"x":15,"y":-5.625} |
+| `callbacks/41/args/1/position/x` | differs | 30 | 15 |
+| `callbacks/41/args/1/position/y` | differs | 16.875 | -5.625 |
 | `callbacks/41/args/1/type` | right only | — | {"@undefined":true} |
 | `callbacks/41/args/1/hidden` | right only | — | false |
 | `callbacks/41/args/1/draggable` | right only | — | {"@undefined":true} |
@@ -73925,8 +73818,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/41/args/1/handles` | right only | — | {"@undefined":true} |
 | `callbacks/41/args/1/className` | right only | — | {"@undefined":true} |
 | `callbacks/41/args/1/style` | right only | — | {"@undefined":true} |
-| `callbacks/41/args/2/0/position/x` | differs | 20 | 10 |
-| `callbacks/41/args/2/0/position/y` | differs | 3.125 | -12.5 |
+| `callbacks/41/args/2/0/position/x` | differs | 30 | 15 |
+| `callbacks/41/args/2/0/position/y` | differs | 16.875 | -5.625 |
 | `callbacks/41/args/2/0/type` | right only | — | {"@undefined":true} |
 | `callbacks/41/args/2/0/hidden` | right only | — | false |
 | `callbacks/41/args/2/0/draggable` | right only | — | {"@undefined":true} |
@@ -73945,17 +73838,17 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/41/args/2/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/41/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/41/args/2/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/43/args/0/0/position/x` | differs | 25 | 10 |
-| `callbacks/43/args/0/0/position/y` | differs | 8.125 | -14.375 |
+| `callbacks/43/args/0/0/position/x` | differs | 35 | 20 |
+| `callbacks/43/args/0/0/position/y` | differs | 21.875 | -0.625 |
 | `callbacks/43/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/43/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/43/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
 | `callbacks/43/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/43/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/43/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/43/args/0/0/positionAbsolute` | right only | — | {"x":10,"y":-14.375} |
-| `callbacks/44/args/1/position/x` | differs | 25 | 10 |
-| `callbacks/44/args/1/position/y` | differs | 8.125 | -14.375 |
+| `callbacks/43/args/0/0/positionAbsolute` | right only | — | {"x":20,"y":-0.625} |
+| `callbacks/44/args/1/position/x` | differs | 35 | 20 |
+| `callbacks/44/args/1/position/y` | differs | 21.875 | -0.625 |
 | `callbacks/44/args/1/type` | right only | — | {"@undefined":true} |
 | `callbacks/44/args/1/hidden` | right only | — | false |
 | `callbacks/44/args/1/draggable` | right only | — | {"@undefined":true} |
@@ -73974,8 +73867,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/44/args/1/handles` | right only | — | {"@undefined":true} |
 | `callbacks/44/args/1/className` | right only | — | {"@undefined":true} |
 | `callbacks/44/args/1/style` | right only | — | {"@undefined":true} |
-| `callbacks/44/args/2/0/position/x` | differs | 25 | 10 |
-| `callbacks/44/args/2/0/position/y` | differs | 8.125 | -14.375 |
+| `callbacks/44/args/2/0/position/x` | differs | 35 | 20 |
+| `callbacks/44/args/2/0/position/y` | differs | 21.875 | -0.625 |
 | `callbacks/44/args/2/0/type` | right only | — | {"@undefined":true} |
 | `callbacks/44/args/2/0/hidden` | right only | — | false |
 | `callbacks/44/args/2/0/draggable` | right only | — | {"@undefined":true} |
@@ -73994,17 +73887,17 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/44/args/2/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/44/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/44/args/2/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/46/args/0/0/position/x` | differs | 30 | 15 |
-| `callbacks/46/args/0/0/position/y` | differs | 13.125 | -9.375 |
+| `callbacks/46/args/0/0/position/x` | differs | 40 | 25 |
+| `callbacks/46/args/0/0/position/y` | differs | 26.875 | 4.375 |
 | `callbacks/46/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/46/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/46/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
 | `callbacks/46/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/46/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/46/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/46/args/0/0/positionAbsolute` | right only | — | {"x":15,"y":-9.375} |
-| `callbacks/47/args/1/position/x` | differs | 30 | 15 |
-| `callbacks/47/args/1/position/y` | differs | 13.125 | -9.375 |
+| `callbacks/46/args/0/0/positionAbsolute` | right only | — | {"x":25,"y":4.375} |
+| `callbacks/47/args/1/position/x` | differs | 40 | 25 |
+| `callbacks/47/args/1/position/y` | differs | 26.875 | 4.375 |
 | `callbacks/47/args/1/type` | right only | — | {"@undefined":true} |
 | `callbacks/47/args/1/hidden` | right only | — | false |
 | `callbacks/47/args/1/draggable` | right only | — | {"@undefined":true} |
@@ -74023,8 +73916,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/47/args/1/handles` | right only | — | {"@undefined":true} |
 | `callbacks/47/args/1/className` | right only | — | {"@undefined":true} |
 | `callbacks/47/args/1/style` | right only | — | {"@undefined":true} |
-| `callbacks/47/args/2/0/position/x` | differs | 30 | 15 |
-| `callbacks/47/args/2/0/position/y` | differs | 13.125 | -9.375 |
+| `callbacks/47/args/2/0/position/x` | differs | 40 | 25 |
+| `callbacks/47/args/2/0/position/y` | differs | 26.875 | 4.375 |
 | `callbacks/47/args/2/0/type` | right only | — | {"@undefined":true} |
 | `callbacks/47/args/2/0/hidden` | right only | — | false |
 | `callbacks/47/args/2/0/draggable` | right only | — | {"@undefined":true} |
@@ -74043,17 +73936,17 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/47/args/2/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/47/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/47/args/2/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/49/args/0/0/position/x` | differs | 35 | 20 |
-| `callbacks/49/args/0/0/position/y` | differs | 18.125 | -4.375 |
+| `callbacks/49/args/0/0/position/x` | differs | 45 | 30 |
+| `callbacks/49/args/0/0/position/y` | differs | 31.875 | 9.375 |
 | `callbacks/49/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/49/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/49/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
 | `callbacks/49/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/49/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/49/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/49/args/0/0/positionAbsolute` | right only | — | {"x":20,"y":-4.375} |
-| `callbacks/50/args/1/position/x` | differs | 35 | 20 |
-| `callbacks/50/args/1/position/y` | differs | 18.125 | -4.375 |
+| `callbacks/49/args/0/0/positionAbsolute` | right only | — | {"x":30,"y":9.375} |
+| `callbacks/50/args/1/position/x` | differs | 45 | 30 |
+| `callbacks/50/args/1/position/y` | differs | 31.875 | 9.375 |
 | `callbacks/50/args/1/type` | right only | — | {"@undefined":true} |
 | `callbacks/50/args/1/hidden` | right only | — | false |
 | `callbacks/50/args/1/draggable` | right only | — | {"@undefined":true} |
@@ -74072,8 +73965,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/50/args/1/handles` | right only | — | {"@undefined":true} |
 | `callbacks/50/args/1/className` | right only | — | {"@undefined":true} |
 | `callbacks/50/args/1/style` | right only | — | {"@undefined":true} |
-| `callbacks/50/args/2/0/position/x` | differs | 35 | 20 |
-| `callbacks/50/args/2/0/position/y` | differs | 18.125 | -4.375 |
+| `callbacks/50/args/2/0/position/x` | differs | 45 | 30 |
+| `callbacks/50/args/2/0/position/y` | differs | 31.875 | 9.375 |
 | `callbacks/50/args/2/0/type` | right only | — | {"@undefined":true} |
 | `callbacks/50/args/2/0/hidden` | right only | — | false |
 | `callbacks/50/args/2/0/draggable` | right only | — | {"@undefined":true} |
@@ -74092,158 +73985,60 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/50/args/2/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/50/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/50/args/2/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/52/args/0/0/position/x` | differs | 40 | 25 |
-| `callbacks/52/args/0/0/position/y` | differs | 23.125 | 0.625 |
-| `callbacks/52/args/0/0/dimensions` | right only | — | {"@undefined":true} |
-| `callbacks/52/args/0/0/resizing` | right only | — | {"@undefined":true} |
-| `callbacks/52/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
-| `callbacks/52/args/0/0/selected` | right only | — | {"@undefined":true} |
-| `callbacks/52/args/0/0/item` | right only | — | {"@undefined":true} |
-| `callbacks/52/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/52/args/0/0/positionAbsolute` | right only | — | {"x":25,"y":0.625} |
-| `callbacks/53/args/1/position/x` | differs | 40 | 25 |
-| `callbacks/53/args/1/position/y` | differs | 23.125 | 0.625 |
-| `callbacks/53/args/1/type` | right only | — | {"@undefined":true} |
-| `callbacks/53/args/1/hidden` | right only | — | false |
-| `callbacks/53/args/1/draggable` | right only | — | {"@undefined":true} |
-| `callbacks/53/args/1/selectable` | right only | — | {"@undefined":true} |
-| `callbacks/53/args/1/connectable` | right only | — | {"@undefined":true} |
-| `callbacks/53/args/1/deletable` | right only | — | {"@undefined":true} |
-| `callbacks/53/args/1/dragHandle` | right only | — | {"@undefined":true} |
-| `callbacks/53/args/1/initialWidth` | right only | — | {"@undefined":true} |
-| `callbacks/53/args/1/initialHeight` | right only | — | {"@undefined":true} |
-| `callbacks/53/args/1/parentId` | right only | — | {"@undefined":true} |
-| `callbacks/53/args/1/zIndex` | right only | — | {"@undefined":true} |
-| `callbacks/53/args/1/extent` | right only | — | {"@undefined":true} |
-| `callbacks/53/args/1/expandParent` | right only | — | false |
-| `callbacks/53/args/1/ariaLabel` | right only | — | {"@undefined":true} |
-| `callbacks/53/args/1/origin` | right only | — | {"@undefined":true} |
-| `callbacks/53/args/1/handles` | right only | — | {"@undefined":true} |
-| `callbacks/53/args/1/className` | right only | — | {"@undefined":true} |
-| `callbacks/53/args/1/style` | right only | — | {"@undefined":true} |
-| `callbacks/53/args/2/0/position/x` | differs | 40 | 25 |
-| `callbacks/53/args/2/0/position/y` | differs | 23.125 | 0.625 |
-| `callbacks/53/args/2/0/type` | right only | — | {"@undefined":true} |
-| `callbacks/53/args/2/0/hidden` | right only | — | false |
-| `callbacks/53/args/2/0/draggable` | right only | — | {"@undefined":true} |
-| `callbacks/53/args/2/0/selectable` | right only | — | {"@undefined":true} |
-| `callbacks/53/args/2/0/connectable` | right only | — | {"@undefined":true} |
-| `callbacks/53/args/2/0/deletable` | right only | — | {"@undefined":true} |
-| `callbacks/53/args/2/0/dragHandle` | right only | — | {"@undefined":true} |
-| `callbacks/53/args/2/0/initialWidth` | right only | — | {"@undefined":true} |
-| `callbacks/53/args/2/0/initialHeight` | right only | — | {"@undefined":true} |
-| `callbacks/53/args/2/0/parentId` | right only | — | {"@undefined":true} |
-| `callbacks/53/args/2/0/zIndex` | right only | — | {"@undefined":true} |
-| `callbacks/53/args/2/0/extent` | right only | — | {"@undefined":true} |
-| `callbacks/53/args/2/0/expandParent` | right only | — | false |
-| `callbacks/53/args/2/0/ariaLabel` | right only | — | {"@undefined":true} |
-| `callbacks/53/args/2/0/origin` | right only | — | {"@undefined":true} |
-| `callbacks/53/args/2/0/handles` | right only | — | {"@undefined":true} |
-| `callbacks/53/args/2/0/className` | right only | — | {"@undefined":true} |
-| `callbacks/53/args/2/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/55/args/0/0/position/x` | differs | 45 | 30 |
-| `callbacks/55/args/0/0/position/y` | differs | 28.125 | 5.625 |
-| `callbacks/55/args/0/0/dimensions` | right only | — | {"@undefined":true} |
-| `callbacks/55/args/0/0/resizing` | right only | — | {"@undefined":true} |
-| `callbacks/55/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
-| `callbacks/55/args/0/0/selected` | right only | — | {"@undefined":true} |
-| `callbacks/55/args/0/0/item` | right only | — | {"@undefined":true} |
-| `callbacks/55/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/55/args/0/0/positionAbsolute` | right only | — | {"x":30,"y":5.625} |
-| `callbacks/56/args/1/position/x` | differs | 45 | 30 |
-| `callbacks/56/args/1/position/y` | differs | 28.125 | 5.625 |
-| `callbacks/56/args/1/type` | right only | — | {"@undefined":true} |
-| `callbacks/56/args/1/hidden` | right only | — | false |
-| `callbacks/56/args/1/draggable` | right only | — | {"@undefined":true} |
-| `callbacks/56/args/1/selectable` | right only | — | {"@undefined":true} |
-| `callbacks/56/args/1/connectable` | right only | — | {"@undefined":true} |
-| `callbacks/56/args/1/deletable` | right only | — | {"@undefined":true} |
-| `callbacks/56/args/1/dragHandle` | right only | — | {"@undefined":true} |
-| `callbacks/56/args/1/initialWidth` | right only | — | {"@undefined":true} |
-| `callbacks/56/args/1/initialHeight` | right only | — | {"@undefined":true} |
-| `callbacks/56/args/1/parentId` | right only | — | {"@undefined":true} |
-| `callbacks/56/args/1/zIndex` | right only | — | {"@undefined":true} |
-| `callbacks/56/args/1/extent` | right only | — | {"@undefined":true} |
-| `callbacks/56/args/1/expandParent` | right only | — | false |
-| `callbacks/56/args/1/ariaLabel` | right only | — | {"@undefined":true} |
-| `callbacks/56/args/1/origin` | right only | — | {"@undefined":true} |
-| `callbacks/56/args/1/handles` | right only | — | {"@undefined":true} |
-| `callbacks/56/args/1/className` | right only | — | {"@undefined":true} |
-| `callbacks/56/args/1/style` | right only | — | {"@undefined":true} |
-| `callbacks/56/args/2/0/position/x` | differs | 45 | 30 |
-| `callbacks/56/args/2/0/position/y` | differs | 28.125 | 5.625 |
-| `callbacks/56/args/2/0/type` | right only | — | {"@undefined":true} |
-| `callbacks/56/args/2/0/hidden` | right only | — | false |
-| `callbacks/56/args/2/0/draggable` | right only | — | {"@undefined":true} |
-| `callbacks/56/args/2/0/selectable` | right only | — | {"@undefined":true} |
-| `callbacks/56/args/2/0/connectable` | right only | — | {"@undefined":true} |
-| `callbacks/56/args/2/0/deletable` | right only | — | {"@undefined":true} |
-| `callbacks/56/args/2/0/dragHandle` | right only | — | {"@undefined":true} |
-| `callbacks/56/args/2/0/initialWidth` | right only | — | {"@undefined":true} |
-| `callbacks/56/args/2/0/initialHeight` | right only | — | {"@undefined":true} |
-| `callbacks/56/args/2/0/parentId` | right only | — | {"@undefined":true} |
-| `callbacks/56/args/2/0/zIndex` | right only | — | {"@undefined":true} |
-| `callbacks/56/args/2/0/extent` | right only | — | {"@undefined":true} |
-| `callbacks/56/args/2/0/expandParent` | right only | — | false |
-| `callbacks/56/args/2/0/ariaLabel` | right only | — | {"@undefined":true} |
-| `callbacks/56/args/2/0/origin` | right only | — | {"@undefined":true} |
-| `callbacks/56/args/2/0/handles` | right only | — | {"@undefined":true} |
-| `callbacks/56/args/2/0/className` | right only | — | {"@undefined":true} |
-| `callbacks/56/args/2/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/57/args/0/0/position/x` | differs | 45 | 35 |
-| `callbacks/57/args/0/0/position/y` | differs | 28.125 | 10.625 |
-| `callbacks/57/args/0/0/dragging` | differs | false | true |
-| `callbacks/57/args/0/0/dimensions` | right only | — | {"@undefined":true} |
-| `callbacks/57/args/0/0/resizing` | right only | — | {"@undefined":true} |
-| `callbacks/57/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
-| `callbacks/57/args/0/0/selected` | right only | — | {"@undefined":true} |
-| `callbacks/57/args/0/0/item` | right only | — | {"@undefined":true} |
-| `callbacks/57/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/57/args/0/0/positionAbsolute` | right only | — | {"x":35,"y":10.625} |
-| `callbacks/58/args/1/position/y` | differs | 28.125 | 20.625 |
-| `callbacks/58/args/1/type` | right only | — | {"@undefined":true} |
-| `callbacks/58/args/1/hidden` | right only | — | false |
-| `callbacks/58/args/1/draggable` | right only | — | {"@undefined":true} |
-| `callbacks/58/args/1/selectable` | right only | — | {"@undefined":true} |
-| `callbacks/58/args/1/connectable` | right only | — | {"@undefined":true} |
-| `callbacks/58/args/1/deletable` | right only | — | {"@undefined":true} |
-| `callbacks/58/args/1/dragHandle` | right only | — | {"@undefined":true} |
-| `callbacks/58/args/1/initialWidth` | right only | — | {"@undefined":true} |
-| `callbacks/58/args/1/initialHeight` | right only | — | {"@undefined":true} |
-| `callbacks/58/args/1/parentId` | right only | — | {"@undefined":true} |
-| `callbacks/58/args/1/zIndex` | right only | — | {"@undefined":true} |
-| `callbacks/58/args/1/extent` | right only | — | {"@undefined":true} |
-| `callbacks/58/args/1/expandParent` | right only | — | false |
-| `callbacks/58/args/1/ariaLabel` | right only | — | {"@undefined":true} |
-| `callbacks/58/args/1/origin` | right only | — | {"@undefined":true} |
-| `callbacks/58/args/1/handles` | right only | — | {"@undefined":true} |
-| `callbacks/58/args/1/className` | right only | — | {"@undefined":true} |
-| `callbacks/58/args/1/style` | right only | — | {"@undefined":true} |
-| `callbacks/58/args/2/0/position/y` | differs | 28.125 | 20.625 |
-| `callbacks/58/args/2/0/type` | right only | — | {"@undefined":true} |
-| `callbacks/58/args/2/0/hidden` | right only | — | false |
-| `callbacks/58/args/2/0/draggable` | right only | — | {"@undefined":true} |
-| `callbacks/58/args/2/0/selectable` | right only | — | {"@undefined":true} |
-| `callbacks/58/args/2/0/connectable` | right only | — | {"@undefined":true} |
-| `callbacks/58/args/2/0/deletable` | right only | — | {"@undefined":true} |
-| `callbacks/58/args/2/0/dragHandle` | right only | — | {"@undefined":true} |
-| `callbacks/58/args/2/0/initialWidth` | right only | — | {"@undefined":true} |
-| `callbacks/58/args/2/0/initialHeight` | right only | — | {"@undefined":true} |
-| `callbacks/58/args/2/0/parentId` | right only | — | {"@undefined":true} |
-| `callbacks/58/args/2/0/zIndex` | right only | — | {"@undefined":true} |
-| `callbacks/58/args/2/0/extent` | right only | — | {"@undefined":true} |
-| `callbacks/58/args/2/0/expandParent` | right only | — | false |
-| `callbacks/58/args/2/0/ariaLabel` | right only | — | {"@undefined":true} |
-| `callbacks/58/args/2/0/origin` | right only | — | {"@undefined":true} |
-| `callbacks/58/args/2/0/handles` | right only | — | {"@undefined":true} |
-| `callbacks/58/args/2/0/className` | right only | — | {"@undefined":true} |
-| `callbacks/58/args/2/0/style` | right only | — | {"@undefined":true} |
+| `callbacks/51/args/0/0/position/x` | differs | 45 | 35 |
+| `callbacks/51/args/0/0/position/y` | differs | 31.875 | 14.375 |
+| `callbacks/51/args/0/0/dragging` | differs | false | true |
+| `callbacks/51/args/0/0/dimensions` | right only | — | {"@undefined":true} |
+| `callbacks/51/args/0/0/resizing` | right only | — | {"@undefined":true} |
+| `callbacks/51/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
+| `callbacks/51/args/0/0/selected` | right only | — | {"@undefined":true} |
+| `callbacks/51/args/0/0/item` | right only | — | {"@undefined":true} |
+| `callbacks/51/args/0/0/index` | right only | — | {"@undefined":true} |
+| `callbacks/51/args/0/0/positionAbsolute` | right only | — | {"x":35,"y":14.375} |
+| `callbacks/52/args/1/position/y` | differs | 31.875 | 24.375 |
+| `callbacks/52/args/1/type` | right only | — | {"@undefined":true} |
+| `callbacks/52/args/1/hidden` | right only | — | false |
+| `callbacks/52/args/1/draggable` | right only | — | {"@undefined":true} |
+| `callbacks/52/args/1/selectable` | right only | — | {"@undefined":true} |
+| `callbacks/52/args/1/connectable` | right only | — | {"@undefined":true} |
+| `callbacks/52/args/1/deletable` | right only | — | {"@undefined":true} |
+| `callbacks/52/args/1/dragHandle` | right only | — | {"@undefined":true} |
+| `callbacks/52/args/1/initialWidth` | right only | — | {"@undefined":true} |
+| `callbacks/52/args/1/initialHeight` | right only | — | {"@undefined":true} |
+| `callbacks/52/args/1/parentId` | right only | — | {"@undefined":true} |
+| `callbacks/52/args/1/zIndex` | right only | — | {"@undefined":true} |
+| `callbacks/52/args/1/extent` | right only | — | {"@undefined":true} |
+| `callbacks/52/args/1/expandParent` | right only | — | false |
+| `callbacks/52/args/1/ariaLabel` | right only | — | {"@undefined":true} |
+| `callbacks/52/args/1/origin` | right only | — | {"@undefined":true} |
+| `callbacks/52/args/1/handles` | right only | — | {"@undefined":true} |
+| `callbacks/52/args/1/className` | right only | — | {"@undefined":true} |
+| `callbacks/52/args/1/style` | right only | — | {"@undefined":true} |
+| `callbacks/52/args/2/0/position/y` | differs | 31.875 | 24.375 |
+| `callbacks/52/args/2/0/type` | right only | — | {"@undefined":true} |
+| `callbacks/52/args/2/0/hidden` | right only | — | false |
+| `callbacks/52/args/2/0/draggable` | right only | — | {"@undefined":true} |
+| `callbacks/52/args/2/0/selectable` | right only | — | {"@undefined":true} |
+| `callbacks/52/args/2/0/connectable` | right only | — | {"@undefined":true} |
+| `callbacks/52/args/2/0/deletable` | right only | — | {"@undefined":true} |
+| `callbacks/52/args/2/0/dragHandle` | right only | — | {"@undefined":true} |
+| `callbacks/52/args/2/0/initialWidth` | right only | — | {"@undefined":true} |
+| `callbacks/52/args/2/0/initialHeight` | right only | — | {"@undefined":true} |
+| `callbacks/52/args/2/0/parentId` | right only | — | {"@undefined":true} |
+| `callbacks/52/args/2/0/zIndex` | right only | — | {"@undefined":true} |
+| `callbacks/52/args/2/0/extent` | right only | — | {"@undefined":true} |
+| `callbacks/52/args/2/0/expandParent` | right only | — | false |
+| `callbacks/52/args/2/0/ariaLabel` | right only | — | {"@undefined":true} |
+| `callbacks/52/args/2/0/origin` | right only | — | {"@undefined":true} |
+| `callbacks/52/args/2/0/handles` | right only | — | {"@undefined":true} |
+| `callbacks/52/args/2/0/className` | right only | — | {"@undefined":true} |
+| `callbacks/52/args/2/0/style` | right only | — | {"@undefined":true} |
 
 ### api (223)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getNodes/0/position/y` | differs | 28.125 | 20.625 |
+| `api/queries/getNodes/0/position/y` | differs | 31.875 | 24.375 |
 | `api/queries/getNodes/0/type` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/draggable` | right only | — | {"@undefined":true} |
@@ -74282,7 +74077,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getNodes/1/handles` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/getNode/position/y` | differs | 28.125 | 20.625 |
+| `api/queries/getNode/position/y` | differs | 31.875 | 24.375 |
 | `api/queries/getNode/type` | right only | — | {"@undefined":true} |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/draggable` | right only | — | {"@undefined":true} |
@@ -74301,11 +74096,11 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getNode/handles` | right only | — | {"@undefined":true} |
 | `api/queries/getNode/className` | right only | — | {"@undefined":true} |
 | `api/queries/getNode/style` | right only | — | {"@undefined":true} |
-| `api/queries/getInternalNode/position/y` | differs | 28.125 | 20.625 |
-| `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | 28.125 | 20.625 |
+| `api/queries/getInternalNode/position/y` | differs | 31.875 | 24.375 |
+| `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | 31.875 | 24.375 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target/0/id` | differs | null | {"@undefined":true} |
-| `api/queries/getInternalNode/internals/userNode` | left only | {"id":"n1","data":{"label":"n1"},"position":{"x":45,"y":28.125},"sourcePosition":"right","targetPosition":"left","width":100,"height":40,"measured":{"width":10… | — |
+| `api/queries/getInternalNode/internals/userNode` | left only | {"id":"n1","data":{"label":"n1"},"position":{"x":45,"y":31.875},"sourcePosition":"right","targetPosition":"left","width":100,"height":40,"measured":{"width":10… | — |
 | `api/queries/getInternalNode/internals/rootParentIndex` | right only | — | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/bounds` | right only | — | {"@undefined":true} |
 | `api/queries/getInternalNode/type` | right only | — | {"@undefined":true} |
@@ -74360,7 +74155,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getEdge/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/getEdge/className` | right only | — | {"@undefined":true} |
 | `api/queries/getEdge/style` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/0/position/y` | differs | 28.125 | 20.625 |
+| `api/queries/getIntersectingNodes/0/position/y` | differs | 31.875 | 24.375 |
 | `api/queries/getIntersectingNodes/0/type` | right only | — | {"@undefined":true} |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/draggable` | right only | — | {"@undefined":true} |
@@ -74399,13 +74194,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/1/handles` | right only | — | {"@undefined":true} |
 | `api/queries/getIntersectingNodes/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/getIntersectingNodes/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/getNodesBounds/y` | differs | 28.125 | 20.625 |
-| `api/queries/getNodesBounds/height` | differs | 111.875 | 119.375 |
+| `api/queries/getNodesBounds/y` | differs | 31.875 | 24.375 |
+| `api/queries/getNodesBounds/height` | differs | 108.125 | 115.625 |
 | `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
 | `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
 | `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/toObject/nodes/0/position/y` | differs | 28.125 | 20.625 |
+| `api/queries/toObject/nodes/0/position/y` | differs | 31.875 | 24.375 |
 | `api/queries/toObject/nodes/0/type` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/draggable` | right only | — | {"@undefined":true} |
@@ -74461,10 +74256,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/0/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/0/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/0/style` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/viewport/y` | differs | 16.875 | 24.375 |
-| `api/queries/getViewport/y` | differs | 16.875 | 24.375 |
-| `api/queries/screenToFlowPosition/y` | differs | -16.875 | -24.375 |
-| `api/queries/flowToScreenPosition/y` | differs | 16.875 | 24.375 |
+| `api/queries/toObject/viewport/y` | differs | 13.125 | 20.625 |
+| `api/queries/getViewport/y` | differs | 13.125 | 20.625 |
+| `api/queries/screenToFlowPosition/y` | differs | -13.125 | -20.625 |
+| `api/queries/flowToScreenPosition/y` | differs | 13.125 | 20.625 |
 | `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
@@ -75949,7 +75744,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 315 unclaimed difference(s).
+**Failed:** 354 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -75965,18 +75760,19 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (151)
+### callbacks (190)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `callbacks/1` | left only | {"name":"onMoveStart","args":[null,{"x":0,"y":0,"zoom":1}]} | — |
 | `callbacks/3` | left only | {"name":"onMove","args":[null,{"x":140,"y":-240,"zoom":2}]} | — |
-| `callbacks/12` | left only | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… | — |
 | `callbacks/16` | left only | {"name":"onMoveStart","args":[{"@class":"MouseEvent","isTrusted":true},{"x":140,"y":-240,"zoom":2}]} | — |
 | `callbacks/18` | left only | {"name":"onMoveEnd","args":[{"@class":"MouseEvent","isTrusted":true},{"x":140,"y":-240,"zoom":2}]} | — |
 | `callbacks/8` | right only | — | {"name":"onEdgesChange","args":[[]]} |
 | `callbacks/10` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
 | `callbacks/12` | right only | — | {"name":"onPaneMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onPointerEnter","_targetInst":{"@ref":"React fiber"},"type":"pointerenter","nat… |
+| `callbacks/15` | right only | — | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… |
+| `callbacks` | ordered differently | ["onSelectionChange#1","onViewportChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#1","… | ["onSelectionChange#1","onViewportChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#1","… |
 | `callbacks/6/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/6/args/1/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/6/args/1/hidden` | right only | — | false |
@@ -76068,11 +75864,49 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/11/args/0/nodes/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/11/args/0/nodes/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/11/args/0/nodes/0/style` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/sourcePosition` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/targetPosition` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/hidden` | right only | — | false |
+| `callbacks/12/args/1/dragging` | right only | — | false |
+| `callbacks/12/args/1/draggable` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/selectable` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/connectable` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/deletable` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/dragHandle` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/initialWidth` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/initialHeight` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/parentId` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/zIndex` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/extent` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/expandParent` | right only | — | false |
+| `callbacks/12/args/1/ariaLabel` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/origin` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/handles` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/className` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/style` | right only | — | {"@undefined":true} |
+| `callbacks/13/args/0/screenX` | differs | 560 | 640 |
+| `callbacks/13/args/0/screenY` | differs | 250 | 360 |
+| `callbacks/13/args/0/clientX` | differs | 560 | 640 |
+| `callbacks/13/args/0/clientY` | differs | 250 | 360 |
+| `callbacks/13/args/0/pageX` | differs | 560 | 640 |
+| `callbacks/13/args/0/pageY` | differs | 250 | 360 |
 | `callbacks/13/args/0/relatedTarget/@ref` | differs | DIV | Window |
+| `callbacks/13/args/1/id` | differs | props-child | props-parent |
+| `callbacks/13/args/1/data/label` | differs | props-child | props-parent |
+| `callbacks/13/args/1/position/x` | differs | 50 | 100 |
+| `callbacks/13/args/1/position/y` | differs | 25 | 200 |
+| `callbacks/13/args/1/parentId` | differs | props-parent | {"@undefined":true} |
+| `callbacks/13/args/1/selectable` | differs | false | {"@undefined":true} |
+| `callbacks/13/args/1/draggable` | differs | false | {"@undefined":true} |
+| `callbacks/13/args/1/deletable` | differs | false | {"@undefined":true} |
+| `callbacks/13/args/1/width` | differs | 120 | 300 |
+| `callbacks/13/args/1/height` | differs | 40 | 200 |
+| `callbacks/13/args/1/measured/width` | differs | 120 | 300 |
+| `callbacks/13/args/1/measured/height` | differs | 40 | 200 |
 | `callbacks/13/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/13/args/1/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/13/args/1/hidden` | right only | — | false |
-| `callbacks/13/args/1/selected` | right only | — | false |
+| `callbacks/13/args/1/selected` | right only | — | true |
 | `callbacks/13/args/1/dragging` | right only | — | false |
 | `callbacks/13/args/1/connectable` | right only | — | {"@undefined":true} |
 | `callbacks/13/args/1/dragHandle` | right only | — | {"@undefined":true} |
@@ -76285,9 +76119,9 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 ## Normalization
 
-20 field(s) deleted by name and therefore **unobserved** — not passing:
+22 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (14) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (15) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -78529,8 +78363,8 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `console/3/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
 | `console/4/level` | differs | warning | pageerror |
 | `console/4/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:49700/parity/driver/dist/psflow.js:64731:… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:49700/parity/driver/dist/psflow.js:64731:… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:50543/parity/driver/dist/psflow.js:64709:… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:50543/parity/driver/dist/psflow.js:64709:… |
 
 
 ---
@@ -79114,8 +78948,8 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `console/3/level` | differs | warning | pageerror |
 | `console/3/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
 | `console/4` | right only | — | {"level":"pageerror","text":"ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScri… |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:49700/parity/driver/dist/psflow.js:64731:… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:49700/parity/driver/dist/psflow.js:64731:… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:50543/parity/driver/dist/psflow.js:64709:… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:50543/parity/driver/dist/psflow.js:64709:… |
 
 
 ---

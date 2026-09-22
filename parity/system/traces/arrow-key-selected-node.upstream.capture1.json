@@ -527,7 +527,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 282.70000000018626,
+            "timeStamp": 305.40000000037253,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -596,7 +596,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 282.70000000018626,
+            "timeStamp": 305.40000000037253,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -668,7 +668,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 282.70000000018626,
+            "timeStamp": 305.40000000037253,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -733,7 +733,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 282.70000000018626,
+            "timeStamp": 305.40000000037253,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -929,7 +929,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 296.79999999981374,
+            "timeStamp": 319.69999999925494,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1044,38 +1044,6 @@
         ]
       },
       {
-        "name": "onNodesChange",
-        "args": [
-          [
-            {
-              "id": "Node-1",
-              "type": "position",
-              "position": {
-                "x": 5,
-                "y": 20
-              },
-              "dragging": false
-            }
-          ]
-        ]
-      },
-      {
-        "name": "onNodesChange",
-        "args": [
-          [
-            {
-              "id": "Node-1",
-              "type": "position",
-              "position": {
-                "x": 10,
-                "y": 20
-              },
-              "dragging": false
-            }
-          ]
-        ]
-      },
-      {
         "name": "onNodeMouseLeave",
         "args": [
           {
@@ -1098,7 +1066,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 337.8999999994412,
+            "timeStamp": 346.09999999962747,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1138,7 +1106,7 @@
               "label": "Node-1"
             },
             "position": {
-              "x": 10,
+              "x": 0,
               "y": 20
             },
             "type": "input",
@@ -1149,6 +1117,38 @@
             "selected": true,
             "dragging": false
           }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "id": "Node-1",
+              "type": "position",
+              "position": {
+                "x": 5,
+                "y": 20
+              },
+              "dragging": false
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "id": "Node-1",
+              "type": "position",
+              "position": {
+                "x": 10,
+                "y": 20
+              },
+              "dragging": false
+            }
+          ]
         ]
       }
     ],

@@ -923,7 +923,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 203.69999999925494,
+            "timeStamp": 220.09999999962747,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -992,7 +992,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 203.69999999925494,
+            "timeStamp": 220.09999999962747,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1119,7 +1119,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 203.69999999925494,
+            "timeStamp": 220.09999999962747,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1184,7 +1184,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 203.69999999925494,
+            "timeStamp": 220.09999999962747,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1591,7 +1591,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 229.3999999994412,
+            "timeStamp": 261,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1720,7 +1720,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 229.3999999994412,
+            "timeStamp": 261,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1823,7 +1823,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 229.3999999994412,
+            "timeStamp": 261,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2084,7 +2084,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 269.79999999981374,
+            "timeStamp": 285.69999999925494,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2347,7 +2347,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 296.79999999981374,
+            "timeStamp": 318.7999999988824,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2452,7 +2452,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 296.79999999981374,
+            "timeStamp": 318.7999999988824,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2583,7 +2583,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 296.79999999981374,
+            "timeStamp": 318.7999999988824,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2846,7 +2846,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 321.09999999962747,
+            "timeStamp": 347,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2977,7 +2977,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 321.09999999962747,
+            "timeStamp": 347,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3238,7 +3238,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 350.09999999962747,
+            "timeStamp": 384.8999999985099,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3479,6 +3479,135 @@
         ]
       },
       {
+        "name": "onNodeMouseEnter",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseEnter",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseenter",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 411.7999999988824,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 814,
+            "screenY": 250,
+            "clientX": 814,
+            "clientY": 250,
+            "pageX": 814,
+            "pageY": 250,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": {
+              "@ref": "DIV"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "Node-1",
+            "position": {
+              "x": 193.90243902439028,
+              "y": 193.90243902439022
+            },
+            "data": {
+              "label": "Node-1"
+            },
+            "type": "input",
+            "sourcePosition": {
+              "@undefined": true
+            },
+            "targetPosition": {
+              "@undefined": true
+            },
+            "hidden": false,
+            "selected": true,
+            "dragging": true,
+            "draggable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "connectable": {
+              "@undefined": true
+            },
+            "deletable": {
+              "@undefined": true
+            },
+            "dragHandle": {
+              "@undefined": true
+            },
+            "width": 150,
+            "height": 36,
+            "initialWidth": {
+              "@undefined": true
+            },
+            "initialHeight": {
+              "@undefined": true
+            },
+            "parentId": {
+              "@undefined": true
+            },
+            "zIndex": {
+              "@undefined": true
+            },
+            "extent": {
+              "@undefined": true
+            },
+            "expandParent": false,
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "origin": {
+              "@undefined": true
+            },
+            "handles": {
+              "@undefined": true
+            },
+            "measured": {
+              "width": 150,
+              "height": 36
+            },
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            }
+          }
+        ]
+      },
+      {
         "name": "onNodesChange",
         "args": [
           [
@@ -3672,135 +3801,6 @@
         "args": [
           "002",
           "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
-        ]
-      },
-      {
-        "name": "onNodeMouseEnter",
-        "args": [
-          {
-            "@class": "SyntheticBaseEvent",
-            "_reactName": "onMouseEnter",
-            "_targetInst": {
-              "@ref": "React fiber"
-            },
-            "type": "mouseenter",
-            "nativeEvent": {
-              "@class": "MouseEvent",
-              "isTrusted": true
-            },
-            "target": {
-              "@ref": "DIV"
-            },
-            "currentTarget": {
-              "@ref": "DIV"
-            },
-            "eventPhase": 3,
-            "bubbles": true,
-            "cancelable": true,
-            "timeStamp": 398,
-            "defaultPrevented": false,
-            "isTrusted": true,
-            "view": {
-              "@ref": "Window"
-            },
-            "detail": 0,
-            "screenX": 814,
-            "screenY": 250,
-            "clientX": 814,
-            "clientY": 250,
-            "pageX": 814,
-            "pageY": 250,
-            "ctrlKey": false,
-            "shiftKey": false,
-            "altKey": false,
-            "metaKey": false,
-            "getModifierState": {
-              "@ref": "function"
-            },
-            "button": 0,
-            "buttons": 0,
-            "relatedTarget": {
-              "@ref": "DIV"
-            },
-            "movementX": 0,
-            "movementY": 0,
-            "isDefaultPrevented": {
-              "@ref": "function"
-            },
-            "isPropagationStopped": {
-              "@ref": "function"
-            }
-          },
-          {
-            "id": "Node-1",
-            "position": {
-              "x": 193.90243902439028,
-              "y": 193.90243902439022
-            },
-            "data": {
-              "label": "Node-1"
-            },
-            "type": "input",
-            "sourcePosition": {
-              "@undefined": true
-            },
-            "targetPosition": {
-              "@undefined": true
-            },
-            "hidden": false,
-            "selected": true,
-            "dragging": false,
-            "draggable": {
-              "@undefined": true
-            },
-            "selectable": {
-              "@undefined": true
-            },
-            "connectable": {
-              "@undefined": true
-            },
-            "deletable": {
-              "@undefined": true
-            },
-            "dragHandle": {
-              "@undefined": true
-            },
-            "width": 150,
-            "height": 36,
-            "initialWidth": {
-              "@undefined": true
-            },
-            "initialHeight": {
-              "@undefined": true
-            },
-            "parentId": {
-              "@undefined": true
-            },
-            "zIndex": {
-              "@undefined": true
-            },
-            "extent": {
-              "@undefined": true
-            },
-            "expandParent": false,
-            "ariaLabel": {
-              "@undefined": true
-            },
-            "origin": {
-              "@undefined": true
-            },
-            "handles": {
-              "@undefined": true
-            },
-            "measured": {
-              "width": 150,
-              "height": 36
-            },
-            "className": "playwright-test-class-123",
-            "style": {
-              "backgroundColor": "red"
-            }
-          }
         ]
       }
     ],
