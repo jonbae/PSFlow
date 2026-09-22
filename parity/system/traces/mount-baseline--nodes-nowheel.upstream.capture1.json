@@ -327,7 +327,7 @@
               "type": "dimensions",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               }
             }
           ]
@@ -379,7 +379,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             }
           }
         ],
@@ -516,7 +516,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             }
           }
         ],
@@ -577,7 +577,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 37
+                "height": 36
               }
             }
           ],

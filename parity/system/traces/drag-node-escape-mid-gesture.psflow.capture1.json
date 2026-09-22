@@ -38,7 +38,7 @@
                     "tag": "div",
                     "attrs": {
                       "class": "react-flow__viewport xyflow__viewport react-flow__container",
-                      "style": "transform: translate(537.017px, 32px) scale(1.02983);"
+                      "style": "transform: translate(536.855px, 32px) scale(1.03145);"
                     },
                     "children": [
                       {
@@ -67,7 +67,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M249.78639777800538,156.52430068876953 C249.78639777800538,204.74429159502145 -25.000187587848245,48.78002119374274 -25.000187587848245,97.00001209999466",
+                                      "d": "M249.51197897068965,155.34135507863718 C249.51197897068965,203.0797926215978 -25.000245738326498,49.2615820081719 -25.000245738326498,97.00001955113251",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -76,7 +76,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M249.78639777800538,156.52430068876953 C249.78639777800538,204.74429159502145 -25.000187587848245,48.78002119374274 -25.000187587848245,97.00001209999466",
+                                      "d": "M249.51197897068965,155.34135507863718 C249.51197897068965,203.0797926215978 -25.000245738326498,49.2615820081719 -25.000245738326498,97.00001955113251",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -87,7 +87,7 @@
                                   {
                                     "tag": "g",
                                     "attrs": {
-                                      "transform": "translate(102.75209004228316 121.42145529117165)",
+                                      "transform": "translate(102.81827124874994 119.86885845364827)",
                                       "class": "react-flow__edge-textwrapper",
                                       "visibility": "visible"
                                     },
@@ -97,8 +97,8 @@
                                         "attrs": {
                                           "x": "-2",
                                           "y": "-4",
-                                          "width": "23.28203010559082",
-                                          "height": "18.6814022064209",
+                                          "width": "22.87519073486328",
+                                          "height": "20.603657722473145",
                                           "class": "react-flow__edge-textbg",
                                           "rx": "2",
                                           "ry": "2"
@@ -109,7 +109,7 @@
                                         "tag": "text",
                                         "attrs": {
                                           "class": "react-flow__edge-text",
-                                          "y": "5.340701103210449",
+                                          "y": "6.301828861236572",
                                           "dy": "0.3em"
                                         },
                                         "text": "edge",
@@ -121,8 +121,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
-                                      "cx": "249.78639777800538",
-                                      "cy": "166.52430068876953",
+                                      "cx": "249.51197897068965",
+                                      "cy": "165.34135507863718",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -133,8 +133,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
-                                      "cx": "-25.000187587848245",
-                                      "cy": "87.00001209999466",
+                                      "cx": "-25.000245738326498",
+                                      "cy": "87.00001955113251",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -165,7 +165,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M249.78639777800538,156.52430068876953 C249.78639777800538,204.74429159502145 174.99981241215175,48.78002119374274 174.99981241215175,97.00001209999466",
+                                      "d": "M249.51197897068965,155.34135507863718 C249.51197897068965,203.0797926215978 174.99978384873845,49.2615820081719 174.99978384873845,97.00001955113251",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -174,7 +174,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M249.78639777800538,156.52430068876953 C249.78639777800538,204.74429159502145 174.99981241215175,48.78002119374274 174.99981241215175,97.00001209999466",
+                                      "d": "M249.51197897068965,155.34135507863718 C249.51197897068965,203.0797926215978 174.99978384873845,49.2615820081719 174.99978384873845,97.00001955113251",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -185,7 +185,7 @@
                                   {
                                     "tag": "g",
                                     "attrs": {
-                                      "transform": "translate(202.75209004228316 121.42145529117165)",
+                                      "transform": "translate(202.8182860422824 119.86885845364827)",
                                       "class": "react-flow__edge-textwrapper",
                                       "visibility": "visible"
                                     },
@@ -195,8 +195,8 @@
                                         "attrs": {
                                           "x": "-2",
                                           "y": "-4",
-                                          "width": "23.28203010559082",
-                                          "height": "18.6814022064209",
+                                          "width": "22.87519073486328",
+                                          "height": "20.603657722473145",
                                           "class": "react-flow__edge-textbg",
                                           "rx": "2",
                                           "ry": "2"
@@ -207,7 +207,7 @@
                                         "tag": "text",
                                         "attrs": {
                                           "class": "react-flow__edge-text",
-                                          "y": "5.340701103210449",
+                                          "y": "6.301828861236572",
                                           "dy": "0.3em"
                                         },
                                         "text": "edge",
@@ -219,8 +219,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
-                                      "cx": "249.78639777800538",
-                                      "cy": "166.52430068876953",
+                                      "cx": "249.51197897068965",
+                                      "cy": "165.34135507863718",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -231,8 +231,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
-                                      "cx": "174.99981241215175",
-                                      "cy": "87.00001209999466",
+                                      "cx": "174.99978384873845",
+                                      "cy": "87.00001955113251",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -268,7 +268,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(174.787px, 116.524px); pointer-events: all; visibility: visible; background-color: red; width: 150px; height: 37px;"
+                              "style": "z-index: 0; transform: translate(174.512px, 116.341px); pointer-events: all; visibility: visible; background-color: red; width: 150px; height: 36px;"
                             },
                             "text": "Node-1",
                             "children": [
@@ -293,7 +293,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(-100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
+                              "style": "z-index: 0; transform: translate(-100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
                             },
                             "text": "Node-2",
                             "children": [
@@ -318,7 +318,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
+                              "style": "z-index: 0; transform: translate(100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
                             },
                             "text": "Node-3",
                             "children": [
@@ -353,7 +353,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(0px, 200px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
+                              "style": "z-index: 0; transform: translate(0px, 200px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
                             },
                             "text": "Node-4",
                             "children": [
@@ -409,7 +409,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(0px, 300px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
+                              "style": "z-index: 0; transform: translate(0px, 300px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
                             },
                             "text": "notConnectable",
                             "children": [
@@ -434,7 +434,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(0px, 600px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
+                              "style": "z-index: 0; transform: translate(0px, 600px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
                             },
                             "text": "notDeletable",
                             "children": [
@@ -469,7 +469,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(0px, 400px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
+                              "style": "z-index: 0; transform: translate(0px, 400px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
                             },
                             "text": "notDraggable",
                             "children": [
@@ -504,7 +504,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(0px, 500px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
+                              "style": "z-index: 0; transform: translate(0px, 500px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
                             },
                             "text": "notSelectable",
                             "children": [
@@ -640,7 +640,7 @@
               "id": "Node-1",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "resizing": false,
               "setAttributes": true
@@ -668,7 +668,7 @@
               "id": "Node-2",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "resizing": false,
               "setAttributes": true
@@ -696,7 +696,7 @@
               "id": "Node-3",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "resizing": false,
               "setAttributes": true
@@ -724,7 +724,7 @@
               "id": "Node-4",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "resizing": false,
               "setAttributes": true
@@ -780,7 +780,7 @@
               "id": "notConnectable",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "resizing": false,
               "setAttributes": true
@@ -808,7 +808,7 @@
               "id": "notDeletable",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "resizing": false,
               "setAttributes": true
@@ -836,7 +836,7 @@
               "id": "notDraggable",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "resizing": false,
               "setAttributes": true
@@ -864,7 +864,7 @@
               "id": "notSelectable",
               "dimensions": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "resizing": false,
               "setAttributes": true
@@ -876,9 +876,9 @@
         "name": "onViewportChange",
         "args": [
           {
-            "x": 537.0172684458398,
+            "x": 536.8553459119497,
             "y": 32,
-            "zoom": 1.0298273155416013
+            "zoom": 1.0314465408805031
           }
         ]
       },
@@ -887,9 +887,9 @@
         "args": [
           null,
           {
-            "x": 537.0172684458398,
+            "x": 536.8553459119497,
             "y": 32,
-            "zoom": 1.0298273155416013
+            "zoom": 1.0314465408805031
           }
         ]
       },
@@ -923,19 +923,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 286.39999997615814,
+            "timeStamp": 460.29999999981374,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 614.2543334960938,
-            "screenY": 51.05180358886719,
-            "clientX": 614.2543334960938,
-            "clientY": 51.05180358886719,
-            "pageX": 614.2543334960938,
-            "pageY": 51.05180358886719,
+            "screenX": 614.2138671875,
+            "screenY": 50.5660400390625,
+            "clientX": 614.2138671875,
+            "clientY": 50.5660400390625,
+            "pageX": 614.2138671875,
+            "pageY": 50.5660400390625,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -992,7 +992,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 286.39999997615814,
+            "timeStamp": 460.29999999981374,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1000,11 +1000,11 @@
             },
             "detail": 0,
             "screenX": 614,
-            "screenY": 51,
+            "screenY": 50,
             "clientX": 614,
-            "clientY": 51,
+            "clientY": 50,
             "pageX": 614,
-            "pageY": 51,
+            "pageY": 50,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -1061,7 +1061,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 37,
+            "height": 36,
             "initialWidth": {
               "@undefined": true
             },
@@ -1089,7 +1089,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -1119,19 +1119,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 286.39999997615814,
+            "timeStamp": 460.29999999981374,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 614.2543334960938,
-            "screenY": 51.05180358886719,
-            "clientX": 614.2543334960938,
-            "clientY": 51.05180358886719,
-            "pageX": 614.2543334960938,
-            "pageY": 51.05180358886719,
+            "screenX": 614.2138671875,
+            "screenY": 50.5660400390625,
+            "clientX": 614.2138671875,
+            "clientY": 50.5660400390625,
+            "pageX": 614.2138671875,
+            "pageY": 50.5660400390625,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -1143,7 +1143,7 @@
             "buttons": 0,
             "relatedTarget": null,
             "movementX": 615,
-            "movementY": 52,
+            "movementY": 51,
             "pointerId": 1,
             "width": 1,
             "height": 1,
@@ -1184,7 +1184,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 286.39999997615814,
+            "timeStamp": 460.29999999981374,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1192,11 +1192,11 @@
             },
             "detail": 0,
             "screenX": 614,
-            "screenY": 51,
+            "screenY": 50,
             "clientX": 614,
-            "clientY": 51,
+            "clientY": 50,
             "pageX": 614,
-            "pageY": 51,
+            "pageY": 50,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -1208,7 +1208,7 @@
             "buttons": 0,
             "relatedTarget": null,
             "movementX": 615,
-            "movementY": 52,
+            "movementY": 51,
             "isDefaultPrevented": {
               "@ref": "function"
             },
@@ -1251,7 +1251,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 37,
+            "height": 36,
             "initialWidth": {
               "@undefined": true
             },
@@ -1279,7 +1279,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -1372,7 +1372,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 37,
+            "height": 36,
             "initialWidth": {
               "@undefined": true
             },
@@ -1400,7 +1400,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -1443,7 +1443,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 37,
+              "height": 36,
               "initialWidth": {
                 "@undefined": true
               },
@@ -1471,7 +1471,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "className": "playwright-test-class-123",
               "style": {
@@ -1528,7 +1528,7 @@
                   "@undefined": true
                 },
                 "width": 150,
-                "height": 37,
+                "height": 36,
                 "initialWidth": {
                   "@undefined": true
                 },
@@ -1556,7 +1556,7 @@
                 },
                 "measured": {
                   "width": 150,
-                  "height": 37
+                  "height": 36
                 },
                 "className": "playwright-test-class-123",
                 "style": {
@@ -1591,7 +1591,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 323.09999990463257,
+            "timeStamp": 515.7999999998137,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1599,11 +1599,11 @@
             },
             "detail": 0,
             "screenX": 674,
-            "screenY": 91,
+            "screenY": 90,
             "clientX": 674,
-            "clientY": 91,
+            "clientY": 90,
             "pageX": 674,
-            "pageY": 91,
+            "pageY": 90,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -1660,7 +1660,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 37,
+            "height": 36,
             "initialWidth": {
               "@undefined": true
             },
@@ -1688,7 +1688,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -1718,19 +1718,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 323.09999990463257,
+            "timeStamp": 515.7999999998137,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 674.2543334960938,
-            "screenY": 91.05180358886719,
-            "clientX": 674.2543334960938,
-            "clientY": 91.05180358886719,
-            "pageX": 674.2543334960938,
-            "pageY": 91.05180358886719,
+            "screenX": 674.2138671875,
+            "screenY": 90.5660400390625,
+            "clientX": 674.2138671875,
+            "clientY": 90.5660400390625,
+            "pageX": 674.2138671875,
+            "pageY": 90.5660400390625,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -1788,12 +1788,12 @@
               "type": "position",
               "id": "Node-1",
               "position": {
-                "x": 58.26219512195121,
-                "y": 38.84146341463415
+                "x": 58.170731707317074,
+                "y": 38.78048780487805
               },
               "positionAbsolute": {
-                "x": 58.26219512195121,
-                "y": 38.84146341463415
+                "x": 58.170731707317074,
+                "y": 38.78048780487805
               },
               "dragging": true
             }
@@ -1810,8 +1810,8 @@
           {
             "id": "Node-1",
             "position": {
-              "x": 58.26219512195121,
-              "y": 38.84146341463415
+              "x": 58.170731707317074,
+              "y": 38.78048780487805
             },
             "data": {
               "label": "Node-1"
@@ -1842,7 +1842,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 37,
+            "height": 36,
             "initialWidth": {
               "@undefined": true
             },
@@ -1870,7 +1870,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -1881,8 +1881,8 @@
             {
               "id": "Node-1",
               "position": {
-                "x": 58.26219512195121,
-                "y": 38.84146341463415
+                "x": 58.170731707317074,
+                "y": 38.78048780487805
               },
               "data": {
                 "label": "Node-1"
@@ -1913,7 +1913,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 37,
+              "height": 36,
               "initialWidth": {
                 "@undefined": true
               },
@@ -1941,7 +1941,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "className": "playwright-test-class-123",
               "style": {
@@ -1979,19 +1979,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 347.6999999284744,
+            "timeStamp": 548.9000000003725,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 734.2543334960938,
-            "screenY": 131.0518035888672,
-            "clientX": 734.2543334960938,
-            "clientY": 131.0518035888672,
-            "pageX": 734.2543334960938,
-            "pageY": 131.0518035888672,
+            "screenX": 734.2138671875,
+            "screenY": 130.5660400390625,
+            "clientX": 734.2138671875,
+            "clientY": 130.5660400390625,
+            "pageX": 734.2138671875,
+            "pageY": 130.5660400390625,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -2049,12 +2049,12 @@
               "type": "position",
               "id": "Node-1",
               "position": {
-                "x": 116.52439024390242,
-                "y": 77.68292682926828
+                "x": 116.34146341463413,
+                "y": 77.5609756097561
               },
               "positionAbsolute": {
-                "x": 116.52439024390242,
-                "y": 77.68292682926828
+                "x": 116.34146341463413,
+                "y": 77.5609756097561
               },
               "dragging": true
             }
@@ -2071,8 +2071,8 @@
           {
             "id": "Node-1",
             "position": {
-              "x": 116.52439024390242,
-              "y": 77.68292682926828
+              "x": 116.34146341463413,
+              "y": 77.5609756097561
             },
             "data": {
               "label": "Node-1"
@@ -2103,7 +2103,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 37,
+            "height": 36,
             "initialWidth": {
               "@undefined": true
             },
@@ -2131,7 +2131,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -2142,8 +2142,8 @@
             {
               "id": "Node-1",
               "position": {
-                "x": 116.52439024390242,
-                "y": 77.68292682926828
+                "x": 116.34146341463413,
+                "y": 77.5609756097561
               },
               "data": {
                 "label": "Node-1"
@@ -2174,7 +2174,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 37,
+              "height": 36,
               "initialWidth": {
                 "@undefined": true
               },
@@ -2202,7 +2202,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "className": "playwright-test-class-123",
               "style": {
@@ -2269,260 +2269,11 @@
         ]
       },
       {
-        "name": "onNodeMouseEnter",
+        "name": "onSelectionChange",
         "args": [
           {
-            "@class": "SyntheticBaseEvent",
-            "_reactName": "onMouseEnter",
-            "_targetInst": {
-              "@ref": "React fiber"
-            },
-            "type": "mouseenter",
-            "nativeEvent": {
-              "@class": "MouseEvent",
-              "isTrusted": true
-            },
-            "target": {
-              "@ref": "DIV"
-            },
-            "currentTarget": {
-              "@ref": "DIV"
-            },
-            "eventPhase": 3,
-            "bubbles": true,
-            "cancelable": true,
-            "timeStamp": 371.2999999523163,
-            "defaultPrevented": false,
-            "isTrusted": true,
-            "view": {
-              "@ref": "Window"
-            },
-            "detail": 0,
-            "screenX": 734,
-            "screenY": 131,
-            "clientX": 734,
-            "clientY": 131,
-            "pageX": 734,
-            "pageY": 131,
-            "ctrlKey": false,
-            "shiftKey": false,
-            "altKey": false,
-            "metaKey": false,
-            "getModifierState": {
-              "@ref": "function"
-            },
-            "button": 0,
-            "buttons": 1,
-            "relatedTarget": {
-              "@ref": "DIV"
-            },
-            "movementX": 0,
-            "movementY": 0,
-            "isDefaultPrevented": {
-              "@ref": "function"
-            },
-            "isPropagationStopped": {
-              "@ref": "function"
-            }
-          },
-          {
-            "id": "Node-1",
-            "position": {
-              "x": 116.52439024390242,
-              "y": 77.68292682926828
-            },
-            "data": {
-              "label": "Node-1"
-            },
-            "type": "input",
-            "sourcePosition": {
-              "@undefined": true
-            },
-            "targetPosition": {
-              "@undefined": true
-            },
-            "hidden": false,
-            "selected": true,
-            "dragging": true,
-            "draggable": {
-              "@undefined": true
-            },
-            "selectable": {
-              "@undefined": true
-            },
-            "connectable": {
-              "@undefined": true
-            },
-            "deletable": {
-              "@undefined": true
-            },
-            "dragHandle": {
-              "@undefined": true
-            },
-            "width": 150,
-            "height": 37,
-            "initialWidth": {
-              "@undefined": true
-            },
-            "initialHeight": {
-              "@undefined": true
-            },
-            "parentId": {
-              "@undefined": true
-            },
-            "zIndex": {
-              "@undefined": true
-            },
-            "extent": {
-              "@undefined": true
-            },
-            "expandParent": false,
-            "ariaLabel": {
-              "@undefined": true
-            },
-            "origin": {
-              "@undefined": true
-            },
-            "handles": {
-              "@undefined": true
-            },
-            "measured": {
-              "width": 150,
-              "height": 37
-            },
-            "className": "playwright-test-class-123",
-            "style": {
-              "backgroundColor": "red"
-            }
-          }
-        ]
-      },
-      {
-        "name": "onNodeMouseLeave",
-        "args": [
-          {
-            "@class": "SyntheticBaseEvent",
-            "_reactName": "onMouseLeave",
-            "_targetInst": {
-              "@ref": "React fiber"
-            },
-            "type": "mouseleave",
-            "nativeEvent": {
-              "@class": "MouseEvent",
-              "isTrusted": true
-            },
-            "target": {
-              "@ref": "DIV"
-            },
-            "currentTarget": {
-              "@ref": "DIV"
-            },
-            "eventPhase": 3,
-            "bubbles": true,
-            "cancelable": true,
-            "timeStamp": 375,
-            "defaultPrevented": false,
-            "isTrusted": true,
-            "view": {
-              "@ref": "Window"
-            },
-            "detail": 0,
-            "screenX": 794,
-            "screenY": 171,
-            "clientX": 794,
-            "clientY": 171,
-            "pageX": 794,
-            "pageY": 171,
-            "ctrlKey": false,
-            "shiftKey": false,
-            "altKey": false,
-            "metaKey": false,
-            "getModifierState": {
-              "@ref": "function"
-            },
-            "button": 0,
-            "buttons": 1,
-            "relatedTarget": {
-              "@ref": "DIV"
-            },
-            "movementX": 0,
-            "movementY": 0,
-            "isDefaultPrevented": {
-              "@ref": "function"
-            },
-            "isPropagationStopped": {
-              "@ref": "function"
-            }
-          },
-          {
-            "id": "Node-1",
-            "position": {
-              "x": 116.52439024390242,
-              "y": 77.68292682926828
-            },
-            "data": {
-              "label": "Node-1"
-            },
-            "type": "input",
-            "sourcePosition": {
-              "@undefined": true
-            },
-            "targetPosition": {
-              "@undefined": true
-            },
-            "hidden": false,
-            "selected": true,
-            "dragging": true,
-            "draggable": {
-              "@undefined": true
-            },
-            "selectable": {
-              "@undefined": true
-            },
-            "connectable": {
-              "@undefined": true
-            },
-            "deletable": {
-              "@undefined": true
-            },
-            "dragHandle": {
-              "@undefined": true
-            },
-            "width": 150,
-            "height": 37,
-            "initialWidth": {
-              "@undefined": true
-            },
-            "initialHeight": {
-              "@undefined": true
-            },
-            "parentId": {
-              "@undefined": true
-            },
-            "zIndex": {
-              "@undefined": true
-            },
-            "extent": {
-              "@undefined": true
-            },
-            "expandParent": false,
-            "ariaLabel": {
-              "@undefined": true
-            },
-            "origin": {
-              "@undefined": true
-            },
-            "handles": {
-              "@undefined": true
-            },
-            "measured": {
-              "width": 150,
-              "height": 37
-            },
-            "className": "playwright-test-class-123",
-            "style": {
-              "backgroundColor": "red"
-            }
+            "nodes": [],
+            "edges": []
           }
         ]
       },
@@ -2549,7 +2300,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 375,
+            "timeStamp": 592.2000000001863,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2557,11 +2308,11 @@
             },
             "detail": 0,
             "screenX": 794,
-            "screenY": 171,
+            "screenY": 170,
             "clientX": 794,
-            "clientY": 171,
+            "clientY": 170,
             "pageX": 794,
-            "pageY": 171,
+            "pageY": 170,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -2620,7 +2371,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 37,
+            "height": 36,
             "initialWidth": {
               "@undefined": true
             },
@@ -2648,7 +2399,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             },
             "className": {
               "@undefined": true
@@ -2680,19 +2431,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 375,
+            "timeStamp": 592.2000000001863,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 794.2543334960938,
-            "screenY": 171.0518035888672,
-            "clientX": 794.2543334960938,
-            "clientY": 171.0518035888672,
-            "pageX": 794.2543334960938,
-            "pageY": 171.0518035888672,
+            "screenX": 794.2138671875,
+            "screenY": 170.5660400390625,
+            "clientX": 794.2138671875,
+            "clientY": 170.5660400390625,
+            "pageX": 794.2138671875,
+            "pageY": 170.5660400390625,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -2750,12 +2501,12 @@
               "type": "position",
               "id": "Node-1",
               "position": {
-                "x": 174.78658536585363,
-                "y": 116.52439024390243
+                "x": 174.5121951219512,
+                "y": 116.34146341463413
               },
               "positionAbsolute": {
-                "x": 174.78658536585363,
-                "y": 116.52439024390243
+                "x": 174.5121951219512,
+                "y": 116.34146341463413
               },
               "dragging": true
             }
@@ -2772,8 +2523,8 @@
           {
             "id": "Node-1",
             "position": {
-              "x": 174.78658536585363,
-              "y": 116.52439024390243
+              "x": 174.5121951219512,
+              "y": 116.34146341463413
             },
             "data": {
               "label": "Node-1"
@@ -2804,7 +2555,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 37,
+            "height": 36,
             "initialWidth": {
               "@undefined": true
             },
@@ -2832,7 +2583,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -2843,8 +2594,8 @@
             {
               "id": "Node-1",
               "position": {
-                "x": 174.78658536585363,
-                "y": 116.52439024390243
+                "x": 174.5121951219512,
+                "y": 116.34146341463413
               },
               "data": {
                 "label": "Node-1"
@@ -2875,7 +2626,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 37,
+              "height": 36,
               "initialWidth": {
                 "@undefined": true
               },
@@ -2903,7 +2654,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "className": "playwright-test-class-123",
               "style": {
@@ -2919,15 +2670,6 @@
           "002",
           "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
         ]
-      },
-      {
-        "name": "onSelectionChange",
-        "args": [
-          {
-            "nodes": [],
-            "edges": []
-          }
-        ]
       }
     ],
     "hooks": {},
@@ -2937,8 +2679,8 @@
           {
             "id": "Node-1",
             "position": {
-              "x": 174.78658536585363,
-              "y": 116.52439024390243
+              "x": 174.5121951219512,
+              "y": 116.34146341463413
             },
             "data": {
               "label": "Node-1"
@@ -2969,7 +2711,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 37,
+            "height": 36,
             "initialWidth": {
               "@undefined": true
             },
@@ -2997,7 +2739,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -3039,7 +2781,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 37,
+            "height": 36,
             "initialWidth": {
               "@undefined": true
             },
@@ -3067,7 +2809,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             },
             "className": {
               "@undefined": true
@@ -3113,7 +2855,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 37,
+            "height": 36,
             "initialWidth": {
               "@undefined": true
             },
@@ -3141,7 +2883,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             },
             "className": {
               "@undefined": true
@@ -3185,7 +2927,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 37,
+            "height": 36,
             "initialWidth": {
               "@undefined": true
             },
@@ -3213,7 +2955,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             },
             "className": {
               "@undefined": true
@@ -3325,7 +3067,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 37,
+            "height": 36,
             "initialWidth": {
               "@undefined": true
             },
@@ -3353,7 +3095,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             },
             "className": {
               "@undefined": true
@@ -3397,7 +3139,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 37,
+            "height": 36,
             "initialWidth": {
               "@undefined": true
             },
@@ -3425,7 +3167,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             },
             "className": {
               "@undefined": true
@@ -3469,7 +3211,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 37,
+            "height": 36,
             "initialWidth": {
               "@undefined": true
             },
@@ -3497,7 +3239,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             },
             "className": {
               "@undefined": true
@@ -3541,7 +3283,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 37,
+            "height": 36,
             "initialWidth": {
               "@undefined": true
             },
@@ -3569,7 +3311,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             },
             "className": {
               "@undefined": true
@@ -3664,8 +3406,8 @@
         "getNode": {
           "id": "Node-1",
           "position": {
-            "x": 174.78658536585363,
-            "y": 116.52439024390243
+            "x": 174.5121951219512,
+            "y": 116.34146341463413
           },
           "data": {
             "label": "Node-1"
@@ -3696,7 +3438,7 @@
             "@undefined": true
           },
           "width": 150,
-          "height": 37,
+          "height": 36,
           "initialWidth": {
             "@undefined": true
           },
@@ -3724,7 +3466,7 @@
           },
           "measured": {
             "width": 150,
-            "height": 37
+            "height": 36
           },
           "className": "playwright-test-class-123",
           "style": {
@@ -3734,8 +3476,8 @@
         "getInternalNode": {
           "id": "Node-1",
           "position": {
-            "x": 174.78658536585363,
-            "y": 116.52439024390243
+            "x": 174.5121951219512,
+            "y": 116.34146341463413
           },
           "data": {
             "label": "Node-1"
@@ -3766,7 +3508,7 @@
             "@undefined": true
           },
           "width": 150,
-          "height": 37,
+          "height": 36,
           "initialWidth": {
             "@undefined": true
           },
@@ -3794,7 +3536,7 @@
           },
           "measured": {
             "width": 150,
-            "height": 37
+            "height": 36
           },
           "className": "playwright-test-class-123",
           "style": {
@@ -3802,8 +3544,8 @@
           },
           "internals": {
             "positionAbsolute": {
-              "x": 174.78658536585363,
-              "y": 116.52439024390243
+              "x": 174.5121951219512,
+              "y": 116.34146341463413
             },
             "z": 0,
             "rootParentIndex": {
@@ -3816,8 +3558,8 @@
                     "@undefined": true
                   },
                   "nodeId": "Node-1",
-                  "x": 70.99981241215175,
-                  "y": 31.999910444867112,
+                  "x": 70.99978384873843,
+                  "y": 30.99989166400304,
                   "position": "bottom",
                   "type": "source",
                   "width": 8,
@@ -3975,8 +3717,8 @@
           {
             "id": "Node-1",
             "position": {
-              "x": 174.78658536585363,
-              "y": 116.52439024390243
+              "x": 174.5121951219512,
+              "y": 116.34146341463413
             },
             "data": {
               "label": "Node-1"
@@ -4007,7 +3749,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 37,
+            "height": 36,
             "initialWidth": {
               "@undefined": true
             },
@@ -4035,7 +3777,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -4077,7 +3819,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 37,
+            "height": 36,
             "initialWidth": {
               "@undefined": true
             },
@@ -4105,7 +3847,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             },
             "className": {
               "@undefined": true
@@ -4151,7 +3893,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 37,
+            "height": 36,
             "initialWidth": {
               "@undefined": true
             },
@@ -4179,7 +3921,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             },
             "className": {
               "@undefined": true
@@ -4223,7 +3965,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 37,
+            "height": 36,
             "initialWidth": {
               "@undefined": true
             },
@@ -4251,7 +3993,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             },
             "className": {
               "@undefined": true
@@ -4363,7 +4105,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 37,
+            "height": 36,
             "initialWidth": {
               "@undefined": true
             },
@@ -4391,7 +4133,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             },
             "className": {
               "@undefined": true
@@ -4435,7 +4177,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 37,
+            "height": 36,
             "initialWidth": {
               "@undefined": true
             },
@@ -4463,7 +4205,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             },
             "className": {
               "@undefined": true
@@ -4507,7 +4249,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 37,
+            "height": 36,
             "initialWidth": {
               "@undefined": true
             },
@@ -4535,7 +4277,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             },
             "className": {
               "@undefined": true
@@ -4579,7 +4321,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 37,
+            "height": 36,
             "initialWidth": {
               "@undefined": true
             },
@@ -4607,7 +4349,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 37
+              "height": 36
             },
             "className": {
               "@undefined": true
@@ -4703,7 +4445,7 @@
         "getNodesBounds": {
           "x": -100,
           "y": 0,
-          "width": 424.7865853658536,
+          "width": 424.5121951219512,
           "height": 700
         },
         "getHandleConnections": [
@@ -4759,8 +4501,8 @@
             {
               "id": "Node-1",
               "position": {
-                "x": 174.78658536585363,
-                "y": 116.52439024390243
+                "x": 174.5121951219512,
+                "y": 116.34146341463413
               },
               "data": {
                 "label": "Node-1"
@@ -4791,7 +4533,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 37,
+              "height": 36,
               "initialWidth": {
                 "@undefined": true
               },
@@ -4819,7 +4561,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "className": "playwright-test-class-123",
               "style": {
@@ -4861,7 +4603,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 37,
+              "height": 36,
               "initialWidth": {
                 "@undefined": true
               },
@@ -4889,7 +4631,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "className": {
                 "@undefined": true
@@ -4935,7 +4677,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 37,
+              "height": 36,
               "initialWidth": {
                 "@undefined": true
               },
@@ -4963,7 +4705,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "className": {
                 "@undefined": true
@@ -5007,7 +4749,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 37,
+              "height": 36,
               "initialWidth": {
                 "@undefined": true
               },
@@ -5035,7 +4777,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "className": {
                 "@undefined": true
@@ -5147,7 +4889,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 37,
+              "height": 36,
               "initialWidth": {
                 "@undefined": true
               },
@@ -5175,7 +4917,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "className": {
                 "@undefined": true
@@ -5219,7 +4961,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 37,
+              "height": 36,
               "initialWidth": {
                 "@undefined": true
               },
@@ -5247,7 +4989,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "className": {
                 "@undefined": true
@@ -5291,7 +5033,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 37,
+              "height": 36,
               "initialWidth": {
                 "@undefined": true
               },
@@ -5319,7 +5061,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "className": {
                 "@undefined": true
@@ -5363,7 +5105,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 37,
+              "height": 36,
               "initialWidth": {
                 "@undefined": true
               },
@@ -5391,7 +5133,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 37
+                "height": 36
               },
               "className": {
                 "@undefined": true
@@ -5578,23 +5320,23 @@
             }
           ],
           "viewport": {
-            "x": 537.0172684458398,
+            "x": 536.8553459119497,
             "y": 32,
-            "zoom": 1.0298273155416013
+            "zoom": 1.0314465408805031
           }
         },
-        "getZoom": 1.0298273155416013,
+        "getZoom": 1.0314465408805031,
         "getViewport": {
-          "x": 537.0172684458398,
+          "x": 536.8553459119497,
           "y": 32,
-          "zoom": 1.0298273155416013
+          "zoom": 1.0314465408805031
         },
         "screenToFlowPosition": {
-          "x": -521.4634146341463,
-          "y": -31.073170731707314
+          "x": -520.4878048780488,
+          "y": -31.024390243902438
         },
         "flowToScreenPosition": {
-          "x": 537.0172684458398,
+          "x": 536.8553459119497,
           "y": 32
         },
         "viewportInitialized": false
@@ -5630,14 +5372,14 @@
         "target": ".react-flow__node[data-id=\"Node-1\"]",
         "resolved": true,
         "box": {
-          "x": 537.0172729492188,
+          "x": 536.8553466796875,
           "y": 32,
-          "width": 154.47412109375,
-          "height": 38.103607177734375
+          "width": 154.71697998046875,
+          "height": 37.132080078125
         },
         "dispatched": {
-          "x": 614.2543334960938,
-          "y": 51.05180358886719,
+          "x": 614.2138366699219,
+          "y": 50.5660400390625,
           "button": "left"
         }
       },
@@ -5648,8 +5390,8 @@
         "resolved": true,
         "box": null,
         "dispatched": {
-          "x": 674.2543334960938,
-          "y": 91.05180358886719
+          "x": 674.2138366699219,
+          "y": 90.5660400390625
         }
       },
       {
@@ -5659,8 +5401,8 @@
         "resolved": true,
         "box": null,
         "dispatched": {
-          "x": 734.2543334960938,
-          "y": 131.0518035888672
+          "x": 734.2138366699219,
+          "y": 130.5660400390625
         }
       },
       {
@@ -5681,8 +5423,8 @@
         "resolved": true,
         "box": null,
         "dispatched": {
-          "x": 794.2543334960938,
-          "y": 171.0518035888672
+          "x": 794.2138366699219,
+          "y": 170.5660400390625
         }
       }
     ]
