@@ -21,11 +21,10 @@
 -- | **Fidelity notes.**
 -- |   * `.nokey` closest-ancestor opt-out is dropped — no consumers in
 -- |     the PS port yet. Reinstate when a real use case appears.
--- |   * The rAF auto-pan loop dispatches `PanBy` fire-and-forget. The
--- |     loop therefore always commits the rect on the next frame
--- |     regardless of whether d3 reported the pan as accepted; the
--- |     `panned`-boolean reach-through of the upstream `.then((panned)
--- |     => …)` is not plumbed back through the dispatch surface.
+-- |   * The rAF auto-pan loop lives in `React.Container.Pane.Internal`
+-- |     as `autoPanLoop`, because a closure over the component's refs
+-- |     is a frame nothing but a mounted `<Pane />` can run. The refs
+-- |     it reads and writes are the argument record it takes.
 -- |   * `wrapHandler` `unsafeCoerce`s the synthetic event to
 -- |     `MouseEvent`. The wheel handler routes through the same
 -- |     `wrapHandler` for the target-equality guard, then re-casts to
@@ -56,11 +55,12 @@ import React.Basic.Events (EventHandler, handler, handler_, syntheticEvent)
 import React.Basic.Hooks (Ref, memo, reactChildrenToArray, reactComponentWithChildren, readRef, useEffectOnce, useRef, writeRef)
 import React.Basic.Hooks as React
 import React.Component.UserSelection (userSelection)
-import React.Container.Pane.Internal (buildPaneClass, paneIsDraggable)
+import React.Container.Pane.Internal (autoPanLoop, buildPaneClass, paneIsDraggable)
 import React.FFI.DOM (div_)
 import React.Hook.Store (UseStoreApi, useStore, useStoreApi)
 import React.Store.Action (Action(..))
 import React.Store.Changes (getEdgeSelectionChanges, getNodeSelectionChanges)
+import React.Store.PanBy (panBy) as StorePanBy
 import React.Types.Component (PaneProps)
 import React.Types.Store (ReactFlowState)
 import System.FFI.AnimationFrame (RafHandle, cancelAnimationFrame, requestAnimationFrame)
@@ -68,7 +68,7 @@ import System.Types.Connection (ConnectionState(..), SelectionMode(..))
 import System.Types.Ids (NodeId)
 import System.Types.PanZoom (PanOnDrag(..))
 import System.Utils.Dom (DOMRect, elementBoundingRect, getEventPosition)
-import System.Utils.General (areSetsEqual, calcAutoPan, pointToRendererPoint, rendererPointToPoint)
+import System.Utils.General (areSetsEqual, pointToRendererPoint, rendererPointToPoint)
 import System.Utils.Graph (getNodesInside)
 import Unsafe.Coerce (unsafeCoerce)
 import Web.HTML.HTMLDivElement (HTMLDivElement)
@@ -267,21 +267,18 @@ pane =
 
         -- ---- autoPan loop ---------------------------------------------------
         autoPan :: Effect Unit
-        autoPan = do
-          when props.autoPanOnSelection do
-            mb <- readRef containerBoundsRef
-            case toMaybe mb of
-              Nothing -> pure unit
-              Just bounds -> do
-                pos <- readRef positionRef
-                let delta = calcAutoPan pos
-                      { width: bounds.width, height: bounds.height }
-                      slice.autoPanSpeed
-                      40.0
-                store.dispatch (PanBy delta)
-                commitUserSelectionRect pos.x pos.y
-                next <- requestAnimationFrame autoPan
-                writeRef autoPanHandleRef (toNullable (Just next))
+        autoPan = autoPanLoop
+          { autoPanOnSelection: props.autoPanOnSelection
+          , autoPanSpeed: slice.autoPanSpeed
+          , containerBounds: toMaybe <$> readRef containerBoundsRef
+          , position: readRef positionRef
+          , selectionInProgress: readRef selectionInProgressRef
+          , panBy: StorePanBy.panBy store
+          , commitUserSelectionRect
+          , scheduleFrame: \frame -> do
+              next <- requestAnimationFrame frame
+              writeRef autoPanHandleRef (toNullable (Just next))
+          }
 
         -- ---- onClick --------------------------------------------------------
         onClick :: MouseEvent -> Effect Unit

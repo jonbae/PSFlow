@@ -28,7 +28,7 @@ import React.Store.Reduce (reduce)
 import React.Types.Store (MiddlewareKey(..), ReactFlowState)
 import System.Constants (errorMessage)
 import System.Utils.Graph (fitViewport)
-import System.Utils.Store (panBy, updateNodeInternals)
+import System.Utils.Store (updateNodeInternals)
 import Web.HTML.HTMLDivElement (toHTMLElement)
 
 -- | One subscriber. Each `subscribe` call captures its selector and
@@ -114,12 +114,6 @@ createStore opts = do
               , triggerFitView: dopts.triggerFitView
               }
           )
-      RunPanBy delta -> do
-        s <- Ref.read stateRef
-        launchAff_ do
-          _ <- panBy delta s.panZoom s.transform s.translateExtent s.width
-            s.height
-          pure unit
       RunSetCenter _ _ _ ->
         -- The hook in ticket 030 implements the returning Aff with its
         -- own AVar. This descriptor exists so middleware observers see

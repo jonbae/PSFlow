@@ -16,9 +16,10 @@
 -- | still.
 -- |
 -- | This is that store method: one function, read-then-call, no dispatch.
--- | `React.Container.Pane`'s lasso auto-pan still dispatches the action — its
--- | loop is `Effect` with nowhere to put an `Aff`, so it commits its selection
--- | rect whether or not the pan landed.
+-- | `React.Container.Pane`'s lasso auto-pan was the last caller still
+-- | dispatching the action; it reads this instead, and the `PanBy` action and
+-- | its `RunPanBy` effect are gone, because upstream has no action on this
+-- | path at all.
 module React.Store.PanBy
   ( panBy
   ) where

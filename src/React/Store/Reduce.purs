@@ -90,7 +90,6 @@ reduce state = case _ of
     , effects: [ RunSetTranslateExtent ext ]
     }
   SetNodeExtent ext -> reduceSetNodeExtent state ext
-  PanBy delta -> { state, effects: [ RunPanBy delta ] }
   SetCenter x y opts -> { state, effects: [ RunSetCenter x y opts ] }
   CancelConnection -> { state: state { connection = noConnection }, effects: [] }
   UpdateConnection c -> { state: state { connection = c }, effects: [] }
