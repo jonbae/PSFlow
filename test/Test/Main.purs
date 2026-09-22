@@ -45,6 +45,7 @@ import Test.Parity.Graph (runGraphParity)
 import Test.Parity.Marker (runMarkerParity)
 import Test.Parity.Toolbar (runToolbarParity)
 import Test.Properties (runProperties)
+import Test.React.Container.Pane (runPaneAutoPanTests)
 import Test.React.Hook.VisibleIds (runVisibleIdsTests)
 import Test.React.Provider.InitPrevValues (runInitPrevValuesTests)
 import Test.React.Provider.TrackedProp (runTrackedPropTests)
@@ -1066,6 +1067,7 @@ main = do
   runZoomLimitsTests
   runVisibleIdsTests
   runXYDragTests
+  runPaneAutoPanTests
   runStorePanByTests
   runTrackedPropTests
   runInitPrevValuesTests

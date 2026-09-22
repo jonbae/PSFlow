@@ -33,7 +33,7 @@ import System.Types.Connection
   , SetCenterOptions
   )
 import System.Types.Edge (EdgeChange)
-import System.Types.Geometry (CoordinateExtent, XYPosition)
+import System.Types.Geometry (CoordinateExtent)
 import System.Types.Ids (NodeId)
 import System.Types.Node
   ( InternalNodeBase
@@ -82,7 +82,6 @@ data Action n e
   | SetMaxZoom Number
   | SetTranslateExtent CoordinateExtent
   | SetNodeExtent CoordinateExtent
-  | PanBy XYPosition
   | SetCenter Number Number SetCenterOptions
   | CancelConnection
   | UpdateConnection (ConnectionState (InternalNodeBase n))
@@ -126,7 +125,6 @@ data Effect_ n e
   | RunDomUpdateNodeInternals
       (Map NodeId InternalNodeUpdate)
       { triggerFitView :: Boolean }
-  | RunPanBy XYPosition
   | RunSetCenter Number Number SetCenterOptions
   -- Zoom and pan limits, pushed onto the live pan-zoom instance. The
   -- reducer carries the values rather than leaving the shell to read
