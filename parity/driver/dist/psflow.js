@@ -54042,6 +54042,27 @@ var defaultNoPanClassName = "nopan";
 var defaultMinZoom = 0.5;
 var defaultMaxZoom = 2;
 var defaultElementsSelectable = true;
+var resolveSeeded = function(props) {
+  return {
+    minZoom: fromMaybe(defaultMinZoom)(props.minZoom),
+    maxZoom: fromMaybe(defaultMaxZoom)(props.maxZoom),
+    translateExtent: fromMaybe(infiniteExtent)(props.translateExtent),
+    elementsSelectable: fromMaybe(defaultElementsSelectable)(props.elementsSelectable),
+    noPanClassName: fromMaybe(defaultNoPanClassName)(props.noPanClassName),
+    nodeOrigin: fromMaybe(defaultNodeOrigin)(props.nodeOrigin)
+  };
+};
+var seededStoreProps = function(props) {
+  var seeded = resolveSeeded(props);
+  return {
+    minZoom: new Just(seeded.minZoom),
+    maxZoom: new Just(seeded.maxZoom),
+    translateExtent: new Just(seeded.translateExtent),
+    elementsSelectable: new Just(seeded.elementsSelectable),
+    noPanClassName: new Just(seeded.noPanClassName),
+    nodeOrigin: new Just(seeded.nodeOrigin)
+  };
+};
 
 // output/React.Hook.IsomorphicLayoutEffect/index.js
 var useIsomorphicLayoutEffect = function(dictEq) {
@@ -62246,7 +62267,7 @@ var mergeStyle = function(v) {
     return wrapperStyle;
   }
   ;
-  throw new Error("Failed pattern match at React.Container.ReactFlow (line 113, column 14 - line 115, column 26): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at React.Container.ReactFlow (line 109, column 14 - line 111, column 26): " + [v.constructor.name]);
 };
 var isMacOsCached = /* @__PURE__ */ unsafePerformEffect(isMacOs);
 var defaultMultiSelKey = /* @__PURE__ */ function() {
@@ -62271,7 +62292,7 @@ var colorModeClass = function(v) {
     return "";
   }
   ;
-  throw new Error("Failed pattern match at React.Container.ReactFlow (line 124, column 18 - line 127, column 16): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at React.Container.ReactFlow (line 120, column 18 - line 123, column 16): " + [v.constructor.name]);
 };
 var buildOuterClass = function(cmc) {
   return function(userClass) {
@@ -62287,21 +62308,11 @@ var reactFlow = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompone
     var zoomOnDoubleClick = fromMaybe(true)(v.zoomOnDoubleClick);
     var zoomActivationKeyCode = alt7(v.zoomActivationKeyCode)(new Just(defaultMultiSelKey));
     var wrapperOnScroll = scrollResetHandler(fromMaybe(pure74(unit))(v.onScroll));
-    var translateExtent = fromMaybe(infiniteExtent)(v.translateExtent);
+    var storeSeeded = seededStoreProps(v);
     var selectionOnDrag = fromMaybe(false)(v.selectionOnDrag);
     var selectionMode2 = fromMaybe(Full.value)(v.selectionMode);
     var selectionKeyCode = alt7(v.selectionKeyCode)(new Just(new SingleKey("Shift")));
-    var reconnectRadius = alt7(v.reconnectRadius)(new Just(10));
-    var preventScrolling = fromMaybe(true)(v.preventScrolling);
-    var paneClickDistance = fromMaybe(1)(v.paneClickDistance);
-    var panOnScrollSpeed = fromMaybe(0.5)(v.panOnScrollSpeed);
-    var panOnScrollMode2 = fromMaybe(Free.value)(v.panOnScrollMode);
-    var panOnScroll = fromMaybe(false)(v.panOnScroll);
-    var panOnDrag = fromMaybe(PanAlways.value)(v.panOnDrag);
-    var panActivationKeyCode = alt7(v.panActivationKeyCode)(new Just(new SingleKey("Space")));
-    var outerClass = buildOuterClass(colorModeClass(colorModeCls))(Nothing.value);
-    var onlyRenderVisibleElements = fromMaybe(false)(v.onlyRenderVisibleElements);
-    var nodeOrigin = fromMaybe(defaultNodeOrigin)(v.nodeOrigin);
+    var seeded = resolveSeeded(v);
     var storeUpdaterEl = element(storeUpdater)({
       rfId: defaultRfId,
       nodes: v.nodes,
@@ -62321,16 +62332,16 @@ var reactFlow = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompone
       edgesReconnectable: v.edgesReconnectable,
       elevateNodesOnSelect: v.elevateNodesOnSelect,
       elevateEdgesOnSelect: v.elevateEdgesOnSelect,
-      minZoom: v.minZoom,
-      maxZoom: v.maxZoom,
+      minZoom: storeSeeded.minZoom,
+      maxZoom: storeSeeded.maxZoom,
       nodeExtent: v.nodeExtent,
       onNodesChange: v.onNodesChange,
       onEdgesChange: v.onEdgesChange,
-      elementsSelectable: v.elementsSelectable,
+      elementsSelectable: storeSeeded.elementsSelectable,
       connectionMode: v.connectionMode,
       snapGrid: v.snapGrid,
       snapToGrid: v.snapToGrid,
-      translateExtent: v.translateExtent,
+      translateExtent: storeSeeded.translateExtent,
       connectOnClick: v.connectOnClick,
       defaultEdgeOptions: v.defaultEdgeOptions,
       fitView: v.fitView,
@@ -62347,8 +62358,8 @@ var reactFlow = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompone
       onMoveStart: v.onMoveStart,
       onMove: v.onMove,
       onMoveEnd: v.onMoveEnd,
-      noPanClassName: v.noPanClassName,
-      nodeOrigin: new Just(nodeOrigin),
+      noPanClassName: storeSeeded.noPanClassName,
+      nodeOrigin: storeSeeded.nodeOrigin,
       autoPanOnConnect: v.autoPanOnConnect,
       autoPanOnNodeDrag: v.autoPanOnNodeDrag,
       onError: v.onError,
@@ -62363,14 +62374,20 @@ var reactFlow = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompone
       ariaLabelConfig: v.ariaLabelConfig,
       zIndexMode: v.zIndexMode
     });
+    var reconnectRadius = alt7(v.reconnectRadius)(new Just(10));
+    var preventScrolling = fromMaybe(true)(v.preventScrolling);
+    var paneClickDistance = fromMaybe(1)(v.paneClickDistance);
+    var panOnScrollSpeed = fromMaybe(0.5)(v.panOnScrollSpeed);
+    var panOnScrollMode2 = fromMaybe(Free.value)(v.panOnScrollMode);
+    var panOnScroll = fromMaybe(false)(v.panOnScroll);
+    var panOnDrag = fromMaybe(PanAlways.value)(v.panOnDrag);
+    var panActivationKeyCode = alt7(v.panActivationKeyCode)(new Just(new SingleKey("Space")));
+    var outerClass = buildOuterClass(colorModeClass(colorModeCls))(Nothing.value);
+    var onlyRenderVisibleElements = fromMaybe(false)(v.onlyRenderVisibleElements);
     var nodeClickDistance = fromMaybe(0)(v.nodeClickDistance);
     var noWheelClassName = fromMaybe("nowheel")(v.noWheelClassName);
-    var noPanClassName = fromMaybe(defaultNoPanClassName)(v.noPanClassName);
     var noDragClassName = fromMaybe("nodrag")(v.noDragClassName);
     var multiSelectionKeyCode = alt7(v.multiSelectionKeyCode)(new Just(defaultMultiSelKey));
-    var minZoom = fromMaybe(defaultMinZoom)(v.minZoom);
-    var maxZoom = fromMaybe(defaultMaxZoom)(v.maxZoom);
-    var elementsSelectable = fromMaybe(defaultElementsSelectable)(v.elementsSelectable);
     var disableKeyboardA11y = fromMaybe(false)(v.disableKeyboardA11y);
     var deleteKeyCode = alt7(v.deleteKeyCode)(new Just(new SingleKey("Backspace")));
     var defaultViewport2 = fromMaybe(defaultViewport)(v.defaultViewport);
@@ -62381,13 +62398,13 @@ var reactFlow = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompone
       rfId: defaultRfId,
       connectionLineType: connectionLineType2,
       onlyRenderVisibleElements,
-      translateExtent,
-      minZoom,
-      maxZoom,
+      translateExtent: seeded.translateExtent,
+      minZoom: seeded.minZoom,
+      maxZoom: seeded.maxZoom,
       defaultMarkerColor,
       noDragClassName,
       noWheelClassName,
-      noPanClassName,
+      noPanClassName: seeded.noPanClassName,
       defaultViewport: defaultViewport2,
       disableKeyboardA11y,
       paneClickDistance,
@@ -62402,7 +62419,7 @@ var reactFlow = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompone
       zoomOnPinch,
       zoomOnDoubleClick,
       preventScrolling,
-      elementsSelectable,
+      elementsSelectable: seeded.elementsSelectable,
       autoPanOnSelection,
       selectionKeyCode,
       deleteKeyCode,
@@ -62464,7 +62481,7 @@ var reactFlow = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompone
       initialFitViewOptions: v.fitViewOptions,
       initialMinZoom: v.minZoom,
       initialMaxZoom: v.maxZoom,
-      nodeOrigin: new Just(nodeOrigin),
+      nodeOrigin: new Just(seeded.nodeOrigin),
       nodeExtent: v.nodeExtent,
       zIndexMode: v.zIndexMode,
       children: reactChildrenFromArray(innerChildren)
