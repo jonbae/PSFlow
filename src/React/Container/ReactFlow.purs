@@ -72,13 +72,10 @@ import React.Container.A11yDescriptions (a11yDescriptions)
 import React.Container.Attribution (attribution)
 import React.Container.GraphView (graphView)
 import React.Container.InitValues
-  ( defaultElementsSelectable
-  , defaultMaxZoom
-  , defaultMinZoom
-  , defaultNoPanClassName
-  , defaultNodeOrigin
-  , defaultRfId
+  ( defaultRfId
   , defaultViewport
+  , resolveSeeded
+  , seededStoreProps
   ) as Init
 import React.Container.Wrapper (wrapper)
 import React.FFI.DOM (div_, scrollResetHandler)
@@ -86,7 +83,6 @@ import React.Hook.ColorModeClass (useColorModeClass)
 import React.Provider.SelectionListener (selectionListener)
 import React.Provider.StoreUpdater (storeUpdater)
 import React.Types.Component (ReactFlowProps)
-import System.Constants (infiniteExtent)
 import System.Types.Connection
   ( ColorModeClass(..)
   , KeyCode(..)
@@ -173,6 +169,12 @@ reactFlow =
       colorModeCls <- useColorModeClass props.colorMode
       let
         rfId = Init.defaultRfId
+        -- The six `<ReactFlow />` resolves and then hands to two components,
+        -- resolved once. `storeSeeded` is the same six shaped for
+        -- `<StoreUpdater />`; `React.Container.InitValues.seededStoreProps`
+        -- says why they cannot be the raw props.
+        seeded = Init.resolveSeeded props
+        storeSeeded = Init.seededStoreProps props
         -- Resolved defaults — matches TS destructure-with-defaults.
         connectionLineType = fromMaybe BezierLine props.connectionLineType
         deleteKeyCode = props.deleteKeyCode <|> Just (SingleKey "Backspace")
@@ -183,12 +185,12 @@ reactFlow =
         multiSelectionKeyCode = props.multiSelectionKeyCode <|> Just defaultMultiSelKey
         zoomActivationKeyCode = props.zoomActivationKeyCode <|> Just defaultMultiSelKey
         onlyRenderVisibleElements = fromMaybe false props.onlyRenderVisibleElements
-        nodeOrigin = fromMaybe Init.defaultNodeOrigin props.nodeOrigin
-        elementsSelectable = fromMaybe Init.defaultElementsSelectable props.elementsSelectable
+        nodeOrigin = seeded.nodeOrigin
+        elementsSelectable = seeded.elementsSelectable
         defaultViewport = fromMaybe Init.defaultViewport props.defaultViewport
-        minZoom = fromMaybe Init.defaultMinZoom props.minZoom
-        maxZoom = fromMaybe Init.defaultMaxZoom props.maxZoom
-        translateExtent = fromMaybe infiniteExtent props.translateExtent
+        minZoom = seeded.minZoom
+        maxZoom = seeded.maxZoom
+        translateExtent = seeded.translateExtent
         preventScrolling = fromMaybe true props.preventScrolling
         defaultMarkerColor = fromMaybe "#b1b1b7" props.defaultMarkerColor
         zoomOnScroll = fromMaybe true props.zoomOnScroll
@@ -203,7 +205,7 @@ reactFlow =
         reconnectRadius = props.reconnectRadius <|> Just 10.0
         noDragClassName = fromMaybe "nodrag" props.noDragClassName
         noWheelClassName = fromMaybe "nowheel" props.noWheelClassName
-        noPanClassName = fromMaybe Init.defaultNoPanClassName props.noPanClassName
+        noPanClassName = seeded.noPanClassName
         disableKeyboardA11y = fromMaybe false props.disableKeyboardA11y
         autoPanOnSelection = fromMaybe true props.autoPanOnSelection
 
@@ -298,16 +300,16 @@ reactFlow =
           , edgesReconnectable: props.edgesReconnectable
           , elevateNodesOnSelect: props.elevateNodesOnSelect
           , elevateEdgesOnSelect: props.elevateEdgesOnSelect
-          , minZoom: props.minZoom
-          , maxZoom: props.maxZoom
+          , minZoom: storeSeeded.minZoom
+          , maxZoom: storeSeeded.maxZoom
           , nodeExtent: props.nodeExtent
           , onNodesChange: props.onNodesChange
           , onEdgesChange: props.onEdgesChange
-          , elementsSelectable: props.elementsSelectable
+          , elementsSelectable: storeSeeded.elementsSelectable
           , connectionMode: props.connectionMode
           , snapGrid: props.snapGrid
           , snapToGrid: props.snapToGrid
-          , translateExtent: props.translateExtent
+          , translateExtent: storeSeeded.translateExtent
           , connectOnClick: props.connectOnClick
           , defaultEdgeOptions: props.defaultEdgeOptions
           , fitView: props.fitView
@@ -324,8 +326,8 @@ reactFlow =
           , onMoveStart: props.onMoveStart
           , onMove: props.onMove
           , onMoveEnd: props.onMoveEnd
-          , noPanClassName: props.noPanClassName
-          , nodeOrigin: Just nodeOrigin
+          , noPanClassName: storeSeeded.noPanClassName
+          , nodeOrigin: storeSeeded.nodeOrigin
           , autoPanOnConnect: props.autoPanOnConnect
           , autoPanOnNodeDrag: props.autoPanOnNodeDrag
           , onError: props.onError
