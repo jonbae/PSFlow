@@ -197,10 +197,27 @@ const retirementDebt = [
   // and it puts the press **inside the autopan band**, twenty pixels from the
   // top of the pane. That is not incidental and it is not a mistake: both sides
   // pan while the drag runs, and it is where this scenario's first findings
-  // are. ps-flow fires `onSelectionDrag` and `onEdgesChange` where upstream
-  // fires neither, fires no `onMoveStart` where upstream fires three, and does
-  // not reproduce its own frame count across its two captures where upstream
-  // does. The assertion that counted one array could not have seen any of it.
+  // are. ps-flow fires `onEdgesChange` where upstream fires none, and fires no
+  // `onMoveStart` or `onMove` at all where upstream fires one pair per autopan
+  // frame. The assertion that counted one array could not have seen either.
+  //
+  // **Neither side reproduces itself here, and the cost is the whole scenario**
+  // (#116). The band makes the end state a function of how many animation
+  // frames fire between the harness's pointer moves, which is wall-clock time:
+  // `calcAutoPan` returns 7.5, 5.625, 3.75, 1.875 and 0 px/frame at the five
+  // in-band positions this walk visits, so every reading is an integer multiple
+  // of 1.875px and the multiple is whatever the machine had time for. Measured
+  // over fourteen runs on one commit, the settled viewport landed anywhere from
+  // 7 to 28 of those units; upstream reproduced itself exactly in four runs and
+  // disagreed with itself by up to 127 rows in the rest. An earlier revision of
+  // this comment claimed upstream did reproduce its frame count. It does not.
+  //
+  // The grab cannot simply be moved off the band: `n1` spans container-y 0..40
+  // under the identity viewport and the band is container-y < 40, so the node
+  // lies wholly inside it and its bottom edge is the boundary. Making this
+  // scenario reproducible means moving the node, giving it its own fixture, or
+  // giving the harness a deterministic frame clock — #120 decides which, and
+  // until it does, every count this scenario contributes carries that spread.
   {
     id: "drag-node-reports-changes",
     route: CHROME_DEFAULTS,
