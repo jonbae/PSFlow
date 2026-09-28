@@ -28,7 +28,7 @@ export const sourceEventDeltaXY = (event) => () => ({
   shiftKey: !!(event && event.shiftKey),
 });
 
-export const asMouseOrTouch = (event) => event;
+export const isNullishForeign = (event) => event === null || event === undefined;
 
 export const foreignCtrlKey = (event) => () => !!(event && event.ctrlKey);
 export const powN = (base) => (exp) => Math.pow(base, exp);
