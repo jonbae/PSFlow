@@ -38,7 +38,7 @@
                     "tag": "div",
                     "attrs": {
                       "class": "react-flow__viewport xyflow__viewport react-flow__container",
-                      "style": "transform: translate(536.855px, 32px) scale(1.03145);"
+                      "style": "transform: translate(537.017px, 32px) scale(1.02983);"
                     },
                     "children": [
                       {
@@ -67,7 +67,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M133.1705155560555,77.78038686564733 C133.1705155560555,126.17069101326797 91.34124726337258,126.17069101326797 91.34124726337258,174.5609951608886",
+                                      "d": "M133.26200753410296,78.84138126790316 C133.26200753410296,126.76216009858305 91.52420265605417,126.76216009858305 91.52420265605417,174.68293892926295",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -76,7 +76,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M133.1705155560555,77.78038686564733 C133.1705155560555,126.17069101326797 91.34124726337258,126.17069101326797 91.34124726337258,174.5609951608886",
+                                      "d": "M133.26200753410296,78.84138126790316 C133.26200753410296,126.76216009858305 91.52420265605417,126.76216009858305 91.52420265605417,174.68293892926295",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -87,7 +87,7 @@
                                   {
                                     "tag": "g",
                                     "attrs": {
-                                      "transform": "translate(102.8182860422824 119.8688621520314)",
+                                      "transform": "translate(102.75209004228316 121.4214589953726)",
                                       "class": "react-flow__edge-textwrapper",
                                       "visibility": "visible"
                                     },
@@ -97,8 +97,8 @@
                                         "attrs": {
                                           "x": "-2",
                                           "y": "-4",
-                                          "width": "22.87519073486328",
-                                          "height": "20.603657722473145",
+                                          "width": "23.28203010559082",
+                                          "height": "18.6814022064209",
                                           "class": "react-flow__edge-textbg",
                                           "rx": "2",
                                           "ry": "2"
@@ -109,7 +109,7 @@
                                         "tag": "text",
                                         "attrs": {
                                           "class": "react-flow__edge-text",
-                                          "y": "6.301828861236572",
+                                          "y": "5.340701103210449",
                                           "dy": "0.3em"
                                         },
                                         "text": "edge",
@@ -121,8 +121,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
-                                      "cx": "133.1705155560555",
-                                      "cy": "87.78038686564733",
+                                      "cx": "133.26200753410296",
+                                      "cy": "88.84138126790316",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -133,8 +133,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
-                                      "cx": "91.34124726337258",
-                                      "cy": "164.5609951608886",
+                                      "cx": "91.52420265605417",
+                                      "cy": "164.68293892926295",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -165,7 +165,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M133.1705155560555,77.78038686564733 C133.1705155560555,87.39020320838992 174.99978384873845,87.39020320838992 174.99978384873845,97.00001955113251",
+                                      "d": "M133.26200753410296,78.84138126790316 C133.26200753410296,87.9206966839489 174.99981241215175,87.9206966839489 174.99981241215175,97.00001209999466",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -174,7 +174,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M133.1705155560555,77.78038686564733 C133.1705155560555,87.39020320838992 174.99978384873845,87.39020320838992 174.99978384873845,97.00001955113251",
+                                      "d": "M133.26200753410296,78.84138126790316 C133.26200753410296,87.9206966839489 174.99981241215175,87.9206966839489 174.99981241215175,97.00001209999466",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -185,7 +185,7 @@
                                   {
                                     "tag": "g",
                                     "attrs": {
-                                      "transform": "translate(144.64755433496532 81.08837434715333)",
+                                      "transform": "translate(144.48989492033195 82.57999558073847)",
                                       "class": "react-flow__edge-textwrapper",
                                       "visibility": "visible"
                                     },
@@ -195,8 +195,8 @@
                                         "attrs": {
                                           "x": "-2",
                                           "y": "-4",
-                                          "width": "22.87519073486328",
-                                          "height": "20.603657722473145",
+                                          "width": "23.28203010559082",
+                                          "height": "18.6814022064209",
                                           "class": "react-flow__edge-textbg",
                                           "rx": "2",
                                           "ry": "2"
@@ -207,7 +207,7 @@
                                         "tag": "text",
                                         "attrs": {
                                           "class": "react-flow__edge-text",
-                                          "y": "6.301828861236572",
+                                          "y": "5.340701103210449",
                                           "dy": "0.3em"
                                         },
                                         "text": "edge",
@@ -219,8 +219,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
-                                      "cx": "133.1705155560555",
-                                      "cy": "87.78038686564733",
+                                      "cx": "133.26200753410296",
+                                      "cy": "88.84138126790316",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -231,8 +231,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
-                                      "cx": "174.99978384873845",
-                                      "cy": "87.00001955113251",
+                                      "cx": "174.99981241215175",
+                                      "cy": "87.00001209999466",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -268,7 +268,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 1000; transform: translate(58.1707px, 38.7805px); pointer-events: all; visibility: visible; background-color: red; width: 150px; height: 36px;"
+                              "style": "z-index: 1000; transform: translate(58.2622px, 38.8415px); pointer-events: all; visibility: visible; background-color: red; width: 150px; height: 37px;"
                             },
                             "text": "Node-1",
                             "children": [
@@ -293,7 +293,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(16.3415px, 177.561px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
+                              "style": "z-index: 0; transform: translate(16.5244px, 177.683px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "Node-2",
                             "children": [
@@ -318,7 +318,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
+                              "style": "z-index: 0; transform: translate(100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "Node-3",
                             "children": [
@@ -353,7 +353,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(0px, 200px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
+                              "style": "z-index: 0; transform: translate(0px, 200px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "Node-4",
                             "children": [
@@ -409,7 +409,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(0px, 300px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
+                              "style": "z-index: 0; transform: translate(0px, 300px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "notConnectable",
                             "children": [
@@ -434,7 +434,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(0px, 600px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
+                              "style": "z-index: 0; transform: translate(0px, 600px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "notDeletable",
                             "children": [
@@ -469,7 +469,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(0px, 400px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
+                              "style": "z-index: 0; transform: translate(0px, 400px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "notDraggable",
                             "children": [
@@ -504,7 +504,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(0px, 500px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
+                              "style": "z-index: 0; transform: translate(0px, 500px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "notSelectable",
                             "children": [
@@ -640,7 +640,7 @@
               "id": "Node-1",
               "dimensions": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "resizing": false,
               "setAttributes": true
@@ -668,7 +668,7 @@
               "id": "Node-2",
               "dimensions": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "resizing": false,
               "setAttributes": true
@@ -696,7 +696,7 @@
               "id": "Node-3",
               "dimensions": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "resizing": false,
               "setAttributes": true
@@ -724,7 +724,7 @@
               "id": "Node-4",
               "dimensions": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "resizing": false,
               "setAttributes": true
@@ -780,7 +780,7 @@
               "id": "notConnectable",
               "dimensions": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "resizing": false,
               "setAttributes": true
@@ -808,7 +808,7 @@
               "id": "notDeletable",
               "dimensions": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "resizing": false,
               "setAttributes": true
@@ -836,7 +836,7 @@
               "id": "notDraggable",
               "dimensions": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "resizing": false,
               "setAttributes": true
@@ -864,7 +864,7 @@
               "id": "notSelectable",
               "dimensions": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "resizing": false,
               "setAttributes": true
@@ -873,12 +873,34 @@
         ]
       },
       {
+        "name": "onMoveStart",
+        "args": [
+          null,
+          {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          }
+        ]
+      },
+      {
         "name": "onViewportChange",
         "args": [
           {
-            "x": 536.8553459119497,
+            "x": 537.0172684458398,
             "y": 32,
-            "zoom": 1.0314465408805031
+            "zoom": 1.0298273155416013
+          }
+        ]
+      },
+      {
+        "name": "onMove",
+        "args": [
+          null,
+          {
+            "x": 537.0172684458398,
+            "y": 32,
+            "zoom": 1.0298273155416013
           }
         ]
       },
@@ -887,9 +909,9 @@
         "args": [
           null,
           {
-            "x": 536.8553459119497,
+            "x": 537.0172684458398,
             "y": 32,
-            "zoom": 1.0314465408805031
+            "zoom": 1.0298273155416013
           }
         ]
       },
@@ -923,19 +945,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 425.5,
+            "timeStamp": 302.60000014305115,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 511.0691833496094,
-            "screenY": 153.710693359375,
-            "clientX": 511.0691833496094,
-            "clientY": 153.710693359375,
-            "pageX": 511.0691833496094,
-            "pageY": 153.710693359375,
+            "screenX": 511.2716064453125,
+            "screenY": 154.0345458984375,
+            "clientX": 511.2716064453125,
+            "clientY": 154.0345458984375,
+            "pageX": 511.2716064453125,
+            "pageY": 154.0345458984375,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -992,7 +1014,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 425.5,
+            "timeStamp": 302.60000014305115,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1000,11 +1022,11 @@
             },
             "detail": 0,
             "screenX": 511,
-            "screenY": 153,
+            "screenY": 154,
             "clientX": 511,
-            "clientY": 153,
+            "clientY": 154,
             "pageX": 511,
-            "pageY": 153,
+            "pageY": 154,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -1061,7 +1083,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -1089,7 +1111,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -1121,19 +1143,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 425.5,
+            "timeStamp": 302.60000014305115,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 511.0691833496094,
-            "screenY": 153.710693359375,
-            "clientX": 511.0691833496094,
-            "clientY": 153.710693359375,
-            "pageX": 511.0691833496094,
-            "pageY": 153.710693359375,
+            "screenX": 511.2716064453125,
+            "screenY": 154.0345458984375,
+            "clientX": 511.2716064453125,
+            "clientY": 154.0345458984375,
+            "pageX": 511.2716064453125,
+            "pageY": 154.0345458984375,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -1145,7 +1167,7 @@
             "buttons": 0,
             "relatedTarget": null,
             "movementX": 512,
-            "movementY": 154,
+            "movementY": 155,
             "pointerId": 1,
             "width": 1,
             "height": 1,
@@ -1186,7 +1208,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 425.5,
+            "timeStamp": 302.60000014305115,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1194,11 +1216,11 @@
             },
             "detail": 0,
             "screenX": 511,
-            "screenY": 153,
+            "screenY": 154,
             "clientX": 511,
-            "clientY": 153,
+            "clientY": 154,
             "pageX": 511,
-            "pageY": 153,
+            "pageY": 154,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -1210,7 +1232,7 @@
             "buttons": 0,
             "relatedTarget": null,
             "movementX": 512,
-            "movementY": 154,
+            "movementY": 155,
             "isDefaultPrevented": {
               "@ref": "function"
             },
@@ -1253,7 +1275,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -1281,7 +1303,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -1376,7 +1398,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -1404,7 +1426,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -1449,7 +1471,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -1477,7 +1499,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -1536,7 +1558,7 @@
                   "@undefined": true
                 },
                 "width": 150,
-                "height": 36,
+                "height": 37,
                 "initialWidth": {
                   "@undefined": true
                 },
@@ -1564,7 +1586,7 @@
                 },
                 "measured": {
                   "width": 150,
-                  "height": 36
+                  "height": 37
                 },
                 "className": {
                   "@undefined": true
@@ -1620,7 +1642,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -1648,7 +1670,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -1693,7 +1715,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -1721,7 +1743,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -1754,7 +1776,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 468.5,
+            "timeStamp": 344.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1762,11 +1784,11 @@
             },
             "detail": 1,
             "screenX": 511,
-            "screenY": 153,
+            "screenY": 154,
             "clientX": 511,
-            "clientY": 153,
+            "clientY": 154,
             "pageX": 511,
-            "pageY": 153,
+            "pageY": 154,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -1821,7 +1843,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -1849,7 +1871,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -1883,7 +1905,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 481.69999999925494,
+            "timeStamp": 357,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1891,11 +1913,11 @@
             },
             "detail": 0,
             "screenX": 614,
-            "screenY": 50,
+            "screenY": 51,
             "clientX": 614,
-            "clientY": 50,
+            "clientY": 51,
             "pageX": 614,
-            "pageY": 50,
+            "pageY": 51,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -1952,7 +1974,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -1980,7 +2002,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -2014,7 +2036,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 481.69999999925494,
+            "timeStamp": 357,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2022,11 +2044,11 @@
             },
             "detail": 0,
             "screenX": 614,
-            "screenY": 50,
+            "screenY": 51,
             "clientX": 614,
-            "clientY": 50,
+            "clientY": 51,
             "pageX": 614,
-            "pageY": 50,
+            "pageY": 51,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -2083,7 +2105,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -2111,7 +2133,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -2141,19 +2163,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 481.69999999925494,
+            "timeStamp": 357,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 614.2138671875,
-            "screenY": 50.5660400390625,
-            "clientX": 614.2138671875,
-            "clientY": 50.5660400390625,
-            "pageX": 614.2138671875,
-            "pageY": 50.5660400390625,
+            "screenX": 614.2543334960938,
+            "screenY": 51.05180358886719,
+            "clientX": 614.2543334960938,
+            "clientY": 51.05180358886719,
+            "pageX": 614.2543334960938,
+            "pageY": 51.05180358886719,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -2206,7 +2228,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 481.69999999925494,
+            "timeStamp": 357,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2214,11 +2236,11 @@
             },
             "detail": 0,
             "screenX": 614,
-            "screenY": 50,
+            "screenY": 51,
             "clientX": 614,
-            "clientY": 50,
+            "clientY": 51,
             "pageX": 614,
-            "pageY": 50,
+            "pageY": 51,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -2273,7 +2295,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -2301,7 +2323,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -2423,7 +2445,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -2451,7 +2473,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -2494,7 +2516,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -2522,7 +2544,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": "playwright-test-class-123",
               "style": {
@@ -2564,7 +2586,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -2592,7 +2614,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -2651,7 +2673,7 @@
                   "@undefined": true
                 },
                 "width": 150,
-                "height": 36,
+                "height": 37,
                 "initialWidth": {
                   "@undefined": true
                 },
@@ -2679,7 +2701,7 @@
                 },
                 "measured": {
                   "width": 150,
-                  "height": 36
+                  "height": 37
                 },
                 "className": "playwright-test-class-123",
                 "style": {
@@ -2712,19 +2734,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 516.2999999988824,
+            "timeStamp": 379.7999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 638.2138671875,
-            "screenY": 66.5660400390625,
-            "clientX": 638.2138671875,
-            "clientY": 66.5660400390625,
-            "pageX": 638.2138671875,
-            "pageY": 66.5660400390625,
+            "screenX": 638.2543334960938,
+            "screenY": 67.05180358886719,
+            "clientX": 638.2543334960938,
+            "clientY": 67.05180358886719,
+            "pageX": 638.2543334960938,
+            "pageY": 67.05180358886719,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -2782,12 +2804,12 @@
               "type": "position",
               "id": "Node-1",
               "position": {
-                "x": 23.268292682926827,
-                "y": 15.512195121951216
+                "x": 23.30487804878048,
+                "y": 15.536585365853657
               },
               "positionAbsolute": {
-                "x": 23.268292682926827,
-                "y": 15.512195121951216
+                "x": 23.30487804878048,
+                "y": 15.536585365853657
               },
               "dragging": true
             },
@@ -2813,12 +2835,12 @@
               "type": "position",
               "id": "Node-2",
               "position": {
-                "x": -76.73170731707316,
-                "y": 115.51219512195121
+                "x": -76.69512195121952,
+                "y": 115.53658536585365
               },
               "positionAbsolute": {
-                "x": -76.73170731707316,
-                "y": 115.51219512195121
+                "x": -76.69512195121952,
+                "y": 115.53658536585365
               },
               "dragging": true
             }
@@ -2835,8 +2857,8 @@
           {
             "id": "Node-1",
             "position": {
-              "x": 23.268292682926827,
-              "y": 15.512195121951216
+              "x": 23.30487804878048,
+              "y": 15.536585365853657
             },
             "data": {
               "label": "Node-1"
@@ -2867,7 +2889,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -2895,7 +2917,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -2906,8 +2928,8 @@
             {
               "id": "Node-1",
               "position": {
-                "x": 23.268292682926827,
-                "y": 15.512195121951216
+                "x": 23.30487804878048,
+                "y": 15.536585365853657
               },
               "data": {
                 "label": "Node-1"
@@ -2938,7 +2960,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -2966,7 +2988,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": "playwright-test-class-123",
               "style": {
@@ -2976,8 +2998,8 @@
             {
               "id": "Node-2",
               "position": {
-                "x": -76.73170731707316,
-                "y": 115.51219512195121
+                "x": -76.69512195121952,
+                "y": 115.53658536585365
               },
               "data": {
                 "label": "Node-2"
@@ -3008,7 +3030,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -3036,7 +3058,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -3076,19 +3098,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 541.1999999992549,
+            "timeStamp": 398.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 662.2138671875,
-            "screenY": 82.5660400390625,
-            "clientX": 662.2138671875,
-            "clientY": 82.5660400390625,
-            "pageX": 662.2138671875,
-            "pageY": 82.5660400390625,
+            "screenX": 662.2543334960938,
+            "screenY": 83.05180358886719,
+            "clientX": 662.2543334960938,
+            "clientY": 83.05180358886719,
+            "pageX": 662.2543334960938,
+            "pageY": 83.05180358886719,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -3146,12 +3168,12 @@
               "type": "position",
               "id": "Node-1",
               "position": {
-                "x": 46.536585365853654,
-                "y": 31.024390243902438
+                "x": 46.60975609756096,
+                "y": 31.07317073170731
               },
               "positionAbsolute": {
-                "x": 46.536585365853654,
-                "y": 31.024390243902438
+                "x": 46.60975609756096,
+                "y": 31.07317073170731
               },
               "dragging": true
             },
@@ -3177,12 +3199,12 @@
               "type": "position",
               "id": "Node-2",
               "position": {
-                "x": -53.46341463414633,
-                "y": 131.02439024390245
+                "x": -53.39024390243904,
+                "y": 131.0731707317073
               },
               "positionAbsolute": {
-                "x": -53.46341463414633,
-                "y": 131.02439024390245
+                "x": -53.39024390243904,
+                "y": 131.0731707317073
               },
               "dragging": true
             }
@@ -3199,8 +3221,8 @@
           {
             "id": "Node-1",
             "position": {
-              "x": 46.536585365853654,
-              "y": 31.024390243902438
+              "x": 46.60975609756096,
+              "y": 31.07317073170731
             },
             "data": {
               "label": "Node-1"
@@ -3231,7 +3253,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -3259,7 +3281,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -3270,8 +3292,8 @@
             {
               "id": "Node-1",
               "position": {
-                "x": 46.536585365853654,
-                "y": 31.024390243902438
+                "x": 46.60975609756096,
+                "y": 31.07317073170731
               },
               "data": {
                 "label": "Node-1"
@@ -3302,7 +3324,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -3330,7 +3352,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": "playwright-test-class-123",
               "style": {
@@ -3340,8 +3362,8 @@
             {
               "id": "Node-2",
               "position": {
-                "x": -53.46341463414633,
-                "y": 131.02439024390245
+                "x": -53.39024390243904,
+                "y": 131.0731707317073
               },
               "data": {
                 "label": "Node-2"
@@ -3372,7 +3394,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -3400,7 +3422,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -3440,19 +3462,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 574.2999999988824,
+            "timeStamp": 428.60000014305115,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 686.2138671875,
-            "screenY": 98.5660400390625,
-            "clientX": 686.2138671875,
-            "clientY": 98.5660400390625,
-            "pageX": 686.2138671875,
-            "pageY": 98.5660400390625,
+            "screenX": 686.2543334960938,
+            "screenY": 99.05180358886719,
+            "clientX": 686.2543334960938,
+            "clientY": 99.05180358886719,
+            "pageX": 686.2543334960938,
+            "pageY": 99.05180358886719,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -3510,12 +3532,12 @@
               "type": "position",
               "id": "Node-1",
               "position": {
-                "x": 69.80487804878048,
-                "y": 46.536585365853654
+                "x": 69.91463414634146,
+                "y": 46.60975609756096
               },
               "positionAbsolute": {
-                "x": 69.80487804878048,
-                "y": 46.536585365853654
+                "x": 69.91463414634146,
+                "y": 46.60975609756096
               },
               "dragging": true
             },
@@ -3541,12 +3563,12 @@
               "type": "position",
               "id": "Node-2",
               "position": {
-                "x": -30.195121951219505,
-                "y": 146.53658536585365
+                "x": -30.085365853658544,
+                "y": 146.60975609756096
               },
               "positionAbsolute": {
-                "x": -30.195121951219505,
-                "y": 146.53658536585365
+                "x": -30.085365853658544,
+                "y": 146.60975609756096
               },
               "dragging": true
             }
@@ -3563,8 +3585,8 @@
           {
             "id": "Node-1",
             "position": {
-              "x": 69.80487804878048,
-              "y": 46.536585365853654
+              "x": 69.91463414634146,
+              "y": 46.60975609756096
             },
             "data": {
               "label": "Node-1"
@@ -3595,7 +3617,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -3623,7 +3645,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -3634,8 +3656,8 @@
             {
               "id": "Node-1",
               "position": {
-                "x": 69.80487804878048,
-                "y": 46.536585365853654
+                "x": 69.91463414634146,
+                "y": 46.60975609756096
               },
               "data": {
                 "label": "Node-1"
@@ -3666,7 +3688,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -3694,7 +3716,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": "playwright-test-class-123",
               "style": {
@@ -3704,8 +3726,8 @@
             {
               "id": "Node-2",
               "position": {
-                "x": -30.195121951219505,
-                "y": 146.53658536585365
+                "x": -30.085365853658544,
+                "y": 146.60975609756096
               },
               "data": {
                 "label": "Node-2"
@@ -3736,7 +3758,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -3764,7 +3786,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -3804,19 +3826,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 606.7999999988824,
+            "timeStamp": 444.60000014305115,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 710.2138671875,
-            "screenY": 114.5660400390625,
-            "clientX": 710.2138671875,
-            "clientY": 114.5660400390625,
-            "pageX": 710.2138671875,
-            "pageY": 114.5660400390625,
+            "screenX": 710.2543334960938,
+            "screenY": 115.05180358886719,
+            "clientX": 710.2543334960938,
+            "clientY": 115.05180358886719,
+            "pageX": 710.2543334960938,
+            "pageY": 115.05180358886719,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -3874,12 +3896,12 @@
               "type": "position",
               "id": "Node-1",
               "position": {
-                "x": 93.07317073170732,
-                "y": 62.048780487804876
+                "x": 93.21951219512195,
+                "y": 62.14634146341463
               },
               "positionAbsolute": {
-                "x": 93.07317073170732,
-                "y": 62.048780487804876
+                "x": 93.21951219512195,
+                "y": 62.14634146341463
               },
               "dragging": true
             },
@@ -3905,12 +3927,12 @@
               "type": "position",
               "id": "Node-2",
               "position": {
-                "x": -6.926829268292664,
-                "y": 162.0487804878049
+                "x": -6.7804878048780495,
+                "y": 162.14634146341461
               },
               "positionAbsolute": {
-                "x": -6.926829268292664,
-                "y": 162.0487804878049
+                "x": -6.7804878048780495,
+                "y": 162.14634146341461
               },
               "dragging": true
             }
@@ -3927,8 +3949,8 @@
           {
             "id": "Node-1",
             "position": {
-              "x": 93.07317073170732,
-              "y": 62.048780487804876
+              "x": 93.21951219512195,
+              "y": 62.14634146341463
             },
             "data": {
               "label": "Node-1"
@@ -3959,7 +3981,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -3987,7 +4009,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -3998,8 +4020,8 @@
             {
               "id": "Node-1",
               "position": {
-                "x": 93.07317073170732,
-                "y": 62.048780487804876
+                "x": 93.21951219512195,
+                "y": 62.14634146341463
               },
               "data": {
                 "label": "Node-1"
@@ -4030,7 +4052,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -4058,7 +4080,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": "playwright-test-class-123",
               "style": {
@@ -4068,8 +4090,8 @@
             {
               "id": "Node-2",
               "position": {
-                "x": -6.926829268292664,
-                "y": 162.0487804878049
+                "x": -6.7804878048780495,
+                "y": 162.14634146341461
               },
               "data": {
                 "label": "Node-2"
@@ -4100,7 +4122,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -4128,7 +4150,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -4168,19 +4190,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 644,
+            "timeStamp": 461.7000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 734.2138671875,
-            "screenY": 130.5660400390625,
-            "clientX": 734.2138671875,
-            "clientY": 130.5660400390625,
-            "pageX": 734.2138671875,
-            "pageY": 130.5660400390625,
+            "screenX": 734.2543334960938,
+            "screenY": 131.0518035888672,
+            "clientX": 734.2543334960938,
+            "clientY": 131.0518035888672,
+            "pageX": 734.2543334960938,
+            "pageY": 131.0518035888672,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -4238,12 +4260,12 @@
               "type": "position",
               "id": "Node-1",
               "position": {
-                "x": 116.34146341463413,
-                "y": 77.5609756097561
+                "x": 116.52439024390242,
+                "y": 77.68292682926828
               },
               "positionAbsolute": {
-                "x": 116.34146341463413,
-                "y": 77.5609756097561
+                "x": 116.52439024390242,
+                "y": 77.68292682926828
               },
               "dragging": true
             },
@@ -4269,12 +4291,12 @@
               "type": "position",
               "id": "Node-2",
               "position": {
-                "x": 16.34146341463415,
-                "y": 177.5609756097561
+                "x": 16.524390243902417,
+                "y": 177.6829268292683
               },
               "positionAbsolute": {
-                "x": 16.34146341463415,
-                "y": 177.5609756097561
+                "x": 16.524390243902417,
+                "y": 177.6829268292683
               },
               "dragging": true
             }
@@ -4291,8 +4313,8 @@
           {
             "id": "Node-1",
             "position": {
-              "x": 116.34146341463413,
-              "y": 77.5609756097561
+              "x": 116.52439024390242,
+              "y": 77.68292682926828
             },
             "data": {
               "label": "Node-1"
@@ -4323,7 +4345,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -4351,7 +4373,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -4362,8 +4384,8 @@
             {
               "id": "Node-1",
               "position": {
-                "x": 116.34146341463413,
-                "y": 77.5609756097561
+                "x": 116.52439024390242,
+                "y": 77.68292682926828
               },
               "data": {
                 "label": "Node-1"
@@ -4394,7 +4416,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -4422,7 +4444,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": "playwright-test-class-123",
               "style": {
@@ -4432,8 +4454,8 @@
             {
               "id": "Node-2",
               "position": {
-                "x": 16.34146341463415,
-                "y": 177.5609756097561
+                "x": 16.524390243902417,
+                "y": 177.6829268292683
               },
               "data": {
                 "label": "Node-2"
@@ -4464,7 +4486,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -4492,7 +4514,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -4537,12 +4559,12 @@
               "type": "position",
               "id": "Node-1",
               "position": {
-                "x": 116.34146341463413,
-                "y": 77.5609756097561
+                "x": 116.52439024390242,
+                "y": 77.68292682926828
               },
               "positionAbsolute": {
-                "x": 116.34146341463413,
-                "y": 77.5609756097561
+                "x": 116.52439024390242,
+                "y": 77.68292682926828
               },
               "dragging": false
             },
@@ -4568,12 +4590,12 @@
               "type": "position",
               "id": "Node-2",
               "position": {
-                "x": 16.34146341463415,
-                "y": 177.5609756097561
+                "x": 16.524390243902417,
+                "y": 177.6829268292683
               },
               "positionAbsolute": {
-                "x": 16.34146341463415,
-                "y": 177.5609756097561
+                "x": 16.524390243902417,
+                "y": 177.6829268292683
               },
               "dragging": false
             }
@@ -4590,8 +4612,8 @@
           {
             "id": "Node-1",
             "position": {
-              "x": 116.34146341463413,
-              "y": 77.5609756097561
+              "x": 116.52439024390242,
+              "y": 77.68292682926828
             },
             "data": {
               "label": "Node-1"
@@ -4622,7 +4644,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -4650,7 +4672,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -4661,8 +4683,8 @@
             {
               "id": "Node-1",
               "position": {
-                "x": 116.34146341463413,
-                "y": 77.5609756097561
+                "x": 116.52439024390242,
+                "y": 77.68292682926828
               },
               "data": {
                 "label": "Node-1"
@@ -4693,7 +4715,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -4721,7 +4743,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": "playwright-test-class-123",
               "style": {
@@ -4731,8 +4753,8 @@
             {
               "id": "Node-2",
               "position": {
-                "x": 16.34146341463415,
-                "y": 177.5609756097561
+                "x": 16.524390243902417,
+                "y": 177.6829268292683
               },
               "data": {
                 "label": "Node-2"
@@ -4763,7 +4785,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -4791,7 +4813,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -4808,6 +4830,196 @@
         "args": [
           "002",
           "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
+        ]
+      },
+      {
+        "name": "onPaneMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerMove",
+            "_targetInst": null,
+            "type": "pointermove",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 494.40000009536743,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 734.2542724609375,
+            "screenY": 131.0518035888672,
+            "clientX": 734.2542724609375,
+            "clientY": 131.0518035888672,
+            "pageX": 734.2542724609375,
+            "pageY": 131.0518035888672,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 0,
+            "relatedTarget": null,
+            "movementX": 0,
+            "movementY": 0,
+            "pointerId": 1,
+            "width": 1,
+            "height": 1,
+            "pressure": 0,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "mouse",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodeMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseMove",
+            "_targetInst": null,
+            "type": "mousemove",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 494.40000009536743,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 734,
+            "screenY": 131,
+            "clientX": 734,
+            "clientY": 131,
+            "pageX": 734,
+            "pageY": 131,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": null,
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "Node-1",
+            "position": {
+              "x": 116.52439024390242,
+              "y": 77.68292682926828
+            },
+            "data": {
+              "label": "Node-1"
+            },
+            "type": "input",
+            "sourcePosition": {
+              "@undefined": true
+            },
+            "targetPosition": {
+              "@undefined": true
+            },
+            "hidden": false,
+            "selected": true,
+            "dragging": false,
+            "draggable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "connectable": {
+              "@undefined": true
+            },
+            "deletable": {
+              "@undefined": true
+            },
+            "dragHandle": {
+              "@undefined": true
+            },
+            "width": 150,
+            "height": 37,
+            "initialWidth": {
+              "@undefined": true
+            },
+            "initialHeight": {
+              "@undefined": true
+            },
+            "parentId": {
+              "@undefined": true
+            },
+            "zIndex": {
+              "@undefined": true
+            },
+            "extent": {
+              "@undefined": true
+            },
+            "expandParent": false,
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "origin": {
+              "@undefined": true
+            },
+            "handles": {
+              "@undefined": true
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            }
+          }
         ]
       },
       {
@@ -4820,8 +5032,8 @@
           {
             "id": "Node-1",
             "position": {
-              "x": 116.34146341463413,
-              "y": 77.5609756097561
+              "x": 116.52439024390242,
+              "y": 77.68292682926828
             },
             "data": {
               "label": "Node-1"
@@ -4852,7 +5064,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -4880,7 +5092,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -4891,8 +5103,8 @@
             {
               "id": "Node-1",
               "position": {
-                "x": 116.34146341463413,
-                "y": 77.5609756097561
+                "x": 116.52439024390242,
+                "y": 77.68292682926828
               },
               "data": {
                 "label": "Node-1"
@@ -4923,7 +5135,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -4951,7 +5163,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": "playwright-test-class-123",
               "style": {
@@ -4982,19 +5194,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 706.1999999992549,
+            "timeStamp": 500.60000014305115,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 722.2138671875,
-            "screenY": 122.5660400390625,
-            "clientX": 722.2138671875,
-            "clientY": 122.5660400390625,
-            "pageX": 722.2138671875,
-            "pageY": 122.5660400390625,
+            "screenX": 722.2542724609375,
+            "screenY": 123.05180358886719,
+            "clientX": 722.2542724609375,
+            "clientY": 123.05180358886719,
+            "pageX": 722.2542724609375,
+            "pageY": 123.05180358886719,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -5052,12 +5264,12 @@
               "type": "position",
               "id": "Node-1",
               "position": {
-                "x": 104.70731707317073,
-                "y": 69.80487804878048
+                "x": 104.87195121951217,
+                "y": 69.91463414634146
               },
               "positionAbsolute": {
-                "x": 104.70731707317073,
-                "y": 69.80487804878048
+                "x": 104.87195121951217,
+                "y": 69.91463414634146
               },
               "dragging": true
             }
@@ -5074,8 +5286,8 @@
           {
             "id": "Node-1",
             "position": {
-              "x": 104.70731707317073,
-              "y": 69.80487804878048
+              "x": 104.87195121951217,
+              "y": 69.91463414634146
             },
             "data": {
               "label": "Node-1"
@@ -5106,7 +5318,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -5134,7 +5346,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -5145,8 +5357,8 @@
             {
               "id": "Node-1",
               "position": {
-                "x": 104.70731707317073,
-                "y": 69.80487804878048
+                "x": 104.87195121951217,
+                "y": 69.91463414634146
               },
               "data": {
                 "label": "Node-1"
@@ -5177,7 +5389,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -5205,7 +5417,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": "playwright-test-class-123",
               "style": {
@@ -5243,19 +5455,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 742,
+            "timeStamp": 525.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 710.2138671875,
-            "screenY": 114.5660400390625,
-            "clientX": 710.2138671875,
-            "clientY": 114.5660400390625,
-            "pageX": 710.2138671875,
-            "pageY": 114.5660400390625,
+            "screenX": 710.2542724609375,
+            "screenY": 115.05180358886719,
+            "clientX": 710.2542724609375,
+            "clientY": 115.05180358886719,
+            "pageX": 710.2542724609375,
+            "pageY": 115.05180358886719,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -5313,12 +5525,12 @@
               "type": "position",
               "id": "Node-1",
               "position": {
-                "x": 93.07317073170732,
-                "y": 62.048780487804876
+                "x": 93.21951219512195,
+                "y": 62.14634146341463
               },
               "positionAbsolute": {
-                "x": 93.07317073170732,
-                "y": 62.048780487804876
+                "x": 93.21951219512195,
+                "y": 62.14634146341463
               },
               "dragging": true
             }
@@ -5335,8 +5547,8 @@
           {
             "id": "Node-1",
             "position": {
-              "x": 93.07317073170732,
-              "y": 62.048780487804876
+              "x": 93.21951219512195,
+              "y": 62.14634146341463
             },
             "data": {
               "label": "Node-1"
@@ -5367,7 +5579,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -5395,7 +5607,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -5406,8 +5618,8 @@
             {
               "id": "Node-1",
               "position": {
-                "x": 93.07317073170732,
-                "y": 62.048780487804876
+                "x": 93.21951219512195,
+                "y": 62.14634146341463
               },
               "data": {
                 "label": "Node-1"
@@ -5438,7 +5650,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -5466,7 +5678,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": "playwright-test-class-123",
               "style": {
@@ -5504,19 +5716,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 775.2999999988824,
+            "timeStamp": 546,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 698.2138671875,
-            "screenY": 106.5660400390625,
-            "clientX": 698.2138671875,
-            "clientY": 106.5660400390625,
-            "pageX": 698.2138671875,
-            "pageY": 106.5660400390625,
+            "screenX": 698.2542724609375,
+            "screenY": 107.05180358886719,
+            "clientX": 698.2542724609375,
+            "clientY": 107.05180358886719,
+            "pageX": 698.2542724609375,
+            "pageY": 107.05180358886719,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -5574,12 +5786,12 @@
               "type": "position",
               "id": "Node-1",
               "position": {
-                "x": 81.43902439024392,
-                "y": 54.29268292682927
+                "x": 81.5670731707317,
+                "y": 54.3780487804878
               },
               "positionAbsolute": {
-                "x": 81.43902439024392,
-                "y": 54.29268292682927
+                "x": 81.5670731707317,
+                "y": 54.3780487804878
               },
               "dragging": true
             }
@@ -5596,8 +5808,8 @@
           {
             "id": "Node-1",
             "position": {
-              "x": 81.43902439024392,
-              "y": 54.29268292682927
+              "x": 81.5670731707317,
+              "y": 54.3780487804878
             },
             "data": {
               "label": "Node-1"
@@ -5628,7 +5840,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -5656,7 +5868,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -5667,8 +5879,8 @@
             {
               "id": "Node-1",
               "position": {
-                "x": 81.43902439024392,
-                "y": 54.29268292682927
+                "x": 81.5670731707317,
+                "y": 54.3780487804878
               },
               "data": {
                 "label": "Node-1"
@@ -5699,7 +5911,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -5727,7 +5939,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": "playwright-test-class-123",
               "style": {
@@ -5765,19 +5977,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 807.5,
+            "timeStamp": 559.1000001430511,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 686.2138671875,
-            "screenY": 98.5660400390625,
-            "clientX": 686.2138671875,
-            "clientY": 98.5660400390625,
-            "pageX": 686.2138671875,
-            "pageY": 98.5660400390625,
+            "screenX": 686.2542724609375,
+            "screenY": 99.05180358886719,
+            "clientX": 686.2542724609375,
+            "clientY": 99.05180358886719,
+            "pageX": 686.2542724609375,
+            "pageY": 99.05180358886719,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -5835,12 +6047,12 @@
               "type": "position",
               "id": "Node-1",
               "position": {
-                "x": 69.80487804878048,
-                "y": 46.536585365853654
+                "x": 69.91463414634146,
+                "y": 46.60975609756096
               },
               "positionAbsolute": {
-                "x": 69.80487804878048,
-                "y": 46.536585365853654
+                "x": 69.91463414634146,
+                "y": 46.60975609756096
               },
               "dragging": true
             }
@@ -5857,8 +6069,8 @@
           {
             "id": "Node-1",
             "position": {
-              "x": 69.80487804878048,
-              "y": 46.536585365853654
+              "x": 69.91463414634146,
+              "y": 46.60975609756096
             },
             "data": {
               "label": "Node-1"
@@ -5889,7 +6101,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -5917,7 +6129,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -5928,8 +6140,8 @@
             {
               "id": "Node-1",
               "position": {
-                "x": 69.80487804878048,
-                "y": 46.536585365853654
+                "x": 69.91463414634146,
+                "y": 46.60975609756096
               },
               "data": {
                 "label": "Node-1"
@@ -5960,7 +6172,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -5988,7 +6200,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": "playwright-test-class-123",
               "style": {
@@ -6026,19 +6238,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 841.0999999996275,
+            "timeStamp": 574.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 674.2138671875,
-            "screenY": 90.5660400390625,
-            "clientX": 674.2138671875,
-            "clientY": 90.5660400390625,
-            "pageX": 674.2138671875,
-            "pageY": 90.5660400390625,
+            "screenX": 674.2542724609375,
+            "screenY": 91.05180358886719,
+            "clientX": 674.2542724609375,
+            "clientY": 91.05180358886719,
+            "pageX": 674.2542724609375,
+            "pageY": 91.05180358886719,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -6096,12 +6308,12 @@
               "type": "position",
               "id": "Node-1",
               "position": {
-                "x": 58.170731707317074,
-                "y": 38.78048780487805
+                "x": 58.26219512195121,
+                "y": 38.84146341463414
               },
               "positionAbsolute": {
-                "x": 58.170731707317074,
-                "y": 38.78048780487805
+                "x": 58.26219512195121,
+                "y": 38.84146341463414
               },
               "dragging": true
             }
@@ -6118,8 +6330,8 @@
           {
             "id": "Node-1",
             "position": {
-              "x": 58.170731707317074,
-              "y": 38.78048780487805
+              "x": 58.26219512195121,
+              "y": 38.84146341463414
             },
             "data": {
               "label": "Node-1"
@@ -6150,7 +6362,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -6178,7 +6390,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -6189,8 +6401,8 @@
             {
               "id": "Node-1",
               "position": {
-                "x": 58.170731707317074,
-                "y": 38.78048780487805
+                "x": 58.26219512195121,
+                "y": 38.84146341463414
               },
               "data": {
                 "label": "Node-1"
@@ -6221,7 +6433,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -6249,7 +6461,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": "playwright-test-class-123",
               "style": {
@@ -6292,12 +6504,12 @@
               "type": "position",
               "id": "Node-1",
               "position": {
-                "x": 58.170731707317074,
-                "y": 38.78048780487805
+                "x": 58.26219512195121,
+                "y": 38.84146341463414
               },
               "positionAbsolute": {
-                "x": 58.170731707317074,
-                "y": 38.78048780487805
+                "x": 58.26219512195121,
+                "y": 38.84146341463414
               },
               "dragging": false
             }
@@ -6314,8 +6526,8 @@
           {
             "id": "Node-1",
             "position": {
-              "x": 58.170731707317074,
-              "y": 38.78048780487805
+              "x": 58.26219512195121,
+              "y": 38.84146341463414
             },
             "data": {
               "label": "Node-1"
@@ -6346,7 +6558,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -6374,7 +6586,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -6385,8 +6597,8 @@
             {
               "id": "Node-1",
               "position": {
-                "x": 58.170731707317074,
-                "y": 38.78048780487805
+                "x": 58.26219512195121,
+                "y": 38.84146341463414
               },
               "data": {
                 "label": "Node-1"
@@ -6417,7 +6629,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -6445,7 +6657,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": "playwright-test-class-123",
               "style": {
@@ -6470,8 +6682,8 @@
           {
             "id": "Node-1",
             "position": {
-              "x": 58.170731707317074,
-              "y": 38.78048780487805
+              "x": 58.26219512195121,
+              "y": 38.84146341463414
             },
             "data": {
               "label": "Node-1"
@@ -6502,7 +6714,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -6530,7 +6742,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -6540,8 +6752,8 @@
           {
             "id": "Node-2",
             "position": {
-              "x": 16.34146341463415,
-              "y": 177.5609756097561
+              "x": 16.524390243902417,
+              "y": 177.6829268292683
             },
             "data": {
               "label": "Node-2"
@@ -6572,7 +6784,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -6600,7 +6812,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -6646,7 +6858,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -6674,7 +6886,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -6718,7 +6930,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -6746,7 +6958,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -6858,7 +7070,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -6886,7 +7098,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -6930,7 +7142,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -6958,7 +7170,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -7002,7 +7214,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -7030,7 +7242,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -7074,7 +7286,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -7102,7 +7314,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -7197,8 +7409,8 @@
         "getNode": {
           "id": "Node-1",
           "position": {
-            "x": 58.170731707317074,
-            "y": 38.78048780487805
+            "x": 58.26219512195121,
+            "y": 38.84146341463414
           },
           "data": {
             "label": "Node-1"
@@ -7229,7 +7441,7 @@
             "@undefined": true
           },
           "width": 150,
-          "height": 36,
+          "height": 37,
           "initialWidth": {
             "@undefined": true
           },
@@ -7257,7 +7469,7 @@
           },
           "measured": {
             "width": 150,
-            "height": 36
+            "height": 37
           },
           "className": "playwright-test-class-123",
           "style": {
@@ -7267,8 +7479,8 @@
         "getInternalNode": {
           "id": "Node-1",
           "position": {
-            "x": 58.170731707317074,
-            "y": 38.78048780487805
+            "x": 58.26219512195121,
+            "y": 38.84146341463414
           },
           "data": {
             "label": "Node-1"
@@ -7299,7 +7511,7 @@
             "@undefined": true
           },
           "width": 150,
-          "height": 36,
+          "height": 37,
           "initialWidth": {
             "@undefined": true
           },
@@ -7327,7 +7539,7 @@
           },
           "measured": {
             "width": 150,
-            "height": 36
+            "height": 37
           },
           "className": "playwright-test-class-123",
           "style": {
@@ -7335,8 +7547,8 @@
           },
           "internals": {
             "positionAbsolute": {
-              "x": 58.170731707317074,
-              "y": 38.78048780487805
+              "x": 58.26219512195121,
+              "y": 38.84146341463414
             },
             "z": 1000,
             "rootParentIndex": {
@@ -7349,8 +7561,8 @@
                     "@undefined": true
                   },
                   "nodeId": "Node-1",
-                  "x": 70.99978384873843,
-                  "y": 30.999899060769277,
+                  "x": 70.99981241215175,
+                  "y": 31.999917853269015,
                   "position": "bottom",
                   "type": "source",
                   "width": 8,
@@ -7508,8 +7720,8 @@
           {
             "id": "Node-1",
             "position": {
-              "x": 58.170731707317074,
-              "y": 38.78048780487805
+              "x": 58.26219512195121,
+              "y": 38.84146341463414
             },
             "data": {
               "label": "Node-1"
@@ -7540,7 +7752,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -7568,7 +7780,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -7578,8 +7790,8 @@
           {
             "id": "Node-2",
             "position": {
-              "x": 16.34146341463415,
-              "y": 177.5609756097561
+              "x": 16.524390243902417,
+              "y": 177.6829268292683
             },
             "data": {
               "label": "Node-2"
@@ -7610,7 +7822,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -7638,7 +7850,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -7684,7 +7896,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -7712,7 +7924,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -7756,7 +7968,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -7784,7 +7996,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -7896,7 +8108,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -7924,7 +8136,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -7968,7 +8180,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -7996,7 +8208,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -8040,7 +8252,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -8068,7 +8280,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -8112,7 +8324,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -8140,7 +8352,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -8292,8 +8504,8 @@
             {
               "id": "Node-1",
               "position": {
-                "x": 58.170731707317074,
-                "y": 38.78048780487805
+                "x": 58.26219512195121,
+                "y": 38.84146341463414
               },
               "data": {
                 "label": "Node-1"
@@ -8324,7 +8536,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -8352,7 +8564,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": "playwright-test-class-123",
               "style": {
@@ -8362,8 +8574,8 @@
             {
               "id": "Node-2",
               "position": {
-                "x": 16.34146341463415,
-                "y": 177.5609756097561
+                "x": 16.524390243902417,
+                "y": 177.6829268292683
               },
               "data": {
                 "label": "Node-2"
@@ -8394,7 +8606,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -8422,7 +8634,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -8468,7 +8680,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -8496,7 +8708,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -8540,7 +8752,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -8568,7 +8780,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -8680,7 +8892,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -8708,7 +8920,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -8752,7 +8964,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -8780,7 +8992,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -8824,7 +9036,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -8852,7 +9064,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -8896,7 +9108,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -8924,7 +9136,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -9111,23 +9323,23 @@
             }
           ],
           "viewport": {
-            "x": 536.8553459119497,
+            "x": 537.0172684458398,
             "y": 32,
-            "zoom": 1.0314465408805031
+            "zoom": 1.0298273155416013
           }
         },
-        "getZoom": 1.0314465408805031,
+        "getZoom": 1.0298273155416013,
         "getViewport": {
-          "x": 536.8553459119497,
+          "x": 537.0172684458398,
           "y": 32,
-          "zoom": 1.0314465408805031
+          "zoom": 1.0298273155416013
         },
         "screenToFlowPosition": {
-          "x": -520.4878048780488,
-          "y": -31.024390243902438
+          "x": -521.4634146341463,
+          "y": -31.073170731707314
         },
         "flowToScreenPosition": {
-          "x": 536.8553459119497,
+          "x": 537.0172684458398,
           "y": 32
         },
         "viewportInitialized": false
@@ -9163,14 +9375,14 @@
         "target": ".react-flow__node[data-id=\"Node-2\"]",
         "resolved": true,
         "box": {
-          "x": 433.710693359375,
-          "y": 135.1446533203125,
-          "width": 154.71697998046875,
-          "height": 37.132080078125
+          "x": 434.0345458984375,
+          "y": 134.98272705078125,
+          "width": 154.47412109375,
+          "height": 38.10362243652344
         },
         "dispatched": {
-          "x": 511.0691833496094,
-          "y": 153.710693359375,
+          "x": 511.2716064453125,
+          "y": 154.03453826904297,
           "button": "left"
         }
       },
@@ -9181,8 +9393,8 @@
         "resolved": true,
         "box": null,
         "dispatched": {
-          "x": 511.0691833496094,
-          "y": 153.710693359375,
+          "x": 511.2716064453125,
+          "y": 154.03453826904297,
           "button": "left"
         }
       },
@@ -9192,14 +9404,14 @@
         "target": ".react-flow__node[data-id=\"Node-1\"]",
         "resolved": true,
         "box": {
-          "x": 536.8553466796875,
+          "x": 537.0172729492188,
           "y": 32,
-          "width": 154.71697998046875,
-          "height": 37.132080078125
+          "width": 154.47412109375,
+          "height": 38.103607177734375
         },
         "dispatched": {
-          "x": 614.2138366699219,
-          "y": 50.5660400390625,
+          "x": 614.2543334960938,
+          "y": 51.05180358886719,
           "button": "left"
         }
       },
@@ -9210,8 +9422,8 @@
         "resolved": true,
         "box": null,
         "dispatched": {
-          "x": 638.2138366699219,
-          "y": 66.5660400390625
+          "x": 638.2543334960938,
+          "y": 67.05180358886719
         }
       },
       {
@@ -9221,8 +9433,8 @@
         "resolved": true,
         "box": null,
         "dispatched": {
-          "x": 662.2138366699219,
-          "y": 82.5660400390625
+          "x": 662.2543334960938,
+          "y": 83.05180358886719
         }
       },
       {
@@ -9232,8 +9444,8 @@
         "resolved": true,
         "box": null,
         "dispatched": {
-          "x": 686.2138366699219,
-          "y": 98.5660400390625
+          "x": 686.2543334960938,
+          "y": 99.05180358886719
         }
       },
       {
@@ -9243,8 +9455,8 @@
         "resolved": true,
         "box": null,
         "dispatched": {
-          "x": 710.2138366699219,
-          "y": 114.5660400390625
+          "x": 710.2543334960938,
+          "y": 115.05180358886719
         }
       },
       {
@@ -9254,8 +9466,8 @@
         "resolved": true,
         "box": null,
         "dispatched": {
-          "x": 734.2138366699219,
-          "y": 130.5660400390625
+          "x": 734.2543334960938,
+          "y": 131.0518035888672
         }
       },
       {
@@ -9265,8 +9477,8 @@
         "resolved": true,
         "box": null,
         "dispatched": {
-          "x": 734.2138366699219,
-          "y": 130.5660400390625,
+          "x": 734.2543334960938,
+          "y": 131.0518035888672,
           "button": "left"
         }
       },
@@ -9276,14 +9488,14 @@
         "target": ".react-flow__node[data-id=\"Node-1\"]",
         "resolved": true,
         "box": {
-          "x": 656.8553466796875,
-          "y": 112,
-          "width": 154.71697998046875,
-          "height": 37.132080078125
+          "x": 657.0172729492188,
+          "y": 112.00000762939453,
+          "width": 154.47406005859375,
+          "height": 38.103599548339844
         },
         "dispatched": {
-          "x": 734.2138366699219,
-          "y": 130.5660400390625,
+          "x": 734.2543029785156,
+          "y": 131.05180740356445,
           "button": "left"
         }
       },
@@ -9294,8 +9506,8 @@
         "resolved": true,
         "box": null,
         "dispatched": {
-          "x": 722.2138366699219,
-          "y": 122.5660400390625
+          "x": 722.2543029785156,
+          "y": 123.05180740356445
         }
       },
       {
@@ -9305,8 +9517,8 @@
         "resolved": true,
         "box": null,
         "dispatched": {
-          "x": 710.2138366699219,
-          "y": 114.5660400390625
+          "x": 710.2543029785156,
+          "y": 115.05180740356445
         }
       },
       {
@@ -9316,8 +9528,8 @@
         "resolved": true,
         "box": null,
         "dispatched": {
-          "x": 698.2138366699219,
-          "y": 106.5660400390625
+          "x": 698.2543029785156,
+          "y": 107.05180740356445
         }
       },
       {
@@ -9327,8 +9539,8 @@
         "resolved": true,
         "box": null,
         "dispatched": {
-          "x": 686.2138366699219,
-          "y": 98.5660400390625
+          "x": 686.2543029785156,
+          "y": 99.05180740356445
         }
       },
       {
@@ -9338,8 +9550,8 @@
         "resolved": true,
         "box": null,
         "dispatched": {
-          "x": 674.2138366699219,
-          "y": 90.5660400390625
+          "x": 674.2543029785156,
+          "y": 91.05180740356445
         }
       },
       {
@@ -9349,8 +9561,8 @@
         "resolved": true,
         "box": null,
         "dispatched": {
-          "x": 674.2138366699219,
-          "y": 90.5660400390625,
+          "x": 674.2543029785156,
+          "y": 91.05180740356445,
           "button": "left"
         }
       }

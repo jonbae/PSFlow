@@ -541,7 +541,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 196.09999999962747,
+            "timeStamp": 179.90000009536743,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -608,7 +608,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 196.09999999962747,
+            "timeStamp": 179.90000009536743,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -653,8 +653,36 @@
         ]
       },
       {
+        "name": "onMoveStart",
+        "args": [
+          {
+            "@class": "WheelEvent",
+            "isTrusted": true
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          }
+        ]
+      },
+      {
         "name": "onViewportChange",
         "args": [
+          {
+            "x": -204.4850628946523,
+            "y": -115.02284787824192,
+            "zoom": 1.3195079107728942
+          }
+        ]
+      },
+      {
+        "name": "onMove",
+        "args": [
+          {
+            "@class": "WheelEvent",
+            "isTrusted": true
+          },
           {
             "x": -204.4850628946523,
             "y": -115.02284787824192,

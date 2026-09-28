@@ -38,7 +38,7 @@
                     "tag": "div",
                     "attrs": {
                       "class": "react-flow__viewport xyflow__viewport react-flow__container",
-                      "style": "transform: translate(70px, 284px) scale(2);"
+                      "style": "transform: translate(70px, 283px) scale(2);"
                     },
                     "children": [
                       {
@@ -67,7 +67,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M115,79 C115,135.59615711335886 495,-59.596157113358856 495,-3",
+                                      "d": "M115,80 C115,136.94020986965188 495,-59.940209869651866 495,-3",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -76,7 +76,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M115,79 C115,135.59615711335886 495,-59.596157113358856 495,-3",
+                                      "d": "M115,80 C115,136.94020986965188 495,-59.940209869651866 495,-3",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -89,7 +89,7 @@
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
                                       "cx": "115",
-                                      "cy": "89",
+                                      "cy": "90",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -137,7 +137,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 1; transform: translate(40px, 40px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
+                              "style": "z-index: 1; transform: translate(40px, 40px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "child",
                             "children": [
@@ -172,7 +172,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(420px, 0px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
+                              "style": "z-index: 0; transform: translate(420px, 0px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "outside",
                             "children": [
@@ -207,7 +207,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(0px, 0px); pointer-events: all; visibility: visible; background-color: rgba(80, 120, 200, 0.12); width: 150px; height: 36px;"
+                              "style": "z-index: 0; transform: translate(0px, 0px); pointer-events: all; visibility: visible; background-color: rgba(80, 120, 200, 0.12); width: 190px; height: 77px;"
                             },
                             "text": "parent",
                             "children": [
@@ -343,7 +343,7 @@
               "id": "child",
               "dimensions": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "resizing": false,
               "setAttributes": true
@@ -371,7 +371,7 @@
               "id": "outside",
               "dimensions": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "resizing": false,
               "setAttributes": true
@@ -399,7 +399,7 @@
               "id": "parent",
               "dimensions": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "resizing": false,
               "setAttributes": true
@@ -427,7 +427,7 @@
               "id": "parent",
               "dimensions": {
                 "width": 190,
-                "height": 76
+                "height": 77
               },
               "resizing": false,
               "setAttributes": true
@@ -436,11 +436,33 @@
         ]
       },
       {
+        "name": "onMoveStart",
+        "args": [
+          null,
+          {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          }
+        ]
+      },
+      {
         "name": "onViewportChange",
         "args": [
           {
             "x": 70,
-            "y": 284,
+            "y": 283,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onMove",
+        "args": [
+          null,
+          {
+            "x": 70,
+            "y": 283,
             "zoom": 2
           }
         ]
@@ -451,44 +473,9 @@
           null,
           {
             "x": 70,
-            "y": 284,
+            "y": 283,
             "zoom": 2
           }
-        ]
-      },
-      {
-        "name": "onNodesChange",
-        "args": [
-          [
-            {
-              "position": {
-                "@undefined": true
-              },
-              "positionAbsolute": {
-                "@undefined": true
-              },
-              "dragging": {
-                "@undefined": true
-              },
-              "selected": {
-                "@undefined": true
-              },
-              "item": {
-                "@undefined": true
-              },
-              "index": {
-                "@undefined": true
-              },
-              "type": "dimensions",
-              "id": "parent",
-              "dimensions": {
-                "width": 150,
-                "height": 36
-              },
-              "resizing": false,
-              "setAttributes": true
-            }
-          ]
         ]
       }
     ],
@@ -532,8 +519,8 @@
             "dragHandle": {
               "@undefined": true
             },
-            "width": 150,
-            "height": 36,
+            "width": 190,
+            "height": 77,
             "initialWidth": {
               "@undefined": true
             },
@@ -560,8 +547,8 @@
               "@undefined": true
             },
             "measured": {
-              "width": 150,
-              "height": 36
+              "width": 190,
+              "height": 77
             },
             "className": {
               "@undefined": true
@@ -609,7 +596,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -635,7 +622,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -681,7 +668,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -709,7 +696,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -755,8 +742,8 @@
           "dragHandle": {
             "@undefined": true
           },
-          "width": 150,
-          "height": 36,
+          "width": 190,
+          "height": 77,
           "initialWidth": {
             "@undefined": true
           },
@@ -783,8 +770,8 @@
             "@undefined": true
           },
           "measured": {
-            "width": 150,
-            "height": 36
+            "width": 190,
+            "height": 77
           },
           "className": {
             "@undefined": true
@@ -831,8 +818,8 @@
           "dragHandle": {
             "@undefined": true
           },
-          "width": 150,
-          "height": 36,
+          "width": 190,
+          "height": 77,
           "initialWidth": {
             "@undefined": true
           },
@@ -859,8 +846,8 @@
             "@undefined": true
           },
           "measured": {
-            "width": 150,
-            "height": 36
+            "width": 190,
+            "height": 77
           },
           "className": {
             "@undefined": true
@@ -886,8 +873,8 @@
                     "@undefined": true
                   },
                   "nodeId": "parent",
-                  "x": 71,
-                  "y": 31,
+                  "x": 91,
+                  "y": 72,
                   "position": "bottom",
                   "type": "source",
                   "width": 8,
@@ -900,7 +887,7 @@
                     "@undefined": true
                   },
                   "nodeId": "parent",
-                  "x": 71,
+                  "x": 91,
                   "y": -3,
                   "position": "top",
                   "type": "target",
@@ -1053,8 +1040,8 @@
             "dragHandle": {
               "@undefined": true
             },
-            "width": 150,
-            "height": 36,
+            "width": 190,
+            "height": 77,
             "initialWidth": {
               "@undefined": true
             },
@@ -1081,8 +1068,8 @@
               "@undefined": true
             },
             "measured": {
-              "width": 150,
-              "height": 36
+              "width": 190,
+              "height": 77
             },
             "className": {
               "@undefined": true
@@ -1130,7 +1117,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -1156,7 +1143,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -1202,7 +1189,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -1230,7 +1217,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -1245,7 +1232,7 @@
           "x": 0,
           "y": 0,
           "width": 570,
-          "height": 76
+          "height": 77
         },
         "getHandleConnections": [],
         "getNodeConnections": [],
@@ -1287,8 +1274,8 @@
               "dragHandle": {
                 "@undefined": true
               },
-              "width": 150,
-              "height": 36,
+              "width": 190,
+              "height": 77,
               "initialWidth": {
                 "@undefined": true
               },
@@ -1315,8 +1302,8 @@
                 "@undefined": true
               },
               "measured": {
-                "width": 150,
-                "height": 36
+                "width": 190,
+                "height": 77
               },
               "className": {
                 "@undefined": true
@@ -1364,7 +1351,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -1390,7 +1377,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -1436,7 +1423,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -1464,7 +1451,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -1528,23 +1515,23 @@
           ],
           "viewport": {
             "x": 70,
-            "y": 284,
+            "y": 283,
             "zoom": 2
           }
         },
         "getZoom": 2,
         "getViewport": {
           "x": 70,
-          "y": 284,
+          "y": 283,
           "zoom": 2
         },
         "screenToFlowPosition": {
           "x": -35,
-          "y": -142
+          "y": -141.5
         },
         "flowToScreenPosition": {
           "x": 70,
-          "y": 284
+          "y": 283
         },
         "viewportInitialized": false
       },

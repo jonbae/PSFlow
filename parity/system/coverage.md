@@ -189,9 +189,9 @@ The witness is printed beside each one so a wrong witness can be read and disput
 | `OnEdgesDelete` | callbacks | driven | `onEdgesDelete` | `delete-key-removes-edge` +2 more |
 | `OnError` | callbacks | driven | `onError` | `click-reveals-default-toolbar` +30 more |
 | `OnInit` | callbacks | hole | `onInit` | declared — no issue owns it |
-| `OnMove` | callbacks | driven | `onMove` | `background-custom-bgcolor` +81 more |
+| `OnMove` | callbacks | driven | `onMove` | `background-custom-bgcolor` +84 more |
 | `OnMoveEnd` | callbacks | driven | `onMoveEnd` | `background-custom-bgcolor` +82 more |
-| `OnMoveStart` | callbacks | driven | `onMoveStart` | `background-custom-bgcolor` +82 more |
+| `OnMoveStart` | callbacks | driven | `onMoveStart` | `background-custom-bgcolor` +84 more |
 | `OnNodeDrag` | callbacks | driven | `onNodeDragStart, onNodeDrag, onNodeDragStop` | `arrow-key-selected-node` +20 more |
 | `OnNodesChange` | callbacks | driven | `onNodesChange` | `arrow-key-selected-node` +86 more |
 | `OnNodesDelete` | callbacks | driven | `onNodesDelete` | `delete-key-removes-node-and-edges` +1 more |
