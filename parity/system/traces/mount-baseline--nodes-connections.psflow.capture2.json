@@ -935,8 +935,30 @@
         ]
       },
       {
+        "name": "onMoveStart",
+        "args": [
+          null,
+          {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          }
+        ]
+      },
+      {
         "name": "onViewportChange",
         "args": [
+          {
+            "x": 58,
+            "y": 74.49056603773585,
+            "zoom": 1.6894049346879536
+          }
+        ]
+      },
+      {
+        "name": "onMove",
+        "args": [
+          null,
           {
             "x": 58,
             "y": 74.49056603773585,

@@ -541,7 +541,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 435,
+            "timeStamp": 281.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -608,7 +608,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 435,
+            "timeStamp": 281.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -653,6 +653,20 @@
         ]
       },
       {
+        "name": "onMoveStart",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          }
+        ]
+      },
+      {
         "name": "onPaneMouseMove",
         "args": [
           {
@@ -673,7 +687,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 453.69999999925494,
+            "timeStamp": 307.7999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -728,6 +742,20 @@
         ]
       },
       {
+        "name": "onMove",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "x": 10,
+            "y": 5,
+            "zoom": 1
+          }
+        ]
+      },
+      {
         "name": "onPaneMouseMove",
         "args": [
           {
@@ -748,7 +776,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 467.90000000037253,
+            "timeStamp": 319.59999990463257,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -803,6 +831,20 @@
         ]
       },
       {
+        "name": "onMove",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "x": 20,
+            "y": 10,
+            "zoom": 1
+          }
+        ]
+      },
+      {
         "name": "onPaneMouseMove",
         "args": [
           {
@@ -823,7 +865,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 484,
+            "timeStamp": 338,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -878,6 +920,20 @@
         ]
       },
       {
+        "name": "onMove",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "x": 30,
+            "y": 15,
+            "zoom": 1
+          }
+        ]
+      },
+      {
         "name": "onPaneMouseMove",
         "args": [
           {
@@ -898,7 +954,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 499.69999999925494,
+            "timeStamp": 353.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -953,6 +1009,20 @@
         ]
       },
       {
+        "name": "onMove",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "x": 40,
+            "y": 20,
+            "zoom": 1
+          }
+        ]
+      },
+      {
         "name": "onPaneMouseMove",
         "args": [
           {
@@ -973,7 +1043,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 518.6999999992549,
+            "timeStamp": 370.59999990463257,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1028,6 +1098,20 @@
         ]
       },
       {
+        "name": "onMove",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "x": 50,
+            "y": 25,
+            "zoom": 1
+          }
+        ]
+      },
+      {
         "name": "onPaneMouseMove",
         "args": [
           {
@@ -1048,7 +1132,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 533.6999999992549,
+            "timeStamp": 386.7000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1103,6 +1187,20 @@
         ]
       },
       {
+        "name": "onMove",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "x": 60,
+            "y": 30,
+            "zoom": 1
+          }
+        ]
+      },
+      {
         "name": "onPaneMouseMove",
         "args": [
           {
@@ -1123,7 +1221,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 550.6999999992549,
+            "timeStamp": 402.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1178,6 +1276,20 @@
         ]
       },
       {
+        "name": "onMove",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "x": 70,
+            "y": 35,
+            "zoom": 1
+          }
+        ]
+      },
+      {
         "name": "onPaneMouseMove",
         "args": [
           {
@@ -1198,7 +1310,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 569.5,
+            "timeStamp": 420.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1253,6 +1365,20 @@
         ]
       },
       {
+        "name": "onMove",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "x": 80,
+            "y": 40,
+            "zoom": 1
+          }
+        ]
+      },
+      {
         "name": "onPaneMouseMove",
         "args": [
           {
@@ -1273,7 +1399,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 585.0999999996275,
+            "timeStamp": 436.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1328,6 +1454,20 @@
         ]
       },
       {
+        "name": "onMove",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "x": 90,
+            "y": 45,
+            "zoom": 1
+          }
+        ]
+      },
+      {
         "name": "onPaneMouseMove",
         "args": [
           {
@@ -1348,7 +1488,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 600.0999999996275,
+            "timeStamp": 453.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1403,9 +1543,26 @@
         ]
       },
       {
+        "name": "onMove",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "x": 100,
+            "y": 50,
+            "zoom": 1
+          }
+        ]
+      },
+      {
         "name": "onMoveEnd",
         "args": [
-          null,
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
           {
             "x": 100,
             "y": 50,

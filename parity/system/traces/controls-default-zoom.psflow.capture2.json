@@ -520,8 +520,30 @@
         ]
       },
       {
+        "name": "onMoveStart",
+        "args": [
+          null,
+          {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          }
+        ]
+      },
+      {
         "name": "onViewportChange",
         "args": [
+          {
+            "x": -128,
+            "y": -72,
+            "zoom": 1.2
+          }
+        ]
+      },
+      {
+        "name": "onMove",
+        "args": [
+          null,
           {
             "x": -128,
             "y": -72,
@@ -541,8 +563,30 @@
         ]
       },
       {
+        "name": "onMoveStart",
+        "args": [
+          null,
+          {
+            "x": -128,
+            "y": -72,
+            "zoom": 1.2
+          }
+        ]
+      },
+      {
         "name": "onViewportChange",
         "args": [
+          {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          }
+        ]
+      },
+      {
+        "name": "onMove",
+        "args": [
+          null,
           {
             "x": 0,
             "y": 0,
@@ -765,8 +809,30 @@
         ]
       },
       {
+        "name": "onMoveStart",
+        "args": [
+          null,
+          {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          }
+        ]
+      },
+      {
         "name": "onViewportChange",
         "args": [
+          {
+            "x": 290,
+            "y": 220,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onMove",
+        "args": [
+          null,
           {
             "x": 290,
             "y": 220,

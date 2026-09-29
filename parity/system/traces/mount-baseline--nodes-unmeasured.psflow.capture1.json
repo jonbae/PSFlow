@@ -38,7 +38,7 @@
                     "tag": "div",
                     "attrs": {
                       "class": "react-flow__viewport xyflow__viewport react-flow__container",
-                      "style": "transform: translate(590px, 224px) scale(2);"
+                      "style": "transform: translate(590px, 223px) scale(2);"
                     },
                     "children": [
                       {
@@ -67,7 +67,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M75,39 C75,68 -25,68 -25,97",
+                                      "d": "M75,40 C75,68.5 -25,68.5 -25,97",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -76,7 +76,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M75,39 C75,68 -25,68 -25,97",
+                                      "d": "M75,40 C75,68.5 -25,68.5 -25,97",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -89,7 +89,7 @@
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
                                       "cx": "75",
-                                      "cy": "49",
+                                      "cy": "50",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -137,7 +137,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 1000; transform: translate(0px, 0px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
+                              "style": "z-index: 1000; transform: translate(0px, 0px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "Node-1",
                             "children": [
@@ -162,7 +162,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(-100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
+                              "style": "z-index: 0; transform: translate(-100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "Node-2",
                             "children": [
@@ -461,7 +461,7 @@
               "id": "Node-1",
               "dimensions": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "resizing": false,
               "setAttributes": true
@@ -489,7 +489,7 @@
               "id": "Node-2",
               "dimensions": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "resizing": false,
               "setAttributes": true
@@ -498,11 +498,33 @@
         ]
       },
       {
+        "name": "onMoveStart",
+        "args": [
+          null,
+          {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          }
+        ]
+      },
+      {
         "name": "onViewportChange",
         "args": [
           {
             "x": 590,
-            "y": 224,
+            "y": 223,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onMove",
+        "args": [
+          null,
+          {
+            "x": 590,
+            "y": 223,
             "zoom": 2
           }
         ]
@@ -513,7 +535,7 @@
           null,
           {
             "x": 590,
-            "y": 224,
+            "y": 223,
             "zoom": 2
           }
         ]
@@ -558,7 +580,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -586,7 +608,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -632,7 +654,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -660,7 +682,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -787,7 +809,7 @@
             "@undefined": true
           },
           "width": 150,
-          "height": 36,
+          "height": 37,
           "initialWidth": {
             "@undefined": true
           },
@@ -815,7 +837,7 @@
           },
           "measured": {
             "width": 150,
-            "height": 36
+            "height": 37
           },
           "className": {
             "@undefined": true
@@ -859,7 +881,7 @@
             "@undefined": true
           },
           "width": 150,
-          "height": 36,
+          "height": 37,
           "initialWidth": {
             "@undefined": true
           },
@@ -887,7 +909,7 @@
           },
           "measured": {
             "width": 150,
-            "height": 36
+            "height": 37
           },
           "className": {
             "@undefined": true
@@ -912,7 +934,7 @@
                   },
                   "nodeId": "Node-1",
                   "x": 71,
-                  "y": 31,
+                  "y": 32,
                   "position": "bottom",
                   "type": "source",
                   "width": 8,
@@ -1064,7 +1086,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -1092,7 +1114,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -1138,7 +1160,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -1166,7 +1188,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -1263,7 +1285,7 @@
           "x": -100,
           "y": 0,
           "width": 250,
-          "height": 136
+          "height": 137
         },
         "getHandleConnections": [
           {
@@ -1328,7 +1350,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -1356,7 +1378,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -1402,7 +1424,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -1430,7 +1452,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -1576,23 +1598,23 @@
           ],
           "viewport": {
             "x": 590,
-            "y": 224,
+            "y": 223,
             "zoom": 2
           }
         },
         "getZoom": 2,
         "getViewport": {
           "x": 590,
-          "y": 224,
+          "y": 223,
           "zoom": 2
         },
         "screenToFlowPosition": {
           "x": -295,
-          "y": -112
+          "y": -111.5
         },
         "flowToScreenPosition": {
           "x": 590,
-          "y": 224
+          "y": 223
         },
         "viewportInitialized": false
       },

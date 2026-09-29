@@ -38,7 +38,7 @@
                     "tag": "div",
                     "attrs": {
                       "class": "react-flow__viewport xyflow__viewport react-flow__container",
-                      "style": "transform: translate(536.855px, 32px) scale(1.03145);"
+                      "style": "transform: translate(537.017px, 32px) scale(1.02983);"
                     },
                     "children": [
                       {
@@ -67,7 +67,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M74.99978384873843,38.99989906076928 C74.99978384873843,67.9999593059509 -25.000245738326498,67.9999593059509 -25.000245738326498,97.00001955113251",
+                                      "d": "M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -76,7 +76,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M74.99978384873843,38.99989906076928 C74.99978384873843,67.9999593059509 -25.000245738326498,67.9999593059509 -25.000245738326498,97.00001955113251",
+                                      "d": "M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -87,7 +87,7 @@
                                   {
                                     "tag": "g",
                                     "attrs": {
-                                      "transform": "translate(15.562173687774326 61.69813044471432)",
+                                      "transform": "translate(15.358797359356345 63.159263873421395)",
                                       "class": "react-flow__edge-textwrapper",
                                       "visibility": "visible"
                                     },
@@ -97,8 +97,8 @@
                                         "attrs": {
                                           "x": "-2",
                                           "y": "-4",
-                                          "width": "22.87519073486328",
-                                          "height": "20.603657722473145",
+                                          "width": "23.28203010559082",
+                                          "height": "18.6814022064209",
                                           "class": "react-flow__edge-textbg",
                                           "rx": "2",
                                           "ry": "2"
@@ -109,7 +109,7 @@
                                         "tag": "text",
                                         "attrs": {
                                           "class": "react-flow__edge-text",
-                                          "y": "6.301828861236572",
+                                          "y": "5.340701103210449",
                                           "dy": "0.3em"
                                         },
                                         "text": "edge",
@@ -121,8 +121,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
-                                      "cx": "74.99978384873843",
-                                      "cy": "48.99989906076928",
+                                      "cx": "74.99981241215175",
+                                      "cy": "49.99991785326901",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -133,8 +133,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
-                                      "cx": "-25.000245738326498",
-                                      "cy": "87.00001955113251",
+                                      "cx": "-25.000187587848245",
+                                      "cy": "87.00001209999466",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -165,7 +165,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M74.99978384873843,38.99989906076928 C74.99978384873843,67.9999593059509 174.99978384873845,67.9999593059509 174.99978384873845,97.00001955113251",
+                                      "d": "M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -174,7 +174,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M74.99978384873843,38.99989906076928 C74.99978384873843,67.9999593059509 174.99978384873845,67.9999593059509 174.99978384873845,97.00001955113251",
+                                      "d": "M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -185,7 +185,7 @@
                                   {
                                     "tag": "g",
                                     "attrs": {
-                                      "transform": "translate(115.5621884813068 61.69813044471432)",
+                                      "transform": "translate(115.35879735935634 63.159263873421395)",
                                       "class": "react-flow__edge-textwrapper",
                                       "visibility": "visible"
                                     },
@@ -195,8 +195,8 @@
                                         "attrs": {
                                           "x": "-2",
                                           "y": "-4",
-                                          "width": "22.87519073486328",
-                                          "height": "20.603657722473145",
+                                          "width": "23.28203010559082",
+                                          "height": "18.6814022064209",
                                           "class": "react-flow__edge-textbg",
                                           "rx": "2",
                                           "ry": "2"
@@ -207,7 +207,7 @@
                                         "tag": "text",
                                         "attrs": {
                                           "class": "react-flow__edge-text",
-                                          "y": "6.301828861236572",
+                                          "y": "5.340701103210449",
                                           "dy": "0.3em"
                                         },
                                         "text": "edge",
@@ -219,8 +219,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
-                                      "cx": "74.99978384873843",
-                                      "cy": "48.99989906076928",
+                                      "cx": "74.99981241215175",
+                                      "cy": "49.99991785326901",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -231,8 +231,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
-                                      "cx": "174.99978384873845",
-                                      "cy": "87.00001955113251",
+                                      "cx": "174.99981241215175",
+                                      "cy": "87.00001209999466",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -262,7 +262,7 @@
                               {
                                 "tag": "path",
                                 "attrs": {
-                                  "d": "M74.99978384873843,34.99989906076928 C74.99978384873843,61.49994953038464 634,61.49994953038464 634,88",
+                                  "d": "M74.99981241215175,35.99991785326901 C74.99981241215175,62.499958926634505 634,62.499958926634505 634,89",
                                   "fill": "none",
                                   "class": "react-flow__connection-path"
                                 },
@@ -295,7 +295,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(0px, 0px); pointer-events: all; visibility: visible; background-color: red; width: 150px; height: 36px;"
+                              "style": "z-index: 0; transform: translate(0px, 0px); pointer-events: all; visibility: visible; background-color: red; width: 150px; height: 37px;"
                             },
                             "text": "Node-1",
                             "children": [
@@ -320,7 +320,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(-100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
+                              "style": "z-index: 0; transform: translate(-100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "Node-2",
                             "children": [
@@ -345,7 +345,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 1000; transform: translate(100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
+                              "style": "z-index: 1000; transform: translate(100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "Node-3",
                             "children": [
@@ -380,7 +380,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(0px, 200px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
+                              "style": "z-index: 0; transform: translate(0px, 200px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "Node-4",
                             "children": [
@@ -436,7 +436,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(0px, 300px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
+                              "style": "z-index: 0; transform: translate(0px, 300px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "notConnectable",
                             "children": [
@@ -461,7 +461,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(0px, 600px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
+                              "style": "z-index: 0; transform: translate(0px, 600px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "notDeletable",
                             "children": [
@@ -496,7 +496,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(0px, 400px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
+                              "style": "z-index: 0; transform: translate(0px, 400px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "notDraggable",
                             "children": [
@@ -531,7 +531,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(0px, 500px); pointer-events: all; visibility: visible; width: 150px; height: 36px;"
+                              "style": "z-index: 0; transform: translate(0px, 500px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "notSelectable",
                             "children": [
@@ -667,7 +667,7 @@
               "id": "Node-1",
               "dimensions": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "resizing": false,
               "setAttributes": true
@@ -695,7 +695,7 @@
               "id": "Node-2",
               "dimensions": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "resizing": false,
               "setAttributes": true
@@ -723,7 +723,7 @@
               "id": "Node-3",
               "dimensions": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "resizing": false,
               "setAttributes": true
@@ -751,7 +751,7 @@
               "id": "Node-4",
               "dimensions": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "resizing": false,
               "setAttributes": true
@@ -807,7 +807,7 @@
               "id": "notConnectable",
               "dimensions": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "resizing": false,
               "setAttributes": true
@@ -835,7 +835,7 @@
               "id": "notDeletable",
               "dimensions": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "resizing": false,
               "setAttributes": true
@@ -863,7 +863,7 @@
               "id": "notDraggable",
               "dimensions": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "resizing": false,
               "setAttributes": true
@@ -891,7 +891,7 @@
               "id": "notSelectable",
               "dimensions": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "resizing": false,
               "setAttributes": true
@@ -900,12 +900,34 @@
         ]
       },
       {
+        "name": "onMoveStart",
+        "args": [
+          null,
+          {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          }
+        ]
+      },
+      {
         "name": "onViewportChange",
         "args": [
           {
-            "x": 536.8553459119497,
+            "x": 537.0172684458398,
             "y": 32,
-            "zoom": 1.0314465408805031
+            "zoom": 1.0298273155416013
+          }
+        ]
+      },
+      {
+        "name": "onMove",
+        "args": [
+          null,
+          {
+            "x": 537.0172684458398,
+            "y": 32,
+            "zoom": 1.0298273155416013
           }
         ]
       },
@@ -914,9 +936,9 @@
         "args": [
           null,
           {
-            "x": 536.8553459119497,
+            "x": 537.0172684458398,
             "y": 32,
-            "zoom": 1.0314465408805031
+            "zoom": 1.0298273155416013
           }
         ]
       },
@@ -950,19 +972,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 221,
+            "timeStamp": 183.79999995231628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 717.3585205078125,
-            "screenY": 153.710693359375,
-            "clientX": 717.3585205078125,
-            "clientY": 153.710693359375,
-            "pageX": 717.3585205078125,
-            "pageY": 153.710693359375,
+            "screenX": 717.237060546875,
+            "screenY": 154.0345458984375,
+            "clientX": 717.237060546875,
+            "clientY": 154.0345458984375,
+            "pageX": 717.237060546875,
+            "pageY": 154.0345458984375,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -1019,7 +1041,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 221,
+            "timeStamp": 183.79999995231628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1027,11 +1049,11 @@
             },
             "detail": 0,
             "screenX": 717,
-            "screenY": 153,
+            "screenY": 154,
             "clientX": 717,
-            "clientY": 153,
+            "clientY": 154,
             "pageX": 717,
-            "pageY": 153,
+            "pageY": 154,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -1090,7 +1112,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -1118,7 +1140,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -1150,19 +1172,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 221,
+            "timeStamp": 183.79999995231628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 717.3585205078125,
-            "screenY": 153.710693359375,
-            "clientX": 717.3585205078125,
-            "clientY": 153.710693359375,
-            "pageX": 717.3585205078125,
-            "pageY": 153.710693359375,
+            "screenX": 717.237060546875,
+            "screenY": 154.0345458984375,
+            "clientX": 717.237060546875,
+            "clientY": 154.0345458984375,
+            "pageX": 717.237060546875,
+            "pageY": 154.0345458984375,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -1174,7 +1196,7 @@
             "buttons": 0,
             "relatedTarget": null,
             "movementX": 718,
-            "movementY": 154,
+            "movementY": 155,
             "pointerId": 1,
             "width": 1,
             "height": 1,
@@ -1215,7 +1237,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 221,
+            "timeStamp": 183.79999995231628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1223,11 +1245,11 @@
             },
             "detail": 0,
             "screenX": 717,
-            "screenY": 153,
+            "screenY": 154,
             "clientX": 717,
-            "clientY": 153,
+            "clientY": 154,
             "pageX": 717,
-            "pageY": 153,
+            "pageY": 154,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -1239,7 +1261,7 @@
             "buttons": 0,
             "relatedTarget": null,
             "movementX": 718,
-            "movementY": 154,
+            "movementY": 155,
             "isDefaultPrevented": {
               "@ref": "function"
             },
@@ -1284,7 +1306,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -1312,7 +1334,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -1409,7 +1431,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -1437,7 +1459,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -1484,7 +1506,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -1512,7 +1534,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -1573,7 +1595,7 @@
                   "@undefined": true
                 },
                 "width": 150,
-                "height": 36,
+                "height": 37,
                 "initialWidth": {
                   "@undefined": true
                 },
@@ -1601,7 +1623,7 @@
                 },
                 "measured": {
                   "width": 150,
-                  "height": 36
+                  "height": 37
                 },
                 "className": {
                   "@undefined": true
@@ -1659,7 +1681,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -1687,7 +1709,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -1734,7 +1756,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -1762,7 +1784,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -1795,7 +1817,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 259.7000000011176,
+            "timeStamp": 210.60000014305115,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1803,11 +1825,11 @@
             },
             "detail": 1,
             "screenX": 717,
-            "screenY": 153,
+            "screenY": 154,
             "clientX": 717,
-            "clientY": 153,
+            "clientY": 154,
             "pageX": 717,
-            "pageY": 153,
+            "pageY": 154,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -1864,7 +1886,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -1892,7 +1914,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -1926,7 +1948,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 275.30000000074506,
+            "timeStamp": 221.29999995231628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1934,11 +1956,11 @@
             },
             "detail": 0,
             "screenX": 614,
-            "screenY": 68,
+            "screenY": 69,
             "clientX": 614,
-            "clientY": 68,
+            "clientY": 69,
             "pageX": 614,
-            "pageY": 68,
+            "pageY": 69,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -1997,7 +2019,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -2025,7 +2047,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -2059,7 +2081,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 275.30000000074506,
+            "timeStamp": 221.29999995231628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2067,11 +2089,11 @@
             },
             "detail": 0,
             "screenX": 614,
-            "screenY": 68,
+            "screenY": 69,
             "clientX": 614,
-            "clientY": 68,
+            "clientY": 69,
             "pageX": 614,
-            "pageY": 68,
+            "pageY": 69,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -2128,7 +2150,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -2156,7 +2178,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -2186,19 +2208,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 275.30000000074506,
+            "timeStamp": 221.29999995231628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 614.2138671875,
-            "screenY": 68.10063171386719,
-            "clientX": 614.2138671875,
-            "clientY": 68.10063171386719,
-            "pageX": 614.2138671875,
-            "pageY": 68.10063171386719,
+            "screenX": 614.2543334960938,
+            "screenY": 69.07378387451172,
+            "clientX": 614.2543334960938,
+            "clientY": 69.07378387451172,
+            "pageX": 614.2543334960938,
+            "pageY": 69.07378387451172,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -2251,7 +2273,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 275.30000000074506,
+            "timeStamp": 221.29999995231628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2259,11 +2281,11 @@
             },
             "detail": 0,
             "screenX": 614,
-            "screenY": 68,
+            "screenY": 69,
             "clientX": 614,
-            "clientY": 68,
+            "clientY": 69,
             "pageX": 614,
-            "pageY": 68,
+            "pageY": 69,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -2318,7 +2340,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -2346,7 +2368,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -2378,7 +2400,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 303.5,
+            "timeStamp": 237.70000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2386,11 +2408,11 @@
             },
             "detail": 0,
             "screenX": 634,
-            "screenY": 88,
+            "screenY": 89,
             "clientX": 634,
-            "clientY": 88,
+            "clientY": 89,
             "pageX": 634,
-            "pageY": 88,
+            "pageY": 89,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -2447,7 +2469,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -2475,7 +2497,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -2507,7 +2529,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 303.5,
+            "timeStamp": 237.70000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2515,11 +2537,11 @@
             },
             "detail": 0,
             "screenX": 634,
-            "screenY": 88,
+            "screenY": 89,
             "clientX": 634,
-            "clientY": 88,
+            "clientY": 89,
             "pageX": 634,
-            "pageY": 88,
+            "pageY": 89,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -2610,19 +2632,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 303.5,
+            "timeStamp": 237.70000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 634.2138671875,
-            "screenY": 88.10063171386719,
-            "clientX": 634.2138671875,
-            "clientY": 88.10063171386719,
-            "pageX": 634.2138671875,
-            "pageY": 88.10063171386719,
+            "screenX": 634.2543334960938,
+            "screenY": 89.07378387451172,
+            "clientX": 634.2543334960938,
+            "clientY": 89.07378387451172,
+            "pageX": 634.2543334960938,
+            "pageY": 89.07378387451172,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -2675,7 +2697,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 303.5,
+            "timeStamp": 237.70000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2683,11 +2705,11 @@
             },
             "detail": 0,
             "screenX": 634,
-            "screenY": 88,
+            "screenY": 89,
             "clientX": 634,
-            "clientY": 88,
+            "clientY": 89,
             "pageX": 634,
-            "pageY": 88,
+            "pageY": 89,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -2774,7 +2796,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 285.80000000074506,
+            "timeStamp": 230.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2782,11 +2804,11 @@
             },
             "detail": 1,
             "screenX": 614,
-            "screenY": 68,
+            "screenY": 69,
             "clientX": 614,
-            "clientY": 68,
+            "clientY": 69,
             "pageX": 614,
-            "pageY": 68,
+            "pageY": 69,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -2853,7 +2875,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -2881,7 +2903,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -2923,7 +2945,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -2951,7 +2973,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -2997,7 +3019,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -3025,7 +3047,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -3069,7 +3091,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -3097,7 +3119,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -3209,7 +3231,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -3237,7 +3259,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -3281,7 +3303,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -3309,7 +3331,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -3353,7 +3375,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -3381,7 +3403,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -3425,7 +3447,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -3453,7 +3475,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -3580,7 +3602,7 @@
             "@undefined": true
           },
           "width": 150,
-          "height": 36,
+          "height": 37,
           "initialWidth": {
             "@undefined": true
           },
@@ -3608,7 +3630,7 @@
           },
           "measured": {
             "width": 150,
-            "height": 36
+            "height": 37
           },
           "className": "playwright-test-class-123",
           "style": {
@@ -3650,7 +3672,7 @@
             "@undefined": true
           },
           "width": 150,
-          "height": 36,
+          "height": 37,
           "initialWidth": {
             "@undefined": true
           },
@@ -3678,7 +3700,7 @@
           },
           "measured": {
             "width": 150,
-            "height": 36
+            "height": 37
           },
           "className": "playwright-test-class-123",
           "style": {
@@ -3700,8 +3722,8 @@
                     "@undefined": true
                   },
                   "nodeId": "Node-1",
-                  "x": 70.99978384873843,
-                  "y": 30.999899060769277,
+                  "x": 70.99981241215175,
+                  "y": 31.999917853269015,
                   "position": "bottom",
                   "type": "source",
                   "width": 8,
@@ -3891,7 +3913,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -3919,7 +3941,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": "playwright-test-class-123",
             "style": {
@@ -3961,7 +3983,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -3989,7 +4011,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -4035,7 +4057,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -4063,7 +4085,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -4107,7 +4129,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -4135,7 +4157,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -4247,7 +4269,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -4275,7 +4297,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -4319,7 +4341,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -4347,7 +4369,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -4391,7 +4413,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -4419,7 +4441,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -4463,7 +4485,7 @@
               "@undefined": true
             },
             "width": 150,
-            "height": 36,
+            "height": 37,
             "initialWidth": {
               "@undefined": true
             },
@@ -4491,7 +4513,7 @@
             },
             "measured": {
               "width": 150,
-              "height": 36
+              "height": 37
             },
             "className": {
               "@undefined": true
@@ -4675,7 +4697,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -4703,7 +4725,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": "playwright-test-class-123",
               "style": {
@@ -4745,7 +4767,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -4773,7 +4795,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -4819,7 +4841,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -4847,7 +4869,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -4891,7 +4913,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -4919,7 +4941,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -5031,7 +5053,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -5059,7 +5081,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -5103,7 +5125,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -5131,7 +5153,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -5175,7 +5197,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -5203,7 +5225,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -5247,7 +5269,7 @@
                 "@undefined": true
               },
               "width": 150,
-              "height": 36,
+              "height": 37,
               "initialWidth": {
                 "@undefined": true
               },
@@ -5275,7 +5297,7 @@
               },
               "measured": {
                 "width": 150,
-                "height": 36
+                "height": 37
               },
               "className": {
                 "@undefined": true
@@ -5462,23 +5484,23 @@
             }
           ],
           "viewport": {
-            "x": 536.8553459119497,
+            "x": 537.0172684458398,
             "y": 32,
-            "zoom": 1.0314465408805031
+            "zoom": 1.0298273155416013
           }
         },
-        "getZoom": 1.0314465408805031,
+        "getZoom": 1.0298273155416013,
         "getViewport": {
-          "x": 536.8553459119497,
+          "x": 537.0172684458398,
           "y": 32,
-          "zoom": 1.0314465408805031
+          "zoom": 1.0298273155416013
         },
         "screenToFlowPosition": {
-          "x": -520.4878048780488,
-          "y": -31.024390243902438
+          "x": -521.4634146341463,
+          "y": -31.073170731707314
         },
         "flowToScreenPosition": {
-          "x": 536.8553459119497,
+          "x": 537.0172684458398,
           "y": 32
         },
         "viewportInitialized": false
@@ -5515,13 +5537,13 @@
         "resolved": true,
         "box": {
           "x": 640,
-          "y": 135.1446533203125,
-          "width": 154.71697998046875,
-          "height": 37.132080078125
+          "y": 134.98272705078125,
+          "width": 154.47412109375,
+          "height": 38.10362243652344
         },
         "dispatched": {
-          "x": 717.3584899902344,
-          "y": 153.710693359375,
+          "x": 717.237060546875,
+          "y": 154.03453826904297,
           "button": "left"
         }
       },
@@ -5532,8 +5554,8 @@
         "resolved": true,
         "box": null,
         "dispatched": {
-          "x": 717.3584899902344,
-          "y": 153.710693359375,
+          "x": 717.237060546875,
+          "y": 154.03453826904297,
           "button": "left"
         }
       },
@@ -5543,14 +5565,14 @@
         "target": ".react-flow__handle[data-nodeid=\"Node-1\"]",
         "resolved": true,
         "box": {
-          "x": 610.0880737304688,
-          "y": 63.97484588623047,
-          "width": 8.25152587890625,
-          "height": 8.251571655273438
+          "x": 610.135009765625,
+          "y": 64.95447540283203,
+          "width": 8.2386474609375,
+          "height": 8.238616943359375
         },
         "dispatched": {
-          "x": 614.2138366699219,
-          "y": 68.10063171386719,
+          "x": 614.2543334960938,
+          "y": 69.07378387451172,
           "button": "left"
         }
       },
@@ -5560,14 +5582,14 @@
         "target": ".react-flow__handle[data-nodeid=\"Node-1\"]",
         "resolved": true,
         "box": {
-          "x": 610.0880737304688,
-          "y": 63.97484588623047,
-          "width": 8.25152587890625,
-          "height": 8.251571655273438
+          "x": 610.135009765625,
+          "y": 64.95447540283203,
+          "width": 8.2386474609375,
+          "height": 8.238616943359375
         },
         "dispatched": {
-          "x": 634.2138366699219,
-          "y": 88.10063171386719
+          "x": 634.2543334960938,
+          "y": 89.07378387451172
         }
       },
       {

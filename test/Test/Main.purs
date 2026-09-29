@@ -56,6 +56,7 @@ import Test.React.Store.ZoomLimits (runZoomLimitsTests)
 import Test.System.Utils.Store (runStoreProperties)
 import Test.System.Utils.StorePanBy (runStorePanByTests)
 import Test.System.XYDrag (runXYDragTests)
+import Test.System.XYPanZoom.EventHandler (runEventHandlerTests)
 
 assert :: String -> Boolean -> Effect Unit
 assert label cond =
@@ -1068,6 +1069,7 @@ main = do
   runZoomLimitsTests
   runVisibleIdsTests
   runXYDragTests
+  runEventHandlerTests
   runPaneAutoPanTests
   runStorePanByTests
   runTrackedPropTests

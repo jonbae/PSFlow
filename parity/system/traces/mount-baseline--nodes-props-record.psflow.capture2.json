@@ -210,8 +210,30 @@
         ]
       },
       {
+        "name": "onMoveStart",
+        "args": [
+          null,
+          {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          }
+        ]
+      },
+      {
         "name": "onViewportChange",
         "args": [
+          {
+            "x": 140,
+            "y": -240,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onMove",
+        "args": [
+          null,
           {
             "x": 140,
             "y": -240,

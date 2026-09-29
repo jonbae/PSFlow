@@ -23,18 +23,20 @@ module System.XYPanZoom.EventHandler
 
 import Prelude
 
+import Control.Monad.Except (runExcept)
+import Data.Either (Either(..))
 import Data.Foldable (for_)
 import Data.Maybe (Maybe(..))
 import Effect (Effect)
 import Effect.Ref (Ref)
 import Effect.Ref as Ref
-import Foreign (Foreign)
+import Foreign (Foreign, unsafeReadTagged)
 import System.FFI.D3Zoom
   ( D3ZoomBehavior
   , D3ZoomEvent
   , selectionGetZoomProperty
   , zoomBehaviorScaleTo
-  , zoomBehaviorTranslateBy
+  , zoomBehaviorTranslateByInternal
   , zoomEventSourceEvent
   , zoomEventTransform
   , zoomTransformK
@@ -51,6 +53,9 @@ import System.XYPanZoom.Utils
   , transformToViewport
   , wheelDelta
   )
+import Unsafe.Coerce (unsafeCoerce)
+import Web.TouchEvent.TouchEvent (TouchEvent)
+import Web.UIEvent.MouseEvent (MouseEvent)
 
 -- | Mutable controller state shared across the five handler families. The
 -- | TS structure is a plain object; PS holds the equivalent record of
@@ -144,18 +149,30 @@ foreign import sourceEventTypeIs :: Foreign -> String -> Effect Boolean
 foreign import sourceEventStopImmediate :: Foreign -> Effect Unit
 foreign import sourceEventPreventDefault :: Foreign -> Effect Unit
 foreign import sourceEventDeltaXY :: Foreign -> Effect { x :: Number, y :: Number, mode :: Int, shiftKey :: Boolean }
--- | Coerce a `Foreign` event into the union the user-supplied callback
--- | expects. Same `unsafeCoerce` move the TS source uses (`as MouseEvent | TouchEvent`).
-foreign import asMouseOrTouch :: Foreign -> Foreign
+-- | `event == null`. Every d3-zoom gesture d3 raises with no real DOM event
+-- | behind it — a programmatic `zoom.transform()` call, which is how
+-- | auto-pan moves the viewport — carries `sourceEvent: null`.
+foreign import isNullishForeign :: Foreign -> Boolean
 
--- | Wrapper to call user-supplied `OnPanZoom` callbacks. The `Foreign` is the
--- | underlying mouse/touch event, opaque on the PS side until the user picks.
+-- | `event.sourceEvent as MouseEvent | TouchEvent`, matching TS's cast in
+-- | `eventhandler.ts` — `Nothing` when d3 raised the gesture with no real
+-- | source event. Same tag-check `System.XYDrag.foreignAsTouchOrMouse` uses;
+-- | duplicated rather than exported because that module's export list is
+-- | about the drag controller, not this one's event coercions.
+foreignAsMouseOrTouch :: Foreign -> Maybe (Either MouseEvent TouchEvent)
+foreignAsMouseOrTouch f
+  | isNullishForeign f = Nothing
+  | otherwise = Just case runExcept (unsafeReadTagged "TouchEvent" f) of
+      Right te -> Right te
+      Left _ -> Left (unsafeCoerce f :: MouseEvent)
+
+-- | Wrapper to call user-supplied `OnPanZoom` callbacks. `ev` is the
+-- | underlying d3 source event, opaque here until coerced. This used to
+-- | discard `cb` outright — `case mCb of Just _ -> pure unit` — so every
+-- | caller (pan-on-scroll, and the "start"/"zoom" halves of a drag or a
+-- | programmatic `.transform()`) silently never fired.
 callOnPanZoom :: Maybe OnPanZoom -> Foreign -> Viewport -> Effect Unit
-callOnPanZoom mCb _ev _vp = case mCb of
-  Just _ -> pure unit -- Type alignment is enforced by `OnPanZoom`'s shape;
-  -- the actual event coercion happens at the FFI boundary in callers that
-  -- already have a `Maybe (Either MouseEvent TouchEvent)`.
-  Nothing -> pure unit
+callOnPanZoom mCb ev vp = for_ mCb \cb -> cb (foreignAsMouseOrTouch ev) vp
 
 -- ----------------------------------------------------------------------------
 -- createPanOnScrollHandler
@@ -196,7 +213,9 @@ createPanOnScrollHandler p = pure \event -> do
           not mac && d.shiftKey && p.panOnScrollMode /= Vertical
         dx = if isShiftWindowsOverride then d.y * deltaNormalize else rawDx
         dy = if isShiftWindowsOverride then 0.0 else rawDy
-      zoomBehaviorTranslateBy p.d3Zoom p.d3Selection
+      -- Pan-on-scroll reports its lifecycle below. Mark this d3 transform as
+      -- internal so the shared start/zoom/end handlers do not report it again.
+      zoomBehaviorTranslateByInternal p.d3Zoom p.d3Selection
         (-(dx / zoomBase) * p.panOnScrollSpeed)
         (-(dy / zoomBase) * p.panOnScrollSpeed)
 
@@ -318,14 +337,14 @@ createPanZoomEndHandler p = pure \event -> do
         Ref.write viewport p.zoomPanValues.prevViewport
         mPrev <- Ref.read p.zoomPanValues.timerId
         for_ mPrev clearTimeout
-        let delay = if p.panOnScroll then 150 else 0
-        tid <- setTimeout
-          (callOnPanZoomDirect cb src viewport)
-          delay
-        Ref.write (Just tid) p.zoomPanValues.timerId
+        if p.panOnScroll then do
+          -- Scroll can raise several d3 end events for one gesture. Only this
+          -- path is a debounce; a regular/programmatic transform owns its end.
+          tid <- setTimeout
+            (callOnPanZoom (Just cb) src viewport)
+            150
+          Ref.write (Just tid) p.zoomPanValues.timerId
+        else do
+          Ref.write Nothing p.zoomPanValues.timerId
+          callOnPanZoom (Just cb) src viewport
       Nothing -> pure unit
-  where
-  -- `cb` is `OnPanZoom = Maybe (Either MouseEvent TouchEvent) -> Viewport -> Effect Unit`.
-  -- We pass `Nothing` for the event because we don't have a typed mouse/
-  -- touch event at this layer — the d3 source event is `Foreign`.
-  callOnPanZoomDirect cb _src vp = cb Nothing vp
