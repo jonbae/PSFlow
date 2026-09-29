@@ -594,7 +594,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 348,
+            "timeStamp": 320.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -661,7 +661,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 348,
+            "timeStamp": 320.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -740,7 +740,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 353.7000000476837,
+            "timeStamp": 337.7000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -831,7 +831,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 372.2000000476837,
+            "timeStamp": 352.89999985694885,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -904,7 +904,10 @@
       {
         "name": "onMoveEnd",
         "args": [
-          null,
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
           {
             "x": 640,
             "y": 360,

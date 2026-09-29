@@ -485,7 +485,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 177.20000004768372,
+            "timeStamp": 160.89999985694885,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -554,7 +554,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 177.20000004768372,
+            "timeStamp": 160.89999985694885,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -683,7 +683,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 177.20000004768372,
+            "timeStamp": 160.89999985694885,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -748,7 +748,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 177.20000004768372,
+            "timeStamp": 160.89999985694885,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1154,7 +1154,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 196.59999990463257,
+            "timeStamp": 177.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1221,6 +1221,17 @@
       },
       {
         "name": "onMove",
+        "args": [
+          null,
+          {
+            "x": 0,
+            "y": 220.00000000000003,
+            "zoom": 1
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
         "args": [
           null,
           {
@@ -1456,6 +1467,17 @@
         ]
       },
       {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 340,
+            "y": 560,
+            "zoom": 1
+          }
+        ]
+      },
+      {
         "name": "onNodesChange",
         "args": [
           [
@@ -1649,17 +1671,6 @@
         ]
       },
       {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 340,
-            "y": 560,
-            "zoom": 1
-          }
-        ]
-      },
-      {
         "name": "onNodeMouseLeave",
         "args": [
           {
@@ -1682,7 +1693,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 213.5,
+            "timeStamp": 195.69999980926514,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1811,7 +1822,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 213.5,
+            "timeStamp": 195.69999980926514,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2081,6 +2092,17 @@
         ]
       },
       {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 690,
+            "y": 900,
+            "zoom": 1
+          }
+        ]
+      },
+      {
         "name": "onNodesChange",
         "args": [
           [
@@ -2274,17 +2296,6 @@
         ]
       },
       {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 690,
-            "y": 900,
-            "zoom": 1
-          }
-        ]
-      },
-      {
         "name": "onNodeMouseEnter",
         "args": [
           {
@@ -2307,7 +2318,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 228.59999990463257,
+            "timeStamp": 213.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2436,7 +2447,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 228.59999990463257,
+            "timeStamp": 213.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2706,6 +2717,17 @@
         ]
       },
       {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 1030,
+            "y": 1250,
+            "zoom": 1
+          }
+        ]
+      },
+      {
         "name": "onNodesChange",
         "args": [
           [
@@ -2899,17 +2921,6 @@
         ]
       },
       {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 1030,
-            "y": 1250,
-            "zoom": 1
-          }
-        ]
-      },
-      {
         "name": "onPaneMouseMove",
         "args": [
           {
@@ -2930,7 +2941,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 246.89999985694885,
+            "timeStamp": 228.29999995231628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3200,6 +3211,17 @@
         ]
       },
       {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 1380,
+            "y": 1600,
+            "zoom": 1
+          }
+        ]
+      },
+      {
         "name": "onNodesChange",
         "args": [
           [
@@ -3390,17 +3412,6 @@
               }
             }
           ]
-        ]
-      },
-      {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 1380,
-            "y": 1600,
-            "zoom": 1
-          }
         ]
       },
       {

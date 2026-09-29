@@ -24,6 +24,7 @@ module System.FFI.D3Zoom
   , zoomBehaviorScaleTo
   , zoomBehaviorScaleBy
   , zoomBehaviorTranslateBy
+  , zoomBehaviorTranslateByInternal
   , zoomBehaviorConstrain
   , currentZoomTransform
   , selectionGetZoomProperty
@@ -125,6 +126,12 @@ foreign import zoomBehaviorScaleBy
   :: D3ZoomBehavior -> D3Selection -> Number -> Effect Unit
 
 foreign import zoomBehaviorTranslateBy
+  :: D3ZoomBehavior -> D3Selection -> Number -> Number -> Effect Unit
+
+-- | `behavior.translateBy(selection, dx, dy, { internal: true })` — the
+-- | source-event marker used by pan-on-scroll so d3's own lifecycle handlers
+-- | do not report the same movement a second time.
+foreign import zoomBehaviorTranslateByInternal
   :: D3ZoomBehavior -> D3Selection -> Number -> Number -> Effect Unit
 
 -- | `behavior.constrain()(transform, [[x1,y1],[x2,y2]], [[mx1,my1],[mx2,my2]])`.

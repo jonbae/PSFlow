@@ -688,7 +688,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 281,
+            "timeStamp": 329.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -755,7 +755,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 281,
+            "timeStamp": 329.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -814,6 +814,20 @@
         ]
       },
       {
+        "name": "onMoveEnd",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "x": 490,
+            "y": 123,
+            "zoom": 2
+          }
+        ]
+      },
+      {
         "name": "onPaneClick",
         "args": [
           {
@@ -834,7 +848,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 304.90000009536743,
+            "timeStamp": 337.40000009536743,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -878,17 +892,6 @@
         "name": "onEdgesChange",
         "args": [
           []
-        ]
-      },
-      {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 490,
-            "y": 123,
-            "zoom": 2
-          }
         ]
       }
     ],

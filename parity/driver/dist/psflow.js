@@ -39613,8 +39613,8 @@ var zoomBehaviorScaleTo = (b) => (sel) => (k) => () => {
 var zoomBehaviorScaleBy = (b) => (sel) => (factor) => () => {
   b.scaleBy(sel, factor);
 };
-var zoomBehaviorTranslateBy = (b) => (sel) => (dx) => (dy) => () => {
-  b.translateBy(sel, dx, dy);
+var zoomBehaviorTranslateByInternal = (b) => (sel) => (dx) => (dy) => () => {
+  b.translateBy(sel, dx, dy, { internal: true });
 };
 var zoomBehaviorConstrain = (b) => (t) => (x1) => (y1) => (x2) => (y2) => (mx1) => (my1) => (mx2) => (my2) => {
   const constrainFn = b.constrain();
@@ -51278,9 +51278,9 @@ var isRightClickPan = function(panOnDrag) {
 var unsafeReadTagged3 = /* @__PURE__ */ unsafeReadTagged(monadIdentity);
 var pure52 = /* @__PURE__ */ pure(applicativeEffect);
 var when13 = /* @__PURE__ */ when(applicativeEffect);
-var unless5 = /* @__PURE__ */ unless(applicativeEffect);
 var for_14 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var notEq7 = /* @__PURE__ */ notEq(eqPanOnScrollMode);
+var unless5 = /* @__PURE__ */ unless(applicativeEffect);
 var foreignAsMouseOrTouch = function(f) {
   if (isNullishForeign(f)) {
     return Nothing.value;
@@ -51343,56 +51343,6 @@ var createZoomOnScrollHandler = function(p) {
     };
   });
 };
-var createPanZoomEndHandler = function(p) {
-  var callOnPanZoomDirect = function(cb) {
-    return function(_src) {
-      return function(vp) {
-        return cb(Nothing.value)(vp);
-      };
-    };
-  };
-  return pure52(function(event) {
-    var src9 = zoomEventSourceEvent(event);
-    return function __do3() {
-      var internal = sourceEventInternal(src9)();
-      return unless5(internal)(function __do4() {
-        write(false)(p.zoomPanValues.isZoomingOrPanning)();
-        var btn = read(p.zoomPanValues.mouseButton)();
-        var used = read(p.zoomPanValues.usedRightMouseButton)();
-        (function() {
-          if (p.onPaneContextMenu instanceof Just && (isRightClickPan(p.panOnDrag)(btn) && !used)) {
-            return p.onPaneContextMenu.value0(src9)();
-          }
-          ;
-          return unit;
-        })();
-        write(false)(p.zoomPanValues.usedRightMouseButton)();
-        p.onDraggingChange(false)();
-        if (p.onPanZoomEnd instanceof Just) {
-          var viewport2 = transformToViewport(zoomEventTransform(event));
-          write(viewport2)(p.zoomPanValues.prevViewport)();
-          var mPrev = read(p.zoomPanValues.timerId)();
-          for_14(mPrev)(clearTimeout2)();
-          var delay = function() {
-            if (p.panOnScroll) {
-              return 150;
-            }
-            ;
-            return 0;
-          }();
-          var tid = setTimeout2(callOnPanZoomDirect(p.onPanZoomEnd.value0)(src9)(viewport2))(delay)();
-          return write(new Just(tid))(p.zoomPanValues.timerId)();
-        }
-        ;
-        if (p.onPanZoomEnd instanceof Nothing) {
-          return unit;
-        }
-        ;
-        throw new Error("Failed pattern match at System.XYPanZoom.EventHandler (line 334, column 5 - line 345, column 27): " + [p.onPanZoomEnd.constructor.name]);
-      })();
-    };
-  });
-};
 var callOnPanZoom = function(mCb) {
   return function(ev) {
     return function(vp) {
@@ -51417,16 +51367,16 @@ var createPanOnScrollHandler = function(p) {
       var currentTransform = selectionGetZoomProperty(p.d3Selection)();
       var currentZoom = zoomTransformK(currentTransform);
       var zoomBase = function() {
-        var $30 = currentZoom === 0;
-        if ($30) {
+        var $25 = currentZoom === 0;
+        if ($25) {
           return 1;
         }
         ;
         return currentZoom;
       }();
       var ctrl = foreignCtrlKey(event)();
-      var $31 = ctrl && p.zoomOnPinch;
-      if ($31) {
+      var $26 = ctrl && p.zoomOnPinch;
+      if ($26) {
         var delta = wheelDelta(event)();
         var newZoom = zoomBase * powN2(2)(delta);
         return zoomBehaviorScaleTo(p.d3Zoom)(p.d3Selection)(newZoom)();
@@ -51434,8 +51384,8 @@ var createPanOnScrollHandler = function(p) {
       ;
       var d = sourceEventDeltaXY(event)();
       var deltaNormalize = function() {
-        var $32 = d.mode === 1;
-        if ($32) {
+        var $27 = d.mode === 1;
+        if ($27) {
           return 20;
         }
         ;
@@ -51471,15 +51421,15 @@ var createPanOnScrollHandler = function(p) {
         ;
         return rawDx;
       }();
-      zoomBehaviorTranslateBy(p.d3Zoom)(p.d3Selection)(-(dx / zoomBase) * p.panOnScrollSpeed)(-(dy / zoomBase) * p.panOnScrollSpeed)();
+      zoomBehaviorTranslateByInternal(p.d3Zoom)(p.d3Selection)(-(dx / zoomBase) * p.panOnScrollSpeed)(-(dy / zoomBase) * p.panOnScrollSpeed)();
       var next = selectionGetZoomProperty(p.d3Selection)();
       var nextViewport = transformToViewport(next);
       var mPST = read(p.zoomPanValues.panScrollTimeout)();
       for_14(mPST)(clearTimeout2)();
       write(Nothing.value)(p.zoomPanValues.panScrollTimeout)();
       var panning = read(p.zoomPanValues.isPanScrolling)();
-      var $37 = !panning;
-      if ($37) {
+      var $32 = !panning;
+      if ($32) {
         write(true)(p.zoomPanValues.isPanScrolling)();
         return callOnPanZoom(p.onPanZoomStart)(event)(nextViewport)();
       }
@@ -51490,6 +51440,47 @@ var createPanOnScrollHandler = function(p) {
         return write(false)(p.zoomPanValues.isPanScrolling)();
       })(150)();
       return write(new Just(tid))(p.zoomPanValues.panScrollTimeout)();
+    };
+  });
+};
+var createPanZoomEndHandler = function(p) {
+  return pure52(function(event) {
+    var src9 = zoomEventSourceEvent(event);
+    return function __do3() {
+      var internal = sourceEventInternal(src9)();
+      return unless5(internal)(function __do4() {
+        write(false)(p.zoomPanValues.isZoomingOrPanning)();
+        var btn = read(p.zoomPanValues.mouseButton)();
+        var used = read(p.zoomPanValues.usedRightMouseButton)();
+        (function() {
+          if (p.onPaneContextMenu instanceof Just && (isRightClickPan(p.panOnDrag)(btn) && !used)) {
+            return p.onPaneContextMenu.value0(src9)();
+          }
+          ;
+          return unit;
+        })();
+        write(false)(p.zoomPanValues.usedRightMouseButton)();
+        p.onDraggingChange(false)();
+        if (p.onPanZoomEnd instanceof Just) {
+          var viewport2 = transformToViewport(zoomEventTransform(event));
+          write(viewport2)(p.zoomPanValues.prevViewport)();
+          var mPrev = read(p.zoomPanValues.timerId)();
+          for_14(mPrev)(clearTimeout2)();
+          if (p.panOnScroll) {
+            var tid = setTimeout2(callOnPanZoom(new Just(p.onPanZoomEnd.value0))(src9)(viewport2))(150)();
+            return write(new Just(tid))(p.zoomPanValues.timerId)();
+          }
+          ;
+          write(Nothing.value)(p.zoomPanValues.timerId)();
+          return callOnPanZoom(new Just(p.onPanZoomEnd.value0))(src9)(viewport2)();
+        }
+        ;
+        if (p.onPanZoomEnd instanceof Nothing) {
+          return unit;
+        }
+        ;
+        throw new Error("Failed pattern match at System.XYPanZoom.EventHandler (line 334, column 5 - line 350, column 27): " + [p.onPanZoomEnd.constructor.name]);
+      })();
     };
   });
 };

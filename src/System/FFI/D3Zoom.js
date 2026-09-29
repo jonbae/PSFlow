@@ -67,6 +67,10 @@ export const zoomBehaviorTranslateBy = (b) => (sel) => (dx) => (dy) => () => {
   b.translateBy(sel, dx, dy);
 };
 
+export const zoomBehaviorTranslateByInternal = (b) => (sel) => (dx) => (dy) => () => {
+  b.translateBy(sel, dx, dy, { internal: true });
+};
+
 export const zoomBehaviorConstrain =
   (b) => (t) => (x1) => (y1) => (x2) => (y2) => (mx1) => (my1) => (mx2) => (my2) => {
     const constrainFn = b.constrain();

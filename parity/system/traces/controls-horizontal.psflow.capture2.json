@@ -766,6 +766,17 @@
         ]
       },
       {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 515,
+            "y": 162.5,
+            "zoom": 1.6666666666666667
+          }
+        ]
+      },
+      {
         "name": "onNodesChange",
         "args": [
           [

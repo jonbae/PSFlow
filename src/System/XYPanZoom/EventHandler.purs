@@ -36,7 +36,7 @@ import System.FFI.D3Zoom
   , D3ZoomEvent
   , selectionGetZoomProperty
   , zoomBehaviorScaleTo
-  , zoomBehaviorTranslateBy
+  , zoomBehaviorTranslateByInternal
   , zoomEventSourceEvent
   , zoomEventTransform
   , zoomTransformK
@@ -170,9 +170,7 @@ foreignAsMouseOrTouch f
 -- | underlying d3 source event, opaque here until coerced. This used to
 -- | discard `cb` outright — `case mCb of Just _ -> pure unit` — so every
 -- | caller (pan-on-scroll, and the "start"/"zoom" halves of a drag or a
--- | programmatic `.transform()`) silently never fired; only
--- | `createPanZoomEndHandler`'s direct call still worked, which is why
--- | auto-pan fired `onMoveEnd` unpaired.
+-- | programmatic `.transform()`) silently never fired.
 callOnPanZoom :: Maybe OnPanZoom -> Foreign -> Viewport -> Effect Unit
 callOnPanZoom mCb ev vp = for_ mCb \cb -> cb (foreignAsMouseOrTouch ev) vp
 
@@ -215,7 +213,9 @@ createPanOnScrollHandler p = pure \event -> do
           not mac && d.shiftKey && p.panOnScrollMode /= Vertical
         dx = if isShiftWindowsOverride then d.y * deltaNormalize else rawDx
         dy = if isShiftWindowsOverride then 0.0 else rawDy
-      zoomBehaviorTranslateBy p.d3Zoom p.d3Selection
+      -- Pan-on-scroll reports its lifecycle below. Mark this d3 transform as
+      -- internal so the shared start/zoom/end handlers do not report it again.
+      zoomBehaviorTranslateByInternal p.d3Zoom p.d3Selection
         (-(dx / zoomBase) * p.panOnScrollSpeed)
         (-(dy / zoomBase) * p.panOnScrollSpeed)
 
@@ -337,14 +337,14 @@ createPanZoomEndHandler p = pure \event -> do
         Ref.write viewport p.zoomPanValues.prevViewport
         mPrev <- Ref.read p.zoomPanValues.timerId
         for_ mPrev clearTimeout
-        let delay = if p.panOnScroll then 150 else 0
-        tid <- setTimeout
-          (callOnPanZoomDirect cb src viewport)
-          delay
-        Ref.write (Just tid) p.zoomPanValues.timerId
+        if p.panOnScroll then do
+          -- Scroll can raise several d3 end events for one gesture. Only this
+          -- path is a debounce; a regular/programmatic transform owns its end.
+          tid <- setTimeout
+            (callOnPanZoom (Just cb) src viewport)
+            150
+          Ref.write (Just tid) p.zoomPanValues.timerId
+        else do
+          Ref.write Nothing p.zoomPanValues.timerId
+          callOnPanZoom (Just cb) src viewport
       Nothing -> pure unit
-  where
-  -- `cb` is `OnPanZoom = Maybe (Either MouseEvent TouchEvent) -> Viewport -> Effect Unit`.
-  -- We pass `Nothing` for the event because we don't have a typed mouse/
-  -- touch event at this layer — the d3 source event is `Foreign`.
-  callOnPanZoomDirect cb _src vp = cb Nothing vp
