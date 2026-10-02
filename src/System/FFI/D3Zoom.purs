@@ -21,7 +21,9 @@ module System.FFI.D3Zoom
   , setZoomFilter
   , setInterpolate
   , zoomBehaviorTransform
+  , zoomBehaviorTransformSync
   , zoomBehaviorScaleTo
+  , zoomBehaviorScaleToAtPointer
   , zoomBehaviorScaleBy
   , zoomBehaviorTranslateBy
   , zoomBehaviorTranslateByInternal
@@ -119,8 +121,19 @@ foreign import setInterpolate
 foreign import zoomBehaviorTransform
   :: D3ZoomBehavior -> D3Selection -> ZoomTransform -> Effect Unit
 
+-- | Controlled-viewport sync: `transform(selection, transform, null,
+-- | { sync: true })`. The marker tells the zoom handler not to feed the
+-- | controlled value back into onTransformChange.
+foreign import zoomBehaviorTransformSync
+  :: D3ZoomBehavior -> D3Selection -> ZoomTransform -> Effect Unit
+
 foreign import zoomBehaviorScaleTo
   :: D3ZoomBehavior -> D3Selection -> Number -> Effect Unit
+
+-- | Trackpad pinch under pan-on-scroll: scale about `pointer(event)` and keep
+-- | the original wheel event as d3's source event.
+foreign import zoomBehaviorScaleToAtPointer
+  :: D3ZoomBehavior -> D3Selection -> Number -> Foreign -> Effect Unit
 
 foreign import zoomBehaviorScaleBy
   :: D3ZoomBehavior -> D3Selection -> Number -> Effect Unit

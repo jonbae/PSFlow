@@ -35,7 +35,7 @@ import System.FFI.D3Zoom
   ( D3ZoomBehavior
   , D3ZoomEvent
   , selectionGetZoomProperty
-  , zoomBehaviorScaleTo
+  , zoomBehaviorScaleToAtPointer
   , zoomBehaviorTranslateByInternal
   , zoomEventSourceEvent
   , zoomEventTransform
@@ -196,7 +196,7 @@ createPanOnScrollHandler p = pure \event -> do
     if ctrl && p.zoomOnPinch then do
       delta <- wheelDelta event
       let newZoom = zoomBase * powN 2.0 delta
-      zoomBehaviorScaleTo p.d3Zoom p.d3Selection newZoom
+      zoomBehaviorScaleToAtPointer p.d3Zoom p.d3Selection newZoom event
     else do
       d <- sourceEventDeltaXY event
       let
