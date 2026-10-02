@@ -40,6 +40,7 @@ import { routeOf } from "./routes.mjs";
 
 const LIMITS_CHANGE = routeOf("./flow/limits-change.ts");
 const PROPS_CHANGE = routeOf("./flow/props-change.ts");
+const CONTROLLED_VIEWPORT = routeOf("./viewport/controlled.ts");
 
 const control = (name) => `[data-testid="${name}"]`;
 
@@ -100,6 +101,42 @@ const holeClosing = [
       await a.pointerDown(".react-flow__pane");
       await a.pointerMove(null, { dx: 400, dy: 300 });
       await a.pointerMove(null, { dx: 400, dy: 300 });
+      await a.pointerUp();
+    },
+  },
+
+  // A changed controlled viewport, then a pan. Ticket #128, off #124.
+  //
+  // #124 made `syncViewport` skip an unchanged transform and mark its d3 event
+  // as a sync, and found nothing called it: `useViewportSync` wrote the store
+  // and never reached the instance, and no fixture passed a controlled
+  // `viewport` at all. `viewport/controlled.ts` says why its viewport is never
+  // fed back, which is what lets the `callbacks` section read d3's own
+  // transform.
+  //
+  // The instance has two syncs to make, and both are observed. The mount sync
+  // moves d3 off `defaultViewport` once `<ZoomPane />` has created the
+  // instance; the control's moves it to the changed viewport. Each reaches d3
+  // as a transform, which upstream reports through `onMoveStart`, `onMove` and
+  // `onMoveEnd` carrying d3's own value, and the pan then starts from wherever
+  // d3 was left. A port that missed either sync shows a missing callback or a
+  // pan from the wrong transform.
+  //
+  // The control is pressed before the pan and not between two of them. d3 eats
+  // the first click after a drag that moved, through a capture-phase listener
+  // on `window` that it removes on a zero-delay timer, and Chrome runs input
+  // ahead of timers. A click straight after a pan therefore landed or did not
+  // by scheduling, on either side, which is a race in the scenario rather than
+  // a difference between the two implementations.
+  {
+    id: "pan-after-controlled-viewport-change",
+    route: CONTROLLED_VIEWPORT,
+    probeCapabilities: ["viewport"],
+    async run(a) {
+      await a.click(control(AFTER_MOUNT));
+      await a.pointerDown(".react-flow__pane");
+      await a.pointerMove(null, { dx: 40, dy: 20 });
+      await a.pointerMove(null, { dx: 40, dy: 20 });
       await a.pointerUp();
     },
   },

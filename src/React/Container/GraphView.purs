@@ -19,8 +19,8 @@
 -- |   * The two dev-time warning hooks (`useNodeOrEdgeTypesWarning`,
 -- |     `useStylesLoadedWarning`) gate on `state.debug` rather than
 -- |     `process.env.NODE_ENV` — see each hook's header for rationale.
--- |   * `useOnInitHandler` and `useViewportSync` are unchanged from
--- |     their existing implementations.
+-- |   * `useOnInitHandler` is unchanged from its existing
+-- |     implementation.
 -- |   * `isControlledViewport` derives from `isJust props.viewport` (TS
 -- |     `!!viewport`).
 module React.Container.GraphView

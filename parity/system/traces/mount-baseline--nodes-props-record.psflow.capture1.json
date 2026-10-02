@@ -866,7 +866,7 @@
           "x": 140,
           "y": -240
         },
-        "viewportInitialized": false
+        "viewportInitialized": true
       },
       "calls": []
     },

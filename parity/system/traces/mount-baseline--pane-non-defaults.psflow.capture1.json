@@ -1636,7 +1636,7 @@
           "x": 1.23,
           "y": 9.87
         },
-        "viewportInitialized": false
+        "viewportInitialized": true
       },
       "calls": []
     },

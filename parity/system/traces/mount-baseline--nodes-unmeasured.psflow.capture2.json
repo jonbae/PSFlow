@@ -1616,7 +1616,7 @@
           "x": 590,
           "y": 223
         },
-        "viewportInitialized": false
+        "viewportInitialized": true
       },
       "calls": []
     },

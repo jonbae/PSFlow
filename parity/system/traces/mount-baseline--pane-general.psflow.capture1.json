@@ -1679,7 +1679,7 @@
           "x": 390.57142857142856,
           "y": 132.18857142857144
         },
-        "viewportInitialized": false
+        "viewportInitialized": true
       },
       "calls": []
     },

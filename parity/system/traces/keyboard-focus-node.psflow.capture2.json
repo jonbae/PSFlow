@@ -2172,7 +2172,7 @@
           "x": 0,
           "y": 0
         },
-        "viewportInitialized": false
+        "viewportInitialized": true
       },
       "calls": []
     },

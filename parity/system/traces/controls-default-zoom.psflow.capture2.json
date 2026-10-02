@@ -1672,7 +1672,7 @@
           "x": 290,
           "y": 220
         },
-        "viewportInitialized": false
+        "viewportInitialized": true
       },
       "calls": []
     },

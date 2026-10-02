@@ -4732,7 +4732,7 @@
           "x": 58,
           "y": 339.49142857142857
         },
-        "viewportInitialized": false
+        "viewportInitialized": true
       },
       "calls": []
     },
