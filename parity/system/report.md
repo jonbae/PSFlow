@@ -41,58 +41,58 @@ claimed by a region — never by loosening what the net looks at.
 | `mount-baseline--viewport-helpers` | **failed** | unclaimed-difference | 543 |
 | `mount-baseline--viewport-pan-on-scroll` | **failed** | unclaimed-difference | 473 |
 | `mount-baseline--examples-color-mode` | **failed** | unclaimed-difference | 41 |
-| `click-selects-edge` | **failed** | driving-divergence, unclaimed-difference | 1841 |
-| `multi-select-edges-with-modifier` | **failed** | driving-divergence, unclaimed-difference | 1944 |
+| `click-selects-edge` | **failed** | driving-divergence, unclaimed-difference | 1840 |
+| `multi-select-edges-with-modifier` | **failed** | driving-divergence, unclaimed-difference | 1943 |
 | `click-unselectable-edge` | **failed** | unclaimed-difference | 1813 |
-| `delete-key-removes-edge` | **failed** | driving-divergence, unclaimed-difference | 1809 |
-| `delete-key-spares-undeletable-edge` | **failed** | driving-divergence, unclaimed-difference | 1839 |
-| `click-inside-interaction-width` | **failed** | driving-divergence, unclaimed-difference | 1830 |
-| `click-selects-node` | **failed** | unclaimed-difference | 1121 |
-| `shift-drag-selects-nodes` | **failed** | unclaimed-difference | 1020 |
-| `click-unselectable-node` | **failed** | unclaimed-difference | 1116 |
-| `drag-moves-node` | **failed** | unclaimed-difference | 1445 |
+| `delete-key-removes-edge` | **failed** | driving-divergence, unclaimed-difference | 1808 |
+| `delete-key-spares-undeletable-edge` | **failed** | driving-divergence, unclaimed-difference | 1838 |
+| `click-inside-interaction-width` | **failed** | driving-divergence, unclaimed-difference | 1829 |
+| `click-selects-node` | **failed** | unclaimed-difference | 1120 |
+| `shift-drag-selects-nodes` | **failed** | unclaimed-difference | 1041 |
+| `click-unselectable-node` | **failed** | unclaimed-difference | 1114 |
+| `drag-moves-node` | **failed** | unclaimed-difference | 1444 |
 | `drag-does-not-move-undraggable-node` | **failed** | unclaimed-difference | 1058 |
-| `drag-by-custom-drag-handle` | **failed** | unclaimed-difference | 1487 |
-| `delete-key-removes-node-and-edges` | **failed** | unclaimed-difference | 1002 |
-| `delete-key-spares-undeletable-node` | **failed** | unclaimed-difference | 1140 |
+| `drag-by-custom-drag-handle` | **failed** | unclaimed-difference | 1477 |
+| `delete-key-removes-node-and-edges` | **failed** | unclaimed-difference | 1001 |
+| `delete-key-spares-undeletable-node` | **failed** | unclaimed-difference | 1139 |
 | `connect-source-handle-to-target-handle` | **failed** | unclaimed-difference | 1256 |
-| `connect-output-to-output-handle` | **failed** | unclaimed-difference | 1142 |
+| `connect-output-to-output-handle` | **failed** | unclaimed-difference | 1140 |
 | `connect-input-to-input-handle` | **failed** | unclaimed-difference | 1179 |
-| `connect-to-unconnectable-handle` | **failed** | unclaimed-difference | 1133 |
+| `connect-to-unconnectable-handle` | **failed** | unclaimed-difference | 1131 |
 | `drag-pans-the-pane` | **failed** | unclaimed-difference | 420 |
 | `wheel-zooms-the-pane` | **failed** | unclaimed-difference | 420 |
 | `wheel-zooms-out-to-min` | **failed** | unclaimed-difference | 406 |
 | `wheel-zooms-in-to-max` | **failed** | unclaimed-difference | 406 |
 | `wheel-pans-with-panonscroll` | **failed** | unclaimed-difference | 417 |
-| `click-reveals-default-toolbar` | **failed** | unclaimed-difference | 1290 |
+| `click-reveals-default-toolbar` | **failed** | unclaimed-difference | 1289 |
 | `select-dark-color-mode` | **failed** | unclaimed-difference | 41 |
-| `drag-node-release` | **failed** | unclaimed-difference | 1888 |
-| `drag-node-escape-mid-gesture` | **failed** | unclaimed-difference | 1258 |
-| `drag-node-autopan` | **failed** | self-inconsistent, unclaimed-difference | 1240 |
-| `drag-node-no-select-on-drag` | **failed** | unclaimed-difference | 1310 |
-| `drag-child-expand-parent` | **failed** | driving-divergence, unclaimed-difference | 970 |
+| `drag-node-release` | **failed** | unclaimed-difference | 1886 |
+| `drag-node-escape-mid-gesture` | **failed** | unclaimed-difference | 1256 |
+| `drag-node-autopan` | **failed** | self-inconsistent, unclaimed-difference | 1226 |
+| `drag-node-no-select-on-drag` | **failed** | unclaimed-difference | 1296 |
+| `drag-child-expand-parent` | **failed** | driving-divergence, unclaimed-difference | 969 |
 | `drag-unmeasured-node` | **failed** | unclaimed-difference | 963 |
-| `selection-box-from-node` | **failed** | unclaimed-difference | 1044 |
-| `selection-box-then-click-node` | **failed** | unclaimed-difference | 1354 |
-| `selection-box-mid-gesture` | **failed** | unclaimed-difference | 476 |
-| `selection-box-touch` | **failed** | unclaimed-difference | 1052 |
-| `arrow-key-selected-node` | **failed** | self-inconsistent, unclaimed-difference | 766 |
-| `keyboard-focus-node` | **failed** | unclaimed-difference | 544 |
+| `selection-box-from-node` | **failed** | unclaimed-difference | 1042 |
+| `selection-box-then-click-node` | **failed** | unclaimed-difference | 1352 |
+| `selection-box-mid-gesture` | **failed** | unclaimed-difference | 474 |
+| `selection-box-touch` | **failed** | unclaimed-difference | 1050 |
+| `arrow-key-selected-node` | **failed** | self-inconsistent, unclaimed-difference | 765 |
+| `keyboard-focus-node` | **failed** | unclaimed-difference | 543 |
 | `connect-handle-to-handle` | **failed** | unclaimed-difference | 1517 |
-| `connect-then-keyboard-move` | **failed** | unclaimed-difference | 1295 |
-| `connect-second-touch-point` | **failed** | unclaimed-difference | 1035 |
+| `connect-then-keyboard-move` | **failed** | unclaimed-difference | 1294 |
+| `connect-second-touch-point` | **failed** | unclaimed-difference | 1034 |
 | `probe-node-connections` | **failed** | driving-divergence, unclaimed-difference | 1034 |
 | `viewport-helpers-with-options` | **failed** | unclaimed-difference | 587 |
 | `pan-gesture-complete` | **failed** | unclaimed-difference | 420 |
-| `fitview-onnodeschange-variants` | **failed** | unclaimed-difference | 879 |
+| `fitview-onnodeschange-variants` | **failed** | unclaimed-difference | 878 |
 | `uncontrolled-update-node` | **failed** | unclaimed-difference | 611 |
-| `flow-props-change-after-mount` | **failed** | unclaimed-difference | 748 |
+| `flow-props-change-after-mount` | **failed** | unclaimed-difference | 747 |
 | `mount-in-display-none` | **failed** | unclaimed-difference | 475 |
 | `minimap-all-nodes-hidden` | **failed** | unclaimed-difference | 321 |
-| `minimap-custom-mask-colors` | **failed** | unclaimed-difference | 592 |
+| `minimap-custom-mask-colors` | **failed** | unclaimed-difference | 591 |
 | `controls-horizontal` | **failed** | unclaimed-difference | 475 |
 | `panel-center-positions` | **failed** | unclaimed-difference | 474 |
-| `background-custom-bgcolor` | **failed** | unclaimed-difference | 478 |
+| `background-custom-bgcolor` | **failed** | unclaimed-difference | 476 |
 | `flow-custom-testid` | **failed** | driving-divergence, unclaimed-difference | 497 |
 | `custom-edge-baseedge-path` | **failed** | driving-divergence, unclaimed-difference | 113 |
 | `pinch-over-nowheel-node` | **failed** | driving-divergence, unclaimed-difference | 402 |
@@ -100,11 +100,11 @@ claimed by a region — never by loosening what the net looks at.
 | `controls-default-zoom` | **failed** | unclaimed-difference | 240 |
 | `wheel-zoom-from-identity-viewport` | **failed** | unclaimed-difference | 249 |
 | `pane-drag-from-identity-viewport` | **failed** | unclaimed-difference | 239 |
-| `drag-node-reports-changes` | **failed** | unclaimed-difference | 837 |
-| `click-connect-reverse-direction` | **failed** | unclaimed-difference | 501 |
+| `drag-node-reports-changes` | **failed** | unclaimed-difference | 836 |
+| `click-connect-reverse-direction` | **failed** | unclaimed-difference | 499 |
 | `connect-drag-holding-source` | **failed** | unclaimed-difference | 381 |
 | `connect-drag-released-on-pane` | **failed** | unclaimed-difference | 408 |
-| `node-props-record-parented` | **failed** | unclaimed-difference | 327 |
+| `node-props-record-parented` | **failed** | unclaimed-difference | 326 |
 | `wheel-zooms-to-changed-limits` | **failed** | unclaimed-difference | 475 |
 | `drag-pans-into-changed-extent` | **failed** | unclaimed-difference | 473 |
 | `pan-after-controlled-viewport-change` | **failed** | unclaimed-difference | 474 |
@@ -7707,8 +7707,8 @@ a real divergence is exactly what would be hiding down there.
 | `console/2` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/3` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/4` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:51299/parity/driver/dist/… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:51299/parity/driver/dist/… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:52689/parity/driver/dist/… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:52689/parity/driver/dist/… |
 | `console/7` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 
 
@@ -16139,7 +16139,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 4 driving divergence(s), 1837 unclaimed difference(s).
+**Failed:** 4 driving divergence(s), 1836 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -16342,11 +16342,10 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (210) — consequence of the driving divergence
+### callbacks (209) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/11` | right only | — | {"name":"onNodesChange","args":[[]]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMo… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -18015,7 +18014,7 @@ a real divergence is exactly what would be hiding down there.
 
 10 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (6) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (5) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -18046,7 +18045,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 11 driving divergence(s), 1933 unclaimed difference(s).
+**Failed:** 11 driving divergence(s), 1932 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -18256,11 +18255,10 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (308) — consequence of the driving divergence
+### callbacks (307) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/11` | right only | — | {"name":"onNodesChange","args":[[]]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMo… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -20025,7 +20023,7 @@ a real divergence is exactly what would be hiding down there.
 
 20 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (13) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (10) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -21923,7 +21921,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 4 driving divergence(s), 1805 unclaimed difference(s).
+**Failed:** 4 driving divergence(s), 1804 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -22118,14 +22116,13 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (219) — consequence of the driving divergence
+### callbacks (218) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `callbacks/13` | left only | {"name":"onBeforeDelete","args":[{"nodes":[],"edges":[{"id":"edge-with-class","source":"1","target":"2","className":"edge-class-test","selected":true}]}]} | — |
 | `callbacks/14` | left only | {"name":"onEdgesDelete","args":[[{"id":"edge-with-class","source":"1","target":"2","className":"edge-class-test","selected":true}]]} | — |
 | `callbacks/16` | left only | {"name":"onDelete","args":[{"nodes":[],"edges":[{"id":"edge-with-class","source":"1","target":"2","className":"edge-class-test","selected":true}]}]} | — |
-| `callbacks/11` | right only | — | {"name":"onNodesChange","args":[[]]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMo… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -23767,7 +23764,7 @@ a real divergence is exactly what would be hiding down there.
 
 12 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (8) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (7) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -23798,7 +23795,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 4 driving divergence(s), 1835 unclaimed difference(s).
+**Failed:** 4 driving divergence(s), 1834 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -24001,12 +23998,11 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (207) — consequence of the driving divergence
+### callbacks (206) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `callbacks/13` | left only | {"name":"onBeforeDelete","args":[{"nodes":[],"edges":[]}]} | — |
-| `callbacks/11` | right only | — | {"name":"onNodesChange","args":[[]]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMo… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -25672,7 +25668,7 @@ a real divergence is exactly what would be hiding down there.
 
 10 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (6) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (5) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -25703,7 +25699,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 2 driving divergence(s), 1828 unclaimed difference(s).
+**Failed:** 2 driving divergence(s), 1827 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -25904,11 +25900,10 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (200) — consequence of the driving divergence
+### callbacks (199) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/11` | right only | — | {"name":"onNodesChange","args":[[]]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMo… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -27568,7 +27563,7 @@ a real divergence is exactly what would be hiding down there.
 
 10 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (6) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (5) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -27599,7 +27594,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1121 unclaimed difference(s).
+**Failed:** 1120 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -27673,11 +27668,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (245)
+### callbacks (244)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/11` | right only | — | {"name":"onEdgesChange","args":[[]]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -28743,7 +28737,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 10 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (6) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (5) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -28774,7 +28768,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1020 unclaimed difference(s).
+**Failed:** 1041 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -28849,14 +28843,12 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (154)
+### callbacks (175)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `callbacks/10` | left only | {"name":"onSelectionChange","args":[{"nodes":[{"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-cla… | — |
-| `callbacks/9` | right only | — | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"position":{"@undefined":… |
-| `callbacks/10` | right only | — | {"name":"onEdgesChange","args":[[{"item":{"@undefined":true},"index":{"@undefined":true},"type":"select","id":"1-2","selected":true},{"item":{"@undefined":true… |
-| `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onSelectionStart#1","onNodesChange#2","onEdgesChange#1"… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#2","onEdgesChange#1","onSelectionStart#1"… |
+| `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onSelectionStart#1","onNodesChange#2","onEdgesChange#1"… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onSelectionStart#1","onNodesChange#2","onEdgesChange#1"… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/dragging` | right only | — | {"@undefined":true} |
@@ -28932,11 +28924,34 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/8/index` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/8/resizing` | right only | — | false |
 | `callbacks/4/args/0/8/setAttributes` | right only | — | true |
-| `callbacks/7/args/0/0` | left only | {"id":"Node-1","type":"select","selected":true} | — |
-| `callbacks/7/args/0/1` | left only | {"id":"Node-2","type":"select","selected":true} | — |
-| `callbacks/7/args/0/2` | left only | {"id":"Node-3","type":"select","selected":true} | — |
-| `callbacks/8/args/0/0` | left only | {"id":"1-2","type":"select","selected":true} | — |
-| `callbacks/8/args/0/1` | left only | {"id":"1-3","type":"select","selected":true} | — |
+| `callbacks/7/args/0/0/dimensions` | right only | — | {"@undefined":true} |
+| `callbacks/7/args/0/0/resizing` | right only | — | {"@undefined":true} |
+| `callbacks/7/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
+| `callbacks/7/args/0/0/position` | right only | — | {"@undefined":true} |
+| `callbacks/7/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
+| `callbacks/7/args/0/0/dragging` | right only | — | {"@undefined":true} |
+| `callbacks/7/args/0/0/item` | right only | — | {"@undefined":true} |
+| `callbacks/7/args/0/0/index` | right only | — | {"@undefined":true} |
+| `callbacks/7/args/0/1/dimensions` | right only | — | {"@undefined":true} |
+| `callbacks/7/args/0/1/resizing` | right only | — | {"@undefined":true} |
+| `callbacks/7/args/0/1/setAttributes` | right only | — | {"@undefined":true} |
+| `callbacks/7/args/0/1/position` | right only | — | {"@undefined":true} |
+| `callbacks/7/args/0/1/positionAbsolute` | right only | — | {"@undefined":true} |
+| `callbacks/7/args/0/1/dragging` | right only | — | {"@undefined":true} |
+| `callbacks/7/args/0/1/item` | right only | — | {"@undefined":true} |
+| `callbacks/7/args/0/1/index` | right only | — | {"@undefined":true} |
+| `callbacks/7/args/0/2/dimensions` | right only | — | {"@undefined":true} |
+| `callbacks/7/args/0/2/resizing` | right only | — | {"@undefined":true} |
+| `callbacks/7/args/0/2/setAttributes` | right only | — | {"@undefined":true} |
+| `callbacks/7/args/0/2/position` | right only | — | {"@undefined":true} |
+| `callbacks/7/args/0/2/positionAbsolute` | right only | — | {"@undefined":true} |
+| `callbacks/7/args/0/2/dragging` | right only | — | {"@undefined":true} |
+| `callbacks/7/args/0/2/item` | right only | — | {"@undefined":true} |
+| `callbacks/7/args/0/2/index` | right only | — | {"@undefined":true} |
+| `callbacks/8/args/0/0/item` | right only | — | {"@undefined":true} |
+| `callbacks/8/args/0/0/index` | right only | — | {"@undefined":true} |
+| `callbacks/8/args/0/1/item` | right only | — | {"@undefined":true} |
+| `callbacks/8/args/0/1/index` | right only | — | {"@undefined":true} |
 | `callbacks/9/args/0/nodes/0/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/9/args/0/nodes/0/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/9/args/0/nodes/0/hidden` | right only | — | false |
@@ -29817,7 +29832,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 4 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (4) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (3) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -29848,7 +29863,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1116 unclaimed difference(s).
+**Failed:** 1114 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -29922,12 +29937,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (235)
+### callbacks (233)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/10` | right only | — | {"name":"onNodesChange","args":[[]]} |
-| `callbacks/11` | right only | — | {"name":"onEdgesChange","args":[[]]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -30987,7 +31000,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 10 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (6) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (5) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -31018,7 +31031,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1445 unclaimed difference(s).
+**Failed:** 1444 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -31092,11 +31105,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (574)
+### callbacks (573)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/11` | right only | — | {"name":"onEdgesChange","args":[[]]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -32486,7 +32498,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 30 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (21) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (15) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -33629,7 +33641,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1487 unclaimed difference(s).
+**Failed:** 1477 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -33703,13 +33715,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (612)
+### callbacks (602)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/19` | right only | — | {"name":"onEdgesChange","args":[[]]} |
-| `callbacks/24` | right only | — | {"name":"onEdgesChange","args":[[]]} |
-| `callbacks/44` | right only | — | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -33918,7 +33927,14 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/20/args/1/handles` | right only | — | {"@undefined":true} |
 | `callbacks/20/args/1/className` | right only | — | {"@undefined":true} |
 | `callbacks/20/args/1/style` | right only | — | {"@undefined":true} |
-| `callbacks/21/args/0/0` | left only | {"id":"drag-handle","type":"select","selected":true} | — |
+| `callbacks/21/args/0/0/dimensions` | right only | — | {"@undefined":true} |
+| `callbacks/21/args/0/0/resizing` | right only | — | {"@undefined":true} |
+| `callbacks/21/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
+| `callbacks/21/args/0/0/position` | right only | — | {"@undefined":true} |
+| `callbacks/21/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
+| `callbacks/21/args/0/0/dragging` | right only | — | {"@undefined":true} |
+| `callbacks/21/args/0/0/item` | right only | — | {"@undefined":true} |
+| `callbacks/21/args/0/0/index` | right only | — | {"@undefined":true} |
 | `callbacks/22/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/22/args/1/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/22/args/1/hidden` | right only | — | false |
@@ -34003,18 +34019,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/24/args/1/handles` | right only | — | {"@undefined":true} |
 | `callbacks/24/args/1/className` | right only | — | {"@undefined":true} |
 | `callbacks/24/args/1/style` | right only | — | {"@undefined":true} |
-| `callbacks/26/args/0/0/type` | differs | position | select |
-| `callbacks/26/args/0/0/position/x` | left only | 238.84146341463418 | — |
-| `callbacks/26/args/0/0/position/y` | left only | 38.84146341463414 | — |
-| `callbacks/26/args/0/0/position/@undefined` | right only | — | true |
-| `callbacks/26/args/0/0/dragging` | differs | true | {"@undefined":true} |
 | `callbacks/26/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/26/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/26/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
-| `callbacks/26/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
+| `callbacks/26/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/26/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/26/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/26/args/0/0/selected` | right only | — | true |
+| `callbacks/26/args/0/0/positionAbsolute` | right only | — | {"x":238.84146341463418,"y":38.84146341463414} |
 | `callbacks/27/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/27/args/1/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/27/args/1/hidden` | right only | — | false |
@@ -34055,15 +34066,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/27/args/2/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/27/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/27/args/2/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/0/0/position/x` | differs | 277.6829268292683 | 238.84146341463418 |
-| `callbacks/29/args/0/0/position/y` | differs | 77.6829268292683 | 38.84146341463414 |
 | `callbacks/29/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/29/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/29/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
 | `callbacks/29/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/29/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/29/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/29/args/0/0/positionAbsolute` | right only | — | {"x":238.84146341463418,"y":38.84146341463414} |
+| `callbacks/29/args/0/0/positionAbsolute` | right only | — | {"x":277.6829268292683,"y":77.6829268292683} |
 | `callbacks/30/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/30/args/1/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/30/args/1/hidden` | right only | — | false |
@@ -34104,15 +34113,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/30/args/2/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/30/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/30/args/2/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/32/args/0/0/position/x` | differs | 316.5243902439024 | 277.6829268292683 |
-| `callbacks/32/args/0/0/position/y` | differs | 116.52439024390242 | 77.6829268292683 |
 | `callbacks/32/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/32/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/32/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
 | `callbacks/32/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/32/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/32/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/32/args/0/0/positionAbsolute` | right only | — | {"x":277.6829268292683,"y":77.6829268292683} |
+| `callbacks/32/args/0/0/positionAbsolute` | right only | — | {"x":316.5243902439024,"y":116.52439024390242} |
 | `callbacks/33/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/33/args/1/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/33/args/1/hidden` | right only | — | false |
@@ -34153,15 +34160,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/33/args/2/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/33/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/33/args/2/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/35/args/0/0/position/x` | differs | 355.3658536585366 | 316.5243902439024 |
-| `callbacks/35/args/0/0/position/y` | differs | 155.36585365853657 | 116.52439024390242 |
 | `callbacks/35/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/35/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/35/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
 | `callbacks/35/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/35/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/35/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/35/args/0/0/positionAbsolute` | right only | — | {"x":316.5243902439024,"y":116.52439024390242} |
+| `callbacks/35/args/0/0/positionAbsolute` | right only | — | {"x":355.3658536585366,"y":155.36585365853657} |
 | `callbacks/36/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/36/args/1/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/36/args/1/hidden` | right only | — | false |
@@ -34202,15 +34207,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/36/args/2/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/36/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/36/args/2/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/38/args/0/0/position/x` | differs | 394.2073170731707 | 355.3658536585366 |
-| `callbacks/38/args/0/0/position/y` | differs | 194.2073170731707 | 155.36585365853657 |
 | `callbacks/38/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/38/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/38/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
 | `callbacks/38/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/38/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/38/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/38/args/0/0/positionAbsolute` | right only | — | {"x":355.3658536585366,"y":155.36585365853657} |
+| `callbacks/38/args/0/0/positionAbsolute` | right only | — | {"x":394.2073170731707,"y":194.2073170731707} |
 | `callbacks/39/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/39/args/1/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/39/args/1/hidden` | right only | — | false |
@@ -34271,7 +34274,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/40/args/1/handles` | right only | — | {"@undefined":true} |
 | `callbacks/40/args/1/className` | right only | — | {"@undefined":true} |
 | `callbacks/40/args/1/style` | right only | — | {"@undefined":true} |
-| `callbacks/41/args/0/0/dragging` | differs | false | true |
 | `callbacks/41/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/41/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/41/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
@@ -35139,7 +35141,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 44 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (26) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (22) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -35170,7 +35172,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1002 unclaimed difference(s).
+**Failed:** 1001 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -35222,12 +35224,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (259)
+### callbacks (258)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `callbacks/15` | left only | {"name":"onBeforeDelete","args":[{"nodes":[{"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-… | — |
 | `callbacks/16` | left only | {"name":"onEdgesDelete","args":[[{"id":"1-2","type":"default","source":"Node-1","target":"Node-2","label":"edge"},{"id":"1-3","type":"default","source":"Node-1… | — |
+| `callbacks/17` | left only | {"name":"onEdgesChange","args":[[{"id":"1-2","type":"remove"},{"id":"1-3","type":"remove"}]]} | — |
 | `callbacks/18` | left only | {"name":"onNodesDelete","args":[[{"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","styl… | — |
 | `callbacks/20` | left only | {"name":"onDelete","args":[{"nodes":[{"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","… | — |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
@@ -35474,8 +35477,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/14/args/1/ariaLabel` | right only | — | {"@undefined":true} |
 | `callbacks/14/args/1/origin` | right only | — | {"@undefined":true} |
 | `callbacks/14/args/1/handles` | right only | — | {"@undefined":true} |
-| `callbacks/17/args/0/0` | left only | {"id":"1-2","type":"remove"} | — |
-| `callbacks/17/args/0/1` | left only | {"id":"1-3","type":"remove"} | — |
 | `callbacks/19/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/19/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/19/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
@@ -36195,7 +36196,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 12 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (8) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (7) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -36226,7 +36227,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1140 unclaimed difference(s).
+**Failed:** 1139 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -36300,12 +36301,11 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (262)
+### callbacks (261)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `callbacks/15` | left only | {"name":"onBeforeDelete","args":[{"nodes":[],"edges":[]}]} | — |
-| `callbacks/11` | right only | — | {"name":"onEdgesChange","args":[[]]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -37389,7 +37389,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 10 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (6) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (5) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -38730,7 +38730,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1142 unclaimed difference(s).
+**Failed:** 1140 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -38804,12 +38804,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (261)
+### callbacks (259)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/17` | right only | — | {"name":"onNodesChange","args":[[]]} |
-| `callbacks/18` | right only | — | {"name":"onEdgesChange","args":[[]]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -39895,7 +39893,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 21 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (12) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (11) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -41159,7 +41157,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1133 unclaimed difference(s).
+**Failed:** 1131 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -41233,12 +41231,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (252)
+### callbacks (250)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/19` | right only | — | {"name":"onNodesChange","args":[[]]} |
-| `callbacks/20` | right only | — | {"name":"onEdgesChange","args":[[]]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -44685,7 +44681,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1290 unclaimed difference(s).
+**Failed:** 1289 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -44811,11 +44807,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (212)
+### callbacks (211)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/11` | right only | — | {"name":"onEdgesChange","args":[[]]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -45998,7 +45993,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 10 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (6) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (5) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -46108,7 +46103,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1888 unclaimed difference(s).
+**Failed:** 1886 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -46182,12 +46177,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (1012)
+### callbacks (1010)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/11` | right only | — | {"name":"onEdgesChange","args":[[]]} |
-| `callbacks/21` | right only | — | {"name":"onEdgesChange","args":[[]]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -48019,7 +48012,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 42 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (33) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (21) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -48050,7 +48043,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1258 unclaimed difference(s).
+**Failed:** 1256 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -48124,14 +48117,12 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (387)
+### callbacks (385)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/11` | right only | — | {"name":"onEdgesChange","args":[[]]} |
-| `callbacks/22` | right only | — | {"name":"onEdgesChange","args":[[]]} |
-| `callbacks/25` | right only | — | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… |
-| `callbacks/26` | right only | — | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… |
+| `callbacks/23` | right only | — | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… |
+| `callbacks/24` | right only | — | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -49331,7 +49322,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 20 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (15) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (11) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -49352,133 +49343,119 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | **disagrees with itself** | 122 |
+| psflow | 1, 2 | **disagrees with itself** | 108 |
 
 ### psflow disagrees with itself
 
 | path | kind | capture 1 | capture 2 |
 |---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/attrs/style` | differs | transform: translate(2000px, 2000px) scale(1); | transform: translate(1730px, 1940px) scale(1); |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M-1995,-1973 C-1995,-938 -25,-938 -25,97 | M-1725,-1913 C-1725,-908 -25,-908 -25,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M-1995,-1973 C-1995,-938 -25,-938 -25,97 | M-1725,-1913 C-1725,-908 -25,-908 -25,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | -1995 | -1725 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/attrs/style` | differs | transform: translate(2000px, 2000px) scale(1); | transform: translate(1720px, 1940px) scale(1); |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M-1995,-1973 C-1995,-938 -25,-938 -25,97 | M-1715,-1913 C-1715,-908 -25,-908 -25,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M-1995,-1973 C-1995,-938 -25,-938 -25,97 | M-1715,-1913 C-1715,-908 -25,-908 -25,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | -1995 | -1715 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | -1963 | -1903 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M-1995,-1973 C-1995,-938 175,-938 175,97 | M-1725,-1913 C-1725,-908 175,-908 175,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M-1995,-1973 C-1995,-938 175,-938 175,97 | M-1725,-1913 C-1725,-908 175,-908 175,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | -1995 | -1725 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M-1995,-1973 C-1995,-938 175,-938 175,97 | M-1715,-1913 C-1715,-908 175,-908 175,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M-1995,-1973 C-1995,-938 175,-938 175,97 | M-1715,-1913 C-1715,-908 175,-908 175,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | -1995 | -1715 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | -1963 | -1903 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | height: 37px; pointer-events: all; transform: translate(-2070px, -2013px); visibility: visible; width: 150px; z-index: 1000; | height: 37px; pointer-events: all; transform: translate(-1800px, -1953px); visibility: visible; width: 150px; z-index: 1000; |
-| `callbacks/55` | left only | {"name":"onMoveStart","args":[null,{"x":1720,"y":1930,"zoom":1}]} | — |
-| `callbacks/56` | left only | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/57` | left only | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/58` | left only | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/61` | left only | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… | — |
-| `callbacks/64` | left only | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2070,"y":-2013},"data":{"label":"Node-1"},"type":"input",… | — |
-| `callbacks/65` | left only | {"name":"onMoveStart","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/66` | left only | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/67` | left only | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/68` | left only | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/69` | left only | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… | — |
-| `callbacks/70` | left only | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… | — |
-| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onEdgesChange#1",… | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onEdgesChange#1",… |
-| `callbacks/24/args/0/x` | differs | 680 | 690 |
-| `callbacks/25/args/1/x` | differs | 680 | 690 |
-| `callbacks/26/args/1/x` | differs | 680 | 690 |
-| `callbacks/27/args/0/0/position/x` | differs | -749 | -410 |
-| `callbacks/27/args/0/0/position/y` | differs | -692 | -572 |
-| `callbacks/27/args/0/0/positionAbsolute/x` | differs | -749 | -410 |
-| `callbacks/27/args/0/0/positionAbsolute/y` | differs | -692 | -572 |
-| `callbacks/28/args/1/position/x` | differs | -749 | -410 |
-| `callbacks/28/args/1/position/y` | differs | -692 | -572 |
-| `callbacks/28/args/2/0/position/x` | differs | -749 | -410 |
-| `callbacks/28/args/2/0/position/y` | differs | -692 | -572 |
-| `callbacks/29/args/1/position/x` | differs | -749 | -409 |
-| `callbacks/29/args/1/position/y` | differs | -692 | -352 |
-| `callbacks/31/args/0/0/position/x` | differs | -750 | -760 |
-| `callbacks/31/args/0/0/positionAbsolute/x` | differs | -750 | -760 |
-| `callbacks/32/args/1/position/x` | differs | -750 | -760 |
-| `callbacks/32/args/2/0/position/x` | differs | -750 | -760 |
-| `callbacks/33/args/1/x` | differs | 680 | 690 |
-| `callbacks/34/args/0/x` | differs | 1030 | 1040 |
-| `callbacks/35/args/1/x` | differs | 1030 | 1040 |
-| `callbacks/36/args/1/x` | differs | 1030 | 1040 |
-| `callbacks/37/args/0/0/position/x` | differs | -1100 | -1110 |
-| `callbacks/37/args/0/0/positionAbsolute/x` | differs | -1100 | -1110 |
-| `callbacks/38/args/1/position/x` | differs | -1100 | -1110 |
-| `callbacks/38/args/2/0/position/x` | differs | -1100 | -1110 |
-| `callbacks/39/args/1/position/x` | differs | -1100 | -760 |
-| `callbacks/39/args/1/position/y` | differs | -1252 | -912 |
-| `callbacks/40/args/1/x` | differs | 1030 | 1040 |
-| `callbacks/41/args/0/y` | differs | 1580 | 1590 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | height: 37px; pointer-events: all; transform: translate(-2070px, -2013px); visibility: visible; width: 150px; z-index: 1000; | height: 37px; pointer-events: all; transform: translate(-1790px, -1953px); visibility: visible; width: 150px; z-index: 1000; |
+| `callbacks/54` | left only | {"name":"onMoveStart","args":[null,{"x":1720,"y":1930,"zoom":1}]} | — |
+| `callbacks/55` | left only | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} | — |
+| `callbacks/56` | left only | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
+| `callbacks/57` | left only | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
+| `callbacks/60` | left only | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… | — |
+| `callbacks/63` | left only | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2070,"y":-2013},"data":{"label":"Node-1"},"type":"input",… | — |
+| `callbacks/64` | left only | {"name":"onMoveStart","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
+| `callbacks/65` | left only | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} | — |
+| `callbacks/66` | left only | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
+| `callbacks/67` | left only | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
+| `callbacks/68` | left only | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… | — |
+| `callbacks/69` | left only | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… | — |
+| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… |
+| `callbacks/22/args/1/position/x` | differs | -409 | 0 |
+| `callbacks/22/args/1/position/y` | differs | -352 | 0 |
+| `callbacks/22/args/1/dragging` | differs | true | false |
+| `callbacks/38/args/0/screenX` | differs | 5 | 6 |
+| `callbacks/38/args/0/screenY` | differs | 6 | 5 |
+| `callbacks/38/args/0/clientX` | differs | 5 | 6 |
+| `callbacks/38/args/0/clientY` | differs | 6 | 5 |
+| `callbacks/38/args/0/pageX` | differs | 5 | 6 |
+| `callbacks/38/args/0/pageY` | differs | 6 | 5 |
+| `callbacks/40/args/0/x` | differs | 1380 | 1370 |
+| `callbacks/40/args/0/y` | differs | 1580 | 1590 |
+| `callbacks/41/args/1/x` | differs | 1380 | 1370 |
+| `callbacks/41/args/1/y` | differs | 1580 | 1590 |
+| `callbacks/42/args/1/x` | differs | 1380 | 1370 |
 | `callbacks/42/args/1/y` | differs | 1580 | 1590 |
-| `callbacks/43/args/1/y` | differs | 1580 | 1590 |
-| `callbacks/44/args/0/0/position/x` | differs | -1450 | -1109 |
-| `callbacks/44/args/0/0/position/y` | differs | -1592 | -1253 |
-| `callbacks/44/args/0/0/positionAbsolute/x` | differs | -1450 | -1109 |
-| `callbacks/44/args/0/0/positionAbsolute/y` | differs | -1592 | -1253 |
-| `callbacks/45/args/1/position/x` | differs | -1450 | -1109 |
-| `callbacks/45/args/1/position/y` | differs | -1592 | -1253 |
-| `callbacks/45/args/2/0/position/x` | differs | -1450 | -1109 |
-| `callbacks/45/args/2/0/position/y` | differs | -1592 | -1253 |
-| `callbacks/47/args/0/0/position/y` | differs | -1593 | -1603 |
-| `callbacks/47/args/0/0/positionAbsolute/y` | differs | -1593 | -1603 |
-| `callbacks/48/args/1/position/y` | differs | -1593 | -1603 |
-| `callbacks/48/args/2/0/position/y` | differs | -1593 | -1603 |
-| `callbacks/49/args/1/y` | differs | 1580 | 1590 |
-| `callbacks/50/args/0/x` | differs | 1720 | 1730 |
-| `callbacks/50/args/0/y` | differs | 1930 | 1940 |
-| `callbacks/51/args/1/x` | differs | 1720 | 1730 |
+| `callbacks/43/args/0/0/position/x` | differs | -1450 | -1099 |
+| `callbacks/43/args/0/0/position/y` | differs | -1592 | -1253 |
+| `callbacks/43/args/0/0/positionAbsolute/x` | differs | -1450 | -1099 |
+| `callbacks/43/args/0/0/positionAbsolute/y` | differs | -1592 | -1253 |
+| `callbacks/44/args/1/position/x` | differs | -1450 | -1099 |
+| `callbacks/44/args/1/position/y` | differs | -1592 | -1253 |
+| `callbacks/44/args/2/0/position/x` | differs | -1450 | -1099 |
+| `callbacks/44/args/2/0/position/y` | differs | -1592 | -1253 |
+| `callbacks/46/args/0/0/position/x` | differs | -1449 | -1439 |
+| `callbacks/46/args/0/0/position/y` | differs | -1593 | -1603 |
+| `callbacks/46/args/0/0/positionAbsolute/x` | differs | -1449 | -1439 |
+| `callbacks/46/args/0/0/positionAbsolute/y` | differs | -1593 | -1603 |
+| `callbacks/47/args/1/position/x` | differs | -1449 | -1439 |
+| `callbacks/47/args/1/position/y` | differs | -1593 | -1603 |
+| `callbacks/47/args/2/0/position/x` | differs | -1449 | -1439 |
+| `callbacks/47/args/2/0/position/y` | differs | -1593 | -1603 |
+| `callbacks/48/args/1/x` | differs | 1380 | 1370 |
+| `callbacks/48/args/1/y` | differs | 1580 | 1590 |
+| `callbacks/49/args/0/y` | differs | 1930 | 1940 |
+| `callbacks/50/args/1/y` | differs | 1930 | 1940 |
 | `callbacks/51/args/1/y` | differs | 1930 | 1940 |
-| `callbacks/52/args/1/x` | differs | 1720 | 1730 |
-| `callbacks/52/args/1/y` | differs | 1930 | 1940 |
-| `callbacks/53/args/0/0/position/x` | differs | -1789 | -1450 |
-| `callbacks/53/args/0/0/position/y` | differs | -1943 | -1603 |
-| `callbacks/53/args/0/0/positionAbsolute/x` | differs | -1789 | -1450 |
-| `callbacks/53/args/0/0/positionAbsolute/y` | differs | -1943 | -1603 |
-| `callbacks/54/args/1/position/x` | differs | -1789 | -1450 |
-| `callbacks/54/args/1/position/y` | differs | -1943 | -1603 |
-| `callbacks/54/args/2/0/position/x` | differs | -1789 | -1450 |
-| `callbacks/54/args/2/0/position/y` | differs | -1943 | -1603 |
-| `callbacks/59/args/0/0/position/x` | differs | -2129 | -1800 |
-| `callbacks/59/args/0/0/position/y` | differs | -2293 | -1953 |
-| `callbacks/59/args/0/0/positionAbsolute/x` | differs | -2129 | -1800 |
-| `callbacks/59/args/0/0/positionAbsolute/y` | differs | -2293 | -1953 |
-| `callbacks/60/args/1/position/x` | differs | -2129 | -1800 |
-| `callbacks/60/args/1/position/y` | differs | -2293 | -1953 |
-| `callbacks/60/args/2/0/position/x` | differs | -2129 | -1800 |
-| `callbacks/60/args/2/0/position/y` | differs | -2293 | -1953 |
-| `callbacks/63/args/0/0/position/x` | differs | -2070 | -1800 |
-| `callbacks/63/args/0/0/position/y` | differs | -2013 | -1953 |
-| `callbacks/63/args/0/0/positionAbsolute/x` | differs | -2070 | -1800 |
-| `callbacks/63/args/0/0/positionAbsolute/y` | differs | -2013 | -1953 |
-| `callbacks/63/args/0/0/dragging` | differs | true | false |
-| `callbacks/71/args/1/position/x` | differs | -2070 | -1800 |
-| `callbacks/71/args/1/position/y` | differs | -2013 | -1953 |
-| `callbacks/71/args/2/0/position/x` | differs | -2070 | -1800 |
-| `callbacks/71/args/2/0/position/y` | differs | -2013 | -1953 |
-| `api/queries/getNodes/0/position/x` | differs | -2070 | -1800 |
+| `callbacks/52/args/0/0/position/x` | differs | -1789 | -1440 |
+| `callbacks/52/args/0/0/position/y` | differs | -1943 | -1603 |
+| `callbacks/52/args/0/0/positionAbsolute/x` | differs | -1789 | -1440 |
+| `callbacks/52/args/0/0/positionAbsolute/y` | differs | -1943 | -1603 |
+| `callbacks/53/args/1/position/x` | differs | -1789 | -1440 |
+| `callbacks/53/args/1/position/y` | differs | -1943 | -1603 |
+| `callbacks/53/args/2/0/position/x` | differs | -1789 | -1440 |
+| `callbacks/53/args/2/0/position/y` | differs | -1943 | -1603 |
+| `callbacks/58/args/0/0/position/x` | differs | -2129 | -1790 |
+| `callbacks/58/args/0/0/position/y` | differs | -2293 | -1953 |
+| `callbacks/58/args/0/0/positionAbsolute/x` | differs | -2129 | -1790 |
+| `callbacks/58/args/0/0/positionAbsolute/y` | differs | -2293 | -1953 |
+| `callbacks/59/args/1/position/x` | differs | -2129 | -1790 |
+| `callbacks/59/args/1/position/y` | differs | -2293 | -1953 |
+| `callbacks/59/args/2/0/position/x` | differs | -2129 | -1790 |
+| `callbacks/59/args/2/0/position/y` | differs | -2293 | -1953 |
+| `callbacks/62/args/0/0/position/x` | differs | -2070 | -1790 |
+| `callbacks/62/args/0/0/position/y` | differs | -2013 | -1953 |
+| `callbacks/62/args/0/0/positionAbsolute/x` | differs | -2070 | -1790 |
+| `callbacks/62/args/0/0/positionAbsolute/y` | differs | -2013 | -1953 |
+| `callbacks/62/args/0/0/dragging` | differs | true | false |
+| `callbacks/70/args/1/position/x` | differs | -2070 | -1790 |
+| `callbacks/70/args/1/position/y` | differs | -2013 | -1953 |
+| `callbacks/70/args/2/0/position/x` | differs | -2070 | -1790 |
+| `callbacks/70/args/2/0/position/y` | differs | -2013 | -1953 |
+| `api/queries/getNodes/0/position/x` | differs | -2070 | -1790 |
 | `api/queries/getNodes/0/position/y` | differs | -2013 | -1953 |
-| `api/queries/getNode/position/x` | differs | -2070 | -1800 |
+| `api/queries/getNode/position/x` | differs | -2070 | -1790 |
 | `api/queries/getNode/position/y` | differs | -2013 | -1953 |
-| `api/queries/getInternalNode/position/x` | differs | -2070 | -1800 |
+| `api/queries/getInternalNode/position/x` | differs | -2070 | -1790 |
 | `api/queries/getInternalNode/position/y` | differs | -2013 | -1953 |
-| `api/queries/getInternalNode/internals/positionAbsolute/x` | differs | -2070 | -1800 |
+| `api/queries/getInternalNode/internals/positionAbsolute/x` | differs | -2070 | -1790 |
 | `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | -2013 | -1953 |
-| `api/queries/getIntersectingNodes/0/position/x` | differs | -2070 | -1800 |
+| `api/queries/getIntersectingNodes/0/position/x` | differs | -2070 | -1790 |
 | `api/queries/getIntersectingNodes/0/position/y` | differs | -2013 | -1953 |
-| `api/queries/getNodesBounds/x` | differs | -2070 | -1800 |
+| `api/queries/getNodesBounds/x` | differs | -2070 | -1790 |
 | `api/queries/getNodesBounds/y` | differs | -2013 | -1953 |
-| `api/queries/getNodesBounds/width` | differs | 2320 | 2050 |
+| `api/queries/getNodesBounds/width` | differs | 2320 | 2040 |
 | `api/queries/getNodesBounds/height` | differs | 2150 | 2090 |
-| `api/queries/toObject/nodes/0/position/x` | differs | -2070 | -1800 |
+| `api/queries/toObject/nodes/0/position/x` | differs | -2070 | -1790 |
 | `api/queries/toObject/nodes/0/position/y` | differs | -2013 | -1953 |
-| `api/queries/toObject/viewport/x` | differs | 2000 | 1730 |
+| `api/queries/toObject/viewport/x` | differs | 2000 | 1720 |
 | `api/queries/toObject/viewport/y` | differs | 2000 | 1940 |
-| `api/queries/getViewport/x` | differs | 2000 | 1730 |
+| `api/queries/getViewport/x` | differs | 2000 | 1720 |
 | `api/queries/getViewport/y` | differs | 2000 | 1940 |
-| `api/queries/screenToFlowPosition/x` | differs | -2000 | -1730 |
+| `api/queries/screenToFlowPosition/x` | differs | -2000 | -1720 |
 | `api/queries/screenToFlowPosition/y` | differs | -2000 | -1940 |
-| `api/queries/flowToScreenPosition/x` | differs | 2000 | 1730 |
+| `api/queries/flowToScreenPosition/x` | differs | 2000 | 1720 |
 | `api/queries/flowToScreenPosition/y` | differs | 2000 | 1940 |
 
 **psflow did not reproduce.** The comparison below ran anyway —
@@ -49539,26 +49516,25 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/7` | right only | — | {"name":"onEdgesChange","args":[[]]} |
-| `callbacks/43` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1380,"y":1580,"zoom":1}]} |
-| `callbacks/49` | right only | — | {"name":"onMoveStart","args":[null,{"x":1380,"y":1580,"zoom":1}]} |
-| `callbacks/50` | right only | — | {"name":"onViewportChange","args":[{"x":1720,"y":1930,"zoom":1}]} |
-| `callbacks/51` | right only | — | {"name":"onMove","args":[null,{"x":1720,"y":1930,"zoom":1}]} |
-| `callbacks/52` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1720,"y":1930,"zoom":1}]} |
-| `callbacks/55` | right only | — | {"name":"onMoveStart","args":[null,{"x":1720,"y":1930,"zoom":1}]} |
-| `callbacks/56` | right only | — | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/57` | right only | — | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/58` | right only | — | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/60` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2129,"y":-2293},"data":{"label":"Node-1"},"type":"input",… |
-| `callbacks/61` | right only | — | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… |
-| `callbacks/63` | right only | — | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… |
-| `callbacks/64` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2070,"y":-2013},"data":{"label":"Node-1"},"type":"input",… |
-| `callbacks/65` | right only | — | {"name":"onMoveStart","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/66` | right only | — | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/67` | right only | — | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/68` | right only | — | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/69` | right only | — | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… |
-| `callbacks/70` | right only | — | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… |
+| `callbacks/42` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1380,"y":1580,"zoom":1}]} |
+| `callbacks/48` | right only | — | {"name":"onMoveStart","args":[null,{"x":1380,"y":1580,"zoom":1}]} |
+| `callbacks/49` | right only | — | {"name":"onViewportChange","args":[{"x":1720,"y":1930,"zoom":1}]} |
+| `callbacks/50` | right only | — | {"name":"onMove","args":[null,{"x":1720,"y":1930,"zoom":1}]} |
+| `callbacks/51` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1720,"y":1930,"zoom":1}]} |
+| `callbacks/54` | right only | — | {"name":"onMoveStart","args":[null,{"x":1720,"y":1930,"zoom":1}]} |
+| `callbacks/55` | right only | — | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} |
+| `callbacks/56` | right only | — | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
+| `callbacks/57` | right only | — | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
+| `callbacks/59` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2129,"y":-2293},"data":{"label":"Node-1"},"type":"input",… |
+| `callbacks/60` | right only | — | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… |
+| `callbacks/62` | right only | — | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… |
+| `callbacks/63` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2070,"y":-2013},"data":{"label":"Node-1"},"type":"input",… |
+| `callbacks/64` | right only | — | {"name":"onMoveStart","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
+| `callbacks/65` | right only | — | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} |
+| `callbacks/66` | right only | — | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
+| `callbacks/67` | right only | — | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
+| `callbacks/68` | right only | — | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… |
+| `callbacks/69` | right only | — | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… |
 | `callbacks/1/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/1/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -49804,8 +49780,9 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/19/args/2/0/style` | right only | — | {"@undefined":true} |
 | `callbacks/20/args/1/x` | differs | 340 | 0 |
 | `callbacks/20/args/1/y` | differs | 560 | 220.00000000000003 |
-| `callbacks/21/args/1/position/x` | differs | -409 | -749 |
-| `callbacks/21/args/1/position/y` | differs | -352 | -692 |
+| `callbacks/21/args/0/screenX` | differs | 5 | 6 |
+| `callbacks/21/args/0/clientX` | differs | 5 | 6 |
+| `callbacks/21/args/0/pageX` | differs | 5 | 6 |
 | `callbacks/21/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/21/args/1/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/21/args/1/hidden` | right only | — | false |
@@ -50634,7 +50611,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 22 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (18) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (16) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -50665,7 +50642,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1310 unclaimed difference(s).
+**Failed:** 1296 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -50702,14 +50679,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (877)
+### callbacks (863)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/11` | right only | — | {"name":"onEdgesChange","args":[[]]} |
-| `callbacks/35` | right only | — | {"name":"onEdgesChange","args":[[]]} |
-| `callbacks/50` | right only | — | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… |
-| `callbacks/52` | right only | — | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -50833,7 +50806,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/10/args/2/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/10/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/10/args/2/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/12/args/0/0` | left only | {"id":"Node-1","type":"position","position":{"x":12,"y":8},"dragging":true} | — |
+| `callbacks/12/args/0/0/dimensions` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/0/0/resizing` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/0/0/selected` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/0/0/item` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/0/0/index` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/0/0/positionAbsolute` | right only | — | {"x":12,"y":8} |
 | `callbacks/13/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/13/args/1/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/13/args/1/hidden` | right only | — | false |
@@ -50878,15 +50857,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/13/args/2/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/13/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/13/args/2/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/15/args/0/0/position/x` | differs | 24 | 12 |
-| `callbacks/15/args/0/0/position/y` | differs | 16 | 8 |
 | `callbacks/15/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/15/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/15/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
 | `callbacks/15/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/15/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/15/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/15/args/0/0/positionAbsolute` | right only | — | {"x":12,"y":8} |
+| `callbacks/15/args/0/0/positionAbsolute` | right only | — | {"x":24,"y":16} |
 | `callbacks/16/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/16/args/1/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/16/args/1/hidden` | right only | — | false |
@@ -50931,15 +50908,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/16/args/2/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/16/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/16/args/2/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/18/args/0/0/position/x` | differs | 36 | 24 |
-| `callbacks/18/args/0/0/position/y` | differs | 24 | 16 |
 | `callbacks/18/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/18/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/18/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
 | `callbacks/18/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/18/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/18/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/18/args/0/0/positionAbsolute` | right only | — | {"x":24,"y":16} |
+| `callbacks/18/args/0/0/positionAbsolute` | right only | — | {"x":36,"y":24} |
 | `callbacks/19/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/19/args/1/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/19/args/1/hidden` | right only | — | false |
@@ -50984,15 +50959,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/19/args/2/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/19/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/19/args/2/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/21/args/0/0/position/x` | differs | 48 | 36 |
-| `callbacks/21/args/0/0/position/y` | differs | 32 | 24 |
 | `callbacks/21/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/21/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/21/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
 | `callbacks/21/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/21/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/21/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/21/args/0/0/positionAbsolute` | right only | — | {"x":36,"y":24} |
+| `callbacks/21/args/0/0/positionAbsolute` | right only | — | {"x":48,"y":32} |
 | `callbacks/22/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/22/args/1/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/22/args/1/hidden` | right only | — | false |
@@ -51037,15 +51010,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/22/args/2/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/22/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/22/args/2/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/24/args/0/0/position/x` | differs | 60 | 48 |
-| `callbacks/24/args/0/0/position/y` | differs | 40 | 32 |
 | `callbacks/24/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/24/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/24/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
 | `callbacks/24/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/24/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/24/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/24/args/0/0/positionAbsolute` | right only | — | {"x":48,"y":32} |
+| `callbacks/24/args/0/0/positionAbsolute` | right only | — | {"x":60,"y":40} |
 | `callbacks/25/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/25/args/1/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/25/args/1/hidden` | right only | — | false |
@@ -51090,7 +51061,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/25/args/2/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/25/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/25/args/2/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/26/args/0/0/dragging` | differs | false | true |
 | `callbacks/26/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/26/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/26/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
@@ -51258,17 +51228,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/32/args/2/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/32/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/32/args/2/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/34/args/0/0/id` | differs | Node-3 | Node-1 |
-| `callbacks/34/args/0/0/position/x` | differs | 92 | 60 |
-| `callbacks/34/args/0/0/position/y` | differs | 106 | 40 |
-| `callbacks/34/args/0/0/dragging` | differs | true | false |
 | `callbacks/34/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/34/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/34/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
 | `callbacks/34/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/34/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/34/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/34/args/0/0/positionAbsolute` | right only | — | {"x":60,"y":40} |
+| `callbacks/34/args/0/0/positionAbsolute` | right only | — | {"x":92,"y":106} |
 | `callbacks/35/args/1/type` | right only | — | {"@undefined":true} |
 | `callbacks/35/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/35/args/1/targetPosition` | right only | — | {"@undefined":true} |
@@ -51315,7 +51281,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/35/args/2/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/35/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/35/args/2/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/37/args/0/0` | left only | {"id":"Node-3","type":"position","position":{"x":84,"y":112},"dragging":true} | — |
+| `callbacks/37/args/0/0/dimensions` | right only | — | {"@undefined":true} |
+| `callbacks/37/args/0/0/resizing` | right only | — | {"@undefined":true} |
+| `callbacks/37/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
+| `callbacks/37/args/0/0/selected` | right only | — | {"@undefined":true} |
+| `callbacks/37/args/0/0/item` | right only | — | {"@undefined":true} |
+| `callbacks/37/args/0/0/index` | right only | — | {"@undefined":true} |
+| `callbacks/37/args/0/0/positionAbsolute` | right only | — | {"x":84,"y":112} |
 | `callbacks/38/args/1/type` | right only | — | {"@undefined":true} |
 | `callbacks/38/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/38/args/1/targetPosition` | right only | — | {"@undefined":true} |
@@ -51362,15 +51334,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/38/args/2/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/38/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/38/args/2/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/40/args/0/0/position/x` | differs | 76 | 92 |
-| `callbacks/40/args/0/0/position/y` | differs | 118 | 106 |
 | `callbacks/40/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/40/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/40/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
 | `callbacks/40/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/40/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/40/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/40/args/0/0/positionAbsolute` | right only | — | {"x":92,"y":106} |
+| `callbacks/40/args/0/0/positionAbsolute` | right only | — | {"x":76,"y":118} |
 | `callbacks/41/args/1/type` | right only | — | {"@undefined":true} |
 | `callbacks/41/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/41/args/1/targetPosition` | right only | — | {"@undefined":true} |
@@ -51417,15 +51387,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/41/args/2/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/41/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/41/args/2/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/43/args/0/0/position/x` | differs | 68 | 84 |
-| `callbacks/43/args/0/0/position/y` | differs | 124 | 112 |
 | `callbacks/43/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/43/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/43/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
 | `callbacks/43/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/43/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/43/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/43/args/0/0/positionAbsolute` | right only | — | {"x":84,"y":112} |
+| `callbacks/43/args/0/0/positionAbsolute` | right only | — | {"x":68,"y":124} |
 | `callbacks/44/args/1/type` | right only | — | {"@undefined":true} |
 | `callbacks/44/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/44/args/1/targetPosition` | right only | — | {"@undefined":true} |
@@ -51472,15 +51440,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/44/args/2/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/44/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/44/args/2/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/46/args/0/0/position/x` | differs | 60 | 76 |
-| `callbacks/46/args/0/0/position/y` | differs | 130 | 118 |
 | `callbacks/46/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/46/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/46/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
 | `callbacks/46/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/46/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/46/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/46/args/0/0/positionAbsolute` | right only | — | {"x":76,"y":118} |
+| `callbacks/46/args/0/0/positionAbsolute` | right only | — | {"x":60,"y":130} |
 | `callbacks/47/args/1/type` | right only | — | {"@undefined":true} |
 | `callbacks/47/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/47/args/1/targetPosition` | right only | — | {"@undefined":true} |
@@ -51527,16 +51493,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/47/args/2/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/47/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/47/args/2/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/48/args/0/0/position/x` | differs | 60 | 68 |
-| `callbacks/48/args/0/0/position/y` | differs | 130 | 124 |
-| `callbacks/48/args/0/0/dragging` | differs | false | true |
 | `callbacks/48/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/48/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/48/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
 | `callbacks/48/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/48/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/48/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/48/args/0/0/positionAbsolute` | right only | — | {"x":68,"y":124} |
+| `callbacks/48/args/0/0/positionAbsolute` | right only | — | {"x":60,"y":130} |
 | `callbacks/49/args/1/type` | right only | — | {"@undefined":true} |
 | `callbacks/49/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/49/args/1/targetPosition` | right only | — | {"@undefined":true} |
@@ -51998,7 +51961,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 36 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (29) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (18) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -52029,7 +51992,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 11 driving divergence(s), 959 unclaimed difference(s).
+**Failed:** 11 driving divergence(s), 958 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -52087,11 +52050,10 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (612) — consequence of the driving divergence
+### callbacks (611) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/11` | right only | — | {"name":"onEdgesChange","args":[[]]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 | `callbacks/2/args/0/y` | differs | 140 | 283 |
 | `callbacks/3/args/1/y` | differs | 140 | 283 |
@@ -53034,7 +52996,7 @@ a real divergence is exactly what would be hiding down there.
 
 24 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (20) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (12) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -54082,7 +54044,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1044 unclaimed difference(s).
+**Failed:** 1042 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -54156,12 +54118,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (163)
+### callbacks (161)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/8` | right only | — | {"name":"onNodesChange","args":[[]]} |
-| `callbacks/9` | right only | — | {"name":"onEdgesChange","args":[[]]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onNodeMouseEnter#1","onNodeMouseMove#1","onSelectionSta… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodeMouseEnter#1","onNodeMouseMove#1","onSelectionSta… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -55149,7 +55109,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 12 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (8) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (6) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -55180,7 +55140,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1354 unclaimed difference(s).
+**Failed:** 1352 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -55254,12 +55214,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (479)
+### callbacks (477)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/10` | right only | — | {"name":"onEdgesChange","args":[[]]} |
-| `callbacks/20` | right only | — | {"name":"onEdgesChange","args":[[]]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMov… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMov… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -56557,7 +56515,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 18 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (11) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (9) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -56588,7 +56546,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 476 unclaimed difference(s).
+**Failed:** 474 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -56625,12 +56583,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[3]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (35)
+### callbacks (33)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/6` | right only | — | {"name":"onNodesChange","args":[[]]} |
-| `callbacks/7` | right only | — | {"name":"onEdgesChange","args":[[]]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onSelectionStart#1"] | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onSelectionStart#1"] |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -57087,7 +57043,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 2 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (2) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (1) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -57118,7 +57074,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1052 unclaimed difference(s).
+**Failed:** 1050 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -57194,7 +57150,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (165)
+### callbacks (163)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -57206,8 +57162,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/17` | left only | {"name":"onNodeDrag","args":[{"@class":"TouchEvent","isTrusted":true},{"id":"notConnectable","type":"output","data":{"label":"notConnectable"},"position":{"x":… | — |
 | `callbacks/20` | left only | {"name":"onNodesChange","args":[[{"id":"notConnectable","type":"position","position":{"x":213.6280487804878,"y":455.36585365853654},"dragging":false}]]} | — |
 | `callbacks/21` | left only | {"name":"onNodeDragStop","args":[{"@class":"TouchEvent","isTrusted":true},{"id":"notConnectable","type":"output","data":{"label":"notConnectable"},"position":{… | — |
-| `callbacks/7` | right only | — | {"name":"onEdgesChange","args":[[]]} |
-| `callbacks/11` | right only | — | {"name":"onEdgesChange","args":[[]]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onNodesChange#2","onNodeDragStart#1","onSelectionChange… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#2","onNodeDragStart#1","onSelectionChange… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -58193,7 +58147,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 6 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (6) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (5) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -58235,7 +58189,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 764 unclaimed difference(s).
+**Failed:** 763 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -58279,12 +58233,11 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 | `dom/root/children/react-flow__aria-live-1/text` | left only | Moved selected node right. New position, x: 5, y: 20 | — |
 
-### callbacks (268)
+### callbacks (267)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `callbacks/17` | left only | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… | — |
-| `callbacks/7` | right only | — | {"name":"onEdgesChange","args":[[]]} |
 | `callbacks/1/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/1/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
 | `callbacks/1/args/0/0/dragging` | right only | — | {"@undefined":true} |
@@ -59022,7 +58975,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 11 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (7) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (6) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -59053,7 +59006,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 544 unclaimed difference(s).
+**Failed:** 543 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -59092,11 +59045,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (63)
+### callbacks (62)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/3` | right only | — | {"name":"onEdgesChange","args":[[]]} |
 | `callbacks/1/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/1/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
 | `callbacks/1/args/0/0/dragging` | right only | — | {"@undefined":true} |
@@ -61216,7 +61168,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1295 unclaimed difference(s).
+**Failed:** 1294 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -61291,11 +61243,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (416)
+### callbacks (415)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/11` | right only | — | {"name":"onEdgesChange","args":[[]]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -62534,7 +62485,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 27 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (15) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (14) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -62565,7 +62516,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1035 unclaimed difference(s).
+**Failed:** 1034 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -62640,12 +62591,11 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (155)
+### callbacks (154)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `callbacks/8` | left only | {"name":"onConnectStart","args":[{"@class":"TouchEvent","isTrusted":true},{"nodeId":"Node-1","handleId":null,"handleType":"source"}]} | — |
-| `callbacks/10` | right only | — | {"name":"onEdgesChange","args":[[]]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onPaneMouseMove#1","onPaneMouseEnt… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onPaneMouseMove#1","onPaneMouseEnt… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -63628,7 +63578,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 10 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (6) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (7) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -65868,7 +65818,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 879 unclaimed difference(s).
+**Failed:** 878 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -65905,11 +65855,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (448)
+### callbacks (447)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/15` | right only | — | {"name":"onEdgesChange","args":[[]]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onMoveStart#2","onViewportChange#2","onMove#2","onMoveE… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onMoveStart#2","onViewportChange#2","onMove#2","onMoveE… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -66770,7 +66719,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 18 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (14) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (9) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -67460,7 +67409,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 748 unclaimed difference(s).
+**Failed:** 747 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -67497,11 +67446,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (312)
+### callbacks (311)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/11` | right only | — | {"name":"onEdgesChange","args":[[]]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -68231,7 +68179,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 34 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (23) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (19) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -69149,7 +69097,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 592 unclaimed difference(s).
+**Failed:** 591 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -69187,11 +69135,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[2]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (155)
+### callbacks (154)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/11` | right only | — | {"name":"onEdgesChange","args":[[]]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -69764,7 +69711,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 14 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (9) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (7) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -70840,7 +70787,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 478 unclaimed difference(s).
+**Failed:** 476 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -70879,12 +70826,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (35)
+### callbacks (33)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/11` | right only | — | {"name":"onNodesChange","args":[[]]} |
-| `callbacks/12` | right only | — | {"name":"onEdgesChange","args":[[]]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveStart#2"… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveStart#2"… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -72080,8 +72025,8 @@ a real divergence is exactly what would be hiding down there.
 | `console/2` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/3` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/4` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:51299/parity/driver/dist/… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:51299/parity/driver/dist/… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:52689/parity/driver/dist/… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:52689/parity/driver/dist/… |
 | `console/7` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 
 ## Normalization
@@ -73743,7 +73688,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 837 unclaimed difference(s).
+**Failed:** 836 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -73771,12 +73716,11 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[3]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (608)
+### callbacks (607)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/7` | right only | — | {"name":"onEdgesChange","args":[[]]} |
-| `callbacks/29` | right only | — | {"name":"onMoveEnd","args":[null,{"x":0,"y":13.125,"zoom":1}]} |
+| `callbacks/28` | right only | — | {"name":"onMoveEnd","args":[null,{"x":0,"y":13.125,"zoom":1}]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onPaneMouseMove#2","onNodesChange#1","onNodeDragStart… | ["onSelectionChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onPaneMouseMove#2","onNodesChange#1","onNodeDragStart… |
 | `callbacks/2/args/1/type` | right only | — | {"@undefined":true} |
 | `callbacks/2/args/1/hidden` | right only | — | false |
@@ -74603,7 +74547,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 28 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (23) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (22) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -74634,7 +74578,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 501 unclaimed difference(s).
+**Failed:** 499 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -74664,12 +74608,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[3]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (234)
+### callbacks (232)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/7` | right only | — | {"name":"onEdgesChange","args":[[]]} |
-| `callbacks/18` | right only | — | {"name":"onEdgesChange","args":[[]]} |
 | `callbacks/2/args/1/type` | right only | — | {"@undefined":true} |
 | `callbacks/2/args/1/hidden` | right only | — | false |
 | `callbacks/2/args/1/selected` | right only | — | false |
@@ -75158,7 +75100,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 23 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (16) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (12) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -76086,7 +76028,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 327 unclaimed difference(s).
+**Failed:** 326 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -76102,11 +76044,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (164)
+### callbacks (163)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/10` | right only | — | {"name":"onEdgesChange","args":[[]]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouse… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouse… |
 | `callbacks/6/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/6/args/1/targetPosition` | right only | — | {"@undefined":true} |
@@ -76436,7 +76377,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 20 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (13) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (11) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -79738,8 +79679,8 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `console/3/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
 | `console/4/level` | differs | warning | pageerror |
 | `console/4/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:51299/parity/driver/dist/psflow.js:64859:… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:51299/parity/driver/dist/psflow.js:64859:… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:52689/parity/driver/dist/psflow.js:64881:… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:52689/parity/driver/dist/psflow.js:64881:… |
 
 
 ---
@@ -80309,8 +80250,8 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `console/3/level` | differs | warning | pageerror |
 | `console/3/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
 | `console/4` | right only | — | {"level":"pageerror","text":"ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScri… |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:51299/parity/driver/dist/psflow.js:64859:… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:51299/parity/driver/dist/psflow.js:64859:… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:52689/parity/driver/dist/psflow.js:64881:… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:52689/parity/driver/dist/psflow.js:64881:… |
 
 
 ---

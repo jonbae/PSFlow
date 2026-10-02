@@ -617,12 +617,6 @@
         ]
       },
       {
-        "name": "onEdgesChange",
-        "args": [
-          []
-        ]
-      },
-      {
         "name": "onSelectionChange",
         "args": [
           {
