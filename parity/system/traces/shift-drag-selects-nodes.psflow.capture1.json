@@ -933,18 +933,6 @@
         ]
       },
       {
-        "name": "onNodesChange",
-        "args": [
-          []
-        ]
-      },
-      {
-        "name": "onEdgesChange",
-        "args": [
-          []
-        ]
-      },
-      {
         "name": "onSelectionStart",
         "args": [
           {
@@ -965,7 +953,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 327.09999990463257,
+            "timeStamp": 362.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1472,7 +1460,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 357.7000000476837,
+            "timeStamp": 391.59999990463257,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

@@ -55,6 +55,7 @@ import Test.React.Hook.ViewportSync (runViewportSyncTests)
 import Test.React.Hook.VisibleIds (runVisibleIdsTests)
 import Test.React.Provider.InitPrevValues (runInitPrevValuesTests)
 import Test.React.Provider.TrackedProp (runTrackedPropTests)
+import Test.React.Store.EmptyChanges (runEmptyChangesTests)
 import Test.React.Store.Reduce (runReactStoreTests)
 import Test.React.Store.Shell (runStoreShellTests)
 import Test.React.Store.ZoomLimits (runZoomLimitsTests)
@@ -1089,6 +1090,7 @@ main = do
   runUseStoreTests
   runMiniMapSliceTests
   runWrapperTests
+  runEmptyChangesTests
 
   -- Function parity — live differential against XYFlow (via the @psflow/oracle bundle).
   -- Requires `npm run build:oracle` to have produced oracle/index.js.

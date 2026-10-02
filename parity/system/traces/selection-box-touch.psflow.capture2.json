@@ -952,12 +952,6 @@
         ]
       },
       {
-        "name": "onEdgesChange",
-        "args": [
-          []
-        ]
-      },
-      {
         "name": "onNodeDragStart",
         "args": [
           {
@@ -1225,12 +1219,6 @@
         ]
       },
       {
-        "name": "onEdgesChange",
-        "args": [
-          []
-        ]
-      },
-      {
         "name": "onSelectionStart",
         "args": [
           {
@@ -1251,7 +1239,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 222.29999995231628,
+            "timeStamp": 222.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1325,7 +1313,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 285.09999990463257,
+            "timeStamp": 283.7999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1392,7 +1380,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 285.09999990463257,
+            "timeStamp": 283.7999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

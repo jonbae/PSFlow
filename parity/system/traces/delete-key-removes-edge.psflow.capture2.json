@@ -2386,12 +2386,6 @@
         ]
       },
       {
-        "name": "onNodesChange",
-        "args": [
-          []
-        ]
-      },
-      {
         "name": "onEdgeClick",
         "args": [
           {
@@ -2412,7 +2406,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 238.70000004768372,
+            "timeStamp": 237.70000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2604,7 +2598,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 311.09999990463257,
+            "timeStamp": 308,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

@@ -164,7 +164,7 @@ The witness is printed beside each one so a wrong witness can be read and disput
 | `ZIndexMode` | dom | driven | `.react-flow__edges svg[style*=z-index]` | `arrow-key-selected-node` +95 more |
 | `Connection` | callbacks | driven | `onConnect` | `click-connect-reverse-direction` +4 more |
 | `EdgeAddChange` | callbacks | hole | `onEdgesChange:add` | declared — no issue owns it |
-| `EdgeChange` | callbacks | driven | `onEdgesChange` | `arrow-key-selected-node` +37 more |
+| `EdgeChange` | callbacks | driven | `onEdgesChange` | `click-inside-interaction-width` +8 more |
 | `EdgeMouseHandler` | callbacks | driven | `onEdgeClick, onEdgeDoubleClick, onEdgeContextMenu, onEdgeMouseEnter, onEdgeMouseMove, onEdgeMouseLeave` | `click-inside-interaction-width` +16 more |
 | `EdgeRemoveChange` | callbacks | driven | `onEdgesChange:remove` | `delete-key-removes-edge` +2 more |
 | `EdgeReplaceChange` | callbacks | hole | `onEdgesChange:replace` | declared — no issue owns it |
@@ -185,7 +185,7 @@ The witness is printed beside each one so a wrong witness can be read and disput
 | `OnConnectStart` | callbacks | driven | `onConnectStart` | `connect-drag-holding-source` +10 more |
 | `OnConnectStartParams` | callbacks | driven | `onConnectStart` | `connect-drag-holding-source` +10 more |
 | `OnDelete` | callbacks | driven | `onDelete` | `delete-key-removes-edge` +2 more |
-| `OnEdgesChange` | callbacks | driven | `onEdgesChange` | `arrow-key-selected-node` +37 more |
+| `OnEdgesChange` | callbacks | driven | `onEdgesChange` | `click-inside-interaction-width` +8 more |
 | `OnEdgesDelete` | callbacks | driven | `onEdgesDelete` | `delete-key-removes-edge` +2 more |
 | `OnError` | callbacks | driven | `onError` | `drag-unmeasured-node` |
 | `OnInit` | callbacks | hole | `onInit` | declared — no issue owns it |

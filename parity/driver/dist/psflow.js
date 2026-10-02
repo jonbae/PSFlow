@@ -54465,105 +54465,116 @@ var insert15 = /* @__PURE__ */ insert4(ordMiddlewareKey);
 var $$delete4 = /* @__PURE__ */ $$delete3(ordMiddlewareKey);
 var reduceTriggerEdgeChanges = function(state3) {
   return function(changes) {
-    var s1 = function() {
-      if (state3.hasDefaultEdges) {
-        var newEdges = applyEdgeChanges(changes)(state3.edges);
-        var r = updateConnectionLookup(newEdges);
-        return {
-          ariaLabelConfig: state3.ariaLabelConfig,
-          ariaLiveMessage: state3.ariaLiveMessage,
-          autoPanOnConnect: state3.autoPanOnConnect,
-          autoPanOnNodeDrag: state3.autoPanOnNodeDrag,
-          autoPanOnNodeFocus: state3.autoPanOnNodeFocus,
-          autoPanSpeed: state3.autoPanSpeed,
-          connectOnClick: state3.connectOnClick,
-          connection: state3.connection,
-          connectionClickStartHandle: state3.connectionClickStartHandle,
-          connectionDragThreshold: state3.connectionDragThreshold,
-          connectionMode: state3.connectionMode,
-          connectionRadius: state3.connectionRadius,
-          debug: state3.debug,
-          defaultEdgeOptions: state3.defaultEdgeOptions,
-          domNode: state3.domNode,
-          edgesFocusable: state3.edgesFocusable,
-          edgesReconnectable: state3.edgesReconnectable,
-          elementsSelectable: state3.elementsSelectable,
-          elevateEdgesOnSelect: state3.elevateEdgesOnSelect,
-          elevateNodesOnSelect: state3.elevateNodesOnSelect,
-          fitViewOptions: state3.fitViewOptions,
-          fitViewQueued: state3.fitViewQueued,
-          fitViewResolver: state3.fitViewResolver,
-          hasDefaultEdges: state3.hasDefaultEdges,
-          hasDefaultNodes: state3.hasDefaultNodes,
-          height: state3.height,
-          isValidConnection: state3.isValidConnection,
-          lib: state3.lib,
-          maxZoom: state3.maxZoom,
-          minZoom: state3.minZoom,
-          multiSelectionActive: state3.multiSelectionActive,
-          noPanClassName: state3.noPanClassName,
-          nodeDragThreshold: state3.nodeDragThreshold,
-          nodeExtent: state3.nodeExtent,
-          nodeLookup: state3.nodeLookup,
-          nodeOrigin: state3.nodeOrigin,
-          nodes: state3.nodes,
-          nodesConnectable: state3.nodesConnectable,
-          nodesDraggable: state3.nodesDraggable,
-          nodesFocusable: state3.nodesFocusable,
-          nodesInitialized: state3.nodesInitialized,
-          nodesSelectionActive: state3.nodesSelectionActive,
-          onBeforeDelete: state3.onBeforeDelete,
-          onClickConnectEnd: state3.onClickConnectEnd,
-          onClickConnectStart: state3.onClickConnectStart,
-          onConnect: state3.onConnect,
-          onConnectEnd: state3.onConnectEnd,
-          onConnectStart: state3.onConnectStart,
-          onDelete: state3.onDelete,
-          onEdgesChange: state3.onEdgesChange,
-          onEdgesChangeMiddlewareMap: state3.onEdgesChangeMiddlewareMap,
-          onEdgesDelete: state3.onEdgesDelete,
-          onError: state3.onError,
-          onMove: state3.onMove,
-          onMoveEnd: state3.onMoveEnd,
-          onMoveStart: state3.onMoveStart,
-          onNodeDrag: state3.onNodeDrag,
-          onNodeDragStart: state3.onNodeDragStart,
-          onNodeDragStop: state3.onNodeDragStop,
-          onNodesChange: state3.onNodesChange,
-          onNodesChangeMiddlewareMap: state3.onNodesChangeMiddlewareMap,
-          onNodesDelete: state3.onNodesDelete,
-          onSelectionChangeHandlers: state3.onSelectionChangeHandlers,
-          onSelectionDrag: state3.onSelectionDrag,
-          onSelectionDragStart: state3.onSelectionDragStart,
-          onSelectionDragStop: state3.onSelectionDragStop,
-          onViewportChange: state3.onViewportChange,
-          onViewportChangeEnd: state3.onViewportChangeEnd,
-          onViewportChangeStart: state3.onViewportChangeStart,
-          panZoom: state3.panZoom,
-          paneDragging: state3.paneDragging,
-          parentLookup: state3.parentLookup,
-          rfId: state3.rfId,
-          selectNodesOnDrag: state3.selectNodesOnDrag,
-          snapGrid: state3.snapGrid,
-          snapToGrid: state3.snapToGrid,
-          transform: state3.transform,
-          translateExtent: state3.translateExtent,
-          userSelectionActive: state3.userSelectionActive,
-          userSelectionRect: state3.userSelectionRect,
-          width: state3.width,
-          zIndexMode: state3.zIndexMode,
-          edges: newEdges,
-          edgeLookup: r.edgeLookup,
-          connectionLookup: r.connectionLookup
-        };
-      }
-      ;
-      return state3;
-    }();
-    return {
-      state: s1,
-      effects: [new FireOnEdgesChange(changes)]
-    };
+    if ($$null(changes)) {
+      return {
+        state: state3,
+        effects: []
+      };
+    }
+    ;
+    if (otherwise) {
+      var s1 = function() {
+        if (state3.hasDefaultEdges) {
+          var newEdges = applyEdgeChanges(changes)(state3.edges);
+          var r = updateConnectionLookup(newEdges);
+          return {
+            ariaLabelConfig: state3.ariaLabelConfig,
+            ariaLiveMessage: state3.ariaLiveMessage,
+            autoPanOnConnect: state3.autoPanOnConnect,
+            autoPanOnNodeDrag: state3.autoPanOnNodeDrag,
+            autoPanOnNodeFocus: state3.autoPanOnNodeFocus,
+            autoPanSpeed: state3.autoPanSpeed,
+            connectOnClick: state3.connectOnClick,
+            connection: state3.connection,
+            connectionClickStartHandle: state3.connectionClickStartHandle,
+            connectionDragThreshold: state3.connectionDragThreshold,
+            connectionMode: state3.connectionMode,
+            connectionRadius: state3.connectionRadius,
+            debug: state3.debug,
+            defaultEdgeOptions: state3.defaultEdgeOptions,
+            domNode: state3.domNode,
+            edgesFocusable: state3.edgesFocusable,
+            edgesReconnectable: state3.edgesReconnectable,
+            elementsSelectable: state3.elementsSelectable,
+            elevateEdgesOnSelect: state3.elevateEdgesOnSelect,
+            elevateNodesOnSelect: state3.elevateNodesOnSelect,
+            fitViewOptions: state3.fitViewOptions,
+            fitViewQueued: state3.fitViewQueued,
+            fitViewResolver: state3.fitViewResolver,
+            hasDefaultEdges: state3.hasDefaultEdges,
+            hasDefaultNodes: state3.hasDefaultNodes,
+            height: state3.height,
+            isValidConnection: state3.isValidConnection,
+            lib: state3.lib,
+            maxZoom: state3.maxZoom,
+            minZoom: state3.minZoom,
+            multiSelectionActive: state3.multiSelectionActive,
+            noPanClassName: state3.noPanClassName,
+            nodeDragThreshold: state3.nodeDragThreshold,
+            nodeExtent: state3.nodeExtent,
+            nodeLookup: state3.nodeLookup,
+            nodeOrigin: state3.nodeOrigin,
+            nodes: state3.nodes,
+            nodesConnectable: state3.nodesConnectable,
+            nodesDraggable: state3.nodesDraggable,
+            nodesFocusable: state3.nodesFocusable,
+            nodesInitialized: state3.nodesInitialized,
+            nodesSelectionActive: state3.nodesSelectionActive,
+            onBeforeDelete: state3.onBeforeDelete,
+            onClickConnectEnd: state3.onClickConnectEnd,
+            onClickConnectStart: state3.onClickConnectStart,
+            onConnect: state3.onConnect,
+            onConnectEnd: state3.onConnectEnd,
+            onConnectStart: state3.onConnectStart,
+            onDelete: state3.onDelete,
+            onEdgesChange: state3.onEdgesChange,
+            onEdgesChangeMiddlewareMap: state3.onEdgesChangeMiddlewareMap,
+            onEdgesDelete: state3.onEdgesDelete,
+            onError: state3.onError,
+            onMove: state3.onMove,
+            onMoveEnd: state3.onMoveEnd,
+            onMoveStart: state3.onMoveStart,
+            onNodeDrag: state3.onNodeDrag,
+            onNodeDragStart: state3.onNodeDragStart,
+            onNodeDragStop: state3.onNodeDragStop,
+            onNodesChange: state3.onNodesChange,
+            onNodesChangeMiddlewareMap: state3.onNodesChangeMiddlewareMap,
+            onNodesDelete: state3.onNodesDelete,
+            onSelectionChangeHandlers: state3.onSelectionChangeHandlers,
+            onSelectionDrag: state3.onSelectionDrag,
+            onSelectionDragStart: state3.onSelectionDragStart,
+            onSelectionDragStop: state3.onSelectionDragStop,
+            onViewportChange: state3.onViewportChange,
+            onViewportChangeEnd: state3.onViewportChangeEnd,
+            onViewportChangeStart: state3.onViewportChangeStart,
+            panZoom: state3.panZoom,
+            paneDragging: state3.paneDragging,
+            parentLookup: state3.parentLookup,
+            rfId: state3.rfId,
+            selectNodesOnDrag: state3.selectNodesOnDrag,
+            snapGrid: state3.snapGrid,
+            snapToGrid: state3.snapToGrid,
+            transform: state3.transform,
+            translateExtent: state3.translateExtent,
+            userSelectionActive: state3.userSelectionActive,
+            userSelectionRect: state3.userSelectionRect,
+            width: state3.width,
+            zIndexMode: state3.zIndexMode,
+            edges: newEdges,
+            edgeLookup: r.edgeLookup,
+            connectionLookup: r.connectionLookup
+          };
+        }
+        ;
+        return state3;
+      }();
+      return {
+        state: s1,
+        effects: [new FireOnEdgesChange(changes)]
+      };
+    }
+    ;
+    throw new Error("Failed pattern match at React.Store.Reduce (line 319, column 1 - line 323, column 22): " + [state3.constructor.name, changes.constructor.name]);
   };
 };
 var reduceSetNodeExtent = function(state3) {
@@ -54860,8 +54871,8 @@ var reduceInstallViewportListeners = function(state3) {
 var clearIf = function(installed) {
   return function(current) {
     if (installed instanceof Just && current instanceof Just) {
-      var $46 = unsafeRefEq(installed.value0)(current.value0);
-      if ($46) {
+      var $48 = unsafeRefEq(installed.value0)(current.value0);
+      if ($48) {
         return Nothing.value;
       }
       ;
@@ -55386,17 +55397,28 @@ var reduceSetDefaults = function(state3) {
 };
 var reduceTriggerNodeChanges = function(state3) {
   return function(changes) {
-    var s1 = function() {
-      if (state3.hasDefaultNodes) {
-        return adoptNodesInto(state3)(applyNodeChanges(changes)(state3.nodes));
-      }
-      ;
-      return state3;
-    }();
-    return {
-      state: s1,
-      effects: [new FireOnNodesChange(changes)]
-    };
+    if ($$null(changes)) {
+      return {
+        state: state3,
+        effects: []
+      };
+    }
+    ;
+    if (otherwise) {
+      var s1 = function() {
+        if (state3.hasDefaultNodes) {
+          return adoptNodesInto(state3)(applyNodeChanges(changes)(state3.nodes));
+        }
+        ;
+        return state3;
+      }();
+      return {
+        state: s1,
+        effects: [new FireOnNodesChange(changes)]
+      };
+    }
+    ;
+    throw new Error("Failed pattern match at React.Store.Reduce (line 294, column 1 - line 298, column 22): " + [state3.constructor.name, changes.constructor.name]);
   };
 };
 var reduceAddSelectedEdges = function(state3) {
@@ -55414,8 +55436,8 @@ var reduceAddSelectedEdges = function(state3) {
     if (otherwise) {
       var selectedSet = fromFoldable17(ids);
       var nodeRes = function() {
-        var $58 = $$null(ids);
-        if ($58) {
+        var $62 = $$null(ids);
+        if ($62) {
           return {
             changes: [],
             items: state3.nodeLookup
@@ -55520,7 +55542,7 @@ var reduceAddSelectedEdges = function(state3) {
       };
     }
     ;
-    throw new Error("Failed pattern match at React.Store.Reduce (line 373, column 1 - line 377, column 22): " + [state3.constructor.name, ids.constructor.name]);
+    throw new Error("Failed pattern match at React.Store.Reduce (line 382, column 1 - line 386, column 22): " + [state3.constructor.name, ids.constructor.name]);
   };
 };
 var reduceAddSelectedNodes = function(state3) {
@@ -55626,8 +55648,8 @@ var reduceAddSelectedNodes = function(state3) {
         nodeLookup: nodeRes.items
       };
       var edgeRes = function() {
-        var $61 = $$null(ids);
-        if ($61) {
+        var $65 = $$null(ids);
+        if ($65) {
           return {
             changes: []
           };
@@ -55643,7 +55665,7 @@ var reduceAddSelectedNodes = function(state3) {
       };
     }
     ;
-    throw new Error("Failed pattern match at React.Store.Reduce (line 342, column 1 - line 346, column 22): " + [state3.constructor.name, ids.constructor.name]);
+    throw new Error("Failed pattern match at React.Store.Reduce (line 351, column 1 - line 355, column 22): " + [state3.constructor.name, ids.constructor.name]);
   };
 };
 var reduceMergeNodeInternals = function(state3) {
@@ -55843,8 +55865,8 @@ var reduceMergeNodeInternals = function(state3) {
       return [];
     }();
     var afterChanges = function() {
-      var $65 = $$null(r.changes);
-      if ($65) {
+      var $69 = $$null(r.changes);
+      if ($69) {
         return {
           state: s2,
           effects: []
@@ -55900,7 +55922,7 @@ var reduceUnselectNodesAndEdges = function(state3) {
         return state3.nodes;
       }
       ;
-      throw new Error("Failed pattern match at React.Store.Reduce (line 410, column 19 - line 412, column 29): " + [params.nodes.constructor.name]);
+      throw new Error("Failed pattern match at React.Store.Reduce (line 419, column 19 - line 421, column 29): " + [params.nodes.constructor.name]);
     }();
     var targetEdges = function() {
       if (params.edges instanceof Just) {
@@ -55911,7 +55933,7 @@ var reduceUnselectNodesAndEdges = function(state3) {
         return state3.edges;
       }
       ;
-      throw new Error("Failed pattern match at React.Store.Reduce (line 413, column 19 - line 415, column 29): " + [params.edges.constructor.name]);
+      throw new Error("Failed pattern match at React.Store.Reduce (line 422, column 19 - line 424, column 29): " + [params.edges.constructor.name]);
     }();
     var nodeChanges = map58(function(n) {
       return new NodeSelectionChange({
