@@ -20,11 +20,8 @@
 -- |      ref, context-menu handler, and keyboard handler.
 -- |
 -- | **Fidelity notes.**
--- |   * `useDrag` is always called (rules-of-hooks); when
--- |     `shouldRender = false` we return `mempty` before mounting the
--- |     wrapper, so the ref stays null and the drag controller's
--- |     `update` short-circuits. The controller object is still
--- |     allocated — same fidelity gap as other wrappers in this port.
+-- |   * `useDrag` is always called (rules-of-hooks), and is disabled
+-- |     when `shouldRender = false`, as upstream's is.
 -- |   * The "virtual node id `__nodes_selection__`" suggested by the
 -- |     ticket text isn't present in the TS source — TS passes no
 -- |     `nodeId` at all, and the XYDrag controller routes the absence
@@ -182,6 +179,7 @@ nodesSelection =
 
       _dragging <- useDrag
         { wrapperRef: nodeRef
+        , disabled: not shouldRender
         , nodeId: Nothing
         , noDragClassName: props.noPanClassName
         , handleSelector: Nothing

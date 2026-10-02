@@ -337,7 +337,8 @@ nodeWrapper =
 
       dragging <- useDrag
         { wrapperRef: nodeRef
-        , nodeId: if node.hidden || not isDraggable then Nothing else Just (NodeId props.id)
+        , disabled: node.hidden || not isDraggable
+        , nodeId: Just (NodeId props.id)
         , noDragClassName: Just props.noDragClassName
         , handleSelector: node.dragHandle
         , isSelectable

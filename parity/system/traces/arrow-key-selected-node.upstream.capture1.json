@@ -527,7 +527,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 229.90000009536743,
+            "timeStamp": 230.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -596,7 +596,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 229.90000009536743,
+            "timeStamp": 230.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -668,7 +668,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 229.90000009536743,
+            "timeStamp": 230.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -733,7 +733,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 229.90000009536743,
+            "timeStamp": 230.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -929,7 +929,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 240.20000004768372,
+            "timeStamp": 240.40000009536743,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1060,6 +1060,22 @@
         ]
       },
       {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "id": "Node-1",
+              "type": "position",
+              "position": {
+                "x": 10,
+                "y": 20
+              },
+              "dragging": false
+            }
+          ]
+        ]
+      },
+      {
         "name": "onNodeMouseLeave",
         "args": [
           {
@@ -1082,7 +1098,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 265.2000000476837,
+            "timeStamp": 267.2000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1122,7 +1138,7 @@
               "label": "Node-1"
             },
             "position": {
-              "x": 5,
+              "x": 10,
               "y": 20
             },
             "type": "input",
@@ -1133,22 +1149,6 @@
             "selected": true,
             "dragging": false
           }
-        ]
-      },
-      {
-        "name": "onNodesChange",
-        "args": [
-          [
-            {
-              "id": "Node-1",
-              "type": "position",
-              "position": {
-                "x": 10,
-                "y": 20
-              },
-              "dragging": false
-            }
-          ]
         ]
       }
     ],
