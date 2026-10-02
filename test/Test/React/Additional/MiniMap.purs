@@ -11,27 +11,26 @@
 -- | why a pan used to fix the rectangle and a flow that never panned drew
 -- | `M0,0h0v0h0z`.
 -- |
--- | The cause was `useStore`, fixed under #128 and proved in general by
--- | `Test.React.Hook.Store`. This runs the MiniMap's own selector through
--- | the same subscription, so the symptom this ticket names has a check of
--- | its own. A `subscribeSlice` that only subscribes, which is what
--- | `useStore` did before #128, fails it.
+-- | `useStore` is React's `useSyncExternalStore` (#133), which reads
+-- | `getSnapshot` again once it has subscribed and re-renders if the result
+-- | is a different object. This renders the MiniMap's own selector through
+-- | `useStore` against `Test.React.Hook.Store`'s fake dispatcher, moves the
+-- | pane's size the way `<ZoomPane />` does, and reads the snapshot React
+-- | would read.
 module Test.React.Additional.MiniMap
   ( runMiniMapSliceTests
   ) where
 
 import Prelude
 
-import Data.Maybe (Maybe(..))
 import Effect (Effect)
 import Effect.Class.Console (log)
-import Effect.Ref as Ref
 import Partial.Unsafe (unsafeCrashWith)
 import React.Additional.MiniMap (MMSlice(..), selector)
-import React.Hook.Store (subscribeSlice)
 import React.Store.Action (Action(..))
 import React.Store.InitialState (InitialStateOptions, defaultInitialStateOptions)
 import React.Store.Shell (createStore)
+import Test.React.Hook.Store (rendererFor, sameReference)
 
 assert :: String -> Boolean -> Effect Unit
 assert label cond =
@@ -44,20 +43,19 @@ runMiniMapSliceTests = do
 
   store <- createStore (defaultInitialStateOptions :: InitialStateOptions Unit Unit)
   -- The MiniMap's render, before the pane is measured.
-  rendered <- selector <$> store.getState
-  let MMSlice before = rendered
+  miniMap <- rendererFor store selector
+  MMSlice before <- miniMap.render
   assert "the MiniMap renders before the pane is measured, at 0 × 0"
     (before.viewBB.width == 0.0 && before.viewBB.height == 0.0)
 
   -- `<ZoomPane />`'s mount effect, which runs before the MiniMap's.
   store.dispatch (PatchState _ { width = 1280.0, height = 720.0 })
 
-  -- The MiniMap's mount effect: its subscription.
-  latest <- Ref.new Nothing
-  _ <- subscribeSlice store selector rendered \slice -> Ref.write (Just slice) latest
-  handed <- Ref.read latest
-  assert "the MiniMap's viewport rectangle takes the pane's measured size"
-    ( case handed of
-        Just (MMSlice s) -> s.viewBB.width == 1280.0 && s.viewBB.height == 720.0
-        Nothing -> false
+  -- What React reads once the MiniMap has subscribed.
+  after <- miniMap.fake.snapshot
+  let MMSlice s = after
+  assert "the MiniMap's snapshot moves to the pane's measured size, so React re-renders it"
+    ( not (sameReference (MMSlice before) after)
+        && s.viewBB.width == 1280.0
+        && s.viewBB.height == 720.0
     )
