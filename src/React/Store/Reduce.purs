@@ -296,17 +296,23 @@ reduceTriggerNodeChanges
    . ReactFlowState n e
   -> Array (NodeChange n)
   -> ReduceResult n e
-reduceTriggerNodeChanges state changes =
-  let
-    s1 =
-      if state.hasDefaultNodes then
-        -- Uncontrolled mode: commit the change *and* re-adopt so the lookup
-        -- (what NodeWrapper renders from) reflects it — fixes uncontrolled
-        -- drag and delete, which previously updated `nodes` but not the screen.
-        adoptNodesInto state (applyNodeChanges changes state.nodes)
-      else state
-  in
-    { state: s1, effects: [ FireOnNodesChange changes ] }
+reduceTriggerNodeChanges state changes
+  -- TS `triggerNodeChanges` does nothing at all for an empty list: no
+  -- commit in uncontrolled mode and no `onNodesChange`. Every caller that
+  -- found nothing to change, such as a pane click with nothing selected,
+  -- reaches here with one.
+  | Array.null changes = { state, effects: [] }
+  | otherwise =
+      let
+        s1 =
+          if state.hasDefaultNodes then
+            -- Uncontrolled mode: commit the change *and* re-adopt so the lookup
+            -- (what NodeWrapper renders from) reflects it — fixes uncontrolled
+            -- drag and delete, which previously updated `nodes` but not the screen.
+            adoptNodesInto state (applyNodeChanges changes state.nodes)
+          else state
+      in
+        { state: s1, effects: [ FireOnNodesChange changes ] }
 
 -- TriggerEdgeChanges ----------------------------------------------------
 
@@ -315,27 +321,30 @@ reduceTriggerEdgeChanges
    . ReactFlowState n e
   -> Array (EdgeChange e)
   -> ReduceResult n e
-reduceTriggerEdgeChanges state changes =
-  let
-    s1 =
-      if state.hasDefaultEdges then
-        -- Uncontrolled mode: commit the change *and* rebuild `edgeLookup`
-        -- (+ `connectionLookup`) so the rendered edges reflect it — EdgeWrapper
-        -- reads `selected`/existence from `edgeLookup`, not the `edges` array.
-        -- Mirrors `reduceSetEdges` and the node side's `reduceTriggerNodeChanges`
-        -- re-adopt; without it uncontrolled edge select/delete never hit the DOM.
-        let
-          newEdges = applyEdgeChanges changes state.edges
-          r = updateConnectionLookup newEdges
-        in
-          state
-            { edges = newEdges
-            , edgeLookup = r.edgeLookup
-            , connectionLookup = r.connectionLookup
-            }
-      else state
-  in
-    { state: s1, effects: [ FireOnEdgesChange changes ] }
+reduceTriggerEdgeChanges state changes
+  -- TS `triggerEdgeChanges` guards the same way as `triggerNodeChanges`.
+  | Array.null changes = { state, effects: [] }
+  | otherwise =
+      let
+        s1 =
+          if state.hasDefaultEdges then
+            -- Uncontrolled mode: commit the change *and* rebuild `edgeLookup`
+            -- (+ `connectionLookup`) so the rendered edges reflect it — EdgeWrapper
+            -- reads `selected`/existence from `edgeLookup`, not the `edges` array.
+            -- Mirrors `reduceSetEdges` and the node side's `reduceTriggerNodeChanges`
+            -- re-adopt; without it uncontrolled edge select/delete never hit the DOM.
+            let
+              newEdges = applyEdgeChanges changes state.edges
+              r = updateConnectionLookup newEdges
+            in
+              state
+                { edges = newEdges
+                , edgeLookup = r.edgeLookup
+                , connectionLookup = r.connectionLookup
+                }
+          else state
+      in
+        { state: s1, effects: [ FireOnEdgesChange changes ] }
 
 -- AddSelectedNodes ------------------------------------------------------
 
