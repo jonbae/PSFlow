@@ -41,6 +41,7 @@ import { routeOf } from "./routes.mjs";
 const LIMITS_CHANGE = routeOf("./flow/limits-change.ts");
 const PROPS_CHANGE = routeOf("./flow/props-change.ts");
 const CONTROLLED_VIEWPORT = routeOf("./viewport/controlled.ts");
+const PAN_ON_SCROLL = routeOf("./viewport/pan-on-scroll.ts");
 
 const control = (name) => `[data-testid="${name}"]`;
 
@@ -138,6 +139,38 @@ const holeClosing = [
       await a.pointerMove(null, { dx: 40, dy: 20 });
       await a.pointerMove(null, { dx: 40, dy: 20 });
       await a.pointerUp();
+    },
+  },
+
+  // A Ctrl-wheel over an off-centre point, with `panOnScroll` on. Ticket #129,
+  // off #124.
+  //
+  // The pan-on-scroll handler reads a wheel with `ctrlKey` as a pinch and
+  // scales about the pointer, handing d3 the point and the wheel event. #124
+  // fixed both arguments against a local proxy, and the corpus could not see
+  // the branch: `wheel-pans-with-panonscroll` never holds Control.
+  // `viewport/pan-on-scroll.ts` says why it moves the zoom activation key off
+  // Control, without which this wheel would reach the zoom handler instead.
+  //
+  // Off-centre, because a zoom about the pane's centre and a zoom about the
+  // pointer differ only when the two are apart: the viewport's translation is
+  // what shows which point d3 scaled about. Over empty pane up and to the left,
+  // so the wheel lands on the pane and not on a node. One notch up, which
+  // zooms in by 2^0.2 off macOS and stays inside the default zoom limits.
+  //
+  // The viewport alone cannot say which handler ran, since d3's own wheel
+  // handler also zooms about the pointer. What can is #124's bug: with its
+  // fix reverted, this scenario put ps-flow at the centre-anchored
+  // (-95.17, -53.53) with a null source event, against upstream's
+  // (-50.56, -31.23) with the wheel event, so the wheel reaches the branch.
+  {
+    id: "ctrl-wheel-pinches-with-panonscroll",
+    route: PAN_ON_SCROLL,
+    probeCapabilities: ["viewport"],
+    async run(a) {
+      await a.key("Control", { action: "down" });
+      await a.wheel(".react-flow__pane", { dx: -300, dy: -150, deltaY: -100 });
+      await a.key("Control", { action: "up" });
     },
   },
 ];
