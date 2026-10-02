@@ -48,10 +48,10 @@ a hand-written act in `parity/system/corpus/`, which has its own README.
 
 ## What is here
 
-Twenty-two flows, one per condition no vendored fixture sets. Eighteen were
+Twenty-three flows, one per condition no vendored fixture sets. Eighteen were
 written for the thirty test-debt scenarios ([#60]), two for the retirement debt
 ([#61]) — the two ps-flow **contract** pages, turned into data when the
-hand-authored assertions they carried retired into the net — and two for the
+hand-authored assertions they carried retired into the net — and three for the
 hole-closing scenarios ([#93]). Grouped by what the
 condition is *about* rather than by which scenario drives it — several are driven
 by more than one, and a fixture named after its first scenario would read wrongly
@@ -81,6 +81,7 @@ the moment a second arrived.
 | `nodes/unmeasured.ts` | controlled, with dimension changes never applied back |
 | `viewport/controlled.ts` | a controlled `viewport` that changes after the mount and is never fed back |
 | `viewport/helpers.ts` | a flow that snaps, so a no-options helper says something |
+| `viewport/pan-on-scroll.ts` | `panOnScroll`, with a zoom activation key that Control does not press |
 
 Each file's own header says why it is shaped the way it is, and several of those
 are the interesting half — `nodes/autopan.ts` in particular, which is where the
