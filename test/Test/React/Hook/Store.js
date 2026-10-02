@@ -75,10 +75,10 @@ export const newFakeRenderer = (contextValue) => () => {
       calls.push("useInsertionEffect");
       slot(() => ({}));
     },
-    useSyncExternalStore: (subscribe, getSnapshot) => {
+    useSyncExternalStore: (subscribe, getSnapshot, getServerSnapshot) => {
       calls.push("useSyncExternalStore");
       slot(() => ({}));
-      external = { subscribe, getSnapshot };
+      external = { subscribe, getSnapshot, getServerSnapshot };
       return getSnapshot();
     },
     useDebugValue: () => {},
@@ -105,6 +105,10 @@ export const newFakeRenderer = (contextValue) => () => {
     subscribeIdentity: () => external.subscribe,
     // What React's `getSnapshot` returns now: a new object means a re-render.
     snapshot: () => external.getSnapshot(),
+    // What a server render would read, or `null` when React was handed none,
+    // in which case `react-dom/server` refuses to render at all.
+    serverSnapshotOrNull: () =>
+      typeof external.getServerSnapshot === "function" ? external.getServerSnapshot() : null,
     // Subscribe a listener as React would; returns the unsubscribe.
     subscribe: (listener) => () => {
       const unsubscribe = external.subscribe(() => listener());

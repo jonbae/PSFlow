@@ -845,7 +845,7 @@ wrapNodeComponent
   :: ReactComponent JsNodeProps
   -> ReactComponent (NodeProps Foreign)
 wrapNodeComponent userComponent =
-  mkComponentWrapper userComponent
+  mkComponentWrapper "nodeTypes" userComponent
     (mkEffectFn1 \psProps -> pure (element userComponent (nodePropsOut psProps)))
 
 -- ────────────────────────────────────────────────────────────────────────

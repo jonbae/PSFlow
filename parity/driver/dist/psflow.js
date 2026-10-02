@@ -28990,9 +28990,18 @@ var oneOrMany = function(raw) {
 };
 
 // output/Boundary.Wrapper/foreign.js
-var mkComponentWrapper = (wrapped) => (render2) => {
+var caches = /* @__PURE__ */ new Map();
+var mkComponentWrapper = (prop) => (wrapped) => (render2) => {
+  let cache = caches.get(prop);
+  if (cache === void 0) {
+    cache = /* @__PURE__ */ new WeakMap();
+    caches.set(prop, cache);
+  }
+  const cached = cache.get(wrapped);
+  if (cached !== void 0) return cached;
   const Wrapper = (props) => render2(props);
   Wrapper.displayName = wrapped.displayName || wrapped.name || "PSFlowUserComponent";
+  cache.set(wrapped, Wrapper);
   return Wrapper;
 };
 
@@ -29898,7 +29907,7 @@ var nodePropsOut = function(p) {
   };
 };
 var wrapNodeComponent = function(userComponent) {
-  return mkComponentWrapper(userComponent)(function(psProps) {
+  return mkComponentWrapper("nodeTypes")(userComponent)(function(psProps) {
     return element(userComponent)(nodePropsOut(psProps));
   });
 };
@@ -32970,11 +32979,12 @@ var useStoreImpl = (store, selector4, isEqual) => {
   const instRef = import_react3.default.useRef(null);
   if (instRef.current === null) instRef.current = newSelectionInstance();
   const inst = instRef.current;
-  const getSelection = import_react3.default.useMemo(() => {
+  const getServerSnapshot = store.getState;
+  const [getSelection, getServerSelection] = import_react3.default.useMemo(() => {
     const memoizedSelector = selectionMemo(selector4)(isEqual)(inst);
-    return () => memoizedSelector(getSnapshot());
-  }, [getSnapshot, selector4, isEqual]);
-  const value12 = import_react3.default.useSyncExternalStore(subscribe, getSelection);
+    return [() => memoizedSelector(getSnapshot()), () => memoizedSelector(getServerSnapshot())];
+  }, [getSnapshot, getServerSnapshot, selector4, isEqual]);
+  const value12 = import_react3.default.useSyncExternalStore(subscribe, getSelection, getServerSelection);
   import_react3.default.useEffect(() => {
     inst.hasValue = true;
     inst.value = value12;
@@ -40330,7 +40340,7 @@ var miniMapNodePropsOut = function(p) {
   };
 };
 var wrapMiniMapNodeComponent = function(userComponent) {
-  return mkComponentWrapper(userComponent)(function(psProps) {
+  return mkComponentWrapper("MiniMap.nodeComponent")(userComponent)(function(psProps) {
     return element(userComponent)(miniMapNodePropsOut(psProps));
   });
 };
@@ -41959,7 +41969,7 @@ var edgePropsOut = function(p) {
   };
 };
 var wrapEdgeComponent = function(userComponent) {
-  return mkComponentWrapper(userComponent)(function(psProps) {
+  return mkComponentWrapper("edgeTypes")(userComponent)(function(psProps) {
     return element(userComponent)(edgePropsOut(psProps));
   });
 };

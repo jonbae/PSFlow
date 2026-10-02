@@ -44,6 +44,7 @@ import Test.Parity.Geometry (runGeometryParity)
 import Test.Parity.Graph (runGraphParity)
 import Test.Parity.Marker (runMarkerParity)
 import Test.Parity.Toolbar (runToolbarParity)
+import Test.Boundary.Wrapper (runWrapperTests)
 import Test.Properties (runProperties)
 import Test.React.Additional.MiniMap (runMiniMapSliceTests)
 import Test.React.Container.Pane (runPaneAutoPanTests)
@@ -1087,6 +1088,7 @@ main = do
   runViewportSyncTests
   runUseStoreTests
   runMiniMapSliceTests
+  runWrapperTests
 
   -- Function parity — live differential against XYFlow (via the @psflow/oracle bundle).
   -- Requires `npm run build:oracle` to have produced oracle/index.js.

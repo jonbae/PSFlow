@@ -424,13 +424,6 @@
         "probe": true
       },
       {
-        "name": "onError",
-        "args": [
-          "002",
-          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
-        ]
-      },
-      {
         "name": "onPaneMouseEnter",
         "args": [
           {
@@ -453,7 +446,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 163.09999990463257,
+            "timeStamp": 160,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -522,7 +515,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 163.09999990463257,
+            "timeStamp": 160,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -629,7 +622,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 163.09999990463257,
+            "timeStamp": 160,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -694,7 +687,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 163.09999990463257,
+            "timeStamp": 160,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2703,11 +2696,11 @@
       },
       {
         "level": "error",
-        "text": "The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:58190/parity/driver/dist/psflow.js:64849:20)\n    at HookBoundary (http://127.0.0.1:58190/parity/driver/dist/psflow.js:64837:20)\n    at HookLevel (http://127.0.0.1:58190/parity/driver/dist/psflow.js:64856:20)\n    at NetObserver (http://127.0.0.1:58190/parity/driver/dist/psflow.js:64857:22)\n    at http://127.0.0.1:58190/parity/driver/dist/psflow.js:32810:61\n    at http://127.0.0.1:58190/parity/driver/dist/psflow.js:32810:61\n    at http://127.0.0.1:58190/parity/driver/dist/psflow.js:32810:61\n    at div\n    at http://127.0.0.1:58190/parity/driver/dist/psflow.js:32810:45\n    at http://127.0.0.1:58190/parity/driver/dist/psflow.js:40231:64\n    at div\n    at Flow_default (http://127.0.0.1:58190/parity/driver/dist/psflow.js:64886:23)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, HookBoundary."
+        "text": "The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:51299/parity/driver/dist/psflow.js:64859:20)\n    at HookBoundary (http://127.0.0.1:51299/parity/driver/dist/psflow.js:64847:20)\n    at HookLevel (http://127.0.0.1:51299/parity/driver/dist/psflow.js:64866:20)\n    at NetObserver (http://127.0.0.1:51299/parity/driver/dist/psflow.js:64867:22)\n    at http://127.0.0.1:51299/parity/driver/dist/psflow.js:32819:61\n    at http://127.0.0.1:51299/parity/driver/dist/psflow.js:32819:61\n    at http://127.0.0.1:51299/parity/driver/dist/psflow.js:32819:61\n    at div\n    at http://127.0.0.1:51299/parity/driver/dist/psflow.js:32819:45\n    at http://127.0.0.1:51299/parity/driver/dist/psflow.js:40241:64\n    at div\n    at Flow_default (http://127.0.0.1:51299/parity/driver/dist/psflow.js:64896:23)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, HookBoundary."
       },
       {
         "level": "error",
-        "text": "The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:58190/parity/driver/dist/psflow.js:64849:20)\n    at HookBoundary (http://127.0.0.1:58190/parity/driver/dist/psflow.js:64837:20)\n    at HookLevel (http://127.0.0.1:58190/parity/driver/dist/psflow.js:64856:20)\n    at NetObserver (http://127.0.0.1:58190/parity/driver/dist/psflow.js:64857:22)\n    at http://127.0.0.1:58190/parity/driver/dist/psflow.js:32810:61\n    at http://127.0.0.1:58190/parity/driver/dist/psflow.js:32810:61\n    at http://127.0.0.1:58190/parity/driver/dist/psflow.js:32810:61\n    at div\n    at http://127.0.0.1:58190/parity/driver/dist/psflow.js:32810:45\n    at http://127.0.0.1:58190/parity/driver/dist/psflow.js:40231:64\n    at div\n    at Flow_default (http://127.0.0.1:58190/parity/driver/dist/psflow.js:64886:23)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, HookBoundary."
+        "text": "The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:51299/parity/driver/dist/psflow.js:64859:20)\n    at HookBoundary (http://127.0.0.1:51299/parity/driver/dist/psflow.js:64847:20)\n    at HookLevel (http://127.0.0.1:51299/parity/driver/dist/psflow.js:64866:20)\n    at NetObserver (http://127.0.0.1:51299/parity/driver/dist/psflow.js:64867:22)\n    at http://127.0.0.1:51299/parity/driver/dist/psflow.js:32819:61\n    at http://127.0.0.1:51299/parity/driver/dist/psflow.js:32819:61\n    at http://127.0.0.1:51299/parity/driver/dist/psflow.js:32819:61\n    at div\n    at http://127.0.0.1:51299/parity/driver/dist/psflow.js:32819:45\n    at http://127.0.0.1:51299/parity/driver/dist/psflow.js:40241:64\n    at div\n    at Flow_default (http://127.0.0.1:51299/parity/driver/dist/psflow.js:64896:23)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, HookBoundary."
       }
     ],
     "driving": [

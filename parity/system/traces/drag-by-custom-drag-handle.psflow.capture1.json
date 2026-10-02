@@ -916,13 +916,6 @@
         ]
       },
       {
-        "name": "onError",
-        "args": [
-          "002",
-          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
-        ]
-      },
-      {
         "name": "onPaneMouseEnter",
         "args": [
           {
@@ -945,7 +938,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 304.59999990463257,
+            "timeStamp": 338.7999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1014,7 +1007,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 304.59999990463257,
+            "timeStamp": 338.7999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1141,7 +1134,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 304.59999990463257,
+            "timeStamp": 338.7999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1206,7 +1199,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 304.59999990463257,
+            "timeStamp": 338.7999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1331,7 +1324,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 324.09999990463257,
+            "timeStamp": 357.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1396,7 +1389,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 324.09999990463257,
+            "timeStamp": 357.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1523,7 +1516,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 336.2999999523163,
+            "timeStamp": 369.89999985694885,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1650,7 +1643,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 336.2999999523163,
+            "timeStamp": 369.89999985694885,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1715,7 +1708,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 353.39999985694885,
+            "timeStamp": 387.2000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1780,7 +1773,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 370.09999990463257,
+            "timeStamp": 403.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1845,7 +1838,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 385,
+            "timeStamp": 419.7000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1910,7 +1903,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 401.59999990463257,
+            "timeStamp": 436.7000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1957,13 +1950,6 @@
         ]
       },
       {
-        "name": "onError",
-        "args": [
-          "002",
-          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
-        ]
-      },
-      {
         "name": "onNodeMouseEnter",
         "args": [
           {
@@ -1986,7 +1972,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 422.5,
+            "timeStamp": 456.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2113,7 +2099,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 422.5,
+            "timeStamp": 456.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2178,7 +2164,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 422.5,
+            "timeStamp": 456.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2476,13 +2462,6 @@
         ]
       },
       {
-        "name": "onError",
-        "args": [
-          "002",
-          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
-        ]
-      },
-      {
         "name": "onSelectionChange",
         "args": [
           {
@@ -2563,204 +2542,6 @@
         ]
       },
       {
-        "name": "onPaneMouseEnter",
-        "args": [
-          {
-            "@class": "SyntheticBaseEvent",
-            "_reactName": "onPointerEnter",
-            "_targetInst": {
-              "@ref": "React fiber"
-            },
-            "type": "pointerenter",
-            "nativeEvent": {
-              "@class": "PointerEvent",
-              "isTrusted": true
-            },
-            "target": {
-              "@ref": "DIV"
-            },
-            "currentTarget": {
-              "@ref": "DIV"
-            },
-            "eventPhase": 3,
-            "bubbles": true,
-            "cancelable": true,
-            "timeStamp": 449.59999990463257,
-            "defaultPrevented": false,
-            "isTrusted": true,
-            "view": {
-              "@ref": "Window"
-            },
-            "detail": 0,
-            "screenX": 794.47412109375,
-            "screenY": 57.74568557739258,
-            "clientX": 794.47412109375,
-            "clientY": 57.74568557739258,
-            "pageX": 794.47412109375,
-            "pageY": 57.74568557739258,
-            "ctrlKey": false,
-            "shiftKey": false,
-            "altKey": false,
-            "metaKey": false,
-            "getModifierState": {
-              "@ref": "function"
-            },
-            "button": -1,
-            "buttons": 1,
-            "relatedTarget": {
-              "@ref": "Window"
-            },
-            "movementX": 0,
-            "movementY": 0,
-            "pointerId": 1,
-            "width": 1,
-            "height": 1,
-            "pressure": 0.5,
-            "tangentialPressure": 0,
-            "tiltX": 0,
-            "tiltY": 0,
-            "twist": 0,
-            "pointerType": "mouse",
-            "isPrimary": true,
-            "isDefaultPrevented": {
-              "@ref": "function"
-            },
-            "isPropagationStopped": {
-              "@ref": "function"
-            }
-          }
-        ]
-      },
-      {
-        "name": "onNodeMouseEnter",
-        "args": [
-          {
-            "@class": "SyntheticBaseEvent",
-            "_reactName": "onMouseEnter",
-            "_targetInst": {
-              "@ref": "React fiber"
-            },
-            "type": "mouseenter",
-            "nativeEvent": {
-              "@class": "MouseEvent",
-              "isTrusted": true
-            },
-            "target": {
-              "@ref": "DIV"
-            },
-            "currentTarget": {
-              "@ref": "DIV"
-            },
-            "eventPhase": 3,
-            "bubbles": true,
-            "cancelable": true,
-            "timeStamp": 449.59999990463257,
-            "defaultPrevented": false,
-            "isTrusted": true,
-            "view": {
-              "@ref": "Window"
-            },
-            "detail": 0,
-            "screenX": 794,
-            "screenY": 57,
-            "clientX": 794,
-            "clientY": 57,
-            "pageX": 794,
-            "pageY": 57,
-            "ctrlKey": false,
-            "shiftKey": false,
-            "altKey": false,
-            "metaKey": false,
-            "getModifierState": {
-              "@ref": "function"
-            },
-            "button": 0,
-            "buttons": 1,
-            "relatedTarget": {
-              "@ref": "Window"
-            },
-            "movementX": 0,
-            "movementY": 0,
-            "isDefaultPrevented": {
-              "@ref": "function"
-            },
-            "isPropagationStopped": {
-              "@ref": "function"
-            }
-          },
-          {
-            "id": "drag-handle",
-            "position": {
-              "x": 200,
-              "y": 0
-            },
-            "data": {
-              "label": "Drag Handle"
-            },
-            "type": "DragHandleNode",
-            "sourcePosition": {
-              "@undefined": true
-            },
-            "targetPosition": {
-              "@undefined": true
-            },
-            "hidden": false,
-            "selected": true,
-            "dragging": false,
-            "draggable": {
-              "@undefined": true
-            },
-            "selectable": {
-              "@undefined": true
-            },
-            "connectable": {
-              "@undefined": true
-            },
-            "deletable": {
-              "@undefined": true
-            },
-            "dragHandle": ".custom-drag-handle",
-            "width": 100,
-            "height": 50,
-            "initialWidth": {
-              "@undefined": true
-            },
-            "initialHeight": {
-              "@undefined": true
-            },
-            "parentId": {
-              "@undefined": true
-            },
-            "zIndex": {
-              "@undefined": true
-            },
-            "extent": {
-              "@undefined": true
-            },
-            "expandParent": false,
-            "ariaLabel": {
-              "@undefined": true
-            },
-            "origin": {
-              "@undefined": true
-            },
-            "handles": {
-              "@undefined": true
-            },
-            "measured": {
-              "width": 100,
-              "height": 50
-            },
-            "className": {
-              "@undefined": true
-            },
-            "style": {
-              "@undefined": true
-            }
-          }
-        ]
-      },
-      {
         "name": "onNodeMouseLeave",
         "args": [
           {
@@ -2783,7 +2564,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 453.59999990463257,
+            "timeStamp": 487.2000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2910,7 +2691,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 453.59999990463257,
+            "timeStamp": 487.2000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3144,13 +2925,6 @@
         ]
       },
       {
-        "name": "onError",
-        "args": [
-          "002",
-          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
-        ]
-      },
-      {
         "name": "onPaneMouseMove",
         "args": [
           {
@@ -3171,7 +2945,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 484.89999985694885,
+            "timeStamp": 518.5999999046326,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3405,13 +3179,6 @@
         ]
       },
       {
-        "name": "onError",
-        "args": [
-          "002",
-          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
-        ]
-      },
-      {
         "name": "onPaneMouseMove",
         "args": [
           {
@@ -3432,7 +3199,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 512.2999999523163,
+            "timeStamp": 546.8999998569489,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3666,13 +3433,6 @@
         ]
       },
       {
-        "name": "onError",
-        "args": [
-          "002",
-          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
-        ]
-      },
-      {
         "name": "onPaneMouseMove",
         "args": [
           {
@@ -3693,7 +3453,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 531,
+            "timeStamp": 564,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3927,13 +3687,6 @@
         ]
       },
       {
-        "name": "onError",
-        "args": [
-          "002",
-          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
-        ]
-      },
-      {
         "name": "onPaneMouseMove",
         "args": [
           {
@@ -3954,7 +3707,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 547.5999999046326,
+            "timeStamp": 580.0999999046326,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -4188,13 +3941,6 @@
         ]
       },
       {
-        "name": "onError",
-        "args": [
-          "002",
-          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
-        ]
-      },
-      {
         "name": "onNodeMouseEnter",
         "args": [
           {
@@ -4217,7 +3963,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 563.8999998569489,
+            "timeStamp": 596.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -4510,211 +4256,6 @@
               }
             }
           ]
-        ]
-      },
-      {
-        "name": "onError",
-        "args": [
-          "002",
-          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
-        ]
-      },
-      {
-        "name": "onPaneMouseEnter",
-        "args": [
-          {
-            "@class": "SyntheticBaseEvent",
-            "_reactName": "onPointerEnter",
-            "_targetInst": {
-              "@ref": "React fiber"
-            },
-            "type": "pointerenter",
-            "nativeEvent": {
-              "@class": "PointerEvent",
-              "isTrusted": true
-            },
-            "target": {
-              "@ref": "DIV"
-            },
-            "currentTarget": {
-              "@ref": "DIV"
-            },
-            "eventPhase": 3,
-            "bubbles": true,
-            "cancelable": true,
-            "timeStamp": 582.5,
-            "defaultPrevented": false,
-            "isTrusted": true,
-            "view": {
-              "@ref": "Window"
-            },
-            "detail": 0,
-            "screenX": 994.47412109375,
-            "screenY": 257.7456970214844,
-            "clientX": 994.47412109375,
-            "clientY": 257.7456970214844,
-            "pageX": 994.47412109375,
-            "pageY": 257.7456970214844,
-            "ctrlKey": false,
-            "shiftKey": false,
-            "altKey": false,
-            "metaKey": false,
-            "getModifierState": {
-              "@ref": "function"
-            },
-            "button": -1,
-            "buttons": 0,
-            "relatedTarget": {
-              "@ref": "Window"
-            },
-            "movementX": 0,
-            "movementY": 0,
-            "pointerId": 1,
-            "width": 1,
-            "height": 1,
-            "pressure": 0,
-            "tangentialPressure": 0,
-            "tiltX": 0,
-            "tiltY": 0,
-            "twist": 0,
-            "pointerType": "mouse",
-            "isPrimary": true,
-            "isDefaultPrevented": {
-              "@ref": "function"
-            },
-            "isPropagationStopped": {
-              "@ref": "function"
-            }
-          }
-        ]
-      },
-      {
-        "name": "onNodeMouseEnter",
-        "args": [
-          {
-            "@class": "SyntheticBaseEvent",
-            "_reactName": "onMouseEnter",
-            "_targetInst": {
-              "@ref": "React fiber"
-            },
-            "type": "mouseenter",
-            "nativeEvent": {
-              "@class": "MouseEvent",
-              "isTrusted": true
-            },
-            "target": {
-              "@ref": "DIV"
-            },
-            "currentTarget": {
-              "@ref": "DIV"
-            },
-            "eventPhase": 3,
-            "bubbles": true,
-            "cancelable": true,
-            "timeStamp": 582.5,
-            "defaultPrevented": false,
-            "isTrusted": true,
-            "view": {
-              "@ref": "Window"
-            },
-            "detail": 0,
-            "screenX": 994,
-            "screenY": 257,
-            "clientX": 994,
-            "clientY": 257,
-            "pageX": 994,
-            "pageY": 257,
-            "ctrlKey": false,
-            "shiftKey": false,
-            "altKey": false,
-            "metaKey": false,
-            "getModifierState": {
-              "@ref": "function"
-            },
-            "button": 0,
-            "buttons": 0,
-            "relatedTarget": {
-              "@ref": "Window"
-            },
-            "movementX": 0,
-            "movementY": 0,
-            "isDefaultPrevented": {
-              "@ref": "function"
-            },
-            "isPropagationStopped": {
-              "@ref": "function"
-            }
-          },
-          {
-            "id": "drag-handle",
-            "position": {
-              "x": 394.2073170731707,
-              "y": 194.2073170731707
-            },
-            "data": {
-              "label": "Drag Handle"
-            },
-            "type": "DragHandleNode",
-            "sourcePosition": {
-              "@undefined": true
-            },
-            "targetPosition": {
-              "@undefined": true
-            },
-            "hidden": false,
-            "selected": true,
-            "dragging": false,
-            "draggable": {
-              "@undefined": true
-            },
-            "selectable": {
-              "@undefined": true
-            },
-            "connectable": {
-              "@undefined": true
-            },
-            "deletable": {
-              "@undefined": true
-            },
-            "dragHandle": ".custom-drag-handle",
-            "width": 100,
-            "height": 50,
-            "initialWidth": {
-              "@undefined": true
-            },
-            "initialHeight": {
-              "@undefined": true
-            },
-            "parentId": {
-              "@undefined": true
-            },
-            "zIndex": {
-              "@undefined": true
-            },
-            "extent": {
-              "@undefined": true
-            },
-            "expandParent": false,
-            "ariaLabel": {
-              "@undefined": true
-            },
-            "origin": {
-              "@undefined": true
-            },
-            "handles": {
-              "@undefined": true
-            },
-            "measured": {
-              "width": 100,
-              "height": 50
-            },
-            "className": {
-              "@undefined": true
-            },
-            "style": {
-              "@undefined": true
-            }
-          }
         ]
       }
     ],

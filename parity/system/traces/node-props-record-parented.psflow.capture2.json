@@ -275,7 +275,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 162.5,
+            "timeStamp": 158.80000019073486,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -344,7 +344,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 162.5,
+            "timeStamp": 158.80000019073486,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -473,7 +473,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 162.5,
+            "timeStamp": 158.80000019073486,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -538,7 +538,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 162.5,
+            "timeStamp": 158.80000019073486,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -707,7 +707,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 169.10000014305115,
+            "timeStamp": 168.20000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -814,13 +814,6 @@
         ]
       },
       {
-        "name": "onError",
-        "args": [
-          "002",
-          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
-        ]
-      },
-      {
         "name": "onSelectionChange",
         "args": [
           {
@@ -903,206 +896,6 @@
         ]
       },
       {
-        "name": "onPaneMouseEnter",
-        "args": [
-          {
-            "@class": "SyntheticBaseEvent",
-            "_reactName": "onPointerEnter",
-            "_targetInst": {
-              "@ref": "React fiber"
-            },
-            "type": "pointerenter",
-            "nativeEvent": {
-              "@class": "PointerEvent",
-              "isTrusted": true
-            },
-            "target": {
-              "@ref": "DIV"
-            },
-            "currentTarget": {
-              "@ref": "DIV"
-            },
-            "eventPhase": 3,
-            "bubbles": true,
-            "cancelable": true,
-            "timeStamp": 182,
-            "defaultPrevented": false,
-            "isTrusted": true,
-            "view": {
-              "@ref": "Window"
-            },
-            "detail": 0,
-            "screenX": 640,
-            "screenY": 360,
-            "clientX": 640,
-            "clientY": 360,
-            "pageX": 640,
-            "pageY": 360,
-            "ctrlKey": false,
-            "shiftKey": false,
-            "altKey": false,
-            "metaKey": false,
-            "getModifierState": {
-              "@ref": "function"
-            },
-            "button": -1,
-            "buttons": 0,
-            "relatedTarget": {
-              "@ref": "Window"
-            },
-            "movementX": 0,
-            "movementY": 0,
-            "pointerId": 1,
-            "width": 1,
-            "height": 1,
-            "pressure": 0,
-            "tangentialPressure": 0,
-            "tiltX": 0,
-            "tiltY": 0,
-            "twist": 0,
-            "pointerType": "mouse",
-            "isPrimary": true,
-            "isDefaultPrevented": {
-              "@ref": "function"
-            },
-            "isPropagationStopped": {
-              "@ref": "function"
-            }
-          }
-        ]
-      },
-      {
-        "name": "onNodeMouseEnter",
-        "args": [
-          {
-            "@class": "SyntheticBaseEvent",
-            "_reactName": "onMouseEnter",
-            "_targetInst": {
-              "@ref": "React fiber"
-            },
-            "type": "mouseenter",
-            "nativeEvent": {
-              "@class": "MouseEvent",
-              "isTrusted": true
-            },
-            "target": {
-              "@ref": "DIV"
-            },
-            "currentTarget": {
-              "@ref": "DIV"
-            },
-            "eventPhase": 3,
-            "bubbles": true,
-            "cancelable": true,
-            "timeStamp": 182,
-            "defaultPrevented": false,
-            "isTrusted": true,
-            "view": {
-              "@ref": "Window"
-            },
-            "detail": 0,
-            "screenX": 640,
-            "screenY": 360,
-            "clientX": 640,
-            "clientY": 360,
-            "pageX": 640,
-            "pageY": 360,
-            "ctrlKey": false,
-            "shiftKey": false,
-            "altKey": false,
-            "metaKey": false,
-            "getModifierState": {
-              "@ref": "function"
-            },
-            "button": 0,
-            "buttons": 0,
-            "relatedTarget": {
-              "@ref": "Window"
-            },
-            "movementX": 0,
-            "movementY": 0,
-            "isDefaultPrevented": {
-              "@ref": "function"
-            },
-            "isPropagationStopped": {
-              "@ref": "function"
-            }
-          },
-          {
-            "id": "props-parent",
-            "position": {
-              "x": 100,
-              "y": 200
-            },
-            "data": {
-              "label": "props-parent"
-            },
-            "type": "propsRecord",
-            "sourcePosition": {
-              "@undefined": true
-            },
-            "targetPosition": {
-              "@undefined": true
-            },
-            "hidden": false,
-            "selected": true,
-            "dragging": false,
-            "draggable": {
-              "@undefined": true
-            },
-            "selectable": {
-              "@undefined": true
-            },
-            "connectable": {
-              "@undefined": true
-            },
-            "deletable": {
-              "@undefined": true
-            },
-            "dragHandle": {
-              "@undefined": true
-            },
-            "width": 300,
-            "height": 200,
-            "initialWidth": {
-              "@undefined": true
-            },
-            "initialHeight": {
-              "@undefined": true
-            },
-            "parentId": {
-              "@undefined": true
-            },
-            "zIndex": {
-              "@undefined": true
-            },
-            "extent": {
-              "@undefined": true
-            },
-            "expandParent": false,
-            "ariaLabel": {
-              "@undefined": true
-            },
-            "origin": {
-              "@undefined": true
-            },
-            "handles": {
-              "@undefined": true
-            },
-            "measured": {
-              "width": 300,
-              "height": 200
-            },
-            "className": {
-              "@undefined": true
-            },
-            "style": {
-              "@undefined": true
-            }
-          }
-        ]
-      },
-      {
         "name": "onNodeMouseLeave",
         "args": [
           {
@@ -1125,7 +918,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 182.40000009536743,
+            "timeStamp": 179.90000009536743,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1256,7 +1049,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 182.40000009536743,
+            "timeStamp": 179.90000009536743,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1377,7 +1170,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 182.40000009536743,
+            "timeStamp": 179.90000009536743,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1442,7 +1235,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 182.40000009536743,
+            "timeStamp": 179.90000009536743,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1589,7 +1382,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 202.60000014305115,
+            "timeStamp": 200.70000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
