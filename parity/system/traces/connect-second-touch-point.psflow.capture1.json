@@ -916,13 +916,6 @@
         ]
       },
       {
-        "name": "onError",
-        "args": [
-          "002",
-          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
-        ]
-      },
-      {
         "name": "onPaneMouseEnter",
         "args": [
           {
@@ -945,7 +938,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 306.7999999523163,
+            "timeStamp": 320.30000019073486,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1012,7 +1005,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 328.90000009536743,
+            "timeStamp": 341.40000009536743,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1079,7 +1072,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 361.5,
+            "timeStamp": 376.60000014305115,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1327,13 +1320,6 @@
         ]
       },
       {
-        "name": "onError",
-        "args": [
-          "002",
-          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
-        ]
-      },
-      {
         "name": "onSelectionChange",
         "args": [
           {
@@ -1438,7 +1424,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 398.2999999523163,
+            "timeStamp": 410.40000009536743,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1503,7 +1489,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 398.2999999523163,
+            "timeStamp": 410.40000009536743,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

@@ -976,13 +976,6 @@
             "zoom": 1.6894049346879536
           }
         ]
-      },
-      {
-        "name": "onError",
-        "args": [
-          "002",
-          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
-        ]
       }
     ],
     "hooks": {},

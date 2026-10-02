@@ -916,13 +916,6 @@
         ]
       },
       {
-        "name": "onError",
-        "args": [
-          "002",
-          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
-        ]
-      },
-      {
         "name": "onPaneMouseEnter",
         "args": [
           {
@@ -945,7 +938,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 180.39999985694885,
+            "timeStamp": 185.10000014305115,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1014,7 +1007,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 180.39999985694885,
+            "timeStamp": 185.10000014305115,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1143,7 +1136,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 180.39999985694885,
+            "timeStamp": 185.10000014305115,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1208,7 +1201,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 180.39999985694885,
+            "timeStamp": 185.10000014305115,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1512,13 +1505,6 @@
         ]
       },
       {
-        "name": "onError",
-        "args": [
-          "002",
-          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
-        ]
-      },
-      {
         "name": "onSelectionChange",
         "args": [
           {
@@ -1776,7 +1762,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 195.59999990463257,
+            "timeStamp": 213.70000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1905,7 +1891,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 204,
+            "timeStamp": 221.10000014305115,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2036,7 +2022,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 204,
+            "timeStamp": 221.10000014305115,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2163,7 +2149,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 204,
+            "timeStamp": 221.10000014305115,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2228,7 +2214,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 204,
+            "timeStamp": 221.10000014305115,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2627,13 +2613,6 @@
         ]
       },
       {
-        "name": "onError",
-        "args": [
-          "002",
-          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
-        ]
-      },
-      {
         "name": "onSelectionChange",
         "args": [
           {
@@ -2734,7 +2713,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 227.89999985694885,
+            "timeStamp": 246.40000009536743,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3071,13 +3050,6 @@
         ]
       },
       {
-        "name": "onError",
-        "args": [
-          "002",
-          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
-        ]
-      },
-      {
         "name": "onPaneMouseMove",
         "args": [
           {
@@ -3098,7 +3070,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 243.69999980926514,
+            "timeStamp": 261.10000014305115,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3435,13 +3407,6 @@
         ]
       },
       {
-        "name": "onError",
-        "args": [
-          "002",
-          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
-        ]
-      },
-      {
         "name": "onPaneMouseMove",
         "args": [
           {
@@ -3462,7 +3427,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 261.09999990463257,
+            "timeStamp": 278.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3799,13 +3764,6 @@
         ]
       },
       {
-        "name": "onError",
-        "args": [
-          "002",
-          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
-        ]
-      },
-      {
         "name": "onPaneMouseMove",
         "args": [
           {
@@ -3826,7 +3784,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 277.89999985694885,
+            "timeStamp": 293.90000009536743,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -4163,13 +4121,6 @@
         ]
       },
       {
-        "name": "onError",
-        "args": [
-          "002",
-          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
-        ]
-      },
-      {
         "name": "onPaneMouseMove",
         "args": [
           {
@@ -4190,7 +4141,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 295,
+            "timeStamp": 311.60000014305115,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -4527,13 +4478,6 @@
         ]
       },
       {
-        "name": "onError",
-        "args": [
-          "002",
-          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
-        ]
-      },
-      {
         "name": "onNodesChange",
         "args": [
           [
@@ -4826,13 +4770,6 @@
         ]
       },
       {
-        "name": "onError",
-        "args": [
-          "002",
-          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
-        ]
-      },
-      {
         "name": "onPaneMouseMove",
         "args": [
           {
@@ -4853,7 +4790,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 324.69999980926514,
+            "timeStamp": 342.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -4918,7 +4855,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 324.69999980926514,
+            "timeStamp": 342.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -5194,7 +5131,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 334.89999985694885,
+            "timeStamp": 352.60000014305115,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -5428,13 +5365,6 @@
         ]
       },
       {
-        "name": "onError",
-        "args": [
-          "002",
-          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
-        ]
-      },
-      {
         "name": "onPaneMouseMove",
         "args": [
           {
@@ -5455,7 +5385,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 359.39999985694885,
+            "timeStamp": 376.80000019073486,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -5689,13 +5619,6 @@
         ]
       },
       {
-        "name": "onError",
-        "args": [
-          "002",
-          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
-        ]
-      },
-      {
         "name": "onPaneMouseMove",
         "args": [
           {
@@ -5716,7 +5639,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 378.2999999523163,
+            "timeStamp": 396.30000019073486,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -5950,13 +5873,6 @@
         ]
       },
       {
-        "name": "onError",
-        "args": [
-          "002",
-          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
-        ]
-      },
-      {
         "name": "onPaneMouseMove",
         "args": [
           {
@@ -5977,7 +5893,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 392.59999990463257,
+            "timeStamp": 409.80000019073486,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -6211,13 +6127,6 @@
         ]
       },
       {
-        "name": "onError",
-        "args": [
-          "002",
-          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
-        ]
-      },
-      {
         "name": "onPaneMouseMove",
         "args": [
           {
@@ -6238,7 +6147,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 408.59999990463257,
+            "timeStamp": 427,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -6472,13 +6381,6 @@
         ]
       },
       {
-        "name": "onError",
-        "args": [
-          "002",
-          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
-        ]
-      },
-      {
         "name": "onNodesChange",
         "args": [
           [
@@ -6665,13 +6567,6 @@
               }
             }
           ]
-        ]
-      },
-      {
-        "name": "onError",
-        "args": [
-          "002",
-          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
         ]
       }
     ],

@@ -981,13 +981,6 @@
         ]
       },
       {
-        "name": "onError",
-        "args": [
-          "002",
-          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
-        ]
-      },
-      {
         "name": "onPaneMouseEnter",
         "args": [
           {
@@ -1010,7 +1003,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 187.60000014305115,
+            "timeStamp": 240.09999990463257,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1079,7 +1072,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 187.60000014305115,
+            "timeStamp": 240.09999990463257,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1206,7 +1199,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 187.60000014305115,
+            "timeStamp": 240.09999990463257,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1271,7 +1264,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 187.60000014305115,
+            "timeStamp": 240.09999990463257,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1398,7 +1391,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 209.60000014305115,
+            "timeStamp": 259.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1527,7 +1520,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 209.60000014305115,
+            "timeStamp": 259.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1630,7 +1623,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 209.60000014305115,
+            "timeStamp": 259.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1695,7 +1688,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 209.60000014305115,
+            "timeStamp": 259.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1794,7 +1787,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 200.40000009536743,
+            "timeStamp": 248,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1856,7 +1849,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 230.60000014305115,
+            "timeStamp": 278.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1961,7 +1954,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 230.60000014305115,
+            "timeStamp": 278.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2090,7 +2083,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 230.60000014305115,
+            "timeStamp": 278.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2155,7 +2148,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 230.60000014305115,
+            "timeStamp": 278.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2533,13 +2526,6 @@
               "y": 238
             }
           }
-        ]
-      },
-      {
-        "name": "onError",
-        "args": [
-          "002",
-          "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
         ]
       }
     ],
