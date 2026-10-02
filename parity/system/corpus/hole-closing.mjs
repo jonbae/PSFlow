@@ -42,6 +42,7 @@ const LIMITS_CHANGE = routeOf("./flow/limits-change.ts");
 const PROPS_CHANGE = routeOf("./flow/props-change.ts");
 const CONTROLLED_VIEWPORT = routeOf("./viewport/controlled.ts");
 const PAN_ON_SCROLL = routeOf("./viewport/pan-on-scroll.ts");
+const NOT_SELECTABLE = routeOf("./flow/not-selectable.ts");
 
 const control = (name) => `[data-testid="${name}"]`;
 
@@ -171,6 +172,27 @@ const holeClosing = [
       await a.key("Control", { action: "down" });
       await a.wheel(".react-flow__pane", { dx: -300, dy: -150, deltaY: -100 });
       await a.key("Control", { action: "up" });
+    },
+  },
+
+  // A pane click on a flow whose elements are not selectable, with a node and
+  // an edge the consumer passed in selected. Ticket #141, off #139.
+  //
+  // Upstream's `resetSelectedElements` returns early when `elementsSelectable`
+  // is false, and ps-flow's reducer had no guard. The corpus could not see it:
+  // `flow-props-change-after-mount` is the one scenario that turns the flag
+  // off, and it never clicks the pane after the change.
+  // `flow/not-selectable.ts` says why the class has a fixture of its own.
+  //
+  // Near the pane's top-left corner, which `fitView` leaves empty, so the
+  // click lands on the pane and not on a node or an edge. With the guard
+  // removed, ps-flow calls `onNodesChange` and `onEdgesChange` with a
+  // deselection each, and the node and the edge render unselected.
+  {
+    id: "pane-click-keeps-selection-when-not-selectable",
+    route: NOT_SELECTABLE,
+    async run(a) {
+      await a.click({ target: ".react-flow__pane", origin: "topLeft", dx: 40, dy: 40 });
     },
   },
 ];
