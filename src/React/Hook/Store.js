@@ -3,8 +3,13 @@ import React from "react";
 // Upstream's `useStore` is zustand's `useStoreWithEqualityFn`, which is
 // `useSyncExternalStoreWithSelector` from `use-sync-external-store`. This is
 // that hook, ported from `use-sync-external-store/with-selector` 1.6.0
-// (`cjs/use-sync-external-store-with-selector.development.js`) with the
-// server snapshot left out, because ps-flow does not render on a server.
+// (`cjs/use-sync-external-store-with-selector.development.js`).
+//
+// The server snapshot is zustand's `getServerState || getInitialState`, and
+// here it is `getState`: on a server nothing has dispatched, so the two are
+// the same state. Without one, React refuses a server render outright
+// ("Missing getServerSnapshot"), which is how `parity:boundary`'s mount check
+// renders the converted props.
 //
 // What it buys over a `useState` fed by a subscription is React's own
 // `useSyncExternalStore`. A slice that moved between the render and the
@@ -59,12 +64,14 @@ export const useStoreImpl = (store, selector, isEqual) => {
   if (instRef.current === null) instRef.current = newSelectionInstance();
   const inst = instRef.current;
 
-  const getSelection = React.useMemo(() => {
-    const memoizedSelector = selectionMemo(selector)(isEqual)(inst);
-    return () => memoizedSelector(getSnapshot());
-  }, [getSnapshot, selector, isEqual]);
+  const getServerSnapshot = store.getState;
 
-  const value = React.useSyncExternalStore(subscribe, getSelection);
+  const [getSelection, getServerSelection] = React.useMemo(() => {
+    const memoizedSelector = selectionMemo(selector)(isEqual)(inst);
+    return [() => memoizedSelector(getSnapshot()), () => memoizedSelector(getServerSnapshot())];
+  }, [getSnapshot, getServerSnapshot, selector, isEqual]);
+
+  const value = React.useSyncExternalStore(subscribe, getSelection, getServerSelection);
   React.useEffect(() => {
     inst.hasValue = true;
     inst.value = value;

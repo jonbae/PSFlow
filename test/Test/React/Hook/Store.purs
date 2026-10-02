@@ -37,6 +37,7 @@ import Prelude
 
 import Data.Array (elem)
 import Data.Maybe (Maybe(..))
+import Data.Nullable (Nullable, toMaybe)
 import Effect (Effect)
 import Effect.Class.Console (log)
 import Effect.Ref as Ref
@@ -56,6 +57,7 @@ type FakeRenderer a =
   , hasExternalStore :: Effect Boolean
   , subscribeIdentity :: Effect SubscribeIdentity
   , snapshot :: Effect a
+  , serverSnapshotOrNull :: Effect (Nullable a)
   , subscribe :: Effect Unit -> Effect (Effect Unit)
   }
 
@@ -113,6 +115,10 @@ runUseStoreTests = do
   external <- sized.fake.hasExternalStore
   assert "useStore reads the store through React's useSyncExternalStore"
     (external && elem "useSyncExternalStore" calls && not (elem "useState" calls))
+
+  server <- toMaybe <$> sized.fake.serverSnapshotOrNull
+  assert "useStore hands React a server snapshot, so a server render does not refuse it"
+    (map _.width server == Just 0.0)
 
   first <- sized.fake.subscribeIdentity
   _ <- sized.render
