@@ -588,7 +588,7 @@ wrapEdgeComponent
   :: ReactComponent JsEdgeProps
   -> ReactComponent (EdgeProps Foreign)
 wrapEdgeComponent userComponent =
-  mkComponentWrapper userComponent
+  mkComponentWrapper "edgeTypes" userComponent
     (mkEffectFn1 \psProps -> pure (element userComponent (edgePropsOut psProps)))
 
 -- ────────────────────────────────────────────────────────────────────────

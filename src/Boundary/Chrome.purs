@@ -495,7 +495,7 @@ wrapMiniMapNodeComponent
   :: ReactComponent JsMiniMapNodeProps
   -> ReactComponent MiniMapNodeProps
 wrapMiniMapNodeComponent userComponent =
-  mkComponentWrapper userComponent
+  mkComponentWrapper "MiniMap.nodeComponent" userComponent
     (mkEffectFn1 \psProps -> pure (element userComponent (miniMapNodePropsOut psProps)))
 
 -- | `memo`, because upstream's is.

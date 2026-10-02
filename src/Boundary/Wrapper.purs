@@ -26,10 +26,17 @@ module Boundary.Wrapper
 import Effect.Uncurried (EffectFn1)
 import React.Basic (JSX, ReactComponent)
 
--- | `mkComponentWrapper wrapped render` is a component that renders `render`
--- | and calls itself whatever `wrapped` is called.
+-- | `mkComponentWrapper prop wrapped render` is a component that renders
+-- | `render` and calls itself whatever `wrapped` is called.
+-- |
+-- | It is the same component every time it is asked for the same `prop` and
+-- | `wrapped`, because React reconciles by component identity: a new wrapper
+-- | per render remounted every custom node and edge on every render. So
+-- | `render` must depend on nothing but `wrapped` and `prop` — the one it was
+-- | first handed is the one every later call gets.
 foreign import mkComponentWrapper
   :: forall js ps
-   . ReactComponent js
+   . String
+  -> ReactComponent js
   -> EffectFn1 ps JSX
   -> ReactComponent ps
