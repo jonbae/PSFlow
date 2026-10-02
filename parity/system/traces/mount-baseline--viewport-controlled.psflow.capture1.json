@@ -453,6 +453,45 @@
         ]
       },
       {
+        "name": "onMoveStart",
+        "args": [
+          {
+            "sync": true
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          }
+        ]
+      },
+      {
+        "name": "onMove",
+        "args": [
+          {
+            "sync": true
+          },
+          {
+            "x": 100,
+            "y": 50,
+            "zoom": 1
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          {
+            "sync": true
+          },
+          {
+            "x": 100,
+            "y": 50,
+            "zoom": 1
+          }
+        ]
+      },
+      {
         "name": "onNodesChange",
         "args": [
           [
@@ -569,45 +608,6 @@
               "setAttributes": true
             }
           ]
-        ]
-      },
-      {
-        "name": "onMoveStart",
-        "args": [
-          {
-            "sync": true
-          },
-          {
-            "x": 0,
-            "y": 0,
-            "zoom": 1
-          }
-        ]
-      },
-      {
-        "name": "onMove",
-        "args": [
-          {
-            "sync": true
-          },
-          {
-            "x": 100,
-            "y": 50,
-            "zoom": 1
-          }
-        ]
-      },
-      {
-        "name": "onMoveEnd",
-        "args": [
-          {
-            "sync": true
-          },
-          {
-            "x": 100,
-            "y": 50,
-            "zoom": 1
-          }
         ]
       }
     ],

@@ -29,6 +29,7 @@ import React.Types.Store (MiddlewareKey(..), ReactFlowState)
 import System.Constants (errorMessage)
 import System.Utils.Graph (fitViewport)
 import System.Utils.Store (updateNodeInternals)
+import Unsafe.Reference (unsafeRefEq)
 import Web.HTML.HTMLDivElement (toHTMLElement)
 
 -- | One subscriber. Each `subscribe` call captures its selector and
@@ -59,6 +60,13 @@ type Store n e =
   { getState :: Effect (ReactFlowState n e)
   , setState :: (ReactFlowState n e -> ReactFlowState n e) -> Effect Unit
   , subscribe :: Subscribe n e
+  -- | Zustand's own `subscribe(listener)`: the listener runs after every
+  -- | dispatch that replaced the state, with no selector between them.
+  -- | `React.Hook.Store.useStore` hands it to React's
+  -- | `useSyncExternalStore`, which reads the slice itself. A selector here
+  -- | would be the one captured when the subscription was made, and a
+  -- | consumer's selector can change from render to render.
+  , subscribeAll :: Effect Unit -> Effect (Effect Unit)
   , dispatch :: Action n e -> Effect Unit
   , freshMiddlewareKey :: Effect MiddlewareKey
   }
@@ -204,6 +212,17 @@ createStore opts = do
       -- itself on 52 of 94 scenarios" (#94).
       pure (Ref.modify_ (Array.filter (\sub -> sub.key /= key)) subsRef)
 
+    -- Zustand notifies when `!Object.is(nextState, state)`, and so does
+    -- this: a dispatch whose reducer handed the same state back is not a
+    -- change. Listeners share the selector subscribers' list, so the two
+    -- kinds run in the order they subscribed, as zustand's one `Set` does.
+    subscribeAll listener = do
+      key <- Ref.modify (_ + 1) nextSubKeyRef
+      let
+        onUpdate prev next = unless (unsafeRefEq prev next) listener
+      Ref.modify_ (\xs -> xs <> [ { onUpdate, key } ]) subsRef
+      pure (Ref.modify_ (Array.filter (\sub -> sub.key /= key)) subsRef)
+
     freshMiddlewareKey = do
       n <- Ref.modify (_ + 1) middlewareKeyRef
       pure (MiddlewareKey n)
@@ -212,6 +231,7 @@ createStore opts = do
     { getState
     , setState
     , subscribe
+    , subscribeAll
     , dispatch
     , freshMiddlewareKey
     }

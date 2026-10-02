@@ -945,7 +945,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 163.59999990463257,
+            "timeStamp": 163.40000009536743,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1014,7 +1014,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 163.59999990463257,
+            "timeStamp": 163.40000009536743,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1141,7 +1141,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 163.59999990463257,
+            "timeStamp": 163.40000009536743,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1206,7 +1206,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 163.59999990463257,
+            "timeStamp": 163.40000009536743,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1613,7 +1613,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 180.90000009536743,
+            "timeStamp": 180.79999995231628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1740,7 +1740,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 180.90000009536743,
+            "timeStamp": 180.79999995231628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2291,6 +2291,15 @@
         ]
       },
       {
+        "name": "onSelectionChange",
+        "args": [
+          {
+            "nodes": [],
+            "edges": []
+          }
+        ]
+      },
+      {
         "name": "onNodeMouseEnter",
         "args": [
           {
@@ -2313,7 +2322,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 233.90000009536743,
+            "timeStamp": 237.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2364,7 +2373,7 @@
               "@undefined": true
             },
             "hidden": false,
-            "selected": true,
+            "selected": false,
             "dragging": true,
             "draggable": {
               "@undefined": true
@@ -2442,7 +2451,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 237.09999990463257,
+            "timeStamp": 242.10000014305115,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2493,7 +2502,7 @@
               "@undefined": true
             },
             "hidden": false,
-            "selected": true,
+            "selected": false,
             "dragging": true,
             "draggable": {
               "@undefined": true
@@ -2571,7 +2580,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 237.09999990463257,
+            "timeStamp": 242.10000014305115,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2702,7 +2711,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 237.09999990463257,
+            "timeStamp": 242.10000014305115,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2940,15 +2949,6 @@
         "args": [
           "002",
           "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them."
-        ]
-      },
-      {
-        "name": "onSelectionChange",
-        "args": [
-          {
-            "nodes": [],
-            "edges": []
-          }
         ]
       }
     ],
