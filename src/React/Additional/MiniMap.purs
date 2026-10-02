@@ -3,6 +3,9 @@
 module React.Additional.MiniMap
   ( miniMap
   , module React.Types.Component
+  -- Public for testing.
+  , MMSlice(..)
+  , selector
   ) where
 
 import Prelude
