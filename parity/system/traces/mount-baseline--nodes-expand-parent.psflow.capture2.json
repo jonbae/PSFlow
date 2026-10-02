@@ -1533,7 +1533,7 @@
           "x": 70,
           "y": 283
         },
-        "viewportInitialized": false
+        "viewportInitialized": true
       },
       "calls": []
     },

@@ -637,7 +637,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 1283.1000001430511,
+            "timeStamp": 1283.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -704,7 +704,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 1283.1000001430511,
+            "timeStamp": 1283.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2112,7 +2112,7 @@
           "x": 490,
           "y": 123
         },
-        "viewportInitialized": false
+        "viewportInitialized": true
       },
       "calls": []
     },

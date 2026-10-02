@@ -738,7 +738,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 331.90000009536743,
+            "timeStamp": 298.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -807,7 +807,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 331.90000009536743,
+            "timeStamp": 298.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -936,7 +936,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 331.90000009536743,
+            "timeStamp": 298.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1001,7 +1001,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 331.90000009536743,
+            "timeStamp": 298.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1170,7 +1170,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 355.2000000476837,
+            "timeStamp": 320.59999990463257,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1381,7 +1381,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 373.40000009536743,
+            "timeStamp": 340.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1450,7 +1450,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 373.40000009536743,
+            "timeStamp": 340.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2922,7 +2922,7 @@
           "x": 490,
           "y": 123
         },
-        "viewportInitialized": false
+        "viewportInitialized": true
       },
       "calls": []
     },

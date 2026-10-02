@@ -2847,7 +2847,7 @@
           "x": 440,
           "y": 260
         },
-        "viewportInitialized": false
+        "viewportInitialized": true
       },
       "calls": [
         {

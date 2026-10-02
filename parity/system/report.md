@@ -1,10 +1,10 @@
 # System parity
 
-The dual-run net over 97 scenario(s), against vendored `@xyflow/react` 12.11.0.
+The dual-run net over 99 scenario(s), against vendored `@xyflow/react` 12.11.0.
 
 Captured by this run: both sides mounted the same unmodified fixtures through the same driver, bundled twice.
 
-**97 of 97 scenario(s) failed.**
+**99 of 99 scenario(s) failed.**
 
 A failing net is the expected state while the divergence backlog is being worked: the scenarios below
 are recording what the two implementations actually do, and a difference is fixed in the port or
@@ -12,101 +12,103 @@ claimed by a region — never by loosening what the net looks at.
 
 | scenario | verdict | failure classes | differences |
 |---|---|---|---|
-| `mount-baseline--edges-general` | **failed** | unclaimed-difference | 1769 |
-| `mount-baseline--node-toolbar-general` | **failed** | unclaimed-difference | 1199 |
-| `mount-baseline--nodes-general` | **failed** | unclaimed-difference | 959 |
-| `mount-baseline--pane-general` | **failed** | unclaimed-difference | 421 |
-| `mount-baseline--pane-non-defaults` | **failed** | unclaimed-difference | 406 |
-| `mount-baseline--chrome-background` | **failed** | unclaimed-difference | 477 |
-| `mount-baseline--chrome-controls` | **failed** | unclaimed-difference | 475 |
-| `mount-baseline--chrome-minimap-colors` | **failed** | unclaimed-difference | 476 |
-| `mount-baseline--chrome-minimap-hidden-nodes` | **failed** | unclaimed-difference | 323 |
-| `mount-baseline--chrome-panels` | **failed** | unclaimed-difference | 475 |
-| `mount-baseline--edges-base-edge-path` | **failed** | driving-divergence, unclaimed-difference | 89 |
-| `mount-baseline--fitview-uncontrolled` | **failed** | unclaimed-difference | 475 |
-| `mount-baseline--flow-chrome-defaults` | **failed** | unclaimed-difference | 241 |
-| `mount-baseline--flow-custom-testid` | **failed** | unclaimed-difference | 476 |
-| `mount-baseline--flow-display-none` | **failed** | unclaimed-difference | 475 |
-| `mount-baseline--flow-limits-change` | **failed** | unclaimed-difference | 474 |
-| `mount-baseline--flow-props-change` | **failed** | unclaimed-difference | 475 |
-| `mount-baseline--nodes-autopan` | **failed** | unclaimed-difference | 406 |
-| `mount-baseline--nodes-connections` | **failed** | unclaimed-difference | 767 |
-| `mount-baseline--nodes-expand-parent` | **failed** | self-inconsistent, unclaimed-difference | 414 |
-| `mount-baseline--nodes-no-select-on-drag` | **failed** | unclaimed-difference | 475 |
-| `mount-baseline--nodes-nowheel` | **failed** | unclaimed-difference | 309 |
-| `mount-baseline--nodes-props-record` | **failed** | unclaimed-difference | 169 |
-| `mount-baseline--nodes-tall` | **failed** | unclaimed-difference | 519 |
-| `mount-baseline--nodes-unmeasured` | **failed** | unclaimed-difference | 391 |
-| `mount-baseline--viewport-helpers` | **failed** | unclaimed-difference | 544 |
+| `mount-baseline--edges-general` | **failed** | unclaimed-difference | 1768 |
+| `mount-baseline--node-toolbar-general` | **failed** | unclaimed-difference | 1198 |
+| `mount-baseline--nodes-general` | **failed** | unclaimed-difference | 958 |
+| `mount-baseline--pane-general` | **failed** | unclaimed-difference | 420 |
+| `mount-baseline--pane-non-defaults` | **failed** | unclaimed-difference | 405 |
+| `mount-baseline--chrome-background` | **failed** | unclaimed-difference | 476 |
+| `mount-baseline--chrome-controls` | **failed** | unclaimed-difference | 474 |
+| `mount-baseline--chrome-minimap-colors` | **failed** | unclaimed-difference | 475 |
+| `mount-baseline--chrome-minimap-hidden-nodes` | **failed** | unclaimed-difference | 321 |
+| `mount-baseline--chrome-panels` | **failed** | unclaimed-difference | 474 |
+| `mount-baseline--edges-base-edge-path` | **failed** | driving-divergence, unclaimed-difference | 88 |
+| `mount-baseline--fitview-uncontrolled` | **failed** | unclaimed-difference | 474 |
+| `mount-baseline--flow-chrome-defaults` | **failed** | unclaimed-difference | 239 |
+| `mount-baseline--flow-custom-testid` | **failed** | unclaimed-difference | 475 |
+| `mount-baseline--flow-display-none` | **failed** | unclaimed-difference | 474 |
+| `mount-baseline--flow-limits-change` | **failed** | unclaimed-difference | 473 |
+| `mount-baseline--flow-props-change` | **failed** | unclaimed-difference | 474 |
+| `mount-baseline--nodes-autopan` | **failed** | unclaimed-difference | 405 |
+| `mount-baseline--nodes-connections` | **failed** | unclaimed-difference | 766 |
+| `mount-baseline--nodes-expand-parent` | **failed** | unclaimed-difference | 387 |
+| `mount-baseline--nodes-no-select-on-drag` | **failed** | unclaimed-difference | 474 |
+| `mount-baseline--nodes-nowheel` | **failed** | unclaimed-difference | 308 |
+| `mount-baseline--nodes-props-record` | **failed** | unclaimed-difference | 168 |
+| `mount-baseline--nodes-tall` | **failed** | unclaimed-difference | 518 |
+| `mount-baseline--nodes-unmeasured` | **failed** | unclaimed-difference | 390 |
+| `mount-baseline--viewport-controlled` | **failed** | self-inconsistent, unclaimed-difference | 475 |
+| `mount-baseline--viewport-helpers` | **failed** | unclaimed-difference | 543 |
 | `mount-baseline--examples-color-mode` | **failed** | unclaimed-difference | 41 |
-| `click-selects-edge` | **failed** | driving-divergence, unclaimed-difference | 1842 |
-| `multi-select-edges-with-modifier` | **failed** | self-inconsistent, driving-divergence, unclaimed-difference | 1948 |
-| `click-unselectable-edge` | **failed** | unclaimed-difference | 1814 |
-| `delete-key-removes-edge` | **failed** | driving-divergence, unclaimed-difference | 1796 |
-| `delete-key-spares-undeletable-edge` | **failed** | driving-divergence, unclaimed-difference | 1840 |
-| `click-inside-interaction-width` | **failed** | driving-divergence, unclaimed-difference | 1831 |
-| `click-selects-node` | **failed** | unclaimed-difference | 1124 |
-| `shift-drag-selects-nodes` | **failed** | unclaimed-difference | 1023 |
-| `click-unselectable-node` | **failed** | unclaimed-difference | 1119 |
-| `drag-moves-node` | **failed** | unclaimed-difference | 1454 |
-| `drag-does-not-move-undraggable-node` | **failed** | unclaimed-difference | 1051 |
-| `drag-by-custom-drag-handle` | **failed** | unclaimed-difference | 1480 |
-| `delete-key-removes-node-and-edges` | **failed** | unclaimed-difference | 1006 |
-| `delete-key-spares-undeletable-node` | **failed** | unclaimed-difference | 1143 |
-| `connect-source-handle-to-target-handle` | **failed** | unclaimed-difference | 1259 |
-| `connect-output-to-output-handle` | **failed** | unclaimed-difference | 1145 |
-| `connect-input-to-input-handle` | **failed** | unclaimed-difference | 1181 |
-| `connect-to-unconnectable-handle` | **failed** | unclaimed-difference | 1136 |
-| `drag-pans-the-pane` | **failed** | unclaimed-difference | 421 |
-| `wheel-zooms-the-pane` | **failed** | unclaimed-difference | 421 |
-| `wheel-zooms-out-to-min` | **failed** | unclaimed-difference | 407 |
-| `wheel-zooms-in-to-max` | **failed** | unclaimed-difference | 407 |
-| `wheel-pans-with-panonscroll` | **failed** | unclaimed-difference | 418 |
-| `click-reveals-default-toolbar` | **failed** | unclaimed-difference | 1295 |
+| `click-selects-edge` | **failed** | driving-divergence, unclaimed-difference | 1841 |
+| `multi-select-edges-with-modifier` | **failed** | self-inconsistent, driving-divergence, unclaimed-difference | 1946 |
+| `click-unselectable-edge` | **failed** | unclaimed-difference | 1813 |
+| `delete-key-removes-edge` | **failed** | driving-divergence, unclaimed-difference | 1795 |
+| `delete-key-spares-undeletable-edge` | **failed** | driving-divergence, unclaimed-difference | 1839 |
+| `click-inside-interaction-width` | **failed** | driving-divergence, unclaimed-difference | 1830 |
+| `click-selects-node` | **failed** | unclaimed-difference | 1123 |
+| `shift-drag-selects-nodes` | **failed** | unclaimed-difference | 1022 |
+| `click-unselectable-node` | **failed** | unclaimed-difference | 1118 |
+| `drag-moves-node` | **failed** | unclaimed-difference | 1453 |
+| `drag-does-not-move-undraggable-node` | **failed** | unclaimed-difference | 1050 |
+| `drag-by-custom-drag-handle` | **failed** | unclaimed-difference | 1479 |
+| `delete-key-removes-node-and-edges` | **failed** | unclaimed-difference | 1005 |
+| `delete-key-spares-undeletable-node` | **failed** | unclaimed-difference | 1142 |
+| `connect-source-handle-to-target-handle` | **failed** | unclaimed-difference | 1258 |
+| `connect-output-to-output-handle` | **failed** | unclaimed-difference | 1144 |
+| `connect-input-to-input-handle` | **failed** | unclaimed-difference | 1180 |
+| `connect-to-unconnectable-handle` | **failed** | unclaimed-difference | 1135 |
+| `drag-pans-the-pane` | **failed** | unclaimed-difference | 420 |
+| `wheel-zooms-the-pane` | **failed** | unclaimed-difference | 420 |
+| `wheel-zooms-out-to-min` | **failed** | unclaimed-difference | 406 |
+| `wheel-zooms-in-to-max` | **failed** | unclaimed-difference | 406 |
+| `wheel-pans-with-panonscroll` | **failed** | unclaimed-difference | 417 |
+| `click-reveals-default-toolbar` | **failed** | unclaimed-difference | 1294 |
 | `select-dark-color-mode` | **failed** | unclaimed-difference | 41 |
-| `drag-node-release` | **failed** | unclaimed-difference | 1904 |
-| `drag-node-escape-mid-gesture` | **failed** | unclaimed-difference | 1265 |
-| `drag-node-autopan` | **failed** | self-inconsistent, unclaimed-difference | 1238 |
-| `drag-node-no-select-on-drag` | **failed** | unclaimed-difference | 1311 |
-| `drag-child-expand-parent` | **failed** | driving-divergence, unclaimed-difference | 971 |
-| `drag-unmeasured-node` | **failed** | unclaimed-difference | 964 |
-| `selection-box-from-node` | **failed** | unclaimed-difference | 1047 |
-| `selection-box-then-click-node` | **failed** | unclaimed-difference | 1358 |
-| `selection-box-mid-gesture` | **failed** | unclaimed-difference | 477 |
-| `selection-box-touch` | **failed** | unclaimed-difference | 1056 |
-| `arrow-key-selected-node` | **failed** | unclaimed-difference | 765 |
-| `keyboard-focus-node` | **failed** | unclaimed-difference | 545 |
-| `connect-handle-to-handle` | **failed** | unclaimed-difference | 1521 |
-| `connect-then-keyboard-move` | **failed** | unclaimed-difference | 1298 |
-| `connect-second-touch-point` | **failed** | unclaimed-difference | 1038 |
-| `probe-node-connections` | **failed** | driving-divergence, unclaimed-difference | 1042 |
-| `viewport-helpers-with-options` | **failed** | unclaimed-difference | 588 |
-| `pan-gesture-complete` | **failed** | unclaimed-difference | 421 |
-| `fitview-onnodeschange-variants` | **failed** | unclaimed-difference | 880 |
-| `uncontrolled-update-node` | **failed** | unclaimed-difference | 612 |
-| `flow-props-change-after-mount` | **failed** | unclaimed-difference | 749 |
-| `mount-in-display-none` | **failed** | unclaimed-difference | 476 |
-| `minimap-all-nodes-hidden` | **failed** | unclaimed-difference | 339 |
-| `minimap-custom-mask-colors` | **failed** | unclaimed-difference | 593 |
-| `controls-horizontal` | **failed** | unclaimed-difference | 476 |
-| `panel-center-positions` | **failed** | unclaimed-difference | 475 |
-| `background-custom-bgcolor` | **failed** | unclaimed-difference | 479 |
-| `flow-custom-testid` | **failed** | driving-divergence, unclaimed-difference | 498 |
-| `custom-edge-baseedge-path` | **failed** | driving-divergence, unclaimed-difference | 114 |
-| `pinch-over-nowheel-node` | **failed** | driving-divergence, unclaimed-difference | 403 |
-| `minimap-default-click` | **failed** | unclaimed-difference | 241 |
-| `controls-default-zoom` | **failed** | unclaimed-difference | 241 |
-| `wheel-zoom-from-identity-viewport` | **failed** | unclaimed-difference | 250 |
-| `pane-drag-from-identity-viewport` | **failed** | unclaimed-difference | 240 |
-| `drag-node-reports-changes` | **failed** | self-inconsistent, unclaimed-difference | 1042 |
-| `click-connect-reverse-direction` | **failed** | unclaimed-difference | 503 |
-| `connect-drag-holding-source` | **failed** | unclaimed-difference | 383 |
-| `connect-drag-released-on-pane` | **failed** | unclaimed-difference | 410 |
-| `node-props-record-parented` | **failed** | unclaimed-difference | 312 |
-| `wheel-zooms-to-changed-limits` | **failed** | unclaimed-difference | 476 |
-| `drag-pans-into-changed-extent` | **failed** | unclaimed-difference | 474 |
-| `click-selects-node--probe-flow-node` | **failed** | unclaimed-difference | 1122 |
-| `wheel-zooms-the-pane--probe-flow-node` | **failed** | unclaimed-difference | 520 |
+| `drag-node-release` | **failed** | unclaimed-difference | 1903 |
+| `drag-node-escape-mid-gesture` | **failed** | unclaimed-difference | 1264 |
+| `drag-node-autopan` | **failed** | unclaimed-difference | 1100 |
+| `drag-node-no-select-on-drag` | **failed** | unclaimed-difference | 1310 |
+| `drag-child-expand-parent` | **failed** | driving-divergence, unclaimed-difference | 970 |
+| `drag-unmeasured-node` | **failed** | unclaimed-difference | 963 |
+| `selection-box-from-node` | **failed** | unclaimed-difference | 1046 |
+| `selection-box-then-click-node` | **failed** | unclaimed-difference | 1357 |
+| `selection-box-mid-gesture` | **failed** | unclaimed-difference | 476 |
+| `selection-box-touch` | **failed** | unclaimed-difference | 1055 |
+| `arrow-key-selected-node` | **failed** | self-inconsistent, unclaimed-difference | 766 |
+| `keyboard-focus-node` | **failed** | unclaimed-difference | 544 |
+| `connect-handle-to-handle` | **failed** | unclaimed-difference | 1520 |
+| `connect-then-keyboard-move` | **failed** | unclaimed-difference | 1297 |
+| `connect-second-touch-point` | **failed** | unclaimed-difference | 1037 |
+| `probe-node-connections` | **failed** | driving-divergence, unclaimed-difference | 1038 |
+| `viewport-helpers-with-options` | **failed** | unclaimed-difference | 587 |
+| `pan-gesture-complete` | **failed** | unclaimed-difference | 420 |
+| `fitview-onnodeschange-variants` | **failed** | unclaimed-difference | 879 |
+| `uncontrolled-update-node` | **failed** | unclaimed-difference | 611 |
+| `flow-props-change-after-mount` | **failed** | self-inconsistent, unclaimed-difference | 787 |
+| `mount-in-display-none` | **failed** | unclaimed-difference | 475 |
+| `minimap-all-nodes-hidden` | **failed** | unclaimed-difference | 321 |
+| `minimap-custom-mask-colors` | **failed** | unclaimed-difference | 592 |
+| `controls-horizontal` | **failed** | unclaimed-difference | 475 |
+| `panel-center-positions` | **failed** | unclaimed-difference | 474 |
+| `background-custom-bgcolor` | **failed** | unclaimed-difference | 478 |
+| `flow-custom-testid` | **failed** | driving-divergence, unclaimed-difference | 497 |
+| `custom-edge-baseedge-path` | **failed** | driving-divergence, unclaimed-difference | 113 |
+| `pinch-over-nowheel-node` | **failed** | driving-divergence, unclaimed-difference | 402 |
+| `minimap-default-click` | **failed** | unclaimed-difference | 239 |
+| `controls-default-zoom` | **failed** | unclaimed-difference | 240 |
+| `wheel-zoom-from-identity-viewport` | **failed** | unclaimed-difference | 249 |
+| `pane-drag-from-identity-viewport` | **failed** | unclaimed-difference | 239 |
+| `drag-node-reports-changes` | **failed** | self-inconsistent, unclaimed-difference | 1041 |
+| `click-connect-reverse-direction` | **failed** | unclaimed-difference | 501 |
+| `connect-drag-holding-source` | **failed** | unclaimed-difference | 381 |
+| `connect-drag-released-on-pane` | **failed** | unclaimed-difference | 408 |
+| `node-props-record-parented` | **failed** | unclaimed-difference | 349 |
+| `wheel-zooms-to-changed-limits` | **failed** | unclaimed-difference | 475 |
+| `drag-pans-into-changed-extent` | **failed** | unclaimed-difference | 473 |
+| `pan-after-controlled-viewport-change` | **failed** | unclaimed-difference | 474 |
+| `click-selects-node--probe-flow-node` | **failed** | unclaimed-difference | 1120 |
+| `wheel-zooms-the-pane--probe-flow-node` | **failed** | unclaimed-difference | 518 |
 | `mount-baseline--edges-general--probe-edge` | **failed** | unclaimed-difference | 16 |
 | `connect-source-handle-to-target-handle--probe-connection-line` | **failed** | unclaimed-difference | 68 |
 
@@ -141,7 +143,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1769 unclaimed difference(s).
+**Failed:** 1768 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -471,7 +473,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/13/resizing` | right only | — | false |
 | `callbacks/4/args/0/13/setAttributes` | right only | — | true |
 
-### api (1453)
+### api (1452)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -1927,7 +1929,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/11/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/11/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/11/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 
 ---
@@ -1958,7 +1959,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1199 unclaimed difference(s).
+**Failed:** 1198 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -2204,7 +2205,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/12/resizing` | right only | — | false |
 | `callbacks/4/args/0/12/setAttributes` | right only | — | true |
 
-### api (967)
+### api (966)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -3174,7 +3175,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/0/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/0/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/0/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 
 ---
@@ -3205,7 +3205,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 959 unclaimed difference(s).
+**Failed:** 958 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -3361,7 +3361,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/8/resizing` | right only | — | false |
 | `callbacks/4/args/0/8/setAttributes` | right only | — | true |
 
-### api (817)
+### api (816)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -4181,7 +4181,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 
 ---
@@ -4212,7 +4211,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 421 unclaimed difference(s).
+**Failed:** 420 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -4287,7 +4286,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/2/setAttributes` | right only | — | true |
 
-### api (360)
+### api (359)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -4650,7 +4649,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 
 ---
@@ -4681,7 +4679,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 406 unclaimed difference(s).
+**Failed:** 405 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -4743,7 +4741,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/1/args/0/2/resizing` | right only | — | false |
 | `callbacks/1/args/0/2/setAttributes` | right only | — | true |
 
-### api (358)
+### api (357)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -5104,7 +5102,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 
 ---
@@ -5135,7 +5132,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 477 unclaimed difference(s).
+**Failed:** 476 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -5212,7 +5209,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/setAttributes` | right only | — | true |
 
-### api (414)
+### api (413)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -5629,7 +5626,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 
 ---
@@ -5660,7 +5656,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 475 unclaimed difference(s).
+**Failed:** 474 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -5735,7 +5731,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/setAttributes` | right only | — | true |
 
-### api (414)
+### api (413)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -6152,7 +6148,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 
 ---
@@ -6183,7 +6178,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 476 unclaimed difference(s).
+**Failed:** 475 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -6259,7 +6254,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/setAttributes` | right only | — | true |
 
-### api (414)
+### api (413)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -6676,7 +6671,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 
 ---
@@ -6707,22 +6701,21 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 323 unclaimed difference(s).
+**Failed:** 321 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (6)
+### dom (5)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `dom/root/children/div[1]/children/svg[0]/attrs/viewBox` | differs | -32 -152 1344 1024 | 0 0 0 0 |
-| `dom/root/children/div[1]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-184h1408v1088h-1408z⏎        M0,0h1280v720h-1280z | M0,0h0v0h0z M0,0h0v0h0z |
+| `dom/root/children/div[1]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-184h1408v1088h-1408z⏎        M0,0h1280v720h-1280z | M-64,-184h1408v1088h-1408z M0,0h1280v720h-1280z |
 | `dom/root/children/div[2]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[2]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[2]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### api (317)
+### api (316)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -7042,7 +7035,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/0/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/0/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/0/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 
 ---
@@ -7073,7 +7065,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 475 unclaimed difference(s).
+**Failed:** 474 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -7148,7 +7140,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/setAttributes` | right only | — | true |
 
-### api (414)
+### api (413)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -7565,7 +7557,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 
 ---
@@ -7596,7 +7587,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 driving divergence(s), 86 unclaimed difference(s).
+**Failed:** 3 driving divergence(s), 85 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -7651,7 +7642,7 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/2/setAttributes` | right only | — | true |
 
-### api (53) — consequence of the driving divergence
+### api (52) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -7707,7 +7698,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/screenToFlowPosition/y` | differs | -91.5 | 0 |
 | `api/queries/flowToScreenPosition/x` | differs | 490 | 0 |
 | `api/queries/flowToScreenPosition/y` | differs | 183 | 0 |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ### console (7) — consequence of the driving divergence
 
@@ -7717,8 +7707,8 @@ a real divergence is exactly what would be hiding down there.
 | `console/2` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/3` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/4` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:64468/parity/driver/dist/… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:64468/parity/driver/dist/… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:51570/parity/driver/dist/… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:51570/parity/driver/dist/… |
 | `console/7` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 
 
@@ -7750,7 +7740,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 475 unclaimed difference(s).
+**Failed:** 474 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -7825,7 +7815,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/setAttributes` | right only | — | true |
 
-### api (414)
+### api (413)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -8242,7 +8232,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 
 ---
@@ -8273,11 +8262,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 241 unclaimed difference(s).
+**Failed:** 239 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (20)
+### dom (19)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -8293,8 +8282,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n2/children/1-n2-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"n2","data-handlepos":"right","data-id":"1-n2-null-source","class":"connectable connectableend connectablestart connectioni… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n2/children/1-n2--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-left target",… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n2/children/1-n2--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-right source"… |
-| `dom/root/children/div[2]/children/svg[0]/attrs/viewBox` | differs | -32 -152 1344 1024 | -8.75 -70 367.5 280 |
-| `dom/root/children/div[2]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-184h1408v1088h-1408z⏎        M0,0h1280v720h-1280z | M-17.5,-78.75h385v297.5h-385z M0,0h0v0h0z |
+| `dom/root/children/div[2]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-184h1408v1088h-1408z⏎        M0,0h1280v720h-1280z | M-64,-184h1408v1088h-1408z M0,0h1280v720h-1280z |
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","patternTransform":"translate(-11,-11)"},… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","pat… |
 | `dom/root/children/div[3]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
@@ -8302,7 +8290,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[3]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### api (221)
+### api (220)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -8526,7 +8514,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/0/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/0/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/0/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 
 ---
@@ -8557,7 +8544,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 476 unclaimed difference(s).
+**Failed:** 475 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -8633,7 +8620,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/setAttributes` | right only | — | true |
 
-### api (414)
+### api (413)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -9050,7 +9037,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 
 ---
@@ -9081,7 +9067,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 475 unclaimed difference(s).
+**Failed:** 474 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -9156,7 +9142,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/setAttributes` | right only | — | true |
 
-### api (414)
+### api (413)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -9573,7 +9559,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 
 ---
@@ -9604,7 +9589,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 474 unclaimed difference(s).
+**Failed:** 473 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -9678,7 +9663,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/1/args/0/3/resizing` | right only | — | false |
 | `callbacks/1/args/0/3/setAttributes` | right only | — | true |
 
-### api (414)
+### api (413)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -10095,7 +10080,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 
 ---
@@ -10126,7 +10110,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 475 unclaimed difference(s).
+**Failed:** 474 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -10201,7 +10185,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/setAttributes` | right only | — | true |
 
-### api (414)
+### api (413)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -10618,7 +10602,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 
 ---
@@ -10649,7 +10632,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 406 unclaimed difference(s).
+**Failed:** 405 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -10711,7 +10694,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/1/args/0/2/resizing` | right only | — | false |
 | `callbacks/1/args/0/2/setAttributes` | right only | — | true |
 
-### api (358)
+### api (357)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -11072,7 +11055,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 
 ---
@@ -11103,7 +11085,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 767 unclaimed difference(s).
+**Failed:** 766 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -11237,7 +11219,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/5/resizing` | right only | — | false |
 | `callbacks/4/args/0/5/setAttributes` | right only | — | true |
 
-### api (647)
+### api (646)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -11887,14 +11869,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/4/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/4/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/4/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 
 ---
 
 # System parity run — mount-baseline--nodes-expand-parent
 
-**Failed:** self-inconsistent, unclaimed-difference.
+**Failed:** unclaimed-difference.
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -11908,41 +11889,7 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | **disagrees with itself** | 25 |
-
-### psflow disagrees with itself
-
-| path | kind | capture 1 | capture 2 |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/parent/attrs/style` | differs | background-color: rgba(80, 120, 200, 0.12); height: 37px; pointer-events: all; transform: translate(0px, 0px); visibility: visible; width: 150px; z-index: 0; | background-color: rgba(80, 120, 200, 0.12); height: 77px; pointer-events: all; transform: translate(0px, 0px); visibility: visible; width: 190px; z-index: 0; |
-| `callbacks/6` | left only | {"name":"onNodesChange","args":[[{"position":{"@undefined":true},"positionAbsolute":{"@undefined":true},"dragging":{"@undefined":true},"selected":{"@undefined"… | — |
-| `api/queries/getNodes/0/width` | differs | 150 | 190 |
-| `api/queries/getNodes/0/height` | differs | 37 | 77 |
-| `api/queries/getNodes/0/measured/width` | differs | 150 | 190 |
-| `api/queries/getNodes/0/measured/height` | differs | 37 | 77 |
-| `api/queries/getNode/width` | differs | 150 | 190 |
-| `api/queries/getNode/height` | differs | 37 | 77 |
-| `api/queries/getNode/measured/width` | differs | 150 | 190 |
-| `api/queries/getNode/measured/height` | differs | 37 | 77 |
-| `api/queries/getInternalNode/width` | differs | 150 | 190 |
-| `api/queries/getInternalNode/height` | differs | 37 | 77 |
-| `api/queries/getInternalNode/measured/width` | differs | 150 | 190 |
-| `api/queries/getInternalNode/measured/height` | differs | 37 | 77 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 91 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 72 |
-| `api/queries/getInternalNode/internals/handleBounds/target/0/x` | differs | 71 | 91 |
-| `api/queries/getIntersectingNodes/0/width` | differs | 150 | 190 |
-| `api/queries/getIntersectingNodes/0/height` | differs | 37 | 77 |
-| `api/queries/getIntersectingNodes/0/measured/width` | differs | 150 | 190 |
-| `api/queries/getIntersectingNodes/0/measured/height` | differs | 37 | 77 |
-| `api/queries/toObject/nodes/0/width` | differs | 150 | 190 |
-| `api/queries/toObject/nodes/0/height` | differs | 37 | 77 |
-| `api/queries/toObject/nodes/0/measured/width` | differs | 150 | 190 |
-| `api/queries/toObject/nodes/0/measured/height` | differs | 37 | 77 |
-
-**psflow did not reproduce.** The comparison below ran anyway —
-capture-everything applies to a failed run as much as to a passing one — but a difference it reports
-cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
+| psflow | 1, 2 | reproduced | 0 |
 
 ---
 
@@ -11952,7 +11899,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 389 unclaimed difference(s).
+**Failed:** 387 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -11965,7 +11912,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/child-outside/attrs/aria-describedby` | left only | react-flow__edge-desc-1 | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children` | ordered differently | ["parent","child","outside"] | ["child","outside","parent"] |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/parent/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/parent/attrs/style` | differs | background-color: rgba(80, 120, 200, 0.12); height: 220px; pointer-events: all; transform: translate(0px, 0px); visibility: visible; width: 320px; z-index: 0; | background-color: rgba(80, 120, 200, 0.12); height: 37px; pointer-events: all; transform: translate(0px, 0px); visibility: visible; width: 150px; z-index: 0; |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/parent/attrs/style` | differs | background-color: rgba(80, 120, 200, 0.12); height: 220px; pointer-events: all; transform: translate(0px, 0px); visibility: visible; width: 320px; z-index: 0; | background-color: rgba(80, 120, 200, 0.12); height: 77px; pointer-events: all; transform: translate(0px, 0px); visibility: visible; width: 190px; z-index: 0; |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/parent/children/1-parent-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"parent","data-handlepos":"top","data-id":"1-parent-null-target","class":"connectable connectableend connectablestart conne… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/parent/children/1-parent-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"parent","data-handlepos":"bottom","data-id":"1-parent-null-source","class":"connectable connectableend connectablestart co… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/parent/children/1-parent--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
@@ -11987,11 +11934,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (35)
+### callbacks (34)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/6` | right only | — | {"name":"onNodesChange","args":[[{"position":{"@undefined":true},"positionAbsolute":{"@undefined":true},"dragging":{"@undefined":true},"selected":{"@undefined"… |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1"] | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1"] |
 | `callbacks/2/args/0/y` | differs | 140 | 283 |
 | `callbacks/3/args/1/y` | differs | 140 | 283 |
@@ -12027,12 +11973,12 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/3` | right only | — | {"position":{"@undefined":true},"positionAbsolute":{"@undefined":true},"dragging":{"@undefined":true},"selected":{"@undefined":true},"item":{"@undefined":true}… |
 | `callbacks/5/args/1/y` | differs | 140 | 283 |
 
-### api (328)
+### api (327)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getNodes/0/measured/width` | differs | 320 | 150 |
-| `api/queries/getNodes/0/measured/height` | differs | 220 | 37 |
+| `api/queries/getNodes/0/measured/width` | differs | 320 | 190 |
+| `api/queries/getNodes/0/measured/height` | differs | 220 | 77 |
 | `api/queries/getNodes/0/type` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/0/sourcePosition` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/0/targetPosition` | right only | — | {"@undefined":true} |
@@ -12044,8 +11990,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getNodes/0/connectable` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/0/deletable` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/0/dragHandle` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/0/width` | right only | — | 150 |
-| `api/queries/getNodes/0/height` | right only | — | 37 |
+| `api/queries/getNodes/0/width` | right only | — | 190 |
+| `api/queries/getNodes/0/height` | right only | — | 77 |
 | `api/queries/getNodes/0/initialWidth` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/0/initialHeight` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/0/parentId` | right only | — | {"@undefined":true} |
@@ -12102,8 +12048,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getNodes/2/handles` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/2/className` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/2/style` | right only | — | {"@undefined":true} |
-| `api/queries/getNode/measured/width` | differs | 320 | 150 |
-| `api/queries/getNode/measured/height` | differs | 220 | 37 |
+| `api/queries/getNode/measured/width` | differs | 320 | 190 |
+| `api/queries/getNode/measured/height` | differs | 220 | 77 |
 | `api/queries/getNode/type` | right only | — | {"@undefined":true} |
 | `api/queries/getNode/sourcePosition` | right only | — | {"@undefined":true} |
 | `api/queries/getNode/targetPosition` | right only | — | {"@undefined":true} |
@@ -12115,8 +12061,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getNode/connectable` | right only | — | {"@undefined":true} |
 | `api/queries/getNode/deletable` | right only | — | {"@undefined":true} |
 | `api/queries/getNode/dragHandle` | right only | — | {"@undefined":true} |
-| `api/queries/getNode/width` | right only | — | 150 |
-| `api/queries/getNode/height` | right only | — | 37 |
+| `api/queries/getNode/width` | right only | — | 190 |
+| `api/queries/getNode/height` | right only | — | 77 |
 | `api/queries/getNode/initialWidth` | right only | — | {"@undefined":true} |
 | `api/queries/getNode/initialHeight` | right only | — | {"@undefined":true} |
 | `api/queries/getNode/parentId` | right only | — | {"@undefined":true} |
@@ -12127,13 +12073,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getNode/origin` | right only | — | {"@undefined":true} |
 | `api/queries/getNode/handles` | right only | — | {"@undefined":true} |
 | `api/queries/getNode/className` | right only | — | {"@undefined":true} |
-| `api/queries/getInternalNode/measured/width` | differs | 320 | 150 |
-| `api/queries/getInternalNode/measured/height` | differs | 220 | 37 |
+| `api/queries/getInternalNode/measured/width` | differs | 320 | 190 |
+| `api/queries/getInternalNode/measured/height` | differs | 220 | 77 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 156 | 71 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 215 | 32 |
+| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 156 | 91 |
+| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 215 | 72 |
 | `api/queries/getInternalNode/internals/handleBounds/target/0/id` | differs | null | {"@undefined":true} |
-| `api/queries/getInternalNode/internals/handleBounds/target/0/x` | differs | 156 | 71 |
+| `api/queries/getInternalNode/internals/handleBounds/target/0/x` | differs | 156 | 91 |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"parent","data":{"label":"parent"},"position":{"x":0,"y":0},"style":{"width":320,"height":220,"backgroundColor":"rgba(80, 120, 200, 0.12)"},"measured":{"… | — |
 | `api/queries/getInternalNode/internals/rootParentIndex` | right only | — | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/bounds` | right only | — | {"@undefined":true} |
@@ -12148,8 +12094,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/connectable` | right only | — | {"@undefined":true} |
 | `api/queries/getInternalNode/deletable` | right only | — | {"@undefined":true} |
 | `api/queries/getInternalNode/dragHandle` | right only | — | {"@undefined":true} |
-| `api/queries/getInternalNode/width` | right only | — | 150 |
-| `api/queries/getInternalNode/height` | right only | — | 37 |
+| `api/queries/getInternalNode/width` | right only | — | 190 |
+| `api/queries/getInternalNode/height` | right only | — | 77 |
 | `api/queries/getInternalNode/initialWidth` | right only | — | {"@undefined":true} |
 | `api/queries/getInternalNode/initialHeight` | right only | — | {"@undefined":true} |
 | `api/queries/getInternalNode/parentId` | right only | — | {"@undefined":true} |
@@ -12194,8 +12140,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getEdge/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/getEdge/className` | right only | — | {"@undefined":true} |
 | `api/queries/getEdge/style` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/0/measured/width` | differs | 320 | 150 |
-| `api/queries/getIntersectingNodes/0/measured/height` | differs | 220 | 37 |
+| `api/queries/getIntersectingNodes/0/measured/width` | differs | 320 | 190 |
+| `api/queries/getIntersectingNodes/0/measured/height` | differs | 220 | 77 |
 | `api/queries/getIntersectingNodes/0/type` | right only | — | {"@undefined":true} |
 | `api/queries/getIntersectingNodes/0/sourcePosition` | right only | — | {"@undefined":true} |
 | `api/queries/getIntersectingNodes/0/targetPosition` | right only | — | {"@undefined":true} |
@@ -12207,8 +12153,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/0/connectable` | right only | — | {"@undefined":true} |
 | `api/queries/getIntersectingNodes/0/deletable` | right only | — | {"@undefined":true} |
 | `api/queries/getIntersectingNodes/0/dragHandle` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/0/width` | right only | — | 150 |
-| `api/queries/getIntersectingNodes/0/height` | right only | — | 37 |
+| `api/queries/getIntersectingNodes/0/width` | right only | — | 190 |
+| `api/queries/getIntersectingNodes/0/height` | right only | — | 77 |
 | `api/queries/getIntersectingNodes/0/initialWidth` | right only | — | {"@undefined":true} |
 | `api/queries/getIntersectingNodes/0/initialHeight` | right only | — | {"@undefined":true} |
 | `api/queries/getIntersectingNodes/0/parentId` | right only | — | {"@undefined":true} |
@@ -12266,8 +12212,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/2/className` | right only | — | {"@undefined":true} |
 | `api/queries/getIntersectingNodes/2/style` | right only | — | {"@undefined":true} |
 | `api/queries/getNodesBounds/height` | differs | 220 | 77 |
-| `api/queries/toObject/nodes/0/measured/width` | differs | 320 | 150 |
-| `api/queries/toObject/nodes/0/measured/height` | differs | 220 | 37 |
+| `api/queries/toObject/nodes/0/measured/width` | differs | 320 | 190 |
+| `api/queries/toObject/nodes/0/measured/height` | differs | 220 | 77 |
 | `api/queries/toObject/nodes/0/type` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/sourcePosition` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/targetPosition` | right only | — | {"@undefined":true} |
@@ -12279,8 +12225,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/0/connectable` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/deletable` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/dragHandle` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/0/width` | right only | — | 150 |
-| `api/queries/toObject/nodes/0/height` | right only | — | 37 |
+| `api/queries/toObject/nodes/0/width` | right only | — | 190 |
+| `api/queries/toObject/nodes/0/height` | right only | — | 77 |
 | `api/queries/toObject/nodes/0/initialWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/initialHeight` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/parentId` | right only | — | {"@undefined":true} |
@@ -12358,7 +12304,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getViewport/y` | differs | 140 | 283 |
 | `api/queries/screenToFlowPosition/y` | differs | -70 | -141.5 |
 | `api/queries/flowToScreenPosition/y` | differs | 140 | 283 |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 
 ---
@@ -12389,7 +12334,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 475 unclaimed difference(s).
+**Failed:** 474 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -12464,7 +12409,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/setAttributes` | right only | — | true |
 
-### api (414)
+### api (413)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -12881,7 +12826,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 
 ---
@@ -12912,7 +12856,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 309 unclaimed difference(s).
+**Failed:** 308 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -12973,7 +12917,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/1/setAttributes` | right only | — | true |
 | `callbacks/5/args/1/y` | differs | 54.68852459016392 | 324.6983606557377 |
 
-### api (262)
+### api (261)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -13238,7 +13182,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getViewport/y` | differs | 54.68852459016392 | 324.6983606557377 |
 | `api/queries/screenToFlowPosition/y` | differs | -28.659793814432984 | -170.159793814433 |
 | `api/queries/flowToScreenPosition/y` | differs | 54.68852459016392 | 324.6983606557377 |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 
 ---
@@ -13269,7 +13212,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 169 unclaimed difference(s).
+**Failed:** 168 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -13285,7 +13228,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### api (162)
+### api (161)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -13450,7 +13393,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/1/handles` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 
 ---
@@ -13481,7 +13423,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 519 unclaimed difference(s).
+**Failed:** 518 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -13557,7 +13499,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/1/args/0/3/resizing` | right only | — | false |
 | `callbacks/1/args/0/3/setAttributes` | right only | — | true |
 
-### api (457)
+### api (456)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -14017,7 +13959,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/2/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/2/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/2/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 
 ---
@@ -14048,7 +13989,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 391 unclaimed difference(s).
+**Failed:** 390 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -14141,7 +14082,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/1/resizing` | right only | — | false |
 | `callbacks/4/args/0/1/setAttributes` | right only | — | true |
 
-### api (312)
+### api (311)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -14456,7 +14397,538 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/0/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/0/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/0/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
+
+
+---
+
+# System parity run — mount-baseline--viewport-controlled
+
+**Failed:** self-inconsistent, unclaimed-difference.
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
+## Self-consistency
+
+Each side is captured twice and compared against itself **before** the sides are compared at all: a
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
+
+| side | captures | verdict | differences |
+|---|---|---|---|
+| upstream | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | **disagrees with itself** | 1 |
+
+### psflow disagrees with itself
+
+| path | kind | capture 1 | capture 2 |
+|---|---|---|---|
+| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onMove#1","onMoveEnd#1"] | ["onSelectionChange#1","onMoveStart#1","onMove#1","onMoveEnd#1","onNodesChange#1"] |
+
+**psflow did not reproduce.** The comparison below ran anyway —
+capture-everything applies to a failed run as much as to a passing one — but a difference it reports
+cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
+
+---
+
+# Comparison report — mount-baseline--viewport-controlled
+
+upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
+
+**Failed:** 474 unclaimed difference(s).
+
+## Unclaimed differences
+
+### dom (28)
+
+| path | kind | upstream | psflow |
+|---|---|---|---|
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/attrs/aria-label` | left only | Edge from Node-1 to Node-2 | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/attrs/aria-describedby` | left only | react-flow__edge-desc-1 | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/g[0]/attrs/transform` | differs | translate(15.28076171875 63) | translate(15.28076171875 63.0) |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/attrs/aria-label` | left only | Edge from Node-1 to Node-3 | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/attrs/aria-describedby` | left only | react-flow__edge-desc-1 | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/g[0]/attrs/transform` | differs | translate(115.28076171875 63) | translate(115.28076171875 63.0) |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | pointer-events: all; transform: translate(0px, 0px); visibility: visible; z-index: 0; | height: 37px; pointer-events: all; transform: translate(0px, 0px); visibility: visible; width: 150px; z-index: 0; |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/children/1-Node-1-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-1","data-handlepos":"bottom","data-id":"1-Node-1-null-source","class":"connectable connectableend connectablestart co… | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/children/1-Node-1--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-2/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-2/attrs/style` | differs | pointer-events: all; transform: translate(-100px, 100px); visibility: visible; z-index: 0; | height: 37px; pointer-events: all; transform: translate(-100px, 100px); visibility: visible; width: 150px; z-index: 0; |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-2/children/1-Node-2-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-2","data-handlepos":"top","data-id":"1-Node-2-null-target","class":"connectable connectableend connectablestart conne… | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-2/children/1-Node-2--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/attrs/style` | differs | pointer-events: all; transform: translate(100px, 100px); visibility: visible; z-index: 0; | height: 37px; pointer-events: all; transform: translate(100px, 100px); visibility: visible; width: 150px; z-index: 0; |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-3","data-handlepos":"top","data-id":"1-Node-3-null-target","class":"connectable connectableend connectablestart conne… | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-3","data-handlepos":"bottom","data-id":"1-Node-3-null-source","class":"connectable connectableend connectablestart co… | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/attrs/style` | differs | pointer-events: all; transform: translate(0px, 200px); visibility: visible; z-index: 0; | height: 37px; pointer-events: all; transform: translate(0px, 200px); visibility: visible; width: 150px; z-index: 0; |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectable connectableend connectablestart conne… | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
+| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
+| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
+| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
+| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
+
+### callbacks (33)
+
+| path | kind | upstream | psflow |
+|---|---|---|---|
+| `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onMove#1","onNodesChange#1","onMoveEnd#1"] | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onMove#1","onMoveEnd#1"] |
+| `callbacks/3/args/0/0/position` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/0/dragging` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/0/selected` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/0/item` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/0/index` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/0/resizing` | right only | — | false |
+| `callbacks/3/args/0/0/setAttributes` | right only | — | true |
+| `callbacks/3/args/0/1/position` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/1/positionAbsolute` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/1/dragging` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/1/selected` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/1/item` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/1/index` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/1/resizing` | right only | — | false |
+| `callbacks/3/args/0/1/setAttributes` | right only | — | true |
+| `callbacks/3/args/0/2/position` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/2/positionAbsolute` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/2/dragging` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/2/selected` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/2/item` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/2/index` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/2/resizing` | right only | — | false |
+| `callbacks/3/args/0/2/setAttributes` | right only | — | true |
+| `callbacks/3/args/0/3/position` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/3/positionAbsolute` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/3/dragging` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/3/selected` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/3/item` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/3/index` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/3/resizing` | right only | — | false |
+| `callbacks/3/args/0/3/setAttributes` | right only | — | true |
+
+### api (413)
+
+| path | kind | upstream | psflow |
+|---|---|---|---|
+| `api/queries/getNodes/0/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/hidden` | right only | — | false |
+| `api/queries/getNodes/0/selected` | right only | — | false |
+| `api/queries/getNodes/0/dragging` | right only | — | false |
+| `api/queries/getNodes/0/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/width` | right only | — | 150 |
+| `api/queries/getNodes/0/height` | right only | — | 37 |
+| `api/queries/getNodes/0/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/expandParent` | right only | — | false |
+| `api/queries/getNodes/0/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/className` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/style` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/hidden` | right only | — | false |
+| `api/queries/getNodes/1/selected` | right only | — | false |
+| `api/queries/getNodes/1/dragging` | right only | — | false |
+| `api/queries/getNodes/1/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/width` | right only | — | 150 |
+| `api/queries/getNodes/1/height` | right only | — | 37 |
+| `api/queries/getNodes/1/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/expandParent` | right only | — | false |
+| `api/queries/getNodes/1/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/className` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/style` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/type` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/hidden` | right only | — | false |
+| `api/queries/getNodes/2/selected` | right only | — | false |
+| `api/queries/getNodes/2/dragging` | right only | — | false |
+| `api/queries/getNodes/2/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/width` | right only | — | 150 |
+| `api/queries/getNodes/2/height` | right only | — | 37 |
+| `api/queries/getNodes/2/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/expandParent` | right only | — | false |
+| `api/queries/getNodes/2/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/className` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/style` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/hidden` | right only | — | false |
+| `api/queries/getNodes/3/selected` | right only | — | false |
+| `api/queries/getNodes/3/dragging` | right only | — | false |
+| `api/queries/getNodes/3/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/width` | right only | — | 150 |
+| `api/queries/getNodes/3/height` | right only | — | 37 |
+| `api/queries/getNodes/3/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/expandParent` | right only | — | false |
+| `api/queries/getNodes/3/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/className` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/style` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/hidden` | right only | — | false |
+| `api/queries/getNode/selected` | right only | — | false |
+| `api/queries/getNode/dragging` | right only | — | false |
+| `api/queries/getNode/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/width` | right only | — | 150 |
+| `api/queries/getNode/height` | right only | — | 37 |
+| `api/queries/getNode/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/expandParent` | right only | — | false |
+| `api/queries/getNode/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/className` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/style` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
+| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
+| `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
+| `api/queries/getInternalNode/internals/rootParentIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/internals/bounds` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/hidden` | right only | — | false |
+| `api/queries/getInternalNode/selected` | right only | — | false |
+| `api/queries/getInternalNode/dragging` | right only | — | false |
+| `api/queries/getInternalNode/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/width` | right only | — | 150 |
+| `api/queries/getInternalNode/height` | right only | — | 37 |
+| `api/queries/getInternalNode/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/expandParent` | right only | — | false |
+| `api/queries/getInternalNode/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/className` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/style` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/sourceHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/targetHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/animated` | right only | — | false |
+| `api/queries/getEdges/0/hidden` | right only | — | false |
+| `api/queries/getEdges/0/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/data` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/selected` | right only | — | false |
+| `api/queries/getEdges/0/markerStart` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/markerEnd` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/interactionWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/className` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/style` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/sourceHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/targetHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/animated` | right only | — | false |
+| `api/queries/getEdges/1/hidden` | right only | — | false |
+| `api/queries/getEdges/1/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/data` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/selected` | right only | — | false |
+| `api/queries/getEdges/1/markerStart` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/markerEnd` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/interactionWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/className` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/style` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/sourceHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/targetHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/animated` | right only | — | false |
+| `api/queries/getEdge/hidden` | right only | — | false |
+| `api/queries/getEdge/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/data` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/selected` | right only | — | false |
+| `api/queries/getEdge/markerStart` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/markerEnd` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/interactionWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/className` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/style` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/0/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/width` | right only | — | 150 |
+| `api/queries/getIntersectingNodes/0/height` | right only | — | 37 |
+| `api/queries/getIntersectingNodes/0/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
+| `api/queries/getIntersectingNodes/0/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/className` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/style` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/1/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/width` | right only | — | 150 |
+| `api/queries/getIntersectingNodes/1/height` | right only | — | 37 |
+| `api/queries/getIntersectingNodes/1/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
+| `api/queries/getIntersectingNodes/1/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/className` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/style` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/type` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/2/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/width` | right only | — | 150 |
+| `api/queries/getIntersectingNodes/2/height` | right only | — | 37 |
+| `api/queries/getIntersectingNodes/2/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
+| `api/queries/getIntersectingNodes/2/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/className` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/style` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/3/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/width` | right only | — | 150 |
+| `api/queries/getIntersectingNodes/3/height` | right only | — | 37 |
+| `api/queries/getIntersectingNodes/3/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
+| `api/queries/getIntersectingNodes/3/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/className` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/style` | right only | — | {"@undefined":true} |
+| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/0/selected` | right only | — | false |
+| `api/queries/toObject/nodes/0/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/0/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/width` | right only | — | 150 |
+| `api/queries/toObject/nodes/0/height` | right only | — | 37 |
+| `api/queries/toObject/nodes/0/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/extent` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
+| `api/queries/toObject/nodes/0/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/origin` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/handles` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/className` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/style` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/1/selected` | right only | — | false |
+| `api/queries/toObject/nodes/1/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/1/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/width` | right only | — | 150 |
+| `api/queries/toObject/nodes/1/height` | right only | — | 37 |
+| `api/queries/toObject/nodes/1/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/extent` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
+| `api/queries/toObject/nodes/1/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/origin` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/handles` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/className` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/style` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/type` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/2/selected` | right only | — | false |
+| `api/queries/toObject/nodes/2/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/2/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/width` | right only | — | 150 |
+| `api/queries/toObject/nodes/2/height` | right only | — | 37 |
+| `api/queries/toObject/nodes/2/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/extent` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
+| `api/queries/toObject/nodes/2/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/origin` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/handles` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/className` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/style` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/3/selected` | right only | — | false |
+| `api/queries/toObject/nodes/3/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/3/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/width` | right only | — | 150 |
+| `api/queries/toObject/nodes/3/height` | right only | — | 37 |
+| `api/queries/toObject/nodes/3/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/extent` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
+| `api/queries/toObject/nodes/3/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/origin` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/handles` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/className` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/style` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/sourceHandle` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/targetHandle` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/animated` | right only | — | false |
+| `api/queries/toObject/edges/0/hidden` | right only | — | false |
+| `api/queries/toObject/edges/0/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/data` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/selected` | right only | — | false |
+| `api/queries/toObject/edges/0/markerStart` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/markerEnd` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/interactionWidth` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/className` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/style` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/sourceHandle` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/targetHandle` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/animated` | right only | — | false |
+| `api/queries/toObject/edges/1/hidden` | right only | — | false |
+| `api/queries/toObject/edges/1/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/data` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/selected` | right only | — | false |
+| `api/queries/toObject/edges/1/markerStart` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/markerEnd` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
 
 
 ---
@@ -14487,7 +14959,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 544 unclaimed difference(s).
+**Failed:** 543 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -14582,7 +15054,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/setAttributes` | right only | — | true |
 
-### api (463)
+### api (462)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -15048,7 +15520,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/2/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/2/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/2/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 
 ---
@@ -15158,7 +15629,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 4 driving divergence(s), 1838 unclaimed difference(s).
+**Failed:** 4 driving divergence(s), 1837 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -15576,7 +16047,7 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/12/args/0/edges/0/interactionWidth` | right only | — | {"@undefined":true} |
 | `callbacks/12/args/0/edges/0/style` | right only | — | {"@undefined":true} |
 
-### api (1450) — consequence of the driving divergence
+### api (1449) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -17029,7 +17500,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/toObject/edges/11/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/11/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/11/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -17063,7 +17533,7 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | path | kind | capture 1 | capture 2 |
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMo… |
-| `callbacks/13/args/1/selected` | differs | false | true |
+| `callbacks/14/args/1/selected` | differs | true | false |
 
 **psflow did not reproduce.** The comparison below ran anyway —
 capture-everything applies to a failed run as much as to a passing one — but a difference it reports
@@ -17077,7 +17547,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 11 driving divergence(s), 1935 unclaimed difference(s).
+**Failed:** 11 driving divergence(s), 1933 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -17287,7 +17757,7 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (309) — consequence of the driving divergence
+### callbacks (308) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -17501,7 +17971,6 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/12/args/0/edges/0/ariaLabel` | right only | — | {"@undefined":true} |
 | `callbacks/12/args/0/edges/0/interactionWidth` | right only | — | {"@undefined":true} |
 | `callbacks/12/args/0/edges/0/style` | right only | — | {"@undefined":true} |
-| `callbacks/13/args/1/selected` | differs | true | false |
 | `callbacks/13/args/1/type` | right only | — | {"@undefined":true} |
 | `callbacks/13/args/1/sourceHandle` | right only | — | {"@undefined":true} |
 | `callbacks/13/args/1/targetHandle` | right only | — | {"@undefined":true} |
@@ -17601,7 +18070,7 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/19/args/0/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `callbacks/19/args/0/edges/1/className` | right only | — | {"@undefined":true} |
 
-### api (1448) — consequence of the driving divergence
+### api (1447) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -19052,13 +19521,12 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/toObject/edges/11/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/11/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/11/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
 20 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (12) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (13) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -19089,7 +19557,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1814 unclaimed difference(s).
+**Failed:** 1813 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -19464,7 +19932,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/10/args/1/className` | right only | — | {"@undefined":true} |
 | `callbacks/10/args/1/style` | right only | — | {"@undefined":true} |
 
-### api (1453)
+### api (1452)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -20920,7 +21388,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/11/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/11/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/11/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -20957,7 +21424,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 4 driving divergence(s), 1792 unclaimed difference(s).
+**Failed:** 4 driving divergence(s), 1791 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -21362,7 +21829,7 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/18/args/0/clientY` | differs | 96.19429016113281 | 96.19428253173828 |
 | `callbacks/18/args/0/pageY` | differs | 96.19429016113281 | 96.19428253173828 |
 
-### api (1417) — consequence of the driving divergence
+### api (1416) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -22782,7 +23249,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/toObject/edges/10/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/10/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/10/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -22819,7 +23285,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 4 driving divergence(s), 1836 unclaimed difference(s).
+**Failed:** 4 driving divergence(s), 1835 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -23234,7 +23700,7 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/12/args/0/edges/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/12/args/0/edges/0/style` | right only | — | {"@undefined":true} |
 
-### api (1451) — consequence of the driving divergence
+### api (1450) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -24688,7 +25154,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/toObject/edges/11/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/11/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/11/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -24725,7 +25190,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 2 driving divergence(s), 1829 unclaimed difference(s).
+**Failed:** 2 driving divergence(s), 1828 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -25131,7 +25596,7 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/12/args/0/edges/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/12/args/0/edges/0/style` | right only | — | {"@undefined":true} |
 
-### api (1451) — consequence of the driving divergence
+### api (1450) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -26585,7 +27050,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/toObject/edges/11/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/11/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/11/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -26622,7 +27086,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1124 unclaimed difference(s).
+**Failed:** 1123 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -26948,7 +27412,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/14/args/1/origin` | right only | — | {"@undefined":true} |
 | `callbacks/14/args/1/handles` | right only | — | {"@undefined":true} |
 
-### api (812)
+### api (811)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -27763,7 +28227,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -27800,7 +28263,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1023 unclaimed difference(s).
+**Failed:** 1022 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -28036,7 +28499,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/9/args/0/edges/0` | right only | — | {"id":"1-2","type":"default","source":"Node-1","target":"Node-2","sourceHandle":{"@undefined":true},"targetHandle":{"@undefined":true},"animated":false,"hidden… |
 | `callbacks/9/args/0/edges/1` | right only | — | {"id":"1-3","type":"default","source":"Node-1","target":"Node-3","sourceHandle":{"@undefined":true},"targetHandle":{"@undefined":true},"animated":false,"hidden… |
 
-### api (801)
+### api (800)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -28840,7 +29303,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -28877,7 +29339,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1119 unclaimed difference(s).
+**Failed:** 1118 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -29193,7 +29655,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/12/args/1/className` | right only | — | {"@undefined":true} |
 | `callbacks/12/args/1/style` | right only | — | {"@undefined":true} |
 
-### api (817)
+### api (816)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -30013,7 +30475,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -30050,7 +30511,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1454 unclaimed difference(s).
+**Failed:** 1453 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -30711,7 +31172,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/35/args/2/0/origin` | right only | — | {"@undefined":true} |
 | `callbacks/35/args/2/0/handles` | right only | — | {"@undefined":true} |
 
-### api (807)
+### api (806)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -31521,7 +31982,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -31558,7 +32018,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1051 unclaimed difference(s).
+**Failed:** 1050 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -31806,7 +32266,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/27/args/1/className` | right only | — | {"@undefined":true} |
 | `callbacks/27/args/1/style` | right only | — | {"@undefined":true} |
 
-### api (817)
+### api (816)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -32626,7 +33086,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -32663,7 +33122,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1480 unclaimed difference(s).
+**Failed:** 1479 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -33346,7 +33805,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/42/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/42/args/2/0/style` | right only | — | {"@undefined":true} |
 
-### api (811)
+### api (810)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -34160,7 +34619,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -34197,7 +34655,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1006 unclaimed difference(s).
+**Failed:** 1005 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -34516,7 +34974,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/19/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/19/args/0/0/index` | right only | — | {"@undefined":true} |
 
-### api (701)
+### api (700)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -35220,7 +35678,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/8/style` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/0` | right only | — | {"id":"1-2","type":"default","source":"Node-1","target":"Node-2","sourceHandle":{"@undefined":true},"targetHandle":{"@undefined":true},"animated":false,"hidden… |
 | `api/queries/toObject/edges/1` | right only | — | {"id":"1-3","type":"default","source":"Node-1","target":"Node-3","sourceHandle":{"@undefined":true},"targetHandle":{"@undefined":true},"animated":false,"hidden… |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -35257,7 +35714,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1143 unclaimed difference(s).
+**Failed:** 1142 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -35600,7 +36057,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/14/args/1/className` | right only | — | {"@undefined":true} |
 | `callbacks/14/args/1/style` | right only | — | {"@undefined":true} |
 
-### api (814)
+### api (813)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -36417,7 +36874,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -36454,7 +36910,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1259 unclaimed difference(s).
+**Failed:** 1258 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -36872,7 +37328,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/21/args/1/toNode/className` | right only | — | {"@undefined":true} |
 | `callbacks/21/args/1/toNode/style` | right only | — | {"@undefined":true} |
 
-### api (855)
+### api (854)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -37730,7 +38186,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/2/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/2/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/2/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -37767,7 +38222,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1145 unclaimed difference(s).
+**Failed:** 1144 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -38109,7 +38564,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/17/args/1/className` | right only | — | {"@undefined":true} |
 | `callbacks/17/args/1/style` | right only | — | {"@undefined":true} |
 
-### api (817)
+### api (816)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -38929,7 +39384,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -38966,7 +39420,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1181 unclaimed difference(s).
+**Failed:** 1180 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -39344,7 +39798,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/19/args/1/toHandle` | differs | {"id":null,"type":"source","nodeId":"Node-3","position":"bottom","x":175,"y":136,"width":8,"height":8} | null |
 | `callbacks/19/args/1/toNode` | differs | {"id":"Node-3","data":{"label":"Node-3"},"position":{"x":100,"y":100},"measured":{"width":150,"height":37},"internals":{"positionAbsolute":{"x":100,"y":100},"h… | null |
 
-### api (817)
+### api (816)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -40164,7 +40618,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -40201,7 +40654,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1136 unclaimed difference(s).
+**Failed:** 1135 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -40534,7 +40987,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/17/args/1/toHandle` | differs | {"id":null,"type":"target","nodeId":"notConnectable","position":"top","x":75,"y":301,"width":8,"height":8} | null |
 | `callbacks/17/args/1/toNode` | differs | {"id":"notConnectable","type":"output","data":{"label":"notConnectable"},"position":{"x":0,"y":300},"connectable":false,"measured":{"width":150,"height":37},"i… | null |
 
-### api (817)
+### api (816)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -41354,7 +41807,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -41391,7 +41843,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 421 unclaimed difference(s).
+**Failed:** 420 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -41466,7 +41918,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/2/setAttributes` | right only | — | true |
 
-### api (360)
+### api (359)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -41829,7 +42281,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -41866,7 +42317,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 421 unclaimed difference(s).
+**Failed:** 420 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -41941,7 +42392,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/2/setAttributes` | right only | — | true |
 
-### api (360)
+### api (359)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -42304,7 +42755,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -42341,7 +42791,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 407 unclaimed difference(s).
+**Failed:** 406 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -42404,7 +42854,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/2/setAttributes` | right only | — | true |
 
-### api (358)
+### api (357)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -42765,7 +43215,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -42802,7 +43251,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 407 unclaimed difference(s).
+**Failed:** 406 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -42865,7 +43314,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/2/setAttributes` | right only | — | true |
 
-### api (358)
+### api (357)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -43226,7 +43675,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -43263,7 +43711,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 418 unclaimed difference(s).
+**Failed:** 417 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -43335,7 +43783,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/1/args/0/2/resizing` | right only | — | false |
 | `callbacks/1/args/0/2/setAttributes` | right only | — | true |
 
-### api (360)
+### api (359)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -43698,7 +44146,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -43735,7 +44182,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1295 unclaimed difference(s).
+**Failed:** 1294 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -44082,7 +44529,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/12/args/0/nodes/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/12/args/0/nodes/0/style` | right only | — | {"@undefined":true} |
 
-### api (962)
+### api (961)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -45047,7 +45494,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/0/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/0/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/0/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -45163,7 +45609,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1904 unclaimed difference(s).
+**Failed:** 1903 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -46269,7 +46715,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/58/args/2/0/origin` | right only | — | {"@undefined":true} |
 | `callbacks/58/args/2/0/handles` | right only | — | {"@undefined":true} |
 
-### api (812)
+### api (811)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -47084,7 +47530,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -47121,7 +47566,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1265 unclaimed difference(s).
+**Failed:** 1264 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -47593,7 +48038,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/25/args/2/0/origin` | right only | — | {"@undefined":true} |
 | `callbacks/25/args/2/0/handles` | right only | — | {"@undefined":true} |
 
-### api (807)
+### api (806)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -48403,7 +48848,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -48416,7 +48860,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 # System parity run — drag-node-autopan
 
-**Failed:** self-inconsistent, unclaimed-difference.
+**Failed:** unclaimed-difference.
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -48430,139 +48874,7 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | **disagrees with itself** | 123 |
-
-### psflow disagrees with itself
-
-| path | kind | capture 1 | capture 2 |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/attrs/style` | differs | transform: translate(2000px, 2000px) scale(1); | transform: translate(1380px, 1600px) scale(1); |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M-2065,-2253 C-2065,-1078 -25,-1078 -25,97 | M-1375,-1573 C-1375,-738 -25,-738 -25,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M-2065,-2253 C-2065,-1078 -25,-1078 -25,97 | M-1375,-1573 C-1375,-738 -25,-738 -25,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | -2065 | -1375 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | -2243 | -1563 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M-2065,-2253 C-2065,-1078 175,-1078 175,97 | M-1375,-1573 C-1375,-738 175,-738 175,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M-2065,-2253 C-2065,-1078 175,-1078 175,97 | M-1375,-1573 C-1375,-738 175,-738 175,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | -2065 | -1375 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | -2243 | -1563 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | height: 37px; pointer-events: all; transform: translate(-2140px, -2293px); visibility: visible; width: 150px; z-index: 1000; | height: 37px; pointer-events: all; transform: translate(-1450px, -1613px); visibility: visible; width: 150px; z-index: 1000; |
-| `callbacks/49` | left only | {"name":"onMoveStart","args":[null,{"x":1380,"y":1580,"zoom":1}]} | — |
-| `callbacks/50` | left only | {"name":"onViewportChange","args":[{"x":1720,"y":1930,"zoom":1}]} | — |
-| `callbacks/51` | left only | {"name":"onMove","args":[null,{"x":1720,"y":1930,"zoom":1}]} | — |
-| `callbacks/52` | left only | {"name":"onMoveEnd","args":[null,{"x":1720,"y":1930,"zoom":1}]} | — |
-| `callbacks/57` | left only | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-1790,"y":-1943},"data":{"label":"Node-1"},"type":"input",… | — |
-| `callbacks/58` | left only | {"name":"onMoveStart","args":[null,{"x":1720,"y":1930,"zoom":1}]} | — |
-| `callbacks/59` | left only | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/60` | left only | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/61` | left only | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/62` | left only | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… | — |
-| `callbacks/63` | left only | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2140,"y":-2293},"data":{"label":"Node-1"},"type":"input",… | — |
-| `callbacks/64` | left only | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… | — |
-| `callbacks/65` | left only | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… | — |
-| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onEdgesChange#1",… | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onEdgesChange#1",… |
-| `callbacks/23/args/0/screenX` | differs | 6 | 5 |
-| `callbacks/23/args/0/clientX` | differs | 6 | 5 |
-| `callbacks/23/args/0/pageX` | differs | 6 | 5 |
-| `callbacks/25/args/0/x` | differs | 680 | 690 |
-| `callbacks/26/args/1/x` | differs | 680 | 690 |
-| `callbacks/27/args/1/x` | differs | 680 | 690 |
-| `callbacks/28/args/0/0/position/x` | differs | -749 | -410 |
-| `callbacks/28/args/0/0/position/y` | differs | -692 | -572 |
-| `callbacks/28/args/0/0/positionAbsolute/x` | differs | -749 | -410 |
-| `callbacks/28/args/0/0/positionAbsolute/y` | differs | -692 | -572 |
-| `callbacks/29/args/1/position/x` | differs | -749 | -410 |
-| `callbacks/29/args/1/position/y` | differs | -692 | -572 |
-| `callbacks/29/args/2/0/position/x` | differs | -749 | -410 |
-| `callbacks/29/args/2/0/position/y` | differs | -692 | -572 |
-| `callbacks/31/args/0/0/position/x` | differs | -750 | -760 |
-| `callbacks/31/args/0/0/positionAbsolute/x` | differs | -750 | -760 |
-| `callbacks/32/args/1/position/x` | differs | -750 | -760 |
-| `callbacks/32/args/2/0/position/x` | differs | -750 | -760 |
-| `callbacks/33/args/1/x` | differs | 680 | 690 |
-| `callbacks/34/args/0/y` | differs | 1240 | 1250 |
-| `callbacks/35/args/1/y` | differs | 1240 | 1250 |
-| `callbacks/36/args/1/y` | differs | 1240 | 1250 |
-| `callbacks/37/args/0/0/position/x` | differs | -1100 | -759 |
-| `callbacks/37/args/0/0/position/y` | differs | -1252 | -913 |
-| `callbacks/37/args/0/0/positionAbsolute/x` | differs | -1100 | -759 |
-| `callbacks/37/args/0/0/positionAbsolute/y` | differs | -1252 | -913 |
-| `callbacks/38/args/1/position/x` | differs | -1100 | -759 |
-| `callbacks/38/args/1/position/y` | differs | -1252 | -913 |
-| `callbacks/38/args/2/0/position/x` | differs | -1100 | -759 |
-| `callbacks/38/args/2/0/position/y` | differs | -1252 | -913 |
-| `callbacks/39/args/0/screenX` | differs | 5 | 6 |
-| `callbacks/39/args/0/screenY` | differs | 6 | 5 |
-| `callbacks/39/args/0/clientX` | differs | 5 | 6 |
-| `callbacks/39/args/0/clientY` | differs | 6 | 5 |
-| `callbacks/39/args/0/pageX` | differs | 5 | 6 |
-| `callbacks/39/args/0/pageY` | differs | 6 | 5 |
-| `callbacks/39/args/1/position/x` | differs | -1100 | -760 |
-| `callbacks/39/args/1/position/y` | differs | -1252 | -912 |
-| `callbacks/40/args/1/y` | differs | 1240 | 1250 |
-| `callbacks/41/args/0/y` | differs | 1580 | 1600 |
-| `callbacks/42/args/1/y` | differs | 1580 | 1600 |
-| `callbacks/43/args/1/y` | differs | 1580 | 1600 |
-| `callbacks/44/args/0/0/position/x` | differs | -1450 | -1099 |
-| `callbacks/44/args/0/0/position/y` | differs | -1592 | -1263 |
-| `callbacks/44/args/0/0/positionAbsolute/x` | differs | -1450 | -1099 |
-| `callbacks/44/args/0/0/positionAbsolute/y` | differs | -1592 | -1263 |
-| `callbacks/45/args/1/position/x` | differs | -1450 | -1099 |
-| `callbacks/45/args/1/position/y` | differs | -1592 | -1263 |
-| `callbacks/45/args/2/0/position/x` | differs | -1450 | -1099 |
-| `callbacks/45/args/2/0/position/y` | differs | -1592 | -1263 |
-| `callbacks/47/args/0/0/position/x` | differs | -1449 | -1100 |
-| `callbacks/47/args/0/0/position/y` | differs | -1593 | -1263 |
-| `callbacks/47/args/0/0/positionAbsolute/x` | differs | -1449 | -1100 |
-| `callbacks/47/args/0/0/positionAbsolute/y` | differs | -1593 | -1263 |
-| `callbacks/48/args/1/position/x` | differs | -1449 | -1100 |
-| `callbacks/48/args/1/position/y` | differs | -1593 | -1263 |
-| `callbacks/48/args/2/0/position/x` | differs | -1449 | -1100 |
-| `callbacks/48/args/2/0/position/y` | differs | -1593 | -1263 |
-| `callbacks/53/args/0/0/position/x` | differs | -1789 | -1450 |
-| `callbacks/53/args/0/0/position/y` | differs | -1943 | -1613 |
-| `callbacks/53/args/0/0/positionAbsolute/x` | differs | -1789 | -1450 |
-| `callbacks/53/args/0/0/positionAbsolute/y` | differs | -1943 | -1613 |
-| `callbacks/54/args/1/position/x` | differs | -1789 | -1450 |
-| `callbacks/54/args/1/position/y` | differs | -1943 | -1613 |
-| `callbacks/54/args/2/0/position/x` | differs | -1789 | -1450 |
-| `callbacks/54/args/2/0/position/y` | differs | -1943 | -1613 |
-| `callbacks/56/args/0/0/position/x` | differs | -1790 | -1450 |
-| `callbacks/56/args/0/0/position/y` | differs | -1943 | -1613 |
-| `callbacks/56/args/0/0/positionAbsolute/x` | differs | -1790 | -1450 |
-| `callbacks/56/args/0/0/positionAbsolute/y` | differs | -1943 | -1613 |
-| `callbacks/56/args/0/0/dragging` | differs | true | false |
-| `callbacks/66/args/1/position/x` | differs | -2140 | -1450 |
-| `callbacks/66/args/1/position/y` | differs | -2293 | -1613 |
-| `callbacks/66/args/2/0/position/x` | differs | -2140 | -1450 |
-| `callbacks/66/args/2/0/position/y` | differs | -2293 | -1613 |
-| `api/queries/getNodes/0/position/x` | differs | -2140 | -1450 |
-| `api/queries/getNodes/0/position/y` | differs | -2293 | -1613 |
-| `api/queries/getNode/position/x` | differs | -2140 | -1450 |
-| `api/queries/getNode/position/y` | differs | -2293 | -1613 |
-| `api/queries/getInternalNode/position/x` | differs | -2140 | -1450 |
-| `api/queries/getInternalNode/position/y` | differs | -2293 | -1613 |
-| `api/queries/getInternalNode/internals/positionAbsolute/x` | differs | -2140 | -1450 |
-| `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | -2293 | -1613 |
-| `api/queries/getIntersectingNodes/0/position/x` | differs | -2140 | -1450 |
-| `api/queries/getIntersectingNodes/0/position/y` | differs | -2293 | -1613 |
-| `api/queries/getNodesBounds/x` | differs | -2140 | -1450 |
-| `api/queries/getNodesBounds/y` | differs | -2293 | -1613 |
-| `api/queries/getNodesBounds/width` | differs | 2390 | 1700 |
-| `api/queries/getNodesBounds/height` | differs | 2430 | 1750 |
-| `api/queries/toObject/nodes/0/position/x` | differs | -2140 | -1450 |
-| `api/queries/toObject/nodes/0/position/y` | differs | -2293 | -1613 |
-| `api/queries/toObject/viewport/x` | differs | 2000 | 1380 |
-| `api/queries/toObject/viewport/y` | differs | 2000 | 1600 |
-| `api/queries/getViewport/x` | differs | 2000 | 1380 |
-| `api/queries/getViewport/y` | differs | 2000 | 1600 |
-| `api/queries/screenToFlowPosition/x` | differs | -2000 | -1380 |
-| `api/queries/screenToFlowPosition/y` | differs | -2000 | -1600 |
-| `api/queries/flowToScreenPosition/x` | differs | 2000 | 1380 |
-| `api/queries/flowToScreenPosition/y` | differs | 2000 | 1600 |
-
-**psflow did not reproduce.** The comparison below ran anyway —
-capture-everything applies to a failed run as much as to a passing one — but a difference it reports
-cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
+| psflow | 1, 2 | reproduced | 0 |
 
 ---
 
@@ -48572,7 +48884,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1115 unclaimed difference(s).
+**Failed:** 1100 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -48580,21 +48892,21 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/attrs/style` | differs | transform: translate(1380px, 1600px) scale(1); | transform: translate(2000px, 2000px) scale(1); |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/attrs/style` | differs | transform: translate(1380px, 1600px) scale(1); | transform: translate(1720px, 1940px) scale(1); |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/attrs/aria-label` | left only | Edge from Node-1 to Node-2 | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/attrs/aria-describedby` | left only | react-flow__edge-desc-1 | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M-1375,-1573 C-1375,-738 -25,-738 -25,97 | M-2065,-2253 C-2065,-1078 -25,-1078 -25,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M-1375,-1573 C-1375,-738 -25,-738 -25,97 | M-2065,-2253 C-2065,-1078 -25,-1078 -25,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | -1375 | -2065 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | -1563 | -2243 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M-1375,-1573 C-1375,-738 -25,-738 -25,97 | M-1715,-1913 C-1715,-908 -25,-908 -25,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M-1375,-1573 C-1375,-738 -25,-738 -25,97 | M-1715,-1913 C-1715,-908 -25,-908 -25,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | -1375 | -1715 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | -1563 | -1903 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/attrs/aria-label` | left only | Edge from Node-1 to Node-3 | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/attrs/aria-describedby` | left only | react-flow__edge-desc-1 | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M-1375,-1573 C-1375,-738 175,-738 175,97 | M-2065,-2253 C-2065,-1078 175,-1078 175,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M-1375,-1573 C-1375,-738 175,-738 175,97 | M-2065,-2253 C-2065,-1078 175,-1078 175,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | -1375 | -2065 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | -1563 | -2243 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M-1375,-1573 C-1375,-738 175,-738 175,97 | M-1715,-1913 C-1715,-908 175,-908 175,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M-1375,-1573 C-1375,-738 175,-738 175,97 | M-1715,-1913 C-1715,-908 175,-908 175,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | -1375 | -1715 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | -1563 | -1903 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | pointer-events: all; transform: translate(-1450px, -1613px); visibility: visible; z-index: 1000; | height: 37px; pointer-events: all; transform: translate(-2140px, -2293px); visibility: visible; width: 150px; z-index: 1000; |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | pointer-events: all; transform: translate(-1450px, -1613px); visibility: visible; z-index: 1000; | height: 37px; pointer-events: all; transform: translate(-1790px, -1953px); visibility: visible; width: 150px; z-index: 1000; |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/children/1-Node-1-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-1","data-handlepos":"bottom","data-id":"1-Node-1-null-source","class":"connectable connectableend connectablestart co… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/children/1-Node-1--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-2/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
@@ -48614,25 +48926,18 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (710)
+### callbacks (696)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `callbacks/7` | right only | — | {"name":"onEdgesChange","args":[[]]} |
-| `callbacks/43` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1380,"y":1580,"zoom":1}]} |
-| `callbacks/49` | right only | — | {"name":"onMoveStart","args":[null,{"x":1380,"y":1580,"zoom":1}]} |
-| `callbacks/50` | right only | — | {"name":"onViewportChange","args":[{"x":1720,"y":1930,"zoom":1}]} |
-| `callbacks/51` | right only | — | {"name":"onMove","args":[null,{"x":1720,"y":1930,"zoom":1}]} |
-| `callbacks/52` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1720,"y":1930,"zoom":1}]} |
-| `callbacks/57` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-1790,"y":-1943},"data":{"label":"Node-1"},"type":"input",… |
-| `callbacks/58` | right only | — | {"name":"onMoveStart","args":[null,{"x":1720,"y":1930,"zoom":1}]} |
-| `callbacks/59` | right only | — | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/60` | right only | — | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/61` | right only | — | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/62` | right only | — | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… |
-| `callbacks/63` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2140,"y":-2293},"data":{"label":"Node-1"},"type":"input",… |
-| `callbacks/64` | right only | — | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… |
-| `callbacks/65` | right only | — | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… |
+| `callbacks/46` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1370,"y":1590,"zoom":1}]} |
+| `callbacks/52` | right only | — | {"name":"onMoveStart","args":[null,{"x":1370,"y":1590,"zoom":1}]} |
+| `callbacks/53` | right only | — | {"name":"onViewportChange","args":[{"x":1720,"y":1940,"zoom":1}]} |
+| `callbacks/54` | right only | — | {"name":"onMove","args":[null,{"x":1720,"y":1940,"zoom":1}]} |
+| `callbacks/55` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1720,"y":1940,"zoom":1}]} |
+| `callbacks/57` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-1790,"y":-1953},"data":{"label":"Node-1"},"type":"input",… |
+| `callbacks/58` | right only | — | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… |
 | `callbacks/1/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/1/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -49013,12 +49318,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/29/args/2/0/style` | right only | — | {"@undefined":true} |
 | `callbacks/30/args/1/x` | differs | 690 | 340 |
 | `callbacks/30/args/1/y` | differs | 900 | 560 |
-| `callbacks/31/args/0/screenX` | differs | 6 | 5 |
-| `callbacks/31/args/0/screenY` | differs | 5 | 6 |
-| `callbacks/31/args/0/clientX` | differs | 6 | 5 |
-| `callbacks/31/args/0/clientY` | differs | 5 | 6 |
-| `callbacks/31/args/0/pageX` | differs | 6 | 5 |
-| `callbacks/31/args/0/pageY` | differs | 5 | 6 |
 | `callbacks/31/args/1/position/x` | differs | -760 | -1100 |
 | `callbacks/31/args/1/position/y` | differs | -912 | -1252 |
 | `callbacks/31/args/1/sourcePosition` | right only | — | {"@undefined":true} |
@@ -49100,17 +49399,15 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/35/args/1/x` | differs | 690 | 680 |
 | `callbacks/36/args/0/y` | differs | 1250 | 1240 |
 | `callbacks/37/args/1/y` | differs | 1250 | 1240 |
-| `callbacks/38/args/0/0/position/x` | differs | -1099 | -1450 |
-| `callbacks/38/args/0/0/position/y` | differs | -1263 | -1592 |
+| `callbacks/38/args/0/0/position/y` | differs | -1263 | -1253 |
 | `callbacks/38/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/38/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/38/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
 | `callbacks/38/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/38/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/38/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/38/args/0/0/positionAbsolute` | right only | — | {"x":-1450,"y":-1592} |
-| `callbacks/39/args/1/position/x` | differs | -1099 | -1450 |
-| `callbacks/39/args/1/position/y` | differs | -1263 | -1592 |
+| `callbacks/38/args/0/0/positionAbsolute` | right only | — | {"x":-1099,"y":-1253} |
+| `callbacks/39/args/1/position/y` | differs | -1263 | -1253 |
 | `callbacks/39/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/39/args/1/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/39/args/1/hidden` | right only | — | false |
@@ -49132,8 +49429,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/39/args/1/handles` | right only | — | {"@undefined":true} |
 | `callbacks/39/args/1/className` | right only | — | {"@undefined":true} |
 | `callbacks/39/args/1/style` | right only | — | {"@undefined":true} |
-| `callbacks/39/args/2/0/position/x` | differs | -1099 | -1450 |
-| `callbacks/39/args/2/0/position/y` | differs | -1263 | -1592 |
+| `callbacks/39/args/2/0/position/y` | differs | -1263 | -1253 |
 | `callbacks/39/args/2/0/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/39/args/2/0/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/39/args/2/0/hidden` | right only | — | false |
@@ -49157,17 +49453,17 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/39/args/2/0/style` | right only | — | {"@undefined":true} |
 | `callbacks/40/args/1/x` | differs | 1030 | 680 |
 | `callbacks/40/args/1/y` | differs | 1250 | 900 |
-| `callbacks/42/args/0/0/position/x` | differs | -1100 | -1449 |
-| `callbacks/42/args/0/0/position/y` | differs | -1263 | -1593 |
+| `callbacks/42/args/0/0/position/x` | differs | -1100 | -1439 |
+| `callbacks/42/args/0/0/position/y` | differs | -1263 | -1603 |
 | `callbacks/42/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/42/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/42/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
 | `callbacks/42/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/42/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/42/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/42/args/0/0/positionAbsolute` | right only | — | {"x":-1449,"y":-1593} |
-| `callbacks/43/args/1/position/x` | differs | -1100 | -1449 |
-| `callbacks/43/args/1/position/y` | differs | -1263 | -1593 |
+| `callbacks/42/args/0/0/positionAbsolute` | right only | — | {"x":-1439,"y":-1603} |
+| `callbacks/43/args/1/position/x` | differs | -1100 | -1439 |
+| `callbacks/43/args/1/position/y` | differs | -1263 | -1603 |
 | `callbacks/43/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/43/args/1/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/43/args/1/hidden` | right only | — | false |
@@ -49189,8 +49485,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/43/args/1/handles` | right only | — | {"@undefined":true} |
 | `callbacks/43/args/1/className` | right only | — | {"@undefined":true} |
 | `callbacks/43/args/1/style` | right only | — | {"@undefined":true} |
-| `callbacks/43/args/2/0/position/x` | differs | -1100 | -1449 |
-| `callbacks/43/args/2/0/position/y` | differs | -1263 | -1593 |
+| `callbacks/43/args/2/0/position/x` | differs | -1100 | -1439 |
+| `callbacks/43/args/2/0/position/y` | differs | -1263 | -1603 |
 | `callbacks/43/args/2/0/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/43/args/2/0/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/43/args/2/0/hidden` | right only | — | false |
@@ -49213,19 +49509,21 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/43/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/43/args/2/0/style` | right only | — | {"@undefined":true} |
 | `callbacks/44/args/1/y` | differs | 1250 | 1240 |
-| `callbacks/45/args/0/y` | differs | 1600 | 1580 |
-| `callbacks/46/args/1/y` | differs | 1600 | 1580 |
-| `callbacks/47/args/0/0/position/x` | differs | -1450 | -1789 |
-| `callbacks/47/args/0/0/position/y` | differs | -1613 | -1943 |
+| `callbacks/45/args/0/x` | differs | 1380 | 1370 |
+| `callbacks/45/args/0/y` | differs | 1600 | 1590 |
+| `callbacks/46/args/1/x` | differs | 1380 | 1370 |
+| `callbacks/46/args/1/y` | differs | 1600 | 1590 |
+| `callbacks/47/args/0/0/position/x` | differs | -1450 | -1440 |
+| `callbacks/47/args/0/0/position/y` | differs | -1613 | -1603 |
 | `callbacks/47/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/47/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/47/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
 | `callbacks/47/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/47/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/47/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/47/args/0/0/positionAbsolute` | right only | — | {"x":-1789,"y":-1943} |
-| `callbacks/48/args/1/position/x` | differs | -1450 | -1789 |
-| `callbacks/48/args/1/position/y` | differs | -1613 | -1943 |
+| `callbacks/47/args/0/0/positionAbsolute` | right only | — | {"x":-1440,"y":-1603} |
+| `callbacks/48/args/1/position/x` | differs | -1450 | -1440 |
+| `callbacks/48/args/1/position/y` | differs | -1613 | -1603 |
 | `callbacks/48/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/48/args/1/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/48/args/1/hidden` | right only | — | false |
@@ -49247,8 +49545,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/48/args/1/handles` | right only | — | {"@undefined":true} |
 | `callbacks/48/args/1/className` | right only | — | {"@undefined":true} |
 | `callbacks/48/args/1/style` | right only | — | {"@undefined":true} |
-| `callbacks/48/args/2/0/position/x` | differs | -1450 | -1789 |
-| `callbacks/48/args/2/0/position/y` | differs | -1613 | -1943 |
+| `callbacks/48/args/2/0/position/x` | differs | -1450 | -1440 |
+| `callbacks/48/args/2/0/position/y` | differs | -1613 | -1603 |
 | `callbacks/48/args/2/0/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/48/args/2/0/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/48/args/2/0/hidden` | right only | — | false |
@@ -49273,7 +49571,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/49/args/1/x` | differs | 1380 | 1030 |
 | `callbacks/49/args/1/y` | differs | 1600 | 1240 |
 | `callbacks/50/args/0/0/position/x` | differs | -1450 | -1790 |
-| `callbacks/50/args/0/0/position/y` | differs | -1613 | -1943 |
+| `callbacks/50/args/0/0/position/y` | differs | -1613 | -1953 |
 | `callbacks/50/args/0/0/dragging` | differs | false | true |
 | `callbacks/50/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/50/args/0/0/resizing` | right only | — | {"@undefined":true} |
@@ -49281,9 +49579,9 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/50/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/50/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/50/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/50/args/0/0/positionAbsolute` | right only | — | {"x":-1790,"y":-1943} |
-| `callbacks/51/args/1/position/x` | differs | -1450 | -2140 |
-| `callbacks/51/args/1/position/y` | differs | -1613 | -2293 |
+| `callbacks/50/args/0/0/positionAbsolute` | right only | — | {"x":-1790,"y":-1953} |
+| `callbacks/51/args/1/position/x` | differs | -1450 | -1790 |
+| `callbacks/51/args/1/position/y` | differs | -1613 | -1953 |
 | `callbacks/51/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/51/args/1/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/51/args/1/hidden` | right only | — | false |
@@ -49305,8 +49603,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/51/args/1/handles` | right only | — | {"@undefined":true} |
 | `callbacks/51/args/1/className` | right only | — | {"@undefined":true} |
 | `callbacks/51/args/1/style` | right only | — | {"@undefined":true} |
-| `callbacks/51/args/2/0/position/x` | differs | -1450 | -2140 |
-| `callbacks/51/args/2/0/position/y` | differs | -1613 | -2293 |
+| `callbacks/51/args/2/0/position/x` | differs | -1450 | -1790 |
+| `callbacks/51/args/2/0/position/y` | differs | -1613 | -1953 |
 | `callbacks/51/args/2/0/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/51/args/2/0/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/51/args/2/0/hidden` | right only | — | false |
@@ -49329,12 +49627,12 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/51/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/51/args/2/0/style` | right only | — | {"@undefined":true} |
 
-### api (372)
+### api (371)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getNodes/0/position/x` | differs | -1450 | -2140 |
-| `api/queries/getNodes/0/position/y` | differs | -1613 | -2293 |
+| `api/queries/getNodes/0/position/x` | differs | -1450 | -1790 |
+| `api/queries/getNodes/0/position/y` | differs | -1613 | -1953 |
 | `api/queries/getNodes/0/sourcePosition` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/0/targetPosition` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/0/hidden` | right only | — | false |
@@ -49404,8 +49702,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getNodes/2/handles` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/2/className` | right only | — | {"@undefined":true} |
 | `api/queries/getNodes/2/style` | right only | — | {"@undefined":true} |
-| `api/queries/getNode/position/x` | differs | -1450 | -2140 |
-| `api/queries/getNode/position/y` | differs | -1613 | -2293 |
+| `api/queries/getNode/position/x` | differs | -1450 | -1790 |
+| `api/queries/getNode/position/y` | differs | -1613 | -1953 |
 | `api/queries/getNode/sourcePosition` | right only | — | {"@undefined":true} |
 | `api/queries/getNode/targetPosition` | right only | — | {"@undefined":true} |
 | `api/queries/getNode/hidden` | right only | — | false |
@@ -49427,10 +49725,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getNode/handles` | right only | — | {"@undefined":true} |
 | `api/queries/getNode/className` | right only | — | {"@undefined":true} |
 | `api/queries/getNode/style` | right only | — | {"@undefined":true} |
-| `api/queries/getInternalNode/position/x` | differs | -1450 | -2140 |
-| `api/queries/getInternalNode/position/y` | differs | -1613 | -2293 |
-| `api/queries/getInternalNode/internals/positionAbsolute/x` | differs | -1450 | -2140 |
-| `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | -1613 | -2293 |
+| `api/queries/getInternalNode/position/x` | differs | -1450 | -1790 |
+| `api/queries/getInternalNode/position/y` | differs | -1613 | -1953 |
+| `api/queries/getInternalNode/internals/positionAbsolute/x` | differs | -1450 | -1790 |
+| `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | -1613 | -1953 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":-1450,"y":-1613},"type":"input","measured":{"width":150,"height":37},"selected":true,"dragging":false} | — |
@@ -49508,8 +49806,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getEdge/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/getEdge/className` | right only | — | {"@undefined":true} |
 | `api/queries/getEdge/style` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/0/position/x` | differs | -1450 | -2140 |
-| `api/queries/getIntersectingNodes/0/position/y` | differs | -1613 | -2293 |
+| `api/queries/getIntersectingNodes/0/position/x` | differs | -1450 | -1790 |
+| `api/queries/getIntersectingNodes/0/position/y` | differs | -1613 | -1953 |
 | `api/queries/getIntersectingNodes/0/sourcePosition` | right only | — | {"@undefined":true} |
 | `api/queries/getIntersectingNodes/0/targetPosition` | right only | — | {"@undefined":true} |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
@@ -49579,10 +49877,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/2/handles` | right only | — | {"@undefined":true} |
 | `api/queries/getIntersectingNodes/2/className` | right only | — | {"@undefined":true} |
 | `api/queries/getIntersectingNodes/2/style` | right only | — | {"@undefined":true} |
-| `api/queries/getNodesBounds/x` | differs | -1450 | -2140 |
-| `api/queries/getNodesBounds/y` | differs | -1613 | -2293 |
-| `api/queries/getNodesBounds/width` | differs | 1700 | 2390 |
-| `api/queries/getNodesBounds/height` | differs | 1750 | 2430 |
+| `api/queries/getNodesBounds/x` | differs | -1450 | -1790 |
+| `api/queries/getNodesBounds/y` | differs | -1613 | -1953 |
+| `api/queries/getNodesBounds/width` | differs | 1700 | 2040 |
+| `api/queries/getNodesBounds/height` | differs | 1750 | 2090 |
 | `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
 | `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
@@ -49591,8 +49889,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
 | `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/toObject/nodes/0/position/x` | differs | -1450 | -2140 |
-| `api/queries/toObject/nodes/0/position/y` | differs | -1613 | -2293 |
+| `api/queries/toObject/nodes/0/position/x` | differs | -1450 | -1790 |
+| `api/queries/toObject/nodes/0/position/y` | differs | -1613 | -1953 |
 | `api/queries/toObject/nodes/0/sourcePosition` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/targetPosition` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
@@ -49696,21 +49994,20 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/viewport/x` | differs | 1380 | 2000 |
-| `api/queries/toObject/viewport/y` | differs | 1600 | 2000 |
-| `api/queries/getViewport/x` | differs | 1380 | 2000 |
-| `api/queries/getViewport/y` | differs | 1600 | 2000 |
-| `api/queries/screenToFlowPosition/x` | differs | -1380 | -2000 |
-| `api/queries/screenToFlowPosition/y` | differs | -1600 | -2000 |
-| `api/queries/flowToScreenPosition/x` | differs | 1380 | 2000 |
-| `api/queries/flowToScreenPosition/y` | differs | 1600 | 2000 |
-| `api/queries/viewportInitialized` | differs | true | false |
+| `api/queries/toObject/viewport/x` | differs | 1380 | 1720 |
+| `api/queries/toObject/viewport/y` | differs | 1600 | 1940 |
+| `api/queries/getViewport/x` | differs | 1380 | 1720 |
+| `api/queries/getViewport/y` | differs | 1600 | 1940 |
+| `api/queries/screenToFlowPosition/x` | differs | -1380 | -1720 |
+| `api/queries/screenToFlowPosition/y` | differs | -1600 | -1940 |
+| `api/queries/flowToScreenPosition/x` | differs | 1380 | 1720 |
+| `api/queries/flowToScreenPosition/y` | differs | 1600 | 1940 |
 
 ## Normalization
 
-21 field(s) deleted by name and therefore **unobserved** — not passing:
+20 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (17) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (16) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -49741,7 +50038,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1311 unclaimed difference(s).
+**Failed:** 1310 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -50660,7 +50957,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/49/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/49/args/2/0/style` | right only | — | {"@undefined":true} |
 
-### api (406)
+### api (405)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -51069,7 +51366,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -51106,7 +51402,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 11 driving divergence(s), 960 unclaimed difference(s).
+**Failed:** 11 driving divergence(s), 959 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -51781,7 +52077,7 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/38/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/38/args/2/0/style` | right only | — | {"@undefined":true} |
 
-### api (322) — consequence of the driving divergence
+### api (321) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -52106,7 +52402,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getViewport/y` | differs | 140 | 283 |
 | `api/queries/screenToFlowPosition/y` | differs | -70 | -141.5 |
 | `api/queries/flowToScreenPosition/y` | differs | 140 | 283 |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -52143,7 +52438,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 964 unclaimed difference(s).
+**Failed:** 963 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -52817,7 +53112,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/32/args/2/1/className` | right only | — | {"@undefined":true} |
 | `callbacks/32/args/2/1/style` | right only | — | {"@undefined":true} |
 
-### api (304)
+### api (303)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -53124,7 +53419,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/0/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/0/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/0/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -53161,7 +53455,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1047 unclaimed difference(s).
+**Failed:** 1046 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -53405,7 +53699,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/11/args/1/className` | right only | — | {"@undefined":true} |
 | `callbacks/11/args/1/style` | right only | — | {"@undefined":true} |
 
-### api (817)
+### api (816)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -54225,7 +54519,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -54262,7 +54555,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1358 unclaimed difference(s).
+**Failed:** 1357 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -54823,7 +55116,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/22/args/1/className` | right only | — | {"@undefined":true} |
 | `callbacks/22/args/1/style` | right only | — | {"@undefined":true} |
 
-### api (811)
+### api (810)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -55637,7 +55930,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -55674,7 +55966,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 477 unclaimed difference(s).
+**Failed:** 476 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -55751,7 +56043,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/setAttributes` | right only | — | true |
 
-### api (414)
+### api (413)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -56168,7 +56460,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -56205,7 +56496,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1056 unclaimed difference(s).
+**Failed:** 1055 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -56454,7 +56745,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/9/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/9/args/0/0/index` | right only | — | {"@undefined":true} |
 
-### api (821)
+### api (820)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -57278,7 +57569,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -57291,7 +57581,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 # System parity run — arrow-key-selected-node
 
-**Failed:** unclaimed-difference.
+**Failed:** self-inconsistent, unclaimed-difference.
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -57304,8 +57594,19 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 
 | side | captures | verdict | differences |
 |---|---|---|---|
-| upstream | 1, 2 | reproduced | 0 |
+| upstream | 1, 2 | **disagrees with itself** | 2 |
 | psflow | 1, 2 | reproduced | 0 |
+
+### upstream disagrees with itself
+
+| path | kind | capture 1 | capture 2 |
+|---|---|---|---|
+| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… |
+| `callbacks/17/args/1/position/x` | differs | 10 | 0 |
+
+**upstream did not reproduce.** The comparison below ran anyway —
+capture-everything applies to a failed run as much as to a passing one — but a difference it reports
+cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
 ---
 
@@ -57315,7 +57616,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 765 unclaimed difference(s).
+**Failed:** 764 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -57363,7 +57664,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/16` | left only | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… | — |
+| `callbacks/17` | left only | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… | — |
 | `callbacks/7` | right only | — | {"name":"onEdgesChange","args":[[]]} |
 | `callbacks/1/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/1/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -57622,17 +57923,17 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/15/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/15/args/0/0/index` | right only | — | {"@undefined":true} |
 | `callbacks/15/args/0/0/positionAbsolute` | right only | — | {"x":0,"y":4} |
-| `callbacks/17/args/0/0/position/x` | differs | 10 | 2 |
-| `callbacks/17/args/0/0/position/y` | differs | 20 | 4 |
-| `callbacks/17/args/0/0/dimensions` | right only | — | {"@undefined":true} |
-| `callbacks/17/args/0/0/resizing` | right only | — | {"@undefined":true} |
-| `callbacks/17/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
-| `callbacks/17/args/0/0/selected` | right only | — | {"@undefined":true} |
-| `callbacks/17/args/0/0/item` | right only | — | {"@undefined":true} |
-| `callbacks/17/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/17/args/0/0/positionAbsolute` | right only | — | {"x":1,"y":4} |
+| `callbacks/16/args/0/0/position/x` | differs | 10 | 2 |
+| `callbacks/16/args/0/0/position/y` | differs | 20 | 4 |
+| `callbacks/16/args/0/0/dimensions` | right only | — | {"@undefined":true} |
+| `callbacks/16/args/0/0/resizing` | right only | — | {"@undefined":true} |
+| `callbacks/16/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
+| `callbacks/16/args/0/0/selected` | right only | — | {"@undefined":true} |
+| `callbacks/16/args/0/0/item` | right only | — | {"@undefined":true} |
+| `callbacks/16/args/0/0/index` | right only | — | {"@undefined":true} |
+| `callbacks/16/args/0/0/positionAbsolute` | right only | — | {"x":1,"y":4} |
 
-### api (462)
+### api (461)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -58097,7 +58398,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/2/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/2/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/2/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -58134,7 +58434,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 545 unclaimed difference(s).
+**Failed:** 544 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -58241,7 +58541,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/3/args/0/nodes/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/3/args/0/nodes/0/style` | right only | — | {"@undefined":true} |
 
-### api (452)
+### api (451)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -58696,7 +58996,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/2/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/2/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/2/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 
 ---
@@ -58727,7 +59026,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1521 unclaimed difference(s).
+**Failed:** 1520 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -59373,7 +59672,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/35/args/1/className` | right only | — | {"@undefined":true} |
 | `callbacks/35/args/1/style` | right only | — | {"@undefined":true} |
 
-### api (889)
+### api (888)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -60265,7 +60564,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/3/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/3/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/3/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -60302,7 +60600,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1298 unclaimed difference(s).
+**Failed:** 1297 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -60800,7 +61098,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/23/args/0/isDefaultPrevented` | right only | — | {"@ref":"function"} |
 | `callbacks/23/args/0/isPropagationStopped` | right only | — | {"@ref":"function"} |
 
-### api (814)
+### api (813)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -61617,7 +61915,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -61654,7 +61951,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1038 unclaimed difference(s).
+**Failed:** 1037 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -61891,7 +62188,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/12/args/0/nodes/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/12/args/0/nodes/0/style` | right only | — | {"@undefined":true} |
 
-### api (814)
+### api (813)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -62708,7 +63005,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ### console (1)
 
@@ -62751,7 +63047,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 6 driving divergence(s), 1036 unclaimed difference(s).
+**Failed:** 6 driving divergence(s), 1032 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -62773,7 +63069,7 @@ a real divergence is exactly what would be hiding down there.
 | `driving/2/box/width` | differs | 13.515235900878906 | 13.515243530273438 |
 | `driving/2/dispatched/x` | differs | 104.28483200073242 | 104.39041900634766 |
 
-### dom (71) — consequence of the driving divergence
+### dom (68) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -62828,18 +63124,15 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children` | ordered differently | ["hub","up-1","up-2","down-1","down-2","down-3"] | ["down-1","down-2","down-3","hub","up-1","up-2"] |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/hub/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/hub/attrs/style` | differs | pointer-events: all; transform: translate(160px, 160px); visibility: visible; z-index: 0; | height: 18px; pointer-events: all; transform: translate(160px, 160px); visibility: visible; width: 24px; z-index: 0; |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/hub/children/div[0]/attrs/data-psflow-connections` | differs | [["up-1-hub","up-1","hub","out","in"],["up-2-hub","up-2","hub","out","in"],["hub-down-1","hub","down-1","out","in"],["hub-down-2","hub","down-2","out","in"],["… | [["hub-down-1","hub","down-1","out","in"],["hub-down-2","hub","down-2","out","in"],["hub-down-3","hub","down-3","out","in"],["up-1-hub","up-1","hub","out","in"… |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/hub/children/div[0]/attrs/data-psflow-connections-target` | differs | [["up-1-hub","up-1","hub","out","in"],["up-2-hub","up-2","hub","out","in"],["xy-edge__down-1out-hubin","down-1","hub","out","in"]] | [["up-1-hub","up-1","hub","out","in"],["up-2-hub","up-2","hub","out","in"]] |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/hub/children/div[0]/attrs/data-psflow-connections-count` | differs | 6 | 5 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/hub/children/div[0]/attrs/data-psflow-connections` | differs | [["up-1-hub","up-1","hub","out","in"],["up-2-hub","up-2","hub","out","in"],["hub-down-1","hub","down-1","out","in"],["hub-down-2","hub","down-2","out","in"],["… | [["hub-down-1","hub","down-1","out","in"],["xy-edge__down-1out-hubin","down-1","hub","out","in"],["hub-down-2","hub","down-2","out","in"],["hub-down-3","hub","… |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/hub/children/div[0]/attrs/data-psflow-connections-target` | differs | [["up-1-hub","up-1","hub","out","in"],["up-2-hub","up-2","hub","out","in"],["xy-edge__down-1out-hubin","down-1","hub","out","in"]] | [["xy-edge__down-1out-hubin","down-1","hub","out","in"],["up-1-hub","up-1","hub","out","in"],["up-2-hub","up-2","hub","out","in"]] |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/up-1/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/up-1/attrs/style` | differs | pointer-events: all; transform: translate(0px, 0px); visibility: visible; z-index: 0; | height: 18px; pointer-events: all; transform: translate(0px, 0px); visibility: visible; width: 29px; z-index: 0; |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/up-2/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/up-2/attrs/style` | differs | pointer-events: all; transform: translate(320px, 0px); visibility: visible; z-index: 0; | height: 18px; pointer-events: all; transform: translate(320px, 0px); visibility: visible; width: 29px; z-index: 0; |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/down-1/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/down-1/attrs/style` | differs | pointer-events: all; transform: translate(0px, 320px); visibility: visible; z-index: 0; | height: 18px; pointer-events: all; transform: translate(0px, 320px); visibility: visible; width: 49px; z-index: 0; |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/down-1/children/div[0]/attrs/data-psflow-connections` | differs | [["hub-down-1","hub","down-1","out","in"],["xy-edge__down-1out-hubin","down-1","hub","out","in"]] | [["hub-down-1","hub","down-1","out","in"]] |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/down-1/children/div[0]/attrs/data-psflow-connections-source` | differs | [["xy-edge__down-1out-hubin","down-1","hub","out","in"]] | [] |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/down-1/children/div[0]/attrs/data-psflow-connections-count` | differs | 2 | 1 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/down-1/children/div[0]/attrs/data-psflow-connections` | differs | [["hub-down-1","hub","down-1","out","in"],["xy-edge__down-1out-hubin","down-1","hub","out","in"]] | [["xy-edge__down-1out-hubin","down-1","hub","out","in"],["hub-down-1","hub","down-1","out","in"]] |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/down-2/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/down-2/attrs/style` | differs | pointer-events: all; transform: translate(320px, 320px); visibility: visible; z-index: 0; | height: 18px; pointer-events: all; transform: translate(320px, 320px); visibility: visible; width: 49px; z-index: 0; |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/down-3/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
@@ -63142,7 +63435,7 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/18/args/1/toNode/className` | right only | — | {"@undefined":true} |
 | `callbacks/18/args/1/toNode/style` | right only | — | {"@undefined":true} |
 
-### api (677) — consequence of the driving divergence
+### api (676) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -63822,7 +64115,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/toObject/edges/5/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/5/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/5/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -63859,7 +64151,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 588 unclaimed difference(s).
+**Failed:** 587 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -64069,7 +64361,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/39/args/0/edges/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/39/args/0/edges/0/style` | right only | — | {"@undefined":true} |
 
-### api (392)
+### api (391)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -64423,7 +64715,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 | `api/calls/7/result/deletedNodes/0/type` | right only | — | {"@undefined":true} |
 | `api/calls/7/result/deletedNodes/0/sourcePosition` | right only | — | {"@undefined":true} |
 | `api/calls/7/result/deletedNodes/0/targetPosition` | right only | — | {"@undefined":true} |
@@ -64495,7 +64786,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 421 unclaimed difference(s).
+**Failed:** 420 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -64570,7 +64861,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/2/setAttributes` | right only | — | true |
 
-### api (360)
+### api (359)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -64933,7 +65224,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -64970,7 +65260,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 880 unclaimed difference(s).
+**Failed:** 879 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -65460,7 +65750,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/33/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/33/args/2/0/style` | right only | — | {"@undefined":true} |
 
-### api (404)
+### api (403)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -65867,7 +66157,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -65904,7 +66193,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 612 unclaimed difference(s).
+**Failed:** 611 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -66006,7 +66295,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/6/args/0/0/resizing` | right only | — | false |
 | `callbacks/6/args/0/0/setAttributes` | right only | — | true |
 
-### api (524)
+### api (523)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -66533,14 +66822,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/2/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/2/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/2/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 
 ---
 
 # System parity run — flow-props-change-after-mount
 
-**Failed:** unclaimed-difference.
+**Failed:** self-inconsistent, unclaimed-difference.
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -66554,7 +66842,55 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | **disagrees with itself** | 39 |
+
+### psflow disagrees with itself
+
+| path | kind | capture 1 | capture 2 |
+|---|---|---|---|
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/attrs/style` | differs | transform: translate(550px, 163px) scale(2); | transform: translate(490px, 123px) scale(2); |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/class` | differs | react-flow__node react-flow__node-input selected | react-flow__node react-flow__node-input |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | height: 37px; pointer-events: all; transform: translate(0px, 0px); visibility: visible; width: 150px; z-index: 1000; | height: 37px; pointer-events: all; transform: translate(0px, 0px); visibility: visible; width: 150px; z-index: 0; |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/attrs/class` | differs | react-flow__node react-flow__node-default | react-flow__node react-flow__node-default selected |
+| `callbacks/22` | left only | {"name":"onMoveStart","args":[{"@class":"MouseEvent","isTrusted":true},{"x":490,"y":123,"zoom":2}]} | — |
+| `callbacks/23` | left only | {"name":"onMoveEnd","args":[{"@class":"MouseEvent","isTrusted":true},{"x":490,"y":123,"zoom":2}]} | — |
+| `callbacks/25` | left only | {"name":"onMoveStart","args":[{"@class":"MouseEvent","isTrusted":true},{"x":490,"y":123,"zoom":2}]} | — |
+| `callbacks/27` | left only | {"name":"onViewportChange","args":[{"x":502,"y":131,"zoom":2}]} | — |
+| `callbacks/28` | left only | {"name":"onMove","args":[{"@class":"MouseEvent","isTrusted":true},{"x":502,"y":131,"zoom":2}]} | — |
+| `callbacks/30` | left only | {"name":"onViewportChange","args":[{"x":514,"y":139,"zoom":2}]} | — |
+| `callbacks/31` | left only | {"name":"onMove","args":[{"@class":"MouseEvent","isTrusted":true},{"x":514,"y":139,"zoom":2}]} | — |
+| `callbacks/33` | left only | {"name":"onViewportChange","args":[{"x":526,"y":147,"zoom":2}]} | — |
+| `callbacks/34` | left only | {"name":"onMove","args":[{"@class":"MouseEvent","isTrusted":true},{"x":526,"y":147,"zoom":2}]} | — |
+| `callbacks/36` | left only | {"name":"onViewportChange","args":[{"x":538,"y":155,"zoom":2}]} | — |
+| `callbacks/37` | left only | {"name":"onMove","args":[{"@class":"MouseEvent","isTrusted":true},{"x":538,"y":155,"zoom":2}]} | — |
+| `callbacks/39` | left only | {"name":"onViewportChange","args":[{"x":550,"y":163,"zoom":2}]} | — |
+| `callbacks/40` | left only | {"name":"onMove","args":[{"@class":"MouseEvent","isTrusted":true},{"x":550,"y":163,"zoom":2}]} | — |
+| `callbacks/41` | left only | {"name":"onMoveEnd","args":[{"@class":"MouseEvent","isTrusted":true},{"x":550,"y":163,"zoom":2}]} | — |
+| `callbacks/22` | right only | — | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"position":{"@undefined":… |
+| `callbacks/23` | right only | — | {"name":"onEdgesChange","args":[[]]} |
+| `callbacks/25` | right only | — | {"name":"onSelectionChange","args":[{"nodes":[{"id":"Node-3","position":{"x":100,"y":100},"data":{"label":"Node-3"},"type":{"@undefined":true},"sourcePosition"… |
+| `callbacks/30` | right only | — | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… |
+| `api/queries/getNodes/0/selected` | differs | true | false |
+| `api/queries/getNodes/2/selected` | differs | false | true |
+| `api/queries/getNode/selected` | differs | true | false |
+| `api/queries/getInternalNode/selected` | differs | true | false |
+| `api/queries/getInternalNode/internals/z` | differs | 1000 | 0 |
+| `api/queries/getIntersectingNodes/0/selected` | differs | true | false |
+| `api/queries/getIntersectingNodes/2/selected` | differs | false | true |
+| `api/queries/toObject/nodes/0/selected` | differs | true | false |
+| `api/queries/toObject/nodes/2/selected` | differs | false | true |
+| `api/queries/toObject/viewport/x` | differs | 550 | 490 |
+| `api/queries/toObject/viewport/y` | differs | 163 | 123 |
+| `api/queries/getViewport/x` | differs | 550 | 490 |
+| `api/queries/getViewport/y` | differs | 163 | 123 |
+| `api/queries/screenToFlowPosition/x` | differs | -275 | -250 |
+| `api/queries/screenToFlowPosition/y` | differs | -75 | -50 |
+| `api/queries/flowToScreenPosition/x` | differs | 550 | 490 |
+| `api/queries/flowToScreenPosition/y` | differs | 163 | 123 |
+
+**psflow did not reproduce.** The comparison below ran anyway —
+capture-everything applies to a failed run as much as to a passing one — but a difference it reports
+cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
 ---
 
@@ -66564,7 +66900,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 749 unclaimed difference(s).
+**Failed:** 748 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -66918,7 +67254,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/22/args/1/className` | right only | — | {"@undefined":true} |
 | `callbacks/22/args/1/style` | right only | — | {"@undefined":true} |
 
-### api (409)
+### api (408)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -67330,7 +67666,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -67367,7 +67702,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 476 unclaimed difference(s).
+**Failed:** 475 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -67443,7 +67778,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/setAttributes` | right only | — | true |
 
-### api (414)
+### api (413)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -67860,7 +68195,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 
 ---
@@ -67891,32 +68225,21 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 339 unclaimed difference(s).
+**Failed:** 321 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (7)
+### dom (5)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/attrs/style` | differs | transform: translate(-115.835px, -65.1574px) scale(1.18099); | transform: translate(0px, 0px) scale(1); |
-| `dom/root/children/div[1]/children/svg[0]/attrs/viewBox` | differs | -29.547924997800436 -140.352643739552 1241.0128499076184 945.533599929614 | 0 0 0 0 |
-| `dom/root/children/div[1]/children/svg[0]/children/path[0]/attrs/d` | differs | M-59.09584999560087,-169.90056873735244h1300.1086999032193v1004.6294499252149h-1300.1086999032193z⏎        M98.0830000879826,55.17168754949017h1083.83399982403… | M0,0h0v0h0z M0,0h0v0h0z |
+| `dom/root/children/div[1]/children/svg[0]/children/path[0]/attrs/d` | differs | M-59.09584999560087,-169.90056873735244h1300.1086999032193v1004.6294499252149h-1300.1086999032193z⏎        M98.0830000879826,55.17168754949017h1083.83399982403… | M-59.09584999560087,-169.90056873735244h1300.1086999032193v1004.6294499252149h-1300.1086999032193z M98.0830000879826,55.17168754949017h1083.833999824035v609.65… |
 | `dom/root/children/div[2]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[2]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[2]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (4)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `callbacks/1` | left only | {"name":"onMoveStart","args":[null,{"x":0,"y":0,"zoom":1}]} | — |
-| `callbacks/2` | left only | {"name":"onViewportChange","args":[{"x":-115.83530331489942,"y":-65.15735811463088,"zoom":1.1809926614295303}]} | — |
-| `callbacks/3` | left only | {"name":"onMove","args":[null,{"x":-115.83530331489942,"y":-65.15735811463088,"zoom":1.1809926614295303}]} | — |
-| `callbacks/4` | left only | {"name":"onMoveEnd","args":[null,{"x":-115.83530331489942,"y":-65.15735811463088,"zoom":1.1809926614295303}]} | — |
-
-### api (328)
+### api (316)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -68236,18 +68559,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/0/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/0/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/0/style` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/viewport/x` | differs | -115.83530331489942 | 0 |
-| `api/queries/toObject/viewport/y` | differs | -65.15735811463088 | 0 |
-| `api/queries/toObject/viewport/zoom` | differs | 1.1809926614295303 | 1 |
-| `api/queries/getZoom` | differs | 1.1809926614295303 | 1 |
-| `api/queries/getViewport/x` | differs | -115.83530331489942 | 0 |
-| `api/queries/getViewport/y` | differs | -65.15735811463088 | 0 |
-| `api/queries/getViewport/zoom` | differs | 1.1809926614295303 | 1 |
-| `api/queries/screenToFlowPosition/x` | differs | 98.0830000879826 | 0 |
-| `api/queries/screenToFlowPosition/y` | differs | 55.17168754949017 | 0 |
-| `api/queries/flowToScreenPosition/x` | differs | -115.83530331489942 | 0 |
-| `api/queries/flowToScreenPosition/y` | differs | -65.15735811463088 | 0 |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 
 ---
@@ -68278,7 +68589,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 593 unclaimed difference(s).
+**Failed:** 592 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -68476,7 +68787,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/14/args/1/className` | right only | — | {"@undefined":true} |
 | `callbacks/14/args/1/style` | right only | — | {"@undefined":true} |
 
-### api (409)
+### api (408)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -68888,7 +69199,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -68925,7 +69235,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 476 unclaimed difference(s).
+**Failed:** 475 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -69001,7 +69311,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/setAttributes` | right only | — | true |
 
-### api (414)
+### api (413)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -69418,7 +69728,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 
 ---
@@ -69449,7 +69758,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 475 unclaimed difference(s).
+**Failed:** 474 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -69524,7 +69833,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/setAttributes` | right only | — | true |
 
-### api (414)
+### api (413)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -69941,7 +70250,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 
 ---
@@ -69972,7 +70280,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 479 unclaimed difference(s).
+**Failed:** 478 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -70051,7 +70359,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/setAttributes` | right only | — | true |
 
-### api (414)
+### api (413)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -70468,7 +70776,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -70505,7 +70812,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 5 driving divergence(s), 493 unclaimed difference(s).
+**Failed:** 5 driving divergence(s), 492 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -70615,7 +70922,7 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/7/args/0/movementX` | differs | 9 | 1 |
 | `callbacks/7/args/0/movementY` | differs | 9 | 1 |
 
-### api (414) — consequence of the driving divergence
+### api (413) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -71032,7 +71339,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -71069,7 +71375,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 13 driving divergence(s), 101 unclaimed difference(s).
+**Failed:** 13 driving divergence(s), 100 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -71148,7 +71454,7 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/2/setAttributes` | right only | — | true |
 
-### api (54) — consequence of the driving divergence
+### api (53) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -71205,7 +71511,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/screenToFlowPosition/y` | differs | -91.5 | 0 |
 | `api/queries/flowToScreenPosition/x` | differs | 490 | 0 |
 | `api/queries/flowToScreenPosition/y` | differs | 183 | 0 |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ### console (7) — consequence of the driving divergence
 
@@ -71215,8 +71520,8 @@ a real divergence is exactly what would be hiding down there.
 | `console/2` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/3` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/4` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:64468/parity/driver/dist/… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:64468/parity/driver/dist/… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:51570/parity/driver/dist/… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:51570/parity/driver/dist/… |
 | `console/7` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 
 ## Normalization
@@ -71254,7 +71559,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 50 driving divergence(s), 353 unclaimed difference(s).
+**Failed:** 50 driving divergence(s), 352 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -71421,7 +71726,7 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/17/args/0/clientX` | differs | 589.6393432617188 | 351.11474609375 |
 | `callbacks/17/args/0/pageX` | differs | 589.6393432617188 | 351.11474609375 |
 
-### api (262) — consequence of the driving divergence
+### api (261) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -71686,7 +71991,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getViewport/y` | differs | 54.68852459016392 | 324.6983606557377 |
 | `api/queries/screenToFlowPosition/y` | differs | -28.659793814432984 | -170.159793814433 |
 | `api/queries/flowToScreenPosition/y` | differs | 54.68852459016392 | 324.6983606557377 |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -71723,11 +72027,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 241 unclaimed difference(s).
+**Failed:** 239 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (20)
+### dom (19)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -71743,8 +72047,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n2/children/1-n2-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"n2","data-handlepos":"right","data-id":"1-n2-null-source","class":"connectable connectableend connectablestart connectioni… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n2/children/1-n2--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-left target",… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n2/children/1-n2--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-right source"… |
-| `dom/root/children/div[2]/children/svg[0]/attrs/viewBox` | differs | -32 -152 1344 1024 | -8.75 -70 367.5 280 |
-| `dom/root/children/div[2]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-184h1408v1088h-1408z⏎        M0,0h1280v720h-1280z | M-17.5,-78.75h385v297.5h-385z M0,0h0v0h0z |
+| `dom/root/children/div[2]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-184h1408v1088h-1408z⏎        M0,0h1280v720h-1280z | M-64,-184h1408v1088h-1408z M0,0h1280v720h-1280z |
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","patternTransform":"translate(-11,-11)"},… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","pat… |
 | `dom/root/children/div[3]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
@@ -71752,7 +72055,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[3]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### api (221)
+### api (220)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -71976,7 +72279,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/0/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/0/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/0/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 
 ---
@@ -72007,7 +72309,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 241 unclaimed difference(s).
+**Failed:** 240 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -72041,7 +72343,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks/9` | right only | — | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"position":{"@undefined":… |
 
-### api (221)
+### api (220)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -72265,7 +72567,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/0/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/0/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/0/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 
 ---
@@ -72296,7 +72597,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 250 unclaimed difference(s).
+**Failed:** 249 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -72330,7 +72631,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[3]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### api (225)
+### api (224)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -72558,7 +72859,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/0/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/0/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/0/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -72595,7 +72895,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 240 unclaimed difference(s).
+**Failed:** 239 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -72623,7 +72923,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[3]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### api (221)
+### api (220)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -72847,7 +73147,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/0/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/0/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/0/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -72997,7 +73296,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 938 unclaimed difference(s).
+**Failed:** 937 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -73726,7 +74025,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/52/args/2/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/52/args/2/0/style` | right only | — | {"@undefined":true} |
 
-### api (223)
+### api (222)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -73952,7 +74251,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getViewport/y` | differs | 13.125 | 16.875 |
 | `api/queries/screenToFlowPosition/y` | differs | -13.125 | -16.875 |
 | `api/queries/flowToScreenPosition/y` | differs | 13.125 | 16.875 |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -73989,11 +74287,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 503 unclaimed difference(s).
+**Failed:** 501 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (22)
+### dom (21)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -74011,8 +74309,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n2/children/1-n2-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"n2","data-handlepos":"right","data-id":"1-n2-null-source","class":"connectable connectableend connectablestart connectioni… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n2/children/1-n2--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-left target",… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n2/children/1-n2--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-right source"… |
-| `dom/root/children/div[2]/children/svg[0]/attrs/viewBox` | differs | -32 -152 1344 1024 | -8.75 -70 367.5 280 |
-| `dom/root/children/div[2]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-184h1408v1088h-1408z⏎        M0,0h1280v720h-1280z | M-17.5,-78.75h385v297.5h-385z M0,0h0v0h0z |
+| `dom/root/children/div[2]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-184h1408v1088h-1408z⏎        M0,0h1280v720h-1280z | M-64,-184h1408v1088h-1408z M0,0h1280v720h-1280z |
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","patternTransform":"translate(-11,-11)"},… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","pat… |
 | `dom/root/children/div[3]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
@@ -74259,7 +74556,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/18/args/0/nodes/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/18/args/0/nodes/0/style` | right only | — | {"@undefined":true} |
 
-### api (247)
+### api (246)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -74509,7 +74806,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -74546,11 +74842,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 383 unclaimed difference(s).
+**Failed:** 381 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (20)
+### dom (19)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -74566,8 +74862,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n2/children/1-n2-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"n2","data-handlepos":"right","data-id":"1-n2-null-source","class":"connectable connectableend connectablestart nodrag nopa… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n2/children/1-n2--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-left target",… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n2/children/1-n2--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart nodrag nopan react-flow__handle react-flow__handle-right source","data-nodeid":"n2",… |
-| `dom/root/children/div[2]/children/svg[0]/attrs/viewBox` | differs | -32 -152 1344 1024 | -8.75 -70 367.5 280 |
-| `dom/root/children/div[2]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-184h1408v1088h-1408z⏎        M0,0h1280v720h-1280z | M-17.5,-78.75h385v297.5h-385z M0,0h0v0h0z |
+| `dom/root/children/div[2]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-184h1408v1088h-1408z⏎        M0,0h1280v720h-1280z | M-64,-184h1408v1088h-1408z M0,0h1280v720h-1280z |
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","patternTransform":"translate(-11,-11)"},… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","pat… |
 | `dom/root/children/div[3]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
@@ -74722,7 +75017,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/11/args/1/className` | right only | — | {"@undefined":true} |
 | `callbacks/11/args/1/style` | right only | — | {"@undefined":true} |
 
-### api (221)
+### api (220)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -74946,7 +75241,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/0/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/0/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/0/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -74983,11 +75277,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 410 unclaimed difference(s).
+**Failed:** 408 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (20)
+### dom (19)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -75003,8 +75297,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n2/children/1-n2-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"n2","data-handlepos":"right","data-id":"1-n2-null-source","class":"connectable connectableend connectablestart connectioni… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n2/children/1-n2--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-left target",… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n2/children/1-n2--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-right source"… |
-| `dom/root/children/div[2]/children/svg[0]/attrs/viewBox` | differs | -32 -152 1344 1024 | -8.75 -70 367.5 280 |
-| `dom/root/children/div[2]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-184h1408v1088h-1408z⏎        M0,0h1280v720h-1280z | M-17.5,-78.75h385v297.5h-385z M0,0h0v0h0z |
+| `dom/root/children/div[2]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-184h1408v1088h-1408z⏎        M0,0h1280v720h-1280z | M-64,-184h1408v1088h-1408z M0,0h1280v720h-1280z |
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","patternTransform":"translate(-11,-11)"},… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","pat… |
 | `dom/root/children/div[3]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
@@ -75186,7 +75479,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/12/args/1/fromNode/style` | right only | — | {"@undefined":true} |
 | `callbacks/12/args/1/toPosition` | differs | null | left |
 
-### api (221)
+### api (220)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -75410,7 +75703,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/0/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/0/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/0/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
@@ -75447,7 +75739,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 312 unclaimed difference(s).
+**Failed:** 349 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -75463,14 +75755,14 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (148)
+### callbacks (186)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/12` | left only | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… | — |
 | `callbacks/10` | right only | — | {"name":"onEdgesChange","args":[[]]} |
 | `callbacks/12` | right only | — | {"name":"onError","args":["002","It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTy… |
 | `callbacks/14` | right only | — | {"name":"onPaneMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onPointerEnter","_targetInst":{"@ref":"React fiber"},"type":"pointerenter","nat… |
+| `callbacks/17` | right only | — | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouse… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouse… |
 | `callbacks/6/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/6/args/1/targetPosition` | right only | — | {"@undefined":true} |
@@ -75563,11 +75855,49 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/11/args/0/nodes/0/handles` | right only | — | {"@undefined":true} |
 | `callbacks/11/args/0/nodes/0/className` | right only | — | {"@undefined":true} |
 | `callbacks/11/args/0/nodes/0/style` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/sourcePosition` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/targetPosition` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/hidden` | right only | — | false |
+| `callbacks/12/args/1/dragging` | right only | — | false |
+| `callbacks/12/args/1/draggable` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/selectable` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/connectable` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/deletable` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/dragHandle` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/initialWidth` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/initialHeight` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/parentId` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/zIndex` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/extent` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/expandParent` | right only | — | false |
+| `callbacks/12/args/1/ariaLabel` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/origin` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/handles` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/className` | right only | — | {"@undefined":true} |
+| `callbacks/12/args/1/style` | right only | — | {"@undefined":true} |
+| `callbacks/13/args/0/screenX` | differs | 560 | 640 |
+| `callbacks/13/args/0/screenY` | differs | 250 | 360 |
+| `callbacks/13/args/0/clientX` | differs | 560 | 640 |
+| `callbacks/13/args/0/clientY` | differs | 250 | 360 |
+| `callbacks/13/args/0/pageX` | differs | 560 | 640 |
+| `callbacks/13/args/0/pageY` | differs | 250 | 360 |
 | `callbacks/13/args/0/relatedTarget/@ref` | differs | DIV | Window |
+| `callbacks/13/args/1/id` | differs | props-child | props-parent |
+| `callbacks/13/args/1/data/label` | differs | props-child | props-parent |
+| `callbacks/13/args/1/position/x` | differs | 50 | 100 |
+| `callbacks/13/args/1/position/y` | differs | 25 | 200 |
+| `callbacks/13/args/1/parentId` | differs | props-parent | {"@undefined":true} |
+| `callbacks/13/args/1/selectable` | differs | false | {"@undefined":true} |
+| `callbacks/13/args/1/draggable` | differs | false | {"@undefined":true} |
+| `callbacks/13/args/1/deletable` | differs | false | {"@undefined":true} |
+| `callbacks/13/args/1/width` | differs | 120 | 300 |
+| `callbacks/13/args/1/height` | differs | 40 | 200 |
+| `callbacks/13/args/1/measured/width` | differs | 120 | 300 |
+| `callbacks/13/args/1/measured/height` | differs | 40 | 200 |
 | `callbacks/13/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/13/args/1/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/13/args/1/hidden` | right only | — | false |
-| `callbacks/13/args/1/selected` | right only | — | false |
+| `callbacks/13/args/1/selected` | right only | — | true |
 | `callbacks/13/args/1/dragging` | right only | — | false |
 | `callbacks/13/args/1/connectable` | right only | — | {"@undefined":true} |
 | `callbacks/13/args/1/dragHandle` | right only | — | {"@undefined":true} |
@@ -75616,7 +75946,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/17/args/1/className` | right only | — | {"@undefined":true} |
 | `callbacks/17/args/1/style` | right only | — | {"@undefined":true} |
 
-### api (157)
+### api (156)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -75776,13 +76106,12 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/1/handles` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/nodes/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ## Normalization
 
-20 field(s) deleted by name and therefore **unobserved** — not passing:
+22 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (13) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (15) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -75813,7 +76142,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 476 unclaimed difference(s).
+**Failed:** 475 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -75887,535 +76216,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/3/index` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/setAttributes` | right only | — | true |
-
-### api (415)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `api/queries/getNodes/0/sourcePosition` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/0/targetPosition` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/0/hidden` | right only | — | false |
-| `api/queries/getNodes/0/selected` | right only | — | false |
-| `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/draggable` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/0/selectable` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/0/connectable` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/0/deletable` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/0/dragHandle` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/0/width` | right only | — | 150 |
-| `api/queries/getNodes/0/height` | right only | — | 37 |
-| `api/queries/getNodes/0/initialWidth` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/0/initialHeight` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/0/parentId` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/0/zIndex` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/0/extent` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
-| `api/queries/getNodes/0/ariaLabel` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/0/origin` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/0/handles` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/0/className` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/0/style` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/1/sourcePosition` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/1/targetPosition` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/1/hidden` | right only | — | false |
-| `api/queries/getNodes/1/selected` | right only | — | false |
-| `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/draggable` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/1/selectable` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/1/connectable` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/1/deletable` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/1/dragHandle` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/1/width` | right only | — | 150 |
-| `api/queries/getNodes/1/height` | right only | — | 37 |
-| `api/queries/getNodes/1/initialWidth` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/1/initialHeight` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/1/parentId` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/1/zIndex` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/1/extent` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
-| `api/queries/getNodes/1/ariaLabel` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/1/origin` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/1/handles` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/1/className` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/2/type` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/2/sourcePosition` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/2/targetPosition` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/2/hidden` | right only | — | false |
-| `api/queries/getNodes/2/selected` | right only | — | false |
-| `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/draggable` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/2/selectable` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/2/connectable` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/2/deletable` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/2/dragHandle` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/2/width` | right only | — | 150 |
-| `api/queries/getNodes/2/height` | right only | — | 37 |
-| `api/queries/getNodes/2/initialWidth` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/2/initialHeight` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/2/parentId` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/2/zIndex` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/2/extent` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
-| `api/queries/getNodes/2/ariaLabel` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/2/origin` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/2/handles` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/2/className` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/2/style` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/3/sourcePosition` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/3/targetPosition` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/3/hidden` | right only | — | false |
-| `api/queries/getNodes/3/selected` | right only | — | false |
-| `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/draggable` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/3/selectable` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/3/connectable` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/3/deletable` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/3/dragHandle` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/3/width` | right only | — | 150 |
-| `api/queries/getNodes/3/height` | right only | — | 37 |
-| `api/queries/getNodes/3/initialWidth` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/3/initialHeight` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/3/parentId` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/3/zIndex` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/3/extent` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
-| `api/queries/getNodes/3/ariaLabel` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/3/origin` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/3/handles` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/3/className` | right only | — | {"@undefined":true} |
-| `api/queries/getNodes/3/style` | right only | — | {"@undefined":true} |
-| `api/queries/getNode/sourcePosition` | right only | — | {"@undefined":true} |
-| `api/queries/getNode/targetPosition` | right only | — | {"@undefined":true} |
-| `api/queries/getNode/hidden` | right only | — | false |
-| `api/queries/getNode/selected` | right only | — | false |
-| `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/draggable` | right only | — | {"@undefined":true} |
-| `api/queries/getNode/selectable` | right only | — | {"@undefined":true} |
-| `api/queries/getNode/connectable` | right only | — | {"@undefined":true} |
-| `api/queries/getNode/deletable` | right only | — | {"@undefined":true} |
-| `api/queries/getNode/dragHandle` | right only | — | {"@undefined":true} |
-| `api/queries/getNode/width` | right only | — | 150 |
-| `api/queries/getNode/height` | right only | — | 37 |
-| `api/queries/getNode/initialWidth` | right only | — | {"@undefined":true} |
-| `api/queries/getNode/initialHeight` | right only | — | {"@undefined":true} |
-| `api/queries/getNode/parentId` | right only | — | {"@undefined":true} |
-| `api/queries/getNode/zIndex` | right only | — | {"@undefined":true} |
-| `api/queries/getNode/extent` | right only | — | {"@undefined":true} |
-| `api/queries/getNode/expandParent` | right only | — | false |
-| `api/queries/getNode/ariaLabel` | right only | — | {"@undefined":true} |
-| `api/queries/getNode/origin` | right only | — | {"@undefined":true} |
-| `api/queries/getNode/handles` | right only | — | {"@undefined":true} |
-| `api/queries/getNode/className` | right only | — | {"@undefined":true} |
-| `api/queries/getNode/style` | right only | — | {"@undefined":true} |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
-| `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
-| `api/queries/getInternalNode/internals/rootParentIndex` | right only | — | {"@undefined":true} |
-| `api/queries/getInternalNode/internals/bounds` | right only | — | {"@undefined":true} |
-| `api/queries/getInternalNode/sourcePosition` | right only | — | {"@undefined":true} |
-| `api/queries/getInternalNode/targetPosition` | right only | — | {"@undefined":true} |
-| `api/queries/getInternalNode/hidden` | right only | — | false |
-| `api/queries/getInternalNode/selected` | right only | — | false |
-| `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/draggable` | right only | — | {"@undefined":true} |
-| `api/queries/getInternalNode/selectable` | right only | — | {"@undefined":true} |
-| `api/queries/getInternalNode/connectable` | right only | — | {"@undefined":true} |
-| `api/queries/getInternalNode/deletable` | right only | — | {"@undefined":true} |
-| `api/queries/getInternalNode/dragHandle` | right only | — | {"@undefined":true} |
-| `api/queries/getInternalNode/width` | right only | — | 150 |
-| `api/queries/getInternalNode/height` | right only | — | 37 |
-| `api/queries/getInternalNode/initialWidth` | right only | — | {"@undefined":true} |
-| `api/queries/getInternalNode/initialHeight` | right only | — | {"@undefined":true} |
-| `api/queries/getInternalNode/parentId` | right only | — | {"@undefined":true} |
-| `api/queries/getInternalNode/zIndex` | right only | — | {"@undefined":true} |
-| `api/queries/getInternalNode/extent` | right only | — | {"@undefined":true} |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getInternalNode/ariaLabel` | right only | — | {"@undefined":true} |
-| `api/queries/getInternalNode/origin` | right only | — | {"@undefined":true} |
-| `api/queries/getInternalNode/handles` | right only | — | {"@undefined":true} |
-| `api/queries/getInternalNode/className` | right only | — | {"@undefined":true} |
-| `api/queries/getInternalNode/style` | right only | — | {"@undefined":true} |
-| `api/queries/getEdges/0/sourceHandle` | right only | — | {"@undefined":true} |
-| `api/queries/getEdges/0/targetHandle` | right only | — | {"@undefined":true} |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
-| `api/queries/getEdges/0/deletable` | right only | — | {"@undefined":true} |
-| `api/queries/getEdges/0/selectable` | right only | — | {"@undefined":true} |
-| `api/queries/getEdges/0/data` | right only | — | {"@undefined":true} |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/0/markerStart` | right only | — | {"@undefined":true} |
-| `api/queries/getEdges/0/markerEnd` | right only | — | {"@undefined":true} |
-| `api/queries/getEdges/0/zIndex` | right only | — | {"@undefined":true} |
-| `api/queries/getEdges/0/ariaLabel` | right only | — | {"@undefined":true} |
-| `api/queries/getEdges/0/interactionWidth` | right only | — | {"@undefined":true} |
-| `api/queries/getEdges/0/className` | right only | — | {"@undefined":true} |
-| `api/queries/getEdges/0/style` | right only | — | {"@undefined":true} |
-| `api/queries/getEdges/1/sourceHandle` | right only | — | {"@undefined":true} |
-| `api/queries/getEdges/1/targetHandle` | right only | — | {"@undefined":true} |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
-| `api/queries/getEdges/1/deletable` | right only | — | {"@undefined":true} |
-| `api/queries/getEdges/1/selectable` | right only | — | {"@undefined":true} |
-| `api/queries/getEdges/1/data` | right only | — | {"@undefined":true} |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdges/1/markerStart` | right only | — | {"@undefined":true} |
-| `api/queries/getEdges/1/markerEnd` | right only | — | {"@undefined":true} |
-| `api/queries/getEdges/1/zIndex` | right only | — | {"@undefined":true} |
-| `api/queries/getEdges/1/ariaLabel` | right only | — | {"@undefined":true} |
-| `api/queries/getEdges/1/interactionWidth` | right only | — | {"@undefined":true} |
-| `api/queries/getEdges/1/className` | right only | — | {"@undefined":true} |
-| `api/queries/getEdges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/getEdge/sourceHandle` | right only | — | {"@undefined":true} |
-| `api/queries/getEdge/targetHandle` | right only | — | {"@undefined":true} |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
-| `api/queries/getEdge/deletable` | right only | — | {"@undefined":true} |
-| `api/queries/getEdge/selectable` | right only | — | {"@undefined":true} |
-| `api/queries/getEdge/data` | right only | — | {"@undefined":true} |
-| `api/queries/getEdge/selected` | right only | — | false |
-| `api/queries/getEdge/markerStart` | right only | — | {"@undefined":true} |
-| `api/queries/getEdge/markerEnd` | right only | — | {"@undefined":true} |
-| `api/queries/getEdge/zIndex` | right only | — | {"@undefined":true} |
-| `api/queries/getEdge/ariaLabel` | right only | — | {"@undefined":true} |
-| `api/queries/getEdge/interactionWidth` | right only | — | {"@undefined":true} |
-| `api/queries/getEdge/className` | right only | — | {"@undefined":true} |
-| `api/queries/getEdge/style` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/0/sourcePosition` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/0/targetPosition` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/draggable` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/0/selectable` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/0/connectable` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/0/deletable` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/0/dragHandle` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/0/width` | right only | — | 150 |
-| `api/queries/getIntersectingNodes/0/height` | right only | — | 37 |
-| `api/queries/getIntersectingNodes/0/initialWidth` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/0/initialHeight` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/0/parentId` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/0/zIndex` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/0/extent` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/ariaLabel` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/0/origin` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/0/handles` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/0/className` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/0/style` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/1/sourcePosition` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/1/targetPosition` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/draggable` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/1/selectable` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/1/connectable` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/1/deletable` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/1/dragHandle` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/1/width` | right only | — | 150 |
-| `api/queries/getIntersectingNodes/1/height` | right only | — | 37 |
-| `api/queries/getIntersectingNodes/1/initialWidth` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/1/initialHeight` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/1/parentId` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/1/zIndex` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/1/extent` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/ariaLabel` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/1/origin` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/1/handles` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/1/className` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/2/type` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/2/sourcePosition` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/2/targetPosition` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/draggable` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/2/selectable` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/2/connectable` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/2/deletable` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/2/dragHandle` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/2/width` | right only | — | 150 |
-| `api/queries/getIntersectingNodes/2/height` | right only | — | 37 |
-| `api/queries/getIntersectingNodes/2/initialWidth` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/2/initialHeight` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/2/parentId` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/2/zIndex` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/2/extent` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/ariaLabel` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/2/origin` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/2/handles` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/2/className` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/2/style` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/3/sourcePosition` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/3/targetPosition` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/draggable` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/3/selectable` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/3/connectable` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/3/deletable` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/3/dragHandle` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/3/width` | right only | — | 150 |
-| `api/queries/getIntersectingNodes/3/height` | right only | — | 37 |
-| `api/queries/getIntersectingNodes/3/initialWidth` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/3/initialHeight` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/3/parentId` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/3/zIndex` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/3/extent` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/ariaLabel` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/3/origin` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/3/handles` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/3/className` | right only | — | {"@undefined":true} |
-| `api/queries/getIntersectingNodes/3/style` | right only | — | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/toObject/nodes/0/sourcePosition` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/0/targetPosition` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/0/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/0/selected` | right only | — | false |
-| `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/draggable` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/0/selectable` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/0/connectable` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/0/deletable` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/0/dragHandle` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/0/width` | right only | — | 150 |
-| `api/queries/toObject/nodes/0/height` | right only | — | 37 |
-| `api/queries/toObject/nodes/0/initialWidth` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/0/initialHeight` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/0/parentId` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/0/zIndex` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/0/extent` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
-| `api/queries/toObject/nodes/0/ariaLabel` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/0/origin` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/0/handles` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/0/className` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/0/style` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/1/sourcePosition` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/1/targetPosition` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/1/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/1/selected` | right only | — | false |
-| `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/draggable` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/1/selectable` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/1/connectable` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/1/deletable` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/1/dragHandle` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/1/width` | right only | — | 150 |
-| `api/queries/toObject/nodes/1/height` | right only | — | 37 |
-| `api/queries/toObject/nodes/1/initialWidth` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/1/initialHeight` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/1/parentId` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/1/zIndex` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/1/extent` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
-| `api/queries/toObject/nodes/1/ariaLabel` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/1/origin` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/1/handles` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/1/className` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/2/type` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/2/sourcePosition` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/2/targetPosition` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/2/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/2/selected` | right only | — | false |
-| `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/draggable` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/2/selectable` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/2/connectable` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/2/deletable` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/2/dragHandle` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/2/width` | right only | — | 150 |
-| `api/queries/toObject/nodes/2/height` | right only | — | 37 |
-| `api/queries/toObject/nodes/2/initialWidth` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/2/initialHeight` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/2/parentId` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/2/zIndex` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/2/extent` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
-| `api/queries/toObject/nodes/2/ariaLabel` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/2/origin` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/2/handles` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/2/className` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/2/style` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/3/sourcePosition` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/3/targetPosition` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/3/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/3/selected` | right only | — | false |
-| `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/draggable` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/3/selectable` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/3/connectable` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/3/deletable` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/3/dragHandle` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/3/width` | right only | — | 150 |
-| `api/queries/toObject/nodes/3/height` | right only | — | 37 |
-| `api/queries/toObject/nodes/3/initialWidth` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/3/initialHeight` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/3/parentId` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/3/zIndex` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/3/extent` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
-| `api/queries/toObject/nodes/3/ariaLabel` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/3/origin` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/3/handles` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/3/className` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/nodes/3/style` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/edges/0/sourceHandle` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/edges/0/targetHandle` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
-| `api/queries/toObject/edges/0/deletable` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/edges/0/selectable` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/edges/0/data` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/0/markerStart` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/edges/0/markerEnd` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/edges/0/zIndex` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/edges/0/ariaLabel` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/edges/0/interactionWidth` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/edges/0/className` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/edges/0/style` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/edges/1/sourceHandle` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/edges/1/targetHandle` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
-| `api/queries/toObject/edges/1/deletable` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/edges/1/selectable` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/edges/1/data` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/markerStart` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/edges/1/markerEnd` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/edges/1/zIndex` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/edges/1/ariaLabel` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
-| `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/screenToFlowPosition/x` | differs | {"@number":"-0"} | 0 |
-| `api/queries/viewportInitialized` | differs | true | false |
-
-## Normalization
-
-4 field(s) deleted by name and therefore **unobserved** — not passing:
-
-- `callbacks/**/timeStamp` (2) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
-
-
----
-
-# System parity run — drag-pans-into-changed-extent
-
-**Failed:** unclaimed-difference.
-
-Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
-
-## Self-consistency
-
-Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
-takes part with no tolerance applied. Probe variants compare only their declared observation level, so
-probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
-
-| side | captures | verdict | differences |
-|---|---|---|---|
-| upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | reproduced | 0 |
-
----
-
-# Comparison report — drag-pans-into-changed-extent
-
-upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
-
-Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
-
-**Failed:** 474 unclaimed difference(s).
-
-## Unclaimed differences
-
-### dom (28)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/attrs/aria-label` | left only | Edge from Node-1 to Node-2 | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/attrs/aria-describedby` | left only | react-flow__edge-desc-1 | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/g[0]/attrs/transform` | differs | translate(15.28076171875 63) | translate(15.28076171875 63.0) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/attrs/aria-label` | left only | Edge from Node-1 to Node-3 | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/attrs/aria-describedby` | left only | react-flow__edge-desc-1 | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/g[0]/attrs/transform` | differs | translate(115.28076171875 63) | translate(115.28076171875 63.0) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | pointer-events: all; transform: translate(0px, 0px); visibility: visible; z-index: 0; | height: 37px; pointer-events: all; transform: translate(0px, 0px); visibility: visible; width: 150px; z-index: 0; |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/children/1-Node-1-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-1","data-handlepos":"bottom","data-id":"1-Node-1-null-source","class":"connectable connectableend connectablestart co… | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/children/1-Node-1--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-2/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-2/attrs/style` | differs | pointer-events: all; transform: translate(-100px, 100px); visibility: visible; z-index: 0; | height: 37px; pointer-events: all; transform: translate(-100px, 100px); visibility: visible; width: 150px; z-index: 0; |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-2/children/1-Node-2-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-2","data-handlepos":"top","data-id":"1-Node-2-null-target","class":"connectable connectableend connectablestart conne… | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-2/children/1-Node-2--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/attrs/style` | differs | pointer-events: all; transform: translate(100px, 100px); visibility: visible; z-index: 0; | height: 37px; pointer-events: all; transform: translate(100px, 100px); visibility: visible; width: 150px; z-index: 0; |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-3","data-handlepos":"top","data-id":"1-Node-3-null-target","class":"connectable connectableend connectablestart conne… | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-3","data-handlepos":"bottom","data-id":"1-Node-3-null-source","class":"connectable connectableend connectablestart co… | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/attrs/style` | differs | pointer-events: all; transform: translate(0px, 200px); visibility: visible; z-index: 0; | height: 37px; pointer-events: all; transform: translate(0px, 200px); visibility: visible; width: 150px; z-index: 0; |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectable connectableend connectablestart conne… | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
-
-### callbacks (32)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `callbacks/1/args/0/0/position` | right only | — | {"@undefined":true} |
-| `callbacks/1/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
-| `callbacks/1/args/0/0/dragging` | right only | — | {"@undefined":true} |
-| `callbacks/1/args/0/0/selected` | right only | — | {"@undefined":true} |
-| `callbacks/1/args/0/0/item` | right only | — | {"@undefined":true} |
-| `callbacks/1/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/1/args/0/0/resizing` | right only | — | false |
-| `callbacks/1/args/0/0/setAttributes` | right only | — | true |
-| `callbacks/1/args/0/1/position` | right only | — | {"@undefined":true} |
-| `callbacks/1/args/0/1/positionAbsolute` | right only | — | {"@undefined":true} |
-| `callbacks/1/args/0/1/dragging` | right only | — | {"@undefined":true} |
-| `callbacks/1/args/0/1/selected` | right only | — | {"@undefined":true} |
-| `callbacks/1/args/0/1/item` | right only | — | {"@undefined":true} |
-| `callbacks/1/args/0/1/index` | right only | — | {"@undefined":true} |
-| `callbacks/1/args/0/1/resizing` | right only | — | false |
-| `callbacks/1/args/0/1/setAttributes` | right only | — | true |
-| `callbacks/1/args/0/2/position` | right only | — | {"@undefined":true} |
-| `callbacks/1/args/0/2/positionAbsolute` | right only | — | {"@undefined":true} |
-| `callbacks/1/args/0/2/dragging` | right only | — | {"@undefined":true} |
-| `callbacks/1/args/0/2/selected` | right only | — | {"@undefined":true} |
-| `callbacks/1/args/0/2/item` | right only | — | {"@undefined":true} |
-| `callbacks/1/args/0/2/index` | right only | — | {"@undefined":true} |
-| `callbacks/1/args/0/2/resizing` | right only | — | false |
-| `callbacks/1/args/0/2/setAttributes` | right only | — | true |
-| `callbacks/1/args/0/3/position` | right only | — | {"@undefined":true} |
-| `callbacks/1/args/0/3/positionAbsolute` | right only | — | {"@undefined":true} |
-| `callbacks/1/args/0/3/dragging` | right only | — | {"@undefined":true} |
-| `callbacks/1/args/0/3/selected` | right only | — | {"@undefined":true} |
-| `callbacks/1/args/0/3/item` | right only | — | {"@undefined":true} |
-| `callbacks/1/args/0/3/index` | right only | — | {"@undefined":true} |
-| `callbacks/1/args/0/3/resizing` | right only | — | false |
-| `callbacks/1/args/0/3/setAttributes` | right only | — | true |
 
 ### api (414)
 
@@ -76834,13 +76634,1068 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
+| `api/queries/screenToFlowPosition/x` | differs | {"@number":"-0"} | 0 |
+
+## Normalization
+
+4 field(s) deleted by name and therefore **unobserved** — not passing:
+
+- `callbacks/**/timeStamp` (2) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+
+
+---
+
+# System parity run — drag-pans-into-changed-extent
+
+**Failed:** unclaimed-difference.
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
+## Self-consistency
+
+Each side is captured twice and compared against itself **before** the sides are compared at all: a
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
+
+| side | captures | verdict | differences |
+|---|---|---|---|
+| upstream | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | reproduced | 0 |
+
+---
+
+# Comparison report — drag-pans-into-changed-extent
+
+upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
+
+**Failed:** 473 unclaimed difference(s).
+
+## Unclaimed differences
+
+### dom (28)
+
+| path | kind | upstream | psflow |
+|---|---|---|---|
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/attrs/aria-label` | left only | Edge from Node-1 to Node-2 | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/attrs/aria-describedby` | left only | react-flow__edge-desc-1 | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/g[0]/attrs/transform` | differs | translate(15.28076171875 63) | translate(15.28076171875 63.0) |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/attrs/aria-label` | left only | Edge from Node-1 to Node-3 | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/attrs/aria-describedby` | left only | react-flow__edge-desc-1 | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/g[0]/attrs/transform` | differs | translate(115.28076171875 63) | translate(115.28076171875 63.0) |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | pointer-events: all; transform: translate(0px, 0px); visibility: visible; z-index: 0; | height: 37px; pointer-events: all; transform: translate(0px, 0px); visibility: visible; width: 150px; z-index: 0; |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/children/1-Node-1-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-1","data-handlepos":"bottom","data-id":"1-Node-1-null-source","class":"connectable connectableend connectablestart co… | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/children/1-Node-1--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-2/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-2/attrs/style` | differs | pointer-events: all; transform: translate(-100px, 100px); visibility: visible; z-index: 0; | height: 37px; pointer-events: all; transform: translate(-100px, 100px); visibility: visible; width: 150px; z-index: 0; |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-2/children/1-Node-2-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-2","data-handlepos":"top","data-id":"1-Node-2-null-target","class":"connectable connectableend connectablestart conne… | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-2/children/1-Node-2--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/attrs/style` | differs | pointer-events: all; transform: translate(100px, 100px); visibility: visible; z-index: 0; | height: 37px; pointer-events: all; transform: translate(100px, 100px); visibility: visible; width: 150px; z-index: 0; |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-3","data-handlepos":"top","data-id":"1-Node-3-null-target","class":"connectable connectableend connectablestart conne… | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-3","data-handlepos":"bottom","data-id":"1-Node-3-null-source","class":"connectable connectableend connectablestart co… | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/attrs/style` | differs | pointer-events: all; transform: translate(0px, 200px); visibility: visible; z-index: 0; | height: 37px; pointer-events: all; transform: translate(0px, 200px); visibility: visible; width: 150px; z-index: 0; |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectable connectableend connectablestart conne… | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
+| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
+| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
+| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
+| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
+
+### callbacks (32)
+
+| path | kind | upstream | psflow |
+|---|---|---|---|
+| `callbacks/1/args/0/0/position` | right only | — | {"@undefined":true} |
+| `callbacks/1/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
+| `callbacks/1/args/0/0/dragging` | right only | — | {"@undefined":true} |
+| `callbacks/1/args/0/0/selected` | right only | — | {"@undefined":true} |
+| `callbacks/1/args/0/0/item` | right only | — | {"@undefined":true} |
+| `callbacks/1/args/0/0/index` | right only | — | {"@undefined":true} |
+| `callbacks/1/args/0/0/resizing` | right only | — | false |
+| `callbacks/1/args/0/0/setAttributes` | right only | — | true |
+| `callbacks/1/args/0/1/position` | right only | — | {"@undefined":true} |
+| `callbacks/1/args/0/1/positionAbsolute` | right only | — | {"@undefined":true} |
+| `callbacks/1/args/0/1/dragging` | right only | — | {"@undefined":true} |
+| `callbacks/1/args/0/1/selected` | right only | — | {"@undefined":true} |
+| `callbacks/1/args/0/1/item` | right only | — | {"@undefined":true} |
+| `callbacks/1/args/0/1/index` | right only | — | {"@undefined":true} |
+| `callbacks/1/args/0/1/resizing` | right only | — | false |
+| `callbacks/1/args/0/1/setAttributes` | right only | — | true |
+| `callbacks/1/args/0/2/position` | right only | — | {"@undefined":true} |
+| `callbacks/1/args/0/2/positionAbsolute` | right only | — | {"@undefined":true} |
+| `callbacks/1/args/0/2/dragging` | right only | — | {"@undefined":true} |
+| `callbacks/1/args/0/2/selected` | right only | — | {"@undefined":true} |
+| `callbacks/1/args/0/2/item` | right only | — | {"@undefined":true} |
+| `callbacks/1/args/0/2/index` | right only | — | {"@undefined":true} |
+| `callbacks/1/args/0/2/resizing` | right only | — | false |
+| `callbacks/1/args/0/2/setAttributes` | right only | — | true |
+| `callbacks/1/args/0/3/position` | right only | — | {"@undefined":true} |
+| `callbacks/1/args/0/3/positionAbsolute` | right only | — | {"@undefined":true} |
+| `callbacks/1/args/0/3/dragging` | right only | — | {"@undefined":true} |
+| `callbacks/1/args/0/3/selected` | right only | — | {"@undefined":true} |
+| `callbacks/1/args/0/3/item` | right only | — | {"@undefined":true} |
+| `callbacks/1/args/0/3/index` | right only | — | {"@undefined":true} |
+| `callbacks/1/args/0/3/resizing` | right only | — | false |
+| `callbacks/1/args/0/3/setAttributes` | right only | — | true |
+
+### api (413)
+
+| path | kind | upstream | psflow |
+|---|---|---|---|
+| `api/queries/getNodes/0/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/hidden` | right only | — | false |
+| `api/queries/getNodes/0/selected` | right only | — | false |
+| `api/queries/getNodes/0/dragging` | right only | — | false |
+| `api/queries/getNodes/0/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/width` | right only | — | 150 |
+| `api/queries/getNodes/0/height` | right only | — | 37 |
+| `api/queries/getNodes/0/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/expandParent` | right only | — | false |
+| `api/queries/getNodes/0/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/className` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/style` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/hidden` | right only | — | false |
+| `api/queries/getNodes/1/selected` | right only | — | false |
+| `api/queries/getNodes/1/dragging` | right only | — | false |
+| `api/queries/getNodes/1/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/width` | right only | — | 150 |
+| `api/queries/getNodes/1/height` | right only | — | 37 |
+| `api/queries/getNodes/1/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/expandParent` | right only | — | false |
+| `api/queries/getNodes/1/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/className` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/style` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/type` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/hidden` | right only | — | false |
+| `api/queries/getNodes/2/selected` | right only | — | false |
+| `api/queries/getNodes/2/dragging` | right only | — | false |
+| `api/queries/getNodes/2/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/width` | right only | — | 150 |
+| `api/queries/getNodes/2/height` | right only | — | 37 |
+| `api/queries/getNodes/2/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/expandParent` | right only | — | false |
+| `api/queries/getNodes/2/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/className` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/style` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/hidden` | right only | — | false |
+| `api/queries/getNodes/3/selected` | right only | — | false |
+| `api/queries/getNodes/3/dragging` | right only | — | false |
+| `api/queries/getNodes/3/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/width` | right only | — | 150 |
+| `api/queries/getNodes/3/height` | right only | — | 37 |
+| `api/queries/getNodes/3/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/expandParent` | right only | — | false |
+| `api/queries/getNodes/3/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/className` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/style` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/hidden` | right only | — | false |
+| `api/queries/getNode/selected` | right only | — | false |
+| `api/queries/getNode/dragging` | right only | — | false |
+| `api/queries/getNode/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/width` | right only | — | 150 |
+| `api/queries/getNode/height` | right only | — | 37 |
+| `api/queries/getNode/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/expandParent` | right only | — | false |
+| `api/queries/getNode/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/className` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/style` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
+| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
+| `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
+| `api/queries/getInternalNode/internals/rootParentIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/internals/bounds` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/hidden` | right only | — | false |
+| `api/queries/getInternalNode/selected` | right only | — | false |
+| `api/queries/getInternalNode/dragging` | right only | — | false |
+| `api/queries/getInternalNode/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/width` | right only | — | 150 |
+| `api/queries/getInternalNode/height` | right only | — | 37 |
+| `api/queries/getInternalNode/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/expandParent` | right only | — | false |
+| `api/queries/getInternalNode/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/className` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/style` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/sourceHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/targetHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/animated` | right only | — | false |
+| `api/queries/getEdges/0/hidden` | right only | — | false |
+| `api/queries/getEdges/0/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/data` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/selected` | right only | — | false |
+| `api/queries/getEdges/0/markerStart` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/markerEnd` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/interactionWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/className` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/style` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/sourceHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/targetHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/animated` | right only | — | false |
+| `api/queries/getEdges/1/hidden` | right only | — | false |
+| `api/queries/getEdges/1/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/data` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/selected` | right only | — | false |
+| `api/queries/getEdges/1/markerStart` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/markerEnd` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/interactionWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/className` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/style` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/sourceHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/targetHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/animated` | right only | — | false |
+| `api/queries/getEdge/hidden` | right only | — | false |
+| `api/queries/getEdge/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/data` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/selected` | right only | — | false |
+| `api/queries/getEdge/markerStart` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/markerEnd` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/interactionWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/className` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/style` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/0/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/width` | right only | — | 150 |
+| `api/queries/getIntersectingNodes/0/height` | right only | — | 37 |
+| `api/queries/getIntersectingNodes/0/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
+| `api/queries/getIntersectingNodes/0/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/className` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/style` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/1/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/width` | right only | — | 150 |
+| `api/queries/getIntersectingNodes/1/height` | right only | — | 37 |
+| `api/queries/getIntersectingNodes/1/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
+| `api/queries/getIntersectingNodes/1/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/className` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/style` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/type` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/2/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/width` | right only | — | 150 |
+| `api/queries/getIntersectingNodes/2/height` | right only | — | 37 |
+| `api/queries/getIntersectingNodes/2/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
+| `api/queries/getIntersectingNodes/2/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/className` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/style` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/3/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/width` | right only | — | 150 |
+| `api/queries/getIntersectingNodes/3/height` | right only | — | 37 |
+| `api/queries/getIntersectingNodes/3/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
+| `api/queries/getIntersectingNodes/3/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/className` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/style` | right only | — | {"@undefined":true} |
+| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/0/selected` | right only | — | false |
+| `api/queries/toObject/nodes/0/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/0/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/width` | right only | — | 150 |
+| `api/queries/toObject/nodes/0/height` | right only | — | 37 |
+| `api/queries/toObject/nodes/0/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/extent` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
+| `api/queries/toObject/nodes/0/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/origin` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/handles` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/className` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/style` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/1/selected` | right only | — | false |
+| `api/queries/toObject/nodes/1/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/1/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/width` | right only | — | 150 |
+| `api/queries/toObject/nodes/1/height` | right only | — | 37 |
+| `api/queries/toObject/nodes/1/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/extent` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
+| `api/queries/toObject/nodes/1/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/origin` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/handles` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/className` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/style` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/type` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/2/selected` | right only | — | false |
+| `api/queries/toObject/nodes/2/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/2/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/width` | right only | — | 150 |
+| `api/queries/toObject/nodes/2/height` | right only | — | 37 |
+| `api/queries/toObject/nodes/2/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/extent` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
+| `api/queries/toObject/nodes/2/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/origin` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/handles` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/className` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/style` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/3/selected` | right only | — | false |
+| `api/queries/toObject/nodes/3/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/3/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/width` | right only | — | 150 |
+| `api/queries/toObject/nodes/3/height` | right only | — | 37 |
+| `api/queries/toObject/nodes/3/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/extent` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
+| `api/queries/toObject/nodes/3/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/origin` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/handles` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/className` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/style` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/sourceHandle` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/targetHandle` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/animated` | right only | — | false |
+| `api/queries/toObject/edges/0/hidden` | right only | — | false |
+| `api/queries/toObject/edges/0/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/data` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/selected` | right only | — | false |
+| `api/queries/toObject/edges/0/markerStart` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/markerEnd` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/interactionWidth` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/className` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/style` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/sourceHandle` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/targetHandle` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/animated` | right only | — | false |
+| `api/queries/toObject/edges/1/hidden` | right only | — | false |
+| `api/queries/toObject/edges/1/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/data` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/selected` | right only | — | false |
+| `api/queries/toObject/edges/1/markerStart` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/markerEnd` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
 
 ## Normalization
 
 8 field(s) deleted by name and therefore **unobserved** — not passing:
 
 - `callbacks/**/timeStamp` (4) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+
+
+---
+
+# System parity run — pan-after-controlled-viewport-change
+
+**Failed:** unclaimed-difference.
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
+## Self-consistency
+
+Each side is captured twice and compared against itself **before** the sides are compared at all: a
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
+
+| side | captures | verdict | differences |
+|---|---|---|---|
+| upstream | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | reproduced | 0 |
+
+---
+
+# Comparison report — pan-after-controlled-viewport-change
+
+upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
+
+**Failed:** 474 unclaimed difference(s).
+
+## Unclaimed differences
+
+### dom (28)
+
+| path | kind | upstream | psflow |
+|---|---|---|---|
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/attrs/aria-label` | left only | Edge from Node-1 to Node-2 | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/attrs/aria-describedby` | left only | react-flow__edge-desc-1 | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/g[0]/attrs/transform` | differs | translate(15.28076171875 63) | translate(15.28076171875 63.0) |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/attrs/aria-label` | left only | Edge from Node-1 to Node-3 | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/attrs/aria-describedby` | left only | react-flow__edge-desc-1 | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/g[0]/attrs/transform` | differs | translate(115.28076171875 63) | translate(115.28076171875 63.0) |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | pointer-events: all; transform: translate(0px, 0px); visibility: visible; z-index: 0; | height: 37px; pointer-events: all; transform: translate(0px, 0px); visibility: visible; width: 150px; z-index: 0; |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/children/1-Node-1-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-1","data-handlepos":"bottom","data-id":"1-Node-1-null-source","class":"connectable connectableend connectablestart co… | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/children/1-Node-1--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-2/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-2/attrs/style` | differs | pointer-events: all; transform: translate(-100px, 100px); visibility: visible; z-index: 0; | height: 37px; pointer-events: all; transform: translate(-100px, 100px); visibility: visible; width: 150px; z-index: 0; |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-2/children/1-Node-2-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-2","data-handlepos":"top","data-id":"1-Node-2-null-target","class":"connectable connectableend connectablestart conne… | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-2/children/1-Node-2--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/attrs/style` | differs | pointer-events: all; transform: translate(100px, 100px); visibility: visible; z-index: 0; | height: 37px; pointer-events: all; transform: translate(100px, 100px); visibility: visible; width: 150px; z-index: 0; |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-3","data-handlepos":"top","data-id":"1-Node-3-null-target","class":"connectable connectableend connectablestart conne… | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-3","data-handlepos":"bottom","data-id":"1-Node-3-null-source","class":"connectable connectableend connectablestart co… | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/attrs/aria-describedby` | left only | react-flow__node-desc-1 | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/attrs/style` | differs | pointer-events: all; transform: translate(0px, 200px); visibility: visible; z-index: 0; | height: 37px; pointer-events: all; transform: translate(0px, 200px); visibility: visible; width: 150px; z-index: 0; |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectable connectableend connectablestart conne… | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
+| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
+| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
+| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
+| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
+
+### callbacks (33)
+
+| path | kind | upstream | psflow |
+|---|---|---|---|
+| `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onMove#1","onNodesChange#1","onMoveEnd#1","onMoveStart#2","onMove#2","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveEn… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onMove#1","onMoveEnd#1","onMoveStart#2","onMove#2","onMoveEnd#2","onPaneMouseEnter#1","onPaneMouseMov… |
+| `callbacks/3/args/0/0/position` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/0/dragging` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/0/selected` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/0/item` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/0/index` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/0/resizing` | right only | — | false |
+| `callbacks/3/args/0/0/setAttributes` | right only | — | true |
+| `callbacks/3/args/0/1/position` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/1/positionAbsolute` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/1/dragging` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/1/selected` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/1/item` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/1/index` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/1/resizing` | right only | — | false |
+| `callbacks/3/args/0/1/setAttributes` | right only | — | true |
+| `callbacks/3/args/0/2/position` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/2/positionAbsolute` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/2/dragging` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/2/selected` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/2/item` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/2/index` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/2/resizing` | right only | — | false |
+| `callbacks/3/args/0/2/setAttributes` | right only | — | true |
+| `callbacks/3/args/0/3/position` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/3/positionAbsolute` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/3/dragging` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/3/selected` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/3/item` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/3/index` | right only | — | {"@undefined":true} |
+| `callbacks/3/args/0/3/resizing` | right only | — | false |
+| `callbacks/3/args/0/3/setAttributes` | right only | — | true |
+
+### api (413)
+
+| path | kind | upstream | psflow |
+|---|---|---|---|
+| `api/queries/getNodes/0/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/hidden` | right only | — | false |
+| `api/queries/getNodes/0/selected` | right only | — | false |
+| `api/queries/getNodes/0/dragging` | right only | — | false |
+| `api/queries/getNodes/0/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/width` | right only | — | 150 |
+| `api/queries/getNodes/0/height` | right only | — | 37 |
+| `api/queries/getNodes/0/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/expandParent` | right only | — | false |
+| `api/queries/getNodes/0/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/className` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/0/style` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/hidden` | right only | — | false |
+| `api/queries/getNodes/1/selected` | right only | — | false |
+| `api/queries/getNodes/1/dragging` | right only | — | false |
+| `api/queries/getNodes/1/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/width` | right only | — | 150 |
+| `api/queries/getNodes/1/height` | right only | — | 37 |
+| `api/queries/getNodes/1/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/expandParent` | right only | — | false |
+| `api/queries/getNodes/1/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/className` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/1/style` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/type` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/hidden` | right only | — | false |
+| `api/queries/getNodes/2/selected` | right only | — | false |
+| `api/queries/getNodes/2/dragging` | right only | — | false |
+| `api/queries/getNodes/2/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/width` | right only | — | 150 |
+| `api/queries/getNodes/2/height` | right only | — | 37 |
+| `api/queries/getNodes/2/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/expandParent` | right only | — | false |
+| `api/queries/getNodes/2/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/className` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/2/style` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/hidden` | right only | — | false |
+| `api/queries/getNodes/3/selected` | right only | — | false |
+| `api/queries/getNodes/3/dragging` | right only | — | false |
+| `api/queries/getNodes/3/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/width` | right only | — | 150 |
+| `api/queries/getNodes/3/height` | right only | — | 37 |
+| `api/queries/getNodes/3/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/expandParent` | right only | — | false |
+| `api/queries/getNodes/3/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/className` | right only | — | {"@undefined":true} |
+| `api/queries/getNodes/3/style` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/hidden` | right only | — | false |
+| `api/queries/getNode/selected` | right only | — | false |
+| `api/queries/getNode/dragging` | right only | — | false |
+| `api/queries/getNode/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/width` | right only | — | 150 |
+| `api/queries/getNode/height` | right only | — | 37 |
+| `api/queries/getNode/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/expandParent` | right only | — | false |
+| `api/queries/getNode/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/className` | right only | — | {"@undefined":true} |
+| `api/queries/getNode/style` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
+| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
+| `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
+| `api/queries/getInternalNode/internals/rootParentIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/internals/bounds` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/hidden` | right only | — | false |
+| `api/queries/getInternalNode/selected` | right only | — | false |
+| `api/queries/getInternalNode/dragging` | right only | — | false |
+| `api/queries/getInternalNode/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/width` | right only | — | 150 |
+| `api/queries/getInternalNode/height` | right only | — | 37 |
+| `api/queries/getInternalNode/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/expandParent` | right only | — | false |
+| `api/queries/getInternalNode/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/className` | right only | — | {"@undefined":true} |
+| `api/queries/getInternalNode/style` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/sourceHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/targetHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/animated` | right only | — | false |
+| `api/queries/getEdges/0/hidden` | right only | — | false |
+| `api/queries/getEdges/0/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/data` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/selected` | right only | — | false |
+| `api/queries/getEdges/0/markerStart` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/markerEnd` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/interactionWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/className` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/0/style` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/sourceHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/targetHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/animated` | right only | — | false |
+| `api/queries/getEdges/1/hidden` | right only | — | false |
+| `api/queries/getEdges/1/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/data` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/selected` | right only | — | false |
+| `api/queries/getEdges/1/markerStart` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/markerEnd` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/interactionWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/className` | right only | — | {"@undefined":true} |
+| `api/queries/getEdges/1/style` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/sourceHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/targetHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/animated` | right only | — | false |
+| `api/queries/getEdge/hidden` | right only | — | false |
+| `api/queries/getEdge/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/data` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/selected` | right only | — | false |
+| `api/queries/getEdge/markerStart` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/markerEnd` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/interactionWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/className` | right only | — | {"@undefined":true} |
+| `api/queries/getEdge/style` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/0/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/width` | right only | — | 150 |
+| `api/queries/getIntersectingNodes/0/height` | right only | — | 37 |
+| `api/queries/getIntersectingNodes/0/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
+| `api/queries/getIntersectingNodes/0/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/className` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/0/style` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/1/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/width` | right only | — | 150 |
+| `api/queries/getIntersectingNodes/1/height` | right only | — | 37 |
+| `api/queries/getIntersectingNodes/1/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
+| `api/queries/getIntersectingNodes/1/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/className` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/1/style` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/type` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/2/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/width` | right only | — | 150 |
+| `api/queries/getIntersectingNodes/2/height` | right only | — | 37 |
+| `api/queries/getIntersectingNodes/2/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
+| `api/queries/getIntersectingNodes/2/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/className` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/2/style` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/3/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/width` | right only | — | 150 |
+| `api/queries/getIntersectingNodes/3/height` | right only | — | 37 |
+| `api/queries/getIntersectingNodes/3/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/extent` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
+| `api/queries/getIntersectingNodes/3/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/origin` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/handles` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/className` | right only | — | {"@undefined":true} |
+| `api/queries/getIntersectingNodes/3/style` | right only | — | {"@undefined":true} |
+| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
+| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/0/selected` | right only | — | false |
+| `api/queries/toObject/nodes/0/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/0/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/width` | right only | — | 150 |
+| `api/queries/toObject/nodes/0/height` | right only | — | 37 |
+| `api/queries/toObject/nodes/0/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/extent` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
+| `api/queries/toObject/nodes/0/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/origin` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/handles` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/className` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/style` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/1/selected` | right only | — | false |
+| `api/queries/toObject/nodes/1/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/1/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/width` | right only | — | 150 |
+| `api/queries/toObject/nodes/1/height` | right only | — | 37 |
+| `api/queries/toObject/nodes/1/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/extent` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
+| `api/queries/toObject/nodes/1/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/origin` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/handles` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/className` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/1/style` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/type` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/2/selected` | right only | — | false |
+| `api/queries/toObject/nodes/2/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/2/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/width` | right only | — | 150 |
+| `api/queries/toObject/nodes/2/height` | right only | — | 37 |
+| `api/queries/toObject/nodes/2/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/extent` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
+| `api/queries/toObject/nodes/2/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/origin` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/handles` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/className` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/2/style` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/sourcePosition` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/targetPosition` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/3/selected` | right only | — | false |
+| `api/queries/toObject/nodes/3/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/3/draggable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/connectable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/dragHandle` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/width` | right only | — | 150 |
+| `api/queries/toObject/nodes/3/height` | right only | — | 37 |
+| `api/queries/toObject/nodes/3/initialWidth` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/initialHeight` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/parentId` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/extent` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
+| `api/queries/toObject/nodes/3/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/origin` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/handles` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/className` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/nodes/3/style` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/sourceHandle` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/targetHandle` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/animated` | right only | — | false |
+| `api/queries/toObject/edges/0/hidden` | right only | — | false |
+| `api/queries/toObject/edges/0/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/data` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/selected` | right only | — | false |
+| `api/queries/toObject/edges/0/markerStart` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/markerEnd` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/interactionWidth` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/className` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/0/style` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/sourceHandle` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/targetHandle` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/animated` | right only | — | false |
+| `api/queries/toObject/edges/1/hidden` | right only | — | false |
+| `api/queries/toObject/edges/1/deletable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/selectable` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/data` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/selected` | right only | — | false |
+| `api/queries/toObject/edges/1/markerStart` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/markerEnd` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/zIndex` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/ariaLabel` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
+| `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
+
+## Normalization
+
+8 field(s) deleted by name and therefore **unobserved** — not passing:
+
+- `callbacks/**/timeStamp` (5) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -76871,7 +77726,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1122 unclaimed difference(s).
+**Failed:** 1120 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -76882,7 +77737,7 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `callbacks/1` | right only | — | {"name":"useOnSelectionChange","args":[{"nodes":[{"id":"Node-1","position":{"x":0,"y":0},"data":{"label":"Node-1"},"type":"input","sourcePosition":{"@undefined… |
 | `callbacks/0/args/0/nodes/0` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
-### hooks (295)
+### hooks (294)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -77171,7 +78026,6 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `hooks/flow-probe/useNodes/9/measured` | right only | — | {"width":{"@undefined":true},"height":{"@undefined":true}} |
 | `hooks/flow-probe/useNodes/9/className` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/9/style` | right only | — | {"@undefined":true} |
-| `hooks/flow-probe/useReactFlow/viewportInitialized` | differs | true | false |
 | `hooks/flow-probe/useStore/nodes` | left only | [{"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"me… | — |
 | `hooks/flow-probe/useStore/edges` | left only | [{"id":"1-2","type":"default","source":"Node-1","target":"Node-2","label":"edge"},{"id":"1-3","type":"default","source":"Node-1","target":"Node-3","label":"edg… | — |
 | `hooks/flow-probe/useStore/transform` | left only | [517.8398510242085,32,1.2216014897579144] | — |
@@ -77182,7 +78036,7 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `hooks/flow-probe/useStoreApi/subscribe` | left only | {"@ref":"function"} | — |
 | `hooks/flow-probe/useStoreApi/error` | right only | — | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
 
-### api (813)
+### api (812)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -77998,7 +78852,6 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ### props (2)
 
@@ -78019,8 +78872,8 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `console/3/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
 | `console/4/level` | differs | warning | pageerror |
 | `console/4/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:64468/parity/driver/dist/psflow.js:64754:… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:64468/parity/driver/dist/psflow.js:64754:… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:51570/parity/driver/dist/psflow.js:64800:… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:51570/parity/driver/dist/psflow.js:64800:… |
 
 
 ---
@@ -78051,11 +78904,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 520 unclaimed difference(s).
+**Failed:** 518 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### hooks (148)
+### hooks (147)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -78197,7 +79050,6 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `hooks/flow-probe/useNodes/2/measured` | right only | — | {"width":{"@undefined":true},"height":{"@undefined":true}} |
 | `hooks/flow-probe/useNodes/2/className` | right only | — | {"@undefined":true} |
 | `hooks/flow-probe/useNodes/2/style` | right only | — | {"@undefined":true} |
-| `hooks/flow-probe/useReactFlow/viewportInitialized` | differs | true | false |
 | `hooks/flow-probe/useStore/nodes` | left only | [{"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}},{"id":"2","data":{"label":"2"},"position":{"x":-1… | — |
 | `hooks/flow-probe/useStore/edges` | left only | [{"id":"first-edge","source":"1","target":"2"},{"id":"second-edge","source":"1","target":"3"}] | — |
 | `hooks/flow-probe/useStore/transform` | left only | [552.9449436703876,121.469145656862,3.4822022531844965] | — |
@@ -78208,7 +79060,7 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `hooks/flow-probe/useStoreApi/subscribe` | left only | {"@ref":"function"} | — |
 | `hooks/flow-probe/useStoreApi/error` | right only | — | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
 
-### api (361)
+### api (360)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -78572,7 +79424,6 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `api/queries/toObject/edges/1/interactionWidth` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/className` | right only | — | {"@undefined":true} |
 | `api/queries/toObject/edges/1/style` | right only | — | {"@undefined":true} |
-| `api/queries/viewportInitialized` | differs | true | false |
 
 ### props (2)
 
@@ -78592,8 +79443,8 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `console/3/level` | differs | warning | pageerror |
 | `console/3/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
 | `console/4` | right only | — | {"level":"pageerror","text":"ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScri… |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:64468/parity/driver/dist/psflow.js:64754:… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:64468/parity/driver/dist/psflow.js:64754:… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:51570/parity/driver/dist/psflow.js:64800:… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:51570/parity/driver/dist/psflow.js:64800:… |
 
 
 ---

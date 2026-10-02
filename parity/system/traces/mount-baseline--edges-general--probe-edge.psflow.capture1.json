@@ -6687,7 +6687,7 @@
           "x": 546.2857142857142,
           "y": 32
         },
-        "viewportInitialized": false
+        "viewportInitialized": true
       },
       "calls": []
     },
