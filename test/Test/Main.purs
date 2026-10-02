@@ -48,6 +48,7 @@ import Test.Properties (runProperties)
 import Test.React.Container.Pane (runPaneAutoPanTests)
 import Test.React.Container.SeededProps (runSeededPropsTests)
 import Test.React.Hook.Drag (runDragHookTests)
+import Test.React.Hook.Store (runUseStoreTests)
 import Test.React.Hook.ViewportSync (runViewportSyncTests)
 import Test.React.Hook.VisibleIds (runVisibleIdsTests)
 import Test.React.Provider.InitPrevValues (runInitPrevValuesTests)
@@ -1083,6 +1084,7 @@ main = do
   runSeededPropsTests
   runDragHookTests
   runViewportSyncTests
+  runUseStoreTests
 
   -- Function parity — live differential against XYFlow (via the @psflow/oracle bundle).
   -- Requires `npm run build:oracle` to have produced oracle/index.js.

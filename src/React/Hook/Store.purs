@@ -33,6 +33,7 @@ module React.Hook.Store
   , useStore
   , useStoreApi
   , opaqueToStore
+  , subscribeSlice
   ) where
 
 import Prelude
@@ -40,6 +41,7 @@ import Prelude
 import Data.Maybe (Maybe(..))
 import Data.Newtype (class Newtype)
 import Data.Tuple.Nested ((/\))
+import Effect (Effect)
 import Effect.Exception.Unsafe (unsafeThrow)
 import Effect.Unsafe (unsafePerformEffect)
 import React.Basic.Hooks (Hook, UnsafeReference(..), UseContext, UseEffect, UseState, coerceHook, useContext, useEffect, useState)
@@ -117,10 +119,36 @@ useStore selector = coerceHook React.do
   -- satisfied (the store record has no `Eq` of its own — it is a
   -- record of functions). The store ref is stable for the lifetime of
   -- the provider, so this effect runs exactly once per consumer mount.
-  useEffect (UnsafeReference (storeAsTagged store)) do
-    case store.subscribe of
-      Subscribe sub -> sub selector (\v -> setValue (const v))
+  --
+  -- The store can change between the render that seeded `value` and this
+  -- subscription: React runs a child's effects before its parent's, and
+  -- `<ZoomPane />` creates the pan-zoom instance in one of them. That
+  -- change fired no listener here, so the slice is read again once the
+  -- listener is in place, and kept only if it differs — what React's
+  -- `useSyncExternalStore`, under upstream's `useStore`, does after it
+  -- subscribes. The `Eq` check is what keeps this from being the redundant
+  -- `setValue` the store's own `subscribe` no longer fires (#94).
+  useEffect (UnsafeReference (storeAsTagged store)) $
+    subscribeSlice store selector value (\v -> setValue (const v))
   pure value
+
+-- | `useStore`'s subscription effect: subscribe, then hand `set` the slice
+-- | again if it has moved off `rendered`, the value the render read.
+-- | Returns the unsubscribe. Public for testing.
+subscribeSlice
+  :: forall n e a
+   . Eq a
+  => Store n e
+  -> (ReactFlowState n e -> a)
+  -> a
+  -> (a -> Effect Unit)
+  -> Effect (Effect Unit)
+subscribeSlice store selector rendered set = do
+  unsubscribe <- case store.subscribe of
+    Subscribe sub -> sub selector set
+  current <- selector <$> store.getState
+  when (current /= rendered) (set current)
+  pure unsubscribe
 
 -- | The sanctioned `OpaqueStore -> Store n e` cast. Documented in
 -- | `React.Context.Store`'s module header — this is the one place the
