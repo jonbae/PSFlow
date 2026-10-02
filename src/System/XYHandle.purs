@@ -22,6 +22,12 @@ module System.XYHandle
   , OnConnectEnd
   , OnReconnectEnd
   , xyHandle
+  -- Public for testing.
+  , HandleDragState
+  , AutoPanEnv
+  , initialDragState
+  , runOnRef
+  , trackPointer
   ) where
 
 import Prelude
@@ -202,12 +208,63 @@ initialDragState startPos =
 -- | Run a `StateT HandleDragState Effect a` against an outer `Ref` and write
 -- | the new state back. Forms the bridge from the d3-event `Effect` boundary
 -- | to the pure-state interior.
+-- |
+-- | Not re-entrant: a nested call reads the snapshot the outer one has not
+-- | yet written, and the outer write then discards the inner's. Code already
+-- | inside the `StateT` runs a step directly instead — see `trackPointer`.
 runOnRef :: forall a. Ref HandleDragState -> StateT HandleDragState Effect a -> Effect a
 runOnRef ref st = do
   s0 <- Ref.read ref
   Tuple a s1 <- runStateT st s0
   Ref.write s1 ref
   pure a
+
+-- | What the connection's auto-pan loop reads besides the drag state.
+type AutoPanEnv =
+  { autoPanOnConnect :: Boolean
+  , autoPanSpeed :: Maybe Number
+  , bounds :: { width :: Number, height :: Number }
+  , panBy :: XYPosition -> Aff Boolean
+  }
+
+-- | One auto-pan frame, as `requestAnimationFrame` runs it.
+autoPanLoop :: AutoPanEnv -> Ref HandleDragState -> Effect Unit
+autoPanLoop env stateRef = runOnRef stateRef (autoPanStep env stateRef)
+
+-- | TS `autoPan`: pan by the velocity at the pointer's position, then ask
+-- | for the next frame. The pan is not awaited, as TS does not await it.
+autoPanStep :: AutoPanEnv -> Ref HandleDragState -> StateT HandleDragState Effect Unit
+autoPanStep env stateRef =
+  when env.autoPanOnConnect do
+    s <- get
+    let
+      mv = calcAutoPan s.position env.bounds (fromMaybe 15.0 env.autoPanSpeed) 40.0
+    liftEffect $ launchAff_ do
+      _ <- env.panBy { x: mv.x, y: mv.y }
+      pure unit
+    handle <- liftEffect (requestAnimationFrame (autoPanLoop env stateRef))
+    modify_ _ { autoPanId = Just handle }
+
+-- | Record where the pointer is and which handle is closest, and run the
+-- | first auto-pan frame on the first move. TS `onPointerMove` does the same
+-- | three things in this order, before it validates the handle.
+-- |
+-- | The first frame runs inside this step, so it reads the position just
+-- | written. Run through `runOnRef`, it would read the state as it stood
+-- | before the move, which is the pointer-down position, and the handle of
+-- | the frame it asks for would be lost when the caller wrote back.
+trackPointer
+  :: AutoPanEnv
+  -> Ref HandleDragState
+  -> XYPosition
+  -> Maybe Handle
+  -> StateT HandleDragState Effect Unit
+trackPointer env stateRef position closestHandle = do
+  modify_ _ { position = position, closestHandle = closestHandle }
+  s <- get
+  unless s.autoPanStarted do
+    autoPanStep env stateRef
+    modify_ _ { autoPanStarted = true }
 
 -- | Strict-mode rule: a from-handle of one side may only connect to a
 -- | to-handle of the *opposite* side. Defined in terms of phantom-typed
@@ -299,29 +356,13 @@ onPointerDown event params = do
                 (runOnRef stateRef startConnection)
 
               let
-                -- `requestAnimationFrame` takes `Effect Unit`, so the rAF
-                -- loop has to re-enter the StateT at each tick. Eta-expanded
-                -- to break the mutual-recursion-on-values cycle with
-                -- `autoPanStep`.
-                autoPan :: Unit -> Effect Unit
-                autoPan _ = runOnRef stateRef autoPanStep
-
-                autoPanStep :: StateT HandleDragState Effect Unit
-                autoPanStep =
-                  if not params.autoPanOnConnect then pure unit
-                  else do
-                    s <- get
-                    let
-                      speed = fromMaybe 15.0 params.autoPanSpeed
-                      mv = calcAutoPan s.position
-                        { width: bounds.width, height: bounds.height }
-                        speed
-                        40.0
-                    liftEffect $ launchAff_ do
-                      _ <- params.panBy { x: mv.x, y: mv.y }
-                      pure unit
-                    handle <- liftEffect (requestAnimationFrame (autoPan unit))
-                    modify_ _ { autoPanId = Just handle }
+                autoPanEnv :: AutoPanEnv
+                autoPanEnv =
+                  { autoPanOnConnect: params.autoPanOnConnect
+                  , autoPanSpeed: params.autoPanSpeed
+                  , bounds: { width: bounds.width, height: bounds.height }
+                  , panBy: params.panBy
+                  }
 
                 onPointerMove :: Either MouseEvent TouchEvent -> Effect Unit
                 onPointerMove ev = do
@@ -362,6 +403,8 @@ onPointerDown event params = do
                       params.nodeLookup
                       fromHandleRef
 
+                  runOnRef stateRef (trackPointer autoPanEnv stateRef curPos closest)
+
                   result <- isValidHandle ev
                     { handle: case closest of
                         Just h -> Just
@@ -383,18 +426,11 @@ onPointerDown event params = do
 
                   let validNow = isConnectionValid (isJust closest) result.isValid
 
-                  runOnRef stateRef do
-                    modify_ _
-                      { position = curPos
-                      , closestHandle = closest
-                      , resultHandleDomNode = result.handleDomNode
-                      , connection = result.connection
-                      , isValid = validNow
-                      }
-                    s <- get
-                    when (not s.autoPanStarted) do
-                      liftEffect (autoPan unit)
-                      modify_ _ { autoPanStarted = true }
+                  runOnRef stateRef $ modify_ _
+                    { resultHandleDomNode = result.handleDomNode
+                    , connection = result.connection
+                    , isValid = validNow
+                    }
 
                   prev <- Ref.read previousConnection
                   let

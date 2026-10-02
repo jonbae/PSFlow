@@ -44354,18 +44354,6 @@ var getClosestHandle = function(position3) {
 };
 
 // output/System.XYHandle/index.js
-var $runtime_lazy5 = function(name15, moduleName, init4) {
-  var state3 = 0;
-  var val;
-  return function(lineNumber) {
-    if (state3 === 2) return val;
-    if (state3 === 1) throw new ReferenceError(name15 + " was needed before it finished initializing (module " + moduleName + ", line " + lineNumber + ")", moduleName, lineNumber);
-    state3 = 1;
-    val = init4();
-    state3 = 2;
-    return val;
-  };
-};
 var discard7 = /* @__PURE__ */ discard(discardUnit);
 var pure36 = /* @__PURE__ */ pure(applicativeEffect);
 var unwrap11 = /* @__PURE__ */ unwrap();
@@ -44373,22 +44361,23 @@ var map35 = /* @__PURE__ */ map(functorEffect);
 var notEq4 = /* @__PURE__ */ notEq(eqNodeId);
 var notEq13 = /* @__PURE__ */ notEq(/* @__PURE__ */ eqMaybe(eqString));
 var eq10 = /* @__PURE__ */ eq(eqHandleType);
-var lookup10 = /* @__PURE__ */ lookup2(ordNodeId);
-var bindStateT2 = /* @__PURE__ */ bindStateT(monadEffect);
-var discard22 = /* @__PURE__ */ discard7(bindStateT2);
-var monadStateStateT2 = /* @__PURE__ */ monadStateStateT(monadEffect);
-var modify_3 = /* @__PURE__ */ modify_2(monadStateStateT2);
-var bind110 = /* @__PURE__ */ bind(bindStateT2);
-var liftEffect7 = /* @__PURE__ */ liftEffect(/* @__PURE__ */ monadEffectState(monadEffectEffect));
-var for_7 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
-var when5 = /* @__PURE__ */ when(applicativeEffect);
 var applicativeStateT2 = /* @__PURE__ */ applicativeStateT(monadEffect);
-var pure115 = /* @__PURE__ */ pure(applicativeStateT2);
+var when5 = /* @__PURE__ */ when(applicativeStateT2);
+var bindStateT2 = /* @__PURE__ */ bindStateT(monadEffect);
+var bind110 = /* @__PURE__ */ bind(bindStateT2);
+var monadStateStateT2 = /* @__PURE__ */ monadStateStateT(monadEffect);
 var get5 = /* @__PURE__ */ get2(monadStateStateT2);
+var discard22 = /* @__PURE__ */ discard7(bindStateT2);
+var liftEffect7 = /* @__PURE__ */ liftEffect(/* @__PURE__ */ monadEffectState(monadEffectEffect));
 var bind25 = /* @__PURE__ */ bind(bindAff);
-var pure210 = /* @__PURE__ */ pure(applicativeAff);
-var when1 = /* @__PURE__ */ when(applicativeStateT2);
-var unless2 = /* @__PURE__ */ unless(applicativeEffect);
+var pure115 = /* @__PURE__ */ pure(applicativeAff);
+var modify_3 = /* @__PURE__ */ modify_2(monadStateStateT2);
+var unless2 = /* @__PURE__ */ unless(applicativeStateT2);
+var lookup10 = /* @__PURE__ */ lookup2(ordNodeId);
+var for_7 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
+var when1 = /* @__PURE__ */ when(applicativeEffect);
+var unless1 = /* @__PURE__ */ unless(applicativeEffect);
+var pure210 = /* @__PURE__ */ pure(applicativeStateT2);
 var runOnRef = function(ref) {
   return function(st) {
     return function __do3() {
@@ -44436,7 +44425,7 @@ var handleSelector = function(lib) {
           return "target";
         }
         ;
-        throw new Error("Failed pattern match at System.XYHandle (line 557, column 19 - line 559, column 23): " + [v.constructor.name]);
+        throw new Error("Failed pattern match at System.XYHandle (line 593, column 19 - line 595, column 23): " + [v.constructor.name]);
       };
       return "." + (lib + ('-flow__handle[data-id="' + (fromMaybe("")(flowId) + ("-" + (unwrap11(h.nodeId) + ("-" + (fromMaybe("null")(h.id) + ("-" + (handleTypeTag(h.handleType) + '"]')))))))));
     };
@@ -44462,7 +44451,7 @@ var docTag = function(v) {
     };
   }
   ;
-  throw new Error("Failed pattern match at System.XYHandle (line 604, column 10 - line 606, column 56): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at System.XYHandle (line 640, column 10 - line 642, column 56): " + [v.constructor.name]);
 };
 var elementFromPointOnDoc = function(d) {
   return function(x) {
@@ -44488,7 +44477,7 @@ var isValidHandle = function(event) {
           return Nothing.value;
         }
         ;
-        throw new Error("Failed pattern match at System.XYHandle (line 481, column 21 - line 484, column 28): " + [p.handle.constructor.name]);
+        throw new Error("Failed pattern match at System.XYHandle (line 517, column 21 - line 520, column 28): " + [p.handle.constructor.name]);
       }();
       var pos = getEventPosition(event)(Nothing.value)();
       var mBelow = elementFromPointOnDoc(p.doc)(pos.x)(pos.y)();
@@ -44501,7 +44490,7 @@ var isValidHandle = function(event) {
           return false;
         }
         ;
-        throw new Error("Failed pattern match at System.XYHandle (line 488, column 25 - line 490, column 26): " + [mBelow.constructor.name]);
+        throw new Error("Failed pattern match at System.XYHandle (line 524, column 25 - line 526, column 26): " + [mBelow.constructor.name]);
       }();
       var handleToCheck = function() {
         if (mBelow instanceof Just && belowIsHandleClass) {
@@ -44535,7 +44524,7 @@ var isValidHandle = function(event) {
               return notEq4(mNid.value0)(p.fromNodeId) || notEq13(mHid)(p.fromHandleId);
             }
             ;
-            throw new Error("Failed pattern match at System.XYHandle (line 522, column 22 - line 525, column 63): " + [p.connectionMode.constructor.name]);
+            throw new Error("Failed pattern match at System.XYHandle (line 558, column 22 - line 561, column 63): " + [p.connectionMode.constructor.name]);
           }();
           var mTo = getHandle2(mNid.value0)(mHandleType.value0)(mHid)(p.nodeLookup)(p.connectionMode)(true);
           var isTarget = eq10(p.fromType)(Target.value);
@@ -44588,7 +44577,7 @@ var isValidHandle = function(event) {
         };
       }
       ;
-      throw new Error("Failed pattern match at System.XYHandle (line 497, column 3 - line 541, column 12): " + [handleToCheck.constructor.name]);
+      throw new Error("Failed pattern match at System.XYHandle (line 533, column 3 - line 577, column 12): " + [handleToCheck.constructor.name]);
     };
   };
 };
@@ -44596,6 +44585,77 @@ var removeDocListeners = function(d) {
   return function(move) {
     return function(up) {
       return removeDocListenersImpl(docTag(d))(move)(up);
+    };
+  };
+};
+var autoPanStep = function(env) {
+  return function(stateRef) {
+    return when5(env.autoPanOnConnect)(bind110(get5)(function(s) {
+      var mv = calcAutoPan(s.position)(env.bounds)(fromMaybe(15)(env.autoPanSpeed))(40);
+      return discard22(liftEffect7(launchAff_(bind25(env.panBy({
+        x: mv.x,
+        y: mv.y
+      }))(function() {
+        return pure115(unit);
+      }))))(function() {
+        return bind110(liftEffect7(requestAnimationFrame(autoPanLoop(env)(stateRef))))(function(handle3) {
+          return modify_3(function(v) {
+            var $75 = {};
+            for (var $76 in v) {
+              if ({}.hasOwnProperty.call(v, $76)) {
+                $75[$76] = v[$76];
+              }
+              ;
+            }
+            ;
+            $75.autoPanId = new Just(handle3);
+            return $75;
+          });
+        });
+      });
+    }));
+  };
+};
+var autoPanLoop = function(env) {
+  return function(stateRef) {
+    return runOnRef(stateRef)(autoPanStep(env)(stateRef));
+  };
+};
+var trackPointer = function(env) {
+  return function(stateRef) {
+    return function(position3) {
+      return function(closestHandle) {
+        return discard22(modify_3(function(v) {
+          var $78 = {};
+          for (var $79 in v) {
+            if ({}.hasOwnProperty.call(v, $79)) {
+              $78[$79] = v[$79];
+            }
+            ;
+          }
+          ;
+          $78.position = position3;
+          $78.closestHandle = closestHandle;
+          return $78;
+        }))(function() {
+          return bind110(get5)(function(s) {
+            return unless2(s.autoPanStarted)(discard22(autoPanStep(env)(stateRef))(function() {
+              return modify_3(function(v) {
+                var $81 = {};
+                for (var $82 in v) {
+                  if ({}.hasOwnProperty.call(v, $82)) {
+                    $81[$82] = v[$82];
+                  }
+                  ;
+                }
+                ;
+                $81.autoPanStarted = true;
+                return $81;
+              });
+            }));
+          });
+        });
+      };
     };
   };
 };
@@ -44619,7 +44679,7 @@ var onPointerDown = function(event) {
           return Nothing.value;
         }
         ;
-        throw new Error("Failed pattern match at System.XYHandle (line 236, column 22 - line 238, column 28): " + [params.domNode.constructor.name]);
+        throw new Error("Failed pattern match at System.XYHandle (line 293, column 22 - line 295, column 28): " + [params.domNode.constructor.name]);
       }();
       var evPos = getEventPosition(event)(Nothing.value)();
       var hType = getHandleType(params.edgeUpdaterType)(new Just(params.handleDomNode))();
@@ -44663,16 +44723,16 @@ var onPointerDown = function(event) {
             };
             var previousConnection = $$new(initialConnection)();
             var startConnection = discard22(modify_3(function(v) {
-              var $81 = {};
-              for (var $82 in v) {
-                if ({}.hasOwnProperty.call(v, $82)) {
-                  $81[$82] = v[$82];
+              var $90 = {};
+              for (var $91 in v) {
+                if ({}.hasOwnProperty.call(v, $91)) {
+                  $90[$91] = v[$91];
                 }
                 ;
               }
               ;
-              $81.connectionStarted = true;
-              return $81;
+              $90.connectionStarted = true;
+              return $90;
             }))(function() {
               return bind110(liftEffect7(read(previousConnection)))(function(prev) {
                 return discard22(liftEffect7(params.updateConnection(new ConnectionInProgress(prev))))(function() {
@@ -44686,46 +44746,16 @@ var onPointerDown = function(event) {
                 });
               });
             });
-            when5(params.dragThreshold === 0)(runOnRef(stateRef)(startConnection))();
-            var autoPan = function(v) {
-              return runOnRef(stateRef)($lazy_autoPanStep(307));
+            when1(params.dragThreshold === 0)(runOnRef(stateRef)(startConnection))();
+            var autoPanEnv = {
+              autoPanOnConnect: params.autoPanOnConnect,
+              autoPanSpeed: params.autoPanSpeed,
+              bounds: {
+                width: containerBounds.value0.width,
+                height: containerBounds.value0.height
+              },
+              panBy: params.panBy
             };
-            var $lazy_autoPanStep = $runtime_lazy5("autoPanStep", "System.XYHandle", function() {
-              var $84 = !params.autoPanOnConnect;
-              if ($84) {
-                return pure115(unit);
-              }
-              ;
-              return bind110(get5)(function(s) {
-                var speed = fromMaybe(15)(params.autoPanSpeed);
-                var mv = calcAutoPan(s.position)({
-                  width: containerBounds.value0.width,
-                  height: containerBounds.value0.height
-                })(speed)(40);
-                return discard22(liftEffect7(launchAff_(bind25(params.panBy({
-                  x: mv.x,
-                  y: mv.y
-                }))(function() {
-                  return pure210(unit);
-                }))))(function() {
-                  return bind110(liftEffect7(requestAnimationFrame(autoPan(unit))))(function(handle3) {
-                    return modify_3(function(v) {
-                      var $85 = {};
-                      for (var $86 in v) {
-                        if ({}.hasOwnProperty.call(v, $86)) {
-                          $85[$86] = v[$86];
-                        }
-                        ;
-                      }
-                      ;
-                      $85.autoPanId = new Just(handle3);
-                      return $85;
-                    });
-                  });
-                });
-              });
-            });
-            var autoPanStep2 = $lazy_autoPanStep(309);
             var stepMove = function(ev) {
               return function __do4() {
                 var transform2 = params.getTransform();
@@ -44737,6 +44767,7 @@ var onPointerDown = function(event) {
                   handleType: hType.value0
                 };
                 var closest = getClosestHandle(rendererPos)(params.connectionRadius)(params.nodeLookup)(fromHandleRef);
+                runOnRef(stateRef)(trackPointer(autoPanEnv)(stateRef)(curPos)(closest))();
                 var result = isValidHandle(ev)({
                   handle: function() {
                     if (closest instanceof Just) {
@@ -44751,7 +44782,7 @@ var onPointerDown = function(event) {
                       return Nothing.value;
                     }
                     ;
-                    throw new Error("Failed pattern match at System.XYHandle (line 366, column 31 - line 372, column 43): " + [closest.constructor.name]);
+                    throw new Error("Failed pattern match at System.XYHandle (line 409, column 31 - line 415, column 43): " + [closest.constructor.name]);
                   }(),
                   connectionMode: params.connectionMode,
                   fromNodeId: params.nodeId,
@@ -44770,38 +44801,19 @@ var onPointerDown = function(event) {
                   nodeLookup: params.nodeLookup
                 })();
                 var validNow = isConnectionValid(isJust(closest))(result.isValid);
-                runOnRef(stateRef)(discard22(modify_3(function(v) {
-                  var $91 = {};
-                  for (var $92 in v) {
-                    if ({}.hasOwnProperty.call(v, $92)) {
-                      $91[$92] = v[$92];
+                runOnRef(stateRef)(modify_3(function(v) {
+                  var $96 = {};
+                  for (var $97 in v) {
+                    if ({}.hasOwnProperty.call(v, $97)) {
+                      $96[$97] = v[$97];
                     }
                     ;
                   }
                   ;
-                  $91.position = curPos;
-                  $91.closestHandle = closest;
-                  $91.resultHandleDomNode = result.handleDomNode;
-                  $91.connection = result.connection;
-                  $91.isValid = validNow;
-                  return $91;
-                }))(function() {
-                  return bind110(get5)(function(s) {
-                    return when1(!s.autoPanStarted)(discard22(liftEffect7(autoPan(unit)))(function() {
-                      return modify_3(function(v) {
-                        var $94 = {};
-                        for (var $95 in v) {
-                          if ({}.hasOwnProperty.call(v, $95)) {
-                            $94[$95] = v[$95];
-                          }
-                          ;
-                        }
-                        ;
-                        $94.autoPanStarted = true;
-                        return $94;
-                      });
-                    }));
-                  });
+                  $96.resultHandleDomNode = result.handleDomNode;
+                  $96.connection = result.connection;
+                  $96.isValid = validNow;
+                  return $96;
                 }))();
                 var prev = read(previousConnection)();
                 var nextToPosition = function() {
@@ -44820,7 +44832,7 @@ var onPointerDown = function(event) {
                     return Nothing.value;
                   }
                   ;
-                  throw new Error("Failed pattern match at System.XYHandle (line 416, column 34 - line 418, column 41): " + [result.toHandle.constructor.name]);
+                  throw new Error("Failed pattern match at System.XYHandle (line 452, column 34 - line 454, column 41): " + [result.toHandle.constructor.name]);
                 }();
                 var nextTo = function() {
                   if (result.toHandle instanceof Just && (validNow instanceof Just && validNow.value0)) {
@@ -44842,7 +44854,7 @@ var onPointerDown = function(event) {
                     return prev.from;
                   }
                   ;
-                  throw new Error("Failed pattern match at System.XYHandle (line 403, column 29 - line 406, column 43): " + [fromInternalNode$prime.constructor.name]);
+                  throw new Error("Failed pattern match at System.XYHandle (line 439, column 29 - line 442, column 43): " + [fromInternalNode$prime.constructor.name]);
                 }();
                 var next = {
                   fromHandle: prev.fromHandle,
@@ -44863,8 +44875,8 @@ var onPointerDown = function(event) {
             var onPointerUp = function(ev) {
               return function __do4() {
                 var multi = isMultiTouchEvent(ev)();
-                return unless2(multi)(runOnRef(stateRef)(bind110(get5)(function(s) {
-                  return discard22(when1(s.connectionStarted)(discard22(liftEffect7(function() {
+                return unless1(multi)(runOnRef(stateRef)(bind110(get5)(function(s) {
+                  return discard22(when5(s.connectionStarted)(discard22(liftEffect7(function() {
                     if (s.connection instanceof Just && (s.isValid instanceof Just && (s.isValid.value0 && (isJust(s.closestHandle) || isJust(s.resultHandleDomNode))))) {
                       return for_7(params.onConnect)(function(cb) {
                         return cb(s.connection.value0);
@@ -44878,7 +44890,7 @@ var onPointerDown = function(event) {
                       return discard22(liftEffect7(for_7(params.onConnectEnd)(function(cb) {
                         return cb(ev)($$final);
                       })))(function() {
-                        return when1(isJust(params.edgeUpdaterType))(liftEffect7(for_7(params.onReconnectEnd)(function(cb) {
+                        return when5(isJust(params.edgeUpdaterType))(liftEffect7(for_7(params.onReconnectEnd)(function(cb) {
                           return cb(ev)($$final);
                         })));
                       });
@@ -44887,20 +44899,20 @@ var onPointerDown = function(event) {
                     return discard22(liftEffect7(params.cancelConnection))(function() {
                       return discard22(liftEffect7(for_7(s.autoPanId)(cancelAnimationFrame)))(function() {
                         return discard22(modify_3(function(v) {
-                          var $113 = {};
-                          for (var $114 in v) {
-                            if ({}.hasOwnProperty.call(v, $114)) {
-                              $113[$114] = v[$114];
+                          var $115 = {};
+                          for (var $116 in v) {
+                            if ({}.hasOwnProperty.call(v, $116)) {
+                              $115[$116] = v[$116];
                             }
                             ;
                           }
                           ;
-                          $113.autoPanId = Nothing.value;
-                          $113.autoPanStarted = false;
-                          $113.isValid = Nothing.value;
-                          $113.connection = Nothing.value;
-                          $113.resultHandleDomNode = Nothing.value;
-                          return $113;
+                          $115.autoPanId = Nothing.value;
+                          $115.autoPanStarted = false;
+                          $115.isValid = Nothing.value;
+                          $115.connection = Nothing.value;
+                          $115.resultHandleDomNode = Nothing.value;
+                          return $115;
                         }))(function() {
                           return liftEffect7(removeDocListeners(doc)(onPointerMove)(onPointerUp));
                         });
@@ -44918,18 +44930,18 @@ var onPointerDown = function(event) {
                   var dx = evPos2.x - evPos.x;
                   var moved = dx * dx + dy * dy > params.dragThreshold * params.dragThreshold;
                   if (s.connectionStarted) {
-                    return pure115(true);
+                    return pure210(true);
                   }
                   ;
                   if (moved) {
                     return discard22(startConnection)(function() {
-                      return pure115(true);
+                      return pure210(true);
                     });
                   }
                   ;
-                  return pure115(false);
+                  return pure210(false);
                 }))();
-                return when5(proceed)(function __do5() {
+                return when1(proceed)(function __do5() {
                   var mFromHandleNow = params.getFromHandle();
                   if (mFromHandleNow instanceof Nothing) {
                     return onPointerUp(ev)();
@@ -44939,17 +44951,17 @@ var onPointerDown = function(event) {
                     return stepMove(ev)();
                   }
                   ;
-                  throw new Error("Failed pattern match at System.XYHandle (line 344, column 21 - line 346, column 44): " + [mFromHandleNow.constructor.name]);
+                  throw new Error("Failed pattern match at System.XYHandle (line 385, column 21 - line 387, column 44): " + [mFromHandleNow.constructor.name]);
                 })();
               };
             };
             return addDocListeners(doc)(onPointerMove)(onPointerUp)();
           }
           ;
-          throw new Error("Failed pattern match at System.XYHandle (line 260, column 11 - line 467, column 60): " + [mFromInternalNode.constructor.name]);
+          throw new Error("Failed pattern match at System.XYHandle (line 317, column 11 - line 503, column 60): " + [mFromInternalNode.constructor.name]);
         }
         ;
-        throw new Error("Failed pattern match at System.XYHandle (line 248, column 7 - line 467, column 60): " + [mFromInternal.constructor.name]);
+        throw new Error("Failed pattern match at System.XYHandle (line 305, column 7 - line 503, column 60): " + [mFromInternal.constructor.name]);
       }
       ;
       return unit;
@@ -48200,7 +48212,7 @@ var filterPredicate = function(upd) {
     };
   };
 };
-var autoPanStep = function(params) {
+var autoPanStep2 = function(params) {
   return function(mNodeId) {
     return function(stateRef) {
       var xyOf = function(r) {
@@ -48213,7 +48225,7 @@ var autoPanStep = function(params) {
         ;
         return Nothing.value;
       };
-      var scheduleNextFrame = bind33(liftEffect8(requestAnimationFrame(autoPanLoop(params)(mNodeId)(stateRef))))(function(handle3) {
+      var scheduleNextFrame = bind33(liftEffect8(requestAnimationFrame(autoPanLoop2(params)(mNodeId)(stateRef))))(function(handle3) {
         return modify_4(function(v) {
           var $139 = {};
           for (var $140 in v) {
@@ -48309,11 +48321,11 @@ var autoPanStep = function(params) {
     };
   };
 };
-var autoPanLoop = function(params) {
+var autoPanLoop2 = function(params) {
   return function(mNodeId) {
     return function(stateRef) {
       return runOnRef2(stateRef)(defer2(function(v) {
-        return autoPanStep(params)(mNodeId)(stateRef);
+        return autoPanStep2(params)(mNodeId)(stateRef);
       }));
     };
   };
@@ -48380,7 +48392,7 @@ var onDragHandler = function(params) {
                           $163.autoPanStarted = true;
                           return $163;
                         }))(function() {
-                          return autoPanStep(params)(upd.nodeId)(stateRef);
+                          return autoPanStep2(params)(upd.nodeId)(stateRef);
                         })))(function() {
                           return discard12(when9(!s1.dragStarted)(bind33(liftEffect8(getEventPosition(foreignAsTouchOrMouse(src9))(s1.containerBounds)))(function(curMP) {
                             var dy = curMP.y - s1.mousePosition.y;
@@ -49009,7 +49021,7 @@ var buildPaneClass = function(p) {
     return "";
   }()]));
 };
-var autoPanLoop2 = function(env) {
+var autoPanLoop3 = function(env) {
   return when10(env.autoPanOnSelection)(function __do3() {
     var mBounds = env.containerBounds();
     if (mBounds instanceof Nothing) {
@@ -49030,7 +49042,7 @@ var autoPanLoop2 = function(env) {
               var landedAt = env.position();
               return env.commitUserSelectionRect(landedAt.x)(landedAt.y)();
             })();
-            return env.scheduleFrame(autoPanLoop2(env))();
+            return env.scheduleFrame(autoPanLoop3(env))();
           });
         });
       }))();
@@ -50686,7 +50698,7 @@ var pane = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__
                         ;
                         return handler_(pure50(unit));
                       }();
-                      var autoPan = autoPanLoop2({
+                      var autoPan = autoPanLoop3({
                         autoPanOnSelection: v.autoPanOnSelection,
                         autoPanSpeed: slice3.autoPanSpeed,
                         containerBounds: map47(toMaybe)(readRef(containerBoundsRef)),
