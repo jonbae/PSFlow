@@ -2111,7 +2111,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 343.59999990463257,
+            "timeStamp": 342.80000019073486,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2180,7 +2180,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 343.59999990463257,
+            "timeStamp": 342.80000019073486,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2285,7 +2285,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 343.59999990463257,
+            "timeStamp": 342.80000019073486,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2350,7 +2350,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 343.59999990463257,
+            "timeStamp": 342.80000019073486,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2477,7 +2477,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 354,
+            "timeStamp": 352.30000019073486,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2560,64 +2560,6 @@
         ]
       },
       {
-        "name": "onSelectionChange",
-        "args": [
-          {
-            "nodes": [],
-            "edges": [
-              {
-                "id": "edge-with-class",
-                "type": {
-                  "@undefined": true
-                },
-                "source": "1",
-                "target": "2",
-                "sourceHandle": {
-                  "@undefined": true
-                },
-                "targetHandle": {
-                  "@undefined": true
-                },
-                "animated": false,
-                "hidden": false,
-                "deletable": {
-                  "@undefined": true
-                },
-                "selectable": {
-                  "@undefined": true
-                },
-                "data": {
-                  "@undefined": true
-                },
-                "selected": true,
-                "markerStart": {
-                  "@undefined": true
-                },
-                "markerEnd": {
-                  "@undefined": true
-                },
-                "zIndex": {
-                  "@undefined": true
-                },
-                "label": {
-                  "@undefined": true
-                },
-                "ariaLabel": {
-                  "@undefined": true
-                },
-                "interactionWidth": {
-                  "@undefined": true
-                },
-                "className": "edge-class-test",
-                "style": {
-                  "@undefined": true
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
         "name": "onEdgeMouseLeave",
         "args": [
           {
@@ -2640,7 +2582,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 381.2999999523163,
+            "timeStamp": 378.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2698,7 +2640,7 @@
             "data": {
               "@undefined": true
             },
-            "selected": true,
+            "selected": false,
             "markerStart": {
               "@undefined": true
             },
@@ -2747,7 +2689,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 381.2999999523163,
+            "timeStamp": 378.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2854,7 +2796,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 381.2999999523163,
+            "timeStamp": 378.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2919,7 +2861,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 381.2999999523163,
+            "timeStamp": 378.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3004,6 +2946,64 @@
         ]
       },
       {
+        "name": "onSelectionChange",
+        "args": [
+          {
+            "nodes": [],
+            "edges": [
+              {
+                "id": "edge-with-class",
+                "type": {
+                  "@undefined": true
+                },
+                "source": "1",
+                "target": "2",
+                "sourceHandle": {
+                  "@undefined": true
+                },
+                "targetHandle": {
+                  "@undefined": true
+                },
+                "animated": false,
+                "hidden": false,
+                "deletable": {
+                  "@undefined": true
+                },
+                "selectable": {
+                  "@undefined": true
+                },
+                "data": {
+                  "@undefined": true
+                },
+                "selected": true,
+                "markerStart": {
+                  "@undefined": true
+                },
+                "markerEnd": {
+                  "@undefined": true
+                },
+                "zIndex": {
+                  "@undefined": true
+                },
+                "label": {
+                  "@undefined": true
+                },
+                "ariaLabel": {
+                  "@undefined": true
+                },
+                "interactionWidth": {
+                  "@undefined": true
+                },
+                "className": "edge-class-test",
+                "style": {
+                  "@undefined": true
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "onEdgesChange",
         "args": [
           [
@@ -3042,7 +3042,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 402.2000000476837,
+            "timeStamp": 388.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
