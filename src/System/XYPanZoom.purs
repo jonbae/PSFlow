@@ -8,6 +8,7 @@
 -- | mutable `ZoomPanValues` record lives in `System.XYPanZoom.EventHandler`.
 module System.XYPanZoom
   ( createXYPanZoom
+  , syncViewportImpl
   ) where
 
 import Prelude hiding (clamp)
@@ -26,6 +27,7 @@ import System.FFI.D3Zoom
   , currentZoomTransform
   , linearInterpolate
   , selectionCallZoom
+  , selectionGetZoomProperty
   , selectionGetZoomHandler
   , selectionSetDblClickHandler
   , selectionSetDblClickNull
@@ -42,7 +44,11 @@ import System.FFI.D3Zoom
   , zoomBehaviorScaleBy
   , zoomBehaviorScaleTo
   , zoomBehaviorTransform
+  , zoomBehaviorTransformSync
   , zoomCreate
+  , zoomTransformK
+  , zoomTransformX
+  , zoomTransformY
   )
 import System.Types.Connection (InterpolateMode(..), Viewport)
 import System.Types.Geometry (CoordinateExtent(..))
@@ -317,8 +323,13 @@ syncViewportImpl
   -> Viewport
   -> Effect Unit
 syncViewportImpl zoomInst d3Sel viewport = do
-  let nextTransform = viewportToTransform viewport
-  zoomBehaviorTransform zoomInst d3Sel nextTransform
+  current <- selectionGetZoomProperty d3Sel
+  when
+    ( zoomTransformK current /= viewport.zoom
+        || zoomTransformX current /= viewport.x
+        || zoomTransformY current /= viewport.y
+    ) do
+    zoomBehaviorTransformSync zoomInst d3Sel (viewportToTransform viewport)
 
 setClickDistanceImpl :: D3ZoomBehavior -> Number -> Effect Unit
 setClickDistanceImpl zoomInst distance = do

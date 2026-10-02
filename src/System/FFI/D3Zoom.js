@@ -2,6 +2,7 @@
 
 import { zoom, zoomTransform, zoomIdentity as _zoomIdentity } from "d3-zoom";
 import { interpolate as _interpolate, interpolateZoom } from "d3-interpolate";
+import { pointer } from "d3-selection";
 
 // ZoomTransform accessors — the value is the d3 ZoomTransform itself.
 export const zoomTransformX = (t) => t.x;
@@ -55,8 +56,16 @@ export const zoomBehaviorTransform = (b) => (sel) => (t) => () => {
   b.transform(sel, t);
 };
 
+export const zoomBehaviorTransformSync = (b) => (sel) => (t) => () => {
+  b.transform(sel, t, null, { sync: true });
+};
+
 export const zoomBehaviorScaleTo = (b) => (sel) => (k) => () => {
   b.scaleTo(sel, k);
+};
+
+export const zoomBehaviorScaleToAtPointer = (b) => (sel) => (k) => (event) => () => {
+  b.scaleTo(sel, k, pointer(event), event);
 };
 
 export const zoomBehaviorScaleBy = (b) => (sel) => (factor) => () => {

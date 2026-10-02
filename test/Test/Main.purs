@@ -57,6 +57,7 @@ import Test.System.Utils.Store (runStoreProperties)
 import Test.System.Utils.StorePanBy (runStorePanByTests)
 import Test.System.XYDrag (runXYDragTests)
 import Test.System.XYPanZoom.EventHandler (runEventHandlerTests)
+import Test.System.XYPanZoom.SourceEvents (runSourceEventTests)
 
 assert :: String -> Boolean -> Effect Unit
 assert label cond =
@@ -1070,6 +1071,7 @@ main = do
   runVisibleIdsTests
   runXYDragTests
   runEventHandlerTests
+  runSourceEventTests
   runPaneAutoPanTests
   runStorePanByTests
   runTrackedPropTests
