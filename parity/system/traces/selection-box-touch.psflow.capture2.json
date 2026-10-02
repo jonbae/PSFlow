@@ -469,7 +469,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(0px, 400px); pointer-events: all; visibility: visible; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: 150px; height: 37px;"
+                              "style": "z-index: 0; transform: translate(0px, 400px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "notDraggable",
                             "children": [
@@ -1265,7 +1265,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 221.5,
+            "timeStamp": 237.79999995231628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1346,7 +1346,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 281.2999999523163,
+            "timeStamp": 301.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1413,7 +1413,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 281.2999999523163,
+            "timeStamp": 301.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

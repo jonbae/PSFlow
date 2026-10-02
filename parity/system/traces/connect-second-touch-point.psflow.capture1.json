@@ -469,7 +469,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
-                              "style": "z-index: 0; transform: translate(0px, 400px); pointer-events: all; visibility: visible; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: 150px; height: 37px;"
+                              "style": "z-index: 0; transform: translate(0px, 400px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "notDraggable",
                             "children": [
@@ -945,7 +945,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 355.2999999523163,
+            "timeStamp": 287.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1012,7 +1012,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 377.2000000476837,
+            "timeStamp": 311.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1079,7 +1079,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 410.40000009536743,
+            "timeStamp": 345,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1438,7 +1438,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 447.2999999523163,
+            "timeStamp": 379.7000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1503,7 +1503,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 447.2999999523163,
+            "timeStamp": 379.7000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
