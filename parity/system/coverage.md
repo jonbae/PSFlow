@@ -164,7 +164,7 @@ The witness is printed beside each one so a wrong witness can be read and disput
 | `ZIndexMode` | dom | driven | `.react-flow__edges svg[style*=z-index]` | `arrow-key-selected-node` +91 more |
 | `Connection` | callbacks | driven | `onConnect` | `click-connect-reverse-direction` +4 more |
 | `EdgeAddChange` | callbacks | hole | `onEdgesChange:add` | declared — no issue owns it |
-| `EdgeChange` | callbacks | driven | `onEdgesChange` | `arrow-key-selected-node` +38 more |
+| `EdgeChange` | callbacks | driven | `onEdgesChange` | `arrow-key-selected-node` +37 more |
 | `EdgeMouseHandler` | callbacks | driven | `onEdgeClick, onEdgeDoubleClick, onEdgeContextMenu, onEdgeMouseEnter, onEdgeMouseMove, onEdgeMouseLeave` | `click-inside-interaction-width` +16 more |
 | `EdgeRemoveChange` | callbacks | driven | `onEdgesChange:remove` | `delete-key-removes-edge` +2 more |
 | `EdgeReplaceChange` | callbacks | hole | `onEdgesChange:replace` | declared — no issue owns it |
@@ -172,7 +172,7 @@ The witness is printed beside each one so a wrong witness can be read and disput
 | `FinalConnectionState` | callbacks | driven | `onConnectEnd` | `connect-drag-released-on-pane` +7 more |
 | `IsValidConnection` | callbacks | driven | `isValidConnection` | `click-connect-reverse-direction` +4 more |
 | `NodeAddChange` | callbacks | driven | `onNodesChange:add` | `uncontrolled-update-node` |
-| `NodeChange` | callbacks | driven | `onNodesChange` | `arrow-key-selected-node` +86 more |
+| `NodeChange` | callbacks | driven | `onNodesChange` | `arrow-key-selected-node` +85 more |
 | `NodeDimensionChange` | callbacks | driven | `onNodesChange:dimensions` | `arrow-key-selected-node` +81 more |
 | `NodeMouseHandler` | callbacks | driven | `onNodeClick, onNodeDoubleClick, onNodeContextMenu, onNodeMouseEnter, onNodeMouseMove, onNodeMouseLeave` | `arrow-key-selected-node` +33 more |
 | `NodePositionChange` | callbacks | driven | `onNodesChange:position` | `arrow-key-selected-node` +11 more |
@@ -185,15 +185,15 @@ The witness is printed beside each one so a wrong witness can be read and disput
 | `OnConnectStart` | callbacks | driven | `onConnectStart` | `connect-drag-holding-source` +10 more |
 | `OnConnectStartParams` | callbacks | driven | `onConnectStart` | `connect-drag-holding-source` +10 more |
 | `OnDelete` | callbacks | driven | `onDelete` | `delete-key-removes-edge` +2 more |
-| `OnEdgesChange` | callbacks | driven | `onEdgesChange` | `arrow-key-selected-node` +38 more |
+| `OnEdgesChange` | callbacks | driven | `onEdgesChange` | `arrow-key-selected-node` +37 more |
 | `OnEdgesDelete` | callbacks | driven | `onEdgesDelete` | `delete-key-removes-edge` +2 more |
 | `OnError` | callbacks | driven | `onError` | `click-reveals-default-toolbar` +30 more |
 | `OnInit` | callbacks | hole | `onInit` | declared — no issue owns it |
-| `OnMove` | callbacks | driven | `onMove` | `background-custom-bgcolor` +83 more |
-| `OnMoveEnd` | callbacks | driven | `onMoveEnd` | `background-custom-bgcolor` +82 more |
-| `OnMoveStart` | callbacks | driven | `onMoveStart` | `background-custom-bgcolor` +84 more |
+| `OnMove` | callbacks | driven | `onMove` | `background-custom-bgcolor` +81 more |
+| `OnMoveEnd` | callbacks | driven | `onMoveEnd` | `background-custom-bgcolor` +80 more |
+| `OnMoveStart` | callbacks | driven | `onMoveStart` | `background-custom-bgcolor` +82 more |
 | `OnNodeDrag` | callbacks | driven | `onNodeDragStart, onNodeDrag, onNodeDragStop` | `arrow-key-selected-node` +20 more |
-| `OnNodesChange` | callbacks | driven | `onNodesChange` | `arrow-key-selected-node` +86 more |
+| `OnNodesChange` | callbacks | driven | `onNodesChange` | `arrow-key-selected-node` +85 more |
 | `OnNodesDelete` | callbacks | driven | `onNodesDelete` | `delete-key-removes-node-and-edges` +1 more |
 | `OnReconnect` | callbacks | hole | `onReconnect` | declared — no issue owns it |
 | `OnResize` | callbacks | hole | `onResize` | declared — no issue owns it |
