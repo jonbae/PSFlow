@@ -48,10 +48,11 @@ a hand-written act in `parity/system/corpus/`, which has its own README.
 
 ## What is here
 
-Twenty flows, one per condition no vendored fixture sets. Eighteen were written
-for the thirty test-debt scenarios ([#60]) and two for the retirement debt
+Twenty-two flows, one per condition no vendored fixture sets. Eighteen were
+written for the thirty test-debt scenarios ([#60]), two for the retirement debt
 ([#61]) — the two ps-flow **contract** pages, turned into data when the
-hand-authored assertions they carried retired into the net. Grouped by what the
+hand-authored assertions they carried retired into the net — and two for the
+hole-closing scenarios ([#93]). Grouped by what the
 condition is *about* rather than by which scenario drives it — several are driven
 by more than one, and a fixture named after its first scenario would read wrongly
 the moment a second arrived.
@@ -68,6 +69,7 @@ the moment a second arrived.
 | `flow/chrome-defaults.ts` | `Background`, `Controls` and `MiniMap` all at their defaults, on a flow that does not fit its view |
 | `flow/custom-testid.ts` | a custom `data-testid` on `<ReactFlow>` |
 | `flow/display-none.ts` | a container that is hidden *after* it mounted |
+| `flow/limits-change.ts` | a `translateExtent` that narrows after the mount |
 | `flow/props-change.ts` | a dozen tracked props that change after the mount |
 | `nodes/autopan.ts` | a drag that reaches the edge, with a bounded pan |
 | `nodes/connections.ts` | a node whose handles carry several edges each |
@@ -77,6 +79,7 @@ the moment a second arrived.
 | `nodes/props-record.ts` | a child parented to a node that sits somewhere else, rendering its own `NodeProps` |
 | `nodes/tall.ts` | a flow taller than the window, so the page can scroll |
 | `nodes/unmeasured.ts` | controlled, with dimension changes never applied back |
+| `viewport/controlled.ts` | a controlled `viewport` that changes after the mount and is never fed back |
 | `viewport/helpers.ts` | a flow that snaps, so a no-options helper says something |
 
 Each file's own header says why it is shaped the way it is, and several of those
@@ -131,3 +134,4 @@ itself to controlled on its first change.
 
 [#60]: https://github.com/jonbae/PSFlow/issues/60
 [#61]: https://github.com/jonbae/PSFlow/issues/61
+[#93]: https://github.com/jonbae/PSFlow/issues/93

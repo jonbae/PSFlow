@@ -40,6 +40,7 @@ import { routeOf } from "./routes.mjs";
 
 const LIMITS_CHANGE = routeOf("./flow/limits-change.ts");
 const PROPS_CHANGE = routeOf("./flow/props-change.ts");
+const CONTROLLED_VIEWPORT = routeOf("./viewport/controlled.ts");
 
 const control = (name) => `[data-testid="${name}"]`;
 
@@ -100,6 +101,38 @@ const holeClosing = [
       await a.pointerDown(".react-flow__pane");
       await a.pointerMove(null, { dx: 400, dy: 300 });
       await a.pointerMove(null, { dx: 400, dy: 300 });
+      await a.pointerUp();
+    },
+  },
+
+  // A controlled viewport, then a pan, then a changed controlled viewport and
+  // another pan. Ticket #128, off #124.
+  //
+  // #124 made `syncViewport` skip an unchanged transform and mark its d3 event
+  // as a sync, and found nothing called it: `useViewportSync` wrote the store
+  // and never reached the instance, and no fixture passed a controlled
+  // `viewport` at all. `viewport/controlled.ts` says why its viewport is never
+  // fed back, which is what lets the `callbacks` section read d3's own
+  // transform.
+  //
+  // Two pans because the instance has two syncs to make. The first pan starts
+  // from the mount sync, which has to move d3 off `defaultViewport` after
+  // `<ZoomPane />` creates the instance. The second starts from the sync the
+  // control triggers. A port that missed either starts that pan from the wrong
+  // transform.
+  {
+    id: "pan-after-controlled-viewport-change",
+    route: CONTROLLED_VIEWPORT,
+    probeCapabilities: ["viewport"],
+    async run(a) {
+      await a.pointerDown(".react-flow__pane");
+      await a.pointerMove(null, { dx: 40, dy: 20 });
+      await a.pointerMove(null, { dx: 40, dy: 20 });
+      await a.pointerUp();
+      await a.click(control(AFTER_MOUNT));
+      await a.pointerDown(".react-flow__pane");
+      await a.pointerMove(null, { dx: 40, dy: 20 });
+      await a.pointerMove(null, { dx: 40, dy: 20 });
       await a.pointerUp();
     },
   },
