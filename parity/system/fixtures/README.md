@@ -48,10 +48,10 @@ a hand-written act in `parity/system/corpus/`, which has its own README.
 
 ## What is here
 
-Twenty-three flows, one per condition no vendored fixture sets. Eighteen were
+Twenty-four flows, one per condition no vendored fixture sets. Eighteen were
 written for the thirty test-debt scenarios ([#60]), two for the retirement debt
 ([#61]) — the two ps-flow **contract** pages, turned into data when the
-hand-authored assertions they carried retired into the net — and three for the
+hand-authored assertions they carried retired into the net — and four for the
 hole-closing scenarios ([#93]). Grouped by what the
 condition is *about* rather than by which scenario drives it — several are driven
 by more than one, and a fixture named after its first scenario would read wrongly
@@ -70,6 +70,7 @@ the moment a second arrived.
 | `flow/custom-testid.ts` | a custom `data-testid` on `<ReactFlow>` |
 | `flow/display-none.ts` | a container that is hidden *after* it mounted |
 | `flow/limits-change.ts` | a `translateExtent` that narrows after the mount |
+| `flow/not-selectable.ts` | `elementsSelectable: false`, with a node and an edge passed in selected |
 | `flow/props-change.ts` | a dozen tracked props that change after the mount |
 | `nodes/autopan.ts` | a drag that reaches the edge, with a bounded pan |
 | `nodes/connections.ts` | a node whose handles carry several edges each |

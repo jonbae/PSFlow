@@ -530,31 +530,36 @@ reduceResetSelectedElements
   :: forall n e
    . ReactFlowState n e
   -> ReduceResult n e
-reduceResetSelectedElements state =
-  let
-    nodePairs :: Array (Tuple NodeId (InternalNodeBase n))
-    nodePairs = Map.toUnfoldable state.nodeLookup
-    edgePairs :: Array (Tuple String (EdgeBase e))
-    edgePairs = Map.toUnfoldable state.edgeLookup
+reduceResetSelectedElements state
+  -- TS `resetSelectedElements` returns before it reads a node or an edge
+  -- when `elementsSelectable` is false. A selection the consumer passed in,
+  -- such as a controlled node with `selected: true`, survives a pane click.
+  | not state.elementsSelectable = { state, effects: [] }
+  | otherwise =
+      let
+        nodePairs :: Array (Tuple NodeId (InternalNodeBase n))
+        nodePairs = Map.toUnfoldable state.nodeLookup
+        edgePairs :: Array (Tuple String (EdgeBase e))
+        edgePairs = Map.toUnfoldable state.edgeLookup
 
-    nodeChanges = Array.mapMaybe
-      ( \(Tuple _ n) ->
-          if n.selected then
-            Just (NodeSelectionChange { id: n.id, selected: false })
-          else Nothing
-      )
-      nodePairs
-    edgeChanges = Array.mapMaybe
-      ( \(Tuple _ e) ->
-          if e.selected then
-            Just (EdgeSelectionChange { id: e.id, selected: false })
-          else Nothing
-      )
-      edgePairs
+        nodeChanges = Array.mapMaybe
+          ( \(Tuple _ n) ->
+              if n.selected then
+                Just (NodeSelectionChange { id: n.id, selected: false })
+              else Nothing
+          )
+          nodePairs
+        edgeChanges = Array.mapMaybe
+          ( \(Tuple _ e) ->
+              if e.selected then
+                Just (EdgeSelectionChange { id: e.id, selected: false })
+              else Nothing
+          )
+          edgePairs
 
-    afterNodes = reduceTriggerNodeChanges state nodeChanges
-    afterEdges = reduceTriggerEdgeChanges afterNodes.state edgeChanges
-  in
-    { state: afterEdges.state
-    , effects: afterNodes.effects <> afterEdges.effects
-    }
+        afterNodes = reduceTriggerNodeChanges state nodeChanges
+        afterEdges = reduceTriggerEdgeChanges afterNodes.state edgeChanges
+      in
+        { state: afterEdges.state
+        , effects: afterNodes.effects <> afterEdges.effects
+        }
