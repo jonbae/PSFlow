@@ -57,6 +57,7 @@ import Test.React.Store.ZoomLimits (runZoomLimitsTests)
 import Test.System.Utils.Store (runStoreProperties)
 import Test.System.Utils.StorePanBy (runStorePanByTests)
 import Test.System.XYDrag (runXYDragTests)
+import Test.System.XYHandle (runXYHandleTests)
 import Test.System.XYPanZoom.EventHandler (runEventHandlerTests)
 import Test.System.XYPanZoom.SourceEvents (runSourceEventTests)
 
@@ -1071,6 +1072,7 @@ main = do
   runZoomLimitsTests
   runVisibleIdsTests
   runXYDragTests
+  runXYHandleTests
   runEventHandlerTests
   runSourceEventTests
   runPaneAutoPanTests

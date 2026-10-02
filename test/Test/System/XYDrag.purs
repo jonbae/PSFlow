@@ -27,6 +27,8 @@
 -- | requests and runs none of them.
 module Test.System.XYDrag
   ( runXYDragTests
+  , FrameClock
+  , installFrameClock
   ) where
 
 import Prelude
