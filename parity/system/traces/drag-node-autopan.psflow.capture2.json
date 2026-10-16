@@ -207,7 +207,7 @@
                               "role": "group",
                               "aria-roledescription": "node",
                               "aria-describedby": "react-flow__node-desc-1",
-                              "style": "z-index: 1000; transform: translate(-1790px, -1953px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
+                              "style": "z-index: 1000; transform: translate(-1790px, -1953px); pointer-events: all; visibility: visible;"
                             },
                             "text": "Node-1",
                             "children": [
@@ -233,7 +233,7 @@
                               "role": "group",
                               "aria-roledescription": "node",
                               "aria-describedby": "react-flow__node-desc-1",
-                              "style": "z-index: 0; transform: translate(-100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
+                              "style": "z-index: 0; transform: translate(-100px, 100px); pointer-events: all; visibility: visible;"
                             },
                             "text": "Node-2",
                             "children": [
@@ -269,7 +269,7 @@
                               "role": "group",
                               "aria-roledescription": "node",
                               "aria-describedby": "react-flow__node-desc-1",
-                              "style": "z-index: 0; transform: translate(100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
+                              "style": "z-index: 0; transform: translate(100px, 100px); pointer-events: all; visibility: visible;"
                             },
                             "text": "Node-3",
                             "children": [
@@ -408,7 +408,9 @@
                 "height": 37
               },
               "resizing": false,
-              "setAttributes": true
+              "setAttributes": {
+                "@undefined": true
+              }
             },
             {
               "position": {
@@ -436,7 +438,9 @@
                 "height": 37
               },
               "resizing": false,
-              "setAttributes": true
+              "setAttributes": {
+                "@undefined": true
+              }
             },
             {
               "position": {
@@ -464,7 +468,9 @@
                 "height": 37
               },
               "resizing": false,
-              "setAttributes": true
+              "setAttributes": {
+                "@undefined": true
+              }
             }
           ]
         ]
@@ -492,7 +498,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 144.30000001192093,
+            "timeStamp": 145.29999995231628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -561,7 +567,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 144.30000001192093,
+            "timeStamp": 145.29999995231628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -629,8 +635,12 @@
             "dragHandle": {
               "@undefined": true
             },
-            "width": 150,
-            "height": 37,
+            "width": {
+              "@undefined": true
+            },
+            "height": {
+              "@undefined": true
+            },
             "initialWidth": {
               "@undefined": true
             },
@@ -690,7 +700,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 144.30000001192093,
+            "timeStamp": 145.29999995231628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -755,7 +765,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 144.30000001192093,
+            "timeStamp": 145.29999995231628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -821,8 +831,12 @@
             "dragHandle": {
               "@undefined": true
             },
-            "width": 150,
-            "height": 37,
+            "width": {
+              "@undefined": true
+            },
+            "height": {
+              "@undefined": true
+            },
             "initialWidth": {
               "@undefined": true
             },
@@ -938,8 +952,12 @@
             "dragHandle": {
               "@undefined": true
             },
-            "width": 150,
-            "height": 37,
+            "width": {
+              "@undefined": true
+            },
+            "height": {
+              "@undefined": true
+            },
             "initialWidth": {
               "@undefined": true
             },
@@ -1011,8 +1029,12 @@
               "dragHandle": {
                 "@undefined": true
               },
-              "width": 150,
-              "height": 37,
+              "width": {
+                "@undefined": true
+              },
+              "height": {
+                "@undefined": true
+              },
               "initialWidth": {
                 "@undefined": true
               },
@@ -1091,8 +1113,12 @@
                 "dragHandle": {
                   "@undefined": true
                 },
-                "width": 150,
-                "height": 37,
+                "width": {
+                  "@undefined": true
+                },
+                "height": {
+                  "@undefined": true
+                },
                 "initialWidth": {
                   "@undefined": true
                 },
@@ -1155,7 +1181,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 163.5,
+            "timeStamp": 163.79999995231628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1321,8 +1347,12 @@
             "dragHandle": {
               "@undefined": true
             },
-            "width": 150,
-            "height": 37,
+            "width": {
+              "@undefined": true
+            },
+            "height": {
+              "@undefined": true
+            },
             "initialWidth": {
               "@undefined": true
             },
@@ -1394,8 +1424,12 @@
               "dragHandle": {
                 "@undefined": true
               },
-              "width": 150,
-              "height": 37,
+              "width": {
+                "@undefined": true
+              },
+              "height": {
+                "@undefined": true
+              },
               "initialWidth": {
                 "@undefined": true
               },
@@ -1433,137 +1467,6 @@
               }
             }
           ]
-        ]
-      },
-      {
-        "name": "onNodeMouseLeave",
-        "args": [
-          {
-            "@class": "SyntheticBaseEvent",
-            "_reactName": "onMouseLeave",
-            "_targetInst": {
-              "@ref": "React fiber"
-            },
-            "type": "mouseleave",
-            "nativeEvent": {
-              "@class": "MouseEvent",
-              "isTrusted": true
-            },
-            "target": {
-              "@ref": "DIV"
-            },
-            "currentTarget": {
-              "@ref": "DIV"
-            },
-            "eventPhase": 3,
-            "bubbles": true,
-            "cancelable": true,
-            "timeStamp": 167,
-            "defaultPrevented": false,
-            "isTrusted": true,
-            "view": {
-              "@ref": "Window"
-            },
-            "detail": 0,
-            "screenX": 6,
-            "screenY": 6,
-            "clientX": 6,
-            "clientY": 6,
-            "pageX": 6,
-            "pageY": 6,
-            "ctrlKey": false,
-            "shiftKey": false,
-            "altKey": false,
-            "metaKey": false,
-            "getModifierState": {
-              "@ref": "function"
-            },
-            "button": 0,
-            "buttons": 1,
-            "relatedTarget": {
-              "@ref": "DIV"
-            },
-            "movementX": 0,
-            "movementY": 0,
-            "isDefaultPrevented": {
-              "@ref": "function"
-            },
-            "isPropagationStopped": {
-              "@ref": "function"
-            }
-          },
-          {
-            "id": "Node-1",
-            "position": {
-              "x": 0,
-              "y": 0
-            },
-            "data": {
-              "label": "Node-1"
-            },
-            "type": "input",
-            "sourcePosition": {
-              "@undefined": true
-            },
-            "targetPosition": {
-              "@undefined": true
-            },
-            "hidden": false,
-            "selected": true,
-            "dragging": false,
-            "draggable": {
-              "@undefined": true
-            },
-            "selectable": {
-              "@undefined": true
-            },
-            "connectable": {
-              "@undefined": true
-            },
-            "deletable": {
-              "@undefined": true
-            },
-            "dragHandle": {
-              "@undefined": true
-            },
-            "width": 150,
-            "height": 37,
-            "initialWidth": {
-              "@undefined": true
-            },
-            "initialHeight": {
-              "@undefined": true
-            },
-            "parentId": {
-              "@undefined": true
-            },
-            "zIndex": {
-              "@undefined": true
-            },
-            "extent": {
-              "@undefined": true
-            },
-            "expandParent": false,
-            "ariaLabel": {
-              "@undefined": true
-            },
-            "origin": {
-              "@undefined": true
-            },
-            "handles": {
-              "@undefined": true
-            },
-            "measured": {
-              "width": 150,
-              "height": 37
-            },
-            "className": {
-              "@undefined": true
-            },
-            "style": {
-              "@undefined": true
-            }
-          }
         ]
       },
       {
@@ -1688,8 +1591,12 @@
             "dragHandle": {
               "@undefined": true
             },
-            "width": 150,
-            "height": 37,
+            "width": {
+              "@undefined": true
+            },
+            "height": {
+              "@undefined": true
+            },
             "initialWidth": {
               "@undefined": true
             },
@@ -1761,8 +1668,12 @@
               "dragHandle": {
                 "@undefined": true
               },
-              "width": 150,
-              "height": 37,
+              "width": {
+                "@undefined": true
+              },
+              "height": {
+                "@undefined": true
+              },
               "initialWidth": {
                 "@undefined": true
               },
@@ -1800,6 +1711,141 @@
               }
             }
           ]
+        ]
+      },
+      {
+        "name": "onNodeMouseLeave",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseLeave",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseleave",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 181.5999999642372,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 6,
+            "screenY": 6,
+            "clientX": 6,
+            "clientY": 6,
+            "pageX": 6,
+            "pageY": 6,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 1,
+            "relatedTarget": {
+              "@ref": "DIV"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "Node-1",
+            "position": {
+              "x": -409,
+              "y": -352
+            },
+            "data": {
+              "label": "Node-1"
+            },
+            "type": "input",
+            "sourcePosition": {
+              "@undefined": true
+            },
+            "targetPosition": {
+              "@undefined": true
+            },
+            "hidden": false,
+            "selected": true,
+            "dragging": true,
+            "draggable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "connectable": {
+              "@undefined": true
+            },
+            "deletable": {
+              "@undefined": true
+            },
+            "dragHandle": {
+              "@undefined": true
+            },
+            "width": {
+              "@undefined": true
+            },
+            "height": {
+              "@undefined": true
+            },
+            "initialWidth": {
+              "@undefined": true
+            },
+            "initialHeight": {
+              "@undefined": true
+            },
+            "parentId": {
+              "@undefined": true
+            },
+            "zIndex": {
+              "@undefined": true
+            },
+            "extent": {
+              "@undefined": true
+            },
+            "expandParent": false,
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "origin": {
+              "@undefined": true
+            },
+            "handles": {
+              "@undefined": true
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          }
         ]
       },
       {
@@ -1924,8 +1970,12 @@
             "dragHandle": {
               "@undefined": true
             },
-            "width": 150,
-            "height": 37,
+            "width": {
+              "@undefined": true
+            },
+            "height": {
+              "@undefined": true
+            },
             "initialWidth": {
               "@undefined": true
             },
@@ -1997,8 +2047,12 @@
               "dragHandle": {
                 "@undefined": true
               },
-              "width": 150,
-              "height": 37,
+              "width": {
+                "@undefined": true
+              },
+              "height": {
+                "@undefined": true
+              },
               "initialWidth": {
                 "@undefined": true
               },
@@ -2059,7 +2113,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 190.80000001192093,
+            "timeStamp": 185.0999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2182,8 +2236,12 @@
             "dragHandle": {
               "@undefined": true
             },
-            "width": 150,
-            "height": 37,
+            "width": {
+              "@undefined": true
+            },
+            "height": {
+              "@undefined": true
+            },
             "initialWidth": {
               "@undefined": true
             },
@@ -2255,8 +2313,12 @@
               "dragHandle": {
                 "@undefined": true
               },
-              "width": 150,
-              "height": 37,
+              "width": {
+                "@undefined": true
+              },
+              "height": {
+                "@undefined": true
+              },
               "initialWidth": {
                 "@undefined": true
               },
@@ -2418,8 +2480,12 @@
             "dragHandle": {
               "@undefined": true
             },
-            "width": 150,
-            "height": 37,
+            "width": {
+              "@undefined": true
+            },
+            "height": {
+              "@undefined": true
+            },
             "initialWidth": {
               "@undefined": true
             },
@@ -2491,8 +2557,12 @@
               "dragHandle": {
                 "@undefined": true
               },
-              "width": 150,
-              "height": 37,
+              "width": {
+                "@undefined": true
+              },
+              "height": {
+                "@undefined": true
+              },
               "initialWidth": {
                 "@undefined": true
               },
@@ -2555,7 +2625,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 213.70000004768372,
+            "timeStamp": 213.0999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2623,8 +2693,12 @@
             "dragHandle": {
               "@undefined": true
             },
-            "width": 150,
-            "height": 37,
+            "width": {
+              "@undefined": true
+            },
+            "height": {
+              "@undefined": true
+            },
             "initialWidth": {
               "@undefined": true
             },
@@ -2684,7 +2758,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 213.70000004768372,
+            "timeStamp": 213.0999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2807,8 +2881,12 @@
             "dragHandle": {
               "@undefined": true
             },
-            "width": 150,
-            "height": 37,
+            "width": {
+              "@undefined": true
+            },
+            "height": {
+              "@undefined": true
+            },
             "initialWidth": {
               "@undefined": true
             },
@@ -2880,8 +2958,12 @@
               "dragHandle": {
                 "@undefined": true
               },
-              "width": 150,
-              "height": 37,
+              "width": {
+                "@undefined": true
+              },
+              "height": {
+                "@undefined": true
+              },
               "initialWidth": {
                 "@undefined": true
               },
@@ -3043,8 +3125,12 @@
             "dragHandle": {
               "@undefined": true
             },
-            "width": 150,
-            "height": 37,
+            "width": {
+              "@undefined": true
+            },
+            "height": {
+              "@undefined": true
+            },
             "initialWidth": {
               "@undefined": true
             },
@@ -3116,8 +3202,12 @@
               "dragHandle": {
                 "@undefined": true
               },
-              "width": 150,
-              "height": 37,
+              "width": {
+                "@undefined": true
+              },
+              "height": {
+                "@undefined": true
+              },
               "initialWidth": {
                 "@undefined": true
               },
@@ -3178,7 +3268,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 228.10000002384186,
+            "timeStamp": 229.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3301,8 +3391,12 @@
             "dragHandle": {
               "@undefined": true
             },
-            "width": 150,
-            "height": 37,
+            "width": {
+              "@undefined": true
+            },
+            "height": {
+              "@undefined": true
+            },
             "initialWidth": {
               "@undefined": true
             },
@@ -3374,8 +3468,12 @@
               "dragHandle": {
                 "@undefined": true
               },
-              "width": 150,
-              "height": 37,
+              "width": {
+                "@undefined": true
+              },
+              "height": {
+                "@undefined": true
+              },
               "initialWidth": {
                 "@undefined": true
               },
@@ -3537,8 +3635,12 @@
             "dragHandle": {
               "@undefined": true
             },
-            "width": 150,
-            "height": 37,
+            "width": {
+              "@undefined": true
+            },
+            "height": {
+              "@undefined": true
+            },
             "initialWidth": {
               "@undefined": true
             },
@@ -3610,8 +3712,12 @@
               "dragHandle": {
                 "@undefined": true
               },
-              "width": 150,
-              "height": 37,
+              "width": {
+                "@undefined": true
+              },
+              "height": {
+                "@undefined": true
+              },
               "initialWidth": {
                 "@undefined": true
               },
@@ -3730,8 +3836,12 @@
             "dragHandle": {
               "@undefined": true
             },
-            "width": 150,
-            "height": 37,
+            "width": {
+              "@undefined": true
+            },
+            "height": {
+              "@undefined": true
+            },
             "initialWidth": {
               "@undefined": true
             },
@@ -3803,8 +3913,12 @@
               "dragHandle": {
                 "@undefined": true
               },
-              "width": 150,
-              "height": 37,
+              "width": {
+                "@undefined": true
+              },
+              "height": {
+                "@undefined": true
+              },
               "initialWidth": {
                 "@undefined": true
               },
@@ -3883,8 +3997,12 @@
             "dragHandle": {
               "@undefined": true
             },
-            "width": 150,
-            "height": 37,
+            "width": {
+              "@undefined": true
+            },
+            "height": {
+              "@undefined": true
+            },
             "initialWidth": {
               "@undefined": true
             },
@@ -3957,8 +4075,12 @@
             "dragHandle": {
               "@undefined": true
             },
-            "width": 150,
-            "height": 37,
+            "width": {
+              "@undefined": true
+            },
+            "height": {
+              "@undefined": true
+            },
             "initialWidth": {
               "@undefined": true
             },
@@ -4031,8 +4153,12 @@
             "dragHandle": {
               "@undefined": true
             },
-            "width": 150,
-            "height": 37,
+            "width": {
+              "@undefined": true
+            },
+            "height": {
+              "@undefined": true
+            },
             "initialWidth": {
               "@undefined": true
             },
@@ -4104,8 +4230,12 @@
           "dragHandle": {
             "@undefined": true
           },
-          "width": 150,
-          "height": 37,
+          "width": {
+            "@undefined": true
+          },
+          "height": {
+            "@undefined": true
+          },
           "initialWidth": {
             "@undefined": true
           },
@@ -4176,8 +4306,12 @@
           "dragHandle": {
             "@undefined": true
           },
-          "width": 150,
-          "height": 37,
+          "width": {
+            "@undefined": true
+          },
+          "height": {
+            "@undefined": true
+          },
           "initialWidth": {
             "@undefined": true
           },
@@ -4431,8 +4565,12 @@
             "dragHandle": {
               "@undefined": true
             },
-            "width": 150,
-            "height": 37,
+            "width": {
+              "@undefined": true
+            },
+            "height": {
+              "@undefined": true
+            },
             "initialWidth": {
               "@undefined": true
             },
@@ -4505,8 +4643,12 @@
             "dragHandle": {
               "@undefined": true
             },
-            "width": 150,
-            "height": 37,
+            "width": {
+              "@undefined": true
+            },
+            "height": {
+              "@undefined": true
+            },
             "initialWidth": {
               "@undefined": true
             },
@@ -4579,8 +4721,12 @@
             "dragHandle": {
               "@undefined": true
             },
-            "width": 150,
-            "height": 37,
+            "width": {
+              "@undefined": true
+            },
+            "height": {
+              "@undefined": true
+            },
             "initialWidth": {
               "@undefined": true
             },
@@ -4709,8 +4855,12 @@
               "dragHandle": {
                 "@undefined": true
               },
-              "width": 150,
-              "height": 37,
+              "width": {
+                "@undefined": true
+              },
+              "height": {
+                "@undefined": true
+              },
               "initialWidth": {
                 "@undefined": true
               },
@@ -4783,8 +4933,12 @@
               "dragHandle": {
                 "@undefined": true
               },
-              "width": 150,
-              "height": 37,
+              "width": {
+                "@undefined": true
+              },
+              "height": {
+                "@undefined": true
+              },
               "initialWidth": {
                 "@undefined": true
               },
@@ -4857,8 +5011,12 @@
               "dragHandle": {
                 "@undefined": true
               },
-              "width": 150,
-              "height": 37,
+              "width": {
+                "@undefined": true
+              },
+              "height": {
+                "@undefined": true
+              },
               "initialWidth": {
                 "@undefined": true
               },

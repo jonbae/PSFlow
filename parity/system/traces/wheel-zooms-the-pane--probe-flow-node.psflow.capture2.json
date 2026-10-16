@@ -140,7 +140,7 @@
                               "role": "group",
                               "aria-roledescription": "node",
                               "aria-describedby": "react-flow__node-desc-1",
-                              "style": "z-index: 0; transform: translate(0px, 0px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
+                              "style": "z-index: 0; transform: translate(0px, 0px); pointer-events: all; visibility: visible;"
                             },
                             "text": "1",
                             "children": [
@@ -166,7 +166,7 @@
                               "role": "group",
                               "aria-roledescription": "node",
                               "aria-describedby": "react-flow__node-desc-1",
-                              "style": "z-index: 0; transform: translate(-100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
+                              "style": "z-index: 0; transform: translate(-100px, 100px); pointer-events: all; visibility: visible;"
                             },
                             "text": "2",
                             "children": [
@@ -319,7 +319,9 @@
                 "height": 37
               },
               "resizing": false,
-              "setAttributes": true
+              "setAttributes": {
+                "@undefined": true
+              }
             },
             {
               "position": {
@@ -347,7 +349,9 @@
                 "height": 37
               },
               "resizing": false,
-              "setAttributes": true
+              "setAttributes": {
+                "@undefined": true
+              }
             }
           ]
         ]
@@ -451,7 +455,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 160.19999998807907,
+            "timeStamp": 174.4000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -520,7 +524,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 160.19999998807907,
+            "timeStamp": 174.4000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -627,7 +631,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 160.19999998807907,
+            "timeStamp": 174.4000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -692,7 +696,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 160.19999998807907,
+            "timeStamp": 174.4000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1019,8 +1023,12 @@
           "dragHandle": {
             "@undefined": true
           },
-          "width": 150,
-          "height": 37,
+          "width": {
+            "@undefined": true
+          },
+          "height": {
+            "@undefined": true
+          },
           "initialWidth": {
             "@undefined": true
           },
@@ -1123,8 +1131,12 @@
             "dragHandle": {
               "@undefined": true
             },
-            "width": 150,
-            "height": 37,
+            "width": {
+              "@undefined": true
+            },
+            "height": {
+              "@undefined": true
+            },
             "initialWidth": {
               "@undefined": true
             },
@@ -1197,8 +1209,12 @@
             "dragHandle": {
               "@undefined": true
             },
-            "width": 150,
-            "height": 37,
+            "width": {
+              "@undefined": true
+            },
+            "height": {
+              "@undefined": true
+            },
             "initialWidth": {
               "@undefined": true
             },
@@ -1485,8 +1501,12 @@
             "dragHandle": {
               "@undefined": true
             },
-            "width": 150,
-            "height": 37,
+            "width": {
+              "@undefined": true
+            },
+            "height": {
+              "@undefined": true
+            },
             "initialWidth": {
               "@undefined": true
             },
@@ -1559,8 +1579,12 @@
             "dragHandle": {
               "@undefined": true
             },
-            "width": 150,
-            "height": 37,
+            "width": {
+              "@undefined": true
+            },
+            "height": {
+              "@undefined": true
+            },
             "initialWidth": {
               "@undefined": true
             },
@@ -1712,8 +1736,12 @@
           "dragHandle": {
             "@undefined": true
           },
-          "width": 150,
-          "height": 37,
+          "width": {
+            "@undefined": true
+          },
+          "height": {
+            "@undefined": true
+          },
           "initialWidth": {
             "@undefined": true
           },
@@ -1784,8 +1812,12 @@
           "dragHandle": {
             "@undefined": true
           },
-          "width": 150,
-          "height": 37,
+          "width": {
+            "@undefined": true
+          },
+          "height": {
+            "@undefined": true
+          },
           "initialWidth": {
             "@undefined": true
           },
@@ -2039,8 +2071,12 @@
             "dragHandle": {
               "@undefined": true
             },
-            "width": 150,
-            "height": 37,
+            "width": {
+              "@undefined": true
+            },
+            "height": {
+              "@undefined": true
+            },
             "initialWidth": {
               "@undefined": true
             },
@@ -2113,8 +2149,12 @@
             "dragHandle": {
               "@undefined": true
             },
-            "width": 150,
-            "height": 37,
+            "width": {
+              "@undefined": true
+            },
+            "height": {
+              "@undefined": true
+            },
             "initialWidth": {
               "@undefined": true
             },
@@ -2323,8 +2363,12 @@
               "dragHandle": {
                 "@undefined": true
               },
-              "width": 150,
-              "height": 37,
+              "width": {
+                "@undefined": true
+              },
+              "height": {
+                "@undefined": true
+              },
               "initialWidth": {
                 "@undefined": true
               },
@@ -2397,8 +2441,12 @@
               "dragHandle": {
                 "@undefined": true
               },
-              "width": 150,
-              "height": 37,
+              "width": {
+                "@undefined": true
+              },
+              "height": {
+                "@undefined": true
+              },
               "initialWidth": {
                 "@undefined": true
               },
@@ -2701,11 +2749,11 @@
       },
       {
         "level": "error",
-        "text": "The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:62056/parity/driver/dist/psflow.js:64988:20)\n    at HookBoundary (http://127.0.0.1:62056/parity/driver/dist/psflow.js:64976:20)\n    at HookLevel (http://127.0.0.1:62056/parity/driver/dist/psflow.js:64995:20)\n    at NetObserver (http://127.0.0.1:62056/parity/driver/dist/psflow.js:64996:22)\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:32878:61\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:32878:61\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:32878:61\n    at div\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:32878:45\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:40300:64\n    at div\n    at Flow_default (http://127.0.0.1:62056/parity/driver/dist/psflow.js:65025:23)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, HookBoundary."
+        "text": "The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:65288/parity/driver/dist/psflow.js:64985:20)\n    at HookBoundary (http://127.0.0.1:65288/parity/driver/dist/psflow.js:64973:20)\n    at HookLevel (http://127.0.0.1:65288/parity/driver/dist/psflow.js:64992:20)\n    at NetObserver (http://127.0.0.1:65288/parity/driver/dist/psflow.js:64993:22)\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:32878:61\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:32878:61\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:32878:61\n    at div\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:32878:45\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:40300:64\n    at div\n    at Flow_default (http://127.0.0.1:65288/parity/driver/dist/psflow.js:65022:23)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, HookBoundary."
       },
       {
         "level": "error",
-        "text": "The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:62056/parity/driver/dist/psflow.js:64988:20)\n    at HookBoundary (http://127.0.0.1:62056/parity/driver/dist/psflow.js:64976:20)\n    at HookLevel (http://127.0.0.1:62056/parity/driver/dist/psflow.js:64995:20)\n    at NetObserver (http://127.0.0.1:62056/parity/driver/dist/psflow.js:64996:22)\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:32878:61\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:32878:61\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:32878:61\n    at div\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:32878:45\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:40300:64\n    at div\n    at Flow_default (http://127.0.0.1:62056/parity/driver/dist/psflow.js:65025:23)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, HookBoundary."
+        "text": "The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:65288/parity/driver/dist/psflow.js:64985:20)\n    at HookBoundary (http://127.0.0.1:65288/parity/driver/dist/psflow.js:64973:20)\n    at HookLevel (http://127.0.0.1:65288/parity/driver/dist/psflow.js:64992:20)\n    at NetObserver (http://127.0.0.1:65288/parity/driver/dist/psflow.js:64993:22)\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:32878:61\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:32878:61\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:32878:61\n    at div\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:32878:45\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:40300:64\n    at div\n    at Flow_default (http://127.0.0.1:65288/parity/driver/dist/psflow.js:65022:23)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, HookBoundary."
       }
     ],
     "driving": [

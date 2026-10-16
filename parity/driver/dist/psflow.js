@@ -42720,12 +42720,12 @@ var panBy = function(delta) {
                     return zoomTransformX(next.value0) !== v.tx || (zoomTransformY(next.value0) !== v.ty || zoomTransformK(next.value0) !== v.scale);
                   }
                   ;
-                  throw new Error("Failed pattern match at System.Utils.Store (line 968, column 14 - line 973, column 46): " + [next.constructor.name]);
+                  throw new Error("Failed pattern match at System.Utils.Store (line 972, column 14 - line 977, column 46): " + [next.constructor.name]);
                 }());
               });
             }
             ;
-            throw new Error("Failed pattern match at System.Utils.Store (line 957, column 3 - line 973, column 46): " + [mPanZoom.constructor.name]);
+            throw new Error("Failed pattern match at System.Utils.Store (line 961, column 3 - line 977, column 46): " + [mPanZoom.constructor.name]);
           };
         };
       };
@@ -43338,10 +43338,7 @@ var processUpdate = function(update2) {
                       id: v.value0.id,
                       dimensions: new Just(dims),
                       resizing: false,
-                      setAttributes: new Just({
-                        width: true,
-                        height: true
-                      })
+                      setAttributes: Nothing.value
                     })];
                   }
                   ;
@@ -43382,7 +43379,7 @@ var processUpdate = function(update2) {
               };
             }
             ;
-            throw new Error("Failed pattern match at System.Utils.Store (line 734, column 3 - line 846, column 14): " + [v.constructor.name]);
+            throw new Error("Failed pattern match at System.Utils.Store (line 734, column 3 - line 850, column 14): " + [v.constructor.name]);
           };
         };
       };
@@ -43648,7 +43645,7 @@ var addConnectionToLookup = function(typeStr) {
                     return empty5;
                   }
                   ;
-                  throw new Error("Failed pattern match at System.Utils.Store (line 862, column 17 - line 864, column 31): " + [v.constructor.name]);
+                  throw new Error("Failed pattern match at System.Utils.Store (line 866, column 17 - line 868, column 31): " + [v.constructor.name]);
                 }();
                 return insert22(key2)(insert22(connectionKey)(connection)(inner))(lookup32);
               };
@@ -43663,7 +43660,7 @@ var addConnectionToLookup = function(typeStr) {
               return afterType;
             }
             ;
-            throw new Error("Failed pattern match at System.Utils.Store (line 871, column 5 - line 873, column 27): " + [mHandleId.constructor.name]);
+            throw new Error("Failed pattern match at System.Utils.Store (line 875, column 5 - line 877, column 27): " + [mHandleId.constructor.name]);
           };
         };
       };

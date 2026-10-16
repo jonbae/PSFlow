@@ -53,7 +53,9 @@
                 "height": 37
               },
               "resizing": false,
-              "setAttributes": true
+              "setAttributes": {
+                "@undefined": true
+              }
             },
             {
               "position": {
@@ -81,7 +83,9 @@
                 "height": 37
               },
               "resizing": false,
-              "setAttributes": true
+              "setAttributes": {
+                "@undefined": true
+              }
             },
             {
               "position": {
@@ -109,7 +113,9 @@
                 "height": 37
               },
               "resizing": false,
-              "setAttributes": true
+              "setAttributes": {
+                "@undefined": true
+              }
             }
           ]
         ]
@@ -233,11 +239,11 @@
       },
       {
         "level": "error",
-        "text": "The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:62056/parity/driver/dist/psflow.js:65588:7)\n    at Wrapper (http://127.0.0.1:62056/parity/driver/dist/psflow.js:29035:30)\n    at g\n    at svg\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:32878:45\n    at div\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:32878:61\n    at div\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:32878:61\n    at div\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:32878:61\n    at div\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:32878:61\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:32878:61\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:32878:45\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:32878:61\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:32878:61\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:32878:61\n    at div\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:32878:45\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:40300:64\n    at div\n    at Flow_default (http://127.0.0.1:62056/parity/driver/dist/psflow.js:65025:23)\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://reactjs.org/link/error-boundaries to learn more about error boundaries."
+        "text": "The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:65288/parity/driver/dist/psflow.js:65585:7)\n    at Wrapper (http://127.0.0.1:65288/parity/driver/dist/psflow.js:29035:30)\n    at g\n    at svg\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:32878:45\n    at div\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:32878:61\n    at div\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:32878:61\n    at div\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:32878:61\n    at div\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:32878:61\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:32878:61\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:32878:45\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:32878:61\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:32878:61\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:32878:61\n    at div\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:32878:45\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:40300:64\n    at div\n    at Flow_default (http://127.0.0.1:65288/parity/driver/dist/psflow.js:65022:23)\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://reactjs.org/link/error-boundaries to learn more about error boundaries."
       },
       {
         "level": "error",
-        "text": "The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:62056/parity/driver/dist/psflow.js:65588:7)\n    at Wrapper (http://127.0.0.1:62056/parity/driver/dist/psflow.js:29035:30)\n    at g\n    at svg\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:32878:45\n    at div\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:32878:61\n    at div\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:32878:61\n    at div\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:32878:61\n    at div\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:32878:61\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:32878:61\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:32878:45\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:32878:61\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:32878:61\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:32878:61\n    at div\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:32878:45\n    at http://127.0.0.1:62056/parity/driver/dist/psflow.js:40300:64\n    at div\n    at Flow_default (http://127.0.0.1:62056/parity/driver/dist/psflow.js:65025:23)\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://reactjs.org/link/error-boundaries to learn more about error boundaries."
+        "text": "The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:65288/parity/driver/dist/psflow.js:65585:7)\n    at Wrapper (http://127.0.0.1:65288/parity/driver/dist/psflow.js:29035:30)\n    at g\n    at svg\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:32878:45\n    at div\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:32878:61\n    at div\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:32878:61\n    at div\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:32878:61\n    at div\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:32878:61\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:32878:61\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:32878:45\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:32878:61\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:32878:61\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:32878:61\n    at div\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:32878:45\n    at http://127.0.0.1:65288/parity/driver/dist/psflow.js:40300:64\n    at div\n    at Flow_default (http://127.0.0.1:65288/parity/driver/dist/psflow.js:65022:23)\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://reactjs.org/link/error-boundaries to learn more about error boundaries."
       },
       {
         "level": "pageerror",

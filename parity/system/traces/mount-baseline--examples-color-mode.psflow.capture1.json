@@ -202,7 +202,7 @@
                               "role": "group",
                               "aria-roledescription": "node",
                               "aria-describedby": "react-flow__node-desc-1",
-                              "style": "z-index: 0; transform: translate(0px, 150px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
+                              "style": "z-index: 0; transform: translate(0px, 150px); pointer-events: all; visibility: visible;"
                             },
                             "text": "A",
                             "children": [
@@ -228,7 +228,7 @@
                               "role": "group",
                               "aria-roledescription": "node",
                               "aria-describedby": "react-flow__node-desc-1",
-                              "style": "z-index: 0; transform: translate(250px, 0px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
+                              "style": "z-index: 0; transform: translate(250px, 0px); pointer-events: all; visibility: visible;"
                             },
                             "text": "B",
                             "children": [
@@ -264,7 +264,7 @@
                               "role": "group",
                               "aria-roledescription": "node",
                               "aria-describedby": "react-flow__node-desc-1",
-                              "style": "z-index: 0; transform: translate(250px, 150px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
+                              "style": "z-index: 0; transform: translate(250px, 150px); pointer-events: all; visibility: visible;"
                             },
                             "text": "C",
                             "children": [
@@ -300,7 +300,7 @@
                               "role": "group",
                               "aria-roledescription": "node",
                               "aria-describedby": "react-flow__node-desc-1",
-                              "style": "z-index: 0; transform: translate(250px, 300px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
+                              "style": "z-index: 0; transform: translate(250px, 300px); pointer-events: all; visibility: visible;"
                             },
                             "text": "D",
                             "children": [
