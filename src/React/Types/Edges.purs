@@ -41,6 +41,7 @@ import System.Types.Connection (Connection, FinalConnectionState)
 import System.Types.Edge
   ( BezierPathOptions
   , ConnectionLineType
+  , EdgeAriaLabel
   , EdgeBase
   , SmoothStepPathOptions
   , StepPathOptions
@@ -87,7 +88,7 @@ type DefaultEdgeOptions e =
   , focusable :: Maybe Boolean
   , data :: Maybe e
   , zIndex :: Maybe Int
-  , ariaLabel :: Maybe String
+  , ariaLabel :: Maybe EdgeAriaLabel
   , interactionWidth :: Maybe Number
   , reconnectable :: Maybe ReconnectHandleType
   }

@@ -13,3 +13,5 @@ export const defined = (a) => a;
 export const undefinableImpl = (nothing, just, u) => (u == null ? nothing : just(u));
 
 export const isNull = (u) => u === null;
+
+export const nullUndefinable = null;

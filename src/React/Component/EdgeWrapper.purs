@@ -77,7 +77,7 @@ import React.Types.Edges
   )
 import React.Types.Store (ReactFlowState)
 import System.Constants (ErrorCode(..), elementSelectionKeys, errorMessage)
-import System.Types.Edge (EdgeMarkerType)
+import System.Types.Edge (EdgeAriaLabel(..), EdgeMarkerType)
 import System.Types.Geometry (Position)
 import Data.Newtype (unwrap)
 import System.Types.Ids (NodeId(..))
@@ -450,7 +450,13 @@ edgeWrapper =
                 , "aria-roledescription": "edge"
                 , "data-id": props.id
                 , "data-testid": "rf__edge-" <> props.id
-                , "aria-label": opt edge.ariaLabel
+                -- TS `edge.ariaLabel === null ? undefined : edge.ariaLabel || ...`.
+                -- `||` falls back on an empty label as well as an absent one.
+                , "aria-label":
+                    opt case edge.ariaLabel of
+                      Just AriaLabelOff -> Nothing
+                      Just (AriaLabel label) | label /= "" -> Just label
+                      _ -> Just ("Edge from " <> unwrap edge.source <> " to " <> unwrap edge.target)
                 -- TS builds the id with a template literal, which spells an
                 -- absent `rfId` as "undefined".
                 , "aria-describedby":

@@ -120,6 +120,7 @@ import Boundary.Callbacks
   )
 import Boundary.Elements
   ( JsEdge
+  , edgeAriaLabelIn
   , JsNode
   , JsNodeProps
   , JsViewport
@@ -605,7 +606,7 @@ convertEdgeOptions o =
   , focusable: fromUndefinable o.focusable
   , data: fromUndefinable o.data
   , zIndex: map Int.round (fromUndefinable o.zIndex)
-  , ariaLabel: fromUndefinable o.ariaLabel
+  , ariaLabel: edgeAriaLabelIn o.ariaLabel
   , interactionWidth: fromUndefinable o.interactionWidth
   , reconnectable: fromUndefinable o.reconnectable >>= reconnectableIn
   }

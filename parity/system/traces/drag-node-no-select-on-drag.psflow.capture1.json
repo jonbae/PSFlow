@@ -62,6 +62,7 @@
                                   "aria-roledescription": "edge",
                                   "data-id": "1-2",
                                   "data-testid": "rf__edge-1-2",
+                                  "aria-label": "Edge from Node-1 to Node-2",
                                   "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
@@ -161,6 +162,7 @@
                                   "aria-roledescription": "edge",
                                   "data-id": "1-3",
                                   "data-testid": "rf__edge-1-3",
+                                  "aria-label": "Edge from Node-1 to Node-3",
                                   "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
@@ -643,7 +645,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 303.30000001192093,
+            "timeStamp": 281,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -712,7 +714,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 303.30000001192093,
+            "timeStamp": 281,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -841,7 +843,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 303.30000001192093,
+            "timeStamp": 281,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -906,7 +908,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 303.30000001192093,
+            "timeStamp": 281,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1188,7 +1190,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 325.30000001192093,
+            "timeStamp": 309.7999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1446,7 +1448,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 348,
+            "timeStamp": 330.7999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1704,7 +1706,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 362.5,
+            "timeStamp": 361.5999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1962,7 +1964,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 380.19999998807907,
+            "timeStamp": 377.7999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2220,7 +2222,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 392.89999997615814,
+            "timeStamp": 394.0999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2673,7 +2675,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 423,
+            "timeStamp": 423.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2804,7 +2806,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 423,
+            "timeStamp": 423.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2935,7 +2937,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 423,
+            "timeStamp": 423.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3000,7 +3002,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 423,
+            "timeStamp": 423.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3288,7 +3290,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 437.5999999642372,
+            "timeStamp": 436.7999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3550,7 +3552,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 459.19999998807907,
+            "timeStamp": 458.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3812,7 +3814,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 475.30000001192093,
+            "timeStamp": 476.0999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -4074,7 +4076,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 491.39999997615814,
+            "timeStamp": 491.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -4336,7 +4338,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 508.0999999642372,
+            "timeStamp": 507.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

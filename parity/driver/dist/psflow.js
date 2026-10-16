@@ -27416,6 +27416,23 @@ var CustomMarker = /* @__PURE__ */ function() {
   };
   return CustomMarker2;
 }();
+var AriaLabelOff = /* @__PURE__ */ function() {
+  function AriaLabelOff2() {
+  }
+  ;
+  AriaLabelOff2.value = new AriaLabelOff2();
+  return AriaLabelOff2;
+}();
+var AriaLabel = /* @__PURE__ */ function() {
+  function AriaLabel2(value0) {
+    this.value0 = value0;
+  }
+  ;
+  AriaLabel2.create = function(value0) {
+    return new AriaLabel2(value0);
+  };
+  return AriaLabel2;
+}();
 var EdgeSelectionChange = /* @__PURE__ */ function() {
   function EdgeSelectionChange2(value0) {
     this.value0 = value0;
@@ -27516,6 +27533,21 @@ var eqEdgeMarkerType = {
       ;
       if (x instanceof CustomMarker && y instanceof CustomMarker) {
         return eq12(x.value0.color)(y.value0.color) && eq22(x.value0.height)(y.value0.height) && eq3(x.value0.markerType)(y.value0.markerType) && eq12(x.value0.markerUnits)(y.value0.markerUnits) && eq12(x.value0.orient)(y.value0.orient) && eq22(x.value0.strokeWidth)(y.value0.strokeWidth) && eq22(x.value0.width)(y.value0.width);
+      }
+      ;
+      return false;
+    };
+  }
+};
+var eqEdgeAriaLabel = {
+  eq: function(x) {
+    return function(y) {
+      if (x instanceof AriaLabelOff && y instanceof AriaLabelOff) {
+        return true;
+      }
+      ;
+      if (x instanceof AriaLabel && y instanceof AriaLabel) {
+        return x.value0 === y.value0;
       }
       ;
       return false;
@@ -28906,6 +28938,7 @@ var undefined2 = void 0;
 var defined = (a) => a;
 var undefinableImpl = (nothing, just, u) => u == null ? nothing : just(u);
 var isNull = (u) => u === null;
+var nullUndefinable = null;
 
 // output/Data.Nullable/foreign.js
 var nullImpl = null;
@@ -28939,7 +28972,7 @@ var orNullable = function(supplied) {
       return fallback;
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Undefined (line 85, column 32 - line 87, column 22): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Undefined (line 91, column 32 - line 93, column 22): " + [v.constructor.name]);
   };
 };
 var requiredProp = function(field) {
@@ -28953,7 +28986,7 @@ var requiredProp = function(field) {
       return unsafeThrow("ps-flow: `" + (field + "` is required and was not supplied."));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Undefined (line 100, column 24 - line 104, column 69): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Undefined (line 106, column 24 - line 110, column 69): " + [v.constructor.name]);
   };
 };
 
@@ -29808,7 +29841,7 @@ var setAttributesOut = function(m) {
     return false;
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Elements (line 974, column 22 - line 978, column 37): " + [m.width.constructor.name, m.height.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Elements (line 992, column 22 - line 996, column 37): " + [m.width.constructor.name, m.height.constructor.name]);
 };
 var setAttributesIn = function(raw) {
   var v = asBoolean(raw);
@@ -29838,16 +29871,16 @@ var setAttributesIn = function(raw) {
     return unsafeThrow("ps-flow: a dimension change's `setAttributes` must be a boolean, " + ('"width" or "height", got ' + (typeName(raw) + ".")));
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Elements (line 981, column 23 - line 991, column 17): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Elements (line 999, column 23 - line 1009, column 17): " + [v.constructor.name]);
 };
 var requiredMember = function(tag) {
   return function(member9) {
     var $$throw2 = function(v) {
       return unsafeThrow("ps-flow: a `" + (tag + ("` change must carry `" + (member9 + "`."))));
     };
-    var $95 = fromMaybe$prime($$throw2);
-    return function($96) {
-      return $95(fromUndefinable($96));
+    var $101 = fromMaybe$prime($$throw2);
+    return function($102) {
+      return $101(fromUndefinable($102));
     };
   };
 };
@@ -29862,7 +29895,7 @@ var readKey = function(field) {
       return unsafeThrow("ps-flow: every entry of `" + (field + ("` must be a string, got " + (typeName(raw) + "."))));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Elements (line 483, column 21 - line 489, column 15): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Elements (line 485, column 21 - line 491, column 15): " + [v.constructor.name]);
   };
 };
 var pairError = function(field) {
@@ -29994,17 +30027,17 @@ var keyCodeValueIn = function(field) {
           return new SingleKey("");
         }
         ;
-        throw new Error("Failed pattern match at Boundary.Elements (line 467, column 9 - line 475, column 34): " + [v2.constructor.name]);
+        throw new Error("Failed pattern match at Boundary.Elements (line 469, column 9 - line 477, column 34): " + [v2.constructor.name]);
       }
       ;
       if (v1 instanceof Nothing) {
         return unsafeThrow("ps-flow: `" + (field + ("` must be a string or an array of strings, got " + (typeName(raw) + "."))));
       }
       ;
-      throw new Error("Failed pattern match at Boundary.Elements (line 465, column 16 - line 480, column 19): " + [v1.constructor.name]);
+      throw new Error("Failed pattern match at Boundary.Elements (line 467, column 16 - line 482, column 19): " + [v1.constructor.name]);
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Elements (line 463, column 3 - line 480, column 19): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Elements (line 465, column 3 - line 482, column 19): " + [v.constructor.name]);
   };
 };
 var keyCodeIn = function(v) {
@@ -30030,11 +30063,11 @@ var handleOut = function(h) {
 };
 var handleBoundsOut = function(b) {
   return {
-    source: map12(function($97) {
-      return handleOut(unSourceHandle($97));
+    source: map12(function($103) {
+      return handleOut(unSourceHandle($103));
     })(b.source),
-    target: map12(function($98) {
-      return handleOut(unTargetHandle($98));
+    target: map12(function($104) {
+      return handleOut(unTargetHandle($104));
     })(b.target)
   };
 };
@@ -30095,31 +30128,7 @@ var markerOut = function(v) {
     return edgeMarkerOut(v.value0);
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Elements (line 780, column 13 - line 782, column 51): " + [v.constructor.name]);
-};
-var edgeOut = function(e) {
-  return {
-    id: e.id,
-    type: toUndefinable(e.edgeType),
-    source: unwrap2(e.source),
-    target: unwrap2(e.target),
-    sourceHandle: toUndefinable(e.sourceHandle),
-    targetHandle: toUndefinable(e.targetHandle),
-    animated: toUndefinable(new Just(e.animated)),
-    hidden: toUndefinable(new Just(e.hidden)),
-    deletable: toUndefinable(e.deletable),
-    selectable: toUndefinable(e.selectable),
-    data: toUndefinable(map7(unsafeToForeign)(e.data)),
-    selected: toUndefinable(new Just(e.selected)),
-    markerStart: toUndefinable(map7(markerOut)(e.markerStart)),
-    markerEnd: toUndefinable(map7(markerOut)(e.markerEnd)),
-    zIndex: toUndefinable(map7(toNumber)(e.zIndex)),
-    label: toUndefinable(e.label),
-    ariaLabel: toUndefinable(e.ariaLabel),
-    interactionWidth: toUndefinable(e.interactionWidth),
-    className: toUndefinable(e.className),
-    style: toUndefinable(map7(fromCssObject)(e.style))
-  };
+  throw new Error("Failed pattern match at Boundary.Elements (line 798, column 13 - line 800, column 51): " + [v.constructor.name]);
 };
 var edgeMarkerIn = function(field) {
   return function(m) {
@@ -30145,7 +30154,46 @@ var markerIn = function(field) {
       return new CustomMarker(edgeMarkerIn(field)(raw));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Elements (line 775, column 22 - line 777, column 66): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Elements (line 793, column 22 - line 795, column 66): " + [v.constructor.name]);
+  };
+};
+var edgeAriaLabelOut = function(v) {
+  if (v instanceof Nothing) {
+    return undefined2;
+  }
+  ;
+  if (v instanceof Just && v.value0 instanceof AriaLabelOff) {
+    return nullUndefinable;
+  }
+  ;
+  if (v instanceof Just && v.value0 instanceof AriaLabel) {
+    return defined(v.value0.value0);
+  }
+  ;
+  throw new Error("Failed pattern match at Boundary.Elements (line 785, column 20 - line 788, column 34): " + [v.constructor.name]);
+};
+var edgeOut = function(e) {
+  return {
+    id: e.id,
+    type: toUndefinable(e.edgeType),
+    source: unwrap2(e.source),
+    target: unwrap2(e.target),
+    sourceHandle: toUndefinable(e.sourceHandle),
+    targetHandle: toUndefinable(e.targetHandle),
+    animated: toUndefinable(new Just(e.animated)),
+    hidden: toUndefinable(new Just(e.hidden)),
+    deletable: toUndefinable(e.deletable),
+    selectable: toUndefinable(e.selectable),
+    data: toUndefinable(map7(unsafeToForeign)(e.data)),
+    selected: toUndefinable(new Just(e.selected)),
+    markerStart: toUndefinable(map7(markerOut)(e.markerStart)),
+    markerEnd: toUndefinable(map7(markerOut)(e.markerEnd)),
+    zIndex: toUndefinable(map7(toNumber)(e.zIndex)),
+    label: toUndefinable(e.label),
+    ariaLabel: edgeAriaLabelOut(e.ariaLabel),
+    interactionWidth: toUndefinable(e.interactionWidth),
+    className: toUndefinable(e.className),
+    style: toUndefinable(map7(fromCssObject)(e.style))
   };
 };
 var edgeChangeOut = function(v) {
@@ -30189,7 +30237,18 @@ var edgeChangeOut = function(v) {
     };
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Elements (line 1012, column 17 - line 1031, column 6): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Elements (line 1030, column 17 - line 1049, column 6): " + [v.constructor.name]);
+};
+var edgeAriaLabelIn = function(u) {
+  if (isNull(u)) {
+    return new Just(AriaLabelOff.value);
+  }
+  ;
+  if (otherwise) {
+    return map7(AriaLabel.create)(fromUndefinable(u));
+  }
+  ;
+  throw new Error("Failed pattern match at Boundary.Elements (line 777, column 1 - line 777, column 61): " + [u.constructor.name]);
 };
 var coordinateExtentOut = function(e) {
   return [[unwrap2(e).minX, unwrap2(e).minY], [unwrap2(e).maxX, unwrap2(e).maxY]];
@@ -30203,7 +30262,7 @@ var nodeExtentOut = function(v) {
     return coordinateExtentOut(v.value0);
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Elements (line 665, column 17 - line 667, column 56): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Elements (line 667, column 17 - line 669, column 56): " + [v.constructor.name]);
 };
 var internalNodeOut = function(n) {
   return {
@@ -30373,7 +30432,7 @@ var nodeChangeOut = function(v) {
     };
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Elements (line 919, column 17 - line 952, column 6): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Elements (line 937, column 17 - line 970, column 6): " + [v.constructor.name]);
 };
 var coordinateExtentIn = function(field) {
   return function(v) {
@@ -30409,10 +30468,10 @@ var nodeExtentIn = function(raw) {
       return unsafeThrow('ps-flow: `node.extent` accepts the string "parent" or ' + ("[[minX, minY], [maxX, maxY]], got " + (typeName(raw) + ".")));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Elements (line 655, column 14 - line 662, column 17): " + [v1.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Elements (line 657, column 14 - line 664, column 17): " + [v1.constructor.name]);
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Elements (line 647, column 20 - line 662, column 17): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Elements (line 649, column 20 - line 664, column 17): " + [v.constructor.name]);
 };
 var connectionOut = function(c) {
   return {
@@ -30450,7 +30509,7 @@ var edgeIn = function(e) {
     markerEnd: map7(markerIn("edge.markerEnd"))(fromUndefinable(e.markerEnd)),
     zIndex: map7(round2)(fromUndefinable(e.zIndex)),
     label: fromUndefinable(e.label),
-    ariaLabel: fromUndefinable(e.ariaLabel),
+    ariaLabel: edgeAriaLabelIn(e.ariaLabel),
     interactionWidth: fromUndefinable(e.interactionWidth),
     className: fromUndefinable(e.className),
     style: map7(asCssObject)(fromUndefinable(e.style))
@@ -45676,7 +45735,7 @@ var fireEdgeHandler = function(mCb) {
         return pure38(unit);
       }
       ;
-      throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 506, column 31 - line 508, column 23): " + [mCb.constructor.name]);
+      throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 512, column 31 - line 514, column 23): " + [mCb.constructor.name]);
     };
   };
 };
@@ -45879,9 +45938,9 @@ var edgeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
               }();
               var hide = edge.hidden || (isNothing(positionSlice.sourceX) || (isNothing(positionSlice.sourceY) || (isNothing(positionSlice.targetX) || isNothing(positionSlice.targetY))));
               var blurEdge = bind111(readRef(edgeRef))(function() {
-                var $157 = flip(for_9)(blurElement);
-                return function($158) {
-                  return $157(toMaybe($158));
+                var $162 = flip(for_9)(blurElement);
+                return function($163) {
+                  return $162(toMaybe($163));
                 };
               }());
               var onClickHandler = handler(syntheticEvent)(function(se) {
@@ -45977,8 +46036,8 @@ var edgeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                         nodesSelectionActive: false
                       };
                     }))();
-                    var $131 = edge.selected && state3.multiSelectionActive;
-                    if ($131) {
+                    var $132 = edge.selected && state3.multiSelectionActive;
+                    if ($132) {
                       store.dispatch(new UnselectNodesAndEdges({
                         nodes: Nothing.value,
                         edges: new Just([edge])
@@ -45994,8 +46053,8 @@ var edgeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
               var onKeyDownHandler = handler(syntheticEvent)(function(se) {
                 var k = key(se);
                 return when7(!fromMaybe(false)(v.disableKeyboardA11y) && (elem4(k)(elementSelectionKeys) && isSelectable))(function() {
-                  var $132 = k === "Escape";
-                  if ($132) {
+                  var $133 = k === "Escape";
+                  if ($133) {
                     return function __do3() {
                       blurEdge();
                       return store.dispatch(new UnselectNodesAndEdges({
@@ -46059,7 +46118,17 @@ var edgeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                   "aria-roledescription": "edge",
                   "data-id": v.id,
                   "data-testid": "rf__edge-" + v.id,
-                  "aria-label": opt(edge.ariaLabel),
+                  "aria-label": opt(function() {
+                    if (edge.ariaLabel instanceof Just && edge.ariaLabel.value0 instanceof AriaLabelOff) {
+                      return Nothing.value;
+                    }
+                    ;
+                    if (edge.ariaLabel instanceof Just && (edge.ariaLabel.value0 instanceof AriaLabel && edge.ariaLabel.value0.value0 !== "")) {
+                      return new Just(edge.ariaLabel.value0.value0);
+                    }
+                    ;
+                    return new Just("Edge from " + (unwrap12(edge.source) + (" to " + unwrap12(edge.target))));
+                  }()),
                   "aria-describedby": opt(function() {
                     if (v.edgesFocusable) {
                       return new Just(ariaEdgeDescKey + ("-" + fromMaybe("undefined")(v.rfId)));
@@ -46104,7 +46173,7 @@ var edgeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                         return mempty8;
                       }
                       ;
-                      throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 476, column 35 - line 493, column 44): " + [isReconnectable.constructor.name]);
+                      throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 482, column 35 - line 499, column 44): " + [isReconnectable.constructor.name]);
                     }();
                     return [edgeBody, anchors];
                   }
@@ -62725,10 +62794,10 @@ var reconnectableIn = function(raw) {
       return unsafeThrow("ps-flow: `defaultEdgeOptions.reconnectable` must be a boolean, " + ('"source" or "target", got ' + (typeName(raw) + ".")));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Flow (line 619, column 14 - line 626, column 17): " + [v1.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Flow (line 620, column 14 - line 627, column 17): " + [v1.constructor.name]);
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Flow (line 616, column 23 - line 626, column 17): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Flow (line 617, column 23 - line 627, column 17): " + [v.constructor.name]);
 };
 var proOptionsIn = function(o) {
   return {
@@ -62747,7 +62816,7 @@ var panOnDragIn = function(raw) {
       return unsafeThrow("ps-flow: every entry of `panOnDrag` must be a mouse-button number, got " + (typeName(b) + "."));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Flow (line 652, column 18 - line 658, column 17): " + [v3.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Flow (line 653, column 18 - line 659, column 17): " + [v3.constructor.name]);
   };
   var v = asBoolean(raw);
   if (v instanceof Just && v.value0) {
@@ -62770,17 +62839,17 @@ var panOnDragIn = function(raw) {
         return NoPan.value;
       }
       ;
-      throw new Error("Failed pattern match at Boundary.Flow (line 642, column 7 - line 644, column 25): " + [v2.constructor.name]);
+      throw new Error("Failed pattern match at Boundary.Flow (line 643, column 7 - line 645, column 25): " + [v2.constructor.name]);
     }
     ;
     if (v1 instanceof Nothing) {
       return unsafeThrow("ps-flow: `panOnDrag` must be a boolean or an array of mouse-button " + ("numbers, got " + (typeName(raw) + ".")));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Flow (line 640, column 14 - line 650, column 17): " + [v1.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Flow (line 641, column 14 - line 651, column 17): " + [v1.constructor.name]);
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Flow (line 637, column 19 - line 650, column 17): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Flow (line 638, column 19 - line 651, column 17): " + [v.constructor.name]);
 };
 var droppedOption = function(name15) {
   return function(get7) {
@@ -62836,7 +62905,7 @@ var convertEdgeOptions = function(o) {
     focusable: fromUndefinable(o.focusable),
     data: fromUndefinable(o.data),
     zIndex: map117(round2)(fromUndefinable(o.zIndex)),
-    ariaLabel: fromUndefinable(o.ariaLabel),
+    ariaLabel: edgeAriaLabelIn(o.ariaLabel),
     interactionWidth: fromUndefinable(o.interactionWidth),
     reconnectable: bind53(fromUndefinable(o.reconnectable))(reconnectableIn)
   };
@@ -63562,6 +63631,7 @@ var eqRowCons72 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE
     return "edgeType";
   }
 })(eqMaybe52))()(deletableIsSymbol)(eqMaybe42))()(dataIsSymbol);
+var eqMaybe9 = /* @__PURE__ */ eqMaybe(eqEdgeAriaLabel);
 var animatedIsSymbol = {
   reflectSymbol: function() {
     return "animated";
@@ -63586,8 +63656,8 @@ var useNodesInitialized = function(opts) {
   var selectInitialized = function(s) {
     var step2 = function(acc) {
       return function(n) {
-        var $453 = n.hidden && !opts.includeHiddenNodes;
-        if ($453) {
+        var $454 = n.hidden && !opts.includeHiddenNodes;
+        if ($454) {
           return acc;
         }
         ;
@@ -63663,7 +63733,7 @@ var useEdges = function(dictEq) {
   var selectEdges = function(s) {
     return s.edges;
   };
-  return useStore(eqArray(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons72(eqMaybe(dictEq)))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe52))()(animatedIsSymbol)(eqBoolean))))(selectEdges);
+  return useStore(eqArray(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons72(eqMaybe(dictEq)))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe9))()(animatedIsSymbol)(eqBoolean))))(selectEdges);
 };
 var useConnectionWith = function(dictEq) {
   var useStore111 = useStore(dictEq);

@@ -1,5 +1,6 @@
 module System.Types.Edge
   ( EdgeBase
+  , EdgeAriaLabel(..)
   , ConnectionLineType(..)
   , MarkerType(..)
   , EdgeMarker
@@ -42,6 +43,8 @@ import System.Types.Ids (NodeId)
 -- | `.react-flow__edge-path`) mirror the presentational fields carried by
 -- | `NodeBase` (ticket 060). `style` is `Maybe (Object String)` — not `Foreign`
 -- | — so the record keeps a derivable `Eq` for memoization/tests.
+-- |
+-- | `ariaLabel` holds three states. See `EdgeAriaLabel`.
 type EdgeBase edgeData =
   { id :: String
   , edgeType :: Maybe String
@@ -59,11 +62,27 @@ type EdgeBase edgeData =
   , markerEnd :: Maybe EdgeMarkerType
   , zIndex :: Maybe Int
   , label :: Maybe String
-  , ariaLabel :: Maybe String
+  , ariaLabel :: Maybe EdgeAriaLabel
   , interactionWidth :: Maybe Number
   , className :: Maybe String
   , style :: Maybe (Object String)
   }
+
+-- | An edge's `ariaLabel` when the consumer set one. `Nothing` on the field
+-- | is an absent label.
+-- |
+-- | TS types it `ariaLabel?: string`, but `<EdgeWrapper />` also reads
+-- | `null`: `edge.ariaLabel === null ? undefined : edge.ariaLabel || ...`.
+-- | `null` renders no `aria-label`, and absence renders a default one, so a
+-- | `Maybe String` can't hold both. `AriaLabelOff` is the consumer's `null`.
+data EdgeAriaLabel
+  = AriaLabelOff
+  | AriaLabel String
+
+derive instance eqEdgeAriaLabel :: Eq EdgeAriaLabel
+derive instance genericEdgeAriaLabel :: Generic EdgeAriaLabel _
+instance showEdgeAriaLabel :: Show EdgeAriaLabel where
+  show = genericShow
 
 data ConnectionLineType
   = BezierLine

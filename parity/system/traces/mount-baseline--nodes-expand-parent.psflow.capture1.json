@@ -62,6 +62,7 @@
                                   "aria-roledescription": "edge",
                                   "data-id": "child-outside",
                                   "data-testid": "rf__edge-child-outside",
+                                  "aria-label": "Edge from child to outside",
                                   "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
