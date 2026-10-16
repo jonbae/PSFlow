@@ -561,27 +561,20 @@
           {
             "tag": "div",
             "attrs": {
-              "class": "react-flow__panel bottom right react-flow__attribution"
+              "class": "react-flow__panel react-flow__attribution bottom right",
+              "data-message": "Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"
             },
             "children": [
               {
-                "tag": "span",
+                "tag": "a",
                 "attrs": {
-                  "data-message": "Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"
+                  "href": "https://reactflow.dev",
+                  "target": "_blank",
+                  "rel": "noopener noreferrer",
+                  "aria-label": "React Flow attribution"
                 },
-                "children": [
-                  {
-                    "tag": "a",
-                    "attrs": {
-                      "href": "https://reactflow.dev",
-                      "target": "_blank",
-                      "rel": "noopener noreferrer",
-                      "aria-label": "React Flow attribution"
-                    },
-                    "text": "React Flow",
-                    "children": []
-                  }
-                ]
+                "text": "React Flow",
+                "children": []
               }
             ]
           },
@@ -780,7 +773,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 336.5,
+            "timeStamp": 302.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -849,7 +842,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 336.5,
+            "timeStamp": 302.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -925,7 +918,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 336.5,
+            "timeStamp": 302.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -990,7 +983,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 336.5,
+            "timeStamp": 302.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1162,7 +1155,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 358.10000002384186,
+            "timeStamp": 325.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

@@ -395,7 +395,7 @@
           {
             "tag": "div",
             "attrs": {
-              "class": "react-flow__panel bottom right react-flow__minimap",
+              "class": "react-flow__panel react-flow__minimap bottom right",
               "data-testid": "rf__minimap",
               "style": "--xy-minimap-background-color-props: #eef2ff; --xy-minimap-mask-background-color-props: rgba(240, 100, 20, 0.35); --xy-minimap-mask-stroke-color-props: rgba(10, 20, 30, 0.8); --xy-minimap-mask-stroke-width-props: 6.4;"
             },
@@ -496,27 +496,20 @@
           {
             "tag": "div",
             "attrs": {
-              "class": "react-flow__panel bottom right react-flow__attribution"
+              "class": "react-flow__panel react-flow__attribution bottom right",
+              "data-message": "Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"
             },
             "children": [
               {
-                "tag": "span",
+                "tag": "a",
                 "attrs": {
-                  "data-message": "Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"
+                  "href": "https://reactflow.dev",
+                  "target": "_blank",
+                  "rel": "noopener noreferrer",
+                  "aria-label": "React Flow attribution"
                 },
-                "children": [
-                  {
-                    "tag": "a",
-                    "attrs": {
-                      "href": "https://reactflow.dev",
-                      "target": "_blank",
-                      "rel": "noopener noreferrer",
-                      "aria-label": "React Flow attribution"
-                    },
-                    "text": "React Flow",
-                    "children": []
-                  }
-                ]
+                "text": "React Flow",
+                "children": []
               }
             ]
           },
@@ -670,7 +663,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 298.60000002384186,
+            "timeStamp": 298.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -739,7 +732,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 298.60000002384186,
+            "timeStamp": 298.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -815,7 +808,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 298.60000002384186,
+            "timeStamp": 298.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -880,7 +873,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 298.60000002384186,
+            "timeStamp": 298.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -966,7 +959,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 306.5,
+            "timeStamp": 307,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1071,7 +1064,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 325.10000002384186,
+            "timeStamp": 325.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1140,7 +1133,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 325.10000002384186,
+            "timeStamp": 325.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

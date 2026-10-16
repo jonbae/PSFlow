@@ -539,27 +539,20 @@
           {
             "tag": "div",
             "attrs": {
-              "class": "react-flow__panel bottom right react-flow__attribution"
+              "class": "react-flow__panel react-flow__attribution bottom right",
+              "data-message": "Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"
             },
             "children": [
               {
-                "tag": "span",
+                "tag": "a",
                 "attrs": {
-                  "data-message": "Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"
+                  "href": "https://reactflow.dev",
+                  "target": "_blank",
+                  "rel": "noopener noreferrer",
+                  "aria-label": "React Flow attribution"
                 },
-                "children": [
-                  {
-                    "tag": "a",
-                    "attrs": {
-                      "href": "https://reactflow.dev",
-                      "target": "_blank",
-                      "rel": "noopener noreferrer",
-                      "aria-label": "React Flow attribution"
-                    },
-                    "text": "React Flow",
-                    "children": []
-                  }
-                ]
+                "text": "React Flow",
+                "children": []
               }
             ]
           },
@@ -759,7 +752,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 197.80000001192093,
+            "timeStamp": 181.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -828,7 +821,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 197.80000001192093,
+            "timeStamp": 181.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -908,7 +901,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 197.80000001192093,
+            "timeStamp": 181.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -973,7 +966,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 197.80000001192093,
+            "timeStamp": 181.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1244,7 +1237,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 234.69999998807907,
+            "timeStamp": 203.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2559,11 +2552,11 @@
       },
       {
         "level": "error",
-        "text": "The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:54052/parity/driver/dist/psflow.js:65026:20)\n    at HookBoundary (http://127.0.0.1:54052/parity/driver/dist/psflow.js:65014:20)\n    at HookLevel (http://127.0.0.1:54052/parity/driver/dist/psflow.js:65033:20)\n    at NetObserver (http://127.0.0.1:54052/parity/driver/dist/psflow.js:65034:22)\n    at http://127.0.0.1:54052/parity/driver/dist/psflow.js:32919:61\n    at http://127.0.0.1:54052/parity/driver/dist/psflow.js:32919:61\n    at http://127.0.0.1:54052/parity/driver/dist/psflow.js:32919:61\n    at div\n    at http://127.0.0.1:54052/parity/driver/dist/psflow.js:32919:45\n    at http://127.0.0.1:54052/parity/driver/dist/psflow.js:40341:64\n    at div\n    at Flow_default (http://127.0.0.1:54052/parity/driver/dist/psflow.js:65063:23)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, HookBoundary."
+        "text": "The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:56177/parity/driver/dist/psflow.js:65028:20)\n    at HookBoundary (http://127.0.0.1:56177/parity/driver/dist/psflow.js:65016:20)\n    at HookLevel (http://127.0.0.1:56177/parity/driver/dist/psflow.js:65035:20)\n    at NetObserver (http://127.0.0.1:56177/parity/driver/dist/psflow.js:65036:22)\n    at http://127.0.0.1:56177/parity/driver/dist/psflow.js:32919:61\n    at http://127.0.0.1:56177/parity/driver/dist/psflow.js:32919:61\n    at http://127.0.0.1:56177/parity/driver/dist/psflow.js:32919:61\n    at div\n    at http://127.0.0.1:56177/parity/driver/dist/psflow.js:32919:45\n    at http://127.0.0.1:56177/parity/driver/dist/psflow.js:40344:64\n    at div\n    at Flow_default (http://127.0.0.1:56177/parity/driver/dist/psflow.js:65065:23)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, HookBoundary."
       },
       {
         "level": "error",
-        "text": "The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:54052/parity/driver/dist/psflow.js:65026:20)\n    at HookBoundary (http://127.0.0.1:54052/parity/driver/dist/psflow.js:65014:20)\n    at HookLevel (http://127.0.0.1:54052/parity/driver/dist/psflow.js:65033:20)\n    at NetObserver (http://127.0.0.1:54052/parity/driver/dist/psflow.js:65034:22)\n    at http://127.0.0.1:54052/parity/driver/dist/psflow.js:32919:61\n    at http://127.0.0.1:54052/parity/driver/dist/psflow.js:32919:61\n    at http://127.0.0.1:54052/parity/driver/dist/psflow.js:32919:61\n    at div\n    at http://127.0.0.1:54052/parity/driver/dist/psflow.js:32919:45\n    at http://127.0.0.1:54052/parity/driver/dist/psflow.js:40341:64\n    at div\n    at Flow_default (http://127.0.0.1:54052/parity/driver/dist/psflow.js:65063:23)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, HookBoundary."
+        "text": "The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:56177/parity/driver/dist/psflow.js:65028:20)\n    at HookBoundary (http://127.0.0.1:56177/parity/driver/dist/psflow.js:65016:20)\n    at HookLevel (http://127.0.0.1:56177/parity/driver/dist/psflow.js:65035:20)\n    at NetObserver (http://127.0.0.1:56177/parity/driver/dist/psflow.js:65036:22)\n    at http://127.0.0.1:56177/parity/driver/dist/psflow.js:32919:61\n    at http://127.0.0.1:56177/parity/driver/dist/psflow.js:32919:61\n    at http://127.0.0.1:56177/parity/driver/dist/psflow.js:32919:61\n    at div\n    at http://127.0.0.1:56177/parity/driver/dist/psflow.js:32919:45\n    at http://127.0.0.1:56177/parity/driver/dist/psflow.js:40344:64\n    at div\n    at Flow_default (http://127.0.0.1:56177/parity/driver/dist/psflow.js:65065:23)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, HookBoundary."
       }
     ],
     "driving": [
