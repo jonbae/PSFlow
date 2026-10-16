@@ -64,6 +64,7 @@ import Test.React.Store.Reduce (runReactStoreTests)
 import Test.React.Store.Shell (runStoreShellTests)
 import Test.React.Store.ZoomLimits (runZoomLimitsTests)
 import Test.System.Utils.Store (runStoreProperties)
+import Test.System.Utils.MeasuredDimensions (runMeasuredDimensionsTests)
 import Test.System.Utils.StorePanBy (runStorePanByTests)
 import Test.System.XYDrag (runXYDragTests)
 import Test.System.XYDrag.DragItemOrder (runDragItemOrderTests)
@@ -1103,6 +1104,7 @@ main = do
   runAriaDescribedByTests
   runEdgeAriaLabelTests
   runNodeA11yDescriptionTests
+  runMeasuredDimensionsTests
 
   -- Function parity — live differential against XYFlow (via the @psflow/oracle bundle).
   -- Requires `npm run build:oracle` to have produced oracle/index.js.
