@@ -15,3 +15,11 @@ export const undefinableImpl = (nothing, just, u) => (u == null ? nothing : just
 export const isNull = (u) => u === null;
 
 export const nullUndefinable = null;
+
+export const pruneUndefined = (record) => {
+  const pruned = {};
+  for (const key of Object.keys(record)) {
+    if (record[key] !== undefined) pruned[key] = record[key];
+  }
+  return pruned;
+};

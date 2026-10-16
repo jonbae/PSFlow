@@ -107,7 +107,7 @@ import Boundary.Enums
   , positionIn
   , positionOut
   )
-import Boundary.Undefined (Undefinable, defined, fromUndefinable, isNull, nullUndefinable, toUndefinable, undefined)
+import Boundary.Undefined (Undefinable, defined, fromUndefinable, isNull, nullUndefinable, pruneUndefined, toUndefinable, undefined)
 import Boundary.Untagged (asArray, asBoolean, asString, typeName)
 import Boundary.Wrapper (mkComponentWrapper)
 import Data.Array (length) as Array
@@ -121,6 +121,7 @@ import Effect.Uncurried (mkEffectFn1)
 import Foreign (Foreign, unsafeToForeign)
 import Foreign.Object (Object)
 import Foreign.Object (mapWithKey) as Object
+import Record.Unsafe (unsafeSet)
 import React.Basic (ReactComponent, element)
 import React.Types.Edges (Style)
 import React.Types.Nodes (NodeProps, NodeTypesMap)
@@ -526,8 +527,14 @@ nodeIn n =
   , style: map asCssObject (fromUndefinable n.style)
   }
 
+-- | A consumer's node, as upstream hands it back: only the keys that hold a
+-- | value. See `pruneUndefined`.
+-- |
+-- | `measured` is written only after the node is measured. Upstream's
+-- | `applyNodeChanges` adds it to the consumer's node with a dimension change,
+-- | so a node that hasn't been measured has no `measured` key.
 nodeOut :: NodeBase Foreign -> JsNode
-nodeOut n =
+nodeOut n = pruneUndefined
   { id: unwrap n.id
   , position: n.position
   , data: n.data
@@ -553,7 +560,7 @@ nodeOut n =
   , ariaLabel: toUndefinable n.ariaLabel
   , origin: toUndefinable (map nodeOriginOut n.origin)
   , handles: toUndefinable (map (map nodeHandleOut) n.handles)
-  , measured: toUndefinable (Just (measuredOut n.measured))
+  , measured: if n.measured == emptyMeasured then undefined else defined (measuredOut n.measured)
   , className: toUndefinable n.className
   , style: toUndefinable (map fromCssObject n.style)
   }
@@ -562,8 +569,12 @@ nodeOut n =
 -- | closed `JsNode`, and this record is the same row with one more field, so
 -- | the fields are written once more rather than being merged — which is what
 -- | keeps `JsNodeRow` the single declaration the drift gate reads.
+-- |
+-- | Pruned at the top level, where upstream spreads the consumer's node.
+-- | `measured` keeps both its keys, because upstream builds it as
+-- | `{ width: userNode.measured?.width, height: userNode.measured?.height }`.
 internalNodeOut :: InternalNodeBase Foreign -> JsInternalNode
-internalNodeOut n =
+internalNodeOut n = pruneUndefined
   { id: unwrap n.id
   , position: n.position
   , data: n.data
@@ -595,14 +606,19 @@ internalNodeOut n =
   , internals: nodeInternalsOut n.internals
   }
 
+-- | Upstream's `adoptUserNodes` builds `internals` with `positionAbsolute`,
+-- | `z`, and `handleBounds`, which is `undefined` until the node is measured.
+-- | `rootParentIndex` is written only on a parent node, and `bounds` never
+-- | is. So the two optional keys are pruned, and `handleBounds` is set on the
+-- | pruned record whether or not it holds a value.
 nodeInternalsOut :: NodeInternals -> JsNodeInternals
 nodeInternalsOut i =
-  { positionAbsolute: i.positionAbsolute
-  , z: i.z
-  , rootParentIndex: toUndefinable (map Int.toNumber i.rootParentIndex)
-  , handleBounds: toUndefinable (map handleBoundsOut i.handleBounds)
-  , bounds: toUndefinable (map nodeBoundsOut i.bounds)
-  }
+  unsafeSet "handleBounds" (toUndefinable (map handleBoundsOut i.handleBounds)) $ pruneUndefined
+    { positionAbsolute: i.positionAbsolute
+    , z: i.z
+    , rootParentIndex: toUndefinable (map Int.toNumber i.rootParentIndex)
+    , bounds: toUndefinable (map nodeBoundsOut i.bounds)
+    }
 
 handleBoundsOut :: NodeHandleBounds -> JsNodeHandleBounds
 handleBoundsOut b =
@@ -748,7 +764,7 @@ edgeIn e =
 -- | predicate never reads it. `unsafeToForeign` is what the field crosses as
 -- | either way — `data` is the consumer's own value, handed back unread.
 edgeOut :: forall e. EdgeBase e -> JsEdge
-edgeOut e =
+edgeOut e = pruneUndefined
   { id: e.id
   , type: toUndefinable e.edgeType
   , source: unwrap e.source
@@ -810,8 +826,9 @@ edgeMarkerIn field m =
   , strokeWidth: fromUndefinable m.strokeWidth
   }
 
+-- | The consumer's own marker object, so pruned as `edgeOut` is.
 edgeMarkerOut :: EdgeMarker -> JsEdgeMarker
-edgeMarkerOut m =
+edgeMarkerOut m = pruneUndefined
   { type: markerTypeOut m.markerType
   , color: toUndefinable m.color
   , width: toUndefinable m.width
@@ -932,9 +949,11 @@ nodeChangeIn c = case c.type of
 
 -- | The six-member node-change union. `type` carries the tag a consumer
 -- | switches on; every other field is present only on the members that have
--- | it, which is what `Undefinable` says.
+-- | it, which is what `Undefinable` says. Upstream builds each change with
+-- | only the keys it sets, such as `{ id, type: 'select', selected }`, so the
+-- | fields a member doesn't set are pruned rather than sent as `undefined`.
 nodeChangeOut :: NodeChange Foreign -> JsNodeChange
-nodeChangeOut = case _ of
+nodeChangeOut = pruneUndefined <<< case _ of
   NodeDimensionChange c -> emptyNodeChange
     { type = "dimensions"
     , id = toUndefinable (Just (unwrap c.id))
@@ -1026,8 +1045,9 @@ edgeChangeIn c = case c.type of
     }
   other -> unknownChange "edge" other
 
+-- | Pruned as `nodeChangeOut` is.
 edgeChangeOut :: EdgeChange Foreign -> JsEdgeChange
-edgeChangeOut = case _ of
+edgeChangeOut = pruneUndefined <<< case _ of
   EdgeSelectionChange c -> emptyEdgeChange
     { type = "select"
     , id = toUndefinable (Just c.id)
