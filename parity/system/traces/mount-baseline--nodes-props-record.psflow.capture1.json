@@ -71,6 +71,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 1; transform: translate(150px, 225px); pointer-events: all; visibility: visible; width: 120px; height: 40px;"
                             },
                             "children": [
@@ -103,6 +104,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(100px, 200px); pointer-events: all; visibility: visible; width: 300px; height: 200px;"
                             },
                             "children": [

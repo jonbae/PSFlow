@@ -61,7 +61,8 @@
                                   "role": "group",
                                   "aria-roledescription": "edge",
                                   "data-id": "first-edge",
-                                  "data-testid": "rf__edge-first-edge"
+                                  "data-testid": "rf__edge-first-edge",
+                                  "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
                                   {
@@ -137,6 +138,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(0px, -200px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "children": [
@@ -177,6 +179,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(600px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "children": [
@@ -217,6 +220,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(900px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "children": [
@@ -257,6 +261,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(300px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "children": [
@@ -297,6 +302,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(0px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "children": [
@@ -337,6 +343,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(600px, 200px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "children": [
@@ -377,6 +384,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(900px, 200px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "children": [
@@ -417,6 +425,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(300px, 200px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "children": [
@@ -457,6 +466,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(0px, 200px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "children": [
@@ -497,6 +507,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(600px, 0px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "children": [
@@ -537,6 +548,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(900px, 0px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "children": [
@@ -577,6 +589,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(300px, 0px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "children": [
@@ -617,6 +630,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(0px, 0px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "children": [

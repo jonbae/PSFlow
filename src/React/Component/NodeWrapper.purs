@@ -64,6 +64,7 @@ import React.Basic.Events (EventHandler, handler, handler_, syntheticEvent)
 import React.Basic.Hooks (UnsafeReference(..), memo, reactComponent, useRef)
 import React.Basic.Hooks as React
 import React.Component.NodeWrapper.Util (arrowKeyDiffs, builtinNodeTypes, getNodeInlineStyleDimensions)
+import React.Container.A11yDescriptions (ariaNodeDescKey)
 import React.Context.NodeId (nodeIdProvider)
 import React.FFI.DOM (div_, opt)
 import React.Hook.Drag (useDrag)
@@ -520,6 +521,11 @@ nodeWrapper =
             , tabIndex: if isFocusable then 0 else -1
             , role: if isFocusable then "group" else ""
             , "aria-roledescription": "node"
+            , "aria-describedby":
+                opt
+                  ( if props.disableKeyboardA11y then Nothing
+                    else Just (ariaNodeDescKey <> "-" <> props.rfId)
+                  )
             , "aria-label": opt node.ariaLabel
             }
             [ nodeIdProvider (Just props.id)

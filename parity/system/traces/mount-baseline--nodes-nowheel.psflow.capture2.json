@@ -61,7 +61,8 @@
                                   "role": "group",
                                   "aria-roledescription": "edge",
                                   "data-id": "nowheel-plain",
-                                  "data-testid": "rf__edge-nowheel-plain"
+                                  "data-testid": "rf__edge-nowheel-plain",
+                                  "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
                                   {
@@ -137,6 +138,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(0px, 0px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "nowheel",
@@ -172,6 +174,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(460px, 0px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "plain",

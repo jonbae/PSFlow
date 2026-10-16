@@ -11,6 +11,9 @@
 -- | (it changes more often — every keyboard nudge).
 module React.Container.A11yDescriptions
   ( a11yDescriptions
+  , ariaNodeDescKey
+  , ariaEdgeDescKey
+  , ariaLiveMessageKey
   ) where
 
 import Prelude
@@ -25,6 +28,19 @@ import React.Hook.Store (useStore)
 import React.Types.Component (A11yDescriptionsProps)
 import React.Types.Store (ReactFlowState)
 import Unsafe.Coerce (unsafeCoerce)
+
+-- | TS `ARIA_NODE_DESC_KEY`. `<NodeWrapper />` points `aria-describedby` at
+-- | `<key>-<rfId>`, the id of the node description rendered here.
+ariaNodeDescKey :: String
+ariaNodeDescKey = "react-flow__node-desc"
+
+-- | TS `ARIA_EDGE_DESC_KEY`, which `<EdgeWrapper />` points at the same way.
+ariaEdgeDescKey :: String
+ariaEdgeDescKey = "react-flow__edge-desc"
+
+-- | TS `ARIA_LIVE_MESSAGE`.
+ariaLiveMessageKey :: String
+ariaLiveMessageKey = "react-flow__aria-live"
 
 type DescriptionsSlice =
   { nodeDefault :: String
@@ -77,9 +93,9 @@ a11yDescriptions =
         nodeDescText =
           if props.disableKeyboardA11y then descs.nodeKeyboardDisabled
           else descs.nodeDefault
-        nodeDescId = "react-flow__node-desc-" <> props.rfId
-        edgeDescId = "react-flow__edge-desc-" <> props.rfId
-        ariaLiveId = "react-flow__aria-live-" <> props.rfId
+        nodeDescId = ariaNodeDescKey <> "-" <> props.rfId
+        edgeDescId = ariaEdgeDescKey <> "-" <> props.rfId
+        ariaLiveId = ariaLiveMessageKey <> "-" <> props.rfId
         descChildren :: Array JSX
         descChildren =
           [ div_

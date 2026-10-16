@@ -61,7 +61,8 @@
                                   "role": "group",
                                   "aria-roledescription": "edge",
                                   "data-id": "first-edge",
-                                  "data-testid": "rf__edge-first-edge"
+                                  "data-testid": "rf__edge-first-edge",
+                                  "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
                                   {
@@ -126,7 +127,8 @@
                                   "role": "group",
                                   "aria-roledescription": "edge",
                                   "data-id": "second-edge",
-                                  "data-testid": "rf__edge-second-edge"
+                                  "data-testid": "rf__edge-second-edge",
+                                  "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
                                   {
@@ -202,6 +204,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(0px, 0px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "1",
@@ -227,6 +230,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(-100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "2",
@@ -262,6 +266,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "3",
@@ -528,7 +533,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 278.89999997615814,
+            "timeStamp": 280.7000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -595,7 +600,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 278.89999997615814,
+            "timeStamp": 280.7000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -674,7 +679,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 289.5999999642372,
+            "timeStamp": 305,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -763,7 +768,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 305,
+            "timeStamp": 318.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -852,7 +857,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 320.19999998807907,
+            "timeStamp": 336.2000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -941,7 +946,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 335.19999998807907,
+            "timeStamp": 351.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1030,7 +1035,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 353.39999997615814,
+            "timeStamp": 370,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1133,7 +1138,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 375,
+            "timeStamp": 392.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1212,7 +1217,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 385.19999998807907,
+            "timeStamp": 402.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1301,7 +1306,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 402.69999998807907,
+            "timeStamp": 418.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1390,7 +1395,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 420,
+            "timeStamp": 437,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1479,7 +1484,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 435.89999997615814,
+            "timeStamp": 452.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1568,7 +1573,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 452.19999998807907,
+            "timeStamp": 469.7000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
