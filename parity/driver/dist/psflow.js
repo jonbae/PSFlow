@@ -42174,10 +42174,10 @@ var a11yDescriptions = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ react
     return bind17(useStore1(selectAriaLiveMessage))(function(ariaLiveMessage) {
       var nodeDescText = function() {
         if (v.disableKeyboardA11y) {
-          return descs.nodeKeyboardDisabled;
+          return descs.nodeDefault;
         }
         ;
-        return descs.nodeDefault;
+        return descs.nodeKeyboardDisabled;
       }();
       var nodeDescId = ariaNodeDescKey + ("-" + v.rfId);
       var edgeDescId = ariaEdgeDescKey + ("-" + v.rfId);
