@@ -27,9 +27,9 @@ var __toESM = (mod2, isNodeMode, target5) => (target5 = mod2 != null ? __create(
   mod2
 ));
 
-// ../../../node_modules/react/cjs/react.development.js
+// node_modules/react/cjs/react.development.js
 var require_react_development = __commonJS({
-  "../../../node_modules/react/cjs/react.development.js"(exports, module) {
+  "node_modules/react/cjs/react.development.js"(exports, module) {
     "use strict";
     if (true) {
       (function() {
@@ -1901,9 +1901,9 @@ var require_react_development = __commonJS({
   }
 });
 
-// ../../../node_modules/react/index.js
+// node_modules/react/index.js
 var require_react = __commonJS({
-  "../../../node_modules/react/index.js"(exports, module) {
+  "node_modules/react/index.js"(exports, module) {
     "use strict";
     if (false) {
       module.exports = null;
@@ -1913,9 +1913,9 @@ var require_react = __commonJS({
   }
 });
 
-// ../../../node_modules/scheduler/cjs/scheduler.development.js
+// node_modules/scheduler/cjs/scheduler.development.js
 var require_scheduler_development = __commonJS({
-  "../../../node_modules/scheduler/cjs/scheduler.development.js"(exports) {
+  "node_modules/scheduler/cjs/scheduler.development.js"(exports) {
     "use strict";
     if (true) {
       (function() {
@@ -2363,9 +2363,9 @@ var require_scheduler_development = __commonJS({
   }
 });
 
-// ../../../node_modules/scheduler/index.js
+// node_modules/scheduler/index.js
 var require_scheduler = __commonJS({
-  "../../../node_modules/scheduler/index.js"(exports, module) {
+  "node_modules/scheduler/index.js"(exports, module) {
     "use strict";
     if (false) {
       module.exports = null;
@@ -2375,9 +2375,9 @@ var require_scheduler = __commonJS({
   }
 });
 
-// ../../../node_modules/react-dom/cjs/react-dom.development.js
+// node_modules/react-dom/cjs/react-dom.development.js
 var require_react_dom_development = __commonJS({
-  "../../../node_modules/react-dom/cjs/react-dom.development.js"(exports) {
+  "node_modules/react-dom/cjs/react-dom.development.js"(exports) {
     "use strict";
     if (true) {
       (function() {
@@ -23539,9 +23539,9 @@ var require_react_dom_development = __commonJS({
   }
 });
 
-// ../../../node_modules/react-dom/index.js
+// node_modules/react-dom/index.js
 var require_react_dom = __commonJS({
-  "../../../node_modules/react-dom/index.js"(exports, module) {
+  "node_modules/react-dom/index.js"(exports, module) {
     "use strict";
     if (false) {
       checkDCE();
@@ -23552,9 +23552,9 @@ var require_react_dom = __commonJS({
   }
 });
 
-// ../../../node_modules/react-dom/client.js
+// node_modules/react-dom/client.js
 var require_client = __commonJS({
-  "../../../node_modules/react-dom/client.js"(exports) {
+  "node_modules/react-dom/client.js"(exports) {
     "use strict";
     var m = require_react_dom();
     if (false) {
@@ -23583,9 +23583,9 @@ var require_client = __commonJS({
   }
 });
 
-// ../../../node_modules/react/cjs/react-jsx-runtime.development.js
+// node_modules/react/cjs/react-jsx-runtime.development.js
 var require_react_jsx_runtime_development = __commonJS({
-  "../../../node_modules/react/cjs/react-jsx-runtime.development.js"(exports) {
+  "node_modules/react/cjs/react-jsx-runtime.development.js"(exports) {
     "use strict";
     if (true) {
       (function() {
@@ -24476,9 +24476,9 @@ var require_react_jsx_runtime_development = __commonJS({
   }
 });
 
-// ../../../node_modules/react/jsx-runtime.js
+// node_modules/react/jsx-runtime.js
 var require_jsx_runtime = __commonJS({
-  "../../../node_modules/react/jsx-runtime.js"(exports, module) {
+  "node_modules/react/jsx-runtime.js"(exports, module) {
     "use strict";
     if (false) {
       module.exports = null;
@@ -24872,10 +24872,10 @@ var map = function(dict) {
   return dict.map;
 };
 var mapFlipped = function(dictFunctor) {
-  var map119 = map(dictFunctor);
+  var map120 = map(dictFunctor);
   return function(fa) {
     return function(f) {
-      return map119(f)(fa);
+      return map120(f)(fa);
     };
   };
 };
@@ -25991,11 +25991,11 @@ var fst = function(v) {
 var eqTuple = function(dictEq) {
   var eq29 = eq(dictEq);
   return function(dictEq1) {
-    var eq110 = eq(dictEq1);
+    var eq111 = eq(dictEq1);
     return {
       eq: function(x) {
         return function(y) {
-          return eq29(x.value0)(y.value0) && eq110(x.value1)(y.value1);
+          return eq29(x.value0)(y.value0) && eq111(x.value1)(y.value1);
         };
       }
     };
@@ -27639,7 +27639,7 @@ var eqNodeExtent = {
   }
 };
 
-// ../../../node_modules/d3-dispatch/src/dispatch.js
+// node_modules/d3-dispatch/src/dispatch.js
 var noop = { value: () => {
 } };
 function dispatch() {
@@ -27709,7 +27709,7 @@ function set(type, name15, callback2) {
 }
 var dispatch_default = dispatch;
 
-// ../../../node_modules/d3-selection/src/namespaces.js
+// node_modules/d3-selection/src/namespaces.js
 var xhtml = "http://www.w3.org/1999/xhtml";
 var namespaces_default = {
   svg: "http://www.w3.org/2000/svg",
@@ -27719,14 +27719,14 @@ var namespaces_default = {
   xmlns: "http://www.w3.org/2000/xmlns/"
 };
 
-// ../../../node_modules/d3-selection/src/namespace.js
+// node_modules/d3-selection/src/namespace.js
 function namespace_default(name15) {
   var prefix = name15 += "", i = prefix.indexOf(":");
   if (i >= 0 && (prefix = name15.slice(0, i)) !== "xmlns") name15 = name15.slice(i + 1);
   return namespaces_default.hasOwnProperty(prefix) ? { space: namespaces_default[prefix], local: name15 } : name15;
 }
 
-// ../../../node_modules/d3-selection/src/creator.js
+// node_modules/d3-selection/src/creator.js
 function creatorInherit(name15) {
   return function() {
     var document3 = this.ownerDocument, uri = this.namespaceURI;
@@ -27743,7 +27743,7 @@ function creator_default(name15) {
   return (fullname.local ? creatorFixed : creatorInherit)(fullname);
 }
 
-// ../../../node_modules/d3-selection/src/selector.js
+// node_modules/d3-selection/src/selector.js
 function none() {
 }
 function selector_default(selector4) {
@@ -27752,7 +27752,7 @@ function selector_default(selector4) {
   };
 }
 
-// ../../../node_modules/d3-selection/src/selection/select.js
+// node_modules/d3-selection/src/selection/select.js
 function select_default(select3) {
   if (typeof select3 !== "function") select3 = selector_default(select3);
   for (var groups = this._groups, m = groups.length, subgroups = new Array(m), j = 0; j < m; ++j) {
@@ -27766,12 +27766,12 @@ function select_default(select3) {
   return new Selection(subgroups, this._parents);
 }
 
-// ../../../node_modules/d3-selection/src/array.js
+// node_modules/d3-selection/src/array.js
 function array(x) {
   return x == null ? [] : Array.isArray(x) ? x : Array.from(x);
 }
 
-// ../../../node_modules/d3-selection/src/selectorAll.js
+// node_modules/d3-selection/src/selectorAll.js
 function empty2() {
   return [];
 }
@@ -27781,7 +27781,7 @@ function selectorAll_default(selector4) {
   };
 }
 
-// ../../../node_modules/d3-selection/src/selection/selectAll.js
+// node_modules/d3-selection/src/selection/selectAll.js
 function arrayAll(select3) {
   return function() {
     return array(select3.apply(this, arguments));
@@ -27801,7 +27801,7 @@ function selectAll_default(select3) {
   return new Selection(subgroups, parents);
 }
 
-// ../../../node_modules/d3-selection/src/matcher.js
+// node_modules/d3-selection/src/matcher.js
 function matcher_default(selector4) {
   return function() {
     return this.matches(selector4);
@@ -27813,7 +27813,7 @@ function childMatcher(selector4) {
   };
 }
 
-// ../../../node_modules/d3-selection/src/selection/selectChild.js
+// node_modules/d3-selection/src/selection/selectChild.js
 var find3 = Array.prototype.find;
 function childFind(match) {
   return function() {
@@ -27827,7 +27827,7 @@ function selectChild_default(match) {
   return this.select(match == null ? childFirst : childFind(typeof match === "function" ? match : childMatcher(match)));
 }
 
-// ../../../node_modules/d3-selection/src/selection/selectChildren.js
+// node_modules/d3-selection/src/selection/selectChildren.js
 var filter2 = Array.prototype.filter;
 function children() {
   return Array.from(this.children);
@@ -27841,7 +27841,7 @@ function selectChildren_default(match) {
   return this.selectAll(match == null ? children : childrenFilter(typeof match === "function" ? match : childMatcher(match)));
 }
 
-// ../../../node_modules/d3-selection/src/selection/filter.js
+// node_modules/d3-selection/src/selection/filter.js
 function filter_default(match) {
   if (typeof match !== "function") match = matcher_default(match);
   for (var groups = this._groups, m = groups.length, subgroups = new Array(m), j = 0; j < m; ++j) {
@@ -27854,12 +27854,12 @@ function filter_default(match) {
   return new Selection(subgroups, this._parents);
 }
 
-// ../../../node_modules/d3-selection/src/selection/sparse.js
+// node_modules/d3-selection/src/selection/sparse.js
 function sparse_default(update2) {
   return new Array(update2.length);
 }
 
-// ../../../node_modules/d3-selection/src/selection/enter.js
+// node_modules/d3-selection/src/selection/enter.js
 function enter_default() {
   return new Selection(this._enter || this._groups.map(sparse_default), this._parents);
 }
@@ -27886,14 +27886,14 @@ EnterNode.prototype = {
   }
 };
 
-// ../../../node_modules/d3-selection/src/constant.js
+// node_modules/d3-selection/src/constant.js
 function constant_default(x) {
   return function() {
     return x;
   };
 }
 
-// ../../../node_modules/d3-selection/src/selection/data.js
+// node_modules/d3-selection/src/selection/data.js
 function bindIndex(parent2, group4, enter, update2, exit, data) {
   var i = 0, node, groupLength = group4.length, dataLength = data.length;
   for (; i < dataLength; ++i) {
@@ -27965,12 +27965,12 @@ function arraylike(data) {
   return typeof data === "object" && "length" in data ? data : Array.from(data);
 }
 
-// ../../../node_modules/d3-selection/src/selection/exit.js
+// node_modules/d3-selection/src/selection/exit.js
 function exit_default() {
   return new Selection(this._exit || this._groups.map(sparse_default), this._parents);
 }
 
-// ../../../node_modules/d3-selection/src/selection/join.js
+// node_modules/d3-selection/src/selection/join.js
 function join_default(onenter, onupdate, onexit) {
   var enter = this.enter(), update2 = this, exit = this.exit();
   if (typeof onenter === "function") {
@@ -27988,7 +27988,7 @@ function join_default(onenter, onupdate, onexit) {
   return enter && update2 ? enter.merge(update2).order() : update2;
 }
 
-// ../../../node_modules/d3-selection/src/selection/merge.js
+// node_modules/d3-selection/src/selection/merge.js
 function merge_default(context) {
   var selection2 = context.selection ? context.selection() : context;
   for (var groups0 = this._groups, groups1 = selection2._groups, m0 = groups0.length, m1 = groups1.length, m = Math.min(m0, m1), merges = new Array(m0), j = 0; j < m; ++j) {
@@ -28004,7 +28004,7 @@ function merge_default(context) {
   return new Selection(merges, this._parents);
 }
 
-// ../../../node_modules/d3-selection/src/selection/order.js
+// node_modules/d3-selection/src/selection/order.js
 function order_default() {
   for (var groups = this._groups, j = -1, m = groups.length; ++j < m; ) {
     for (var group4 = groups[j], i = group4.length - 1, next = group4[i], node; --i >= 0; ) {
@@ -28017,7 +28017,7 @@ function order_default() {
   return this;
 }
 
-// ../../../node_modules/d3-selection/src/selection/sort.js
+// node_modules/d3-selection/src/selection/sort.js
 function sort_default(compare3) {
   if (!compare3) compare3 = ascending;
   function compareNode(a, b) {
@@ -28037,7 +28037,7 @@ function ascending(a, b) {
   return a < b ? -1 : a > b ? 1 : a >= b ? 0 : NaN;
 }
 
-// ../../../node_modules/d3-selection/src/selection/call.js
+// node_modules/d3-selection/src/selection/call.js
 function call_default() {
   var callback2 = arguments[0];
   arguments[0] = this;
@@ -28045,12 +28045,12 @@ function call_default() {
   return this;
 }
 
-// ../../../node_modules/d3-selection/src/selection/nodes.js
+// node_modules/d3-selection/src/selection/nodes.js
 function nodes_default() {
   return Array.from(this);
 }
 
-// ../../../node_modules/d3-selection/src/selection/node.js
+// node_modules/d3-selection/src/selection/node.js
 function node_default() {
   for (var groups = this._groups, j = 0, m = groups.length; j < m; ++j) {
     for (var group4 = groups[j], i = 0, n = group4.length; i < n; ++i) {
@@ -28061,19 +28061,19 @@ function node_default() {
   return null;
 }
 
-// ../../../node_modules/d3-selection/src/selection/size.js
+// node_modules/d3-selection/src/selection/size.js
 function size_default() {
   let size6 = 0;
   for (const node of this) ++size6;
   return size6;
 }
 
-// ../../../node_modules/d3-selection/src/selection/empty.js
+// node_modules/d3-selection/src/selection/empty.js
 function empty_default() {
   return !this.node();
 }
 
-// ../../../node_modules/d3-selection/src/selection/each.js
+// node_modules/d3-selection/src/selection/each.js
 function each_default(callback2) {
   for (var groups = this._groups, j = 0, m = groups.length; j < m; ++j) {
     for (var group4 = groups[j], i = 0, n = group4.length, node; i < n; ++i) {
@@ -28083,7 +28083,7 @@ function each_default(callback2) {
   return this;
 }
 
-// ../../../node_modules/d3-selection/src/selection/attr.js
+// node_modules/d3-selection/src/selection/attr.js
 function attrRemove(name15) {
   return function() {
     this.removeAttribute(name15);
@@ -28127,12 +28127,12 @@ function attr_default(name15, value12) {
   return this.each((value12 == null ? fullname.local ? attrRemoveNS : attrRemove : typeof value12 === "function" ? fullname.local ? attrFunctionNS : attrFunction : fullname.local ? attrConstantNS : attrConstant)(fullname, value12));
 }
 
-// ../../../node_modules/d3-selection/src/window.js
+// node_modules/d3-selection/src/window.js
 function window_default(node) {
   return node.ownerDocument && node.ownerDocument.defaultView || node.document && node || node.defaultView;
 }
 
-// ../../../node_modules/d3-selection/src/selection/style.js
+// node_modules/d3-selection/src/selection/style.js
 function styleRemove(name15) {
   return function() {
     this.style.removeProperty(name15);
@@ -28157,7 +28157,7 @@ function styleValue(node, name15) {
   return node.style.getPropertyValue(name15) || window_default(node).getComputedStyle(node, null).getPropertyValue(name15);
 }
 
-// ../../../node_modules/d3-selection/src/selection/property.js
+// node_modules/d3-selection/src/selection/property.js
 function propertyRemove(name15) {
   return function() {
     delete this[name15];
@@ -28179,7 +28179,7 @@ function property_default(name15, value12) {
   return arguments.length > 1 ? this.each((value12 == null ? propertyRemove : typeof value12 === "function" ? propertyFunction : propertyConstant)(name15, value12)) : this.node()[name15];
 }
 
-// ../../../node_modules/d3-selection/src/selection/classed.js
+// node_modules/d3-selection/src/selection/classed.js
 function classArray(string) {
   return string.trim().split(/^|\s+/);
 }
@@ -28242,7 +28242,7 @@ function classed_default(name15, value12) {
   return this.each((typeof value12 === "function" ? classedFunction : value12 ? classedTrue : classedFalse)(names, value12));
 }
 
-// ../../../node_modules/d3-selection/src/selection/text.js
+// node_modules/d3-selection/src/selection/text.js
 function textRemove() {
   this.textContent = "";
 }
@@ -28261,7 +28261,7 @@ function text_default(value12) {
   return arguments.length ? this.each(value12 == null ? textRemove : (typeof value12 === "function" ? textFunction : textConstant)(value12)) : this.node().textContent;
 }
 
-// ../../../node_modules/d3-selection/src/selection/html.js
+// node_modules/d3-selection/src/selection/html.js
 function htmlRemove() {
   this.innerHTML = "";
 }
@@ -28280,7 +28280,7 @@ function html_default(value12) {
   return arguments.length ? this.each(value12 == null ? htmlRemove : (typeof value12 === "function" ? htmlFunction : htmlConstant)(value12)) : this.node().innerHTML;
 }
 
-// ../../../node_modules/d3-selection/src/selection/raise.js
+// node_modules/d3-selection/src/selection/raise.js
 function raise() {
   if (this.nextSibling) this.parentNode.appendChild(this);
 }
@@ -28288,7 +28288,7 @@ function raise_default() {
   return this.each(raise);
 }
 
-// ../../../node_modules/d3-selection/src/selection/lower.js
+// node_modules/d3-selection/src/selection/lower.js
 function lower() {
   if (this.previousSibling) this.parentNode.insertBefore(this, this.parentNode.firstChild);
 }
@@ -28296,7 +28296,7 @@ function lower_default() {
   return this.each(lower);
 }
 
-// ../../../node_modules/d3-selection/src/selection/append.js
+// node_modules/d3-selection/src/selection/append.js
 function append_default(name15) {
   var create4 = typeof name15 === "function" ? name15 : creator_default(name15);
   return this.select(function() {
@@ -28304,7 +28304,7 @@ function append_default(name15) {
   });
 }
 
-// ../../../node_modules/d3-selection/src/selection/insert.js
+// node_modules/d3-selection/src/selection/insert.js
 function constantNull() {
   return null;
 }
@@ -28315,7 +28315,7 @@ function insert_default(name15, before) {
   });
 }
 
-// ../../../node_modules/d3-selection/src/selection/remove.js
+// node_modules/d3-selection/src/selection/remove.js
 function remove() {
   var parent2 = this.parentNode;
   if (parent2) parent2.removeChild(this);
@@ -28324,7 +28324,7 @@ function remove_default() {
   return this.each(remove);
 }
 
-// ../../../node_modules/d3-selection/src/selection/clone.js
+// node_modules/d3-selection/src/selection/clone.js
 function selection_cloneShallow() {
   var clone = this.cloneNode(false), parent2 = this.parentNode;
   return parent2 ? parent2.insertBefore(clone, this.nextSibling) : clone;
@@ -28337,12 +28337,12 @@ function clone_default(deep) {
   return this.select(deep ? selection_cloneDeep : selection_cloneShallow);
 }
 
-// ../../../node_modules/d3-selection/src/selection/datum.js
+// node_modules/d3-selection/src/selection/datum.js
 function datum_default(value12) {
   return arguments.length ? this.property("__data__", value12) : this.node().__data__;
 }
 
-// ../../../node_modules/d3-selection/src/selection/on.js
+// node_modules/d3-selection/src/selection/on.js
 function contextListener(listener) {
   return function(event) {
     listener.call(this, event, this.__data__);
@@ -28405,7 +28405,7 @@ function on_default(typename, value12, options2) {
   return this;
 }
 
-// ../../../node_modules/d3-selection/src/selection/dispatch.js
+// node_modules/d3-selection/src/selection/dispatch.js
 function dispatchEvent(node, type, params) {
   var window2 = window_default(node), event = window2.CustomEvent;
   if (typeof event === "function") {
@@ -28431,7 +28431,7 @@ function dispatch_default2(type, params) {
   return this.each((typeof params === "function" ? dispatchFunction : dispatchConstant)(type, params));
 }
 
-// ../../../node_modules/d3-selection/src/selection/iterator.js
+// node_modules/d3-selection/src/selection/iterator.js
 function* iterator_default() {
   for (var groups = this._groups, j = 0, m = groups.length; j < m; ++j) {
     for (var group4 = groups[j], i = 0, n = group4.length, node; i < n; ++i) {
@@ -28440,7 +28440,7 @@ function* iterator_default() {
   }
 }
 
-// ../../../node_modules/d3-selection/src/selection/index.js
+// node_modules/d3-selection/src/selection/index.js
 var root = [null];
 function Selection(groups, parents) {
   this._groups = groups;
@@ -28492,19 +28492,19 @@ Selection.prototype = selection.prototype = {
 };
 var selection_default = selection;
 
-// ../../../node_modules/d3-selection/src/select.js
+// node_modules/d3-selection/src/select.js
 function select_default2(selector4) {
   return typeof selector4 === "string" ? new Selection([[document.querySelector(selector4)]], [document.documentElement]) : new Selection([[selector4]], root);
 }
 
-// ../../../node_modules/d3-selection/src/sourceEvent.js
+// node_modules/d3-selection/src/sourceEvent.js
 function sourceEvent_default(event) {
   let sourceEvent;
   while (sourceEvent = event.sourceEvent) event = sourceEvent;
   return event;
 }
 
-// ../../../node_modules/d3-selection/src/pointer.js
+// node_modules/d3-selection/src/pointer.js
 function pointer_default(event, node) {
   event = sourceEvent_default(event);
   if (node === void 0) node = event.currentTarget;
@@ -28524,7 +28524,7 @@ function pointer_default(event, node) {
   return [event.pageX, event.pageY];
 }
 
-// ../../../node_modules/d3-drag/src/noevent.js
+// node_modules/d3-drag/src/noevent.js
 var nonpassive = { passive: false };
 var nonpassivecapture = { capture: true, passive: false };
 function nopropagation(event) {
@@ -28535,7 +28535,7 @@ function noevent_default(event) {
   event.stopImmediatePropagation();
 }
 
-// ../../../node_modules/d3-drag/src/nodrag.js
+// node_modules/d3-drag/src/nodrag.js
 function nodrag_default(view) {
   var root3 = view.document.documentElement, selection2 = select_default2(view).on("dragstart.drag", noevent_default, nonpassivecapture);
   if ("onselectstart" in root3) {
@@ -28561,10 +28561,10 @@ function yesdrag(view, noclick) {
   }
 }
 
-// ../../../node_modules/d3-drag/src/constant.js
+// node_modules/d3-drag/src/constant.js
 var constant_default2 = (x) => () => x;
 
-// ../../../node_modules/d3-drag/src/event.js
+// node_modules/d3-drag/src/event.js
 function DragEvent(type, {
   sourceEvent,
   subject,
@@ -28596,7 +28596,7 @@ DragEvent.prototype.on = function() {
   return value12 === this._ ? this : value12;
 };
 
-// ../../../node_modules/d3-drag/src/drag.js
+// node_modules/d3-drag/src/drag.js
 function defaultFilter(event) {
   return !event.ctrlKey && !event.button;
 }
@@ -29182,10 +29182,10 @@ var mapExceptT = function(f) {
   };
 };
 var functorExceptT = function(dictFunctor) {
-  var map119 = map(dictFunctor);
+  var map120 = map(dictFunctor);
   return {
     map: function(f) {
-      return mapExceptT(map119(map5(f)));
+      return mapExceptT(map120(map5(f)));
     }
   };
 };
@@ -33986,7 +33986,7 @@ var stepAsc = /* @__PURE__ */ function() {
   })($$const(IterDone.value));
 }();
 var eqMapIter = function(dictEq) {
-  var eq110 = eq(dictEq);
+  var eq111 = eq(dictEq);
   return function(dictEq1) {
     var eq29 = eq(dictEq1);
     return {
@@ -34000,7 +34000,7 @@ var eqMapIter = function(dictEq) {
               var v = stepAsc(a);
               if (v instanceof IterNext) {
                 var v2 = stepAsc(b);
-                if (v2 instanceof IterNext && (eq110(v.value0)(v2.value0) && eq29(v.value1)(v2.value1))) {
+                if (v2 instanceof IterNext && (eq111(v.value0)(v2.value0) && eq29(v.value1)(v2.value1))) {
                   $tco_var_a = v.value2;
                   $copy_b = v2.value2;
                   return;
@@ -34270,7 +34270,7 @@ var filter4 = function(dictOrd) {
 var eqMap = function(dictEq) {
   var eqMapIter1 = eqMapIter(dictEq);
   return function(dictEq1) {
-    var eq110 = eq(eqMapIter1(dictEq1));
+    var eq111 = eq(eqMapIter1(dictEq1));
     return {
       eq: function(xs) {
         return function(ys) {
@@ -34284,7 +34284,7 @@ var eqMap = function(dictEq) {
           ;
           if (xs instanceof Node) {
             if (ys instanceof Node && xs.value1 === ys.value1) {
-              return eq110(toMapIter(xs))(toMapIter(ys));
+              return eq111(toMapIter(xs))(toMapIter(ys));
             }
             ;
             return false;
@@ -34300,11 +34300,11 @@ var empty5 = /* @__PURE__ */ function() {
   return Leaf.value;
 }();
 var fromFoldable4 = function(dictOrd) {
-  var insert18 = insert4(dictOrd);
+  var insert16 = insert4(dictOrd);
   return function(dictFoldable) {
     return foldl(dictFoldable)(function(m) {
       return function(v) {
-        return insert18(v.value0)(v.value1)(m);
+        return insert16(v.value0)(v.value1)(m);
       };
     })(empty5);
   };
@@ -34773,10 +34773,10 @@ var member3 = function(dictOrd) {
   return coerce3(member2(dictOrd));
 };
 var insert5 = function(dictOrd) {
-  var insert18 = insert4(dictOrd);
+  var insert16 = insert4(dictOrd);
   return function(a) {
     return function(v) {
-      return insert18(a)(unit)(v);
+      return insert16(a)(unit)(v);
     };
   };
 };
@@ -34822,10 +34822,10 @@ var empty7 = empty5;
 var fromFoldable5 = function(dictFoldable) {
   var foldl22 = foldl(dictFoldable);
   return function(dictOrd) {
-    var insert18 = insert5(dictOrd);
+    var insert16 = insert5(dictOrd);
     return foldl22(function(m) {
       return function(a) {
-        return insert18(a)(m);
+        return insert16(a)(m);
       };
     })(empty7);
   };
@@ -37760,7 +37760,7 @@ var sourceDeltaMode = (event) => () => event && typeof event.deltaMode === "numb
 var logN = (n) => Math.log(n);
 var powN = (base) => (exp2) => Math.pow(base, exp2);
 
-// ../../../node_modules/d3-color/src/define.js
+// node_modules/d3-color/src/define.js
 function define_default(constructor, factory, prototype) {
   constructor.prototype = factory.prototype = prototype;
   prototype.constructor = constructor;
@@ -37771,7 +37771,7 @@ function extend2(parent2, definition) {
   return prototype;
 }
 
-// ../../../node_modules/d3-color/src/color.js
+// node_modules/d3-color/src/color.js
 function Color() {
 }
 var darker = 0.7;
@@ -38108,7 +38108,7 @@ function hsl2rgb(h, m1, m2) {
   return (h < 60 ? m1 + (m2 - m1) * h / 60 : h < 180 ? m2 : h < 240 ? m1 + (m2 - m1) * (240 - h) / 60 : m1) * 255;
 }
 
-// ../../../node_modules/d3-interpolate/src/basis.js
+// node_modules/d3-interpolate/src/basis.js
 function basis(t1, v0, v1, v2, v3) {
   var t2 = t1 * t1, t3 = t2 * t1;
   return ((1 - 3 * t1 + 3 * t2 - t3) * v0 + (4 - 6 * t2 + 3 * t3) * v1 + (1 + 3 * t1 + 3 * t2 - 3 * t3) * v2 + t3 * v3) / 6;
@@ -38121,7 +38121,7 @@ function basis_default(values2) {
   };
 }
 
-// ../../../node_modules/d3-interpolate/src/basisClosed.js
+// node_modules/d3-interpolate/src/basisClosed.js
 function basisClosed_default(values2) {
   var n = values2.length;
   return function(t) {
@@ -38130,10 +38130,10 @@ function basisClosed_default(values2) {
   };
 }
 
-// ../../../node_modules/d3-interpolate/src/constant.js
+// node_modules/d3-interpolate/src/constant.js
 var constant_default3 = (x) => () => x;
 
-// ../../../node_modules/d3-interpolate/src/color.js
+// node_modules/d3-interpolate/src/color.js
 function linear(a, d) {
   return function(t) {
     return a + t * d;
@@ -38154,7 +38154,7 @@ function nogamma(a, b) {
   return d ? linear(a, d) : constant_default3(isNaN(a) ? b : a);
 }
 
-// ../../../node_modules/d3-interpolate/src/rgb.js
+// node_modules/d3-interpolate/src/rgb.js
 var rgb_default = function rgbGamma(y) {
   var color2 = gamma(y);
   function rgb2(start3, end) {
@@ -38194,7 +38194,7 @@ function rgbSpline(spline) {
 var rgbBasis = rgbSpline(basis_default);
 var rgbBasisClosed = rgbSpline(basisClosed_default);
 
-// ../../../node_modules/d3-interpolate/src/numberArray.js
+// node_modules/d3-interpolate/src/numberArray.js
 function numberArray_default(a, b) {
   if (!b) b = [];
   var n = a ? Math.min(b.length, a.length) : 0, c = b.slice(), i;
@@ -38207,7 +38207,7 @@ function isNumberArray(x) {
   return ArrayBuffer.isView(x) && !(x instanceof DataView);
 }
 
-// ../../../node_modules/d3-interpolate/src/array.js
+// node_modules/d3-interpolate/src/array.js
 function genericArray(a, b) {
   var nb = b ? b.length : 0, na = a ? Math.min(nb, a.length) : 0, x = new Array(na), c = new Array(nb), i;
   for (i = 0; i < na; ++i) x[i] = value_default(a[i], b[i]);
@@ -38218,7 +38218,7 @@ function genericArray(a, b) {
   };
 }
 
-// ../../../node_modules/d3-interpolate/src/date.js
+// node_modules/d3-interpolate/src/date.js
 function date_default(a, b) {
   var d = /* @__PURE__ */ new Date();
   return a = +a, b = +b, function(t) {
@@ -38226,14 +38226,14 @@ function date_default(a, b) {
   };
 }
 
-// ../../../node_modules/d3-interpolate/src/number.js
+// node_modules/d3-interpolate/src/number.js
 function number_default(a, b) {
   return a = +a, b = +b, function(t) {
     return a * (1 - t) + b * t;
   };
 }
 
-// ../../../node_modules/d3-interpolate/src/object.js
+// node_modules/d3-interpolate/src/object.js
 function object_default(a, b) {
   var i = {}, c = {}, k;
   if (a === null || typeof a !== "object") a = {};
@@ -38251,7 +38251,7 @@ function object_default(a, b) {
   };
 }
 
-// ../../../node_modules/d3-interpolate/src/string.js
+// node_modules/d3-interpolate/src/string.js
 var reA = /[-+]?(?:\d+\.?\d*|\.?\d+)(?:[eE][-+]?\d+)?/g;
 var reB = new RegExp(reA.source, "g");
 function zero2(b) {
@@ -38293,13 +38293,13 @@ function string_default(a, b) {
   });
 }
 
-// ../../../node_modules/d3-interpolate/src/value.js
+// node_modules/d3-interpolate/src/value.js
 function value_default(a, b) {
   var t = typeof b, c;
   return b == null || t === "boolean" ? constant_default3(b) : (t === "number" ? number_default : t === "string" ? (c = color(b)) ? (b = c, rgb_default) : string_default : b instanceof color ? rgb_default : b instanceof Date ? date_default : isNumberArray(b) ? numberArray_default : Array.isArray(b) ? genericArray : typeof b.valueOf !== "function" && typeof b.toString !== "function" || isNaN(b) ? object_default : number_default)(a, b);
 }
 
-// ../../../node_modules/d3-interpolate/src/transform/decompose.js
+// node_modules/d3-interpolate/src/transform/decompose.js
 var degrees = 180 / Math.PI;
 var identity8 = {
   translateX: 0,
@@ -38325,7 +38325,7 @@ function decompose_default(a, b, c, d, e, f) {
   };
 }
 
-// ../../../node_modules/d3-interpolate/src/transform/parse.js
+// node_modules/d3-interpolate/src/transform/parse.js
 var svgNode;
 function parseCss(value12) {
   const m = new (typeof DOMMatrix === "function" ? DOMMatrix : WebKitCSSMatrix)(value12 + "");
@@ -38340,7 +38340,7 @@ function parseSvg(value12) {
   return decompose_default(value12.a, value12.b, value12.c, value12.d, value12.e, value12.f);
 }
 
-// ../../../node_modules/d3-interpolate/src/transform/index.js
+// node_modules/d3-interpolate/src/transform/index.js
 function interpolateTransform(parse7, pxComma, pxParen, degParen) {
   function pop2(s) {
     return s.length ? s.pop() + " " : "";
@@ -38395,7 +38395,7 @@ function interpolateTransform(parse7, pxComma, pxParen, degParen) {
 var interpolateTransformCss = interpolateTransform(parseCss, "px, ", "px)", "deg)");
 var interpolateTransformSvg = interpolateTransform(parseSvg, ", ", ")", ")");
 
-// ../../../node_modules/d3-interpolate/src/zoom.js
+// node_modules/d3-interpolate/src/zoom.js
 var epsilon2 = 1e-12;
 function cosh(x) {
   return ((x = Math.exp(x)) + 1 / x) / 2;
@@ -38440,7 +38440,7 @@ var zoom_default = function zoomRho(rho, rho2, rho4) {
   return zoom;
 }(Math.SQRT2, 2, 4);
 
-// ../../../node_modules/d3-timer/src/timer.js
+// node_modules/d3-timer/src/timer.js
 var frame = 0;
 var timeout = 0;
 var interval = 0;
@@ -38542,7 +38542,7 @@ function sleep(time2) {
   }
 }
 
-// ../../../node_modules/d3-timer/src/timeout.js
+// node_modules/d3-timer/src/timeout.js
 function timeout_default(callback2, delay, time2) {
   var t = new Timer();
   delay = delay == null ? 0 : +delay;
@@ -38553,7 +38553,7 @@ function timeout_default(callback2, delay, time2) {
   return t;
 }
 
-// ../../../node_modules/d3-transition/src/transition/schedule.js
+// node_modules/d3-transition/src/transition/schedule.js
 var emptyOn = dispatch_default("start", "end", "cancel", "interrupt");
 var emptyTween = [];
 var CREATED = 0;
@@ -38664,7 +38664,7 @@ function create(node, id3, self) {
   }
 }
 
-// ../../../node_modules/d3-transition/src/interrupt.js
+// node_modules/d3-transition/src/interrupt.js
 function interrupt_default(node, name15) {
   var schedules = node.__transition, schedule, active, empty8 = true, i;
   if (!schedules) return;
@@ -38683,14 +38683,14 @@ function interrupt_default(node, name15) {
   if (empty8) delete node.__transition;
 }
 
-// ../../../node_modules/d3-transition/src/selection/interrupt.js
+// node_modules/d3-transition/src/selection/interrupt.js
 function interrupt_default2(name15) {
   return this.each(function() {
     interrupt_default(this, name15);
   });
 }
 
-// ../../../node_modules/d3-transition/src/transition/tween.js
+// node_modules/d3-transition/src/transition/tween.js
 function tweenRemove(id3, name15) {
   var tween0, tween1;
   return function() {
@@ -38751,13 +38751,13 @@ function tweenValue(transition2, name15, value12) {
   };
 }
 
-// ../../../node_modules/d3-transition/src/transition/interpolate.js
+// node_modules/d3-transition/src/transition/interpolate.js
 function interpolate_default(a, b) {
   var c;
   return (typeof b === "number" ? number_default : b instanceof color ? rgb_default : (c = color(b)) ? (b = c, rgb_default) : string_default)(a, b);
 }
 
-// ../../../node_modules/d3-transition/src/transition/attr.js
+// node_modules/d3-transition/src/transition/attr.js
 function attrRemove2(name15) {
   return function() {
     this.removeAttribute(name15);
@@ -38807,7 +38807,7 @@ function attr_default2(name15, value12) {
   return this.attrTween(name15, typeof value12 === "function" ? (fullname.local ? attrFunctionNS2 : attrFunction2)(fullname, i, tweenValue(this, "attr." + name15, value12)) : value12 == null ? (fullname.local ? attrRemoveNS2 : attrRemove2)(fullname) : (fullname.local ? attrConstantNS2 : attrConstant2)(fullname, i, value12));
 }
 
-// ../../../node_modules/d3-transition/src/transition/attrTween.js
+// node_modules/d3-transition/src/transition/attrTween.js
 function attrInterpolate(name15, i) {
   return function(t) {
     this.setAttribute(name15, i.call(this, t));
@@ -38847,7 +38847,7 @@ function attrTween_default(name15, value12) {
   return this.tween(key2, (fullname.local ? attrTweenNS : attrTween)(fullname, value12));
 }
 
-// ../../../node_modules/d3-transition/src/transition/delay.js
+// node_modules/d3-transition/src/transition/delay.js
 function delayFunction(id3, value12) {
   return function() {
     init3(this, id3).delay = +value12.apply(this, arguments);
@@ -38863,7 +38863,7 @@ function delay_default(value12) {
   return arguments.length ? this.each((typeof value12 === "function" ? delayFunction : delayConstant)(id3, value12)) : get4(this.node(), id3).delay;
 }
 
-// ../../../node_modules/d3-transition/src/transition/duration.js
+// node_modules/d3-transition/src/transition/duration.js
 function durationFunction(id3, value12) {
   return function() {
     set2(this, id3).duration = +value12.apply(this, arguments);
@@ -38879,7 +38879,7 @@ function duration_default(value12) {
   return arguments.length ? this.each((typeof value12 === "function" ? durationFunction : durationConstant)(id3, value12)) : get4(this.node(), id3).duration;
 }
 
-// ../../../node_modules/d3-transition/src/transition/ease.js
+// node_modules/d3-transition/src/transition/ease.js
 function easeConstant(id3, value12) {
   if (typeof value12 !== "function") throw new Error();
   return function() {
@@ -38891,7 +38891,7 @@ function ease_default(value12) {
   return arguments.length ? this.each(easeConstant(id3, value12)) : get4(this.node(), id3).ease;
 }
 
-// ../../../node_modules/d3-transition/src/transition/easeVarying.js
+// node_modules/d3-transition/src/transition/easeVarying.js
 function easeVarying(id3, value12) {
   return function() {
     var v = value12.apply(this, arguments);
@@ -38904,7 +38904,7 @@ function easeVarying_default(value12) {
   return this.each(easeVarying(this._id, value12));
 }
 
-// ../../../node_modules/d3-transition/src/transition/filter.js
+// node_modules/d3-transition/src/transition/filter.js
 function filter_default2(match) {
   if (typeof match !== "function") match = matcher_default(match);
   for (var groups = this._groups, m = groups.length, subgroups = new Array(m), j = 0; j < m; ++j) {
@@ -38917,7 +38917,7 @@ function filter_default2(match) {
   return new Transition(subgroups, this._parents, this._name, this._id);
 }
 
-// ../../../node_modules/d3-transition/src/transition/merge.js
+// node_modules/d3-transition/src/transition/merge.js
 function merge_default2(transition2) {
   if (transition2._id !== this._id) throw new Error();
   for (var groups0 = this._groups, groups1 = transition2._groups, m0 = groups0.length, m1 = groups1.length, m = Math.min(m0, m1), merges = new Array(m0), j = 0; j < m; ++j) {
@@ -38933,7 +38933,7 @@ function merge_default2(transition2) {
   return new Transition(merges, this._parents, this._name, this._id);
 }
 
-// ../../../node_modules/d3-transition/src/transition/on.js
+// node_modules/d3-transition/src/transition/on.js
 function start(name15) {
   return (name15 + "").trim().split(/^|\s+/).every(function(t) {
     var i = t.indexOf(".");
@@ -38954,7 +38954,7 @@ function on_default2(name15, listener) {
   return arguments.length < 2 ? get4(this.node(), id3).on.on(name15) : this.each(onFunction(id3, name15, listener));
 }
 
-// ../../../node_modules/d3-transition/src/transition/remove.js
+// node_modules/d3-transition/src/transition/remove.js
 function removeFunction(id3) {
   return function() {
     var parent2 = this.parentNode;
@@ -38966,7 +38966,7 @@ function remove_default2() {
   return this.on("end.remove", removeFunction(this._id));
 }
 
-// ../../../node_modules/d3-transition/src/transition/select.js
+// node_modules/d3-transition/src/transition/select.js
 function select_default3(select3) {
   var name15 = this._name, id3 = this._id;
   if (typeof select3 !== "function") select3 = selector_default(select3);
@@ -38982,7 +38982,7 @@ function select_default3(select3) {
   return new Transition(subgroups, this._parents, name15, id3);
 }
 
-// ../../../node_modules/d3-transition/src/transition/selectAll.js
+// node_modules/d3-transition/src/transition/selectAll.js
 function selectAll_default2(select3) {
   var name15 = this._name, id3 = this._id;
   if (typeof select3 !== "function") select3 = selectorAll_default(select3);
@@ -39002,13 +39002,13 @@ function selectAll_default2(select3) {
   return new Transition(subgroups, parents, name15, id3);
 }
 
-// ../../../node_modules/d3-transition/src/transition/selection.js
+// node_modules/d3-transition/src/transition/selection.js
 var Selection2 = selection_default.prototype.constructor;
 function selection_default2() {
   return new Selection2(this._groups, this._parents);
 }
 
-// ../../../node_modules/d3-transition/src/transition/style.js
+// node_modules/d3-transition/src/transition/style.js
 function styleNull(name15, interpolate) {
   var string00, string10, interpolate0;
   return function() {
@@ -39049,7 +39049,7 @@ function style_default2(name15, value12, priority) {
   return value12 == null ? this.styleTween(name15, styleNull(name15, i)).on("end.style." + name15, styleRemove2(name15)) : typeof value12 === "function" ? this.styleTween(name15, styleFunction2(name15, i, tweenValue(this, "style." + name15, value12))).each(styleMaybeRemove(this._id, name15)) : this.styleTween(name15, styleConstant2(name15, i, value12), priority).on("end.style." + name15, null);
 }
 
-// ../../../node_modules/d3-transition/src/transition/styleTween.js
+// node_modules/d3-transition/src/transition/styleTween.js
 function styleInterpolate(name15, i, priority) {
   return function(t) {
     this.style.setProperty(name15, i.call(this, t), priority);
@@ -39073,7 +39073,7 @@ function styleTween_default(name15, value12, priority) {
   return this.tween(key2, styleTween(name15, value12, priority == null ? "" : priority));
 }
 
-// ../../../node_modules/d3-transition/src/transition/text.js
+// node_modules/d3-transition/src/transition/text.js
 function textConstant2(value12) {
   return function() {
     this.textContent = value12;
@@ -39089,7 +39089,7 @@ function text_default2(value12) {
   return this.tween("text", typeof value12 === "function" ? textFunction2(tweenValue(this, "text", value12)) : textConstant2(value12 == null ? "" : value12 + ""));
 }
 
-// ../../../node_modules/d3-transition/src/transition/textTween.js
+// node_modules/d3-transition/src/transition/textTween.js
 function textInterpolate(i) {
   return function(t) {
     this.textContent = i.call(this, t);
@@ -39113,7 +39113,7 @@ function textTween_default(value12) {
   return this.tween(key2, textTween(value12));
 }
 
-// ../../../node_modules/d3-transition/src/transition/transition.js
+// node_modules/d3-transition/src/transition/transition.js
 function transition_default() {
   var name15 = this._name, id0 = this._id, id1 = newId();
   for (var groups = this._groups, m = groups.length, j = 0; j < m; ++j) {
@@ -39132,7 +39132,7 @@ function transition_default() {
   return new Transition(groups, this._parents, name15, id1);
 }
 
-// ../../../node_modules/d3-transition/src/transition/end.js
+// node_modules/d3-transition/src/transition/end.js
 function end_default() {
   var on0, on1, that = this, id3 = that._id, size6 = that.size();
   return new Promise(function(resolve, reject) {
@@ -39153,7 +39153,7 @@ function end_default() {
   });
 }
 
-// ../../../node_modules/d3-transition/src/transition/index.js
+// node_modules/d3-transition/src/transition/index.js
 var id = 0;
 function Transition(groups, parents, name15, id3) {
   this._groups = groups;
@@ -39201,12 +39201,12 @@ Transition.prototype = transition.prototype = {
   [Symbol.iterator]: selection_prototype[Symbol.iterator]
 };
 
-// ../../../node_modules/d3-ease/src/cubic.js
+// node_modules/d3-ease/src/cubic.js
 function cubicInOut(t) {
   return ((t *= 2) <= 1 ? t * t * t : (t -= 2) * t * t + 2) / 2;
 }
 
-// ../../../node_modules/d3-transition/src/selection/transition.js
+// node_modules/d3-transition/src/selection/transition.js
 var defaultTiming = {
   time: null,
   // Set on use.
@@ -39240,14 +39240,14 @@ function transition_default2(name15) {
   return new Transition(groups, this._parents, name15, id3);
 }
 
-// ../../../node_modules/d3-transition/src/selection/index.js
+// node_modules/d3-transition/src/selection/index.js
 selection_default.prototype.interrupt = interrupt_default2;
 selection_default.prototype.transition = transition_default2;
 
-// ../../../node_modules/d3-zoom/src/constant.js
+// node_modules/d3-zoom/src/constant.js
 var constant_default4 = (x) => () => x;
 
-// ../../../node_modules/d3-zoom/src/event.js
+// node_modules/d3-zoom/src/event.js
 function ZoomEvent(type, {
   sourceEvent,
   target: target5,
@@ -39263,7 +39263,7 @@ function ZoomEvent(type, {
   });
 }
 
-// ../../../node_modules/d3-zoom/src/transform.js
+// node_modules/d3-zoom/src/transform.js
 function Transform(k, x, y) {
   this.k = k;
   this.x = x;
@@ -39312,7 +39312,7 @@ function transform(node) {
   return node.__zoom;
 }
 
-// ../../../node_modules/d3-zoom/src/noevent.js
+// node_modules/d3-zoom/src/noevent.js
 function nopropagation2(event) {
   event.stopImmediatePropagation();
 }
@@ -39321,7 +39321,7 @@ function noevent_default2(event) {
   event.stopImmediatePropagation();
 }
 
-// ../../../node_modules/d3-zoom/src/zoom.js
+// node_modules/d3-zoom/src/zoom.js
 function defaultFilter2(event) {
   return (!event.ctrlKey || event.type === "wheel") && !event.button;
 }
@@ -47546,9 +47546,9 @@ var hasSelectorImpl = (target5) => (selector4) => (domNode) => () => {
 var member6 = /* @__PURE__ */ member3(ordParentId);
 var lookup15 = /* @__PURE__ */ lookup2(ordNodeId);
 var insert8 = /* @__PURE__ */ insert5(ordParentId);
-var toUnfoldable8 = /* @__PURE__ */ toUnfoldable5(unfoldableArray);
-var eq18 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqNodeId));
-var insert12 = /* @__PURE__ */ insert4(ordNodeId);
+var eq18 = /* @__PURE__ */ eq(eqNodeId);
+var eq19 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqNodeId));
+var nub3 = /* @__PURE__ */ nub(ordNodeId);
 var isParentSelected = function(node) {
   return function(lookup112) {
     var go2 = function($copy_v) {
@@ -47586,12 +47586,12 @@ var isParentSelected = function(node) {
                 return;
               }
               ;
-              throw new Error("Failed pattern match at System.XYDrag.Utils (line 51, column 19 - line 55, column 59): " + [v2.constructor.name]);
+              throw new Error("Failed pattern match at System.XYDrag.Utils (line 49, column 19 - line 53, column 59): " + [v2.constructor.name]);
             }
             ;
           }
           ;
-          throw new Error("Failed pattern match at System.XYDrag.Utils (line 47, column 3 - line 47, column 50): " + [v.constructor.name, v1.constructor.name]);
+          throw new Error("Failed pattern match at System.XYDrag.Utils (line 45, column 3 - line 45, column 50): " + [v.constructor.name, v1.constructor.name]);
         }
         ;
         while (!$tco_done) {
@@ -47643,28 +47643,29 @@ var getEventHandlerParams = function(mNodeId) {
             };
           };
         };
-        var items = toUnfoldable8(dragItems);
         var allNodes = foldl2(function(acc) {
-          return function(v) {
-            var v1 = lookup15(v.value0)(lookup112);
-            if (v1 instanceof Just) {
-              return snoc(acc)(overlay(v1.value0)(v.value1));
+          return function(item) {
+            var v = lookup15(item.id)(lookup112);
+            if (v instanceof Just) {
+              return snoc(acc)(overlay(v.value0)(item));
             }
             ;
-            if (v1 instanceof Nothing) {
+            if (v instanceof Nothing) {
               return acc;
             }
             ;
-            throw new Error("Failed pattern match at System.XYDrag.Utils (line 179, column 11 - line 181, column 27): " + [v1.constructor.name]);
+            throw new Error("Failed pattern match at System.XYDrag.Utils (line 183, column 11 - line 185, column 27): " + [v.constructor.name]);
           };
-        })([])(items);
+        })([])(dragItems);
         var currentNode = function() {
           if (mNodeId instanceof Nothing) {
             return head(allNodes);
           }
           ;
           if (mNodeId instanceof Just) {
-            var v = lookup15(mNodeId.value0)(dragItems);
+            var v = find2(function(i) {
+              return eq18(i.id)(mNodeId.value0);
+            })(dragItems);
             var v1 = lookup15(mNodeId.value0)(lookup112);
             if (v1 instanceof Just && v instanceof Just) {
               return new Just(overlay(v1.value0)(v.value0));
@@ -47673,7 +47674,7 @@ var getEventHandlerParams = function(mNodeId) {
             return head(allNodes);
           }
           ;
-          throw new Error("Failed pattern match at System.XYDrag.Utils (line 187, column 19 - line 191, column 36): " + [mNodeId.constructor.name]);
+          throw new Error("Failed pattern match at System.XYDrag.Utils (line 191, column 19 - line 195, column 36): " + [mNodeId.constructor.name]);
         }();
         return {
           currentNode,
@@ -47683,72 +47684,73 @@ var getEventHandlerParams = function(mNodeId) {
     };
   };
 };
-var getDragItems = function(lookup112) {
-  return function(nodesDraggable) {
-    return function(mousePos) {
-      return function(mNodeId) {
-        var toItem = function(node) {
-          return {
-            id: node.id,
-            position: node.position,
-            distance: {
-              x: mousePos.x - node.internals.positionAbsolute.x,
-              y: mousePos.y - node.internals.positionAbsolute.y
-            },
-            extent: node.extent,
-            parentId: node.parentId,
-            origin: node.origin,
-            expandParent: node.expandParent,
-            internals: {
-              positionAbsolute: node.internals.positionAbsolute
-            },
-            measured: {
-              width: fromMaybe(0)(node.measured.width),
-              height: fromMaybe(0)(node.measured.height)
-            },
-            dragging: false
+var getDragItems = function(order) {
+  return function(lookup112) {
+    return function(nodesDraggable) {
+      return function(mousePos) {
+        return function(mNodeId) {
+          var toItem = function(node) {
+            return {
+              id: node.id,
+              position: node.position,
+              distance: {
+                x: mousePos.x - node.internals.positionAbsolute.x,
+                y: mousePos.y - node.internals.positionAbsolute.y
+              },
+              extent: node.extent,
+              parentId: node.parentId,
+              origin: node.origin,
+              expandParent: node.expandParent,
+              internals: {
+                positionAbsolute: node.internals.positionAbsolute
+              },
+              measured: {
+                width: fromMaybe(0)(node.measured.width),
+                height: fromMaybe(0)(node.measured.height)
+              },
+              dragging: false
+            };
           };
-        };
-        var parentNotSelected = function(node) {
-          if (node.parentId instanceof Nothing) {
-            return true;
-          }
-          ;
-          if (node.parentId instanceof Just) {
-            return !isParentSelected(node)(lookup112);
-          }
-          ;
-          throw new Error("Failed pattern match at System.XYDrag.Utils (line 86, column 30 - line 88, column 51): " + [node.parentId.constructor.name]);
-        };
-        var isTarget = function(node) {
-          return node.selected || eq18(mNodeId)(new Just(node.id));
-        };
-        var isDraggable = function(node) {
-          if (node.draggable instanceof Just) {
-            return node.draggable.value0;
-          }
-          ;
-          if (node.draggable instanceof Nothing) {
-            return nodesDraggable;
-          }
-          ;
-          throw new Error("Failed pattern match at System.XYDrag.Utils (line 82, column 24 - line 84, column 32): " + [node.draggable.constructor.name]);
-        };
-        var keep = function(node) {
-          return isTarget(node) && (parentNotSelected(node) && isDraggable(node));
-        };
-        var step2 = function(acc) {
-          return function(v) {
-            var $43 = keep(v.value1);
-            if ($43) {
-              return insert12(v.value0)(toItem(v.value1))(acc);
+          var parentNotSelected = function(node) {
+            if (node.parentId instanceof Nothing) {
+              return true;
             }
             ;
-            return acc;
+            if (node.parentId instanceof Just) {
+              return !isParentSelected(node)(lookup112);
+            }
+            ;
+            throw new Error("Failed pattern match at System.XYDrag.Utils (line 91, column 30 - line 93, column 51): " + [node.parentId.constructor.name]);
           };
+          var isTarget = function(node) {
+            return node.selected || eq19(mNodeId)(new Just(node.id));
+          };
+          var isDraggable = function(node) {
+            if (node.draggable instanceof Just) {
+              return node.draggable.value0;
+            }
+            ;
+            if (node.draggable instanceof Nothing) {
+              return nodesDraggable;
+            }
+            ;
+            throw new Error("Failed pattern match at System.XYDrag.Utils (line 87, column 24 - line 89, column 32): " + [node.draggable.constructor.name]);
+          };
+          var keep = function(node) {
+            return isTarget(node) && (parentNotSelected(node) && isDraggable(node));
+          };
+          var step2 = function(acc) {
+            return function(id3) {
+              var v = lookup15(id3)(lookup112);
+              if (v instanceof Just && keep(v.value0)) {
+                return snoc(acc)(toItem(v.value0));
+              }
+              ;
+              return acc;
+            };
+          };
+          return foldl2(step2)([])(nub3(order));
         };
-        var entries = toUnfoldable8(lookup112);
-        return foldl2(step2)(empty5)(entries);
       };
     };
   };
@@ -47757,16 +47759,15 @@ var calculateSnapOffset = function(dragItems) {
   return function(grid) {
     return function(x) {
       return function(y) {
-        var items = toUnfoldable8(dragItems);
-        var v = head(items);
+        var v = head(dragItems);
         if (v instanceof Nothing) {
           return Nothing.value;
         }
         ;
         if (v instanceof Just) {
           var refPos = {
-            x: x - v.value0.value1.distance.x,
-            y: y - v.value0.value1.distance.y
+            x: x - v.value0.distance.x,
+            y: y - v.value0.distance.y
           };
           var snapped = snapPosition(refPos)(grid);
           return new Just({
@@ -47775,7 +47776,7 @@ var calculateSnapOffset = function(dragItems) {
           });
         }
         ;
-        throw new Error("Failed pattern match at System.XYDrag.Utils (line 216, column 5 - line 223, column 68): " + [v.constructor.name]);
+        throw new Error("Failed pattern match at System.XYDrag.Utils (line 212, column 42 - line 219, column 64): " + [v.constructor.name]);
       };
     };
   };
@@ -47791,19 +47792,17 @@ var monadStateStateT3 = /* @__PURE__ */ monadStateStateT(monadEffect);
 var modify_4 = /* @__PURE__ */ modify_2(monadStateStateT3);
 var get6 = /* @__PURE__ */ get2(monadStateStateT3);
 var lookup16 = /* @__PURE__ */ lookup2(ordNodeId);
+var map41 = /* @__PURE__ */ map(functorArray);
 var applicativeStateT3 = /* @__PURE__ */ applicativeStateT(monadEffect);
-var pure46 = /* @__PURE__ */ pure(applicativeStateT3);
-var insert9 = /* @__PURE__ */ insert4(ordNodeId);
-var toUnfoldable9 = /* @__PURE__ */ toUnfoldable5(unfoldableArray);
-var foldM5 = /* @__PURE__ */ foldM(foldableArray)(/* @__PURE__ */ monadStateT(monadEffect));
 var when9 = /* @__PURE__ */ when(applicativeStateT3);
 var traverse_2 = /* @__PURE__ */ traverse_(applicativeEffect)(foldableMaybe);
 var for_11 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var when12 = /* @__PURE__ */ when(applicativeEffect);
-var pure119 = /* @__PURE__ */ pure(applicativeEffect);
+var pure46 = /* @__PURE__ */ pure(applicativeEffect);
 var unsafeReadTagged2 = /* @__PURE__ */ unsafeReadTagged(monadIdentity);
 var unless3 = /* @__PURE__ */ unless(applicativeStateT3);
-var map41 = /* @__PURE__ */ map(functorEffect);
+var map114 = /* @__PURE__ */ map(functorEffect);
+var pure119 = /* @__PURE__ */ pure(applicativeStateT3);
 var bind210 = /* @__PURE__ */ bind(bindAff);
 var discard32 = /* @__PURE__ */ discard7(bindAff);
 var liftEffect1 = /* @__PURE__ */ liftEffect(monadEffectAff);
@@ -47814,122 +47813,132 @@ var updateNodes = function(params) {
     return function(pos) {
       return bind33(liftEffect8(params.getStoreItems))(function(store) {
         return discard12(modify_4(function(v) {
-          var $75 = {};
-          for (var $76 in v) {
-            if ({}.hasOwnProperty.call(v, $76)) {
-              $75[$76] = v[$76];
+          var $73 = {};
+          for (var $74 in v) {
+            if ({}.hasOwnProperty.call(v, $74)) {
+              $73[$74] = v[$74];
             }
             ;
           }
           ;
-          $75.lastPos = {
+          $73.lastPos = {
             x: new Just(pos.x),
             y: new Just(pos.y)
           };
-          return $75;
+          return $73;
         }))(function() {
           return bind33(get6)(function(s) {
-            var isMultiDrag = size2(s.dragItems) > 1;
+            var isMultiDrag = length(s.dragItems) > 1;
             var multiSnap = function() {
-              var $78 = isMultiDrag && store.snapToGrid;
-              if ($78) {
+              var $76 = isMultiDrag && store.snapToGrid;
+              if ($76) {
                 return calculateSnapOffset(s.dragItems)(store.snapGrid)(pos.x)(pos.y);
               }
               ;
               return Nothing.value;
             }();
-            var step2 = function(acc) {
-              return function(v) {
-                var v1 = lookup16(v.value0)(store.nodeLookup);
+            var step2 = function(dragItem) {
+              var v = lookup16(dragItem.id)(store.nodeLookup);
+              if (v instanceof Nothing) {
+                return {
+                  item: dragItem,
+                  moved: false
+                };
+              }
+              ;
+              if (v instanceof Just) {
+                var stepNext = function() {
+                  if (multiSnap instanceof Just) {
+                    return {
+                      x: roundHalfUp(pos.x - dragItem.distance.x + multiSnap.value0.x),
+                      y: roundHalfUp(pos.y - dragItem.distance.y + multiSnap.value0.y)
+                    };
+                  }
+                  ;
+                  if (multiSnap instanceof Nothing) {
+                    if (store.snapToGrid) {
+                      return snapPosition({
+                        x: pos.x - dragItem.distance.x,
+                        y: pos.y - dragItem.distance.y
+                      })(store.snapGrid);
+                    }
+                    ;
+                    return {
+                      x: pos.x - dragItem.distance.x,
+                      y: pos.y - dragItem.distance.y
+                    };
+                  }
+                  ;
+                  throw new Error("Failed pattern match at System.XYDrag (line 618, column 22 - line 633, column 18): " + [multiSnap.constructor.name]);
+                }();
+                var v1 = calculateNodePosition({
+                  nodeId: dragItem.id,
+                  nextPosition: stepNext,
+                  nodeLookup: store.nodeLookup,
+                  nodeOrigin: store.nodeOrigin,
+                  nodeExtent: new Just(store.nodeExtent)
+                });
                 if (v1 instanceof Nothing) {
-                  return pure46(acc);
+                  return {
+                    item: dragItem,
+                    moved: false
+                  };
                 }
                 ;
                 if (v1 instanceof Just) {
-                  var stepNext = function() {
-                    if (multiSnap instanceof Just) {
-                      return {
-                        x: roundHalfUp(pos.x - v.value1.distance.x + multiSnap.value0.x),
-                        y: roundHalfUp(pos.y - v.value1.distance.y + multiSnap.value0.y)
-                      };
-                    }
-                    ;
-                    if (multiSnap instanceof Nothing) {
-                      if (store.snapToGrid) {
-                        return snapPosition({
-                          x: pos.x - v.value1.distance.x,
-                          y: pos.y - v.value1.distance.y
-                        })(store.snapGrid);
+                  return {
+                    item: {
+                      id: dragItem.id,
+                      distance: dragItem.distance,
+                      measured: dragItem.measured,
+                      extent: dragItem.extent,
+                      parentId: dragItem.parentId,
+                      origin: dragItem.origin,
+                      expandParent: dragItem.expandParent,
+                      dragging: dragItem.dragging,
+                      position: v1.value0.position,
+                      internals: {
+                        positionAbsolute: v1.value0.positionAbsolute
                       }
-                      ;
-                      return {
-                        x: pos.x - v.value1.distance.x,
-                        y: pos.y - v.value1.distance.y
-                      };
-                    }
-                    ;
-                    throw new Error("Failed pattern match at System.XYDrag (line 619, column 22 - line 634, column 18): " + [multiSnap.constructor.name]);
-                  }();
-                  var v2 = calculateNodePosition({
-                    nodeId: v.value0,
-                    nextPosition: stepNext,
-                    nodeLookup: store.nodeLookup,
-                    nodeOrigin: store.nodeOrigin,
-                    nodeExtent: new Just(store.nodeExtent)
-                  });
-                  if (v2 instanceof Nothing) {
-                    return pure46(acc);
-                  }
-                  ;
-                  if (v2 instanceof Just) {
-                    return discard12(modify_4(function(st) {
-                      var $86 = {};
-                      for (var $87 in st) {
-                        if ({}.hasOwnProperty.call(st, $87)) {
-                          $86[$87] = st[$87];
-                        }
-                        ;
-                      }
-                      ;
-                      $86.dragItems = insert9(v.value0)({
-                        distance: v.value1.distance,
-                        dragging: v.value1.dragging,
-                        expandParent: v.value1.expandParent,
-                        extent: v.value1.extent,
-                        id: v.value1.id,
-                        measured: v.value1.measured,
-                        origin: v.value1.origin,
-                        parentId: v.value1.parentId,
-                        position: v2.value0.position,
-                        internals: {
-                          positionAbsolute: v2.value0.positionAbsolute
-                        }
-                      })(st.dragItems);
-                      return $86;
-                    }))(function() {
-                      return pure46(acc || (v2.value0.position.x !== v.value1.position.x || v2.value0.position.y !== v.value1.position.y));
-                    });
-                  }
-                  ;
-                  throw new Error("Failed pattern match at System.XYDrag (line 635, column 9 - line 664, column 16): " + [v2.constructor.name]);
+                    },
+                    moved: v1.value0.position.x !== dragItem.position.x || v1.value0.position.y !== dragItem.position.y
+                  };
                 }
                 ;
-                throw new Error("Failed pattern match at System.XYDrag (line 615, column 36 - line 664, column 16): " + [v1.constructor.name]);
-              };
+                throw new Error("Failed pattern match at System.XYDrag (line 635, column 11 - line 658, column 16): " + [v1.constructor.name]);
+              }
+              ;
+              throw new Error("Failed pattern match at System.XYDrag (line 614, column 21 - line 658, column 16): " + [v.constructor.name]);
             };
-            var entries = toUnfoldable9(s.dragItems);
-            return bind33(foldM5(step2)(false)(entries))(function(hasChange) {
+            var stepped = map41(step2)(s.dragItems);
+            var hasChange = any2(function(v) {
+              return v.moved;
+            })(stepped);
+            return discard12(modify_4(function(v) {
+              var $84 = {};
+              for (var $85 in v) {
+                if ({}.hasOwnProperty.call(v, $85)) {
+                  $84[$85] = v[$85];
+                }
+                ;
+              }
+              ;
+              $84.dragItems = map41(function(v1) {
+                return v1.item;
+              })(stepped);
+              return $84;
+            }))(function() {
               return when9(hasChange)(discard12(modify_4(function(v) {
-                var $93 = {};
-                for (var $94 in v) {
-                  if ({}.hasOwnProperty.call(v, $94)) {
-                    $93[$94] = v[$94];
+                var $87 = {};
+                for (var $88 in v) {
+                  if ({}.hasOwnProperty.call(v, $88)) {
+                    $87[$88] = v[$88];
                   }
                   ;
                 }
                 ;
-                $93.nodePositionsChanged = true;
-                return $93;
+                $87.nodePositionsChanged = true;
+                return $87;
               }))(function() {
                 return bind33(get6)(function(s2) {
                   return discard12(liftEffect8(store.updateNodePositions(s2.dragItems)(true)))(function() {
@@ -47978,7 +47987,7 @@ var initialDragState2 = /* @__PURE__ */ function() {
       y: Nothing.value
     },
     autoPanId: Nothing.value,
-    dragItems: empty5,
+    dragItems: [],
     autoPanStarted: false,
     mousePosition: {
       x: 0,
@@ -48023,32 +48032,32 @@ var onEnd = function(params) {
         return bind33(get6)(function(s0) {
           return unless3(!s0.dragStarted || s0.abortDrag)(discard12(liftEffect8(for_11(s0.autoPanId)(cancelAnimationFrame)))(function() {
             return discard12(modify_4(function(v) {
-              var $105 = {};
-              for (var $106 in v) {
-                if ({}.hasOwnProperty.call(v, $106)) {
-                  $105[$106] = v[$106];
+              var $99 = {};
+              for (var $100 in v) {
+                if ({}.hasOwnProperty.call(v, $100)) {
+                  $99[$100] = v[$100];
                 }
                 ;
               }
               ;
-              $105.autoPanStarted = false;
-              $105.dragStarted = false;
-              $105.autoPanId = Nothing.value;
-              return $105;
+              $99.autoPanStarted = false;
+              $99.dragStarted = false;
+              $99.autoPanId = Nothing.value;
+              return $99;
             }))(function() {
-              return when9(size2(s0.dragItems) > 0)(bind33(liftEffect8(params.getStoreItems))(function(store) {
+              return when9(length(s0.dragItems) > 0)(bind33(liftEffect8(params.getStoreItems))(function(store) {
                 return discard12(when9(s0.nodePositionsChanged)(discard12(liftEffect8(store.updateNodePositions(s0.dragItems)(false)))(function() {
                   return modify_4(function(v) {
-                    var $108 = {};
-                    for (var $109 in v) {
-                      if ({}.hasOwnProperty.call(v, $109)) {
-                        $108[$109] = v[$109];
+                    var $102 = {};
+                    for (var $103 in v) {
+                      if ({}.hasOwnProperty.call(v, $103)) {
+                        $102[$103] = v[$103];
                       }
                       ;
                     }
                     ;
-                    $108.nodePositionsChanged = false;
-                    return $108;
+                    $102.nodePositionsChanged = false;
+                    return $102;
                   });
                 })))(function() {
                   var mouseEv = foreignAsMouseEvent(src9);
@@ -48083,16 +48092,16 @@ var startDrag = function(params) {
       return bind33(liftEffect8(params.getStoreItems))(function(store) {
         return bind33(liftEffect8(dragSourceEvent(ev)))(function(src9) {
           return discard12(modify_4(function(v) {
-            var $111 = {};
-            for (var $112 in v) {
-              if ({}.hasOwnProperty.call(v, $112)) {
-                $111[$112] = v[$112];
+            var $105 = {};
+            for (var $106 in v) {
+              if ({}.hasOwnProperty.call(v, $106)) {
+                $105[$106] = v[$106];
               }
               ;
             }
             ;
-            $111.dragStarted = true;
-            return $111;
+            $105.dragStarted = true;
+            return $105;
           }))(function() {
             var deselectFirst = (!store.selectNodesOnDrag || !upd.isSelectable) && !store.multiSelectionActive;
             return discard12(liftEffect8(function() {
@@ -48112,7 +48121,7 @@ var startDrag = function(params) {
                 return when12(!alreadySelected)(store.unselectNodesAndEdges);
               }
               ;
-              return pure119(unit);
+              return pure46(unit);
             }()))(function() {
               return discard12(liftEffect8(function() {
                 if (upd.nodeId instanceof Just && (upd.isSelectable && store.selectNodesOnDrag)) {
@@ -48121,7 +48130,7 @@ var startDrag = function(params) {
                   });
                 }
                 ;
-                return pure119(unit);
+                return pure46(unit);
               }()))(function() {
                 return bind33(get6)(function(s) {
                   return bind33(liftEffect8(getPointerPosition(foreignAsTouchOrMouse(src9))({
@@ -48130,27 +48139,29 @@ var startDrag = function(params) {
                     snapToGrid: store.snapToGrid,
                     containerBounds: s.containerBounds
                   })))(function(pp) {
-                    var items = getDragItems(store.nodeLookup)(store.nodesDraggable)({
+                    var items = getDragItems(map41(function(v) {
+                      return v.id;
+                    })(store.nodes))(store.nodeLookup)(store.nodesDraggable)({
                       x: pp.x,
                       y: pp.y
                     })(upd.nodeId);
                     return discard12(modify_4(function(v) {
-                      var $120 = {};
-                      for (var $121 in v) {
-                        if ({}.hasOwnProperty.call(v, $121)) {
-                          $120[$121] = v[$121];
+                      var $114 = {};
+                      for (var $115 in v) {
+                        if ({}.hasOwnProperty.call(v, $115)) {
+                          $114[$115] = v[$115];
                         }
                         ;
                       }
                       ;
-                      $120.lastPos = {
+                      $114.lastPos = {
                         x: new Just(pp.x),
                         y: new Just(pp.y)
                       };
-                      $120.dragItems = items;
-                      return $120;
+                      $114.dragItems = items;
+                      return $114;
                     }))(function() {
-                      return when9(size2(items) > 0)(function() {
+                      return when9(length(items) > 0)(function() {
                         var mouseEv = foreignAsMouseEvent(src9);
                         var eventArgs = getEventHandlerParams(upd.nodeId)(items)(store.nodeLookup)(true);
                         return liftEffect8(function __do3() {
@@ -48187,29 +48198,29 @@ var onStart = function(params) {
         return bind33(liftEffect8(dragSourceEvent(ev)))(function(src9) {
           return bind33(liftEffect8(function() {
             if (store.domNode instanceof Just) {
-              return map41(Just.create)(elementBoundingRect(store.domNode.value0));
+              return map114(Just.create)(elementBoundingRect(store.domNode.value0));
             }
             ;
             if (store.domNode instanceof Nothing) {
-              return pure119(Nothing.value);
+              return pure46(Nothing.value);
             }
             ;
             throw new Error("Failed pattern match at System.XYDrag (line 312, column 26 - line 314, column 28): " + [store.domNode.constructor.name]);
           }()))(function(bounds) {
             return discard12(modify_4(function(v) {
-              var $125 = {};
-              for (var $126 in v) {
-                if ({}.hasOwnProperty.call(v, $126)) {
-                  $125[$126] = v[$126];
+              var $119 = {};
+              for (var $120 in v) {
+                if ({}.hasOwnProperty.call(v, $120)) {
+                  $119[$120] = v[$120];
                 }
                 ;
               }
               ;
-              $125.containerBounds = bounds;
-              $125.abortDrag = false;
-              $125.nodePositionsChanged = false;
-              $125.dragEvent = new Just(foreignAsMouseEvent(src9));
-              return $125;
+              $119.containerBounds = bounds;
+              $119.abortDrag = false;
+              $119.nodePositionsChanged = false;
+              $119.dragEvent = new Just(foreignAsMouseEvent(src9));
+              return $119;
             }))(function() {
               return discard12(when9(store.nodeDragThreshold === 0)(startDrag(params)(upd)(ev)))(function() {
                 return bind33(liftEffect8(getPointerPosition(foreignAsTouchOrMouse(src9))({
@@ -48220,20 +48231,20 @@ var onStart = function(params) {
                 })))(function(pp) {
                   return bind33(liftEffect8(getEventPosition(foreignAsTouchOrMouse(src9))(bounds)))(function(mp) {
                     return modify_4(function(v) {
-                      var $128 = {};
-                      for (var $129 in v) {
-                        if ({}.hasOwnProperty.call(v, $129)) {
-                          $128[$129] = v[$129];
+                      var $122 = {};
+                      for (var $123 in v) {
+                        if ({}.hasOwnProperty.call(v, $123)) {
+                          $122[$123] = v[$123];
                         }
                         ;
                       }
                       ;
-                      $128.lastPos = {
+                      $122.lastPos = {
                         x: new Just(pp.x),
                         y: new Just(pp.y)
                       };
-                      $128.mousePosition = mp;
-                      return $128;
+                      $122.mousePosition = mp;
+                      return $122;
                     });
                   });
                 });
@@ -48295,40 +48306,40 @@ var autoPanStep2 = function(params) {
       };
       var scheduleNextFrame = bind33(liftEffect8(requestAnimationFrame(autoPanLoop2(params)(mNodeId)(stateRef))))(function(handle3) {
         return modify_4(function(v) {
-          var $139 = {};
-          for (var $140 in v) {
-            if ({}.hasOwnProperty.call(v, $140)) {
-              $139[$140] = v[$140];
+          var $133 = {};
+          for (var $134 in v) {
+            if ({}.hasOwnProperty.call(v, $134)) {
+              $133[$134] = v[$134];
             }
             ;
           }
           ;
-          $139.autoPanId = new Just(handle3);
-          return $139;
+          $133.autoPanId = new Just(handle3);
+          return $133;
         });
       });
       return bind33(get6)(function(s) {
         if (s.containerBounds instanceof Nothing) {
-          return pure46(unit);
+          return pure119(unit);
         }
         ;
         if (s.containerBounds instanceof Just) {
           return bind33(liftEffect8(params.getStoreItems))(function(store) {
-            var $143 = !store.autoPanOnNodeDrag;
-            if ($143) {
+            var $137 = !store.autoPanOnNodeDrag;
+            if ($137) {
               return discard12(liftEffect8(for_11(s.autoPanId)(cancelAnimationFrame)))(function() {
                 return modify_4(function(v) {
-                  var $144 = {};
-                  for (var $145 in v) {
-                    if ({}.hasOwnProperty.call(v, $145)) {
-                      $144[$145] = v[$145];
+                  var $138 = {};
+                  for (var $139 in v) {
+                    if ({}.hasOwnProperty.call(v, $139)) {
+                      $138[$139] = v[$139];
                     }
                     ;
                   }
                   ;
-                  $144.autoPanStarted = false;
-                  $144.autoPanId = Nothing.value;
-                  return $144;
+                  $138.autoPanStarted = false;
+                  $138.autoPanId = Nothing.value;
+                  return $138;
                 });
               });
             }
@@ -48338,23 +48349,23 @@ var autoPanStep2 = function(params) {
               width: s.containerBounds.value0.width,
               height: s.containerBounds.value0.height
             })(speed)(40);
-            var $148 = mv.x !== 0 || mv.y !== 0;
-            if ($148) {
+            var $142 = mv.x !== 0 || mv.y !== 0;
+            if ($142) {
               var newLp = {
                 x: new Just(fromMaybe(0)(s.lastPos.x) - mv.x / store.transform.scale),
                 y: new Just(fromMaybe(0)(s.lastPos.y) - mv.y / store.transform.scale)
               };
               return discard12(modify_4(function(v) {
-                var $149 = {};
-                for (var $150 in v) {
-                  if ({}.hasOwnProperty.call(v, $150)) {
-                    $149[$150] = v[$150];
+                var $143 = {};
+                for (var $144 in v) {
+                  if ({}.hasOwnProperty.call(v, $144)) {
+                    $143[$144] = v[$144];
                   }
                   ;
                 }
                 ;
-                $149.lastPos = newLp;
-                return $149;
+                $143.lastPos = newLp;
+                return $143;
               }))(function() {
                 return liftEffect8(launchAff_(bind210(store.panBy({
                   x: mv.x,
@@ -48368,10 +48379,10 @@ var autoPanStep2 = function(params) {
                       }
                       ;
                       if (v instanceof Nothing) {
-                        return pure46(unit);
+                        return pure119(unit);
                       }
                       ;
-                      throw new Error("Failed pattern match at System.XYDrag (line 577, column 17 - line 579, column 39): " + [v.constructor.name]);
+                      throw new Error("Failed pattern match at System.XYDrag (line 579, column 17 - line 581, column 39): " + [v.constructor.name]);
                     })))(function() {
                       return scheduleNextFrame;
                     })));
@@ -48384,7 +48395,7 @@ var autoPanStep2 = function(params) {
           });
         }
         ;
-        throw new Error("Failed pattern match at System.XYDrag (line 549, column 3 - line 581, column 31): " + [s.containerBounds.constructor.name]);
+        throw new Error("Failed pattern match at System.XYDrag (line 551, column 3 - line 583, column 31): " + [s.containerBounds.constructor.name]);
       });
     };
   };
@@ -48412,16 +48423,16 @@ var onDragHandler = function(params) {
                 containerBounds: s0.containerBounds
               })))(function(pp) {
                 return discard12(modify_4(function(v) {
-                  var $155 = {};
-                  for (var $156 in v) {
-                    if ({}.hasOwnProperty.call(v, $156)) {
-                      $155[$156] = v[$156];
+                  var $149 = {};
+                  for (var $150 in v) {
+                    if ({}.hasOwnProperty.call(v, $150)) {
+                      $149[$150] = v[$150];
                     }
                     ;
                   }
                   ;
-                  $155.dragEvent = new Just(foreignAsMouseEvent(src9));
-                  return $155;
+                  $149.dragEvent = new Just(foreignAsMouseEvent(src9));
+                  return $149;
                 }))(function() {
                   return bind33(liftEffect8(isMultiTouchSourceEvent(src9)))(function(multi) {
                     var deletedDuringDrag = function() {
@@ -48436,29 +48447,29 @@ var onDragHandler = function(params) {
                       throw new Error("Failed pattern match at System.XYDrag (line 355, column 25 - line 357, column 23): " + [upd.nodeId.constructor.name]);
                     }();
                     return discard12(when9(multi || deletedDuringDrag)(modify_4(function(v) {
-                      var $160 = {};
-                      for (var $161 in v) {
-                        if ({}.hasOwnProperty.call(v, $161)) {
-                          $160[$161] = v[$161];
+                      var $154 = {};
+                      for (var $155 in v) {
+                        if ({}.hasOwnProperty.call(v, $155)) {
+                          $154[$155] = v[$155];
                         }
                         ;
                       }
                       ;
-                      $160.abortDrag = true;
-                      return $160;
+                      $154.abortDrag = true;
+                      return $154;
                     })))(function() {
                       return bind33(get6)(function(s1) {
                         return when9(!s1.abortDrag)(discard12(when9(!s1.autoPanStarted && (store.autoPanOnNodeDrag && s1.dragStarted))(discard12(modify_4(function(v) {
-                          var $163 = {};
-                          for (var $164 in v) {
-                            if ({}.hasOwnProperty.call(v, $164)) {
-                              $163[$164] = v[$164];
+                          var $157 = {};
+                          for (var $158 in v) {
+                            if ({}.hasOwnProperty.call(v, $158)) {
+                              $157[$158] = v[$158];
                             }
                             ;
                           }
                           ;
-                          $163.autoPanStarted = true;
-                          return $163;
+                          $157.autoPanStarted = true;
+                          return $157;
                         }))(function() {
                           return autoPanStep2(params)(upd.nodeId)(stateRef);
                         })))(function() {
@@ -48470,18 +48481,18 @@ var onDragHandler = function(params) {
                           })))(function() {
                             return bind33(get6)(function(s2) {
                               var moved = notEq15(s2.lastPos.x)(new Just(pp.xSnapped)) || notEq15(s2.lastPos.y)(new Just(pp.ySnapped));
-                              return when9(moved && (size2(s2.dragItems) > 0 && s2.dragStarted))(bind33(liftEffect8(getEventPosition(foreignAsTouchOrMouse(src9))(s2.containerBounds)))(function(mp) {
+                              return when9(moved && (length(s2.dragItems) > 0 && s2.dragStarted))(bind33(liftEffect8(getEventPosition(foreignAsTouchOrMouse(src9))(s2.containerBounds)))(function(mp) {
                                 return discard12(modify_4(function(v) {
-                                  var $166 = {};
-                                  for (var $167 in v) {
-                                    if ({}.hasOwnProperty.call(v, $167)) {
-                                      $166[$167] = v[$167];
+                                  var $160 = {};
+                                  for (var $161 in v) {
+                                    if ({}.hasOwnProperty.call(v, $161)) {
+                                      $160[$161] = v[$161];
                                     }
                                     ;
                                   }
                                   ;
-                                  $166.mousePosition = mp;
-                                  return $166;
+                                  $160.mousePosition = mp;
+                                  return $160;
                                 }))(function() {
                                   return updateNodes(params)(upd.nodeId)({
                                     x: pp.x,
@@ -48560,7 +48571,7 @@ var bind113 = /* @__PURE__ */ bind4(ixBindRender);
 var discard13 = /* @__PURE__ */ discard2(ixBindRender);
 var useEffect4 = /* @__PURE__ */ useEffect(eqUnsafeReference);
 var map42 = /* @__PURE__ */ map(functorEffect);
-var map114 = /* @__PURE__ */ map(functorMaybe);
+var map115 = /* @__PURE__ */ map(functorMaybe);
 var for_12 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var pure120 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var bindDrag = function(b) {
@@ -48582,7 +48593,7 @@ var useDrag = function(opts) {
         var mDiv = map42(toMaybe)(readRef(opts.wrapperRef))();
         return bindDrag({
           disabled: opts.disabled,
-          domNode: map114(toElement)(mDiv),
+          domNode: map115(toElement)(mDiv),
           controller: function __do4() {
             var mController = readRef(controllerRef)();
             if (mController instanceof Just) {
@@ -48728,7 +48739,6 @@ var useMoveSelectedNodes = /* @__PURE__ */ function() {
 // output/React.Component.NodesSelection/index.js
 var pure48 = /* @__PURE__ */ pure(applicativeEffect);
 var map44 = /* @__PURE__ */ map(functorMaybe);
-var fromFoldable11 = /* @__PURE__ */ fromFoldable(foldableList);
 var unwrap14 = /* @__PURE__ */ unwrap();
 var bind114 = /* @__PURE__ */ bind4(ixBindRender);
 var useStore17 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
@@ -48792,7 +48802,7 @@ var mkDragStoreItems = function(store) {
       onSelectionDragStop: s.onSelectionDragStop,
       updateNodePositions: function(items) {
         return function(dragging) {
-          return store.dispatch(new UpdateNodePositions(fromFoldable11(values(items)), dragging));
+          return store.dispatch(new UpdateNodePositions(items, dragging));
         };
       },
       autoPanSpeed: new Just(s.autoPanSpeed)
@@ -48856,8 +48866,8 @@ var nodesSelection = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/*
                   return function __do3() {
                     preventDefault(toEvent2(ke))();
                     return moveSelectedNodes(v1.value0)(function() {
-                      var $61 = shiftKey2(ke);
-                      if ($61) {
+                      var $60 = shiftKey2(ke);
+                      if ($60) {
                         return 4;
                       }
                       ;
@@ -48870,7 +48880,7 @@ var nodesSelection = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/*
                   return pure48(unit);
                 }
                 ;
-                throw new Error("Failed pattern match at React.Component.NodesSelection (line 212, column 31 - line 216, column 31): " + [v1.constructor.name]);
+                throw new Error("Failed pattern match at React.Component.NodesSelection (line 209, column 31 - line 213, column 31): " + [v1.constructor.name]);
               };
               var onKeyDownEventHandler = handler(syntheticEvent)(function(se) {
                 return onKeyDownHandler(se);
@@ -48887,8 +48897,8 @@ var nodesSelection = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/*
                 });
               });
               return pure121(function() {
-                var $63 = !shouldRender;
-                if ($63) {
+                var $62 = !shouldRender;
+                if ($62) {
                   return mempty14;
                 }
                 ;
@@ -49122,18 +49132,18 @@ var autoPanLoop3 = function(env) {
 
 // output/React.Store.Changes/index.js
 var lookup19 = /* @__PURE__ */ lookup2(ordNodeId);
-var insert10 = /* @__PURE__ */ insert4(ordNodeId);
+var insert9 = /* @__PURE__ */ insert4(ordNodeId);
 var foldl7 = /* @__PURE__ */ foldl(foldableArray);
 var lookup110 = /* @__PURE__ */ lookup2(ordString);
-var insert13 = /* @__PURE__ */ insert4(ordString);
+var insert12 = /* @__PURE__ */ insert4(ordString);
 var max10 = /* @__PURE__ */ max(ordInt);
 var min7 = /* @__PURE__ */ min(ordInt);
-var toUnfoldable10 = /* @__PURE__ */ toUnfoldable5(unfoldableArray);
+var toUnfoldable8 = /* @__PURE__ */ toUnfoldable5(unfoldableArray);
 var map45 = /* @__PURE__ */ map(functorArray);
-var fromFoldable12 = /* @__PURE__ */ fromFoldable4(ordNodeId)(foldableArray);
+var fromFoldable11 = /* @__PURE__ */ fromFoldable4(ordNodeId)(foldableArray);
 var member7 = /* @__PURE__ */ member2(ordNodeId);
 var append10 = /* @__PURE__ */ append(semigroupArray);
-var fromFoldable13 = /* @__PURE__ */ fromFoldable4(ordString)(foldableArray);
+var fromFoldable12 = /* @__PURE__ */ fromFoldable4(ordString)(foldableArray);
 var member12 = /* @__PURE__ */ member2(ordString);
 var partitionNodeChanges = /* @__PURE__ */ function() {
   var appendChange = function(id3) {
@@ -49141,11 +49151,11 @@ var partitionNodeChanges = /* @__PURE__ */ function() {
       return function(m) {
         var v = lookup19(id3)(m);
         if (v instanceof Nothing) {
-          return insert10(id3)([c])(m);
+          return insert9(id3)([c])(m);
         }
         ;
         if (v instanceof Just) {
-          return insert10(id3)(snoc(v.value0)(c))(m);
+          return insert9(id3)(snoc(v.value0)(c))(m);
         }
         ;
         throw new Error("Failed pattern match at React.Store.Changes (line 73, column 25 - line 75, column 61): " + [v.constructor.name]);
@@ -49164,14 +49174,14 @@ var partitionNodeChanges = /* @__PURE__ */ function() {
       if (c instanceof NodeRemoveChange) {
         return {
           adds: acc.adds,
-          byId: insert10(c.value0.id)([c])(acc.byId)
+          byId: insert9(c.value0.id)([c])(acc.byId)
         };
       }
       ;
       if (c instanceof NodeReplaceChange) {
         return {
           adds: acc.adds,
-          byId: insert10(c.value0.id)([c])(acc.byId)
+          byId: insert9(c.value0.id)([c])(acc.byId)
         };
       }
       ;
@@ -49210,11 +49220,11 @@ var partitionEdgeChanges = /* @__PURE__ */ function() {
       return function(m) {
         var v = lookup110(id3)(m);
         if (v instanceof Nothing) {
-          return insert13(id3)([c])(m);
+          return insert12(id3)([c])(m);
         }
         ;
         if (v instanceof Just) {
-          return insert13(id3)(snoc(v.value0)(c))(m);
+          return insert12(id3)(snoc(v.value0)(c))(m);
         }
         ;
         throw new Error("Failed pattern match at React.Store.Changes (line 86, column 25 - line 88, column 61): " + [v.constructor.name]);
@@ -49233,14 +49243,14 @@ var partitionEdgeChanges = /* @__PURE__ */ function() {
       if (c instanceof EdgeRemoveChange) {
         return {
           adds: acc.adds,
-          byId: insert13(c.value0.id)([c])(acc.byId)
+          byId: insert12(c.value0.id)([c])(acc.byId)
         };
       }
       ;
       if (c instanceof EdgeReplaceChange) {
         return {
           adds: acc.adds,
-          byId: insert13(c.value0.id)([c])(acc.byId)
+          byId: insert12(c.value0.id)([c])(acc.byId)
         };
       }
       ;
@@ -49325,7 +49335,7 @@ var getSelectionChangesGeneric = function(dictOrd) {
             return acc;
           };
         };
-        var pairs = toUnfoldable10(items);
+        var pairs = toUnfoldable8(items);
         return foldl7(step2)({
           changes: [],
           items
@@ -49366,7 +49376,7 @@ var getNodeElementsDiffChanges = function(mItems) {
       ;
       throw new Error("Failed pattern match at React.Store.Changes (line 290, column 13 - line 292, column 20): " + [mItems.constructor.name]);
     }();
-    var itemsLookup = fromFoldable12(map45(function(n) {
+    var itemsLookup = fromFoldable11(map45(function(n) {
       return new Tuple(n.id, n);
     })(items));
     var removes = foldl7(function(acc) {
@@ -49380,7 +49390,7 @@ var getNodeElementsDiffChanges = function(mItems) {
           id: v.value0
         }));
       };
-    })([])(toUnfoldable10(lookup29));
+    })([])(toUnfoldable8(lookup29));
     var forwardStep = function(acc) {
       return function(item) {
         var storeItem = lookup19(item.id)(lookup29);
@@ -49441,7 +49451,7 @@ var getEdgeElementsDiffChanges = function(mItems) {
       ;
       throw new Error("Failed pattern match at React.Store.Changes (line 323, column 13 - line 325, column 20): " + [mItems.constructor.name]);
     }();
-    var itemsLookup = fromFoldable13(map45(function(e) {
+    var itemsLookup = fromFoldable12(map45(function(e) {
       return new Tuple(e.id, e);
     })(items));
     var removes = foldl7(function(acc) {
@@ -49455,7 +49465,7 @@ var getEdgeElementsDiffChanges = function(mItems) {
           id: v.value0
         }));
       };
-    })([])(toUnfoldable10(lookup29));
+    })([])(toUnfoldable8(lookup29));
     var forwardStep = function(acc) {
       return function(item) {
         var change = function() {
@@ -49899,12 +49909,12 @@ var applyEdgeChanges = function(changes) {
 // output/React.Container.Pane/index.js
 var when11 = /* @__PURE__ */ when(applicativeEffect);
 var lookup20 = /* @__PURE__ */ lookup2(ordString);
-var insert11 = /* @__PURE__ */ insert5(ordString);
+var insert10 = /* @__PURE__ */ insert5(ordString);
 var bind116 = /* @__PURE__ */ bind(bindMaybe);
 var unwrap15 = /* @__PURE__ */ unwrap();
 var foldl8 = /* @__PURE__ */ foldl(foldableList);
 var foldl12 = /* @__PURE__ */ foldl(foldableArray);
-var toUnfoldable11 = /* @__PURE__ */ toUnfoldable6(unfoldableArray);
+var toUnfoldable9 = /* @__PURE__ */ toUnfoldable6(unfoldableArray);
 var pure50 = /* @__PURE__ */ pure(applicativeEffect);
 var bind211 = /* @__PURE__ */ bind4(ixBindRender);
 var eqRec8 = /* @__PURE__ */ eqRec();
@@ -49933,9 +49943,9 @@ var useStore19 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec8(/* @__PURE__ */
 var for_14 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var map46 = /* @__PURE__ */ map(functorEffect);
 var elem6 = /* @__PURE__ */ elem3(eqInt);
-var eq19 = /* @__PURE__ */ eq(eqSelectionMode);
-var fromFoldable14 = /* @__PURE__ */ fromFoldable5(foldableArray)(ordNodeId);
-var map115 = /* @__PURE__ */ map(functorArray);
+var eq110 = /* @__PURE__ */ eq(eqSelectionMode);
+var fromFoldable13 = /* @__PURE__ */ fromFoldable5(foldableArray)(ordNodeId);
+var map116 = /* @__PURE__ */ map(functorArray);
 var areSetsEqual2 = /* @__PURE__ */ areSetsEqual(eqNodeId);
 var areSetsEqual1 = /* @__PURE__ */ areSetsEqual(eqString);
 var notEq6 = /* @__PURE__ */ notEq(/* @__PURE__ */ eqMaybe(/* @__PURE__ */ eqRec8(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons7({
@@ -50009,7 +50019,7 @@ var collectIncidentEdgeIds = function(state3) {
           if (v instanceof Just) {
             var $115 = fromMaybe(dflt)(v.value0.selectable);
             if ($115) {
-              return insert11(conn.edgeId)(acc);
+              return insert10(conn.edgeId)(acc);
             }
             ;
             return acc;
@@ -50036,7 +50046,7 @@ var collectIncidentEdgeIds = function(state3) {
         throw new Error("Failed pattern match at React.Container.Pane (line 135, column 34 - line 137, column 102): " + [v.constructor.name]);
       };
     };
-    return foldl12(addEdgesForNode)(empty7)(toUnfoldable11(selectedNodeIds));
+    return foldl12(addEdgesForNode)(empty7)(toUnfoldable9(selectedNodeIds));
   };
 };
 var cleanupAutoPan = function(refs) {
@@ -50431,10 +50441,10 @@ var pane = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__
                                 height: nextRectBare.height
                               };
                               var nextNodes = getNodesInside(st.nodeLookup)(nextRectBare)(st.transform)({
-                                partially: eq19(v.selectionMode)(Partial.value),
+                                partially: eq110(v.selectionMode)(Partial.value),
                                 excludeNonSelectable: true
                               });
-                              var nextNodeIds = fromFoldable14(map115(function(v1) {
+                              var nextNodeIds = fromFoldable13(map116(function(v1) {
                                 return v1.id;
                               })(nextNodes));
                               var nextEdgeIds = collectIncidentEdgeIds(st)(nextNodeIds);
@@ -52976,7 +52986,6 @@ var pure60 = /* @__PURE__ */ pure(applicativeEffect);
 var for_18 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var unwrap17 = /* @__PURE__ */ unwrap();
 var map52 = /* @__PURE__ */ map(functorMaybe);
-var fromFoldable15 = /* @__PURE__ */ fromFoldable(foldableList);
 var bind117 = /* @__PURE__ */ bind4(ixBindRender);
 var useStore22 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
@@ -53188,7 +53197,7 @@ var mkDragStoreItems2 = function(store) {
       onSelectionDragStop: s.onSelectionDragStop,
       updateNodePositions: function(items) {
         return function(dragging) {
-          return store.dispatch(new UpdateNodePositions(fromFoldable15(values(items)), dragging));
+          return store.dispatch(new UpdateNodePositions(items, dragging));
         };
       },
       autoPanSpeed: new Just(s.autoPanSpeed)
@@ -53248,7 +53257,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
         return v.elementsSelectable;
       }
       ;
-      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 324, column 24 - line 326, column 46): " + [slice3.node.selectable.constructor.name]);
+      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 321, column 24 - line 323, column 46): " + [slice3.node.selectable.constructor.name]);
     }();
     var isDraggable = function() {
       if (slice3.node.draggable instanceof Just) {
@@ -53259,7 +53268,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
         return v.nodesDraggable;
       }
       ;
-      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 321, column 23 - line 323, column 42): " + [slice3.node.draggable.constructor.name]);
+      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 318, column 23 - line 320, column 42): " + [slice3.node.draggable.constructor.name]);
     }();
     var isConnectable = function() {
       if (slice3.node.connectable instanceof Just) {
@@ -53270,7 +53279,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
         return v.nodesConnectable;
       }
       ;
-      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 327, column 25 - line 329, column 44): " + [slice3.node.connectable.constructor.name]);
+      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 324, column 25 - line 326, column 44): " + [slice3.node.connectable.constructor.name]);
     }();
     var hasDims = nodeHasDimensions(slice3.node);
     return bind117(useStoreApi)(function(store) {
@@ -53309,8 +53318,8 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                   return unless6(inputFocused || v.disableKeyboardA11y)(function() {
                     var shift = shiftKey2(ke);
                     var k = key(ke);
-                    var $76 = elem9(k)(elementSelectionKeys) && isSelectable;
-                    if ($76) {
+                    var $75 = elem9(k)(elementSelectionKeys) && isSelectable;
+                    if ($75) {
                       return handleNodeClick({
                         id: v.id,
                         store,
@@ -53352,7 +53361,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                     return pure60(unit);
                   }
                   ;
-                  throw new Error("Failed pattern match at React.Component.NodeWrapper (line 404, column 35 - line 406, column 31): " + [mCb.constructor.name]);
+                  throw new Error("Failed pattern match at React.Component.NodeWrapper (line 401, column 35 - line 403, column 31): " + [mCb.constructor.name]);
                 };
               };
               var onClickHandler = handler(syntheticEvent)(function(se) {
@@ -53529,8 +53538,8 @@ var getAttribute2 = function(attr) {
 };
 
 // output/React.Container.NodeRenderer/index.js
-var foldM6 = /* @__PURE__ */ foldM(foldableArray)(monadEffect);
-var insert14 = /* @__PURE__ */ insert4(ordNodeId);
+var foldM5 = /* @__PURE__ */ foldM(foldableArray)(monadEffect);
+var insert11 = /* @__PURE__ */ insert4(ordNodeId);
 var pure61 = /* @__PURE__ */ pure(applicativeEffect);
 var when18 = /* @__PURE__ */ when(applicativeEffect);
 var bind118 = /* @__PURE__ */ bind4(ixBindRender);
@@ -53574,13 +53583,13 @@ var mkSharedObserver = function(store) {
   return createResizeObserver(function(entries) {
     return function __do3() {
       var updatesRef = $$new(empty5)();
-      foldM6(function(v) {
+      foldM5(function(v) {
         return function(entry) {
           return function __do4() {
             var mDataId = getAttribute2("data-id")(entry.target)();
             var mDivEl = fromElement(entry.target);
             if (mDataId instanceof Just && mDivEl instanceof Just) {
-              return modify_(insert14(mDataId.value0)({
+              return modify_(insert11(mDataId.value0)({
                 id: mDataId.value0,
                 nodeElement: mDivEl.value0,
                 force: true
@@ -54457,11 +54466,11 @@ var ordMiddlewareKey = ordInt;
 // output/React.Store.Reduce/index.js
 var append19 = /* @__PURE__ */ append(semigroupArray);
 var map58 = /* @__PURE__ */ map(functorArray);
-var fromFoldable16 = /* @__PURE__ */ fromFoldable5(foldableArray);
-var fromFoldable17 = /* @__PURE__ */ fromFoldable16(ordString);
-var fromFoldable23 = /* @__PURE__ */ fromFoldable16(ordNodeId);
-var toUnfoldable12 = /* @__PURE__ */ toUnfoldable5(unfoldableArray);
-var insert15 = /* @__PURE__ */ insert4(ordMiddlewareKey);
+var fromFoldable14 = /* @__PURE__ */ fromFoldable5(foldableArray);
+var fromFoldable15 = /* @__PURE__ */ fromFoldable14(ordString);
+var fromFoldable23 = /* @__PURE__ */ fromFoldable14(ordNodeId);
+var toUnfoldable10 = /* @__PURE__ */ toUnfoldable5(unfoldableArray);
+var insert13 = /* @__PURE__ */ insert4(ordMiddlewareKey);
 var $$delete4 = /* @__PURE__ */ $$delete3(ordMiddlewareKey);
 var reduceTriggerEdgeChanges = function(state3) {
   return function(changes) {
@@ -55434,7 +55443,7 @@ var reduceAddSelectedEdges = function(state3) {
     }
     ;
     if (otherwise) {
-      var selectedSet = fromFoldable17(ids);
+      var selectedSet = fromFoldable15(ids);
       var nodeRes = function() {
         var $62 = $$null(ids);
         if ($62) {
@@ -55890,7 +55899,7 @@ var reduceResetSelectedElements = function(state3) {
   }
   ;
   if (otherwise) {
-    var nodePairs = toUnfoldable12(state3.nodeLookup);
+    var nodePairs = toUnfoldable10(state3.nodeLookup);
     var nodeChanges = mapMaybe(function(v) {
       if (v.value1.selected) {
         return new Just(new NodeSelectionChange({
@@ -55901,7 +55910,7 @@ var reduceResetSelectedElements = function(state3) {
       ;
       return Nothing.value;
     })(nodePairs);
-    var edgePairs = toUnfoldable12(state3.edgeLookup);
+    var edgePairs = toUnfoldable10(state3.edgeLookup);
     var edgeChanges = mapMaybe(function(v) {
       if (v.value1.selected) {
         return new Just(new EdgeSelectionChange({
@@ -56804,7 +56813,7 @@ var reduce = function(state3) {
           ariaLabelConfig: state3.ariaLabelConfig,
           zIndexMode: state3.zIndexMode,
           onEdgesChangeMiddlewareMap: state3.onEdgesChangeMiddlewareMap,
-          onNodesChangeMiddlewareMap: insert15(v.value0)(v.value1)(state3.onNodesChangeMiddlewareMap)
+          onNodesChangeMiddlewareMap: insert13(v.value0)(v.value1)(state3.onNodesChangeMiddlewareMap)
         },
         effects: []
       };
@@ -56990,7 +56999,7 @@ var reduce = function(state3) {
           ariaLabelConfig: state3.ariaLabelConfig,
           zIndexMode: state3.zIndexMode,
           onNodesChangeMiddlewareMap: state3.onNodesChangeMiddlewareMap,
-          onEdgesChangeMiddlewareMap: insert15(v.value0)(v.value1)(state3.onEdgesChangeMiddlewareMap)
+          onEdgesChangeMiddlewareMap: insert13(v.value0)(v.value1)(state3.onEdgesChangeMiddlewareMap)
         },
         effects: []
       };
@@ -57512,7 +57521,7 @@ var useColorModeClass = function(mode) {
 
 // output/React.Provider.SelectionListener/index.js
 var unwrap19 = /* @__PURE__ */ unwrap();
-var fromFoldable18 = /* @__PURE__ */ fromFoldable(foldableList);
+var fromFoldable16 = /* @__PURE__ */ fromFoldable(foldableList);
 var reactComponent10 = /* @__PURE__ */ reactComponent()()();
 var bind50 = /* @__PURE__ */ bind4(ixBindRender);
 var eqArray2 = /* @__PURE__ */ eqArray(eqString);
@@ -57540,14 +57549,14 @@ var selectIds = function(s) {
       }
       ;
       return Nothing.value;
-    })(fromFoldable18(values(s.nodeLookup))),
+    })(fromFoldable16(values(s.nodeLookup))),
     edges: mapMaybe(function(e) {
       if (e.selected) {
         return new Just(e.id);
       }
       ;
       return Nothing.value;
-    })(fromFoldable18(values(s.edgeLookup)))
+    })(fromFoldable16(values(s.edgeLookup)))
   };
 };
 var selectionListenerInner = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponent10("SelectionListenerInner")(function(v) {
@@ -62665,7 +62674,7 @@ var reactFlow = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompone
 
 // output/Boundary.Flow/index.js
 var map60 = /* @__PURE__ */ map(functorArray);
-var map116 = /* @__PURE__ */ map(functorMaybe);
+var map117 = /* @__PURE__ */ map(functorMaybe);
 var bind53 = /* @__PURE__ */ bind(bindMaybe);
 var unmodelledOption = function(name15) {
   return function(get7) {
@@ -62809,7 +62818,7 @@ var convertEdgeOptions = function(o) {
     selectable: fromUndefinable(o.selectable),
     focusable: fromUndefinable(o.focusable),
     data: fromUndefinable(o.data),
-    zIndex: map116(round2)(fromUndefinable(o.zIndex)),
+    zIndex: map117(round2)(fromUndefinable(o.zIndex)),
     ariaLabel: fromUndefinable(o.ariaLabel),
     interactionWidth: fromUndefinable(o.interactionWidth),
     reconnectable: bind53(fromUndefinable(o.reconnectable))(reconnectableIn)
@@ -62837,85 +62846,85 @@ var convertProps = function(p) {
   return function(forwarded) {
     return {
       children: p.children,
-      nodes: map116(map60(nodeIn))(fromUndefinable(p.nodes)),
-      edges: map116(map60(edgeIn))(fromUndefinable(p.edges)),
-      defaultNodes: map116(map60(nodeIn))(fromUndefinable(p.defaultNodes)),
-      defaultEdges: map116(map60(edgeIn))(fromUndefinable(p.defaultEdges)),
-      defaultEdgeOptions: map116(defaultEdgeOptionsIn)(fromUndefinable(p.defaultEdgeOptions)),
-      onNodeClick: map116(nodeMouseHandlerIn)(fromUndefinable(p.onNodeClick)),
-      onNodeDoubleClick: map116(nodeMouseHandlerIn)(fromUndefinable(p.onNodeDoubleClick)),
-      onNodeMouseEnter: map116(nodeMouseHandlerIn)(fromUndefinable(p.onNodeMouseEnter)),
-      onNodeMouseMove: map116(nodeMouseHandlerIn)(fromUndefinable(p.onNodeMouseMove)),
-      onNodeMouseLeave: map116(nodeMouseHandlerIn)(fromUndefinable(p.onNodeMouseLeave)),
-      onNodeContextMenu: map116(nodeMouseHandlerIn)(fromUndefinable(p.onNodeContextMenu)),
-      onNodeDragStart: map116(onNodeDragIn)(fromUndefinable(p.onNodeDragStart)),
-      onNodeDrag: map116(onNodeDragIn)(fromUndefinable(p.onNodeDrag)),
-      onNodeDragStop: map116(onNodeDragIn)(fromUndefinable(p.onNodeDragStop)),
-      onEdgeClick: map116(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeClick)),
-      onEdgeContextMenu: map116(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeContextMenu)),
-      onEdgeMouseEnter: map116(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeMouseEnter)),
-      onEdgeMouseMove: map116(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeMouseMove)),
-      onEdgeMouseLeave: map116(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeMouseLeave)),
-      onEdgeDoubleClick: map116(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeDoubleClick)),
-      onReconnect: map116(onReconnectIn)(fromUndefinable(p.onReconnect)),
-      onReconnectStart: map116(onReconnectStartIn)(fromUndefinable(p.onReconnectStart)),
-      onReconnectEnd: map116(onReconnectEndIn)(fromUndefinable(p.onReconnectEnd)),
-      onNodesChange: map116(onNodesChangeIn)(fromUndefinable(p.onNodesChange)),
-      onEdgesChange: map116(onEdgesChangeIn)(fromUndefinable(p.onEdgesChange)),
-      onNodesDelete: map116(onNodesDeleteIn)(fromUndefinable(p.onNodesDelete)),
-      onEdgesDelete: map116(onEdgesDeleteIn)(fromUndefinable(p.onEdgesDelete)),
-      onDelete: map116(onDeleteIn)(fromUndefinable(p.onDelete)),
-      onSelectionDragStart: map116(selectionDragHandlerIn)(fromUndefinable(p.onSelectionDragStart)),
-      onSelectionDrag: map116(selectionDragHandlerIn)(fromUndefinable(p.onSelectionDrag)),
-      onSelectionDragStop: map116(selectionDragHandlerIn)(fromUndefinable(p.onSelectionDragStop)),
-      onSelectionStart: map116(mouseEventHandlerIn)(fromUndefinable(p.onSelectionStart)),
-      onSelectionEnd: map116(mouseEventHandlerIn)(fromUndefinable(p.onSelectionEnd)),
-      onSelectionContextMenu: map116(selectionDragHandlerIn)(fromUndefinable(p.onSelectionContextMenu)),
-      onSelectionChange: map116(onSelectionChangeIn)(fromUndefinable(p.onSelectionChange)),
-      onConnect: map116(onConnectIn)(fromUndefinable(p.onConnect)),
-      onConnectStart: map116(onConnectStartIn)(fromUndefinable(p.onConnectStart)),
-      onConnectEnd: map116(onConnectEndIn)(fromUndefinable(p.onConnectEnd)),
-      onClickConnectStart: map116(onConnectStartIn)(fromUndefinable(p.onClickConnectStart)),
-      onClickConnectEnd: map116(onConnectEndIn)(fromUndefinable(p.onClickConnectEnd)),
-      onInit: map116(onInitIn)(fromUndefinable(p.onInit)),
-      onMove: map116(onMoveIn)(fromUndefinable(p.onMove)),
-      onMoveStart: map116(onMoveIn)(fromUndefinable(p.onMoveStart)),
-      onMoveEnd: map116(onMoveIn)(fromUndefinable(p.onMoveEnd)),
-      onScroll: map116(onScrollIn)(fromUndefinable(p.onScroll)),
-      onPaneScroll: map116(onPaneScrollIn)(fromUndefinable(p.onPaneScroll)),
-      onPaneClick: map116(mouseEventHandlerIn)(fromUndefinable(p.onPaneClick)),
-      onPaneContextMenu: map116(mouseEventHandlerIn)(fromUndefinable(p.onPaneContextMenu)),
-      onPaneMouseEnter: map116(mouseEventHandlerIn)(fromUndefinable(p.onPaneMouseEnter)),
-      onPaneMouseMove: map116(mouseEventHandlerIn)(fromUndefinable(p.onPaneMouseMove)),
-      onPaneMouseLeave: map116(mouseEventHandlerIn)(fromUndefinable(p.onPaneMouseLeave)),
+      nodes: map117(map60(nodeIn))(fromUndefinable(p.nodes)),
+      edges: map117(map60(edgeIn))(fromUndefinable(p.edges)),
+      defaultNodes: map117(map60(nodeIn))(fromUndefinable(p.defaultNodes)),
+      defaultEdges: map117(map60(edgeIn))(fromUndefinable(p.defaultEdges)),
+      defaultEdgeOptions: map117(defaultEdgeOptionsIn)(fromUndefinable(p.defaultEdgeOptions)),
+      onNodeClick: map117(nodeMouseHandlerIn)(fromUndefinable(p.onNodeClick)),
+      onNodeDoubleClick: map117(nodeMouseHandlerIn)(fromUndefinable(p.onNodeDoubleClick)),
+      onNodeMouseEnter: map117(nodeMouseHandlerIn)(fromUndefinable(p.onNodeMouseEnter)),
+      onNodeMouseMove: map117(nodeMouseHandlerIn)(fromUndefinable(p.onNodeMouseMove)),
+      onNodeMouseLeave: map117(nodeMouseHandlerIn)(fromUndefinable(p.onNodeMouseLeave)),
+      onNodeContextMenu: map117(nodeMouseHandlerIn)(fromUndefinable(p.onNodeContextMenu)),
+      onNodeDragStart: map117(onNodeDragIn)(fromUndefinable(p.onNodeDragStart)),
+      onNodeDrag: map117(onNodeDragIn)(fromUndefinable(p.onNodeDrag)),
+      onNodeDragStop: map117(onNodeDragIn)(fromUndefinable(p.onNodeDragStop)),
+      onEdgeClick: map117(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeClick)),
+      onEdgeContextMenu: map117(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeContextMenu)),
+      onEdgeMouseEnter: map117(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeMouseEnter)),
+      onEdgeMouseMove: map117(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeMouseMove)),
+      onEdgeMouseLeave: map117(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeMouseLeave)),
+      onEdgeDoubleClick: map117(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeDoubleClick)),
+      onReconnect: map117(onReconnectIn)(fromUndefinable(p.onReconnect)),
+      onReconnectStart: map117(onReconnectStartIn)(fromUndefinable(p.onReconnectStart)),
+      onReconnectEnd: map117(onReconnectEndIn)(fromUndefinable(p.onReconnectEnd)),
+      onNodesChange: map117(onNodesChangeIn)(fromUndefinable(p.onNodesChange)),
+      onEdgesChange: map117(onEdgesChangeIn)(fromUndefinable(p.onEdgesChange)),
+      onNodesDelete: map117(onNodesDeleteIn)(fromUndefinable(p.onNodesDelete)),
+      onEdgesDelete: map117(onEdgesDeleteIn)(fromUndefinable(p.onEdgesDelete)),
+      onDelete: map117(onDeleteIn)(fromUndefinable(p.onDelete)),
+      onSelectionDragStart: map117(selectionDragHandlerIn)(fromUndefinable(p.onSelectionDragStart)),
+      onSelectionDrag: map117(selectionDragHandlerIn)(fromUndefinable(p.onSelectionDrag)),
+      onSelectionDragStop: map117(selectionDragHandlerIn)(fromUndefinable(p.onSelectionDragStop)),
+      onSelectionStart: map117(mouseEventHandlerIn)(fromUndefinable(p.onSelectionStart)),
+      onSelectionEnd: map117(mouseEventHandlerIn)(fromUndefinable(p.onSelectionEnd)),
+      onSelectionContextMenu: map117(selectionDragHandlerIn)(fromUndefinable(p.onSelectionContextMenu)),
+      onSelectionChange: map117(onSelectionChangeIn)(fromUndefinable(p.onSelectionChange)),
+      onConnect: map117(onConnectIn)(fromUndefinable(p.onConnect)),
+      onConnectStart: map117(onConnectStartIn)(fromUndefinable(p.onConnectStart)),
+      onConnectEnd: map117(onConnectEndIn)(fromUndefinable(p.onConnectEnd)),
+      onClickConnectStart: map117(onConnectStartIn)(fromUndefinable(p.onClickConnectStart)),
+      onClickConnectEnd: map117(onConnectEndIn)(fromUndefinable(p.onClickConnectEnd)),
+      onInit: map117(onInitIn)(fromUndefinable(p.onInit)),
+      onMove: map117(onMoveIn)(fromUndefinable(p.onMove)),
+      onMoveStart: map117(onMoveIn)(fromUndefinable(p.onMoveStart)),
+      onMoveEnd: map117(onMoveIn)(fromUndefinable(p.onMoveEnd)),
+      onScroll: map117(onScrollIn)(fromUndefinable(p.onScroll)),
+      onPaneScroll: map117(onPaneScrollIn)(fromUndefinable(p.onPaneScroll)),
+      onPaneClick: map117(mouseEventHandlerIn)(fromUndefinable(p.onPaneClick)),
+      onPaneContextMenu: map117(mouseEventHandlerIn)(fromUndefinable(p.onPaneContextMenu)),
+      onPaneMouseEnter: map117(mouseEventHandlerIn)(fromUndefinable(p.onPaneMouseEnter)),
+      onPaneMouseMove: map117(mouseEventHandlerIn)(fromUndefinable(p.onPaneMouseMove)),
+      onPaneMouseLeave: map117(mouseEventHandlerIn)(fromUndefinable(p.onPaneMouseLeave)),
       paneClickDistance: fromUndefinable(p.paneClickDistance),
       nodeClickDistance: fromUndefinable(p.nodeClickDistance),
-      onBeforeDelete: map116(onBeforeDeleteIn)(fromUndefinable(p.onBeforeDelete)),
-      isValidConnection: map116(isValidConnectionIn)(fromUndefinable(p.isValidConnection)),
-      onError: map116(onErrorIn)(fromUndefinable(p.onError)),
-      nodeTypes: map116(nodeTypesIn)(fromUndefinable(p.nodeTypes)),
-      edgeTypes: map116(edgeTypesIn)(fromUndefinable(p.edgeTypes)),
-      connectionLineType: map116(connectionLineTypeIn("connectionLineType"))(fromUndefinable(p.connectionLineType)),
-      connectionLineStyle: map116(asCssStyle)(fromUndefinable(p.connectionLineStyle)),
-      connectionLineComponent: map116(connectionLineComponentIn)(fromUndefinable(p.connectionLineComponent)),
-      connectionLineContainerStyle: map116(asCssStyle)(fromUndefinable(p.connectionLineContainerStyle)),
-      connectionMode: map116(connectionModeIn("connectionMode"))(fromUndefinable(p.connectionMode)),
+      onBeforeDelete: map117(onBeforeDeleteIn)(fromUndefinable(p.onBeforeDelete)),
+      isValidConnection: map117(isValidConnectionIn)(fromUndefinable(p.isValidConnection)),
+      onError: map117(onErrorIn)(fromUndefinable(p.onError)),
+      nodeTypes: map117(nodeTypesIn)(fromUndefinable(p.nodeTypes)),
+      edgeTypes: map117(edgeTypesIn)(fromUndefinable(p.edgeTypes)),
+      connectionLineType: map117(connectionLineTypeIn("connectionLineType"))(fromUndefinable(p.connectionLineType)),
+      connectionLineStyle: map117(asCssStyle)(fromUndefinable(p.connectionLineStyle)),
+      connectionLineComponent: map117(connectionLineComponentIn)(fromUndefinable(p.connectionLineComponent)),
+      connectionLineContainerStyle: map117(asCssStyle)(fromUndefinable(p.connectionLineContainerStyle)),
+      connectionMode: map117(connectionModeIn("connectionMode"))(fromUndefinable(p.connectionMode)),
       deleteKeyCode: keyCodeIn("deleteKeyCode")(p.deleteKeyCode),
       selectionKeyCode: keyCodeIn("selectionKeyCode")(p.selectionKeyCode),
       selectionOnDrag: fromUndefinable(p.selectionOnDrag),
-      selectionMode: map116(selectionModeIn("selectionMode"))(fromUndefinable(p.selectionMode)),
+      selectionMode: map117(selectionModeIn("selectionMode"))(fromUndefinable(p.selectionMode)),
       panActivationKeyCode: keyCodeIn("panActivationKeyCode")(p.panActivationKeyCode),
       multiSelectionKeyCode: keyCodeIn("multiSelectionKeyCode")(p.multiSelectionKeyCode),
       zoomActivationKeyCode: keyCodeIn("zoomActivationKeyCode")(p.zoomActivationKeyCode),
       snapToGrid: fromUndefinable(p.snapToGrid),
-      snapGrid: map116(snapGridIn("snapGrid"))(fromUndefinable(p.snapGrid)),
+      snapGrid: map117(snapGridIn("snapGrid"))(fromUndefinable(p.snapGrid)),
       onlyRenderVisibleElements: fromUndefinable(p.onlyRenderVisibleElements),
       nodesDraggable: fromUndefinable(p.nodesDraggable),
       nodesConnectable: fromUndefinable(p.nodesConnectable),
       nodesFocusable: fromUndefinable(p.nodesFocusable),
       nodeDragThreshold: fromUndefinable(p.nodeDragThreshold),
-      nodeOrigin: map116(nodeOriginIn("nodeOrigin"))(fromUndefinable(p.nodeOrigin)),
-      nodeExtent: map116(coordinateExtentIn("nodeExtent"))(fromUndefinable(p.nodeExtent)),
+      nodeOrigin: map117(nodeOriginIn("nodeOrigin"))(fromUndefinable(p.nodeOrigin)),
+      nodeExtent: map117(coordinateExtentIn("nodeExtent"))(fromUndefinable(p.nodeExtent)),
       autoPanOnNodeFocus: fromUndefinable(p.autoPanOnNodeFocus),
       autoPanOnNodeDrag: fromUndefinable(p.autoPanOnNodeDrag),
       noDragClassName: fromUndefinable(p.noDragClassName),
@@ -62927,39 +62936,39 @@ var convertProps = function(p) {
       selectNodesOnDrag: fromUndefinable(p.selectNodesOnDrag),
       elevateNodesOnSelect: fromUndefinable(p.elevateNodesOnSelect),
       elevateEdgesOnSelect: fromUndefinable(p.elevateEdgesOnSelect),
-      panOnDrag: map116(panOnDragIn)(fromUndefinable(p.panOnDrag)),
+      panOnDrag: map117(panOnDragIn)(fromUndefinable(p.panOnDrag)),
       minZoom: fromUndefinable(p.minZoom),
       maxZoom: fromUndefinable(p.maxZoom),
-      translateExtent: map116(coordinateExtentIn("translateExtent"))(fromUndefinable(p.translateExtent)),
+      translateExtent: map117(coordinateExtentIn("translateExtent"))(fromUndefinable(p.translateExtent)),
       zoomOnScroll: fromUndefinable(p.zoomOnScroll),
       zoomOnPinch: fromUndefinable(p.zoomOnPinch),
       zoomOnDoubleClick: fromUndefinable(p.zoomOnDoubleClick),
       panOnScroll: fromUndefinable(p.panOnScroll),
       panOnScrollSpeed: fromUndefinable(p.panOnScrollSpeed),
-      panOnScrollMode: map116(panOnScrollModeIn("panOnScrollMode"))(fromUndefinable(p.panOnScrollMode)),
+      panOnScrollMode: map117(panOnScrollModeIn("panOnScrollMode"))(fromUndefinable(p.panOnScrollMode)),
       preventScrolling: fromUndefinable(p.preventScrolling),
-      viewport: map116(viewportIn)(fromUndefinable(p.viewport)),
-      defaultViewport: map116(viewportIn)(fromUndefinable(p.defaultViewport)),
-      onViewportChange: map116(onViewportChangeIn)(fromUndefinable(p.onViewportChange)),
+      viewport: map117(viewportIn)(fromUndefinable(p.viewport)),
+      defaultViewport: map117(viewportIn)(fromUndefinable(p.defaultViewport)),
+      onViewportChange: map117(onViewportChangeIn)(fromUndefinable(p.onViewportChange)),
       fitView: fromUndefinable(p.fitView),
-      fitViewOptions: map116(fitViewOptionsIn)(fromUndefinable(p.fitViewOptions)),
+      fitViewOptions: map117(fitViewOptionsIn)(fromUndefinable(p.fitViewOptions)),
       defaultMarkerColor: fromUndefinable(p.defaultMarkerColor),
       width: fromUndefinable(p.width),
       height: fromUndefinable(p.height),
-      colorMode: map116(colorModeIn("colorMode"))(fromUndefinable(p.colorMode)),
-      attributionPosition: map116(panelPositionIn("attributionPosition"))(fromUndefinable(p.attributionPosition)),
-      proOptions: map116(proOptionsIn)(fromUndefinable(p.proOptions)),
+      colorMode: map117(colorModeIn("colorMode"))(fromUndefinable(p.colorMode)),
+      attributionPosition: map117(panelPositionIn("attributionPosition"))(fromUndefinable(p.attributionPosition)),
+      proOptions: map117(proOptionsIn)(fromUndefinable(p.proOptions)),
       noWheelClassName: fromUndefinable(p.noWheelClassName),
       noPanClassName: fromUndefinable(p.noPanClassName),
       disableKeyboardA11y: fromUndefinable(p.disableKeyboardA11y),
-      ariaLabelConfig: map116(ariaLabelConfigIn)(fromUndefinable(p.ariaLabelConfig)),
+      ariaLabelConfig: map117(ariaLabelConfigIn)(fromUndefinable(p.ariaLabelConfig)),
       autoPanOnConnect: fromUndefinable(p.autoPanOnConnect),
       autoPanSpeed: fromUndefinable(p.autoPanSpeed),
       autoPanOnSelection: fromUndefinable(p.autoPanOnSelection),
       connectOnClick: fromUndefinable(p.connectOnClick),
       connectionRadius: fromUndefinable(p.connectionRadius),
       debug: fromUndefinable(p.debug),
-      zIndexMode: map116(zIndexModeIn("zIndexMode"))(fromUndefinable(p.zIndexMode)),
+      zIndexMode: map117(zIndexModeIn("zIndexMode"))(fromUndefinable(p.zIndexMode)),
       innerRef: orNullable(p.ref)(forwarded)
     };
   };
@@ -63002,7 +63011,7 @@ var bind54 = /* @__PURE__ */ bind4(ixBindRender);
 var alt8 = /* @__PURE__ */ alt(altMaybe);
 var useStore27 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqArray(eqRec9));
 var lookup25 = /* @__PURE__ */ lookup2(ordString);
-var fromFoldable19 = /* @__PURE__ */ fromFoldable(foldableList);
+var fromFoldable17 = /* @__PURE__ */ fromFoldable(foldableList);
 var discard24 = /* @__PURE__ */ discard2(ixBindRender);
 var useEffect17 = /* @__PURE__ */ useEffect(eqUnsafeReference);
 var when23 = /* @__PURE__ */ when(applicativeEffect);
@@ -63062,7 +63071,7 @@ var useHandleConnections = function(params) {
       }
       ;
       if (v instanceof Just) {
-        return fromFoldable19(values(v.value0));
+        return fromFoldable17(values(v.value0));
       }
       ;
       throw new Error("Failed pattern match at React.Hook.HandleConnections (line 95, column 5 - line 97, column 58): " + [v.constructor.name]);
@@ -63174,7 +63183,7 @@ var bind56 = /* @__PURE__ */ bind4(ixBindRender);
 var alt9 = /* @__PURE__ */ alt(altMaybe);
 var useStore28 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqArray(eqRec10));
 var lookup26 = /* @__PURE__ */ lookup2(ordString);
-var fromFoldable20 = /* @__PURE__ */ fromFoldable(foldableList);
+var fromFoldable18 = /* @__PURE__ */ fromFoldable(foldableList);
 var discard25 = /* @__PURE__ */ discard2(ixBindRender);
 var useEffect19 = /* @__PURE__ */ useEffect(eqUnsafeReference);
 var when24 = /* @__PURE__ */ when(applicativeEffect);
@@ -63244,7 +63253,7 @@ var useNodeConnections = function(params) {
       }
       ;
       if (v instanceof Just) {
-        return fromFoldable20(values(v.value0));
+        return fromFoldable18(values(v.value0));
       }
       ;
       throw new Error("Failed pattern match at React.Hook.NodeConnections (line 91, column 5 - line 93, column 58): " + [v.constructor.name]);
@@ -63317,7 +63326,7 @@ var xIsSymbol2 = {
 };
 var foldl10 = /* @__PURE__ */ foldl(foldableList);
 var useStore29 = /* @__PURE__ */ useStore(eqBoolean);
-var nub3 = /* @__PURE__ */ nub(ordNodeId);
+var nub4 = /* @__PURE__ */ nub(ordNodeId);
 var lookup27 = /* @__PURE__ */ lookup2(ordNodeId);
 var append22 = /* @__PURE__ */ append(semigroupArray);
 var eqMaybe7 = /* @__PURE__ */ eqMaybe(eqInt);
@@ -63598,7 +63607,7 @@ var useNodesInitialized = function(opts) {
 var useNodesData = function(dictEq) {
   var useStore111 = useStore(eqArray(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons52(dictEq))()(connectableIsSymbol)(eqMaybe42))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe52))));
   return function(ids) {
-    var uniqueIds = nub3(ids);
+    var uniqueIds = nub4(ids);
     var selectNodesData = function(s) {
       return foldl2(function(acc) {
         return function(i) {
@@ -63661,7 +63670,7 @@ var querySelectorNodeImpl = (host3) => (id3) => () => {
 
 // output/React.Hook.UpdateNodeInternals/index.js
 var map62 = /* @__PURE__ */ map(functorEffect);
-var insert16 = /* @__PURE__ */ insert4(ordNodeId);
+var insert14 = /* @__PURE__ */ insert4(ordNodeId);
 var traverse2 = /* @__PURE__ */ traverse(traversableArray)(applicativeEffect);
 var foldl11 = /* @__PURE__ */ foldl(foldableArray);
 var bind120 = /* @__PURE__ */ bind4(ixBindRender);
@@ -63711,7 +63720,7 @@ var mkFn = function(store) {
         }
         ;
         if (v.value1 instanceof Just) {
-          return insert16(v.value0)(mkUpdate(v.value0)(v.value1.value0))(acc);
+          return insert14(v.value0)(mkUpdate(v.value0)(v.value1.value0))(acc);
         }
         ;
         throw new Error("Failed pattern match at React.Hook.UpdateNodeInternals (line 87, column 41 - line 89, column 67): " + [v.value1.constructor.name]);
@@ -63748,7 +63757,7 @@ var useUpdateNodeInternals = /* @__PURE__ */ coerceHook()(/* @__PURE__ */ bind12
 var map63 = /* @__PURE__ */ map(functorEffect);
 var unwrap21 = /* @__PURE__ */ unwrap();
 var useConnectionWith2 = /* @__PURE__ */ useConnectionWith(eqUnsafeReference);
-var map117 = /* @__PURE__ */ map(functorArray);
+var map118 = /* @__PURE__ */ map(functorArray);
 var map210 = /* @__PURE__ */ map(functorMaybe);
 var useInternalNode1 = /* @__PURE__ */ useInternalNode(eqUnsafeReference);
 var wrap7 = /* @__PURE__ */ wrap();
@@ -63800,7 +63809,7 @@ var useConnection = /* @__PURE__ */ function() {
   };
 }();
 var useEdges2 = /* @__PURE__ */ map63(/* @__PURE__ */ function() {
-  var $38 = map117(edgeOut);
+  var $38 = map118(edgeOut);
   return function($39) {
     return $38(transparent($39));
   };
@@ -63822,7 +63831,7 @@ var useKeyPress2 = function(keyCode, options2) {
 };
 var useNodeId2 = /* @__PURE__ */ map63(toNullable)(/* @__PURE__ */ runHook(useNodeId));
 var useNodes2 = /* @__PURE__ */ map63(/* @__PURE__ */ function() {
-  var $42 = map117(nodeOut);
+  var $42 = map118(nodeOut);
   return function($43) {
     return $42(transparent($43));
   };
@@ -63858,16 +63867,16 @@ var readNodeId = function(field) {
 var useUpdateNodeInternals2 = function __do2() {
   var update2 = runHook(useUpdateNodeInternals)();
   return function(ids) {
-    return update2(map117(readNodeId("useUpdateNodeInternals"))(oneOrMany(ids)))();
+    return update2(map118(readNodeId("useUpdateNodeInternals"))(oneOrMany(ids)))();
   };
 };
 var nodesTripleOut = function(bundle) {
-  return mkTriple(map117(nodeOut)(bundle.nodes), setStateOut("setNodes")(nodeIn)(nodeOut)(bundle.setNodes), function(changes) {
-    return bundle.onNodesChange(map117(nodeChangeIn)(changes))();
+  return mkTriple(map118(nodeOut)(bundle.nodes), setStateOut("setNodes")(nodeIn)(nodeOut)(bundle.setNodes), function(changes) {
+    return bundle.onNodesChange(map118(nodeChangeIn)(changes))();
   });
 };
 var useNodesState2 = function(initialNodes2) {
-  return map63(nodesTripleOut)(runHook(useNodesState(map117(nodeIn)(initialNodes2))))();
+  return map63(nodesTripleOut)(runHook(useNodesState(map118(nodeIn)(initialNodes2))))();
 };
 var nodeDataOut = function(n) {
   return {
@@ -63886,13 +63895,13 @@ var useNodesData2 = /* @__PURE__ */ function() {
   };
   return function(ids) {
     var requested = oneOrMany(ids);
-    var found = map63(transparent)(runHook(useNodesData1(map117(function() {
+    var found = map63(transparent)(runHook(useNodesData1(map118(function() {
       var $44 = readNodeId("useNodesData");
       return function($45) {
         return wrap7($44($45));
       };
     }())(requested))))();
-    var picks = map117(nodeDataOut)(found);
+    var picks = map118(nodeDataOut)(found);
     var $35 = isJust(asArray(ids));
     if ($35) {
       return unsafeToForeign(picks);
@@ -63904,7 +63913,7 @@ var useNodesData2 = /* @__PURE__ */ function() {
 var nodeConnectionsHandler = function(f) {
   return function(connections) {
     return function() {
-      return f(map117(handleConnectionOut)(connections));
+      return f(map118(handleConnectionOut)(connections));
     };
   };
 };
@@ -63916,7 +63925,7 @@ var member8 = function(bag) {
   };
 };
 var useNodeConnections2 = function(params) {
-  return map63(map117(handleConnectionOut))(runHook(useNodeConnections({
+  return map63(map118(handleConnectionOut))(runHook(useNodeConnections({
     nodeId: member8(params)(function(v) {
       return v.id;
     }),
@@ -63943,35 +63952,35 @@ var useNodesInitialized2 = function(options2) {
 };
 var experimental_useOnNodesChangeMiddleware = function(middleware) {
   return runHook(useOnNodesChangeMiddleware(function(changes) {
-    return map117(nodeChangeIn)(unsafePerformEffect(function() {
-      return middleware(map117(nodeChangeOut)(changes));
+    return map118(nodeChangeIn)(unsafePerformEffect(function() {
+      return middleware(map118(nodeChangeOut)(changes));
     }));
   }))();
 };
 var experimental_useOnEdgesChangeMiddleware = function(middleware) {
   return runHook(useOnEdgesChangeMiddleware(function(changes) {
-    return map117(edgeChangeIn)(unsafePerformEffect(function() {
-      return middleware(map117(edgeChangeOut)(changes));
+    return map118(edgeChangeIn)(unsafePerformEffect(function() {
+      return middleware(map118(edgeChangeOut)(changes));
     }));
   }))();
 };
 var edgesTripleOut = function(bundle) {
-  return mkTriple(map117(edgeOut)(bundle.edges), setStateOut("setEdges")(edgeIn)(edgeOut)(bundle.setEdges), function(changes) {
-    return bundle.onEdgesChange(map117(edgeChangeIn)(changes))();
+  return mkTriple(map118(edgeOut)(bundle.edges), setStateOut("setEdges")(edgeIn)(edgeOut)(bundle.setEdges), function(changes) {
+    return bundle.onEdgesChange(map118(edgeChangeIn)(changes))();
   });
 };
 var useEdgesState2 = function(initialEdges2) {
-  return map63(edgesTripleOut)(runHook(useEdgesState(map117(edgeIn)(initialEdges2))))();
+  return map63(edgesTripleOut)(runHook(useEdgesState(map118(edgeIn)(initialEdges2))))();
 };
 var connectionsHandler = function(f) {
   return function(connections) {
     return function() {
-      return f(map117(connectionOut)(connections));
+      return f(map118(connectionOut)(connections));
     };
   };
 };
 var useHandleConnections2 = function(params) {
-  return map63(map117(handleConnectionOut))(runHook(useHandleConnections({
+  return map63(map118(handleConnectionOut))(runHook(useHandleConnections({
     handleType: handleTypeIn("useHandleConnections.type")(params.type),
     id: fromUndefinable(params.id),
     nodeId: fromUndefinable(params.nodeId),
@@ -64014,11 +64023,11 @@ var nodeToolbarPortal = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reac
 
 // output/React.Additional.NodeToolbar/index.js
 var lookup28 = /* @__PURE__ */ lookup2(ordNodeId);
-var insert17 = /* @__PURE__ */ insert4(ordNodeId);
+var insert15 = /* @__PURE__ */ insert4(ordNodeId);
 var map64 = /* @__PURE__ */ map(functorArray);
 var eq28 = /* @__PURE__ */ eq(eqUnsafeReference);
 var bind59 = /* @__PURE__ */ bind4(ixBindRender);
-var fromFoldable21 = /* @__PURE__ */ fromFoldable(foldableList);
+var fromFoldable19 = /* @__PURE__ */ fromFoldable(foldableList);
 var pure80 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty20 = /* @__PURE__ */ mempty(monoidJSX);
 var max14 = /* @__PURE__ */ max(ordNumber);
@@ -64035,7 +64044,7 @@ var lookupNodes = function(ids) {
         }
         ;
         if (v instanceof Just) {
-          return insert17(v.value0.id)(v.value0)(acc);
+          return insert15(v.value0.id)(v.value0)(acc);
         }
         ;
         throw new Error("Failed pattern match at React.Additional.NodeToolbar (line 80, column 19 - line 82, column 40): " + [v.constructor.name]);
@@ -64093,7 +64102,7 @@ var nodeToolbar = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompo
   return bind59(useNodeId)(function(ctxId) {
     var ids = idsFromProp(v.nodeId)(ctxId);
     return bind59(useStore32(selectorFor(ids)))(function(v1) {
-      var nodesArr = fromFoldable21(values(v1.nodes));
+      var nodesArr = fromFoldable19(values(v1.nodes));
       var isActive = function() {
         if (v.isVisible instanceof Just) {
           return v.isVisible.value0;
@@ -64161,7 +64170,7 @@ var nodeToolbar = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompo
 
 // output/Boundary.NodeChrome/index.js
 var map65 = /* @__PURE__ */ map(functorArray);
-var map118 = /* @__PURE__ */ map(functorMaybe);
+var map119 = /* @__PURE__ */ map(functorMaybe);
 var pure81 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var nodeIdIn = function(raw) {
   var readId = function(entry) {
@@ -64198,12 +64207,12 @@ var nodeIdIn = function(raw) {
 };
 var convertNodeToolbar = function(p) {
   return {
-    nodeId: map118(nodeIdIn)(fromUndefinable(p.nodeId)),
+    nodeId: map119(nodeIdIn)(fromUndefinable(p.nodeId)),
     isVisible: fromUndefinable(p.isVisible),
-    position: map118(positionIn("NodeToolbar.position"))(fromUndefinable(p.position)),
+    position: map119(positionIn("NodeToolbar.position"))(fromUndefinable(p.position)),
     offset: fromUndefinable(p.offset),
-    align: map118(alignIn("NodeToolbar.align"))(fromUndefinable(p.align)),
-    style: map118(asCssObject)(fromUndefinable(p.style)),
+    align: map119(alignIn("NodeToolbar.align"))(fromUndefinable(p.align)),
+    style: map119(asCssObject)(fromUndefinable(p.style)),
     className: fromUndefinable(p.className),
     children: p.children
   };
@@ -64220,10 +64229,10 @@ var convertHandle = function(p) {
       isConnectable: fromUndefinable(p.isConnectable),
       isConnectableStart: fromUndefinable(p.isConnectableStart),
       isConnectableEnd: fromUndefinable(p.isConnectableEnd),
-      onConnect: map118(onConnectIn)(fromUndefinable(p.onConnect)),
-      isValidConnection: map118(isValidConnectionIn)(fromUndefinable(p.isValidConnection)),
+      onConnect: map119(onConnectIn)(fromUndefinable(p.onConnect)),
+      isValidConnection: map119(isValidConnectionIn)(fromUndefinable(p.isValidConnection)),
       className: fromUndefinable(p.className),
-      style: map118(asCssStyle)(fromUndefinable(p.style)),
+      style: map119(asCssStyle)(fromUndefinable(p.style)),
       innerRef: orNullable(p.ref)(forwarded)
     };
   };

@@ -33,6 +33,7 @@ module Test.System.XYDrag
 
 import Prelude
 
+import Data.Array as Array
 import Data.Either (Either(..))
 import Data.Foldable (for_)
 import Data.Map as Map
@@ -157,7 +158,9 @@ dragUnderWay = dragUnderWayIn lookup
 dragUnderWayIn :: NodeLookup Unit -> XYPosition -> DragState
 dragUnderWayIn nodeLookup mouse = initialDragState
   { lastPos = { x: Just grab.x, y: Just grab.y }
-  , dragItems = getDragItems nodeLookup true grab (Just nodeId)
+  , dragItems =
+      getDragItems (Array.fromFoldable (Map.keys nodeLookup)) nodeLookup true grab
+        (Just nodeId)
   , autoPanStarted = true
   , mousePosition = mouse
   , containerBounds = Just { left: 0.0, top: 0.0, width: 800.0, height: 600.0 }
@@ -175,7 +178,7 @@ nearLeftEdge = { x: 10.0, y: 300.0 }
 
 type Recorded =
   { pans :: Ref Int
-  , moved :: Ref (Maybe (Map.Map NodeId NodeDragItem))
+  , moved :: Ref (Maybe (Array NodeDragItem))
   , nodeDrags :: Ref (Array NodeId)
   , selectionDrags :: Ref Int
   }
@@ -226,7 +229,7 @@ record = do
 movedTo :: Recorded -> Effect (Maybe XYPosition)
 movedTo rec = do
   m <- Ref.read rec.moved
-  pure (m >>= Map.lookup nodeId <#> _.position)
+  pure (m >>= Array.find (\i -> i.id == nodeId) <#> _.position)
 
 -- | Run one frame against a fresh frame clock, then hand the clock, the state
 -- | and the recording to `check`.

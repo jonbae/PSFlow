@@ -38,9 +38,9 @@ import Control.Lazy (defer)
 import Control.Monad.Except (runExcept)
 import Control.Monad.State (StateT, get, modify_, runStateT)
 import Data.Either (Either(..))
-import Data.Foldable (foldM, for_, traverse_)
-import Data.Map (Map)
-import Data.Map (empty, insert, lookup, size, toUnfoldable) as Map
+import Data.Foldable (for_, traverse_)
+import Data.Array (any, length) as Array
+import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe, isNothing)
 import Data.Number (sqrt)
 import Data.Tuple (Tuple(..))
@@ -106,7 +106,7 @@ import System.XYDrag.Utils
 -- | TS `(event, dragItems, node, nodes) => void`.
 type OnDrag nodeData =
   MouseEvent
-  -> Map NodeId NodeDragItem
+  -> Array NodeDragItem
   -> NodeBase nodeData
   -> Array (NodeBase nodeData)
   -> Effect Unit
@@ -128,7 +128,7 @@ type OnSelectionDrag nodeData =
 type PanBy = XYPosition -> Aff Boolean
 
 -- | TS `(items, dragging) => void`.
-type UpdateNodePositions = Map NodeId NodeDragItem -> Boolean -> Effect Unit
+type UpdateNodePositions = Array NodeDragItem -> Boolean -> Effect Unit
 
 -- | Per-node-element configuration applied via `XYDragInstance.update`.
 type DragUpdateParams =
@@ -197,7 +197,7 @@ type XYDragInstance =
 type DragState =
   { lastPos :: { x :: Maybe Number, y :: Maybe Number }
   , autoPanId :: Maybe RafHandle
-  , dragItems :: Map NodeId NodeDragItem
+  , dragItems :: Array NodeDragItem
   , autoPanStarted :: Boolean
   , mousePosition :: XYPosition
   , containerBounds :: Maybe DOMRect
@@ -212,7 +212,7 @@ initialDragState :: DragState
 initialDragState =
   { lastPos: { x: Nothing, y: Nothing }
   , autoPanId: Nothing
-  , dragItems: Map.empty
+  , dragItems: []
   , autoPanStarted: false
   , mousePosition: { x: 0.0, y: 0.0 }
   , containerBounds: Nothing
@@ -373,7 +373,7 @@ onDragHandler params stateRef upd ev = do
 
     s2 <- get
     let moved = s2.lastPos.x /= Just pp.xSnapped || s2.lastPos.y /= Just pp.ySnapped
-    when (moved && Map.size s2.dragItems > 0 && s2.dragStarted) do
+    when (moved && Array.length s2.dragItems > 0 && s2.dragStarted) do
       mp <- liftEffect $ getEventPosition (foreignAsTouchOrMouse src) s2.containerBounds
       modify_ _ { mousePosition = mp }
       updateNodes params upd.nodeId { x: pp.x, y: pp.y }
@@ -394,7 +394,7 @@ onEnd params upd ev = do
       , dragStarted = false
       , autoPanId = Nothing
       }
-    when (Map.size s0.dragItems > 0) do
+    when (Array.length s0.dragItems > 0) do
       store <- liftEffect params.getStoreItems
       when s0.nodePositionsChanged do
         liftEffect (store.updateNodePositions s0.dragItems false)
@@ -479,14 +479,16 @@ startDrag params upd ev = do
     }
 
   let
-    items = getDragItems store.nodeLookup store.nodesDraggable
-      { x: pp.x, y: pp.y } upd.nodeId
+    items = getDragItems (map _.id store.nodes) store.nodeLookup
+      store.nodesDraggable
+      { x: pp.x, y: pp.y }
+      upd.nodeId
   modify_ _
     { lastPos = { x: Just pp.x, y: Just pp.y }
     , dragItems = items
     }
 
-  when (Map.size items > 0) do
+  when (Array.length items > 0) do
     let
       eventArgs = getEventHandlerParams upd.nodeId items store.nodeLookup true
       mouseEv = foreignAsMouseEvent src
@@ -600,21 +602,18 @@ updateNodes params mNodeId pos = do
   s <- get
   let
     items = s.dragItems
-    isMultiDrag = Map.size items > 1
+    isMultiDrag = Array.length items > 1
     multiSnap =
       if isMultiDrag && store.snapToGrid then
         calculateSnapOffset items store.snapGrid pos.x pos.y
       else Nothing
 
-    entries :: Array (Tuple NodeId NodeDragItem)
-    entries = Map.toUnfoldable items
-
-    -- One iteration: compute next position via `calculateNodePosition` and
-    -- thread a Boolean accumulator that records whether anything moved.
-    step :: Boolean -> Tuple NodeId NodeDragItem -> StateT DragState Effect Boolean
-    step acc (Tuple id dragItem) = case Map.lookup id store.nodeLookup of
-      Nothing -> pure acc
-      Just _ -> do
+    -- One iteration: compute the next position with `calculateNodePosition`,
+    -- and record whether the node moved.
+    step :: NodeDragItem -> { item :: NodeDragItem, moved :: Boolean }
+    step dragItem = case Map.lookup dragItem.id store.nodeLookup of
+      Nothing -> { item: dragItem, moved: false }
+      Just _ ->
         let
           stepNext = case multiSnap of
             Just off ->
@@ -632,38 +631,36 @@ updateNodes params mNodeId pos = do
                 { x: pos.x - dragItem.distance.x
                 , y: pos.y - dragItem.distance.y
                 }
-        case calculateNodePosition
-          { nodeId: id
-          , nextPosition: stepNext
-          , nodeLookup: store.nodeLookup
-          , nodeOrigin: store.nodeOrigin
-          , nodeExtent: Just store.nodeExtent
-          } of
-          Nothing -> pure acc
-          Just r -> do
-            -- Persist the computed coordinates back into the drag item (TS mutates
-            -- `dragItem.position` / `dragItem.internals.positionAbsolute`); the
-            -- live store dispatch below and the drag-end commit read from
+        in
+          case
+            calculateNodePosition
+              { nodeId: dragItem.id
+              , nextPosition: stepNext
+              , nodeLookup: store.nodeLookup
+              , nodeOrigin: store.nodeOrigin
+              , nodeExtent: Just store.nodeExtent
+              }
+            of
+            Nothing -> { item: dragItem, moved: false }
+            -- Persist the computed coordinates back into the drag item (TS
+            -- mutates `dragItem.position` / `dragItem.internals.positionAbsolute`);
+            -- the live store dispatch below and the drag-end commit read from
             -- `dragItems`, so without this the node never actually moves.
-            modify_ \st ->
-              st
-                { dragItems =
-                    Map.insert id
-                      ( dragItem
-                          { position = r.position
-                          , internals = dragItem.internals
-                              { positionAbsolute = r.positionAbsolute }
-                          }
-                      )
-                      st.dragItems
-                }
-            pure
-              ( acc
-                  || (r.position.x /= dragItem.position.x)
-                  || (r.position.y /= dragItem.position.y)
-              )
+            Just r ->
+              { item: dragItem
+                  { position = r.position
+                  , internals = dragItem.internals
+                      { positionAbsolute = r.positionAbsolute }
+                  }
+              , moved:
+                  (r.position.x /= dragItem.position.x)
+                    || (r.position.y /= dragItem.position.y)
+              }
 
-  hasChange <- foldM step false entries
+    stepped = map step items
+    hasChange = Array.any _.moved stepped
+
+  modify_ _ { dragItems = map _.item stepped }
 
   when hasChange do
     modify_ _ { nodePositionsChanged = true }

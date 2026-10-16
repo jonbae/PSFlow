@@ -48,9 +48,9 @@ module React.Component.NodeWrapper
 
 import Prelude
 
-import Data.Array (elem, fromFoldable, null) as Array
+import Data.Array (elem, null) as Array
 import Data.Foldable (for_)
-import Data.Map (lookup, singleton, values) as Map
+import Data.Map (lookup, singleton) as Map
 import Data.Maybe (Maybe(..), fromMaybe, isJust)
 import Data.Newtype (unwrap)
 import Data.Nullable (Nullable, toNullable)
@@ -235,10 +235,7 @@ mkDragStoreItems store = do
     , onSelectionDragStop: s.onSelectionDragStop
     , updateNodePositions: \items dragging ->
         store.dispatch
-          ( UpdateNodePositions
-              (Array.fromFoldable (Map.values items))
-              dragging
-          )
+(UpdateNodePositions items dragging)
     , autoPanSpeed: Just s.autoPanSpeed
     }
 
