@@ -816,13 +816,17 @@ processUpdate update acc zoom origin extent zMode =
               Nothing ->
                 { nodeLookup: nodeLookup1, parentLookup: acc.parentLookup }
 
+            -- TS pushes `{ id, type: 'dimensions', dimensions }`, with no
+            -- `setAttributes`: a measurement sets the node's `measured` and
+            -- leaves its own `width` and `height` as the consumer gave them.
+            -- Only `handleExpandParent`'s change for a parent sets them.
             extraChanges =
               if dimensionChanged then
                 [ NodeDimensionChange
                     { id: node.id
                     , dimensions: Just dims
                     , resizing: false
-                    , setAttributes: Just { width: true, height: true }
+                    , setAttributes: Nothing
                     }
                 ]
               else []
