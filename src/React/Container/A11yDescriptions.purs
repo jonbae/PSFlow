@@ -90,9 +90,13 @@ a11yDescriptions =
       descs <- useStore selectDescriptions
       ariaLiveMessage <- useStore selectAriaLiveMessage
       let
+        -- Upstream's key names read backwards against their strings, and
+        -- this picks them backwards as upstream does: `keyboardDisabled`
+        -- holds the arrow-key sentence, shown while the keyboard is on. A
+        -- consumer's override of each key lands where upstream shows it.
         nodeDescText =
-          if props.disableKeyboardA11y then descs.nodeKeyboardDisabled
-          else descs.nodeDefault
+          if props.disableKeyboardA11y then descs.nodeDefault
+          else descs.nodeKeyboardDisabled
         nodeDescId = ariaNodeDescKey <> "-" <> props.rfId
         edgeDescId = ariaEdgeDescKey <> "-" <> props.rfId
         ariaLiveId = ariaLiveMessageKey <> "-" <> props.rfId
