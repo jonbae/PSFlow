@@ -29,6 +29,7 @@ module Boundary.Undefined
   , fromUndefinable
   , isDefined
   , isNull
+  , nullUndefinable
   , mapUndefinable
   , orNullable
   , requiredProp
@@ -71,6 +72,11 @@ mapUndefinable f = toUndefinable <<< map f <<< fromUndefinable
 -- | `KeyCode | null` and `null` means *disable the key* while absence means
 -- | *use the default*. Three states, and `Maybe KeyCode` holds two.
 foreign import isNull :: forall a. Undefinable a -> Boolean
+
+-- | `null`, typed as the field it goes out on. An edge's `ariaLabel` needs
+-- | it: upstream types the field `string`, reads a `null` as "no label", and
+-- | hands a consumer's `null` back as they wrote it.
+foreign import nullUndefinable :: forall a. Undefinable a
 
 -- | The one place the two absent values are both in play at once, which is
 -- | `ref`. React 18 strips `ref` out of the props object and hands it to a

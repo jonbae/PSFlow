@@ -75,6 +75,8 @@ module Boundary.Elements
   , connectionOut
   , edgeIn
   , edgeOut
+  , edgeAriaLabelIn
+  , edgeAriaLabelOut
   , edgeChangeIn
   , edgeChangeOut
   , graphSelectionOut
@@ -105,7 +107,7 @@ import Boundary.Enums
   , positionIn
   , positionOut
   )
-import Boundary.Undefined (Undefinable, fromUndefinable, isNull, toUndefinable, undefined)
+import Boundary.Undefined (Undefinable, defined, fromUndefinable, isNull, nullUndefinable, toUndefinable, undefined)
 import Boundary.Untagged (asArray, asBoolean, asString, typeName)
 import Boundary.Wrapper (mkComponentWrapper)
 import Data.Array (length) as Array
@@ -123,7 +125,7 @@ import React.Basic (ReactComponent, element)
 import React.Types.Edges (Style)
 import React.Types.Nodes (NodeProps, NodeTypesMap)
 import System.Types.Connection (Connection, KeyCode(..), Viewport)
-import System.Types.Edge (EdgeBase, EdgeChange(..), EdgeMarker, EdgeMarkerType(..))
+import System.Types.Edge (EdgeAriaLabel(..), EdgeBase, EdgeChange(..), EdgeMarker, EdgeMarkerType(..))
 import System.Types.Geometry (CoordinateExtent, NodeOrigin, SnapGrid)
 import System.Types.Handle (Handle, unSourceHandle, unTargetHandle)
 import System.Types.Node
@@ -734,7 +736,7 @@ edgeIn e =
   , markerEnd: map (markerIn "edge.markerEnd") (fromUndefinable e.markerEnd)
   , zIndex: map Int.round (fromUndefinable e.zIndex)
   , label: fromUndefinable e.label
-  , ariaLabel: fromUndefinable e.ariaLabel
+  , ariaLabel: edgeAriaLabelIn e.ariaLabel
   , interactionWidth: fromUndefinable e.interactionWidth
   , className: fromUndefinable e.className
   , style: map asCssObject (fromUndefinable e.style)
@@ -763,11 +765,27 @@ edgeOut e =
   , markerEnd: toUndefinable (map markerOut e.markerEnd)
   , zIndex: toUndefinable (map Int.toNumber e.zIndex)
   , label: toUndefinable e.label
-  , ariaLabel: toUndefinable e.ariaLabel
+  , ariaLabel: edgeAriaLabelOut e.ariaLabel
   , interactionWidth: toUndefinable e.interactionWidth
   , className: toUndefinable e.className
   , style: toUndefinable (map fromCssObject e.style)
   }
+
+-- | An edge's `ariaLabel`, where `null` turns the label off and absence
+-- | gives the default one, so the two can't fold together as they do on
+-- | every other field. See `EdgeAriaLabel`.
+edgeAriaLabelIn :: Undefinable String -> Maybe EdgeAriaLabel
+edgeAriaLabelIn u
+  | isNull u = Just AriaLabelOff
+  | otherwise = map AriaLabel (fromUndefinable u)
+
+-- | Hands a consumer's `null` back as `null`, as upstream hands back their
+-- | own object.
+edgeAriaLabelOut :: Maybe EdgeAriaLabel -> Undefinable String
+edgeAriaLabelOut = case _ of
+  Nothing -> undefined
+  Just AriaLabelOff -> nullUndefinable
+  Just (AriaLabel s) -> defined s
 
 -- | `string | EdgeMarker`: the string names a built-in marker, the object
 -- | configures one.
