@@ -326,114 +326,33 @@
         "args": [
           [
             {
-              "position": {
-                "@undefined": true
-              },
-              "positionAbsolute": {
-                "@undefined": true
-              },
-              "dragging": {
-                "@undefined": true
-              },
-              "selected": {
-                "@undefined": true
-              },
-              "item": {
-                "@undefined": true
-              },
-              "index": {
-                "@undefined": true
-              },
               "type": "dimensions",
               "id": "child",
               "dimensions": {
                 "width": 150,
                 "height": 37
               },
-              "resizing": false,
-              "setAttributes": {
-                "@undefined": true
-              }
+              "resizing": false
             },
             {
-              "position": {
-                "@undefined": true
-              },
-              "positionAbsolute": {
-                "@undefined": true
-              },
-              "dragging": {
-                "@undefined": true
-              },
-              "selected": {
-                "@undefined": true
-              },
-              "item": {
-                "@undefined": true
-              },
-              "index": {
-                "@undefined": true
-              },
               "type": "dimensions",
               "id": "outside",
               "dimensions": {
                 "width": 150,
                 "height": 37
               },
-              "resizing": false,
-              "setAttributes": {
-                "@undefined": true
-              }
+              "resizing": false
             },
             {
-              "position": {
-                "@undefined": true
-              },
-              "positionAbsolute": {
-                "@undefined": true
-              },
-              "dragging": {
-                "@undefined": true
-              },
-              "selected": {
-                "@undefined": true
-              },
-              "item": {
-                "@undefined": true
-              },
-              "index": {
-                "@undefined": true
-              },
               "type": "dimensions",
               "id": "parent",
               "dimensions": {
                 "width": 150,
                 "height": 37
               },
-              "resizing": false,
-              "setAttributes": {
-                "@undefined": true
-              }
+              "resizing": false
             },
             {
-              "position": {
-                "@undefined": true
-              },
-              "positionAbsolute": {
-                "@undefined": true
-              },
-              "dragging": {
-                "@undefined": true
-              },
-              "selected": {
-                "@undefined": true
-              },
-              "item": {
-                "@undefined": true
-              },
-              "index": {
-                "@undefined": true
-              },
               "type": "dimensions",
               "id": "parent",
               "dimensions": {
@@ -503,66 +422,15 @@
             "data": {
               "label": "parent"
             },
-            "type": {
-              "@undefined": true
-            },
-            "sourcePosition": {
-              "@undefined": true
-            },
-            "targetPosition": {
-              "@undefined": true
-            },
             "hidden": false,
             "selected": false,
             "dragging": false,
-            "draggable": {
-              "@undefined": true
-            },
-            "selectable": {
-              "@undefined": true
-            },
-            "connectable": {
-              "@undefined": true
-            },
-            "deletable": {
-              "@undefined": true
-            },
-            "dragHandle": {
-              "@undefined": true
-            },
             "width": 190,
             "height": 77,
-            "initialWidth": {
-              "@undefined": true
-            },
-            "initialHeight": {
-              "@undefined": true
-            },
-            "parentId": {
-              "@undefined": true
-            },
-            "zIndex": {
-              "@undefined": true
-            },
-            "extent": {
-              "@undefined": true
-            },
             "expandParent": false,
-            "ariaLabel": {
-              "@undefined": true
-            },
-            "origin": {
-              "@undefined": true
-            },
-            "handles": {
-              "@undefined": true
-            },
             "measured": {
               "width": 190,
               "height": 77
-            },
-            "className": {
-              "@undefined": true
             },
             "style": {
               "width": 320,
@@ -579,71 +447,14 @@
             "data": {
               "label": "child"
             },
-            "type": {
-              "@undefined": true
-            },
-            "sourcePosition": {
-              "@undefined": true
-            },
-            "targetPosition": {
-              "@undefined": true
-            },
             "hidden": false,
             "selected": false,
             "dragging": false,
-            "draggable": {
-              "@undefined": true
-            },
-            "selectable": {
-              "@undefined": true
-            },
-            "connectable": {
-              "@undefined": true
-            },
-            "deletable": {
-              "@undefined": true
-            },
-            "dragHandle": {
-              "@undefined": true
-            },
-            "width": {
-              "@undefined": true
-            },
-            "height": {
-              "@undefined": true
-            },
-            "initialWidth": {
-              "@undefined": true
-            },
-            "initialHeight": {
-              "@undefined": true
-            },
             "parentId": "parent",
-            "zIndex": {
-              "@undefined": true
-            },
-            "extent": {
-              "@undefined": true
-            },
             "expandParent": true,
-            "ariaLabel": {
-              "@undefined": true
-            },
-            "origin": {
-              "@undefined": true
-            },
-            "handles": {
-              "@undefined": true
-            },
             "measured": {
               "width": 150,
               "height": 37
-            },
-            "className": {
-              "@undefined": true
-            },
-            "style": {
-              "@undefined": true
             }
           },
           {
@@ -655,73 +466,13 @@
             "data": {
               "label": "outside"
             },
-            "type": {
-              "@undefined": true
-            },
-            "sourcePosition": {
-              "@undefined": true
-            },
-            "targetPosition": {
-              "@undefined": true
-            },
             "hidden": false,
             "selected": false,
             "dragging": false,
-            "draggable": {
-              "@undefined": true
-            },
-            "selectable": {
-              "@undefined": true
-            },
-            "connectable": {
-              "@undefined": true
-            },
-            "deletable": {
-              "@undefined": true
-            },
-            "dragHandle": {
-              "@undefined": true
-            },
-            "width": {
-              "@undefined": true
-            },
-            "height": {
-              "@undefined": true
-            },
-            "initialWidth": {
-              "@undefined": true
-            },
-            "initialHeight": {
-              "@undefined": true
-            },
-            "parentId": {
-              "@undefined": true
-            },
-            "zIndex": {
-              "@undefined": true
-            },
-            "extent": {
-              "@undefined": true
-            },
             "expandParent": false,
-            "ariaLabel": {
-              "@undefined": true
-            },
-            "origin": {
-              "@undefined": true
-            },
-            "handles": {
-              "@undefined": true
-            },
             "measured": {
               "width": 150,
               "height": 37
-            },
-            "className": {
-              "@undefined": true
-            },
-            "style": {
-              "@undefined": true
             }
           }
         ],
@@ -734,66 +485,15 @@
           "data": {
             "label": "parent"
           },
-          "type": {
-            "@undefined": true
-          },
-          "sourcePosition": {
-            "@undefined": true
-          },
-          "targetPosition": {
-            "@undefined": true
-          },
           "hidden": false,
           "selected": false,
           "dragging": false,
-          "draggable": {
-            "@undefined": true
-          },
-          "selectable": {
-            "@undefined": true
-          },
-          "connectable": {
-            "@undefined": true
-          },
-          "deletable": {
-            "@undefined": true
-          },
-          "dragHandle": {
-            "@undefined": true
-          },
           "width": 190,
           "height": 77,
-          "initialWidth": {
-            "@undefined": true
-          },
-          "initialHeight": {
-            "@undefined": true
-          },
-          "parentId": {
-            "@undefined": true
-          },
-          "zIndex": {
-            "@undefined": true
-          },
-          "extent": {
-            "@undefined": true
-          },
           "expandParent": false,
-          "ariaLabel": {
-            "@undefined": true
-          },
-          "origin": {
-            "@undefined": true
-          },
-          "handles": {
-            "@undefined": true
-          },
           "measured": {
             "width": 190,
             "height": 77
-          },
-          "className": {
-            "@undefined": true
           },
           "style": {
             "width": 320,
@@ -810,66 +510,15 @@
           "data": {
             "label": "parent"
           },
-          "type": {
-            "@undefined": true
-          },
-          "sourcePosition": {
-            "@undefined": true
-          },
-          "targetPosition": {
-            "@undefined": true
-          },
           "hidden": false,
           "selected": false,
           "dragging": false,
-          "draggable": {
-            "@undefined": true
-          },
-          "selectable": {
-            "@undefined": true
-          },
-          "connectable": {
-            "@undefined": true
-          },
-          "deletable": {
-            "@undefined": true
-          },
-          "dragHandle": {
-            "@undefined": true
-          },
           "width": 190,
           "height": 77,
-          "initialWidth": {
-            "@undefined": true
-          },
-          "initialHeight": {
-            "@undefined": true
-          },
-          "parentId": {
-            "@undefined": true
-          },
-          "zIndex": {
-            "@undefined": true
-          },
-          "extent": {
-            "@undefined": true
-          },
           "expandParent": false,
-          "ariaLabel": {
-            "@undefined": true
-          },
-          "origin": {
-            "@undefined": true
-          },
-          "handles": {
-            "@undefined": true
-          },
           "measured": {
             "width": 190,
             "height": 77
-          },
-          "className": {
-            "@undefined": true
           },
           "style": {
             "width": 320,
@@ -882,9 +531,6 @@
               "y": 0
             },
             "z": 0,
-            "rootParentIndex": {
-              "@undefined": true
-            },
             "handleBounds": {
               "source": [
                 {
@@ -914,113 +560,26 @@
                   "height": 8
                 }
               ]
-            },
-            "bounds": {
-              "@undefined": true
             }
           }
         },
         "getEdges": [
           {
             "id": "child-outside",
-            "type": {
-              "@undefined": true
-            },
             "source": "child",
             "target": "outside",
-            "sourceHandle": {
-              "@undefined": true
-            },
-            "targetHandle": {
-              "@undefined": true
-            },
             "animated": false,
             "hidden": false,
-            "deletable": {
-              "@undefined": true
-            },
-            "selectable": {
-              "@undefined": true
-            },
-            "data": {
-              "@undefined": true
-            },
-            "selected": false,
-            "markerStart": {
-              "@undefined": true
-            },
-            "markerEnd": {
-              "@undefined": true
-            },
-            "zIndex": {
-              "@undefined": true
-            },
-            "label": {
-              "@undefined": true
-            },
-            "ariaLabel": {
-              "@undefined": true
-            },
-            "interactionWidth": {
-              "@undefined": true
-            },
-            "className": {
-              "@undefined": true
-            },
-            "style": {
-              "@undefined": true
-            }
+            "selected": false
           }
         ],
         "getEdge": {
           "id": "child-outside",
-          "type": {
-            "@undefined": true
-          },
           "source": "child",
           "target": "outside",
-          "sourceHandle": {
-            "@undefined": true
-          },
-          "targetHandle": {
-            "@undefined": true
-          },
           "animated": false,
           "hidden": false,
-          "deletable": {
-            "@undefined": true
-          },
-          "selectable": {
-            "@undefined": true
-          },
-          "data": {
-            "@undefined": true
-          },
-          "selected": false,
-          "markerStart": {
-            "@undefined": true
-          },
-          "markerEnd": {
-            "@undefined": true
-          },
-          "zIndex": {
-            "@undefined": true
-          },
-          "label": {
-            "@undefined": true
-          },
-          "ariaLabel": {
-            "@undefined": true
-          },
-          "interactionWidth": {
-            "@undefined": true
-          },
-          "className": {
-            "@undefined": true
-          },
-          "style": {
-            "@undefined": true
-          }
+          "selected": false
         },
         "getIntersectingNodes": [
           {
@@ -1032,66 +591,15 @@
             "data": {
               "label": "parent"
             },
-            "type": {
-              "@undefined": true
-            },
-            "sourcePosition": {
-              "@undefined": true
-            },
-            "targetPosition": {
-              "@undefined": true
-            },
             "hidden": false,
             "selected": false,
             "dragging": false,
-            "draggable": {
-              "@undefined": true
-            },
-            "selectable": {
-              "@undefined": true
-            },
-            "connectable": {
-              "@undefined": true
-            },
-            "deletable": {
-              "@undefined": true
-            },
-            "dragHandle": {
-              "@undefined": true
-            },
             "width": 190,
             "height": 77,
-            "initialWidth": {
-              "@undefined": true
-            },
-            "initialHeight": {
-              "@undefined": true
-            },
-            "parentId": {
-              "@undefined": true
-            },
-            "zIndex": {
-              "@undefined": true
-            },
-            "extent": {
-              "@undefined": true
-            },
             "expandParent": false,
-            "ariaLabel": {
-              "@undefined": true
-            },
-            "origin": {
-              "@undefined": true
-            },
-            "handles": {
-              "@undefined": true
-            },
             "measured": {
               "width": 190,
               "height": 77
-            },
-            "className": {
-              "@undefined": true
             },
             "style": {
               "width": 320,
@@ -1108,71 +616,14 @@
             "data": {
               "label": "child"
             },
-            "type": {
-              "@undefined": true
-            },
-            "sourcePosition": {
-              "@undefined": true
-            },
-            "targetPosition": {
-              "@undefined": true
-            },
             "hidden": false,
             "selected": false,
             "dragging": false,
-            "draggable": {
-              "@undefined": true
-            },
-            "selectable": {
-              "@undefined": true
-            },
-            "connectable": {
-              "@undefined": true
-            },
-            "deletable": {
-              "@undefined": true
-            },
-            "dragHandle": {
-              "@undefined": true
-            },
-            "width": {
-              "@undefined": true
-            },
-            "height": {
-              "@undefined": true
-            },
-            "initialWidth": {
-              "@undefined": true
-            },
-            "initialHeight": {
-              "@undefined": true
-            },
             "parentId": "parent",
-            "zIndex": {
-              "@undefined": true
-            },
-            "extent": {
-              "@undefined": true
-            },
             "expandParent": true,
-            "ariaLabel": {
-              "@undefined": true
-            },
-            "origin": {
-              "@undefined": true
-            },
-            "handles": {
-              "@undefined": true
-            },
             "measured": {
               "width": 150,
               "height": 37
-            },
-            "className": {
-              "@undefined": true
-            },
-            "style": {
-              "@undefined": true
             }
           },
           {
@@ -1184,73 +635,13 @@
             "data": {
               "label": "outside"
             },
-            "type": {
-              "@undefined": true
-            },
-            "sourcePosition": {
-              "@undefined": true
-            },
-            "targetPosition": {
-              "@undefined": true
-            },
             "hidden": false,
             "selected": false,
             "dragging": false,
-            "draggable": {
-              "@undefined": true
-            },
-            "selectable": {
-              "@undefined": true
-            },
-            "connectable": {
-              "@undefined": true
-            },
-            "deletable": {
-              "@undefined": true
-            },
-            "dragHandle": {
-              "@undefined": true
-            },
-            "width": {
-              "@undefined": true
-            },
-            "height": {
-              "@undefined": true
-            },
-            "initialWidth": {
-              "@undefined": true
-            },
-            "initialHeight": {
-              "@undefined": true
-            },
-            "parentId": {
-              "@undefined": true
-            },
-            "zIndex": {
-              "@undefined": true
-            },
-            "extent": {
-              "@undefined": true
-            },
             "expandParent": false,
-            "ariaLabel": {
-              "@undefined": true
-            },
-            "origin": {
-              "@undefined": true
-            },
-            "handles": {
-              "@undefined": true
-            },
             "measured": {
               "width": 150,
               "height": 37
-            },
-            "className": {
-              "@undefined": true
-            },
-            "style": {
-              "@undefined": true
             }
           }
         ],
@@ -1274,66 +665,15 @@
               "data": {
                 "label": "parent"
               },
-              "type": {
-                "@undefined": true
-              },
-              "sourcePosition": {
-                "@undefined": true
-              },
-              "targetPosition": {
-                "@undefined": true
-              },
               "hidden": false,
               "selected": false,
               "dragging": false,
-              "draggable": {
-                "@undefined": true
-              },
-              "selectable": {
-                "@undefined": true
-              },
-              "connectable": {
-                "@undefined": true
-              },
-              "deletable": {
-                "@undefined": true
-              },
-              "dragHandle": {
-                "@undefined": true
-              },
               "width": 190,
               "height": 77,
-              "initialWidth": {
-                "@undefined": true
-              },
-              "initialHeight": {
-                "@undefined": true
-              },
-              "parentId": {
-                "@undefined": true
-              },
-              "zIndex": {
-                "@undefined": true
-              },
-              "extent": {
-                "@undefined": true
-              },
               "expandParent": false,
-              "ariaLabel": {
-                "@undefined": true
-              },
-              "origin": {
-                "@undefined": true
-              },
-              "handles": {
-                "@undefined": true
-              },
               "measured": {
                 "width": 190,
                 "height": 77
-              },
-              "className": {
-                "@undefined": true
               },
               "style": {
                 "width": 320,
@@ -1350,71 +690,14 @@
               "data": {
                 "label": "child"
               },
-              "type": {
-                "@undefined": true
-              },
-              "sourcePosition": {
-                "@undefined": true
-              },
-              "targetPosition": {
-                "@undefined": true
-              },
               "hidden": false,
               "selected": false,
               "dragging": false,
-              "draggable": {
-                "@undefined": true
-              },
-              "selectable": {
-                "@undefined": true
-              },
-              "connectable": {
-                "@undefined": true
-              },
-              "deletable": {
-                "@undefined": true
-              },
-              "dragHandle": {
-                "@undefined": true
-              },
-              "width": {
-                "@undefined": true
-              },
-              "height": {
-                "@undefined": true
-              },
-              "initialWidth": {
-                "@undefined": true
-              },
-              "initialHeight": {
-                "@undefined": true
-              },
               "parentId": "parent",
-              "zIndex": {
-                "@undefined": true
-              },
-              "extent": {
-                "@undefined": true
-              },
               "expandParent": true,
-              "ariaLabel": {
-                "@undefined": true
-              },
-              "origin": {
-                "@undefined": true
-              },
-              "handles": {
-                "@undefined": true
-              },
               "measured": {
                 "width": 150,
                 "height": 37
-              },
-              "className": {
-                "@undefined": true
-              },
-              "style": {
-                "@undefined": true
               }
             },
             {
@@ -1426,126 +709,24 @@
               "data": {
                 "label": "outside"
               },
-              "type": {
-                "@undefined": true
-              },
-              "sourcePosition": {
-                "@undefined": true
-              },
-              "targetPosition": {
-                "@undefined": true
-              },
               "hidden": false,
               "selected": false,
               "dragging": false,
-              "draggable": {
-                "@undefined": true
-              },
-              "selectable": {
-                "@undefined": true
-              },
-              "connectable": {
-                "@undefined": true
-              },
-              "deletable": {
-                "@undefined": true
-              },
-              "dragHandle": {
-                "@undefined": true
-              },
-              "width": {
-                "@undefined": true
-              },
-              "height": {
-                "@undefined": true
-              },
-              "initialWidth": {
-                "@undefined": true
-              },
-              "initialHeight": {
-                "@undefined": true
-              },
-              "parentId": {
-                "@undefined": true
-              },
-              "zIndex": {
-                "@undefined": true
-              },
-              "extent": {
-                "@undefined": true
-              },
               "expandParent": false,
-              "ariaLabel": {
-                "@undefined": true
-              },
-              "origin": {
-                "@undefined": true
-              },
-              "handles": {
-                "@undefined": true
-              },
               "measured": {
                 "width": 150,
                 "height": 37
-              },
-              "className": {
-                "@undefined": true
-              },
-              "style": {
-                "@undefined": true
               }
             }
           ],
           "edges": [
             {
               "id": "child-outside",
-              "type": {
-                "@undefined": true
-              },
               "source": "child",
               "target": "outside",
-              "sourceHandle": {
-                "@undefined": true
-              },
-              "targetHandle": {
-                "@undefined": true
-              },
               "animated": false,
               "hidden": false,
-              "deletable": {
-                "@undefined": true
-              },
-              "selectable": {
-                "@undefined": true
-              },
-              "data": {
-                "@undefined": true
-              },
-              "selected": false,
-              "markerStart": {
-                "@undefined": true
-              },
-              "markerEnd": {
-                "@undefined": true
-              },
-              "zIndex": {
-                "@undefined": true
-              },
-              "label": {
-                "@undefined": true
-              },
-              "ariaLabel": {
-                "@undefined": true
-              },
-              "interactionWidth": {
-                "@undefined": true
-              },
-              "className": {
-                "@undefined": true
-              },
-              "style": {
-                "@undefined": true
-              }
+              "selected": false
             }
           ],
           "viewport": {

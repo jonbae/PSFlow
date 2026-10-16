@@ -277,7 +277,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 277.39999997615814,
+            "timeStamp": 276.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -346,7 +346,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 277.39999997615814,
+            "timeStamp": 276.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -390,66 +390,15 @@
               "label": "props-parent"
             },
             "type": "propsRecord",
-            "sourcePosition": {
-              "@undefined": true
-            },
-            "targetPosition": {
-              "@undefined": true
-            },
             "hidden": false,
             "selected": false,
             "dragging": false,
-            "draggable": {
-              "@undefined": true
-            },
-            "selectable": {
-              "@undefined": true
-            },
-            "connectable": {
-              "@undefined": true
-            },
-            "deletable": {
-              "@undefined": true
-            },
-            "dragHandle": {
-              "@undefined": true
-            },
             "width": 300,
             "height": 200,
-            "initialWidth": {
-              "@undefined": true
-            },
-            "initialHeight": {
-              "@undefined": true
-            },
-            "parentId": {
-              "@undefined": true
-            },
-            "zIndex": {
-              "@undefined": true
-            },
-            "extent": {
-              "@undefined": true
-            },
             "expandParent": false,
-            "ariaLabel": {
-              "@undefined": true
-            },
-            "origin": {
-              "@undefined": true
-            },
-            "handles": {
-              "@undefined": true
-            },
             "measured": {
               "width": 300,
               "height": 200
-            },
-            "className": {
-              "@undefined": true
-            },
-            "style": {
-              "@undefined": true
             }
           }
         ]
@@ -475,7 +424,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 277.39999997615814,
+            "timeStamp": 276.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -540,7 +489,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 277.39999997615814,
+            "timeStamp": 276.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -582,66 +531,15 @@
               "label": "props-parent"
             },
             "type": "propsRecord",
-            "sourcePosition": {
-              "@undefined": true
-            },
-            "targetPosition": {
-              "@undefined": true
-            },
             "hidden": false,
             "selected": false,
             "dragging": false,
-            "draggable": {
-              "@undefined": true
-            },
-            "selectable": {
-              "@undefined": true
-            },
-            "connectable": {
-              "@undefined": true
-            },
-            "deletable": {
-              "@undefined": true
-            },
-            "dragHandle": {
-              "@undefined": true
-            },
             "width": 300,
             "height": 200,
-            "initialWidth": {
-              "@undefined": true
-            },
-            "initialHeight": {
-              "@undefined": true
-            },
-            "parentId": {
-              "@undefined": true
-            },
-            "zIndex": {
-              "@undefined": true
-            },
-            "extent": {
-              "@undefined": true
-            },
             "expandParent": false,
-            "ariaLabel": {
-              "@undefined": true
-            },
-            "origin": {
-              "@undefined": true
-            },
-            "handles": {
-              "@undefined": true
-            },
             "measured": {
               "width": 300,
               "height": 200
-            },
-            "className": {
-              "@undefined": true
-            },
-            "style": {
-              "@undefined": true
             }
           }
         ]
@@ -651,30 +549,6 @@
         "args": [
           [
             {
-              "dimensions": {
-                "@undefined": true
-              },
-              "resizing": {
-                "@undefined": true
-              },
-              "setAttributes": {
-                "@undefined": true
-              },
-              "position": {
-                "@undefined": true
-              },
-              "positionAbsolute": {
-                "@undefined": true
-              },
-              "dragging": {
-                "@undefined": true
-              },
-              "item": {
-                "@undefined": true
-              },
-              "index": {
-                "@undefined": true
-              },
               "type": "select",
               "id": "props-parent",
               "selected": true
@@ -703,7 +577,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 288.80000001192093,
+            "timeStamp": 287.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -745,66 +619,15 @@
               "label": "props-parent"
             },
             "type": "propsRecord",
-            "sourcePosition": {
-              "@undefined": true
-            },
-            "targetPosition": {
-              "@undefined": true
-            },
             "hidden": false,
             "selected": false,
             "dragging": false,
-            "draggable": {
-              "@undefined": true
-            },
-            "selectable": {
-              "@undefined": true
-            },
-            "connectable": {
-              "@undefined": true
-            },
-            "deletable": {
-              "@undefined": true
-            },
-            "dragHandle": {
-              "@undefined": true
-            },
             "width": 300,
             "height": 200,
-            "initialWidth": {
-              "@undefined": true
-            },
-            "initialHeight": {
-              "@undefined": true
-            },
-            "parentId": {
-              "@undefined": true
-            },
-            "zIndex": {
-              "@undefined": true
-            },
-            "extent": {
-              "@undefined": true
-            },
             "expandParent": false,
-            "ariaLabel": {
-              "@undefined": true
-            },
-            "origin": {
-              "@undefined": true
-            },
-            "handles": {
-              "@undefined": true
-            },
             "measured": {
               "width": 300,
               "height": 200
-            },
-            "className": {
-              "@undefined": true
-            },
-            "style": {
-              "@undefined": true
             }
           }
         ]
@@ -824,66 +647,15 @@
                   "label": "props-parent"
                 },
                 "type": "propsRecord",
-                "sourcePosition": {
-                  "@undefined": true
-                },
-                "targetPosition": {
-                  "@undefined": true
-                },
                 "hidden": false,
                 "selected": true,
                 "dragging": false,
-                "draggable": {
-                  "@undefined": true
-                },
-                "selectable": {
-                  "@undefined": true
-                },
-                "connectable": {
-                  "@undefined": true
-                },
-                "deletable": {
-                  "@undefined": true
-                },
-                "dragHandle": {
-                  "@undefined": true
-                },
                 "width": 300,
                 "height": 200,
-                "initialWidth": {
-                  "@undefined": true
-                },
-                "initialHeight": {
-                  "@undefined": true
-                },
-                "parentId": {
-                  "@undefined": true
-                },
-                "zIndex": {
-                  "@undefined": true
-                },
-                "extent": {
-                  "@undefined": true
-                },
                 "expandParent": false,
-                "ariaLabel": {
-                  "@undefined": true
-                },
-                "origin": {
-                  "@undefined": true
-                },
-                "handles": {
-                  "@undefined": true
-                },
                 "measured": {
                   "width": 300,
                   "height": 200
-                },
-                "className": {
-                  "@undefined": true
-                },
-                "style": {
-                  "@undefined": true
                 }
               }
             ],
@@ -914,7 +686,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 304.80000001192093,
+            "timeStamp": 302.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -958,66 +730,15 @@
               "label": "props-parent"
             },
             "type": "propsRecord",
-            "sourcePosition": {
-              "@undefined": true
-            },
-            "targetPosition": {
-              "@undefined": true
-            },
             "hidden": false,
             "selected": true,
             "dragging": false,
-            "draggable": {
-              "@undefined": true
-            },
-            "selectable": {
-              "@undefined": true
-            },
-            "connectable": {
-              "@undefined": true
-            },
-            "deletable": {
-              "@undefined": true
-            },
-            "dragHandle": {
-              "@undefined": true
-            },
             "width": 300,
             "height": 200,
-            "initialWidth": {
-              "@undefined": true
-            },
-            "initialHeight": {
-              "@undefined": true
-            },
-            "parentId": {
-              "@undefined": true
-            },
-            "zIndex": {
-              "@undefined": true
-            },
-            "extent": {
-              "@undefined": true
-            },
             "expandParent": false,
-            "ariaLabel": {
-              "@undefined": true
-            },
-            "origin": {
-              "@undefined": true
-            },
-            "handles": {
-              "@undefined": true
-            },
             "measured": {
               "width": 300,
               "height": 200
-            },
-            "className": {
-              "@undefined": true
-            },
-            "style": {
-              "@undefined": true
             }
           }
         ]
@@ -1045,7 +766,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 304.80000001192093,
+            "timeStamp": 302.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1089,58 +810,19 @@
               "label": "props-child"
             },
             "type": "propsRecord",
-            "sourcePosition": {
-              "@undefined": true
-            },
-            "targetPosition": {
-              "@undefined": true
-            },
             "hidden": false,
             "selected": false,
             "dragging": false,
             "draggable": false,
             "selectable": false,
-            "connectable": {
-              "@undefined": true
-            },
             "deletable": false,
-            "dragHandle": {
-              "@undefined": true
-            },
             "width": 120,
             "height": 40,
-            "initialWidth": {
-              "@undefined": true
-            },
-            "initialHeight": {
-              "@undefined": true
-            },
             "parentId": "props-parent",
-            "zIndex": {
-              "@undefined": true
-            },
-            "extent": {
-              "@undefined": true
-            },
             "expandParent": false,
-            "ariaLabel": {
-              "@undefined": true
-            },
-            "origin": {
-              "@undefined": true
-            },
-            "handles": {
-              "@undefined": true
-            },
             "measured": {
               "width": 120,
               "height": 40
-            },
-            "className": {
-              "@undefined": true
-            },
-            "style": {
-              "@undefined": true
             }
           }
         ]
@@ -1166,7 +848,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 304.80000001192093,
+            "timeStamp": 302.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1231,7 +913,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 304.80000001192093,
+            "timeStamp": 302.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1273,58 +955,19 @@
               "label": "props-child"
             },
             "type": "propsRecord",
-            "sourcePosition": {
-              "@undefined": true
-            },
-            "targetPosition": {
-              "@undefined": true
-            },
             "hidden": false,
             "selected": false,
             "dragging": false,
             "draggable": false,
             "selectable": false,
-            "connectable": {
-              "@undefined": true
-            },
             "deletable": false,
-            "dragHandle": {
-              "@undefined": true
-            },
             "width": 120,
             "height": 40,
-            "initialWidth": {
-              "@undefined": true
-            },
-            "initialHeight": {
-              "@undefined": true
-            },
             "parentId": "props-parent",
-            "zIndex": {
-              "@undefined": true
-            },
-            "extent": {
-              "@undefined": true
-            },
             "expandParent": false,
-            "ariaLabel": {
-              "@undefined": true
-            },
-            "origin": {
-              "@undefined": true
-            },
-            "handles": {
-              "@undefined": true
-            },
             "measured": {
               "width": 120,
               "height": 40
-            },
-            "className": {
-              "@undefined": true
-            },
-            "style": {
-              "@undefined": true
             }
           }
         ]
@@ -1378,7 +1021,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 318.80000001192093,
+            "timeStamp": 317.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1420,58 +1063,19 @@
               "label": "props-child"
             },
             "type": "propsRecord",
-            "sourcePosition": {
-              "@undefined": true
-            },
-            "targetPosition": {
-              "@undefined": true
-            },
             "hidden": false,
             "selected": false,
             "dragging": false,
             "draggable": false,
             "selectable": false,
-            "connectable": {
-              "@undefined": true
-            },
             "deletable": false,
-            "dragHandle": {
-              "@undefined": true
-            },
             "width": 120,
             "height": 40,
-            "initialWidth": {
-              "@undefined": true
-            },
-            "initialHeight": {
-              "@undefined": true
-            },
             "parentId": "props-parent",
-            "zIndex": {
-              "@undefined": true
-            },
-            "extent": {
-              "@undefined": true
-            },
             "expandParent": false,
-            "ariaLabel": {
-              "@undefined": true
-            },
-            "origin": {
-              "@undefined": true
-            },
-            "handles": {
-              "@undefined": true
-            },
             "measured": {
               "width": 120,
               "height": 40
-            },
-            "className": {
-              "@undefined": true
-            },
-            "style": {
-              "@undefined": true
             }
           }
         ]
@@ -1491,66 +1095,15 @@
               "label": "props-parent"
             },
             "type": "propsRecord",
-            "sourcePosition": {
-              "@undefined": true
-            },
-            "targetPosition": {
-              "@undefined": true
-            },
             "hidden": false,
             "selected": true,
             "dragging": false,
-            "draggable": {
-              "@undefined": true
-            },
-            "selectable": {
-              "@undefined": true
-            },
-            "connectable": {
-              "@undefined": true
-            },
-            "deletable": {
-              "@undefined": true
-            },
-            "dragHandle": {
-              "@undefined": true
-            },
             "width": 300,
             "height": 200,
-            "initialWidth": {
-              "@undefined": true
-            },
-            "initialHeight": {
-              "@undefined": true
-            },
-            "parentId": {
-              "@undefined": true
-            },
-            "zIndex": {
-              "@undefined": true
-            },
-            "extent": {
-              "@undefined": true
-            },
             "expandParent": false,
-            "ariaLabel": {
-              "@undefined": true
-            },
-            "origin": {
-              "@undefined": true
-            },
-            "handles": {
-              "@undefined": true
-            },
             "measured": {
               "width": 300,
               "height": 200
-            },
-            "className": {
-              "@undefined": true
-            },
-            "style": {
-              "@undefined": true
             }
           },
           {
@@ -1563,58 +1116,19 @@
               "label": "props-child"
             },
             "type": "propsRecord",
-            "sourcePosition": {
-              "@undefined": true
-            },
-            "targetPosition": {
-              "@undefined": true
-            },
             "hidden": false,
             "selected": false,
             "dragging": false,
             "draggable": false,
             "selectable": false,
-            "connectable": {
-              "@undefined": true
-            },
             "deletable": false,
-            "dragHandle": {
-              "@undefined": true
-            },
             "width": 120,
             "height": 40,
-            "initialWidth": {
-              "@undefined": true
-            },
-            "initialHeight": {
-              "@undefined": true
-            },
             "parentId": "props-parent",
-            "zIndex": {
-              "@undefined": true
-            },
-            "extent": {
-              "@undefined": true
-            },
             "expandParent": false,
-            "ariaLabel": {
-              "@undefined": true
-            },
-            "origin": {
-              "@undefined": true
-            },
-            "handles": {
-              "@undefined": true
-            },
             "measured": {
               "width": 120,
               "height": 40
-            },
-            "className": {
-              "@undefined": true
-            },
-            "style": {
-              "@undefined": true
             }
           }
         ],
@@ -1628,66 +1142,15 @@
             "label": "props-parent"
           },
           "type": "propsRecord",
-          "sourcePosition": {
-            "@undefined": true
-          },
-          "targetPosition": {
-            "@undefined": true
-          },
           "hidden": false,
           "selected": true,
           "dragging": false,
-          "draggable": {
-            "@undefined": true
-          },
-          "selectable": {
-            "@undefined": true
-          },
-          "connectable": {
-            "@undefined": true
-          },
-          "deletable": {
-            "@undefined": true
-          },
-          "dragHandle": {
-            "@undefined": true
-          },
           "width": 300,
           "height": 200,
-          "initialWidth": {
-            "@undefined": true
-          },
-          "initialHeight": {
-            "@undefined": true
-          },
-          "parentId": {
-            "@undefined": true
-          },
-          "zIndex": {
-            "@undefined": true
-          },
-          "extent": {
-            "@undefined": true
-          },
           "expandParent": false,
-          "ariaLabel": {
-            "@undefined": true
-          },
-          "origin": {
-            "@undefined": true
-          },
-          "handles": {
-            "@undefined": true
-          },
           "measured": {
             "width": 300,
             "height": 200
-          },
-          "className": {
-            "@undefined": true
-          },
-          "style": {
-            "@undefined": true
           }
         },
         "getInternalNode": {
@@ -1700,66 +1163,15 @@
             "label": "props-parent"
           },
           "type": "propsRecord",
-          "sourcePosition": {
-            "@undefined": true
-          },
-          "targetPosition": {
-            "@undefined": true
-          },
           "hidden": false,
           "selected": true,
           "dragging": false,
-          "draggable": {
-            "@undefined": true
-          },
-          "selectable": {
-            "@undefined": true
-          },
-          "connectable": {
-            "@undefined": true
-          },
-          "deletable": {
-            "@undefined": true
-          },
-          "dragHandle": {
-            "@undefined": true
-          },
           "width": 300,
           "height": 200,
-          "initialWidth": {
-            "@undefined": true
-          },
-          "initialHeight": {
-            "@undefined": true
-          },
-          "parentId": {
-            "@undefined": true
-          },
-          "zIndex": {
-            "@undefined": true
-          },
-          "extent": {
-            "@undefined": true
-          },
           "expandParent": false,
-          "ariaLabel": {
-            "@undefined": true
-          },
-          "origin": {
-            "@undefined": true
-          },
-          "handles": {
-            "@undefined": true
-          },
           "measured": {
             "width": 300,
             "height": 200
-          },
-          "className": {
-            "@undefined": true
-          },
-          "style": {
-            "@undefined": true
           },
           "internals": {
             "positionAbsolute": {
@@ -1767,15 +1179,9 @@
               "y": 200
             },
             "z": 1000,
-            "rootParentIndex": {
-              "@undefined": true
-            },
             "handleBounds": {
               "source": [],
               "target": []
-            },
-            "bounds": {
-              "@undefined": true
             }
           }
         },
@@ -1794,66 +1200,15 @@
               "label": "props-parent"
             },
             "type": "propsRecord",
-            "sourcePosition": {
-              "@undefined": true
-            },
-            "targetPosition": {
-              "@undefined": true
-            },
             "hidden": false,
             "selected": true,
             "dragging": false,
-            "draggable": {
-              "@undefined": true
-            },
-            "selectable": {
-              "@undefined": true
-            },
-            "connectable": {
-              "@undefined": true
-            },
-            "deletable": {
-              "@undefined": true
-            },
-            "dragHandle": {
-              "@undefined": true
-            },
             "width": 300,
             "height": 200,
-            "initialWidth": {
-              "@undefined": true
-            },
-            "initialHeight": {
-              "@undefined": true
-            },
-            "parentId": {
-              "@undefined": true
-            },
-            "zIndex": {
-              "@undefined": true
-            },
-            "extent": {
-              "@undefined": true
-            },
             "expandParent": false,
-            "ariaLabel": {
-              "@undefined": true
-            },
-            "origin": {
-              "@undefined": true
-            },
-            "handles": {
-              "@undefined": true
-            },
             "measured": {
               "width": 300,
               "height": 200
-            },
-            "className": {
-              "@undefined": true
-            },
-            "style": {
-              "@undefined": true
             }
           },
           {
@@ -1866,58 +1221,19 @@
               "label": "props-child"
             },
             "type": "propsRecord",
-            "sourcePosition": {
-              "@undefined": true
-            },
-            "targetPosition": {
-              "@undefined": true
-            },
             "hidden": false,
             "selected": false,
             "dragging": false,
             "draggable": false,
             "selectable": false,
-            "connectable": {
-              "@undefined": true
-            },
             "deletable": false,
-            "dragHandle": {
-              "@undefined": true
-            },
             "width": 120,
             "height": 40,
-            "initialWidth": {
-              "@undefined": true
-            },
-            "initialHeight": {
-              "@undefined": true
-            },
             "parentId": "props-parent",
-            "zIndex": {
-              "@undefined": true
-            },
-            "extent": {
-              "@undefined": true
-            },
             "expandParent": false,
-            "ariaLabel": {
-              "@undefined": true
-            },
-            "origin": {
-              "@undefined": true
-            },
-            "handles": {
-              "@undefined": true
-            },
             "measured": {
               "width": 120,
               "height": 40
-            },
-            "className": {
-              "@undefined": true
-            },
-            "style": {
-              "@undefined": true
             }
           }
         ],
@@ -1942,66 +1258,15 @@
                 "label": "props-parent"
               },
               "type": "propsRecord",
-              "sourcePosition": {
-                "@undefined": true
-              },
-              "targetPosition": {
-                "@undefined": true
-              },
               "hidden": false,
               "selected": true,
               "dragging": false,
-              "draggable": {
-                "@undefined": true
-              },
-              "selectable": {
-                "@undefined": true
-              },
-              "connectable": {
-                "@undefined": true
-              },
-              "deletable": {
-                "@undefined": true
-              },
-              "dragHandle": {
-                "@undefined": true
-              },
               "width": 300,
               "height": 200,
-              "initialWidth": {
-                "@undefined": true
-              },
-              "initialHeight": {
-                "@undefined": true
-              },
-              "parentId": {
-                "@undefined": true
-              },
-              "zIndex": {
-                "@undefined": true
-              },
-              "extent": {
-                "@undefined": true
-              },
               "expandParent": false,
-              "ariaLabel": {
-                "@undefined": true
-              },
-              "origin": {
-                "@undefined": true
-              },
-              "handles": {
-                "@undefined": true
-              },
               "measured": {
                 "width": 300,
                 "height": 200
-              },
-              "className": {
-                "@undefined": true
-              },
-              "style": {
-                "@undefined": true
               }
             },
             {
@@ -2014,58 +1279,19 @@
                 "label": "props-child"
               },
               "type": "propsRecord",
-              "sourcePosition": {
-                "@undefined": true
-              },
-              "targetPosition": {
-                "@undefined": true
-              },
               "hidden": false,
               "selected": false,
               "dragging": false,
               "draggable": false,
               "selectable": false,
-              "connectable": {
-                "@undefined": true
-              },
               "deletable": false,
-              "dragHandle": {
-                "@undefined": true
-              },
               "width": 120,
               "height": 40,
-              "initialWidth": {
-                "@undefined": true
-              },
-              "initialHeight": {
-                "@undefined": true
-              },
               "parentId": "props-parent",
-              "zIndex": {
-                "@undefined": true
-              },
-              "extent": {
-                "@undefined": true
-              },
               "expandParent": false,
-              "ariaLabel": {
-                "@undefined": true
-              },
-              "origin": {
-                "@undefined": true
-              },
-              "handles": {
-                "@undefined": true
-              },
               "measured": {
                 "width": 120,
                 "height": 40
-              },
-              "className": {
-                "@undefined": true
-              },
-              "style": {
-                "@undefined": true
               }
             }
           ],
