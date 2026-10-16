@@ -343,7 +343,7 @@
               "id": "react-flow__node-desc-1",
               "style": "display: none;"
             },
-            "text": "Press enter or space to select a node. Press delete to remove it and escape to cancel.",
+            "text": "Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel.",
             "children": []
           },
           {
@@ -492,7 +492,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 281.0999999642372,
+            "timeStamp": 278.4000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -561,7 +561,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 281.0999999642372,
+            "timeStamp": 278.4000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -690,7 +690,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 281.0999999642372,
+            "timeStamp": 278.4000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -755,7 +755,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 281.0999999642372,
+            "timeStamp": 278.4000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1155,7 +1155,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 307,
+            "timeStamp": 305.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1694,7 +1694,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 333.19999998807907,
+            "timeStamp": 332.9000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2295,7 +2295,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 360.5999999642372,
+            "timeStamp": 351.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2791,19 +2791,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 382.0999999642372,
+            "timeStamp": 381.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 5,
-            "screenY": 6,
-            "clientX": 5,
-            "clientY": 6,
-            "pageX": 5,
-            "pageY": 6,
+            "screenX": 6,
+            "screenY": 5,
+            "clientX": 6,
+            "clientY": 5,
+            "pageX": 6,
+            "pageY": 5,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -2900,242 +2900,6 @@
         ]
       },
       {
-        "name": "onMoveStart",
-        "args": [
-          null,
-          {
-            "x": 1370,
-            "y": 1580,
-            "zoom": 1
-          }
-        ]
-      },
-      {
-        "name": "onViewportChange",
-        "args": [
-          {
-            "x": 1720,
-            "y": 1920,
-            "zoom": 1
-          }
-        ]
-      },
-      {
-        "name": "onMove",
-        "args": [
-          null,
-          {
-            "x": 1720,
-            "y": 1920,
-            "zoom": 1
-          }
-        ]
-      },
-      {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 1720,
-            "y": 1920,
-            "zoom": 1
-          }
-        ]
-      },
-      {
-        "name": "onNodesChange",
-        "args": [
-          [
-            {
-              "dimensions": {
-                "@undefined": true
-              },
-              "resizing": {
-                "@undefined": true
-              },
-              "setAttributes": {
-                "@undefined": true
-              },
-              "selected": {
-                "@undefined": true
-              },
-              "item": {
-                "@undefined": true
-              },
-              "index": {
-                "@undefined": true
-              },
-              "type": "position",
-              "id": "Node-1",
-              "position": {
-                "x": -1790,
-                "y": -1932
-              },
-              "positionAbsolute": {
-                "x": -1790,
-                "y": -1932
-              },
-              "dragging": true
-            }
-          ]
-        ]
-      },
-      {
-        "name": "onNodeDrag",
-        "args": [
-          {
-            "@class": "MouseEvent",
-            "isTrusted": true
-          },
-          {
-            "id": "Node-1",
-            "position": {
-              "x": -1790,
-              "y": -1932
-            },
-            "data": {
-              "label": "Node-1"
-            },
-            "type": "input",
-            "sourcePosition": {
-              "@undefined": true
-            },
-            "targetPosition": {
-              "@undefined": true
-            },
-            "hidden": false,
-            "selected": true,
-            "dragging": true,
-            "draggable": {
-              "@undefined": true
-            },
-            "selectable": {
-              "@undefined": true
-            },
-            "connectable": {
-              "@undefined": true
-            },
-            "deletable": {
-              "@undefined": true
-            },
-            "dragHandle": {
-              "@undefined": true
-            },
-            "width": 150,
-            "height": 37,
-            "initialWidth": {
-              "@undefined": true
-            },
-            "initialHeight": {
-              "@undefined": true
-            },
-            "parentId": {
-              "@undefined": true
-            },
-            "zIndex": {
-              "@undefined": true
-            },
-            "extent": {
-              "@undefined": true
-            },
-            "expandParent": false,
-            "ariaLabel": {
-              "@undefined": true
-            },
-            "origin": {
-              "@undefined": true
-            },
-            "handles": {
-              "@undefined": true
-            },
-            "measured": {
-              "width": 150,
-              "height": 37
-            },
-            "className": {
-              "@undefined": true
-            },
-            "style": {
-              "@undefined": true
-            }
-          },
-          [
-            {
-              "id": "Node-1",
-              "position": {
-                "x": -1790,
-                "y": -1932
-              },
-              "data": {
-                "label": "Node-1"
-              },
-              "type": "input",
-              "sourcePosition": {
-                "@undefined": true
-              },
-              "targetPosition": {
-                "@undefined": true
-              },
-              "hidden": false,
-              "selected": true,
-              "dragging": true,
-              "draggable": {
-                "@undefined": true
-              },
-              "selectable": {
-                "@undefined": true
-              },
-              "connectable": {
-                "@undefined": true
-              },
-              "deletable": {
-                "@undefined": true
-              },
-              "dragHandle": {
-                "@undefined": true
-              },
-              "width": 150,
-              "height": 37,
-              "initialWidth": {
-                "@undefined": true
-              },
-              "initialHeight": {
-                "@undefined": true
-              },
-              "parentId": {
-                "@undefined": true
-              },
-              "zIndex": {
-                "@undefined": true
-              },
-              "extent": {
-                "@undefined": true
-              },
-              "expandParent": false,
-              "ariaLabel": {
-                "@undefined": true
-              },
-              "origin": {
-                "@undefined": true
-              },
-              "handles": {
-                "@undefined": true
-              },
-              "measured": {
-                "width": 150,
-                "height": 37
-              },
-              "className": {
-                "@undefined": true
-              },
-              "style": {
-                "@undefined": true
-              }
-            }
-          ]
-        ]
-      },
-      {
         "name": "onPaneMouseMove",
         "args": [
           {
@@ -3156,7 +2920,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 382.5,
+            "timeStamp": 381.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3226,12 +2990,12 @@
               "type": "position",
               "id": "Node-1",
               "position": {
-                "x": -1789,
-                "y": -1933
+                "x": -1439,
+                "y": -1593
               },
               "positionAbsolute": {
-                "x": -1789,
-                "y": -1933
+                "x": -1439,
+                "y": -1593
               },
               "dragging": true
             }
@@ -3248,8 +3012,8 @@
           {
             "id": "Node-1",
             "position": {
-              "x": -1789,
-              "y": -1933
+              "x": -1439,
+              "y": -1593
             },
             "data": {
               "label": "Node-1"
@@ -3321,8 +3085,8 @@
             {
               "id": "Node-1",
               "position": {
-                "x": -1789,
-                "y": -1933
+                "x": -1439,
+                "y": -1593
               },
               "data": {
                 "label": "Node-1"
@@ -3398,8 +3162,8 @@
         "args": [
           null,
           {
-            "x": 1720,
-            "y": 1920,
+            "x": 1370,
+            "y": 1580,
             "zoom": 1
           }
         ]
@@ -3408,8 +3172,8 @@
         "name": "onViewportChange",
         "args": [
           {
-            "x": 2000,
-            "y": 2000,
+            "x": 1710,
+            "y": 1930,
             "zoom": 1
           }
         ]
@@ -3419,8 +3183,8 @@
         "args": [
           null,
           {
-            "x": 2000,
-            "y": 2000,
+            "x": 1710,
+            "y": 1930,
             "zoom": 1
           }
         ]
@@ -3430,8 +3194,8 @@
         "args": [
           null,
           {
-            "x": 2000,
-            "y": 2000,
+            "x": 1710,
+            "y": 1930,
             "zoom": 1
           }
         ]
@@ -3462,12 +3226,12 @@
               "type": "position",
               "id": "Node-1",
               "position": {
-                "x": -2129,
-                "y": -2283
+                "x": -1779,
+                "y": -1943
               },
               "positionAbsolute": {
-                "x": -2129,
-                "y": -2283
+                "x": -1779,
+                "y": -1943
               },
               "dragging": true
             }
@@ -3484,8 +3248,8 @@
           {
             "id": "Node-1",
             "position": {
-              "x": -2129,
-              "y": -2283
+              "x": -1779,
+              "y": -1943
             },
             "data": {
               "label": "Node-1"
@@ -3557,8 +3321,244 @@
             {
               "id": "Node-1",
               "position": {
-                "x": -2129,
-                "y": -2283
+                "x": -1779,
+                "y": -1943
+              },
+              "data": {
+                "label": "Node-1"
+              },
+              "type": "input",
+              "sourcePosition": {
+                "@undefined": true
+              },
+              "targetPosition": {
+                "@undefined": true
+              },
+              "hidden": false,
+              "selected": true,
+              "dragging": true,
+              "draggable": {
+                "@undefined": true
+              },
+              "selectable": {
+                "@undefined": true
+              },
+              "connectable": {
+                "@undefined": true
+              },
+              "deletable": {
+                "@undefined": true
+              },
+              "dragHandle": {
+                "@undefined": true
+              },
+              "width": 150,
+              "height": 37,
+              "initialWidth": {
+                "@undefined": true
+              },
+              "initialHeight": {
+                "@undefined": true
+              },
+              "parentId": {
+                "@undefined": true
+              },
+              "zIndex": {
+                "@undefined": true
+              },
+              "extent": {
+                "@undefined": true
+              },
+              "expandParent": false,
+              "ariaLabel": {
+                "@undefined": true
+              },
+              "origin": {
+                "@undefined": true
+              },
+              "handles": {
+                "@undefined": true
+              },
+              "measured": {
+                "width": 150,
+                "height": 37
+              },
+              "className": {
+                "@undefined": true
+              },
+              "style": {
+                "@undefined": true
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onMoveStart",
+        "args": [
+          null,
+          {
+            "x": 1710,
+            "y": 1930,
+            "zoom": 1
+          }
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 2000,
+            "y": 2000,
+            "zoom": 1
+          }
+        ]
+      },
+      {
+        "name": "onMove",
+        "args": [
+          null,
+          {
+            "x": 2000,
+            "y": 2000,
+            "zoom": 1
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 2000,
+            "y": 2000,
+            "zoom": 1
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "dimensions": {
+                "@undefined": true
+              },
+              "resizing": {
+                "@undefined": true
+              },
+              "setAttributes": {
+                "@undefined": true
+              },
+              "selected": {
+                "@undefined": true
+              },
+              "item": {
+                "@undefined": true
+              },
+              "index": {
+                "@undefined": true
+              },
+              "type": "position",
+              "id": "Node-1",
+              "position": {
+                "x": -2119,
+                "y": -2293
+              },
+              "positionAbsolute": {
+                "x": -2119,
+                "y": -2293
+              },
+              "dragging": true
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodeDrag",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "id": "Node-1",
+            "position": {
+              "x": -2119,
+              "y": -2293
+            },
+            "data": {
+              "label": "Node-1"
+            },
+            "type": "input",
+            "sourcePosition": {
+              "@undefined": true
+            },
+            "targetPosition": {
+              "@undefined": true
+            },
+            "hidden": false,
+            "selected": true,
+            "dragging": true,
+            "draggable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "connectable": {
+              "@undefined": true
+            },
+            "deletable": {
+              "@undefined": true
+            },
+            "dragHandle": {
+              "@undefined": true
+            },
+            "width": 150,
+            "height": 37,
+            "initialWidth": {
+              "@undefined": true
+            },
+            "initialHeight": {
+              "@undefined": true
+            },
+            "parentId": {
+              "@undefined": true
+            },
+            "zIndex": {
+              "@undefined": true
+            },
+            "extent": {
+              "@undefined": true
+            },
+            "expandParent": false,
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "origin": {
+              "@undefined": true
+            },
+            "handles": {
+              "@undefined": true
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          },
+          [
+            {
+              "id": "Node-1",
+              "position": {
+                "x": -2119,
+                "y": -2293
               },
               "data": {
                 "label": "Node-1"
@@ -3652,7 +3652,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 415,
+            "timeStamp": 402.4000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3675,7 +3675,7 @@
             "button": 0,
             "buttons": 1,
             "relatedTarget": {
-              "@ref": "DIV"
+              "@ref": "path"
             },
             "movementX": 0,
             "movementY": 0,
@@ -3689,8 +3689,8 @@
           {
             "id": "Node-1",
             "position": {
-              "x": -2129,
-              "y": -2283
+              "x": -2119,
+              "y": -2293
             },
             "data": {
               "label": "Node-1"
@@ -3761,6 +3761,115 @@
         ]
       },
       {
+        "name": "onEdgeMouseEnter",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseEnter",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseenter",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "path"
+            },
+            "currentTarget": {
+              "@ref": "g"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 402.4000000357628,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 5,
+            "screenY": 5,
+            "clientX": 5,
+            "clientY": 5,
+            "pageX": 5,
+            "pageY": 5,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 1,
+            "relatedTarget": {
+              "@ref": "DIV"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "1-3",
+            "type": {
+              "@undefined": true
+            },
+            "source": "Node-1",
+            "target": "Node-3",
+            "sourceHandle": {
+              "@undefined": true
+            },
+            "targetHandle": {
+              "@undefined": true
+            },
+            "animated": false,
+            "hidden": false,
+            "deletable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "data": {
+              "@undefined": true
+            },
+            "selected": false,
+            "markerStart": {
+              "@undefined": true
+            },
+            "markerEnd": {
+              "@undefined": true
+            },
+            "zIndex": {
+              "@undefined": true
+            },
+            "label": {
+              "@undefined": true
+            },
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "interactionWidth": {
+              "@undefined": true
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          }
+        ]
+      },
+      {
         "name": "onPaneMouseMove",
         "args": [
           {
@@ -3773,7 +3882,7 @@
               "isTrusted": true
             },
             "target": {
-              "@ref": "DIV"
+              "@ref": "path"
             },
             "currentTarget": {
               "@ref": "DIV"
@@ -3781,7 +3890,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 415,
+            "timeStamp": 402.4000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -4062,29 +4171,29 @@
         ]
       },
       {
-        "name": "onNodeMouseEnter",
+        "name": "onEdgeMouseLeave",
         "args": [
           {
             "@class": "SyntheticBaseEvent",
-            "_reactName": "onMouseEnter",
+            "_reactName": "onMouseLeave",
             "_targetInst": {
               "@ref": "React fiber"
             },
-            "type": "mouseenter",
+            "type": "mouseleave",
             "nativeEvent": {
               "@class": "MouseEvent",
               "isTrusted": true
             },
             "target": {
-              "@ref": "DIV"
+              "@ref": "path"
             },
             "currentTarget": {
-              "@ref": "DIV"
+              "@ref": "g"
             },
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 426.5,
+            "timeStamp": 426.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -4108,6 +4217,115 @@
             "buttons": 0,
             "relatedTarget": {
               "@ref": "DIV"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "1-3",
+            "type": {
+              "@undefined": true
+            },
+            "source": "Node-1",
+            "target": "Node-3",
+            "sourceHandle": {
+              "@undefined": true
+            },
+            "targetHandle": {
+              "@undefined": true
+            },
+            "animated": false,
+            "hidden": false,
+            "deletable": {
+              "@undefined": true
+            },
+            "selectable": {
+              "@undefined": true
+            },
+            "data": {
+              "@undefined": true
+            },
+            "selected": false,
+            "markerStart": {
+              "@undefined": true
+            },
+            "markerEnd": {
+              "@undefined": true
+            },
+            "zIndex": {
+              "@undefined": true
+            },
+            "label": {
+              "@undefined": true
+            },
+            "ariaLabel": {
+              "@undefined": true
+            },
+            "interactionWidth": {
+              "@undefined": true
+            },
+            "className": {
+              "@undefined": true
+            },
+            "style": {
+              "@undefined": true
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodeMouseEnter",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseEnter",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseenter",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 426.80000001192093,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 5,
+            "screenY": 5,
+            "clientX": 5,
+            "clientY": 5,
+            "pageX": 5,
+            "pageY": 5,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": {
+              "@ref": "path"
             },
             "movementX": 0,
             "movementY": 0,

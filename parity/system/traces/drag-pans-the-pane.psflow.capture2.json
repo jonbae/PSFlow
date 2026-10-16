@@ -343,7 +343,7 @@
               "id": "react-flow__node-desc-1",
               "style": "display: none;"
             },
-            "text": "Press enter or space to select a node. Press delete to remove it and escape to cancel.",
+            "text": "Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel.",
             "children": []
           },
           {
@@ -535,7 +535,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 195.89999997615814,
+            "timeStamp": 160.0999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -602,7 +602,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 195.89999997615814,
+            "timeStamp": 160.0999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -681,7 +681,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 203.39999997615814,
+            "timeStamp": 169.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

@@ -1646,7 +1646,7 @@
               "id": "react-flow__node-desc-1",
               "style": "display: none;"
             },
-            "text": "Press enter or space to select a node. Press delete to remove it and escape to cancel.",
+            "text": "Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel.",
             "children": []
           },
           {
@@ -2146,7 +2146,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 389.0999999642372,
+            "timeStamp": 360.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2215,7 +2215,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 389.0999999642372,
+            "timeStamp": 360.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2318,7 +2318,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 389.0999999642372,
+            "timeStamp": 360.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2383,7 +2383,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 389.0999999642372,
+            "timeStamp": 360.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2502,7 +2502,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 404.69999998807907,
+            "timeStamp": 372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

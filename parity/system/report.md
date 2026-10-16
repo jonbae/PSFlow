@@ -12,105 +12,105 @@ claimed by a region — never by loosening what the net looks at.
 
 | scenario | verdict | failure classes | differences |
 |---|---|---|---|
-| `mount-baseline--edges-general` | **failed** | unclaimed-difference | 1733 |
-| `mount-baseline--node-toolbar-general` | **failed** | unclaimed-difference | 1182 |
-| `mount-baseline--nodes-general` | **failed** | unclaimed-difference | 944 |
-| `mount-baseline--pane-general` | **failed** | unclaimed-difference | 413 |
-| `mount-baseline--pane-non-defaults` | **failed** | unclaimed-difference | 398 |
-| `mount-baseline--chrome-background` | **failed** | unclaimed-difference | 468 |
-| `mount-baseline--chrome-controls` | **failed** | unclaimed-difference | 466 |
-| `mount-baseline--chrome-minimap-colors` | **failed** | unclaimed-difference | 467 |
-| `mount-baseline--chrome-minimap-hidden-nodes` | **failed** | unclaimed-difference | 321 |
-| `mount-baseline--chrome-panels` | **failed** | unclaimed-difference | 466 |
+| `mount-baseline--edges-general` | **failed** | unclaimed-difference | 1732 |
+| `mount-baseline--node-toolbar-general` | **failed** | unclaimed-difference | 1181 |
+| `mount-baseline--nodes-general` | **failed** | unclaimed-difference | 943 |
+| `mount-baseline--pane-general` | **failed** | unclaimed-difference | 412 |
+| `mount-baseline--pane-non-defaults` | **failed** | unclaimed-difference | 397 |
+| `mount-baseline--chrome-background` | **failed** | unclaimed-difference | 467 |
+| `mount-baseline--chrome-controls` | **failed** | unclaimed-difference | 465 |
+| `mount-baseline--chrome-minimap-colors` | **failed** | unclaimed-difference | 466 |
+| `mount-baseline--chrome-minimap-hidden-nodes` | **failed** | unclaimed-difference | 320 |
+| `mount-baseline--chrome-panels` | **failed** | unclaimed-difference | 465 |
 | `mount-baseline--edges-base-edge-path` | **failed** | driving-divergence, unclaimed-difference | 88 |
-| `mount-baseline--fitview-uncontrolled` | **failed** | unclaimed-difference | 466 |
-| `mount-baseline--flow-chrome-defaults` | **failed** | unclaimed-difference | 235 |
-| `mount-baseline--flow-custom-testid` | **failed** | unclaimed-difference | 467 |
-| `mount-baseline--flow-display-none` | **failed** | unclaimed-difference | 466 |
-| `mount-baseline--flow-limits-change` | **failed** | unclaimed-difference | 465 |
-| `mount-baseline--flow-not-selectable` | **failed** | unclaimed-difference | 495 |
-| `mount-baseline--flow-props-change` | **failed** | unclaimed-difference | 466 |
-| `mount-baseline--nodes-autopan` | **failed** | unclaimed-difference | 398 |
-| `mount-baseline--nodes-connections` | **failed** | unclaimed-difference | 749 |
-| `mount-baseline--nodes-expand-parent` | **failed** | unclaimed-difference | 382 |
-| `mount-baseline--nodes-no-select-on-drag` | **failed** | unclaimed-difference | 466 |
-| `mount-baseline--nodes-nowheel` | **failed** | unclaimed-difference | 304 |
-| `mount-baseline--nodes-props-record` | **failed** | unclaimed-difference | 166 |
-| `mount-baseline--nodes-tall` | **failed** | unclaimed-difference | 508 |
-| `mount-baseline--nodes-unmeasured` | **failed** | unclaimed-difference | 386 |
-| `mount-baseline--viewport-controlled` | **failed** | unclaimed-difference | 466 |
-| `mount-baseline--viewport-helpers` | **failed** | unclaimed-difference | 533 |
-| `mount-baseline--viewport-pan-on-scroll` | **failed** | unclaimed-difference | 465 |
-| `mount-baseline--examples-color-mode` | **failed** | unclaimed-difference | 31 |
-| `click-selects-edge` | **failed** | driving-divergence, unclaimed-difference | 1805 |
-| `multi-select-edges-with-modifier` | **failed** | driving-divergence, unclaimed-difference | 1908 |
-| `click-unselectable-edge` | **failed** | unclaimed-difference | 1778 |
-| `delete-key-removes-edge` | **failed** | driving-divergence, unclaimed-difference | 1775 |
-| `delete-key-spares-undeletable-edge` | **failed** | driving-divergence, unclaimed-difference | 1803 |
-| `click-inside-interaction-width` | **failed** | driving-divergence, unclaimed-difference | 1794 |
-| `click-selects-node` | **failed** | unclaimed-difference | 1107 |
-| `shift-drag-selects-nodes` | **failed** | unclaimed-difference | 1028 |
-| `click-unselectable-node` | **failed** | unclaimed-difference | 1101 |
-| `drag-moves-node` | **failed** | unclaimed-difference | 1431 |
-| `drag-does-not-move-undraggable-node` | **failed** | unclaimed-difference | 1045 |
-| `drag-by-custom-drag-handle` | **failed** | unclaimed-difference | 1464 |
-| `delete-key-removes-node-and-edges` | **failed** | unclaimed-difference | 993 |
-| `delete-key-spares-undeletable-node` | **failed** | unclaimed-difference | 1126 |
-| `connect-source-handle-to-target-handle` | **failed** | unclaimed-difference | 1241 |
-| `connect-output-to-output-handle` | **failed** | unclaimed-difference | 1127 |
-| `connect-input-to-input-handle` | **failed** | unclaimed-difference | 1166 |
-| `connect-to-unconnectable-handle` | **failed** | unclaimed-difference | 1118 |
-| `drag-pans-the-pane` | **failed** | unclaimed-difference | 413 |
-| `wheel-zooms-the-pane` | **failed** | unclaimed-difference | 413 |
-| `wheel-zooms-out-to-min` | **failed** | unclaimed-difference | 399 |
-| `wheel-zooms-in-to-max` | **failed** | unclaimed-difference | 399 |
-| `wheel-pans-with-panonscroll` | **failed** | unclaimed-difference | 410 |
-| `click-reveals-default-toolbar` | **failed** | unclaimed-difference | 1274 |
-| `select-dark-color-mode` | **failed** | unclaimed-difference | 31 |
-| `drag-node-release` | **failed** | unclaimed-difference | 1873 |
-| `drag-node-escape-mid-gesture` | **failed** | unclaimed-difference | 1243 |
-| `drag-node-autopan` | **failed** | self-inconsistent, unclaimed-difference | 1241 |
-| `drag-node-no-select-on-drag` | **failed** | unclaimed-difference | 1288 |
-| `drag-child-expand-parent` | **failed** | driving-divergence, unclaimed-difference | 964 |
-| `drag-unmeasured-node` | **failed** | unclaimed-difference | 959 |
-| `selection-box-from-node` | **failed** | unclaimed-difference | 1029 |
-| `selection-box-then-click-node` | **failed** | unclaimed-difference | 1339 |
-| `selection-box-mid-gesture` | **failed** | unclaimed-difference | 466 |
-| `selection-box-touch` | **failed** | unclaimed-difference | 1037 |
-| `arrow-key-selected-node` | **failed** | self-inconsistent, unclaimed-difference | 755 |
-| `keyboard-focus-node` | **failed** | unclaimed-difference | 533 |
-| `connect-handle-to-handle` | **failed** | unclaimed-difference | 1500 |
-| `connect-then-keyboard-move` | **failed** | unclaimed-difference | 1281 |
-| `connect-second-touch-point` | **failed** | unclaimed-difference | 1021 |
-| `probe-node-connections` | **failed** | driving-divergence, unclaimed-difference | 1016 |
-| `viewport-helpers-with-options` | **failed** | unclaimed-difference | 580 |
-| `pan-gesture-complete` | **failed** | unclaimed-difference | 413 |
-| `fitview-onnodeschange-variants` | **failed** | unclaimed-difference | 870 |
-| `uncontrolled-update-node` | **failed** | unclaimed-difference | 600 |
-| `flow-props-change-after-mount` | **failed** | unclaimed-difference | 739 |
-| `mount-in-display-none` | **failed** | unclaimed-difference | 467 |
-| `minimap-all-nodes-hidden` | **failed** | unclaimed-difference | 321 |
-| `minimap-custom-mask-colors` | **failed** | unclaimed-difference | 583 |
-| `controls-horizontal` | **failed** | unclaimed-difference | 467 |
-| `panel-center-positions` | **failed** | unclaimed-difference | 466 |
-| `background-custom-bgcolor` | **failed** | unclaimed-difference | 468 |
-| `flow-custom-testid` | **failed** | driving-divergence, unclaimed-difference | 489 |
+| `mount-baseline--fitview-uncontrolled` | **failed** | unclaimed-difference | 465 |
+| `mount-baseline--flow-chrome-defaults` | **failed** | unclaimed-difference | 234 |
+| `mount-baseline--flow-custom-testid` | **failed** | unclaimed-difference | 466 |
+| `mount-baseline--flow-display-none` | **failed** | unclaimed-difference | 465 |
+| `mount-baseline--flow-limits-change` | **failed** | unclaimed-difference | 464 |
+| `mount-baseline--flow-not-selectable` | **failed** | unclaimed-difference | 494 |
+| `mount-baseline--flow-props-change` | **failed** | unclaimed-difference | 465 |
+| `mount-baseline--nodes-autopan` | **failed** | unclaimed-difference | 397 |
+| `mount-baseline--nodes-connections` | **failed** | unclaimed-difference | 748 |
+| `mount-baseline--nodes-expand-parent` | **failed** | unclaimed-difference | 381 |
+| `mount-baseline--nodes-no-select-on-drag` | **failed** | unclaimed-difference | 465 |
+| `mount-baseline--nodes-nowheel` | **failed** | unclaimed-difference | 303 |
+| `mount-baseline--nodes-props-record` | **failed** | unclaimed-difference | 165 |
+| `mount-baseline--nodes-tall` | **failed** | unclaimed-difference | 507 |
+| `mount-baseline--nodes-unmeasured` | **failed** | unclaimed-difference | 385 |
+| `mount-baseline--viewport-controlled` | **failed** | unclaimed-difference | 465 |
+| `mount-baseline--viewport-helpers` | **failed** | unclaimed-difference | 532 |
+| `mount-baseline--viewport-pan-on-scroll` | **failed** | unclaimed-difference | 464 |
+| `mount-baseline--examples-color-mode` | **failed** | unclaimed-difference | 30 |
+| `click-selects-edge` | **failed** | driving-divergence, unclaimed-difference | 1804 |
+| `multi-select-edges-with-modifier` | **failed** | driving-divergence, unclaimed-difference | 1907 |
+| `click-unselectable-edge` | **failed** | unclaimed-difference | 1777 |
+| `delete-key-removes-edge` | **failed** | driving-divergence, unclaimed-difference | 1774 |
+| `delete-key-spares-undeletable-edge` | **failed** | driving-divergence, unclaimed-difference | 1802 |
+| `click-inside-interaction-width` | **failed** | driving-divergence, unclaimed-difference | 1793 |
+| `click-selects-node` | **failed** | unclaimed-difference | 1106 |
+| `shift-drag-selects-nodes` | **failed** | unclaimed-difference | 1027 |
+| `click-unselectable-node` | **failed** | unclaimed-difference | 1100 |
+| `drag-moves-node` | **failed** | self-inconsistent, unclaimed-difference | 1453 |
+| `drag-does-not-move-undraggable-node` | **failed** | unclaimed-difference | 1044 |
+| `drag-by-custom-drag-handle` | **failed** | unclaimed-difference | 1463 |
+| `delete-key-removes-node-and-edges` | **failed** | unclaimed-difference | 992 |
+| `delete-key-spares-undeletable-node` | **failed** | unclaimed-difference | 1125 |
+| `connect-source-handle-to-target-handle` | **failed** | unclaimed-difference | 1240 |
+| `connect-output-to-output-handle` | **failed** | unclaimed-difference | 1126 |
+| `connect-input-to-input-handle` | **failed** | unclaimed-difference | 1165 |
+| `connect-to-unconnectable-handle` | **failed** | unclaimed-difference | 1117 |
+| `drag-pans-the-pane` | **failed** | unclaimed-difference | 412 |
+| `wheel-zooms-the-pane` | **failed** | unclaimed-difference | 412 |
+| `wheel-zooms-out-to-min` | **failed** | unclaimed-difference | 398 |
+| `wheel-zooms-in-to-max` | **failed** | unclaimed-difference | 398 |
+| `wheel-pans-with-panonscroll` | **failed** | unclaimed-difference | 409 |
+| `click-reveals-default-toolbar` | **failed** | unclaimed-difference | 1273 |
+| `select-dark-color-mode` | **failed** | unclaimed-difference | 30 |
+| `drag-node-release` | **failed** | unclaimed-difference | 1872 |
+| `drag-node-escape-mid-gesture` | **failed** | unclaimed-difference | 1242 |
+| `drag-node-autopan` | **failed** | self-inconsistent, unclaimed-difference | 1233 |
+| `drag-node-no-select-on-drag` | **failed** | unclaimed-difference | 1287 |
+| `drag-child-expand-parent` | **failed** | driving-divergence, unclaimed-difference | 963 |
+| `drag-unmeasured-node` | **failed** | unclaimed-difference | 958 |
+| `selection-box-from-node` | **failed** | unclaimed-difference | 1028 |
+| `selection-box-then-click-node` | **failed** | unclaimed-difference | 1338 |
+| `selection-box-mid-gesture` | **failed** | unclaimed-difference | 465 |
+| `selection-box-touch` | **failed** | unclaimed-difference | 1036 |
+| `arrow-key-selected-node` | **failed** | self-inconsistent, unclaimed-difference | 754 |
+| `keyboard-focus-node` | **failed** | unclaimed-difference | 532 |
+| `connect-handle-to-handle` | **failed** | unclaimed-difference | 1499 |
+| `connect-then-keyboard-move` | **failed** | unclaimed-difference | 1280 |
+| `connect-second-touch-point` | **failed** | unclaimed-difference | 1020 |
+| `probe-node-connections` | **failed** | driving-divergence, unclaimed-difference | 1015 |
+| `viewport-helpers-with-options` | **failed** | unclaimed-difference | 579 |
+| `pan-gesture-complete` | **failed** | unclaimed-difference | 412 |
+| `fitview-onnodeschange-variants` | **failed** | unclaimed-difference | 869 |
+| `uncontrolled-update-node` | **failed** | unclaimed-difference | 599 |
+| `flow-props-change-after-mount` | **failed** | unclaimed-difference | 738 |
+| `mount-in-display-none` | **failed** | unclaimed-difference | 466 |
+| `minimap-all-nodes-hidden` | **failed** | unclaimed-difference | 320 |
+| `minimap-custom-mask-colors` | **failed** | unclaimed-difference | 582 |
+| `controls-horizontal` | **failed** | unclaimed-difference | 466 |
+| `panel-center-positions` | **failed** | unclaimed-difference | 465 |
+| `background-custom-bgcolor` | **failed** | unclaimed-difference | 467 |
+| `flow-custom-testid` | **failed** | driving-divergence, unclaimed-difference | 488 |
 | `custom-edge-baseedge-path` | **failed** | driving-divergence, unclaimed-difference | 113 |
-| `pinch-over-nowheel-node` | **failed** | driving-divergence, unclaimed-difference | 398 |
-| `minimap-default-click` | **failed** | unclaimed-difference | 235 |
-| `controls-default-zoom` | **failed** | unclaimed-difference | 236 |
-| `wheel-zoom-from-identity-viewport` | **failed** | unclaimed-difference | 245 |
-| `pane-drag-from-identity-viewport` | **failed** | unclaimed-difference | 235 |
-| `drag-node-reports-changes` | **failed** | self-inconsistent, unclaimed-difference | 1018 |
-| `click-connect-reverse-direction` | **failed** | unclaimed-difference | 493 |
-| `connect-drag-holding-source` | **failed** | unclaimed-difference | 377 |
-| `connect-drag-released-on-pane` | **failed** | unclaimed-difference | 404 |
-| `node-props-record-parented` | **failed** | unclaimed-difference | 324 |
-| `wheel-zooms-to-changed-limits` | **failed** | unclaimed-difference | 467 |
-| `drag-pans-into-changed-extent` | **failed** | unclaimed-difference | 465 |
-| `pan-after-controlled-viewport-change` | **failed** | unclaimed-difference | 466 |
-| `ctrl-wheel-pinches-with-panonscroll` | **failed** | unclaimed-difference | 479 |
-| `pane-click-keeps-selection-when-not-selectable` | **failed** | unclaimed-difference | 495 |
+| `pinch-over-nowheel-node` | **failed** | driving-divergence, unclaimed-difference | 397 |
+| `minimap-default-click` | **failed** | unclaimed-difference | 234 |
+| `controls-default-zoom` | **failed** | unclaimed-difference | 235 |
+| `wheel-zoom-from-identity-viewport` | **failed** | unclaimed-difference | 244 |
+| `pane-drag-from-identity-viewport` | **failed** | unclaimed-difference | 234 |
+| `drag-node-reports-changes` | **failed** | self-inconsistent, unclaimed-difference | 1017 |
+| `click-connect-reverse-direction` | **failed** | unclaimed-difference | 492 |
+| `connect-drag-holding-source` | **failed** | unclaimed-difference | 376 |
+| `connect-drag-released-on-pane` | **failed** | unclaimed-difference | 403 |
+| `node-props-record-parented` | **failed** | unclaimed-difference | 323 |
+| `wheel-zooms-to-changed-limits` | **failed** | unclaimed-difference | 466 |
+| `drag-pans-into-changed-extent` | **failed** | unclaimed-difference | 464 |
+| `pan-after-controlled-viewport-change` | **failed** | unclaimed-difference | 465 |
+| `ctrl-wheel-pinches-with-panonscroll` | **failed** | unclaimed-difference | 478 |
+| `pane-click-keeps-selection-when-not-selectable` | **failed** | unclaimed-difference | 494 |
 | `click-selects-node--probe-flow-node` | **failed** | unclaimed-difference | 1120 |
 | `wheel-zooms-the-pane--probe-flow-node` | **failed** | unclaimed-difference | 518 |
 | `mount-baseline--edges-general--probe-edge` | **failed** | unclaimed-difference | 16 |
@@ -147,11 +147,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1733 unclaimed difference(s).
+**Failed:** 1732 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (143)
+### dom (142)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -297,7 +297,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (138)
 
@@ -1928,11 +1927,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1182 unclaimed difference(s).
+**Failed:** 1181 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (100)
+### dom (99)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -2035,7 +2034,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (116)
 
@@ -3158,11 +3156,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 944 unclaimed difference(s).
+**Failed:** 943 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (52)
+### dom (51)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -3217,7 +3215,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (76)
 
@@ -4150,11 +4147,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 413 unclaimed difference(s).
+**Failed:** 412 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (29)
+### dom (28)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -4186,7 +4183,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (25)
 
@@ -4611,11 +4607,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 398 unclaimed difference(s).
+**Failed:** 397 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (17)
+### dom (16)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -4635,7 +4631,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (24)
 
@@ -5057,11 +5052,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 468 unclaimed difference(s).
+**Failed:** 467 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (22)
+### dom (21)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -5086,7 +5081,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (33)
 
@@ -5573,11 +5567,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 466 unclaimed difference(s).
+**Failed:** 465 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (20)
+### dom (19)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -5600,7 +5594,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[2]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[2]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[2]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (33)
 
@@ -6087,11 +6080,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 467 unclaimed difference(s).
+**Failed:** 466 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (21)
+### dom (20)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -6115,7 +6108,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[2]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[2]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[2]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (33)
 
@@ -6602,11 +6594,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 321 unclaimed difference(s).
+**Failed:** 320 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (5)
+### dom (4)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -6614,7 +6606,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[2]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[2]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[2]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### api (316)
 
@@ -6966,11 +6957,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 466 unclaimed difference(s).
+**Failed:** 465 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (20)
+### dom (19)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -6993,7 +6984,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[3]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[3]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[3]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (33)
 
@@ -7600,8 +7590,8 @@ a real divergence is exactly what would be hiding down there.
 | `console/2` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/3` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/4` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:59161/parity/driver/dist/… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:59161/parity/driver/dist/… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:62056/parity/driver/dist/… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:62056/parity/driver/dist/… |
 | `console/7` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 
 
@@ -7633,11 +7623,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 466 unclaimed difference(s).
+**Failed:** 465 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (20)
+### dom (19)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -7660,7 +7650,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (33)
 
@@ -8147,11 +8136,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 235 unclaimed difference(s).
+**Failed:** 234 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (15)
+### dom (14)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -8169,7 +8158,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[3]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[3]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[3]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### api (220)
 
@@ -8425,11 +8413,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 467 unclaimed difference(s).
+**Failed:** 466 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (21)
+### dom (20)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -8453,7 +8441,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (33)
 
@@ -8940,11 +8927,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 466 unclaimed difference(s).
+**Failed:** 465 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (20)
+### dom (19)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -8967,7 +8954,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (33)
 
@@ -9454,11 +9440,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 465 unclaimed difference(s).
+**Failed:** 464 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (20)
+### dom (19)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -9481,7 +9467,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (32)
 
@@ -9967,11 +9952,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 495 unclaimed difference(s).
+**Failed:** 494 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (20)
+### dom (19)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -9994,7 +9979,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (70)
 
@@ -10510,11 +10494,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 466 unclaimed difference(s).
+**Failed:** 465 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (20)
+### dom (19)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -10537,7 +10521,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (33)
 
@@ -11024,11 +11007,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 398 unclaimed difference(s).
+**Failed:** 397 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (17)
+### dom (16)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -11048,7 +11031,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (24)
 
@@ -11470,11 +11452,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 749 unclaimed difference(s).
+**Failed:** 748 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (42)
+### dom (41)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -11519,7 +11501,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (61)
 
@@ -12267,11 +12248,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 382 unclaimed difference(s).
+**Failed:** 381 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (21)
+### dom (20)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -12295,7 +12276,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (34)
 
@@ -12697,11 +12677,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 466 unclaimed difference(s).
+**Failed:** 465 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (20)
+### dom (19)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -12724,7 +12704,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (33)
 
@@ -13211,11 +13190,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 304 unclaimed difference(s).
+**Failed:** 303 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (21)
+### dom (20)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -13239,7 +13218,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (22)
 
@@ -13563,11 +13541,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 166 unclaimed difference(s).
+**Failed:** 165 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (5)
+### dom (4)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -13575,7 +13553,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### api (161)
 
@@ -13772,11 +13749,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 508 unclaimed difference(s).
+**Failed:** 507 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (20)
+### dom (19)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -13799,7 +13776,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (32)
 
@@ -14328,11 +14304,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 386 unclaimed difference(s).
+**Failed:** 385 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (12)
+### dom (11)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -14347,7 +14323,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (63)
 
@@ -14762,11 +14737,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 466 unclaimed difference(s).
+**Failed:** 465 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (20)
+### dom (19)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -14789,7 +14764,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (33)
 
@@ -15276,11 +15250,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 533 unclaimed difference(s).
+**Failed:** 532 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (38)
+### dom (37)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -15321,7 +15295,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (33)
 
@@ -15857,11 +15830,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 465 unclaimed difference(s).
+**Failed:** 464 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (20)
+### dom (19)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -15884,7 +15857,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (32)
 
@@ -16370,11 +16342,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 31 unclaimed difference(s).
+**Failed:** 30 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (31)
+### dom (30)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -16408,7 +16380,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[4]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[4]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[4]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 
 ---
@@ -16439,7 +16410,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 4 driving divergence(s), 1801 unclaimed difference(s).
+**Failed:** 4 driving divergence(s), 1800 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -16459,7 +16430,7 @@ a real divergence is exactly what would be hiding down there.
 | `driving/1/dispatched/y` | differs | 96.19428634643555 | 96.19428253173828 |
 | `driving/2/dispatched/y` | differs | 96.19428634643555 | 96.19428253173828 |
 
-### dom (143) — consequence of the driving divergence
+### dom (142) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -16605,7 +16576,6 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (209) — consequence of the driving divergence
 
@@ -18310,7 +18280,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 11 driving divergence(s), 1897 unclaimed difference(s).
+**Failed:** 11 driving divergence(s), 1896 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -18337,7 +18307,7 @@ a real divergence is exactly what would be hiding down there.
 | `driving/5/dispatched/x` | differs | 663.4285888671875 | 663.4285583496094 |
 | `driving/5/dispatched/y` | differs | 96.19428634643555 | 96.19428253173828 |
 
-### dom (143) — consequence of the driving divergence
+### dom (142) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -18483,7 +18453,6 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (307) — consequence of the driving divergence
 
@@ -20284,11 +20253,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1778 unclaimed difference(s).
+**Failed:** 1777 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (143)
+### dom (142)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -20434,7 +20403,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (183)
 
@@ -22116,7 +22084,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 4 driving divergence(s), 1771 unclaimed difference(s).
+**Failed:** 4 driving divergence(s), 1770 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -22136,7 +22104,7 @@ a real divergence is exactly what would be hiding down there.
 | `driving/1/dispatched/y` | differs | 96.19428634643555 | 96.19428253173828 |
 | `driving/2/dispatched/y` | differs | 96.19428634643555 | 96.19428253173828 |
 
-### dom (137) — consequence of the driving divergence
+### dom (136) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -22276,7 +22244,6 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (218) — consequence of the driving divergence
 
@@ -23957,7 +23924,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 4 driving divergence(s), 1799 unclaimed difference(s).
+**Failed:** 4 driving divergence(s), 1798 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -23977,7 +23944,7 @@ a real divergence is exactly what would be hiding down there.
 | `driving/1/dispatched/x` | differs | 710.2857055664062 | 710.2856750488281 |
 | `driving/2/dispatched/x` | differs | 710.2857055664062 | 710.2856750488281 |
 
-### dom (143) — consequence of the driving divergence
+### dom (142) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -24123,7 +24090,6 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (206) — consequence of the driving divergence
 
@@ -25826,7 +25792,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 2 driving divergence(s), 1792 unclaimed difference(s).
+**Failed:** 2 driving divergence(s), 1791 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -25844,7 +25810,7 @@ a real divergence is exactly what would be hiding down there.
 | `driving/1/box/y` | differs | 442.46856689453125 | 442.4685363769531 |
 | `driving/1/box/height` | differs | 57.16571044921875 | 57.165771484375 |
 
-### dom (143) — consequence of the driving divergence
+### dom (142) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -25990,7 +25956,6 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (199) — consequence of the driving divergence
 
@@ -27686,11 +27651,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1107 unclaimed difference(s).
+**Failed:** 1106 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (52)
+### dom (51)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -27745,7 +27710,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (244)
 
@@ -28847,11 +28811,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1028 unclaimed difference(s).
+**Failed:** 1027 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (53)
+### dom (52)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -28907,7 +28871,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (175)
 
@@ -29929,11 +29892,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1101 unclaimed difference(s).
+**Failed:** 1100 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (52)
+### dom (51)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -29988,7 +29951,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (233)
 
@@ -31060,7 +31022,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 # System parity run — drag-moves-node
 
-**Failed:** unclaimed-difference.
+**Failed:** self-inconsistent, unclaimed-difference.
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -31074,7 +31036,28 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | **disagrees with itself** | 12 |
+
+### psflow disagrees with itself
+
+| path | kind | capture 1 | capture 2 |
+|---|---|---|---|
+| `callbacks/31` | left only | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… | — |
+| `callbacks/35` | left only | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… | — |
+| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
+| `callbacks/30/args/0/screenX` | differs | 774 | 814 |
+| `callbacks/30/args/0/screenY` | differs | 211 | 251 |
+| `callbacks/30/args/0/clientX` | differs | 774 | 814 |
+| `callbacks/30/args/0/clientY` | differs | 211 | 251 |
+| `callbacks/30/args/0/pageX` | differs | 774 | 814 |
+| `callbacks/30/args/0/pageY` | differs | 211 | 251 |
+| `callbacks/30/args/0/buttons` | differs | 1 | 0 |
+| `callbacks/30/args/1/position/x` | differs | 155.36585365853657 | 194.2073170731707 |
+| `callbacks/30/args/1/position/y` | differs | 155.3658536585366 | 194.2073170731707 |
+
+**psflow did not reproduce.** The comparison below ran anyway —
+capture-everything applies to a failed run as much as to a passing one — but a difference it reports
+cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
 ---
 
@@ -31084,11 +31067,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1431 unclaimed difference(s).
+**Failed:** 1441 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (52)
+### dom (51)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -31143,12 +31126,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (573)
+### callbacks (584)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
+| `callbacks/31` | right only | — | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… |
+| `callbacks/35` | right only | — | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 | `callbacks/4/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/4/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -31658,6 +31642,15 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/32/args/2/0/ariaLabel` | right only | — | {"@undefined":true} |
 | `callbacks/32/args/2/0/origin` | right only | — | {"@undefined":true} |
 | `callbacks/32/args/2/0/handles` | right only | — | {"@undefined":true} |
+| `callbacks/33/args/0/screenX` | differs | 814 | 774 |
+| `callbacks/33/args/0/screenY` | differs | 251 | 211 |
+| `callbacks/33/args/0/clientX` | differs | 814 | 774 |
+| `callbacks/33/args/0/clientY` | differs | 251 | 211 |
+| `callbacks/33/args/0/pageX` | differs | 814 | 774 |
+| `callbacks/33/args/0/pageY` | differs | 251 | 211 |
+| `callbacks/33/args/0/buttons` | differs | 0 | 1 |
+| `callbacks/33/args/1/position/x` | differs | 194.2073170731707 | 155.36585365853657 |
+| `callbacks/33/args/1/position/y` | differs | 194.2073170731707 | 155.3658536585366 |
 | `callbacks/33/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/33/args/1/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/33/args/1/hidden` | right only | — | false |
@@ -32536,9 +32529,9 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 ## Normalization
 
-30 field(s) deleted by name and therefore **unobserved** — not passing:
+32 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (15) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (18) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -32569,11 +32562,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1045 unclaimed difference(s).
+**Failed:** 1044 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (52)
+### dom (51)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -32628,7 +32621,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (177)
 
@@ -33668,11 +33660,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1464 unclaimed difference(s).
+**Failed:** 1463 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (52)
+### dom (51)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -33727,7 +33719,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (602)
 
@@ -35186,11 +35177,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 993 unclaimed difference(s).
+**Failed:** 992 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (35)
+### dom (34)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -35228,7 +35219,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (258)
 
@@ -36233,11 +36223,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1126 unclaimed difference(s).
+**Failed:** 1125 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (52)
+### dom (51)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -36292,7 +36282,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (261)
 
@@ -37413,11 +37402,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1241 unclaimed difference(s).
+**Failed:** 1240 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (58)
+### dom (57)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -37478,7 +37467,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (329)
 
@@ -38708,11 +38696,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1127 unclaimed difference(s).
+**Failed:** 1126 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (52)
+### dom (51)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -38767,7 +38755,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (259)
 
@@ -39889,11 +39876,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1166 unclaimed difference(s).
+**Failed:** 1165 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (52)
+### dom (51)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -39948,7 +39935,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (298)
 
@@ -41109,11 +41095,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1118 unclaimed difference(s).
+**Failed:** 1117 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (52)
+### dom (51)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -41168,7 +41154,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (250)
 
@@ -42281,11 +42266,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 413 unclaimed difference(s).
+**Failed:** 412 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (29)
+### dom (28)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -42317,7 +42302,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (25)
 
@@ -42748,11 +42732,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 413 unclaimed difference(s).
+**Failed:** 412 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (29)
+### dom (28)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -42784,7 +42768,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (25)
 
@@ -43215,11 +43198,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 399 unclaimed difference(s).
+**Failed:** 398 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (17)
+### dom (16)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -43239,7 +43222,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (25)
 
@@ -43668,11 +43650,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 399 unclaimed difference(s).
+**Failed:** 398 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (17)
+### dom (16)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -43692,7 +43674,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (25)
 
@@ -44121,11 +44102,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 410 unclaimed difference(s).
+**Failed:** 409 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (27)
+### dom (26)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -44155,7 +44136,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (24)
 
@@ -44585,11 +44565,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1274 unclaimed difference(s).
+**Failed:** 1273 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (102)
+### dom (101)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -44694,7 +44674,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (211)
 
@@ -45913,11 +45892,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 31 unclaimed difference(s).
+**Failed:** 30 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (31)
+### dom (30)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -45951,7 +45930,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[4]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[4]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[4]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 
 ---
@@ -45982,11 +45960,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1873 unclaimed difference(s).
+**Failed:** 1872 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (52)
+### dom (51)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -46041,7 +46019,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (1010)
 
@@ -47909,11 +47886,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1243 unclaimed difference(s).
+**Failed:** 1242 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (52)
+### dom (51)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -47968,7 +47945,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (385)
 
@@ -49196,7 +49172,7 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | **disagrees with itself** | 122 |
+| psflow | 1, 2 | **disagrees with itself** | 118 |
 
 ### psflow disagrees with itself
 
@@ -49212,18 +49188,20 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | -1995 | -1715 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | -1963 | -1903 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | height: 37px; pointer-events: all; transform: translate(-2070px, -2013px); visibility: visible; width: 150px; z-index: 1000; | height: 37px; pointer-events: all; transform: translate(-1790px, -1953px); visibility: visible; width: 150px; z-index: 1000; |
-| `callbacks/54` | left only | {"name":"onMoveStart","args":[null,{"x":1720,"y":1920,"zoom":1}]} | — |
+| `callbacks/54` | left only | {"name":"onMoveStart","args":[null,{"x":1710,"y":1930,"zoom":1}]} | — |
 | `callbacks/55` | left only | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} | — |
 | `callbacks/56` | left only | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
 | `callbacks/57` | left only | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
 | `callbacks/60` | left only | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… | — |
-| `callbacks/63` | left only | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2070,"y":-2013},"data":{"label":"Node-1"},"type":"input",… | — |
-| `callbacks/64` | left only | {"name":"onMoveStart","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/65` | left only | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/66` | left only | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/67` | left only | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/68` | left only | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… | — |
-| `callbacks/69` | left only | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… | — |
+| `callbacks/61` | left only | {"name":"onEdgeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… | — |
+| `callbacks/64` | left only | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2070,"y":-2013},"data":{"label":"Node-1"},"type":"input",… | — |
+| `callbacks/65` | left only | {"name":"onMoveStart","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
+| `callbacks/66` | left only | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} | — |
+| `callbacks/67` | left only | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
+| `callbacks/68` | left only | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
+| `callbacks/69` | left only | {"name":"onEdgeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… | — |
+| `callbacks/70` | left only | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… | — |
+| `callbacks/71` | left only | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… | — |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… |
 | `callbacks/22/args/1/position/x` | differs | -409 | 0 |
 | `callbacks/22/args/1/position/y` | differs | -352 | 0 |
@@ -49255,51 +49233,45 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | `callbacks/43/args/1/position/y` | differs | -1592 | -1253 |
 | `callbacks/43/args/2/0/position/x` | differs | -1440 | -1099 |
 | `callbacks/43/args/2/0/position/y` | differs | -1592 | -1253 |
-| `callbacks/44/args/0/screenX` | differs | 5 | 6 |
-| `callbacks/44/args/0/screenY` | differs | 6 | 5 |
-| `callbacks/44/args/0/clientX` | differs | 5 | 6 |
-| `callbacks/44/args/0/clientY` | differs | 6 | 5 |
-| `callbacks/44/args/0/pageX` | differs | 5 | 6 |
-| `callbacks/44/args/0/pageY` | differs | 6 | 5 |
 | `callbacks/44/args/1/position/x` | differs | -1440 | -1100 |
 | `callbacks/44/args/1/position/y` | differs | -1592 | -1252 |
-| `callbacks/45/args/1/y` | differs | 1580 | 1590 |
-| `callbacks/46/args/0/y` | differs | 1920 | 1940 |
-| `callbacks/47/args/1/y` | differs | 1920 | 1940 |
-| `callbacks/48/args/1/y` | differs | 1920 | 1940 |
-| `callbacks/49/args/0/0/position/x` | differs | -1790 | -1439 |
-| `callbacks/49/args/0/0/position/y` | differs | -1932 | -1603 |
-| `callbacks/49/args/0/0/positionAbsolute/x` | differs | -1790 | -1439 |
-| `callbacks/49/args/0/0/positionAbsolute/y` | differs | -1932 | -1603 |
-| `callbacks/50/args/1/position/x` | differs | -1790 | -1439 |
-| `callbacks/50/args/1/position/y` | differs | -1932 | -1603 |
-| `callbacks/50/args/2/0/position/x` | differs | -1790 | -1439 |
-| `callbacks/50/args/2/0/position/y` | differs | -1932 | -1603 |
-| `callbacks/52/args/0/0/position/x` | differs | -1789 | -1440 |
-| `callbacks/52/args/0/0/position/y` | differs | -1933 | -1603 |
-| `callbacks/52/args/0/0/positionAbsolute/x` | differs | -1789 | -1440 |
-| `callbacks/52/args/0/0/positionAbsolute/y` | differs | -1933 | -1603 |
-| `callbacks/53/args/1/position/x` | differs | -1789 | -1440 |
-| `callbacks/53/args/1/position/y` | differs | -1933 | -1603 |
-| `callbacks/53/args/2/0/position/x` | differs | -1789 | -1440 |
-| `callbacks/53/args/2/0/position/y` | differs | -1933 | -1603 |
-| `callbacks/58/args/0/0/position/x` | differs | -2129 | -1790 |
-| `callbacks/58/args/0/0/position/y` | differs | -2283 | -1953 |
-| `callbacks/58/args/0/0/positionAbsolute/x` | differs | -2129 | -1790 |
-| `callbacks/58/args/0/0/positionAbsolute/y` | differs | -2283 | -1953 |
-| `callbacks/59/args/1/position/x` | differs | -2129 | -1790 |
-| `callbacks/59/args/1/position/y` | differs | -2283 | -1953 |
-| `callbacks/59/args/2/0/position/x` | differs | -2129 | -1790 |
-| `callbacks/59/args/2/0/position/y` | differs | -2283 | -1953 |
-| `callbacks/62/args/0/0/position/x` | differs | -2070 | -1790 |
-| `callbacks/62/args/0/0/position/y` | differs | -2013 | -1953 |
-| `callbacks/62/args/0/0/positionAbsolute/x` | differs | -2070 | -1790 |
-| `callbacks/62/args/0/0/positionAbsolute/y` | differs | -2013 | -1953 |
-| `callbacks/62/args/0/0/dragging` | differs | true | false |
-| `callbacks/70/args/1/position/x` | differs | -2070 | -1790 |
-| `callbacks/70/args/1/position/y` | differs | -2013 | -1953 |
-| `callbacks/70/args/2/0/position/x` | differs | -2070 | -1790 |
-| `callbacks/70/args/2/0/position/y` | differs | -2013 | -1953 |
+| `callbacks/46/args/0/0/position/y` | differs | -1593 | -1603 |
+| `callbacks/46/args/0/0/positionAbsolute/y` | differs | -1593 | -1603 |
+| `callbacks/47/args/1/position/y` | differs | -1593 | -1603 |
+| `callbacks/47/args/2/0/position/y` | differs | -1593 | -1603 |
+| `callbacks/48/args/1/y` | differs | 1580 | 1590 |
+| `callbacks/49/args/0/x` | differs | 1710 | 1720 |
+| `callbacks/49/args/0/y` | differs | 1930 | 1940 |
+| `callbacks/50/args/1/x` | differs | 1710 | 1720 |
+| `callbacks/50/args/1/y` | differs | 1930 | 1940 |
+| `callbacks/51/args/1/x` | differs | 1710 | 1720 |
+| `callbacks/51/args/1/y` | differs | 1930 | 1940 |
+| `callbacks/52/args/0/0/position/x` | differs | -1779 | -1440 |
+| `callbacks/52/args/0/0/position/y` | differs | -1943 | -1603 |
+| `callbacks/52/args/0/0/positionAbsolute/x` | differs | -1779 | -1440 |
+| `callbacks/52/args/0/0/positionAbsolute/y` | differs | -1943 | -1603 |
+| `callbacks/53/args/1/position/x` | differs | -1779 | -1440 |
+| `callbacks/53/args/1/position/y` | differs | -1943 | -1603 |
+| `callbacks/53/args/2/0/position/x` | differs | -1779 | -1440 |
+| `callbacks/53/args/2/0/position/y` | differs | -1943 | -1603 |
+| `callbacks/58/args/0/0/position/x` | differs | -2119 | -1790 |
+| `callbacks/58/args/0/0/position/y` | differs | -2293 | -1953 |
+| `callbacks/58/args/0/0/positionAbsolute/x` | differs | -2119 | -1790 |
+| `callbacks/58/args/0/0/positionAbsolute/y` | differs | -2293 | -1953 |
+| `callbacks/59/args/1/position/x` | differs | -2119 | -1790 |
+| `callbacks/59/args/1/position/y` | differs | -2293 | -1953 |
+| `callbacks/59/args/2/0/position/x` | differs | -2119 | -1790 |
+| `callbacks/59/args/2/0/position/y` | differs | -2293 | -1953 |
+| `callbacks/62/args/0/target/@ref` | differs | path | DIV |
+| `callbacks/63/args/0/0/position/x` | differs | -2070 | -1790 |
+| `callbacks/63/args/0/0/position/y` | differs | -2013 | -1953 |
+| `callbacks/63/args/0/0/positionAbsolute/x` | differs | -2070 | -1790 |
+| `callbacks/63/args/0/0/positionAbsolute/y` | differs | -2013 | -1953 |
+| `callbacks/63/args/0/0/dragging` | differs | true | false |
+| `callbacks/72/args/1/position/x` | differs | -2070 | -1790 |
+| `callbacks/72/args/1/position/y` | differs | -2013 | -1953 |
+| `callbacks/72/args/2/0/position/x` | differs | -2070 | -1790 |
+| `callbacks/72/args/2/0/position/y` | differs | -2013 | -1953 |
 | `api/queries/getNodes/0/position/x` | differs | -2070 | -1790 |
 | `api/queries/getNodes/0/position/y` | differs | -2013 | -1953 |
 | `api/queries/getNode/position/x` | differs | -2070 | -1790 |
@@ -49337,11 +49309,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1119 unclaimed difference(s).
+**Failed:** 1115 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (26)
+### dom (25)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -49370,31 +49342,32 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
-### callbacks (722)
+### callbacks (719)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `callbacks/41` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1370,"y":1580,"zoom":1}]} |
-| `callbacks/45` | right only | — | {"name":"onMoveStart","args":[null,{"x":1370,"y":1580,"zoom":1}]} |
-| `callbacks/46` | right only | — | {"name":"onViewportChange","args":[{"x":1720,"y":1920,"zoom":1}]} |
-| `callbacks/47` | right only | — | {"name":"onMove","args":[null,{"x":1720,"y":1920,"zoom":1}]} |
-| `callbacks/48` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1720,"y":1920,"zoom":1}]} |
-| `callbacks/54` | right only | — | {"name":"onMoveStart","args":[null,{"x":1720,"y":1920,"zoom":1}]} |
+| `callbacks/48` | right only | — | {"name":"onMoveStart","args":[null,{"x":1370,"y":1580,"zoom":1}]} |
+| `callbacks/49` | right only | — | {"name":"onViewportChange","args":[{"x":1710,"y":1930,"zoom":1}]} |
+| `callbacks/50` | right only | — | {"name":"onMove","args":[null,{"x":1710,"y":1930,"zoom":1}]} |
+| `callbacks/51` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1710,"y":1930,"zoom":1}]} |
+| `callbacks/54` | right only | — | {"name":"onMoveStart","args":[null,{"x":1710,"y":1930,"zoom":1}]} |
 | `callbacks/55` | right only | — | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} |
 | `callbacks/56` | right only | — | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
 | `callbacks/57` | right only | — | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/59` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2129,"y":-2283},"data":{"label":"Node-1"},"type":"input",… |
+| `callbacks/59` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2119,"y":-2293},"data":{"label":"Node-1"},"type":"input",… |
 | `callbacks/60` | right only | — | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… |
-| `callbacks/62` | right only | — | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… |
-| `callbacks/63` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2070,"y":-2013},"data":{"label":"Node-1"},"type":"input",… |
-| `callbacks/64` | right only | — | {"name":"onMoveStart","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/65` | right only | — | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/66` | right only | — | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/67` | right only | — | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/68` | right only | — | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… |
-| `callbacks/69` | right only | — | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… |
+| `callbacks/61` | right only | — | {"name":"onEdgeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… |
+| `callbacks/63` | right only | — | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… |
+| `callbacks/64` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2070,"y":-2013},"data":{"label":"Node-1"},"type":"input",… |
+| `callbacks/65` | right only | — | {"name":"onMoveStart","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
+| `callbacks/66` | right only | — | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} |
+| `callbacks/67` | right only | — | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
+| `callbacks/68` | right only | — | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
+| `callbacks/69` | right only | — | {"name":"onEdgeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… |
+| `callbacks/70` | right only | — | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… |
+| `callbacks/71` | right only | — | {"name":"onNodesChange","args":[[{"dimensions":{"@undefined":true},"resizing":{"@undefined":true},"setAttributes":{"@undefined":true},"selected":{"@undefined":… |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… |
 | `callbacks/1/args/0/0/position` | right only | — | {"@undefined":true} |
 | `callbacks/1/args/0/0/positionAbsolute` | right only | — | {"@undefined":true} |
@@ -49778,12 +49751,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/29/args/2/0/style` | right only | — | {"@undefined":true} |
 | `callbacks/30/args/1/x` | differs | 690 | 340 |
 | `callbacks/30/args/1/y` | differs | 900 | 560 |
-| `callbacks/31/args/0/screenX` | differs | 6 | 5 |
-| `callbacks/31/args/0/screenY` | differs | 5 | 6 |
-| `callbacks/31/args/0/clientX` | differs | 6 | 5 |
-| `callbacks/31/args/0/clientY` | differs | 5 | 6 |
-| `callbacks/31/args/0/pageX` | differs | 6 | 5 |
-| `callbacks/31/args/0/pageY` | differs | 5 | 6 |
 | `callbacks/31/args/1/position/x` | differs | -760 | -1440 |
 | `callbacks/31/args/1/position/y` | differs | -912 | -1592 |
 | `callbacks/31/args/1/sourcePosition` | right only | — | {"@undefined":true} |
@@ -49924,17 +49891,18 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/39/args/2/0/style` | right only | — | {"@undefined":true} |
 | `callbacks/40/args/1/x` | differs | 1030 | 680 |
 | `callbacks/40/args/1/y` | differs | 1250 | 900 |
-| `callbacks/42/args/0/0/position/x` | differs | -1100 | -1790 |
-| `callbacks/42/args/0/0/position/y` | differs | -1263 | -1932 |
+| `callbacks/41/args/0/target/@ref` | differs | DIV | path |
+| `callbacks/42/args/0/0/position/x` | differs | -1100 | -1439 |
+| `callbacks/42/args/0/0/position/y` | differs | -1263 | -1593 |
 | `callbacks/42/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/42/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/42/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
 | `callbacks/42/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/42/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/42/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/42/args/0/0/positionAbsolute` | right only | — | {"x":-1790,"y":-1932} |
-| `callbacks/43/args/1/position/x` | differs | -1100 | -1790 |
-| `callbacks/43/args/1/position/y` | differs | -1263 | -1932 |
+| `callbacks/42/args/0/0/positionAbsolute` | right only | — | {"x":-1439,"y":-1593} |
+| `callbacks/43/args/1/position/x` | differs | -1100 | -1439 |
+| `callbacks/43/args/1/position/y` | differs | -1263 | -1593 |
 | `callbacks/43/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/43/args/1/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/43/args/1/hidden` | right only | — | false |
@@ -49956,8 +49924,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/43/args/1/handles` | right only | — | {"@undefined":true} |
 | `callbacks/43/args/1/className` | right only | — | {"@undefined":true} |
 | `callbacks/43/args/1/style` | right only | — | {"@undefined":true} |
-| `callbacks/43/args/2/0/position/x` | differs | -1100 | -1790 |
-| `callbacks/43/args/2/0/position/y` | differs | -1263 | -1932 |
+| `callbacks/43/args/2/0/position/x` | differs | -1100 | -1439 |
+| `callbacks/43/args/2/0/position/y` | differs | -1263 | -1593 |
 | `callbacks/43/args/2/0/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/43/args/2/0/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/43/args/2/0/hidden` | right only | — | false |
@@ -49985,17 +49953,17 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/45/args/0/y` | differs | 1600 | 1580 |
 | `callbacks/46/args/1/x` | differs | 1380 | 1370 |
 | `callbacks/46/args/1/y` | differs | 1600 | 1580 |
-| `callbacks/47/args/0/0/position/x` | differs | -1450 | -1789 |
-| `callbacks/47/args/0/0/position/y` | differs | -1613 | -1933 |
+| `callbacks/47/args/0/0/position/x` | differs | -1450 | -1779 |
+| `callbacks/47/args/0/0/position/y` | differs | -1613 | -1943 |
 | `callbacks/47/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/47/args/0/0/resizing` | right only | — | {"@undefined":true} |
 | `callbacks/47/args/0/0/setAttributes` | right only | — | {"@undefined":true} |
 | `callbacks/47/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/47/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/47/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/47/args/0/0/positionAbsolute` | right only | — | {"x":-1789,"y":-1933} |
-| `callbacks/48/args/1/position/x` | differs | -1450 | -1789 |
-| `callbacks/48/args/1/position/y` | differs | -1613 | -1933 |
+| `callbacks/47/args/0/0/positionAbsolute` | right only | — | {"x":-1779,"y":-1943} |
+| `callbacks/48/args/1/position/x` | differs | -1450 | -1779 |
+| `callbacks/48/args/1/position/y` | differs | -1613 | -1943 |
 | `callbacks/48/args/1/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/48/args/1/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/48/args/1/hidden` | right only | — | false |
@@ -50017,8 +49985,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/48/args/1/handles` | right only | — | {"@undefined":true} |
 | `callbacks/48/args/1/className` | right only | — | {"@undefined":true} |
 | `callbacks/48/args/1/style` | right only | — | {"@undefined":true} |
-| `callbacks/48/args/2/0/position/x` | differs | -1450 | -1789 |
-| `callbacks/48/args/2/0/position/y` | differs | -1613 | -1933 |
+| `callbacks/48/args/2/0/position/x` | differs | -1450 | -1779 |
+| `callbacks/48/args/2/0/position/y` | differs | -1613 | -1943 |
 | `callbacks/48/args/2/0/sourcePosition` | right only | — | {"@undefined":true} |
 | `callbacks/48/args/2/0/targetPosition` | right only | — | {"@undefined":true} |
 | `callbacks/48/args/2/0/hidden` | right only | — | false |
@@ -50042,8 +50010,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/48/args/2/0/style` | right only | — | {"@undefined":true} |
 | `callbacks/49/args/1/x` | differs | 1380 | 1020 |
 | `callbacks/49/args/1/y` | differs | 1600 | 1240 |
-| `callbacks/50/args/0/0/position/x` | differs | -1450 | -2129 |
-| `callbacks/50/args/0/0/position/y` | differs | -1613 | -2283 |
+| `callbacks/50/args/0/0/position/x` | differs | -1450 | -2119 |
+| `callbacks/50/args/0/0/position/y` | differs | -1613 | -2293 |
 | `callbacks/50/args/0/0/dragging` | differs | false | true |
 | `callbacks/50/args/0/0/dimensions` | right only | — | {"@undefined":true} |
 | `callbacks/50/args/0/0/resizing` | right only | — | {"@undefined":true} |
@@ -50051,7 +50019,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/50/args/0/0/selected` | right only | — | {"@undefined":true} |
 | `callbacks/50/args/0/0/item` | right only | — | {"@undefined":true} |
 | `callbacks/50/args/0/0/index` | right only | — | {"@undefined":true} |
-| `callbacks/50/args/0/0/positionAbsolute` | right only | — | {"x":-2129,"y":-2283} |
+| `callbacks/50/args/0/0/positionAbsolute` | right only | — | {"x":-2119,"y":-2293} |
 | `callbacks/51/args/1/position/x` | differs | -1450 | -2070 |
 | `callbacks/51/args/1/position/y` | differs | -1613 | -2013 |
 | `callbacks/51/args/1/sourcePosition` | right only | — | {"@undefined":true} |
@@ -50477,9 +50445,9 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 ## Normalization
 
-22 field(s) deleted by name and therefore **unobserved** — not passing:
+24 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (16) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (18) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -50510,11 +50478,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1288 unclaimed difference(s).
+**Failed:** 1287 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (20)
+### dom (19)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -50537,7 +50505,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (863)
 
@@ -51852,7 +51819,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 11 driving divergence(s), 953 unclaimed difference(s).
+**Failed:** 11 driving divergence(s), 952 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -51879,7 +51846,7 @@ a real divergence is exactly what would be hiding down there.
 | `driving/9/dispatched/y` | differs | 457 | 600 |
 | `driving/10/dispatched/y` | differs | 457 | 600 |
 
-### dom (21) — consequence of the driving divergence
+### dom (20) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -51903,7 +51870,6 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (611) — consequence of the driving divergence
 
@@ -52882,11 +52848,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 959 unclaimed difference(s).
+**Failed:** 958 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (12)
+### dom (11)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -52901,7 +52867,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (644)
 
@@ -53895,11 +53860,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1029 unclaimed difference(s).
+**Failed:** 1028 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (52)
+### dom (51)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -53954,7 +53919,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (161)
 
@@ -54978,11 +54942,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1339 unclaimed difference(s).
+**Failed:** 1338 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (52)
+### dom (51)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -55037,7 +55001,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (477)
 
@@ -56371,11 +56334,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 466 unclaimed difference(s).
+**Failed:** 465 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (20)
+### dom (19)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -56398,7 +56361,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[3]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[3]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[3]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (33)
 
@@ -56891,11 +56853,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1037 unclaimed difference(s).
+**Failed:** 1036 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (54)
+### dom (53)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -56952,7 +56914,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (163)
 
@@ -57993,11 +57954,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 753 unclaimed difference(s).
+**Failed:** 752 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (25)
+### dom (24)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -58024,7 +57985,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 | `dom/root/children/react-flow__aria-live-1/text` | left only | Moved selected node right. New position, x: 5, y: 20 | — |
 
 ### callbacks (267)
@@ -58800,11 +58760,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 533 unclaimed difference(s).
+**Failed:** 532 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (20)
+### dom (19)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -58827,7 +58787,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (62)
 
@@ -59381,11 +59340,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1500 unclaimed difference(s).
+**Failed:** 1499 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (64)
+### dom (63)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -59452,7 +59411,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (548)
 
@@ -60935,11 +60893,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1281 unclaimed difference(s).
+**Failed:** 1280 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (53)
+### dom (52)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -60995,7 +60953,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (415)
 
@@ -62270,11 +62227,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 1021 unclaimed difference(s).
+**Failed:** 1020 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (53)
+### dom (52)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -62330,7 +62287,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (154)
 
@@ -63350,7 +63306,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 6 driving divergence(s), 1010 unclaimed difference(s).
+**Failed:** 6 driving divergence(s), 1009 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -63372,7 +63328,7 @@ a real divergence is exactly what would be hiding down there.
 | `driving/2/box/width` | differs | 13.515235900878906 | 13.515243530273438 |
 | `driving/2/dispatched/x` | differs | 104.28483200073242 | 104.39041900634766 |
 
-### dom (50) — consequence of the driving divergence
+### dom (49) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -63425,7 +63381,6 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (284) — consequence of the driving divergence
 
@@ -64432,11 +64387,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 580 unclaimed difference(s).
+**Failed:** 579 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (15)
+### dom (14)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -64454,7 +64409,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (174)
 
@@ -65060,11 +65014,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 413 unclaimed difference(s).
+**Failed:** 412 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (29)
+### dom (28)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -65096,7 +65050,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (25)
 
@@ -65527,11 +65480,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 870 unclaimed difference(s).
+**Failed:** 869 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (20)
+### dom (19)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -65554,7 +65507,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (447)
 
@@ -66451,11 +66403,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 600 unclaimed difference(s).
+**Failed:** 599 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (25)
+### dom (24)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -66483,7 +66435,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (52)
 
@@ -67099,11 +67050,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 739 unclaimed difference(s).
+**Failed:** 738 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (20)
+### dom (19)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -67126,7 +67077,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (311)
 
@@ -67892,11 +67842,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 467 unclaimed difference(s).
+**Failed:** 466 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (21)
+### dom (20)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -67920,7 +67870,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (33)
 
@@ -68407,11 +68356,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 321 unclaimed difference(s).
+**Failed:** 320 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (5)
+### dom (4)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -68419,7 +68368,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[2]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[2]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[2]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### api (316)
 
@@ -68771,11 +68719,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 583 unclaimed difference(s).
+**Failed:** 582 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (21)
+### dom (20)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -68799,7 +68747,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[2]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[2]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[2]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (154)
 
@@ -69408,11 +69355,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 467 unclaimed difference(s).
+**Failed:** 466 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (20)
+### dom (19)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -69435,7 +69382,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[2]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[2]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[2]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (34)
 
@@ -69923,11 +69869,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 466 unclaimed difference(s).
+**Failed:** 465 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (20)
+### dom (19)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -69950,7 +69896,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[3]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[3]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[3]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (33)
 
@@ -70437,11 +70382,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 468 unclaimed difference(s).
+**Failed:** 467 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (22)
+### dom (21)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -70466,7 +70411,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (33)
 
@@ -70959,7 +70903,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 5 driving divergence(s), 484 unclaimed difference(s).
+**Failed:** 5 driving divergence(s), 483 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -70980,7 +70924,7 @@ a real divergence is exactly what would be hiding down there.
 | `driving/2/dispatched/x` | differs | 8 | 0 |
 | `driving/2/dispatched/y` | differs | 8 | 0 |
 
-### dom (21) — consequence of the driving divergence
+### dom (20) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -71004,7 +70948,6 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (50) — consequence of the driving divergence
 
@@ -71659,8 +71602,8 @@ a real divergence is exactly what would be hiding down there.
 | `console/2` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/3` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/4` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:59161/parity/driver/dist/… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:59161/parity/driver/dist/… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:62056/parity/driver/dist/… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:62056/parity/driver/dist/… |
 | `console/7` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 
 ## Normalization
@@ -71698,7 +71641,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 50 driving divergence(s), 348 unclaimed difference(s).
+**Failed:** 50 driving divergence(s), 347 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -71764,7 +71707,7 @@ a real divergence is exactly what would be hiding down there.
 | `driving/5/dispatched/points/1/x` | differs | 589.6393432617188 | 351.11474609375 |
 | `driving/5/dispatched/points/1/y` | differs | 359.9999942779541 | 360 |
 
-### dom (21) — consequence of the driving divergence
+### dom (20) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -71788,7 +71731,6 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (66) — consequence of the driving divergence
 
@@ -72162,11 +72104,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 235 unclaimed difference(s).
+**Failed:** 234 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (15)
+### dom (14)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -72184,7 +72126,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[3]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[3]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[3]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### api (220)
 
@@ -72440,11 +72381,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 236 unclaimed difference(s).
+**Failed:** 235 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (15)
+### dom (14)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -72462,7 +72403,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[3]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[3]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[3]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (1)
 
@@ -72724,11 +72664,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 245 unclaimed difference(s).
+**Failed:** 244 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (21)
+### dom (20)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -72752,7 +72692,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[3]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[3]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[3]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### api (224)
 
@@ -73018,11 +72957,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 235 unclaimed difference(s).
+**Failed:** 234 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (15)
+### dom (14)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -73040,7 +72979,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[3]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[3]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[3]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### api (220)
 
@@ -73415,11 +73353,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 914 unclaimed difference(s).
+**Failed:** 913 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (22)
+### dom (21)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -73444,7 +73382,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[3]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[3]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[3]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (670)
 
@@ -74383,11 +74320,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 493 unclaimed difference(s).
+**Failed:** 492 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (15)
+### dom (14)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -74405,7 +74342,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[3]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[3]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[3]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (232)
 
@@ -74930,11 +74866,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 377 unclaimed difference(s).
+**Failed:** 376 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (15)
+### dom (14)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -74952,7 +74888,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[3]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[3]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[3]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (142)
 
@@ -75361,11 +75296,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 404 unclaimed difference(s).
+**Failed:** 403 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (15)
+### dom (14)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -75383,7 +75318,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[3]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[3]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[3]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (169)
 
@@ -75819,11 +75753,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 324 unclaimed difference(s).
+**Failed:** 323 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (5)
+### dom (4)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -75831,7 +75765,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (163)
 
@@ -76197,11 +76130,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 467 unclaimed difference(s).
+**Failed:** 466 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (20)
+### dom (19)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -76224,7 +76157,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (33)
 
@@ -76718,11 +76650,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 465 unclaimed difference(s).
+**Failed:** 464 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (20)
+### dom (19)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -76745,7 +76677,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (32)
 
@@ -77237,11 +77168,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 466 unclaimed difference(s).
+**Failed:** 465 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (20)
+### dom (19)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -77264,7 +77195,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (33)
 
@@ -77757,11 +77687,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 479 unclaimed difference(s).
+**Failed:** 478 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (32)
+### dom (31)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -77796,7 +77726,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (32)
 
@@ -78290,11 +78219,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 495 unclaimed difference(s).
+**Failed:** 494 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (20)
+### dom (19)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -78317,7 +78246,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
 | `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
 | `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
-| `dom/root/children/react-flow__node-desc-1/text` | differs | Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. | Press enter or space to select a node. Press delete to remove it and escape to cancel. |
 
 ### callbacks (70)
 
@@ -79985,8 +79913,8 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `console/3/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
 | `console/4/level` | differs | warning | pageerror |
 | `console/4/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:59161/parity/driver/dist/psflow.js:64988:… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:59161/parity/driver/dist/psflow.js:64988:… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:62056/parity/driver/dist/psflow.js:64988:… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:62056/parity/driver/dist/psflow.js:64988:… |
 
 
 ---
@@ -80556,8 +80484,8 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `console/3/level` | differs | warning | pageerror |
 | `console/3/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
 | `console/4` | right only | — | {"level":"pageerror","text":"ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScri… |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:59161/parity/driver/dist/psflow.js:64988:… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:59161/parity/driver/dist/psflow.js:64988:… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:62056/parity/driver/dist/psflow.js:64988:… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:62056/parity/driver/dist/psflow.js:64988:… |
 
 
 ---
