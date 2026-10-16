@@ -343,6 +343,9 @@ type PanelProps =
   , style :: Maybe (Object String)
   , "aria-label" :: Maybe String
   , "data-testid" :: Maybe String
+  -- | Upstream's `<Attribution />` puts its notice on the panel's own `<div>`
+  -- | through the `...rest` that upstream's `<Panel />` spreads there.
+  , "data-message" :: Maybe String
   , children :: ReactChildren JSX
   -- | The ref the panel puts on its own `<div>`, spelled `innerRef` because
   -- | React reserves `ref`: a `ref` in a props record is stripped by

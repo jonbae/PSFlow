@@ -129,7 +129,7 @@ import Unsafe.Coerce (unsafeCoerce)
 -- ────────────────────────────────────────────────────────────────────────
 
 -- | Upstream's `PanelProps` is `HTMLAttributes<HTMLDivElement> & { position }`,
--- | and ps-flow models the four attributes its own component forwards. The
+-- | and ps-flow models the five attributes its own component forwards. The
 -- | rest of `HTMLAttributes` is a gap in the internals — this record cannot
 -- | name what it does not know the shape of, so an unmodelled DOM attribute
 -- | is dropped here as silently as it is on the PureScript surface.
@@ -139,6 +139,7 @@ type JsPanelProps =
   , style :: Undefinable Foreign
   , "aria-label" :: Undefinable String
   , "data-testid" :: Undefinable String
+  , "data-message" :: Undefinable String
   , children :: ReactChildren JSX
   -- | Upstream's name for what ps-flow spells `innerRef`, and the reason this
   -- | component is a `forwardRef`. `Boundary.Undefined.orNullable` says why it
@@ -153,6 +154,7 @@ convertPanel p forwarded =
   , style: map asCssObject (fromUndefinable p.style)
   , "aria-label": fromUndefinable p."aria-label"
   , "data-testid": fromUndefinable p."data-testid"
+  , "data-message": fromUndefinable p."data-message"
   , children: p.children
   , innerRef: orNullable p.ref forwarded
   }

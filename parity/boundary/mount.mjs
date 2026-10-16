@@ -721,8 +721,9 @@ mounts(
 mounts(
   "`<Controls />` converts its position and orientation",
   createElement(Controls, { position: "top-left", orientation: "horizontal" }),
-  "react-flow__panel top left",
-  "horizontal"
+  // Upstream's class, in upstream's order: `<Panel />` puts the class it's
+  // given before the position.
+  "react-flow__panel react-flow__controls horizontal top left"
 );
 
 const throwsIn = (mount) => (what, element, ...mustMention) =>

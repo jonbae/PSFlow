@@ -12,7 +12,7 @@ import Data.Nullable (null)
 import Effect.Unsafe (unsafePerformEffect)
 import React.Basic (JSX, ReactComponent, element)
 import React.Basic.Hooks (reactChildrenFromArray, reactComponent)
-import React.FFI.DOM (span_, textContent)
+import React.FFI.DOM (textContent)
 import React.Portal.Panel (panel)
 import React.Types.Component (AttributionProps)
 import System.Types.Connection (PanelPosition(..))
@@ -41,11 +41,6 @@ attribution =
             , "aria-label": "React Flow attribution"
             }
             [ textContent "React Flow" ]
-          messageWrap = span_
-            { "data-message":
-                "Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"
-            }
-            [ link ]
         in
           pure $ element panel
             { position: pos
@@ -53,6 +48,8 @@ attribution =
             , style: Nothing
             , "aria-label": Nothing
             , "data-testid": Nothing
-            , children: reactChildrenFromArray [ messageWrap ]
+            , "data-message": Just
+                "Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"
+            , children: reactChildrenFromArray [ link ]
             , innerRef: null
             }

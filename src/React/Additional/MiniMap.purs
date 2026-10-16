@@ -337,6 +337,7 @@ miniMap =
         , style: Just panelStyle
         , "aria-label": Nothing
         , "data-testid": Just "rf__minimap"
+        , "data-message": Nothing
         , children: reactChildrenFromArray [ svgEl ]
         , innerRef: null
         }

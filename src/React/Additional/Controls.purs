@@ -168,6 +168,7 @@ controls =
         , "aria-label": Just
             (fromMaybe aria.controlsAriaLabel props."aria-label")
         , "data-testid": Just "rf__controls"
+        , "data-message": Nothing
         , children: reactChildrenFromArray allChildren
         , innerRef: null
         }
