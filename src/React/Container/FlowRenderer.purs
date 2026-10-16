@@ -3,7 +3,7 @@
 -- | click handling), surfaces user children, and overlays
 -- | `<NodesSelection>` when the store says a multi-selection is
 -- | active. Mirrors
--- | `xyflow-main/packages/react/src/container/FlowRenderer/index.tsx`.
+-- | `xyflow/packages/react/src/container/FlowRenderer/index.tsx`.
 -- |
 -- | **Fidelity notes.**
 -- |   * `memo` is applied to the public export, matching TS.

@@ -1,6 +1,6 @@
 -- | `<GraphView />` — the orchestrator that lives between `<ReactFlow />`
 -- | and the rendering layer. Mirrors
--- | `xyflow-main/packages/react/src/container/GraphView/index.tsx`.
+-- | `xyflow/packages/react/src/container/GraphView/index.tsx`.
 -- |
 -- | Composes:
 -- |

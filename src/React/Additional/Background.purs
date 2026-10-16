@@ -1,6 +1,6 @@
 -- | `<Background />` add-on. Renders a tiled SVG pattern (lines, dots,
 -- | or cross) that pans/zooms with the viewport. Mirrors
--- | `xyflow-main/packages/react/src/additional-components/Background/Background.tsx`.
+-- | `xyflow/packages/react/src/additional-components/Background/Background.tsx`.
 module React.Additional.Background
   ( background
   , module React.Types.Component

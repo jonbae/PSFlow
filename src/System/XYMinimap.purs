@@ -1,5 +1,5 @@
 -- | Minimap pan/zoom controller — port of
--- | `xyflow-main/packages/system/src/xyminimap/index.ts`.
+-- | `xyflow/packages/system/src/xyminimap/index.ts`.
 -- |
 -- | The TS factory creates a d3 selection on the minimap canvas, attaches a
 -- | d3-zoom behavior with start/zoom handlers, and exposes the d3 `pointer`

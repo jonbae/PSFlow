@@ -1,5 +1,5 @@
 -- | Runtime guards for `Node` / `Edge` values. Mirrors
--- | `xyflow-main/packages/react/src/utils/general.ts`, which re-exports
+-- | `xyflow/packages/react/src/utils/general.ts`, which re-exports
 -- | `isNodeBase` / `isEdgeBase` from `system/src/utils/graph.ts`.
 -- |
 -- | The implementations live in [System.Utils.Graph](src/System/Utils/Graph.purs)

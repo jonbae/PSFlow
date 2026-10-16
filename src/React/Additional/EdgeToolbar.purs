@@ -1,5 +1,5 @@
 -- | `<EdgeToolbar />` — anchored at a midpoint of an edge, rendered
--- | through `EdgeLabelRenderer`. Mirrors `xyflow-main/.../EdgeToolbar/EdgeToolbar.tsx`.
+-- | through `EdgeLabelRenderer`. Mirrors `xyflow/.../EdgeToolbar/EdgeToolbar.tsx`.
 module React.Additional.EdgeToolbar
   ( edgeToolbar
   , module React.Types.Component

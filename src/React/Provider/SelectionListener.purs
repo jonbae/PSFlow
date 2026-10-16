@@ -1,7 +1,7 @@
 -- | `<SelectionListener />` — fires `onSelectionChange` and every entry
 -- | in `state.onSelectionChangeHandlers` whenever the selected-id sets
 -- | change. Mirrors
--- | `xyflow-main/packages/react/src/components/SelectionListener/index.tsx`.
+-- | `xyflow/packages/react/src/components/SelectionListener/index.tsx`.
 -- |
 -- | TS uses two components — a thin outer one that decides whether to
 -- | mount the inner subscriber, and the inner subscriber itself. PS does

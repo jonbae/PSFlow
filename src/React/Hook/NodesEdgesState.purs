@@ -3,7 +3,7 @@
 -- | `onNodesChange` / `onEdgesChange` callbacks that funnel `NodeChange`
 -- | / `EdgeChange` arrays back into the state via `applyNodeChanges` /
 -- | `applyEdgeChanges`. Mirrors
--- | `xyflow-main/packages/react/src/hooks/useNodesEdgesState.ts`.
+-- | `xyflow/packages/react/src/hooks/useNodesEdgesState.ts`.
 -- |
 -- | **PS divergence.** TS exports two separate hooks (`useNodesState`,
 -- | `useEdgesState`) each returning a 3-tuple. PS combines into one

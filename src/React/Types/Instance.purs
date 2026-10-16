@@ -7,7 +7,7 @@
 -- | `false` when the underlying `panZoom` instance isn't available yet
 -- | (matches upstream's `Promise<boolean>`). Methods that simply read or
 -- | mutate state return `Effect _`. The split mirrors
--- | `xyflow-main/packages/react/src/hooks/useViewportHelper.ts`.
+-- | `xyflow/packages/react/src/hooks/useViewportHelper.ts`.
 module React.Types.Instance
   ( ReactFlowInstance
   , ReactFlowJsonObject
@@ -109,7 +109,7 @@ type ScreenToFlowOptions =
   }
 
 -- | The viewport-manipulation half of `ReactFlowInstance`. Mirrors
--- | `xyflow-main/packages/react/src/types/general.ts ViewportHelperFunctions`.
+-- | `xyflow/packages/react/src/types/general.ts ViewportHelperFunctions`.
 -- |
 -- | Every animated method returns `Aff Boolean` — `true` once the d3
 -- | transition resolves, `false` when there is no `panZoom` instance to
@@ -137,7 +137,7 @@ type ViewportHelperFunctionsRow r =
 type ViewportHelperFunctions = Record (ViewportHelperFunctionsRow ())
 
 -- | The graph-manipulation half of `ReactFlowInstance`. Mirrors
--- | `xyflow-main/packages/react/src/types/instance.ts GeneralHelpers` — the
+-- | `xyflow/packages/react/src/types/instance.ts GeneralHelpers` — the
 -- | same twenty-one members, in upstream's order.
 -- |
 -- | Open, for the same reason `ViewportHelperFunctionsRow` is: upstream's

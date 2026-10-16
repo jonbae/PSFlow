@@ -5,7 +5,7 @@
 -- | `SetTranslateExtent` used to write store state and stop there, so a flow
 -- | that changed any of the three after mount kept the d3 zoom behavior it was
 -- | created with. Upstream's setters push the new bound onto the instance
--- | before they `set()` (`xyflow-main/packages/react/src/store/index.ts`
+-- | before they `set()` (`xyflow/packages/react/src/store/index.ts`
 -- | :358-373).
 -- |
 -- | What the net could measure is a gesture against the new limits, and no

@@ -1,5 +1,5 @@
 -- | d3-backed pan/zoom controller — port of
--- | `xyflow-main/packages/system/src/xypanzoom/XYPanZoom.ts`.
+-- | `xyflow/packages/system/src/xypanzoom/XYPanZoom.ts`.
 -- |
 -- | The TS factory builds a d3-zoom behavior, attaches it to a selection,
 -- | seeds the viewport, and returns a record of imperative methods. The PS

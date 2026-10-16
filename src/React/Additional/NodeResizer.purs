@@ -1,5 +1,5 @@
 -- | `<NodeResizer />` — renders 4 line + 4 corner `NodeResizeControl`
--- | instances. Mirrors `xyflow-main/.../NodeResizer/NodeResizer.tsx`.
+-- | instances. Mirrors `xyflow/.../NodeResizer/NodeResizer.tsx`.
 module React.Additional.NodeResizer
   ( nodeResizer
   , module React.Types.Component

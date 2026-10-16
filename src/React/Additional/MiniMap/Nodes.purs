@@ -1,6 +1,6 @@
 -- | `<MiniMapNodes />` — iterates visible nodes and renders each via
 -- | the user-supplied `nodeComponent` (defaulting to `miniMapNode`).
--- | Mirrors `xyflow-main/.../MiniMap/MiniMapNodes.tsx`.
+-- | Mirrors `xyflow/.../MiniMap/MiniMapNodes.tsx`.
 -- |
 -- | The TS source splits subscriptions per-node for fewer re-renders.
 -- | The PS port subscribes to the full node array once via a

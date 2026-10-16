@@ -4,7 +4,7 @@
 -- | upstream's initPrevValues does" (#106). Upstream seeds the ref its
 -- | tracking effect compares against with seven values, so a prop passed at
 -- | one of them is skipped on the mount render
--- | (`xyflow-main/packages/react/src/components/StoreUpdater/index.tsx`
+-- | (`xyflow/packages/react/src/components/StoreUpdater/index.tsx`
 -- | :98-111). ps-flow had no seed. React runs every effect on mount, so each of
 -- | the seven dispatched once whatever it held, and `nodeOrigin` and `rfId` did
 -- | so on every flow, because `<ReactFlow />` always hands both of them over.

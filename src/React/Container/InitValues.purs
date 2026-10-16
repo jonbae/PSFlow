@@ -1,6 +1,6 @@
 -- | Module-level default constants used by `<ReactFlow />` when the user
 -- | omits the corresponding prop. Mirrors
--- | `xyflow-main/packages/react/src/container/ReactFlow/init-values.ts`,
+-- | `xyflow/packages/react/src/container/ReactFlow/init-values.ts`,
 -- | and adds the defaults upstream writes inline instead.
 -- |
 -- | **One home for seven values.** Upstream writes `minZoom`, `maxZoom`,

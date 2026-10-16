@@ -1,5 +1,5 @@
 -- | `<MiniMapNode />` — the per-node SVG rect inside the minimap.
--- | Mirrors `xyflow-main/.../MiniMap/MiniMapNode.tsx`.
+-- | Mirrors `xyflow/.../MiniMap/MiniMapNode.tsx`.
 module React.Additional.MiniMap.Node
   ( miniMapNode
   ) where

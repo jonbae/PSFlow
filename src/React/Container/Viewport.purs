@@ -1,6 +1,6 @@
 -- | `<Viewport />` — the thin transform container that hosts every
 -- | node, edge, and overlay layer. Mirrors
--- | `xyflow-main/packages/react/src/container/Viewport/index.tsx`.
+-- | `xyflow/packages/react/src/container/Viewport/index.tsx`.
 -- |
 -- | Selects `state.transform` and applies it as a CSS
 -- | `translate(x,y) scale(z)` so child DOM coordinates match flow

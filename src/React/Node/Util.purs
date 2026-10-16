@@ -3,7 +3,7 @@
 -- | * `handleNodeClick` — selection-dispatch helper invoked from the
 -- |   `NodeWrapper` click path and from the drag-start branch that
 -- |   wants single-click selection. Mirrors
--- |   `xyflow-main/packages/react/src/components/Nodes/utils.ts`.
+-- |   `xyflow/packages/react/src/components/Nodes/utils.ts`.
 -- |
 -- | The built-in node-type registry (`builtinNodeTypes`) lives in
 -- | `React.Component.NodeWrapper.Util`, where the wrapper's

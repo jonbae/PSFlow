@@ -39,7 +39,7 @@ import System.Utils.Graph (FitViewOptions) as ReexportFitView
 import System.Utils.Graph (FitViewOptions)
 import Web.UIEvent.MouseEvent (MouseEvent)
 
--- Public callback aliases mirroring `xyflow-main/packages/react/src/types/general.ts`.
+-- Public callback aliases mirroring `xyflow/packages/react/src/types/general.ts`.
 
 type OnNodesChange n = Array (NodeChange n) -> Effect Unit
 

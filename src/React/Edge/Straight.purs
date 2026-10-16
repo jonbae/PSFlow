@@ -1,6 +1,6 @@
 -- | `<StraightEdge />` — straight-line edge. Wraps
 -- | `System.Utils.Edges.Straight.getStraightPath`. Mirrors
--- | `xyflow-main/packages/react/src/components/Edges/StraightEdge.tsx`.
+-- | `xyflow/packages/react/src/components/Edges/StraightEdge.tsx`.
 module React.Edge.Straight
   ( straightEdge
   , straightEdgeInternal

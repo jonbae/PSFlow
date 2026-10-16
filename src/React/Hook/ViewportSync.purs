@@ -2,7 +2,7 @@
 -- | `viewport` prop, this hook moves the pan-zoom instance to it and then
 -- | writes it to the store's `transform`.
 -- |
--- | Mirrors `xyflow-main/packages/react/src/hooks/useViewportSync.ts`.
+-- | Mirrors `xyflow/packages/react/src/hooks/useViewportSync.ts`.
 -- | The instance has to hear about the change as well as the store: d3
 -- | keeps its own transform, and a gesture starts from that one. A store
 -- | that moved without it leaves the next pan starting from wherever the

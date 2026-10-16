@@ -1,5 +1,5 @@
 -- | Simple-bezier edge path. Mirrors
--- | `xyflow-main/packages/react/src/components/Edges/SimpleBezierEdge.tsx`
+-- | `xyflow/packages/react/src/components/Edges/SimpleBezierEdge.tsx`
 -- | (`getSimpleBezierPath`).
 -- |
 -- | Unlike `System.Utils.Edges.Bezier`, the control points here are not

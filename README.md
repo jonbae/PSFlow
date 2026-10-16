@@ -1,7 +1,9 @@
 # ps-flow
 
 A PureScript port of `@xyflow/react`. Vocabulary — surfaces, gates, baselines,
-the dual-run net — is [`CONTEXT.md`](CONTEXT.md); this file is what to run.
+the dual-run net — is [`CONTEXT.md`](CONTEXT.md); translating upstream
+TypeScript into PureScript is [`PORTING.md`](PORTING.md); this file is what to
+run.
 
 ## Build
 

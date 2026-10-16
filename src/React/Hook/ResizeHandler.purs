@@ -1,7 +1,7 @@
 -- | `useResizeHandler` — installs a `ResizeObserver` on the flow's
 -- | root `<div>` and dispatches the new `width`/`height` into the
 -- | store. Mirrors
--- | `xyflow-main/packages/react/src/hooks/useResizeHandler.ts`.
+-- | `xyflow/packages/react/src/hooks/useResizeHandler.ts`.
 -- |
 -- | The TS source supports an optional `onResize` callback prop. PS
 -- | accepts the same as a `Maybe (Number -> Number -> Effect Unit)`.

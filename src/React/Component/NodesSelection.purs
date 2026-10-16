@@ -1,7 +1,7 @@
 -- | `<NodesSelection />` — the bounding-box overlay around currently
 -- | selected nodes. Draggable as a group; arrow-key nudge moves all
 -- | selected nodes. Mirrors
--- | `xyflow-main/packages/react/src/components/NodesSelection/index.tsx`.
+-- | `xyflow/packages/react/src/components/NodesSelection/index.tsx`.
 -- |
 -- | Responsibilities:
 -- |

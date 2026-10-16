@@ -1,5 +1,5 @@
 -- | Connection-handle pointer interaction controller — port of
--- | `xyflow-main/packages/system/src/xyhandle/XYHandle.ts`.
+-- | `xyflow/packages/system/src/xyhandle/XYHandle.ts`.
 -- |
 -- | Exports a singleton `xyHandle :: XYHandleInstance` plus the parameter
 -- | record types. `onPointerDown` collapses the TS closure state into a

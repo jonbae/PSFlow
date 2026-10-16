@@ -1,5 +1,5 @@
 -- | `<NodeWrapper />` — the per-node React wrapper. Mirrors
--- | `xyflow-main/packages/react/src/components/NodeWrapper/index.tsx`.
+-- | `xyflow/packages/react/src/components/NodeWrapper/index.tsx`.
 -- |
 -- | Responsibilities:
 -- |

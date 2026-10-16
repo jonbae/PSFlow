@@ -1,7 +1,7 @@
 -- | The `NodeIdContext` carries the current node's id down to descendant
 -- | components so that primitives like `<Handle />` can resolve "which
 -- | node am I inside?" without a prop drill. Mirrors
--- | `xyflow-main/packages/react/src/contexts/NodeIdContext.ts`.
+-- | `xyflow/packages/react/src/contexts/NodeIdContext.ts`.
 module React.Context.NodeId
   ( nodeIdContext
   , useNodeId

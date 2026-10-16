@@ -1,5 +1,5 @@
 -- | Pure helpers used by `System.XYPanZoom`. Mirrors
--- | `xyflow-main/packages/system/src/xypanzoom/utils.ts`.
+-- | `xyflow/packages/system/src/xypanzoom/utils.ts`.
 -- |
 -- | `transformToViewport` and `viewportToTransform` are pure conversions
 -- | between d3's `ZoomTransform` and our `Viewport`. `isRightClickPan` is a

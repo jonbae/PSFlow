@@ -1,5 +1,5 @@
 -- | Pure reducer. Mirrors the action methods of
--- | `xyflow-main/packages/react/src/store/index.ts`. One handler per
+-- | `xyflow/packages/react/src/store/index.ts`. One handler per
 -- | `Action` constructor, returning the new state plus a list of
 -- | `Effect_` descriptors for the shell to interpret.
 -- |

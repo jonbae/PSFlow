@@ -1,5 +1,5 @@
 -- | `<NodeToolbar />` — floats above a node (or set of nodes) at a
--- | chosen `Position`. Mirrors `xyflow-main/.../NodeToolbar/NodeToolbar.tsx`.
+-- | chosen `Position`. Mirrors `xyflow/.../NodeToolbar/NodeToolbar.tsx`.
 module React.Additional.NodeToolbar
   ( nodeToolbar
   , module React.Types.Component

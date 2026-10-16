@@ -1,5 +1,5 @@
 -- | Pure builder for the initial `ReactFlowState`. Mirrors
--- | `xyflow-main/packages/react/src/store/initialState.ts`. Public-API
+-- | `xyflow/packages/react/src/store/initialState.ts`. Public-API
 -- | defaults match the TS source field-for-field.
 -- |
 -- | The seven that `<ReactFlow />` also resolves, and that `<StoreUpdater />`

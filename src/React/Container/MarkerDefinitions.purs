@@ -4,7 +4,7 @@
 -- | from `EdgeWrapper`'s `markerStart` / `markerEnd` URL attributes.
 -- |
 -- | Mirrors
--- | `xyflow-main/packages/react/src/container/EdgeRenderer/MarkerDefinitions.tsx`.
+-- | `xyflow/packages/react/src/container/EdgeRenderer/MarkerDefinitions.tsx`.
 -- |
 -- | **Fidelity notes.**
 -- |   * TS reads `defaultEdgeOptions?.markerStart / markerEnd` to seed

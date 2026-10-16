@@ -3,7 +3,7 @@
 -- | The local proxy for "Wire controlled viewport changes to
 -- | panZoom.syncViewport and drive them in the net" (#128). Upstream's
 -- | effect calls `panZoom?.syncViewport(viewport)` and then writes the
--- | store (`xyflow-main/packages/react/src/hooks/useViewportSync.ts`).
+-- | store (`xyflow/packages/react/src/hooks/useViewportSync.ts`).
 -- | ps-flow wrote the store and nothing else, so d3 kept the transform it
 -- | already had and the next gesture started from there.
 -- |

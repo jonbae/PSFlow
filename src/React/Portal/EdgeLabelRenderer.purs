@@ -1,6 +1,6 @@
 -- | `<EdgeLabelRenderer />` — portal target that lets edge components
 -- | render HTML (not SVG) labels above the SVG layer. Mirrors
--- | `xyflow-main/packages/react/src/components/EdgeLabelRenderer/index.tsx`.
+-- | `xyflow/packages/react/src/components/EdgeLabelRenderer/index.tsx`.
 module React.Portal.EdgeLabelRenderer
   ( edgeLabelRenderer
   ) where

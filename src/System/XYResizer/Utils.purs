@@ -1,5 +1,5 @@
 -- | Pure helpers used by `System.XYResizer`. Mirrors
--- | `xyflow-main/packages/system/src/xyresizer/utils.ts`.
+-- | `xyflow/packages/system/src/xyresizer/utils.ts`.
 -- |
 -- | All three functions are pure. `getDimensionsAfterResize` is a 280-line
 -- | constraint solver (min/max + extent + child-extent + aspect ratio); the

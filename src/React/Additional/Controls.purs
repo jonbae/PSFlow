@@ -1,5 +1,5 @@
 -- | `<Controls />` — the floating zoom/fit/lock button bar. Mirrors
--- | `xyflow-main/.../Controls/Controls.tsx`.
+-- | `xyflow/.../Controls/Controls.tsx`.
 module React.Additional.Controls
   ( controls
   , module React.Types.Component

@@ -1,5 +1,5 @@
 -- | The big `ReactFlowState n e` record. Mirrors
--- | `xyflow-main/packages/react/src/types/store.ts ReactFlowStore` field by
+-- | `xyflow/packages/react/src/types/store.ts ReactFlowStore` field by
 -- | field. The TS `ReactFlowActions` half is *not* embedded here — the
 -- | actions live as constructors of `React.Store.Action.Action`. Field
 -- | names match the TS source exactly so a reviewer can compare the two

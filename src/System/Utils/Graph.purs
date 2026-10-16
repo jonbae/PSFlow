@@ -1,5 +1,5 @@
 -- | Graph traversal, node bounds, fit-view, and deletion utilities. Mirrors
--- | `xyflow-main/packages/system/src/utils/graph.ts`.
+-- | `xyflow/packages/system/src/utils/graph.ts`.
 -- |
 -- | The runtime `is*Base` guards live here so they share the TS file
 -- | layout. The React layer re-exports them under the shorter `isNode` /

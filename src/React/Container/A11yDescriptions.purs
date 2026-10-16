@@ -1,6 +1,6 @@
 -- | `<A11yDescriptions />` — emits hidden description divs and an
 -- | `aria-live` region that screen readers announce. Mirrors
--- | `xyflow-main/packages/react/src/components/A11yDescriptions/index.tsx`.
+-- | `xyflow/packages/react/src/components/A11yDescriptions/index.tsx`.
 -- |
 -- | **Selector slice strategy.** `state.ariaLabelConfig` includes a
 -- | function field (`nodeA11yDescriptionAriaLiveMessage`), which means

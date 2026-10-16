@@ -1,6 +1,6 @@
 -- | `<DefaultNode />` — the standard node with both a target handle on
 -- | top and a source handle on bottom, plus the user-supplied label.
--- | Mirrors `xyflow-main/packages/react/src/components/Nodes/DefaultNode.tsx`.
+-- | Mirrors `xyflow/packages/react/src/components/Nodes/DefaultNode.tsx`.
 -- |
 -- | Default `targetPosition = PosTop`, `sourcePosition = PosBottom`.
 -- |

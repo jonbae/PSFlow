@@ -1,7 +1,7 @@
 -- | `<Wrapper />` — detects an existing `<ReactFlowProvider>` higher in
 -- | the tree; passes through if one is present, otherwise allocates one
 -- | with the supplied initial-state options. Mirrors
--- | `xyflow-main/packages/react/src/container/ReactFlow/Wrapper.tsx`.
+-- | `xyflow/packages/react/src/container/ReactFlow/Wrapper.tsx`.
 -- |
 -- | Same prop shape as `ReactFlowProvider` (`ReactFlowProviderProps n e`)
 -- | because the "no outer provider" path forwards the initial values

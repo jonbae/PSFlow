@@ -1,6 +1,6 @@
 -- | `<Pane />` — the pan/select interaction surface that hosts nodes,
 -- | edges, and the user-selection lasso. Mirrors
--- | `xyflow-main/packages/react/src/container/Pane/index.tsx`.
+-- | `xyflow/packages/react/src/container/Pane/index.tsx`.
 -- |
 -- | Responsibilities:
 -- |

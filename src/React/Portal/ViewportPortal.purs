@@ -1,6 +1,6 @@
 -- | `<ViewportPortal />` — portal target inside the transformed
 -- | viewport (pans and zooms with the flow). Mirrors
--- | `xyflow-main/packages/react/src/components/ViewportPortal/index.tsx`.
+-- | `xyflow/packages/react/src/components/ViewportPortal/index.tsx`.
 -- |
 -- | The target div is mounted as `.react-flow__viewport-portal` by
 -- | `GraphView` (ticket 041).

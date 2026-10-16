@@ -1,5 +1,5 @@
 -- | Pure helpers used by `System.XYDrag`. Mirrors
--- | `xyflow-main/packages/system/src/xydrag/utils.ts`.
+-- | `xyflow/packages/system/src/xydrag/utils.ts`.
 -- |
 -- | `isParentSelected`, `getDragItems`, `getEventHandlerParams`, and
 -- | `calculateSnapOffset` are pure functions over `NodeLookup`. `hasSelector`

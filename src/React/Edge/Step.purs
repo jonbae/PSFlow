@@ -1,6 +1,6 @@
 -- | `<StepEdge />` — orthogonal edge with *square* corners (smooth-step
 -- | with `borderRadius = 0`). Reuses `React.Edge.SmoothStep.mkSmoothStepEdge`.
--- | Mirrors `xyflow-main/packages/react/src/components/Edges/StepEdge.tsx`.
+-- | Mirrors `xyflow/packages/react/src/components/Edges/StepEdge.tsx`.
 -- |
 -- | The two records differ in exactly one member. `StepEdgeProps`'
 -- | `pathOptions` is `{ offset }` and `SmoothStepEdgeProps`' is

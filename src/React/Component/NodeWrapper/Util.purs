@@ -1,5 +1,5 @@
 -- | Shared utilities for the per-node wrapper component. Mirrors
--- | `xyflow-main/packages/react/src/components/NodeWrapper/utils.tsx`.
+-- | `xyflow/packages/react/src/components/NodeWrapper/utils.tsx`.
 -- |
 -- |   * `arrowKeyDiffs` — `key → {dx,dy}` deltas for arrow-key node
 -- |     nudging. Used by `React.Component.NodeWrapper`'s `onKeyDown`.

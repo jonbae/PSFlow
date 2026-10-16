@@ -1,6 +1,6 @@
 -- | `<SmoothStepEdge />` — orthogonal edge with rounded corners. Wraps
 -- | `System.Utils.Edges.SmoothStep.getSmoothStepPath`. Mirrors
--- | `xyflow-main/packages/react/src/components/Edges/SmoothStepEdge.tsx`.
+-- | `xyflow/packages/react/src/components/Edges/SmoothStepEdge.tsx`.
 -- |
 -- | `borderRadius`, `offset`, `stepPosition` come from `pathOptions`;
 -- | defaults match the TS source (`borderRadius = 5`, `offset = 20`,

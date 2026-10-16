@@ -1,6 +1,6 @@
 -- | `<Panel />` — the nine-position overlay div used by Controls,
 -- | MiniMap, Attribution, and any user-supplied UI panel. Mirrors
--- | `xyflow-main/packages/react/src/components/Panel/index.tsx`.
+-- | `xyflow/packages/react/src/components/Panel/index.tsx`.
 -- |
 -- | Despite living under `React.Portal.*` (where it's grouped with the
 -- | true portal components), Panel is not a React portal — it is a

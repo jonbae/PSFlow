@@ -1,0 +1,89 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "PSFlow's Five Gates",
+    "quality_profile": "showcase",
+    "output": ".archify/workflow-five-gates-20261001-215150/five-gates.html",
+    "repository": { "url": "https://github.com/jonbae/PSFlow.git", "provider": "github", "link_mode": "web", "revision": "79b3c9419f07deda40f5bdf48808d507029ba8f5" }
+  },
+  "lanes": [
+    { "id": "net", "label": "System parity (outside CI)" },
+    { "id": "baseline", "label": "What a gate compares against" },
+    { "id": "ci", "label": "Per-PR CI: the four cheap gates" },
+    { "id": "withheld", "label": "Surface red", "variant": "exception" }
+  ],
+  "phases": [
+    { "id": "prep", "label": "Build", "fromCol": 0, "toCol": 1 },
+    { "id": "parity", "label": "Parity gates", "fromCol": 2, "toCol": 3, "variant": "emphasis" },
+    { "id": "suites", "label": "Test suites", "fromCol": 4, "toCol": 5, "variant": "dashed" }
+  ],
+  "groups": [
+    { "id": "browser", "label": "Browser suites", "lane": "ci", "fromCol": 4, "toCol": 5, "variant": "dashed" }
+  ],
+  "mainPath": ["pr", "build", "surface", "function", "conformance", "smoke"],
+  "nodes": [
+    { "id": "pr", "lane": "ci", "col": 0, "type": "external", "label": "Pull request", "sublabel": "gates.yml", "width": 132,
+      "sources": [{ "path": ".github/workflows/gates.yml", "line": 34, "end_line": 51, "label": "gates workflow" }] },
+    { "id": "build", "lane": "ci", "col": 1, "type": "backend", "label": "spago build", "sublabel": "oracle + driver bundles", "width": 140,
+      "sources": [{ "path": ".github/workflows/gates.yml", "line": 95, "end_line": 101, "label": "build steps" }, { "path": "README.md", "line": 77, "end_line": 78, "label": "needs spago build first" }] },
+    { "id": "surface", "lane": "ci", "col": 2, "type": "security", "label": "Surface parity", "sublabel": "npm run parity:surface", "tag": "hard precondition", "width": 150,
+      "sources": [{ "path": "README.md", "line": 24, "label": "gate table" }, { "path": "README.md", "line": 71, "end_line": 75, "label": "ordering" }, { "path": ".github/workflows/gates.yml", "line": 105, "end_line": 107 }] },
+    { "id": "function", "lane": "ci", "col": 3, "type": "backend", "label": "Function parity", "sublabel": "spago test + unit tests", "width": 150,
+      "sources": [{ "path": "README.md", "line": 25, "label": "gate table" }, { "path": "README.md", "line": 30, "end_line": 35, "label": "broader than the gate" }, { "path": ".github/workflows/gates.yml", "line": 137, "end_line": 138 }] },
+    { "id": "conformance", "lane": "ci", "col": 4, "type": "frontend", "label": "Conformance suite", "sublabel": "npm run test:conformance", "width": 150,
+      "sources": [{ "path": "README.md", "line": 26, "label": "gate table" }, { "path": ".github/workflows/gates.yml", "line": 140, "end_line": 141 }] },
+    { "id": "smoke", "lane": "ci", "col": 5, "type": "frontend", "label": "Smoke suite", "sublabel": "liveness, no comparison", "width": 150,
+      "sources": [{ "path": "README.md", "line": 27, "label": "gate table" }, { "path": ".github/workflows/gates.yml", "line": 143, "end_line": 144 }] },
+    { "id": "withheld", "lane": "withheld", "col": 2, "type": "security", "label": "Results withheld", "sublabel": "job summary says why", "width": 150,
+      "sources": [{ "path": ".github/workflows/gates.yml", "line": 113, "end_line": 135, "label": "withheld summary" }, { "path": "README.md", "line": 181, "end_line": 184 }] },
+    { "id": "xyflow", "lane": "baseline", "col": 2, "type": "database", "label": "Vendored xyflow", "sublabel": "vendor-baseline.mjs", "width": 150,
+      "sources": [{ "path": "README.md", "line": 194, "end_line": 198, "label": "CI vendors the baseline" }, { "path": ".github/workflows/gates.yml", "line": 85, "end_line": 86 }] },
+    { "id": "oracle", "lane": "baseline", "col": 3, "type": "database", "label": "@psflow/oracle", "sublabel": "pure-function bundle", "width": 150,
+      "sources": [{ "path": "README.md", "line": 25, "label": "compares against oracle" }] },
+    { "id": "specs", "lane": "baseline", "col": 4, "type": "database", "label": "Upstream e2e specs", "sublabel": "ported: asserted intent", "width": 150,
+      "sources": [{ "path": "README.md", "line": 26, "label": "ported specs" }] },
+    { "id": "netrun", "lane": "net", "col": 1, "type": "external", "label": "Manual run", "sublabel": "npm run parity:system", "width": 140,
+      "sources": [{ "path": "package.json", "line": 17 }, { "path": "README.md", "line": 186, "end_line": 192, "label": "not per-PR" }] },
+    { "id": "mount", "lane": "net", "col": 2, "type": "backend", "label": "Mount both sides", "sublabel": "capture each twice", "width": 150,
+      "sources": [{ "path": "README.md", "line": 91, "end_line": 93, "label": "mounts both, captures twice" }, { "path": "parity/system/README.md", "line": 3, "end_line": 6 }] },
+    { "id": "diff", "lane": "net", "col": 3, "type": "backend", "label": "Diff traces", "sublabel": "seven trace sections", "width": 150,
+      "sources": [{ "path": "README.md", "line": 93, "end_line": 94 }, { "path": "parity/system/README.md", "line": 12, "end_line": 13 }] },
+    { "id": "answer", "lane": "net", "col": 4, "type": "security", "label": "Port fix or region", "sublabel": "never loosen the net", "width": 150,
+      "sources": [{ "path": "README.md", "line": 100, "end_line": 102, "label": "fix or regions.json" }] },
+    { "id": "coverage", "lane": "net", "col": 5, "type": "database", "label": "coverage.md", "sublabel": "driven vs. declared holes", "width": 150,
+      "sources": [{ "path": "README.md", "line": 107, "end_line": 113, "label": "derived coverage" }] }
+  ],
+  "edges": [
+    { "id": "pr-build", "from": "pr", "to": "build" },
+    { "id": "build-surface", "from": "build", "to": "surface", "label": "first", "variant": "emphasis" },
+    { "id": "surface-function", "from": "surface", "to": "function", "label": "green", "variant": "emphasis" },
+    { "id": "function-conformance", "from": "function", "to": "conformance" },
+    { "id": "conformance-smoke", "from": "conformance", "to": "smoke" },
+    { "id": "surface-red", "from": "surface", "to": "withheld", "label": "red: skip 3", "variant": "security", "role": "error" },
+    { "id": "xyflow-surface", "from": "xyflow", "to": "surface", "label": "exports", "variant": "dashed", "role": "branch" },
+    { "id": "oracle-function", "from": "oracle", "to": "function", "label": "return values", "variant": "dashed", "role": "branch" },
+    { "id": "specs-conformance", "from": "specs", "to": "conformance", "label": "ported", "variant": "dashed", "role": "branch" },
+    { "id": "xyflow-mount", "from": "xyflow", "to": "mount", "label": "upstream side", "variant": "dashed", "role": "branch" },
+    { "id": "netrun-mount", "from": "netrun", "to": "mount" },
+    { "id": "mount-diff", "from": "mount", "to": "diff" },
+    { "id": "diff-answer", "from": "diff", "to": "answer", "label": "divergence" },
+    { "id": "answer-coverage", "from": "answer", "to": "coverage" }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "Parity gates vs. test suites", "items": [
+      "Surface, function, and system parity compare against executing upstream",
+      "Without xyflow/ the three parity gates have nothing to compare against",
+      "Conformance and smoke still run and still mean something"
+    ] },
+    { "dot": "rose", "title": "Ordering", "items": [
+      "Surface parity green is the only hard precondition",
+      "Everything else is interpretation order: nothing else blocks",
+      "Don't trust a system divergence while a cheaper gate is red"
+    ] },
+    { "dot": "amber", "title": "Why system parity is outside CI", "items": [
+      "Per-run cost is unknown until the corpus exists",
+      "It is red on purpose while the divergence backlog (#22) is worked"
+    ] }
+  ]
+}

@@ -1,5 +1,5 @@
 -- | `<MiniMap />` — overview map of the flow with a click/wheel
--- | interaction surface. Mirrors `xyflow-main/.../MiniMap/MiniMap.tsx`.
+-- | interaction surface. Mirrors `xyflow/.../MiniMap/MiniMap.tsx`.
 module React.Additional.MiniMap
   ( miniMap
   , module React.Types.Component

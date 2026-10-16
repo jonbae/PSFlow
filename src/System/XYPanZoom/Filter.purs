@@ -1,5 +1,5 @@
 -- | Pan/zoom event filter — port of
--- | `xyflow-main/packages/system/src/xypanzoom/filter.ts`.
+-- | `xyflow/packages/system/src/xypanzoom/filter.ts`.
 -- |
 -- | Builds an `Effect Boolean` predicate handed to `d3-zoom` via
 -- | `behavior.filter(...)`. The predicate must be `Effect`-typed because it

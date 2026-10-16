@@ -1,6 +1,6 @@
 -- | `useKeyPress` — track whether a key (or any of an array of keys) is
 -- | currently pressed. Mirrors
--- | `xyflow-main/packages/react/src/hooks/useKeyPress.ts`.
+-- | `xyflow/packages/react/src/hooks/useKeyPress.ts`.
 -- |
 -- | Subscribes to window `keydown`/`keyup` for the lifetime of the
 -- | calling component. Returns the current pressed-state boolean.

@@ -1,5 +1,5 @@
 -- | Shared utilities for the per-edge wrapper component. Mirrors
--- | `xyflow-main/packages/react/src/components/EdgeWrapper/utils.ts`.
+-- | `xyflow/packages/react/src/components/EdgeWrapper/utils.ts`.
 -- |
 -- |   * `builtinEdgeTypes` — registry of the five built-in edge-type
 -- |     keys (`default`, `straight`, `step`, `smoothstep`,

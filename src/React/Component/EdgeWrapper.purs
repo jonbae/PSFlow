@@ -1,5 +1,5 @@
 -- | `<EdgeWrapper />` — the per-edge React wrapper. Mirrors
--- | `xyflow-main/packages/react/src/components/EdgeWrapper/index.tsx`.
+-- | `xyflow/packages/react/src/components/EdgeWrapper/index.tsx`.
 -- |
 -- | Responsibilities:
 -- |

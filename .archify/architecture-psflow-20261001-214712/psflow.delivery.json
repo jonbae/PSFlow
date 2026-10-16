@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "67d86401-b01d-4394-8439-381de65ce496",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "C:\\Users\\jonbae\\Documents\\repos\\PSFlow\\.archify\\architecture-psflow-20261001-214712\\candidate.json",
+  "output": "C:\\Users\\jonbae\\Documents\\repos\\PSFlow\\.archify\\architecture-psflow-20261001-214712\\psflow.html",
+  "specification": {
+    "sha256": "f9e90391b89dab8eddb00ad301f8aa76c5fa7e6192a8c76b602729d663397a55",
+    "bytes": 6585
+  },
+  "artifact": {
+    "sha256": "5e93d28cae878cee81b8caf7b82d5bd4e89c6a7e80facadbb5dfa36f55cd9f2a",
+    "bytes": 776964
+  }
+}

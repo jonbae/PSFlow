@@ -1,5 +1,5 @@
 -- | `<reactFlow />` — the public top-level component. Mirrors
--- | `xyflow-main/packages/react/src/container/ReactFlow/index.tsx`.
+-- | `xyflow/packages/react/src/container/ReactFlow/index.tsx`.
 -- |
 -- | Structure:
 -- |
@@ -19,7 +19,7 @@
 -- | **Defaults.** TS scatters `= defaultValue` across the destructuring
 -- | clause; PS collects them in a `resolved` record that's then spread
 -- | into the GraphView and provider call sites. The defaults match
--- | `xyflow-main/.../ReactFlow/index.tsx` lines 64-152 exactly.
+-- | `xyflow/.../ReactFlow/index.tsx` lines 64-152 exactly.
 -- |
 -- | **Mac-aware default key codes.** `multiSelectionKeyCode` and
 -- | `zoomActivationKeyCode` default to `"Meta"` on macOS (`Cmd`-key) and

@@ -1,6 +1,6 @@
 -- | `<Handle />` — the connection point on a node. React-side wiring on
 -- | top of `System.XYHandle.onPointerDown` / `System.XYHandle.isValid`.
--- | Mirrors `xyflow-main/packages/react/src/components/Handle/index.tsx`.
+-- | Mirrors `xyflow/packages/react/src/components/Handle/index.tsx`.
 -- |
 -- | This module is the React-layer twin of `System.XYHandle`: the system
 -- | layer owns the pointer-drag state machine and the click-connect

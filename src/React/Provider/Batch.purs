@@ -1,6 +1,6 @@
 -- | `<BatchProvider />` — installs the node/edge update queues into
 -- | `batchContext` and drains them on every layout effect. Mirrors
--- | `xyflow-main/packages/react/src/components/BatchProvider/index.tsx`.
+-- | `xyflow/packages/react/src/components/BatchProvider/index.tsx`.
 -- |
 -- | Responsibilities:
 -- |

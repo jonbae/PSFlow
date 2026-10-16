@@ -1,6 +1,6 @@
 -- | `<OutputNode />` — target-only built-in node. Renders a target
 -- | handle on top, then the user-supplied label. Mirrors
--- | `xyflow-main/packages/react/src/components/Nodes/OutputNode.tsx`.
+-- | `xyflow/packages/react/src/components/Nodes/OutputNode.tsx`.
 -- |
 -- | Default `targetPosition = PosTop`.
 module React.Node.Output

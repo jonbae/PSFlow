@@ -1,6 +1,6 @@
 -- | `<NodeToolbarPortal />` — portals its children into the React Flow
 -- | root div so the toolbar escapes node clipping. Mirrors
--- | `xyflow-main/.../NodeToolbar/NodeToolbarPortal.tsx`.
+-- | `xyflow/.../NodeToolbar/NodeToolbarPortal.tsx`.
 module React.Additional.NodeToolbar.Portal
   ( nodeToolbarPortal
   ) where

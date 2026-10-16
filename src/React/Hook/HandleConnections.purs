@@ -1,6 +1,6 @@
 -- | `useHandleConnections` — observe the set of connections attached to
 -- | a specific handle on a node. Mirrors
--- | `xyflow-main/packages/react/src/hooks/useHandleConnections.ts`.
+-- | `xyflow/packages/react/src/hooks/useHandleConnections.ts`.
 -- |
 -- | **Deprecated upstream.** Upstream marks this hook as deprecated in
 -- | favour of `useNodeConnections`. We port it for API parity but new

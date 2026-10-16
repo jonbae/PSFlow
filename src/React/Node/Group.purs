@@ -1,6 +1,6 @@
 -- | `<GroupNode />` — empty built-in node used for grouping/parenting
 -- | other nodes. Renders nothing. Mirrors
--- | `xyflow-main/packages/react/src/components/Nodes/GroupNode.tsx`.
+-- | `xyflow/packages/react/src/components/Nodes/GroupNode.tsx`.
 module React.Node.Group
   ( groupNode
   ) where

@@ -1,6 +1,6 @@
 -- | `useStylesLoadedWarning` — one-shot dev-time check that the React
 -- | Flow stylesheet is present. Mirrors
--- | `xyflow-main/packages/react/src/container/GraphView/useStylesLoadedWarning.ts`.
+-- | `xyflow/packages/react/src/container/GraphView/useStylesLoadedWarning.ts`.
 -- |
 -- | The TS source asserts `getComputedStyle(.react-flow__pane).zIndex
 -- | === '1'` because the bundled stylesheet sets that exact value — if

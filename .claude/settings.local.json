@@ -77,5 +77,6 @@
       "WebSearch",
       "Bash(python3 -c ' *)"
     ]
-  }
+  },
+  "outputStyle": "Google Developer Docs"
 }

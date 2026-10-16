@@ -1,5 +1,5 @@
 -- | Pure geometric and coordinate utilities ported from
--- | `xyflow-main/packages/system/src/utils/general.ts`.
+-- | `xyflow/packages/system/src/utils/general.ts`.
 -- |
 -- | Divergence note: the TypeScript module imports `getNodePositionWithOrigin`
 -- | from `utils/graph.ts`, while `graph.ts` re-imports ten functions from

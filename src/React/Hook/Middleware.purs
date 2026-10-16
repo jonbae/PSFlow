@@ -4,7 +4,7 @@
 -- | registered function can drop, mutate, or pass through changes.
 -- |
 -- | Mirrors
--- | `xyflow-main/packages/react/src/hooks/useOnNodesChangeMiddleware.ts`
+-- | `xyflow/packages/react/src/hooks/useOnNodesChangeMiddleware.ts`
 -- | and `useOnEdgesChangeMiddleware.ts`.
 -- |
 -- | **Storage strategy.** Each registration mints a fresh

@@ -1,5 +1,5 @@
 -- | `<UserSelection />` — the user's drag-selection lasso rectangle.
--- | Mirrors `xyflow-main/packages/react/src/components/UserSelection/index.tsx`.
+-- | Mirrors `xyflow/packages/react/src/components/UserSelection/index.tsx`.
 -- |
 -- | Renders a positioned `<div>` while
 -- | `state.userSelectionActive && state.userSelectionRect` are both set;

@@ -1,7 +1,7 @@
 -- | `useVisibleNodeIds` / `useVisibleEdgeIds` — selector hooks that feed
 -- | `NodeRenderer` and `EdgeRenderer` the array of IDs to render.
 -- |
--- | Mirrors `xyflow-main/packages/react/src/hooks/useVisibleNodeIds.ts`
+-- | Mirrors `xyflow/packages/react/src/hooks/useVisibleNodeIds.ts`
 -- | and `…/useVisibleEdgeIds.ts`. Subscribing to ID arrays only is the
 -- | optimisation that lets a renderer skip re-rendering during a drag
 -- | tick: the ID array doesn't change, so the slice's `Eq` short-

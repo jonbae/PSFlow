@@ -1,6 +1,6 @@
 -- | `<EdgeAnchor />` — the invisible reconnect-handle circle drawn at
 -- | each endpoint of a selected edge. Mirrors
--- | `xyflow-main/packages/react/src/components/Edges/EdgeAnchor.tsx`.
+-- | `xyflow/packages/react/src/components/Edges/EdgeAnchor.tsx`.
 -- |
 -- | Used by the (future) `EdgeUpdateAnchors` component (ticket 036). The
 -- | circle is offset along the handle's axis by `radius` so the

@@ -1,5 +1,5 @@
 -- | Action ADT and `Effect_` (effect-descriptor) ADT for the Redux-style
--- | React store. Mirrors `xyflow-main/packages/react/src/store/index.ts`'s
+-- | React store. Mirrors `xyflow/packages/react/src/store/index.ts`'s
 -- | 20 named action methods plus the `PatchState` escape hatch for
 -- | upstream's `useStoreApi().setState(fn)` pattern.
 -- |

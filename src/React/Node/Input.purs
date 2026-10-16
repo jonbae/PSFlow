@@ -1,6 +1,6 @@
 -- | `<InputNode />` — source-only built-in node. Renders the user-
 -- | supplied label then a single source handle on the bottom. Mirrors
--- | `xyflow-main/packages/react/src/components/Nodes/InputNode.tsx`.
+-- | `xyflow/packages/react/src/components/Nodes/InputNode.tsx`.
 -- |
 -- | Default `sourcePosition = PosBottom`.
 module React.Node.Input

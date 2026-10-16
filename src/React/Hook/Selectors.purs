@@ -1,6 +1,6 @@
 -- | Thin selector hooks that wrap `useStore` (ticket 027). Each is a
 -- | one-to-five-line projection on the `ReactFlowState`. Mirrors the
--- | individual TS hooks under `xyflow-main/packages/react/src/hooks/`:
+-- | individual TS hooks under `xyflow/packages/react/src/hooks/`:
 -- | `useNodes`, `useEdges`, `useViewport`, `useConnection`,
 -- | `useNodesData`, `useInternalNode`, `useNodesInitialized`.
 -- |

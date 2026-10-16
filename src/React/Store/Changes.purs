@@ -1,6 +1,6 @@
 -- | Pure helpers that apply `NodeChange` and `EdgeChange` values to
 -- | arrays of nodes and edges. Ports
--- | `xyflow-main/packages/react/src/utils/changes.ts` 1:1, with TS
+-- | `xyflow/packages/react/src/utils/changes.ts` 1:1, with TS
 -- | mutable-update style replaced by record-update returning new values.
 -- |
 -- | All functions are pure — the React reducer calls them inline and

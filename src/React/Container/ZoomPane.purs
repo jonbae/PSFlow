@@ -1,6 +1,6 @@
 -- | `<ZoomPane />` — pan/zoom interaction surface backed by the
 -- | d3-zoom controller (`System.XYPanZoom`, ticket 018). Mirrors
--- | `xyflow-main/packages/react/src/container/ZoomPane/index.tsx`.
+-- | `xyflow/packages/react/src/container/ZoomPane/index.tsx`.
 -- |
 -- | Lifecycle:
 -- |

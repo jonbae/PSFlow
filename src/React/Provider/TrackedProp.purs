@@ -3,7 +3,7 @@
 -- | Upstream keeps the previous value of every tracked field in a ref and
 -- | dispatches only the fields whose value differs, comparing the raw prop
 -- | with `!==`
--- | (`xyflow-main/packages/react/src/components/StoreUpdater/index.tsx`).
+-- | (`xyflow/packages/react/src/components/StoreUpdater/index.tsx`).
 -- | The PS port needs no such ref: `useEffect` already caches its deps and
 -- | re-runs when the `Eq` instance says they differ. It needs the instance to
 -- | compare what upstream compares.

@@ -1,6 +1,6 @@
 -- | `useStore` and `useStoreApi` — the two foundational hooks that every
 -- | other React-layer hook (028–031) builds on. Mirrors
--- | `xyflow-main/packages/react/src/hooks/useStore.ts`.
+-- | `xyflow/packages/react/src/hooks/useStore.ts`.
 -- |
 -- | Both hooks read the singleton `Store n e` from
 -- | `React.Context.Store.storeContext`, which carries it as an opaque

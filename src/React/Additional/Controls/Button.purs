@@ -1,7 +1,7 @@
 -- | `<ControlButton />` — the styled `<button>` rendered for each
 -- | built-in control (zoom in/out, fit view, lock) and available to
 -- | consumers wanting to add their own buttons inside `<Controls />`.
--- | Mirrors `xyflow-main/.../Controls/ControlButton.tsx`.
+-- | Mirrors `xyflow/.../Controls/ControlButton.tsx`.
 module React.Additional.Controls.Button
   ( controlButton
   ) where

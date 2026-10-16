@@ -1,6 +1,6 @@
 -- | `<StoreUpdater />` — one-way sync from `<ReactFlow>` props into the
 -- | store. Mirrors
--- | `xyflow-main/packages/react/src/components/StoreUpdater/index.tsx`.
+-- | `xyflow/packages/react/src/components/StoreUpdater/index.tsx`.
 -- |
 -- | TS uses a single `useEffect` with `fieldsToTrack.map((f) => props[f])`
 -- | as the dep array and a `previousFields` ref to gate per-field

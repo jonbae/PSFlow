@@ -1,5 +1,5 @@
 -- | Node drag controller — port of
--- | `xyflow-main/packages/system/src/xydrag/XYDrag.ts`.
+-- | `xyflow/packages/system/src/xydrag/XYDrag.ts`.
 -- |
 -- | The TS `XYDrag` is a factory that captures mutable state (`lastPos`,
 -- | `dragItems`, `autoPanId`, …) in a closure and returns an object with

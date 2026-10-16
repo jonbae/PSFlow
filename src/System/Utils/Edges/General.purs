@@ -1,5 +1,5 @@
 -- | Pure edge utilities ported from
--- | `xyflow-main/packages/system/src/utils/edges/general.ts`.
+-- | `xyflow/packages/system/src/utils/edges/general.ts`.
 module System.Utils.Edges.General
   ( EdgeCenter
   , EdgePathResult

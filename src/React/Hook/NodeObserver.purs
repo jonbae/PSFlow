@@ -1,7 +1,7 @@
 -- | `useNodeObserver` — attaches a `ResizeObserver` to one node's wrapper
 -- | element so size changes flow back through `UpdateNodeInternals` for
 -- | remeasure. Mirrors
--- | `xyflow-main/packages/react/src/components/NodeWrapper/useNodeObserver.ts`.
+-- | `xyflow/packages/react/src/components/NodeWrapper/useNodeObserver.ts`.
 -- |
 -- | Has two modes, selected by `sharedObserver`:
 -- |

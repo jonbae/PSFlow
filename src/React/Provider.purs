@@ -1,6 +1,6 @@
 -- | `<ReactFlowProvider />` — allocates the singleton `Store` and wraps
 -- | children in `storeContext` + `batchContext`. Mirrors
--- | `xyflow-main/packages/react/src/components/ReactFlowProvider/index.tsx`.
+-- | `xyflow/packages/react/src/components/ReactFlowProvider/index.tsx`.
 -- |
 -- | **Store-once invariant.** TS uses `useState(() => createStore(opts))`
 -- | so the store is allocated lazily exactly once per mount. PS doesn't

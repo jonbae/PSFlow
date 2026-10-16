@@ -2,7 +2,7 @@
 -- | `useOnSelectionChange`, `useOnInitHandler`. Each installs a
 -- | callback into a slot or list on the `ReactFlowState` for the
 -- | lifetime of the calling component. Mirrors
--- | `xyflow-main/packages/react/src/hooks/useOn{Viewport,Selection,Init}Handler.ts`.
+-- | `xyflow/packages/react/src/hooks/useOn{Viewport,Selection,Init}Handler.ts`.
 -- |
 -- | Registration goes through named `Action` constructors
 -- | (`InstallViewportListeners`, `UninstallViewportListeners`,
@@ -107,7 +107,7 @@ useOnSelectionChange opts = coerceHook React.do
 -- | the `ReactFlowInstance` so it can immediately drive viewport or
 -- | state-mutation methods.
 -- |
--- | Mirrors `xyflow-main/packages/react/src/hooks/useOnInitHandler.ts`.
+-- | Mirrors `xyflow/packages/react/src/hooks/useOnInitHandler.ts`.
 -- | TS schedules the callback through `setTimeout(fn, 1)` to dodge a
 -- | corner-case where the instance is read mid-commit; the PS port
 -- | fires inside `useEffect`, which already runs post-commit, so the

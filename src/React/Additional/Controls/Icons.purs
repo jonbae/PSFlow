@@ -1,6 +1,6 @@
 -- | The five SVG icons used inside `<Controls />`. Each is a pure `JSX`
 -- | value (not a component) — rendered directly inside `controlButton`.
--- | Path data matches `xyflow-main/.../Controls/Icons/*.tsx` byte for
+-- | Path data matches `xyflow/.../Controls/Icons/*.tsx` byte for
 -- | byte.
 module React.Additional.Controls.Icons
   ( iconPlus

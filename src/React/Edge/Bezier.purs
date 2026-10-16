@@ -1,6 +1,6 @@
 -- | `<BezierEdge />` — cubic-bezier edge. Wraps
 -- | `System.Utils.Edges.Bezier.getBezierPath`. Mirrors
--- | `xyflow-main/packages/react/src/components/Edges/BezierEdge.tsx`.
+-- | `xyflow/packages/react/src/components/Edges/BezierEdge.tsx`.
 -- |
 -- | Defaults: `sourcePosition = PosBottom`, `targetPosition = PosTop`,
 -- | applied below since PS records have no field-default syntax.

@@ -1,6 +1,6 @@
 -- | `<Attribution />` — the small "React Flow" link panel in the bottom
 -- | corner. Suppressed via `proOptions.hideAttribution`. Mirrors
--- | `xyflow-main/packages/react/src/components/Attribution/index.tsx`.
+-- | `xyflow/packages/react/src/components/Attribution/index.tsx`.
 module React.Container.Attribution
   ( attribution
   ) where

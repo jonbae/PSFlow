@@ -108,7 +108,7 @@ import Web.UIEvent.MouseEvent (MouseEvent)
 import Web.UIEvent.WheelEvent (WheelEvent)
 
 -- | Public top-level props for the `<ReactFlow />` component. Mirrors
--- | `xyflow-main/packages/react/src/types/component-props.ts ReactFlowProps`
+-- | `xyflow/packages/react/src/types/component-props.ts ReactFlowProps`
 -- | field for field. Every TS optional becomes `Maybe`; every callback
 -- | becomes `Maybe (... -> Effect Unit)`. `children` is included for the
 -- | underlying div.
@@ -418,7 +418,7 @@ type ConnectionLineProps n =
 
 -- Ticket 037 — `<NodesSelection />` (bounding box around selected nodes,
 -- draggable as a group). Mirrors
--- `xyflow-main/packages/react/src/components/NodesSelection/index.tsx
+-- `xyflow/packages/react/src/components/NodesSelection/index.tsx
 -- NodesSelectionProps`.
 type NodesSelectionProps n =
   { onSelectionContextMenu :: Maybe (MouseEvent -> Array (Node n) -> Effect Unit)
@@ -649,7 +649,7 @@ type EdgeToolbarProps =
   }
 
 -- | Ticket 040 — `<NodeRenderer />`. Mirrors
--- | `xyflow-main/packages/react/src/container/NodeRenderer/index.tsx
+-- | `xyflow/packages/react/src/container/NodeRenderer/index.tsx
 -- | NodeRendererProps`. The shared `ResizeObserver` is allocated inside
 -- | the renderer (not threaded in via props) — there is no `resizeObserver`
 -- | field on this record, matching TS.
@@ -671,7 +671,7 @@ type NodeRendererProps n =
   }
 
 -- | Ticket 040 — `<EdgeRenderer />`. Mirrors
--- | `xyflow-main/packages/react/src/container/EdgeRenderer/index.tsx
+-- | `xyflow/packages/react/src/container/EdgeRenderer/index.tsx
 -- | EdgeRendererProps`. TS allows an optional `children` slot; PS omits
 -- | it for now (no in-tree caller needs it — add back when one appears).
 type EdgeRendererProps n e =
@@ -702,14 +702,14 @@ type EdgeRendererProps n e =
   }
 
 -- | Ticket 040 — `<MarkerDefinitions />`. Mirrors
--- | `xyflow-main/packages/react/src/container/EdgeRenderer/MarkerDefinitions.tsx`.
+-- | `xyflow/packages/react/src/container/EdgeRenderer/MarkerDefinitions.tsx`.
 type MarkerDefinitionsProps =
   { defaultColor :: Maybe String
   , rfId :: Maybe String
   }
 
 -- | Ticket 040 — `<FlowRenderer />`. Mirrors
--- | `xyflow-main/packages/react/src/container/FlowRenderer/index.tsx
+-- | `xyflow/packages/react/src/container/FlowRenderer/index.tsx
 -- | FlowRendererProps`. Structural shell: hosts `ZoomPane` → `Pane` →
 -- | user children + `NodesSelection` overlay. Built via
 -- | `reactComponentWithChildren`, so `children :: ReactChildren JSX`.
@@ -759,7 +759,7 @@ type FlowRendererProps n =
 
 -- | Ticket 041 — `<GraphView />`. Pass-through orchestrator that lives
 -- | between `<ReactFlow />` and the rendering layer. Mirrors
--- | `xyflow-main/packages/react/src/container/GraphView/index.tsx
+-- | `xyflow/packages/react/src/container/GraphView/index.tsx
 -- | GraphViewProps`. The fields that the upstream TS marks `Required<Pick
 -- | <…>>` are upgraded from `Maybe X` to `X` here (the parent `<ReactFlow
 -- | />` always supplies a default at the seam, see ticket 042).
@@ -841,21 +841,21 @@ type GraphViewProps n e =
   }
 
 -- | Ticket 042 — `<A11yDescriptions />`. Mirrors
--- | `xyflow-main/packages/react/src/components/A11yDescriptions/index.tsx`.
+-- | `xyflow/packages/react/src/components/A11yDescriptions/index.tsx`.
 type A11yDescriptionsProps =
   { rfId :: String
   , disableKeyboardA11y :: Boolean
   }
 
 -- | Ticket 042 — `<Attribution />`. Mirrors
--- | `xyflow-main/packages/react/src/components/Attribution/index.tsx`.
+-- | `xyflow/packages/react/src/components/Attribution/index.tsx`.
 type AttributionProps =
   { proOptions :: Maybe ProOptions
   , position :: Maybe PanelPosition
   }
 
 -- | Ticket 043 — `<ReactFlowProvider />`. Mirrors
--- | `xyflow-main/packages/react/src/components/ReactFlowProvider/index.tsx
+-- | `xyflow/packages/react/src/components/ReactFlowProvider/index.tsx
 -- | ReactFlowProviderProps`. Same shape as the consumer-facing prop bundle
 -- | upstream: every field is `Maybe`, the provider falls back to the
 -- | initial-state defaults. `children` is a `ReactChildren JSX` because the
@@ -890,7 +890,7 @@ type SelectionListenerProps n e =
   }
 
 -- | Ticket 043 — `<StoreUpdater />`. Mirrors the TS `reactFlowFieldsToTrack`
--- | list at `xyflow-main/packages/react/src/components/StoreUpdater/index.tsx`
+-- | list at `xyflow/packages/react/src/components/StoreUpdater/index.tsx`
 -- | (lines 15-74) plus `rfId`. Each field is `Maybe X` because every
 -- | `ReactFlowProps` field on the upstream consumer side is optional, and
 -- | the StoreUpdater dispatches only when the prop is `Just`.

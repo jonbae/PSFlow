@@ -1,6 +1,6 @@
 -- | SVG arrowhead "symbols" inserted as children of `<marker>` elements
 -- | by `MarkerDefinitions`. Mirrors
--- | `xyflow-main/packages/react/src/container/EdgeRenderer/MarkerSymbols.tsx`.
+-- | `xyflow/packages/react/src/container/EdgeRenderer/MarkerSymbols.tsx`.
 -- |
 -- | **Divergence from TS.** The TS source exposes a `MarkerSymbols`
 -- | object (keyed on `MarkerType` strings) plus a `useMarkerSymbol`

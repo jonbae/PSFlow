@@ -1,7 +1,7 @@
 -- | `useNodeOrEdgeTypesWarning` — dev-time guard that fires the upstream
 -- | E002 error if a `nodeTypes` or `edgeTypes` record reference changes
 -- | between renders. Mirrors
--- | `xyflow-main/packages/react/src/container/GraphView/useNodeOrEdgeTypesWarning.ts`.
+-- | `xyflow/packages/react/src/container/GraphView/useNodeOrEdgeTypesWarning.ts`.
 -- |
 -- | **The gating flag.** TS uses `process.env.NODE_ENV === 'development'`.
 -- | PS gates on `React.FFI.Env.isDevelopment` — a build-time `Boolean`

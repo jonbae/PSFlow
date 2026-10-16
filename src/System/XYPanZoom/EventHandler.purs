@@ -1,5 +1,5 @@
 -- | Pan/zoom event handler creators — port of
--- | `xyflow-main/packages/system/src/xypanzoom/eventhandler.ts`.
+-- | `xyflow/packages/system/src/xypanzoom/eventhandler.ts`.
 -- |
 -- | Each `create*` returns an `Effect <handler>` because the handlers close
 -- | over `Ref ZoomPanValues` shared with the controller; the `Effect`

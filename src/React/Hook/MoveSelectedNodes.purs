@@ -1,7 +1,7 @@
 -- | `useMoveSelectedNodes` — returns a function that nudges every
 -- | currently-selected node by a `(dx, dy)` offset scaled by a factor.
 -- | Used by `panActivation`-key shortcuts. Mirrors
--- | `xyflow-main/packages/react/src/hooks/useMoveSelectedNodes.ts`.
+-- | `xyflow/packages/react/src/hooks/useMoveSelectedNodes.ts`.
 -- |
 -- | The hook is `Effect`-flavoured at its boundary — the returned
 -- | function may be invoked at any point after mount and reads live

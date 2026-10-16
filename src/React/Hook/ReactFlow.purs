@@ -1,7 +1,7 @@
 -- | `useReactFlow` — returns the rich `ReactFlowInstance` record that
 -- | host components use to read state, push updates, and drive the
 -- | viewport. Mirrors
--- | `xyflow-main/packages/react/src/hooks/useReactFlow.ts`.
+-- | `xyflow/packages/react/src/hooks/useReactFlow.ts`.
 -- |
 -- | **Composition.** Internally composes `useViewportHelper`,
 -- | `useStoreApi`, `useBatchContext`, and a `useStore` slice tracking

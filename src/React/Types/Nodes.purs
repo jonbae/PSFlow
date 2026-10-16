@@ -35,7 +35,7 @@ type NodeMouseHandler n = MouseEvent -> Node n -> Effect Unit
 
 -- | Props passed into a user-supplied node component (and the built-in
 -- | nodes in `React.Node.*`). Mirrors
--- | `xyflow-main/packages/react/src/types/nodes.ts NodeProps`.
+-- | `xyflow/packages/react/src/types/nodes.ts NodeProps`.
 -- |
 -- | `data` is left polymorphic (`n`) so the user's data row is preserved
 -- | end-to-end. Built-in node components instantiate this at
@@ -75,7 +75,7 @@ type ResizeObserver = RO.ResizeObserver
 foreign import data NodeTypesMap :: Type
 
 -- | Props for the internal `NodeWrapper` component. Mirrors
--- | `xyflow-main/packages/react/src/types/nodes.ts NodeWrapperProps`.
+-- | `xyflow/packages/react/src/types/nodes.ts NodeWrapperProps`.
 type NodeWrapperProps n =
   { id :: String
   , nodesConnectable :: Boolean

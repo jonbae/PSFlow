@@ -1,6 +1,6 @@
 -- | `useNodeConnections` — observe the connections attached to a node,
 -- | optionally narrowed to a specific handle type and/or handle id.
--- | Mirrors `xyflow-main/packages/react/src/hooks/useNodeConnections.ts`.
+-- | Mirrors `xyflow/packages/react/src/hooks/useNodeConnections.ts`.
 -- |
 -- | **Key construction** mirrors upstream:
 -- |

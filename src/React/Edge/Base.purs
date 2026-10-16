@@ -1,6 +1,6 @@
 -- | The `<BaseEdge />` component — shared rendering for every built-in
 -- | edge variant. Mirrors
--- | `xyflow-main/packages/react/src/components/Edges/BaseEdge.tsx`.
+-- | `xyflow/packages/react/src/components/Edges/BaseEdge.tsx`.
 -- |
 -- | Renders an SVG `<path>` for the visible stroke, an invisible
 -- | interaction `<path>` with `stroke-opacity=0` and a wide

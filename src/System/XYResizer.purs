@@ -1,5 +1,5 @@
 -- | Node-resize controller — port of
--- | `xyflow-main/packages/system/src/xyresizer/XYResizer.ts` with the
+-- | `xyflow/packages/system/src/xyresizer/XYResizer.ts` with the
 -- | adjacent `types.ts`.
 -- |
 -- | This module exports the full type surface — `ControlLinePosition`,

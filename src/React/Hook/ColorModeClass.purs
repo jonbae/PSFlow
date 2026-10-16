@@ -4,7 +4,7 @@
 -- | `(prefers-color-scheme: dark)` via `React.FFI.MatchMedia` and
 -- | re-renders whenever the OS preference changes.
 -- |
--- | Mirrors `xyflow-main/packages/react/src/hooks/useColorModeClass.ts`.
+-- | Mirrors `xyflow/packages/react/src/hooks/useColorModeClass.ts`.
 module React.Hook.ColorModeClass
   ( UseColorModeClassHook(..)
   , useColorModeClass

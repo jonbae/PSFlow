@@ -1,6 +1,6 @@
 -- | `<NodeResizeControl />` — a single resize handle anchored to a
 -- | corner or edge of its host node. Wires `System.XYResizer` into the
--- | React lifecycle. Mirrors `xyflow-main/.../NodeResizer/NodeResizeControl.tsx`.
+-- | React lifecycle. Mirrors `xyflow/.../NodeResizer/NodeResizeControl.tsx`.
 module React.Additional.NodeResizer.Control
   ( nodeResizeControl
   ) where

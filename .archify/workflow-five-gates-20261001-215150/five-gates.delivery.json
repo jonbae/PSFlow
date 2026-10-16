@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "8e78027d-6a24-4164-b2cd-e55786dbd037",
+  "status": "current",
+  "command": "deliver",
+  "type": "workflow",
+  "input": "C:\\Users\\jonbae\\Documents\\repos\\PSFlow\\.archify\\workflow-five-gates-20261001-215150\\candidate.json",
+  "output": "C:\\Users\\jonbae\\Documents\\repos\\PSFlow\\.archify\\workflow-five-gates-20261001-215150\\five-gates.html",
+  "specification": {
+    "sha256": "5387d15a3d5247478702c9cbcb0e4fcf3b90fd1d4b050215b607bcc3429c9a9e",
+    "bytes": 7862
+  },
+  "artifact": {
+    "sha256": "8c71a56e635c130a967c5fbec6521caf9d44a862b9bb927003cff3563d74d45d",
+    "bytes": 776346
+  }
+}

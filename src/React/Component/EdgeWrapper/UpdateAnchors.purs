@@ -1,6 +1,6 @@
 -- | `<EdgeUpdateAnchors />` — renders the source/target reconnect
 -- | handles for a selected edge. Mirrors
--- | `xyflow-main/packages/react/src/components/EdgeWrapper/EdgeUpdateAnchors.tsx`.
+-- | `xyflow/packages/react/src/components/EdgeWrapper/EdgeUpdateAnchors.tsx`.
 -- |
 -- | A pointerdown on either anchor starts a fresh connection drag via
 -- | `System.XYHandle.onPointerDown`, with reconnect-specific callbacks

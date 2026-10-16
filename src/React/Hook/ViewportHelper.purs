@@ -1,6 +1,6 @@
 -- | `useViewportHelper` — returns a stable record of viewport-manipulation
 -- | functions over the current store. Mirrors
--- | `xyflow-main/packages/react/src/hooks/useViewportHelper.ts`.
+-- | `xyflow/packages/react/src/hooks/useViewportHelper.ts`.
 -- |
 -- | Every animated method (`zoomIn`, `zoomOut`, `zoomTo`, `setViewport`,
 -- | `setCenter`, `fitBounds`) returns `Aff Boolean` — `true` once the d3

@@ -1,5 +1,5 @@
 -- | Pattern child components for `<Background />`. Mirrors
--- | `xyflow-main/packages/react/src/additional-components/Background/Patterns.tsx`.
+-- | `xyflow/packages/react/src/additional-components/Background/Patterns.tsx`.
 module React.Additional.Background.Patterns
   ( linePattern
   , dotPattern

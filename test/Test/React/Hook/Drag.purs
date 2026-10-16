@@ -4,7 +4,7 @@
 -- | node, as upstream does" (#125). Upstream's `<NodeWrapper />` hands
 -- | `useDrag` `disabled: node.hidden || !isDraggable`, and the hook's effect
 -- | returns before `update`, so d3-drag never binds to the node
--- | (`xyflow-main/packages/react/src/hooks/useDrag.ts`). ps-flow had no
+-- | (`xyflow/packages/react/src/hooks/useDrag.ts`). ps-flow had no
 -- | `disabled`: it passed the undraggable node `nodeId: Nothing` and bound it
 -- | anyway. d3-drag's `mousedown` handler stops the event's propagation
 -- | before its filter has a say, so the pointer-down never reached d3-zoom

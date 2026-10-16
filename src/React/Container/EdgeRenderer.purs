@@ -2,7 +2,7 @@
 -- | one `<EdgeWrapper />` per ID, plus the `<MarkerDefinitions />`
 -- | overlay that publishes the shared SVG arrowhead `<marker>`s.
 -- |
--- | Mirrors `xyflow-main/packages/react/src/container/EdgeRenderer/index.tsx`.
+-- | Mirrors `xyflow/packages/react/src/container/EdgeRenderer/index.tsx`.
 -- |
 -- | **Fidelity notes.**
 -- |   * `memo` is applied to the public export (matches TS).

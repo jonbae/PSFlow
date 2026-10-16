@@ -1,7 +1,7 @@
 -- | `useUpdateNodeInternals` — returns a function that re-measures the
 -- | DOM dimensions of one or more nodes and pushes the result into the
 -- | store. Mirrors
--- | `xyflow-main/packages/react/src/hooks/useUpdateNodeInternals.ts`.
+-- | `xyflow/packages/react/src/hooks/useUpdateNodeInternals.ts`.
 -- |
 -- | **API divergence.** TS accepts `string | string[]`; PS accepts
 -- | `Array String` only. Call sites that used to write

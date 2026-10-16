@@ -1,6 +1,6 @@
 -- | `<ConnectionLine />` — the SVG overlay that draws the in-progress
 -- | connection while a user is wiring an edge. Mirrors
--- | `xyflow-main/packages/react/src/components/ConnectionLine/index.tsx`.
+-- | `xyflow/packages/react/src/components/ConnectionLine/index.tsx`.
 -- |
 -- | Responsibilities:
 -- |

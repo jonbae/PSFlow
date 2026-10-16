@@ -1,7 +1,7 @@
 -- | `<SimpleBezierEdge />` — simple-bezier edge (control points use the
 -- | midpoint instead of weighted curvature). Wraps
 -- | `System.Utils.Edges.SimpleBezier.getSimpleBezierPath`. Mirrors
--- | `xyflow-main/packages/react/src/components/Edges/SimpleBezierEdge.tsx`.
+-- | `xyflow/packages/react/src/components/Edges/SimpleBezierEdge.tsx`.
 -- |
 -- | Re-exports `getSimpleBezierPath` from `System.Utils.Edges.SimpleBezier`
 -- | because the TS source also exports it publicly. Public consumers

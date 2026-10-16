@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "PSFlow architecture",
+    "output": ".archify/architecture-psflow-20261001-214712/psflow.html",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "repository": { "url": "https://github.com/jonbae/PSFlow.git", "provider": "github", "link_mode": "web", "revision": "79b3c9419f07deda40f5bdf48808d507029ba8f5" }
+  },
+  "components": [
+    { "id": "js-app", "type": "external", "label": "JS / TS app", "sublabel": "imports ps-flow", "pos": [40, 300], "size": [160, 64],
+      "sources": [{ "path": "package.json", "line": 6, "end_line": 9, "label": "main and exports" }] },
+    { "id": "index-js", "type": "frontend", "label": "index.js", "sublabel": "JS surface, PascalCase", "pos": [320, 300], "size": [160, 64],
+      "sources": [{ "path": "index.js", "line": 1, "end_line": 20, "label": "bare re-export" }, { "path": "index.js", "line": 100 }] },
+    { "id": "boundary", "type": "backend", "label": "Boundary module", "sublabel": "converters + manifest", "pos": [600, 300], "size": [160, 64], "tag": "src/Boundary",
+      "sources": [{ "path": "src/Boundary.purs", "line": 1, "end_line": 17 }, { "path": "src/Boundary.purs", "line": 144, "end_line": 220, "label": "imports React" }, { "path": "src/Boundary.js", "line": 8, "end_line": 23, "label": "manifest" }] },
+    { "id": "react-mod", "type": "backend", "label": "React module", "sublabel": "components, hooks, store", "pos": [880, 300], "size": [160, 64], "tag": "src/React",
+      "sources": [{ "path": "src/React.purs", "line": 77, "end_line": 199, "label": "PureScript surface barrel" }] },
+    { "id": "system", "type": "backend", "label": "System modules", "sublabel": "XYDrag, XYPanZoom, utils", "pos": [1160, 300], "size": [160, 64], "tag": "src/System",
+      "sources": [{ "path": "src/React/Store/Action.purs", "line": 28, "end_line": 36, "label": "React imports System" }, { "path": "src/System/XYPanZoom.purs", "line": 7, "end_line": 22 }] },
+    { "id": "d3", "type": "external", "label": "d3 libraries", "sublabel": "drag, zoom, selection", "pos": [1440, 300], "size": [160, 64],
+      "sources": [{ "path": "src/System/FFI/D3Zoom.js", "line": 3, "end_line": 4 }, { "path": "src/System/FFI/D3Drag.js", "line": 1 }, { "path": "package.json", "line": 32, "end_line": 35 }] },
+    { "id": "ps-app", "type": "external", "label": "PureScript app", "sublabel": "imports React", "pos": [880, 110], "size": [160, 64],
+      "sources": [{ "path": "src/Boundary.purs", "line": 11, "end_line": 15, "label": "two audiences" }] },
+    { "id": "react-rt", "type": "external", "label": "React 18", "sublabel": "through react-basic-hooks", "pos": [880, 490], "size": [160, 64],
+      "sources": [{ "path": "src/React/Container/ReactFlow.purs", "line": 68, "end_line": 70 }, { "path": "package.json", "line": 36, "end_line": 37 }] },
+    { "id": "driver", "type": "frontend", "label": "Driver page", "sublabel": "bundled twice", "pos": [320, 110], "size": [160, 64], "tag": "parity/driver",
+      "sources": [{ "path": "parity/driver/build.mjs", "line": 46, "end_line": 56, "label": "psflow and upstream sides" }, { "path": "parity/system/net.mjs", "line": 12, "end_line": 15 }] },
+    { "id": "surface", "type": "security", "label": "Surface parity", "sublabel": "npm run parity:surface", "pos": [320, 490], "size": [160, 64],
+      "sources": [{ "path": "parity/surface/extract-psflow.mjs", "line": 48 }, { "path": "parity/surface/extract-upstream.ts", "line": 38, "end_line": 42 }] },
+    { "id": "xyflow", "type": "database", "label": "Vendored xyflow", "sublabel": "@xyflow/react 12.11.0", "pos": [40, 490], "size": [160, 64], "tag": "xyflow/",
+      "sources": [{ "path": "package.json", "line": 41 }, { "path": "oracle/esbuild.mjs", "line": 1, "end_line": 4 }] },
+    { "id": "oracle", "type": "database", "label": "@psflow/oracle", "sublabel": "pure-function bundle", "pos": [40, 660], "size": [160, 64], "tag": "oracle/",
+      "sources": [{ "path": "oracle/esbuild.mjs", "line": 1, "end_line": 21 }] },
+    { "id": "fn-parity", "type": "security", "label": "Function parity", "sublabel": "spago test", "pos": [1160, 660], "size": [160, 64],
+      "sources": [{ "path": "test/Test/Oracle.js", "line": 1, "end_line": 49 }, { "path": "test/Test/Parity/Connections.purs", "line": 15 }] }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "PureScript (spago build to output/)", "wraps": ["boundary", "react-mod", "system"] }
+  ],
+  "connections": [
+    { "id": "app-imports", "from": "js-app", "to": "index-js", "label": "import", "variant": "emphasis" },
+    { "id": "index-reexports", "from": "index-js", "to": "boundary", "label": "re-export", "variant": "emphasis" },
+    { "id": "boundary-crosses", "from": "boundary", "to": "react-mod", "label": "cross to JS", "variant": "emphasis" },
+    { "id": "react-system", "from": "react-mod", "to": "system", "label": "drag, pan-zoom" },
+    { "id": "system-d3", "from": "system", "to": "d3", "label": "FFI" },
+    { "id": "ps-imports", "from": "ps-app", "to": "react-mod", "label": "import React" },
+    { "id": "react-renders", "from": "react-mod", "to": "react-rt", "label": "render, hooks" },
+    { "id": "driver-mounts", "from": "driver", "to": "index-js", "label": "alias @xyflow/react", "variant": "dashed" },
+    { "id": "surface-imports", "from": "surface", "to": "index-js", "label": "import values", "variant": "dashed" },
+    { "id": "surface-extracts", "from": "xyflow", "to": "surface", "label": "extract upstream", "variant": "dashed" },
+    { "id": "oracle-build", "from": "xyflow", "to": "oracle", "label": "esbuild", "variant": "dashed" },
+    { "id": "oracle-diff", "from": "oracle", "to": "fn-parity", "label": "expected values", "variant": "dashed" },
+    { "id": "fn-tests", "from": "fn-parity", "to": "system", "label": "call pure fns", "variant": "dashed" }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "Two surfaces", "items": ["JS consumers enter through index.js, the compiled Boundary module renamed to PascalCase", "PureScript consumers import the React module, which Boundary leaves untouched"] },
+    { "dot": "emerald", "title": "Boundary", "items": ["Converters in src/Boundary/ cross each export into its JS-native shape", "The manifest in src/Boundary.js records crossed and passthrough exports"] },
+    { "dot": "rose", "title": "Parity against upstream", "items": ["The driver page is bundled twice: @xyflow/react aliased to index.js or to vendored xyflow", "Surface and function parity compare against the same vendored checkout"] }
+  ]
+}

@@ -1,7 +1,7 @@
 -- | The `BatchContext` provides per-render queues for buffering node and
 -- | edge updates so multiple `setNodes` / `addNodes` calls in the same
 -- | render cycle collapse to a single store dispatch. Mirrors
--- | `xyflow-main/packages/react/src/components/BatchProvider/`.
+-- | `xyflow/packages/react/src/components/BatchProvider/`.
 -- |
 -- | The TS source parameterises queues on the concrete node/edge types;
 -- | we use opaque placeholders here for the same reason as

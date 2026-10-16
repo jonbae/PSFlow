@@ -1,6 +1,6 @@
 -- | The `<EdgeText />` helper. Renders the measured label group used inside
 -- | `<BaseEdge />`, mirroring
--- | `xyflow-main/packages/react/src/components/Edges/EdgeText.tsx`.
+-- | `xyflow/packages/react/src/components/Edges/EdgeText.tsx`.
 -- |
 -- | `labelBgPadding` remains `{ x, y }` (matching PSFlow's existing
 -- | `EdgeTextProps` scaffold) rather than TS's `[number, number]`.

@@ -1,6 +1,6 @@
 -- | `useGlobalKeyHandler` — wires the global delete / multi-selection /
 -- | pan-activation keys into store-level state changes. Mirrors
--- | `xyflow-main/packages/react/src/hooks/useGlobalKeyHandler.ts`.
+-- | `xyflow/packages/react/src/hooks/useGlobalKeyHandler.ts`.
 -- |
 -- | Composes `useKeyPress` (ticket 031) for each tracked key and
 -- | `useStoreApi` (ticket 027) for dispatch. The hook is `Unit`-valued

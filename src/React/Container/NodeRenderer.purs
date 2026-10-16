@@ -3,7 +3,7 @@
 -- | (shared by every wrapper under this renderer) so node measurements
 -- | go through one batched dispatch instead of one observer per node.
 -- |
--- | Mirrors `xyflow-main/packages/react/src/container/NodeRenderer/index.tsx`
+-- | Mirrors `xyflow/packages/react/src/container/NodeRenderer/index.tsx`
 -- | + `…/NodeRenderer/useResizeObserver.ts`.
 -- |
 -- | **Fidelity notes.**

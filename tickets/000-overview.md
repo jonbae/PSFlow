@@ -4,7 +4,7 @@
 
 ## Summary
 
-This document is the root index for porting the `@xyflow/system` TypeScript package to idiomatic PureScript. The source monorepo lives at `xyflow-main/packages/system/src/`. The React-specific layer (`xyflow-main/packages/react/src/`) is not covered here — it requires a separate planning pass involving React FFI bindings and is out of scope for this phase.
+This document is the root index for porting the `@xyflow/system` TypeScript package to idiomatic PureScript. The source monorepo lives at `xyflow/packages/system/src/`. The React-specific layer (`xyflow/packages/react/src/`) is not covered here — it requires a separate planning pass involving React FFI bindings and is out of scope for this phase.
 
 The PureScript library is called `ps-flow`. Tickets are placed under `tickets/` and numbered for dependency ordering.
 
@@ -235,4 +235,4 @@ The following packages must be added to `spago.yaml` across the full port. The e
 
 ---
 
-> Note (2026-05): the system port directory was renamed `src/XYFlow/` → `src/System/` in ticket 022 to match `xyflow-main/packages/system/`. Module paths in tickets 001–021 read `XYFlow.*` for historical accuracy; on disk they are `System.*`.
+> Note (2026-05): the system port directory was renamed `src/XYFlow/` → `src/System/` in ticket 022 to match `xyflow/packages/system/`. Module paths in tickets 001–021 read `XYFlow.*` for historical accuracy; on disk they are `System.*`.

@@ -1,6 +1,6 @@
 -- | `useDrag` — wires `System.XYDrag` (ticket 016) into React's
 -- | mount/update/unmount lifecycle. Mirrors
--- | `xyflow-main/packages/react/src/hooks/useDrag.ts`.
+-- | `xyflow/packages/react/src/hooks/useDrag.ts`.
 -- |
 -- | The lifecycle:
 -- |

@@ -1,7 +1,7 @@
 -- | The `StoreContext` is the conduit that connects every hook
 -- | (`useStore`, `useReactFlow`, …) to the single `Store n e` owned by
 -- | the root `<ReactFlowProvider />`. Mirrors
--- | `xyflow-main/packages/react/src/contexts/StoreContext.ts`.
+-- | `xyflow/packages/react/src/contexts/StoreContext.ts`.
 -- |
 -- | **Polymorphism wart.** `ReactContext` is monomorphic in PureScript
 -- | (a `Type`, not a kind), but `Store n e` is polymorphic. We thread an

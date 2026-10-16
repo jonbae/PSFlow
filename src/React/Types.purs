@@ -1,5 +1,5 @@
 -- | Aggregator module for the React-layer type port. Mirrors
--- | `xyflow-main/packages/react/src/types/index.ts` which re-exports the
+-- | `xyflow/packages/react/src/types/index.ts` which re-exports the
 -- | per-file types as one flat module.
 module React.Types
   ( module ReexportNodes

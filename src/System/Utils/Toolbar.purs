@@ -1,5 +1,5 @@
 -- | Pure CSS-transform string generators for node and edge toolbars.
--- | Mirrors `xyflow-main/packages/system/src/utils/{node,edge}-toolbar.ts`.
+-- | Mirrors `xyflow/packages/system/src/utils/{node,edge}-toolbar.ts`.
 module System.Utils.Toolbar
   ( getNodeToolbarTransform
   , getEdgeToolbarTransform
