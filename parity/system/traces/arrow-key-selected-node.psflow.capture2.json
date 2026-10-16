@@ -61,7 +61,8 @@
                                   "role": "group",
                                   "aria-roledescription": "edge",
                                   "data-id": "1-2",
-                                  "data-testid": "rf__edge-1-2"
+                                  "data-testid": "rf__edge-1-2",
+                                  "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
                                   {
@@ -126,7 +127,8 @@
                                   "role": "group",
                                   "aria-roledescription": "edge",
                                   "data-id": "2-3",
-                                  "data-testid": "rf__edge-2-3"
+                                  "data-testid": "rf__edge-2-3",
+                                  "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
                                   {
@@ -191,7 +193,8 @@
                                   "role": "group",
                                   "aria-roledescription": "edge",
                                   "data-id": "3-4",
-                                  "data-testid": "rf__edge-3-4"
+                                  "data-testid": "rf__edge-3-4",
+                                  "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
                                   {
@@ -267,6 +270,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 1000; transform: translate(2px, 4px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "Node-1",
@@ -292,6 +296,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(0px, 400px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "Node-2",
@@ -327,6 +332,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(0px, 800px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "Node-3",
@@ -362,6 +368,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(0px, 1200px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "Node-4",
@@ -603,7 +610,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 166,
+            "timeStamp": 161.9000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -672,7 +679,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 166,
+            "timeStamp": 161.9000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -801,7 +808,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 166,
+            "timeStamp": 161.9000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -866,7 +873,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 166,
+            "timeStamp": 161.9000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1421,7 +1428,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 194.60000002384186,
+            "timeStamp": 177.9000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

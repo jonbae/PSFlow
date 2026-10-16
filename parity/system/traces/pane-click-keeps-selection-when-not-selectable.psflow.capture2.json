@@ -61,7 +61,8 @@
                                   "role": "group",
                                   "aria-roledescription": "edge",
                                   "data-id": "1-2",
-                                  "data-testid": "rf__edge-1-2"
+                                  "data-testid": "rf__edge-1-2",
+                                  "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
                                   {
@@ -159,7 +160,8 @@
                                   "role": "group",
                                   "aria-roledescription": "edge",
                                   "data-id": "1-3",
-                                  "data-testid": "rf__edge-1-3"
+                                  "data-testid": "rf__edge-1-3",
+                                  "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
                                   {
@@ -268,6 +270,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 1000; transform: translate(0px, 0px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "Node-1",
@@ -293,6 +296,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(-100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "Node-2",
@@ -318,6 +322,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "Node-3",
@@ -353,6 +358,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(0px, 200px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "Node-4",
@@ -765,7 +771,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 164.30000001192093,
+            "timeStamp": 162.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -832,7 +838,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 164.30000001192093,
+            "timeStamp": 162.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -925,7 +931,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 169.5,
+            "timeStamp": 168.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

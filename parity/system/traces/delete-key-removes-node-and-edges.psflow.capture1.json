@@ -71,6 +71,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(-100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "Node-2",
@@ -96,6 +97,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "Node-3",
@@ -131,6 +133,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(0px, 200px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "Node-4",
@@ -156,6 +159,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(200px, 0px); pointer-events: all; visibility: visible; width: 100px; height: 50px;"
                             },
                             "children": [
@@ -187,6 +191,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(0px, 300px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "notConnectable",
@@ -212,6 +217,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(0px, 600px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "notDeletable",
@@ -247,6 +253,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(0px, 400px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "notDraggable",
@@ -282,6 +289,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(0px, 500px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "notSelectable",
@@ -716,7 +724,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 305.5999999642372,
+            "timeStamp": 354.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -785,7 +793,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 305.5999999642372,
+            "timeStamp": 354.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -912,7 +920,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 305.5999999642372,
+            "timeStamp": 354.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -977,7 +985,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 305.5999999642372,
+            "timeStamp": 354.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1520,7 +1528,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 340.19999998807907,
+            "timeStamp": 389.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1694,7 +1702,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 365,
+            "timeStamp": 414.4000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

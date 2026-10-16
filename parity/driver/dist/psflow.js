@@ -42094,6 +42094,7 @@ var selectAriaLiveMessage = function(v) {
 var hiddenStyle = /* @__PURE__ */ toForeignStyle3({
   display: "none"
 });
+var ariaNodeDescKey = "react-flow__node-desc";
 var ariaLiveStyle = /* @__PURE__ */ function() {
   return toForeignStyle3({
     position: "absolute",
@@ -42107,6 +42108,8 @@ var ariaLiveStyle = /* @__PURE__ */ function() {
     clipPath: "inset(100%)"
   });
 }();
+var ariaLiveMessageKey = "react-flow__aria-live";
+var ariaEdgeDescKey = "react-flow__edge-desc";
 var a11yDescriptions = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponent()()()("A11yDescriptions")(function(v) {
   return bind17(useStore7(selectDescriptions))(function(descs) {
     return bind17(useStore1(selectAriaLiveMessage))(function(ariaLiveMessage) {
@@ -42117,8 +42120,8 @@ var a11yDescriptions = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ react
         ;
         return descs.nodeDefault;
       }();
-      var nodeDescId = "react-flow__node-desc-" + v.rfId;
-      var edgeDescId = "react-flow__edge-desc-" + v.rfId;
+      var nodeDescId = ariaNodeDescKey + ("-" + v.rfId);
+      var edgeDescId = ariaEdgeDescKey + ("-" + v.rfId);
       var descChildren = [div_({
         id: nodeDescId,
         style: hiddenStyle
@@ -42126,7 +42129,7 @@ var a11yDescriptions = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ react
         id: edgeDescId,
         style: hiddenStyle
       })([textContent(descs.edgeDefault)])];
-      var ariaLiveId = "react-flow__aria-live-" + v.rfId;
+      var ariaLiveId = ariaLiveMessageKey + ("-" + v.rfId);
       var liveChildren = function() {
         if (v.disableKeyboardA11y) {
           return [];
@@ -45560,7 +45563,7 @@ var selectEdgePosition = function(edgeId) {
           };
         }
         ;
-        throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 196, column 13 - line 206, column 53): " + [mPos.constructor.name]);
+        throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 197, column 13 - line 207, column 53): " + [mPos.constructor.name]);
       }
       ;
       return {
@@ -45574,7 +45577,7 @@ var selectEdgePosition = function(edgeId) {
       };
     }
     ;
-    throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 172, column 3 - line 207, column 66): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 173, column 3 - line 208, column 66): " + [v.constructor.name]);
   };
 };
 var placeholderEdge = function(edgeId) {
@@ -45673,7 +45676,7 @@ var fireEdgeHandler = function(mCb) {
         return pure38(unit);
       }
       ;
-      throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 498, column 31 - line 500, column 23): " + [mCb.constructor.name]);
+      throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 506, column 31 - line 508, column 23): " + [mCb.constructor.name]);
     };
   };
 };
@@ -45688,7 +45691,7 @@ var edgeTypesAsObject = /* @__PURE__ */ function() {
       return v.value0;
     }
     ;
-    throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 212, column 21 - line 214, column 27): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 213, column 21 - line 215, column 27): " + [v.constructor.name]);
   };
 }();
 var resolveEdgeComponent = function(mTypes) {
@@ -45724,10 +45727,10 @@ var resolveEdgeComponent = function(mTypes) {
           };
         }
         ;
-        throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 231, column 16 - line 238, column 12): " + [v1.constructor.name]);
+        throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 232, column 16 - line 239, column 12): " + [v1.constructor.name]);
       }
       ;
-      throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 229, column 3 - line 238, column 12): " + [v.constructor.name]);
+      throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 230, column 3 - line 239, column 12): " + [v.constructor.name]);
     };
   };
 };
@@ -45781,7 +45784,7 @@ var applyDefaults = function(v) {
             return v3;
           }
           ;
-          throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 162, column 3 - line 162, column 52): " + [v2.constructor.name, v3.constructor.name]);
+          throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 163, column 3 - line 163, column 52): " + [v2.constructor.name, v3.constructor.name]);
         };
       };
       return {
@@ -45808,7 +45811,7 @@ var applyDefaults = function(v) {
       };
     }
     ;
-    throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 144, column 1 - line 148, column 12): " + [v.constructor.name, v1.constructor.name]);
+    throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 145, column 1 - line 149, column 12): " + [v.constructor.name, v1.constructor.name]);
   };
 };
 var edgeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponent()()()("EdgeWrapper")(function(v) {
@@ -45845,7 +45848,7 @@ var edgeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                   return Nothing.value;
                 }
                 ;
-                throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 359, column 26 - line 361, column 29): " + [edge.markerStart.constructor.name]);
+                throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 360, column 26 - line 362, column 29): " + [edge.markerStart.constructor.name]);
               }();
               var markerEndUrl = function() {
                 if (edge.markerEnd instanceof Just) {
@@ -45856,7 +45859,7 @@ var edgeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                   return Nothing.value;
                 }
                 ;
-                throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 362, column 24 - line 364, column 29): " + [edge.markerEnd.constructor.name]);
+                throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 363, column 24 - line 365, column 29): " + [edge.markerEnd.constructor.name]);
               }();
               var isSelectable = fromMaybe(false)(edge.selectable) || v.elementsSelectable && isNothing(edge.selectable);
               var isReconnectable = function() {
@@ -45872,13 +45875,13 @@ var edgeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                   return Nothing.value;
                 }
                 ;
-                throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 349, column 27 - line 351, column 84): " + [v.onReconnect.constructor.name]);
+                throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 350, column 27 - line 352, column 84): " + [v.onReconnect.constructor.name]);
               }();
               var hide = edge.hidden || (isNothing(positionSlice.sourceX) || (isNothing(positionSlice.sourceY) || (isNothing(positionSlice.targetX) || isNothing(positionSlice.targetY))));
               var blurEdge = bind111(readRef(edgeRef))(function() {
-                var $156 = flip(for_9)(blurElement);
-                return function($157) {
-                  return $156(toMaybe($157));
+                var $157 = flip(for_9)(blurElement);
+                return function($158) {
+                  return $157(toMaybe($158));
                 };
               }());
               var onClickHandler = handler(syntheticEvent)(function(se) {
@@ -46056,7 +46059,14 @@ var edgeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                   "aria-roledescription": "edge",
                   "data-id": v.id,
                   "data-testid": "rf__edge-" + v.id,
-                  "aria-label": opt(edge.ariaLabel)
+                  "aria-label": opt(edge.ariaLabel),
+                  "aria-describedby": opt(function() {
+                    if (v.edgesFocusable) {
+                      return new Just(ariaEdgeDescKey + ("-" + fromMaybe("undefined")(v.rfId)));
+                    }
+                    ;
+                    return Nothing.value;
+                  }())
                 })(function() {
                   if (positionSlice.sourceX instanceof Just && (positionSlice.sourceY instanceof Just && (positionSlice.targetX instanceof Just && (positionSlice.targetY instanceof Just && (positionSlice.sourcePosition instanceof Just && positionSlice.targetPosition instanceof Just))))) {
                     var edgeBody = function() {
@@ -46094,7 +46104,7 @@ var edgeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                         return mempty8;
                       }
                       ;
-                      throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 468, column 35 - line 485, column 44): " + [isReconnectable.constructor.name]);
+                      throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 476, column 35 - line 493, column 44): " + [isReconnectable.constructor.name]);
                     }();
                     return [edgeBody, anchors];
                   }
@@ -53066,7 +53076,7 @@ var selectNodeSlice = function(nodeId) {
           return false;
         }
         ;
-        throw new Error("Failed pattern match at React.Component.NodeWrapper (line 129, column 15 - line 131, column 23): " + [v.constructor.name]);
+        throw new Error("Failed pattern match at React.Component.NodeWrapper (line 130, column 15 - line 132, column 23): " + [v.constructor.name]);
       }()
     };
   };
@@ -53080,7 +53090,7 @@ var nodeTypesAsObject = function(v) {
     return v.value0;
   }
   ;
-  throw new Error("Failed pattern match at React.Component.NodeWrapper (line 176, column 21 - line 178, column 27): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at React.Component.NodeWrapper (line 177, column 21 - line 179, column 27): " + [v.constructor.name]);
 };
 var resolveNodeComponent = function(mTypes) {
   return function(mOnError) {
@@ -53123,14 +53133,14 @@ var resolveNodeComponent = function(mTypes) {
               };
             }
             ;
-            throw new Error("Failed pattern match at React.Component.NodeWrapper (line 193, column 9 - line 197, column 69): " + [v2.constructor.name]);
+            throw new Error("Failed pattern match at React.Component.NodeWrapper (line 194, column 9 - line 198, column 69): " + [v2.constructor.name]);
           };
         }
         ;
-        throw new Error("Failed pattern match at React.Component.NodeWrapper (line 189, column 16 - line 197, column 69): " + [v1.constructor.name]);
+        throw new Error("Failed pattern match at React.Component.NodeWrapper (line 190, column 16 - line 198, column 69): " + [v1.constructor.name]);
       }
       ;
-      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 187, column 3 - line 197, column 69): " + [v.constructor.name]);
+      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 188, column 3 - line 198, column 69): " + [v.constructor.name]);
     };
   };
 };
@@ -53257,7 +53267,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
         return v.elementsSelectable;
       }
       ;
-      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 321, column 24 - line 323, column 46): " + [slice3.node.selectable.constructor.name]);
+      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 322, column 24 - line 324, column 46): " + [slice3.node.selectable.constructor.name]);
     }();
     var isDraggable = function() {
       if (slice3.node.draggable instanceof Just) {
@@ -53268,7 +53278,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
         return v.nodesDraggable;
       }
       ;
-      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 318, column 23 - line 320, column 42): " + [slice3.node.draggable.constructor.name]);
+      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 319, column 23 - line 321, column 42): " + [slice3.node.draggable.constructor.name]);
     }();
     var isConnectable = function() {
       if (slice3.node.connectable instanceof Just) {
@@ -53279,7 +53289,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
         return v.nodesConnectable;
       }
       ;
-      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 324, column 25 - line 326, column 44): " + [slice3.node.connectable.constructor.name]);
+      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 325, column 25 - line 327, column 44): " + [slice3.node.connectable.constructor.name]);
     }();
     var hasDims = nodeHasDimensions(slice3.node);
     return bind117(useStoreApi)(function(store) {
@@ -53361,7 +53371,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                     return pure60(unit);
                   }
                   ;
-                  throw new Error("Failed pattern match at React.Component.NodeWrapper (line 401, column 35 - line 403, column 31): " + [mCb.constructor.name]);
+                  throw new Error("Failed pattern match at React.Component.NodeWrapper (line 402, column 35 - line 404, column 31): " + [mCb.constructor.name]);
                 };
               };
               var onClickHandler = handler(syntheticEvent)(function(se) {
@@ -53498,6 +53508,13 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                     return "";
                   }(),
                   "aria-roledescription": "node",
+                  "aria-describedby": opt(function() {
+                    if (v.disableKeyboardA11y) {
+                      return Nothing.value;
+                    }
+                    ;
+                    return new Just(ariaNodeDescKey + ("-" + v.rfId));
+                  }()),
                   "aria-label": opt(slice3.node.ariaLabel)
                 })([nodeIdProvider(new Just(v.id))([element(resolved.component)(mkNodeProps(slice3.node)(resolved.nodeType)(isSelectable)(isDraggable)(isConnectable)(dragging))])]);
               }());

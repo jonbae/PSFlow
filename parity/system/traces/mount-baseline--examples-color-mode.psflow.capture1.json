@@ -61,7 +61,8 @@
                                   "role": "group",
                                   "aria-roledescription": "edge",
                                   "data-id": "A-B",
-                                  "data-testid": "rf__edge-A-B"
+                                  "data-testid": "rf__edge-A-B",
+                                  "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
                                   {
@@ -102,7 +103,8 @@
                                   "role": "group",
                                   "aria-roledescription": "edge",
                                   "data-id": "A-C",
-                                  "data-testid": "rf__edge-A-C"
+                                  "data-testid": "rf__edge-A-C",
+                                  "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
                                   {
@@ -143,7 +145,8 @@
                                   "role": "group",
                                   "aria-roledescription": "edge",
                                   "data-id": "A-D",
-                                  "data-testid": "rf__edge-A-D"
+                                  "data-testid": "rf__edge-A-D",
+                                  "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
                                   {
@@ -195,6 +198,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(0px, 150px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "A",
@@ -220,6 +224,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(250px, 0px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "B",
@@ -255,6 +260,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(250px, 150px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "C",
@@ -290,6 +296,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(250px, 300px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "D",

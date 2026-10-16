@@ -61,7 +61,8 @@
                                   "role": "group",
                                   "aria-roledescription": "edge",
                                   "data-id": "first-edge",
-                                  "data-testid": "rf__edge-first-edge"
+                                  "data-testid": "rf__edge-first-edge",
+                                  "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
                                   {
@@ -126,7 +127,8 @@
                                   "role": "group",
                                   "aria-roledescription": "edge",
                                   "data-id": "third-edge",
-                                  "data-testid": "rf__edge-third-edge"
+                                  "data-testid": "rf__edge-third-edge",
+                                  "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
                                   {
@@ -202,6 +204,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(0px, 0px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "1",
@@ -227,6 +230,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(-260px, 240px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "2",
@@ -262,6 +266,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(0px, 520px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "4",

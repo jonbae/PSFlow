@@ -61,7 +61,8 @@
                                   "role": "group",
                                   "aria-roledescription": "edge",
                                   "data-id": "1-2",
-                                  "data-testid": "rf__edge-1-2"
+                                  "data-testid": "rf__edge-1-2",
+                                  "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
                                   {
@@ -137,6 +138,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 1000; transform: translate(50px, 30px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "Node-1",
@@ -162,6 +164,7 @@
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
                               "style": "z-index: 0; transform: translate(-100px, 100px); pointer-events: all; visibility: visible; width: 150px; height: 37px;"
                             },
                             "text": "Node-2",
@@ -563,7 +566,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 328.69999998807907,
+            "timeStamp": 278.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -632,7 +635,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 328.69999998807907,
+            "timeStamp": 278.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -761,7 +764,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 328.69999998807907,
+            "timeStamp": 278.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -826,7 +829,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 328.69999998807907,
+            "timeStamp": 278.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1190,7 +1193,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 340.2999999523163,
+            "timeStamp": 292.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1561,7 +1564,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 360.5,
+            "timeStamp": 311,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1932,7 +1935,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 375.5,
+            "timeStamp": 326.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2303,7 +2306,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 391.89999997615814,
+            "timeStamp": 341.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2674,7 +2677,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 408.69999998807907,
+            "timeStamp": 358.5999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
