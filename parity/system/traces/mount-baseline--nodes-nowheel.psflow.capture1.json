@@ -62,6 +62,7 @@
                                   "aria-roledescription": "edge",
                                   "data-id": "nowheel-plain",
                                   "data-testid": "rf__edge-nowheel-plain",
+                                  "aria-label": "Edge from nowheel to plain",
                                   "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [

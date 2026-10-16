@@ -62,6 +62,7 @@
                                   "aria-roledescription": "edge",
                                   "data-id": "first-edge",
                                   "data-testid": "rf__edge-first-edge",
+                                  "aria-label": "Edge from default-node to node-start-top",
                                   "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [

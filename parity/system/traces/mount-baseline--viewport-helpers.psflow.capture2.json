@@ -62,6 +62,7 @@
                                   "aria-roledescription": "edge",
                                   "data-id": "first-edge",
                                   "data-testid": "rf__edge-first-edge",
+                                  "aria-label": "Edge from 1 to 2",
                                   "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
@@ -128,6 +129,7 @@
                                   "aria-roledescription": "edge",
                                   "data-id": "second-edge",
                                   "data-testid": "rf__edge-second-edge",
+                                  "aria-label": "Edge from 1 to 3",
                                   "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
@@ -194,6 +196,7 @@
                                   "aria-roledescription": "edge",
                                   "data-id": "third-edge",
                                   "data-testid": "rf__edge-third-edge",
+                                  "aria-label": "Edge from 2 to 4",
                                   "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [

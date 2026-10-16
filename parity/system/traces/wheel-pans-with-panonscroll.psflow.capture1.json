@@ -62,6 +62,7 @@
                                   "aria-roledescription": "edge",
                                   "data-id": "first-edge",
                                   "data-testid": "rf__edge-first-edge",
+                                  "aria-label": "Edge from 1 to 2",
                                   "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
@@ -128,6 +129,7 @@
                                   "aria-roledescription": "edge",
                                   "data-id": "second-edge",
                                   "data-testid": "rf__edge-second-edge",
+                                  "aria-label": "Edge from 1 to 3",
                                   "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
@@ -490,7 +492,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 332.30000001192093,
+            "timeStamp": 280,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -557,7 +559,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 332.30000001192093,
+            "timeStamp": 280,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

@@ -62,6 +62,7 @@
                                   "aria-roledescription": "edge",
                                   "data-id": "up-1-hub",
                                   "data-testid": "rf__edge-up-1-hub",
+                                  "aria-label": "Edge from up-1 to hub",
                                   "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
@@ -128,6 +129,7 @@
                                   "aria-roledescription": "edge",
                                   "data-id": "up-2-hub",
                                   "data-testid": "rf__edge-up-2-hub",
+                                  "aria-label": "Edge from up-2 to hub",
                                   "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
@@ -194,6 +196,7 @@
                                   "aria-roledescription": "edge",
                                   "data-id": "hub-down-1",
                                   "data-testid": "rf__edge-hub-down-1",
+                                  "aria-label": "Edge from hub to down-1",
                                   "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
@@ -260,6 +263,7 @@
                                   "aria-roledescription": "edge",
                                   "data-id": "hub-down-2",
                                   "data-testid": "rf__edge-hub-down-2",
+                                  "aria-label": "Edge from hub to down-2",
                                   "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
@@ -326,6 +330,7 @@
                                   "aria-roledescription": "edge",
                                   "data-id": "hub-down-3",
                                   "data-testid": "rf__edge-hub-down-3",
+                                  "aria-label": "Edge from hub to down-3",
                                   "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [

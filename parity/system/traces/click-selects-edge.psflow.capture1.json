@@ -132,6 +132,7 @@
                                   "aria-roledescription": "edge",
                                   "data-id": "edge-with-class",
                                   "data-testid": "rf__edge-edge-with-class",
+                                  "aria-label": "Edge from 1 to 2",
                                   "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
@@ -198,6 +199,7 @@
                                   "aria-roledescription": "edge",
                                   "data-id": "edge-with-style",
                                   "data-testid": "rf__edge-edge-with-style",
+                                  "aria-label": "Edge from 1 to 3",
                                   "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
@@ -265,6 +267,7 @@
                                   "aria-roledescription": "edge",
                                   "data-id": "animated-edge",
                                   "data-testid": "rf__edge-animated-edge",
+                                  "aria-label": "Edge from 3 to 5",
                                   "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
@@ -364,6 +367,7 @@
                                   "aria-roledescription": "edge",
                                   "data-id": "not-selectable-edge",
                                   "data-testid": "rf__edge-not-selectable-edge",
+                                  "aria-label": "Edge from 4 to 6",
                                   "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
@@ -463,6 +467,7 @@
                                   "aria-roledescription": "edge",
                                   "data-id": "not-deletable",
                                   "data-testid": "rf__edge-not-deletable",
+                                  "aria-label": "Edge from 5 to 7",
                                   "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
@@ -562,6 +567,7 @@
                                   "aria-roledescription": "edge",
                                   "data-id": "z-index",
                                   "data-testid": "rf__edge-z-index",
+                                  "aria-label": "Edge from 6 to 8",
                                   "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
@@ -761,6 +767,7 @@
                                   "aria-roledescription": "edge",
                                   "data-id": "interaction-width",
                                   "data-testid": "rf__edge-interaction-width",
+                                  "aria-label": "Edge from 8 to 10",
                                   "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
@@ -860,6 +867,7 @@
                                   "aria-roledescription": "edge",
                                   "data-id": "markers",
                                   "data-testid": "rf__edge-markers",
+                                  "aria-label": "Edge from 9 to 11",
                                   "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
@@ -961,6 +969,7 @@
                                   "aria-roledescription": "edge",
                                   "data-id": "subflow-edge",
                                   "data-testid": "rf__edge-subflow-edge",
+                                  "aria-label": "Edge from 11 to 12-a",
                                   "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
@@ -1027,6 +1036,7 @@
                                   "aria-roledescription": "edge",
                                   "data-id": "subflow-edge-2",
                                   "data-testid": "rf__edge-subflow-edge-2",
+                                  "aria-label": "Edge from 12-a to 12-b",
                                   "aria-describedby": "react-flow__edge-desc-1"
                                 },
                                 "children": [
@@ -2136,7 +2146,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 394.19999998807907,
+            "timeStamp": 362.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2205,7 +2215,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 394.19999998807907,
+            "timeStamp": 362.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2310,7 +2320,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 394.19999998807907,
+            "timeStamp": 362.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2375,7 +2385,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 394.19999998807907,
+            "timeStamp": 362.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2496,7 +2506,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 406.0999999642372,
+            "timeStamp": 373.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
