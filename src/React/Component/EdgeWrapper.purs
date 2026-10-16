@@ -61,6 +61,7 @@ import React.Basic.Hooks (UnsafeReference(..), memo, reactComponent, readRef, us
 import React.Basic.Hooks as React
 import React.Component.EdgeWrapper.UpdateAnchors (edgeUpdateAnchors)
 import React.Component.EdgeWrapper.Util (EdgePositionSlice, builtinEdgeTypes, nullPosition)
+import React.Container.A11yDescriptions (ariaEdgeDescKey)
 import React.Edge.Bezier (bezierEdgeInternal)
 import React.FFI.DOM (blurElement, g_, opt)
 import React.Hook.Store (UseStoreApi, useStore, useStoreApi)
@@ -450,6 +451,13 @@ edgeWrapper =
                 , "data-id": props.id
                 , "data-testid": "rf__edge-" <> props.id
                 , "aria-label": opt edge.ariaLabel
+                -- TS builds the id with a template literal, which spells an
+                -- absent `rfId` as "undefined".
+                , "aria-describedby":
+                    opt
+                      ( if isFocusable then Just (ariaEdgeDescKey <> "-" <> fromMaybe "undefined" props.rfId)
+                        else Nothing
+                      )
                 }
                 ( case positionSlice.sourceX,
                     positionSlice.sourceY,
