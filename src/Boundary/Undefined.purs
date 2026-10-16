@@ -30,6 +30,7 @@ module Boundary.Undefined
   , isDefined
   , isNull
   , nullUndefinable
+  , pruneUndefined
   , mapUndefinable
   , orNullable
   , requiredProp
@@ -77,6 +78,18 @@ foreign import isNull :: forall a. Undefinable a -> Boolean
 -- | it: upstream types the field `string`, reads a `null` as "no label", and
 -- | hands a consumer's `null` back as they wrote it.
 foreign import nullUndefinable :: forall a. Undefinable a
+
+-- | The record without its `undefined` fields, for an object a consumer
+-- | reads as their own: a node, an edge, or a change. Upstream hands those
+-- | back with only the keys someone wrote, so a field the port holds as
+-- | `Nothing` is a key upstream doesn't have. A props object is different:
+-- | upstream builds it from JSX attributes, which keeps every key, so its
+-- | converters don't prune.
+-- |
+-- | Only the top level is pruned. A nested record is pruned by its own
+-- | converter or not at all, because upstream keeps some nested `undefined`
+-- | keys, such as an internal node's `measured.width` before measurement.
+foreign import pruneUndefined :: forall r. Record r -> Record r
 
 -- | The one place the two absent values are both in play at once, which is
 -- | `ref`. React 18 strips `ref` out of the props object and hands it to a
