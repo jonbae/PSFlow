@@ -14,13 +14,11 @@ module System.XYDrag.Utils
 
 import Prelude
 
-import Data.Array (foldl, head, snoc) as Array
-import Data.Map (Map)
-import Data.Map (empty, insert, lookup, toUnfoldable) as Map
+import Data.Array (find, foldl, head, nub, snoc) as Array
+import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Set (Set)
 import Data.Set (empty, insert, member) as Set
-import Data.Tuple (Tuple(..))
 import Effect (Effect)
 import Web.DOM.Element (Element)
 import System.Types.Geometry (SnapGrid, XYPosition)
@@ -64,21 +62,28 @@ foreign import hasSelectorImpl :: Element -> String -> Element -> Effect Boolean
 hasSelector :: Element -> String -> Element -> Effect Boolean
 hasSelector = hasSelectorImpl
 
--- | Build the drag-items map. The TS version filters by selection, parent
+-- | Build the drag items. The TS version filters by selection, parent
 -- | selection, and draggable flag. The PS port matches that order — note that
 -- | a `Nothing` `node.draggable` falls back to the `nodesDraggable` flag.
+-- |
+-- | TS returns a `Map` and iterates `nodeLookup` to build it, so the items
+-- | come out in the lookup's insertion order, which is the order of the
+-- | `nodes` array the lookup was adopted from. `Data.Map` iterates by key
+-- | instead, so the caller passes that order as `order`, and the items come
+-- | back as an array in it. Every reader of the items depends on the order:
+-- | `calculateSnapOffset` snaps the first one, `getEventHandlerParams` reports
+-- | the first one when no node was grabbed, and `updateNodePositions` emits
+-- | its changes in it.
 getDragItems
   :: forall n
-   . NodeLookup n
+   . Array NodeId
+  -> NodeLookup n
   -> Boolean
   -> XYPosition
   -> Maybe NodeId
-  -> Map NodeId NodeDragItem
-getDragItems lookup nodesDraggable mousePos mNodeId =
+  -> Array NodeDragItem
+getDragItems order lookup nodesDraggable mousePos mNodeId =
   let
-    entries :: Array (Tuple NodeId (InternalNodeBase n))
-    entries = Map.toUnfoldable lookup
-
     isDraggable node = case node.draggable of
       Just b -> b
       Nothing -> nodesDraggable
@@ -115,11 +120,13 @@ getDragItems lookup nodesDraggable mousePos mNodeId =
       , dragging: false
       }
 
-    step acc (Tuple id node) =
-      if keep node then Map.insert id (toItem node) acc
-      else acc
+    -- A repeated id keeps its first position, as a second `set` on a JS
+    -- `Map` does.
+    step acc id = case Map.lookup id lookup of
+      Just node | keep node -> Array.snoc acc (toItem node)
+      _ -> acc
   in
-    Array.foldl step Map.empty entries
+    Array.foldl step [] (Array.nub order)
 
 -- | Returns the `currentNode` (the node identified by `nodeId`, or the head of
 -- | the drag-item list if `nodeId` is `Nothing`) plus the array of all
@@ -132,15 +139,12 @@ getDragItems lookup nodesDraggable mousePos mNodeId =
 getEventHandlerParams
   :: forall n
    . Maybe NodeId
-  -> Map NodeId NodeDragItem
+  -> Array NodeDragItem
   -> NodeLookup n
   -> Boolean
   -> { currentNode :: Maybe (NodeBase n), allNodes :: Array (NodeBase n) }
 getEventHandlerParams mNodeId dragItems lookup dragging =
   let
-    items :: Array (Tuple NodeId NodeDragItem)
-    items = Map.toUnfoldable dragItems
-
     overlay :: InternalNodeBase n -> NodeDragItem -> NodeBase n
     overlay internal item =
       { id: internal.id
@@ -175,18 +179,18 @@ getEventHandlerParams mNodeId dragItems lookup dragging =
 
     allNodes :: Array (NodeBase n)
     allNodes = Array.foldl
-      ( \acc (Tuple id item) ->
-          case Map.lookup id lookup of
+      ( \acc item ->
+          case Map.lookup item.id lookup of
             Just internal -> Array.snoc acc (overlay internal item)
             Nothing -> acc
       )
       []
-      items
+      dragItems
 
     currentNode :: Maybe (NodeBase n)
     currentNode = case mNodeId of
       Nothing -> Array.head allNodes
-      Just nid -> case Map.lookup nid lookup, Map.lookup nid dragItems of
+      Just nid -> case Map.lookup nid lookup, Array.find (\i -> i.id == nid) dragItems of
         Just internal, Just item -> Just (overlay internal item)
         _, _ -> Array.head allNodes
   in
@@ -194,30 +198,22 @@ getEventHandlerParams mNodeId dragItems lookup dragging =
 
 -- | Snap-offset for a multi-selection drag: snap the *first* item's position
 -- | and return the delta as the offset to apply to the rest. Returns
--- | `Nothing` when the drag-items map is empty.
+-- | `Nothing` when there are no drag items.
 -- |
--- | Divergence note: TS picks the user-clicked item as the reference (via
--- | insertion order in the JS Map). PS picks the lowest-key item, because
--- | `Map.toUnfoldable` orders by key. The visible difference is which item
--- | snaps exactly to the grid in a multi-drag — others move by the delta
--- | regardless. To restore TS parity, thread the click-target id through
--- | the call chain and look it up here instead of taking the head.
+-- | The first item is TS's `dragItems.values().next().value`: the first
+-- | dragged node in the `nodes` array, which `getDragItems` keeps. It is not
+-- | the grabbed node, and it is not the node whose id sorts first.
 calculateSnapOffset
-  :: Map NodeId NodeDragItem
+  :: Array NodeDragItem
   -> SnapGrid
   -> Number
   -> Number
   -> Maybe XYPosition
-calculateSnapOffset dragItems grid x y =
-  let
-    items :: Array (Tuple NodeId NodeDragItem)
-    items = Map.toUnfoldable dragItems
-  in
-    case Array.head items of
-      Nothing -> Nothing
-      Just (Tuple _ refItem) ->
-        let
-          refPos = { x: x - refItem.distance.x, y: y - refItem.distance.y }
-          snapped = snapPosition refPos grid
-        in
-          Just { x: snapped.x - refPos.x, y: snapped.y - refPos.y }
+calculateSnapOffset dragItems grid x y = case Array.head dragItems of
+  Nothing -> Nothing
+  Just refItem ->
+    let
+      refPos = { x: x - refItem.distance.x, y: y - refItem.distance.y }
+      snapped = snapPosition refPos grid
+    in
+      Just { x: snapped.x - refPos.x, y: snapped.y - refPos.y }

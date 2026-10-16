@@ -2,7 +2,7 @@ module Test.Main where
 
 import Prelude
 
-import Data.Array (length) as Array
+import Data.Array (any, length) as Array
 import Data.Array.NonEmpty as NEA
 import Data.Map as Map
 import Data.Maybe (Maybe(..))
@@ -63,6 +63,7 @@ import Test.React.Store.ZoomLimits (runZoomLimitsTests)
 import Test.System.Utils.Store (runStoreProperties)
 import Test.System.Utils.StorePanBy (runStorePanByTests)
 import Test.System.XYDrag (runXYDragTests)
+import Test.System.XYDrag.DragItemOrder (runDragItemOrderTests)
 import Test.System.XYHandle (runXYHandleTests)
 import Test.System.XYPanZoom.EventHandler (runEventHandlerTests)
 import Test.System.XYPanZoom.SourceEvents (runSourceEventTests)
@@ -700,23 +701,25 @@ main = do
         , Tuple (NodeId "n") nonDraggable
         ]
         :: NodeLookup Unit
+    orderDrag = [ NodeId "s", NodeId "d", NodeId "n" ]
     dragItemsAll =
-      XYDrag.getDragItems lookupDrag true { x: 0.0, y: 0.0 } Nothing
+      XYDrag.getDragItems orderDrag lookupDrag true { x: 0.0, y: 0.0 } Nothing
     dragItemsExplicit =
-      XYDrag.getDragItems lookupDrag false { x: 0.0, y: 0.0 } (Just (NodeId "d"))
+      XYDrag.getDragItems orderDrag lookupDrag false { x: 0.0, y: 0.0 } (Just (NodeId "d"))
+    hasItem id items = Array.any (\i -> i.id == id) items
   assert "getDragItems collects selected nodes when nodesDraggable=true"
-    (Map.member (NodeId "s") dragItemsAll)
+    (hasItem (NodeId "s") dragItemsAll)
   assert "getDragItems honours node.draggable=true"
-    (Map.member (NodeId "d") dragItemsAll)
+    (hasItem (NodeId "d") dragItemsAll)
   assert "getDragItems excludes node.draggable=false even if selected"
-    (not (Map.member (NodeId "n") dragItemsAll))
+    (not (hasItem (NodeId "n") dragItemsAll))
   assert "getDragItems collects only the targeted node when nodeId is set"
-    (Map.size dragItemsExplicit == 1 && Map.member (NodeId "d") dragItemsExplicit)
+    (Array.length dragItemsExplicit == 1 && hasItem (NodeId "d") dragItemsExplicit)
 
   -- calculateSnapOffset: empty / non-empty / pure deltas.
   let snap5 = mkSnapGrid 5.0 5.0
   assert "calculateSnapOffset returns Nothing for empty drag items"
-    (XYDrag.calculateSnapOffset Map.empty snap5 0.0 0.0 == Nothing)
+    (XYDrag.calculateSnapOffset [] snap5 0.0 0.0 == Nothing)
   let
     -- A drag item whose distance.x = 0, distance.y = 0 means we snap (x,y).
     flatItem :: NodeDragItem
@@ -732,7 +735,7 @@ main = do
       , measured: { width: 0.0, height: 0.0 }
       , dragging: false
       }
-    flatMap = Map.singleton (NodeId "i") flatItem
+    flatMap = [ flatItem ]
   -- Snapping (7.4, 12.6) to a 5-grid lands at (5, 15); offset is (-2.4, 2.4).
   let snapOffset = XYDrag.calculateSnapOffset flatMap snap5 7.4 12.6
   assert "calculateSnapOffset computes the (snapped - raw) delta"
@@ -745,10 +748,10 @@ main = do
 
   -- getEventHandlerParams: currentNode/allNodes split.
   let
-    items2 :: Map.Map NodeId NodeDragItem
-    items2 = Map.fromFoldable
-      [ Tuple (NodeId "s") (flatItem { id = NodeId "s", position = { x: 1.0, y: 1.0 } })
-      , Tuple (NodeId "d") (flatItem { id = NodeId "d", position = { x: 2.0, y: 2.0 } })
+    items2 :: Array NodeDragItem
+    items2 =
+      [ flatItem { id = NodeId "s", position = { x: 1.0, y: 1.0 } }
+      , flatItem { id = NodeId "d", position = { x: 2.0, y: 2.0 } }
       ]
     lookup2 =
       Map.fromFoldable
@@ -1078,6 +1081,7 @@ main = do
   runZoomLimitsTests
   runVisibleIdsTests
   runXYDragTests
+  runDragItemOrderTests
   runXYHandleTests
   runEventHandlerTests
   runSourceEventTests
