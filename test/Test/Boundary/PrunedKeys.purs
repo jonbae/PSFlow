@@ -9,8 +9,10 @@
 -- | ps-flow's converters wrote every field of the record, as `undefined`
 -- | where the port holds `Nothing`.
 -- |
--- | The internal node is pruned at its top level only: upstream builds its
--- | `measured` and `internals` with every key, set or not.
+-- | A user node has no `measured` until it's measured. An internal node always
+-- | has `measured` with both keys, and `internals.handleBounds` set or not,
+-- | because upstream builds them that way. Its `internals.rootParentIndex`
+-- | and `internals.bounds` are written only when they hold a value.
 module Test.Boundary.PrunedKeys
   ( runPrunedKeysTests
   ) where
@@ -155,6 +157,10 @@ runPrunedKeysTests = do
     (undefinedKeys jsNode == [])
   assert "a node keeps the keys that hold a value"
     (hasOwnKey "width" jsNode && not (hasOwnKey "height" jsNode))
+  assert "a node that hasn't been measured has no measured key"
+    (not (hasOwnKey "measured" jsNode))
+  assert "a measured node has measured with both keys"
+    (sortedKeys (markerOf "measured" (nodeOut node { measured = { width: Just 50.0, height: Just 25.0 } })) == [ "height", "width" ])
 
   let jsEdge = edgeOut edge
   assert "an edge has no key that holds undefined"
@@ -174,5 +180,5 @@ runPrunedKeysTests = do
     (undefinedKeys jsInternal == [])
   assert "an internal node keeps measured's keys before measurement, as upstream does"
     (sortedKeys (markerOf "measured" jsInternal) == [ "height", "width" ])
-  assert "an internal node keeps internals.handleBounds before measurement, as upstream does"
-    (hasOwnKey "handleBounds" (markerOf "internals" jsInternal))
+  assert "an internal node's internals keep handleBounds before measurement, and nothing else unset"
+    (sortedKeys (markerOf "internals" jsInternal) == [ "handleBounds", "positionAbsolute", "z" ])

@@ -121,6 +121,7 @@ import Effect.Uncurried (mkEffectFn1)
 import Foreign (Foreign, unsafeToForeign)
 import Foreign.Object (Object)
 import Foreign.Object (mapWithKey) as Object
+import Record.Unsafe (unsafeSet)
 import React.Basic (ReactComponent, element)
 import React.Types.Edges (Style)
 import React.Types.Nodes (NodeProps, NodeTypesMap)
@@ -528,6 +529,10 @@ nodeIn n =
 
 -- | A consumer's node, as upstream hands it back: only the keys that hold a
 -- | value. See `pruneUndefined`.
+-- |
+-- | `measured` is written only after the node is measured. Upstream's
+-- | `applyNodeChanges` adds it to the consumer's node with a dimension change,
+-- | so a node that hasn't been measured has no `measured` key.
 nodeOut :: NodeBase Foreign -> JsNode
 nodeOut n = pruneUndefined
   { id: unwrap n.id
@@ -555,7 +560,7 @@ nodeOut n = pruneUndefined
   , ariaLabel: toUndefinable n.ariaLabel
   , origin: toUndefinable (map nodeOriginOut n.origin)
   , handles: toUndefinable (map (map nodeHandleOut) n.handles)
-  , measured: toUndefinable (Just (measuredOut n.measured))
+  , measured: if n.measured == emptyMeasured then undefined else defined (measuredOut n.measured)
   , className: toUndefinable n.className
   , style: toUndefinable (map fromCssObject n.style)
   }
@@ -565,9 +570,9 @@ nodeOut n = pruneUndefined
 -- | the fields are written once more rather than being merged — which is what
 -- | keeps `JsNodeRow` the single declaration the drift gate reads.
 -- |
--- | Pruned at the top level only, where upstream spreads the consumer's node.
--- | `measured` and `internals` keep their `undefined` keys, because upstream
--- | builds both with every key whether or not it has a value.
+-- | Pruned at the top level, where upstream spreads the consumer's node.
+-- | `measured` keeps both its keys, because upstream builds it as
+-- | `{ width: userNode.measured?.width, height: userNode.measured?.height }`.
 internalNodeOut :: InternalNodeBase Foreign -> JsInternalNode
 internalNodeOut n = pruneUndefined
   { id: unwrap n.id
@@ -601,14 +606,19 @@ internalNodeOut n = pruneUndefined
   , internals: nodeInternalsOut n.internals
   }
 
+-- | Upstream's `adoptUserNodes` builds `internals` with `positionAbsolute`,
+-- | `z`, and `handleBounds`, which is `undefined` until the node is measured.
+-- | `rootParentIndex` is written only on a parent node, and `bounds` never
+-- | is. So the two optional keys are pruned, and `handleBounds` is set on the
+-- | pruned record whether or not it holds a value.
 nodeInternalsOut :: NodeInternals -> JsNodeInternals
 nodeInternalsOut i =
-  { positionAbsolute: i.positionAbsolute
-  , z: i.z
-  , rootParentIndex: toUndefinable (map Int.toNumber i.rootParentIndex)
-  , handleBounds: toUndefinable (map handleBoundsOut i.handleBounds)
-  , bounds: toUndefinable (map nodeBoundsOut i.bounds)
-  }
+  unsafeSet "handleBounds" (toUndefinable (map handleBoundsOut i.handleBounds)) $ pruneUndefined
+    { positionAbsolute: i.positionAbsolute
+    , z: i.z
+    , rootParentIndex: toUndefinable (map Int.toNumber i.rootParentIndex)
+    , bounds: toUndefinable (map nodeBoundsOut i.bounds)
+    }
 
 handleBoundsOut :: NodeHandleBounds -> JsNodeHandleBounds
 handleBoundsOut b =
