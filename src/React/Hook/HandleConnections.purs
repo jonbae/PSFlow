@@ -27,10 +27,9 @@ module React.Hook.HandleConnections
 import Prelude
 
 import Control.Alt ((<|>))
-import Data.Array (any, filter, fromFoldable, null) as Array
+import Data.Array (any, filter, null) as Array
 import Data.Foldable (for_)
 import Data.Map (lookup) as Map
-import Data.Map.Internal (values) as Map
 import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Newtype (class Newtype)
 import Effect (Effect)
@@ -40,6 +39,7 @@ import React.Context.NodeId (useNodeId)
 import React.Hook.Store (UseStore, useStore)
 import System.Types.Connection (Connection, HandleConnection)
 import System.Types.Handle (HandleType(..))
+import System.Utils.Store (handleConnectionsInOrder)
 
 -- | Inputs to the hook. Matches TS `UseHandleConnectionsParams` field
 -- | for field except that the deprecated `id` (handle id) sits as the
@@ -94,7 +94,7 @@ useHandleConnections params = coerceHook React.do
   connections <- useStore \s ->
     case Map.lookup key s.connectionLookup of
       Nothing -> [] :: Array HandleConnection
-      Just inner -> Array.fromFoldable (Map.values inner)
+      Just inner -> handleConnectionsInOrder inner
 
   -- Track the previous connection set so we can compute diffs for the
   -- onConnect / onDisconnect callbacks.

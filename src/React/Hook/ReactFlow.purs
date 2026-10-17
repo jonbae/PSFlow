@@ -27,11 +27,10 @@ module React.Hook.ReactFlow
 
 import Prelude
 
-import Data.Array (filter, find, fromFoldable, length, mapMaybe) as Array
+import Data.Array (filter, find, length, mapMaybe) as Array
 import Data.Either (Either(..))
 import Data.Foldable (for_)
 import Data.Map (lookup) as Map
-import Data.Map.Internal (values) as Map
 import Data.Maybe (Maybe(..), fromMaybe, isJust)
 import Data.Newtype (class Newtype)
 import Effect (Effect)
@@ -67,6 +66,7 @@ import System.Types.Ids (NodeId(..), parentToNode)
 import System.Types.Node (NodeChange(..), NodeBase, InternalNodeBase, NodeLookup)
 import System.Utils.General (evaluateAbsolutePosition, getOverlappingArea, nodeToRect)
 import System.Utils.Graph (getElementsToRemove, getNodesBounds) as Graph
+import System.Utils.Store (handleConnectionsInOrder)
 import Unsafe.Coerce (unsafeCoerce)
 
 newtype UseReactFlow n e hooks =
@@ -383,11 +383,11 @@ mkGeneralHelpers store batchContext =
   }
 
 -- | Read the current connection-lookup slice for a given key and turn
--- | the inner `Map String HandleConnection` into a flat array.
+-- | it into a flat array, in the order upstream's `Map` holds it.
 connectionsForKey :: forall n e. ReactFlowState n e -> String -> Array HandleConnection
 connectionsForKey s key = case Map.lookup key s.connectionLookup of
   Nothing -> []
-  Just inner -> Array.fromFoldable (Map.values inner)
+  Just inner -> handleConnectionsInOrder inner
 
 -- | `fitView` schedules a viewport-fit cycle: it sets the
 -- | `fitViewQueued` flag (read by the reducer when nodes are next

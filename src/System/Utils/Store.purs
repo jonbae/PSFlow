@@ -21,6 +21,8 @@ module System.Utils.Store
   , handleExpandParent
   , updateNodeInternals
   , updateConnectionLookup
+  , insertHandleConnection
+  , handleConnectionsInOrder
   , panBy
   , selectedNodeZ
   , rootParentZIncrement
@@ -28,12 +30,13 @@ module System.Utils.Store
 
 import Prelude
 
-import Data.Array (any, foldl, fromFoldable, length, mapMaybe, snoc) as Array
+import Data.Array (any, foldl, fromFoldable, length, mapMaybe, reverse, snoc) as Array
+import Data.List (List(..), (:))
 import Data.Either (Either(..))
 import Data.Foldable (foldM, foldl) as Foldable
 import Data.Int (toNumber) as Int
 import Data.Map (Map)
-import Data.Map (empty, insert, lookup, toUnfoldable, values) as Map
+import Data.Map (empty, insert, lookup, member, toUnfoldable, values) as Map
 import Data.Maybe (Maybe(..), fromMaybe, isJust, isNothing)
 import Data.Newtype (unwrap)
 import Data.Number (abs, round) as Number
@@ -46,6 +49,7 @@ import System.FFI.D3Zoom (zoomTransformK, zoomTransformX, zoomTransformY)
 import System.Types.Connection
   ( ConnectionLookup
   , HandleConnection
+  , HandleConnections
   , ZIndexMode(..)
   )
 import System.Types.Edge (EdgeBase, EdgeLookup)
@@ -865,9 +869,9 @@ addConnectionToLookup typeStr connection connectionKey connectionLookup nodeId m
       let
         inner = case Map.lookup key lookup of
           Just m -> m
-          Nothing -> Map.empty
+          Nothing -> { byKey: Map.empty, order: Nil }
       in
-        Map.insert key (Map.insert connectionKey connection inner) lookup
+        Map.insert key (insertHandleConnection connectionKey connection inner) lookup
 
     afterNode = addAt nodeId connectionLookup
     afterType = addAt (nodeId <> "-" <> typeStr) afterNode
@@ -875,6 +879,21 @@ addConnectionToLookup typeStr connection connectionKey connectionLookup nodeId m
     case mHandleId of
       Just hid -> addAt (nodeId <> "-" <> typeStr <> "-" <> hid) afterType
       Nothing -> afterType
+
+-- | Upstream's `nodeMap.set(connectionKey, connection)`. A key the map
+-- | already holds keeps its position and takes the new connection.
+insertHandleConnection :: String -> HandleConnection -> HandleConnections -> HandleConnections
+insertHandleConnection key connection connections =
+  { byKey: Map.insert key connection connections.byKey
+  , order: if Map.member key connections.byKey then connections.order else key : connections.order
+  }
+
+-- | Upstream's `Array.from(connections.values())`: the connections in the
+-- | order they were inserted.
+handleConnectionsInOrder :: HandleConnections -> Array HandleConnection
+handleConnectionsInOrder connections =
+  Array.mapMaybe (\key -> Map.lookup key connections.byKey)
+    (Array.reverse (Array.fromFoldable connections.order))
 
 updateConnectionLookup
   :: forall e

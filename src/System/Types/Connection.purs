@@ -20,6 +20,7 @@ module System.Types.Connection
   , SetCenterOptions
   , FitBoundsOptions
   , ConnectionLookup
+  , HandleConnections
   , ConnectionState(..)
   , ConnectionInProgressData
   , ConnectionInProgress
@@ -33,6 +34,7 @@ import Data.Array.NonEmpty (NonEmptyArray)
 import Data.Enum (class BoundedEnum, class Enum, Cardinality(..))
 import Data.Enum.Generic (genericFromEnum, genericPred, genericSucc, genericToEnum)
 import Data.Generic.Rep (class Generic)
+import Data.List (List)
 import Data.Map (Map)
 import Data.Maybe (Maybe)
 import Data.Show.Generic (genericShow)
@@ -317,7 +319,17 @@ type FitBoundsOptions =
   , padding :: Maybe Number
   }
 
-type ConnectionLookup = Map String (Map String HandleConnection)
+type ConnectionLookup = Map String HandleConnections
+
+-- | One value of `ConnectionLookup`: the JavaScript `Map` upstream keys by
+-- | connection key. A `Data.Map` iterates by key and a JavaScript `Map` in
+-- | insertion order, so the insertion order is carried beside the lookup,
+-- | newest first, as `PORTING.md` says to. `System.Utils.Store` writes and
+-- | reads it.
+type HandleConnections =
+  { byKey :: Map String HandleConnection
+  , order :: List String
+  }
 
 type ConnectionInProgressData node =
   { isValid :: Maybe Boolean
