@@ -778,8 +778,7 @@
               "dimensions": {
                 "width": 49,
                 "height": 18
-              },
-              "resizing": false
+              }
             },
             {
               "type": "dimensions",
@@ -787,8 +786,7 @@
               "dimensions": {
                 "width": 49,
                 "height": 18
-              },
-              "resizing": false
+              }
             },
             {
               "type": "dimensions",
@@ -796,8 +794,7 @@
               "dimensions": {
                 "width": 49,
                 "height": 18
-              },
-              "resizing": false
+              }
             },
             {
               "type": "dimensions",
@@ -805,8 +802,7 @@
               "dimensions": {
                 "width": 24,
                 "height": 18
-              },
-              "resizing": false
+              }
             },
             {
               "type": "dimensions",
@@ -814,8 +810,7 @@
               "dimensions": {
                 "width": 29,
                 "height": 18
-              },
-              "resizing": false
+              }
             },
             {
               "type": "dimensions",
@@ -823,8 +818,7 @@
               "dimensions": {
                 "width": 29,
                 "height": 18
-              },
-              "resizing": false
+              }
             }
           ]
         ]

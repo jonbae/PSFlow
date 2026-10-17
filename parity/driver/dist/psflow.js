@@ -30431,7 +30431,7 @@ var nodeChangeOut = function($121) {
         type: "dimensions",
         id: toUndefinable(new Just(unwrap2(v.value0.id))),
         dimensions: toUndefinable(v.value0.dimensions),
-        resizing: toUndefinable(new Just(v.value0.resizing)),
+        resizing: toUndefinable(v.value0.resizing),
         setAttributes: toUndefinable(map7(setAttributesOut)(v.value0.setAttributes))
       };
     }
@@ -30667,7 +30667,7 @@ var nodeChangeIn = function(c) {
     return new NodeDimensionChange({
       id: wrap2(requiredMember(c.type)("id")(c.id)),
       dimensions: fromUndefinable(c.dimensions),
-      resizing: fromMaybe(false)(fromUndefinable(c.resizing)),
+      resizing: fromUndefinable(c.resizing),
       setAttributes: map7(setAttributesIn)(fromUndefinable(c.setAttributes))
     });
   }
@@ -38895,7 +38895,7 @@ var stepExpansion = function(children3) {
                     return 0;
                   }()
                 }),
-                resizing: false,
+                resizing: Nothing.value,
                 setAttributes: new Just({
                   width: true,
                   height: true
@@ -39425,7 +39425,7 @@ var processUpdate = function(update) {
                     return [new NodeDimensionChange({
                       id: v.value0.id,
                       dimensions: new Just(dims),
-                      resizing: false,
+                      resizing: Nothing.value,
                       setAttributes: Nothing.value
                     })];
                   }
