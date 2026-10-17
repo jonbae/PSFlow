@@ -773,7 +773,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 185,
+            "timeStamp": 181.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -842,7 +842,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 185,
+            "timeStamp": 181.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -917,7 +917,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 185,
+            "timeStamp": 181.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -982,7 +982,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 185,
+            "timeStamp": 181.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1055,7 +1055,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 207.4000000357628,
+            "timeStamp": 191.4000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1120,7 +1120,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 207.4000000357628,
+            "timeStamp": 191.4000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1191,7 +1191,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 198.9000000357628,
+            "timeStamp": 183,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1253,7 +1253,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 227.4000000357628,
+            "timeStamp": 210.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1328,7 +1328,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 227.4000000357628,
+            "timeStamp": 210.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1527,7 +1527,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 240.30000001192093,
+            "timeStamp": 224.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1584,7 +1584,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 248.10000002384186,
+            "timeStamp": 232.4000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1898,7 +1898,6 @@
             "type": "default",
             "source": "Node-1",
             "target": "Node-2",
-            "selected": false,
             "label": "edge"
           },
           {
@@ -1906,7 +1905,6 @@
             "type": "default",
             "source": "Node-1",
             "target": "Node-3",
-            "selected": false,
             "label": "edge"
           }
         ],
@@ -1915,7 +1913,6 @@
           "type": "default",
           "source": "Node-1",
           "target": "Node-2",
-          "selected": false,
           "label": "edge"
         },
         "getIntersectingNodes": [
@@ -2328,7 +2325,6 @@
               "type": "default",
               "source": "Node-1",
               "target": "Node-2",
-              "selected": false,
               "label": "edge"
             },
             {
@@ -2336,7 +2332,6 @@
               "type": "default",
               "source": "Node-1",
               "target": "Node-3",
-              "selected": false,
               "label": "edge"
             }
           ],

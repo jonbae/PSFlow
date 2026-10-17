@@ -562,7 +562,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 186.5,
+            "timeStamp": 168.29999995231628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -629,7 +629,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 186.5,
+            "timeStamp": 168.29999995231628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -878,7 +878,6 @@
             "type": "default",
             "source": "Node-1",
             "target": "Node-2",
-            "selected": false,
             "label": "edge"
           },
           {
@@ -886,7 +885,6 @@
             "type": "default",
             "source": "Node-1",
             "target": "Node-3",
-            "selected": false,
             "label": "edge"
           }
         ],
@@ -895,7 +893,6 @@
           "type": "default",
           "source": "Node-1",
           "target": "Node-2",
-          "selected": false,
           "label": "edge"
         },
         "getIntersectingNodes": [
@@ -1090,7 +1087,6 @@
               "type": "default",
               "source": "Node-1",
               "target": "Node-2",
-              "selected": false,
               "label": "edge"
             },
             {
@@ -1098,7 +1094,6 @@
               "type": "default",
               "source": "Node-1",
               "target": "Node-3",
-              "selected": false,
               "label": "edge"
             }
           ],

@@ -25101,11 +25101,11 @@ var bottomNumber = Number.NEGATIVE_INFINITY;
 
 // output/Data.Ord/foreign.js
 var unsafeCompareImpl = function(lt) {
-  return function(eq30) {
+  return function(eq36) {
     return function(gt) {
       return function(x) {
         return function(y) {
-          return x < y ? lt : x === y ? eq30 : gt;
+          return x < y ? lt : x === y ? eq36 : gt;
         };
       };
     };
@@ -25191,7 +25191,7 @@ var eqRowCons = function(dictEqRecord) {
     return function(dictIsSymbol) {
       var reflectSymbol2 = reflectSymbol(dictIsSymbol);
       return function(dictEq) {
-        var eq35 = eq(dictEq);
+        var eq36 = eq(dictEq);
         return {
           eqRecord: function(v) {
             return function(ra) {
@@ -25199,7 +25199,7 @@ var eqRowCons = function(dictEqRecord) {
                 var tail2 = eqRecord1($$Proxy.value)(ra)(rb);
                 var key2 = reflectSymbol2($$Proxy.value);
                 var get7 = unsafeGet(key2);
-                return eq35(get7(ra))(get7(rb)) && tail2;
+                return eq36(get7(ra))(get7(rb)) && tail2;
               };
             };
           }
@@ -25209,10 +25209,10 @@ var eqRowCons = function(dictEqRecord) {
   };
 };
 var notEq = function(dictEq) {
-  var eq35 = eq(dictEq);
+  var eq36 = eq(dictEq);
   return function(x) {
     return function(y) {
-      return eq2(eq35(x)(y))(false);
+      return eq2(eq36(x)(y))(false);
     };
   };
 };
@@ -25488,7 +25488,7 @@ var fromJust = function() {
   };
 };
 var eqMaybe = function(dictEq) {
-  var eq30 = eq(dictEq);
+  var eq36 = eq(dictEq);
   return {
     eq: function(x) {
       return function(y) {
@@ -25497,7 +25497,7 @@ var eqMaybe = function(dictEq) {
         }
         ;
         if (x instanceof Just && y instanceof Just) {
-          return eq30(x.value0)(y.value0);
+          return eq36(x.value0)(y.value0);
         }
         ;
         return false;
@@ -26006,13 +26006,13 @@ var fst = function(v) {
   return v.value0;
 };
 var eqTuple = function(dictEq) {
-  var eq30 = eq(dictEq);
+  var eq36 = eq(dictEq);
   return function(dictEq1) {
     var eq112 = eq(dictEq1);
     return {
       eq: function(x) {
         return function(y) {
-          return eq30(x.value0)(y.value0) && eq112(x.value1)(y.value1);
+          return eq36(x.value0)(y.value0) && eq112(x.value1)(y.value1);
         };
       }
     };
@@ -26587,10 +26587,10 @@ var find2 = function(f) {
 };
 var filter = /* @__PURE__ */ runFn2(filterImpl);
 var elemIndex = function(dictEq) {
-  var eq210 = eq(dictEq);
+  var eq211 = eq(dictEq);
   return function(x) {
     return findIndex(function(v) {
-      return eq210(v)(x);
+      return eq211(v)(x);
     });
   };
 };
@@ -29756,12 +29756,12 @@ var lookup = /* @__PURE__ */ function() {
   return runFn4(_lookup)(Nothing.value)(Just.create);
 }();
 var isSubmap = function(dictEq) {
-  var eq30 = eq(dictEq);
+  var eq36 = eq(dictEq);
   return function(m1) {
     return function(m2) {
       var f = function(k) {
         return function(v) {
-          return _lookup(false, eq30(v), k, m2);
+          return _lookup(false, eq36(v), k, m2);
         };
       };
       return all3(f)(m1);
@@ -30259,7 +30259,7 @@ var edgeOut = function(e) {
     deletable: toUndefinable(e.deletable),
     selectable: toUndefinable(e.selectable),
     data: toUndefinable(map7(unsafeToForeign)(e.data)),
-    selected: toUndefinable(new Just(e.selected)),
+    selected: toUndefinable(e.selected),
     markerStart: toUndefinable(map7(markerOut)(e.markerStart)),
     markerEnd: toUndefinable(map7(markerOut)(e.markerEnd)),
     zIndex: toUndefinable(map7(toNumber)(e.zIndex)),
@@ -30589,7 +30589,7 @@ var edgeIn = function(e) {
     deletable: fromUndefinable(e.deletable),
     selectable: fromUndefinable(e.selectable),
     data: fromUndefinable(e.data),
-    selected: fromMaybe(false)(fromUndefinable(e.selected)),
+    selected: fromUndefinable(e.selected),
     markerStart: map7(markerIn("edge.markerStart"))(fromUndefinable(e.markerStart)),
     markerEnd: map7(markerIn("edge.markerEnd"))(fromUndefinable(e.markerEnd)),
     zIndex: map7(round2)(fromUndefinable(e.zIndex)),
@@ -32738,9 +32738,9 @@ function toString(num) {
 
 // output/React.Basic.Hooks/foreign.js
 var import_react2 = __toESM(require_react(), 1);
-var useEqCache = (eq30, a) => {
+var useEqCache = (eq36, a) => {
   const memoRef = import_react2.default.useRef(a);
-  if (memoRef.current !== a && !eq30(memoRef.current, a)) {
+  if (memoRef.current !== a && !eq36(memoRef.current, a)) {
     memoRef.current = a;
   }
   return memoRef.current;
@@ -32759,15 +32759,15 @@ function useState_(tuple, initialState2) {
   }
   return tuple(state3, setState.$$reactBasicHooks$$cachedSetState);
 }
-function useEffect_(eq30, deps, effect) {
-  const memoizedKey = useEqCache(eq30, deps);
+function useEffect_(eq36, deps, effect) {
+  const memoizedKey = useEqCache(eq36, deps);
   import_react2.default.useEffect(effect, [memoizedKey]);
 }
 function useEffectAlways_(effect) {
   return import_react2.default.useEffect(effect);
 }
-function useLayoutEffect_(eq30, deps, effect) {
-  const memoizedKey = useEqCache(eq30, deps);
+function useLayoutEffect_(eq36, deps, effect) {
+  const memoizedKey = useEqCache(eq36, deps);
   import_react2.default.useLayoutEffect(effect, [memoizedKey]);
 }
 var useRef_ = import_react2.default.useRef;
@@ -32778,8 +32778,8 @@ function writeRef_(ref, a) {
   ref.current = a;
 }
 var useContext_ = import_react2.default.useContext;
-function useMemo_(eq30, deps, computeA) {
-  const memoizedKey = useEqCache(eq30, deps);
+function useMemo_(eq36, deps, computeA) {
+  const memoizedKey = useEqCache(eq36, deps);
   return import_react2.default.useMemo(computeA, [memoizedKey]);
 }
 var useDebugValue_ = import_react2.default.useDebugValue;
@@ -32907,21 +32907,21 @@ var useRef = function(initialValue) {
   });
 };
 var useMemo = function(dictEq) {
-  var eq30 = eq(dictEq);
+  var eq36 = eq(dictEq);
   return function(deps) {
     return function(computeA) {
       return unsafeHook(function() {
-        return useMemo_(mkFn2(eq30), deps, computeA);
+        return useMemo_(mkFn2(eq36), deps, computeA);
       });
     };
   };
 };
 var useLayoutEffect = function(dictEq) {
-  var eq30 = eq(dictEq);
+  var eq36 = eq(dictEq);
   return function(deps) {
     return function(effect) {
       return unsafeHook(function() {
-        return useLayoutEffect_(mkFn2(eq30), deps, effect);
+        return useLayoutEffect_(mkFn2(eq36), deps, effect);
       });
     };
   };
@@ -32939,11 +32939,11 @@ var useEffectAlways = function(effect) {
   });
 };
 var useEffect = function(dictEq) {
-  var eq30 = eq(dictEq);
+  var eq36 = eq(dictEq);
   return function(deps) {
     return function(effect) {
       return unsafeHook(function() {
-        return useEffect_(mkFn2(eq30), deps, effect);
+        return useEffect_(mkFn2(eq36), deps, effect);
       });
     };
   };
@@ -33415,7 +33415,7 @@ var useStoreApi = /* @__PURE__ */ coerceHook2(/* @__PURE__ */ bind6(/* @__PURE__
   throw new Error("Failed pattern match at React.Hook.Store (line 83, column 3 - line 85, column 47): " + [mStore.constructor.name]);
 }));
 var useStore = function(dictEq) {
-  var eq30 = eq(dictEq);
+  var eq36 = eq(dictEq);
   return function(selector4) {
     return coerceHook2(bind6(useContext(storeContext))(function(mStore) {
       var store = function() {
@@ -33430,7 +33430,7 @@ var useStore = function(dictEq) {
         throw new Error("Failed pattern match at React.Hook.Store (line 106, column 13 - line 108, column 42): " + [mStore.constructor.name]);
       }();
       return unsafeHook(function() {
-        return useStoreImpl(store, selector4, eq30);
+        return useStoreImpl(store, selector4, eq36);
       });
     }));
   };
@@ -34132,7 +34132,7 @@ var stepAsc = /* @__PURE__ */ function() {
 var eqMapIter = function(dictEq) {
   var eq112 = eq(dictEq);
   return function(dictEq1) {
-    var eq210 = eq(dictEq1);
+    var eq211 = eq(dictEq1);
     return {
       eq: /* @__PURE__ */ function() {
         var go2 = function($copy_a) {
@@ -34144,7 +34144,7 @@ var eqMapIter = function(dictEq) {
               var v = stepAsc(a);
               if (v instanceof IterNext) {
                 var v2 = stepAsc(b);
-                if (v2 instanceof IterNext && (eq112(v.value0)(v2.value0) && eq210(v.value1)(v2.value1))) {
+                if (v2 instanceof IterNext && (eq112(v.value0)(v2.value0) && eq211(v.value1)(v2.value1))) {
                   $tco_var_a = v.value2;
                   $copy_b = v2.value2;
                   return;
@@ -34903,11 +34903,11 @@ var insert5 = function(dictOrd) {
   };
 };
 var eqSet = function(dictEq) {
-  var eq30 = eq(eqMap(dictEq)(eqUnit));
+  var eq36 = eq(eqMap(dictEq)(eqUnit));
   return {
     eq: function(v) {
       return function(v1) {
-        return eq30(v)(v1);
+        return eq36(v)(v1);
       };
     }
   };
@@ -43219,7 +43219,7 @@ var edgePropsOut = function(p) {
     animated: toUndefinable(p.animated),
     data: toUndefinable(p.data),
     style: toUndefinable(map31(fromCssStyle)(p.style)),
-    selected: p.selected,
+    selected: toUndefinable(p.selected),
     source: p.source,
     target: p.target,
     selectable: toUndefinable(p.selectable),
@@ -45608,6 +45608,7 @@ var fromEvent = /* @__PURE__ */ unsafeReadProtoTagged("KeyboardEvent");
 // output/React.Component.EdgeWrapper/index.js
 var lookup11 = /* @__PURE__ */ lookup2(ordString);
 var lookup13 = /* @__PURE__ */ lookup2(ordNodeId);
+var eq17 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var unwrap12 = /* @__PURE__ */ unwrap();
 var pure39 = /* @__PURE__ */ pure(applicativeEffect);
 var for_9 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
@@ -45654,7 +45655,6 @@ var useStore12 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec5(/* @__PURE__ */
     return "sourcePosition";
   }
 })(eqMaybe1)));
-var eq17 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var bind111 = /* @__PURE__ */ bind(bindEffect);
 var when7 = /* @__PURE__ */ when(applicativeEffect);
 var elem4 = /* @__PURE__ */ elem2(eqString);
@@ -45672,7 +45672,7 @@ var selectEdgePosition = function(edgeId) {
       var v2 = lookup13(v.value0.source)(state3.nodeLookup);
       if (v2 instanceof Just && v1 instanceof Just) {
         var z = getElevatedEdgeZIndex({
-          selected: v.value0.selected,
+          selected: eq17(v.value0.selected)(new Just(true)),
           zIndex: fromMaybe(0)(v.value0.zIndex),
           sourceNode: v2.value0,
           targetNode: v1.value0,
@@ -45741,7 +45741,7 @@ var placeholderEdge = function(edgeId) {
     deletable: Nothing.value,
     selectable: Nothing.value,
     data: Nothing.value,
-    selected: false,
+    selected: Nothing.value,
     markerStart: Nothing.value,
     markerEnd: Nothing.value,
     zIndex: Nothing.value,
@@ -46125,7 +46125,7 @@ var edgeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                         nodesSelectionActive: false
                       };
                     }))();
-                    var $134 = edge.selected && state3.multiSelectionActive;
+                    var $134 = eq17(edge.selected)(new Just(true)) && state3.multiSelectionActive;
                     if ($134) {
                       store.dispatch(new UnselectNodesAndEdges({
                         nodes: Nothing.value,
@@ -46169,7 +46169,7 @@ var edgeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                   className: buildEdgeClassName({
                     edgeType: resolved.edgeType,
                     noPanClassName: v.noPanClassName,
-                    selected: edge.selected,
+                    selected: fromMaybe(false)(edge.selected),
                     animated: fromMaybe(false)(edge.animated),
                     selectable: isSelectable,
                     inactive: !isSelectable && isNothing(v.onClick),
@@ -46968,7 +46968,7 @@ var connectionToEdge = function(mDefaults) {
       data: bindFlipped4(function(v) {
         return v.data;
       })(mDefaults),
-      selected: false,
+      selected: Nothing.value,
       markerStart: Nothing.value,
       markerEnd: Nothing.value,
       zIndex: bindFlipped4(function(v) {
@@ -49308,10 +49308,12 @@ var insert12 = /* @__PURE__ */ insert4(ordString);
 var max10 = /* @__PURE__ */ max(ordInt);
 var min7 = /* @__PURE__ */ min(ordInt);
 var toUnfoldable8 = /* @__PURE__ */ toUnfoldable5(unfoldableArray);
+var identity10 = /* @__PURE__ */ identity(categoryFn);
 var map46 = /* @__PURE__ */ map(functorArray);
 var fromFoldable9 = /* @__PURE__ */ fromFoldable4(ordNodeId)(foldableArray);
 var member8 = /* @__PURE__ */ member2(ordNodeId);
 var append10 = /* @__PURE__ */ append(semigroupArray);
+var eq21 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var fromFoldable12 = /* @__PURE__ */ fromFoldable4(ordString)(foldableArray);
 var member12 = /* @__PURE__ */ member2(ordString);
 var partitionNodeChanges = /* @__PURE__ */ function() {
@@ -49448,8 +49450,8 @@ var insertItemAt = function(mIndex) {
       if (mIndex instanceof Just) {
         var len = length(arr);
         var at = function() {
-          var $80 = mIndex.value0 < 0;
-          if ($80) {
+          var $84 = mIndex.value0 < 0;
+          if ($84) {
             return max10(0)(len + mIndex.value0 | 0);
           }
           ;
@@ -49465,50 +49467,54 @@ var insertItemAt = function(mIndex) {
 var getSelectionChangesGeneric = function(dictOrd) {
   var member22 = member3(dictOrd);
   var insert23 = insert4(dictOrd);
-  return function(items) {
-    return function(selectedIds) {
-      return function(mutate2) {
-        var step2 = function(acc) {
-          return function(v) {
-            var willBeSelected = member22(v.value0)(selectedIds);
-            var $84 = v.value1.selected !== willBeSelected;
-            if ($84) {
-              var newItems = function() {
-                if (mutate2) {
-                  return insert23(v.value0)(function() {
-                    var $86 = {};
-                    for (var $87 in v.value1) {
-                      if ({}.hasOwnProperty.call(v.value1, $87)) {
-                        $86[$87] = v["value1"][$87];
-                      }
-                      ;
+  return function(isSelected) {
+    return function(toSelected) {
+      return function(items) {
+        return function(selectedIds) {
+          return function(mutate2) {
+            var step2 = function(acc) {
+              return function(v) {
+                var willBeSelected = member22(v.value0)(selectedIds);
+                var $88 = isSelected(v.value1.selected) !== willBeSelected;
+                if ($88) {
+                  var newItems = function() {
+                    if (mutate2) {
+                      return insert23(v.value0)(function() {
+                        var $90 = {};
+                        for (var $91 in v.value1) {
+                          if ({}.hasOwnProperty.call(v.value1, $91)) {
+                            $90[$91] = v["value1"][$91];
+                          }
+                          ;
+                        }
+                        ;
+                        $90.selected = toSelected(willBeSelected);
+                        return $90;
+                      }())(acc.items);
                     }
                     ;
-                    $86.selected = willBeSelected;
-                    return $86;
-                  }())(acc.items);
+                    return acc.items;
+                  }();
+                  var change = {
+                    id: v.value1.id,
+                    selected: willBeSelected
+                  };
+                  return {
+                    changes: snoc(acc.changes)(change),
+                    items: newItems
+                  };
                 }
                 ;
-                return acc.items;
-              }();
-              var change = {
-                id: v.value1.id,
-                selected: willBeSelected
+                return acc;
               };
-              return {
-                changes: snoc(acc.changes)(change),
-                items: newItems
-              };
-            }
-            ;
-            return acc;
+            };
+            var pairs = toUnfoldable8(items);
+            return foldl6(step2)({
+              changes: [],
+              items
+            })(pairs);
           };
         };
-        var pairs = toUnfoldable8(items);
-        return foldl6(step2)({
-          changes: [],
-          items
-        })(pairs);
       };
     };
   };
@@ -49518,7 +49524,7 @@ var getSelectionChangesGeneric2 = /* @__PURE__ */ getSelectionChangesGeneric(ord
 var getNodeSelectionChanges = function(lookup29) {
   return function(selectedIds) {
     return function(mutate2) {
-      var r = getSelectionChangesGeneric1(lookup29)(selectedIds)(mutate2);
+      var r = getSelectionChangesGeneric1(identity10)(identity10)(lookup29)(selectedIds)(mutate2);
       var changes = map46(function(p) {
         return new NodeSelectionChange({
           id: p.id,
@@ -49543,15 +49549,15 @@ var getNodeElementsDiffChanges = function(mItems) {
         return [];
       }
       ;
-      throw new Error("Failed pattern match at React.Store.Changes (line 290, column 13 - line 292, column 20): " + [mItems.constructor.name]);
+      throw new Error("Failed pattern match at React.Store.Changes (line 295, column 13 - line 297, column 20): " + [mItems.constructor.name]);
     }();
     var itemsLookup = fromFoldable9(map46(function(n) {
       return new Tuple(n.id, n);
     })(items));
     var removes = foldl6(function(acc) {
       return function(v) {
-        var $94 = member8(v.value0)(itemsLookup);
-        if ($94) {
+        var $98 = member8(v.value0)(itemsLookup);
+        if ($98) {
           return acc;
         }
         ;
@@ -49578,7 +49584,7 @@ var getNodeElementsDiffChanges = function(mItems) {
             });
           }
           ;
-          throw new Error("Failed pattern match at React.Store.Changes (line 300, column 18 - line 302, column 67): " + [storeItem.constructor.name]);
+          throw new Error("Failed pattern match at React.Store.Changes (line 305, column 18 - line 307, column 67): " + [storeItem.constructor.name]);
         }();
         return {
           changes: snoc(acc.changes)(change),
@@ -49595,7 +49601,9 @@ var getNodeElementsDiffChanges = function(mItems) {
 };
 var getEdgeSelectionChanges = function(lookup29) {
   return function(selectedIds) {
-    var r = getSelectionChangesGeneric2(lookup29)(selectedIds)(false);
+    var r = getSelectionChangesGeneric2(function(v) {
+      return eq21(v)(new Just(true));
+    })(Just.create)(lookup29)(selectedIds)(false);
     var changes = map46(function(p) {
       return new EdgeSelectionChange({
         id: p.id,
@@ -49618,15 +49626,15 @@ var getEdgeElementsDiffChanges = function(mItems) {
         return [];
       }
       ;
-      throw new Error("Failed pattern match at React.Store.Changes (line 323, column 13 - line 325, column 20): " + [mItems.constructor.name]);
+      throw new Error("Failed pattern match at React.Store.Changes (line 328, column 13 - line 330, column 20): " + [mItems.constructor.name]);
     }();
     var itemsLookup = fromFoldable12(map46(function(e) {
       return new Tuple(e.id, e);
     })(items));
     var removes = foldl6(function(acc) {
       return function(v) {
-        var $102 = member12(v.value0)(itemsLookup);
-        if ($102) {
+        var $106 = member12(v.value0)(itemsLookup);
+        if ($106) {
           return acc;
         }
         ;
@@ -49653,7 +49661,7 @@ var getEdgeElementsDiffChanges = function(mItems) {
             });
           }
           ;
-          throw new Error("Failed pattern match at React.Store.Changes (line 331, column 18 - line 333, column 67): " + [v.constructor.name]);
+          throw new Error("Failed pattern match at React.Store.Changes (line 336, column 18 - line 338, column 67): " + [v.constructor.name]);
         }();
         return {
           changes: snoc(acc.changes)(change),
@@ -49939,7 +49947,7 @@ var applySingleEdgeChange = function(c) {
         interactionWidth: edge.interactionWidth,
         className: edge.className,
         style: edge.style,
-        selected: c.value0.selected
+        selected: new Just(c.value0.selected)
       };
     }
     ;
@@ -52792,7 +52800,9 @@ var useEffect9 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqRec()(/* @__PURE__ 
     return "delete";
   }
 })(eqBoolean)));
-var notEq8 = /* @__PURE__ */ notEq(/* @__PURE__ */ eqMaybe(eqBoolean));
+var eqMaybe6 = /* @__PURE__ */ eqMaybe(eqBoolean);
+var notEq8 = /* @__PURE__ */ notEq(eqMaybe6);
+var eq28 = /* @__PURE__ */ eq(eqMaybe6);
 var when16 = /* @__PURE__ */ when(applicativeEffect);
 var notEq16 = /* @__PURE__ */ notEq(/* @__PURE__ */ eqArray(eqNodeId));
 var map50 = /* @__PURE__ */ map(functorArray);
@@ -52899,16 +52909,16 @@ var useGlobalKeyHandler = function(opts) {
             if (deletePressed) {
               var st = store.getState();
               var selectedNodeIds = mapMaybe(function(n) {
-                var $30 = n.selected && notEq8(n.deletable)(new Just(false));
-                if ($30) {
+                var $31 = n.selected && notEq8(n.deletable)(new Just(false));
+                if ($31) {
                   return new Just(n.id);
                 }
                 ;
                 return Nothing.value;
               })(st.nodes);
               var selectedEdgeIds = mapMaybe(function(e) {
-                var $31 = e.selected && notEq8(e.deletable)(new Just(false));
-                if ($31) {
+                var $32 = eq28(e.selected)(new Just(true)) && notEq8(e.deletable)(new Just(false));
+                if ($32) {
                   return new Just(e.id);
                 }
                 ;
@@ -54646,6 +54656,7 @@ var fromFoldable11 = /* @__PURE__ */ fromFoldable5(foldableArray);
 var fromFoldable13 = /* @__PURE__ */ fromFoldable11(ordString);
 var fromFoldable23 = /* @__PURE__ */ fromFoldable11(ordNodeId);
 var toUnfoldable10 = /* @__PURE__ */ toUnfoldable5(unfoldableArray);
+var eq29 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var insert13 = /* @__PURE__ */ insert4(ordMiddlewareKey);
 var $$delete4 = /* @__PURE__ */ $$delete3(ordMiddlewareKey);
 var reduceTriggerEdgeChanges = function(state3) {
@@ -55056,8 +55067,8 @@ var reduceInstallViewportListeners = function(state3) {
 var clearIf = function(installed) {
   return function(current) {
     if (installed instanceof Just && current instanceof Just) {
-      var $48 = unsafeRefEq(installed.value0)(current.value0);
-      if ($48) {
+      var $49 = unsafeRefEq(installed.value0)(current.value0);
+      if ($49) {
         return Nothing.value;
       }
       ;
@@ -55621,8 +55632,8 @@ var reduceAddSelectedEdges = function(state3) {
     if (otherwise) {
       var selectedSet = fromFoldable13(ids);
       var nodeRes = function() {
-        var $62 = $$null(ids);
-        if ($62) {
+        var $63 = $$null(ids);
+        if ($63) {
           return {
             changes: [],
             items: state3.nodeLookup
@@ -55833,8 +55844,8 @@ var reduceAddSelectedNodes = function(state3) {
         nodeLookup: nodeRes.items
       };
       var edgeRes = function() {
-        var $65 = $$null(ids);
-        if ($65) {
+        var $66 = $$null(ids);
+        if ($66) {
           return {
             changes: []
           };
@@ -56050,8 +56061,8 @@ var reduceMergeNodeInternals = function(state3) {
       return [];
     }();
     var afterChanges = function() {
-      var $69 = $$null(r.changes);
-      if ($69) {
+      var $70 = $$null(r.changes);
+      if ($70) {
         return {
           state: s2,
           effects: []
@@ -56088,7 +56099,8 @@ var reduceResetSelectedElements = function(state3) {
     })(nodePairs);
     var edgePairs = toUnfoldable10(state3.edgeLookup);
     var edgeChanges = mapMaybe(function(v) {
-      if (v.value1.selected) {
+      var $77 = eq29(v.value1.selected)(new Just(true));
+      if ($77) {
         return new Just(new EdgeSelectionChange({
           id: v.value1.id,
           selected: false
@@ -56144,8 +56156,8 @@ var reduceUnselectNodesAndEdges = function(state3) {
         id: e.id,
         selected: false
       });
-    })(filter(function(v) {
-      return v.selected;
+    })(filter(function(e) {
+      return eq29(e.selected)(new Just(true));
     })(targetEdges));
     var afterNodes = reduceTriggerNodeChanges(state3)(nodeChanges);
     var afterEdges = reduceTriggerEdgeChanges(afterNodes.state)(edgeChanges);
@@ -57500,7 +57512,7 @@ var createStore = function(opts) {
       };
     };
     var subscribe = function(dictEq) {
-      var eq30 = eq(dictEq);
+      var eq36 = eq(dictEq);
       return function(selector4) {
         return function(cb) {
           return function __do4() {
@@ -57511,7 +57523,7 @@ var createStore = function(opts) {
               return function(next) {
                 var prevV = selector4(prev);
                 var nextV = selector4(next);
-                var $54 = eq30(prevV)(nextV);
+                var $54 = eq36(prevV)(nextV);
                 if ($54) {
                   return pure70(unit);
                 }
@@ -57698,6 +57710,7 @@ var useColorModeClass = function(mode) {
 // output/React.Provider.SelectionListener/index.js
 var unwrap19 = /* @__PURE__ */ unwrap();
 var fromFoldable14 = /* @__PURE__ */ fromFoldable(foldableList);
+var eq30 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var reactComponent10 = /* @__PURE__ */ reactComponent()()();
 var bind50 = /* @__PURE__ */ bind4(ixBindRender);
 var eqArray2 = /* @__PURE__ */ eqArray(eqString);
@@ -57727,7 +57740,8 @@ var selectIds = function(s) {
       return Nothing.value;
     })(fromFoldable14(values(s.nodeLookup))),
     edges: mapMaybe(function(e) {
-      if (e.selected) {
+      var $41 = eq30(e.selected)(new Just(true));
+      if ($41) {
         return new Just(e.id);
       }
       ;
@@ -57744,7 +57758,7 @@ var selectionListenerInner = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */
           return n.selected;
         })(s.nodes);
         var selectedEdges = filter(function(e) {
-          return e.selected;
+          return eq30(e.selected)(new Just(true));
         })(s.edges);
         var params = {
           nodes: selectedNodes,
@@ -57772,14 +57786,14 @@ var selectionListenerInner = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */
   });
 }));
 var selectionListener = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponent10("SelectionListener")(function(v) {
-  return bind50(useStore110(function($45) {
+  return bind50(useStore110(function($47) {
     return !$$null(function(v1) {
       return v1.onSelectionChangeHandlers;
-    }($45));
+    }($47));
   }))(function(hasHandlers) {
     return pure129(function() {
-      var $44 = isJust(v.onSelectionChange) || hasHandlers;
-      if ($44) {
+      var $46 = isJust(v.onSelectionChange) || hasHandlers;
+      if ($46) {
         return element(selectionListenerInner)(v);
       }
       ;
@@ -63159,12 +63173,12 @@ var reactFlow2 = /* @__PURE__ */ forwardNullableRef("ReactFlow")(function(v) {
 var mkTriple = (first, second, third) => [first, second, third];
 
 // output/React.Hook.HandleConnections/index.js
-var eqMaybe6 = /* @__PURE__ */ eqMaybe(eqString);
+var eqMaybe7 = /* @__PURE__ */ eqMaybe(eqString);
 var eqRec9 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
     return "targetHandle";
   }
-})(eqMaybe6))()({
+})(eqMaybe7))()({
   reflectSymbol: function() {
     return "target";
   }
@@ -63172,7 +63186,7 @@ var eqRec9 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ e
   reflectSymbol: function() {
     return "sourceHandle";
   }
-})(eqMaybe6))()({
+})(eqMaybe7))()({
   reflectSymbol: function() {
     return "source";
   }
@@ -63181,7 +63195,7 @@ var eqRec9 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ e
     return "edgeId";
   }
 })(eqString));
-var eq21 = /* @__PURE__ */ eq(eqRec9);
+var eq31 = /* @__PURE__ */ eq(eqRec9);
 var coerceHook13 = /* @__PURE__ */ coerceHook();
 var bind54 = /* @__PURE__ */ bind4(ixBindRender);
 var alt8 = /* @__PURE__ */ alt(altMaybe);
@@ -63204,7 +63218,7 @@ var toConnection = function(c) {
 };
 var notIn = function(xs) {
   return function(x) {
-    return !any2(eq21(x))(xs);
+    return !any2(eq31(x))(xs);
   };
 };
 var handleTypeName2 = function(v) {
@@ -63330,12 +63344,12 @@ var useOnNodesChangeMiddleware = function(fn) {
 };
 
 // output/React.Hook.NodeConnections/index.js
-var eqMaybe7 = /* @__PURE__ */ eqMaybe(eqString);
+var eqMaybe8 = /* @__PURE__ */ eqMaybe(eqString);
 var eqRec10 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
     return "targetHandle";
   }
-})(eqMaybe7))()({
+})(eqMaybe8))()({
   reflectSymbol: function() {
     return "target";
   }
@@ -63343,7 +63357,7 @@ var eqRec10 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ 
   reflectSymbol: function() {
     return "sourceHandle";
   }
-})(eqMaybe7))()({
+})(eqMaybe8))()({
   reflectSymbol: function() {
     return "source";
   }
@@ -63352,7 +63366,7 @@ var eqRec10 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ 
     return "edgeId";
   }
 })(eqString));
-var eq28 = /* @__PURE__ */ eq(eqRec10);
+var eq35 = /* @__PURE__ */ eq(eqRec10);
 var coerceHook15 = /* @__PURE__ */ coerceHook();
 var bind56 = /* @__PURE__ */ bind4(ixBindRender);
 var alt9 = /* @__PURE__ */ alt(altMaybe);
@@ -63366,7 +63380,7 @@ var pure78 = /* @__PURE__ */ pure(applicativeEffect);
 var pure133 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var notIn2 = function(xs) {
   return function(x) {
-    return !any2(eq28(x))(xs);
+    return !any2(eq35(x))(xs);
   };
 };
 var handleTypeName3 = function(v) {
@@ -63503,12 +63517,12 @@ var useStore29 = /* @__PURE__ */ useStore(eqBoolean);
 var nub5 = /* @__PURE__ */ nub(ordNodeId);
 var lookup27 = /* @__PURE__ */ lookup2(ordNodeId);
 var append22 = /* @__PURE__ */ append(semigroupArray);
-var eqMaybe8 = /* @__PURE__ */ eqMaybe(eqInt);
+var eqMaybe9 = /* @__PURE__ */ eqMaybe(eqInt);
 var eqRowCons1 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons8({
   reflectSymbol: function() {
     return "zIndex";
   }
-})(eqMaybe8))();
+})(eqMaybe9))();
 var widthIsSymbol2 = {
   reflectSymbol: function() {
     return "width";
@@ -63660,7 +63674,7 @@ var eqRowCons52 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE
   reflectSymbol: function() {
     return "rootParentIndex";
   }
-})(eqMaybe8))()({
+})(eqMaybe9))()({
   reflectSymbol: function() {
     return "positionAbsolute";
   }
@@ -63698,7 +63712,7 @@ var eqRowCons72 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE
   reflectSymbol: function() {
     return "sourceHandle";
   }
-})(eqMaybe52))()(sourceIsSymbol)(eqNodeId))()(selectedIsSymbol)(eqBoolean))()(selectableIsSymbol)(eqMaybe42))()({
+})(eqMaybe52))()(sourceIsSymbol)(eqNodeId))()(selectedIsSymbol)(eqMaybe42))()(selectableIsSymbol)(eqMaybe42))()({
   reflectSymbol: function() {
     return "markerStart";
   }
@@ -63719,7 +63733,7 @@ var eqRowCons72 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE
     return "edgeType";
   }
 })(eqMaybe52))()(deletableIsSymbol)(eqMaybe42))()(dataIsSymbol);
-var eqMaybe9 = /* @__PURE__ */ eqMaybe(eqEdgeAriaLabel);
+var eqMaybe92 = /* @__PURE__ */ eqMaybe(eqEdgeAriaLabel);
 var animatedIsSymbol = {
   reflectSymbol: function() {
     return "animated";
@@ -63821,7 +63835,7 @@ var useEdges = function(dictEq) {
   var selectEdges = function(s) {
     return s.edges;
   };
-  return useStore(eqArray(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons72(eqMaybe(dictEq)))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe9))()(animatedIsSymbol)(eqMaybe42))))(selectEdges);
+  return useStore(eqArray(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons72(eqMaybe(dictEq)))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe92))()(animatedIsSymbol)(eqMaybe42))))(selectEdges);
 };
 var useConnectionWith = function(dictEq) {
   var useStore111 = useStore(dictEq);
@@ -64210,7 +64224,7 @@ var max14 = /* @__PURE__ */ max(ordNumber);
 var lookup28 = /* @__PURE__ */ lookup2(ordNodeId);
 var insert15 = /* @__PURE__ */ insert4(ordNodeId);
 var map65 = /* @__PURE__ */ map(functorArray);
-var eq29 = /* @__PURE__ */ eq(eqUnsafeReference);
+var eq210 = /* @__PURE__ */ eq(eqUnsafeReference);
 var bind59 = /* @__PURE__ */ bind4(ixBindRender);
 var fromFoldable15 = /* @__PURE__ */ fromFoldable(foldableList);
 var pure81 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
@@ -64290,7 +64304,7 @@ var idsFromProp = function(mProp) {
 var eqTbSlice = {
   eq: function(v) {
     return function(v1) {
-      return v.x === v1.x && (v.y === v1.y && (v.zoom === v1.zoom && (v.selectedNodesCount === v1.selectedNodesCount && eq29(v.nodes)(v1.nodes))));
+      return v.x === v1.x && (v.y === v1.y && (v.zoom === v1.zoom && (v.selectedNodesCount === v1.selectedNodesCount && eq210(v.nodes)(v1.nodes))));
     };
   }
 };
@@ -64472,7 +64486,7 @@ var edgeFromConnection = function(generate) {
       deletable: Nothing.value,
       selectable: Nothing.value,
       data: Nothing.value,
-      selected: false,
+      selected: Nothing.value,
       markerStart: Nothing.value,
       markerEnd: Nothing.value,
       zIndex: Nothing.value,
@@ -65037,7 +65051,7 @@ var selectProbeHooks = (names, probeCallback) => names.filter((name15) => !CALLB
 
 // parity/driver/src/Probes.tsx
 var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
-var identity10 = (value12) => value12;
+var identity11 = (value12) => value12;
 var storeSlice = (state3) => ({
   nodes: state3.nodes,
   edges: state3.edges,
@@ -65046,8 +65060,8 @@ var storeSlice = (state3) => ({
 });
 var callback = (name15) => publishCallLog().wrapProbe(name15);
 var hooks = {
-  experimental_useOnEdgesChangeMiddleware: () => experimental_useOnEdgesChangeMiddleware(identity10),
-  experimental_useOnNodesChangeMiddleware: () => experimental_useOnNodesChangeMiddleware(identity10),
+  experimental_useOnEdgesChangeMiddleware: () => experimental_useOnEdgesChangeMiddleware(identity11),
+  experimental_useOnNodesChangeMiddleware: () => experimental_useOnNodesChangeMiddleware(identity11),
   useConnection: () => useConnection(),
   useEdges: () => useEdges2(),
   useEdgesState: () => useEdgesState2([]),

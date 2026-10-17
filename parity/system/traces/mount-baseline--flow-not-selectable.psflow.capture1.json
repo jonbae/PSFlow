@@ -714,7 +714,6 @@
             "type": "default",
             "source": "Node-1",
             "target": "Node-3",
-            "selected": false,
             "label": "edge"
           }
         ],
@@ -926,7 +925,6 @@
               "type": "default",
               "source": "Node-1",
               "target": "Node-3",
-              "selected": false,
               "label": "edge"
             }
           ],

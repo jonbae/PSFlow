@@ -773,7 +773,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 170,
+            "timeStamp": 183,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -840,7 +840,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 190.79999995231628,
+            "timeStamp": 207.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -907,7 +907,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 226.79999995231628,
+            "timeStamp": 247,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1058,7 +1058,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 260.2999999523163,
+            "timeStamp": 277.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1123,7 +1123,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 260.2999999523163,
+            "timeStamp": 277.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1427,7 +1427,6 @@
             "type": "default",
             "source": "Node-1",
             "target": "Node-2",
-            "selected": false,
             "label": "edge"
           },
           {
@@ -1435,7 +1434,6 @@
             "type": "default",
             "source": "Node-1",
             "target": "Node-3",
-            "selected": false,
             "label": "edge"
           }
         ],
@@ -1444,7 +1442,6 @@
           "type": "default",
           "source": "Node-1",
           "target": "Node-2",
-          "selected": false,
           "label": "edge"
         },
         "getIntersectingNodes": [
@@ -1857,7 +1854,6 @@
               "type": "default",
               "source": "Node-1",
               "target": "Node-2",
-              "selected": false,
               "label": "edge"
             },
             {
@@ -1865,7 +1861,6 @@
               "type": "default",
               "source": "Node-1",
               "target": "Node-3",
-              "selected": false,
               "label": "edge"
             }
           ],

@@ -406,7 +406,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 327.80000001192093,
+            "timeStamp": 296.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -475,7 +475,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 327.80000001192093,
+            "timeStamp": 296.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -512,8 +512,7 @@
           {
             "id": "first-edge",
             "source": "1",
-            "target": "2",
-            "selected": false
+            "target": "2"
           }
         ]
       },
@@ -538,7 +537,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 327.80000001192093,
+            "timeStamp": 296.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -603,7 +602,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 327.80000001192093,
+            "timeStamp": 296.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -638,8 +637,7 @@
           {
             "id": "first-edge",
             "source": "1",
-            "target": "2",
-            "selected": false
+            "target": "2"
           }
         ]
       },
@@ -741,14 +739,12 @@
           {
             "id": "first-edge",
             "source": "1",
-            "target": "2",
-            "selected": false
+            "target": "2"
           },
           {
             "id": "second-edge",
             "source": "1",
-            "target": "3",
-            "selected": false
+            "target": "3"
           }
         ],
         "useEdgesState": [
@@ -1103,21 +1099,18 @@
           {
             "id": "first-edge",
             "source": "1",
-            "target": "2",
-            "selected": false
+            "target": "2"
           },
           {
             "id": "second-edge",
             "source": "1",
-            "target": "3",
-            "selected": false
+            "target": "3"
           }
         ],
         "getEdge": {
           "id": "first-edge",
           "source": "1",
-          "target": "2",
-          "selected": false
+          "target": "2"
         },
         "getIntersectingNodes": [
           {
@@ -1265,14 +1258,12 @@
             {
               "id": "first-edge",
               "source": "1",
-              "target": "2",
-              "selected": false
+              "target": "2"
             },
             {
               "id": "second-edge",
               "source": "1",
-              "target": "3",
-              "selected": false
+              "target": "3"
             }
           ],
           "viewport": {
@@ -1358,11 +1349,11 @@
       },
       {
         "level": "error",
-        "text": "The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:59602/parity/driver/dist/psflow.js:65094:20)\n    at HookBoundary (http://127.0.0.1:59602/parity/driver/dist/psflow.js:65082:20)\n    at HookLevel (http://127.0.0.1:59602/parity/driver/dist/psflow.js:65101:20)\n    at NetObserver (http://127.0.0.1:59602/parity/driver/dist/psflow.js:65102:22)\n    at http://127.0.0.1:59602/parity/driver/dist/psflow.js:32963:61\n    at http://127.0.0.1:59602/parity/driver/dist/psflow.js:32963:61\n    at http://127.0.0.1:59602/parity/driver/dist/psflow.js:32963:61\n    at div\n    at http://127.0.0.1:59602/parity/driver/dist/psflow.js:32963:45\n    at http://127.0.0.1:59602/parity/driver/dist/psflow.js:41499:64\n    at div\n    at Flow_default (http://127.0.0.1:59602/parity/driver/dist/psflow.js:65131:23)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, HookBoundary."
+        "text": "The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:62603/parity/driver/dist/psflow.js:65108:20)\n    at HookBoundary (http://127.0.0.1:62603/parity/driver/dist/psflow.js:65096:20)\n    at HookLevel (http://127.0.0.1:62603/parity/driver/dist/psflow.js:65115:20)\n    at NetObserver (http://127.0.0.1:62603/parity/driver/dist/psflow.js:65116:22)\n    at http://127.0.0.1:62603/parity/driver/dist/psflow.js:32963:61\n    at http://127.0.0.1:62603/parity/driver/dist/psflow.js:32963:61\n    at http://127.0.0.1:62603/parity/driver/dist/psflow.js:32963:61\n    at div\n    at http://127.0.0.1:62603/parity/driver/dist/psflow.js:32963:45\n    at http://127.0.0.1:62603/parity/driver/dist/psflow.js:41499:64\n    at div\n    at Flow_default (http://127.0.0.1:62603/parity/driver/dist/psflow.js:65145:23)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, HookBoundary."
       },
       {
         "level": "error",
-        "text": "The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:59602/parity/driver/dist/psflow.js:65094:20)\n    at HookBoundary (http://127.0.0.1:59602/parity/driver/dist/psflow.js:65082:20)\n    at HookLevel (http://127.0.0.1:59602/parity/driver/dist/psflow.js:65101:20)\n    at NetObserver (http://127.0.0.1:59602/parity/driver/dist/psflow.js:65102:22)\n    at http://127.0.0.1:59602/parity/driver/dist/psflow.js:32963:61\n    at http://127.0.0.1:59602/parity/driver/dist/psflow.js:32963:61\n    at http://127.0.0.1:59602/parity/driver/dist/psflow.js:32963:61\n    at div\n    at http://127.0.0.1:59602/parity/driver/dist/psflow.js:32963:45\n    at http://127.0.0.1:59602/parity/driver/dist/psflow.js:41499:64\n    at div\n    at Flow_default (http://127.0.0.1:59602/parity/driver/dist/psflow.js:65131:23)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, HookBoundary."
+        "text": "The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:62603/parity/driver/dist/psflow.js:65108:20)\n    at HookBoundary (http://127.0.0.1:62603/parity/driver/dist/psflow.js:65096:20)\n    at HookLevel (http://127.0.0.1:62603/parity/driver/dist/psflow.js:65115:20)\n    at NetObserver (http://127.0.0.1:62603/parity/driver/dist/psflow.js:65116:22)\n    at http://127.0.0.1:62603/parity/driver/dist/psflow.js:32963:61\n    at http://127.0.0.1:62603/parity/driver/dist/psflow.js:32963:61\n    at http://127.0.0.1:62603/parity/driver/dist/psflow.js:32963:61\n    at div\n    at http://127.0.0.1:62603/parity/driver/dist/psflow.js:32963:45\n    at http://127.0.0.1:62603/parity/driver/dist/psflow.js:41499:64\n    at div\n    at Flow_default (http://127.0.0.1:62603/parity/driver/dist/psflow.js:65145:23)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, HookBoundary."
       }
     ],
     "driving": [

@@ -538,7 +538,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 165.30000001192093,
+            "timeStamp": 163.4000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -605,7 +605,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 165.30000001192093,
+            "timeStamp": 163.4000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -684,7 +684,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 187.19999998807907,
+            "timeStamp": 171.70000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -773,7 +773,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 203.19999998807907,
+            "timeStamp": 188.4000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -862,7 +862,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 219.39999997615814,
+            "timeStamp": 204.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -951,7 +951,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 235.89999997615814,
+            "timeStamp": 219.70000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1040,7 +1040,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 252.30000001192093,
+            "timeStamp": 237.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1129,7 +1129,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 268.5999999642372,
+            "timeStamp": 253.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1218,7 +1218,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 285.5999999642372,
+            "timeStamp": 270.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1307,7 +1307,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 302.5999999642372,
+            "timeStamp": 286.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1396,7 +1396,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 318.5999999642372,
+            "timeStamp": 303.7000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1485,7 +1485,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 335.80000001192093,
+            "timeStamp": 320.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1698,15 +1698,13 @@
           {
             "id": "e1-2",
             "source": "n1",
-            "target": "n2",
-            "selected": false
+            "target": "n2"
           }
         ],
         "getEdge": {
           "id": "e1-2",
           "source": "n1",
-          "target": "n2",
-          "selected": false
+          "target": "n2"
         },
         "getIntersectingNodes": [
           {
@@ -1826,8 +1824,7 @@
             {
               "id": "e1-2",
               "source": "n1",
-              "target": "n2",
-              "selected": false
+              "target": "n2"
             }
           ],
           "viewport": {

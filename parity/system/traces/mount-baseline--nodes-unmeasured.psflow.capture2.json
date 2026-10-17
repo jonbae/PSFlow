@@ -482,15 +482,13 @@
           {
             "id": "1-2",
             "source": "Node-1",
-            "target": "Node-2",
-            "selected": false
+            "target": "Node-2"
           }
         ],
         "getEdge": {
           "id": "1-2",
           "source": "Node-1",
-          "target": "Node-2",
-          "selected": false
+          "target": "Node-2"
         },
         "getIntersectingNodes": [
           {
@@ -622,8 +620,7 @@
             {
               "id": "1-2",
               "source": "Node-1",
-              "target": "Node-2",
-              "selected": false
+              "target": "Node-2"
             }
           ],
           "viewport": {

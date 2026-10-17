@@ -818,7 +818,6 @@
             "type": "default",
             "source": "Node-1",
             "target": "Node-2",
-            "selected": false,
             "label": "updated edge"
           },
           {
@@ -826,14 +825,12 @@
             "type": "default",
             "source": "Node-1",
             "target": "Node-3",
-            "selected": false,
             "label": "edge"
           },
           {
             "id": "added-edge",
             "source": "Node-1",
-            "target": "added",
-            "selected": false
+            "target": "added"
           }
         ],
         "getEdge": {
@@ -841,7 +838,6 @@
           "type": "default",
           "source": "Node-1",
           "target": "Node-2",
-          "selected": false,
           "label": "updated edge"
         },
         "getIntersectingNodes": [
@@ -1084,7 +1080,6 @@
               "type": "default",
               "source": "Node-1",
               "target": "Node-2",
-              "selected": false,
               "label": "updated edge"
             },
             {
@@ -1092,14 +1087,12 @@
               "type": "default",
               "source": "Node-1",
               "target": "Node-3",
-              "selected": false,
               "label": "edge"
             },
             {
               "id": "added-edge",
               "source": "Node-1",
-              "target": "added",
-              "selected": false
+              "target": "added"
             }
           ],
           "viewport": {

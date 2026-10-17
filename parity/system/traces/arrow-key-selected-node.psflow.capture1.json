@@ -530,7 +530,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 285.39999997615814,
+            "timeStamp": 280.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -599,7 +599,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 285.39999997615814,
+            "timeStamp": 280.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -674,7 +674,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 285.39999997615814,
+            "timeStamp": 280.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -739,7 +739,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 285.39999997615814,
+            "timeStamp": 280.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -946,7 +946,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 318.60000002384186,
+            "timeStamp": 303.2000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1258,27 +1258,23 @@
           {
             "id": "1-2",
             "source": "Node-1",
-            "target": "Node-2",
-            "selected": false
+            "target": "Node-2"
           },
           {
             "id": "2-3",
             "source": "Node-2",
-            "target": "Node-3",
-            "selected": false
+            "target": "Node-3"
           },
           {
             "id": "3-4",
             "source": "Node-3",
-            "target": "Node-4",
-            "selected": false
+            "target": "Node-4"
           }
         ],
         "getEdge": {
           "id": "1-2",
           "source": "Node-1",
-          "target": "Node-2",
-          "selected": false
+          "target": "Node-2"
         },
         "getIntersectingNodes": [
           {
@@ -1454,20 +1450,17 @@
             {
               "id": "1-2",
               "source": "Node-1",
-              "target": "Node-2",
-              "selected": false
+              "target": "Node-2"
             },
             {
               "id": "2-3",
               "source": "Node-2",
-              "target": "Node-3",
-              "selected": false
+              "target": "Node-3"
             },
             {
               "id": "3-4",
               "source": "Node-3",
-              "target": "Node-4",
-              "selected": false
+              "target": "Node-4"
             }
           ],
           "viewport": {

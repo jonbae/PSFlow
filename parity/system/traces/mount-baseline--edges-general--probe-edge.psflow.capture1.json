@@ -2149,14 +2149,12 @@
             "type": "__psflow_edge_probe",
             "source": "1",
             "target": "2",
-            "selected": false,
             "className": "edge-class-test"
           },
           {
             "id": "edge-with-style",
             "source": "1",
             "target": "3",
-            "selected": false,
             "style": {
               "stroke": "red"
             }
@@ -2166,7 +2164,6 @@
             "source": "2",
             "target": "4",
             "hidden": true,
-            "selected": false,
             "label": "hidden"
           },
           {
@@ -2174,7 +2171,6 @@
             "source": "3",
             "target": "5",
             "animated": true,
-            "selected": false,
             "label": "animated"
           },
           {
@@ -2182,7 +2178,6 @@
             "source": "4",
             "target": "6",
             "selectable": false,
-            "selected": false,
             "label": "not-selectable"
           },
           {
@@ -2190,14 +2185,12 @@
             "source": "5",
             "target": "7",
             "deletable": false,
-            "selected": false,
             "label": "not-deletable"
           },
           {
             "id": "z-index",
             "source": "6",
             "target": "8",
-            "selected": false,
             "zIndex": 3141592,
             "label": "z-index"
           },
@@ -2205,7 +2198,6 @@
             "id": "aria-label",
             "source": "7",
             "target": "9",
-            "selected": false,
             "label": "aria-label",
             "ariaLabel": "aria-label-test"
           },
@@ -2213,7 +2205,6 @@
             "id": "interaction-width",
             "source": "8",
             "target": "10",
-            "selected": false,
             "label": "interaction-width",
             "interactionWidth": 42
           },
@@ -2221,7 +2212,6 @@
             "id": "markers",
             "source": "9",
             "target": "11",
-            "selected": false,
             "markerStart": {
               "type": "arrowclosed"
             },
@@ -2233,14 +2223,12 @@
           {
             "id": "subflow-edge",
             "source": "11",
-            "target": "12-a",
-            "selected": false
+            "target": "12-a"
           },
           {
             "id": "subflow-edge-2",
             "source": "12-a",
-            "target": "12-b",
-            "selected": false
+            "target": "12-b"
           }
         ],
         "getEdge": {
@@ -2248,7 +2236,6 @@
           "type": "__psflow_edge_probe",
           "source": "1",
           "target": "2",
-          "selected": false,
           "className": "edge-class-test"
         },
         "getIntersectingNodes": [
@@ -2795,14 +2782,12 @@
               "type": "__psflow_edge_probe",
               "source": "1",
               "target": "2",
-              "selected": false,
               "className": "edge-class-test"
             },
             {
               "id": "edge-with-style",
               "source": "1",
               "target": "3",
-              "selected": false,
               "style": {
                 "stroke": "red"
               }
@@ -2812,7 +2797,6 @@
               "source": "2",
               "target": "4",
               "hidden": true,
-              "selected": false,
               "label": "hidden"
             },
             {
@@ -2820,7 +2804,6 @@
               "source": "3",
               "target": "5",
               "animated": true,
-              "selected": false,
               "label": "animated"
             },
             {
@@ -2828,7 +2811,6 @@
               "source": "4",
               "target": "6",
               "selectable": false,
-              "selected": false,
               "label": "not-selectable"
             },
             {
@@ -2836,14 +2818,12 @@
               "source": "5",
               "target": "7",
               "deletable": false,
-              "selected": false,
               "label": "not-deletable"
             },
             {
               "id": "z-index",
               "source": "6",
               "target": "8",
-              "selected": false,
               "zIndex": 3141592,
               "label": "z-index"
             },
@@ -2851,7 +2831,6 @@
               "id": "aria-label",
               "source": "7",
               "target": "9",
-              "selected": false,
               "label": "aria-label",
               "ariaLabel": "aria-label-test"
             },
@@ -2859,7 +2838,6 @@
               "id": "interaction-width",
               "source": "8",
               "target": "10",
-              "selected": false,
               "label": "interaction-width",
               "interactionWidth": 42
             },
@@ -2867,7 +2845,6 @@
               "id": "markers",
               "source": "9",
               "target": "11",
-              "selected": false,
               "markerStart": {
                 "type": "arrowclosed"
               },
@@ -2879,14 +2856,12 @@
             {
               "id": "subflow-edge",
               "source": "11",
-              "target": "12-a",
-              "selected": false
+              "target": "12-a"
             },
             {
               "id": "subflow-edge-2",
               "source": "12-a",
-              "target": "12-b",
-              "selected": false
+              "target": "12-b"
             }
           ],
           "viewport": {
@@ -2926,7 +2901,9 @@
         "style": {
           "@undefined": true
         },
-        "selected": false,
+        "selected": {
+          "@undefined": true
+        },
         "source": "1",
         "target": "2",
         "selectable": {
@@ -2990,7 +2967,9 @@
         "style": {
           "@undefined": true
         },
-        "selected": false,
+        "selected": {
+          "@undefined": true
+        },
         "source": "1",
         "target": "2",
         "selectable": {
