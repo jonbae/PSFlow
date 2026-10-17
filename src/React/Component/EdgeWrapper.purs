@@ -126,7 +126,7 @@ placeholderEdge edgeId =
   , sourceHandle: Nothing
   , targetHandle: Nothing
   , animated: Nothing
-  , hidden: true
+  , hidden: Just true
   , deletable: Nothing
   , selectable: Nothing
   , data: Nothing
@@ -152,7 +152,7 @@ applyDefaults Nothing edge = edge
 applyDefaults (Just defaults) edge =
   edge
     { animated = orElse edge.animated defaults.animated
-    , hidden = edge.hidden || fromMaybe false defaults.hidden
+    , hidden = orElse edge.hidden defaults.hidden
     , deletable = orElse edge.deletable defaults.deletable
     , selectable = orElse edge.selectable defaults.selectable
     , data = orElse edge.data defaults.data
@@ -365,7 +365,7 @@ edgeWrapper =
           Just m -> Just (markerUrl m props.rfId)
           Nothing -> Nothing
 
-        hide = edge.hidden
+        hide = edge.hidden == Just true
           || isNothing positionSlice.sourceX
           || isNothing positionSlice.sourceY
           || isNothing positionSlice.targetX

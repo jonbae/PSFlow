@@ -33,8 +33,8 @@ import System.Types.Ids (NodeId)
 -- | `edgeTypes` lookup map it indexes into — *not* because `type` is unusable
 -- | as a label: PureScript accepts it (`React.Types.Edges.EdgeProps` declares
 -- | `type :: String`). Realigning this field with upstream behind a marshalling
--- | layer is ticket 072. `hidden` and `selected` have a clear `false` default
--- | and are plain `Boolean`. `animated`, `deletable`, and `selectable` are
+-- | layer is ticket 072. `selected` has a clear `false` default and is a plain
+-- | `Boolean`. `animated`, `hidden`, `deletable`, and `selectable` are
 -- | `Maybe Boolean`, because absence means something an explicit `false`
 -- | doesn't: it inherits from `defaultEdgeOptions`, which upstream spreads
 -- | under the edge, and it's a key a consumer reads back as absent.
@@ -54,7 +54,7 @@ type EdgeBase edgeData =
   , sourceHandle :: Maybe String
   , targetHandle :: Maybe String
   , animated :: Maybe Boolean
-  , hidden :: Boolean
+  , hidden :: Maybe Boolean
   , deletable :: Maybe Boolean
   , selectable :: Maybe Boolean
   , data :: Maybe edgeData

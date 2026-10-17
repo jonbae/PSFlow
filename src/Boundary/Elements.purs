@@ -27,15 +27,15 @@
 -- |
 -- | ## Fields PureScript makes required and upstream leaves optional
 -- |
--- | Five Booleans — a node's `hidden`, `selected` and `dragging`, an edge's
--- | `hidden` and `selected` — plus a node's `measured` record. An edge's
--- | `animated` and a node's `expandParent` were the other two, and are
+-- | Four Booleans — a node's `hidden`, `selected` and `dragging`, and an
+-- | edge's `selected` — plus a node's `measured` record. An edge's `animated`
+-- | and `hidden` and a node's `expandParent` were the other three, and are
 -- | `Maybe Boolean`s that cross only when they're set. Inbound they default (`false`, and an empty
 -- | measurement); outbound they are **emitted always**, so a JavaScript
 -- | consumer reading a node back sees `hidden: false` where upstream would
 -- | have no such key. That is a real divergence, it is recorded as a region in
 -- | `parity/boundary/regions.json`, and it is deliberately not fixed here:
--- | `Maybe`-ifying six fields of the internals is churn ahead of the first
+-- | `Maybe`-ifying five fields of the internals is churn ahead of the first
 -- | green signal on the JS surface. The stale-region rule is what forces the
 -- | cleanup once the net's `props` and `dom` sections are green.
 -- |
@@ -744,7 +744,7 @@ edgeIn e =
   , sourceHandle: fromUndefinable e.sourceHandle
   , targetHandle: fromUndefinable e.targetHandle
   , animated: fromUndefinable e.animated
-  , hidden: fromMaybe false (fromUndefinable e.hidden)
+  , hidden: fromUndefinable e.hidden
   , deletable: fromUndefinable e.deletable
   , selectable: fromUndefinable e.selectable
   , data: fromUndefinable e.data
@@ -773,7 +773,7 @@ edgeOut e = pruneUndefined
   , sourceHandle: toUndefinable e.sourceHandle
   , targetHandle: toUndefinable e.targetHandle
   , animated: toUndefinable e.animated
-  , hidden: toUndefinable (Just e.hidden)
+  , hidden: toUndefinable e.hidden
   , deletable: toUndefinable e.deletable
   , selectable: toUndefinable e.selectable
   , data: toUndefinable (map unsafeToForeign e.data)
