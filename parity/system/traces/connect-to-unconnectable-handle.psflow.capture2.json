@@ -773,7 +773,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 168.4000000357628,
+            "timeStamp": 165.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -842,7 +842,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 168.4000000357628,
+            "timeStamp": 165.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -922,7 +922,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 168.4000000357628,
+            "timeStamp": 165.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -987,7 +987,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 168.4000000357628,
+            "timeStamp": 165.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1067,7 +1067,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 191.5,
+            "timeStamp": 175.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1149,7 +1149,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 191.5,
+            "timeStamp": 175.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1216,7 +1216,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 191.5,
+            "timeStamp": 175.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1281,7 +1281,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 191.5,
+            "timeStamp": 175.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1344,7 +1344,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 182.9000000357628,
+            "timeStamp": 167.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1406,7 +1406,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 210.80000001192093,
+            "timeStamp": 193.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1473,7 +1473,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 210.80000001192093,
+            "timeStamp": 193.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1679,7 +1679,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 224.9000000357628,
+            "timeStamp": 208,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

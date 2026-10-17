@@ -663,7 +663,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 280.39999997615814,
+            "timeStamp": 282.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -732,7 +732,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 280.39999997615814,
+            "timeStamp": 282.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -808,7 +808,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 280.39999997615814,
+            "timeStamp": 282.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -873,7 +873,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 280.39999997615814,
+            "timeStamp": 282.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -959,7 +959,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 305.5,
+            "timeStamp": 306.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1064,7 +1064,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 324.19999998807907,
+            "timeStamp": 325.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1133,7 +1133,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 324.19999998807907,
+            "timeStamp": 325.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

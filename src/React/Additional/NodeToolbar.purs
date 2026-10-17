@@ -2,6 +2,8 @@
 -- | chosen `Position`. Mirrors `xyflow/.../NodeToolbar/NodeToolbar.tsx`.
 module React.Additional.NodeToolbar
   ( nodeToolbar
+  , toolbarWrapperStyle
+  , toolbarZIndex
   , module React.Types.Component
   ) where
 
@@ -13,6 +15,8 @@ import Data.Map (Map)
 import Data.Map (empty, insert, isEmpty, lookup, values) as Map
 import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Newtype (class Newtype, unwrap)
+import Data.Number (infinity)
+import Data.Number.Format (toString) as Number
 import Data.String (trim) as String
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign)
@@ -37,6 +41,27 @@ import Unsafe.Coerce (unsafeCoerce)
 
 toForeignStyle :: Object String -> Foreign
 toForeignStyle = unsafeCoerce
+
+-- | Upstream's `Math.max(...nodesArray.map((node) => node.internals.z + 1))`,
+-- | over the toolbar's nodes' `internals.z`.
+toolbarZIndex :: Array Number -> Number
+toolbarZIndex = Array.foldl (\m z -> max m (z + 1.0)) (-infinity)
+
+-- | Upstream's `{ position: 'absolute', transform, zIndex, ...style }`: the
+-- | consumer's style goes last, so its keys win. `Object.union` prefers its
+-- | first argument and keeps the second's keys first, which is the spread's
+-- | order too.
+-- |
+-- | `zIndex` is written as JavaScript writes the number, `1` and not
+-- | `show`'s `1.0`, which isn't a CSS integer, so a browser drops it.
+toolbarWrapperStyle :: Maybe (Object String) -> String -> Number -> Object String
+toolbarWrapperStyle style transform zIndex =
+  Object.union (fromMaybe Object.empty style)
+    ( Object.empty
+        # Object.insert "position" "absolute"
+        # Object.insert "transform" transform
+        # Object.insert "zIndex" (Number.toString zIndex)
+    )
 
 -- | Slice the store for the transform + selectedCount used to decide
 -- | visibility. `UnsafeReference` covers the bundled node-lookup that
@@ -129,12 +154,8 @@ nodeToolbar =
           align = fromMaybe AlignCenter props.align
           transformStr = getNodeToolbarTransform nodeRect viewport position
             offset align
-          maxZ = Array.foldl (\m n -> max m (n.internals.z + 1.0)) 0.0 nodesArr
-          baseStyle = fromMaybe Object.empty props.style
-          wrapperStyle = baseStyle
-            # Object.insert "position" "absolute"
-            # Object.insert "transform" transformStr
-            # Object.insert "zIndex" (show maxZ)
+          wrapperStyle = toolbarWrapperStyle props.style transformStr
+            (toolbarZIndex (map _.internals.z nodesArr))
           userClass = fromMaybe "" props.className
           className = "react-flow__node-toolbar"
             <> (if userClass == "" then "" else " " <> userClass)
