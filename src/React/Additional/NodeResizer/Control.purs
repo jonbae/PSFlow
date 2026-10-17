@@ -3,6 +3,7 @@
 -- | React lifecycle. Mirrors `xyflow/.../NodeResizer/NodeResizeControl.tsx`.
 module React.Additional.NodeResizer.Control
   ( nodeResizeControl
+  , selectScale
   ) where
 
 import Prelude
@@ -13,6 +14,7 @@ import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Newtype (class Newtype)
 import Data.Number (infinity) as Number
+import Data.Number.Format (toString) as NumberFormat
 import Data.Nullable (Nullable, toMaybe, toNullable)
 import Data.Tuple (Tuple(..))
 import Effect (Effect)
@@ -80,7 +82,7 @@ selectScale :: Boolean -> forall n e. ReactFlowState n e -> Maybe String
 selectScale enabled s =
   if enabled then
     let Transform t = s.transform
-    in Just (show (max (1.0 / t.scale) 1.0))
+    in Just (NumberFormat.toString (max (1.0 / t.scale) 1.0))
   else Nothing
 
 -- | Keys driving `XYResizer.update` re-runs. Callbacks are wrapped in
@@ -126,7 +128,7 @@ buildChanges store nid change childChanges resizeDirection = do
     Tuple parentChanges nextPosition = case mNode of
       Nothing -> Tuple [] initialPosition
       Just node ->
-        if not node.expandParent then Tuple [] initialPosition
+        if node.expandParent /= Just true then Tuple [] initialPosition
         else case node.parentId of
           Nothing -> Tuple [] initialPosition
           Just parentId ->
@@ -171,7 +173,7 @@ buildChanges store nid change childChanges resizeDirection = do
             { id: nid
             , position: Just nextPosition
             , positionAbsolute: Nothing
-            , dragging: false
+            , dragging: Nothing
             }
         ]
       _, _ -> []
@@ -187,7 +189,7 @@ buildChanges store nid change childChanges resizeDirection = do
           [ NodeDimensionChange
               { id: nid
               , dimensions: Just { width: w, height: h }
-              , resizing: true
+              , resizing: Just true
               , setAttributes: setAttrs
               }
           ]
@@ -198,7 +200,7 @@ buildChanges store nid change childChanges resizeDirection = do
           { id: cc.id
           , position: Just cc.position
           , positionAbsolute: Nothing
-          , dragging: false
+          , dragging: Nothing
           }
       )
       childChanges
@@ -272,7 +274,7 @@ nodeResizeControl =
                                 { id: NodeId nid
                                 , dimensions: Just
                                     { width: final.width, height: final.height }
-                                , resizing: false
+                                , resizing: Just false
                                 , setAttributes: Nothing
                                 }
                           store.dispatch (TriggerNodeChanges [ dimChange ])

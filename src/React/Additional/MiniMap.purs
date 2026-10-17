@@ -6,6 +6,7 @@ module React.Additional.MiniMap
   -- Public for testing.
   , MMSlice(..)
   , selector
+  , buildPanelStyle
   ) where
 
 import Prelude
@@ -91,7 +92,7 @@ selector s =
     boundingRect =
       if Map.isEmpty s.nodeLookup then viewBB
       else getBoundsOfRects
-        (getInternalNodesBounds s.nodeLookup (Just (\n -> not n.hidden)))
+        (getInternalNodesBounds s.nodeLookup (Just (\n -> n.hidden /= Just true)))
         viewBB
   in
     MMSlice
@@ -141,11 +142,11 @@ buildPanelStyle userStyle bgColor maskColor maskStrokeColor maskStrokeWidth
     # maybeInsert "--xy-minimap-mask-background-color-props" maskColor
     # maybeInsert "--xy-minimap-mask-stroke-color-props" maskStrokeColor
     # maybeInsert "--xy-minimap-mask-stroke-width-props"
-        (map (\w -> show (w * viewScale)) maskStrokeWidth)
+        (map (\w -> NumberFormat.toString (w * viewScale)) maskStrokeWidth)
     # maybeInsert "--xy-minimap-node-background-color-props" nodeColor
     # maybeInsert "--xy-minimap-node-stroke-color-props" nodeStrokeColor
     # maybeInsert "--xy-minimap-node-stroke-width-props"
-        (map show nodeStrokeWidth)
+        (map NumberFormat.toString nodeStrokeWidth)
   where
   base = fromMaybe Object.empty userStyle
 

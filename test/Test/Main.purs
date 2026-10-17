@@ -14,7 +14,7 @@ import System.Constants (ErrorCode(..), defaultAriaLabelConfig, elementSelection
 import System.Types.Connection (ConnectionMode(..), ConnectionState(..), Padding(..), PaddingValue(..), Viewport, ZIndexMode(..), noConnection)
 import System.Types.Edge (AlignX(..), AlignY(..), ConnectionLineType(..), EdgeBase, EdgeChange(..), EdgeMarkerType(..), MarkerType(..))
 import System.Types.Geometry (CoordinateExtent(..), NodeOrigin(..), Position(..), SnapGrid(..), Transform(..), mkCoordinateExtent, mkNodeOrigin, mkSnapGrid, mkTransform, oppositePosition, XYPosition)
-import System.Types.Handle (HandleProps, HandleType(..), SourceHandle(..), TargetHandle(..), defaultHandleProps)
+import System.Types.Handle (HandleIdField(..), HandleProps, HandleType(..), SourceHandle(..), TargetHandle(..), defaultHandleProps)
 import System.Types.Ids (NodeId(..), ParentId(..))
 import System.Types.Node (Align(..), InternalNodeBase, NodeBase, NodeChange(..), NodeDragItem, NodeExtent(..), NodeLookup)
 import System.Types.PanZoom (InterpolateMode(..), PanOnDrag(..)) as PZ
@@ -45,12 +45,28 @@ import Test.Parity.Graph (runGraphParity)
 import Test.Parity.Marker (runMarkerParity)
 import Test.Parity.Toolbar (runToolbarParity)
 import Test.Boundary.ConnectionNullHandle (runConnectionNullHandleTests)
+import Test.Boundary.EdgeAnimated (runEdgeAnimatedTests)
+import Test.Boundary.EdgeHidden (runEdgeHiddenTests)
+import Test.Boundary.EdgeSelected (runEdgeSelectedTests)
+import Test.Boundary.NodeDragging (runNodeDraggingTests)
+import Test.Boundary.NodeHidden (runNodeHiddenTests)
+import Test.Boundary.NodeSelected (runNodeSelectedTests)
+import Test.Boundary.DimensionResizing (runDimensionResizingTests)
+import Test.Boundary.HandleIdNull (runHandleIdNullTests)
+import Test.Boundary.NodeExpandParent (runNodeExpandParentTests)
 import Test.Boundary.PrunedKeys (runPrunedKeysTests)
 import Test.Boundary.Wrapper (runWrapperTests)
 import Test.Properties (runProperties)
 import Test.React.Additional.MiniMap (runMiniMapSliceTests)
 import Test.React.Component.AriaDescribedBy (runAriaDescribedByTests)
 import Test.React.Component.EdgeAriaLabel (runEdgeAriaLabelTests)
+import Test.React.Component.NodeInlineDimensions (runNodeInlineDimensionsTests)
+import Test.React.Store.UpdateNodePositions (runUpdateNodePositionsTests)
+import Test.React.Provider.BatchQueue (runBatchQueueTests)
+import Test.React.DomNumbers (runDomNumbersTests)
+import Test.React.Hook.NodeObserver (runNodeObserverTests)
+import Test.React.Store.MergeNodeInternals (runMergeNodeInternalsTests)
+import Test.Boundary.EdgePaths (runEdgePathsTests)
 import Test.React.Additional.NodeToolbarPortal (runNodeToolbarPortalTests)
 import Test.React.Hook.NodeRenderOrder (runNodeRenderOrderTests)
 import Test.React.Component.HandleDataId (runHandleDataIdTests)
@@ -300,7 +316,7 @@ main = do
         , change: NodeDimensionChange
             { id: NodeId "1"
             , dimensions: Nothing
-            , resizing: false
+            , resizing: Nothing
             , setAttributes: Nothing
             }
         }
@@ -309,7 +325,7 @@ main = do
             { id: NodeId "2"
             , position: Nothing
             , positionAbsolute: Nothing
-            , dragging: false
+            , dragging: Nothing
             }
         }
       , { tag: "sel", change: NodeSelectionChange { id: NodeId "3", selected: true } }
@@ -483,9 +499,9 @@ main = do
       , data: unit
       , sourcePosition: Nothing
       , targetPosition: Nothing
-      , hidden: false
-      , selected: false
-      , dragging: false
+      , hidden: Nothing
+      , selected: Nothing
+      , dragging: Nothing
       , draggable: Nothing
       , selectable: Nothing
       , connectable: Nothing
@@ -498,7 +514,7 @@ main = do
       , parentId: Nothing
       , zIndex: Nothing
       , extent: Nothing
-      , expandParent: false
+      , expandParent: Nothing
       , ariaLabel: Nothing
       , origin: Nothing
       , handles: Nothing
@@ -515,12 +531,12 @@ main = do
       , target: NodeId tgt
       , sourceHandle: Nothing
       , targetHandle: Nothing
-      , animated: false
-      , hidden: false
+      , animated: Nothing
+      , hidden: Nothing
       , deletable: Nothing
       , selectable: Nothing
       , data: Nothing
-      , selected: false
+      , selected: Nothing
       , markerStart: Nothing
       , markerEnd: Nothing
       , zIndex: Nothing
@@ -643,9 +659,9 @@ main = do
       , data: unit
       , sourcePosition: Nothing
       , targetPosition: Nothing
-      , hidden: false
-      , selected
-      , dragging: false
+      , hidden: Nothing
+      , selected: Just selected
+      , dragging: Nothing
       , draggable
       , selectable: Nothing
       , connectable: Nothing
@@ -658,7 +674,7 @@ main = do
       , parentId
       , zIndex: Nothing
       , extent: Nothing
-      , expandParent: false
+      , expandParent: Nothing
       , ariaLabel: Nothing
       , origin: Nothing
       , handles: Nothing
@@ -676,7 +692,7 @@ main = do
       }
 
     parent = mkInternal "p" false Nothing Nothing { x: 0.0, y: 0.0 }
-    parentSelected = parent { selected = true }
+    parentSelected = parent { selected = Just true }
     childOfParent = mkInternal "c" false Nothing (Just (ParentId "p")) { x: 10.0, y: 10.0 }
     selectedNode = mkInternal "s" true Nothing Nothing { x: 5.0, y: 5.0 }
     draggableNode = mkInternal "d" true (Just true) Nothing { x: 0.0, y: 0.0 }
@@ -741,10 +757,10 @@ main = do
       , extent: Nothing
       , parentId: Nothing
       , origin: Nothing
-      , expandParent: false
+      , expandParent: Nothing
       , internals: { positionAbsolute: { x: 0.0, y: 0.0 } }
       , measured: { width: 0.0, height: 0.0 }
-      , dragging: false
+      , dragging: Nothing
       }
     flatMap = [ flatItem ]
   -- Snapping (7.4, 12.6) to a 5-grid lands at (5, 15); offset is (-2.4, 2.4).
@@ -780,7 +796,7 @@ main = do
     (Array.length paramsHead.allNodes == 2)
   assert "getEventHandlerParams Just nid returns that node as current"
     ( case paramsTargeted.currentNode of
-        Just n -> n.id == NodeId "d" && n.dragging == true
+        Just n -> n.id == NodeId "d" && n.dragging == Just true
         Nothing -> false
     )
 
@@ -800,7 +816,7 @@ main = do
   -- absolute position when requested.
   let
     -- A node positioned at (100, 50) with one source handle at offset (5, 5).
-    handleS :: { id :: Maybe String
+    handleS :: { id :: HandleIdField
                , x :: Number
                , y :: Number
                , position :: Position
@@ -810,7 +826,7 @@ main = do
                , nodeId :: NodeId
                }
     handleS =
-      { id: Just "out"
+      { id: HandleIdSet "out"
       , x: 5.0
       , y: 5.0
       , position: PosRight
@@ -820,7 +836,7 @@ main = do
       , nodeId: NodeId "n1"
       }
     handleT = handleS
-      { id = Just "in"
+      { id = HandleIdSet "in"
       , handleType = Target
       , position = PosLeft
       , x = 0.0
@@ -844,12 +860,12 @@ main = do
     )
   assert "getHandle: returns the source handle when handleId matches"
     ( case XYHandle.getHandle (NodeId "n1") Source (Just "out") lookupHandles Strict false of
-        Just h -> h.id == Just "out" && h.handleType == Source
+        Just h -> h.id == HandleIdSet "out" && h.handleType == Source
         Nothing -> false
     )
   assert "getHandle: Loose mode mixes source+target handles"
     ( case XYHandle.getHandle (NodeId "n1") Source (Just "in") lookupHandles Loose false of
-        Just h -> h.id == Just "in" && h.handleType == Target
+        Just h -> h.id == HandleIdSet "in" && h.handleType == Target
         Nothing -> false
     )
   assert "getHandle: withAbsolutePosition shifts to canvas coords"
@@ -893,9 +909,9 @@ main = do
     -- Position the source handle at absolute (100,50). With node at (100,50)
     -- and handle offset (5,5), the absolute is (105, 55).
     far = XYHandle.getClosestHandle { x: 1000.0, y: 1000.0 } 50.0 lookupHandles
-      { nodeId: NodeId "other", id: Nothing, handleType: Target }
+      { nodeId: NodeId "other", id: HandleIdNull, handleType: Target }
     near = XYHandle.getClosestHandle { x: 105.0, y: 55.0 } 50.0 lookupHandles
-      { nodeId: NodeId "other", id: Nothing, handleType: Target }
+      { nodeId: NodeId "other", id: HandleIdNull, handleType: Target }
   assert "getClosestHandle: nothing within radius returns Nothing"
     (far == Nothing)
   assert "getClosestHandle: a handle within radius is returned"
@@ -1109,6 +1125,13 @@ main = do
   runEmptyChangesTests
   runResetSelectionTests
   runAriaDescribedByTests
+  runNodeInlineDimensionsTests
+  runUpdateNodePositionsTests
+  runBatchQueueTests
+  runDomNumbersTests
+  runNodeObserverTests
+  runMergeNodeInternalsTests
+  runEdgePathsTests
   runEdgeAriaLabelTests
   runNodeA11yDescriptionTests
   runMeasuredDimensionsTests
@@ -1119,6 +1142,15 @@ main = do
   runNodeRenderOrderTests
   runConnectionOrderTests
   runConnectionNullHandleTests
+  runEdgeAnimatedTests
+  runNodeExpandParentTests
+  runEdgeHiddenTests
+  runEdgeSelectedTests
+  runNodeHiddenTests
+  runNodeDraggingTests
+  runNodeSelectedTests
+  runDimensionResizingTests
+  runHandleIdNullTests
 
   -- Function parity — live differential against XYFlow (via the @psflow/oracle bundle).
   -- Requires `npm run build:oracle` to have produced oracle/index.js.

@@ -34,17 +34,16 @@
 -- | there is nothing to get wrong but member names, which the record types
 -- | check.
 -- |
--- | **What is left in `passthrough` is fourteen pure functions**, and no stage
--- | is scheduled to cross them. The decision on whether a fifth stage is
--- | warranted is recorded on
--- | [#62](https://github.com/jonbae/PSFlow/issues/62) and in
--- | `parity/surface/allowlist.json`, which carries one entry per difference
--- | they publish: they are curried where upstream takes every argument at
--- | once, three return labelled records where upstream returns positional
--- | arrays, and two still consume PureScript `Position` constructors. Surface
--- | parity calls all seventeen and compares the results, so the differences
--- | are measured rather than assumed — which is what makes deferring them a
--- | decision instead of an oversight.
+-- | **What is left in `passthrough` is eight pure functions.** Stage 5
+-- | (`tickets/082-boundary-stage-5-pure-functions.md`) crosses the fourteen
+-- | that stage 4 left, and its first half has landed: the six edge-path
+-- | helpers a custom edge component calls, in `Boundary.EdgePaths`. The eight
+-- | left are the six graph utilities, which are curried where upstream takes
+-- | every argument at once, and `isNode` and `isEdge`, which agree with
+-- | upstream on every call surface parity makes. `parity/surface/allowlist.json`
+-- | carries one entry per difference they publish, and surface parity calls
+-- | all of them and compares the results, so the differences are measured
+-- | rather than assumed.
 -- |
 -- | The converters are the rest, and they live in nineteen modules beneath
 -- | this one, none of them on the PureScript surface:
@@ -150,6 +149,19 @@ import Boundary.Utils (addEdge, applyEdgeChanges, applyNodeChanges) as CrossedSu
 -- answers that with a pattern-match failure.
 import Boundary.Chrome (background, controlButton, controls, miniMap, miniMapNode, panel) as CrossedSurface
 
+-- The six edge-path helpers, stage 5's first half. A custom edge component
+-- calls one on its first line, with the position strings `edgeTypes` hands
+-- it, and destructures an array; `Boundary.EdgePaths` says what the raw
+-- PureScript functions did with that.
+import Boundary.EdgePaths
+  ( getBezierEdgeCenter
+  , getBezierPath
+  , getEdgeCenter
+  , getSimpleBezierPath
+  , getSmoothStepPath
+  , getStraightPath
+  ) as CrossedSurface
+
 -- The edge-side components, stage 4. `Boundary.Edges` says why they cross
 -- together: `edgeTypes`' values are the consumer's own edge components, so the
 -- props record ps-flow hands them had to cross too, and that record is the
@@ -213,8 +225,8 @@ import Boundary.Resizer (nodeResizeControl, nodeResizer) as CrossedSurface
 
 -- The rest of the public surface, passing through raw. How many that is, is
 -- `manifest.passthrough`'s to say and not this comment's, but what *kind* of
--- thing they are is worth writing here: after stage 4 they are all pure
--- functions, and not one of them is a component. Ordered to mirror
+-- thing they are is worth writing here: they are all pure functions, and not
+-- one of them is a component. Ordered to mirror
 -- `xyflow/packages/react/src/index.ts`, as `index.js` is, so future audits
 -- stay mechanical.
 import React
@@ -222,18 +234,12 @@ import React
     isNode
   , isEdge
   -- System functions
-  , getBezierEdgeCenter
-  , getBezierPath
-  , getEdgeCenter
-  , getSmoothStepPath
-  , getStraightPath
   , getViewportForBounds
   , getNodesBounds
   , getIncomers
   , getOutgoers
   , reconnectEdge
   , getConnectedEdges
-  , getSimpleBezierPath
   ) as PublicSurface
 
 -- | `Object.freeze`. The enum objects are built above it in PureScript so the

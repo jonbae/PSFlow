@@ -13,7 +13,8 @@ module React.Store.Reduce
 
 import Prelude
 
-import Data.Array (filter, mapMaybe, null, snoc) as Array
+import Data.Array (filter, foldl, mapMaybe, null, snoc) as Array
+import Data.Foldable (foldl) as Foldable
 import Data.Map as Map
 import Data.Maybe (Maybe(..), maybe)
 import Data.Set as Set
@@ -35,14 +36,17 @@ import React.Types.Edges (Edge)
 import React.Types.General (OnViewportChange, UnselectNodesAndEdgesParams)
 import React.Types.Nodes (Node)
 import React.Types.Store (ReactFlowState)
-import System.Types.Connection (noConnection)
+import System.Types.Connection (ConnectionState(..), noConnection)
 import System.Types.Edge (EdgeBase, EdgeChange(..))
 import System.Types.Ids (NodeId)
-import System.Types.Geometry (CoordinateExtent)
+import System.Types.Geometry (CoordinateExtent, Position(..))
 import System.Types.Node (InternalNodeBase, NodeChange(..), NodeDragItem)
+import System.Utils.Edges.Positions (getHandlePosition)
 import System.Utils.Store
   ( adoptUserNodes
   , defaultUpdateNodesOptions
+  , handleExpandParent
+  , updateAbsolutePositions
   , updateConnectionLookup
   )
 
@@ -244,26 +248,39 @@ reduceMergeNodeInternals
    . ReactFlowState n e
   -> NodeInternalsResult n
   -> ReduceResult n e
-reduceMergeNodeInternals state r =
-  let
-    s1 = state
-      { nodeLookup = r.nodeLookup
-      , parentLookup = r.parentLookup
-      , nodesInitialized =
-          if r.updatedInternals then true else state.nodesInitialized
-      }
-    -- Mirror the React store's `updateNodeInternals`: once internals have
-    -- been measured, if a fit was queued (e.g. the initial `fitView` flag),
-    -- resolve it now and clear the flag. `r.triggerFitView` stays an explicit
-    -- opt-in for imperative `updateNodeInternals` callers.
-    fitNow = (state.fitViewQueued && r.updatedInternals) || r.triggerFitView
-    s2 = if fitNow then s1 { fitViewQueued = false } else s1
-    afterChanges =
-      if Array.null r.changes then { state: s2, effects: [] }
-      else reduceTriggerNodeChanges s2 r.changes
-    extra = if fitNow then [ ResolveFitView true ] else []
-  in
-    afterChanges { effects = afterChanges.effects <> extra }
+reduceMergeNodeInternals state r
+  -- TS `if (!updatedInternals) return;`: nothing was measured, so nothing
+  -- is set, fitted, or reported.
+  | not r.updatedInternals = { state, effects: [] }
+  | otherwise =
+      let
+        -- TS `updateAbsolutePositions(nodeLookup, parentLookup, ...)`, now
+        -- that the measured dimensions are in the lookup. TS doesn't touch
+        -- `nodesInitialized` here; `setNodes` sets it when the measured
+        -- nodes come back.
+        positioned = updateAbsolutePositions r.nodeLookup r.parentLookup
+          ( defaultUpdateNodesOptions
+              { nodeOrigin = state.nodeOrigin
+              , nodeExtent = state.nodeExtent
+              , zIndexMode = state.zIndexMode
+              }
+          )
+        s1 = state
+          { nodeLookup = positioned.nodeLookup
+          , parentLookup = positioned.parentLookup
+          }
+        -- TS resolves a queued fit, such as the initial `fitView`, before
+        -- it triggers the node changes, so the viewport moves before
+        -- `onNodesChange` fires. `r.triggerFitView` is ps-flow's: nothing
+        -- sets it, and upstream's action takes no such parameter.
+        fitNow = state.fitViewQueued || r.triggerFitView
+        s2 = if fitNow then s1 { fitViewQueued = false } else s1
+        fit = if fitNow then [ ResolveFitView true ] else []
+        afterChanges =
+          if Array.null r.changes then { state: s2, effects: [] }
+          else reduceTriggerNodeChanges s2 r.changes
+      in
+        afterChanges { effects = fit <> afterChanges.effects }
 
 -- UpdateNodePositions ---------------------------------------------------
 
@@ -275,19 +292,63 @@ reduceUpdateNodePositions
   -> ReduceResult n e
 reduceUpdateNodePositions state items dragging =
   let
-    changes =
-      map
-        ( \item ->
-            NodePositionChange
-              { id: item.id
-              , position: Just item.position
-              , positionAbsolute: Just item.internals.positionAbsolute
-              , dragging
+    stepped = Array.foldl step { changes: [], parentExpandChildren: [], connection: state.connection } items
+
+    -- TS reads the node from the lookup rather than the drag item, "to be
+    -- sure to use the current expandParent and parentId value".
+    step acc item =
+      let
+        mNode = Map.lookup item.id state.nodeLookup
+
+        expandParentOf = case mNode of
+          Just node | node.expandParent == Just true -> node.parentId
+          _ -> Nothing
+
+        change = NodePositionChange
+          { id: item.id
+          , position: Just case expandParentOf of
+              Just _ -> { x: max 0.0 item.position.x, y: max 0.0 item.position.y }
+              Nothing -> item.position
+          , positionAbsolute: Nothing
+          , dragging: Just dragging
+          }
+
+        -- The connection being drawn from a dragged node follows it, from
+        -- the node as the lookup holds it before this change.
+        connection = case mNode, acc.connection of
+          Just node, ConnectionInProgress p
+            | p.fromNode.id == node.id ->
+                ConnectionInProgress p { from = getHandlePosition node (Just p.fromHandle) PosLeft true }
+          _, c -> c
+
+        expandChild = case expandParentOf of
+          Just parentId ->
+            [ { id: item.id
+              , parentId
+              , rect:
+                  { x: item.internals.positionAbsolute.x
+                  , y: item.internals.positionAbsolute.y
+                  , width: item.measured.width
+                  , height: item.measured.height
+                  }
               }
-        )
-        items
+            ]
+          Nothing -> []
+      in
+        { changes: Array.snoc acc.changes change
+        , parentExpandChildren: acc.parentExpandChildren <> expandChild
+        , connection
+        }
+
+    expandChanges =
+      if Array.null stepped.parentExpandChildren then []
+      else handleExpandParent stepped.parentExpandChildren state.nodeLookup state.parentLookup state.nodeOrigin
+
+    changes = Foldable.foldl (\cs middleware -> middleware cs)
+      (stepped.changes <> expandChanges)
+      (Map.values state.onNodesChangeMiddlewareMap)
   in
-    reduceTriggerNodeChanges state changes
+    reduceTriggerNodeChanges (state { connection = stepped.connection }) changes
 
 -- TriggerNodeChanges ----------------------------------------------------
 
@@ -425,10 +486,10 @@ reduceUnselectNodesAndEdges state params =
 
     nodeChanges = map
       (\n -> NodeSelectionChange { id: n.id, selected: false })
-      (Array.filter _.selected targetNodes)
+      (Array.filter (\n -> n.selected == Just true) targetNodes)
     edgeChanges = map
       (\e -> EdgeSelectionChange { id: e.id, selected: false })
-      (Array.filter _.selected targetEdges)
+      (Array.filter (\e -> e.selected == Just true) targetEdges)
 
     afterNodes = reduceTriggerNodeChanges state nodeChanges
     afterEdges = reduceTriggerEdgeChanges afterNodes.state edgeChanges
@@ -544,14 +605,14 @@ reduceResetSelectedElements state
 
         nodeChanges = Array.mapMaybe
           ( \(Tuple _ n) ->
-              if n.selected then
+              if n.selected == Just true then
                 Just (NodeSelectionChange { id: n.id, selected: false })
               else Nothing
           )
           nodePairs
         edgeChanges = Array.mapMaybe
           ( \(Tuple _ e) ->
-              if e.selected then
+              if e.selected == Just true then
                 Just (EdgeSelectionChange { id: e.id, selected: false })
               else Nothing
           )

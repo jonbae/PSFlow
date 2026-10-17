@@ -8,11 +8,13 @@
 -- | `Eq` from the newtype).
 module React.Container.Viewport
   ( viewport
+  , viewportTransform
   , module React.Types.Component
   ) where
 
 import Prelude
 
+import Data.Number.Format (toString) as NumberFormat
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign)
 import React.Basic (ReactComponent)
@@ -31,20 +33,22 @@ toForeignStyle = unsafeCoerce
 selectTransform :: forall n e. ReactFlowState n e -> Transform
 selectTransform = _.transform
 
+-- | TS `translate(${transform[0]}px,${transform[1]}px) scale(${transform[2]})`.
+viewportTransform :: Transform -> String
+viewportTransform (Transform t) =
+  "translate(" <> NumberFormat.toString t.tx <> "px,"
+    <> NumberFormat.toString t.ty
+    <> "px) scale("
+    <> NumberFormat.toString t.scale
+    <> ")"
+
 viewport :: ReactComponent ViewportProps
 viewport =
   unsafePerformEffect $ memo $ reactComponentWithChildren "Viewport"
     \(props :: ViewportProps) -> React.do
-      Transform t <- useStore selectTransform
+      transform <- useStore selectTransform
       let
-        transformStr =
-          "translate(" <> show t.tx <> "px,"
-            <> show t.ty
-            <> "px) scale("
-            <> show t.scale
-            <> ")"
-
-        styleObj = toForeignStyle { transform: transformStr }
+        styleObj = toForeignStyle { transform: viewportTransform transform }
       pure $
         div_
           { className: "react-flow__viewport xyflow__viewport react-flow__container"

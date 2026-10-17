@@ -265,12 +265,12 @@ was about to import: every earlier stage crossed something a driver was already
 about to render, and most of stage 4's fourteen are named by the **hole**
 register as exports the corpus does not drive.
 
-All four have landed. `passthrough` holds fourteen pure functions and no
-component, and **stage 5** — which would cross those — is a decision recorded
-on [#62](https://github.com/jonbae/PSFlow/issues/62) rather than a stage that
-exists: warranted, owned by ticket 082, not yet done. So "the staging is
-finished" and "the surface has finished crossing" are different statements, and
-the manifest's `stage: 4` is the first.
+All four have landed. Stage 4 left fourteen pure functions in `passthrough` and
+no component, and **stage 5**, owned by ticket 082 after the decision recorded
+on [#62](https://github.com/jonbae/PSFlow/issues/62), crosses them. Its first
+half has landed, the six edge-path helpers, and `passthrough` holds the eight
+it leaves. So "the staging is finished" and "the surface has finished crossing"
+are different statements, and the manifest's `stage: 4` is the first.
 _Avoid_: layer, phase, tier
 
 ### Baselines and upstream

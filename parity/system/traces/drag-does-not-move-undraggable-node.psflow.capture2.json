@@ -69,7 +69,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M74.99981241215175,39.99991044486711 C74.99981241215175,68.49996127243088 -25.000187587848245,68.49996127243088 -25.000187587848245,97.00001209999466",
+                                      "d": "M75,40 C75,68.5 -25,68.5 -25,97",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -78,7 +78,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M74.99981241215175,39.99991044486711 C74.99981241215175,68.49996127243088 -25.000187587848245,68.49996127243088 -25.000187587848245,97.00001209999466",
+                                      "d": "M75,40 C75,68.5 -25,68.5 -25,97",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -89,7 +89,7 @@
                                   {
                                     "tag": "g",
                                     "attrs": {
-                                      "transform": "translate(15.358797359356345 63.15926016922043)",
+                                      "transform": "translate(15.35898494720459 63.15929889678955)",
                                       "class": "react-flow__edge-textwrapper",
                                       "visibility": "visible"
                                     },
@@ -123,8 +123,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
-                                      "cx": "74.99981241215175",
-                                      "cy": "49.99991044486711",
+                                      "cx": "75",
+                                      "cy": "50",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -135,8 +135,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
-                                      "cx": "-25.000187587848245",
-                                      "cy": "87.00001209999466",
+                                      "cx": "-25",
+                                      "cy": "87",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -169,7 +169,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M74.99981241215175,39.99991044486711 C74.99981241215175,68.49996127243088 174.99981241215175,68.49996127243088 174.99981241215175,97.00001209999466",
+                                      "d": "M75,40 C75,68.5 175,68.5 175,97",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -178,7 +178,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M74.99981241215175,39.99991044486711 C74.99981241215175,68.49996127243088 174.99981241215175,68.49996127243088 174.99981241215175,97.00001209999466",
+                                      "d": "M75,40 C75,68.5 175,68.5 175,97",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -189,7 +189,7 @@
                                   {
                                     "tag": "g",
                                     "attrs": {
-                                      "transform": "translate(115.35879735935634 63.15926016922043)",
+                                      "transform": "translate(115.35898494720459 63.15929889678955)",
                                       "class": "react-flow__edge-textwrapper",
                                       "visibility": "visible"
                                     },
@@ -223,8 +223,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
-                                      "cx": "74.99981241215175",
-                                      "cy": "49.99991044486711",
+                                      "cx": "75",
+                                      "cy": "50",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -235,8 +235,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
-                                      "cx": "174.99981241215175",
-                                      "cy": "87.00001209999466",
+                                      "cx": "175",
+                                      "cy": "87",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -620,94 +620,6 @@
         ]
       },
       {
-        "name": "onNodesChange",
-        "args": [
-          [
-            {
-              "type": "dimensions",
-              "id": "Node-1",
-              "dimensions": {
-                "width": 150,
-                "height": 37
-              },
-              "resizing": false
-            },
-            {
-              "type": "dimensions",
-              "id": "Node-2",
-              "dimensions": {
-                "width": 150,
-                "height": 37
-              },
-              "resizing": false
-            },
-            {
-              "type": "dimensions",
-              "id": "Node-3",
-              "dimensions": {
-                "width": 150,
-                "height": 37
-              },
-              "resizing": false
-            },
-            {
-              "type": "dimensions",
-              "id": "Node-4",
-              "dimensions": {
-                "width": 150,
-                "height": 37
-              },
-              "resizing": false
-            },
-            {
-              "type": "dimensions",
-              "id": "drag-handle",
-              "dimensions": {
-                "width": 100,
-                "height": 50
-              },
-              "resizing": false
-            },
-            {
-              "type": "dimensions",
-              "id": "notConnectable",
-              "dimensions": {
-                "width": 150,
-                "height": 37
-              },
-              "resizing": false
-            },
-            {
-              "type": "dimensions",
-              "id": "notDeletable",
-              "dimensions": {
-                "width": 150,
-                "height": 37
-              },
-              "resizing": false
-            },
-            {
-              "type": "dimensions",
-              "id": "notDraggable",
-              "dimensions": {
-                "width": 150,
-                "height": 37
-              },
-              "resizing": false
-            },
-            {
-              "type": "dimensions",
-              "id": "notSelectable",
-              "dimensions": {
-                "width": 150,
-                "height": 37
-              },
-              "resizing": false
-            }
-          ]
-        ]
-      },
-      {
         "name": "onMoveStart",
         "args": [
           null,
@@ -751,6 +663,85 @@
         ]
       },
       {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "type": "dimensions",
+              "id": "Node-1",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "type": "dimensions",
+              "id": "Node-2",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "type": "dimensions",
+              "id": "Node-3",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "type": "dimensions",
+              "id": "Node-4",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "type": "dimensions",
+              "id": "drag-handle",
+              "dimensions": {
+                "width": 100,
+                "height": 50
+              }
+            },
+            {
+              "type": "dimensions",
+              "id": "notConnectable",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "type": "dimensions",
+              "id": "notDeletable",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "type": "dimensions",
+              "id": "notDraggable",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "type": "dimensions",
+              "id": "notSelectable",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          ]
+        ]
+      },
+      {
         "name": "onPaneMouseEnter",
         "args": [
           {
@@ -773,7 +764,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 182.19999998807907,
+            "timeStamp": 147.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -842,7 +833,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 182.19999998807907,
+            "timeStamp": 147.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -885,11 +876,7 @@
             "data": {
               "label": "notDraggable"
             },
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
             "draggable": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -918,7 +905,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 182.19999998807907,
+            "timeStamp": 147.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -983,7 +970,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 182.19999998807907,
+            "timeStamp": 147.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1024,11 +1011,7 @@
             "data": {
               "label": "notDraggable"
             },
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
             "draggable": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1073,7 +1056,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 189.80000001192093,
+            "timeStamp": 153.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1116,11 +1099,7 @@
             "data": {
               "label": "notDraggable"
             },
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
             "draggable": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1149,7 +1128,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 189.80000001192093,
+            "timeStamp": 153.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1238,7 +1217,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 205.30000001192093,
+            "timeStamp": 168.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1327,7 +1306,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 221.30000001192093,
+            "timeStamp": 185.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1396,162 +1375,6 @@
         ]
       },
       {
-        "name": "onNodeMouseEnter",
-        "args": [
-          {
-            "@class": "SyntheticBaseEvent",
-            "_reactName": "onMouseEnter",
-            "_targetInst": {
-              "@ref": "React fiber"
-            },
-            "type": "mouseenter",
-            "nativeEvent": {
-              "@class": "MouseEvent",
-              "isTrusted": true
-            },
-            "target": {
-              "@ref": "DIV"
-            },
-            "currentTarget": {
-              "@ref": "DIV"
-            },
-            "eventPhase": 3,
-            "bubbles": true,
-            "cancelable": true,
-            "timeStamp": 233.69999998807907,
-            "defaultPrevented": false,
-            "isTrusted": true,
-            "view": {
-              "@ref": "Window"
-            },
-            "detail": 0,
-            "screenX": 734,
-            "screenY": 582,
-            "clientX": 734,
-            "clientY": 582,
-            "pageX": 734,
-            "pageY": 582,
-            "ctrlKey": false,
-            "shiftKey": false,
-            "altKey": false,
-            "metaKey": false,
-            "getModifierState": {
-              "@ref": "function"
-            },
-            "button": 0,
-            "buttons": 1,
-            "relatedTarget": {
-              "@ref": "DIV"
-            },
-            "movementX": 0,
-            "movementY": 0,
-            "isDefaultPrevented": {
-              "@ref": "function"
-            },
-            "isPropagationStopped": {
-              "@ref": "function"
-            }
-          },
-          {
-            "id": "notDraggable",
-            "position": {
-              "x": 0,
-              "y": 400
-            },
-            "data": {
-              "label": "notDraggable"
-            },
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "draggable": false,
-            "expandParent": false,
-            "measured": {
-              "width": 150,
-              "height": 37
-            }
-          }
-        ]
-      },
-      {
-        "name": "onNodeMouseLeave",
-        "args": [
-          {
-            "@class": "SyntheticBaseEvent",
-            "_reactName": "onMouseLeave",
-            "_targetInst": {
-              "@ref": "React fiber"
-            },
-            "type": "mouseleave",
-            "nativeEvent": {
-              "@class": "MouseEvent",
-              "isTrusted": true
-            },
-            "target": {
-              "@ref": "DIV"
-            },
-            "currentTarget": {
-              "@ref": "DIV"
-            },
-            "eventPhase": 3,
-            "bubbles": true,
-            "cancelable": true,
-            "timeStamp": 238.30000001192093,
-            "defaultPrevented": false,
-            "isTrusted": true,
-            "view": {
-              "@ref": "Window"
-            },
-            "detail": 0,
-            "screenX": 774,
-            "screenY": 622,
-            "clientX": 774,
-            "clientY": 622,
-            "pageX": 774,
-            "pageY": 622,
-            "ctrlKey": false,
-            "shiftKey": false,
-            "altKey": false,
-            "metaKey": false,
-            "getModifierState": {
-              "@ref": "function"
-            },
-            "button": 0,
-            "buttons": 1,
-            "relatedTarget": {
-              "@ref": "DIV"
-            },
-            "movementX": 0,
-            "movementY": 0,
-            "isDefaultPrevented": {
-              "@ref": "function"
-            },
-            "isPropagationStopped": {
-              "@ref": "function"
-            }
-          },
-          {
-            "id": "notDraggable",
-            "position": {
-              "x": 0,
-              "y": 400
-            },
-            "data": {
-              "label": "notDraggable"
-            },
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "draggable": false,
-            "expandParent": false,
-            "measured": {
-              "width": 150,
-              "height": 37
-            }
-          }
-        ]
-      },
-      {
         "name": "onPaneMouseMove",
         "args": [
           {
@@ -1572,7 +1395,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 238.30000001192093,
+            "timeStamp": 201.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1661,7 +1484,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 255.19999998807907,
+            "timeStamp": 217.4000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1752,7 +1575,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 269.69999998807907,
+            "timeStamp": 234.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1795,11 +1618,7 @@
             "data": {
               "label": "notDraggable"
             },
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
             "draggable": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1836,10 +1655,6 @@
               "label": "Node-1"
             },
             "type": "input",
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1859,10 +1674,6 @@
               "label": "Node-2"
             },
             "type": "output",
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1877,10 +1688,6 @@
             "data": {
               "label": "Node-3"
             },
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1896,10 +1703,6 @@
               "label": "Node-4"
             },
             "type": "output",
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1915,11 +1718,7 @@
               "label": "Drag Handle"
             },
             "type": "DragHandleNode",
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
             "dragHandle": ".custom-drag-handle",
-            "expandParent": false,
             "measured": {
               "width": 100,
               "height": 50
@@ -1935,11 +1734,7 @@
               "label": "notConnectable"
             },
             "type": "output",
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
             "connectable": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1954,11 +1749,7 @@
             "data": {
               "label": "notDraggable"
             },
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
             "draggable": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1973,11 +1764,7 @@
             "data": {
               "label": "notSelectable"
             },
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
             "selectable": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1992,11 +1779,7 @@
             "data": {
               "label": "notDeletable"
             },
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
             "deletable": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2011,10 +1794,7 @@
             "data": {
               "label": "hidden"
             },
-            "hidden": true,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false
+            "hidden": true
           }
         ],
         "getNode": {
@@ -2027,10 +1807,6 @@
             "label": "Node-1"
           },
           "type": "input",
-          "hidden": false,
-          "selected": false,
-          "dragging": false,
-          "expandParent": false,
           "measured": {
             "width": 150,
             "height": 37
@@ -2050,10 +1826,6 @@
             "label": "Node-1"
           },
           "type": "input",
-          "hidden": false,
-          "selected": false,
-          "dragging": false,
-          "expandParent": false,
           "measured": {
             "width": 150,
             "height": 37
@@ -2071,12 +1843,10 @@
             "handleBounds": {
               "source": [
                 {
-                  "id": {
-                    "@undefined": true
-                  },
+                  "id": null,
                   "nodeId": "Node-1",
-                  "x": 70.99981241215175,
-                  "y": 31.999910444867112,
+                  "x": 71,
+                  "y": 32,
                   "position": "bottom",
                   "type": "source",
                   "width": 8,
@@ -2093,9 +1863,6 @@
             "type": "default",
             "source": "Node-1",
             "target": "Node-2",
-            "animated": false,
-            "hidden": false,
-            "selected": false,
             "label": "edge"
           },
           {
@@ -2103,9 +1870,6 @@
             "type": "default",
             "source": "Node-1",
             "target": "Node-3",
-            "animated": false,
-            "hidden": false,
-            "selected": false,
             "label": "edge"
           }
         ],
@@ -2114,9 +1878,6 @@
           "type": "default",
           "source": "Node-1",
           "target": "Node-2",
-          "animated": false,
-          "hidden": false,
-          "selected": false,
           "label": "edge"
         },
         "getIntersectingNodes": [
@@ -2130,10 +1891,6 @@
               "label": "Node-1"
             },
             "type": "input",
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2153,10 +1910,6 @@
               "label": "Node-2"
             },
             "type": "output",
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2171,10 +1924,6 @@
             "data": {
               "label": "Node-3"
             },
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2190,10 +1939,6 @@
               "label": "Node-4"
             },
             "type": "output",
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2209,11 +1954,7 @@
               "label": "Drag Handle"
             },
             "type": "DragHandleNode",
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
             "dragHandle": ".custom-drag-handle",
-            "expandParent": false,
             "measured": {
               "width": 100,
               "height": 50
@@ -2229,11 +1970,7 @@
               "label": "notConnectable"
             },
             "type": "output",
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
             "connectable": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2248,11 +1985,7 @@
             "data": {
               "label": "notDraggable"
             },
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
             "draggable": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2267,11 +2000,7 @@
             "data": {
               "label": "notSelectable"
             },
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
             "selectable": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2286,11 +2015,7 @@
             "data": {
               "label": "notDeletable"
             },
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
             "deletable": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2305,10 +2030,7 @@
             "data": {
               "label": "hidden"
             },
-            "hidden": true,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false
+            "hidden": true
           }
         ],
         "isNodeIntersecting": true,
@@ -2362,10 +2084,6 @@
                 "label": "Node-1"
               },
               "type": "input",
-              "hidden": false,
-              "selected": false,
-              "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -2385,10 +2103,6 @@
                 "label": "Node-2"
               },
               "type": "output",
-              "hidden": false,
-              "selected": false,
-              "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -2403,10 +2117,6 @@
               "data": {
                 "label": "Node-3"
               },
-              "hidden": false,
-              "selected": false,
-              "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -2422,10 +2132,6 @@
                 "label": "Node-4"
               },
               "type": "output",
-              "hidden": false,
-              "selected": false,
-              "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -2441,11 +2147,7 @@
                 "label": "Drag Handle"
               },
               "type": "DragHandleNode",
-              "hidden": false,
-              "selected": false,
-              "dragging": false,
               "dragHandle": ".custom-drag-handle",
-              "expandParent": false,
               "measured": {
                 "width": 100,
                 "height": 50
@@ -2461,11 +2163,7 @@
                 "label": "notConnectable"
               },
               "type": "output",
-              "hidden": false,
-              "selected": false,
-              "dragging": false,
               "connectable": false,
-              "expandParent": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -2480,11 +2178,7 @@
               "data": {
                 "label": "notDraggable"
               },
-              "hidden": false,
-              "selected": false,
-              "dragging": false,
               "draggable": false,
-              "expandParent": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -2499,11 +2193,7 @@
               "data": {
                 "label": "notSelectable"
               },
-              "hidden": false,
-              "selected": false,
-              "dragging": false,
               "selectable": false,
-              "expandParent": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -2518,11 +2208,7 @@
               "data": {
                 "label": "notDeletable"
               },
-              "hidden": false,
-              "selected": false,
-              "dragging": false,
               "deletable": false,
-              "expandParent": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -2537,10 +2223,7 @@
               "data": {
                 "label": "hidden"
               },
-              "hidden": true,
-              "selected": false,
-              "dragging": false,
-              "expandParent": false
+              "hidden": true
             }
           ],
           "edges": [
@@ -2549,9 +2232,6 @@
               "type": "default",
               "source": "Node-1",
               "target": "Node-2",
-              "animated": false,
-              "hidden": false,
-              "selected": false,
               "label": "edge"
             },
             {
@@ -2559,9 +2239,6 @@
               "type": "default",
               "source": "Node-1",
               "target": "Node-3",
-              "animated": false,
-              "hidden": false,
-              "selected": false,
               "label": "edge"
             }
           ],

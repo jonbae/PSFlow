@@ -122,7 +122,7 @@ selectorFor ids s =
       { x: t.tx
       , y: t.ty
       , zoom: t.scale
-      , selectedNodesCount: Array.length (Array.filter _.selected s.nodes)
+      , selectedNodesCount: Array.length (Array.filter (\n -> n.selected == Just true) s.nodes)
       , nodes: UnsafeReference (lookupNodes ids s)
       }
 
@@ -141,7 +141,7 @@ nodeToolbar =
           Nothing ->
             Array.length nodesArr == 1
               && (case nodesArr of
-                    [ n ] -> n.selected
+                    [ n ] -> n.selected == Just true
                     _ -> false)
               && slice.selectedNodesCount == 1
       if not isActive || Map.isEmpty nodes then pure mempty
