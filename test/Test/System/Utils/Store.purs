@@ -43,7 +43,7 @@ mkNode
   :: { id :: String
      , x :: Number
      , y :: Number
-     , selected :: Boolean
+     , selected :: Maybe Boolean
      , measured :: { width :: Maybe Number, height :: Maybe Number }
      }
   -> NodeBase Unit
@@ -53,9 +53,9 @@ mkNode r =
   , data: unit
   , sourcePosition: Nothing
   , targetPosition: Nothing
-  , hidden: false
+  , hidden: Nothing
   , selected: r.selected
-  , dragging: false
+  , dragging: Nothing
   , draggable: Nothing
   , selectable: Nothing
   , connectable: Nothing
@@ -68,7 +68,7 @@ mkNode r =
   , parentId: Nothing
   , zIndex: Nothing
   , extent: Nothing
-  , expandParent: false
+  , expandParent: Nothing
   , ariaLabel: Nothing
   , origin: Nothing
   , handles: Nothing
@@ -100,7 +100,7 @@ genNode = do
   id <- genNodeId
   x <- genNumber
   y <- genNumber
-  selected <- elements (NEA.cons' true [ false ])
+  selected <- elements (NEA.cons' (Just true) [ Just false, Nothing ])
   measured <- genMeasured
   pure (mkNode { id, x, y, selected, measured })
 
@@ -118,12 +118,12 @@ mkEdge eid src tgt =
   , target: NodeId tgt
   , sourceHandle: Nothing
   , targetHandle: Nothing
-  , animated: false
-  , hidden: false
+  , animated: Nothing
+  , hidden: Nothing
   , deletable: Nothing
   , selectable: Nothing
   , data: Nothing
-  , selected: false
+  , selected: Nothing
   , markerStart: Nothing
   , markerEnd: Nothing
   , zIndex: Nothing
@@ -177,7 +177,7 @@ runStoreProperties = do
     ns <- genNodeArray
     let r = adoptUserNodes ns Map.empty Map.empty opts
     pure
-      ( r.hasSelectedNodes == Array.any _.selected ns
+      ( r.hasSelectedNodes == Array.any (\n -> n.selected == Just true) ns
           <?> "hasSelectedNodes disagrees with input"
       )
 

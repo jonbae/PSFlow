@@ -95,7 +95,7 @@ type NodesSelectionSlice =
 selectSlice :: forall n e. ReactFlowState n e -> NodesSelectionSlice
 selectSlice s =
   let
-    rect = getInternalNodesBounds s.nodeLookup (Just \n -> n.selected)
+    rect = getInternalNodesBounds s.nodeLookup (Just \n -> n.selected == Just true)
     t = unwrap s.transform
     transformString =
       "translate(" <> showN t.tx <> "px," <> showN t.ty <> "px)"
@@ -202,7 +202,7 @@ nodesSelection =
           let me = (unsafeCoerce se) :: MouseEvent
           for_ props.onSelectionContextMenu \cb -> do
             st <- store.getState
-            let selected = Array.filter _.selected st.nodes
+            let selected = Array.filter (\n -> n.selected == Just true) st.nodes
             cb me selected
 
         onKeyDownHandler :: KeyboardEvent -> Effect Unit

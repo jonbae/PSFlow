@@ -69,7 +69,7 @@ import System.Types.Geometry
   , XYPosition
   , oppositePosition
   )
-import System.Types.Handle (Handle, HandleType(..))
+import System.Types.Handle (Handle, HandleIdField(..), HandleType(..))
 import System.Types.Ids (NodeId(..))
 import System.Types.Node (InternalNodeBase, NodeLookup)
 import System.Utils.Dom
@@ -395,7 +395,7 @@ onPointerDown event params = do
                     fromHandleRef :: HandleRef
                     fromHandleRef =
                       { nodeId: params.nodeId
-                      , id: params.handleId
+                      , id: fromHandle.id
                       , handleType
                       }
                     closest = getClosestHandle rendererPos
@@ -578,6 +578,8 @@ isValidHandle event p = do
 
 -- | Build the CSS selector matching the TS template literal:
 -- |   `.${lib}-flow__handle[data-id="${flowId}-${nodeId}-${handleId}-${type}"]`
+-- | The template prints a `null` id as `null` and a missing one as
+-- | `undefined`.
 handleSelector :: String -> Maybe String -> HandleRef -> String
 handleSelector lib flowId h =
   "." <> lib <> "-flow__handle[data-id=\""
@@ -585,7 +587,7 @@ handleSelector lib flowId h =
     <> "-"
     <> unwrap h.nodeId
     <> "-"
-    <> fromMaybe "null" h.id
+    <> idTag h.id
     <> "-"
     <> handleTypeTag h.handleType
     <> "\"]"
@@ -593,6 +595,10 @@ handleSelector lib flowId h =
   handleTypeTag = case _ of
     Source -> "source"
     Target -> "target"
+  idTag = case _ of
+    HandleIdSet s -> s
+    HandleIdNull -> "null"
+    HandleIdUnset -> "undefined"
 
 -- ----------------------------------------------------------------------------
 -- FFI imports — DOM operations not covered by our existing utility modules.

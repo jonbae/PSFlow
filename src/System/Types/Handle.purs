@@ -1,6 +1,8 @@
 module System.Types.Handle
   ( HandleType(..)
   , Handle
+  , HandleIdField(..)
+  , handleIdString
   , SourceHandle(..)
   , TargetHandle(..)
   , mkSourceHandle
@@ -45,10 +47,36 @@ instance boundedEnumHandleType :: BoundedEnum HandleType where
   toEnum = genericToEnum
   fromEnum = genericFromEnum
 
+-- | A handle's `id`, which upstream types `string | null` and leaves optional.
+-- | Each state reaches the consumer as itself. A handle measured from the DOM
+-- | without `data-handleid` has `null`, which is what `getAttribute` returns,
+-- | and `<Handle />` without an `id` uses `null` too. A handle the consumer
+-- | writes in `node.handles` keeps whatever `id` they wrote, including none.
+-- |
+-- | Upstream's readers treat `null` and no id alike, except where they compare
+-- | with `===`, so `Eq` tells them apart. Read the id with `handleIdString`.
+data HandleIdField
+  = HandleIdUnset
+  | HandleIdNull
+  | HandleIdSet String
+
+derive instance eqHandleIdField :: Eq HandleIdField
+derive instance ordHandleIdField :: Ord HandleIdField
+derive instance genericHandleIdField :: Generic HandleIdField _
+
+instance showHandleIdField :: Show HandleIdField where
+  show = genericShow
+
+-- | The id, if the handle has one.
+handleIdString :: HandleIdField -> Maybe String
+handleIdString = case _ of
+  HandleIdSet s -> Just s
+  _ -> Nothing
+
 -- | The TS field `type` is renamed to `handleType` because `type` is a
 -- | PureScript keyword. All other fields match the TS shape.
 type Handle =
-  { id :: Maybe String
+  { id :: HandleIdField
   , nodeId :: NodeId
   , x :: Number
   , y :: Number

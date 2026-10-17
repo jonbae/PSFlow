@@ -23,6 +23,11 @@
 -- | and may build the next array out of either — the ones they were given, or
 -- | ones they wrote themselves.
 -- |
+-- | An element the consumer's function returns as it was handed comes back
+-- | as the record it was made from, not a copy. Upstream's diff reports a
+-- | `replace` only for an item that isn't the object the store holds, so a
+-- | copy of every untouched node would read as a change to every node.
+-- |
 -- | `setNodes(fn)` returning an unrun `Effect` thunk is the failure the whole
 -- | boundary effort started from. What holds it here is that the result type is
 -- | `EffectFn1 … Unit`, which compiles to a JavaScript function that has
@@ -34,12 +39,15 @@ module Boundary.SetState
 import Prelude
 
 import Boundary.Untagged (asArray, asFunction, typeName)
+import Data.Function.Uncurried (Fn4, runFn4)
 import Data.Maybe (Maybe(..))
 import Effect (Effect)
 import Effect.Exception.Unsafe (unsafeThrow)
 import Effect.Uncurried (EffectFn1, mkEffectFn1)
 import Foreign (Foreign)
 import Unsafe.Coerce (unsafeCoerce)
+
+foreign import keepIdentityImpl :: forall js ps. Fn4 (Array ps) (Array js) (Array js) (js -> ps) (Array ps)
 
 -- | `name` is the setter as the consumer wrote it, so a bad argument names
 -- | `setEdges` rather than some helper of ours.
@@ -53,7 +61,11 @@ setStateOut
 setStateOut name inward outward set = mkEffectFn1 \action ->
   case asFunction action of
     Just update ->
-      set \previous -> map inward (expect "returned" (update (unsafeCoerce (map outward previous))))
+      set \previous ->
+        let
+          handed = map outward previous
+        in
+          runFn4 keepIdentityImpl previous handed (expect "returned" (update (unsafeCoerce handed))) inward
     Nothing ->
       -- Read *before* the updater is built, not inside it. The instance's
       -- `setNodes` hands its updater to the store's batch queue, which is
@@ -66,6 +78,7 @@ setStateOut name inward outward set = mkEffectFn1 \action ->
       in
         set \_ -> next
   where
+  expect :: String -> Foreign -> Array js
   expect what raw = case asArray raw of
     Just entries -> unsafeCoerce entries
     Nothing ->
