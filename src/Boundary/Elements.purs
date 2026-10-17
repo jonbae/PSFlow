@@ -27,14 +27,15 @@
 -- |
 -- | ## Fields PureScript makes required and upstream leaves optional
 -- |
--- | Seven Booleans — a node's `hidden`, `selected`, `dragging` and
--- | `expandParent`, an edge's `animated`, `hidden` and `selected` — plus a
--- | node's `measured` record. Inbound they default (`false`, and an empty
+-- | Six Booleans — a node's `hidden`, `selected`, `dragging` and
+-- | `expandParent`, an edge's `hidden` and `selected` — plus a node's
+-- | `measured` record. An edge's `animated` was the seventh, and is a
+-- | `Maybe Boolean` that crosses only when it's set. Inbound they default (`false`, and an empty
 -- | measurement); outbound they are **emitted always**, so a JavaScript
 -- | consumer reading a node back sees `hidden: false` where upstream would
 -- | have no such key. That is a real divergence, it is recorded as a region in
 -- | `parity/boundary/regions.json`, and it is deliberately not fixed here:
--- | `Maybe`-ifying eight fields of the internals is churn ahead of the first
+-- | `Maybe`-ifying seven fields of the internals is churn ahead of the first
 -- | green signal on the JS surface. The stale-region rule is what forces the
 -- | cleanup once the net's `props` and `dom` sections are green.
 -- |
@@ -742,7 +743,7 @@ edgeIn e =
   , target: wrap e.target
   , sourceHandle: fromUndefinable e.sourceHandle
   , targetHandle: fromUndefinable e.targetHandle
-  , animated: fromMaybe false (fromUndefinable e.animated)
+  , animated: fromUndefinable e.animated
   , hidden: fromMaybe false (fromUndefinable e.hidden)
   , deletable: fromUndefinable e.deletable
   , selectable: fromUndefinable e.selectable
@@ -771,7 +772,7 @@ edgeOut e = pruneUndefined
   , target: unwrap e.target
   , sourceHandle: toUndefinable e.sourceHandle
   , targetHandle: toUndefinable e.targetHandle
-  , animated: toUndefinable (Just e.animated)
+  , animated: toUndefinable e.animated
   , hidden: toUndefinable (Just e.hidden)
   , deletable: toUndefinable e.deletable
   , selectable: toUndefinable e.selectable

@@ -80,7 +80,7 @@ sampleEdge =
   , target: NodeId "n2"
   , sourceHandle: Nothing
   , targetHandle: Nothing
-  , animated: false
+  , animated: Nothing
   , hidden: false
   , deletable: Nothing
   , selectable: Nothing
@@ -136,7 +136,7 @@ freshEdge =
   , target: NodeId "b"
   , sourceHandle: Nothing
   , targetHandle: Nothing
-  , animated: false
+  , animated: Nothing
   , hidden: false
   , deletable: Nothing
   , selectable: Nothing

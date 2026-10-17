@@ -176,7 +176,7 @@ edgeFromConnection generate c =
   , target: c.target
   , sourceHandle: c.sourceHandle
   , targetHandle: c.targetHandle
-  , animated: false
+  , animated: Nothing
   , hidden: false
   , deletable: Nothing
   , selectable: Nothing

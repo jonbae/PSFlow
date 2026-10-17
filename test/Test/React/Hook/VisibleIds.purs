@@ -78,7 +78,7 @@ mkEdge edgeId src tgt =
   , target: NodeId tgt
   , sourceHandle: Nothing
   , targetHandle: Nothing
-  , animated: false
+  , animated: Nothing
   , hidden: false
   , deletable: Nothing
   , selectable: Nothing
