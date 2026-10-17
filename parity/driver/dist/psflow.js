@@ -1566,9 +1566,9 @@ var require_react_development = __commonJS({
         }
         function validateFragmentProps(fragment2) {
           {
-            var keys4 = Object.keys(fragment2.props);
-            for (var i = 0; i < keys4.length; i++) {
-              var key2 = keys4[i];
+            var keys3 = Object.keys(fragment2.props);
+            for (var i = 0; i < keys3.length; i++) {
+              var key2 = keys3[i];
               if (key2 !== "children" && key2 !== "key") {
                 setCurrentlyValidatingElement$1(fragment2);
                 error3("Invalid prop `%s` supplied to `React.Fragment`. React.Fragment can only have `key` and `children` props.", key2);
@@ -1934,7 +1934,7 @@ var require_scheduler_development = __commonJS({
         function peek(heap) {
           return heap.length === 0 ? null : heap[0];
         }
-        function pop2(heap) {
+        function pop(heap) {
           if (heap.length === 0) {
             return null;
           }
@@ -2034,9 +2034,9 @@ var require_scheduler_development = __commonJS({
           var timer2 = peek(timerQueue);
           while (timer2 !== null) {
             if (timer2.callback === null) {
-              pop2(timerQueue);
+              pop(timerQueue);
             } else if (timer2.startTime <= currentTime2) {
-              pop2(timerQueue);
+              pop(timerQueue);
               timer2.sortIndex = timer2.expirationTime;
               push2(taskQueue, timer2);
             } else {
@@ -2108,12 +2108,12 @@ var require_scheduler_development = __commonJS({
                 currentTask.callback = continuationCallback;
               } else {
                 if (currentTask === peek(taskQueue)) {
-                  pop2(taskQueue);
+                  pop(taskQueue);
                 }
               }
               advanceTimers(currentTime2);
             } else {
-              pop2(taskQueue);
+              pop(taskQueue);
             }
             currentTask = peek(taskQueue);
           }
@@ -10849,7 +10849,7 @@ var require_react_dom_development = __commonJS({
             current: defaultValue4
           };
         }
-        function pop2(cursor, fiber) {
+        function pop(cursor, fiber) {
           if (index5 < 0) {
             {
               error3("Unexpected pop.");
@@ -10940,14 +10940,14 @@ var require_react_dom_development = __commonJS({
         }
         function popContext(fiber) {
           {
-            pop2(didPerformWorkStackCursor, fiber);
-            pop2(contextStackCursor, fiber);
+            pop(didPerformWorkStackCursor, fiber);
+            pop(contextStackCursor, fiber);
           }
         }
         function popTopLevelContextObject(fiber) {
           {
-            pop2(didPerformWorkStackCursor, fiber);
-            pop2(contextStackCursor, fiber);
+            pop(didPerformWorkStackCursor, fiber);
+            pop(contextStackCursor, fiber);
           }
         }
         function pushTopLevelContextObject(fiber, context, didChange) {
@@ -11005,12 +11005,12 @@ var require_react_dom_development = __commonJS({
             if (didChange) {
               var mergedContext = processChildContext(workInProgress2, type, previousContext);
               instance.__reactInternalMemoizedMergedChildContext = mergedContext;
-              pop2(didPerformWorkStackCursor, workInProgress2);
-              pop2(contextStackCursor, workInProgress2);
+              pop(didPerformWorkStackCursor, workInProgress2);
+              pop(contextStackCursor, workInProgress2);
               push2(contextStackCursor, mergedContext, workInProgress2);
               push2(didPerformWorkStackCursor, didChange, workInProgress2);
             } else {
-              pop2(didPerformWorkStackCursor, workInProgress2);
+              pop(didPerformWorkStackCursor, workInProgress2);
               push2(didPerformWorkStackCursor, didChange, workInProgress2);
             }
           }
@@ -12598,7 +12598,7 @@ var require_react_dom_development = __commonJS({
         }
         function popProvider(context, providerFiber) {
           var currentValue = valueCursor.current;
-          pop2(valueCursor, providerFiber);
+          pop(valueCursor, providerFiber);
           {
             {
               context._currentValue = currentValue;
@@ -12648,20 +12648,20 @@ var require_react_dom_development = __commonJS({
                 if (dependency.context === context) {
                   if (fiber.tag === ClassComponent) {
                     var lane = pickArbitraryLane(renderLanes2);
-                    var update2 = createUpdate(NoTimestamp, lane);
-                    update2.tag = ForceUpdate;
+                    var update = createUpdate(NoTimestamp, lane);
+                    update.tag = ForceUpdate;
                     var updateQueue = fiber.updateQueue;
                     if (updateQueue === null) ;
                     else {
                       var sharedQueue = updateQueue.shared;
                       var pending = sharedQueue.pending;
                       if (pending === null) {
-                        update2.next = update2;
+                        update.next = update;
                       } else {
-                        update2.next = pending.next;
-                        pending.next = update2;
+                        update.next = pending.next;
+                        pending.next = update;
                       }
-                      sharedQueue.pending = update2;
+                      sharedQueue.pending = update;
                     }
                   }
                   fiber.lanes = mergeLanes(fiber.lanes, renderLanes2);
@@ -12787,39 +12787,39 @@ var require_react_dom_development = __commonJS({
             concurrentQueues = null;
           }
         }
-        function enqueueConcurrentHookUpdate(fiber, queue, update2, lane) {
+        function enqueueConcurrentHookUpdate(fiber, queue, update, lane) {
           var interleaved = queue.interleaved;
           if (interleaved === null) {
-            update2.next = update2;
+            update.next = update;
             pushConcurrentUpdateQueue(queue);
           } else {
-            update2.next = interleaved.next;
-            interleaved.next = update2;
+            update.next = interleaved.next;
+            interleaved.next = update;
           }
-          queue.interleaved = update2;
+          queue.interleaved = update;
           return markUpdateLaneFromFiberToRoot(fiber, lane);
         }
-        function enqueueConcurrentHookUpdateAndEagerlyBailout(fiber, queue, update2, lane) {
+        function enqueueConcurrentHookUpdateAndEagerlyBailout(fiber, queue, update, lane) {
           var interleaved = queue.interleaved;
           if (interleaved === null) {
-            update2.next = update2;
+            update.next = update;
             pushConcurrentUpdateQueue(queue);
           } else {
-            update2.next = interleaved.next;
-            interleaved.next = update2;
+            update.next = interleaved.next;
+            interleaved.next = update;
           }
-          queue.interleaved = update2;
+          queue.interleaved = update;
         }
-        function enqueueConcurrentClassUpdate(fiber, queue, update2, lane) {
+        function enqueueConcurrentClassUpdate(fiber, queue, update, lane) {
           var interleaved = queue.interleaved;
           if (interleaved === null) {
-            update2.next = update2;
+            update.next = update;
             pushConcurrentUpdateQueue(queue);
           } else {
-            update2.next = interleaved.next;
-            interleaved.next = update2;
+            update.next = interleaved.next;
+            interleaved.next = update;
           }
-          queue.interleaved = update2;
+          queue.interleaved = update;
           return markUpdateLaneFromFiberToRoot(fiber, lane);
         }
         function enqueueConcurrentRenderForLane(fiber, lane) {
@@ -12901,7 +12901,7 @@ var require_react_dom_development = __commonJS({
           }
         }
         function createUpdate(eventTime, lane) {
-          var update2 = {
+          var update = {
             eventTime,
             lane,
             tag: UpdateState,
@@ -12909,9 +12909,9 @@ var require_react_dom_development = __commonJS({
             callback: null,
             next: null
           };
-          return update2;
+          return update;
         }
-        function enqueueUpdate(fiber, update2, lane) {
+        function enqueueUpdate(fiber, update, lane) {
           var updateQueue = fiber.updateQueue;
           if (updateQueue === null) {
             return null;
@@ -12926,15 +12926,15 @@ var require_react_dom_development = __commonJS({
           if (isUnsafeClassRenderPhaseUpdate()) {
             var pending = sharedQueue.pending;
             if (pending === null) {
-              update2.next = update2;
+              update.next = update;
             } else {
-              update2.next = pending.next;
-              pending.next = update2;
+              update.next = pending.next;
+              pending.next = update;
             }
-            sharedQueue.pending = update2;
+            sharedQueue.pending = update;
             return unsafe_markUpdateLaneFromFiberToRoot(fiber, lane);
           } else {
-            return enqueueConcurrentClassUpdate(fiber, sharedQueue, update2, lane);
+            return enqueueConcurrentClassUpdate(fiber, sharedQueue, update, lane);
           }
         }
         function entangleTransitions(root4, fiber, lane) {
@@ -12961,14 +12961,14 @@ var require_react_dom_development = __commonJS({
               var newLast = null;
               var firstBaseUpdate = queue.firstBaseUpdate;
               if (firstBaseUpdate !== null) {
-                var update2 = firstBaseUpdate;
+                var update = firstBaseUpdate;
                 do {
                   var clone = {
-                    eventTime: update2.eventTime,
-                    lane: update2.lane,
-                    tag: update2.tag,
-                    payload: update2.payload,
-                    callback: update2.callback,
+                    eventTime: update.eventTime,
+                    lane: update.lane,
+                    tag: update.tag,
+                    payload: update.payload,
+                    callback: update.callback,
                     next: null
                   };
                   if (newLast === null) {
@@ -12977,8 +12977,8 @@ var require_react_dom_development = __commonJS({
                     newLast.next = clone;
                     newLast = clone;
                   }
-                  update2 = update2.next;
-                } while (update2 !== null);
+                  update = update.next;
+                } while (update !== null);
                 if (newLast === null) {
                   newFirst = newLast = capturedUpdate;
                 } else {
@@ -13007,10 +13007,10 @@ var require_react_dom_development = __commonJS({
           }
           queue.lastBaseUpdate = capturedUpdate;
         }
-        function getStateFromUpdate(workInProgress2, queue, update2, prevState, nextProps, instance) {
-          switch (update2.tag) {
+        function getStateFromUpdate(workInProgress2, queue, update, prevState, nextProps, instance) {
+          switch (update.tag) {
             case ReplaceState: {
-              var payload = update2.payload;
+              var payload = update.payload;
               if (typeof payload === "function") {
                 {
                   enterDisallowedContextReadInDEV();
@@ -13036,7 +13036,7 @@ var require_react_dom_development = __commonJS({
             }
             // Intentional fallthrough
             case UpdateState: {
-              var _payload = update2.payload;
+              var _payload = update.payload;
               var partialState;
               if (typeof _payload === "function") {
                 {
@@ -13109,17 +13109,17 @@ var require_react_dom_development = __commonJS({
             var newBaseState = null;
             var newFirstBaseUpdate = null;
             var newLastBaseUpdate = null;
-            var update2 = firstBaseUpdate;
+            var update = firstBaseUpdate;
             do {
-              var updateLane = update2.lane;
-              var updateEventTime = update2.eventTime;
+              var updateLane = update.lane;
+              var updateEventTime = update.eventTime;
               if (!isSubsetOfLanes(renderLanes2, updateLane)) {
                 var clone = {
                   eventTime: updateEventTime,
                   lane: updateLane,
-                  tag: update2.tag,
-                  payload: update2.payload,
-                  callback: update2.callback,
+                  tag: update.tag,
+                  payload: update.payload,
+                  callback: update.callback,
                   next: null
                 };
                 if (newLastBaseUpdate === null) {
@@ -13137,29 +13137,29 @@ var require_react_dom_development = __commonJS({
                     // it. Using NoLane works because 0 is a subset of all bitmasks, so
                     // this will never be skipped by the check above.
                     lane: NoLane,
-                    tag: update2.tag,
-                    payload: update2.payload,
-                    callback: update2.callback,
+                    tag: update.tag,
+                    payload: update.payload,
+                    callback: update.callback,
                     next: null
                   };
                   newLastBaseUpdate = newLastBaseUpdate.next = _clone;
                 }
-                newState = getStateFromUpdate(workInProgress2, queue, update2, newState, props, instance);
-                var callback2 = update2.callback;
+                newState = getStateFromUpdate(workInProgress2, queue, update, newState, props, instance);
+                var callback2 = update.callback;
                 if (callback2 !== null && // If the update was already committed, we should not queue its
                 // callback again.
-                update2.lane !== NoLane) {
+                update.lane !== NoLane) {
                   workInProgress2.flags |= Callback;
                   var effects = queue.effects;
                   if (effects === null) {
-                    queue.effects = [update2];
+                    queue.effects = [update];
                   } else {
-                    effects.push(update2);
+                    effects.push(update);
                   }
                 }
               }
-              update2 = update2.next;
-              if (update2 === null) {
+              update = update.next;
+              if (update === null) {
                 pendingQueue = queue.shared.pending;
                 if (pendingQueue === null) {
                   break;
@@ -13167,7 +13167,7 @@ var require_react_dom_development = __commonJS({
                   var _lastPendingUpdate = pendingQueue;
                   var _firstPendingUpdate = _lastPendingUpdate.next;
                   _lastPendingUpdate.next = null;
-                  update2 = _firstPendingUpdate;
+                  update = _firstPendingUpdate;
                   queue.lastBaseUpdate = _lastPendingUpdate;
                   queue.shared.pending = null;
                 }
@@ -13242,13 +13242,13 @@ var require_react_dom_development = __commonJS({
           push2(contextFiberStackCursor, fiber, fiber);
           push2(contextStackCursor$1, NO_CONTEXT, fiber);
           var nextRootContext = getRootHostContext(nextRootInstance);
-          pop2(contextStackCursor$1, fiber);
+          pop(contextStackCursor$1, fiber);
           push2(contextStackCursor$1, nextRootContext, fiber);
         }
         function popHostContainer(fiber) {
-          pop2(contextStackCursor$1, fiber);
-          pop2(contextFiberStackCursor, fiber);
-          pop2(rootInstanceStackCursor, fiber);
+          pop(contextStackCursor$1, fiber);
+          pop(contextFiberStackCursor, fiber);
+          pop(rootInstanceStackCursor, fiber);
         }
         function getHostContext() {
           var context = requiredContext(contextStackCursor$1.current);
@@ -13268,8 +13268,8 @@ var require_react_dom_development = __commonJS({
           if (contextFiberStackCursor.current !== fiber) {
             return;
           }
-          pop2(contextStackCursor$1, fiber);
-          pop2(contextFiberStackCursor, fiber);
+          pop(contextStackCursor$1, fiber);
+          pop(contextFiberStackCursor, fiber);
         }
         var DefaultSuspenseContext = 0;
         var SubtreeSuspenseContextMask = 1;
@@ -13292,7 +13292,7 @@ var require_react_dom_development = __commonJS({
           push2(suspenseStackCursor, newContext, fiber);
         }
         function popSuspenseContext(fiber) {
-          pop2(suspenseStackCursor, fiber);
+          pop(suspenseStackCursor, fiber);
         }
         function shouldCaptureSuspense(workInProgress2, hasInvisibleParent) {
           var nextState = workInProgress2.memoizedState;
@@ -13710,15 +13710,15 @@ var require_react_dom_development = __commonJS({
             var newBaseState = null;
             var newBaseQueueFirst = null;
             var newBaseQueueLast = null;
-            var update2 = first;
+            var update = first;
             do {
-              var updateLane = update2.lane;
+              var updateLane = update.lane;
               if (!isSubsetOfLanes(renderLanes, updateLane)) {
                 var clone = {
                   lane: updateLane,
-                  action: update2.action,
-                  hasEagerState: update2.hasEagerState,
-                  eagerState: update2.eagerState,
+                  action: update.action,
+                  hasEagerState: update.hasEagerState,
+                  eagerState: update.eagerState,
                   next: null
                 };
                 if (newBaseQueueLast === null) {
@@ -13736,22 +13736,22 @@ var require_react_dom_development = __commonJS({
                     // it. Using NoLane works because 0 is a subset of all bitmasks, so
                     // this will never be skipped by the check above.
                     lane: NoLane,
-                    action: update2.action,
-                    hasEagerState: update2.hasEagerState,
-                    eagerState: update2.eagerState,
+                    action: update.action,
+                    hasEagerState: update.hasEagerState,
+                    eagerState: update.eagerState,
                     next: null
                   };
                   newBaseQueueLast = newBaseQueueLast.next = _clone;
                 }
-                if (update2.hasEagerState) {
-                  newState = update2.eagerState;
+                if (update.hasEagerState) {
+                  newState = update.eagerState;
                 } else {
-                  var action2 = update2.action;
+                  var action2 = update.action;
                   newState = reducer(newState, action2);
                 }
               }
-              update2 = update2.next;
-            } while (update2 !== null && update2 !== first);
+              update = update.next;
+            } while (update !== null && update !== first);
             if (newBaseQueueLast === null) {
               newBaseState = newState;
             } else {
@@ -13793,12 +13793,12 @@ var require_react_dom_development = __commonJS({
           if (lastRenderPhaseUpdate !== null) {
             queue.pending = null;
             var firstRenderPhaseUpdate = lastRenderPhaseUpdate.next;
-            var update2 = firstRenderPhaseUpdate;
+            var update = firstRenderPhaseUpdate;
             do {
-              var action2 = update2.action;
+              var action2 = update.action;
               newState = reducer(newState, action2);
-              update2 = update2.next;
-            } while (update2 !== firstRenderPhaseUpdate);
+              update = update.next;
+            } while (update !== firstRenderPhaseUpdate);
             if (!objectIs(newState, hook.memoizedState)) {
               markWorkInProgressReceivedUpdate();
             }
@@ -14291,7 +14291,7 @@ var require_react_dom_development = __commonJS({
             }
           }
           var lane = requestUpdateLane(fiber);
-          var update2 = {
+          var update = {
             lane,
             action: action2,
             hasEagerState: false,
@@ -14299,9 +14299,9 @@ var require_react_dom_development = __commonJS({
             next: null
           };
           if (isRenderPhaseUpdate(fiber)) {
-            enqueueRenderPhaseUpdate(queue, update2);
+            enqueueRenderPhaseUpdate(queue, update);
           } else {
-            var root4 = enqueueConcurrentHookUpdate(fiber, queue, update2, lane);
+            var root4 = enqueueConcurrentHookUpdate(fiber, queue, update, lane);
             if (root4 !== null) {
               var eventTime = requestEventTime();
               scheduleUpdateOnFiber(root4, fiber, lane, eventTime);
@@ -14317,7 +14317,7 @@ var require_react_dom_development = __commonJS({
             }
           }
           var lane = requestUpdateLane(fiber);
-          var update2 = {
+          var update = {
             lane,
             action: action2,
             hasEagerState: false,
@@ -14325,7 +14325,7 @@ var require_react_dom_development = __commonJS({
             next: null
           };
           if (isRenderPhaseUpdate(fiber)) {
-            enqueueRenderPhaseUpdate(queue, update2);
+            enqueueRenderPhaseUpdate(queue, update);
           } else {
             var alternate = fiber.alternate;
             if (fiber.lanes === NoLanes && (alternate === null || alternate.lanes === NoLanes)) {
@@ -14339,10 +14339,10 @@ var require_react_dom_development = __commonJS({
                 try {
                   var currentState = queue.lastRenderedState;
                   var eagerState = lastRenderedReducer(currentState, action2);
-                  update2.hasEagerState = true;
-                  update2.eagerState = eagerState;
+                  update.hasEagerState = true;
+                  update.eagerState = eagerState;
                   if (objectIs(eagerState, currentState)) {
-                    enqueueConcurrentHookUpdateAndEagerlyBailout(fiber, queue, update2, lane);
+                    enqueueConcurrentHookUpdateAndEagerlyBailout(fiber, queue, update, lane);
                     return;
                   }
                 } catch (error4) {
@@ -14353,7 +14353,7 @@ var require_react_dom_development = __commonJS({
                 }
               }
             }
-            var root4 = enqueueConcurrentHookUpdate(fiber, queue, update2, lane);
+            var root4 = enqueueConcurrentHookUpdate(fiber, queue, update, lane);
             if (root4 !== null) {
               var eventTime = requestEventTime();
               scheduleUpdateOnFiber(root4, fiber, lane, eventTime);
@@ -14366,16 +14366,16 @@ var require_react_dom_development = __commonJS({
           var alternate = fiber.alternate;
           return fiber === currentlyRenderingFiber$1 || alternate !== null && alternate === currentlyRenderingFiber$1;
         }
-        function enqueueRenderPhaseUpdate(queue, update2) {
+        function enqueueRenderPhaseUpdate(queue, update) {
           didScheduleRenderPhaseUpdateDuringThisPass = didScheduleRenderPhaseUpdate = true;
           var pending = queue.pending;
           if (pending === null) {
-            update2.next = update2;
+            update.next = update;
           } else {
-            update2.next = pending.next;
-            pending.next = update2;
+            update.next = pending.next;
+            pending.next = update;
           }
-          queue.pending = update2;
+          queue.pending = update;
         }
         function entangleTransitionUpdate(root4, queue, lane) {
           if (isTransitionLane(lane)) {
@@ -15410,15 +15410,15 @@ var require_react_dom_development = __commonJS({
             var fiber = get7(inst);
             var eventTime = requestEventTime();
             var lane = requestUpdateLane(fiber);
-            var update2 = createUpdate(eventTime, lane);
-            update2.payload = payload;
+            var update = createUpdate(eventTime, lane);
+            update.payload = payload;
             if (callback2 !== void 0 && callback2 !== null) {
               {
                 warnOnInvalidCallback(callback2, "setState");
               }
-              update2.callback = callback2;
+              update.callback = callback2;
             }
-            var root4 = enqueueUpdate(fiber, update2, lane);
+            var root4 = enqueueUpdate(fiber, update, lane);
             if (root4 !== null) {
               scheduleUpdateOnFiber(root4, fiber, lane, eventTime);
               entangleTransitions(root4, fiber, lane);
@@ -15431,16 +15431,16 @@ var require_react_dom_development = __commonJS({
             var fiber = get7(inst);
             var eventTime = requestEventTime();
             var lane = requestUpdateLane(fiber);
-            var update2 = createUpdate(eventTime, lane);
-            update2.tag = ReplaceState;
-            update2.payload = payload;
+            var update = createUpdate(eventTime, lane);
+            update.tag = ReplaceState;
+            update.payload = payload;
             if (callback2 !== void 0 && callback2 !== null) {
               {
                 warnOnInvalidCallback(callback2, "replaceState");
               }
-              update2.callback = callback2;
+              update.callback = callback2;
             }
-            var root4 = enqueueUpdate(fiber, update2, lane);
+            var root4 = enqueueUpdate(fiber, update, lane);
             if (root4 !== null) {
               scheduleUpdateOnFiber(root4, fiber, lane, eventTime);
               entangleTransitions(root4, fiber, lane);
@@ -15453,15 +15453,15 @@ var require_react_dom_development = __commonJS({
             var fiber = get7(inst);
             var eventTime = requestEventTime();
             var lane = requestUpdateLane(fiber);
-            var update2 = createUpdate(eventTime, lane);
-            update2.tag = ForceUpdate;
+            var update = createUpdate(eventTime, lane);
+            update.tag = ForceUpdate;
             if (callback2 !== void 0 && callback2 !== null) {
               {
                 warnOnInvalidCallback(callback2, "forceUpdate");
               }
-              update2.callback = callback2;
+              update.callback = callback2;
             }
-            var root4 = enqueueUpdate(fiber, update2, lane);
+            var root4 = enqueueUpdate(fiber, update, lane);
             if (root4 !== null) {
               scheduleUpdateOnFiber(root4, fiber, lane, eventTime);
               entangleTransitions(root4, fiber, lane);
@@ -15997,28 +15997,28 @@ var require_react_dom_development = __commonJS({
         }
         var PossiblyWeakMap$1 = typeof WeakMap === "function" ? WeakMap : Map;
         function createRootErrorUpdate(fiber, errorInfo, lane) {
-          var update2 = createUpdate(NoTimestamp, lane);
-          update2.tag = CaptureUpdate;
-          update2.payload = {
+          var update = createUpdate(NoTimestamp, lane);
+          update.tag = CaptureUpdate;
+          update.payload = {
             element: null
           };
           var error4 = errorInfo.value;
-          update2.callback = function() {
+          update.callback = function() {
             onUncaughtError(error4);
             logCapturedError(fiber, errorInfo);
           };
-          return update2;
+          return update;
         }
         function createClassErrorUpdate(fiber, errorInfo, lane) {
-          var update2 = createUpdate(NoTimestamp, lane);
-          update2.tag = CaptureUpdate;
+          var update = createUpdate(NoTimestamp, lane);
+          update.tag = CaptureUpdate;
           var getDerivedStateFromError = fiber.type.getDerivedStateFromError;
           if (typeof getDerivedStateFromError === "function") {
             var error$1 = errorInfo.value;
-            update2.payload = function() {
+            update.payload = function() {
               return getDerivedStateFromError(error$1);
             };
-            update2.callback = function() {
+            update.callback = function() {
               {
                 markFailedErrorBoundaryForHotReloading(fiber);
               }
@@ -16027,7 +16027,7 @@ var require_react_dom_development = __commonJS({
           }
           var inst = fiber.stateNode;
           if (inst !== null && typeof inst.componentDidCatch === "function") {
-            update2.callback = function callback2() {
+            update.callback = function callback2() {
               {
                 markFailedErrorBoundaryForHotReloading(fiber);
               }
@@ -16049,7 +16049,7 @@ var require_react_dom_development = __commonJS({
               }
             };
           }
-          return update2;
+          return update;
         }
         function attachPingListener(root4, wakeable, lanes) {
           var pingCache = root4.pingCache;
@@ -16123,9 +16123,9 @@ var require_react_dom_development = __commonJS({
                 if (currentSourceFiber === null) {
                   sourceFiber.tag = IncompleteClassComponent;
                 } else {
-                  var update2 = createUpdate(NoTimestamp, SyncLane);
-                  update2.tag = ForceUpdate;
-                  enqueueUpdate(sourceFiber, update2, SyncLane);
+                  var update = createUpdate(NoTimestamp, SyncLane);
+                  update.tag = ForceUpdate;
+                  enqueueUpdate(sourceFiber, update, SyncLane);
                 }
               }
               sourceFiber.lanes = mergeLanes(sourceFiber.lanes, SyncLane);
@@ -16193,8 +16193,8 @@ var require_react_dom_development = __commonJS({
                 workInProgress2.flags |= ShouldCapture;
                 var lane = pickArbitraryLane(rootRenderLanes);
                 workInProgress2.lanes = mergeLanes(workInProgress2.lanes, lane);
-                var update2 = createRootErrorUpdate(workInProgress2, _errorInfo, lane);
-                enqueueCapturedUpdate(workInProgress2, update2);
+                var update = createRootErrorUpdate(workInProgress2, _errorInfo, lane);
+                enqueueCapturedUpdate(workInProgress2, update);
                 return;
               }
               case ClassComponent:
@@ -16579,8 +16579,8 @@ var require_react_dom_development = __commonJS({
                 var error$1 = new Error("Simulated error coming from DevTools");
                 var lane = pickArbitraryLane(renderLanes2);
                 workInProgress2.lanes = mergeLanes(workInProgress2.lanes, lane);
-                var update2 = createClassErrorUpdate(workInProgress2, createCapturedValueAtFiber(error$1, workInProgress2), lane);
-                enqueueCapturedUpdate(workInProgress2, update2);
+                var update = createClassErrorUpdate(workInProgress2, createCapturedValueAtFiber(error$1, workInProgress2), lane);
+                enqueueCapturedUpdate(workInProgress2, update);
                 break;
               }
             }
@@ -20931,7 +20931,7 @@ var require_react_dom_development = __commonJS({
         }
         function popRenderLanes(fiber) {
           subtreeRenderLanes = subtreeRenderLanesCursor.current;
-          pop2(subtreeRenderLanesCursor, fiber);
+          pop(subtreeRenderLanesCursor, fiber);
         }
         function prepareFreshStack(root4, lanes) {
           root4.finishedWork = null;
@@ -21506,8 +21506,8 @@ var require_react_dom_development = __commonJS({
         var onUncaughtError = prepareToThrowUncaughtError;
         function captureCommitPhaseErrorOnRoot(rootFiber, sourceFiber, error4) {
           var errorInfo = createCapturedValueAtFiber(error4, sourceFiber);
-          var update2 = createRootErrorUpdate(rootFiber, errorInfo, SyncLane);
-          var root4 = enqueueUpdate(rootFiber, update2, SyncLane);
+          var update = createRootErrorUpdate(rootFiber, errorInfo, SyncLane);
+          var root4 = enqueueUpdate(rootFiber, update, SyncLane);
           var eventTime = requestEventTime();
           if (root4 !== null) {
             markRootUpdated(root4, SyncLane, eventTime);
@@ -21536,8 +21536,8 @@ var require_react_dom_development = __commonJS({
               var instance = fiber.stateNode;
               if (typeof ctor.getDerivedStateFromError === "function" || typeof instance.componentDidCatch === "function" && !isAlreadyFailedLegacyErrorBoundary(instance)) {
                 var errorInfo = createCapturedValueAtFiber(error$1, sourceFiber);
-                var update2 = createClassErrorUpdate(fiber, errorInfo, SyncLane);
-                var root4 = enqueueUpdate(fiber, update2, SyncLane);
+                var update = createClassErrorUpdate(fiber, errorInfo, SyncLane);
+                var root4 = enqueueUpdate(fiber, update, SyncLane);
                 var eventTime = requestEventTime();
                 if (root4 !== null) {
                   markRootUpdated(root4, SyncLane, eventTime);
@@ -21955,12 +21955,12 @@ var require_react_dom_development = __commonJS({
             failedBoundaries.add(fiber);
           }
         }
-        var scheduleRefresh = function(root4, update2) {
+        var scheduleRefresh = function(root4, update) {
           {
             if (resolveFamily === null) {
               return;
             }
-            var staleFamilies = update2.staleFamilies, updatedFamilies = update2.updatedFamilies;
+            var staleFamilies = update.staleFamilies, updatedFamilies = update.updatedFamilies;
             flushPassiveEffects();
             flushSync(function() {
               scheduleFibersWithFamiliesRecursively(root4.current, updatedFamilies, staleFamilies);
@@ -22652,8 +22652,8 @@ var require_react_dom_development = __commonJS({
               if (typeof component.render === "function") {
                 throw new Error("Unable to find node on an unmounted component.");
               } else {
-                var keys4 = Object.keys(component).join(",");
-                throw new Error("Argument appears to not be a ReactComponent. Keys: " + keys4);
+                var keys3 = Object.keys(component).join(",");
+                throw new Error("Argument appears to not be a ReactComponent. Keys: " + keys3);
               }
             }
             var hostFiber = findCurrentHostFiber(fiber);
@@ -22696,9 +22696,9 @@ var require_react_dom_development = __commonJS({
           var current2 = root4.current;
           var eventTime = requestEventTime();
           var lane = requestUpdateLane(current2);
-          var update2 = createUpdate(eventTime, lane);
-          update2.callback = callback2 !== void 0 && callback2 !== null ? callback2 : null;
-          enqueueUpdate(current2, update2, lane);
+          var update = createUpdate(eventTime, lane);
+          update.callback = callback2 !== void 0 && callback2 !== null ? callback2 : null;
+          enqueueUpdate(current2, update, lane);
           scheduleInitialHydrationOnRoot(root4, lane, eventTime);
           return root4;
         }
@@ -22724,8 +22724,8 @@ var require_react_dom_development = __commonJS({
               error3("Render methods should be a pure function of props and state; triggering nested component updates from render is not allowed. If necessary, trigger nested updates in componentDidUpdate.\n\nCheck the render method of %s.", getComponentNameFromFiber(current) || "Unknown");
             }
           }
-          var update2 = createUpdate(eventTime, lane);
-          update2.payload = {
+          var update = createUpdate(eventTime, lane);
+          update.payload = {
             element: element2
           };
           callback2 = callback2 === void 0 ? null : callback2;
@@ -22735,9 +22735,9 @@ var require_react_dom_development = __commonJS({
                 error3("render(...): Expected the last optional `callback` argument to be a function. Instead received: %s.", callback2);
               }
             }
-            update2.callback = callback2;
+            update.callback = callback2;
           }
-          var root4 = enqueueUpdate(current$1, update2, lane);
+          var root4 = enqueueUpdate(current$1, update, lane);
           if (root4 !== null) {
             scheduleUpdateOnFiber(root4, current$1, lane, eventTime);
             entangleTransitions(root4, current$1, lane);
@@ -24366,9 +24366,9 @@ var require_react_jsx_runtime_development = __commonJS({
         }
         function validateFragmentProps(fragment2) {
           {
-            var keys4 = Object.keys(fragment2.props);
-            for (var i = 0; i < keys4.length; i++) {
-              var key2 = keys4[i];
+            var keys3 = Object.keys(fragment2.props);
+            for (var i = 0; i < keys3.length; i++) {
+              var key2 = keys3[i];
               if (key2 !== "children" && key2 !== "key") {
                 setCurrentlyValidatingElement$1(fragment2);
                 error3("Invalid prop `%s` supplied to `React.Fragment`. React.Fragment can only have `key` and `children` props.", key2);
@@ -24437,12 +24437,12 @@ var require_react_jsx_runtime_development = __commonJS({
             {
               if (hasOwnProperty2.call(props, "key")) {
                 var componentName = getComponentNameFromType(type);
-                var keys4 = Object.keys(props).filter(function(k) {
+                var keys3 = Object.keys(props).filter(function(k) {
                   return k !== "key";
                 });
-                var beforeExample = keys4.length > 0 ? "{key: someKey, " + keys4.join(": ..., ") + ": ...}" : "{key: someKey}";
+                var beforeExample = keys3.length > 0 ? "{key: someKey, " + keys3.join(": ..., ") + ": ...}" : "{key: someKey}";
                 if (!didWarnAboutKeySpread[componentName + beforeExample]) {
-                  var afterExample = keys4.length > 0 ? "{" + keys4.join(": ..., ") + ": ...}" : "{}";
+                  var afterExample = keys3.length > 0 ? "{" + keys3.join(": ..., ") + ": ...}" : "{}";
                   error3('A props object containing a "key" prop is being spread into JSX:\n  let props = %s;\n  <%s {...props} />\nReact keys must be passed directly to JSX without using spread:\n  let props = %s;\n  <%s key={someKey} {...props} />', beforeExample, componentName, afterExample, componentName);
                   didWarnAboutKeySpread[componentName + beforeExample] = true;
                 }
@@ -24708,8 +24708,8 @@ var fromFoldableImpl = /* @__PURE__ */ function() {
     }
     return result;
   }
-  return function(foldr4, xs) {
-    return listToArray(foldr4(curryCons)(emptyList)(xs));
+  return function(foldr3, xs) {
+    return listToArray(foldr3(curryCons)(emptyList)(xs));
   };
 }();
 var length = function(xs) {
@@ -27901,8 +27901,8 @@ function filter_default(match) {
 }
 
 // node_modules/d3-selection/src/selection/sparse.js
-function sparse_default(update2) {
-  return new Array(update2.length);
+function sparse_default(update) {
+  return new Array(update.length);
 }
 
 // node_modules/d3-selection/src/selection/enter.js
@@ -27940,12 +27940,12 @@ function constant_default(x) {
 }
 
 // node_modules/d3-selection/src/selection/data.js
-function bindIndex(parent2, group4, enter, update2, exit, data) {
+function bindIndex(parent2, group4, enter, update, exit, data) {
   var i = 0, node, groupLength = group4.length, dataLength = data.length;
   for (; i < dataLength; ++i) {
     if (node = group4[i]) {
       node.__data__ = data[i];
-      update2[i] = node;
+      update[i] = node;
     } else {
       enter[i] = new EnterNode(parent2, data[i]);
     }
@@ -27956,7 +27956,7 @@ function bindIndex(parent2, group4, enter, update2, exit, data) {
     }
   }
 }
-function bindKey(parent2, group4, enter, update2, exit, data, key2) {
+function bindKey(parent2, group4, enter, update, exit, data, key2) {
   var i, node, nodeByKeyValue = /* @__PURE__ */ new Map(), groupLength = group4.length, dataLength = data.length, keyValues = new Array(groupLength), keyValue;
   for (i = 0; i < groupLength; ++i) {
     if (node = group4[i]) {
@@ -27971,7 +27971,7 @@ function bindKey(parent2, group4, enter, update2, exit, data, key2) {
   for (i = 0; i < dataLength; ++i) {
     keyValue = key2.call(parent2, data[i], i, data) + "";
     if (node = nodeByKeyValue.get(keyValue)) {
-      update2[i] = node;
+      update[i] = node;
       node.__data__ = data[i];
       nodeByKeyValue.delete(keyValue);
     } else {
@@ -27991,8 +27991,8 @@ function data_default(value12, key2) {
   if (!arguments.length) return Array.from(this, datum);
   var bind61 = key2 ? bindKey : bindIndex, parents = this._parents, groups = this._groups;
   if (typeof value12 !== "function") value12 = constant_default(value12);
-  for (var m = groups.length, update2 = new Array(m), enter = new Array(m), exit = new Array(m), j = 0; j < m; ++j) {
-    var parent2 = parents[j], group4 = groups[j], groupLength = group4.length, data = arraylike(value12.call(parent2, parent2 && parent2.__data__, j, parents)), dataLength = data.length, enterGroup = enter[j] = new Array(dataLength), updateGroup = update2[j] = new Array(dataLength), exitGroup = exit[j] = new Array(groupLength);
+  for (var m = groups.length, update = new Array(m), enter = new Array(m), exit = new Array(m), j = 0; j < m; ++j) {
+    var parent2 = parents[j], group4 = groups[j], groupLength = group4.length, data = arraylike(value12.call(parent2, parent2 && parent2.__data__, j, parents)), dataLength = data.length, enterGroup = enter[j] = new Array(dataLength), updateGroup = update[j] = new Array(dataLength), exitGroup = exit[j] = new Array(groupLength);
     bind61(parent2, group4, enterGroup, updateGroup, exitGroup, data, key2);
     for (var i0 = 0, i1 = 0, previous, next; i0 < dataLength; ++i0) {
       if (previous = enterGroup[i0]) {
@@ -28002,10 +28002,10 @@ function data_default(value12, key2) {
       }
     }
   }
-  update2 = new Selection(update2, parents);
-  update2._enter = enter;
-  update2._exit = exit;
-  return update2;
+  update = new Selection(update, parents);
+  update._enter = enter;
+  update._exit = exit;
+  return update;
 }
 function arraylike(data) {
   return typeof data === "object" && "length" in data ? data : Array.from(data);
@@ -28018,7 +28018,7 @@ function exit_default() {
 
 // node_modules/d3-selection/src/selection/join.js
 function join_default(onenter, onupdate, onexit) {
-  var enter = this.enter(), update2 = this, exit = this.exit();
+  var enter = this.enter(), update = this, exit = this.exit();
   if (typeof onenter === "function") {
     enter = onenter(enter);
     if (enter) enter = enter.selection();
@@ -28026,12 +28026,12 @@ function join_default(onenter, onupdate, onexit) {
     enter = enter.append(onenter + "");
   }
   if (onupdate != null) {
-    update2 = onupdate(update2);
-    if (update2) update2 = update2.selection();
+    update = onupdate(update);
+    if (update) update = update.selection();
   }
   if (onexit == null) exit.remove();
   else onexit(exit);
-  return enter && update2 ? enter.merge(update2).order() : update2;
+  return enter && update ? enter.merge(update).order() : update;
 }
 
 // node_modules/d3-selection/src/selection/merge.js
@@ -29771,11 +29771,11 @@ var insert2 = function(k) {
   };
 };
 var fromFoldable3 = function(dictFoldable) {
-  var fromFoldable110 = fromFoldable(dictFoldable);
+  var fromFoldable19 = fromFoldable(dictFoldable);
   return function(l) {
     return runST(function __do3() {
       var s = newImpl();
-      foreach(fromFoldable110(l))(function(v) {
+      foreach(fromFoldable19(l))(function(v) {
         return $$void4(poke2(v.value0)(v.value1)(s));
       })();
       return s;
@@ -32017,15 +32017,15 @@ var map14 = /* @__PURE__ */ map(functorEffect);
 var map23 = /* @__PURE__ */ map(functorArray);
 var bind22 = /* @__PURE__ */ bind(bindAff);
 var pure1 = /* @__PURE__ */ pure(applicativeAff);
-var resolveUpdate = function(update2) {
+var resolveUpdate = function(update) {
   return function(current) {
-    var v = asFunction(update2);
+    var v = asFunction(update);
     if (v instanceof Just) {
       return v.value0(current);
     }
     ;
     if (v instanceof Nothing) {
-      return update2;
+      return update;
     }
     ;
     throw new Error("Failed pattern match at Boundary.Instance (line 514, column 32 - line 516, column 20): " + [v.constructor.name]);
@@ -32087,11 +32087,11 @@ var handleConnectionOut = function(c) {
 };
 var elementUpdater = function(outward) {
   return function(inward) {
-    return function(update2) {
+    return function(update) {
       return function(replace3) {
         return function(element2) {
           var current = outward(element2);
-          var next = resolveUpdate(update2)(current);
+          var next = resolveUpdate(update)(current);
           var $34 = replace3 && wholeElement(next);
           if ($34) {
             return inward(next);
@@ -32157,11 +32157,11 @@ var viewportHelperOptionsIn = function(field) {
 };
 var dataUpdater = function(outward) {
   return function(inward) {
-    return function(update2) {
+    return function(update) {
       return function(replace3) {
         return function(element2) {
           var current = outward(element2);
-          var nextData = resolveUpdate(update2)(current);
+          var nextData = resolveUpdate(update)(current);
           var merged = function() {
             if (replace3) {
               return nextData;
@@ -32308,17 +32308,17 @@ var instanceOut = function(i) {
     isNodeIntersecting: function(target5, area, partially) {
       return i.isNodeIntersecting(nodeOrIdOrRect("isNodeIntersecting")(target5))(area)(fromUndefinable(partially))();
     },
-    updateNode: function(id3, update2, options2) {
-      return i.updateNode(id3)(elementUpdater(nodeOut)(nodeIn)(update2)(replaceWanted(options2)))(updateOptionsIn(options2))();
+    updateNode: function(id3, update, options2) {
+      return i.updateNode(id3)(elementUpdater(nodeOut)(nodeIn)(update)(replaceWanted(options2)))(updateOptionsIn(options2))();
     },
-    updateNodeData: function(id3, update2, options2) {
-      return i.updateNodeData(id3)(dataUpdater(nodeOut)(nodeIn)(update2)(replaceWanted(options2)))(updateOptionsIn(options2))();
+    updateNodeData: function(id3, update, options2) {
+      return i.updateNodeData(id3)(dataUpdater(nodeOut)(nodeIn)(update)(replaceWanted(options2)))(updateOptionsIn(options2))();
     },
-    updateEdge: function(id3, update2, options2) {
-      return i.updateEdge(id3)(elementUpdater(edgeOut)(edgeIn)(update2)(replaceWanted(options2)))(updateOptionsIn(options2))();
+    updateEdge: function(id3, update, options2) {
+      return i.updateEdge(id3)(elementUpdater(edgeOut)(edgeIn)(update)(replaceWanted(options2)))(updateOptionsIn(options2))();
     },
-    updateEdgeData: function(id3, update2, options2) {
-      return i.updateEdgeData(id3)(dataUpdater(edgeOut)(edgeIn)(update2)(replaceWanted(options2)))(updateOptionsIn(options2))();
+    updateEdgeData: function(id3, update, options2) {
+      return i.updateEdgeData(id3)(dataUpdater(edgeOut)(edgeIn)(update)(replaceWanted(options2)))(updateOptionsIn(options2))();
     },
     getNodesBounds: function(refs) {
       return i.getNodesBounds(map23(nodeRefForBounds("getNodesBounds"))(refs))();
@@ -32752,7 +32752,7 @@ function useState_(tuple, initialState2) {
     typeof initialState2 === "function" ? () => initialState2 : initialState2
   );
   if (!setState.hasOwnProperty("$$reactBasicHooks$$cachedSetState")) {
-    setState.$$reactBasicHooks$$cachedSetState = (update2) => () => setState(update2);
+    setState.$$reactBasicHooks$$cachedSetState = (update) => () => setState(update);
   }
   return tuple(state3, setState.$$reactBasicHooks$$cachedSetState);
 }
@@ -34224,22 +34224,6 @@ var insert4 = function(dictOrd) {
     };
   };
 };
-var functorMap = {
-  map: function(f) {
-    var go2 = function(v) {
-      if (v instanceof Leaf) {
-        return Leaf.value;
-      }
-      ;
-      if (v instanceof Node) {
-        return new Node(v.value0, v.value1, v.value2, f(v.value3), go2(v.value4), go2(v.value5));
-      }
-      ;
-      throw new Error("Failed pattern match at Data.Map.Internal (line 147, column 10 - line 150, column 39): " + [v.constructor.name]);
-    };
-    return go2;
-  }
-};
 var foldableMap = {
   foldr: function(f) {
     return function(z) {
@@ -34894,12 +34878,6 @@ var isMacOsImpl = () => typeof navigator !== "undefined" && typeof navigator.use
 
 // output/Data.Set/index.js
 var coerce3 = /* @__PURE__ */ coerce();
-var foldMap2 = /* @__PURE__ */ foldMap(foldableList);
-var foldl4 = /* @__PURE__ */ foldl(foldableList);
-var foldr3 = /* @__PURE__ */ foldr(foldableList);
-var $$Set = function(x) {
-  return x;
-};
 var toList = function(v) {
   return keys2(v);
 };
@@ -34920,34 +34898,6 @@ var insert5 = function(dictOrd) {
       return insert16(a)(unit)(v);
     };
   };
-};
-var fromMap = $$Set;
-var foldableSet = {
-  foldMap: function(dictMonoid) {
-    var foldMap12 = foldMap2(dictMonoid);
-    return function(f) {
-      var $98 = foldMap12(f);
-      return function($99) {
-        return $98(toList($99));
-      };
-    };
-  },
-  foldl: function(f) {
-    return function(x) {
-      var $100 = foldl4(f)(x);
-      return function($101) {
-        return $100(toList($101));
-      };
-    };
-  },
-  foldr: function(f) {
-    return function(x) {
-      var $102 = foldr3(f)(x);
-      return function($103) {
-        return $102(toList($103));
-      };
-    };
-  }
 };
 var eqSet = function(dictEq) {
   var eq29 = eq(eqMap(dictEq)(eqUnit));
@@ -36281,15 +36231,16 @@ var PatchState = /* @__PURE__ */ function() {
 var isEdgeBaseImpl = (e) => e != null && typeof e === "object" && "id" in e && "source" in e && "target" in e;
 
 // output/System.Utils.Graph/index.js
+var lookup4 = /* @__PURE__ */ lookup2(ordNodeId);
+var nub3 = /* @__PURE__ */ nub(ordNodeId);
+var map20 = /* @__PURE__ */ map(functorArray);
 var eq7 = /* @__PURE__ */ eq(eqNodeId);
 var fromFoldable6 = /* @__PURE__ */ fromFoldable5(foldableArray);
 var fromFoldable1 = /* @__PURE__ */ fromFoldable6(ordNodeId);
-var map20 = /* @__PURE__ */ map(functorArray);
 var member4 = /* @__PURE__ */ member3(ordNodeId);
-var fromFoldable22 = /* @__PURE__ */ fromFoldable(foldableList);
-var lookup4 = /* @__PURE__ */ lookup2(ordNodeId);
 var unwrap7 = /* @__PURE__ */ unwrap();
-var foldMap3 = /* @__PURE__ */ foldMap(foldableArray)(monoidBoundingBox);
+var foldMap2 = /* @__PURE__ */ foldMap(foldableArray)(monoidBoundingBox);
+var fromFoldable22 = /* @__PURE__ */ fromFoldable(foldableList);
 var eqMaybe3 = /* @__PURE__ */ eqMaybe(eqBoolean);
 var eq23 = /* @__PURE__ */ eq(eqMaybe3);
 var fromFoldable32 = /* @__PURE__ */ fromFoldable6(ordString);
@@ -36299,8 +36250,17 @@ var pure9 = /* @__PURE__ */ pure(applicativeAff);
 var bind9 = /* @__PURE__ */ bind(bindAff);
 var filter5 = /* @__PURE__ */ filter4(ordNodeId);
 var alt2 = /* @__PURE__ */ alt(altMaybe);
-var isEdgeBase = function($104) {
-  return isEdgeBaseImpl($104);
+var orderedInternalNodes = function(nodes3) {
+  return function(lookup112) {
+    return mapMaybe(function(id3) {
+      return lookup4(id3)(lookup112);
+    })(nub3(map20(function(v) {
+      return v.id;
+    })(nodes3)));
+  };
+};
+var isEdgeBase = function($106) {
+  return isEdgeBaseImpl($106);
 };
 var getNodesInside = function(nodes3) {
   return function(rect) {
@@ -36321,8 +36281,8 @@ var getNodesInside = function(nodes3) {
         }();
         var visible = function(node) {
           var selectable = fromMaybe(true)(node.selectable);
-          var $44 = opts.excludeNonSelectable && !selectable || node.hidden;
-          if ($44) {
+          var $46 = opts.excludeNonSelectable && !selectable || node.hidden;
+          if ($46) {
             return false;
           }
           ;
@@ -36339,11 +36299,11 @@ var getNodesInside = function(nodes3) {
               return 0;
             }
             ;
-            throw new Error("Failed pattern match at System.Utils.Graph (line 245, column 18 - line 247, column 27): " + [mDims.constructor.name]);
+            throw new Error("Failed pattern match at System.Utils.Graph (line 262, column 18 - line 264, column 27): " + [mDims.constructor.name]);
           }();
           return forceInitialRender || (partiallyVisible || (overlapping >= area || node.dragging));
         };
-        return filter(visible)(fromFoldable22(values(nodes3)));
+        return filter(visible)(nodes3);
       };
     };
   };
@@ -36373,21 +36333,21 @@ var getNodesBounds = function(nodes3) {
                 return new Left(node);
               }
               ;
-              throw new Error("Failed pattern match at System.Utils.Graph (line 166, column 28 - line 168, column 35): " + [v.constructor.name]);
+              throw new Error("Failed pattern match at System.Utils.Graph (line 167, column 28 - line 169, column 35): " + [v.constructor.name]);
             }
             ;
             if (mLookup instanceof Nothing) {
               return new Left(node);
             }
             ;
-            throw new Error("Failed pattern match at System.Utils.Graph (line 165, column 20 - line 169, column 33): " + [mLookup.constructor.name]);
+            throw new Error("Failed pattern match at System.Utils.Graph (line 166, column 20 - line 170, column 33): " + [mLookup.constructor.name]);
           }();
           return nodeToBox(source)(origin2);
         };
-        return boxToRect(unwrap7(foldMap3(nodeBoundingBox)(nodes3)));
+        return boxToRect(unwrap7(foldMap2(nodeBoundingBox)(nodes3)));
       }
       ;
-      throw new Error("Failed pattern match at System.Utils.Graph (line 153, column 1 - line 158, column 10): " + [nodes3.constructor.name, mLookup.constructor.name, origin2.constructor.name]);
+      throw new Error("Failed pattern match at System.Utils.Graph (line 154, column 1 - line 159, column 10): " + [nodes3.constructor.name, mLookup.constructor.name, origin2.constructor.name]);
     };
   };
 };
@@ -36403,11 +36363,11 @@ var getInternalNodesBounds = function(nodeLookup) {
         return mFilter.value0(node);
       }
       ;
-      throw new Error("Failed pattern match at System.Utils.Graph (line 185, column 17 - line 187, column 23): " + [mFilter.constructor.name]);
+      throw new Error("Failed pattern match at System.Utils.Graph (line 186, column 17 - line 188, column 23): " + [mFilter.constructor.name]);
     };
     var kept = filter(keep)(fromFoldable22(values(nodeLookup)));
-    var $56 = length(kept) === 0;
-    if ($56) {
+    var $58 = length(kept) === 0;
+    if ($58) {
       return {
         x: 0,
         y: 0,
@@ -36416,7 +36376,7 @@ var getInternalNodesBounds = function(nodeLookup) {
       };
     }
     ;
-    var merged = foldMap3(function(n) {
+    var merged = foldMap2(function(n) {
       return nodeToBox(new Right(n))(zeroOrigin2);
     })(kept);
     return boxToRect(unwrap7(merged));
@@ -36454,17 +36414,17 @@ var getElementsToRemove = function(p) {
                 return false;
               }
               ;
-              throw new Error("Failed pattern match at System.Utils.Graph (line 511, column 25 - line 515, column 31): " + [node.parentId.constructor.name]);
+              throw new Error("Failed pattern match at System.Utils.Graph (line 528, column 25 - line 532, column 31): " + [node.parentId.constructor.name]);
             }();
-            var $64 = isIncluded || parentHit;
-            if ($64) {
+            var $66 = isIncluded || parentHit;
+            if ($66) {
               return snoc(acc)(node);
             }
             ;
             return acc;
           }
           ;
-          throw new Error("Failed pattern match at System.Utils.Graph (line 506, column 5 - line 518, column 21): " + [acc.constructor.name, node.constructor.name]);
+          throw new Error("Failed pattern match at System.Utils.Graph (line 523, column 5 - line 535, column 21): " + [acc.constructor.name, node.constructor.name]);
         };
       };
       return foldl2(step2)([])(nodes3);
@@ -36483,10 +36443,10 @@ var getElementsToRemove = function(p) {
   var connectedEdges = getConnectedEdges(matchingNodes)(deletableEdges);
   var matchingEdges = foldl2(function(acc) {
     return function(edge) {
-      var $65 = member1(edge.id)(edgeIds) && !any2(function(e) {
+      var $67 = member1(edge.id)(edgeIds) && !any2(function(e) {
         return e.id === edge.id;
       })(acc);
-      if ($65) {
+      if ($67) {
         return snoc(acc)(edge);
       }
       ;
@@ -36524,12 +36484,12 @@ var getElementsToRemove = function(p) {
           return result.value0;
         }
         ;
-        throw new Error("Failed pattern match at System.Utils.Graph (line 499, column 12 - line 502, column 21): " + [result.constructor.name]);
+        throw new Error("Failed pattern match at System.Utils.Graph (line 516, column 12 - line 519, column 21): " + [result.constructor.name]);
       }());
     });
   }
   ;
-  throw new Error("Failed pattern match at System.Utils.Graph (line 495, column 3 - line 502, column 21): " + [p.onBeforeDelete.constructor.name]);
+  throw new Error("Failed pattern match at System.Utils.Graph (line 512, column 3 - line 519, column 21): " + [p.onBeforeDelete.constructor.name]);
 };
 var filterFitViewNodes = function(nodes3) {
   return function(opts) {
@@ -36544,7 +36504,7 @@ var filterFitViewNodes = function(nodes3) {
         return Nothing.value;
       }
       ;
-      throw new Error("Failed pattern match at System.Utils.Graph (line 348, column 17 - line 350, column 25): " + [opts.nodes.constructor.name]);
+      throw new Error("Failed pattern match at System.Utils.Graph (line 365, column 17 - line 367, column 25): " + [opts.nodes.constructor.name]);
     }();
     return filter5(function(n) {
       var visible = opts.includeHiddenNodes || !n.hidden;
@@ -36557,7 +36517,7 @@ var filterFitViewNodes = function(nodes3) {
           return member4(n.id)(optionIds.value0);
         }
         ;
-        throw new Error("Failed pattern match at System.Utils.Graph (line 358, column 25 - line 360, column 46): " + [optionIds.constructor.name]);
+        throw new Error("Failed pattern match at System.Utils.Graph (line 375, column 25 - line 377, column 46): " + [optionIds.constructor.name]);
       }();
       var hasSize = isJust(n.measured.width) && isJust(n.measured.height);
       return hasSize && (visible && inOptions);
@@ -36583,8 +36543,8 @@ var fitViewport = function(params) {
   return function(mOptions) {
     var options2 = fromMaybe(defaultFitViewOptions)(mOptions);
     var nodesToFit = filterFitViewNodes(params.nodes)(options2);
-    var $76 = size2(nodesToFit) === 0;
-    if ($76) {
+    var $78 = size2(nodesToFit) === 0;
+    if ($78) {
       return pure9(true);
     }
     ;
@@ -36615,7 +36575,7 @@ var calculateNodePosition = function(p) {
         return Nothing.value;
       }
       ;
-      throw new Error("Failed pattern match at System.Utils.Graph (line 397, column 20 - line 399, column 27): " + [v.value0.parentId.constructor.name]);
+      throw new Error("Failed pattern match at System.Utils.Graph (line 414, column 20 - line 416, column 27): " + [v.value0.parentId.constructor.name]);
     }();
     var parentX = function() {
       if (parentNode instanceof Just) {
@@ -36626,7 +36586,7 @@ var calculateNodePosition = function(p) {
         return 0;
       }
       ;
-      throw new Error("Failed pattern match at System.Utils.Graph (line 400, column 17 - line 402, column 23): " + [parentNode.constructor.name]);
+      throw new Error("Failed pattern match at System.Utils.Graph (line 417, column 17 - line 419, column 23): " + [parentNode.constructor.name]);
     }();
     var parentY = function() {
       if (parentNode instanceof Just) {
@@ -36637,7 +36597,7 @@ var calculateNodePosition = function(p) {
         return 0;
       }
       ;
-      throw new Error("Failed pattern match at System.Utils.Graph (line 403, column 17 - line 405, column 23): " + [parentNode.constructor.name]);
+      throw new Error("Failed pattern match at System.Utils.Graph (line 420, column 17 - line 422, column 23): " + [parentNode.constructor.name]);
     }();
     var v1 = fromMaybe(p.nodeOrigin)(v.value0.origin);
     var width8 = fromMaybe(0)(v.value0.measured.width);
@@ -36651,7 +36611,7 @@ var calculateNodePosition = function(p) {
         return p.nodeExtent;
       }
       ;
-      throw new Error("Failed pattern match at System.Utils.Graph (line 408, column 20 - line 410, column 32): " + [v.value0.extent.constructor.name]);
+      throw new Error("Failed pattern match at System.Utils.Graph (line 425, column 20 - line 427, column 32): " + [v.value0.extent.constructor.name]);
     }();
     var extent = function() {
       if (v.value0.extent instanceof Just && (v.value0.extent.value0 instanceof ParentExtent && !v.value0.expandParent)) {
@@ -36672,7 +36632,7 @@ var calculateNodePosition = function(p) {
           return extentBase;
         }
         ;
-        throw new Error("Failed pattern match at System.Utils.Graph (line 414, column 11 - line 426, column 34): " + [parentNode.constructor.name]);
+        throw new Error("Failed pattern match at System.Utils.Graph (line 431, column 11 - line 443, column 34): " + [parentNode.constructor.name]);
       }
       ;
       if (parentNode instanceof Just && (v.value0.extent instanceof Just && v.value0.extent.value0 instanceof CoordExtent)) {
@@ -36698,7 +36658,7 @@ var calculateNodePosition = function(p) {
         return p.nextPosition;
       }
       ;
-      throw new Error("Failed pattern match at System.Utils.Graph (line 439, column 26 - line 443, column 34): " + [extent.constructor.name]);
+      throw new Error("Failed pattern match at System.Utils.Graph (line 456, column 26 - line 460, column 34): " + [extent.constructor.name]);
     }();
     return new Just({
       position: {
@@ -36709,7 +36669,7 @@ var calculateNodePosition = function(p) {
     });
   }
   ;
-  throw new Error("Failed pattern match at System.Utils.Graph (line 393, column 27 - line 454, column 10): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at System.Utils.Graph (line 410, column 27 - line 471, column 10): " + [v.constructor.name]);
 };
 
 // output/React.Hook.ReactFlow/index.js
@@ -38486,7 +38446,7 @@ function parseSvg(value12) {
 
 // node_modules/d3-interpolate/src/transform/index.js
 function interpolateTransform(parse7, pxComma, pxParen, degParen) {
-  function pop2(s) {
+  function pop(s) {
     return s.length ? s.pop() + " " : "";
   }
   function translate(xa, ya, xb, yb, s, q) {
@@ -38501,24 +38461,24 @@ function interpolateTransform(parse7, pxComma, pxParen, degParen) {
     if (a !== b) {
       if (a - b > 180) b += 360;
       else if (b - a > 180) a += 360;
-      q.push({ i: s.push(pop2(s) + "rotate(", null, degParen) - 2, x: number_default(a, b) });
+      q.push({ i: s.push(pop(s) + "rotate(", null, degParen) - 2, x: number_default(a, b) });
     } else if (b) {
-      s.push(pop2(s) + "rotate(" + b + degParen);
+      s.push(pop(s) + "rotate(" + b + degParen);
     }
   }
   function skewX(a, b, s, q) {
     if (a !== b) {
-      q.push({ i: s.push(pop2(s) + "skewX(", null, degParen) - 2, x: number_default(a, b) });
+      q.push({ i: s.push(pop(s) + "skewX(", null, degParen) - 2, x: number_default(a, b) });
     } else if (b) {
-      s.push(pop2(s) + "skewX(" + b + degParen);
+      s.push(pop(s) + "skewX(" + b + degParen);
     }
   }
   function scale2(xa, ya, xb, yb, s, q) {
     if (xa !== xb || ya !== yb) {
-      var i = s.push(pop2(s) + "scale(", null, ",", null, ")");
+      var i = s.push(pop(s) + "scale(", null, ",", null, ")");
       q.push({ i: i - 4, x: number_default(xa, xb) }, { i: i - 2, x: number_default(ya, yb) });
     } else if (xb !== 1 || yb !== 1) {
-      s.push(pop2(s) + "scale(" + xb + "," + yb + ")");
+      s.push(pop(s) + "scale(" + xb + "," + yb + ")");
     }
   }
   return function(a, b) {
@@ -39976,7 +39936,7 @@ var createXYMinimap = function(params) {
       x: 0,
       y: 0
     })();
-    var update2 = function(upd) {
+    var update = function(upd) {
       return function __do4() {
         var zoomBehavior = zoomCreate();
         setZoomOn("start")(panStartHandler(panStart))(zoomBehavior)();
@@ -40010,7 +39970,7 @@ var createXYMinimap = function(params) {
       return pure18(unit);
     }))(zoomCreate));
     return {
-      update: update2,
+      update,
       destroy,
       pointer
     };
@@ -41247,7 +41207,7 @@ var append15 = /* @__PURE__ */ append(semigroupArray);
 var eq13 = /* @__PURE__ */ eq(eqPosition);
 var notEq1 = /* @__PURE__ */ notEq(eqPosition);
 var max8 = /* @__PURE__ */ max(ordNumber);
-var foldl5 = /* @__PURE__ */ foldl(foldableArray);
+var foldl4 = /* @__PURE__ */ foldl(foldableArray);
 var AxisX = /* @__PURE__ */ function() {
   function AxisX2() {
   }
@@ -41820,7 +41780,7 @@ var getSmoothStepPath = function(p) {
       return "";
     }
     ;
-    return foldl5(function(acc) {
+    return foldl4(function(acc) {
       return function(i) {
         var c = fromMaybe({
           x: 0,
@@ -42681,7 +42641,7 @@ var edgeAnchor = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompon
 var lookup8 = /* @__PURE__ */ lookup2(ordParentId);
 var insert6 = /* @__PURE__ */ insert4(ordParentId);
 var insert1 = /* @__PURE__ */ insert4(ordNodeId);
-var foldl6 = /* @__PURE__ */ foldl(foldableArray);
+var foldl5 = /* @__PURE__ */ foldl(foldableArray);
 var pure33 = /* @__PURE__ */ pure(applicativeAff);
 var bind19 = /* @__PURE__ */ bind(bindAff);
 var max9 = /* @__PURE__ */ max(ordNumber);
@@ -42781,7 +42741,7 @@ var parseHandles = function(userNode) {
         source: [],
         target: []
       };
-      return new Just(foldl6(go2)(empty8)(userNode.handles.value0));
+      return new Just(foldl5(go2)(empty8)(userNode.handles.value0));
     }
     ;
     throw new Error("Failed pattern match at System.Utils.Store (line 472, column 38 - line 505, column 45): " + [userNode.handles.constructor.name]);
@@ -42964,7 +42924,7 @@ var handleExpandParent = function(children3) {
   return function(nodeLookup) {
     return function(parentLookup) {
       return function(defaultOrigin) {
-        var expansions = foldl6(function(acc) {
+        var expansions = foldl5(function(acc) {
           return function(child) {
             var v = lookup12(parentToNode(child.parentId))(nodeLookup);
             if (v instanceof Nothing) {
@@ -43269,13 +43229,13 @@ var updateChildNodePure = function(node) {
     };
   };
 };
-var processUpdate = function(update2) {
+var processUpdate = function(update) {
   return function(acc) {
     return function(zoom) {
       return function(origin2) {
         return function(extent) {
           return function(zMode) {
-            var v = lookup12(update2.id)(acc.nodeLookup);
+            var v = lookup12(update.id)(acc.nodeLookup);
             if (v instanceof Nothing) {
               return pure114(acc);
             }
@@ -43329,15 +43289,15 @@ var processUpdate = function(update2) {
               }
               ;
               return function __do3() {
-                var dims = getDimensions(update2.nodeElement)();
+                var dims = getDimensions(update.nodeElement)();
                 var dimensionChanged = notEq12(v.value0.measured.width)(new Just(dims.width)) || notEq12(v.value0.measured.height)(new Just(dims.height));
-                var shouldUpdate = dims.width > 0 && (dims.height > 0 && (dimensionChanged || (isNothing(v.value0.internals.handleBounds) || update2.force)));
+                var shouldUpdate = dims.width > 0 && (dims.height > 0 && (dimensionChanged || (isNothing(v.value0.internals.handleBounds) || update.force)));
                 var $149 = !shouldUpdate;
                 if ($149) {
                   return acc;
                 }
                 ;
-                var nodeBounds = elementBoundingRect(update2.nodeElement)();
+                var nodeBounds = elementBoundingRect(update.nodeElement)();
                 var chosenExt = function() {
                   var v1 = isCoordinateExtent(v.value0.extent);
                   if (v1 instanceof Just) {
@@ -43377,8 +43337,8 @@ var processUpdate = function(update2) {
                   ;
                   throw new Error("Failed pattern match at System.Utils.Store (line 776, column 23 - line 780, column 59): " + [chosenExt.constructor.name]);
                 }();
-                var sourceHandles = getHandleBounds(Source.value)(update2.nodeElement)(nodeBounds)(zoom)(v.value0.id)();
-                var targetHandles = getHandleBounds(Target.value)(update2.nodeElement)(nodeBounds)(zoom)(v.value0.id)();
+                var sourceHandles = getHandleBounds(Source.value)(update.nodeElement)(nodeBounds)(zoom)(v.value0.id)();
+                var targetHandles = getHandleBounds(Target.value)(update.nodeElement)(nodeBounds)(zoom)(v.value0.id)();
                 var newNode = {
                   ariaLabel: v.value0.ariaLabel,
                   className: v.value0.className,
@@ -43718,7 +43678,7 @@ var adoptUserNodes = function(nodes3) {
           hasSelectedNodes: false,
           rootParentIndex: new Just(0)
         };
-        var $$final = foldl6(step2)(initial)(nodes3);
+        var $$final = foldl5(step2)(initial)(nodes3);
         return {
           nodeLookup: $$final.nodeLookup,
           parentLookup: $$final.parentLookup,
@@ -43774,7 +43734,7 @@ var updateConnectionLookup = function(edges2) {
     connectionLookup: empty5,
     edgeLookup: empty5
   };
-  var $$final = foldl6(function(st) {
+  var $$final = foldl5(function(st) {
     return function(edge) {
       var targetStr = unwrap10(edge.target);
       var sourceStr = unwrap10(edge.source);
@@ -46451,24 +46411,16 @@ var markerDefinitions = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo
   });
 })));
 
-// output/Data.Map/index.js
-var keys3 = /* @__PURE__ */ function() {
-  var $38 = $$void(functorMap);
-  return function($39) {
-    return fromMap($38($39));
-  };
-}();
-
 // output/React.Hook.VisibleIds.Pure/index.js
 var map39 = /* @__PURE__ */ map(functorArray);
-var fromFoldable10 = /* @__PURE__ */ fromFoldable(foldableSet);
 var lookup14 = /* @__PURE__ */ lookup2(ordNodeId);
 var selectVisibleNodeIds = function(onlyRenderVisible) {
   return function(s) {
+    var nodes3 = orderedInternalNodes(s.nodes)(s.nodeLookup);
     if (onlyRenderVisible) {
       return map39(function(v) {
         return v.id;
-      })(getNodesInside(s.nodeLookup)({
+      })(getNodesInside(nodes3)({
         x: 0,
         y: 0,
         width: s.width,
@@ -46479,7 +46431,9 @@ var selectVisibleNodeIds = function(onlyRenderVisible) {
       }));
     }
     ;
-    return fromFoldable10(keys3(s.nodeLookup));
+    return map39(function(v) {
+      return v.id;
+    })(nodes3);
   };
 };
 var selectVisibleEdgeIds = function(onlyRenderVisible) {
@@ -47733,7 +47687,7 @@ var lookup15 = /* @__PURE__ */ lookup2(ordNodeId);
 var insert8 = /* @__PURE__ */ insert5(ordParentId);
 var eq19 = /* @__PURE__ */ eq(eqNodeId);
 var eq110 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqNodeId));
-var nub3 = /* @__PURE__ */ nub(ordNodeId);
+var nub4 = /* @__PURE__ */ nub(ordNodeId);
 var isParentSelected = function(node) {
   return function(lookup112) {
     var go2 = function($copy_v) {
@@ -47934,7 +47888,7 @@ var getDragItems = function(order) {
               return acc;
             };
           };
-          return foldl2(step2)([])(nub3(order));
+          return foldl2(step2)([])(nub4(order));
         };
       };
     };
@@ -48703,7 +48657,7 @@ var onDragHandler = function(params) {
 var createXYDrag = function(params) {
   return function __do3() {
     var stateRef = $$new(initialDragState2)();
-    var update2 = function(upd) {
+    var update = function(upd) {
       return function __do4() {
         var sel = d3Select(upd.domNode)();
         modify_(function(v) {
@@ -48743,7 +48697,7 @@ var createXYDrag = function(params) {
       })();
     };
     return {
-      update: update2,
+      update,
       destroy
     };
   };
@@ -49318,14 +49272,14 @@ var autoPanLoop3 = function(env) {
 // output/React.Store.Changes/index.js
 var lookup19 = /* @__PURE__ */ lookup2(ordNodeId);
 var insert9 = /* @__PURE__ */ insert4(ordNodeId);
-var foldl7 = /* @__PURE__ */ foldl(foldableArray);
+var foldl6 = /* @__PURE__ */ foldl(foldableArray);
 var lookup110 = /* @__PURE__ */ lookup2(ordString);
 var insert12 = /* @__PURE__ */ insert4(ordString);
 var max10 = /* @__PURE__ */ max(ordInt);
 var min7 = /* @__PURE__ */ min(ordInt);
 var toUnfoldable8 = /* @__PURE__ */ toUnfoldable5(unfoldableArray);
 var map46 = /* @__PURE__ */ map(functorArray);
-var fromFoldable11 = /* @__PURE__ */ fromFoldable4(ordNodeId)(foldableArray);
+var fromFoldable10 = /* @__PURE__ */ fromFoldable4(ordNodeId)(foldableArray);
 var member7 = /* @__PURE__ */ member2(ordNodeId);
 var append10 = /* @__PURE__ */ append(semigroupArray);
 var fromFoldable12 = /* @__PURE__ */ fromFoldable4(ordString)(foldableArray);
@@ -49394,7 +49348,7 @@ var partitionNodeChanges = /* @__PURE__ */ function() {
       throw new Error("Failed pattern match at React.Store.Changes (line 65, column 16 - line 71, column 76): " + [c.constructor.name]);
     };
   };
-  return foldl7(step2)({
+  return foldl6(step2)({
     byId: empty5,
     adds: []
   });
@@ -49449,7 +49403,7 @@ var partitionEdgeChanges = /* @__PURE__ */ function() {
       throw new Error("Failed pattern match at React.Store.Changes (line 80, column 16 - line 84, column 76): " + [c.constructor.name]);
     };
   };
-  return foldl7(step2)({
+  return foldl6(step2)({
     byId: empty5,
     adds: []
   });
@@ -49521,7 +49475,7 @@ var getSelectionChangesGeneric = function(dictOrd) {
           };
         };
         var pairs = toUnfoldable8(items);
-        return foldl7(step2)({
+        return foldl6(step2)({
           changes: [],
           items
         })(pairs);
@@ -49561,10 +49515,10 @@ var getNodeElementsDiffChanges = function(mItems) {
       ;
       throw new Error("Failed pattern match at React.Store.Changes (line 290, column 13 - line 292, column 20): " + [mItems.constructor.name]);
     }();
-    var itemsLookup = fromFoldable11(map46(function(n) {
+    var itemsLookup = fromFoldable10(map46(function(n) {
       return new Tuple(n.id, n);
     })(items));
-    var removes = foldl7(function(acc) {
+    var removes = foldl6(function(acc) {
       return function(v) {
         var $94 = member7(v.value0)(itemsLookup);
         if ($94) {
@@ -49602,7 +49556,7 @@ var getNodeElementsDiffChanges = function(mItems) {
         };
       };
     };
-    var forwardPass = foldl7(forwardStep)({
+    var forwardPass = foldl6(forwardStep)({
       changes: [],
       index: 0
     })(items);
@@ -49639,7 +49593,7 @@ var getEdgeElementsDiffChanges = function(mItems) {
     var itemsLookup = fromFoldable12(map46(function(e) {
       return new Tuple(e.id, e);
     })(items));
-    var removes = foldl7(function(acc) {
+    var removes = foldl6(function(acc) {
       return function(v) {
         var $102 = member12(v.value0)(itemsLookup);
         if ($102) {
@@ -49677,7 +49631,7 @@ var getEdgeElementsDiffChanges = function(mItems) {
         };
       };
     };
-    var forwardPass = foldl7(forwardStep)({
+    var forwardPass = foldl6(forwardStep)({
       changes: [],
       index: 0
     })(items);
@@ -49978,7 +49932,7 @@ var applyChangesForNode = function(node) {
         return new Just(v.value0.head.value0.item);
       }
       ;
-      return new Just(foldl7(function(curr) {
+      return new Just(foldl6(function(curr) {
         return function(c) {
           return applySingleNodeChange(c)(curr);
         };
@@ -50000,7 +49954,7 @@ var applyNodeChanges = function(changes) {
       };
     };
     var buckets = partitionNodeChanges(changes);
-    var afterUpdates = foldl7(function(acc) {
+    var afterUpdates = foldl6(function(acc) {
       return function(node) {
         var v = lookup19(node.id)(buckets.byId);
         if (v instanceof Nothing) {
@@ -50023,7 +49977,7 @@ var applyNodeChanges = function(changes) {
         throw new Error("Failed pattern match at React.Store.Changes (line 167, column 24 - line 171, column 53): " + [v.constructor.name]);
       };
     })([])(nodes3);
-    return foldl7(applyNodeAdd)(afterUpdates)(buckets.adds);
+    return foldl6(applyNodeAdd)(afterUpdates)(buckets.adds);
   };
 };
 var applyChangesForEdge = function(edge) {
@@ -50042,7 +49996,7 @@ var applyChangesForEdge = function(edge) {
         return new Just(v.value0.head.value0.item);
       }
       ;
-      return new Just(foldl7(function(curr) {
+      return new Just(foldl6(function(curr) {
         return function(c) {
           return applySingleEdgeChange(c)(curr);
         };
@@ -50064,7 +50018,7 @@ var applyEdgeChanges = function(changes) {
       };
     };
     var buckets = partitionEdgeChanges(changes);
-    var afterUpdates = foldl7(function(acc) {
+    var afterUpdates = foldl6(function(acc) {
       return function(edge) {
         var v = lookup110(edge.id)(buckets.byId);
         if (v instanceof Nothing) {
@@ -50087,7 +50041,7 @@ var applyEdgeChanges = function(changes) {
         throw new Error("Failed pattern match at React.Store.Changes (line 189, column 24 - line 193, column 53): " + [v.constructor.name]);
       };
     })([])(edges2);
-    return foldl7(applyEdgeAdd)(afterUpdates)(buckets.adds);
+    return foldl6(applyEdgeAdd)(afterUpdates)(buckets.adds);
   };
 };
 
@@ -50097,7 +50051,7 @@ var lookup20 = /* @__PURE__ */ lookup2(ordString);
 var insert10 = /* @__PURE__ */ insert5(ordString);
 var bind116 = /* @__PURE__ */ bind(bindMaybe);
 var unwrap15 = /* @__PURE__ */ unwrap();
-var foldl8 = /* @__PURE__ */ foldl(foldableList);
+var foldl7 = /* @__PURE__ */ foldl(foldableList);
 var foldl12 = /* @__PURE__ */ foldl(foldableArray);
 var toUnfoldable9 = /* @__PURE__ */ toUnfoldable6(unfoldableArray);
 var pure50 = /* @__PURE__ */ pure(applicativeEffect);
@@ -50129,7 +50083,7 @@ var for_14 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var map47 = /* @__PURE__ */ map(functorEffect);
 var elem6 = /* @__PURE__ */ elem3(eqInt);
 var eq111 = /* @__PURE__ */ eq(eqSelectionMode);
-var fromFoldable13 = /* @__PURE__ */ fromFoldable5(foldableArray)(ordNodeId);
+var fromFoldable11 = /* @__PURE__ */ fromFoldable5(foldableArray)(ordNodeId);
 var map116 = /* @__PURE__ */ map(functorArray);
 var areSetsEqual2 = /* @__PURE__ */ areSetsEqual(eqNodeId);
 var areSetsEqual1 = /* @__PURE__ */ areSetsEqual(eqString);
@@ -50225,7 +50179,7 @@ var collectIncidentEdgeIds = function(state3) {
         }
         ;
         if (v instanceof Just) {
-          return foldl8(addEdgeIfSelectable(edgesSelectableDefault))(acc)(values(v.value0));
+          return foldl7(addEdgeIfSelectable(edgesSelectableDefault))(acc)(values(v.value0));
         }
         ;
         throw new Error("Failed pattern match at React.Container.Pane (line 135, column 34 - line 137, column 102): " + [v.constructor.name]);
@@ -50625,11 +50579,11 @@ var pane = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__
                                 width: nextRectBare.width,
                                 height: nextRectBare.height
                               };
-                              var nextNodes = getNodesInside(st.nodeLookup)(nextRectBare)(st.transform)({
+                              var nextNodes = getNodesInside(orderedInternalNodes(st.nodes)(st.nodeLookup))(nextRectBare)(st.transform)({
                                 partially: eq111(v.selectionMode)(Partial.value),
                                 excludeNonSelectable: true
                               });
-                              var nextNodeIds = fromFoldable13(map116(function(v1) {
+                              var nextNodeIds = fromFoldable11(map116(function(v1) {
                                 return v1.id;
                               })(nextNodes));
                               var nextEdgeIds = collectIncidentEdgeIds(st)(nextNodeIds);
@@ -51146,7 +51100,7 @@ var coerceHook4 = /* @__PURE__ */ coerceHook();
 var bind35 = /* @__PURE__ */ bind4(ixBindRender);
 var discard10 = /* @__PURE__ */ discard2(ixBindRender);
 var pure51 = /* @__PURE__ */ pure(applicativeEffect);
-var any5 = /* @__PURE__ */ any(foldableArray)(heytingAlgebraBoolean);
+var any4 = /* @__PURE__ */ any(foldableArray)(heytingAlgebraBoolean);
 var applySecond2 = /* @__PURE__ */ applySecond(applyEffect);
 var pure123 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var eventTypeName = function(v) {
@@ -51196,7 +51150,7 @@ var useKeyPress = function(mKeyCode) {
           var win = windowImpl();
           var target5 = toEventTarget(win);
           var matchesEvent = function(ev) {
-            return any5(function(v1) {
+            return any4(function(v1) {
               return v1 === key(ev);
             })(codes);
           };
@@ -53094,12 +53048,12 @@ var useNodeObserver = function(params) {
         ;
         if (params.sharedObserver instanceof Nothing) {
           var observer = createResizeObserver(function(v) {
-            var update2 = {
+            var update = {
               id: params.nodeId,
               nodeElement: mDiv.value0,
               force: params.force
             };
-            return store.dispatch(new UpdateNodeInternals(singleton6(params.nodeId)(update2), {
+            return store.dispatch(new UpdateNodeInternals(singleton6(params.nodeId)(update), {
               triggerFitView: false
             }));
           })();
@@ -53589,7 +53543,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                     width: st.width,
                     height: st.height
                   };
-                  var visible = getNodesInside(singleton6(v.id)(slice3.node))(paneRect)(st.transform)({
+                  var visible = getNodesInside([slice3.node])(paneRect)(st.transform)({
                     partially: true,
                     excludeNonSelectable: false
                   });
@@ -54021,8 +53975,8 @@ var useNodeOrEdgeTypesWarning = function(mTypes) {
           when20(isDevelopment)(function __do4() {
             var s = store.getState();
             var previous = readRef(typesRef)();
-            var keys4 = objectKeysUnion(previous)(current);
-            var anyDiffered = checkKeys(keys4)(previous)(current)(0);
+            var keys3 = objectKeysUnion(previous)(current);
+            var anyDiffered = checkKeys(keys3)(previous)(current)(0);
             return when20(anyDiffered)(function() {
               if (s.onError instanceof Just) {
                 return s.onError.value0("002")(errorMessage(E002.value));
@@ -54386,7 +54340,7 @@ var useMemo5 = /* @__PURE__ */ useMemo(eqUnit);
 var discard19 = /* @__PURE__ */ discard2(ixBindRender);
 var useIsomorphicLayoutEffect2 = /* @__PURE__ */ useIsomorphicLayoutEffect(eqInt);
 var when22 = /* @__PURE__ */ when(applicativeEffect);
-var foldl9 = /* @__PURE__ */ foldl(foldableArray);
+var foldl8 = /* @__PURE__ */ foldl(foldableArray);
 var pure68 = /* @__PURE__ */ pure(applicativeEffect);
 var pure127 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var coerceNodeQueue = unsafeCoerce2;
@@ -54421,8 +54375,8 @@ var batchProvider = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCom
             var edgeItems = edgeQueue.get();
             when22(!$$null(nodeItems) || !$$null(edgeItems))(function __do4() {
               var s = store.getState();
-              var nextNodes = foldl9(applyQueueItem)(s.nodes)(nodeItems);
-              var nextEdges = foldl9(applyQueueItem)(s.edges)(edgeItems);
+              var nextNodes = foldl8(applyQueueItem)(s.nodes)(nodeItems);
+              var nextEdges = foldl8(applyQueueItem)(s.edges)(edgeItems);
               when22(!$$null(nodeItems))(function __do5() {
                 (function() {
                   if (s.hasDefaultNodes) {
@@ -54658,9 +54612,9 @@ var ordMiddlewareKey = ordInt;
 // output/React.Store.Reduce/index.js
 var append19 = /* @__PURE__ */ append(semigroupArray);
 var map59 = /* @__PURE__ */ map(functorArray);
-var fromFoldable14 = /* @__PURE__ */ fromFoldable5(foldableArray);
-var fromFoldable15 = /* @__PURE__ */ fromFoldable14(ordString);
-var fromFoldable23 = /* @__PURE__ */ fromFoldable14(ordNodeId);
+var fromFoldable13 = /* @__PURE__ */ fromFoldable5(foldableArray);
+var fromFoldable14 = /* @__PURE__ */ fromFoldable13(ordString);
+var fromFoldable23 = /* @__PURE__ */ fromFoldable13(ordNodeId);
 var toUnfoldable10 = /* @__PURE__ */ toUnfoldable5(unfoldableArray);
 var insert13 = /* @__PURE__ */ insert4(ordMiddlewareKey);
 var $$delete4 = /* @__PURE__ */ $$delete3(ordMiddlewareKey);
@@ -55635,7 +55589,7 @@ var reduceAddSelectedEdges = function(state3) {
     }
     ;
     if (otherwise) {
-      var selectedSet = fromFoldable15(ids);
+      var selectedSet = fromFoldable14(ids);
       var nodeRes = function() {
         var $62 = $$null(ids);
         if ($62) {
@@ -57713,7 +57667,7 @@ var useColorModeClass = function(mode) {
 
 // output/React.Provider.SelectionListener/index.js
 var unwrap19 = /* @__PURE__ */ unwrap();
-var fromFoldable16 = /* @__PURE__ */ fromFoldable(foldableList);
+var fromFoldable15 = /* @__PURE__ */ fromFoldable(foldableList);
 var reactComponent10 = /* @__PURE__ */ reactComponent()()();
 var bind50 = /* @__PURE__ */ bind4(ixBindRender);
 var eqArray2 = /* @__PURE__ */ eqArray(eqString);
@@ -57741,14 +57695,14 @@ var selectIds = function(s) {
       }
       ;
       return Nothing.value;
-    })(fromFoldable16(values(s.nodeLookup))),
+    })(fromFoldable15(values(s.nodeLookup))),
     edges: mapMaybe(function(e) {
       if (e.selected) {
         return new Just(e.id);
       }
       ;
       return Nothing.value;
-    })(fromFoldable16(values(s.edgeLookup)))
+    })(fromFoldable15(values(s.edgeLookup)))
   };
 };
 var selectionListenerInner = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponent10("SelectionListenerInner")(function(v) {
@@ -63203,7 +63157,7 @@ var bind54 = /* @__PURE__ */ bind4(ixBindRender);
 var alt8 = /* @__PURE__ */ alt(altMaybe);
 var useStore27 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqArray(eqRec9));
 var lookup25 = /* @__PURE__ */ lookup2(ordString);
-var fromFoldable17 = /* @__PURE__ */ fromFoldable(foldableList);
+var fromFoldable16 = /* @__PURE__ */ fromFoldable(foldableList);
 var discard24 = /* @__PURE__ */ discard2(ixBindRender);
 var useEffect17 = /* @__PURE__ */ useEffect(eqUnsafeReference);
 var when23 = /* @__PURE__ */ when(applicativeEffect);
@@ -63263,7 +63217,7 @@ var useHandleConnections = function(params) {
       }
       ;
       if (v instanceof Just) {
-        return fromFoldable17(values(v.value0));
+        return fromFoldable16(values(v.value0));
       }
       ;
       throw new Error("Failed pattern match at React.Hook.HandleConnections (line 95, column 5 - line 97, column 58): " + [v.constructor.name]);
@@ -63375,7 +63329,7 @@ var bind56 = /* @__PURE__ */ bind4(ixBindRender);
 var alt9 = /* @__PURE__ */ alt(altMaybe);
 var useStore28 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqArray(eqRec10));
 var lookup26 = /* @__PURE__ */ lookup2(ordString);
-var fromFoldable18 = /* @__PURE__ */ fromFoldable(foldableList);
+var fromFoldable17 = /* @__PURE__ */ fromFoldable(foldableList);
 var discard25 = /* @__PURE__ */ discard2(ixBindRender);
 var useEffect19 = /* @__PURE__ */ useEffect(eqUnsafeReference);
 var when24 = /* @__PURE__ */ when(applicativeEffect);
@@ -63445,7 +63399,7 @@ var useNodeConnections = function(params) {
       }
       ;
       if (v instanceof Just) {
-        return fromFoldable18(values(v.value0));
+        return fromFoldable17(values(v.value0));
       }
       ;
       throw new Error("Failed pattern match at React.Hook.NodeConnections (line 91, column 5 - line 93, column 58): " + [v.constructor.name]);
@@ -63516,9 +63470,9 @@ var xIsSymbol2 = {
     return "x";
   }
 };
-var foldl10 = /* @__PURE__ */ foldl(foldableList);
+var foldl9 = /* @__PURE__ */ foldl(foldableList);
 var useStore29 = /* @__PURE__ */ useStore(eqBoolean);
-var nub4 = /* @__PURE__ */ nub(ordNodeId);
+var nub5 = /* @__PURE__ */ nub(ordNodeId);
 var lookup27 = /* @__PURE__ */ lookup2(ordNodeId);
 var append22 = /* @__PURE__ */ append(semigroupArray);
 var eqMaybe8 = /* @__PURE__ */ eqMaybe(eqInt);
@@ -63789,7 +63743,7 @@ var useNodesInitialized = function(opts) {
       };
     };
     var nodes3 = values(s.nodeLookup);
-    var result = foldl10(step2)({
+    var result = foldl9(step2)({
       initialised: false,
       broken: false
     })(nodes3);
@@ -63800,7 +63754,7 @@ var useNodesInitialized = function(opts) {
 var useNodesData = function(dictEq) {
   var useStore111 = useStore(eqArray(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons52(dictEq))()(connectableIsSymbol)(eqMaybe42))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe52))));
   return function(ids) {
-    var uniqueIds = nub4(ids);
+    var uniqueIds = nub5(ids);
     var selectNodesData = function(s) {
       return foldl2(function(acc) {
         return function(i) {
@@ -63865,7 +63819,7 @@ var querySelectorNodeImpl = (host3) => (id3) => () => {
 var map63 = /* @__PURE__ */ map(functorEffect);
 var insert14 = /* @__PURE__ */ insert4(ordNodeId);
 var traverse2 = /* @__PURE__ */ traverse(traversableArray)(applicativeEffect);
-var foldl11 = /* @__PURE__ */ foldl(foldableArray);
+var foldl10 = /* @__PURE__ */ foldl(foldableArray);
 var bind120 = /* @__PURE__ */ bind4(ixBindRender);
 var useMemo7 = /* @__PURE__ */ useMemo(eqUnit);
 var pure135 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
@@ -63927,7 +63881,7 @@ var mkFn = function(store) {
       ;
       if (s.domNode instanceof Just) {
         var pairs = traverse2(queryOne(s.domNode.value0))(ids)();
-        var updates = foldl11(insertUpdate)(empty5)(pairs);
+        var updates = foldl10(insertUpdate)(empty5)(pairs);
         requestAnimationFrame(store.dispatch(new UpdateNodeInternals(updates, {
           triggerFitView: false
         })))();
@@ -64058,9 +64012,9 @@ var readNodeId = function(field) {
   };
 };
 var useUpdateNodeInternals2 = function __do2() {
-  var update2 = runHook(useUpdateNodeInternals)();
+  var update = runHook(useUpdateNodeInternals)();
   return function(ids) {
-    return update2(map118(readNodeId("useUpdateNodeInternals"))(oneOrMany(ids)))();
+    return update(map118(readNodeId("useUpdateNodeInternals"))(oneOrMany(ids)))();
   };
 };
 var nodesTripleOut = function(bundle) {
@@ -64230,7 +64184,7 @@ var insert15 = /* @__PURE__ */ insert4(ordNodeId);
 var map65 = /* @__PURE__ */ map(functorArray);
 var eq28 = /* @__PURE__ */ eq(eqUnsafeReference);
 var bind59 = /* @__PURE__ */ bind4(ixBindRender);
-var fromFoldable19 = /* @__PURE__ */ fromFoldable(foldableList);
+var fromFoldable18 = /* @__PURE__ */ fromFoldable(foldableList);
 var pure80 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty20 = /* @__PURE__ */ mempty(monoidJSX);
 var unwrap22 = /* @__PURE__ */ unwrap();
@@ -64317,7 +64271,7 @@ var nodeToolbar = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompo
   return bind59(useNodeId)(function(ctxId) {
     var ids = idsFromProp(v.nodeId)(ctxId);
     return bind59(useStore32(selectorFor(ids)))(function(v1) {
-      var nodesArr = fromFoldable19(values(v1.nodes));
+      var nodesArr = fromFoldable18(values(v1.nodes));
       var isActive = function() {
         if (v.isVisible instanceof Just) {
           return v.isVisible.value0;

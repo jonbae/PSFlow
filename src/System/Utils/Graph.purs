@@ -16,6 +16,7 @@ module System.Utils.Graph
   , getInternalNodesBounds
   , GetNodesInsideOptions
   , getNodesInside
+  , orderedInternalNodes
   , getConnectedEdges
   , FitViewParams
   , FitViewOptions
@@ -30,7 +31,7 @@ module System.Utils.Graph
 import Prelude
 
 import Control.Alt ((<|>))
-import Data.Array (any, filter, foldl, fromFoldable, length, snoc) as Array
+import Data.Array (any, filter, foldl, fromFoldable, length, mapMaybe, nub, snoc) as Array
 import Data.Either (Either(..))
 import Data.Foldable (foldMap) as Foldable
 import Data.Map (Map)
@@ -205,15 +206,31 @@ type GetNodesInsideOptions =
   , excludeNonSelectable :: Boolean
   }
 
+-- | The internal nodes in the order upstream's `nodeLookup` iterates them.
+-- | `adoptUserNodes` rebuilds the lookup by iterating `nodes`, and a
+-- | JavaScript `Map` keeps the first position of an id it's given twice. A
+-- | `Data.Map` iterates by key instead, so the order comes from `nodes`, and
+-- | each id is looked up.
+orderedInternalNodes
+  :: forall n r
+   . Array { id :: NodeId | r }
+  -> NodeLookup n
+  -> Array (InternalNodeBase n)
+orderedInternalNodes nodes lookup =
+  Array.mapMaybe (\id -> Map.lookup id lookup) (Array.nub (map _.id nodes))
+
+-- | Upstream's `getNodesInside` iterates the `nodeLookup` it's given, so
+-- | the nodes come in as an array in that order. `orderedInternalNodes`
+-- | gives the store's.
 getNodesInside
   :: forall n
-   . NodeLookup n
+   . Array (InternalNodeBase n)
   -> Rect
   -> Transform
   -> GetNodesInsideOptions
   -> Array (InternalNodeBase n)
 getNodesInside nodes rect transform opts =
-  Array.filter visible (Array.fromFoldable (Map.values nodes))
+  Array.filter visible nodes
   where
   Transform t = transform
 

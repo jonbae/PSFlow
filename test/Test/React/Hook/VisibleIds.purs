@@ -20,7 +20,8 @@ import React.Store.InitialState (defaultInitialStateOptions, initialState)
 import React.Types.Store (ReactFlowState)
 import System.Types.Edge (EdgeBase)
 import System.Types.Ids (NodeId(..))
-import System.Types.Node (InternalNodeBase)
+import System.Types.Node (InternalNodeBase, NodeBase)
+import Unsafe.Coerce (unsafeCoerce)
 
 assert :: String -> Boolean -> Effect Unit
 assert label ok =
@@ -118,10 +119,17 @@ sampleState =
     base
       { width = 100.0
       , height = 100.0
+      , nodes = map toUserNode nodes
       , nodeLookup = Map.fromFoldable (map (\n -> Tuple n.id n) nodes)
       , edges = edges
       , edgeLookup = Map.fromFoldable (map (\e -> Tuple e.id e) edges)
       }
+
+-- | The node without its `internals`, as the store's `nodes` holds it. The
+-- | object is the same with one more field, which nothing reads through the
+-- | narrower row.
+toUserNode :: InternalNodeBase Unit -> NodeBase Unit
+toUserNode = unsafeCoerce
 
 runVisibleIdsTests :: Effect Unit
 runVisibleIdsTests = do

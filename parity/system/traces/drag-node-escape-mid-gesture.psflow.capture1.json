@@ -438,42 +438,6 @@
                           {
                             "tag": "div",
                             "attrs": {
-                              "class": "react-flow__node react-flow__node-default nopan selectable draggable",
-                              "data-id": "notDeletable",
-                              "data-testid": "rf__node-notDeletable",
-                              "tabindex": "0",
-                              "role": "group",
-                              "aria-roledescription": "node",
-                              "aria-describedby": "react-flow__node-desc-1",
-                              "style": "z-index: 0; transform: translate(0px, 600px); pointer-events: all; visibility: visible;"
-                            },
-                            "text": "notDeletable",
-                            "children": [
-                              {
-                                "tag": "div",
-                                "attrs": {
-                                  "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator",
-                                  "data-nodeid": "notDeletable",
-                                  "data-handlepos": "top",
-                                  "data-id": "1-notDeletable-null-target"
-                                },
-                                "children": []
-                              },
-                              {
-                                "tag": "div",
-                                "attrs": {
-                                  "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator",
-                                  "data-nodeid": "notDeletable",
-                                  "data-handlepos": "bottom",
-                                  "data-id": "1-notDeletable-null-source"
-                                },
-                                "children": []
-                              }
-                            ]
-                          },
-                          {
-                            "tag": "div",
-                            "attrs": {
                               "class": "react-flow__node react-flow__node-default selectable",
                               "data-id": "notDraggable",
                               "data-testid": "rf__node-notDraggable",
@@ -538,6 +502,42 @@
                                   "data-nodeid": "notSelectable",
                                   "data-handlepos": "bottom",
                                   "data-id": "1-notSelectable-null-source"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-default nopan selectable draggable",
+                              "data-id": "notDeletable",
+                              "data-testid": "rf__node-notDeletable",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(0px, 600px); pointer-events: all; visibility: visible;"
+                            },
+                            "text": "notDeletable",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator",
+                                  "data-nodeid": "notDeletable",
+                                  "data-handlepos": "top",
+                                  "data-id": "1-notDeletable-null-target"
+                                },
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator",
+                                  "data-nodeid": "notDeletable",
+                                  "data-handlepos": "bottom",
+                                  "data-id": "1-notDeletable-null-source"
                                 },
                                 "children": []
                               }
@@ -773,7 +773,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 304.0999999642372,
+            "timeStamp": 304.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -842,7 +842,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 304.0999999642372,
+            "timeStamp": 304.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -922,7 +922,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 304.0999999642372,
+            "timeStamp": 304.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -987,7 +987,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 304.0999999642372,
+            "timeStamp": 304.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1169,7 +1169,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 342.0999999642372,
+            "timeStamp": 343.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1249,7 +1249,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 342.0999999642372,
+            "timeStamp": 343.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1391,7 +1391,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 368.80000001192093,
+            "timeStamp": 370.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1556,7 +1556,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 408.19999998807907,
+            "timeStamp": 411,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1638,7 +1638,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 413.5,
+            "timeStamp": 418.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1720,7 +1720,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 413.5,
+            "timeStamp": 418.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1795,7 +1795,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 413.5,
+            "timeStamp": 418.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
