@@ -69,7 +69,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M75.00008777202368,40.00003955922194 C75.00008777202368,68.50001792527245 -24.99990305171677,68.50001792527245 -24.99990305171677,96.99999629132294",
+                                      "d": "M75,40 C75,68.5 -25,68.5 -25,97",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -78,7 +78,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M75.00008777202368,40.00003955922194 C75.00008777202368,68.50001792527245 -24.99990305171677,68.50001792527245 -24.99990305171677,96.99999629132294",
+                                      "d": "M75,40 C75,68.5 -25,68.5 -25,97",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -90,8 +90,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
-                                      "cx": "75.00008777202368",
-                                      "cy": "50.00003955922194",
+                                      "cx": "75",
+                                      "cy": "50",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -102,8 +102,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
-                                      "cx": "-24.99990305171677",
-                                      "cy": "86.99999629132294",
+                                      "cx": "-25",
+                                      "cy": "87",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -136,7 +136,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M75.00008777202368,40.00003955922194 C75.00008777202368,68.50001792527245 175.00007859576414,68.50001792527245 175.00007859576414,96.99999629132294",
+                                      "d": "M75,40 C75,68.5 175,68.5 175,97",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -145,7 +145,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M75.00008777202368,40.00003955922194 C75.00008777202368,68.50001792527245 175.00007859576414,68.50001792527245 175.00007859576414,96.99999629132294",
+                                      "d": "M75,40 C75,68.5 175,68.5 175,97",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -157,8 +157,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
-                                      "cx": "75.00008777202368",
-                                      "cy": "50.00003955922194",
+                                      "cx": "75",
+                                      "cy": "50",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -169,8 +169,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
-                                      "cx": "175.00007859576414",
-                                      "cy": "86.99999629132294",
+                                      "cx": "175",
+                                      "cy": "87",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -381,8 +381,7 @@
               "dimensions": {
                 "width": 150,
                 "height": 37
-              },
-              "resizing": false
+              }
             },
             {
               "type": "dimensions",
@@ -390,8 +389,7 @@
               "dimensions": {
                 "width": 150,
                 "height": 37
-              },
-              "resizing": false
+              }
             },
             {
               "type": "dimensions",
@@ -399,8 +397,7 @@
               "dimensions": {
                 "width": 150,
                 "height": 37
-              },
-              "resizing": false
+              }
             }
           ]
         ]
@@ -463,10 +460,6 @@
               "label": "1"
             },
             "type": "input",
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -481,10 +474,6 @@
             "data": {
               "label": "2"
             },
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -499,10 +488,6 @@
             "data": {
               "label": "3"
             },
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -519,10 +504,6 @@
             "label": "1"
           },
           "type": "input",
-          "hidden": false,
-          "selected": false,
-          "dragging": false,
-          "expandParent": false,
           "measured": {
             "width": 150,
             "height": 37
@@ -538,10 +519,6 @@
             "label": "1"
           },
           "type": "input",
-          "hidden": false,
-          "selected": false,
-          "dragging": false,
-          "expandParent": false,
           "measured": {
             "width": 150,
             "height": 37
@@ -555,12 +532,10 @@
             "handleBounds": {
               "source": [
                 {
-                  "id": {
-                    "@undefined": true
-                  },
+                  "id": null,
                   "nodeId": "1",
-                  "x": 71.00008777202368,
-                  "y": 32.00003955922194,
+                  "x": 71,
+                  "y": 32,
                   "position": "bottom",
                   "type": "source",
                   "width": 8,
@@ -575,27 +550,18 @@
           {
             "id": "first-edge",
             "source": "1",
-            "target": "2",
-            "animated": false,
-            "hidden": false,
-            "selected": false
+            "target": "2"
           },
           {
             "id": "second-edge",
             "source": "1",
-            "target": "3",
-            "animated": false,
-            "hidden": false,
-            "selected": false
+            "target": "3"
           }
         ],
         "getEdge": {
           "id": "first-edge",
           "source": "1",
-          "target": "2",
-          "animated": false,
-          "hidden": false,
-          "selected": false
+          "target": "2"
         },
         "getIntersectingNodes": [
           {
@@ -608,10 +574,6 @@
               "label": "1"
             },
             "type": "input",
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -626,10 +588,6 @@
             "data": {
               "label": "2"
             },
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -644,10 +602,6 @@
             "data": {
               "label": "3"
             },
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -705,10 +659,6 @@
                 "label": "1"
               },
               "type": "input",
-              "hidden": false,
-              "selected": false,
-              "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -723,10 +673,6 @@
               "data": {
                 "label": "2"
               },
-              "hidden": false,
-              "selected": false,
-              "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -741,10 +687,6 @@
               "data": {
                 "label": "3"
               },
-              "hidden": false,
-              "selected": false,
-              "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -755,18 +697,12 @@
             {
               "id": "first-edge",
               "source": "1",
-              "target": "2",
-              "animated": false,
-              "hidden": false,
-              "selected": false
+              "target": "2"
             },
             {
               "id": "second-edge",
               "source": "1",
-              "target": "3",
-              "animated": false,
-              "hidden": false,
-              "selected": false
+              "target": "3"
             }
           ],
           "viewport": {

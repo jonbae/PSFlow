@@ -69,7 +69,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M14.65628252269898,22.000038317678893 C14.65628252269898,89.00001045914391 172.00001673463026,89.00001045914392 172.00001673463026,155.99998260060894",
+                                      "d": "M14.65625,22 C14.65625,89 172,89 172,156",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -78,7 +78,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M14.65628252269898,22.000038317678893 C14.65628252269898,89.00001045914391 172.00001673463026,89.00001045914392 172.00001673463026,155.99998260060894",
+                                      "d": "M14.65625,22 C14.65625,89 172,89 172,156",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -90,8 +90,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
-                                      "cx": "14.65628252269898",
-                                      "cy": "32.00003831767889",
+                                      "cx": "14.65625",
+                                      "cy": "32",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -102,8 +102,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
-                                      "cx": "172.00001673463026",
-                                      "cy": "145.99998260060894",
+                                      "cx": "172",
+                                      "cy": "146",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -136,7 +136,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M334.65625994250917,22.000038317678893 C334.65625994250917,89.00001045914391 172.00001673463026,89.00001045914392 172.00001673463026,155.99998260060894",
+                                      "d": "M334.65625,22 C334.65625,89 172,89 172,156",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -145,7 +145,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M334.65625994250917,22.000038317678893 C334.65625994250917,89.00001045914391 172.00001673463026,89.00001045914392 172.00001673463026,155.99998260060894",
+                                      "d": "M334.65625,22 C334.65625,89 172,89 172,156",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -157,8 +157,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
-                                      "cx": "334.65625994250917",
-                                      "cy": "32.00003831767889",
+                                      "cx": "334.65625",
+                                      "cy": "32",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -169,8 +169,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
-                                      "cx": "172.00001673463026",
-                                      "cy": "145.99998260060894",
+                                      "cx": "172",
+                                      "cy": "146",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -203,7 +203,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M172.00001673463026,182.00002476956502 C172.00001673463026,249.00000368508697 24.437560110271676,249.00000368508697 24.437560110271676,315.9999826006089",
+                                      "d": "M172,182 C172,249 24.4375,249 24.4375,316",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -212,7 +212,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M172.00001673463026,182.00002476956502 C172.00001673463026,249.00000368508697 24.437560110271676,249.00000368508697 24.437560110271676,315.9999826006089",
+                                      "d": "M172,182 C172,249 24.4375,249 24.4375,316",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -224,8 +224,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
-                                      "cx": "172.00001673463026",
-                                      "cy": "192.00002476956502",
+                                      "cx": "172",
+                                      "cy": "192",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -236,8 +236,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
-                                      "cx": "24.437560110271676",
-                                      "cy": "305.9999826006089",
+                                      "cx": "24.4375",
+                                      "cy": "306",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -270,7 +270,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M172.00001673463026,182.00002476956502 C172.00001673463026,249.00000368508697 344.437528498006,249.00000368508697 344.437528498006,315.9999826006089",
+                                      "d": "M172,182 C172,249 344.4375,249 344.4375,316",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -279,7 +279,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M172.00001673463026,182.00002476956502 C172.00001673463026,249.00000368508697 344.437528498006,249.00000368508697 344.437528498006,315.9999826006089",
+                                      "d": "M172,182 C172,249 344.4375,249 344.4375,316",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -291,8 +291,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
-                                      "cx": "172.00001673463026",
-                                      "cy": "192.00002476956502",
+                                      "cx": "172",
+                                      "cy": "192",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -303,8 +303,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
-                                      "cx": "344.437528498006",
-                                      "cy": "305.9999826006089",
+                                      "cx": "344.4375",
+                                      "cy": "306",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -337,7 +337,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M172.00001673463026,182.00002476956502 C172.00001673463026,249.00000368508697 664.4374923697022,249.00000368508697 664.4374923697022,315.9999826006089",
+                                      "d": "M172,182 C172,249 664.4375,249 664.4375,316",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -346,7 +346,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M172.00001673463026,182.00002476956502 C172.00001673463026,249.00000368508697 664.4374923697022,249.00000368508697 664.4374923697022,315.9999826006089",
+                                      "d": "M172,182 C172,249 664.4375,249 664.4375,316",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -358,8 +358,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
-                                      "cx": "172.00001673463026",
-                                      "cy": "192.00002476956502",
+                                      "cx": "172",
+                                      "cy": "192",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -370,8 +370,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
-                                      "cx": "664.4374923697022",
-                                      "cy": "305.9999826006089",
+                                      "cx": "664.4375",
+                                      "cy": "306",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -404,7 +404,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M24.437560110271676,342.00000670541317 C24.437560110271676,427.23864783485584 172.00001673463026,70.76134147116628 172.00001673463026,155.99998260060894",
+                                      "d": "M24.4375,342 C24.4375,427.2386356061616 172,70.7613643938384 172,156",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -413,7 +413,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M24.437560110271676,342.00000670541317 C24.437560110271676,427.23864783485584 172.00001673463026,70.76134147116628 172.00001673463026,155.99998260060894",
+                                      "d": "M24.4375,342 C24.4375,427.2386356061616 172,70.7613643938384 172,156",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -425,8 +425,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
-                                      "cx": "24.437560110271676",
-                                      "cy": "352.00000670541317",
+                                      "cx": "24.4375",
+                                      "cy": "352",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -437,8 +437,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
-                                      "cx": "172.00001673463026",
-                                      "cy": "145.99998260060894",
+                                      "cx": "172",
+                                      "cy": "146",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -845,8 +845,7 @@
               "dimensions": {
                 "width": 49,
                 "height": 18
-              },
-              "resizing": false
+              }
             },
             {
               "type": "dimensions",
@@ -854,8 +853,7 @@
               "dimensions": {
                 "width": 49,
                 "height": 18
-              },
-              "resizing": false
+              }
             },
             {
               "type": "dimensions",
@@ -863,8 +861,7 @@
               "dimensions": {
                 "width": 49,
                 "height": 18
-              },
-              "resizing": false
+              }
             },
             {
               "type": "dimensions",
@@ -872,8 +869,7 @@
               "dimensions": {
                 "width": 24,
                 "height": 18
-              },
-              "resizing": false
+              }
             },
             {
               "type": "dimensions",
@@ -881,8 +877,7 @@
               "dimensions": {
                 "width": 29,
                 "height": 18
-              },
-              "resizing": false
+              }
             },
             {
               "type": "dimensions",
@@ -890,8 +885,7 @@
               "dimensions": {
                 "width": 29,
                 "height": 18
-              },
-              "resizing": false
+              }
             }
           ]
         ]
@@ -962,7 +956,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 187.10000002384186,
+            "timeStamp": 146.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1031,7 +1025,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 187.10000002384186,
+            "timeStamp": 146.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1075,10 +1069,6 @@
               "label": "down-1"
             },
             "type": "connections",
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 49,
               "height": 18
@@ -1107,7 +1097,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 187.10000002384186,
+            "timeStamp": 146.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1172,7 +1162,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 187.10000002384186,
+            "timeStamp": 146.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1214,10 +1204,6 @@
               "label": "down-1"
             },
             "type": "connections",
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 49,
               "height": 18
@@ -1248,7 +1234,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 208.39999997615814,
+            "timeStamp": 154.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1292,10 +1278,6 @@
               "label": "down-1"
             },
             "type": "connections",
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 49,
               "height": 18
@@ -1324,7 +1306,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 208.39999997615814,
+            "timeStamp": 154.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1387,7 +1369,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 200.60000002384186,
+            "timeStamp": 148.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1449,7 +1431,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 226.30000001192093,
+            "timeStamp": 173.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1493,10 +1475,6 @@
               "label": "hub"
             },
             "type": "connections",
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 24,
               "height": 18
@@ -1525,7 +1503,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 226.30000001192093,
+            "timeStamp": 173.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1590,7 +1568,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 226.30000001192093,
+            "timeStamp": 173.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1632,10 +1610,6 @@
               "label": "hub"
             },
             "type": "connections",
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 24,
               "height": 18
@@ -1675,14 +1649,14 @@
           {
             "isValid": true,
             "from": {
-              "x": 24.437560110271676,
-              "y": 338.00000670541317
+              "x": 24.4375,
+              "y": 338
             },
             "fromHandle": {
               "id": "out",
               "nodeId": "down-1",
-              "x": 20.437560110271676,
-              "y": 14.000006705413165,
+              "x": 20.4375,
+              "y": 14,
               "position": "bottom",
               "type": "source",
               "width": 8,
@@ -1699,10 +1673,6 @@
                 "label": "down-1"
               },
               "type": "connections",
-              "hidden": false,
-              "selected": false,
-              "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 49,
                 "height": 18
@@ -1718,8 +1688,8 @@
                     {
                       "id": "out",
                       "nodeId": "down-1",
-                      "x": 20.437560110271676,
-                      "y": 14.000006705413165,
+                      "x": 20.4375,
+                      "y": 14,
                       "position": "bottom",
                       "type": "source",
                       "width": 8,
@@ -1730,8 +1700,8 @@
                     {
                       "id": "in",
                       "nodeId": "down-1",
-                      "x": 20.437560110271676,
-                      "y": -4.000017399391056,
+                      "x": 20.4375,
+                      "y": -4,
                       "position": "top",
                       "type": "target",
                       "width": 8,
@@ -1742,14 +1712,14 @@
               }
             },
             "to": {
-              "x": 348.57767703789494,
-              "y": 344.79532619319133
+              "x": 348.577648766328,
+              "y": 344.79535558780844
             },
             "toHandle": {
               "id": "in",
               "nodeId": "hub",
-              "x": 172.00001673463026,
-              "y": 159.99998260060894,
+              "x": 172,
+              "y": 160,
               "position": "top",
               "type": "target",
               "width": 8,
@@ -1766,10 +1736,6 @@
                 "label": "hub"
               },
               "type": "connections",
-              "hidden": false,
-              "selected": false,
-              "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 24,
                 "height": 18
@@ -1785,8 +1751,8 @@
                     {
                       "id": "out",
                       "nodeId": "hub",
-                      "x": 8.000016734630268,
-                      "y": 14.000024769565009,
+                      "x": 8,
+                      "y": 14,
                       "position": "bottom",
                       "type": "source",
                       "width": 8,
@@ -1797,8 +1763,8 @@
                     {
                       "id": "in",
                       "nodeId": "hub",
-                      "x": 8.000016734630268,
-                      "y": -4.000017399391056,
+                      "x": 8,
+                      "y": -4,
                       "position": "top",
                       "type": "target",
                       "width": 8,
@@ -1830,10 +1796,6 @@
               "label": "hub"
             },
             "type": "connections",
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 24,
               "height": 18
@@ -1849,10 +1811,6 @@
               "label": "up-1"
             },
             "type": "connections",
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 29,
               "height": 18
@@ -1868,10 +1826,6 @@
               "label": "up-2"
             },
             "type": "connections",
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 29,
               "height": 18
@@ -1887,10 +1841,6 @@
               "label": "down-1"
             },
             "type": "connections",
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 49,
               "height": 18
@@ -1906,10 +1856,6 @@
               "label": "down-2"
             },
             "type": "connections",
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 49,
               "height": 18
@@ -1925,10 +1871,6 @@
               "label": "down-3"
             },
             "type": "connections",
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 49,
               "height": 18
@@ -1945,10 +1887,6 @@
             "label": "hub"
           },
           "type": "connections",
-          "hidden": false,
-          "selected": false,
-          "dragging": false,
-          "expandParent": false,
           "measured": {
             "width": 24,
             "height": 18
@@ -1964,10 +1902,6 @@
             "label": "hub"
           },
           "type": "connections",
-          "hidden": false,
-          "selected": false,
-          "dragging": false,
-          "expandParent": false,
           "measured": {
             "width": 24,
             "height": 18
@@ -1983,8 +1917,8 @@
                 {
                   "id": "out",
                   "nodeId": "hub",
-                  "x": 8.000016734630268,
-                  "y": 14.000024769565009,
+                  "x": 8,
+                  "y": 14,
                   "position": "bottom",
                   "type": "source",
                   "width": 8,
@@ -1995,8 +1929,8 @@
                 {
                   "id": "in",
                   "nodeId": "hub",
-                  "x": 8.000016734630268,
-                  "y": -4.000017399391056,
+                  "x": 8,
+                  "y": -4,
                   "position": "top",
                   "type": "target",
                   "width": 8,
@@ -2012,60 +1946,42 @@
             "source": "up-1",
             "target": "hub",
             "sourceHandle": "out",
-            "targetHandle": "in",
-            "animated": false,
-            "hidden": false,
-            "selected": false
+            "targetHandle": "in"
           },
           {
             "id": "up-2-hub",
             "source": "up-2",
             "target": "hub",
             "sourceHandle": "out",
-            "targetHandle": "in",
-            "animated": false,
-            "hidden": false,
-            "selected": false
+            "targetHandle": "in"
           },
           {
             "id": "hub-down-1",
             "source": "hub",
             "target": "down-1",
             "sourceHandle": "out",
-            "targetHandle": "in",
-            "animated": false,
-            "hidden": false,
-            "selected": false
+            "targetHandle": "in"
           },
           {
             "id": "hub-down-2",
             "source": "hub",
             "target": "down-2",
             "sourceHandle": "out",
-            "targetHandle": "in",
-            "animated": false,
-            "hidden": false,
-            "selected": false
+            "targetHandle": "in"
           },
           {
             "id": "hub-down-3",
             "source": "hub",
             "target": "down-3",
             "sourceHandle": "out",
-            "targetHandle": "in",
-            "animated": false,
-            "hidden": false,
-            "selected": false
+            "targetHandle": "in"
           },
           {
             "id": "xy-edge__down-1out-hubin",
             "source": "down-1",
             "target": "hub",
             "sourceHandle": "out",
-            "targetHandle": "in",
-            "animated": false,
-            "hidden": false,
-            "selected": false
+            "targetHandle": "in"
           }
         ],
         "getEdge": {
@@ -2073,10 +1989,7 @@
           "source": "up-1",
           "target": "hub",
           "sourceHandle": "out",
-          "targetHandle": "in",
-          "animated": false,
-          "hidden": false,
-          "selected": false
+          "targetHandle": "in"
         },
         "getIntersectingNodes": [
           {
@@ -2089,10 +2002,6 @@
               "label": "hub"
             },
             "type": "connections",
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 24,
               "height": 18
@@ -2108,10 +2017,6 @@
               "label": "up-1"
             },
             "type": "connections",
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 29,
               "height": 18
@@ -2127,10 +2032,6 @@
               "label": "up-2"
             },
             "type": "connections",
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 29,
               "height": 18
@@ -2146,10 +2047,6 @@
               "label": "down-1"
             },
             "type": "connections",
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 49,
               "height": 18
@@ -2165,10 +2062,6 @@
               "label": "down-2"
             },
             "type": "connections",
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 49,
               "height": 18
@@ -2184,10 +2077,6 @@
               "label": "down-3"
             },
             "type": "connections",
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 49,
               "height": 18
@@ -2280,10 +2169,6 @@
                 "label": "hub"
               },
               "type": "connections",
-              "hidden": false,
-              "selected": false,
-              "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 24,
                 "height": 18
@@ -2299,10 +2184,6 @@
                 "label": "up-1"
               },
               "type": "connections",
-              "hidden": false,
-              "selected": false,
-              "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 29,
                 "height": 18
@@ -2318,10 +2199,6 @@
                 "label": "up-2"
               },
               "type": "connections",
-              "hidden": false,
-              "selected": false,
-              "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 29,
                 "height": 18
@@ -2337,10 +2214,6 @@
                 "label": "down-1"
               },
               "type": "connections",
-              "hidden": false,
-              "selected": false,
-              "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 49,
                 "height": 18
@@ -2356,10 +2229,6 @@
                 "label": "down-2"
               },
               "type": "connections",
-              "hidden": false,
-              "selected": false,
-              "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 49,
                 "height": 18
@@ -2375,10 +2244,6 @@
                 "label": "down-3"
               },
               "type": "connections",
-              "hidden": false,
-              "selected": false,
-              "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 49,
                 "height": 18
@@ -2391,60 +2256,42 @@
               "source": "up-1",
               "target": "hub",
               "sourceHandle": "out",
-              "targetHandle": "in",
-              "animated": false,
-              "hidden": false,
-              "selected": false
+              "targetHandle": "in"
             },
             {
               "id": "up-2-hub",
               "source": "up-2",
               "target": "hub",
               "sourceHandle": "out",
-              "targetHandle": "in",
-              "animated": false,
-              "hidden": false,
-              "selected": false
+              "targetHandle": "in"
             },
             {
               "id": "hub-down-1",
               "source": "hub",
               "target": "down-1",
               "sourceHandle": "out",
-              "targetHandle": "in",
-              "animated": false,
-              "hidden": false,
-              "selected": false
+              "targetHandle": "in"
             },
             {
               "id": "hub-down-2",
               "source": "hub",
               "target": "down-2",
               "sourceHandle": "out",
-              "targetHandle": "in",
-              "animated": false,
-              "hidden": false,
-              "selected": false
+              "targetHandle": "in"
             },
             {
               "id": "hub-down-3",
               "source": "hub",
               "target": "down-3",
               "sourceHandle": "out",
-              "targetHandle": "in",
-              "animated": false,
-              "hidden": false,
-              "selected": false
+              "targetHandle": "in"
             },
             {
               "id": "xy-edge__down-1out-hubin",
               "source": "down-1",
               "target": "hub",
               "sourceHandle": "out",
-              "targetHandle": "in",
-              "animated": false,
-              "hidden": false,
-              "selected": false
+              "targetHandle": "in"
             }
           ],
           "viewport": {

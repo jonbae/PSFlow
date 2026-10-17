@@ -39,7 +39,8 @@
 -- |     `onError` callback fires on every miss. Acceptable because
 -- |     `nodeTypes`/`edgeTypes` are expected to be stable references.
 module React.Component.EdgeWrapper
-  ( edgeWrapper
+  ( applyDefaults
+  , edgeWrapper
   ) where
 
 import Prelude
@@ -124,12 +125,12 @@ placeholderEdge edgeId =
   , target: NodeId ""
   , sourceHandle: Nothing
   , targetHandle: Nothing
-  , animated: false
-  , hidden: true
+  , animated: Nothing
+  , hidden: Just true
   , deletable: Nothing
   , selectable: Nothing
   , data: Nothing
-  , selected: false
+  , selected: Nothing
   , markerStart: Nothing
   , markerEnd: Nothing
   , zIndex: Nothing
@@ -150,8 +151,8 @@ applyDefaults
 applyDefaults Nothing edge = edge
 applyDefaults (Just defaults) edge =
   edge
-    { animated = edge.animated || fromMaybe false defaults.animated
-    , hidden = edge.hidden || fromMaybe false defaults.hidden
+    { animated = orElse edge.animated defaults.animated
+    , hidden = orElse edge.hidden defaults.hidden
     , deletable = orElse edge.deletable defaults.deletable
     , selectable = orElse edge.selectable defaults.selectable
     , data = orElse edge.data defaults.data
@@ -178,7 +179,7 @@ selectEdgePosition edgeId state =
         Just src, Just tgt ->
           let
             z = getElevatedEdgeZIndex
-              { selected: edge.selected
+              { selected: edge.selected == Just true
               , zIndex: fromMaybe 0 edge.zIndex
               , sourceNode: src
               , targetNode: tgt
@@ -364,7 +365,7 @@ edgeWrapper =
           Just m -> Just (markerUrl m props.rfId)
           Nothing -> Nothing
 
-        hide = edge.hidden
+        hide = edge.hidden == Just true
           || isNothing positionSlice.sourceX
           || isNothing positionSlice.sourceY
           || isNothing positionSlice.targetX
@@ -384,7 +385,7 @@ edgeWrapper =
           when isSelectable do
             store.dispatch
               (PatchState (\s -> s { nodesSelectionActive = false }))
-            if edge.selected && state.multiSelectionActive then do
+            if edge.selected == Just true && state.multiSelectionActive then do
               store.dispatch
                 (UnselectNodesAndEdges { nodes: Nothing, edges: Just [ edge ] })
               blurEdge
@@ -430,8 +431,8 @@ edgeWrapper =
                 { className: buildEdgeClassName
                     { edgeType
                     , noPanClassName: props.noPanClassName
-                    , selected: edge.selected
-                    , animated: edge.animated
+                    , selected: fromMaybe false edge.selected
+                    , animated: fromMaybe false edge.animated
                     , selectable: isSelectable
                     , inactive: not isSelectable && isNothing props.onClick
                     , updating: updateHover

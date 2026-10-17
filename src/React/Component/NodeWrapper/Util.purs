@@ -16,6 +16,7 @@ module React.Component.NodeWrapper.Util
   ( arrowKeyDiffs
   , getNodeInlineStyleDimensions
   , builtinNodeTypes
+  , nodeTransform
   ) where
 
 import Prelude
@@ -23,12 +24,13 @@ import Prelude
 import Data.Foldable (oneOf) as Foldable
 import Data.Map (Map)
 import Data.Map (fromFoldable) as Map
-import Data.Maybe (Maybe(..))
+import Data.Maybe (Maybe(..), fromMaybe)
+import Data.Number.Format (toString) as NumberFormat
 import Data.Nullable (toNullable)
 import Data.Tuple.Nested ((/\))
-import Foreign (Foreign)
+import Foreign (Foreign, unsafeToForeign)
 import Foreign.Object (Object)
-import Foreign.Object (fromFoldable) as Object
+import Foreign.Object (fromFoldable, lookup) as Object
 import React.Basic (ReactComponent)
 import React.Node.Default (defaultNode)
 import React.Node.Group (groupNode)
@@ -50,26 +52,37 @@ arrowKeyDiffs = Map.fromFoldable
   ]
 
 -- | Compute the inline-style `{ width, height }` that the node wrapper
--- | emits before the handle bounds have been measured.
+-- | spreads over `node.style`.
 -- |
--- | TS returns `number | string | undefined`; the string branch reads
--- | `node.style?.width`, which our `Style` opaque doesn't expose yet.
--- | We collapse to `Number | undefined` here and document the gap.
+-- | TS returns `number | string | undefined`, and falls back to
+-- | `node.style?.width` and `node.style?.height` last. Without that fallback
+-- | the spread writes an empty `width` over the consumer's own, and a node
+-- | sized only through `style` renders at its content's size. The fallback is
+-- | the consumer's own value, a number or a CSS string, so it crosses as
+-- | `Foreign`. An empty result is `null`, which React drops from a style as it
+-- | does upstream's `undefined`.
 getNodeInlineStyleDimensions
   :: forall n. InternalNode n -> { width :: Foreign, height :: Foreign }
 getNodeInlineStyleDimensions node =
   case node.internals.handleBounds of
     Nothing ->
-      { width: coalesce [ node.width, node.initialWidth ]
-      , height: coalesce [ node.height, node.initialHeight ]
+      { width: coalesce "width" [ node.width, node.initialWidth ]
+      , height: coalesce "height" [ node.height, node.initialHeight ]
       }
     Just _ ->
-      { width: coalesce [ node.width ]
-      , height: coalesce [ node.height ]
+      { width: coalesce "width" [ node.width ]
+      , height: coalesce "height" [ node.height ]
       }
   where
-  coalesce :: Array (Maybe Number) -> Foreign
-  coalesce = unsafeCoerce <<< toNullable <<< Foldable.oneOf
+  -- `Object String` is how ps-flow types a node's style, but a consumer's
+  -- `{ width: 320 }` arrives as a number, so the member is read as `Foreign`.
+  styleMember :: String -> Maybe Foreign
+  styleMember key = node.style >>= \s -> Object.lookup key (unsafeCoerce s :: Object Foreign)
+
+  coalesce :: String -> Array (Maybe Number) -> Foreign
+  coalesce key dims = case Foldable.oneOf dims of
+    Just n -> unsafeToForeign n
+    Nothing -> fromMaybe (unsafeToForeign (toNullable (Nothing :: Maybe Number))) (styleMember key)
 
 -- | Registry of the four built-in node-type keys. Consumed by
 -- | `React.Component.NodeWrapper`'s `nodeTypes[node.type] ||
@@ -86,3 +99,8 @@ builtinNodeTypes = Object.fromFoldable
   , "output" /\ outputNode
   , "group" /\ groupNode
   ]
+
+-- | TS `translate(${internals.positionAbsolute.x}px,${internals.positionAbsolute.y}px)`.
+nodeTransform :: XYPosition -> String
+nodeTransform at =
+  "translate(" <> NumberFormat.toString at.x <> "px," <> NumberFormat.toString at.y <> "px)"

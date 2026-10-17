@@ -11,9 +11,9 @@
 -- |      `props.nodeTypes` with fallback to `builtinNodeTypes`. On
 -- |      miss, fire `onError "003"` and substitute the built-in
 -- |      `defaultNode`.
--- |   3. Mount `useDrag` (drag controller) and `useNodeObserver`
--- |      (`ResizeObserver` → `UpdateNodeInternals` dispatch). Both
--- |      receive the local `useRef`'d `<div>` element.
+-- |   3. Mount `useNodeObserver`, which hands the `<div>` to the shared
+-- |      `ResizeObserver` and returns its ref, and then `useDrag` on that
+-- |      ref.
 -- |   4. Mount `useMoveSelectedNodes` for arrow-key nudging.
 -- |   5. Render a `<div>` with the standard `react-flow__node*` class
 -- |      names, computed inline style, data attrs, click / mouse /
@@ -25,8 +25,8 @@
 -- |     equality won't actually skip renders for record props
 -- |     (records are freshly allocated each call); same gap as
 -- |     `React.Handle` and the built-in edge ports.
--- |   * The local `useRef` is on the `<div>`, and feeds `useDrag`,
--- |     `useNodeObserver` and — since [#27](https://github.com/jonbae/PSFlow/issues/27)
+-- |   * The ref that `useNodeObserver` returns is on the `<div>`, and feeds
+-- |     `useDrag` and — since [#27](https://github.com/jonbae/PSFlow/issues/27)
 -- |     — `handleNodeClick`, which blurs it on the next animation frame
 -- |     when a click deselects the node. It is **not** a `forwardRef`,
 -- |     and TS's is not either: `NodeWrapper` is internal and nothing
@@ -53,7 +53,6 @@ import Data.Foldable (for_)
 import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe, isJust)
 import Data.Newtype (unwrap)
-import Data.Nullable (Nullable, toNullable)
 import Effect (Effect)
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign, unsafeToForeign)
@@ -61,9 +60,9 @@ import Foreign.Object (Object)
 import Foreign.Object (lookup) as Object
 import React.Basic (ReactComponent, element)
 import React.Basic.Events (EventHandler, handler, handler_, syntheticEvent)
-import React.Basic.Hooks (UnsafeReference(..), memo, reactComponent, useRef)
+import React.Basic.Hooks (UnsafeReference(..), memo, reactComponent)
 import React.Basic.Hooks as React
-import React.Component.NodeWrapper.Util (arrowKeyDiffs, builtinNodeTypes, getNodeInlineStyleDimensions)
+import React.Component.NodeWrapper.Util (arrowKeyDiffs, builtinNodeTypes, getNodeInlineStyleDimensions, nodeTransform)
 import React.Container.A11yDescriptions (ariaNodeDescKey)
 import React.Context.NodeId (nodeIdProvider)
 import React.FFI.DOM (div_, opt)
@@ -94,7 +93,7 @@ import System.Utils.Graph (getNodesInside)
 import System.XYDrag (DragStoreItems)
 import Unsafe.Coerce (unsafeCoerce)
 import Web.Event.Event (preventDefault)
-import Web.HTML.HTMLDivElement (HTMLDivElement, toElement)
+import Web.HTML.HTMLDivElement (toElement)
 import Web.UIEvent.KeyboardEvent (KeyboardEvent)
 import Web.UIEvent.KeyboardEvent
   ( key
@@ -139,9 +138,9 @@ placeholderNode nodeId =
   , data: (unsafeCoerce {} :: n)
   , sourcePosition: Nothing
   , targetPosition: Nothing
-  , hidden: true
-  , selected: false
-  , dragging: false
+  , hidden: Just true
+  , selected: Nothing
+  , dragging: Nothing
   , draggable: Nothing
   , selectable: Nothing
   , connectable: Nothing
@@ -154,7 +153,7 @@ placeholderNode nodeId =
   , parentId: Nothing
   , zIndex: Nothing
   , extent: Nothing
-  , expandParent: false
+  , expandParent: Nothing
   , ariaLabel: Nothing
   , origin: Nothing
   , handles: Nothing
@@ -292,7 +291,7 @@ mkNodeProps node nodeType selectable draggable connectable dragging =
   , zIndex: node.internals.z
   , selectable
   , deletable: fromMaybe true node.deletable
-  , selected: node.selected
+  , selected: fromMaybe false node.selected
   , draggable
   , isConnectable: connectable
   , positionAbsoluteX: node.internals.positionAbsolute.x
@@ -331,11 +330,16 @@ nodeWrapper =
         hasDims = nodeHasDimensions userNode
 
       store <- (useStoreApi :: React.Hook UseStoreApi _)
-      nodeRef <- useRef (toNullable Nothing :: Nullable HTMLDivElement)
+      nodeRef <- useNodeObserver
+        { node
+        , nodeType
+        , hasDimensions: hasDims
+        , resizeObserver: props.resizeObserver
+        }
 
       dragging <- useDrag
         { wrapperRef: nodeRef
-        , disabled: node.hidden || not isDraggable
+        , disabled: node.hidden == Just true || not isDraggable
         , nodeId: Just (NodeId props.id)
         , noDragClassName: Just props.noDragClassName
         , handleSelector: node.dragHandle
@@ -347,13 +351,6 @@ nodeWrapper =
         , onDragEnd: Nothing
         , onNodeMouseDown: Just \nid ->
             handleNodeClick { id: nid, store, unselect: false, nodeRef }
-        }
-
-      _ <- useNodeObserver
-        { nodeId: NodeId props.id
-        , wrapperRef: nodeRef
-        , force: false
-        , sharedObserver: props.resizeObserver
         }
 
       moveSelectedNodes <- useMoveSelectedNodes
@@ -373,12 +370,7 @@ nodeWrapper =
         baseStyle :: Foreign
         baseStyle = toForeignStyle
           { zIndex: node.internals.z
-          , transform:
-              "translate("
-                <> show node.internals.positionAbsolute.x
-                <> "px,"
-                <> show node.internals.positionAbsolute.y
-                <> "px)"
+          , transform: nodeTransform node.internals.positionAbsolute
           , pointerEvents: if hasPointerEvents then "all" else "none"
           , visibility: if hasDims then "visible" else "hidden"
           }
@@ -456,7 +448,7 @@ nodeWrapper =
                 }
             else case Map.lookup k arrowKeyDiffs of
               Just delta
-                | isDraggable && node.selected -> do
+                | isDraggable && node.selected == Just true -> do
                     preventDefault (KE.toEvent ke)
                     moveSelectedNodes delta (if shift then 4.0 else 1.0)
               _ -> pure unit
@@ -493,7 +485,7 @@ nodeWrapper =
                   )
 
       pure $
-        if node.hidden then mempty
+        if node.hidden == Just true then mempty
         else
           div_
             { className: buildNodeClassName
@@ -503,7 +495,7 @@ nodeWrapper =
                 , isDraggable
                 , isSelectable
                 , isParent: slice.isParent
-                , selected: node.selected
+                , selected: node.selected == Just true
                 , dragging
                 }
             , ref: nodeRef
