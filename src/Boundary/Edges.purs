@@ -508,10 +508,10 @@ edgeToolbar =
 type JsEdgeProps =
   { id :: String
   , type :: Undefinable String
-  , animated :: Boolean
+  , animated :: Undefinable Boolean
   , data :: Undefinable Foreign
   , style :: Undefinable Foreign
-  , selected :: Boolean
+  , selected :: Undefinable Boolean
   , source :: String
   , target :: String
   , selectable :: Undefinable Boolean
@@ -540,10 +540,10 @@ edgePropsOut :: EdgeProps Foreign -> JsEdgeProps
 edgePropsOut p =
   { id: p.id
   , type: toUndefinable p.type
-  , animated: p.animated
+  , animated: toUndefinable p.animated
   , data: toUndefinable p.data
   , style: toUndefinable (map fromCssStyle p.style)
-  , selected: p.selected
+  , selected: toUndefinable p.selected
   , source: p.source
   , target: p.target
   , selectable: toUndefinable p.selectable

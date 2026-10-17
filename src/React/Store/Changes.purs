@@ -102,7 +102,10 @@ applySingleNodeChange c node = case c of
         Just p -> node { position = p }
         Nothing -> node
     in
-      withPos { dragging = dragging }
+      -- TS `if (typeof change.dragging !== 'undefined')`.
+      case dragging of
+        Just _ -> withPos { dragging = dragging }
+        Nothing -> withPos
   NodeDimensionChange { dimensions, setAttributes } ->
     case dimensions of
       Nothing -> node
@@ -126,7 +129,7 @@ applySingleNodeChange c node = case c of
 
 applySingleEdgeChange :: forall e. EdgeChange e -> Edge e -> Edge e
 applySingleEdgeChange c edge = case c of
-  EdgeSelectionChange { selected } -> edge { selected = selected }
+  EdgeSelectionChange { selected } -> edge { selected = Just selected }
   _ -> edge
 
 -- | Apply all queued changes for one node id. Returns `Nothing` if the
@@ -219,30 +222,35 @@ insertItemAt mIndex item arr = case mIndex of
 
 -- | Selection-diff helper. Polymorphic in the key type so it works
 -- | for both `NodeLookup` (keyed by `NodeId`) and `EdgeLookup`
--- | (keyed by `String`).
+-- | (keyed by `String`), and in how the item holds `selected`: a node's is a
+-- | `Boolean`, and an edge's is a `Maybe Boolean`, read as `false` when it's
+-- | unset. That reading is upstream's
+-- | `!(item.selected === undefined && !willBeSelected) && item.selected !== willBeSelected`.
 getSelectionChangesGeneric
-  :: forall k r
+  :: forall k s r
    . Ord k
-  => Map k { id :: k, selected :: Boolean | r }
+  => (s -> Boolean)
+  -> (Boolean -> s)
+  -> Map k { id :: k, selected :: s | r }
   -> Set k
   -> Boolean
   -> { changes :: Array { id :: k, selected :: Boolean }
-     , items :: Map k { id :: k, selected :: Boolean | r }
+     , items :: Map k { id :: k, selected :: s | r }
      }
-getSelectionChangesGeneric items selectedIds mutate =
+getSelectionChangesGeneric isSelected toSelected items selectedIds mutate =
   let
-    pairs :: Array (Tuple k { id :: k, selected :: Boolean | r })
+    pairs :: Array (Tuple k { id :: k, selected :: s | r })
     pairs = Map.toUnfoldable items
     step acc (Tuple id item) =
       let
         willBeSelected = Set.member id selectedIds
       in
-        if item.selected /= willBeSelected then
+        if isSelected item.selected /= willBeSelected then
           let
             change = { id: item.id, selected: willBeSelected }
             newItems =
               if mutate then
-                Map.insert id (item { selected = willBeSelected }) acc.items
+                Map.insert id (item { selected = toSelected willBeSelected }) acc.items
               else acc.items
           in
             acc { changes = Array.snoc acc.changes change, items = newItems }
@@ -260,7 +268,7 @@ getNodeSelectionChanges
      }
 getNodeSelectionChanges lookup selectedIds mutate =
   let
-    r = getSelectionChangesGeneric lookup selectedIds mutate
+    r = getSelectionChangesGeneric identity identity lookup selectedIds mutate
     changes = map (\p -> NodeSelectionChange { id: p.id, selected: p.selected }) r.changes
   in
     { changes, items: r.items }
@@ -273,7 +281,7 @@ getEdgeSelectionChanges
      }
 getEdgeSelectionChanges lookup selectedIds =
   let
-    r = getSelectionChangesGeneric lookup selectedIds false
+    r = getSelectionChangesGeneric (_ == Just true) Just lookup selectedIds false
     changes = map (\p -> EdgeSelectionChange { id: p.id, selected: p.selected }) r.changes
   in
     { changes }

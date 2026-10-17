@@ -437,7 +437,7 @@ adoptUserNodes nodes prev _prevParent options =
               isJust internalNode.measured.width
                 && isJust internalNode.measured.height
           in
-            if not measuredOk && not internalNode.hidden then
+            if not measuredOk && internalNode.hidden /= Just true then
               st1 { nodesInitialized = false }
             else st1
 
@@ -586,7 +586,7 @@ stepExpansion children parentLookup defaultOrigin changes (Tuple parentId rec) =
                 , y: rec.parent.position.y - yChange + heightChange
                 }
             , positionAbsolute: Nothing
-            , dragging: false
+            , dragging: Nothing
             }
         ]
       else []
@@ -609,7 +609,7 @@ stepExpansion children parentLookup defaultOrigin changes (Tuple parentId rec) =
                                     , y: kid.position.y + yChange
                                     }
                                 , positionAbsolute: Nothing
-                                , dragging: false
+                                , dragging: Nothing
                                 }
                             )
                     )
@@ -738,7 +738,7 @@ processUpdate update acc zoom origin extent zMode =
   case Map.lookup update.id acc.nodeLookup of
     Nothing -> pure acc
     Just node ->
-      if node.hidden then
+      if node.hidden == Just true then
         let
           cleared = node
             { internals = node.internals { handleBounds = Nothing } }
@@ -835,7 +835,7 @@ processUpdate update acc zoom origin extent zMode =
                 ]
               else []
             extraExpand = case node.parentId of
-              Just pid | dimensionChanged && node.expandParent ->
+              Just pid | dimensionChanged && node.expandParent == Just true ->
                 [ { id: node.id
                   , parentId: pid
                   , rect: nodeToRect (Right newNode) origin

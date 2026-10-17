@@ -52,9 +52,9 @@ nodeAt id at =
   , data: unit
   , sourcePosition: Nothing
   , targetPosition: Nothing
-  , hidden: false
+  , hidden: Nothing
   , selected: false
-  , dragging: false
+  , dragging: Nothing
   , draggable: Nothing
   , selectable: Nothing
   , connectable: Nothing
@@ -67,7 +67,7 @@ nodeAt id at =
   , parentId: Nothing
   , zIndex: Nothing
   , extent: Nothing
-  , expandParent: false
+  , expandParent: Nothing
   , ariaLabel: Nothing
   , origin: Nothing
   , handles: Nothing
@@ -127,7 +127,7 @@ runMeasuredDimensionsTests = do
   let
     parent = (nodeAt "p" { x: 0.0, y: 0.0 }) { measured = { width: Just 50.0, height: Just 25.0 } }
     child = (nodeAt "c" { x: 40.0, y: 0.0 })
-      { parentId = Just (nodeToParent (NodeId "p")), expandParent = true }
+      { parentId = Just (nodeToParent (NodeId "p")), expandParent = Just true }
   expandChanges <- measure [ parent, child ] [ "c" ]
   let grown = dimensionChangeFor (NodeId "p") expandChanges
   assert "an expandParent child grows its parent"

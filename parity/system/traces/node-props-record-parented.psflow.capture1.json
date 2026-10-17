@@ -270,7 +270,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 260.5999999642372,
+            "timeStamp": 311.9000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -339,7 +339,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 260.5999999642372,
+            "timeStamp": 311.9000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -383,12 +383,9 @@
               "label": "props-parent"
             },
             "type": "propsRecord",
-            "hidden": false,
             "selected": false,
-            "dragging": false,
             "width": 300,
             "height": 200,
-            "expandParent": false,
             "measured": {
               "width": 300,
               "height": 200
@@ -417,7 +414,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 260.5999999642372,
+            "timeStamp": 311.9000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -482,7 +479,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 260.5999999642372,
+            "timeStamp": 311.9000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -524,12 +521,9 @@
               "label": "props-parent"
             },
             "type": "propsRecord",
-            "hidden": false,
             "selected": false,
-            "dragging": false,
             "width": 300,
             "height": 200,
-            "expandParent": false,
             "measured": {
               "width": 300,
               "height": 200
@@ -570,7 +564,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 271.89999997615814,
+            "timeStamp": 322.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -612,12 +606,9 @@
               "label": "props-parent"
             },
             "type": "propsRecord",
-            "hidden": false,
             "selected": false,
-            "dragging": false,
             "width": 300,
             "height": 200,
-            "expandParent": false,
             "measured": {
               "width": 300,
               "height": 200
@@ -640,12 +631,9 @@
                   "label": "props-parent"
                 },
                 "type": "propsRecord",
-                "hidden": false,
                 "selected": true,
-                "dragging": false,
                 "width": 300,
                 "height": 200,
-                "expandParent": false,
                 "measured": {
                   "width": 300,
                   "height": 200
@@ -679,7 +667,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 288.2999999523163,
+            "timeStamp": 337.7000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -723,12 +711,9 @@
               "label": "props-parent"
             },
             "type": "propsRecord",
-            "hidden": false,
             "selected": true,
-            "dragging": false,
             "width": 300,
             "height": 200,
-            "expandParent": false,
             "measured": {
               "width": 300,
               "height": 200
@@ -759,7 +744,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 288.2999999523163,
+            "timeStamp": 337.7000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -803,16 +788,13 @@
               "label": "props-child"
             },
             "type": "propsRecord",
-            "hidden": false,
             "selected": false,
-            "dragging": false,
             "draggable": false,
             "selectable": false,
             "deletable": false,
             "width": 120,
             "height": 40,
             "parentId": "props-parent",
-            "expandParent": false,
             "measured": {
               "width": 120,
               "height": 40
@@ -841,7 +823,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 288.2999999523163,
+            "timeStamp": 337.7000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -906,7 +888,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 288.2999999523163,
+            "timeStamp": 337.7000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -948,16 +930,13 @@
               "label": "props-child"
             },
             "type": "propsRecord",
-            "hidden": false,
             "selected": false,
-            "dragging": false,
             "draggable": false,
             "selectable": false,
             "deletable": false,
             "width": 120,
             "height": 40,
             "parentId": "props-parent",
-            "expandParent": false,
             "measured": {
               "width": 120,
               "height": 40
@@ -1014,7 +993,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 302.39999997615814,
+            "timeStamp": 353.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1056,16 +1035,13 @@
               "label": "props-child"
             },
             "type": "propsRecord",
-            "hidden": false,
             "selected": false,
-            "dragging": false,
             "draggable": false,
             "selectable": false,
             "deletable": false,
             "width": 120,
             "height": 40,
             "parentId": "props-parent",
-            "expandParent": false,
             "measured": {
               "width": 120,
               "height": 40
@@ -1088,12 +1064,9 @@
               "label": "props-parent"
             },
             "type": "propsRecord",
-            "hidden": false,
             "selected": true,
-            "dragging": false,
             "width": 300,
             "height": 200,
-            "expandParent": false,
             "measured": {
               "width": 300,
               "height": 200
@@ -1109,16 +1082,13 @@
               "label": "props-child"
             },
             "type": "propsRecord",
-            "hidden": false,
             "selected": false,
-            "dragging": false,
             "draggable": false,
             "selectable": false,
             "deletable": false,
             "width": 120,
             "height": 40,
             "parentId": "props-parent",
-            "expandParent": false,
             "measured": {
               "width": 120,
               "height": 40
@@ -1135,12 +1105,9 @@
             "label": "props-parent"
           },
           "type": "propsRecord",
-          "hidden": false,
           "selected": true,
-          "dragging": false,
           "width": 300,
           "height": 200,
-          "expandParent": false,
           "measured": {
             "width": 300,
             "height": 200
@@ -1156,12 +1123,9 @@
             "label": "props-parent"
           },
           "type": "propsRecord",
-          "hidden": false,
           "selected": true,
-          "dragging": false,
           "width": 300,
           "height": 200,
-          "expandParent": false,
           "measured": {
             "width": 300,
             "height": 200
@@ -1193,12 +1157,9 @@
               "label": "props-parent"
             },
             "type": "propsRecord",
-            "hidden": false,
             "selected": true,
-            "dragging": false,
             "width": 300,
             "height": 200,
-            "expandParent": false,
             "measured": {
               "width": 300,
               "height": 200
@@ -1214,16 +1175,13 @@
               "label": "props-child"
             },
             "type": "propsRecord",
-            "hidden": false,
             "selected": false,
-            "dragging": false,
             "draggable": false,
             "selectable": false,
             "deletable": false,
             "width": 120,
             "height": 40,
             "parentId": "props-parent",
-            "expandParent": false,
             "measured": {
               "width": 120,
               "height": 40
@@ -1251,12 +1209,9 @@
                 "label": "props-parent"
               },
               "type": "propsRecord",
-              "hidden": false,
               "selected": true,
-              "dragging": false,
               "width": 300,
               "height": 200,
-              "expandParent": false,
               "measured": {
                 "width": 300,
                 "height": 200
@@ -1272,16 +1227,13 @@
                 "label": "props-child"
               },
               "type": "propsRecord",
-              "hidden": false,
               "selected": false,
-              "dragging": false,
               "draggable": false,
               "selectable": false,
               "deletable": false,
               "width": 120,
               "height": 40,
               "parentId": "props-parent",
-              "expandParent": false,
               "measured": {
                 "width": 120,
                 "height": 40

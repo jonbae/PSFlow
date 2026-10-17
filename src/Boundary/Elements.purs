@@ -27,14 +27,15 @@
 -- |
 -- | ## Fields PureScript makes required and upstream leaves optional
 -- |
--- | Seven Booleans — a node's `hidden`, `selected`, `dragging` and
--- | `expandParent`, an edge's `animated`, `hidden` and `selected` — plus a
--- | node's `measured` record. Inbound they default (`false`, and an empty
+-- | One Boolean — a node's `selected` — plus a node's `measured` record. An
+-- | edge's `animated`, `hidden`, and `selected` and a node's `expandParent`,
+-- | `hidden`, and `dragging` were the other six, and are `Maybe Boolean`s
+-- | that cross only when they're set. Inbound they default (`false`, and an empty
 -- | measurement); outbound they are **emitted always**, so a JavaScript
 -- | consumer reading a node back sees `hidden: false` where upstream would
 -- | have no such key. That is a real divergence, it is recorded as a region in
 -- | `parity/boundary/regions.json`, and it is deliberately not fixed here:
--- | `Maybe`-ifying eight fields of the internals is churn ahead of the first
+-- | `Maybe`-ifying two fields of the internals is churn ahead of the first
 -- | green signal on the JS surface. The stale-region rule is what forces the
 -- | cleanup once the net's `props` and `dom` sections are green.
 -- |
@@ -502,9 +503,9 @@ nodeIn n =
   , data: n.data
   , sourcePosition: map (positionIn "node.sourcePosition") (fromUndefinable n.sourcePosition)
   , targetPosition: map (positionIn "node.targetPosition") (fromUndefinable n.targetPosition)
-  , hidden: fromMaybe false (fromUndefinable n.hidden)
+  , hidden: fromUndefinable n.hidden
   , selected: fromMaybe false (fromUndefinable n.selected)
-  , dragging: fromMaybe false (fromUndefinable n.dragging)
+  , dragging: fromUndefinable n.dragging
   , draggable: fromUndefinable n.draggable
   , selectable: fromUndefinable n.selectable
   , connectable: fromUndefinable n.connectable
@@ -517,7 +518,7 @@ nodeIn n =
   , parentId: map wrap (fromUndefinable n.parentId)
   , zIndex: map Int.round (fromUndefinable n.zIndex)
   , extent: map nodeExtentIn (fromUndefinable n.extent)
-  , expandParent: fromMaybe false (fromUndefinable n.expandParent)
+  , expandParent: fromUndefinable n.expandParent
   , ariaLabel: fromUndefinable n.ariaLabel
   , origin: map (nodeOriginIn "node.origin") (fromUndefinable n.origin)
   , handles: map (map nodeHandleIn) (fromUndefinable n.handles)
@@ -541,9 +542,9 @@ nodeOut n = pruneUndefined
   , type: toUndefinable n.nodeType
   , sourcePosition: toUndefinable (map positionOut n.sourcePosition)
   , targetPosition: toUndefinable (map positionOut n.targetPosition)
-  , hidden: toUndefinable (Just n.hidden)
+  , hidden: toUndefinable n.hidden
   , selected: toUndefinable (Just n.selected)
-  , dragging: toUndefinable (Just n.dragging)
+  , dragging: toUndefinable n.dragging
   , draggable: toUndefinable n.draggable
   , selectable: toUndefinable n.selectable
   , connectable: toUndefinable n.connectable
@@ -556,7 +557,7 @@ nodeOut n = pruneUndefined
   , parentId: toUndefinable (map unwrap n.parentId)
   , zIndex: toUndefinable (map Int.toNumber n.zIndex)
   , extent: toUndefinable (map nodeExtentOut n.extent)
-  , expandParent: toUndefinable (Just n.expandParent)
+  , expandParent: toUndefinable n.expandParent
   , ariaLabel: toUndefinable n.ariaLabel
   , origin: toUndefinable (map nodeOriginOut n.origin)
   , handles: toUndefinable (map (map nodeHandleOut) n.handles)
@@ -581,9 +582,9 @@ internalNodeOut n = pruneUndefined
   , type: toUndefinable n.nodeType
   , sourcePosition: toUndefinable (map positionOut n.sourcePosition)
   , targetPosition: toUndefinable (map positionOut n.targetPosition)
-  , hidden: toUndefinable (Just n.hidden)
+  , hidden: toUndefinable n.hidden
   , selected: toUndefinable (Just n.selected)
-  , dragging: toUndefinable (Just n.dragging)
+  , dragging: toUndefinable n.dragging
   , draggable: toUndefinable n.draggable
   , selectable: toUndefinable n.selectable
   , connectable: toUndefinable n.connectable
@@ -596,7 +597,7 @@ internalNodeOut n = pruneUndefined
   , parentId: toUndefinable (map unwrap n.parentId)
   , zIndex: toUndefinable (map Int.toNumber n.zIndex)
   , extent: toUndefinable (map nodeExtentOut n.extent)
-  , expandParent: toUndefinable (Just n.expandParent)
+  , expandParent: toUndefinable n.expandParent
   , ariaLabel: toUndefinable n.ariaLabel
   , origin: toUndefinable (map nodeOriginOut n.origin)
   , handles: toUndefinable (map (map nodeHandleOut) n.handles)
@@ -742,12 +743,12 @@ edgeIn e =
   , target: wrap e.target
   , sourceHandle: fromUndefinable e.sourceHandle
   , targetHandle: fromUndefinable e.targetHandle
-  , animated: fromMaybe false (fromUndefinable e.animated)
-  , hidden: fromMaybe false (fromUndefinable e.hidden)
+  , animated: fromUndefinable e.animated
+  , hidden: fromUndefinable e.hidden
   , deletable: fromUndefinable e.deletable
   , selectable: fromUndefinable e.selectable
   , data: fromUndefinable e.data
-  , selected: fromMaybe false (fromUndefinable e.selected)
+  , selected: fromUndefinable e.selected
   , markerStart: map (markerIn "edge.markerStart") (fromUndefinable e.markerStart)
   , markerEnd: map (markerIn "edge.markerEnd") (fromUndefinable e.markerEnd)
   , zIndex: map Int.round (fromUndefinable e.zIndex)
@@ -771,12 +772,12 @@ edgeOut e = pruneUndefined
   , target: unwrap e.target
   , sourceHandle: toUndefinable e.sourceHandle
   , targetHandle: toUndefinable e.targetHandle
-  , animated: toUndefinable (Just e.animated)
-  , hidden: toUndefinable (Just e.hidden)
+  , animated: toUndefinable e.animated
+  , hidden: toUndefinable e.hidden
   , deletable: toUndefinable e.deletable
   , selectable: toUndefinable e.selectable
   , data: toUndefinable (map unsafeToForeign e.data)
-  , selected: toUndefinable (Just e.selected)
+  , selected: toUndefinable e.selected
   , markerStart: toUndefinable (map markerOut e.markerStart)
   , markerEnd: toUndefinable (map markerOut e.markerEnd)
   , zIndex: toUndefinable (map Int.toNumber e.zIndex)
@@ -929,7 +930,7 @@ nodeChangeIn c = case c.type of
     { id: wrap (requiredMember c.type "id" c.id)
     , position: fromUndefinable c.position
     , positionAbsolute: fromUndefinable c.positionAbsolute
-    , dragging: fromMaybe false (fromUndefinable c.dragging)
+    , dragging: fromUndefinable c.dragging
     }
   "select" -> NodeSelectionChange
     { id: wrap (requiredMember c.type "id" c.id)
@@ -966,7 +967,7 @@ nodeChangeOut = pruneUndefined <<< case _ of
     , id = toUndefinable (Just (unwrap c.id))
     , position = toUndefinable c.position
     , positionAbsolute = toUndefinable c.positionAbsolute
-    , dragging = toUndefinable (Just c.dragging)
+    , dragging = toUndefinable c.dragging
     }
   NodeSelectionChange c -> emptyNodeChange
     { type = "select"

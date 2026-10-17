@@ -262,12 +262,9 @@
               "label": "props-parent"
             },
             "type": "propsRecord",
-            "hidden": false,
             "selected": false,
-            "dragging": false,
             "width": 300,
             "height": 200,
-            "expandParent": false,
             "measured": {
               "width": 300,
               "height": 200
@@ -283,16 +280,13 @@
               "label": "props-child"
             },
             "type": "propsRecord",
-            "hidden": false,
             "selected": false,
-            "dragging": false,
             "draggable": false,
             "selectable": false,
             "deletable": false,
             "width": 120,
             "height": 40,
             "parentId": "props-parent",
-            "expandParent": false,
             "measured": {
               "width": 120,
               "height": 40
@@ -309,12 +303,9 @@
             "label": "props-parent"
           },
           "type": "propsRecord",
-          "hidden": false,
           "selected": false,
-          "dragging": false,
           "width": 300,
           "height": 200,
-          "expandParent": false,
           "measured": {
             "width": 300,
             "height": 200
@@ -330,12 +321,9 @@
             "label": "props-parent"
           },
           "type": "propsRecord",
-          "hidden": false,
           "selected": false,
-          "dragging": false,
           "width": 300,
           "height": 200,
-          "expandParent": false,
           "measured": {
             "width": 300,
             "height": 200
@@ -367,12 +355,9 @@
               "label": "props-parent"
             },
             "type": "propsRecord",
-            "hidden": false,
             "selected": false,
-            "dragging": false,
             "width": 300,
             "height": 200,
-            "expandParent": false,
             "measured": {
               "width": 300,
               "height": 200
@@ -388,16 +373,13 @@
               "label": "props-child"
             },
             "type": "propsRecord",
-            "hidden": false,
             "selected": false,
-            "dragging": false,
             "draggable": false,
             "selectable": false,
             "deletable": false,
             "width": 120,
             "height": 40,
             "parentId": "props-parent",
-            "expandParent": false,
             "measured": {
               "width": 120,
               "height": 40
@@ -425,12 +407,9 @@
                 "label": "props-parent"
               },
               "type": "propsRecord",
-              "hidden": false,
               "selected": false,
-              "dragging": false,
               "width": 300,
               "height": 200,
-              "expandParent": false,
               "measured": {
                 "width": 300,
                 "height": 200
@@ -446,16 +425,13 @@
                 "label": "props-child"
               },
               "type": "propsRecord",
-              "hidden": false,
               "selected": false,
-              "dragging": false,
               "draggable": false,
               "selectable": false,
               "deletable": false,
               "width": 120,
               "height": 40,
               "parentId": "props-parent",
-              "expandParent": false,
               "measured": {
                 "width": 120,
                 "height": 40

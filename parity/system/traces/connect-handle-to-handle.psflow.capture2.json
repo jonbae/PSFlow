@@ -907,7 +907,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 169.89999997615814,
+            "timeStamp": 181.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -976,7 +976,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 169.89999997615814,
+            "timeStamp": 181.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1020,10 +1020,7 @@
               "label": "Node-1"
             },
             "type": "input",
-            "hidden": false,
             "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1056,7 +1053,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 169.89999997615814,
+            "timeStamp": 181.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1121,7 +1118,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 169.89999997615814,
+            "timeStamp": 181.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1163,10 +1160,7 @@
               "label": "Node-1"
             },
             "type": "input",
-            "hidden": false,
             "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1201,7 +1195,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 193.5,
+            "timeStamp": 193,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1245,10 +1239,7 @@
               "label": "Node-1"
             },
             "type": "input",
-            "hidden": false,
             "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1283,7 +1274,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 193.5,
+            "timeStamp": 193,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1322,9 +1313,6 @@
             "type": "default",
             "source": "Node-1",
             "target": "Node-3",
-            "animated": false,
-            "hidden": false,
-            "selected": false,
             "label": "edge"
           }
         ]
@@ -1350,7 +1338,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 193.5,
+            "timeStamp": 193,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1415,7 +1403,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 193.5,
+            "timeStamp": 193,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1452,9 +1440,6 @@
             "type": "default",
             "source": "Node-1",
             "target": "Node-3",
-            "animated": false,
-            "hidden": false,
-            "selected": false,
             "label": "edge"
           }
         ]
@@ -1478,7 +1463,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 184.0999999642372,
+            "timeStamp": 184.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1540,7 +1525,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 211.5,
+            "timeStamp": 210.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1579,9 +1564,6 @@
             "type": "default",
             "source": "Node-1",
             "target": "Node-3",
-            "animated": false,
-            "hidden": false,
-            "selected": false,
             "label": "edge"
           }
         ]
@@ -1609,7 +1591,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 211.5,
+            "timeStamp": 210.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1653,10 +1635,7 @@
               "label": "Node-4"
             },
             "type": "output",
-            "hidden": false,
             "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1685,7 +1664,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 211.5,
+            "timeStamp": 210.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1750,7 +1729,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 211.5,
+            "timeStamp": 210.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1792,10 +1771,7 @@
               "label": "Node-4"
             },
             "type": "output",
-            "hidden": false,
             "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1861,10 +1837,7 @@
                 "label": "Node-1"
               },
               "type": "input",
-              "hidden": false,
               "selected": false,
-              "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -1925,10 +1898,7 @@
                 "label": "Node-4"
               },
               "type": "output",
-              "hidden": false,
               "selected": false,
-              "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -2032,10 +2002,7 @@
               "label": "Node-4"
             },
             "type": "output",
-            "hidden": false,
             "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2109,10 +2076,7 @@
             "data": {
               "label": "Node-3"
             },
-            "hidden": false,
             "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2247,10 +2211,7 @@
             "data": {
               "label": "Node-3"
             },
-            "hidden": false,
             "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2279,7 +2240,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 253.5,
+            "timeStamp": 252.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2339,7 +2300,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 253.5,
+            "timeStamp": 252.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2380,10 +2341,7 @@
             "data": {
               "label": "Node-3"
             },
-            "hidden": false,
             "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2414,7 +2372,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 259.69999998807907,
+            "timeStamp": 258.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2457,10 +2415,7 @@
             "data": {
               "label": "Node-3"
             },
-            "hidden": false,
             "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2491,7 +2446,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 259.69999998807907,
+            "timeStamp": 258.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2535,10 +2490,7 @@
               "label": "Node-2"
             },
             "type": "output",
-            "hidden": false,
             "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2567,7 +2519,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 259.69999998807907,
+            "timeStamp": 258.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2632,7 +2584,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 259.69999998807907,
+            "timeStamp": 258.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2674,10 +2626,7 @@
               "label": "Node-2"
             },
             "type": "output",
-            "hidden": false,
             "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2728,7 +2677,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 271.30000001192093,
+            "timeStamp": 269.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2795,7 +2744,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 271.30000001192093,
+            "timeStamp": 269.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2837,10 +2786,7 @@
               "label": "Node-2"
             },
             "type": "output",
-            "hidden": false,
             "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2863,10 +2809,7 @@
               "label": "Node-1"
             },
             "type": "input",
-            "hidden": false,
             "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2886,10 +2829,7 @@
               "label": "Node-2"
             },
             "type": "output",
-            "hidden": false,
             "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2904,10 +2844,7 @@
             "data": {
               "label": "Node-3"
             },
-            "hidden": false,
             "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2923,10 +2860,7 @@
               "label": "Node-4"
             },
             "type": "output",
-            "hidden": false,
             "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2942,11 +2876,8 @@
               "label": "Drag Handle"
             },
             "type": "DragHandleNode",
-            "hidden": false,
             "selected": false,
-            "dragging": false,
             "dragHandle": ".custom-drag-handle",
-            "expandParent": false,
             "measured": {
               "width": 100,
               "height": 50
@@ -2962,11 +2893,8 @@
               "label": "notConnectable"
             },
             "type": "output",
-            "hidden": false,
             "selected": false,
-            "dragging": false,
             "connectable": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2981,11 +2909,8 @@
             "data": {
               "label": "notDraggable"
             },
-            "hidden": false,
             "selected": false,
-            "dragging": false,
             "draggable": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -3000,11 +2925,8 @@
             "data": {
               "label": "notSelectable"
             },
-            "hidden": false,
             "selected": false,
-            "dragging": false,
             "selectable": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -3019,11 +2941,8 @@
             "data": {
               "label": "notDeletable"
             },
-            "hidden": false,
             "selected": false,
-            "dragging": false,
             "deletable": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -3039,9 +2958,7 @@
               "label": "hidden"
             },
             "hidden": true,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false
+            "selected": false
           }
         ],
         "getNode": {
@@ -3054,10 +2971,7 @@
             "label": "Node-1"
           },
           "type": "input",
-          "hidden": false,
           "selected": false,
-          "dragging": false,
-          "expandParent": false,
           "measured": {
             "width": 150,
             "height": 37
@@ -3077,10 +2991,7 @@
             "label": "Node-1"
           },
           "type": "input",
-          "hidden": false,
           "selected": false,
-          "dragging": false,
-          "expandParent": false,
           "measured": {
             "width": 150,
             "height": 37
@@ -3120,9 +3031,6 @@
             "type": "default",
             "source": "Node-1",
             "target": "Node-2",
-            "animated": false,
-            "hidden": false,
-            "selected": false,
             "label": "edge"
           },
           {
@@ -3130,26 +3038,17 @@
             "type": "default",
             "source": "Node-1",
             "target": "Node-3",
-            "animated": false,
-            "hidden": false,
-            "selected": false,
             "label": "edge"
           },
           {
             "id": "xy-edge__Node-1-Node-4",
             "source": "Node-1",
-            "target": "Node-4",
-            "animated": false,
-            "hidden": false,
-            "selected": false
+            "target": "Node-4"
           },
           {
             "id": "xy-edge__Node-3-Node-2",
             "source": "Node-3",
-            "target": "Node-2",
-            "animated": false,
-            "hidden": false,
-            "selected": false
+            "target": "Node-2"
           }
         ],
         "getEdge": {
@@ -3157,9 +3056,6 @@
           "type": "default",
           "source": "Node-1",
           "target": "Node-2",
-          "animated": false,
-          "hidden": false,
-          "selected": false,
           "label": "edge"
         },
         "getIntersectingNodes": [
@@ -3173,10 +3069,7 @@
               "label": "Node-1"
             },
             "type": "input",
-            "hidden": false,
             "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -3196,10 +3089,7 @@
               "label": "Node-2"
             },
             "type": "output",
-            "hidden": false,
             "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -3214,10 +3104,7 @@
             "data": {
               "label": "Node-3"
             },
-            "hidden": false,
             "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -3233,10 +3120,7 @@
               "label": "Node-4"
             },
             "type": "output",
-            "hidden": false,
             "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -3252,11 +3136,8 @@
               "label": "Drag Handle"
             },
             "type": "DragHandleNode",
-            "hidden": false,
             "selected": false,
-            "dragging": false,
             "dragHandle": ".custom-drag-handle",
-            "expandParent": false,
             "measured": {
               "width": 100,
               "height": 50
@@ -3272,11 +3153,8 @@
               "label": "notConnectable"
             },
             "type": "output",
-            "hidden": false,
             "selected": false,
-            "dragging": false,
             "connectable": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -3291,11 +3169,8 @@
             "data": {
               "label": "notDraggable"
             },
-            "hidden": false,
             "selected": false,
-            "dragging": false,
             "draggable": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -3310,11 +3185,8 @@
             "data": {
               "label": "notSelectable"
             },
-            "hidden": false,
             "selected": false,
-            "dragging": false,
             "selectable": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -3329,11 +3201,8 @@
             "data": {
               "label": "notDeletable"
             },
-            "hidden": false,
             "selected": false,
-            "dragging": false,
             "deletable": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -3349,9 +3218,7 @@
               "label": "hidden"
             },
             "hidden": true,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false
+            "selected": false
           }
         ],
         "isNodeIntersecting": true,
@@ -3419,10 +3286,7 @@
                 "label": "Node-1"
               },
               "type": "input",
-              "hidden": false,
               "selected": false,
-              "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -3442,10 +3306,7 @@
                 "label": "Node-2"
               },
               "type": "output",
-              "hidden": false,
               "selected": false,
-              "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -3460,10 +3321,7 @@
               "data": {
                 "label": "Node-3"
               },
-              "hidden": false,
               "selected": false,
-              "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -3479,10 +3337,7 @@
                 "label": "Node-4"
               },
               "type": "output",
-              "hidden": false,
               "selected": false,
-              "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -3498,11 +3353,8 @@
                 "label": "Drag Handle"
               },
               "type": "DragHandleNode",
-              "hidden": false,
               "selected": false,
-              "dragging": false,
               "dragHandle": ".custom-drag-handle",
-              "expandParent": false,
               "measured": {
                 "width": 100,
                 "height": 50
@@ -3518,11 +3370,8 @@
                 "label": "notConnectable"
               },
               "type": "output",
-              "hidden": false,
               "selected": false,
-              "dragging": false,
               "connectable": false,
-              "expandParent": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -3537,11 +3386,8 @@
               "data": {
                 "label": "notDraggable"
               },
-              "hidden": false,
               "selected": false,
-              "dragging": false,
               "draggable": false,
-              "expandParent": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -3556,11 +3402,8 @@
               "data": {
                 "label": "notSelectable"
               },
-              "hidden": false,
               "selected": false,
-              "dragging": false,
               "selectable": false,
-              "expandParent": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -3575,11 +3418,8 @@
               "data": {
                 "label": "notDeletable"
               },
-              "hidden": false,
               "selected": false,
-              "dragging": false,
               "deletable": false,
-              "expandParent": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -3595,9 +3435,7 @@
                 "label": "hidden"
               },
               "hidden": true,
-              "selected": false,
-              "dragging": false,
-              "expandParent": false
+              "selected": false
             }
           ],
           "edges": [
@@ -3606,9 +3444,6 @@
               "type": "default",
               "source": "Node-1",
               "target": "Node-2",
-              "animated": false,
-              "hidden": false,
-              "selected": false,
               "label": "edge"
             },
             {
@@ -3616,26 +3451,17 @@
               "type": "default",
               "source": "Node-1",
               "target": "Node-3",
-              "animated": false,
-              "hidden": false,
-              "selected": false,
               "label": "edge"
             },
             {
               "id": "xy-edge__Node-1-Node-4",
               "source": "Node-1",
-              "target": "Node-4",
-              "animated": false,
-              "hidden": false,
-              "selected": false
+              "target": "Node-4"
             },
             {
               "id": "xy-edge__Node-3-Node-2",
               "source": "Node-3",
-              "target": "Node-2",
-              "animated": false,
-              "hidden": false,
-              "selected": false
+              "target": "Node-2"
             }
           ],
           "viewport": {

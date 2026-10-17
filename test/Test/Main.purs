@@ -45,6 +45,12 @@ import Test.Parity.Graph (runGraphParity)
 import Test.Parity.Marker (runMarkerParity)
 import Test.Parity.Toolbar (runToolbarParity)
 import Test.Boundary.ConnectionNullHandle (runConnectionNullHandleTests)
+import Test.Boundary.EdgeAnimated (runEdgeAnimatedTests)
+import Test.Boundary.EdgeHidden (runEdgeHiddenTests)
+import Test.Boundary.EdgeSelected (runEdgeSelectedTests)
+import Test.Boundary.NodeDragging (runNodeDraggingTests)
+import Test.Boundary.NodeHidden (runNodeHiddenTests)
+import Test.Boundary.NodeExpandParent (runNodeExpandParentTests)
 import Test.Boundary.PrunedKeys (runPrunedKeysTests)
 import Test.Boundary.Wrapper (runWrapperTests)
 import Test.Properties (runProperties)
@@ -309,7 +315,7 @@ main = do
             { id: NodeId "2"
             , position: Nothing
             , positionAbsolute: Nothing
-            , dragging: false
+            , dragging: Nothing
             }
         }
       , { tag: "sel", change: NodeSelectionChange { id: NodeId "3", selected: true } }
@@ -483,9 +489,9 @@ main = do
       , data: unit
       , sourcePosition: Nothing
       , targetPosition: Nothing
-      , hidden: false
+      , hidden: Nothing
       , selected: false
-      , dragging: false
+      , dragging: Nothing
       , draggable: Nothing
       , selectable: Nothing
       , connectable: Nothing
@@ -498,7 +504,7 @@ main = do
       , parentId: Nothing
       , zIndex: Nothing
       , extent: Nothing
-      , expandParent: false
+      , expandParent: Nothing
       , ariaLabel: Nothing
       , origin: Nothing
       , handles: Nothing
@@ -515,12 +521,12 @@ main = do
       , target: NodeId tgt
       , sourceHandle: Nothing
       , targetHandle: Nothing
-      , animated: false
-      , hidden: false
+      , animated: Nothing
+      , hidden: Nothing
       , deletable: Nothing
       , selectable: Nothing
       , data: Nothing
-      , selected: false
+      , selected: Nothing
       , markerStart: Nothing
       , markerEnd: Nothing
       , zIndex: Nothing
@@ -643,9 +649,9 @@ main = do
       , data: unit
       , sourcePosition: Nothing
       , targetPosition: Nothing
-      , hidden: false
+      , hidden: Nothing
       , selected
-      , dragging: false
+      , dragging: Nothing
       , draggable
       , selectable: Nothing
       , connectable: Nothing
@@ -658,7 +664,7 @@ main = do
       , parentId
       , zIndex: Nothing
       , extent: Nothing
-      , expandParent: false
+      , expandParent: Nothing
       , ariaLabel: Nothing
       , origin: Nothing
       , handles: Nothing
@@ -741,10 +747,10 @@ main = do
       , extent: Nothing
       , parentId: Nothing
       , origin: Nothing
-      , expandParent: false
+      , expandParent: Nothing
       , internals: { positionAbsolute: { x: 0.0, y: 0.0 } }
       , measured: { width: 0.0, height: 0.0 }
-      , dragging: false
+      , dragging: Nothing
       }
     flatMap = [ flatItem ]
   -- Snapping (7.4, 12.6) to a 5-grid lands at (5, 15); offset is (-2.4, 2.4).
@@ -780,7 +786,7 @@ main = do
     (Array.length paramsHead.allNodes == 2)
   assert "getEventHandlerParams Just nid returns that node as current"
     ( case paramsTargeted.currentNode of
-        Just n -> n.id == NodeId "d" && n.dragging == true
+        Just n -> n.id == NodeId "d" && n.dragging == Just true
         Nothing -> false
     )
 
@@ -1119,6 +1125,12 @@ main = do
   runNodeRenderOrderTests
   runConnectionOrderTests
   runConnectionNullHandleTests
+  runEdgeAnimatedTests
+  runNodeExpandParentTests
+  runEdgeHiddenTests
+  runEdgeSelectedTests
+  runNodeHiddenTests
+  runNodeDraggingTests
 
   -- Function parity — live differential against XYFlow (via the @psflow/oracle bundle).
   -- Requires `npm run build:oracle` to have produced oracle/index.js.

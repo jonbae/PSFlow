@@ -57,7 +57,7 @@ edgeToolbar =
         isActive = case props.isVisible of
           Just b -> b
           Nothing -> case mEdge of
-            Just e -> e.selected
+            Just e -> e.selected == Just true
             Nothing -> false
       if not isActive then pure mempty
       else

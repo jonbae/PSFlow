@@ -41,9 +41,9 @@ internalNode id x y =
   , data: unit
   , sourcePosition: Nothing
   , targetPosition: Nothing
-  , hidden: false
+  , hidden: Nothing
   , selected: false
-  , dragging: false
+  , dragging: Nothing
   , draggable: Nothing
   , selectable: Nothing
   , connectable: Nothing
@@ -56,7 +56,7 @@ internalNode id x y =
   , parentId: Nothing
   , zIndex: Nothing
   , extent: Nothing
-  , expandParent: false
+  , expandParent: Nothing
   , ariaLabel: Nothing
   , origin: Nothing
   , handles: Nothing
