@@ -557,7 +557,6 @@
             "id": "child-outside",
             "source": "child",
             "target": "outside",
-            "hidden": false,
             "selected": false
           }
         ],
@@ -565,7 +564,6 @@
           "id": "child-outside",
           "source": "child",
           "target": "outside",
-          "hidden": false,
           "selected": false
         },
         "getIntersectingNodes": [
@@ -707,7 +705,6 @@
               "id": "child-outside",
               "source": "child",
               "target": "outside",
-              "hidden": false,
               "selected": false
             }
           ],

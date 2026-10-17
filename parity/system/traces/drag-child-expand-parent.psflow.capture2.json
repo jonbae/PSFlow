@@ -424,7 +424,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 145.19999998807907,
+            "timeStamp": 146.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -493,7 +493,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 145.19999998807907,
+            "timeStamp": 146.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -569,7 +569,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 145.19999998807907,
+            "timeStamp": 146.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -634,7 +634,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 145.19999998807907,
+            "timeStamp": 146.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -798,7 +798,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 159.9000000357628,
+            "timeStamp": 160.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -932,7 +932,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 173.60000002384186,
+            "timeStamp": 174.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1066,7 +1066,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 190.4000000357628,
+            "timeStamp": 192.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1200,7 +1200,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 207,
+            "timeStamp": 206.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1334,7 +1334,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 223.19999998807907,
+            "timeStamp": 225.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1468,7 +1468,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 241.9000000357628,
+            "timeStamp": 241.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1602,7 +1602,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 255.19999998807907,
+            "timeStamp": 257.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1736,7 +1736,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 272.30000001192093,
+            "timeStamp": 274.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2074,7 +2074,6 @@
             "id": "child-outside",
             "source": "child",
             "target": "outside",
-            "hidden": false,
             "selected": false
           }
         ],
@@ -2082,7 +2081,6 @@
           "id": "child-outside",
           "source": "child",
           "target": "outside",
-          "hidden": false,
           "selected": false
         },
         "getIntersectingNodes": [
@@ -2224,7 +2222,6 @@
               "id": "child-outside",
               "source": "child",
               "target": "outside",
-              "hidden": false,
               "selected": false
             }
           ],

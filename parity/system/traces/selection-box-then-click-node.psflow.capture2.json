@@ -773,7 +773,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 225.19999998807907,
+            "timeStamp": 225.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -848,7 +848,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 225.19999998807907,
+            "timeStamp": 225.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -913,7 +913,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 225.19999998807907,
+            "timeStamp": 225.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1120,7 +1120,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 249.4000000357628,
+            "timeStamp": 248.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1667,7 +1667,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 280.80000001192093,
+            "timeStamp": 281.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1980,7 +1980,6 @@
             "type": "default",
             "source": "Node-1",
             "target": "Node-2",
-            "hidden": false,
             "selected": false,
             "label": "edge"
           },
@@ -1989,7 +1988,6 @@
             "type": "default",
             "source": "Node-1",
             "target": "Node-3",
-            "hidden": false,
             "selected": false,
             "label": "edge"
           }
@@ -1999,7 +1997,6 @@
           "type": "default",
           "source": "Node-1",
           "target": "Node-2",
-          "hidden": false,
           "selected": false,
           "label": "edge"
         },
@@ -2413,7 +2410,6 @@
               "type": "default",
               "source": "Node-1",
               "target": "Node-2",
-              "hidden": false,
               "selected": false,
               "label": "edge"
             },
@@ -2422,7 +2418,6 @@
               "type": "default",
               "source": "Node-1",
               "target": "Node-3",
-              "hidden": false,
               "selected": false,
               "label": "edge"
             }

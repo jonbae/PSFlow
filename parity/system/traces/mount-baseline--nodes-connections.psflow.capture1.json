@@ -1062,7 +1062,6 @@
             "target": "hub",
             "sourceHandle": "out",
             "targetHandle": "in",
-            "hidden": false,
             "selected": false
           },
           {
@@ -1071,7 +1070,6 @@
             "target": "hub",
             "sourceHandle": "out",
             "targetHandle": "in",
-            "hidden": false,
             "selected": false
           },
           {
@@ -1080,7 +1078,6 @@
             "target": "down-1",
             "sourceHandle": "out",
             "targetHandle": "in",
-            "hidden": false,
             "selected": false
           },
           {
@@ -1089,7 +1086,6 @@
             "target": "down-2",
             "sourceHandle": "out",
             "targetHandle": "in",
-            "hidden": false,
             "selected": false
           },
           {
@@ -1098,7 +1094,6 @@
             "target": "down-3",
             "sourceHandle": "out",
             "targetHandle": "in",
-            "hidden": false,
             "selected": false
           }
         ],
@@ -1108,7 +1103,6 @@
           "target": "hub",
           "sourceHandle": "out",
           "targetHandle": "in",
-          "hidden": false,
           "selected": false
         },
         "getIntersectingNodes": [
@@ -1406,7 +1400,6 @@
               "target": "hub",
               "sourceHandle": "out",
               "targetHandle": "in",
-              "hidden": false,
               "selected": false
             },
             {
@@ -1415,7 +1408,6 @@
               "target": "hub",
               "sourceHandle": "out",
               "targetHandle": "in",
-              "hidden": false,
               "selected": false
             },
             {
@@ -1424,7 +1416,6 @@
               "target": "down-1",
               "sourceHandle": "out",
               "targetHandle": "in",
-              "hidden": false,
               "selected": false
             },
             {
@@ -1433,7 +1424,6 @@
               "target": "down-2",
               "sourceHandle": "out",
               "targetHandle": "in",
-              "hidden": false,
               "selected": false
             },
             {
@@ -1442,7 +1432,6 @@
               "target": "down-3",
               "sourceHandle": "out",
               "targetHandle": "in",
-              "hidden": false,
               "selected": false
             }
           ],

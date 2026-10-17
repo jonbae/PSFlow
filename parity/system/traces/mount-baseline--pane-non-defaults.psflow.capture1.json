@@ -528,14 +528,12 @@
             "id": "first-edge",
             "source": "1",
             "target": "2",
-            "hidden": false,
             "selected": false
           },
           {
             "id": "second-edge",
             "source": "1",
             "target": "3",
-            "hidden": false,
             "selected": false
           }
         ],
@@ -543,7 +541,6 @@
           "id": "first-edge",
           "source": "1",
           "target": "2",
-          "hidden": false,
           "selected": false
         },
         "getIntersectingNodes": [
@@ -699,14 +696,12 @@
               "id": "first-edge",
               "source": "1",
               "target": "2",
-              "hidden": false,
               "selected": false
             },
             {
               "id": "second-edge",
               "source": "1",
               "target": "3",
-              "hidden": false,
               "selected": false
             }
           ],

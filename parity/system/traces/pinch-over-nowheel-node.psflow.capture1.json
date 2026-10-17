@@ -369,7 +369,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 314.7999999523163,
+            "timeStamp": 269.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -438,7 +438,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 314.7999999523163,
+            "timeStamp": 269.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -505,7 +505,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 329,
+            "timeStamp": 296.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -570,7 +570,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 329,
+            "timeStamp": 296.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -635,7 +635,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 358,
+            "timeStamp": 325,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -700,7 +700,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 358,
+            "timeStamp": 325,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -765,7 +765,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 374.0999999642372,
+            "timeStamp": 341.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -830,7 +830,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 374.0999999642372,
+            "timeStamp": 341.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -895,7 +895,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 390.5,
+            "timeStamp": 358.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -960,7 +960,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 390.5,
+            "timeStamp": 358.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1027,7 +1027,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 400,
+            "timeStamp": 367.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1096,7 +1096,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 400,
+            "timeStamp": 367.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1273,7 +1273,6 @@
             "id": "nowheel-plain",
             "source": "nowheel",
             "target": "plain",
-            "hidden": false,
             "selected": false
           }
         ],
@@ -1281,7 +1280,6 @@
           "id": "nowheel-plain",
           "source": "nowheel",
           "target": "plain",
-          "hidden": false,
           "selected": false
         },
         "getIntersectingNodes": [
@@ -1397,7 +1395,6 @@
               "id": "nowheel-plain",
               "source": "nowheel",
               "target": "plain",
-              "hidden": false,
               "selected": false
             }
           ],
