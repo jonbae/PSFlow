@@ -695,7 +695,6 @@
             "id": "1-2",
             "source": "Node-1",
             "target": "Node-2",
-            "animated": false,
             "hidden": false,
             "selected": false
           },
@@ -703,7 +702,6 @@
             "id": "2-3",
             "source": "Node-2",
             "target": "Node-3",
-            "animated": false,
             "hidden": false,
             "selected": false
           },
@@ -711,7 +709,6 @@
             "id": "3-4",
             "source": "Node-3",
             "target": "Node-4",
-            "animated": false,
             "hidden": false,
             "selected": false
           }
@@ -720,7 +717,6 @@
           "id": "1-2",
           "source": "Node-1",
           "target": "Node-2",
-          "animated": false,
           "hidden": false,
           "selected": false
         },
@@ -907,7 +903,6 @@
               "id": "1-2",
               "source": "Node-1",
               "target": "Node-2",
-              "animated": false,
               "hidden": false,
               "selected": false
             },
@@ -915,7 +910,6 @@
               "id": "2-3",
               "source": "Node-2",
               "target": "Node-3",
-              "animated": false,
               "hidden": false,
               "selected": false
             },
@@ -923,7 +917,6 @@
               "id": "3-4",
               "source": "Node-3",
               "target": "Node-4",
-              "animated": false,
               "hidden": false,
               "selected": false
             }

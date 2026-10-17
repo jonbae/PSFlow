@@ -620,6 +620,49 @@
         ]
       },
       {
+        "name": "onMoveStart",
+        "args": [
+          null,
+          {
+            "x": 140,
+            "y": 43.333333333333314,
+            "zoom": 1.25
+          }
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 570.5206463195691,
+            "y": 102,
+            "zoom": 0.926391382405745
+          }
+        ]
+      },
+      {
+        "name": "onMove",
+        "args": [
+          null,
+          {
+            "x": 570.5206463195691,
+            "y": 102,
+            "zoom": 0.926391382405745
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 570.5206463195691,
+            "y": 102,
+            "zoom": 0.926391382405745
+          }
+        ]
+      },
+      {
         "name": "onNodesChange",
         "args": [
           [
@@ -714,49 +757,6 @@
               }
             }
           ]
-        ]
-      },
-      {
-        "name": "onMoveStart",
-        "args": [
-          null,
-          {
-            "x": 140,
-            "y": 43.333333333333314,
-            "zoom": 1.25
-          }
-        ]
-      },
-      {
-        "name": "onViewportChange",
-        "args": [
-          {
-            "x": 570.5206463195691,
-            "y": 102,
-            "zoom": 0.926391382405745
-          }
-        ]
-      },
-      {
-        "name": "onMove",
-        "args": [
-          null,
-          {
-            "x": 570.5206463195691,
-            "y": 102,
-            "zoom": 0.926391382405745
-          }
-        ]
-      },
-      {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 570.5206463195691,
-            "y": 102,
-            "zoom": 0.926391382405745
-          }
         ]
       },
       {
@@ -874,7 +874,6 @@
                 "id": "second-edge",
                 "source": "1",
                 "target": "3",
-                "animated": false,
                 "hidden": false,
                 "selected": false
               }
@@ -890,7 +889,6 @@
               "id": "second-edge",
               "source": "1",
               "target": "3",
-              "animated": false,
               "hidden": false,
               "selected": false
             }
@@ -973,7 +971,6 @@
                 "id": "second-edge",
                 "source": "1",
                 "target": "3",
-                "animated": false,
                 "hidden": false,
                 "selected": false
               }
@@ -1110,7 +1107,6 @@
             "id": "first-edge",
             "source": "1",
             "target": "2",
-            "animated": false,
             "hidden": false,
             "selected": false
           },
@@ -1118,7 +1114,6 @@
             "id": "third-edge",
             "source": "2",
             "target": "4",
-            "animated": false,
             "hidden": false,
             "selected": false
           }
@@ -1127,7 +1122,6 @@
           "id": "first-edge",
           "source": "1",
           "target": "2",
-          "animated": false,
           "hidden": false,
           "selected": false
         },
@@ -1278,7 +1272,6 @@
               "id": "first-edge",
               "source": "1",
               "target": "2",
-              "animated": false,
               "hidden": false,
               "selected": false
             },
@@ -1286,7 +1279,6 @@
               "id": "third-edge",
               "source": "2",
               "target": "4",
-              "animated": false,
               "hidden": false,
               "selected": false
             }
@@ -1439,7 +1431,6 @@
                 "id": "second-edge",
                 "source": "1",
                 "target": "3",
-                "animated": false,
                 "hidden": false,
                 "selected": false
               }

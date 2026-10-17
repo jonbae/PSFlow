@@ -79,7 +79,7 @@ selectedEdge =
   , target: NodeId "n1"
   , sourceHandle: Nothing
   , targetHandle: Nothing
-  , animated: false
+  , animated: Nothing
   , hidden: false
   , deletable: Nothing
   , selectable: Nothing

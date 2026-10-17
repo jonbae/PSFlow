@@ -38,7 +38,7 @@ edge id source target =
   , target: NodeId target
   , sourceHandle: Nothing
   , targetHandle: Nothing
-  , animated: false
+  , animated: Nothing
   , hidden: false
   , deletable: Nothing
   , selectable: Nothing

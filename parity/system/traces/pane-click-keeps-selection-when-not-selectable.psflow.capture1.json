@@ -471,7 +471,6 @@
                 "type": "default",
                 "source": "Node-1",
                 "target": "Node-2",
-                "animated": false,
                 "hidden": false,
                 "selected": true,
                 "label": "edge"
@@ -589,7 +588,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 279.89999997615814,
+            "timeStamp": 281.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -656,7 +655,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 279.89999997615814,
+            "timeStamp": 281.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -749,7 +748,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 288.69999998807907,
+            "timeStamp": 288.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -932,7 +931,6 @@
             "type": "default",
             "source": "Node-1",
             "target": "Node-2",
-            "animated": false,
             "hidden": false,
             "selected": true,
             "label": "edge"
@@ -942,7 +940,6 @@
             "type": "default",
             "source": "Node-1",
             "target": "Node-3",
-            "animated": false,
             "hidden": false,
             "selected": false,
             "label": "edge"
@@ -953,7 +950,6 @@
           "type": "default",
           "source": "Node-1",
           "target": "Node-2",
-          "animated": false,
           "hidden": false,
           "selected": true,
           "label": "edge"
@@ -1158,7 +1154,6 @@
               "type": "default",
               "source": "Node-1",
               "target": "Node-2",
-              "animated": false,
               "hidden": false,
               "selected": true,
               "label": "edge"
@@ -1168,7 +1163,6 @@
               "type": "default",
               "source": "Node-1",
               "target": "Node-3",
-              "animated": false,
               "hidden": false,
               "selected": false,
               "label": "edge"
