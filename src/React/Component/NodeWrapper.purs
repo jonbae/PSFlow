@@ -50,7 +50,7 @@ import Prelude
 
 import Data.Array (elem, null) as Array
 import Data.Foldable (for_)
-import Data.Map (lookup, singleton) as Map
+import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe, isJust)
 import Data.Newtype (unwrap)
 import Data.Nullable (Nullable, toNullable)
@@ -475,7 +475,7 @@ nodeWrapper =
                 paneRect =
                   { x: 0.0, y: 0.0, width: st.width, height: st.height }
                 visible = getNodesInside
-                  (Map.singleton (NodeId props.id) node)
+                  [ node ]
                   paneRect
                   st.transform
                   { partially: true, excludeNonSelectable: false }

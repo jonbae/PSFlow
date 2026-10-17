@@ -69,7 +69,7 @@ import System.Types.Ids (NodeId)
 import System.Types.PanZoom (PanOnDrag(..))
 import System.Utils.Dom (DOMRect, elementBoundingRect, getEventPosition)
 import System.Utils.General (areSetsEqual, pointToRendererPoint, rendererPointToPoint)
-import System.Utils.Graph (getNodesInside)
+import System.Utils.Graph (getNodesInside, orderedInternalNodes)
 import Unsafe.Coerce (unsafeCoerce)
 import Web.HTML.HTMLDivElement (HTMLDivElement)
 import Web.UIEvent.MouseEvent (MouseEvent)
@@ -237,7 +237,7 @@ pane =
                   , width: nextRectBare.width
                   , height: nextRectBare.height
                   }
-                nextNodes = getNodesInside st.nodeLookup nextRectBare st.transform
+                nextNodes = getNodesInside (orderedInternalNodes st.nodes st.nodeLookup) nextRectBare st.transform
                   { partially: props.selectionMode == Partial
                   , excludeNonSelectable: true
                   }

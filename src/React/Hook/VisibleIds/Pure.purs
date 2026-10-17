@@ -9,28 +9,32 @@ module React.Hook.VisibleIds.Pure
 
 import Prelude
 
-import Data.Array (fromFoldable, mapMaybe) as Array
-import Data.Map (keys, lookup) as Map
+import Data.Array (mapMaybe) as Array
+import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..))
 import React.Types.Store (ReactFlowState)
 import System.Types.Ids (NodeId)
 import System.Utils.Edges.General (isEdgeVisible)
-import System.Utils.Graph (getNodesInside)
+import System.Utils.Graph (getNodesInside, orderedInternalNodes)
 
 -- | Pure selector. `onlyRenderVisible = false` returns every node ID;
 -- | `true` filters by viewport intersection (partially-visible counts).
+-- | Both come in upstream's `nodeLookup` order, which is `nodes`' order and
+-- | the order the nodes render in.
 selectVisibleNodeIds
   :: forall n e. Boolean -> ReactFlowState n e -> Array NodeId
 selectVisibleNodeIds onlyRenderVisible s =
   if onlyRenderVisible then
     map _.id
-      ( getNodesInside s.nodeLookup
+      ( getNodesInside nodes
           { x: 0.0, y: 0.0, width: s.width, height: s.height }
           s.transform
           { partially: true, excludeNonSelectable: false }
       )
   else
-    Array.fromFoldable (Map.keys s.nodeLookup)
+    map _.id nodes
+  where
+  nodes = orderedInternalNodes s.nodes s.nodeLookup
 
 -- | Pure selector. `onlyRenderVisible = false` returns every edge ID;
 -- | `true` keeps edges whose source and target nodes both resolve in
