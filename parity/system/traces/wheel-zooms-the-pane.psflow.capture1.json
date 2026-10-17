@@ -69,7 +69,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M75.0000646611741,40.0000238726896 C75.0000646611741,68.50001057026365 -24.999945879575463,68.50001057026365 -24.999945879575463,96.99999726783771",
+                                      "d": "M75,40 C75,68.5 -25,68.5 -25,97",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -78,7 +78,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M75.0000646611741,40.0000238726896 C75.0000646611741,68.50001057026365 -24.999945879575463,68.50001057026365 -24.999945879575463,96.99999726783771",
+                                      "d": "M75,40 C75,68.5 -25,68.5 -25,97",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -90,8 +90,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
-                                      "cx": "75.0000646611741",
-                                      "cy": "50.0000238726896",
+                                      "cx": "75",
+                                      "cy": "50",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -102,8 +102,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
-                                      "cx": "-24.999945879575463",
-                                      "cy": "86.99999726783771",
+                                      "cx": "-25",
+                                      "cy": "87",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -136,7 +136,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M75.0000646611741,40.0000238726896 C75.0000646611741,68.50001057026365 175.0000857426732,68.50001057026365 175.0000857426732,96.99999726783771",
+                                      "d": "M75,40 C75,68.5 175,68.5 175,97",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -145,7 +145,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M75.0000646611741,40.0000238726896 C75.0000646611741,68.50001057026365 175.0000857426732,68.50001057026365 175.0000857426732,96.99999726783771",
+                                      "d": "M75,40 C75,68.5 175,68.5 175,97",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -157,8 +157,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
-                                      "cx": "75.0000646611741",
-                                      "cy": "50.0000238726896",
+                                      "cx": "75",
+                                      "cy": "50",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -169,8 +169,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
-                                      "cx": "175.0000857426732",
-                                      "cy": "86.99999726783771",
+                                      "cx": "175",
+                                      "cy": "87",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -468,7 +468,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 279,
+            "timeStamp": 262,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -535,7 +535,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 279,
+            "timeStamp": 262,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -706,8 +706,8 @@
                 {
                   "id": null,
                   "nodeId": "1",
-                  "x": 71.0000646611741,
-                  "y": 32.0000238726896,
+                  "x": 71,
+                  "y": 32,
                   "position": "bottom",
                   "type": "source",
                   "width": 8,

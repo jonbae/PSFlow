@@ -1098,7 +1098,7 @@ var require_react_development = __commonJS({
           var dispatcher = resolveDispatcher();
           return dispatcher.useRef(initialValue);
         }
-        function useEffect20(create4, deps) {
+        function useEffect21(create4, deps) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useEffect(create4, deps);
         }
@@ -1881,7 +1881,7 @@ var require_react_development = __commonJS({
         exports.useContext = useContext2;
         exports.useDebugValue = useDebugValue;
         exports.useDeferredValue = useDeferredValue;
-        exports.useEffect = useEffect20;
+        exports.useEffect = useEffect21;
         exports.useId = useId;
         exports.useImperativeHandle = useImperativeHandle;
         exports.useInsertionEffect = useInsertionEffect;
@@ -24988,7 +24988,7 @@ var pure = function(dict) {
   return dict.pure;
 };
 var unless = function(dictApplicative) {
-  var pure135 = pure(dictApplicative);
+  var pure136 = pure(dictApplicative);
   return function(v) {
     return function(v1) {
       if (!v) {
@@ -24996,7 +24996,7 @@ var unless = function(dictApplicative) {
       }
       ;
       if (v) {
-        return pure135(unit);
+        return pure136(unit);
       }
       ;
       throw new Error("Failed pattern match at Control.Applicative (line 68, column 1 - line 68, column 65): " + [v.constructor.name, v1.constructor.name]);
@@ -25004,7 +25004,7 @@ var unless = function(dictApplicative) {
   };
 };
 var when = function(dictApplicative) {
-  var pure135 = pure(dictApplicative);
+  var pure136 = pure(dictApplicative);
   return function(v) {
     return function(v1) {
       if (v) {
@@ -25012,7 +25012,7 @@ var when = function(dictApplicative) {
       }
       ;
       if (!v) {
-        return pure135(unit);
+        return pure136(unit);
       }
       ;
       throw new Error("Failed pattern match at Control.Applicative (line 63, column 1 - line 63, column 63): " + [v.constructor.name, v1.constructor.name]);
@@ -25021,10 +25021,10 @@ var when = function(dictApplicative) {
 };
 var liftA1 = function(dictApplicative) {
   var apply3 = apply(dictApplicative.Apply0());
-  var pure135 = pure(dictApplicative);
+  var pure136 = pure(dictApplicative);
   return function(f) {
     return function(a) {
-      return apply3(pure135(f))(a);
+      return apply3(pure136(f))(a);
     };
   };
 };
@@ -29663,12 +29663,12 @@ var fail = function(dictMonad) {
   };
 };
 var unsafeReadTagged = function(dictMonad) {
-  var pure135 = pure(applicativeExceptT(dictMonad));
+  var pure136 = pure(applicativeExceptT(dictMonad));
   var fail1 = fail(dictMonad);
   return function(tag) {
     return function(value12) {
       if (tagOf(value12) === tag) {
-        return pure135(unsafeFromForeign(value12));
+        return pure136(unsafeFromForeign(value12));
       }
       ;
       if (otherwise) {
@@ -29830,10 +29830,10 @@ var fromFoldable3 = function(dictFoldable) {
 };
 var foldM4 = function(dictMonad) {
   var bind122 = bind(dictMonad.Bind1());
-  var pure135 = pure(dictMonad.Applicative0());
+  var pure136 = pure(dictMonad.Applicative0());
   return function(f) {
     return function(z) {
-      return _foldM(bind122)(f)(pure135(z));
+      return _foldM(bind122)(f)(pure136(z));
     };
   };
 };
@@ -53229,42 +53229,100 @@ var joinSpace3 = (xs) => xs.filter((s) => s !== "").join(" ");
 // output/React.Hook.NodeObserver/index.js
 var coerceHook7 = /* @__PURE__ */ coerceHook();
 var bind41 = /* @__PURE__ */ bind4(ixBindRender);
-var useEffect10 = /* @__PURE__ */ useEffect(eqUnsafeReference);
+var discard17 = /* @__PURE__ */ discard2(ixBindRender);
+var eqMaybe8 = /* @__PURE__ */ eqMaybe(eqBoolean);
+var useEffect10 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqTuple(eqBoolean)(eqMaybe8));
 var map51 = /* @__PURE__ */ map(functorEffect);
+var for_17 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
+var when17 = /* @__PURE__ */ when(applicativeEffect);
+var notEq10 = /* @__PURE__ */ notEq(eqMaybe8);
 var pure60 = /* @__PURE__ */ pure(applicativeEffect);
-var useNodeObserver = function(params) {
+var eqMaybe12 = /* @__PURE__ */ eqMaybe(eqPosition);
+var useEffect12 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqTuple(eqNodeId)(/* @__PURE__ */ eqTuple(eqString)(/* @__PURE__ */ eqTuple(eqMaybe12)(eqMaybe12))));
+var notEq25 = /* @__PURE__ */ notEq(eqMaybe12);
+var pure124 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var useNodeObserver = function(v) {
   return coerceHook7(bind41(useStoreApi)(function(store) {
-    return useEffect10(params)(function __do3() {
-      var mDiv = map51(toMaybe)(readRef(params.wrapperRef))();
-      if (mDiv instanceof Nothing) {
-        return pure60(unit);
-      }
-      ;
-      if (mDiv instanceof Just) {
-        if (params.sharedObserver instanceof Just) {
-          observe(params.sharedObserver.value0)(toElement(mDiv.value0))();
-          return unobserve(params.sharedObserver.value0)(toElement(mDiv.value0));
-        }
-        ;
-        if (params.sharedObserver instanceof Nothing) {
-          var observer = createResizeObserver(function(v) {
-            var update = {
-              id: params.nodeId,
-              nodeElement: mDiv.value0,
-              force: params.force
-            };
-            return store.dispatch(new UpdateNodeInternals(singleton6(params.nodeId)(update), {
-              triggerFitView: false
-            }));
-          })();
-          observe(observer)(toElement(mDiv.value0))();
-          return disconnect(observer);
-        }
-        ;
-        throw new Error("Failed pattern match at React.Hook.NodeObserver (line 65, column 21 - line 83, column 37): " + [params.sharedObserver.constructor.name]);
-      }
-      ;
-      throw new Error("Failed pattern match at React.Hook.NodeObserver (line 63, column 5 - line 83, column 37): " + [mDiv.constructor.name]);
+    return bind41(useRef(toNullable(Nothing.value)))(function(nodeRef) {
+      return bind41(useRef(toNullable(Nothing.value)))(function(observedNode) {
+        return bind41(useRef(v.node.sourcePosition))(function(prevSourcePosition) {
+          return bind41(useRef(v.node.targetPosition))(function(prevTargetPosition) {
+            return bind41(useRef(v.nodeType))(function(prevType) {
+              var isInitialized = v.hasDimensions && isJust(v.node.internals.handleBounds);
+              return discard17(useEffect10(new Tuple(isInitialized, v.node.hidden))(function __do3() {
+                var mCurrent = map51(toMaybe)(readRef(nodeRef))();
+                var mObserved = map51(toMaybe)(readRef(observedNode))();
+                for_17(mCurrent)(function(current) {
+                  var observedIsCurrent = function() {
+                    if (mObserved instanceof Just) {
+                      return unsafeRefEq(mObserved.value0)(current);
+                    }
+                    ;
+                    if (mObserved instanceof Nothing) {
+                      return false;
+                    }
+                    ;
+                    throw new Error("Failed pattern match at React.Hook.NodeObserver (line 91, column 29 - line 93, column 27): " + [mObserved.constructor.name]);
+                  }();
+                  return when17(notEq10(v.node.hidden)(new Just(true)) && (!isInitialized || !observedIsCurrent))(function __do4() {
+                    for_17(mObserved)(function(observed) {
+                      return for_17(v.resizeObserver)(function(ro) {
+                        return unobserve(ro)(toElement(observed));
+                      });
+                    })();
+                    for_17(v.resizeObserver)(function(ro) {
+                      return observe(ro)(toElement(current));
+                    })();
+                    return writeRef(observedNode)(toNullable(new Just(current)))();
+                  });
+                })();
+                return pure60(unit);
+              }))(function() {
+                return discard17(useEffectOnce(pure60(function __do3() {
+                  var mObserved = map51(toMaybe)(readRef(observedNode))();
+                  return for_17(mObserved)(function(observed) {
+                    return function __do4() {
+                      for_17(v.resizeObserver)(function(ro) {
+                        return unobserve(ro)(toElement(observed));
+                      })();
+                      return writeRef(observedNode)(toNullable(Nothing.value))();
+                    };
+                  })();
+                })))(function() {
+                  return discard17(useEffect12(new Tuple(v.node.id, new Tuple(v.nodeType, new Tuple(v.node.sourcePosition, v.node.targetPosition))))(function __do3() {
+                    var mCurrent = map51(toMaybe)(readRef(nodeRef))();
+                    for_17(mCurrent)(function(current) {
+                      return function __do4() {
+                        var typeBefore = readRef(prevType)();
+                        var sourceBefore = readRef(prevSourcePosition)();
+                        var targetBefore = readRef(prevTargetPosition)();
+                        var typeChanged = typeBefore !== v.nodeType;
+                        var targetPosChanged = notEq25(targetBefore)(v.node.targetPosition);
+                        var sourcePosChanged = notEq25(sourceBefore)(v.node.sourcePosition);
+                        return when17(typeChanged || (sourcePosChanged || targetPosChanged))(function __do5() {
+                          writeRef(prevType)(v.nodeType)();
+                          writeRef(prevSourcePosition)(v.node.sourcePosition)();
+                          writeRef(prevTargetPosition)(v.node.targetPosition)();
+                          return store.dispatch(new UpdateNodeInternals(singleton6(v.node.id)({
+                            id: v.node.id,
+                            nodeElement: current,
+                            force: true
+                          }), {
+                            triggerFitView: false
+                          }))();
+                        })();
+                      };
+                    })();
+                    return pure60(unit);
+                  }))(function() {
+                    return pure124(nodeRef);
+                  });
+                });
+              });
+            });
+          });
+        });
+      });
     });
   }));
 };
@@ -53272,12 +53330,12 @@ var useNodeObserver = function(params) {
 // output/React.Node.Util/index.js
 var lookup21 = /* @__PURE__ */ lookup2(ordNodeId);
 var unwrap16 = /* @__PURE__ */ unwrap();
-var eqMaybe8 = /* @__PURE__ */ eqMaybe(eqBoolean);
-var notEq10 = /* @__PURE__ */ notEq(eqMaybe8);
-var eq37 = /* @__PURE__ */ eq(eqMaybe8);
+var eqMaybe9 = /* @__PURE__ */ eqMaybe(eqBoolean);
+var notEq11 = /* @__PURE__ */ notEq(eqMaybe9);
+var eq37 = /* @__PURE__ */ eq(eqMaybe9);
 var $$void9 = /* @__PURE__ */ $$void(functorEffect);
 var map52 = /* @__PURE__ */ map(functorEffect);
-var for_17 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
+var for_18 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var handleNodeClick = function(args) {
   return function __do3() {
     var state3 = args.store.getState();
@@ -53295,7 +53353,7 @@ var handleNodeClick = function(args) {
     }
     ;
     if (v instanceof Just) {
-      var $20 = notEq10(v.value0.selected)(new Just(true));
+      var $20 = notEq11(v.value0.selected)(new Just(true));
       if ($20) {
         return args.store.dispatch(new AddSelectedNodes([args.id]))();
       }
@@ -53308,7 +53366,7 @@ var handleNodeClick = function(args) {
         }))();
         return $$void9(requestAnimationFrame(function __do4() {
           var mDiv = map52(toMaybe)(readRef(args.nodeRef))();
-          return for_17(mDiv)(function($23) {
+          return for_18(mDiv)(function($23) {
             return blur(toHTMLElement($23));
           })();
         }))();
@@ -53325,7 +53383,7 @@ var handleNodeClick = function(args) {
 var lookup23 = /* @__PURE__ */ lookup2(ordNodeId);
 var lookup111 = /* @__PURE__ */ lookup2(ordParentId);
 var pure61 = /* @__PURE__ */ pure(applicativeEffect);
-var for_18 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
+var for_19 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var unwrap17 = /* @__PURE__ */ unwrap();
 var map53 = /* @__PURE__ */ map(functorMaybe);
 var bind117 = /* @__PURE__ */ bind4(ixBindRender);
@@ -53342,8 +53400,8 @@ var eq38 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var unless6 = /* @__PURE__ */ unless(applicativeEffect);
 var elem9 = /* @__PURE__ */ elem2(eqString);
 var lookup24 = /* @__PURE__ */ lookup2(ordString);
-var when17 = /* @__PURE__ */ when(applicativeEffect);
-var pure124 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var when18 = /* @__PURE__ */ when(applicativeEffect);
+var pure125 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty16 = /* @__PURE__ */ mempty(monoidJSX);
 var toForeignStyle10 = unsafeCoerce2;
 var placeholderNode = function(nodeId) {
@@ -53408,7 +53466,7 @@ var selectNodeSlice = function(nodeId) {
           return false;
         }
         ;
-        throw new Error("Failed pattern match at React.Component.NodeWrapper (line 130, column 15 - line 132, column 23): " + [v.constructor.name]);
+        throw new Error("Failed pattern match at React.Component.NodeWrapper (line 129, column 15 - line 131, column 23): " + [v.constructor.name]);
       }()
     };
   };
@@ -53422,7 +53480,7 @@ var nodeTypesAsObject = function(v) {
     return v.value0;
   }
   ;
-  throw new Error("Failed pattern match at React.Component.NodeWrapper (line 177, column 21 - line 179, column 27): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at React.Component.NodeWrapper (line 176, column 21 - line 178, column 27): " + [v.constructor.name]);
 };
 var resolveNodeComponent = function(mTypes) {
   return function(mOnError) {
@@ -53447,7 +53505,7 @@ var resolveNodeComponent = function(mTypes) {
         ;
         if (v1 instanceof Nothing) {
           return function __do3() {
-            for_18(mOnError)(function(cb) {
+            for_19(mOnError)(function(cb) {
               return cb("003")(errorMessage(new E003(nodeType)));
             })();
             var v2 = lookup("default")(builtinNodeTypes);
@@ -53465,14 +53523,14 @@ var resolveNodeComponent = function(mTypes) {
               };
             }
             ;
-            throw new Error("Failed pattern match at React.Component.NodeWrapper (line 194, column 9 - line 198, column 69): " + [v2.constructor.name]);
+            throw new Error("Failed pattern match at React.Component.NodeWrapper (line 193, column 9 - line 197, column 69): " + [v2.constructor.name]);
           };
         }
         ;
-        throw new Error("Failed pattern match at React.Component.NodeWrapper (line 190, column 16 - line 198, column 69): " + [v1.constructor.name]);
+        throw new Error("Failed pattern match at React.Component.NodeWrapper (line 189, column 16 - line 197, column 69): " + [v1.constructor.name]);
       }
       ;
-      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 188, column 3 - line 198, column 69): " + [v.constructor.name]);
+      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 187, column 3 - line 197, column 69): " + [v.constructor.name]);
     };
   };
 };
@@ -53599,7 +53657,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
         return v.elementsSelectable;
       }
       ;
-      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 322, column 24 - line 324, column 46): " + [slice3.node.selectable.constructor.name]);
+      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 321, column 24 - line 323, column 46): " + [slice3.node.selectable.constructor.name]);
     }();
     var isDraggable = function() {
       if (slice3.node.draggable instanceof Just) {
@@ -53610,7 +53668,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
         return v.nodesDraggable;
       }
       ;
-      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 319, column 23 - line 321, column 42): " + [slice3.node.draggable.constructor.name]);
+      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 318, column 23 - line 320, column 42): " + [slice3.node.draggable.constructor.name]);
     }();
     var isConnectable = function() {
       if (slice3.node.connectable instanceof Just) {
@@ -53621,11 +53679,16 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
         return v.nodesConnectable;
       }
       ;
-      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 325, column 25 - line 327, column 44): " + [slice3.node.connectable.constructor.name]);
+      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 324, column 25 - line 326, column 44): " + [slice3.node.connectable.constructor.name]);
     }();
     var hasDims = nodeHasDimensions(slice3.node);
     return bind117(useStoreApi)(function(store) {
-      return bind117(useRef(toNullable(Nothing.value)))(function(nodeRef) {
+      return bind117(useNodeObserver({
+        node: slice3.node,
+        nodeType: resolved.nodeType,
+        hasDimensions: hasDims,
+        resizeObserver: v.resizeObserver
+      }))(function(nodeRef) {
         return bind117(useDrag({
           wrapperRef: nodeRef,
           disabled: eq38(slice3.node.hidden)(new Just(true)) || !isDraggable,
@@ -53647,211 +53710,204 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
             });
           })
         }))(function(dragging) {
-          return bind117(useNodeObserver({
-            nodeId: v.id,
-            wrapperRef: nodeRef,
-            force: false,
-            sharedObserver: v.resizeObserver
-          }))(function() {
-            return bind117(useMoveSelectedNodes)(function(moveSelectedNodes) {
-              var onKeyDownHandler = function(ke) {
-                return function __do3() {
-                  var inputFocused = isInputDOMNode(ke)();
-                  return unless6(inputFocused || v.disableKeyboardA11y)(function() {
-                    var shift = shiftKey2(ke);
-                    var k = key(ke);
-                    var $76 = elem9(k)(elementSelectionKeys) && isSelectable;
-                    if ($76) {
-                      return handleNodeClick({
-                        id: v.id,
-                        store,
-                        unselect: k === "Escape",
-                        nodeRef
-                      });
-                    }
-                    ;
-                    var v1 = lookup24(k)(arrowKeyDiffs);
-                    if (v1 instanceof Just && (isDraggable && eq38(slice3.node.selected)(new Just(true)))) {
-                      return function __do4() {
-                        preventDefault(toEvent2(ke))();
-                        return moveSelectedNodes(v1.value0)(function() {
-                          if (shift) {
-                            return 4;
-                          }
-                          ;
-                          return 1;
-                        }())();
-                      };
-                    }
-                    ;
-                    return pure61(unit);
-                  }())();
-                };
-              };
-              var onKeyDownEventHandler = handler(syntheticEvent)(function(se) {
-                return onKeyDownHandler(se);
-              });
-              var inlineDims = getNodeInlineStyleDimensions(slice3.node);
-              var hasPointerEvents = isSelectable || (isDraggable || (isJust(v.onClick) || (isJust(v.onMouseEnter) || (isJust(v.onMouseMove) || isJust(v.onMouseLeave)))));
-              var fireMouseHandler = function(mCb) {
-                return function(me) {
-                  if (mCb instanceof Just) {
-                    return mCb.value0(me)(slice3.node);
+          return bind117(useMoveSelectedNodes)(function(moveSelectedNodes) {
+            var onKeyDownHandler = function(ke) {
+              return function __do3() {
+                var inputFocused = isInputDOMNode(ke)();
+                return unless6(inputFocused || v.disableKeyboardA11y)(function() {
+                  var shift = shiftKey2(ke);
+                  var k = key(ke);
+                  var $76 = elem9(k)(elementSelectionKeys) && isSelectable;
+                  if ($76) {
+                    return handleNodeClick({
+                      id: v.id,
+                      store,
+                      unselect: k === "Escape",
+                      nodeRef
+                    });
                   }
                   ;
-                  if (mCb instanceof Nothing) {
-                    return pure61(unit);
+                  var v1 = lookup24(k)(arrowKeyDiffs);
+                  if (v1 instanceof Just && (isDraggable && eq38(slice3.node.selected)(new Just(true)))) {
+                    return function __do4() {
+                      preventDefault(toEvent2(ke))();
+                      return moveSelectedNodes(v1.value0)(function() {
+                        if (shift) {
+                          return 4;
+                        }
+                        ;
+                        return 1;
+                      }())();
+                    };
                   }
                   ;
-                  throw new Error("Failed pattern match at React.Component.NodeWrapper (line 397, column 35 - line 399, column 31): " + [mCb.constructor.name]);
-                };
-              };
-              var onClickHandler = handler(syntheticEvent)(function(se) {
-                return function __do3() {
-                  var st = store.getState();
-                  when17(isSelectable && (!st.selectNodesOnDrag || (!isDraggable || st.nodeDragThreshold > 0)))(handleNodeClick({
-                    id: v.id,
-                    store,
-                    unselect: false,
-                    nodeRef
-                  }))();
-                  return fireMouseHandler(v.onClick)(se)();
-                };
-              });
-              var onContextMenuHandler = handler(syntheticEvent)(function(se) {
-                return fireMouseHandler(v.onContextMenu)(se);
-              });
-              var onDoubleClickHandler = handler(syntheticEvent)(function(se) {
-                return fireMouseHandler(v.onDoubleClick)(se);
-              });
-              var onMouseEnterHandler = handler(syntheticEvent)(function(se) {
-                return fireMouseHandler(v.onMouseEnter)(se);
-              });
-              var onMouseLeaveHandler = handler(syntheticEvent)(function(se) {
-                return fireMouseHandler(v.onMouseLeave)(se);
-              });
-              var onMouseMoveHandler = handler(syntheticEvent)(function(se) {
-                return fireMouseHandler(v.onMouseMove)(se);
-              });
-              var dims = fromMaybe({
-                width: 0,
-                height: 0
-              })(getNodeDimensions(slice3.node));
-              var onFocusHandler = handler_(unless6(v.disableKeyboardA11y)(function __do3() {
-                var st = store.getState();
-                return when17(st.autoPanOnNodeFocus)(function() {
-                  var paneRect = {
-                    x: 0,
-                    y: 0,
-                    width: st.width,
-                    height: st.height
-                  };
-                  var visible = getNodesInside([slice3.node])(paneRect)(st.transform)({
-                    partially: true,
-                    excludeNonSelectable: false
-                  });
-                  return when17($$null(visible))(function() {
-                    var cy = slice3.node.position.y + dims.height / 2;
-                    var cx = slice3.node.position.x + dims.width / 2;
-                    return store.dispatch(new SetCenter(cx, cy, {
-                      duration: Nothing.value,
-                      ease: Nothing.value,
-                      interpolate: Nothing.value,
-                      zoom: new Just(st.transform.scale)
-                    }));
-                  }());
+                  return pure61(unit);
                 }())();
-              }));
-              var dimStyle = toForeignStyle10({
-                width: inlineDims.width,
-                height: inlineDims.height
-              });
-              var baseStyle = toForeignStyle10({
-                zIndex: slice3.node.internals.z,
-                transform: nodeTransform(slice3.node.internals.positionAbsolute),
-                pointerEvents: function() {
-                  if (hasPointerEvents) {
-                    return "all";
-                  }
-                  ;
-                  return "none";
-                }(),
-                visibility: function() {
-                  if (hasDims) {
-                    return "visible";
-                  }
-                  ;
-                  return "hidden";
-                }()
-              });
-              var mergedStyle = mergeStyles(mergeStyles(baseStyle)(fromMaybe(emptyForeign2)(map53(unsafeToForeign)(slice3.node.style))))(dimStyle);
-              return pure124(function() {
-                var $85 = eq38(slice3.node.hidden)(new Just(true));
-                if ($85) {
-                  return mempty16;
+              };
+            };
+            var onKeyDownEventHandler = handler(syntheticEvent)(function(se) {
+              return onKeyDownHandler(se);
+            });
+            var inlineDims = getNodeInlineStyleDimensions(slice3.node);
+            var hasPointerEvents = isSelectable || (isDraggable || (isJust(v.onClick) || (isJust(v.onMouseEnter) || (isJust(v.onMouseMove) || isJust(v.onMouseLeave)))));
+            var fireMouseHandler = function(mCb) {
+              return function(me) {
+                if (mCb instanceof Just) {
+                  return mCb.value0(me)(slice3.node);
                 }
                 ;
-                return div_({
-                  className: buildNodeClassName({
-                    nodeType: resolved.nodeType,
-                    noPanClassName: v.noPanClassName,
-                    className: fromMaybe("")(slice3.node.className),
-                    isDraggable,
-                    isSelectable,
-                    isParent: slice3.isParent,
-                    selected: eq38(slice3.node.selected)(new Just(true)),
-                    dragging
-                  }),
-                  ref: nodeRef,
-                  style: mergedStyle,
-                  "data-id": v.id,
-                  "data-testid": "rf__node-" + v.id,
-                  onMouseEnter: onMouseEnterHandler,
-                  onMouseMove: onMouseMoveHandler,
-                  onMouseLeave: onMouseLeaveHandler,
-                  onContextMenu: onContextMenuHandler,
-                  onClick: onClickHandler,
-                  onDoubleClick: onDoubleClickHandler,
-                  onKeyDown: function() {
-                    if (v.nodesFocusable) {
-                      return onKeyDownEventHandler;
-                    }
-                    ;
-                    return handler_(pure61(unit));
-                  }(),
-                  onFocus: function() {
-                    if (v.nodesFocusable) {
-                      return onFocusHandler;
-                    }
-                    ;
-                    return handler_(pure61(unit));
-                  }(),
-                  tabIndex: function() {
-                    if (v.nodesFocusable) {
-                      return 0;
-                    }
-                    ;
-                    return -1 | 0;
-                  }(),
-                  role: function() {
-                    if (v.nodesFocusable) {
-                      return "group";
-                    }
-                    ;
-                    return "";
-                  }(),
-                  "aria-roledescription": "node",
-                  "aria-describedby": opt(function() {
-                    if (v.disableKeyboardA11y) {
-                      return Nothing.value;
-                    }
-                    ;
-                    return new Just(ariaNodeDescKey + ("-" + v.rfId));
-                  }()),
-                  "aria-label": opt(slice3.node.ariaLabel)
-                })([nodeIdProvider(new Just(v.id))([element(resolved.component)(mkNodeProps(slice3.node)(resolved.nodeType)(isSelectable)(isDraggable)(isConnectable)(dragging))])]);
-              }());
+                if (mCb instanceof Nothing) {
+                  return pure61(unit);
+                }
+                ;
+                throw new Error("Failed pattern match at React.Component.NodeWrapper (line 394, column 35 - line 396, column 31): " + [mCb.constructor.name]);
+              };
+            };
+            var onClickHandler = handler(syntheticEvent)(function(se) {
+              return function __do3() {
+                var st = store.getState();
+                when18(isSelectable && (!st.selectNodesOnDrag || (!isDraggable || st.nodeDragThreshold > 0)))(handleNodeClick({
+                  id: v.id,
+                  store,
+                  unselect: false,
+                  nodeRef
+                }))();
+                return fireMouseHandler(v.onClick)(se)();
+              };
             });
+            var onContextMenuHandler = handler(syntheticEvent)(function(se) {
+              return fireMouseHandler(v.onContextMenu)(se);
+            });
+            var onDoubleClickHandler = handler(syntheticEvent)(function(se) {
+              return fireMouseHandler(v.onDoubleClick)(se);
+            });
+            var onMouseEnterHandler = handler(syntheticEvent)(function(se) {
+              return fireMouseHandler(v.onMouseEnter)(se);
+            });
+            var onMouseLeaveHandler = handler(syntheticEvent)(function(se) {
+              return fireMouseHandler(v.onMouseLeave)(se);
+            });
+            var onMouseMoveHandler = handler(syntheticEvent)(function(se) {
+              return fireMouseHandler(v.onMouseMove)(se);
+            });
+            var dims = fromMaybe({
+              width: 0,
+              height: 0
+            })(getNodeDimensions(slice3.node));
+            var onFocusHandler = handler_(unless6(v.disableKeyboardA11y)(function __do3() {
+              var st = store.getState();
+              return when18(st.autoPanOnNodeFocus)(function() {
+                var paneRect = {
+                  x: 0,
+                  y: 0,
+                  width: st.width,
+                  height: st.height
+                };
+                var visible = getNodesInside([slice3.node])(paneRect)(st.transform)({
+                  partially: true,
+                  excludeNonSelectable: false
+                });
+                return when18($$null(visible))(function() {
+                  var cy = slice3.node.position.y + dims.height / 2;
+                  var cx = slice3.node.position.x + dims.width / 2;
+                  return store.dispatch(new SetCenter(cx, cy, {
+                    duration: Nothing.value,
+                    ease: Nothing.value,
+                    interpolate: Nothing.value,
+                    zoom: new Just(st.transform.scale)
+                  }));
+                }());
+              }())();
+            }));
+            var dimStyle = toForeignStyle10({
+              width: inlineDims.width,
+              height: inlineDims.height
+            });
+            var baseStyle = toForeignStyle10({
+              zIndex: slice3.node.internals.z,
+              transform: nodeTransform(slice3.node.internals.positionAbsolute),
+              pointerEvents: function() {
+                if (hasPointerEvents) {
+                  return "all";
+                }
+                ;
+                return "none";
+              }(),
+              visibility: function() {
+                if (hasDims) {
+                  return "visible";
+                }
+                ;
+                return "hidden";
+              }()
+            });
+            var mergedStyle = mergeStyles(mergeStyles(baseStyle)(fromMaybe(emptyForeign2)(map53(unsafeToForeign)(slice3.node.style))))(dimStyle);
+            return pure125(function() {
+              var $85 = eq38(slice3.node.hidden)(new Just(true));
+              if ($85) {
+                return mempty16;
+              }
+              ;
+              return div_({
+                className: buildNodeClassName({
+                  nodeType: resolved.nodeType,
+                  noPanClassName: v.noPanClassName,
+                  className: fromMaybe("")(slice3.node.className),
+                  isDraggable,
+                  isSelectable,
+                  isParent: slice3.isParent,
+                  selected: eq38(slice3.node.selected)(new Just(true)),
+                  dragging
+                }),
+                ref: nodeRef,
+                style: mergedStyle,
+                "data-id": v.id,
+                "data-testid": "rf__node-" + v.id,
+                onMouseEnter: onMouseEnterHandler,
+                onMouseMove: onMouseMoveHandler,
+                onMouseLeave: onMouseLeaveHandler,
+                onContextMenu: onContextMenuHandler,
+                onClick: onClickHandler,
+                onDoubleClick: onDoubleClickHandler,
+                onKeyDown: function() {
+                  if (v.nodesFocusable) {
+                    return onKeyDownEventHandler;
+                  }
+                  ;
+                  return handler_(pure61(unit));
+                }(),
+                onFocus: function() {
+                  if (v.nodesFocusable) {
+                    return onFocusHandler;
+                  }
+                  ;
+                  return handler_(pure61(unit));
+                }(),
+                tabIndex: function() {
+                  if (v.nodesFocusable) {
+                    return 0;
+                  }
+                  ;
+                  return -1 | 0;
+                }(),
+                role: function() {
+                  if (v.nodesFocusable) {
+                    return "group";
+                  }
+                  ;
+                  return "";
+                }(),
+                "aria-roledescription": "node",
+                "aria-describedby": opt(function() {
+                  if (v.disableKeyboardA11y) {
+                    return Nothing.value;
+                  }
+                  ;
+                  return new Just(ariaNodeDescKey + ("-" + v.rfId));
+                }()),
+                "aria-label": opt(slice3.node.ariaLabel)
+              })([nodeIdProvider(new Just(v.id))([element(resolved.component)(mkNodeProps(slice3.node)(resolved.nodeType)(isSelectable)(isDraggable)(isConnectable)(dragging))])]);
+            }());
           });
         });
       });
@@ -53891,11 +53947,11 @@ var getAttribute2 = function(attr) {
 var foldM6 = /* @__PURE__ */ foldM(foldableArray)(monadEffect);
 var insert11 = /* @__PURE__ */ insert4(ordNodeId);
 var pure62 = /* @__PURE__ */ pure(applicativeEffect);
-var when18 = /* @__PURE__ */ when(applicativeEffect);
+var when19 = /* @__PURE__ */ when(applicativeEffect);
 var bind118 = /* @__PURE__ */ bind4(ixBindRender);
 var useMemo4 = /* @__PURE__ */ useMemo(eqUnit);
-var discard17 = /* @__PURE__ */ discard2(ixBindRender);
-var pure125 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var discard18 = /* @__PURE__ */ discard2(ixBindRender);
+var pure126 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var useStore23 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
     return "onError";
@@ -53951,7 +54007,7 @@ var mkSharedObserver = function(store) {
         };
       })(unit)(entries)();
       var updates = read(updatesRef)();
-      return when18(!isEmpty(updates))(store.dispatch(new UpdateNodeInternals(updates, {
+      return when19(!isEmpty(updates))(store.dispatch(new UpdateNodeInternals(updates, {
         triggerFitView: false
       })))();
     };
@@ -53961,8 +54017,8 @@ var useResizeObserver = /* @__PURE__ */ coerceHook()(/* @__PURE__ */ bind118(use
   return bind118(useMemo4(unit)(function(v) {
     return unsafePerformEffect(mkSharedObserver(store));
   }))(function(observer) {
-    return discard17(useEffectOnce(pure62(disconnect(observer))))(function() {
-      return pure125(observer);
+    return discard18(useEffectOnce(pure62(disconnect(observer))))(function() {
+      return pure126(observer);
     });
   });
 }));
@@ -54002,7 +54058,7 @@ var nodeRenderer = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @
             onError: flags.onError
           }));
         })(nodeIds);
-        return pure125(div_({
+        return pure126(div_({
           className: "react-flow__nodes",
           style: containerStyle2
         })(children3));
@@ -54038,14 +54094,14 @@ var viewport = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PU
 var coerceHook8 = /* @__PURE__ */ coerceHook();
 var bind43 = /* @__PURE__ */ bind4(ixBindRender);
 var useEffect11 = /* @__PURE__ */ useEffect(eqUnsafeReference);
-var when19 = /* @__PURE__ */ when(applicativeEffect);
+var when20 = /* @__PURE__ */ when(applicativeEffect);
 var pure64 = /* @__PURE__ */ pure(applicativeEffect);
 var useOnInitHandler = function(mOnInit) {
   return coerceHook8(bind43(useReactFlow)(function(rfInstance) {
     return bind43(useRef(false))(function(initRef) {
       return useEffect11(rfInstance.viewportInitialized)(function __do3() {
         var initialized = readRef(initRef)();
-        when19(!initialized && rfInstance.viewportInitialized)(function() {
+        when20(!initialized && rfInstance.viewportInitialized)(function() {
           if (mOnInit instanceof Just) {
             return function __do4() {
               mOnInit.value0(rfInstance)();
@@ -54116,8 +54172,8 @@ var isDevelopment = typeof IS_DEV !== "undefined" ? IS_DEV : true;
 // output/React.Hook.NodeOrEdgeTypesWarning/index.js
 var coerceHook9 = /* @__PURE__ */ coerceHook();
 var bind44 = /* @__PURE__ */ bind4(ixBindRender);
-var useEffect12 = /* @__PURE__ */ useEffect(eqUnsafeReference);
-var when20 = /* @__PURE__ */ when(applicativeEffect);
+var useEffect13 = /* @__PURE__ */ useEffect(eqUnsafeReference);
+var when21 = /* @__PURE__ */ when(applicativeEffect);
 var pure65 = /* @__PURE__ */ pure(applicativeEffect);
 var useNodeOrEdgeTypesWarning = function(mTypes) {
   var checkKeys = function($copy_ks) {
@@ -54176,13 +54232,13 @@ var useNodeOrEdgeTypesWarning = function(mTypes) {
     }();
     return bind44(useStoreApi)(function(store) {
       return bind44(useRef(current))(function(typesRef) {
-        return useEffect12(current)(function __do3() {
-          when20(isDevelopment)(function __do4() {
+        return useEffect13(current)(function __do3() {
+          when21(isDevelopment)(function __do4() {
             var s = store.getState();
             var previous = readRef(typesRef)();
             var keys3 = objectKeysUnion(previous)(current);
             var anyDiffered = checkKeys(keys3)(previous)(current)(0);
-            return when20(anyDiffered)(function() {
+            return when21(anyDiffered)(function() {
               if (s.onError instanceof Just) {
                 return s.onError.value0("002")(errorMessage(E002.value));
               }
@@ -54214,16 +54270,16 @@ var checkPaneZIndex = () => {
 
 // output/React.Hook.StylesLoadedWarning/index.js
 var bind45 = /* @__PURE__ */ bind4(ixBindRender);
-var when21 = /* @__PURE__ */ when(applicativeEffect);
+var when22 = /* @__PURE__ */ when(applicativeEffect);
 var map56 = /* @__PURE__ */ map(functorEffect);
 var pure66 = /* @__PURE__ */ pure(applicativeEffect);
 var useStylesLoadedWarning = /* @__PURE__ */ coerceHook()(/* @__PURE__ */ bind45(useStoreApi)(function(store) {
   return bind45(useRef(false))(function(checkedRef) {
     return useEffectOnce(function __do3() {
-      when21(isDevelopment)(function __do4() {
+      when22(isDevelopment)(function __do4() {
         var s = store.getState();
         var checked2 = readRef(checkedRef)();
-        return when21(!checked2)(function __do5() {
+        return when22(!checked2)(function __do5() {
           var mZIndex = map56(toMaybe)(checkPaneZIndex)();
           (function() {
             if (mZIndex instanceof Just && mZIndex.value0 !== "1") {
@@ -54249,11 +54305,11 @@ var useStylesLoadedWarning = /* @__PURE__ */ coerceHook()(/* @__PURE__ */ bind45
 }));
 
 // output/React.Hook.ViewportSync/index.js
-var for_19 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
+var for_20 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var coerceHook10 = /* @__PURE__ */ coerceHook();
 var bind46 = /* @__PURE__ */ bind4(ixBindRender);
 var useStore25 = /* @__PURE__ */ useStore(eqUnsafeReference);
-var useEffect13 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqTuple(/* @__PURE__ */ eqMaybe(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
+var useEffect14 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqTuple(/* @__PURE__ */ eqMaybe(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
     return "zoom";
   }
@@ -54270,9 +54326,9 @@ var map57 = /* @__PURE__ */ map(functorMaybe);
 var pure67 = /* @__PURE__ */ pure(applicativeEffect);
 var runViewportSync = function(sync) {
   return function(mViewport) {
-    return for_19(mViewport)(function(vp) {
+    return for_20(mViewport)(function(vp) {
       return function __do3() {
-        for_19(sync.syncViewport)(function(f) {
+        for_20(sync.syncViewport)(function(f) {
           return f(vp);
         })();
         return sync.dispatch(new PatchState(function(s) {
@@ -54373,7 +54429,7 @@ var useViewportSync = function(mViewport) {
     return bind46(useStore25(function(s) {
       return s.panZoom;
     }))(function(v) {
-      return useEffect13(new Tuple(mViewport, v))(function __do3() {
+      return useEffect14(new Tuple(mViewport, v))(function __do3() {
         runViewportSync({
           syncViewport: map57(function(v1) {
             return v1.syncViewport;
@@ -54387,7 +54443,7 @@ var useViewportSync = function(mViewport) {
 };
 
 // output/React.Container.GraphView/index.js
-var discard18 = /* @__PURE__ */ discard2(ixBindRender);
+var discard19 = /* @__PURE__ */ discard2(ixBindRender);
 var map58 = /* @__PURE__ */ map(functorMaybe);
 var pure68 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var toForeign2 = unsafeCoerce2;
@@ -54405,11 +54461,11 @@ var paneScrollAdapter = function(v) {
   throw new Error("Failed pattern match at React.Container.GraphView (line 169, column 21 - line 171, column 38): " + [v.constructor.name]);
 };
 var graphView = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponent()()()("GraphView")(function(v) {
-  return discard18(useNodeOrEdgeTypesWarning(map58(toForeign2)(v.nodeTypes)))(function() {
-    return discard18(useNodeOrEdgeTypesWarning(map58(toForeign2)(v.edgeTypes)))(function() {
-      return discard18(useStylesLoadedWarning)(function() {
-        return discard18(useOnInitHandler(v.onInit))(function() {
-          return discard18(useViewportSync(v.viewport))(function() {
+  return discard19(useNodeOrEdgeTypesWarning(map58(toForeign2)(v.nodeTypes)))(function() {
+    return discard19(useNodeOrEdgeTypesWarning(map58(toForeign2)(v.edgeTypes)))(function() {
+      return discard19(useStylesLoadedWarning)(function() {
+        return discard19(useOnInitHandler(v.onInit))(function() {
+          return discard19(useViewportSync(v.viewport))(function() {
             var viewportChildren = [element(edgeRenderer)({
               onlyRenderVisibleElements: v.onlyRenderVisibleElements,
               defaultMarkerColor: new Just(v.defaultMarkerColor),
@@ -54542,15 +54598,15 @@ var useIsomorphicLayoutEffect = function(dictEq) {
 // output/React.Provider.Batch/index.js
 var foldl8 = /* @__PURE__ */ foldl(foldableList);
 var bind47 = /* @__PURE__ */ bind4(ixBindRender);
-var when22 = /* @__PURE__ */ when(applicativeEffect);
+var when23 = /* @__PURE__ */ when(applicativeEffect);
 var useMemo5 = /* @__PURE__ */ useMemo(eqUnit);
-var discard19 = /* @__PURE__ */ discard2(ixBindRender);
+var discard20 = /* @__PURE__ */ discard2(ixBindRender);
 var useIsomorphicLayoutEffect2 = /* @__PURE__ */ useIsomorphicLayoutEffect(eqInt);
 var foldl13 = /* @__PURE__ */ foldl(foldableArray);
-var for_20 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
+var for_21 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var $$void10 = /* @__PURE__ */ $$void(functorEffect);
 var pure69 = /* @__PURE__ */ pure(applicativeEffect);
-var pure126 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var pure127 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var planNodeQueue = function(s) {
   return function(nextNodes) {
     var changes = foldl8(function(cs) {
@@ -54613,7 +54669,7 @@ var batchProvider = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCom
     return bind47(useState(0))(function(v1) {
       var refitNodes = function __do3() {
         var now2 = store.getState();
-        return when22(now2.fitViewQueued)(store.dispatch(new SetNodes(now2.nodes)))();
+        return when23(now2.fitViewQueued)(store.dispatch(new SetNodes(now2.nodes)))();
       };
       var bumpSerial = v1.value1(function(v2) {
         return v2 + 1 | 0;
@@ -54624,36 +54680,36 @@ var batchProvider = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCom
         return bind47(useMemo5(unit)(function(v2) {
           return unsafePerformEffect(createQueue(bumpSerial));
         }))(function(edgeQueue) {
-          return discard19(useIsomorphicLayoutEffect2(v1.value0)(function __do3() {
+          return discard20(useIsomorphicLayoutEffect2(v1.value0)(function __do3() {
             var nodeItems = nodeQueue.get();
             var edgeItems = edgeQueue.get();
-            when22(!$$null(nodeItems) || !$$null(edgeItems))(function __do4() {
+            when23(!$$null(nodeItems) || !$$null(edgeItems))(function __do4() {
               var s = store.getState();
               var nextNodes = foldl13(applyQueueItem)(s.nodes)(nodeItems);
               var nextEdges = foldl13(applyQueueItem)(s.edges)(edgeItems);
-              when22(!$$null(nodeItems))(function() {
+              when23(!$$null(nodeItems))(function() {
                 var plan = planNodeQueue(s)(nextNodes);
                 return function __do5() {
-                  for_20(plan.setNodes)(function($41) {
+                  for_21(plan.setNodes)(function($41) {
                     return store.dispatch(SetNodes.create($41));
                   })();
-                  for_20(plan.onNodesChange)(function(changes) {
-                    return for_20(s.onNodesChange)(function(v2) {
+                  for_21(plan.onNodesChange)(function(changes) {
+                    return for_21(s.onNodesChange)(function(v2) {
                       return v2(changes);
                     });
                   })();
-                  when22(plan.refitNextFrame)($$void10(requestAnimationFrame(refitNodes)))();
+                  when23(plan.refitNextFrame)($$void10(requestAnimationFrame(refitNodes)))();
                   return nodeQueue.reset();
                 };
               }())();
-              return when22(!$$null(edgeItems))(function() {
+              return when23(!$$null(edgeItems))(function() {
                 var plan = planEdgeQueue(s)(nextEdges);
                 return function __do5() {
-                  for_20(plan.setEdges)(function($42) {
+                  for_21(plan.setEdges)(function($42) {
                     return store.dispatch(SetEdges.create($42));
                   })();
-                  for_20(plan.onEdgesChange)(function(changes) {
-                    return for_20(s.onEdgesChange)(function(v2) {
+                  for_21(plan.onEdgesChange)(function(changes) {
+                    return for_21(s.onEdgesChange)(function(v2) {
                       return v2(changes);
                     });
                   })();
@@ -54667,7 +54723,7 @@ var batchProvider = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCom
               nodeQueue: coerceNodeQueue(nodeQueue),
               edgeQueue: coerceEdgeQueue(edgeQueue)
             };
-            return pure126(provider(batchContext)(new Just(ctxValue))(reactChildrenToArray(v.children)));
+            return pure127(provider(batchContext)(new Just(ctxValue))(reactChildrenToArray(v.children)));
           });
         });
       });
@@ -57694,10 +57750,10 @@ var reduce = function(state3) {
 };
 
 // output/React.Store.Shell/index.js
-var for_21 = /* @__PURE__ */ for_(applicativeEffect)(foldableArray);
+var for_22 = /* @__PURE__ */ for_(applicativeEffect)(foldableArray);
 var pure70 = /* @__PURE__ */ pure(applicativeEffect);
 var map60 = /* @__PURE__ */ map(functorMaybe);
-var pure127 = /* @__PURE__ */ pure(applicativeAff);
+var pure128 = /* @__PURE__ */ pure(applicativeAff);
 var bind119 = /* @__PURE__ */ bind(bindAff);
 var unless7 = /* @__PURE__ */ unless(applicativeEffect);
 var append20 = /* @__PURE__ */ append(semigroupArray);
@@ -57715,7 +57771,7 @@ var createStore = function(opts) {
       return function(next) {
         return function __do4() {
           var subs = read(subsRef)();
-          return for_21(subs)(function(sub2) {
+          return for_22(subs)(function(sub2) {
             return sub2.onUpdate(prev)(next);
           })();
         };
@@ -57756,7 +57812,7 @@ var createStore = function(opts) {
         if (eff instanceof FireOnSelectionChange) {
           return function __do4() {
             var s = read(stateRef)();
-            return for_21(s.onSelectionChangeHandlers)(function(cb) {
+            return for_22(s.onSelectionChangeHandlers)(function(cb) {
               return cb(eff.value0);
             })();
           };
@@ -57842,7 +57898,7 @@ var createStore = function(opts) {
               }
               ;
               if (s.fitViewResolver instanceof Nothing) {
-                return pure127(unit);
+                return pure128(unit);
               }
               ;
               throw new Error("Failed pattern match at React.Store.Shell (line 151, column 25 - line 153, column 33): " + [s.fitViewResolver.constructor.name]);
@@ -58044,10 +58100,10 @@ var prefersDarkMode = () => {
 // output/React.Hook.ColorModeClass/index.js
 var coerceHook11 = /* @__PURE__ */ coerceHook();
 var bind50 = /* @__PURE__ */ bind4(ixBindRender);
-var discard20 = /* @__PURE__ */ discard2(ixBindRender);
-var useEffect14 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqMaybe(eqColorMode));
+var discard21 = /* @__PURE__ */ discard2(ixBindRender);
+var useEffect15 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqMaybe(eqColorMode));
 var pure73 = /* @__PURE__ */ pure(applicativeEffect);
-var pure128 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var pure129 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var useColorModeClass = function(mode) {
   var resolveStatic = function(v) {
     if (v instanceof Just && v.value0 instanceof LightMode) {
@@ -58061,7 +58117,7 @@ var useColorModeClass = function(mode) {
     return Nothing.value;
   };
   return coerceHook11(bind50(useState(resolveStatic(mode)))(function(v) {
-    return discard20(useEffect14(mode)(function() {
+    return discard21(useEffect15(mode)(function() {
       if (mode instanceof Just && mode.value0 instanceof LightMode) {
         return function __do3() {
           v.value1($$const(new Just(Light.value)))();
@@ -58098,7 +58154,7 @@ var useColorModeClass = function(mode) {
         return cleanup;
       };
     }()))(function() {
-      return pure128(v.value0);
+      return pure129(v.value0);
     });
   }));
 };
@@ -58119,11 +58175,11 @@ var useStore26 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ *
     return "edges";
   }
 })(eqArray2)));
-var discard21 = /* @__PURE__ */ discard2(ixBindRender);
-var useEffect15 = /* @__PURE__ */ useEffect(eqUnsafeReference);
+var discard23 = /* @__PURE__ */ discard2(ixBindRender);
+var useEffect16 = /* @__PURE__ */ useEffect(eqUnsafeReference);
 var pure74 = /* @__PURE__ */ pure(applicativeEffect);
-var for_22 = /* @__PURE__ */ for_(applicativeEffect)(foldableArray);
-var pure129 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var for_23 = /* @__PURE__ */ for_(applicativeEffect)(foldableArray);
+var pure130 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty17 = /* @__PURE__ */ mempty(monoidJSX);
 var useStore110 = /* @__PURE__ */ useStore(eqBoolean);
 var selectIds = function(s) {
@@ -58149,7 +58205,7 @@ var selectIds = function(s) {
 var selectionListenerInner = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponent10("SelectionListenerInner")(function(v) {
   return bind51(useStoreApi)(function(store) {
     return bind51(useStore26(selectIds))(function(selected2) {
-      return discard21(useEffect15(selected2)(function __do3() {
+      return discard23(useEffect16(selected2)(function __do3() {
         var s = store.getState();
         var selectedNodes = filter(function(n) {
           return eq40(n.selected)(new Just(true));
@@ -58172,12 +58228,12 @@ var selectionListenerInner = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */
           ;
           throw new Error("Failed pattern match at React.Provider.SelectionListener (line 64, column 9 - line 66, column 31): " + [v.onSelectionChange.constructor.name]);
         })();
-        for_22(s.onSelectionChangeHandlers)(function(fn) {
+        for_23(s.onSelectionChangeHandlers)(function(fn) {
           return fn(params);
         })();
         return pure74(unit);
       }))(function() {
-        return pure129(mempty17);
+        return pure130(mempty17);
       });
     });
   });
@@ -58188,7 +58244,7 @@ var selectionListener = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reac
       return v1.onSelectionChangeHandlers;
     }($47));
   }))(function(hasHandlers) {
-    return pure129(function() {
+    return pure130(function() {
       var $46 = isJust(v.onSelectionChange) || hasHandlers;
       if ($46) {
         return element(selectionListenerInner)(v);
@@ -58226,10 +58282,10 @@ var eqTrackedProp = {
     };
   }
 };
-var notEq11 = /* @__PURE__ */ notEq(eqTrackedProp);
+var notEq17 = /* @__PURE__ */ notEq(eqTrackedProp);
 var changed = function(prev) {
   return function(next) {
-    return notEq11(prev)(next);
+    return notEq17(prev)(next);
   };
 };
 var dispatchable = function(previous) {
@@ -58246,22 +58302,22 @@ var dispatchable = function(previous) {
 // output/React.Provider.StoreUpdater/index.js
 var coerceHook12 = /* @__PURE__ */ coerceHook();
 var bind52 = /* @__PURE__ */ bind4(ixBindRender);
-var discard23 = /* @__PURE__ */ discard2(ixBindRender);
+var discard24 = /* @__PURE__ */ discard2(ixBindRender);
 var pure75 = /* @__PURE__ */ pure(applicativeEffect);
-var useEffect16 = /* @__PURE__ */ useEffect(eqTrackedProp);
-var for_23 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
-var pure130 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var useEffect17 = /* @__PURE__ */ useEffect(eqTrackedProp);
+var for_24 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
+var pure131 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty18 = /* @__PURE__ */ mempty(monoidJSX);
 var effectOnJustFrom = function(seed) {
   return function(dispatch2) {
     return function(mValue) {
       return function(mkAction) {
         return coerceHook12(bind52(useRef(seed))(function(previous) {
-          return discard23(useEffectOnce(pure75(writeRef(previous)(seed))))(function() {
-            return useEffect16(mValue)(function __do3() {
+          return discard24(useEffectOnce(pure75(writeRef(previous)(seed))))(function() {
+            return useEffect17(mValue)(function __do3() {
               var prev = readRef(previous)();
               writeRef(previous)(mValue)();
-              for_23(dispatchable(prev)(mValue))(function($72) {
+              for_24(dispatchable(prev)(mValue))(function($72) {
                 return dispatch2(mkAction($72));
               })();
               return pure75(unit);
@@ -58275,7 +58331,7 @@ var effectOnJustFrom = function(seed) {
 var effectOnJust = function(dispatch2) {
   return function(mValue) {
     return function(mkAction) {
-      return useEffect16(mValue)(function __do3() {
+      return useEffect17(mValue)(function __do3() {
         (function() {
           if (mValue instanceof Just) {
             return dispatch2(mkAction(mValue.value0))();
@@ -58294,17 +58350,17 @@ var effectOnJust = function(dispatch2) {
 };
 var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponent()()()("StoreUpdater")(function(v) {
   return bind52(useStoreApi)(function(store) {
-    return discard23(useEffectOnce(function __do3() {
+    return discard24(useEffectOnce(function __do3() {
       store.dispatch(new SetDefaultNodesAndEdges(v.defaultNodes, v.defaultEdges))();
       return store.dispatch(Reset.value);
     }))(function() {
-      return discard23(effectOnJust(store.dispatch)(v.nodes)(SetNodes.create))(function() {
-        return discard23(effectOnJust(store.dispatch)(v.edges)(SetEdges.create))(function() {
-          return discard23(effectOnJustFrom(initPrevValues.minZoom)(store.dispatch)(v.minZoom)(SetMinZoom.create))(function() {
-            return discard23(effectOnJustFrom(initPrevValues.maxZoom)(store.dispatch)(v.maxZoom)(SetMaxZoom.create))(function() {
-              return discard23(effectOnJustFrom(initPrevValues.translateExtent)(store.dispatch)(v.translateExtent)(SetTranslateExtent.create))(function() {
-                return discard23(effectOnJust(store.dispatch)(v.nodeExtent)(SetNodeExtent.create))(function() {
-                  return discard23(effectOnJust(store.dispatch)(v.fitView)(function(v1) {
+      return discard24(effectOnJust(store.dispatch)(v.nodes)(SetNodes.create))(function() {
+        return discard24(effectOnJust(store.dispatch)(v.edges)(SetEdges.create))(function() {
+          return discard24(effectOnJustFrom(initPrevValues.minZoom)(store.dispatch)(v.minZoom)(SetMinZoom.create))(function() {
+            return discard24(effectOnJustFrom(initPrevValues.maxZoom)(store.dispatch)(v.maxZoom)(SetMaxZoom.create))(function() {
+              return discard24(effectOnJustFrom(initPrevValues.translateExtent)(store.dispatch)(v.translateExtent)(SetTranslateExtent.create))(function() {
+                return discard24(effectOnJust(store.dispatch)(v.nodeExtent)(SetNodeExtent.create))(function() {
+                  return discard24(effectOnJust(store.dispatch)(v.fitView)(function(v1) {
                     return new PatchState(function(s) {
                       return {
                         rfId: s.rfId,
@@ -58395,7 +58451,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                       };
                     });
                   }))(function() {
-                    return discard23(effectOnJust(store.dispatch)(v.fitViewOptions)(function(v1) {
+                    return discard24(effectOnJust(store.dispatch)(v.fitViewOptions)(function(v1) {
                       return new PatchState(function(s) {
                         return {
                           rfId: s.rfId,
@@ -58486,7 +58542,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                         };
                       });
                     }))(function() {
-                      return discard23(effectOnJust(store.dispatch)(v.ariaLabelConfig)(function(v1) {
+                      return discard24(effectOnJust(store.dispatch)(v.ariaLabelConfig)(function(v1) {
                         return new PatchState(function(s) {
                           return {
                             rfId: s.rfId,
@@ -58577,7 +58633,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                           };
                         });
                       }))(function() {
-                        return discard23(effectOnJust(store.dispatch)(v.onConnect)(function(v1) {
+                        return discard24(effectOnJust(store.dispatch)(v.onConnect)(function(v1) {
                           return new PatchState(function(s) {
                             return {
                               rfId: s.rfId,
@@ -58668,7 +58724,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                             };
                           });
                         }))(function() {
-                          return discard23(effectOnJust(store.dispatch)(v.onConnectStart)(function(v1) {
+                          return discard24(effectOnJust(store.dispatch)(v.onConnectStart)(function(v1) {
                             return new PatchState(function(s) {
                               return {
                                 rfId: s.rfId,
@@ -58759,7 +58815,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                               };
                             });
                           }))(function() {
-                            return discard23(effectOnJust(store.dispatch)(v.onConnectEnd)(function(v1) {
+                            return discard24(effectOnJust(store.dispatch)(v.onConnectEnd)(function(v1) {
                               return new PatchState(function(s) {
                                 return {
                                   rfId: s.rfId,
@@ -58850,7 +58906,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                 };
                               });
                             }))(function() {
-                              return discard23(effectOnJust(store.dispatch)(v.onClickConnectStart)(function(v1) {
+                              return discard24(effectOnJust(store.dispatch)(v.onClickConnectStart)(function(v1) {
                                 return new PatchState(function(s) {
                                   return {
                                     rfId: s.rfId,
@@ -58941,7 +58997,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                   };
                                 });
                               }))(function() {
-                                return discard23(effectOnJust(store.dispatch)(v.onClickConnectEnd)(function(v1) {
+                                return discard24(effectOnJust(store.dispatch)(v.onClickConnectEnd)(function(v1) {
                                   return new PatchState(function(s) {
                                     return {
                                       rfId: s.rfId,
@@ -59032,7 +59088,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                     };
                                   });
                                 }))(function() {
-                                  return discard23(effectOnJust(store.dispatch)(v.nodesDraggable)(function(v1) {
+                                  return discard24(effectOnJust(store.dispatch)(v.nodesDraggable)(function(v1) {
                                     return new PatchState(function(s) {
                                       return {
                                         rfId: s.rfId,
@@ -59123,7 +59179,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                       };
                                     });
                                   }))(function() {
-                                    return discard23(effectOnJust(store.dispatch)(v.autoPanOnNodeFocus)(function(v1) {
+                                    return discard24(effectOnJust(store.dispatch)(v.autoPanOnNodeFocus)(function(v1) {
                                       return new PatchState(function(s) {
                                         return {
                                           rfId: s.rfId,
@@ -59214,7 +59270,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                         };
                                       });
                                     }))(function() {
-                                      return discard23(effectOnJust(store.dispatch)(v.nodesConnectable)(function(v1) {
+                                      return discard24(effectOnJust(store.dispatch)(v.nodesConnectable)(function(v1) {
                                         return new PatchState(function(s) {
                                           return {
                                             rfId: s.rfId,
@@ -59305,7 +59361,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                           };
                                         });
                                       }))(function() {
-                                        return discard23(effectOnJust(store.dispatch)(v.nodesFocusable)(function(v1) {
+                                        return discard24(effectOnJust(store.dispatch)(v.nodesFocusable)(function(v1) {
                                           return new PatchState(function(s) {
                                             return {
                                               rfId: s.rfId,
@@ -59396,7 +59452,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                             };
                                           });
                                         }))(function() {
-                                          return discard23(effectOnJust(store.dispatch)(v.edgesFocusable)(function(v1) {
+                                          return discard24(effectOnJust(store.dispatch)(v.edgesFocusable)(function(v1) {
                                             return new PatchState(function(s) {
                                               return {
                                                 rfId: s.rfId,
@@ -59487,7 +59543,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                               };
                                             });
                                           }))(function() {
-                                            return discard23(effectOnJust(store.dispatch)(v.edgesReconnectable)(function(v1) {
+                                            return discard24(effectOnJust(store.dispatch)(v.edgesReconnectable)(function(v1) {
                                               return new PatchState(function(s) {
                                                 return {
                                                   rfId: s.rfId,
@@ -59578,7 +59634,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                 };
                                               });
                                             }))(function() {
-                                              return discard23(effectOnJust(store.dispatch)(v.elevateNodesOnSelect)(function(v1) {
+                                              return discard24(effectOnJust(store.dispatch)(v.elevateNodesOnSelect)(function(v1) {
                                                 return new PatchState(function(s) {
                                                   return {
                                                     rfId: s.rfId,
@@ -59669,7 +59725,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                   };
                                                 });
                                               }))(function() {
-                                                return discard23(effectOnJust(store.dispatch)(v.elevateEdgesOnSelect)(function(v1) {
+                                                return discard24(effectOnJust(store.dispatch)(v.elevateEdgesOnSelect)(function(v1) {
                                                   return new PatchState(function(s) {
                                                     return {
                                                       rfId: s.rfId,
@@ -59760,7 +59816,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                     };
                                                   });
                                                 }))(function() {
-                                                  return discard23(effectOnJust(store.dispatch)(v.onNodesChange)(function(v1) {
+                                                  return discard24(effectOnJust(store.dispatch)(v.onNodesChange)(function(v1) {
                                                     return new PatchState(function(s) {
                                                       return {
                                                         rfId: s.rfId,
@@ -59851,7 +59907,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                       };
                                                     });
                                                   }))(function() {
-                                                    return discard23(effectOnJust(store.dispatch)(v.onEdgesChange)(function(v1) {
+                                                    return discard24(effectOnJust(store.dispatch)(v.onEdgesChange)(function(v1) {
                                                       return new PatchState(function(s) {
                                                         return {
                                                           rfId: s.rfId,
@@ -59942,7 +59998,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                         };
                                                       });
                                                     }))(function() {
-                                                      return discard23(effectOnJustFrom(initPrevValues.elementsSelectable)(store.dispatch)(v.elementsSelectable)(function(v1) {
+                                                      return discard24(effectOnJustFrom(initPrevValues.elementsSelectable)(store.dispatch)(v.elementsSelectable)(function(v1) {
                                                         return new PatchState(function(s) {
                                                           return {
                                                             rfId: s.rfId,
@@ -60033,7 +60089,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                           };
                                                         });
                                                       }))(function() {
-                                                        return discard23(effectOnJust(store.dispatch)(v.connectionMode)(function(v1) {
+                                                        return discard24(effectOnJust(store.dispatch)(v.connectionMode)(function(v1) {
                                                           return new PatchState(function(s) {
                                                             return {
                                                               rfId: s.rfId,
@@ -60124,7 +60180,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                             };
                                                           });
                                                         }))(function() {
-                                                          return discard23(effectOnJust(store.dispatch)(v.snapGrid)(function(v1) {
+                                                          return discard24(effectOnJust(store.dispatch)(v.snapGrid)(function(v1) {
                                                             return new PatchState(function(s) {
                                                               return {
                                                                 rfId: s.rfId,
@@ -60215,7 +60271,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                               };
                                                             });
                                                           }))(function() {
-                                                            return discard23(effectOnJust(store.dispatch)(v.snapToGrid)(function(v1) {
+                                                            return discard24(effectOnJust(store.dispatch)(v.snapToGrid)(function(v1) {
                                                               return new PatchState(function(s) {
                                                                 return {
                                                                   rfId: s.rfId,
@@ -60306,7 +60362,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                 };
                                                               });
                                                             }))(function() {
-                                                              return discard23(effectOnJust(store.dispatch)(v.connectOnClick)(function(v1) {
+                                                              return discard24(effectOnJust(store.dispatch)(v.connectOnClick)(function(v1) {
                                                                 return new PatchState(function(s) {
                                                                   return {
                                                                     rfId: s.rfId,
@@ -60397,7 +60453,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                   };
                                                                 });
                                                               }))(function() {
-                                                                return discard23(effectOnJust(store.dispatch)(v.defaultEdgeOptions)(function(v1) {
+                                                                return discard24(effectOnJust(store.dispatch)(v.defaultEdgeOptions)(function(v1) {
                                                                   return new PatchState(function(s) {
                                                                     return {
                                                                       rfId: s.rfId,
@@ -60488,7 +60544,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                     };
                                                                   });
                                                                 }))(function() {
-                                                                  return discard23(effectOnJust(store.dispatch)(v.onNodesDelete)(function(v1) {
+                                                                  return discard24(effectOnJust(store.dispatch)(v.onNodesDelete)(function(v1) {
                                                                     return new PatchState(function(s) {
                                                                       return {
                                                                         rfId: s.rfId,
@@ -60579,7 +60635,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                       };
                                                                     });
                                                                   }))(function() {
-                                                                    return discard23(effectOnJust(store.dispatch)(v.onEdgesDelete)(function(v1) {
+                                                                    return discard24(effectOnJust(store.dispatch)(v.onEdgesDelete)(function(v1) {
                                                                       return new PatchState(function(s) {
                                                                         return {
                                                                           rfId: s.rfId,
@@ -60670,7 +60726,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                         };
                                                                       });
                                                                     }))(function() {
-                                                                      return discard23(effectOnJust(store.dispatch)(v.onDelete)(function(v1) {
+                                                                      return discard24(effectOnJust(store.dispatch)(v.onDelete)(function(v1) {
                                                                         return new PatchState(function(s) {
                                                                           return {
                                                                             rfId: s.rfId,
@@ -60761,7 +60817,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                           };
                                                                         });
                                                                       }))(function() {
-                                                                        return discard23(effectOnJust(store.dispatch)(v.onNodeDrag)(function(v1) {
+                                                                        return discard24(effectOnJust(store.dispatch)(v.onNodeDrag)(function(v1) {
                                                                           return new PatchState(function(s) {
                                                                             return {
                                                                               rfId: s.rfId,
@@ -60852,7 +60908,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                             };
                                                                           });
                                                                         }))(function() {
-                                                                          return discard23(effectOnJust(store.dispatch)(v.onNodeDragStart)(function(v1) {
+                                                                          return discard24(effectOnJust(store.dispatch)(v.onNodeDragStart)(function(v1) {
                                                                             return new PatchState(function(s) {
                                                                               return {
                                                                                 rfId: s.rfId,
@@ -60943,7 +60999,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                               };
                                                                             });
                                                                           }))(function() {
-                                                                            return discard23(effectOnJust(store.dispatch)(v.onNodeDragStop)(function(v1) {
+                                                                            return discard24(effectOnJust(store.dispatch)(v.onNodeDragStop)(function(v1) {
                                                                               return new PatchState(function(s) {
                                                                                 return {
                                                                                   rfId: s.rfId,
@@ -61034,7 +61090,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                 };
                                                                               });
                                                                             }))(function() {
-                                                                              return discard23(effectOnJust(store.dispatch)(v.onSelectionDrag)(function(v1) {
+                                                                              return discard24(effectOnJust(store.dispatch)(v.onSelectionDrag)(function(v1) {
                                                                                 return new PatchState(function(s) {
                                                                                   return {
                                                                                     rfId: s.rfId,
@@ -61125,7 +61181,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                   };
                                                                                 });
                                                                               }))(function() {
-                                                                                return discard23(effectOnJust(store.dispatch)(v.onSelectionDragStart)(function(v1) {
+                                                                                return discard24(effectOnJust(store.dispatch)(v.onSelectionDragStart)(function(v1) {
                                                                                   return new PatchState(function(s) {
                                                                                     return {
                                                                                       rfId: s.rfId,
@@ -61216,7 +61272,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                     };
                                                                                   });
                                                                                 }))(function() {
-                                                                                  return discard23(effectOnJust(store.dispatch)(v.onSelectionDragStop)(function(v1) {
+                                                                                  return discard24(effectOnJust(store.dispatch)(v.onSelectionDragStop)(function(v1) {
                                                                                     return new PatchState(function(s) {
                                                                                       return {
                                                                                         rfId: s.rfId,
@@ -61307,7 +61363,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                       };
                                                                                     });
                                                                                   }))(function() {
-                                                                                    return discard23(effectOnJust(store.dispatch)(v.onMoveStart)(function(v1) {
+                                                                                    return discard24(effectOnJust(store.dispatch)(v.onMoveStart)(function(v1) {
                                                                                       return new PatchState(function(s) {
                                                                                         return {
                                                                                           rfId: s.rfId,
@@ -61398,7 +61454,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                         };
                                                                                       });
                                                                                     }))(function() {
-                                                                                      return discard23(effectOnJust(store.dispatch)(v.onMove)(function(v1) {
+                                                                                      return discard24(effectOnJust(store.dispatch)(v.onMove)(function(v1) {
                                                                                         return new PatchState(function(s) {
                                                                                           return {
                                                                                             rfId: s.rfId,
@@ -61489,7 +61545,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                           };
                                                                                         });
                                                                                       }))(function() {
-                                                                                        return discard23(effectOnJust(store.dispatch)(v.onMoveEnd)(function(v1) {
+                                                                                        return discard24(effectOnJust(store.dispatch)(v.onMoveEnd)(function(v1) {
                                                                                           return new PatchState(function(s) {
                                                                                             return {
                                                                                               rfId: s.rfId,
@@ -61580,7 +61636,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                             };
                                                                                           });
                                                                                         }))(function() {
-                                                                                          return discard23(effectOnJustFrom(initPrevValues.noPanClassName)(store.dispatch)(v.noPanClassName)(function(v1) {
+                                                                                          return discard24(effectOnJustFrom(initPrevValues.noPanClassName)(store.dispatch)(v.noPanClassName)(function(v1) {
                                                                                             return new PatchState(function(s) {
                                                                                               return {
                                                                                                 rfId: s.rfId,
@@ -61671,7 +61727,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                               };
                                                                                             });
                                                                                           }))(function() {
-                                                                                            return discard23(effectOnJustFrom(initPrevValues.nodeOrigin)(store.dispatch)(v.nodeOrigin)(function(v1) {
+                                                                                            return discard24(effectOnJustFrom(initPrevValues.nodeOrigin)(store.dispatch)(v.nodeOrigin)(function(v1) {
                                                                                               return new PatchState(function(s) {
                                                                                                 return {
                                                                                                   rfId: s.rfId,
@@ -61762,7 +61818,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                 };
                                                                                               });
                                                                                             }))(function() {
-                                                                                              return discard23(effectOnJust(store.dispatch)(v.autoPanOnConnect)(function(v1) {
+                                                                                              return discard24(effectOnJust(store.dispatch)(v.autoPanOnConnect)(function(v1) {
                                                                                                 return new PatchState(function(s) {
                                                                                                   return {
                                                                                                     rfId: s.rfId,
@@ -61853,7 +61909,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                   };
                                                                                                 });
                                                                                               }))(function() {
-                                                                                                return discard23(effectOnJust(store.dispatch)(v.autoPanOnNodeDrag)(function(v1) {
+                                                                                                return discard24(effectOnJust(store.dispatch)(v.autoPanOnNodeDrag)(function(v1) {
                                                                                                   return new PatchState(function(s) {
                                                                                                     return {
                                                                                                       rfId: s.rfId,
@@ -61944,7 +62000,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                     };
                                                                                                   });
                                                                                                 }))(function() {
-                                                                                                  return discard23(effectOnJust(store.dispatch)(v.onError)(function(v1) {
+                                                                                                  return discard24(effectOnJust(store.dispatch)(v.onError)(function(v1) {
                                                                                                     return new PatchState(function(s) {
                                                                                                       return {
                                                                                                         rfId: s.rfId,
@@ -62035,7 +62091,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                       };
                                                                                                     });
                                                                                                   }))(function() {
-                                                                                                    return discard23(effectOnJust(store.dispatch)(v.connectionRadius)(function(v1) {
+                                                                                                    return discard24(effectOnJust(store.dispatch)(v.connectionRadius)(function(v1) {
                                                                                                       return new PatchState(function(s) {
                                                                                                         return {
                                                                                                           rfId: s.rfId,
@@ -62126,7 +62182,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                         };
                                                                                                       });
                                                                                                     }))(function() {
-                                                                                                      return discard23(effectOnJust(store.dispatch)(v.isValidConnection)(function(v1) {
+                                                                                                      return discard24(effectOnJust(store.dispatch)(v.isValidConnection)(function(v1) {
                                                                                                         return new PatchState(function(s) {
                                                                                                           return {
                                                                                                             rfId: s.rfId,
@@ -62217,7 +62273,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                           };
                                                                                                         });
                                                                                                       }))(function() {
-                                                                                                        return discard23(effectOnJust(store.dispatch)(v.selectNodesOnDrag)(function(v1) {
+                                                                                                        return discard24(effectOnJust(store.dispatch)(v.selectNodesOnDrag)(function(v1) {
                                                                                                           return new PatchState(function(s) {
                                                                                                             return {
                                                                                                               rfId: s.rfId,
@@ -62308,7 +62364,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                             };
                                                                                                           });
                                                                                                         }))(function() {
-                                                                                                          return discard23(effectOnJust(store.dispatch)(v.nodeDragThreshold)(function(v1) {
+                                                                                                          return discard24(effectOnJust(store.dispatch)(v.nodeDragThreshold)(function(v1) {
                                                                                                             return new PatchState(function(s) {
                                                                                                               return {
                                                                                                                 rfId: s.rfId,
@@ -62399,7 +62455,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                               };
                                                                                                             });
                                                                                                           }))(function() {
-                                                                                                            return discard23(effectOnJust(store.dispatch)(v.connectionDragThreshold)(function(v1) {
+                                                                                                            return discard24(effectOnJust(store.dispatch)(v.connectionDragThreshold)(function(v1) {
                                                                                                               return new PatchState(function(s) {
                                                                                                                 return {
                                                                                                                   rfId: s.rfId,
@@ -62490,7 +62546,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                                 };
                                                                                                               });
                                                                                                             }))(function() {
-                                                                                                              return discard23(effectOnJust(store.dispatch)(v.onBeforeDelete)(function(v1) {
+                                                                                                              return discard24(effectOnJust(store.dispatch)(v.onBeforeDelete)(function(v1) {
                                                                                                                 return new PatchState(function(s) {
                                                                                                                   return {
                                                                                                                     rfId: s.rfId,
@@ -62581,7 +62637,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                                   };
                                                                                                                 });
                                                                                                               }))(function() {
-                                                                                                                return discard23(effectOnJust(store.dispatch)(v.debug)(function(v1) {
+                                                                                                                return discard24(effectOnJust(store.dispatch)(v.debug)(function(v1) {
                                                                                                                   return new PatchState(function(s) {
                                                                                                                     return {
                                                                                                                       rfId: s.rfId,
@@ -62672,7 +62728,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                                     };
                                                                                                                   });
                                                                                                                 }))(function() {
-                                                                                                                  return discard23(effectOnJust(store.dispatch)(v.autoPanSpeed)(function(v1) {
+                                                                                                                  return discard24(effectOnJust(store.dispatch)(v.autoPanSpeed)(function(v1) {
                                                                                                                     return new PatchState(function(s) {
                                                                                                                       return {
                                                                                                                         rfId: s.rfId,
@@ -62763,7 +62819,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                                       };
                                                                                                                     });
                                                                                                                   }))(function() {
-                                                                                                                    return discard23(effectOnJust(store.dispatch)(v.zIndexMode)(function(v1) {
+                                                                                                                    return discard24(effectOnJust(store.dispatch)(v.zIndexMode)(function(v1) {
                                                                                                                       return new PatchState(function(s) {
                                                                                                                         return {
                                                                                                                           rfId: s.rfId,
@@ -62854,7 +62910,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                                         };
                                                                                                                       });
                                                                                                                     }))(function() {
-                                                                                                                      return discard23(effectOnJustFrom(initPrevValues.rfId)(store.dispatch)(new Just(v.rfId))(function(v1) {
+                                                                                                                      return discard24(effectOnJustFrom(initPrevValues.rfId)(store.dispatch)(new Just(v.rfId))(function(v1) {
                                                                                                                         return new PatchState(function(s) {
                                                                                                                           return {
                                                                                                                             width: s.width,
@@ -62945,7 +63001,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                                           };
                                                                                                                         });
                                                                                                                       }))(function() {
-                                                                                                                        return pure130(mempty18);
+                                                                                                                        return pure131(mempty18);
                                                                                                                       });
                                                                                                                     });
                                                                                                                   });
@@ -63012,7 +63068,7 @@ var bind53 = /* @__PURE__ */ bind4(ixBindRender);
 var alt7 = /* @__PURE__ */ alt(altMaybe);
 var pure76 = /* @__PURE__ */ pure(applicativeEffect);
 var append21 = /* @__PURE__ */ append(semigroupArray);
-var pure131 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var pure132 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var wrapperStyle = {
   width: "100%",
   height: "100%",
@@ -63248,7 +63304,7 @@ var reactFlow = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompone
       zIndexMode: v.zIndexMode,
       children: reactChildrenFromArray(innerChildren)
     });
-    return pure131(div_({
+    return pure132(div_({
       "data-testid": "rf__wrapper",
       style: mergeStyle(Nothing.value),
       className: outerClass,
@@ -63570,12 +63626,12 @@ var reactFlow2 = /* @__PURE__ */ forwardNullableRef("ReactFlow")(function(v) {
 var mkTriple = (first, second, third) => [first, second, third];
 
 // output/React.Hook.HandleConnections/index.js
-var eqMaybe9 = /* @__PURE__ */ eqMaybe(eqString);
+var eqMaybe10 = /* @__PURE__ */ eqMaybe(eqString);
 var eqRec9 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
     return "targetHandle";
   }
-})(eqMaybe9))()({
+})(eqMaybe10))()({
   reflectSymbol: function() {
     return "target";
   }
@@ -63583,7 +63639,7 @@ var eqRec9 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ e
   reflectSymbol: function() {
     return "sourceHandle";
   }
-})(eqMaybe9))()({
+})(eqMaybe10))()({
   reflectSymbol: function() {
     return "source";
   }
@@ -63598,13 +63654,13 @@ var bind55 = /* @__PURE__ */ bind4(ixBindRender);
 var alt8 = /* @__PURE__ */ alt(altMaybe);
 var useStore27 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqArray(eqRec9));
 var lookup26 = /* @__PURE__ */ lookup2(ordString);
-var discard24 = /* @__PURE__ */ discard2(ixBindRender);
-var useEffect17 = /* @__PURE__ */ useEffect(eqUnsafeReference);
-var when23 = /* @__PURE__ */ when(applicativeEffect);
-var for_24 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
+var discard25 = /* @__PURE__ */ discard2(ixBindRender);
+var useEffect18 = /* @__PURE__ */ useEffect(eqUnsafeReference);
+var when24 = /* @__PURE__ */ when(applicativeEffect);
+var for_25 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var map62 = /* @__PURE__ */ map(functorArray);
 var pure77 = /* @__PURE__ */ pure(applicativeEffect);
-var pure132 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var pure133 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var toConnection = function(c) {
   return {
     source: c.source,
@@ -63663,20 +63719,20 @@ var useHandleConnections = function(params) {
       throw new Error("Failed pattern match at React.Hook.HandleConnections (line 95, column 5 - line 97, column 51): " + [v.constructor.name]);
     }))(function(connections) {
       return bind55(useRef([]))(function(prevRef) {
-        return discard24(useEffect17(connections)(function __do3() {
+        return discard25(useEffect18(connections)(function __do3() {
           var prev = readRef(prevRef)();
           var droppedConns = filter(notIn(connections))(prev);
           var addedConns = filter(notIn(prev))(connections);
-          when23(!$$null(droppedConns))(for_24(params.onDisconnect)(function(cb) {
+          when24(!$$null(droppedConns))(for_25(params.onDisconnect)(function(cb) {
             return cb(map62(toConnection)(droppedConns));
           }))();
-          when23(!$$null(addedConns))(for_24(params.onConnect)(function(cb) {
+          when24(!$$null(addedConns))(for_25(params.onConnect)(function(cb) {
             return cb(map62(toConnection)(addedConns));
           }))();
           writeRef(prevRef)(connections)();
           return pure77(unit);
         }))(function() {
-          return pure132(connections);
+          return pure133(connections);
         });
       });
     });
@@ -63686,11 +63742,11 @@ var useHandleConnections = function(params) {
 // output/React.Hook.Middleware/index.js
 var coerceHook14 = /* @__PURE__ */ coerceHook();
 var bind56 = /* @__PURE__ */ bind4(ixBindRender);
-var useEffect18 = /* @__PURE__ */ useEffect(eqUnsafeReference);
+var useEffect19 = /* @__PURE__ */ useEffect(eqUnsafeReference);
 var useOnEdgesChangeMiddleware = function(fn) {
   return coerceHook14(bind56(useStoreApi)(function(store) {
     return bind56(useRef(Nothing.value))(function(keyRef) {
-      return useEffect18(fn)(function __do3() {
+      return useEffect19(fn)(function __do3() {
         var key2 = store.freshMiddlewareKey();
         writeRef(keyRef)(new Just(key2))();
         store.dispatch(new AddOnEdgesChangeMiddleware(key2, fn))();
@@ -63716,7 +63772,7 @@ var useOnEdgesChangeMiddleware = function(fn) {
 var useOnNodesChangeMiddleware = function(fn) {
   return coerceHook14(bind56(useStoreApi)(function(store) {
     return bind56(useRef(Nothing.value))(function(keyRef) {
-      return useEffect18(fn)(function __do3() {
+      return useEffect19(fn)(function __do3() {
         var key2 = store.freshMiddlewareKey();
         writeRef(keyRef)(new Just(key2))();
         store.dispatch(new AddOnNodesChangeMiddleware(key2, fn))();
@@ -63741,12 +63797,12 @@ var useOnNodesChangeMiddleware = function(fn) {
 };
 
 // output/React.Hook.NodeConnections/index.js
-var eqMaybe10 = /* @__PURE__ */ eqMaybe(eqString);
+var eqMaybe11 = /* @__PURE__ */ eqMaybe(eqString);
 var eqRec10 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
     return "targetHandle";
   }
-})(eqMaybe10))()({
+})(eqMaybe11))()({
   reflectSymbol: function() {
     return "target";
   }
@@ -63754,7 +63810,7 @@ var eqRec10 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ 
   reflectSymbol: function() {
     return "sourceHandle";
   }
-})(eqMaybe10))()({
+})(eqMaybe11))()({
   reflectSymbol: function() {
     return "source";
   }
@@ -63769,12 +63825,12 @@ var bind57 = /* @__PURE__ */ bind4(ixBindRender);
 var alt9 = /* @__PURE__ */ alt(altMaybe);
 var useStore28 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqArray(eqRec10));
 var lookup27 = /* @__PURE__ */ lookup2(ordString);
-var discard25 = /* @__PURE__ */ discard2(ixBindRender);
-var useEffect19 = /* @__PURE__ */ useEffect(eqUnsafeReference);
-var when24 = /* @__PURE__ */ when(applicativeEffect);
-var for_25 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
+var discard26 = /* @__PURE__ */ discard2(ixBindRender);
+var useEffect20 = /* @__PURE__ */ useEffect(eqUnsafeReference);
+var when25 = /* @__PURE__ */ when(applicativeEffect);
+var for_26 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var pure78 = /* @__PURE__ */ pure(applicativeEffect);
-var pure133 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var pure134 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var notIn2 = function(xs) {
   return function(x) {
     return !any2(eq45(x))(xs);
@@ -63844,20 +63900,20 @@ var useNodeConnections = function(params) {
       throw new Error("Failed pattern match at React.Hook.NodeConnections (line 91, column 5 - line 93, column 51): " + [v.constructor.name]);
     }))(function(connections) {
       return bind57(useRef([]))(function(prevRef) {
-        return discard25(useEffect19(connections)(function __do3() {
+        return discard26(useEffect20(connections)(function __do3() {
           var prev = readRef(prevRef)();
           var droppedConns = filter(notIn2(connections))(prev);
           var addedConns = filter(notIn2(prev))(connections);
-          when24(!$$null(droppedConns))(for_25(params.onDisconnect)(function(cb) {
+          when25(!$$null(droppedConns))(for_26(params.onDisconnect)(function(cb) {
             return cb(droppedConns);
           }))();
-          when24(!$$null(addedConns))(for_25(params.onConnect)(function(cb) {
+          when25(!$$null(addedConns))(for_26(params.onConnect)(function(cb) {
             return cb(addedConns);
           }))();
           writeRef(prevRef)(connections)();
           return pure78(unit);
         }))(function() {
-          return pure133(connections);
+          return pure134(connections);
         });
       });
     });
@@ -63909,19 +63965,19 @@ var xIsSymbol2 = {
     return "x";
   }
 };
-var eqMaybe11 = /* @__PURE__ */ eqMaybe(eqBoolean);
-var eq46 = /* @__PURE__ */ eq(eqMaybe11);
+var eqMaybe13 = /* @__PURE__ */ eqMaybe(eqBoolean);
+var eq46 = /* @__PURE__ */ eq(eqMaybe13);
 var foldl10 = /* @__PURE__ */ foldl(foldableList);
 var useStore29 = /* @__PURE__ */ useStore(eqBoolean);
 var nub5 = /* @__PURE__ */ nub(ordNodeId);
 var lookup28 = /* @__PURE__ */ lookup2(ordNodeId);
 var append22 = /* @__PURE__ */ append(semigroupArray);
-var eqMaybe12 = /* @__PURE__ */ eqMaybe(eqInt);
+var eqMaybe14 = /* @__PURE__ */ eqMaybe(eqInt);
 var eqRowCons1 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons8({
   reflectSymbol: function() {
     return "zIndex";
   }
-})(eqMaybe12))();
+})(eqMaybe14))();
 var widthIsSymbol2 = {
   reflectSymbol: function() {
     return "width";
@@ -63966,7 +64022,7 @@ var eqRowCons32 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE
   reflectSymbol: function() {
     return "sourcePosition";
   }
-})(eqMaybe32))()(selectedIsSymbol)(eqMaybe11))()(selectableIsSymbol)(eqMaybe11))()(positionIsSymbol2)(eqRec12))()({
+})(eqMaybe32))()(selectedIsSymbol)(eqMaybe13))()(selectableIsSymbol)(eqMaybe13))()(positionIsSymbol2)(eqRec12))()({
   reflectSymbol: function() {
     return "parentId";
   }
@@ -64072,7 +64128,7 @@ var eqRowCons52 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE
   reflectSymbol: function() {
     return "rootParentIndex";
   }
-})(eqMaybe12))()({
+})(eqMaybe14))()({
   reflectSymbol: function() {
     return "positionAbsolute";
   }
@@ -64084,7 +64140,7 @@ var eqRowCons52 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE
   reflectSymbol: function() {
     return "bounds";
   }
-})(/* @__PURE__ */ eqMaybe(/* @__PURE__ */ eqRec11(/* @__PURE__ */ eqRowCons42(heightIsSymbol2)(eqMaybe22)))))))()(initialWidthIsSymbol)(eqMaybe22))()(initialHeightIsSymbol)(eqMaybe22))()(idIsSymbol2)(eqNodeId))()(hiddenIsSymbol)(eqMaybe11))()(heightIsSymbol2)(eqMaybe22))()(handlesIsSymbol)(eqMaybe62))()(extentIsSymbol)(eqMaybe72))()(expandParentIsSymbol)(eqMaybe11))()(draggingIsSymbol)(eqMaybe11))()(draggableIsSymbol)(eqMaybe11))()(dragHandleIsSymbol)(eqMaybe52))()(deletableIsSymbol)(eqMaybe11))()(dataIsSymbol);
+})(/* @__PURE__ */ eqMaybe(/* @__PURE__ */ eqRec11(/* @__PURE__ */ eqRowCons42(heightIsSymbol2)(eqMaybe22)))))))()(initialWidthIsSymbol)(eqMaybe22))()(initialHeightIsSymbol)(eqMaybe22))()(idIsSymbol2)(eqNodeId))()(hiddenIsSymbol)(eqMaybe13))()(heightIsSymbol2)(eqMaybe22))()(handlesIsSymbol)(eqMaybe62))()(extentIsSymbol)(eqMaybe72))()(expandParentIsSymbol)(eqMaybe13))()(draggingIsSymbol)(eqMaybe13))()(draggableIsSymbol)(eqMaybe13))()(dragHandleIsSymbol)(eqMaybe52))()(deletableIsSymbol)(eqMaybe13))()(dataIsSymbol);
 var connectableIsSymbol = {
   reflectSymbol: function() {
     return "connectable";
@@ -64100,7 +64156,7 @@ var ariaLabelIsSymbol = {
     return "ariaLabel";
   }
 };
-var eqRowCons62 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons32(initialWidthIsSymbol)(eqMaybe22))()(initialHeightIsSymbol)(eqMaybe22))()(idIsSymbol2)(eqNodeId))()(hiddenIsSymbol)(eqMaybe11))()(heightIsSymbol2)(eqMaybe22))()(handlesIsSymbol)(eqMaybe62))()(extentIsSymbol)(eqMaybe72))()(expandParentIsSymbol)(eqMaybe11))()(draggingIsSymbol)(eqMaybe11))()(draggableIsSymbol)(eqMaybe11))()(dragHandleIsSymbol)(eqMaybe52))()(deletableIsSymbol)(eqMaybe11))()(dataIsSymbol);
+var eqRowCons62 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons32(initialWidthIsSymbol)(eqMaybe22))()(initialHeightIsSymbol)(eqMaybe22))()(idIsSymbol2)(eqNodeId))()(hiddenIsSymbol)(eqMaybe13))()(heightIsSymbol2)(eqMaybe22))()(handlesIsSymbol)(eqMaybe62))()(extentIsSymbol)(eqMaybe72))()(expandParentIsSymbol)(eqMaybe13))()(draggingIsSymbol)(eqMaybe13))()(draggableIsSymbol)(eqMaybe13))()(dragHandleIsSymbol)(eqMaybe52))()(deletableIsSymbol)(eqMaybe13))()(dataIsSymbol);
 var eqMaybe82 = /* @__PURE__ */ eqMaybe(eqEdgeMarkerType);
 var eqRowCons72 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons1({
   reflectSymbol: function() {
@@ -64110,7 +64166,7 @@ var eqRowCons72 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE
   reflectSymbol: function() {
     return "sourceHandle";
   }
-})(eqMaybe52))()(sourceIsSymbol)(eqNodeId))()(selectedIsSymbol)(eqMaybe11))()(selectableIsSymbol)(eqMaybe11))()({
+})(eqMaybe52))()(sourceIsSymbol)(eqNodeId))()(selectedIsSymbol)(eqMaybe13))()(selectableIsSymbol)(eqMaybe13))()({
   reflectSymbol: function() {
     return "markerStart";
   }
@@ -64126,11 +64182,11 @@ var eqRowCons72 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE
   reflectSymbol: function() {
     return "interactionWidth";
   }
-})(eqMaybe22))()(idIsSymbol2)(eqString))()(hiddenIsSymbol)(eqMaybe11))()({
+})(eqMaybe22))()(idIsSymbol2)(eqString))()(hiddenIsSymbol)(eqMaybe13))()({
   reflectSymbol: function() {
     return "edgeType";
   }
-})(eqMaybe52))()(deletableIsSymbol)(eqMaybe11))()(dataIsSymbol);
+})(eqMaybe52))()(deletableIsSymbol)(eqMaybe13))()(dataIsSymbol);
 var eqMaybe92 = /* @__PURE__ */ eqMaybe(eqEdgeAriaLabel);
 var animatedIsSymbol = {
   reflectSymbol: function() {
@@ -64192,7 +64248,7 @@ var useNodesInitialized = function(opts) {
   return useStore29(selectInitialized);
 };
 var useNodesData = function(dictEq) {
-  var useStore111 = useStore(eqArray(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons52(dictEq))()(connectableIsSymbol)(eqMaybe11))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe52))));
+  var useStore111 = useStore(eqArray(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons52(dictEq))()(connectableIsSymbol)(eqMaybe13))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe52))));
   return function(ids) {
     var uniqueIds = nub5(ids);
     var selectNodesData = function(s) {
@@ -64218,10 +64274,10 @@ var useNodes = function(dictEq) {
   var selectNodes2 = function(s) {
     return s.nodes;
   };
-  return useStore(eqArray(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons62(dictEq))()(connectableIsSymbol)(eqMaybe11))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe52))))(selectNodes2);
+  return useStore(eqArray(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons62(dictEq))()(connectableIsSymbol)(eqMaybe13))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe52))))(selectNodes2);
 };
 var useInternalNode = function(dictEq) {
-  var useStore111 = useStore(eqMaybe(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons52(dictEq))()(connectableIsSymbol)(eqMaybe11))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe52))));
+  var useStore111 = useStore(eqMaybe(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons52(dictEq))()(connectableIsSymbol)(eqMaybe13))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe52))));
   return function(nodeId) {
     var selectOne = function(s) {
       return lookup28(nodeId)(s.nodeLookup);
@@ -64233,7 +64289,7 @@ var useEdges = function(dictEq) {
   var selectEdges = function(s) {
     return s.edges;
   };
-  return useStore(eqArray(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons72(eqMaybe(dictEq)))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe92))()(animatedIsSymbol)(eqMaybe11))))(selectEdges);
+  return useStore(eqArray(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons72(eqMaybe(dictEq)))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe92))()(animatedIsSymbol)(eqMaybe13))))(selectEdges);
 };
 var useConnectionWith = function(dictEq) {
   var useStore111 = useStore(dictEq);
@@ -64262,7 +64318,7 @@ var traverse2 = /* @__PURE__ */ traverse(traversableArray)(applicativeEffect);
 var foldl11 = /* @__PURE__ */ foldl(foldableArray);
 var bind120 = /* @__PURE__ */ bind4(ixBindRender);
 var useMemo7 = /* @__PURE__ */ useMemo(eqUnit);
-var pure134 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var pure135 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var Tuple2 = /* @__PURE__ */ function() {
   function Tuple3(value0, value1) {
     this.value0 = value0;
@@ -64336,7 +64392,7 @@ var useUpdateNodeInternals = /* @__PURE__ */ coerceHook()(/* @__PURE__ */ bind12
   return bind120(useMemo7(unit)(function(v) {
     return mkFn(store);
   }))(function(fn) {
-    return pure134(fn);
+    return pure135(fn);
   });
 }));
 

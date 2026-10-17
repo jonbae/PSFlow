@@ -12,10 +12,10 @@ claimed by a region — never by loosening what the net looks at.
 
 | scenario | verdict | failure classes | differences |
 |---|---|---|---|
-| `mount-baseline--edges-general` | **failed** | unclaimed-difference | 103 |
-| `mount-baseline--node-toolbar-general` | **failed** | unclaimed-difference | 23 |
-| `mount-baseline--nodes-general` | **failed** | unclaimed-difference | 22 |
-| `mount-baseline--pane-general` | **failed** | unclaimed-difference | 17 |
+| `mount-baseline--edges-general` | **failed** | unclaimed-difference | 28 |
+| `mount-baseline--node-toolbar-general` | **failed** | unclaimed-difference | 13 |
+| `mount-baseline--nodes-general` | **failed** | unclaimed-difference | 6 |
+| `mount-baseline--pane-general` | **failed** | unclaimed-difference | 3 |
 | `mount-baseline--pane-non-defaults` | **failed** | unclaimed-difference | 2 |
 | `mount-baseline--chrome-background` | **failed** | unclaimed-difference | 5 |
 | `mount-baseline--chrome-controls` | **failed** | unclaimed-difference | 3 |
@@ -31,60 +31,60 @@ claimed by a region — never by loosening what the net looks at.
 | `mount-baseline--flow-not-selectable` | **failed** | unclaimed-difference | 3 |
 | `mount-baseline--flow-props-change` | **failed** | unclaimed-difference | 3 |
 | `mount-baseline--nodes-autopan` | **failed** | unclaimed-difference | 2 |
-| `mount-baseline--nodes-connections` | **failed** | unclaimed-difference | 48 |
+| `mount-baseline--nodes-connections` | **failed** | unclaimed-difference | 14 |
 | `mount-baseline--nodes-expand-parent` | **failed** | unclaimed-difference | 9 |
 | `mount-baseline--nodes-no-select-on-drag` | **failed** | unclaimed-difference | 3 |
-| `mount-baseline--nodes-nowheel` | **failed** | unclaimed-difference | 12 |
+| `mount-baseline--nodes-nowheel` | **failed** | unclaimed-difference | 2 |
 | `mount-baseline--nodes-props-record` | **failed** | unclaimed-difference | 3 |
 | `mount-baseline--nodes-tall` | **failed** | unclaimed-difference | 2 |
 | `mount-baseline--nodes-unmeasured` | **failed** | unclaimed-difference | 3 |
 | `mount-baseline--viewport-controlled` | **failed** | unclaimed-difference | 3 |
-| `mount-baseline--viewport-helpers` | **failed** | unclaimed-difference | 23 |
+| `mount-baseline--viewport-helpers` | **failed** | unclaimed-difference | 3 |
 | `mount-baseline--viewport-pan-on-scroll` | **failed** | unclaimed-difference | 2 |
-| `mount-baseline--examples-color-mode` | **failed** | unclaimed-difference | 9 |
-| `click-selects-edge` | **failed** | driving-divergence, unclaimed-difference | 113 |
-| `multi-select-edges-with-modifier` | **failed** | driving-divergence, unclaimed-difference | 123 |
-| `click-unselectable-edge` | **failed** | unclaimed-difference | 103 |
-| `delete-key-removes-edge` | **failed** | driving-divergence, unclaimed-difference | 113 |
-| `delete-key-spares-undeletable-edge` | **failed** | driving-divergence, unclaimed-difference | 114 |
-| `click-inside-interaction-width` | **failed** | driving-divergence, unclaimed-difference | 105 |
-| `click-selects-node` | **failed** | unclaimed-difference | 22 |
-| `shift-drag-selects-nodes` | **failed** | unclaimed-difference | 29 |
-| `click-unselectable-node` | **failed** | unclaimed-difference | 22 |
-| `drag-moves-node` | **failed** | self-inconsistent, unclaimed-difference | 34 |
-| `drag-does-not-move-undraggable-node` | **failed** | unclaimed-difference | 31 |
-| `drag-by-custom-drag-handle` | **failed** | unclaimed-difference | 22 |
-| `delete-key-removes-node-and-edges` | **failed** | unclaimed-difference | 24 |
-| `delete-key-spares-undeletable-node` | **failed** | unclaimed-difference | 23 |
-| `connect-source-handle-to-target-handle` | **failed** | unclaimed-difference | 75 |
-| `connect-output-to-output-handle` | **failed** | unclaimed-difference | 67 |
-| `connect-input-to-input-handle` | **failed** | unclaimed-difference | 68 |
-| `connect-to-unconnectable-handle` | **failed** | unclaimed-difference | 67 |
-| `drag-pans-the-pane` | **failed** | unclaimed-difference | 17 |
-| `wheel-zooms-the-pane` | **failed** | unclaimed-difference | 17 |
+| `mount-baseline--examples-color-mode` | **failed** | unclaimed-difference | 3 |
+| `click-selects-edge` | **failed** | unclaimed-difference | 28 |
+| `multi-select-edges-with-modifier` | **failed** | unclaimed-difference | 28 |
+| `click-unselectable-edge` | **failed** | unclaimed-difference | 28 |
+| `delete-key-removes-edge` | **failed** | unclaimed-difference | 31 |
+| `delete-key-spares-undeletable-edge` | **failed** | unclaimed-difference | 29 |
+| `click-inside-interaction-width` | **failed** | unclaimed-difference | 28 |
+| `click-selects-node` | **failed** | unclaimed-difference | 6 |
+| `shift-drag-selects-nodes` | **failed** | unclaimed-difference | 13 |
+| `click-unselectable-node` | **failed** | unclaimed-difference | 6 |
+| `drag-moves-node` | **failed** | unclaimed-difference | 6 |
+| `drag-does-not-move-undraggable-node` | **failed** | unclaimed-difference | 6 |
+| `drag-by-custom-drag-handle` | **failed** | unclaimed-difference | 6 |
+| `delete-key-removes-node-and-edges` | **failed** | unclaimed-difference | 22 |
+| `delete-key-spares-undeletable-node` | **failed** | unclaimed-difference | 7 |
+| `connect-source-handle-to-target-handle` | **failed** | unclaimed-difference | 41 |
+| `connect-output-to-output-handle` | **failed** | unclaimed-difference | 41 |
+| `connect-input-to-input-handle` | **failed** | unclaimed-difference | 40 |
+| `connect-to-unconnectable-handle` | **failed** | unclaimed-difference | 41 |
+| `drag-pans-the-pane` | **failed** | unclaimed-difference | 3 |
+| `wheel-zooms-the-pane` | **failed** | unclaimed-difference | 3 |
 | `wheel-zooms-out-to-min` | **failed** | unclaimed-difference | 3 |
 | `wheel-zooms-in-to-max` | **failed** | unclaimed-difference | 3 |
-| `wheel-pans-with-panonscroll` | **failed** | unclaimed-difference | 14 |
-| `click-reveals-default-toolbar` | **failed** | unclaimed-difference | 23 |
-| `select-dark-color-mode` | **failed** | unclaimed-difference | 9 |
-| `drag-node-release` | **failed** | unclaimed-difference | 47 |
-| `drag-node-escape-mid-gesture` | **failed** | unclaimed-difference | 39 |
-| `drag-node-autopan` | **failed** | self-inconsistent, unclaimed-difference | 109 |
+| `wheel-pans-with-panonscroll` | **failed** | unclaimed-difference | 2 |
+| `click-reveals-default-toolbar` | **failed** | unclaimed-difference | 13 |
+| `select-dark-color-mode` | **failed** | unclaimed-difference | 3 |
+| `drag-node-release` | **failed** | unclaimed-difference | 36 |
+| `drag-node-escape-mid-gesture` | **failed** | unclaimed-difference | 23 |
+| `drag-node-autopan` | **failed** | self-inconsistent, unclaimed-difference | 245 |
 | `drag-node-no-select-on-drag` | **failed** | unclaimed-difference | 3 |
 | `drag-child-expand-parent` | **failed** | unclaimed-difference | 9 |
 | `drag-unmeasured-node` | **failed** | unclaimed-difference | 8 |
-| `selection-box-from-node` | **failed** | unclaimed-difference | 22 |
-| `selection-box-then-click-node` | **failed** | unclaimed-difference | 34 |
+| `selection-box-from-node` | **failed** | unclaimed-difference | 6 |
+| `selection-box-then-click-node` | **failed** | unclaimed-difference | 18 |
 | `selection-box-mid-gesture` | **failed** | unclaimed-difference | 3 |
-| `selection-box-touch` | **failed** | unclaimed-difference | 46 |
+| `selection-box-touch` | **failed** | unclaimed-difference | 30 |
 | `arrow-key-selected-node` | **failed** | self-inconsistent, unclaimed-difference | 34 |
 | `keyboard-focus-node` | **failed** | unclaimed-difference | 2 |
-| `connect-handle-to-handle` | **failed** | unclaimed-difference | 112 |
-| `connect-then-keyboard-move` | **failed** | unclaimed-difference | 54 |
-| `connect-second-touch-point` | **failed** | unclaimed-difference | 30 |
-| `probe-node-connections` | **failed** | unclaimed-difference | 103 |
+| `connect-handle-to-handle` | **failed** | unclaimed-difference | 72 |
+| `connect-then-keyboard-move` | **failed** | unclaimed-difference | 38 |
+| `connect-second-touch-point` | **failed** | unclaimed-difference | 14 |
+| `probe-node-connections` | **failed** | unclaimed-difference | 47 |
 | `viewport-helpers-with-options` | **failed** | unclaimed-difference | 3 |
-| `pan-gesture-complete` | **failed** | unclaimed-difference | 17 |
+| `pan-gesture-complete` | **failed** | unclaimed-difference | 3 |
 | `fitview-onnodeschange-variants` | **failed** | unclaimed-difference | 5 |
 | `uncontrolled-update-node` | **failed** | unclaimed-difference | 3 |
 | `flow-props-change-after-mount` | **failed** | unclaimed-difference | 3 |
@@ -96,10 +96,10 @@ claimed by a region — never by loosening what the net looks at.
 | `background-custom-bgcolor` | **failed** | unclaimed-difference | 5 |
 | `flow-custom-testid` | **failed** | driving-divergence, unclaimed-difference | 26 |
 | `custom-edge-baseedge-path` | **failed** | driving-divergence, unclaimed-difference | 89 |
-| `pinch-over-nowheel-node` | **failed** | unclaimed-difference | 12 |
+| `pinch-over-nowheel-node` | **failed** | unclaimed-difference | 2 |
 | `minimap-default-click` | **failed** | unclaimed-difference | 4 |
 | `controls-default-zoom` | **failed** | unclaimed-difference | 4 |
-| `wheel-zoom-from-identity-viewport` | **failed** | unclaimed-difference | 14 |
+| `wheel-zoom-from-identity-viewport` | **failed** | unclaimed-difference | 4 |
 | `pane-drag-from-identity-viewport` | **failed** | unclaimed-difference | 4 |
 | `drag-node-reports-changes` | **failed** | self-inconsistent, unclaimed-difference | 177 |
 | `click-connect-reverse-direction` | **failed** | unclaimed-difference | 35 |
@@ -108,13 +108,13 @@ claimed by a region — never by loosening what the net looks at.
 | `node-props-record-parented` | **failed** | unclaimed-difference | 4 |
 | `wheel-zooms-to-changed-limits` | **failed** | unclaimed-difference | 4 |
 | `drag-pans-into-changed-extent` | **failed** | unclaimed-difference | 2 |
-| `pan-after-controlled-viewport-change` | **failed** | unclaimed-difference | 3 |
-| `ctrl-wheel-pinches-with-panonscroll` | **failed** | unclaimed-difference | 18 |
+| `pan-after-controlled-viewport-change` | **failed** | self-inconsistent, unclaimed-difference | 4 |
+| `ctrl-wheel-pinches-with-panonscroll` | **failed** | unclaimed-difference | 2 |
 | `pane-click-keeps-selection-when-not-selectable` | **failed** | unclaimed-difference | 3 |
-| `click-selects-node--probe-flow-node` | **failed** | unclaimed-difference | 33 |
-| `wheel-zooms-the-pane--probe-flow-node` | **failed** | unclaimed-difference | 30 |
-| `mount-baseline--edges-general--probe-edge` | **failed** | unclaimed-difference | 12 |
-| `connect-source-handle-to-target-handle--probe-connection-line` | **failed** | unclaimed-difference | 16 |
+| `click-selects-node--probe-flow-node` | **failed** | unclaimed-difference | 29 |
+| `wheel-zooms-the-pane--probe-flow-node` | **failed** | unclaimed-difference | 26 |
+| `mount-baseline--edges-general--probe-edge` | **failed** | unclaimed-difference | 4 |
+| `connect-source-handle-to-target-handle--probe-connection-line` | **failed** | unclaimed-difference | 6 |
 
 Every trace behind this report is on disk under `parity/system/traces` — four per scenario, two sides captured
 twice each. They are the artifact: re-diffing them costs seconds and no browser.
@@ -147,87 +147,9 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 103 unclaimed difference(s).
+**Failed:** 28 unclaimed difference(s).
 
 ## Unclaimed differences
-
-### dom (73)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 -24.99998142209219,68.49999588228614 -24.99998142209219,96.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 -24.99998142209219,68.49999588228614 -24.99998142209219,96.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/circle[0]/attrs/cx` | differs | 75 | 75.00001857790781 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/circle[0]/attrs/cy` | differs | 50 | 49.99999484282782 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/circle[1]/attrs/cy` | differs | 87 | 86.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 174.99995344894003,68.49999588228614 174.99995344894003,96.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 174.99995344894003,68.49999588228614 174.99995344894003,96.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/circle[0]/attrs/cx` | differs | 75 | 75.00001857790781 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/circle[0]/attrs/cy` | differs | 50 | 49.99999484282782 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/circle[1]/attrs/cy` | differs | 87 | 86.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/path[0]/attrs/d` | differs | M175,140 C175,168.5 175,168.5 175,197 | M174.99995344894003,139.99998670170686 C174.99995344894003,168.49999181172566 174.99995344894003,168.49999181172566 174.99995344894003,196.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/path[1]/attrs/d` | differs | M175,140 C175,168.5 175,168.5 175,197 | M174.99995344894003,139.99998670170686 C174.99995344894003,168.49999181172566 174.99995344894003,168.49999181172566 174.99995344894003,196.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/g[0]/attrs/transform` | differs | translate(156.50956535339355 163.16463375091553) | translate(156.5095188023336 163.1646255626412) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/circle[0]/attrs/cy` | differs | 150 | 149.99998670170686 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/circle[1]/attrs/cy` | differs | 187 | 186.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/path[0]/attrs/d` | differs | M-25,240 C-25,268.5 -25,268.5 -25,297 | M-24.99998142209219,239.99999484282782 C-24.99998142209219,268.49999588228616 -24.99998142209219,268.49999588228616 -24.99998142209219,296.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/path[1]/attrs/d` | differs | M-25,240 C-25,268.5 -25,268.5 -25,297 | M-24.99998142209219,239.99999484282782 C-24.99998142209219,268.49999588228616 -24.99998142209219,268.49999588228616 -24.99998142209219,296.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/g[0]/attrs/transform` | differs | translate(-53.741695404052734 263.1646337509155) | translate(-53.741676826144925 263.1646296332017) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/circle[0]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/circle[0]/attrs/cy` | differs | 250 | 249.99999484282782 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/circle[1]/attrs/cy` | differs | 287 | 286.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/path[0]/attrs/d` | differs | M175,240 C175,268.5 175,268.5 175,297 | M174.99995344894003,239.99999484282782 C174.99995344894003,268.49999588228616 174.99995344894003,268.49999588228616 174.99995344894003,296.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/path[1]/attrs/d` | differs | M175,240 C175,268.5 175,268.5 175,297 | M174.99995344894003,239.99999484282782 C174.99995344894003,268.49999588228616 174.99995344894003,268.49999588228616 174.99995344894003,296.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/g[0]/attrs/transform` | differs | translate(147.92308235168457 263.1646337509155) | translate(147.9230358006246 263.1646296332017) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/circle[0]/attrs/cy` | differs | 250 | 249.99999484282782 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/circle[1]/attrs/cy` | differs | 287 | 286.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/path[0]/attrs/d` | differs | M-25,340 C-25,368.5 -25,368.5 -25,397 | M-24.99998142209219,340.00001112506976 C-24.99998142209219,368.5000040234071 -24.99998142209219,368.5000040234071 -24.99998142209219,396.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/path[1]/attrs/d` | differs | M-25,340 C-25,368.5 -25,368.5 -25,397 | M-24.99998142209219,340.00001112506976 C-24.99998142209219,368.5000040234071 -24.99998142209219,368.5000040234071 -24.99998142209219,396.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/g[0]/attrs/transform` | differs | translate(-40.691965103149414 363.1646337509155) | translate(-40.691946525241605 363.1646377743226) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/circle[0]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/circle[0]/attrs/cy` | differs | 350 | 350.00001112506976 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/circle[1]/attrs/cy` | differs | 387 | 386.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/path[0]/attrs/d` | differs | M175,340 C175,368.5 175,368.5 175,397 | M174.99995344894003,340.00001112506976 C174.99995344894003,368.5000040234071 174.99995344894003,368.5000040234071 174.99995344894003,396.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/path[1]/attrs/d` | differs | M175,340 C175,368.5 175,368.5 175,397 | M174.99995344894003,340.00001112506976 C174.99995344894003,368.5000040234071 174.99995344894003,368.5000040234071 174.99995344894003,396.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/g[0]/attrs/transform` | differs | translate(155.91675186157227 363.1646337509155) | translate(155.9167053105123 363.1646377743226) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/circle[0]/attrs/cy` | differs | 350 | 350.00001112506976 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/circle[1]/attrs/cy` | differs | 387 | 386.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/path[0]/attrs/d` | differs | M-25,440 C-25,468.5 -25,468.5 -25,497 | M-24.99998142209219,439.9999785605859 C-24.99998142209219,468.5000040234071 -24.99998142209219,468.5000040234071 -24.99998142209219,497.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/path[1]/attrs/d` | differs | M-25,440 C-25,468.5 -25,468.5 -25,497 | M-24.99998142209219,439.9999785605859 C-24.99998142209219,468.5000040234071 -24.99998142209219,468.5000040234071 -24.99998142209219,497.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/g[0]/attrs/transform` | differs | translate(-59.59632873535156 463.1646337509155) | translate(-59.59631015744375 463.1646377743226) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/circle[0]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/circle[0]/attrs/cy` | differs | 450 | 449.9999785605859 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/circle[1]/attrs/cy` | differs | 487 | 487.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/path[0]/attrs/d` | differs | M175,440 C175,468.5 175,468.5 175,497 | M174.99995344894003,439.9999785605859 C174.99995344894003,468.5000040234071 174.99995344894003,468.5000040234071 174.99995344894003,497.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/path[1]/attrs/d` | differs | M175,440 C175,468.5 175,468.5 175,497 | M174.99995344894003,439.9999785605859 C174.99995344894003,468.5000040234071 174.99995344894003,468.5000040234071 174.99995344894003,497.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/g[0]/attrs/transform` | differs | translate(158.17678451538086 463.1646337509155) | translate(158.1767379643209 463.1646377743226) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/circle[0]/attrs/cy` | differs | 450 | 449.9999785605859 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/circle[1]/attrs/cy` | differs | 487 | 487.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/path[0]/attrs/d` | differs | M175,540 C175,578.5 135,578.5 135,617 | M174.99995344894003,540.0000111250697 C174.99995344894003,578.5000203056491 134.99998898330483,578.5000203056491 134.99998898330483,617.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/path[1]/attrs/d` | differs | M175,540 C175,578.5 135,578.5 135,617 | M174.99995344894003,540.0000111250697 C174.99995344894003,578.5000203056491 134.99998898330483,578.5000203056491 134.99998898330483,617.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/circle[0]/attrs/cy` | differs | 550 | 550.0000111250697 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/circle[1]/attrs/cx` | differs | 135 | 134.99998898330483 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/circle[1]/attrs/cy` | differs | 607 | 607.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/path[0]/attrs/d` | differs | M135,673 C135,719.7707173346743 265,570.2292826653257 265,617 | M134.99998898330483,673.0000136093491 C134.99998898330483,719.7707243139066 265.0000541122726,570.2293187816708 265.0000541122726,617.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/path[1]/attrs/d` | differs | M135,673 C135,719.7707173346743 265,570.2292826653257 265,617 | M134.99998898330483,673.0000136093491 C134.99998898330483,719.7707243139066 265.0000541122726,570.2293187816708 265.0000541122726,617.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[0]/attrs/cx` | differs | 135 | 134.99998898330483 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[0]/attrs/cy` | differs | 683 | 683.0000136093491 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[1]/attrs/cx` | differs | 265 | 265.0000541122726 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[1]/attrs/cy` | differs | 607 | 607.0000294862283 |
 
 ### callbacks (26)
 
@@ -260,12 +182,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/13/dimensions/width` | differs | 50 | 150 |
 | `callbacks/4/args/0/13/dimensions/height` | differs | 50 | 37 |
 
-### api (4)
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00001857790781 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999994842827817 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
@@ -298,20 +218,9 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 23 unclaimed difference(s).
+**Failed:** 13 unclaimed difference(s).
 
 ## Unclaimed differences
-
-### dom (6)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/path[0]/attrs/d` | differs | M153,-181.5 C231.06247497997998,-181.5 -81.06247497997998,18.5 -3,18.5 | M153.00018842898396,-181.49998666285734 C231.0627114818381,-181.49998666285734 -81.06252676153119,18.50001333714267 -3.0000037086770566,18.50001333714267 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/path[1]/attrs/d` | differs | M153,-181.5 C231.06247497997998,-181.5 -81.06247497997998,18.5 -3,18.5 | M153.00018842898396,-181.49998666285734 C231.0627114818381,-181.49998666285734 -81.06252676153119,18.50001333714267 -3.0000037086770566,18.50001333714267 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/circle[0]/attrs/cx` | differs | 163 | 163.00018842898396 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/circle[0]/attrs/cy` | differs | -181.5 | -181.49998666285734 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/circle[1]/attrs/cx` | differs | -13 | -13.000003708677056 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/circle[1]/attrs/cy` | differs | 18.5 | 18.50001333714267 |
 
 ### callbacks (12)
 
@@ -330,14 +239,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/11/id` | differs | node-center-left | node-start-right |
 | `callbacks/4/args/0/12/id` | differs | node-end-left | node-start-top |
 
-### api (5)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 145 | 145.00018842898396 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 14.5 | 14.50001333714267 |
-| `api/queries/getInternalNode/internals/handleBounds/target/0/x` | differs | -3 | -3.0000037086770566 |
-| `api/queries/getInternalNode/internals/handleBounds/target/0/y` | differs | 14.5 | 14.50001333714267 |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"default-node","type":"ToolbarNode","data":{"label":"toolbar top","toolbarPosition":"top"},"position":{"x":0,"y":-200},"className":"react-flow__node-defa… | — |
 
 
@@ -369,28 +274,9 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 22 unclaimed difference(s).
+**Failed:** 6 unclaimed difference(s).
 
 ## Unclaimed differences
-
-### dom (14)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/g[0]/attrs/transform` | differs | translate(15.35898494720459 63.15929889678955) | translate(15.358797359356345 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cx` | differs | -25 | -25.000187587848245 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/g[0]/attrs/transform` | differs | translate(115.35898494720459 63.15929889678955) | translate(115.35879735935634 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
 
 ### callbacks (4)
 
@@ -401,12 +287,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/7/id` | differs | notSelectable | notDraggable |
 | `callbacks/4/args/0/8/id` | differs | notDeletable | notSelectable |
 
-### api (4)
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
@@ -439,26 +323,9 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 17 unclaimed difference(s).
+**Failed:** 3 unclaimed difference(s).
 
 ## Unclaimed differences
-
-### dom (12)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M75.00008777202368,40.00003955922194 C75.00008777202368,68.50001792527245 -24.99990305171677,68.50001792527245 -24.99990305171677,96.99999629132294 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M75.00008777202368,40.00003955922194 C75.00008777202368,68.50001792527245 -24.99990305171677,68.50001792527245 -24.99990305171677,96.99999629132294 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/circle[0]/attrs/cx` | differs | 75 | 75.00008777202368 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/circle[0]/attrs/cy` | differs | 50 | 50.00003955922194 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/circle[1]/attrs/cx` | differs | -25 | -24.99990305171677 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/circle[1]/attrs/cy` | differs | 87 | 86.99999629132294 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M75.00008777202368,40.00003955922194 C75.00008777202368,68.50001792527245 175.00007859576414,68.50001792527245 175.00007859576414,96.99999629132294 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M75.00008777202368,40.00003955922194 C75.00008777202368,68.50001792527245 175.00007859576414,68.50001792527245 175.00007859576414,96.99999629132294 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/circle[0]/attrs/cx` | differs | 75 | 75.00008777202368 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/circle[0]/attrs/cy` | differs | 50 | 50.00003955922194 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/circle[1]/attrs/cx` | differs | 175 | 175.00007859576414 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/circle[1]/attrs/cy` | differs | 87 | 86.99999629132294 |
 
 ### callbacks (1)
 
@@ -466,12 +333,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1"] | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1"] |
 
-### api (4)
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00008777202368 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 32.00003955922194 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
@@ -882,8 +747,8 @@ a real divergence is exactly what would be hiding down there.
 | `console/2` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/3` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/4` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:52129/parity/driver/dist/… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:52129/parity/driver/dist/… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:54697/parity/driver/dist/… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:54697/parity/driver/dist/… |
 | `console/7` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 
 
@@ -1278,44 +1143,9 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 48 unclaimed difference(s).
+**Failed:** 14 unclaimed difference(s).
 
 ## Unclaimed differences
-
-### dom (30)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/up-1-hub/children/path[0]/attrs/d` | differs | M14.65625,22 C14.65625,89 172,89 172,156 | M14.65628252269898,22.000038317678893 C14.65628252269898,89.00001045914391 172.00001673463026,89.00001045914392 172.00001673463026,155.99998260060894 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/up-1-hub/children/path[1]/attrs/d` | differs | M14.65625,22 C14.65625,89 172,89 172,156 | M14.65628252269898,22.000038317678893 C14.65628252269898,89.00001045914391 172.00001673463026,89.00001045914392 172.00001673463026,155.99998260060894 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/up-1-hub/children/circle[0]/attrs/cx` | differs | 14.65625 | 14.65628252269898 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/up-1-hub/children/circle[0]/attrs/cy` | differs | 32 | 32.00003831767889 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/up-1-hub/children/circle[1]/attrs/cx` | differs | 172 | 172.00001673463026 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/up-1-hub/children/circle[1]/attrs/cy` | differs | 146 | 145.99998260060894 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/up-2-hub/children/path[0]/attrs/d` | differs | M334.65625,22 C334.65625,89 172,89 172,156 | M334.65625994250917,22.000038317678893 C334.65625994250917,89.00001045914391 172.00001673463026,89.00001045914392 172.00001673463026,155.99998260060894 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/up-2-hub/children/path[1]/attrs/d` | differs | M334.65625,22 C334.65625,89 172,89 172,156 | M334.65625994250917,22.000038317678893 C334.65625994250917,89.00001045914391 172.00001673463026,89.00001045914392 172.00001673463026,155.99998260060894 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/up-2-hub/children/circle[0]/attrs/cx` | differs | 334.65625 | 334.65625994250917 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/up-2-hub/children/circle[0]/attrs/cy` | differs | 32 | 32.00003831767889 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/up-2-hub/children/circle[1]/attrs/cx` | differs | 172 | 172.00001673463026 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/up-2-hub/children/circle[1]/attrs/cy` | differs | 146 | 145.99998260060894 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/hub-down-1/children/path[0]/attrs/d` | differs | M172,182 C172,249 24.4375,249 24.4375,316 | M172.00001673463026,182.00002476956502 C172.00001673463026,249.00000368508697 24.437560110271676,249.00000368508697 24.437560110271676,315.9999826006089 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/hub-down-1/children/path[1]/attrs/d` | differs | M172,182 C172,249 24.4375,249 24.4375,316 | M172.00001673463026,182.00002476956502 C172.00001673463026,249.00000368508697 24.437560110271676,249.00000368508697 24.437560110271676,315.9999826006089 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/hub-down-1/children/circle[0]/attrs/cx` | differs | 172 | 172.00001673463026 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/hub-down-1/children/circle[0]/attrs/cy` | differs | 192 | 192.00002476956502 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/hub-down-1/children/circle[1]/attrs/cx` | differs | 24.4375 | 24.437560110271676 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/hub-down-1/children/circle[1]/attrs/cy` | differs | 306 | 305.9999826006089 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/hub-down-2/children/path[0]/attrs/d` | differs | M172,182 C172,249 344.4375,249 344.4375,316 | M172.00001673463026,182.00002476956502 C172.00001673463026,249.00000368508697 344.437528498006,249.00000368508697 344.437528498006,315.9999826006089 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/hub-down-2/children/path[1]/attrs/d` | differs | M172,182 C172,249 344.4375,249 344.4375,316 | M172.00001673463026,182.00002476956502 C172.00001673463026,249.00000368508697 344.437528498006,249.00000368508697 344.437528498006,315.9999826006089 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/hub-down-2/children/circle[0]/attrs/cx` | differs | 172 | 172.00001673463026 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/hub-down-2/children/circle[0]/attrs/cy` | differs | 192 | 192.00002476956502 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/hub-down-2/children/circle[1]/attrs/cx` | differs | 344.4375 | 344.437528498006 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/hub-down-2/children/circle[1]/attrs/cy` | differs | 306 | 305.9999826006089 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/hub-down-3/children/path[0]/attrs/d` | differs | M172,182 C172,249 664.4375,249 664.4375,316 | M172.00001673463026,182.00002476956502 C172.00001673463026,249.00000368508697 664.4374923697022,249.00000368508697 664.4374923697022,315.9999826006089 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/hub-down-3/children/path[1]/attrs/d` | differs | M172,182 C172,249 664.4375,249 664.4375,316 | M172.00001673463026,182.00002476956502 C172.00001673463026,249.00000368508697 664.4374923697022,249.00000368508697 664.4374923697022,315.9999826006089 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/hub-down-3/children/circle[0]/attrs/cx` | differs | 172 | 172.00001673463026 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/hub-down-3/children/circle[0]/attrs/cy` | differs | 192 | 192.00002476956502 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/hub-down-3/children/circle[1]/attrs/cx` | differs | 664.4375 | 664.4374923697022 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/hub-down-3/children/circle[1]/attrs/cy` | differs | 306 | 305.9999826006089 |
 
 ### callbacks (13)
 
@@ -1335,14 +1165,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/5/id` | differs | down-3 | up-2 |
 | `callbacks/4/args/0/5/dimensions/width` | differs | 49 | 29 |
 
-### api (5)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 8 | 8.000016734630268 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 14 | 14.000024769565009 |
-| `api/queries/getInternalNode/internals/handleBounds/target/0/x` | differs | 8 | 8.000016734630268 |
-| `api/queries/getInternalNode/internals/handleBounds/target/0/y` | differs | -4 | -4.000017399391056 |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"hub","type":"connections","data":{"label":"hub"},"position":{"x":160,"y":160},"measured":{"width":24,"height":18}} | — |
 
 
@@ -1472,20 +1298,9 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 12 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
-
-### dom (6)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/nowheel-plain/children/path[0]/attrs/d` | differs | M200,323 C200,435.8466880329237 535,-115.84668803292368 535,-3 | M199.99966527580804,322.9994663342079 C199.99966527580804,435.8460611217495 534.9998923744399,-115.84658970501026 534.9998923744399,-2.999994917468647 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/nowheel-plain/children/path[1]/attrs/d` | differs | M200,323 C200,435.8466880329237 535,-115.84668803292368 535,-3 | M199.99966527580804,322.9994663342079 C199.99966527580804,435.8460611217495 534.9998923744399,-115.84658970501026 534.9998923744399,-2.999994917468647 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/nowheel-plain/children/circle[0]/attrs/cx` | differs | 200 | 199.99966527580804 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/nowheel-plain/children/circle[0]/attrs/cy` | differs | 333 | 332.9994663342079 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/nowheel-plain/children/circle[1]/attrs/cx` | differs | 535 | 534.9998923744399 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/nowheel-plain/children/circle[1]/attrs/cy` | differs | -13 | -12.999994917468648 |
 
 ### callbacks (1)
 
@@ -1493,14 +1308,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1"] | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1"] |
 
-### api (5)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 196 | 195.99966527580804 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 315 | 314.9994663342079 |
-| `api/queries/getInternalNode/internals/handleBounds/target/0/x` | differs | 196 | 195.99966527580804 |
-| `api/queries/getInternalNode/internals/handleBounds/target/0/y` | differs | -3 | -2.999994917468647 |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"nowheel","data":{"label":"nowheel"},"position":{"x":0,"y":0},"className":"nowheel","style":{"width":400,"height":320},"measured":{"width":400,"height":3… | — |
 
 
@@ -1705,32 +1516,9 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 23 unclaimed difference(s).
+**Failed:** 3 unclaimed difference(s).
 
 ## Unclaimed differences
-
-### dom (18)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/path[0]/attrs/d` | differs | M75,40 C75,138.5 -185,138.5 -185,237 | M74.999868193001,39.99993785684738 C74.999868193001,138.4999760925686 -185.00015771898137,138.49997609256857 -185.00015771898137,237.00001432828978 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/path[1]/attrs/d` | differs | M75,40 C75,138.5 -185,138.5 -185,237 | M74.999868193001,39.99993785684738 C74.999868193001,138.4999760925686 -185.00015771898137,138.49997609256857 -185.00015771898137,237.00001432828978 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/circle[0]/attrs/cx` | differs | 75 | 74.999868193001 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/circle[0]/attrs/cy` | differs | 50 | 49.99993785684738 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/circle[1]/attrs/cx` | differs | -185 | -185.00015771898137 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/circle[1]/attrs/cy` | differs | 227 | 227.00001432828978 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/path[0]/attrs/d` | differs | M75,40 C75,138.5 335,138.5 335,237 | M74.999868193001,39.99993785684738 C74.999868193001,138.4999760925686 334.999868193001,138.49997609256857 334.999868193001,237.00001432828978 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/path[1]/attrs/d` | differs | M75,40 C75,138.5 335,138.5 335,237 | M74.999868193001,39.99993785684738 C74.999868193001,138.4999760925686 334.999868193001,138.49997609256857 334.999868193001,237.00001432828978 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/circle[0]/attrs/cx` | differs | 75 | 74.999868193001 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/circle[0]/attrs/cy` | differs | 50 | 49.99993785684738 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/circle[1]/attrs/cx` | differs | 335 | 334.999868193001 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/circle[1]/attrs/cy` | differs | 227 | 227.00001432828978 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/third-edge/children/path[0]/attrs/d` | differs | M-185,280 C-185,398.5 75,398.5 75,517 | M-185.00015771898137,279.99995081283856 C-185.00015771898137,398.49998257056416 74.999868193001,398.49998257056416 74.999868193001,517.0000143282898 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/third-edge/children/path[1]/attrs/d` | differs | M-185,280 C-185,398.5 75,398.5 75,517 | M-185.00015771898137,279.99995081283856 C-185.00015771898137,398.49998257056416 74.999868193001,398.49998257056416 74.999868193001,517.0000143282898 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/third-edge/children/circle[0]/attrs/cx` | differs | -185 | -185.00015771898137 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/third-edge/children/circle[0]/attrs/cy` | differs | 290 | 289.99995081283856 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/third-edge/children/circle[1]/attrs/cx` | differs | 75 | 74.999868193001 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/third-edge/children/circle[1]/attrs/cy` | differs | 507 | 507.0000143282898 |
 
 ### callbacks (1)
 
@@ -1738,12 +1526,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1"] | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1"] |
 
-### api (4)
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.999868193001 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.99993785684738 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
@@ -1816,20 +1602,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 9 unclaimed difference(s).
+**Failed:** 3 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (9)
+### dom (3)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/A-B/children/path[0]/attrs/d` | differs | M153,168.5 C200,168.5 200,18.5 247,18.5 | M152.99981402775174,168.4999845382663 C199.99991942540385,168.4999845382663 199.99991942540385,18.4999806189024 247.00002482305595,18.4999806189024 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/A-B/children/path[1]/attrs/d` | differs | M153,168.5 C200,168.5 200,18.5 247,18.5 | M152.99981402775174,168.4999845382663 C199.99991942540385,168.4999845382663 199.99991942540385,18.4999806189024 247.00002482305595,18.4999806189024 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/A-C/children/path[0]/attrs/d` | differs | M153,168.5 C200,168.5 200,168.5 247,168.5 | M152.99981402775174,168.4999845382663 C199.99991942540385,168.4999845382663 199.99991942540385,168.4999845382663 247.00002482305595,168.4999845382663 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/A-C/children/path[1]/attrs/d` | differs | M153,168.5 C200,168.5 200,168.5 247,168.5 | M152.99981402775174,168.4999845382663 C199.99991942540385,168.4999845382663 199.99991942540385,168.4999845382663 247.00002482305595,168.4999845382663 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/A-D/children/path[0]/attrs/d` | differs | M153,168.5 C200,168.5 200,318.5 247,318.5 | M152.99981402775174,168.4999845382663 C199.99991942540385,168.4999845382663 199.99991942540385,318.4999845382663 247.00002482305595,318.4999845382663 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/A-D/children/path[1]/attrs/d` | differs | M153,168.5 C200,168.5 200,318.5 247,318.5 | M152.99981402775174,168.4999845382663 C199.99991942540385,168.4999845382663 199.99991942540385,318.4999845382663 247.00002482305595,318.4999845382663 |
 | `dom/root/children/div[1]/children/svg[0]/children/path[0]/attrs/d` | differs | M-161.65853658536585,-110.96341463414635h723.3170731707318v558.9268292682927h-723.3170731707318z⏎        M-128.78048780487805,-16.439024390243905h657.560975609… | M-161.65853658536585,-110.96341463414635h723.3170731707318v558.9268292682927h-723.3170731707318z M-128.78048780487805,-16.439024390243905h657.5609756097562v369… |
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"17.091988130563806","y":"32","width":"38.931750741839764","height":"38.931750741839764","patternUnits":"userSpa… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"17.091988130563806","y":"32","width":"38.931750741839764","height":"38.931… |
@@ -1839,7 +1619,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 # System parity run — click-selects-edge
 
-**Failed:** driving-divergence, unclaimed-difference.
+**Failed:** unclaimed-difference.
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -1863,105 +1643,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 4 driving divergence(s), 109 unclaimed difference(s).
-
-**The inputs differed.** The driving log records what was done *to* each side — the target, whether
-it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
-own render, so the pointer follows a divergence: two sides that place a node five pixels apart both
-drag successfully while the two runs were not one experiment. Until the log agrees, every section
-below it is a **consequence of the driving divergence**. None of them is suppressed —
-a real divergence is exactly what would be hiding down there.
+**Failed:** 28 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### driving (4)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `driving/1/box/y` | differs | 67.6114273071289 | 67.61141967773438 |
-| `driving/1/box/height` | differs | 57.16571807861328 | 57.16572570800781 |
-| `driving/1/dispatched/y` | differs | 96.19428634643555 | 96.19428253173828 |
-| `driving/2/dispatched/y` | differs | 96.19428634643555 | 96.19428253173828 |
-
-### dom (73) — consequence of the driving divergence
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 -24.99998142209219,68.49999588228614 -24.99998142209219,96.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 -24.99998142209219,68.49999588228614 -24.99998142209219,96.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/circle[0]/attrs/cx` | differs | 75 | 75.00001857790781 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/circle[0]/attrs/cy` | differs | 50 | 49.99999484282782 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/circle[1]/attrs/cy` | differs | 87 | 86.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 174.99995344894003,68.49999588228614 174.99995344894003,96.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 174.99995344894003,68.49999588228614 174.99995344894003,96.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/circle[0]/attrs/cx` | differs | 75 | 75.00001857790781 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/circle[0]/attrs/cy` | differs | 50 | 49.99999484282782 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/circle[1]/attrs/cy` | differs | 87 | 86.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/path[0]/attrs/d` | differs | M175,140 C175,168.5 175,168.5 175,197 | M174.99995344894003,139.99998670170686 C174.99995344894003,168.49999181172566 174.99995344894003,168.49999181172566 174.99995344894003,196.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/path[1]/attrs/d` | differs | M175,140 C175,168.5 175,168.5 175,197 | M174.99995344894003,139.99998670170686 C174.99995344894003,168.49999181172566 174.99995344894003,168.49999181172566 174.99995344894003,196.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/g[0]/attrs/transform` | differs | translate(156.50956535339355 163.16463375091553) | translate(156.5095188023336 163.1646255626412) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/circle[0]/attrs/cy` | differs | 150 | 149.99998670170686 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/circle[1]/attrs/cy` | differs | 187 | 186.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/path[0]/attrs/d` | differs | M-25,240 C-25,268.5 -25,268.5 -25,297 | M-24.99998142209219,239.99999484282782 C-24.99998142209219,268.49999588228616 -24.99998142209219,268.49999588228616 -24.99998142209219,296.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/path[1]/attrs/d` | differs | M-25,240 C-25,268.5 -25,268.5 -25,297 | M-24.99998142209219,239.99999484282782 C-24.99998142209219,268.49999588228616 -24.99998142209219,268.49999588228616 -24.99998142209219,296.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/g[0]/attrs/transform` | differs | translate(-53.741695404052734 263.1646337509155) | translate(-53.741676826144925 263.1646296332017) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/circle[0]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/circle[0]/attrs/cy` | differs | 250 | 249.99999484282782 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/circle[1]/attrs/cy` | differs | 287 | 286.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/path[0]/attrs/d` | differs | M175,240 C175,268.5 175,268.5 175,297 | M174.99995344894003,239.99999484282782 C174.99995344894003,268.49999588228616 174.99995344894003,268.49999588228616 174.99995344894003,296.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/path[1]/attrs/d` | differs | M175,240 C175,268.5 175,268.5 175,297 | M174.99995344894003,239.99999484282782 C174.99995344894003,268.49999588228616 174.99995344894003,268.49999588228616 174.99995344894003,296.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/g[0]/attrs/transform` | differs | translate(147.92308235168457 263.1646337509155) | translate(147.9230358006246 263.1646296332017) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/circle[0]/attrs/cy` | differs | 250 | 249.99999484282782 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/circle[1]/attrs/cy` | differs | 287 | 286.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/path[0]/attrs/d` | differs | M-25,340 C-25,368.5 -25,368.5 -25,397 | M-24.99998142209219,340.00001112506976 C-24.99998142209219,368.5000040234071 -24.99998142209219,368.5000040234071 -24.99998142209219,396.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/path[1]/attrs/d` | differs | M-25,340 C-25,368.5 -25,368.5 -25,397 | M-24.99998142209219,340.00001112506976 C-24.99998142209219,368.5000040234071 -24.99998142209219,368.5000040234071 -24.99998142209219,396.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/g[0]/attrs/transform` | differs | translate(-40.691965103149414 363.1646337509155) | translate(-40.691946525241605 363.1646377743226) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/circle[0]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/circle[0]/attrs/cy` | differs | 350 | 350.00001112506976 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/circle[1]/attrs/cy` | differs | 387 | 386.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/path[0]/attrs/d` | differs | M175,340 C175,368.5 175,368.5 175,397 | M174.99995344894003,340.00001112506976 C174.99995344894003,368.5000040234071 174.99995344894003,368.5000040234071 174.99995344894003,396.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/path[1]/attrs/d` | differs | M175,340 C175,368.5 175,368.5 175,397 | M174.99995344894003,340.00001112506976 C174.99995344894003,368.5000040234071 174.99995344894003,368.5000040234071 174.99995344894003,396.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/g[0]/attrs/transform` | differs | translate(155.91675186157227 363.1646337509155) | translate(155.9167053105123 363.1646377743226) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/circle[0]/attrs/cy` | differs | 350 | 350.00001112506976 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/circle[1]/attrs/cy` | differs | 387 | 386.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/path[0]/attrs/d` | differs | M-25,440 C-25,468.5 -25,468.5 -25,497 | M-24.99998142209219,439.9999785605859 C-24.99998142209219,468.5000040234071 -24.99998142209219,468.5000040234071 -24.99998142209219,497.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/path[1]/attrs/d` | differs | M-25,440 C-25,468.5 -25,468.5 -25,497 | M-24.99998142209219,439.9999785605859 C-24.99998142209219,468.5000040234071 -24.99998142209219,468.5000040234071 -24.99998142209219,497.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/g[0]/attrs/transform` | differs | translate(-59.59632873535156 463.1646337509155) | translate(-59.59631015744375 463.1646377743226) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/circle[0]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/circle[0]/attrs/cy` | differs | 450 | 449.9999785605859 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/circle[1]/attrs/cy` | differs | 487 | 487.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/path[0]/attrs/d` | differs | M175,440 C175,468.5 175,468.5 175,497 | M174.99995344894003,439.9999785605859 C174.99995344894003,468.5000040234071 174.99995344894003,468.5000040234071 174.99995344894003,497.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/path[1]/attrs/d` | differs | M175,440 C175,468.5 175,468.5 175,497 | M174.99995344894003,439.9999785605859 C174.99995344894003,468.5000040234071 174.99995344894003,468.5000040234071 174.99995344894003,497.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/g[0]/attrs/transform` | differs | translate(158.17678451538086 463.1646337509155) | translate(158.1767379643209 463.1646377743226) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/circle[0]/attrs/cy` | differs | 450 | 449.9999785605859 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/circle[1]/attrs/cy` | differs | 487 | 487.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/path[0]/attrs/d` | differs | M175,540 C175,578.5 135,578.5 135,617 | M174.99995344894003,540.0000111250697 C174.99995344894003,578.5000203056491 134.99998898330483,578.5000203056491 134.99998898330483,617.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/path[1]/attrs/d` | differs | M175,540 C175,578.5 135,578.5 135,617 | M174.99995344894003,540.0000111250697 C174.99995344894003,578.5000203056491 134.99998898330483,578.5000203056491 134.99998898330483,617.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/circle[0]/attrs/cy` | differs | 550 | 550.0000111250697 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/circle[1]/attrs/cx` | differs | 135 | 134.99998898330483 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/circle[1]/attrs/cy` | differs | 607 | 607.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/path[0]/attrs/d` | differs | M135,673 C135,719.7707173346743 265,570.2292826653257 265,617 | M134.99998898330483,673.0000136093491 C134.99998898330483,719.7707243139066 265.0000541122726,570.2293187816708 265.0000541122726,617.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/path[1]/attrs/d` | differs | M135,673 C135,719.7707173346743 265,570.2292826653257 265,617 | M134.99998898330483,673.0000136093491 C134.99998898330483,719.7707243139066 265.0000541122726,570.2293187816708 265.0000541122726,617.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[0]/attrs/cx` | differs | 135 | 134.99998898330483 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[0]/attrs/cy` | differs | 683 | 683.0000136093491 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[1]/attrs/cx` | differs | 265 | 265.0000541122726 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[1]/attrs/cy` | differs | 607 | 607.0000294862283 |
-
-### callbacks (32) — consequence of the driving divergence
+### callbacks (26)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -1991,19 +1677,11 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/4/args/0/13/id` | differs | 12-b | 9 |
 | `callbacks/4/args/0/13/dimensions/width` | differs | 50 | 150 |
 | `callbacks/4/args/0/13/dimensions/height` | differs | 50 | 37 |
-| `callbacks/6/args/0/screenY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/6/args/0/clientY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/6/args/0/pageY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/8/args/0/screenY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/8/args/0/clientY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/8/args/0/pageY` | differs | 96.19429016113281 | 96.19428253173828 |
 
-### api (4) — consequence of the driving divergence
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00001857790781 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999994842827817 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
@@ -2018,7 +1696,7 @@ a real divergence is exactly what would be hiding down there.
 
 # System parity run — multi-select-edges-with-modifier
 
-**Failed:** driving-divergence, unclaimed-difference.
+**Failed:** unclaimed-difference.
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -2042,112 +1720,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 11 driving divergence(s), 112 unclaimed difference(s).
-
-**The inputs differed.** The driving log records what was done *to* each side — the target, whether
-it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
-own render, so the pointer follows a divergence: two sides that place a node five pixels apart both
-drag successfully while the two runs were not one experiment. Until the log agrees, every section
-below it is a **consequence of the driving divergence**. None of them is suppressed —
-a real divergence is exactly what would be hiding down there.
+**Failed:** 28 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### driving (11)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `driving/1/box/y` | differs | 67.6114273071289 | 67.61141967773438 |
-| `driving/1/box/height` | differs | 57.16571807861328 | 57.16572570800781 |
-| `driving/1/dispatched/y` | differs | 96.19428634643555 | 96.19428253173828 |
-| `driving/2/dispatched/y` | differs | 96.19428634643555 | 96.19428253173828 |
-| `driving/4/box/y` | differs | 67.6114273071289 | 67.61141967773438 |
-| `driving/4/box/width` | differs | 113.394287109375 | 113.39422607421875 |
-| `driving/4/box/height` | differs | 57.16571807861328 | 57.16572570800781 |
-| `driving/4/dispatched/x` | differs | 663.4285888671875 | 663.4285583496094 |
-| `driving/4/dispatched/y` | differs | 96.19428634643555 | 96.19428253173828 |
-| `driving/5/dispatched/x` | differs | 663.4285888671875 | 663.4285583496094 |
-| `driving/5/dispatched/y` | differs | 96.19428634643555 | 96.19428253173828 |
-
-### dom (73) — consequence of the driving divergence
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 -24.99998142209219,68.49999588228614 -24.99998142209219,96.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 -24.99998142209219,68.49999588228614 -24.99998142209219,96.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/circle[0]/attrs/cx` | differs | 75 | 75.00001857790781 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/circle[0]/attrs/cy` | differs | 50 | 49.99999484282782 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/circle[1]/attrs/cy` | differs | 87 | 86.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 174.99995344894003,68.49999588228614 174.99995344894003,96.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 174.99995344894003,68.49999588228614 174.99995344894003,96.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/circle[0]/attrs/cx` | differs | 75 | 75.00001857790781 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/circle[0]/attrs/cy` | differs | 50 | 49.99999484282782 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/circle[1]/attrs/cy` | differs | 87 | 86.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/path[0]/attrs/d` | differs | M175,140 C175,168.5 175,168.5 175,197 | M174.99995344894003,139.99998670170686 C174.99995344894003,168.49999181172566 174.99995344894003,168.49999181172566 174.99995344894003,196.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/path[1]/attrs/d` | differs | M175,140 C175,168.5 175,168.5 175,197 | M174.99995344894003,139.99998670170686 C174.99995344894003,168.49999181172566 174.99995344894003,168.49999181172566 174.99995344894003,196.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/g[0]/attrs/transform` | differs | translate(156.50956535339355 163.16463375091553) | translate(156.5095188023336 163.1646255626412) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/circle[0]/attrs/cy` | differs | 150 | 149.99998670170686 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/circle[1]/attrs/cy` | differs | 187 | 186.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/path[0]/attrs/d` | differs | M-25,240 C-25,268.5 -25,268.5 -25,297 | M-24.99998142209219,239.99999484282782 C-24.99998142209219,268.49999588228616 -24.99998142209219,268.49999588228616 -24.99998142209219,296.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/path[1]/attrs/d` | differs | M-25,240 C-25,268.5 -25,268.5 -25,297 | M-24.99998142209219,239.99999484282782 C-24.99998142209219,268.49999588228616 -24.99998142209219,268.49999588228616 -24.99998142209219,296.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/g[0]/attrs/transform` | differs | translate(-53.741695404052734 263.1646337509155) | translate(-53.741676826144925 263.1646296332017) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/circle[0]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/circle[0]/attrs/cy` | differs | 250 | 249.99999484282782 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/circle[1]/attrs/cy` | differs | 287 | 286.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/path[0]/attrs/d` | differs | M175,240 C175,268.5 175,268.5 175,297 | M174.99995344894003,239.99999484282782 C174.99995344894003,268.49999588228616 174.99995344894003,268.49999588228616 174.99995344894003,296.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/path[1]/attrs/d` | differs | M175,240 C175,268.5 175,268.5 175,297 | M174.99995344894003,239.99999484282782 C174.99995344894003,268.49999588228616 174.99995344894003,268.49999588228616 174.99995344894003,296.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/g[0]/attrs/transform` | differs | translate(147.92308235168457 263.1646337509155) | translate(147.9230358006246 263.1646296332017) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/circle[0]/attrs/cy` | differs | 250 | 249.99999484282782 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/circle[1]/attrs/cy` | differs | 287 | 286.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/path[0]/attrs/d` | differs | M-25,340 C-25,368.5 -25,368.5 -25,397 | M-24.99998142209219,340.00001112506976 C-24.99998142209219,368.5000040234071 -24.99998142209219,368.5000040234071 -24.99998142209219,396.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/path[1]/attrs/d` | differs | M-25,340 C-25,368.5 -25,368.5 -25,397 | M-24.99998142209219,340.00001112506976 C-24.99998142209219,368.5000040234071 -24.99998142209219,368.5000040234071 -24.99998142209219,396.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/g[0]/attrs/transform` | differs | translate(-40.691965103149414 363.1646337509155) | translate(-40.691946525241605 363.1646377743226) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/circle[0]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/circle[0]/attrs/cy` | differs | 350 | 350.00001112506976 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/circle[1]/attrs/cy` | differs | 387 | 386.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/path[0]/attrs/d` | differs | M175,340 C175,368.5 175,368.5 175,397 | M174.99995344894003,340.00001112506976 C174.99995344894003,368.5000040234071 174.99995344894003,368.5000040234071 174.99995344894003,396.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/path[1]/attrs/d` | differs | M175,340 C175,368.5 175,368.5 175,397 | M174.99995344894003,340.00001112506976 C174.99995344894003,368.5000040234071 174.99995344894003,368.5000040234071 174.99995344894003,396.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/g[0]/attrs/transform` | differs | translate(155.91675186157227 363.1646337509155) | translate(155.9167053105123 363.1646377743226) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/circle[0]/attrs/cy` | differs | 350 | 350.00001112506976 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/circle[1]/attrs/cy` | differs | 387 | 386.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/path[0]/attrs/d` | differs | M-25,440 C-25,468.5 -25,468.5 -25,497 | M-24.99998142209219,439.9999785605859 C-24.99998142209219,468.5000040234071 -24.99998142209219,468.5000040234071 -24.99998142209219,497.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/path[1]/attrs/d` | differs | M-25,440 C-25,468.5 -25,468.5 -25,497 | M-24.99998142209219,439.9999785605859 C-24.99998142209219,468.5000040234071 -24.99998142209219,468.5000040234071 -24.99998142209219,497.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/g[0]/attrs/transform` | differs | translate(-59.59632873535156 463.1646337509155) | translate(-59.59631015744375 463.1646377743226) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/circle[0]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/circle[0]/attrs/cy` | differs | 450 | 449.9999785605859 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/circle[1]/attrs/cy` | differs | 487 | 487.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/path[0]/attrs/d` | differs | M175,440 C175,468.5 175,468.5 175,497 | M174.99995344894003,439.9999785605859 C174.99995344894003,468.5000040234071 174.99995344894003,468.5000040234071 174.99995344894003,497.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/path[1]/attrs/d` | differs | M175,440 C175,468.5 175,468.5 175,497 | M174.99995344894003,439.9999785605859 C174.99995344894003,468.5000040234071 174.99995344894003,468.5000040234071 174.99995344894003,497.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/g[0]/attrs/transform` | differs | translate(158.17678451538086 463.1646337509155) | translate(158.1767379643209 463.1646377743226) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/circle[0]/attrs/cy` | differs | 450 | 449.9999785605859 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/circle[1]/attrs/cy` | differs | 487 | 487.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/path[0]/attrs/d` | differs | M175,540 C175,578.5 135,578.5 135,617 | M174.99995344894003,540.0000111250697 C174.99995344894003,578.5000203056491 134.99998898330483,578.5000203056491 134.99998898330483,617.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/path[1]/attrs/d` | differs | M175,540 C175,578.5 135,578.5 135,617 | M174.99995344894003,540.0000111250697 C174.99995344894003,578.5000203056491 134.99998898330483,578.5000203056491 134.99998898330483,617.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/circle[0]/attrs/cy` | differs | 550 | 550.0000111250697 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/circle[1]/attrs/cx` | differs | 135 | 134.99998898330483 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/circle[1]/attrs/cy` | differs | 607 | 607.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/path[0]/attrs/d` | differs | M135,673 C135,719.7707173346743 265,570.2292826653257 265,617 | M134.99998898330483,673.0000136093491 C134.99998898330483,719.7707243139066 265.0000541122726,570.2293187816708 265.0000541122726,617.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/path[1]/attrs/d` | differs | M135,673 C135,719.7707173346743 265,570.2292826653257 265,617 | M134.99998898330483,673.0000136093491 C134.99998898330483,719.7707243139066 265.0000541122726,570.2293187816708 265.0000541122726,617.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[0]/attrs/cx` | differs | 135 | 134.99998898330483 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[0]/attrs/cy` | differs | 683 | 683.0000136093491 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[1]/attrs/cx` | differs | 265 | 265.0000541122726 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[1]/attrs/cy` | differs | 607 | 607.0000294862283 |
-
-### callbacks (35) — consequence of the driving divergence
+### callbacks (26)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -2177,22 +1754,11 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/4/args/0/13/id` | differs | 12-b | 9 |
 | `callbacks/4/args/0/13/dimensions/width` | differs | 50 | 150 |
 | `callbacks/4/args/0/13/dimensions/height` | differs | 50 | 37 |
-| `callbacks/6/args/0/screenY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/6/args/0/clientY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/6/args/0/pageY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/8/args/0/screenY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/8/args/0/clientY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/8/args/0/pageY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/15/args/0/screenY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/15/args/0/clientY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/15/args/0/pageY` | differs | 96.19429016113281 | 96.19428253173828 |
 
-### api (4) — consequence of the driving divergence
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00001857790781 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999994842827817 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
@@ -2231,87 +1797,9 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 103 unclaimed difference(s).
+**Failed:** 28 unclaimed difference(s).
 
 ## Unclaimed differences
-
-### dom (73)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 -24.99998142209219,68.49999588228614 -24.99998142209219,96.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 -24.99998142209219,68.49999588228614 -24.99998142209219,96.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/circle[0]/attrs/cx` | differs | 75 | 75.00001857790781 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/circle[0]/attrs/cy` | differs | 50 | 49.99999484282782 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/circle[1]/attrs/cy` | differs | 87 | 86.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 174.99995344894003,68.49999588228614 174.99995344894003,96.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 174.99995344894003,68.49999588228614 174.99995344894003,96.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/circle[0]/attrs/cx` | differs | 75 | 75.00001857790781 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/circle[0]/attrs/cy` | differs | 50 | 49.99999484282782 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/circle[1]/attrs/cy` | differs | 87 | 86.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/path[0]/attrs/d` | differs | M175,140 C175,168.5 175,168.5 175,197 | M174.99995344894003,139.99998670170686 C174.99995344894003,168.49999181172566 174.99995344894003,168.49999181172566 174.99995344894003,196.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/path[1]/attrs/d` | differs | M175,140 C175,168.5 175,168.5 175,197 | M174.99995344894003,139.99998670170686 C174.99995344894003,168.49999181172566 174.99995344894003,168.49999181172566 174.99995344894003,196.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/g[0]/attrs/transform` | differs | translate(156.50956535339355 163.16463375091553) | translate(156.5095188023336 163.1646255626412) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/circle[0]/attrs/cy` | differs | 150 | 149.99998670170686 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/circle[1]/attrs/cy` | differs | 187 | 186.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/path[0]/attrs/d` | differs | M-25,240 C-25,268.5 -25,268.5 -25,297 | M-24.99998142209219,239.99999484282782 C-24.99998142209219,268.49999588228616 -24.99998142209219,268.49999588228616 -24.99998142209219,296.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/path[1]/attrs/d` | differs | M-25,240 C-25,268.5 -25,268.5 -25,297 | M-24.99998142209219,239.99999484282782 C-24.99998142209219,268.49999588228616 -24.99998142209219,268.49999588228616 -24.99998142209219,296.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/g[0]/attrs/transform` | differs | translate(-53.741695404052734 263.1646337509155) | translate(-53.741676826144925 263.1646296332017) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/circle[0]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/circle[0]/attrs/cy` | differs | 250 | 249.99999484282782 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/circle[1]/attrs/cy` | differs | 287 | 286.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/path[0]/attrs/d` | differs | M175,240 C175,268.5 175,268.5 175,297 | M174.99995344894003,239.99999484282782 C174.99995344894003,268.49999588228616 174.99995344894003,268.49999588228616 174.99995344894003,296.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/path[1]/attrs/d` | differs | M175,240 C175,268.5 175,268.5 175,297 | M174.99995344894003,239.99999484282782 C174.99995344894003,268.49999588228616 174.99995344894003,268.49999588228616 174.99995344894003,296.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/g[0]/attrs/transform` | differs | translate(147.92308235168457 263.1646337509155) | translate(147.9230358006246 263.1646296332017) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/circle[0]/attrs/cy` | differs | 250 | 249.99999484282782 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/circle[1]/attrs/cy` | differs | 287 | 286.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/path[0]/attrs/d` | differs | M-25,340 C-25,368.5 -25,368.5 -25,397 | M-24.99998142209219,340.00001112506976 C-24.99998142209219,368.5000040234071 -24.99998142209219,368.5000040234071 -24.99998142209219,396.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/path[1]/attrs/d` | differs | M-25,340 C-25,368.5 -25,368.5 -25,397 | M-24.99998142209219,340.00001112506976 C-24.99998142209219,368.5000040234071 -24.99998142209219,368.5000040234071 -24.99998142209219,396.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/g[0]/attrs/transform` | differs | translate(-40.691965103149414 363.1646337509155) | translate(-40.691946525241605 363.1646377743226) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/circle[0]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/circle[0]/attrs/cy` | differs | 350 | 350.00001112506976 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/circle[1]/attrs/cy` | differs | 387 | 386.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/path[0]/attrs/d` | differs | M175,340 C175,368.5 175,368.5 175,397 | M174.99995344894003,340.00001112506976 C174.99995344894003,368.5000040234071 174.99995344894003,368.5000040234071 174.99995344894003,396.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/path[1]/attrs/d` | differs | M175,340 C175,368.5 175,368.5 175,397 | M174.99995344894003,340.00001112506976 C174.99995344894003,368.5000040234071 174.99995344894003,368.5000040234071 174.99995344894003,396.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/g[0]/attrs/transform` | differs | translate(155.91675186157227 363.1646337509155) | translate(155.9167053105123 363.1646377743226) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/circle[0]/attrs/cy` | differs | 350 | 350.00001112506976 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/circle[1]/attrs/cy` | differs | 387 | 386.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/path[0]/attrs/d` | differs | M-25,440 C-25,468.5 -25,468.5 -25,497 | M-24.99998142209219,439.9999785605859 C-24.99998142209219,468.5000040234071 -24.99998142209219,468.5000040234071 -24.99998142209219,497.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/path[1]/attrs/d` | differs | M-25,440 C-25,468.5 -25,468.5 -25,497 | M-24.99998142209219,439.9999785605859 C-24.99998142209219,468.5000040234071 -24.99998142209219,468.5000040234071 -24.99998142209219,497.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/g[0]/attrs/transform` | differs | translate(-59.59632873535156 463.1646337509155) | translate(-59.59631015744375 463.1646377743226) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/circle[0]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/circle[0]/attrs/cy` | differs | 450 | 449.9999785605859 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/circle[1]/attrs/cy` | differs | 487 | 487.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/path[0]/attrs/d` | differs | M175,440 C175,468.5 175,468.5 175,497 | M174.99995344894003,439.9999785605859 C174.99995344894003,468.5000040234071 174.99995344894003,468.5000040234071 174.99995344894003,497.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/path[1]/attrs/d` | differs | M175,440 C175,468.5 175,468.5 175,497 | M174.99995344894003,439.9999785605859 C174.99995344894003,468.5000040234071 174.99995344894003,468.5000040234071 174.99995344894003,497.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/g[0]/attrs/transform` | differs | translate(158.17678451538086 463.1646337509155) | translate(158.1767379643209 463.1646377743226) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/circle[0]/attrs/cy` | differs | 450 | 449.9999785605859 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/circle[1]/attrs/cy` | differs | 487 | 487.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/path[0]/attrs/d` | differs | M175,540 C175,578.5 135,578.5 135,617 | M174.99995344894003,540.0000111250697 C174.99995344894003,578.5000203056491 134.99998898330483,578.5000203056491 134.99998898330483,617.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/path[1]/attrs/d` | differs | M175,540 C175,578.5 135,578.5 135,617 | M174.99995344894003,540.0000111250697 C174.99995344894003,578.5000203056491 134.99998898330483,578.5000203056491 134.99998898330483,617.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/circle[0]/attrs/cy` | differs | 550 | 550.0000111250697 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/circle[1]/attrs/cx` | differs | 135 | 134.99998898330483 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/circle[1]/attrs/cy` | differs | 607 | 607.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/path[0]/attrs/d` | differs | M135,673 C135,719.7707173346743 265,570.2292826653257 265,617 | M134.99998898330483,673.0000136093491 C134.99998898330483,719.7707243139066 265.0000541122726,570.2293187816708 265.0000541122726,617.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/path[1]/attrs/d` | differs | M135,673 C135,719.7707173346743 265,570.2292826653257 265,617 | M134.99998898330483,673.0000136093491 C134.99998898330483,719.7707243139066 265.0000541122726,570.2293187816708 265.0000541122726,617.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[0]/attrs/cx` | differs | 135 | 134.99998898330483 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[0]/attrs/cy` | differs | 683 | 683.0000136093491 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[1]/attrs/cx` | differs | 265 | 265.0000541122726 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[1]/attrs/cy` | differs | 607 | 607.0000294862283 |
 
 ### callbacks (26)
 
@@ -2344,12 +1832,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/13/dimensions/width` | differs | 50 | 150 |
 | `callbacks/4/args/0/13/dimensions/height` | differs | 50 | 37 |
 
-### api (4)
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00001857790781 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999994842827817 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
@@ -2364,7 +1850,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 # System parity run — delete-key-removes-edge
 
-**Failed:** driving-divergence, unclaimed-difference.
+**Failed:** unclaimed-difference.
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -2388,99 +1874,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 4 driving divergence(s), 109 unclaimed difference(s).
-
-**The inputs differed.** The driving log records what was done *to* each side — the target, whether
-it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
-own render, so the pointer follows a divergence: two sides that place a node five pixels apart both
-drag successfully while the two runs were not one experiment. Until the log agrees, every section
-below it is a **consequence of the driving divergence**. None of them is suppressed —
-a real divergence is exactly what would be hiding down there.
+**Failed:** 31 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### driving (4)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `driving/1/box/y` | differs | 67.6114273071289 | 67.61141967773438 |
-| `driving/1/box/height` | differs | 57.16571807861328 | 57.16572570800781 |
-| `driving/1/dispatched/y` | differs | 96.19428634643555 | 96.19428253173828 |
-| `driving/2/dispatched/y` | differs | 96.19428634643555 | 96.19428253173828 |
-
-### dom (67) — consequence of the driving divergence
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-style/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 174.99995344894003,68.49999588228614 174.99995344894003,96.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-style/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 174.99995344894003,68.49999588228614 174.99995344894003,96.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-style/children/circle[0]/attrs/cx` | differs | 75 | 75.00001857790781 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-style/children/circle[0]/attrs/cy` | differs | 50 | 49.99999484282782 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-style/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-style/children/circle[1]/attrs/cy` | differs | 87 | 86.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/animated-edge/children/path[0]/attrs/d` | differs | M175,140 C175,168.5 175,168.5 175,197 | M174.99995344894003,139.99998670170686 C174.99995344894003,168.49999181172566 174.99995344894003,168.49999181172566 174.99995344894003,196.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/animated-edge/children/path[1]/attrs/d` | differs | M175,140 C175,168.5 175,168.5 175,197 | M174.99995344894003,139.99998670170686 C174.99995344894003,168.49999181172566 174.99995344894003,168.49999181172566 174.99995344894003,196.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/animated-edge/children/g[0]/attrs/transform` | differs | translate(156.50956535339355 163.16463375091553) | translate(156.5095188023336 163.1646255626412) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/animated-edge/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/animated-edge/children/circle[0]/attrs/cy` | differs | 150 | 149.99998670170686 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/animated-edge/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/animated-edge/children/circle[1]/attrs/cy` | differs | 187 | 186.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/not-selectable-edge/children/path[0]/attrs/d` | differs | M-25,240 C-25,268.5 -25,268.5 -25,297 | M-24.99998142209219,239.99999484282782 C-24.99998142209219,268.49999588228616 -24.99998142209219,268.49999588228616 -24.99998142209219,296.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/not-selectable-edge/children/path[1]/attrs/d` | differs | M-25,240 C-25,268.5 -25,268.5 -25,297 | M-24.99998142209219,239.99999484282782 C-24.99998142209219,268.49999588228616 -24.99998142209219,268.49999588228616 -24.99998142209219,296.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/not-selectable-edge/children/g[0]/attrs/transform` | differs | translate(-53.741695404052734 263.1646337509155) | translate(-53.741676826144925 263.1646296332017) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/not-selectable-edge/children/circle[0]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/not-selectable-edge/children/circle[0]/attrs/cy` | differs | 250 | 249.99999484282782 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/not-selectable-edge/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/not-selectable-edge/children/circle[1]/attrs/cy` | differs | 287 | 286.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-deletable/children/path[0]/attrs/d` | differs | M175,240 C175,268.5 175,268.5 175,297 | M174.99995344894003,239.99999484282782 C174.99995344894003,268.49999588228616 174.99995344894003,268.49999588228616 174.99995344894003,296.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-deletable/children/path[1]/attrs/d` | differs | M175,240 C175,268.5 175,268.5 175,297 | M174.99995344894003,239.99999484282782 C174.99995344894003,268.49999588228616 174.99995344894003,268.49999588228616 174.99995344894003,296.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-deletable/children/g[0]/attrs/transform` | differs | translate(147.92308235168457 263.1646337509155) | translate(147.9230358006246 263.1646296332017) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-deletable/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-deletable/children/circle[0]/attrs/cy` | differs | 250 | 249.99999484282782 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-deletable/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-deletable/children/circle[1]/attrs/cy` | differs | 287 | 286.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/z-index/children/path[0]/attrs/d` | differs | M-25,340 C-25,368.5 -25,368.5 -25,397 | M-24.99998142209219,340.00001112506976 C-24.99998142209219,368.5000040234071 -24.99998142209219,368.5000040234071 -24.99998142209219,396.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/z-index/children/path[1]/attrs/d` | differs | M-25,340 C-25,368.5 -25,368.5 -25,397 | M-24.99998142209219,340.00001112506976 C-24.99998142209219,368.5000040234071 -24.99998142209219,368.5000040234071 -24.99998142209219,396.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/z-index/children/g[0]/attrs/transform` | differs | translate(-40.691965103149414 363.1646337509155) | translate(-40.691946525241605 363.1646377743226) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/z-index/children/circle[0]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/z-index/children/circle[0]/attrs/cy` | differs | 350 | 350.00001112506976 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/z-index/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/z-index/children/circle[1]/attrs/cy` | differs | 387 | 386.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/aria-label/children/path[0]/attrs/d` | differs | M175,340 C175,368.5 175,368.5 175,397 | M174.99995344894003,340.00001112506976 C174.99995344894003,368.5000040234071 174.99995344894003,368.5000040234071 174.99995344894003,396.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/aria-label/children/path[1]/attrs/d` | differs | M175,340 C175,368.5 175,368.5 175,397 | M174.99995344894003,340.00001112506976 C174.99995344894003,368.5000040234071 174.99995344894003,368.5000040234071 174.99995344894003,396.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/aria-label/children/g[0]/attrs/transform` | differs | translate(155.91675186157227 363.1646337509155) | translate(155.9167053105123 363.1646377743226) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/aria-label/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/aria-label/children/circle[0]/attrs/cy` | differs | 350 | 350.00001112506976 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/aria-label/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/aria-label/children/circle[1]/attrs/cy` | differs | 387 | 386.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/interaction-width/children/path[0]/attrs/d` | differs | M-25,440 C-25,468.5 -25,468.5 -25,497 | M-24.99998142209219,439.9999785605859 C-24.99998142209219,468.5000040234071 -24.99998142209219,468.5000040234071 -24.99998142209219,497.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/interaction-width/children/path[1]/attrs/d` | differs | M-25,440 C-25,468.5 -25,468.5 -25,497 | M-24.99998142209219,439.9999785605859 C-24.99998142209219,468.5000040234071 -24.99998142209219,468.5000040234071 -24.99998142209219,497.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/interaction-width/children/g[0]/attrs/transform` | differs | translate(-59.59632873535156 463.1646337509155) | translate(-59.59631015744375 463.1646377743226) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/interaction-width/children/circle[0]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/interaction-width/children/circle[0]/attrs/cy` | differs | 450 | 449.9999785605859 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/interaction-width/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/interaction-width/children/circle[1]/attrs/cy` | differs | 487 | 487.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/markers/children/path[0]/attrs/d` | differs | M175,440 C175,468.5 175,468.5 175,497 | M174.99995344894003,439.9999785605859 C174.99995344894003,468.5000040234071 174.99995344894003,468.5000040234071 174.99995344894003,497.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/markers/children/path[1]/attrs/d` | differs | M175,440 C175,468.5 175,468.5 175,497 | M174.99995344894003,439.9999785605859 C174.99995344894003,468.5000040234071 174.99995344894003,468.5000040234071 174.99995344894003,497.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/markers/children/g[0]/attrs/transform` | differs | translate(158.17678451538086 463.1646337509155) | translate(158.1767379643209 463.1646377743226) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/markers/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/markers/children/circle[0]/attrs/cy` | differs | 450 | 449.9999785605859 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/markers/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/markers/children/circle[1]/attrs/cy` | differs | 487 | 487.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/subflow-edge/children/path[0]/attrs/d` | differs | M175,540 C175,578.5 135,578.5 135,617 | M174.99995344894003,540.0000111250697 C174.99995344894003,578.5000203056491 134.99998898330483,578.5000203056491 134.99998898330483,617.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/subflow-edge/children/path[1]/attrs/d` | differs | M175,540 C175,578.5 135,578.5 135,617 | M174.99995344894003,540.0000111250697 C174.99995344894003,578.5000203056491 134.99998898330483,578.5000203056491 134.99998898330483,617.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/subflow-edge/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/subflow-edge/children/circle[0]/attrs/cy` | differs | 550 | 550.0000111250697 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/subflow-edge/children/circle[1]/attrs/cx` | differs | 135 | 134.99998898330483 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/subflow-edge/children/circle[1]/attrs/cy` | differs | 607 | 607.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge-2/children/path[0]/attrs/d` | differs | M135,673 C135,719.7707173346743 265,570.2292826653257 265,617 | M134.99998898330483,673.0000136093491 C134.99998898330483,719.7707243139066 265.0000541122726,570.2293187816708 265.0000541122726,617.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge-2/children/path[1]/attrs/d` | differs | M135,673 C135,719.7707173346743 265,570.2292826653257 265,617 | M134.99998898330483,673.0000136093491 C134.99998898330483,719.7707243139066 265.0000541122726,570.2293187816708 265.0000541122726,617.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge-2/children/circle[0]/attrs/cx` | differs | 135 | 134.99998898330483 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge-2/children/circle[0]/attrs/cy` | differs | 683 | 683.0000136093491 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge-2/children/circle[1]/attrs/cx` | differs | 265 | 265.0000541122726 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge-2/children/circle[1]/attrs/cy` | differs | 607 | 607.0000294862283 |
-
-### callbacks (38) — consequence of the driving divergence
+### callbacks (29)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -2513,22 +1911,11 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/4/args/0/13/id` | differs | 12-b | 9 |
 | `callbacks/4/args/0/13/dimensions/width` | differs | 50 | 150 |
 | `callbacks/4/args/0/13/dimensions/height` | differs | 50 | 37 |
-| `callbacks/6/args/0/screenY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/6/args/0/clientY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/6/args/0/pageY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/8/args/0/screenY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/8/args/0/clientY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/8/args/0/pageY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/18/args/0/screenY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/18/args/0/clientY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/18/args/0/pageY` | differs | 96.19429016113281 | 96.19428253173828 |
 
-### api (4) — consequence of the driving divergence
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00001857790781 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999994842827817 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
@@ -2543,7 +1930,7 @@ a real divergence is exactly what would be hiding down there.
 
 # System parity run — delete-key-spares-undeletable-edge
 
-**Failed:** driving-divergence, unclaimed-difference.
+**Failed:** unclaimed-difference.
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -2567,105 +1954,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 4 driving divergence(s), 110 unclaimed difference(s).
-
-**The inputs differed.** The driving log records what was done *to* each side — the target, whether
-it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
-own render, so the pointer follows a divergence: two sides that place a node five pixels apart both
-drag successfully while the two runs were not one experiment. Until the log agrees, every section
-below it is a **consequence of the driving divergence**. None of them is suppressed —
-a real divergence is exactly what would be hiding down there.
+**Failed:** 29 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### driving (4)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `driving/1/box/x` | differs | 683.0364990234375 | 683.0364379882812 |
-| `driving/1/box/width` | differs | 54.4984130859375 | 54.49847412109375 |
-| `driving/1/dispatched/x` | differs | 710.2857055664062 | 710.2856750488281 |
-| `driving/2/dispatched/x` | differs | 710.2857055664062 | 710.2856750488281 |
-
-### dom (73) — consequence of the driving divergence
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 -24.99998142209219,68.49999588228614 -24.99998142209219,96.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 -24.99998142209219,68.49999588228614 -24.99998142209219,96.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/circle[0]/attrs/cx` | differs | 75 | 75.00001857790781 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/circle[0]/attrs/cy` | differs | 50 | 49.99999484282782 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/circle[1]/attrs/cy` | differs | 87 | 86.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 174.99995344894003,68.49999588228614 174.99995344894003,96.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 174.99995344894003,68.49999588228614 174.99995344894003,96.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/circle[0]/attrs/cx` | differs | 75 | 75.00001857790781 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/circle[0]/attrs/cy` | differs | 50 | 49.99999484282782 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/circle[1]/attrs/cy` | differs | 87 | 86.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/path[0]/attrs/d` | differs | M175,140 C175,168.5 175,168.5 175,197 | M174.99995344894003,139.99998670170686 C174.99995344894003,168.49999181172566 174.99995344894003,168.49999181172566 174.99995344894003,196.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/path[1]/attrs/d` | differs | M175,140 C175,168.5 175,168.5 175,197 | M174.99995344894003,139.99998670170686 C174.99995344894003,168.49999181172566 174.99995344894003,168.49999181172566 174.99995344894003,196.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/g[0]/attrs/transform` | differs | translate(156.50956535339355 163.16463375091553) | translate(156.5095188023336 163.1646255626412) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/circle[0]/attrs/cy` | differs | 150 | 149.99998670170686 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/circle[1]/attrs/cy` | differs | 187 | 186.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/path[0]/attrs/d` | differs | M-25,240 C-25,268.5 -25,268.5 -25,297 | M-24.99998142209219,239.99999484282782 C-24.99998142209219,268.49999588228616 -24.99998142209219,268.49999588228616 -24.99998142209219,296.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/path[1]/attrs/d` | differs | M-25,240 C-25,268.5 -25,268.5 -25,297 | M-24.99998142209219,239.99999484282782 C-24.99998142209219,268.49999588228616 -24.99998142209219,268.49999588228616 -24.99998142209219,296.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/g[0]/attrs/transform` | differs | translate(-53.741695404052734 263.1646337509155) | translate(-53.741676826144925 263.1646296332017) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/circle[0]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/circle[0]/attrs/cy` | differs | 250 | 249.99999484282782 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/circle[1]/attrs/cy` | differs | 287 | 286.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/path[0]/attrs/d` | differs | M175,240 C175,268.5 175,268.5 175,297 | M174.99995344894003,239.99999484282782 C174.99995344894003,268.49999588228616 174.99995344894003,268.49999588228616 174.99995344894003,296.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/path[1]/attrs/d` | differs | M175,240 C175,268.5 175,268.5 175,297 | M174.99995344894003,239.99999484282782 C174.99995344894003,268.49999588228616 174.99995344894003,268.49999588228616 174.99995344894003,296.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/g[0]/attrs/transform` | differs | translate(147.92308235168457 263.1646337509155) | translate(147.9230358006246 263.1646296332017) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/circle[0]/attrs/cy` | differs | 250 | 249.99999484282782 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/circle[1]/attrs/cy` | differs | 287 | 286.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/path[0]/attrs/d` | differs | M-25,340 C-25,368.5 -25,368.5 -25,397 | M-24.99998142209219,340.00001112506976 C-24.99998142209219,368.5000040234071 -24.99998142209219,368.5000040234071 -24.99998142209219,396.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/path[1]/attrs/d` | differs | M-25,340 C-25,368.5 -25,368.5 -25,397 | M-24.99998142209219,340.00001112506976 C-24.99998142209219,368.5000040234071 -24.99998142209219,368.5000040234071 -24.99998142209219,396.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/g[0]/attrs/transform` | differs | translate(-40.691965103149414 363.1646337509155) | translate(-40.691946525241605 363.1646377743226) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/circle[0]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/circle[0]/attrs/cy` | differs | 350 | 350.00001112506976 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/circle[1]/attrs/cy` | differs | 387 | 386.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/path[0]/attrs/d` | differs | M175,340 C175,368.5 175,368.5 175,397 | M174.99995344894003,340.00001112506976 C174.99995344894003,368.5000040234071 174.99995344894003,368.5000040234071 174.99995344894003,396.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/path[1]/attrs/d` | differs | M175,340 C175,368.5 175,368.5 175,397 | M174.99995344894003,340.00001112506976 C174.99995344894003,368.5000040234071 174.99995344894003,368.5000040234071 174.99995344894003,396.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/g[0]/attrs/transform` | differs | translate(155.91675186157227 363.1646337509155) | translate(155.9167053105123 363.1646377743226) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/circle[0]/attrs/cy` | differs | 350 | 350.00001112506976 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/circle[1]/attrs/cy` | differs | 387 | 386.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/path[0]/attrs/d` | differs | M-25,440 C-25,468.5 -25,468.5 -25,497 | M-24.99998142209219,439.9999785605859 C-24.99998142209219,468.5000040234071 -24.99998142209219,468.5000040234071 -24.99998142209219,497.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/path[1]/attrs/d` | differs | M-25,440 C-25,468.5 -25,468.5 -25,497 | M-24.99998142209219,439.9999785605859 C-24.99998142209219,468.5000040234071 -24.99998142209219,468.5000040234071 -24.99998142209219,497.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/g[0]/attrs/transform` | differs | translate(-59.59632873535156 463.1646337509155) | translate(-59.59631015744375 463.1646377743226) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/circle[0]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/circle[0]/attrs/cy` | differs | 450 | 449.9999785605859 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/circle[1]/attrs/cy` | differs | 487 | 487.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/path[0]/attrs/d` | differs | M175,440 C175,468.5 175,468.5 175,497 | M174.99995344894003,439.9999785605859 C174.99995344894003,468.5000040234071 174.99995344894003,468.5000040234071 174.99995344894003,497.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/path[1]/attrs/d` | differs | M175,440 C175,468.5 175,468.5 175,497 | M174.99995344894003,439.9999785605859 C174.99995344894003,468.5000040234071 174.99995344894003,468.5000040234071 174.99995344894003,497.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/g[0]/attrs/transform` | differs | translate(158.17678451538086 463.1646337509155) | translate(158.1767379643209 463.1646377743226) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/circle[0]/attrs/cy` | differs | 450 | 449.9999785605859 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/circle[1]/attrs/cy` | differs | 487 | 487.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/path[0]/attrs/d` | differs | M175,540 C175,578.5 135,578.5 135,617 | M174.99995344894003,540.0000111250697 C174.99995344894003,578.5000203056491 134.99998898330483,578.5000203056491 134.99998898330483,617.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/path[1]/attrs/d` | differs | M175,540 C175,578.5 135,578.5 135,617 | M174.99995344894003,540.0000111250697 C174.99995344894003,578.5000203056491 134.99998898330483,578.5000203056491 134.99998898330483,617.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/circle[0]/attrs/cy` | differs | 550 | 550.0000111250697 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/circle[1]/attrs/cx` | differs | 135 | 134.99998898330483 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/circle[1]/attrs/cy` | differs | 607 | 607.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/path[0]/attrs/d` | differs | M135,673 C135,719.7707173346743 265,570.2292826653257 265,617 | M134.99998898330483,673.0000136093491 C134.99998898330483,719.7707243139066 265.0000541122726,570.2293187816708 265.0000541122726,617.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/path[1]/attrs/d` | differs | M135,673 C135,719.7707173346743 265,570.2292826653257 265,617 | M134.99998898330483,673.0000136093491 C134.99998898330483,719.7707243139066 265.0000541122726,570.2293187816708 265.0000541122726,617.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[0]/attrs/cx` | differs | 135 | 134.99998898330483 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[0]/attrs/cy` | differs | 683 | 683.0000136093491 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[1]/attrs/cx` | differs | 265 | 265.0000541122726 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[1]/attrs/cy` | differs | 607 | 607.0000294862283 |
-
-### callbacks (33) — consequence of the driving divergence
+### callbacks (27)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -2696,19 +1989,11 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/4/args/0/13/id` | differs | 12-b | 9 |
 | `callbacks/4/args/0/13/dimensions/width` | differs | 50 | 150 |
 | `callbacks/4/args/0/13/dimensions/height` | differs | 50 | 37 |
-| `callbacks/6/args/0/screenX` | differs | 710.2857055664062 | 710.28564453125 |
-| `callbacks/6/args/0/clientX` | differs | 710.2857055664062 | 710.28564453125 |
-| `callbacks/6/args/0/pageX` | differs | 710.2857055664062 | 710.28564453125 |
-| `callbacks/8/args/0/screenX` | differs | 710.2857055664062 | 710.28564453125 |
-| `callbacks/8/args/0/clientX` | differs | 710.2857055664062 | 710.28564453125 |
-| `callbacks/8/args/0/pageX` | differs | 710.2857055664062 | 710.28564453125 |
 
-### api (4) — consequence of the driving divergence
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00001857790781 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999994842827817 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
@@ -2723,7 +2008,7 @@ a real divergence is exactly what would be hiding down there.
 
 # System parity run — click-inside-interaction-width
 
-**Failed:** driving-divergence, unclaimed-difference.
+**Failed:** unclaimed-difference.
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -2747,103 +2032,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 2 driving divergence(s), 103 unclaimed difference(s).
-
-**The inputs differed.** The driving log records what was done *to* each side — the target, whether
-it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
-own render, so the pointer follows a divergence: two sides that place a node five pixels apart both
-drag successfully while the two runs were not one experiment. Until the log agrees, every section
-below it is a **consequence of the driving divergence**. None of them is suppressed —
-a real divergence is exactly what would be hiding down there.
+**Failed:** 28 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### driving (2)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `driving/1/box/y` | differs | 442.46856689453125 | 442.4685363769531 |
-| `driving/1/box/height` | differs | 57.16571044921875 | 57.165771484375 |
-
-### dom (73) — consequence of the driving divergence
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 -24.99998142209219,68.49999588228614 -24.99998142209219,96.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 -24.99998142209219,68.49999588228614 -24.99998142209219,96.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/circle[0]/attrs/cx` | differs | 75 | 75.00001857790781 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/circle[0]/attrs/cy` | differs | 50 | 49.99999484282782 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/circle[1]/attrs/cy` | differs | 87 | 86.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 174.99995344894003,68.49999588228614 174.99995344894003,96.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 174.99995344894003,68.49999588228614 174.99995344894003,96.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/circle[0]/attrs/cx` | differs | 75 | 75.00001857790781 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/circle[0]/attrs/cy` | differs | 50 | 49.99999484282782 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/circle[1]/attrs/cy` | differs | 87 | 86.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/path[0]/attrs/d` | differs | M175,140 C175,168.5 175,168.5 175,197 | M174.99995344894003,139.99998670170686 C174.99995344894003,168.49999181172566 174.99995344894003,168.49999181172566 174.99995344894003,196.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/path[1]/attrs/d` | differs | M175,140 C175,168.5 175,168.5 175,197 | M174.99995344894003,139.99998670170686 C174.99995344894003,168.49999181172566 174.99995344894003,168.49999181172566 174.99995344894003,196.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/g[0]/attrs/transform` | differs | translate(156.50956535339355 163.16463375091553) | translate(156.5095188023336 163.1646255626412) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/circle[0]/attrs/cy` | differs | 150 | 149.99998670170686 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/circle[1]/attrs/cy` | differs | 187 | 186.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/path[0]/attrs/d` | differs | M-25,240 C-25,268.5 -25,268.5 -25,297 | M-24.99998142209219,239.99999484282782 C-24.99998142209219,268.49999588228616 -24.99998142209219,268.49999588228616 -24.99998142209219,296.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/path[1]/attrs/d` | differs | M-25,240 C-25,268.5 -25,268.5 -25,297 | M-24.99998142209219,239.99999484282782 C-24.99998142209219,268.49999588228616 -24.99998142209219,268.49999588228616 -24.99998142209219,296.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/g[0]/attrs/transform` | differs | translate(-53.741695404052734 263.1646337509155) | translate(-53.741676826144925 263.1646296332017) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/circle[0]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/circle[0]/attrs/cy` | differs | 250 | 249.99999484282782 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/circle[1]/attrs/cy` | differs | 287 | 286.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/path[0]/attrs/d` | differs | M175,240 C175,268.5 175,268.5 175,297 | M174.99995344894003,239.99999484282782 C174.99995344894003,268.49999588228616 174.99995344894003,268.49999588228616 174.99995344894003,296.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/path[1]/attrs/d` | differs | M175,240 C175,268.5 175,268.5 175,297 | M174.99995344894003,239.99999484282782 C174.99995344894003,268.49999588228616 174.99995344894003,268.49999588228616 174.99995344894003,296.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/g[0]/attrs/transform` | differs | translate(147.92308235168457 263.1646337509155) | translate(147.9230358006246 263.1646296332017) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/circle[0]/attrs/cy` | differs | 250 | 249.99999484282782 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/circle[1]/attrs/cy` | differs | 287 | 286.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/path[0]/attrs/d` | differs | M-25,340 C-25,368.5 -25,368.5 -25,397 | M-24.99998142209219,340.00001112506976 C-24.99998142209219,368.5000040234071 -24.99998142209219,368.5000040234071 -24.99998142209219,396.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/path[1]/attrs/d` | differs | M-25,340 C-25,368.5 -25,368.5 -25,397 | M-24.99998142209219,340.00001112506976 C-24.99998142209219,368.5000040234071 -24.99998142209219,368.5000040234071 -24.99998142209219,396.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/g[0]/attrs/transform` | differs | translate(-40.691965103149414 363.1646337509155) | translate(-40.691946525241605 363.1646377743226) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/circle[0]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/circle[0]/attrs/cy` | differs | 350 | 350.00001112506976 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/circle[1]/attrs/cy` | differs | 387 | 386.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/path[0]/attrs/d` | differs | M175,340 C175,368.5 175,368.5 175,397 | M174.99995344894003,340.00001112506976 C174.99995344894003,368.5000040234071 174.99995344894003,368.5000040234071 174.99995344894003,396.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/path[1]/attrs/d` | differs | M175,340 C175,368.5 175,368.5 175,397 | M174.99995344894003,340.00001112506976 C174.99995344894003,368.5000040234071 174.99995344894003,368.5000040234071 174.99995344894003,396.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/g[0]/attrs/transform` | differs | translate(155.91675186157227 363.1646337509155) | translate(155.9167053105123 363.1646377743226) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/circle[0]/attrs/cy` | differs | 350 | 350.00001112506976 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/circle[1]/attrs/cy` | differs | 387 | 386.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/path[0]/attrs/d` | differs | M-25,440 C-25,468.5 -25,468.5 -25,497 | M-24.99998142209219,439.9999785605859 C-24.99998142209219,468.5000040234071 -24.99998142209219,468.5000040234071 -24.99998142209219,497.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/path[1]/attrs/d` | differs | M-25,440 C-25,468.5 -25,468.5 -25,497 | M-24.99998142209219,439.9999785605859 C-24.99998142209219,468.5000040234071 -24.99998142209219,468.5000040234071 -24.99998142209219,497.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/g[0]/attrs/transform` | differs | translate(-59.59632873535156 463.1646337509155) | translate(-59.59631015744375 463.1646377743226) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/circle[0]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/circle[0]/attrs/cy` | differs | 450 | 449.9999785605859 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/circle[1]/attrs/cy` | differs | 487 | 487.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/path[0]/attrs/d` | differs | M175,440 C175,468.5 175,468.5 175,497 | M174.99995344894003,439.9999785605859 C174.99995344894003,468.5000040234071 174.99995344894003,468.5000040234071 174.99995344894003,497.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/path[1]/attrs/d` | differs | M175,440 C175,468.5 175,468.5 175,497 | M174.99995344894003,439.9999785605859 C174.99995344894003,468.5000040234071 174.99995344894003,468.5000040234071 174.99995344894003,497.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/g[0]/attrs/transform` | differs | translate(158.17678451538086 463.1646337509155) | translate(158.1767379643209 463.1646377743226) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/circle[0]/attrs/cy` | differs | 450 | 449.9999785605859 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/circle[1]/attrs/cy` | differs | 487 | 487.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/path[0]/attrs/d` | differs | M175,540 C175,578.5 135,578.5 135,617 | M174.99995344894003,540.0000111250697 C174.99995344894003,578.5000203056491 134.99998898330483,578.5000203056491 134.99998898330483,617.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/path[1]/attrs/d` | differs | M175,540 C175,578.5 135,578.5 135,617 | M174.99995344894003,540.0000111250697 C174.99995344894003,578.5000203056491 134.99998898330483,578.5000203056491 134.99998898330483,617.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/circle[0]/attrs/cy` | differs | 550 | 550.0000111250697 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/circle[1]/attrs/cx` | differs | 135 | 134.99998898330483 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/circle[1]/attrs/cy` | differs | 607 | 607.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/path[0]/attrs/d` | differs | M135,673 C135,719.7707173346743 265,570.2292826653257 265,617 | M134.99998898330483,673.0000136093491 C134.99998898330483,719.7707243139066 265.0000541122726,570.2293187816708 265.0000541122726,617.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/path[1]/attrs/d` | differs | M135,673 C135,719.7707173346743 265,570.2292826653257 265,617 | M134.99998898330483,673.0000136093491 C134.99998898330483,719.7707243139066 265.0000541122726,570.2293187816708 265.0000541122726,617.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[0]/attrs/cx` | differs | 135 | 134.99998898330483 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[0]/attrs/cy` | differs | 683 | 683.0000136093491 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[1]/attrs/cx` | differs | 265 | 265.0000541122726 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[1]/attrs/cy` | differs | 607 | 607.0000294862283 |
-
-### callbacks (26) — consequence of the driving divergence
+### callbacks (26)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -2874,12 +2067,10 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/4/args/0/13/dimensions/width` | differs | 50 | 150 |
 | `callbacks/4/args/0/13/dimensions/height` | differs | 50 | 37 |
 
-### api (4) — consequence of the driving divergence
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00001857790781 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999994842827817 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
@@ -2918,28 +2109,9 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 22 unclaimed difference(s).
+**Failed:** 6 unclaimed difference(s).
 
 ## Unclaimed differences
-
-### dom (14)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/g[0]/attrs/transform` | differs | translate(15.35898494720459 63.15929889678955) | translate(15.358797359356345 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cx` | differs | -25 | -25.000187587848245 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/g[0]/attrs/transform` | differs | translate(115.35898494720459 63.15929889678955) | translate(115.35879735935634 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
 
 ### callbacks (4)
 
@@ -2950,12 +2122,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/7/id` | differs | notSelectable | notDraggable |
 | `callbacks/4/args/0/8/id` | differs | notDeletable | notSelectable |
 
-### api (4)
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
@@ -2994,28 +2164,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 29 unclaimed difference(s).
+**Failed:** 13 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (15)
+### dom (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/g[0]/attrs/transform` | differs | translate(15.35898494720459 63.15929889678955) | translate(15.358797359356345 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cx` | differs | -25 | -25.000187587848245 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/g[0]/attrs/transform` | differs | translate(115.35898494720459 63.15929889678955) | translate(115.35879735935634 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
 | `dom/root/children/div[0]/children/div[0]/children/div[1]/children/div[0]/attrs/style` | left only | height: 137px; width: 350px; | — |
 
 ### callbacks (10)
@@ -3033,12 +2189,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/9/args/0/edges/0` | right only | — | {"id":"1-2","type":"default","source":"Node-1","target":"Node-2","selected":true,"label":"edge"} |
 | `callbacks/9/args/0/edges/1` | right only | — | {"id":"1-3","type":"default","source":"Node-1","target":"Node-3","selected":true,"label":"edge"} |
 
-### api (4)
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
@@ -3077,28 +2231,9 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 22 unclaimed difference(s).
+**Failed:** 6 unclaimed difference(s).
 
 ## Unclaimed differences
-
-### dom (14)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/g[0]/attrs/transform` | differs | translate(15.35898494720459 63.15929889678955) | translate(15.358797359356345 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cx` | differs | -25 | -25.000187587848245 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/g[0]/attrs/transform` | differs | translate(115.35898494720459 63.15929889678955) | translate(115.35879735935634 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
 
 ### callbacks (4)
 
@@ -3109,12 +2244,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/7/id` | differs | notSelectable | notDraggable |
 | `callbacks/4/args/0/8/id` | differs | notDeletable | notSelectable |
 
-### api (4)
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
@@ -3129,7 +2262,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 # System parity run — drag-moves-node
 
-**Failed:** self-inconsistent, unclaimed-difference.
+**Failed:** unclaimed-difference.
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -3143,28 +2276,7 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | **disagrees with itself** | 12 |
-
-### psflow disagrees with itself
-
-| path | kind | capture 1 | capture 2 |
-|---|---|---|---|
-| `callbacks/31` | right only | — | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… |
-| `callbacks/35` | right only | — | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… |
-| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
-| `callbacks/33/args/0/screenX` | differs | 814 | 774 |
-| `callbacks/33/args/0/screenY` | differs | 251 | 211 |
-| `callbacks/33/args/0/clientX` | differs | 814 | 774 |
-| `callbacks/33/args/0/clientY` | differs | 251 | 211 |
-| `callbacks/33/args/0/pageX` | differs | 814 | 774 |
-| `callbacks/33/args/0/pageY` | differs | 251 | 211 |
-| `callbacks/33/args/0/buttons` | differs | 0 | 1 |
-| `callbacks/33/args/1/position/x` | differs | 194.2073170731707 | 155.36585365853657 |
-| `callbacks/33/args/1/position/y` | differs | 194.2073170731707 | 155.3658536585366 |
-
-**psflow did not reproduce.** The comparison below ran anyway —
-capture-everything applies to a failed run as much as to a passing one — but a difference it reports
-cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
+| psflow | 1, 2 | reproduced | 0 |
 
 ---
 
@@ -3174,28 +2286,9 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 22 unclaimed difference(s).
+**Failed:** 6 unclaimed difference(s).
 
 ## Unclaimed differences
-
-### dom (14)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M269.2073170731707,234.2073170731707 C269.2073170731707,307.4170215061947 -25,23.790295566976013 -25,97 | M269.20712948532247,234.20721270123403 C269.20712948532247,307.4168860612888 -25.000187587848245,23.790338739939884 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M269.2073170731707,234.2073170731707 C269.2073170731707,307.4170215061947 -25,23.790295566976013 -25,97 | M269.20712948532247,234.20721270123403 C269.20712948532247,307.4168860612888 -25.000187587848245,23.790338739939884 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/g[0]/attrs/transform` | differs | translate(112.46264348378995 160.2629574333749) | translate(112.4624558959417 160.2629112974039) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | 269.2073170731707 | 269.20712948532247 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | 244.2073170731707 | 244.20721270123403 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cx` | differs | -25 | -25.000187587848245 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M269.2073170731707,234.2073170731707 C269.2073170731707,307.4170215061947 175,23.790295566976013 175,97 | M269.20712948532247,234.20721270123403 C269.20712948532247,307.4168860612888 174.99981241215175,23.790338739939884 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M269.2073170731707,234.2073170731707 C269.2073170731707,307.4170215061947 175,23.790295566976013 175,97 | M269.20712948532247,234.20721270123403 C269.20712948532247,307.4168860612888 174.99981241215175,23.790338739939884 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/g[0]/attrs/transform` | differs | translate(212.46264348378995 160.2629574333749) | translate(212.46245589594167 160.2629112974039) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | 269.2073170731707 | 269.20712948532247 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | 244.2073170731707 | 244.20721270123403 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
 
 ### callbacks (4)
 
@@ -3206,12 +2299,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/7/id` | differs | notSelectable | notDraggable |
 | `callbacks/4/args/0/8/id` | differs | notDeletable | notSelectable |
 
-### api (4)
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999895628063307 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":194.2073170731707,"y":194.2073170731707},"type":"input","className":"playwright-test-class-123","style… | — |
 
@@ -3250,61 +2341,31 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 31 unclaimed difference(s).
+**Failed:** 6 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (14)
+### callbacks (4)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991044486711 C74.99981241215175,68.49996127243088 -25.000187587848245,68.49996127243088 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991044486711 C74.99981241215175,68.49996127243088 -25.000187587848245,68.49996127243088 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/g[0]/attrs/transform` | differs | translate(15.35898494720459 63.15929889678955) | translate(15.358797359356345 63.15926016922043) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | 50 | 49.99991044486711 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cx` | differs | -25 | -25.000187587848245 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991044486711 C74.99981241215175,68.49996127243088 174.99981241215175,68.49996127243088 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991044486711 C74.99981241215175,68.49996127243088 174.99981241215175,68.49996127243088 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/g[0]/attrs/transform` | differs | translate(115.35898494720459 63.15929889678955) | translate(115.35879735935634 63.15926016922043) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | 50 | 49.99991044486711 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
-
-### callbacks (13)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `callbacks/22` | right only | — | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… |
-| `callbacks/29` | right only | — | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 | `callbacks/4/args/0/6/id` | differs | notDraggable | notDeletable |
 | `callbacks/4/args/0/7/id` | differs | notSelectable | notDraggable |
 | `callbacks/4/args/0/8/id` | differs | notDeletable | notSelectable |
-| `callbacks/27/args/0/screenX` | differs | 814 | 734 |
-| `callbacks/27/args/0/screenY` | differs | 662 | 582 |
-| `callbacks/27/args/0/clientX` | differs | 814 | 734 |
-| `callbacks/27/args/0/clientY` | differs | 662 | 582 |
-| `callbacks/27/args/0/pageX` | differs | 814 | 734 |
-| `callbacks/27/args/0/pageY` | differs | 662 | 582 |
-| `callbacks/27/args/0/buttons` | differs | 0 | 1 |
 
-### api (4)
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999910444867112 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
 ## Normalization
 
-24 field(s) deleted by name and therefore **unobserved** — not passing:
+22 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (15) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (11) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -3335,28 +2396,9 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 22 unclaimed difference(s).
+**Failed:** 6 unclaimed difference(s).
 
 ## Unclaimed differences
-
-### dom (14)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/g[0]/attrs/transform` | differs | translate(15.35898494720459 63.15929889678955) | translate(15.358797359356345 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cx` | differs | -25 | -25.000187587848245 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/g[0]/attrs/transform` | differs | translate(115.35898494720459 63.15929889678955) | translate(115.35879735935634 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
 
 ### callbacks (4)
 
@@ -3367,12 +2409,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/7/id` | differs | notSelectable | notDraggable |
 | `callbacks/4/args/0/8/id` | differs | notDeletable | notSelectable |
 
-### api (4)
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
@@ -3411,7 +2451,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 24 unclaimed difference(s).
+**Failed:** 22 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -3429,13 +2469,11 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/7/id` | differs | notSelectable | notDraggable |
 | `callbacks/4/args/0/8/id` | differs | notDeletable | notSelectable |
 
-### api (15)
+### api (13)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getInternalNode/internals/handleBounds/source` | differs | null | [] |
-| `api/queries/getInternalNode/internals/handleBounds/target/0/x` | differs | 71 | 70.99981241215175 |
-| `api/queries/getInternalNode/internals/handleBounds/target/0/y` | differs | -3 | -2.9999879000053404 |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-2","type":"output","data":{"label":"Node-2"},"position":{"x":-100,"y":100},"measured":{"width":150,"height":37}} | — |
 | `api/queries/getEdges/0` | right only | — | {"id":"1-2","type":"default","source":"Node-1","target":"Node-2","label":"edge"} |
 | `api/queries/getEdges/1` | right only | — | {"id":"1-3","type":"default","source":"Node-1","target":"Node-3","label":"edge"} |
@@ -3484,28 +2522,9 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 23 unclaimed difference(s).
+**Failed:** 7 unclaimed difference(s).
 
 ## Unclaimed differences
-
-### dom (14)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/g[0]/attrs/transform` | differs | translate(15.35898494720459 63.15929889678955) | translate(15.358797359356345 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cx` | differs | -25 | -25.000187587848245 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/g[0]/attrs/transform` | differs | translate(115.35898494720459 63.15929889678955) | translate(115.35879735935634 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
 
 ### callbacks (5)
 
@@ -3517,12 +2536,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/7/id` | differs | notSelectable | notDraggable |
 | `callbacks/4/args/0/8/id` | differs | notDeletable | notSelectable |
 
-### api (4)
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
@@ -3561,36 +2578,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 75 unclaimed difference(s).
+**Failed:** 41 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (20)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/g[0]/attrs/transform` | differs | translate(15.35898494720459 63.15929889678955) | translate(15.358797359356345 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cx` | differs | -25 | -25.000187587848245 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/g[0]/attrs/transform` | differs | translate(115.35898494720459 63.15929889678955) | translate(115.35879735935634 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/xy-edge__Node-1-Node-4/children/path[0]/attrs/d` | differs | M75,40 C75,118.5 75,118.5 75,197 | M74.99981241215175,39.99991785326901 C74.99981241215175,118.49996497663183 74.99981241215175,118.49996497663183 74.99981241215175,197.00001209999465 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/xy-edge__Node-1-Node-4/children/path[1]/attrs/d` | differs | M75,40 C75,118.5 75,118.5 75,197 | M74.99981241215175,39.99991785326901 C74.99981241215175,118.49996497663183 74.99981241215175,118.49996497663183 74.99981241215175,197.00001209999465 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/xy-edge__Node-1-Node-4/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/xy-edge__Node-1-Node-4/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/xy-edge__Node-1-Node-4/children/circle[1]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/xy-edge__Node-1-Node-4/children/circle[1]/attrs/cy` | differs | 187 | 187.00001209999465 |
-
-### callbacks (51)
+### callbacks (39)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -3629,29 +2621,15 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/14/args/0/movementY` | right only | — | 0 |
 | `callbacks/14/args/0/isDefaultPrevented` | right only | — | {"@ref":"function"} |
 | `callbacks/14/args/0/isPropagationStopped` | right only | — | {"@ref":"function"} |
-| `callbacks/21/args/1/from/x` | differs | 75 | 74.99981241215175 |
-| `callbacks/21/args/1/from/y` | differs | 36 | 35.99991785326901 |
-| `callbacks/21/args/1/fromHandle/x` | differs | 71 | 70.99981241215175 |
-| `callbacks/21/args/1/fromHandle/y` | differs | 32 | 31.999917853269015 |
-| `callbacks/21/args/1/fromNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
-| `callbacks/21/args/1/fromNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
 | `callbacks/21/args/1/fromNode/internals/handleBounds/target` | differs | null | [] |
 | `callbacks/21/args/1/fromNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
-| `callbacks/21/args/1/to/x` | differs | 614.25431711146 | 614.2541239283697 |
-| `callbacks/21/args/1/to/y` | differs | 238.99529042386186 | 238.9953028847669 |
-| `callbacks/21/args/1/toHandle/x` | differs | 75 | 74.99981241215175 |
-| `callbacks/21/args/1/toHandle/y` | differs | 201 | 201.00001209999465 |
 | `callbacks/21/args/1/toNode/internals/handleBounds/source` | differs | null | [] |
-| `callbacks/21/args/1/toNode/internals/handleBounds/target/0/x` | differs | 71 | 70.99981241215175 |
-| `callbacks/21/args/1/toNode/internals/handleBounds/target/0/y` | differs | -3 | -2.9999879000053404 |
 | `callbacks/21/args/1/toNode/internals/userNode` | left only | {"id":"Node-4","data":{"label":"Node-4"},"position":{"x":0,"y":200},"type":"output","measured":{"width":150,"height":37}} | — |
 
-### api (4)
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
@@ -3690,30 +2668,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 67 unclaimed difference(s).
+**Failed:** 41 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (14)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/g[0]/attrs/transform` | differs | translate(15.35898494720459 63.15929889678955) | translate(15.358797359356345 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cx` | differs | -25 | -25.000187587848245 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/g[0]/attrs/transform` | differs | translate(115.35898494720459 63.15929889678955) | translate(115.35879735935634 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
-
-### callbacks (49)
+### callbacks (39)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -3752,27 +2711,15 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/12/args/0/movementY` | right only | — | 0 |
 | `callbacks/12/args/0/isDefaultPrevented` | right only | — | {"@ref":"function"} |
 | `callbacks/12/args/0/isPropagationStopped` | right only | — | {"@ref":"function"} |
-| `callbacks/15/args/1/from/x` | differs | -25 | -25.000187587848245 |
-| `callbacks/15/args/1/from/y` | differs | 101 | 101.00001209999466 |
-| `callbacks/15/args/1/fromHandle/x` | differs | 71 | 70.99981241215175 |
-| `callbacks/15/args/1/fromHandle/y` | differs | -3 | -2.9999879000053404 |
 | `callbacks/15/args/1/fromNode/internals/handleBounds/source` | differs | null | [] |
-| `callbacks/15/args/1/fromNode/internals/handleBounds/target/0/x` | differs | 71 | 70.99981241215175 |
-| `callbacks/15/args/1/fromNode/internals/handleBounds/target/0/y` | differs | -3 | -2.9999879000053404 |
 | `callbacks/15/args/1/fromNode/internals/userNode` | left only | {"id":"Node-2","type":"output","data":{"label":"Node-2"},"position":{"x":-100,"y":100},"measured":{"width":150,"height":37}} | — |
-| `callbacks/15/args/1/toHandle/x` | differs | 75 | 74.99981241215175 |
-| `callbacks/15/args/1/toHandle/y` | differs | 201 | 201.00001209999465 |
 | `callbacks/15/args/1/toNode/internals/handleBounds/source` | differs | null | [] |
-| `callbacks/15/args/1/toNode/internals/handleBounds/target/0/x` | differs | 71 | 70.99981241215175 |
-| `callbacks/15/args/1/toNode/internals/handleBounds/target/0/y` | differs | -3 | -2.9999879000053404 |
 | `callbacks/15/args/1/toNode/internals/userNode` | left only | {"id":"Node-4","data":{"label":"Node-4"},"position":{"x":0,"y":200},"type":"output","measured":{"width":150,"height":37}} | — |
 
-### api (4)
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
@@ -3811,30 +2758,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 68 unclaimed difference(s).
+**Failed:** 40 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (14)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/g[0]/attrs/transform` | differs | translate(15.35898494720459 63.15929889678955) | translate(15.358797359356345 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cx` | differs | -25 | -25.000187587848245 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/g[0]/attrs/transform` | differs | translate(115.35898494720459 63.15929889678955) | translate(115.35879735935634 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
-
-### callbacks (50)
+### callbacks (38)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -3873,28 +2801,14 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/14/args/0/movementY` | right only | — | 0 |
 | `callbacks/14/args/0/isDefaultPrevented` | right only | — | {"@ref":"function"} |
 | `callbacks/14/args/0/isPropagationStopped` | right only | — | {"@ref":"function"} |
-| `callbacks/19/args/1/from/x` | differs | 75 | 74.99981241215175 |
-| `callbacks/19/args/1/from/y` | differs | 36 | 35.99991785326901 |
-| `callbacks/19/args/1/fromHandle/x` | differs | 71 | 70.99981241215175 |
-| `callbacks/19/args/1/fromHandle/y` | differs | 32 | 31.999917853269015 |
-| `callbacks/19/args/1/fromNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
-| `callbacks/19/args/1/fromNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
 | `callbacks/19/args/1/fromNode/internals/handleBounds/target` | differs | null | [] |
 | `callbacks/19/args/1/fromNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
-| `callbacks/19/args/1/toHandle/x` | differs | 175 | 174.99981241215175 |
-| `callbacks/19/args/1/toHandle/y` | differs | 136 | 135.9999252616709 |
-| `callbacks/19/args/1/toNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
-| `callbacks/19/args/1/toNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999925261670917 |
-| `callbacks/19/args/1/toNode/internals/handleBounds/target/0/x` | differs | 71 | 70.99981241215175 |
-| `callbacks/19/args/1/toNode/internals/handleBounds/target/0/y` | differs | -3 | -2.9999879000053404 |
 | `callbacks/19/args/1/toNode/internals/userNode` | left only | {"id":"Node-3","data":{"label":"Node-3"},"position":{"x":100,"y":100},"measured":{"width":150,"height":37}} | — |
 
-### api (4)
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
@@ -3933,30 +2847,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 67 unclaimed difference(s).
+**Failed:** 41 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (14)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/g[0]/attrs/transform` | differs | translate(15.35898494720459 63.15929889678955) | translate(15.358797359356345 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cx` | differs | -25 | -25.000187587848245 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/g[0]/attrs/transform` | differs | translate(115.35898494720459 63.15929889678955) | translate(115.35879735935634 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
-
-### callbacks (49)
+### callbacks (39)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -3995,27 +2890,15 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/14/args/0/movementY` | right only | — | 0 |
 | `callbacks/14/args/0/isDefaultPrevented` | right only | — | {"@ref":"function"} |
 | `callbacks/14/args/0/isPropagationStopped` | right only | — | {"@ref":"function"} |
-| `callbacks/17/args/1/from/x` | differs | 75 | 74.99981241215175 |
-| `callbacks/17/args/1/from/y` | differs | 36 | 35.99991785326901 |
-| `callbacks/17/args/1/fromHandle/x` | differs | 71 | 70.99981241215175 |
-| `callbacks/17/args/1/fromHandle/y` | differs | 32 | 31.999917853269015 |
-| `callbacks/17/args/1/fromNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
-| `callbacks/17/args/1/fromNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
 | `callbacks/17/args/1/fromNode/internals/handleBounds/target` | differs | null | [] |
 | `callbacks/17/args/1/fromNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
-| `callbacks/17/args/1/toHandle/x` | differs | 75 | 74.99981241215175 |
-| `callbacks/17/args/1/toHandle/y` | differs | 301 | 301.00001209999465 |
 | `callbacks/17/args/1/toNode/internals/handleBounds/source` | differs | null | [] |
-| `callbacks/17/args/1/toNode/internals/handleBounds/target/0/x` | differs | 71 | 70.99981241215175 |
-| `callbacks/17/args/1/toNode/internals/handleBounds/target/0/y` | differs | -3 | -2.9999879000053404 |
 | `callbacks/17/args/1/toNode/internals/userNode` | left only | {"id":"notConnectable","type":"output","data":{"label":"notConnectable"},"position":{"x":0,"y":300},"connectable":false,"measured":{"width":150,"height":37}} | — |
 
-### api (4)
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
@@ -4054,26 +2937,9 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 17 unclaimed difference(s).
+**Failed:** 3 unclaimed difference(s).
 
 ## Unclaimed differences
-
-### dom (12)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M75.00008777202368,40.00003955922194 C75.00008777202368,68.50001333714268 -24.99990305171677,68.50001333714268 -24.99990305171677,96.9999871150634 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M75.00008777202368,40.00003955922194 C75.00008777202368,68.50001333714268 -24.99990305171677,68.50001333714268 -24.99990305171677,96.9999871150634 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/circle[0]/attrs/cx` | differs | 75 | 75.00008777202368 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/circle[0]/attrs/cy` | differs | 50 | 50.00003955922194 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/circle[1]/attrs/cx` | differs | -25 | -24.99990305171677 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/circle[1]/attrs/cy` | differs | 87 | 86.9999871150634 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M75.00008777202368,40.00003955922194 C75.00008777202368,68.50001333714268 175.00007859576414,68.50001333714268 175.00007859576414,96.9999871150634 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M75.00008777202368,40.00003955922194 C75.00008777202368,68.50001333714268 175.00007859576414,68.50001333714268 175.00007859576414,96.9999871150634 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/circle[0]/attrs/cx` | differs | 75 | 75.00008777202368 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/circle[0]/attrs/cy` | differs | 50 | 50.00003955922194 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/circle[1]/attrs/cx` | differs | 175 | 175.00007859576414 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/circle[1]/attrs/cy` | differs | 87 | 86.9999871150634 |
 
 ### callbacks (1)
 
@@ -4081,12 +2947,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveStart#2"… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveStart#2"… |
 
-### api (4)
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00008777202368 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 32.00003955922194 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
@@ -4125,26 +2989,9 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 17 unclaimed difference(s).
+**Failed:** 3 unclaimed difference(s).
 
 ## Unclaimed differences
-
-### dom (12)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M75.0000646611741,40.0000238726896 C75.0000646611741,68.50001057026365 -24.999945879575463,68.50001057026365 -24.999945879575463,96.99999726783771 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M75.0000646611741,40.0000238726896 C75.0000646611741,68.50001057026365 -24.999945879575463,68.50001057026365 -24.999945879575463,96.99999726783771 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/circle[0]/attrs/cx` | differs | 75 | 75.0000646611741 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/circle[0]/attrs/cy` | differs | 50 | 50.0000238726896 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/circle[1]/attrs/cx` | differs | -25 | -24.999945879575463 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/circle[1]/attrs/cy` | differs | 87 | 86.99999726783771 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M75.0000646611741,40.0000238726896 C75.0000646611741,68.50001057026365 175.0000857426732,68.50001057026365 175.0000857426732,96.99999726783771 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M75.0000646611741,40.0000238726896 C75.0000646611741,68.50001057026365 175.0000857426732,68.50001057026365 175.0000857426732,96.99999726783771 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/circle[0]/attrs/cx` | differs | 75 | 75.0000646611741 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/circle[0]/attrs/cy` | differs | 50 | 50.0000238726896 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/circle[1]/attrs/cx` | differs | 175 | 175.0000857426732 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/circle[1]/attrs/cy` | differs | 87 | 86.99999726783771 |
 
 ### callbacks (1)
 
@@ -4152,12 +2999,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveStart#2"… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveStart#2"… |
 
-### api (4)
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.0000646611741 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 32.0000238726896 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
@@ -4300,31 +3145,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 14 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (10)
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/path[0]/attrs/d` | differs | M75.000001418919,39.99999838632741 C75.000001418919,68.50000087484548 -25.000007468645535,68.50000087484548 -25.000007468645535,97.00000336336355 | M74.99999871400806,39.99999915915912 C74.99999871400806,68.50000126126133 -25.000001285991942,68.50000126126133 -25.000001285991942,97.00000336336355 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/path[1]/attrs/d` | differs | M75.000001418919,39.99999838632741 C75.000001418919,68.50000087484548 -25.000007468645535,68.50000087484548 -25.000007468645535,97.00000336336355 | M74.99999871400806,39.99999915915912 C74.99999871400806,68.50000126126133 -25.000001285991942,68.50000126126133 -25.000001285991942,97.00000336336355 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/circle[0]/attrs/cx` | differs | 75.000001418919 | 74.99999871400806 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/circle[0]/attrs/cy` | differs | 49.99999838632741 | 49.99999915915912 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/circle[1]/attrs/cx` | differs | -25.000007468645535 | -25.000001285991942 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/path[0]/attrs/d` | differs | M75.000001418919,39.99999838632741 C75.000001418919,68.50000087484548 174.99999253135445,68.50000087484548 174.99999253135445,97.00000336336355 | M74.99999871400806,39.99999915915912 C74.99999871400806,68.50000126126133 174.99999871400806,68.50000126126133 174.99999871400806,97.00000336336355 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/path[1]/attrs/d` | differs | M75.000001418919,39.99999838632741 C75.000001418919,68.50000087484548 174.99999253135445,68.50000087484548 174.99999253135445,97.00000336336355 | M74.99999871400806,39.99999915915912 C74.99999871400806,68.50000126126133 174.99999871400806,68.50000126126133 174.99999871400806,97.00000336336355 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/circle[0]/attrs/cx` | differs | 75.000001418919 | 74.99999871400806 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/circle[0]/attrs/cy` | differs | 49.99999838632741 | 49.99999915915912 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/circle[1]/attrs/cx` | differs | 174.99999253135445 | 174.99999871400806 |
-
-### api (4)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71.000001418919 | 70.99999871400806 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 31.999998386327412 | 31.999999159159113 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
@@ -4363,20 +3191,9 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 23 unclaimed difference(s).
+**Failed:** 13 unclaimed difference(s).
 
 ## Unclaimed differences
-
-### dom (6)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/path[0]/attrs/d` | differs | M153,-181.5 C231.06247497997998,-181.5 -81.06247497997998,18.5 -3,18.5 | M153.00018842898396,-181.49998666285734 C231.0627114818381,-181.49998666285734 -81.06252676153119,18.50001333714267 -3.0000037086770566,18.50001333714267 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/path[1]/attrs/d` | differs | M153,-181.5 C231.06247497997998,-181.5 -81.06247497997998,18.5 -3,18.5 | M153.00018842898396,-181.49998666285734 C231.0627114818381,-181.49998666285734 -81.06252676153119,18.50001333714267 -3.0000037086770566,18.50001333714267 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/circle[0]/attrs/cx` | differs | 163 | 163.00018842898396 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/circle[0]/attrs/cy` | differs | -181.5 | -181.49998666285734 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/circle[1]/attrs/cx` | differs | -13 | -13.000003708677056 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/circle[1]/attrs/cy` | differs | 18.5 | 18.50001333714267 |
 
 ### callbacks (12)
 
@@ -4395,14 +3212,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/11/id` | differs | node-center-left | node-start-right |
 | `callbacks/4/args/0/12/id` | differs | node-end-left | node-start-top |
 
-### api (5)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 145 | 145.00018842898396 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 14.5 | 14.50001333714267 |
-| `api/queries/getInternalNode/internals/handleBounds/target/0/x` | differs | -3 | -3.0000037086770566 |
-| `api/queries/getInternalNode/internals/handleBounds/target/0/y` | differs | 14.5 | 14.50001333714267 |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"default-node","type":"ToolbarNode","data":{"label":"toolbar top","toolbarPosition":"top"},"position":{"x":0,"y":-200},"className":"react-flow__node-defa… | — |
 
 ## Normalization
@@ -4440,20 +3253,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 9 unclaimed difference(s).
+**Failed:** 3 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (9)
+### dom (3)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/A-B/children/path[0]/attrs/d` | differs | M153,168.5 C200,168.5 200,18.5 247,18.5 | M152.99981402775174,168.4999845382663 C199.99991942540385,168.4999845382663 199.99991942540385,18.4999806189024 247.00002482305595,18.4999806189024 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/A-B/children/path[1]/attrs/d` | differs | M153,168.5 C200,168.5 200,18.5 247,18.5 | M152.99981402775174,168.4999845382663 C199.99991942540385,168.4999845382663 199.99991942540385,18.4999806189024 247.00002482305595,18.4999806189024 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/A-C/children/path[0]/attrs/d` | differs | M153,168.5 C200,168.5 200,168.5 247,168.5 | M152.99981402775174,168.4999845382663 C199.99991942540385,168.4999845382663 199.99991942540385,168.4999845382663 247.00002482305595,168.4999845382663 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/A-C/children/path[1]/attrs/d` | differs | M153,168.5 C200,168.5 200,168.5 247,168.5 | M152.99981402775174,168.4999845382663 C199.99991942540385,168.4999845382663 199.99991942540385,168.4999845382663 247.00002482305595,168.4999845382663 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/A-D/children/path[0]/attrs/d` | differs | M153,168.5 C200,168.5 200,318.5 247,318.5 | M152.99981402775174,168.4999845382663 C199.99991942540385,168.4999845382663 199.99991942540385,318.4999845382663 247.00002482305595,318.4999845382663 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/A-D/children/path[1]/attrs/d` | differs | M153,168.5 C200,168.5 200,318.5 247,318.5 | M152.99981402775174,168.4999845382663 C199.99991942540385,168.4999845382663 199.99991942540385,318.4999845382663 247.00002482305595,318.4999845382663 |
 | `dom/root/children/div[1]/children/svg[0]/children/path[0]/attrs/d` | differs | M-161.65853658536585,-110.96341463414635h723.3170731707318v558.9268292682927h-723.3170731707318z⏎        M-128.78048780487805,-16.439024390243905h657.560975609… | M-161.65853658536585,-110.96341463414635h723.3170731707318v558.9268292682927h-723.3170731707318z M-128.78048780487805,-16.439024390243905h657.5609756097562v369… |
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"17.091988130563806","y":"32","width":"38.931750741839764","height":"38.931750741839764","patternUnits":"userSpa… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"17.091988130563806","y":"32","width":"38.931750741839764","height":"38.931… |
@@ -4487,28 +3294,19 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 47 unclaimed difference(s).
+**Failed:** 36 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (15)
+### dom (6)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M133.2621951219512,78.84146341463415 C133.2621951219512,87.92073170731707 -25,87.92073170731707 -25,97 | M133.26200753410296,78.84138126790316 C133.26200753410296,126.76216009858305 91.52420265605417,126.76216009858305 91.52420265605417,174.68293892926295 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M133.2621951219512,78.84146341463415 C133.2621951219512,87.92073170731707 -25,87.92073170731707 -25,97 | M133.26200753410296,78.84138126790316 C133.26200753410296,126.76216009858305 91.52420265605417,126.76216009858305 91.52420265605417,174.68293892926295 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/g[0]/attrs/transform` | differs | translate(44.490082508180194 82.58003060410662) | translate(102.75209004228316 121.4214589953726) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | 133.2621951219512 | 133.26200753410296 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | 88.84146341463415 | 88.84138126790316 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cx` | differs | -25 | 91.52420265605417 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cy` | differs | 87 | 164.68293892926295 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M133.2621951219512,78.84146341463415 C133.2621951219512,87.92073170731707 175,87.92073170731707 175,97 | M133.26200753410296,78.84138126790316 C133.26200753410296,87.9206966839489 174.99981241215175,87.9206966839489 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M133.2621951219512,78.84146341463415 C133.2621951219512,87.92073170731707 175,87.92073170731707 175,97 | M133.26200753410296,78.84138126790316 C133.26200753410296,87.9206966839489 174.99981241215175,87.9206966839489 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/g[0]/attrs/transform` | differs | translate(144.4900825081802 82.58003060410662) | translate(144.48989492033195 82.57999558073847) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | 133.2621951219512 | 133.26200753410296 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | 88.84146341463415 | 88.84138126790316 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M133.2621951219512,78.84146341463415 C133.2621951219512,87.92073170731707 -25,87.92073170731707 -25,97 | M133.2621951219512,78.84146341463415 C133.2621951219512,126.76219512195122 91.52439024390242,126.76219512195122 91.52439024390242,174.6829268292683 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M133.2621951219512,78.84146341463415 C133.2621951219512,87.92073170731707 -25,87.92073170731707 -25,97 | M133.2621951219512,78.84146341463415 C133.2621951219512,126.76219512195122 91.52439024390242,126.76219512195122 91.52439024390242,174.6829268292683 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/g[0]/attrs/transform` | differs | translate(44.490082508180194 82.58003060410662) | translate(102.7522776301314 121.42149401874079) |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cx` | differs | -25 | 91.52439024390242 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cy` | differs | 87 | 164.6829268292683 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-2/attrs/style` | differs | pointer-events: all; transform: translate(-100px, 100px); visibility: visible; z-index: 0; | pointer-events: all; transform: translate(16.5244px, 177.683px); visibility: visible; z-index: 0; |
 
 ### callbacks (17)
@@ -4533,15 +3331,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/37/args/0/1` | right only | — | {"type":"position","id":"Node-2","position":{"x":16.524390243902417,"y":177.6829268292683},"dragging":false} |
 | `callbacks/38/args/2/1` | right only | — | {"id":"Node-2","position":{"x":16.524390243902417,"y":177.6829268292683},"data":{"label":"Node-2"},"type":"output","selected":false,"dragging":false,"measured"… |
 
-### api (15)
+### api (13)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/1/position/x` | differs | -100 | 16.524390243902417 |
 | `api/queries/getNodes/1/position/y` | differs | 100 | 177.6829268292683 |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":58.26219512195121,"y":38.84146341463414},"type":"input","className":"playwright-test-class-123","style… | — |
 | `api/queries/getIntersectingNodes/1/position/x` | differs | -100 | 16.524390243902417 |
@@ -4588,28 +3384,9 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 39 unclaimed difference(s).
+**Failed:** 23 unclaimed difference(s).
 
 ## Unclaimed differences
-
-### dom (14)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M249.78658536585363,156.52439024390242 C249.78658536585363,204.7444223250037 -25,48.779967918898706 -25,97 | M249.78639777800538,156.52430068876953 C249.78639777800538,204.74429159502145 -25.000187587848245,48.78002119374274 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M249.78658536585363,156.52439024390242 C249.78658536585363,204.7444223250037 -25,48.779967918898706 -25,97 | M249.78639777800538,156.52430068876953 C249.78639777800538,204.74429159502145 -25.000187587848245,48.78002119374274 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/g[0]/attrs/transform` | differs | translate(102.7522776301314 121.42149401874076) | translate(102.75209004228316 121.42145529117165) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | 249.78658536585363 | 249.78639777800538 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | 166.52439024390242 | 166.52430068876953 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cx` | differs | -25 | -25.000187587848245 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M249.78658536585363,156.52439024390242 C249.78658536585363,204.7444223250037 175,48.779967918898706 175,97 | M249.78639777800538,156.52430068876953 C249.78639777800538,204.74429159502145 174.99981241215175,48.78002119374274 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M249.78658536585363,156.52439024390242 C249.78658536585363,204.7444223250037 175,48.779967918898706 175,97 | M249.78639777800538,156.52430068876953 C249.78639777800538,204.74429159502145 174.99981241215175,48.78002119374274 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/g[0]/attrs/transform` | differs | translate(202.7522776301314 121.42149401874076) | translate(202.75209004228316 121.42145529117165) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | 249.78658536585363 | 249.78639777800538 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | 166.52439024390242 | 166.52430068876953 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
 
 ### callbacks (21)
 
@@ -4637,12 +3414,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/22/args/1/className` | right only | — | playwright-test-class-123 |
 | `callbacks/22/args/1/style` | right only | — | {"backgroundColor":"red"} |
 
-### api (4)
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999910444867112 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":174.78658536585363,"y":116.52439024390243},"type":"input","className":"playwright-test-class-123","sty… | — |
 
@@ -4671,18 +3446,122 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | **disagrees with itself** | 6 |
+| psflow | 1, 2 | **disagrees with itself** | 110 |
 
 ### psflow disagrees with itself
 
 | path | kind | capture 1 | capture 2 |
 |---|---|---|---|
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/attrs/style` | differs | transform: translate(2000px, 2000px) scale(1); | transform: translate(1720px, 1940px) scale(1); |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M-1995,-1973 C-1995,-938 -25,-938 -25,97 | M-1715,-1913 C-1715,-908 -25,-908 -25,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M-1995,-1973 C-1995,-938 -25,-938 -25,97 | M-1715,-1913 C-1715,-908 -25,-908 -25,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | -1995 | -1715 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | -1963 | -1903 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M-1995,-1973 C-1995,-938 175,-938 175,97 | M-1715,-1913 C-1715,-908 175,-908 175,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M-1995,-1973 C-1995,-938 175,-938 175,97 | M-1715,-1913 C-1715,-908 175,-908 175,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | -1995 | -1715 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | -1963 | -1903 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | pointer-events: all; transform: translate(-2070px, -2013px); visibility: visible; z-index: 1000; | pointer-events: all; transform: translate(-1790px, -1953px); visibility: visible; z-index: 1000; |
+| `callbacks/54` | left only | {"name":"onMoveStart","args":[null,{"x":1720,"y":1920,"zoom":1}]} | — |
+| `callbacks/55` | left only | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} | — |
+| `callbacks/56` | left only | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
+| `callbacks/57` | left only | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
+| `callbacks/60` | left only | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… | — |
+| `callbacks/61` | left only | {"name":"onMoveStart","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
+| `callbacks/62` | left only | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} | — |
+| `callbacks/63` | left only | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
+| `callbacks/64` | left only | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
+| `callbacks/67` | left only | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2070,"y":-2013},"data":{"label":"Node-1"},"type":"input",… | — |
+| `callbacks/68` | left only | {"name":"onMoveStart","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
+| `callbacks/69` | left only | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} | — |
+| `callbacks/70` | left only | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
+| `callbacks/71` | left only | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
+| `callbacks/72` | left only | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… | — |
+| `callbacks/73` | left only | {"name":"onNodesChange","args":[[{"type":"position","id":"Node-1","position":{"x":-2070,"y":-2013},"dragging":false}]]} | — |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… |
-| `callbacks/28/args/0/screenX` | differs | 5 | 6 |
-| `callbacks/28/args/0/clientX` | differs | 5 | 6 |
-| `callbacks/28/args/0/pageX` | differs | 5 | 6 |
-| `callbacks/28/args/1/position/x` | differs | -749 | -409 |
-| `callbacks/28/args/1/position/y` | differs | -692 | -352 |
+| `callbacks/30/args/0/x` | differs | 1020 | 1030 |
+| `callbacks/31/args/1/x` | differs | 1020 | 1030 |
+| `callbacks/32/args/1/x` | differs | 1020 | 1030 |
+| `callbacks/33/args/0/0/position/x` | differs | -1089 | -750 |
+| `callbacks/33/args/0/0/position/y` | differs | -1032 | -912 |
+| `callbacks/34/args/1/position/x` | differs | -1089 | -750 |
+| `callbacks/34/args/1/position/y` | differs | -1032 | -912 |
+| `callbacks/34/args/2/0/position/x` | differs | -1089 | -750 |
+| `callbacks/34/args/2/0/position/y` | differs | -1032 | -912 |
+| `callbacks/36/args/0/0/position/x` | differs | -1090 | -1100 |
+| `callbacks/37/args/1/position/x` | differs | -1090 | -1100 |
+| `callbacks/37/args/2/0/position/x` | differs | -1090 | -1100 |
+| `callbacks/38/args/1/x` | differs | 1020 | 1030 |
+| `callbacks/39/args/0/y` | differs | 1580 | 1590 |
+| `callbacks/40/args/1/y` | differs | 1580 | 1590 |
+| `callbacks/41/args/1/y` | differs | 1580 | 1590 |
+| `callbacks/42/args/0/0/position/x` | differs | -1440 | -1099 |
+| `callbacks/42/args/0/0/position/y` | differs | -1592 | -1253 |
+| `callbacks/43/args/1/position/x` | differs | -1440 | -1099 |
+| `callbacks/43/args/1/position/y` | differs | -1592 | -1253 |
+| `callbacks/43/args/2/0/position/x` | differs | -1440 | -1099 |
+| `callbacks/43/args/2/0/position/y` | differs | -1592 | -1253 |
+| `callbacks/44/args/0/screenX` | differs | 5 | 6 |
+| `callbacks/44/args/0/screenY` | differs | 6 | 5 |
+| `callbacks/44/args/0/clientX` | differs | 5 | 6 |
+| `callbacks/44/args/0/clientY` | differs | 6 | 5 |
+| `callbacks/44/args/0/pageX` | differs | 5 | 6 |
+| `callbacks/44/args/0/pageY` | differs | 6 | 5 |
+| `callbacks/44/args/1/position/x` | differs | -1440 | -1100 |
+| `callbacks/44/args/1/position/y` | differs | -1592 | -1252 |
+| `callbacks/45/args/1/y` | differs | 1580 | 1590 |
+| `callbacks/46/args/0/y` | differs | 1920 | 1940 |
+| `callbacks/47/args/1/y` | differs | 1920 | 1940 |
+| `callbacks/48/args/1/y` | differs | 1920 | 1940 |
+| `callbacks/49/args/0/0/position/x` | differs | -1790 | -1439 |
+| `callbacks/49/args/0/0/position/y` | differs | -1932 | -1603 |
+| `callbacks/50/args/1/position/x` | differs | -1790 | -1439 |
+| `callbacks/50/args/1/position/y` | differs | -1932 | -1603 |
+| `callbacks/50/args/2/0/position/x` | differs | -1790 | -1439 |
+| `callbacks/50/args/2/0/position/y` | differs | -1932 | -1603 |
+| `callbacks/52/args/0/0/position/x` | differs | -1789 | -1440 |
+| `callbacks/52/args/0/0/position/y` | differs | -1933 | -1603 |
+| `callbacks/53/args/1/position/x` | differs | -1789 | -1440 |
+| `callbacks/53/args/1/position/y` | differs | -1933 | -1603 |
+| `callbacks/53/args/2/0/position/x` | differs | -1789 | -1440 |
+| `callbacks/53/args/2/0/position/y` | differs | -1933 | -1603 |
+| `callbacks/58/args/0/0/position/x` | differs | -2129 | -1790 |
+| `callbacks/58/args/0/0/position/y` | differs | -2283 | -1953 |
+| `callbacks/59/args/1/position/x` | differs | -2129 | -1790 |
+| `callbacks/59/args/1/position/y` | differs | -2283 | -1953 |
+| `callbacks/59/args/2/0/position/x` | differs | -2129 | -1790 |
+| `callbacks/59/args/2/0/position/y` | differs | -2283 | -1953 |
+| `callbacks/66/args/0/0/position/x` | differs | -2070 | -1790 |
+| `callbacks/66/args/0/0/position/y` | differs | -2013 | -1953 |
+| `callbacks/66/args/0/0/dragging` | differs | true | false |
+| `callbacks/74/args/1/position/x` | differs | -2070 | -1790 |
+| `callbacks/74/args/1/position/y` | differs | -2013 | -1953 |
+| `callbacks/74/args/2/0/position/x` | differs | -2070 | -1790 |
+| `callbacks/74/args/2/0/position/y` | differs | -2013 | -1953 |
+| `api/queries/getNodes/0/position/x` | differs | -2070 | -1790 |
+| `api/queries/getNodes/0/position/y` | differs | -2013 | -1953 |
+| `api/queries/getNode/position/x` | differs | -2070 | -1790 |
+| `api/queries/getNode/position/y` | differs | -2013 | -1953 |
+| `api/queries/getInternalNode/position/x` | differs | -2070 | -1790 |
+| `api/queries/getInternalNode/position/y` | differs | -2013 | -1953 |
+| `api/queries/getInternalNode/internals/positionAbsolute/x` | differs | -2070 | -1790 |
+| `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | -2013 | -1953 |
+| `api/queries/getIntersectingNodes/0/position/x` | differs | -2070 | -1790 |
+| `api/queries/getIntersectingNodes/0/position/y` | differs | -2013 | -1953 |
+| `api/queries/getNodesBounds/x` | differs | -2070 | -1790 |
+| `api/queries/getNodesBounds/y` | differs | -2013 | -1953 |
+| `api/queries/getNodesBounds/width` | differs | 2320 | 2040 |
+| `api/queries/getNodesBounds/height` | differs | 2150 | 2090 |
+| `api/queries/toObject/nodes/0/position/x` | differs | -2070 | -1790 |
+| `api/queries/toObject/nodes/0/position/y` | differs | -2013 | -1953 |
+| `api/queries/toObject/viewport/x` | differs | 2000 | 1720 |
+| `api/queries/toObject/viewport/y` | differs | 2000 | 1940 |
+| `api/queries/getViewport/x` | differs | 2000 | 1720 |
+| `api/queries/getViewport/y` | differs | 2000 | 1940 |
+| `api/queries/screenToFlowPosition/x` | differs | -2000 | -1720 |
+| `api/queries/screenToFlowPosition/y` | differs | -2000 | -1940 |
+| `api/queries/flowToScreenPosition/x` | differs | 2000 | 1720 |
+| `api/queries/flowToScreenPosition/y` | differs | 2000 | 1940 |
 
 **psflow did not reproduce.** The comparison below ran anyway —
 capture-everything applies to a failed run as much as to a passing one — but a difference it reports
@@ -4696,7 +3575,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 103 unclaimed difference(s).
+**Failed:** 135 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -4704,33 +3583,50 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/attrs/style` | differs | transform: translate(1380px, 1600px) scale(1); | transform: translate(1720px, 1940px) scale(1); |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M-1375,-1573 C-1375,-738 -25,-738 -25,97 | M-1715,-1913 C-1715,-908 -25,-908 -25,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M-1375,-1573 C-1375,-738 -25,-738 -25,97 | M-1715,-1913 C-1715,-908 -25,-908 -25,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | -1375 | -1715 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | -1563 | -1903 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M-1375,-1573 C-1375,-738 175,-738 175,97 | M-1715,-1913 C-1715,-908 175,-908 175,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M-1375,-1573 C-1375,-738 175,-738 175,97 | M-1715,-1913 C-1715,-908 175,-908 175,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | -1375 | -1715 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | -1563 | -1903 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | pointer-events: all; transform: translate(-1450px, -1613px); visibility: visible; z-index: 1000; | pointer-events: all; transform: translate(-1790px, -1953px); visibility: visible; z-index: 1000; |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/attrs/style` | differs | transform: translate(1380px, 1600px) scale(1); | transform: translate(2000px, 2000px) scale(1); |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M-1375,-1573 C-1375,-738 -25,-738 -25,97 | M-1995,-1973 C-1995,-938 -25,-938 -25,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M-1375,-1573 C-1375,-738 -25,-738 -25,97 | M-1995,-1973 C-1995,-938 -25,-938 -25,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | -1375 | -1995 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | -1563 | -1963 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M-1375,-1573 C-1375,-738 175,-738 175,97 | M-1995,-1973 C-1995,-938 175,-938 175,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M-1375,-1573 C-1375,-738 175,-738 175,97 | M-1995,-1973 C-1995,-938 175,-938 175,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | -1375 | -1995 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | -1563 | -1963 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | pointer-events: all; transform: translate(-1450px, -1613px); visibility: visible; z-index: 1000; | pointer-events: all; transform: translate(-2070px, -2013px); visibility: visible; z-index: 1000; |
 
-### callbacks (67)
+### callbacks (99)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/45` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1370,"y":1590,"zoom":1}]} |
-| `callbacks/51` | right only | — | {"name":"onMoveStart","args":[null,{"x":1370,"y":1590,"zoom":1}]} |
-| `callbacks/52` | right only | — | {"name":"onViewportChange","args":[{"x":1720,"y":1940,"zoom":1}]} |
-| `callbacks/53` | right only | — | {"name":"onMove","args":[null,{"x":1720,"y":1940,"zoom":1}]} |
-| `callbacks/54` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1720,"y":1940,"zoom":1}]} |
-| `callbacks/56` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-1790,"y":-1953},"data":{"label":"Node-1"},"type":"input",… |
-| `callbacks/57` | right only | — | {"name":"onNodesChange","args":[[{"type":"position","id":"Node-1","position":{"x":-1790,"y":-1953},"dragging":false}]]} |
+| `callbacks/41` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1370,"y":1580,"zoom":1}]} |
+| `callbacks/45` | right only | — | {"name":"onMoveStart","args":[null,{"x":1370,"y":1580,"zoom":1}]} |
+| `callbacks/46` | right only | — | {"name":"onViewportChange","args":[{"x":1720,"y":1920,"zoom":1}]} |
+| `callbacks/47` | right only | — | {"name":"onMove","args":[null,{"x":1720,"y":1920,"zoom":1}]} |
+| `callbacks/48` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1720,"y":1920,"zoom":1}]} |
+| `callbacks/54` | right only | — | {"name":"onMoveStart","args":[null,{"x":1720,"y":1920,"zoom":1}]} |
+| `callbacks/55` | right only | — | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} |
+| `callbacks/56` | right only | — | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
+| `callbacks/57` | right only | — | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
+| `callbacks/59` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2129,"y":-2283},"data":{"label":"Node-1"},"type":"input",… |
+| `callbacks/60` | right only | — | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… |
+| `callbacks/61` | right only | — | {"name":"onMoveStart","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
+| `callbacks/62` | right only | — | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} |
+| `callbacks/63` | right only | — | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
+| `callbacks/64` | right only | — | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
+| `callbacks/66` | right only | — | {"name":"onNodesChange","args":[[{"type":"position","id":"Node-1","position":{"x":-2070,"y":-2013},"dragging":true}]]} |
+| `callbacks/67` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2070,"y":-2013},"data":{"label":"Node-1"},"type":"input",… |
+| `callbacks/68` | right only | — | {"name":"onMoveStart","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
+| `callbacks/69` | right only | — | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} |
+| `callbacks/70` | right only | — | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
+| `callbacks/71` | right only | — | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
+| `callbacks/72` | right only | — | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… |
+| `callbacks/73` | right only | — | {"name":"onNodesChange","args":[[{"type":"position","id":"Node-1","position":{"x":-2070,"y":-2013},"dragging":false}]]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… |
 | `callbacks/20/args/1/x` | differs | 340 | 0 |
 | `callbacks/20/args/1/y` | differs | 560 | 220.00000000000003 |
-| `callbacks/21/args/1/position/x` | differs | -409 | -749 |
-| `callbacks/21/args/1/position/y` | differs | -352 | -692 |
+| `callbacks/21/args/0/screenX` | differs | 5 | 6 |
+| `callbacks/21/args/0/clientX` | differs | 5 | 6 |
+| `callbacks/21/args/0/pageX` | differs | 5 | 6 |
 | `callbacks/23/args/0/0/position/x` | differs | -410 | -749 |
 | `callbacks/23/args/0/0/position/y` | differs | -572 | -692 |
 | `callbacks/24/args/1/position/x` | differs | -410 | -749 |
@@ -4739,90 +3635,105 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/24/args/2/0/position/y` | differs | -572 | -692 |
 | `callbacks/26/args/0/x` | differs | 690 | 680 |
 | `callbacks/27/args/1/x` | differs | 690 | 680 |
-| `callbacks/28/args/0/0/position/x` | differs | -760 | -750 |
-| `callbacks/29/args/1/position/x` | differs | -760 | -750 |
-| `callbacks/29/args/2/0/position/x` | differs | -760 | -750 |
+| `callbacks/28/args/0/0/position/x` | differs | -760 | -1089 |
+| `callbacks/28/args/0/0/position/y` | differs | -912 | -1032 |
+| `callbacks/29/args/1/position/x` | differs | -760 | -1089 |
+| `callbacks/29/args/1/position/y` | differs | -912 | -1032 |
+| `callbacks/29/args/2/0/position/x` | differs | -760 | -1089 |
+| `callbacks/29/args/2/0/position/y` | differs | -912 | -1032 |
 | `callbacks/30/args/1/x` | differs | 690 | 340 |
 | `callbacks/30/args/1/y` | differs | 900 | 560 |
-| `callbacks/31/args/1/position/x` | differs | -760 | -1100 |
-| `callbacks/31/args/1/position/y` | differs | -912 | -1252 |
-| `callbacks/33/args/0/0/position/x` | differs | -759 | -1100 |
+| `callbacks/31/args/0/screenX` | differs | 6 | 5 |
+| `callbacks/31/args/0/screenY` | differs | 5 | 6 |
+| `callbacks/31/args/0/clientX` | differs | 6 | 5 |
+| `callbacks/31/args/0/clientY` | differs | 5 | 6 |
+| `callbacks/31/args/0/pageX` | differs | 6 | 5 |
+| `callbacks/31/args/0/pageY` | differs | 5 | 6 |
+| `callbacks/31/args/1/position/x` | differs | -760 | -1440 |
+| `callbacks/31/args/1/position/y` | differs | -912 | -1592 |
+| `callbacks/33/args/0/0/position/x` | differs | -759 | -1090 |
 | `callbacks/33/args/0/0/position/y` | differs | -913 | -1252 |
-| `callbacks/34/args/1/position/x` | differs | -759 | -1100 |
+| `callbacks/34/args/1/position/x` | differs | -759 | -1090 |
 | `callbacks/34/args/1/position/y` | differs | -913 | -1252 |
-| `callbacks/34/args/2/0/position/x` | differs | -759 | -1100 |
+| `callbacks/34/args/2/0/position/x` | differs | -759 | -1090 |
 | `callbacks/34/args/2/0/position/y` | differs | -913 | -1252 |
 | `callbacks/35/args/1/x` | differs | 690 | 680 |
+| `callbacks/36/args/0/x` | differs | 1030 | 1020 |
 | `callbacks/36/args/0/y` | differs | 1250 | 1240 |
+| `callbacks/37/args/1/x` | differs | 1030 | 1020 |
 | `callbacks/37/args/1/y` | differs | 1250 | 1240 |
-| `callbacks/38/args/0/0/position/y` | differs | -1263 | -1253 |
-| `callbacks/39/args/1/position/y` | differs | -1263 | -1253 |
-| `callbacks/39/args/2/0/position/y` | differs | -1263 | -1253 |
+| `callbacks/38/args/0/0/position/x` | differs | -1099 | -1440 |
+| `callbacks/38/args/0/0/position/y` | differs | -1263 | -1592 |
+| `callbacks/39/args/1/position/x` | differs | -1099 | -1440 |
+| `callbacks/39/args/1/position/y` | differs | -1263 | -1592 |
+| `callbacks/39/args/2/0/position/x` | differs | -1099 | -1440 |
+| `callbacks/39/args/2/0/position/y` | differs | -1263 | -1592 |
 | `callbacks/40/args/1/x` | differs | 1030 | 680 |
 | `callbacks/40/args/1/y` | differs | 1250 | 900 |
-| `callbacks/42/args/0/0/position/x` | differs | -1100 | -1439 |
-| `callbacks/42/args/0/0/position/y` | differs | -1263 | -1603 |
-| `callbacks/43/args/1/position/x` | differs | -1100 | -1439 |
-| `callbacks/43/args/1/position/y` | differs | -1263 | -1603 |
-| `callbacks/43/args/2/0/position/x` | differs | -1100 | -1439 |
-| `callbacks/43/args/2/0/position/y` | differs | -1263 | -1603 |
+| `callbacks/42/args/0/0/position/x` | differs | -1100 | -1790 |
+| `callbacks/42/args/0/0/position/y` | differs | -1263 | -1932 |
+| `callbacks/43/args/1/position/x` | differs | -1100 | -1790 |
+| `callbacks/43/args/1/position/y` | differs | -1263 | -1932 |
+| `callbacks/43/args/2/0/position/x` | differs | -1100 | -1790 |
+| `callbacks/43/args/2/0/position/y` | differs | -1263 | -1932 |
+| `callbacks/44/args/1/x` | differs | 1030 | 1020 |
 | `callbacks/44/args/1/y` | differs | 1250 | 1240 |
 | `callbacks/45/args/0/x` | differs | 1380 | 1370 |
-| `callbacks/45/args/0/y` | differs | 1600 | 1590 |
+| `callbacks/45/args/0/y` | differs | 1600 | 1580 |
 | `callbacks/46/args/1/x` | differs | 1380 | 1370 |
-| `callbacks/46/args/1/y` | differs | 1600 | 1590 |
-| `callbacks/47/args/0/0/position/x` | differs | -1450 | -1440 |
-| `callbacks/47/args/0/0/position/y` | differs | -1613 | -1603 |
-| `callbacks/48/args/1/position/x` | differs | -1450 | -1440 |
-| `callbacks/48/args/1/position/y` | differs | -1613 | -1603 |
-| `callbacks/48/args/2/0/position/x` | differs | -1450 | -1440 |
-| `callbacks/48/args/2/0/position/y` | differs | -1613 | -1603 |
-| `callbacks/49/args/1/x` | differs | 1380 | 1030 |
+| `callbacks/46/args/1/y` | differs | 1600 | 1580 |
+| `callbacks/47/args/0/0/position/x` | differs | -1450 | -1789 |
+| `callbacks/47/args/0/0/position/y` | differs | -1613 | -1933 |
+| `callbacks/48/args/1/position/x` | differs | -1450 | -1789 |
+| `callbacks/48/args/1/position/y` | differs | -1613 | -1933 |
+| `callbacks/48/args/2/0/position/x` | differs | -1450 | -1789 |
+| `callbacks/48/args/2/0/position/y` | differs | -1613 | -1933 |
+| `callbacks/49/args/1/x` | differs | 1380 | 1020 |
 | `callbacks/49/args/1/y` | differs | 1600 | 1240 |
-| `callbacks/50/args/0/0/position/x` | differs | -1450 | -1790 |
-| `callbacks/50/args/0/0/position/y` | differs | -1613 | -1953 |
+| `callbacks/50/args/0/0/position/x` | differs | -1450 | -2129 |
+| `callbacks/50/args/0/0/position/y` | differs | -1613 | -2283 |
 | `callbacks/50/args/0/0/dragging` | differs | false | true |
-| `callbacks/51/args/1/position/x` | differs | -1450 | -1790 |
-| `callbacks/51/args/1/position/y` | differs | -1613 | -1953 |
-| `callbacks/51/args/2/0/position/x` | differs | -1450 | -1790 |
-| `callbacks/51/args/2/0/position/y` | differs | -1613 | -1953 |
+| `callbacks/51/args/1/position/x` | differs | -1450 | -2070 |
+| `callbacks/51/args/1/position/y` | differs | -1613 | -2013 |
+| `callbacks/51/args/2/0/position/x` | differs | -1450 | -2070 |
+| `callbacks/51/args/2/0/position/y` | differs | -1613 | -2013 |
 
 ### api (26)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getNodes/0/position/x` | differs | -1450 | -1790 |
-| `api/queries/getNodes/0/position/y` | differs | -1613 | -1953 |
-| `api/queries/getNode/position/x` | differs | -1450 | -1790 |
-| `api/queries/getNode/position/y` | differs | -1613 | -1953 |
-| `api/queries/getInternalNode/position/x` | differs | -1450 | -1790 |
-| `api/queries/getInternalNode/position/y` | differs | -1613 | -1953 |
-| `api/queries/getInternalNode/internals/positionAbsolute/x` | differs | -1450 | -1790 |
-| `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | -1613 | -1953 |
+| `api/queries/getNodes/0/position/x` | differs | -1450 | -2070 |
+| `api/queries/getNodes/0/position/y` | differs | -1613 | -2013 |
+| `api/queries/getNode/position/x` | differs | -1450 | -2070 |
+| `api/queries/getNode/position/y` | differs | -1613 | -2013 |
+| `api/queries/getInternalNode/position/x` | differs | -1450 | -2070 |
+| `api/queries/getInternalNode/position/y` | differs | -1613 | -2013 |
+| `api/queries/getInternalNode/internals/positionAbsolute/x` | differs | -1450 | -2070 |
+| `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | -1613 | -2013 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":-1450,"y":-1613},"type":"input","measured":{"width":150,"height":37},"selected":true,"dragging":false} | — |
-| `api/queries/getIntersectingNodes/0/position/x` | differs | -1450 | -1790 |
-| `api/queries/getIntersectingNodes/0/position/y` | differs | -1613 | -1953 |
-| `api/queries/getNodesBounds/x` | differs | -1450 | -1790 |
-| `api/queries/getNodesBounds/y` | differs | -1613 | -1953 |
-| `api/queries/getNodesBounds/width` | differs | 1700 | 2040 |
-| `api/queries/getNodesBounds/height` | differs | 1750 | 2090 |
-| `api/queries/toObject/nodes/0/position/x` | differs | -1450 | -1790 |
-| `api/queries/toObject/nodes/0/position/y` | differs | -1613 | -1953 |
-| `api/queries/toObject/viewport/x` | differs | 1380 | 1720 |
-| `api/queries/toObject/viewport/y` | differs | 1600 | 1940 |
-| `api/queries/getViewport/x` | differs | 1380 | 1720 |
-| `api/queries/getViewport/y` | differs | 1600 | 1940 |
-| `api/queries/screenToFlowPosition/x` | differs | -1380 | -1720 |
-| `api/queries/screenToFlowPosition/y` | differs | -1600 | -1940 |
-| `api/queries/flowToScreenPosition/x` | differs | 1380 | 1720 |
-| `api/queries/flowToScreenPosition/y` | differs | 1600 | 1940 |
+| `api/queries/getIntersectingNodes/0/position/x` | differs | -1450 | -2070 |
+| `api/queries/getIntersectingNodes/0/position/y` | differs | -1613 | -2013 |
+| `api/queries/getNodesBounds/x` | differs | -1450 | -2070 |
+| `api/queries/getNodesBounds/y` | differs | -1613 | -2013 |
+| `api/queries/getNodesBounds/width` | differs | 1700 | 2320 |
+| `api/queries/getNodesBounds/height` | differs | 1750 | 2150 |
+| `api/queries/toObject/nodes/0/position/x` | differs | -1450 | -2070 |
+| `api/queries/toObject/nodes/0/position/y` | differs | -1613 | -2013 |
+| `api/queries/toObject/viewport/x` | differs | 1380 | 2000 |
+| `api/queries/toObject/viewport/y` | differs | 1600 | 2000 |
+| `api/queries/getViewport/x` | differs | 1380 | 2000 |
+| `api/queries/getViewport/y` | differs | 1600 | 2000 |
+| `api/queries/screenToFlowPosition/x` | differs | -1380 | -2000 |
+| `api/queries/screenToFlowPosition/y` | differs | -1600 | -2000 |
+| `api/queries/flowToScreenPosition/x` | differs | 1380 | 2000 |
+| `api/queries/flowToScreenPosition/y` | differs | 1600 | 2000 |
 
 ## Normalization
 
-20 field(s) deleted by name and therefore **unobserved** — not passing:
+22 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (15) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (16) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -5020,28 +3931,9 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 22 unclaimed difference(s).
+**Failed:** 6 unclaimed difference(s).
 
 ## Unclaimed differences
-
-### dom (14)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/g[0]/attrs/transform` | differs | translate(15.35898494720459 63.15929889678955) | translate(15.358797359356345 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cx` | differs | -25 | -25.000187587848245 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/g[0]/attrs/transform` | differs | translate(115.35898494720459 63.15929889678955) | translate(115.35879735935634 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
 
 ### callbacks (4)
 
@@ -5052,12 +3944,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/7/id` | differs | notSelectable | notDraggable |
 | `callbacks/4/args/0/8/id` | differs | notDeletable | notSelectable |
 
-### api (4)
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
@@ -5096,28 +3986,9 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 34 unclaimed difference(s).
+**Failed:** 18 unclaimed difference(s).
 
 ## Unclaimed differences
-
-### dom (14)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/g[0]/attrs/transform` | differs | translate(15.35898494720459 63.15929889678955) | translate(15.358797359356345 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cx` | differs | -25 | -25.000187587848245 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/g[0]/attrs/transform` | differs | translate(115.35898494720459 63.15929889678955) | translate(115.35879735935634 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
 
 ### callbacks (16)
 
@@ -5140,12 +4011,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/21/args/2/0/selected` | differs | true | false |
 | `callbacks/21/args/2/1` | right only | — | {"id":"notConnectable","position":{"x":0,"y":300},"data":{"label":"notConnectable"},"type":"output","selected":true,"dragging":false,"connectable":false,"measu… |
 
-### api (4)
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
@@ -5236,29 +4105,15 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 46 unclaimed difference(s).
+**Failed:** 30 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (17)
+### dom (3)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `dom/root/children/div[0]/children/div[0]/children/div[1]` | left only | {"tag":"div","attrs":{"class":"nopan react-flow__container react-flow__nodesselection","style":"transform: translate(537.017px, 32px) scale(1.02983) translate(… | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/g[0]/attrs/transform` | differs | translate(15.35898494720459 63.15929889678955) | translate(15.358797359356345 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cx` | differs | -25 | -25.000187587848245 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/g[0]/attrs/transform` | differs | translate(115.35898494720459 63.15929889678955) | translate(115.35879735935634 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notConnectable/attrs/class` | differs | draggable nopan react-flow__node react-flow__node-output selectable selected | draggable dragging nopan react-flow__node react-flow__node-output selectable |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notConnectable/attrs/style` | differs | -webkit-tap-highlight-color: rgba(0, 0, 0, 0); pointer-events: all; touch-action: none; transform: translate(213.628px, 455.366px); visibility: visible; z-inde… | -webkit-tap-highlight-color: rgba(0, 0, 0, 0); pointer-events: all; touch-action: none; transform: translate(0px, 300px); visibility: visible; z-index: 0; |
 
@@ -5279,7 +4134,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/7/id` | differs | notSelectable | notDraggable |
 | `callbacks/4/args/0/8/id` | differs | notDeletable | notSelectable |
 
-### api (17)
+### api (15)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -5287,8 +4142,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getNodes/5/position/y` | differs | 455.36585365853654 | 300 |
 | `api/queries/getNodes/5/selected` | differs | true | false |
 | `api/queries/getNodes/5/dragging` | left only | false | — |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 | `api/queries/getIntersectingNodes/5/position/x` | differs | 213.6280487804878 | 0 |
@@ -5333,7 +4186,7 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | path | kind | capture 1 | capture 2 |
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… |
-| `callbacks/17/args/1/position/x` | differs | 10 | 5 |
+| `callbacks/17/args/1/position/x` | differs | 10 | 0 |
 
 **upstream did not reproduce.** The comparison below ran anyway —
 capture-everything applies to a failed run as much as to a passing one — but a difference it reports
@@ -5473,42 +4326,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 112 unclaimed difference(s).
+**Failed:** 72 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (26)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/g[0]/attrs/transform` | differs | translate(15.35898494720459 63.15929889678955) | translate(15.358797359356345 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cx` | differs | -25 | -25.000187587848245 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/g[0]/attrs/transform` | differs | translate(115.35898494720459 63.15929889678955) | translate(115.35879735935634 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/xy-edge__Node-1-Node-4/children/path[0]/attrs/d` | differs | M75,40 C75,118.5 75,118.5 75,197 | M74.99981241215175,39.99991785326901 C74.99981241215175,118.49996497663183 74.99981241215175,118.49996497663183 74.99981241215175,197.00001209999465 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/xy-edge__Node-1-Node-4/children/path[1]/attrs/d` | differs | M75,40 C75,118.5 75,118.5 75,197 | M74.99981241215175,39.99991785326901 C74.99981241215175,118.49996497663183 74.99981241215175,118.49996497663183 74.99981241215175,197.00001209999465 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/xy-edge__Node-1-Node-4/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/xy-edge__Node-1-Node-4/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/xy-edge__Node-1-Node-4/children/circle[1]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/xy-edge__Node-1-Node-4/children/circle[1]/attrs/cy` | differs | 187 | 187.00001209999465 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/xy-edge__Node-3-Node-2/children/path[0]/attrs/d` | differs | M175,140 C175,180.9839907768875 -25,56.0160092231125 -25,97 | M174.99981241215175,139.9999252616709 C174.99981241215175,180.98387465503683 -25.000187587848245,56.016062706628745 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/xy-edge__Node-3-Node-2/children/path[1]/attrs/d` | differs | M175,140 C175,180.9839907768875 -25,56.0160092231125 -25,97 | M174.99981241215175,139.9999252616709 C174.99981241215175,180.98387465503683 -25.000187587848245,56.016062706628745 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/xy-edge__Node-3-Node-2/children/circle[0]/attrs/cx` | differs | 175 | 174.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/xy-edge__Node-3-Node-2/children/circle[0]/attrs/cy` | differs | 150 | 149.9999252616709 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/xy-edge__Node-3-Node-2/children/circle[1]/attrs/cx` | differs | -25 | -25.000187587848245 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/xy-edge__Node-3-Node-2/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
-
-### callbacks (82)
+### callbacks (70)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -5547,21 +4369,9 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/14/args/0/movementY` | right only | — | 0 |
 | `callbacks/14/args/0/isDefaultPrevented` | right only | — | {"@ref":"function"} |
 | `callbacks/14/args/0/isPropagationStopped` | right only | — | {"@ref":"function"} |
-| `callbacks/21/args/1/from/x` | differs | 75 | 74.99981241215175 |
-| `callbacks/21/args/1/from/y` | differs | 36 | 35.99991785326901 |
-| `callbacks/21/args/1/fromHandle/x` | differs | 71 | 70.99981241215175 |
-| `callbacks/21/args/1/fromHandle/y` | differs | 32 | 31.999917853269015 |
-| `callbacks/21/args/1/fromNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
-| `callbacks/21/args/1/fromNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
 | `callbacks/21/args/1/fromNode/internals/handleBounds/target` | differs | null | [] |
 | `callbacks/21/args/1/fromNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
-| `callbacks/21/args/1/to/x` | differs | 614.25431711146 | 614.2541239283697 |
-| `callbacks/21/args/1/to/y` | differs | 238.99529042386186 | 238.9953028847669 |
-| `callbacks/21/args/1/toHandle/x` | differs | 75 | 74.99981241215175 |
-| `callbacks/21/args/1/toHandle/y` | differs | 201 | 201.00001209999465 |
 | `callbacks/21/args/1/toNode/internals/handleBounds/source` | differs | null | [] |
-| `callbacks/21/args/1/toNode/internals/handleBounds/target/0/x` | differs | 71 | 70.99981241215175 |
-| `callbacks/21/args/1/toNode/internals/handleBounds/target/0/y` | differs | -3 | -2.9999879000053404 |
 | `callbacks/21/args/1/toNode/internals/userNode` | left only | {"id":"Node-4","data":{"label":"Node-4"},"position":{"x":0,"y":200},"type":"output","measured":{"width":150,"height":37}} | — |
 | `callbacks/26/args/0/@class` | differs | PointerEvent | SyntheticBaseEvent |
 | `callbacks/26/args/0/_reactName` | right only | — | onClick |
@@ -5595,12 +4405,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/26/args/0/isDefaultPrevented` | right only | — | {"@ref":"function"} |
 | `callbacks/26/args/0/isPropagationStopped` | right only | — | {"@ref":"function"} |
 
-### api (4)
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
@@ -5639,29 +4447,15 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 54 unclaimed difference(s).
+**Failed:** 38 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (15)
+### dom (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/g[0]/attrs/transform` | differs | translate(15.35898494720459 63.15929889678955) | translate(15.358797359356345 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cx` | differs | -25 | -25.000187587848245 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/g[0]/attrs/transform` | differs | translate(115.35898494720459 63.15929889678955) | translate(115.35879735935634 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/g[0]/children/path[0]/attrs/d` | differs | M75,36 C75,45.67454268292683 94.17378048780492,45.67454268292683 94.17378048780492,55.349085365853654 | M74.99981241215175,35.99991785326901 C74.99981241215175,62.499958926634505 634,62.499958926634505 634,89 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/g[0]/children/path[0]/attrs/d` | differs | M75,36 C75,45.67454268292683 94.17378048780492,45.67454268292683 94.17378048780492,55.349085365853654 | M75,36 C75,62.5 634,62.5 634,89 |
 
 ### callbacks (35)
 
@@ -5703,12 +4497,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/23/args/0/isDefaultPrevented` | right only | — | {"@ref":"function"} |
 | `callbacks/23/args/0/isPropagationStopped` | right only | — | {"@ref":"function"} |
 
-### api (4)
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
@@ -5747,29 +4539,15 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 30 unclaimed difference(s).
+**Failed:** 14 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (20)
+### dom (6)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/svg[0]` | left only | {"tag":"svg","attrs":{"width":"1280","height":"720","class":"react-flow__connectionline react-flow__container"},"children":[{"tag":"g","attrs":{"class":"react-… | — |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/g[0]/attrs/transform` | differs | translate(15.35898494720459 63.15929889678955) | translate(15.358797359356345 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cx` | differs | -25 | -25.000187587848245 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/g[0]/attrs/transform` | differs | translate(115.35898494720459 63.15929889678955) | translate(115.35879735935634 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/children/1-Node-1-null-source/attrs/class` | differs | connectable connectableend connectablestart connectingfrom nodrag nopan react-flow__handle react-flow__handle-bottom source | connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3-null-source/attrs/class` | differs | connectable connectableend connectablestart nodrag nopan react-flow__handle react-flow__handle-bottom source | connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDraggable/children/1-notDraggable-null-source/attrs/class` | differs | connectable connectableend connectablestart nodrag nopan react-flow__handle react-flow__handle-bottom source | connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source |
@@ -5786,12 +4564,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/7/id` | differs | notSelectable | notDraggable |
 | `callbacks/4/args/0/8/id` | differs | notDeletable | notSelectable |
 
-### api (4)
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
@@ -5836,52 +4612,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 103 unclaimed difference(s).
+**Failed:** 47 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (36)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/up-1-hub/children/path[0]/attrs/d` | differs | M14.65625,22 C14.65625,89 172,89 172,156 | M14.65628252269898,22.000038317678893 C14.65628252269898,89.00001045914391 172.00001673463026,89.00001045914392 172.00001673463026,155.99998260060894 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/up-1-hub/children/path[1]/attrs/d` | differs | M14.65625,22 C14.65625,89 172,89 172,156 | M14.65628252269898,22.000038317678893 C14.65628252269898,89.00001045914391 172.00001673463026,89.00001045914392 172.00001673463026,155.99998260060894 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/up-1-hub/children/circle[0]/attrs/cx` | differs | 14.65625 | 14.65628252269898 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/up-1-hub/children/circle[0]/attrs/cy` | differs | 32 | 32.00003831767889 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/up-1-hub/children/circle[1]/attrs/cx` | differs | 172 | 172.00001673463026 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/up-1-hub/children/circle[1]/attrs/cy` | differs | 146 | 145.99998260060894 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/up-2-hub/children/path[0]/attrs/d` | differs | M334.65625,22 C334.65625,89 172,89 172,156 | M334.65625994250917,22.000038317678893 C334.65625994250917,89.00001045914391 172.00001673463026,89.00001045914392 172.00001673463026,155.99998260060894 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/up-2-hub/children/path[1]/attrs/d` | differs | M334.65625,22 C334.65625,89 172,89 172,156 | M334.65625994250917,22.000038317678893 C334.65625994250917,89.00001045914391 172.00001673463026,89.00001045914392 172.00001673463026,155.99998260060894 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/up-2-hub/children/circle[0]/attrs/cx` | differs | 334.65625 | 334.65625994250917 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/up-2-hub/children/circle[0]/attrs/cy` | differs | 32 | 32.00003831767889 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/up-2-hub/children/circle[1]/attrs/cx` | differs | 172 | 172.00001673463026 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/up-2-hub/children/circle[1]/attrs/cy` | differs | 146 | 145.99998260060894 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/hub-down-1/children/path[0]/attrs/d` | differs | M172,182 C172,249 24.4375,249 24.4375,316 | M172.00001673463026,182.00002476956502 C172.00001673463026,249.00000368508697 24.437560110271676,249.00000368508697 24.437560110271676,315.9999826006089 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/hub-down-1/children/path[1]/attrs/d` | differs | M172,182 C172,249 24.4375,249 24.4375,316 | M172.00001673463026,182.00002476956502 C172.00001673463026,249.00000368508697 24.437560110271676,249.00000368508697 24.437560110271676,315.9999826006089 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/hub-down-1/children/circle[0]/attrs/cx` | differs | 172 | 172.00001673463026 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/hub-down-1/children/circle[0]/attrs/cy` | differs | 192 | 192.00002476956502 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/hub-down-1/children/circle[1]/attrs/cx` | differs | 24.4375 | 24.437560110271676 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/hub-down-1/children/circle[1]/attrs/cy` | differs | 306 | 305.9999826006089 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/hub-down-2/children/path[0]/attrs/d` | differs | M172,182 C172,249 344.4375,249 344.4375,316 | M172.00001673463026,182.00002476956502 C172.00001673463026,249.00000368508697 344.437528498006,249.00000368508697 344.437528498006,315.9999826006089 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/hub-down-2/children/path[1]/attrs/d` | differs | M172,182 C172,249 344.4375,249 344.4375,316 | M172.00001673463026,182.00002476956502 C172.00001673463026,249.00000368508697 344.437528498006,249.00000368508697 344.437528498006,315.9999826006089 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/hub-down-2/children/circle[0]/attrs/cx` | differs | 172 | 172.00001673463026 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/hub-down-2/children/circle[0]/attrs/cy` | differs | 192 | 192.00002476956502 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/hub-down-2/children/circle[1]/attrs/cx` | differs | 344.4375 | 344.437528498006 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/hub-down-2/children/circle[1]/attrs/cy` | differs | 306 | 305.9999826006089 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/hub-down-3/children/path[0]/attrs/d` | differs | M172,182 C172,249 664.4375,249 664.4375,316 | M172.00001673463026,182.00002476956502 C172.00001673463026,249.00000368508697 664.4374923697022,249.00000368508697 664.4374923697022,315.9999826006089 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/hub-down-3/children/path[1]/attrs/d` | differs | M172,182 C172,249 664.4375,249 664.4375,316 | M172.00001673463026,182.00002476956502 C172.00001673463026,249.00000368508697 664.4374923697022,249.00000368508697 664.4374923697022,315.9999826006089 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/hub-down-3/children/circle[0]/attrs/cx` | differs | 172 | 172.00001673463026 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/hub-down-3/children/circle[0]/attrs/cy` | differs | 192 | 192.00002476956502 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/hub-down-3/children/circle[1]/attrs/cx` | differs | 664.4375 | 664.4374923697022 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/hub-down-3/children/circle[1]/attrs/cy` | differs | 306 | 305.9999826006089 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/xy-edge__down-1out-hubin/children/path[0]/attrs/d` | differs | M24.4375,342 C24.4375,427.2386356061616 172,70.7613643938384 172,156 | M24.437560110271676,342.00000670541317 C24.437560110271676,427.23864783485584 172.00001673463026,70.76134147116628 172.00001673463026,155.99998260060894 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/xy-edge__down-1out-hubin/children/path[1]/attrs/d` | differs | M24.4375,342 C24.4375,427.2386356061616 172,70.7613643938384 172,156 | M24.437560110271676,342.00000670541317 C24.437560110271676,427.23864783485584 172.00001673463026,70.76134147116628 172.00001673463026,155.99998260060894 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/xy-edge__down-1out-hubin/children/circle[0]/attrs/cx` | differs | 24.4375 | 24.437560110271676 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/xy-edge__down-1out-hubin/children/circle[0]/attrs/cy` | differs | 352 | 352.00000670541317 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/xy-edge__down-1out-hubin/children/circle[1]/attrs/cx` | differs | 172 | 172.00001673463026 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/xy-edge__down-1out-hubin/children/circle[1]/attrs/cy` | differs | 146 | 145.99998260060894 |
-
-### callbacks (62)
+### callbacks (46)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -5929,33 +4664,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/12/args/0/movementY` | right only | — | 0 |
 | `callbacks/12/args/0/isDefaultPrevented` | right only | — | {"@ref":"function"} |
 | `callbacks/12/args/0/isPropagationStopped` | right only | — | {"@ref":"function"} |
-| `callbacks/18/args/1/from/x` | differs | 24.4375 | 24.437560110271676 |
-| `callbacks/18/args/1/from/y` | differs | 338 | 338.00000670541317 |
-| `callbacks/18/args/1/fromHandle/x` | differs | 20.4375 | 20.437560110271676 |
-| `callbacks/18/args/1/fromHandle/y` | differs | 14 | 14.000006705413165 |
-| `callbacks/18/args/1/fromNode/internals/handleBounds/source/0/x` | differs | 20.4375 | 20.437560110271676 |
-| `callbacks/18/args/1/fromNode/internals/handleBounds/source/0/y` | differs | 14 | 14.000006705413165 |
-| `callbacks/18/args/1/fromNode/internals/handleBounds/target/0/x` | differs | 20.4375 | 20.437560110271676 |
-| `callbacks/18/args/1/fromNode/internals/handleBounds/target/0/y` | differs | -4 | -4.000017399391056 |
 | `callbacks/18/args/1/fromNode/internals/userNode` | left only | {"id":"down-1","type":"connections","data":{"label":"down-1"},"position":{"x":0,"y":320},"measured":{"width":49,"height":18}} | — |
-| `callbacks/18/args/1/to/x` | differs | 348.577648766328 | 348.57767703789494 |
-| `callbacks/18/args/1/to/y` | differs | 344.79535558780844 | 344.79532619319133 |
-| `callbacks/18/args/1/toHandle/x` | differs | 172 | 172.00001673463026 |
-| `callbacks/18/args/1/toHandle/y` | differs | 160 | 159.99998260060894 |
-| `callbacks/18/args/1/toNode/internals/handleBounds/source/0/x` | differs | 8 | 8.000016734630268 |
-| `callbacks/18/args/1/toNode/internals/handleBounds/source/0/y` | differs | 14 | 14.000024769565009 |
-| `callbacks/18/args/1/toNode/internals/handleBounds/target/0/x` | differs | 8 | 8.000016734630268 |
-| `callbacks/18/args/1/toNode/internals/handleBounds/target/0/y` | differs | -4 | -4.000017399391056 |
 | `callbacks/18/args/1/toNode/internals/userNode` | left only | {"id":"hub","type":"connections","data":{"label":"hub"},"position":{"x":160,"y":160},"measured":{"width":24,"height":18}} | — |
 
-### api (5)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 8 | 8.000016734630268 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 14 | 14.000024769565009 |
-| `api/queries/getInternalNode/internals/handleBounds/target/0/x` | differs | 8 | 8.000016734630268 |
-| `api/queries/getInternalNode/internals/handleBounds/target/0/y` | differs | -4 | -4.000017399391056 |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"hub","type":"connections","data":{"label":"hub"},"position":{"x":160,"y":160},"measured":{"width":24,"height":18}} | — |
 
 ## Normalization
@@ -6039,26 +4754,9 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 17 unclaimed difference(s).
+**Failed:** 3 unclaimed difference(s).
 
 ## Unclaimed differences
-
-### dom (12)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M75.00008777202368,40.00003955922194 C75.00008777202368,68.50001333714268 -24.99990305171677,68.50001333714268 -24.99990305171677,96.9999871150634 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M75.00008777202368,40.00003955922194 C75.00008777202368,68.50001333714268 -24.99990305171677,68.50001333714268 -24.99990305171677,96.9999871150634 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/circle[0]/attrs/cx` | differs | 75 | 75.00008777202368 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/circle[0]/attrs/cy` | differs | 50 | 50.00003955922194 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/circle[1]/attrs/cx` | differs | -25 | -24.99990305171677 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/circle[1]/attrs/cy` | differs | 87 | 86.9999871150634 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M75.00008777202368,40.00003955922194 C75.00008777202368,68.50001333714268 175.00007859576414,68.50001333714268 175.00007859576414,96.9999871150634 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M75.00008777202368,40.00003955922194 C75.00008777202368,68.50001333714268 175.00007859576414,68.50001333714268 175.00007859576414,96.9999871150634 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/circle[0]/attrs/cx` | differs | 75 | 75.00008777202368 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/circle[0]/attrs/cy` | differs | 50 | 50.00003955922194 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/circle[1]/attrs/cx` | differs | 175 | 175.00007859576414 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/second-edge/children/circle[1]/attrs/cy` | differs | 87 | 86.9999871150634 |
 
 ### callbacks (1)
 
@@ -6066,12 +4764,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveStart#2"… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveStart#2"… |
 
-### api (4)
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00008777202368 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 32.00003955922194 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
@@ -6781,8 +5477,8 @@ a real divergence is exactly what would be hiding down there.
 | `console/2` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/3` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/4` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:52129/parity/driver/dist/… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:52129/parity/driver/dist/… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:54697/parity/driver/dist/… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:54697/parity/driver/dist/… |
 | `console/7` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 
 ## Normalization
@@ -6820,20 +5516,9 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 12 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
-
-### dom (6)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/nowheel-plain/children/path[0]/attrs/d` | differs | M200,323 C200,435.8466880329237 535,-115.84668803292368 535,-3 | M199.99966527580804,322.9994663342079 C199.99966527580804,435.8460611217495 534.9998923744399,-115.84658970501026 534.9998923744399,-2.999994917468647 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/nowheel-plain/children/path[1]/attrs/d` | differs | M200,323 C200,435.8466880329237 535,-115.84668803292368 535,-3 | M199.99966527580804,322.9994663342079 C199.99966527580804,435.8460611217495 534.9998923744399,-115.84658970501026 534.9998923744399,-2.999994917468647 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/nowheel-plain/children/circle[0]/attrs/cx` | differs | 200 | 199.99966527580804 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/nowheel-plain/children/circle[0]/attrs/cy` | differs | 333 | 332.9994663342079 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/nowheel-plain/children/circle[1]/attrs/cx` | differs | 535 | 534.9998923744399 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/nowheel-plain/children/circle[1]/attrs/cy` | differs | -13 | -12.999994917468648 |
 
 ### callbacks (1)
 
@@ -6841,14 +5526,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onPaneMouseEnter#2","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onPaneMouseEnter#2","onPaneMouseMo… |
 
-### api (5)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 196 | 195.99966527580804 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 315 | 314.9994663342079 |
-| `api/queries/getInternalNode/internals/handleBounds/target/0/x` | differs | 196 | 195.99966527580804 |
-| `api/queries/getInternalNode/internals/handleBounds/target/0/y` | differs | -3 | -2.999994917468647 |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"nowheel","data":{"label":"nowheel"},"position":{"x":0,"y":0},"className":"nowheel","style":{"width":400,"height":320},"measured":{"width":400,"height":3… | — |
 
 ## Normalization
@@ -6980,32 +5661,22 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 14 unclaimed difference(s).
+**Failed:** 4 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (9)
+### dom (3)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/path[0]/attrs/d` | differs | M103,20 C175,20 175,120 247,120 | M102.99985314668774,19.99997666666094 C174.99992785740835,19.99997666666094 174.99992785740835,119.99998244865164 247.000002568129,119.99998244865164 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/path[1]/attrs/d` | differs | M103,20 C175,20 175,120 247,120 | M102.99985314668774,19.99997666666094 C174.99992785740835,19.99997666666094 174.99992785740835,119.99998244865164 247.000002568129,119.99998244865164 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/circle[0]/attrs/cx` | differs | 113 | 112.99985314668774 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/circle[0]/attrs/cy` | differs | 20 | 19.99997666666094 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/circle[1]/attrs/cx` | differs | 237 | 237.000002568129 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/circle[1]/attrs/cy` | differs | 120 | 119.99998244865164 |
 | `dom/root/children/div[2]/children/svg[0]/children/path[0]/attrs/d` | differs | M-56.251465064166375,-161.7229620594784h1237.53223141166v956.2749060908284h-1237.53223141166z⏎        M154.9706987166726,87.17101802812834h970.0586025666548v54… | M-56.251465064166375,-161.7229620594784h1237.53223141166v956.2749060908284h-1237.53223141166z M154.9706987166726,87.17101802812834h970.0586025666548v545.657963… |
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"-19.7539553864471","y":"-9.462215016410383","width":"26.390158215457884","height":"26.390158215457884","pattern… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"6.636202829010784","y":"16.92794319904749","width":"26.390158215457884","h… |
 
-### api (5)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 95 | 94.99985314668774 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 16 | 15.999976666660944 |
-| `api/queries/getInternalNode/internals/handleBounds/target/0/x` | differs | -3 | -2.9999974318710168 |
-| `api/queries/getInternalNode/internals/handleBounds/target/0/y` | differs | 16 | 15.999976666660944 |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"n1","data":{"label":"n1"},"position":{"x":0,"y":0},"sourcePosition":"right","targetPosition":"left","width":100,"height":40,"measured":{"width":100,"hei… | — |
 
 ## Normalization
@@ -7733,7 +6404,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 # System parity run — pan-after-controlled-viewport-change
 
-**Failed:** unclaimed-difference.
+**Failed:** self-inconsistent, unclaimed-difference.
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -7746,8 +6417,18 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 
 | side | captures | verdict | differences |
 |---|---|---|---|
-| upstream | 1, 2 | reproduced | 0 |
+| upstream | 1, 2 | **disagrees with itself** | 1 |
 | psflow | 1, 2 | reproduced | 0 |
+
+### upstream disagrees with itself
+
+| path | kind | capture 1 | capture 2 |
+|---|---|---|---|
+| `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onMove#1","onMoveEnd#1","onNodesChange#1","onMoveStart#2","onMove#2","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveEn… | ["onSelectionChange#1","onMoveStart#1","onMove#1","onNodesChange#1","onMoveEnd#1","onMoveStart#2","onMove#2","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveEn… |
+
+**upstream did not reproduce.** The comparison below ran anyway —
+capture-everything applies to a failed run as much as to a passing one — but a difference it reports
+cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
 ---
 
@@ -7765,7 +6446,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onMove#1","onNodesChange#1","onMoveEnd#1","onMoveStart#2","onMove#2","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveEn… | ["onSelectionChange#1","onMoveStart#1","onMove#1","onMoveEnd#1","onNodesChange#1","onMoveStart#2","onMove#2","onMoveEnd#2","onPaneMouseEnter#1","onPaneMouseMov… |
+| `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onMove#1","onMoveEnd#1","onNodesChange#1","onMoveStart#2","onMove#2","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveEn… | ["onSelectionChange#1","onMoveStart#1","onMove#1","onMoveEnd#1","onNodesChange#1","onMoveStart#2","onMove#2","onMoveEnd#2","onPaneMouseEnter#1","onPaneMouseMov… |
 
 ### api (2)
 
@@ -7809,35 +6490,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 18 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (14)
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99989469881373,39.99995347577016 C74.99989469881373,68.49997746582244 -25.000098659422065,68.49997746582244 -25.000098659422065,97.00000145587471 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99989469881373,39.99995347577016 C74.99989469881373,68.49997746582244 -25.000098659422065,68.49997746582244 -25.000098659422065,97.00000145587471 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/g[0]/attrs/transform` | differs | translate(15.28076171875 63) | translate(15.280659738445834 62.99997746582244) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | 75 | 74.99989469881373 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | 50 | 49.99995347577016 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cx` | differs | -25 | -25.000098659422065 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cy` | differs | 87 | 87.00000145587471 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99989469881373,39.99995347577016 C74.99989469881373,68.49997746582244 174.99988805704953,68.49997746582244 174.99988805704953,97.00000145587471 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99989469881373,39.99995347577016 C74.99989469881373,68.49997746582244 174.99988805704953,68.49997746582244 174.99988805704953,97.00000145587471 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/g[0]/attrs/transform` | differs | translate(115.28076171875 63) | translate(115.28065309668165 62.99997746582244) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | 75 | 74.99989469881373 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | 50 | 49.99995347577016 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99988805704953 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00000145587471 |
-
-### api (4)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99989469881373 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999953475770162 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
@@ -7928,7 +6588,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 33 unclaimed difference(s).
+**Failed:** 29 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -7939,13 +6599,11 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `callbacks/1` | right only | — | {"name":"useOnSelectionChange","args":[{"nodes":[{"id":"Node-1","position":{"x":0,"y":0},"data":{"label":"Node-1"},"type":"input","selected":true,"measured":{"… |
 | `callbacks/0/args/0/nodes/0` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
-### hooks (14)
+### hooks (12)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `hooks/flow-probe/useConnection/inProgress` | left only | false | — |
-| `hooks/flow-probe/useInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00008481768275 |
-| `hooks/flow-probe/useInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 32.000038931396325 |
 | `hooks/flow-probe/useInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `hooks/flow-probe/useInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 | `hooks/flow-probe/useStore/nodes` | left only | [{"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"me… | — |
@@ -7958,13 +6616,11 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `hooks/flow-probe/useStoreApi/subscribe` | left only | {"@ref":"function"} | — |
 | `hooks/flow-probe/useStoreApi/error` | right only | — | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
 
-### api (5)
+### api (3)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getState` | left only | {"rfId":"1","width":1280,"height":720,"transform":[517.8398510242085,32,1.2216014897579144],"nodes":[{"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0… | — |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00008481768275 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 32.000038931396325 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
@@ -7987,8 +6643,8 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `console/3/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
 | `console/4/level` | differs | warning | pageerror |
 | `console/4/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:52129/parity/driver/dist/psflow.js:65507:… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:52129/parity/driver/dist/psflow.js:65507:… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:54697/parity/driver/dist/psflow.js:65563:… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:54697/parity/driver/dist/psflow.js:65563:… |
 
 
 ---
@@ -8019,17 +6675,15 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 30 unclaimed difference(s).
+**Failed:** 26 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### hooks (14)
+### hooks (12)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `hooks/flow-probe/useConnection/inProgress` | left only | false | — |
-| `hooks/flow-probe/useInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00003679426798 |
-| `hooks/flow-probe/useInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 32.0000232488172 |
 | `hooks/flow-probe/useInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `hooks/flow-probe/useInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 | `hooks/flow-probe/useStore/nodes` | left only | [{"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}},{"id":"2","data":{"label":"2"},"position":{"x":-1… | — |
@@ -8042,13 +6696,11 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `hooks/flow-probe/useStoreApi/subscribe` | left only | {"@ref":"function"} | — |
 | `hooks/flow-probe/useStoreApi/error` | right only | — | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
 
-### api (5)
+### api (3)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getState` | left only | {"rfId":"1","width":1280,"height":720,"transform":[552.9449436703876,121.469145656862,3.4822022531844965],"nodes":[{"id":"1","data":{"label":"1"},"position":{"… | — |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00003679426798 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 32.0000232488172 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
@@ -8070,8 +6722,8 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `console/3/level` | differs | warning | pageerror |
 | `console/3/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
 | `console/4` | right only | — | {"level":"pageerror","text":"ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScri… |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:52129/parity/driver/dist/psflow.js:65507:… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:52129/parity/driver/dist/psflow.js:65507:… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:54697/parity/driver/dist/psflow.js:65563:… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:54697/parity/driver/dist/psflow.js:65563:… |
 
 
 ---
@@ -8102,26 +6754,18 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `props`, `console`.
 
-**Failed:** 12 unclaimed difference(s).
+**Failed:** 4 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### props (12)
+### props (4)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `props/edge-component-props/selectable` | differs | true | {"@undefined":true} |
 | `props/edge-component-props/deletable` | differs | true | {"@undefined":true} |
-| `props/edge-component-props/sourceX` | differs | 75 | 75.00001857790781 |
-| `props/edge-component-props/sourceY` | differs | 40 | 39.99999484282782 |
-| `props/edge-component-props/targetX` | differs | -25 | -24.99998142209219 |
-| `props/edge-component-props/targetY` | differs | 97 | 96.99999692174447 |
 | `props/edge-props/selectable` | differs | true | {"@undefined":true} |
 | `props/edge-props/deletable` | differs | true | {"@undefined":true} |
-| `props/edge-props/sourceX` | differs | 75 | 75.00001857790781 |
-| `props/edge-props/sourceY` | differs | 40 | 39.99999484282782 |
-| `props/edge-props/targetX` | differs | -25 | -24.99998142209219 |
-| `props/edge-props/targetY` | differs | 97 | 96.99999692174447 |
 
 
 ---
@@ -8152,28 +6796,18 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `props`, `console`.
 
-**Failed:** 16 unclaimed difference(s).
+**Failed:** 6 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### props (16)
+### props (6)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `props/connection-line-props/fromNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
-| `props/connection-line-props/fromNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
 | `props/connection-line-props/fromNode/internals/handleBounds/target` | differs | null | [] |
 | `props/connection-line-props/fromNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
-| `props/connection-line-props/fromHandle/x` | differs | 71 | 70.99981241215175 |
-| `props/connection-line-props/fromHandle/y` | differs | 32 | 31.999917853269015 |
-| `props/connection-line-props/fromX` | differs | 75 | 74.99981241215175 |
-| `props/connection-line-props/fromY` | differs | 36 | 35.99991785326901 |
-| `props/connection-line-props/toX` | differs | 75.00000000000003 | 614.2541239283697 |
-| `props/connection-line-props/toY` | differs | 201 | 238.9953028847669 |
+| `props/connection-line-props/toX` | differs | 75.00000000000003 | 614.25431711146 |
+| `props/connection-line-props/toY` | differs | 201 | 238.99529042386186 |
 | `props/connection-line-props/toNode/internals/handleBounds/source` | differs | null | [] |
-| `props/connection-line-props/toNode/internals/handleBounds/target/0/x` | differs | 71 | 70.99981241215175 |
-| `props/connection-line-props/toNode/internals/handleBounds/target/0/y` | differs | -3 | -2.9999879000053404 |
 | `props/connection-line-props/toNode/internals/userNode` | left only | {"id":"Node-4","data":{"label":"Node-4"},"position":{"x":0,"y":200},"type":"output","measured":{"width":150,"height":37}} | — |
-| `props/connection-line-props/toHandle/x` | differs | 75 | 74.99981241215175 |
-| `props/connection-line-props/toHandle/y` | differs | 201 | 201.00001209999465 |
 
