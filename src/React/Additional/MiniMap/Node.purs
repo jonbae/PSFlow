@@ -7,6 +7,7 @@ module React.Additional.MiniMap.Node
 import Prelude
 
 import Data.Maybe (Maybe(..))
+import Data.Number.Format (toString) as NumberFormat
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign)
 import Foreign.Object (Object)
@@ -42,7 +43,7 @@ miniMapNode =
         styleObj = Object.empty
           # maybeInsert "fill" (pickFill props.color props.style)
           # maybeInsert "stroke" props.strokeColor
-          # maybeInsert "strokeWidth" (map show props.strokeWidth)
+          # maybeInsert "strokeWidth" (map NumberFormat.toString props.strokeWidth)
         onClickHandler = case props.onClick of
           Nothing -> handler_ (pure unit)
           Just cb -> handler syntheticEvent \e ->

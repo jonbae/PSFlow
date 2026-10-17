@@ -6,12 +6,14 @@
 -- | `EdgeTextProps` scaffold) rather than TS's `[number, number]`.
 module React.Edge.Text
   ( edgeText
+  , labelTransform
   ) where
 
 import Prelude
 
 import Data.Foldable (for_)
 import Data.Maybe (Maybe(..), fromMaybe)
+import Data.Number.Format (toString) as NumberFormat
 import Data.Nullable (Nullable, toMaybe, toNullable)
 import Data.Tuple.Nested ((/\))
 import Effect (Effect)
@@ -38,6 +40,16 @@ initialBBox = { x: 1.0, y: 0.0, width: 0.0, height: 0.0 }
 
 foreign import measureText :: Foreign -> Effect TextBBox
 
+-- | TS `translate(${x - edgeTextBbox.width / 2} ${y - edgeTextBbox.height / 2})`,
+-- | centring the label group on `(x, y)`.
+labelTransform :: Number -> Number -> Number -> Number -> String
+labelTransform x y width height =
+  "translate("
+    <> NumberFormat.toString (x - width / 2.0)
+    <> " "
+    <> NumberFormat.toString (y - height / 2.0)
+    <> ")"
+
 edgeText :: ReactComponent EdgeTextProps
 edgeText = unsafePerformEffect $ reactComponent "EdgeText" \(props :: EdgeTextProps) -> React.do
   bbox /\ setBBox <- useState initialBBox
@@ -57,12 +69,7 @@ edgeText = unsafePerformEffect $ reactComponent "EdgeText" \(props :: EdgeTextPr
         pad = fromMaybe defaultPadding props.labelBgPadding
         showBg = fromMaybe true props.labelShowBg
         bgRadius = fromMaybe 2.0 props.labelBgBorderRadius
-        transform =
-          "translate("
-            <> show (props.x - bbox.width / 2.0)
-            <> " "
-            <> show (props.y - bbox.height / 2.0)
-            <> ")"
+        transform = labelTransform props.x props.y bbox.width bbox.height
         bg :: JSX
         bg
           | showBg = rect_

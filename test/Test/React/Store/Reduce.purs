@@ -40,9 +40,9 @@ sampleNode =
   , data: unit
   , sourcePosition: Nothing
   , targetPosition: Nothing
-  , hidden: false
-  , selected: true
-  , dragging: false
+  , hidden: Nothing
+  , selected: Just true
+  , dragging: Nothing
   , draggable: Nothing
   , selectable: Nothing
   , connectable: Nothing
@@ -55,7 +55,7 @@ sampleNode =
   , parentId: Nothing
   , zIndex: Nothing
   , extent: Nothing
-  , expandParent: false
+  , expandParent: Nothing
   , ariaLabel: Nothing
   , origin: Nothing
   , handles: Nothing
@@ -80,12 +80,12 @@ sampleEdge =
   , target: NodeId "n2"
   , sourceHandle: Nothing
   , targetHandle: Nothing
-  , animated: false
-  , hidden: false
+  , animated: Nothing
+  , hidden: Nothing
   , deletable: Nothing
   , selectable: Nothing
   , data: Nothing
-  , selected: true
+  , selected: Just true
   , markerStart: Nothing
   , markerEnd: Nothing
   , zIndex: Nothing
@@ -103,9 +103,9 @@ freshNode =
   , data: unit
   , sourcePosition: Nothing
   , targetPosition: Nothing
-  , hidden: false
-  , selected: false
-  , dragging: false
+  , hidden: Nothing
+  , selected: Nothing
+  , dragging: Nothing
   , draggable: Nothing
   , selectable: Nothing
   , connectable: Nothing
@@ -118,7 +118,7 @@ freshNode =
   , parentId: Nothing
   , zIndex: Nothing
   , extent: Nothing
-  , expandParent: false
+  , expandParent: Nothing
   , ariaLabel: Nothing
   , origin: Nothing
   , handles: Nothing
@@ -136,12 +136,12 @@ freshEdge =
   , target: NodeId "b"
   , sourceHandle: Nothing
   , targetHandle: Nothing
-  , animated: false
-  , hidden: false
+  , animated: Nothing
+  , hidden: Nothing
   , deletable: Nothing
   , selectable: Nothing
   , data: Nothing
-  , selected: false
+  , selected: Nothing
   , markerStart: Nothing
   , markerEnd: Nothing
   , zIndex: Nothing
@@ -171,28 +171,28 @@ sampleState =
 -- the lookup from. Same idea on the edge side with `sampleEdge`.
 
 n1Base :: NodeBase Unit
-n1Base = freshNode { id = NodeId "n1", selected = true }
+n1Base = freshNode { id = NodeId "n1", selected = Just true }
 
 n2Base :: NodeBase Unit
-n2Base = freshNode { id = NodeId "n2", selected = false }
+n2Base = freshNode { id = NodeId "n2", selected = Just false }
 
 n2Internal :: InternalNodeBase Unit
-n2Internal = sampleNode { id = NodeId "n2", selected = false }
+n2Internal = sampleNode { id = NodeId "n2", selected = Just false }
 
 e1Unsel :: EdgeBase Unit
-e1Unsel = sampleEdge { selected = false }
+e1Unsel = sampleEdge { selected = Just false }
 
 e2Unsel :: EdgeBase Unit
-e2Unsel = sampleEdge { id = "e2", selected = false }
+e2Unsel = sampleEdge { id = "e2", selected = Just false }
 
 baseState :: ReactFlowState Unit Unit
 baseState = initialState defaultInitialStateOptions
 
 nodeSelected :: ReactFlowState Unit Unit -> String -> Boolean
-nodeSelected st nid = maybe false _.selected (Map.lookup (NodeId nid) st.nodeLookup)
+nodeSelected st nid = maybe false (\n -> n.selected == Just true) (Map.lookup (NodeId nid) st.nodeLookup)
 
 edgeSelected :: ReactFlowState Unit Unit -> String -> Boolean
-edgeSelected st eid = maybe false _.selected (Map.lookup eid st.edgeLookup)
+edgeSelected st eid = maybe false (\e -> e.selected == Just true) (Map.lookup eid st.edgeLookup)
 
 -- 1. ResetSelectedElements emits selection-change effects ------------
 
