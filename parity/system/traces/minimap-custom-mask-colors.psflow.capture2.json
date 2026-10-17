@@ -659,7 +659,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 184.89999997615814,
+            "timeStamp": 164.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -728,7 +728,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 184.89999997615814,
+            "timeStamp": 164.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -800,7 +800,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 184.89999997615814,
+            "timeStamp": 164.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -865,7 +865,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 184.89999997615814,
+            "timeStamp": 164.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -947,7 +947,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 202.80000001192093,
+            "timeStamp": 169.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1045,7 +1045,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 220.39999997615814,
+            "timeStamp": 188,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1114,7 +1114,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 220.39999997615814,
+            "timeStamp": 188,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1272,9 +1272,7 @@
             "handleBounds": {
               "source": [
                 {
-                  "id": {
-                    "@undefined": true
-                  },
+                  "id": null,
                   "nodeId": "Node-1",
                   "x": 71,
                   "y": 32,

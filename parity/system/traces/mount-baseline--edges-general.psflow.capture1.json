@@ -2085,9 +2085,7 @@
             "handleBounds": {
               "source": [
                 {
-                  "id": {
-                    "@undefined": true
-                  },
+                  "id": null,
                   "nodeId": "1",
                   "x": 71.00001857790781,
                   "y": 31.999994842827817,

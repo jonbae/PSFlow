@@ -764,7 +764,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 185.5,
+            "timeStamp": 184.9000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -833,7 +833,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 185.5,
+            "timeStamp": 184.9000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -909,7 +909,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 185.5,
+            "timeStamp": 184.9000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -974,7 +974,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 185.5,
+            "timeStamp": 184.9000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1050,7 +1050,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 208.4000000357628,
+            "timeStamp": 208.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1128,7 +1128,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 208.4000000357628,
+            "timeStamp": 208.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1192,7 +1192,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 208.4000000357628,
+            "timeStamp": 208.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1257,7 +1257,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 208.4000000357628,
+            "timeStamp": 208.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1317,7 +1317,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 199.5,
+            "timeStamp": 199.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1379,7 +1379,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 228.4000000357628,
+            "timeStamp": 228.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1445,7 +1445,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 228.4000000357628,
+            "timeStamp": 228.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1516,7 +1516,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 228.4000000357628,
+            "timeStamp": 228.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1581,7 +1581,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 228.4000000357628,
+            "timeStamp": 228.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1643,9 +1643,7 @@
               "y": 35.99991785326901
             },
             "fromHandle": {
-              "id": {
-                "@undefined": true
-              },
+              "id": null,
               "nodeId": "Node-1",
               "x": 70.99981241215175,
               "y": 31.999917853269015,
@@ -1682,9 +1680,7 @@
                 "handleBounds": {
                   "source": [
                     {
-                      "id": {
-                        "@undefined": true
-                      },
+                      "id": null,
                       "nodeId": "Node-1",
                       "x": 70.99981241215175,
                       "y": 31.999917853269015,
@@ -1703,9 +1699,7 @@
               "y": 169
             },
             "toHandle": {
-              "id": {
-                "@undefined": true
-              },
+              "id": null,
               "nodeId": "Node-3",
               "x": 174.99981241215175,
               "y": 135.9999252616709,
@@ -1737,9 +1731,7 @@
                 "handleBounds": {
                   "source": [
                     {
-                      "id": {
-                        "@undefined": true
-                      },
+                      "id": null,
                       "nodeId": "Node-3",
                       "x": 70.99981241215175,
                       "y": 31.999925261670917,
@@ -1751,9 +1743,7 @@
                   ],
                   "target": [
                     {
-                      "id": {
-                        "@undefined": true
-                      },
+                      "id": null,
                       "nodeId": "Node-3",
                       "x": 70.99981241215175,
                       "y": -2.9999879000053404,
@@ -1976,9 +1966,7 @@
             "handleBounds": {
               "source": [
                 {
-                  "id": {
-                    "@undefined": true
-                  },
+                  "id": null,
                   "nodeId": "Node-1",
                   "x": 70.99981241215175,
                   "y": 31.999917853269015,

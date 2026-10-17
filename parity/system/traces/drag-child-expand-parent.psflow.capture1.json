@@ -420,7 +420,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 329.5,
+            "timeStamp": 311.0999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -489,7 +489,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 329.5,
+            "timeStamp": 311.0999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -562,7 +562,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 329.5,
+            "timeStamp": 311.0999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -627,7 +627,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 329.5,
+            "timeStamp": 311.0999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -782,7 +782,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 353.10000002384186,
+            "timeStamp": 334.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -914,7 +914,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 379.2000000476837,
+            "timeStamp": 361.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1046,7 +1046,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 395.9000000357628,
+            "timeStamp": 377.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1178,7 +1178,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 411.80000001192093,
+            "timeStamp": 394.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1310,7 +1310,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 426.5,
+            "timeStamp": 408.0999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1442,7 +1442,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 442.9000000357628,
+            "timeStamp": 425.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1574,7 +1574,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 459.7000000476837,
+            "timeStamp": 441.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1706,7 +1706,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 476.7000000476837,
+            "timeStamp": 457.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1993,9 +1993,7 @@
             "handleBounds": {
               "source": [
                 {
-                  "id": {
-                    "@undefined": true
-                  },
+                  "id": null,
                   "nodeId": "parent",
                   "x": 91,
                   "y": 72,
@@ -2007,9 +2005,7 @@
               ],
               "target": [
                 {
-                  "id": {
-                    "@undefined": true
-                  },
+                  "id": null,
                   "nodeId": "parent",
                   "x": 91,
                   "y": -3,

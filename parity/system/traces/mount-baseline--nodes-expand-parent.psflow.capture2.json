@@ -504,9 +504,7 @@
             "handleBounds": {
               "source": [
                 {
-                  "id": {
-                    "@undefined": true
-                  },
+                  "id": null,
                   "nodeId": "parent",
                   "x": 91,
                   "y": 72,
@@ -518,9 +516,7 @@
               ],
               "target": [
                 {
-                  "id": {
-                    "@undefined": true
-                  },
+                  "id": null,
                   "nodeId": "parent",
                   "x": 91,
                   "y": -3,

@@ -468,7 +468,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 161.30000001192093,
+            "timeStamp": 162.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -535,7 +535,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 161.30000001192093,
+            "timeStamp": 162.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -614,7 +614,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 170.0999999642372,
+            "timeStamp": 170.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -703,7 +703,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 185.80000001192093,
+            "timeStamp": 186.5999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -792,7 +792,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 202,
+            "timeStamp": 202.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -881,7 +881,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 218.5,
+            "timeStamp": 220.0999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -970,7 +970,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 235.19999998807907,
+            "timeStamp": 236.5999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1073,7 +1073,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 257.30000001192093,
+            "timeStamp": 259.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1152,7 +1152,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 268.5,
+            "timeStamp": 269.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1241,7 +1241,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 285,
+            "timeStamp": 285.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1330,7 +1330,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 304.19999998807907,
+            "timeStamp": 303.0999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1419,7 +1419,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 318.89999997615814,
+            "timeStamp": 320.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1508,7 +1508,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 337.0999999642372,
+            "timeStamp": 336.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1677,9 +1677,7 @@
             "handleBounds": {
               "source": [
                 {
-                  "id": {
-                    "@undefined": true
-                  },
+                  "id": null,
                   "nodeId": "1",
                   "x": 71.00008777202368,
                   "y": 32.00003955922194,

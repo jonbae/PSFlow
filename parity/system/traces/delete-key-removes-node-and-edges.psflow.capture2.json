@@ -537,7 +537,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 186.10000002384186,
+            "timeStamp": 184.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -606,7 +606,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 186.10000002384186,
+            "timeStamp": 184.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -682,7 +682,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 186.10000002384186,
+            "timeStamp": 184.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -747,7 +747,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 186.10000002384186,
+            "timeStamp": 184.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -967,7 +967,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 218.10000002384186,
+            "timeStamp": 216.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1064,7 +1064,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 247.80000001192093,
+            "timeStamp": 248.9000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1287,9 +1287,7 @@
               "source": [],
               "target": [
                 {
-                  "id": {
-                    "@undefined": true
-                  },
+                  "id": null,
                   "nodeId": "Node-2",
                   "x": 70.99981241215175,
                   "y": -2.9999879000053404,

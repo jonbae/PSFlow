@@ -1792,7 +1792,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 226.89999997615814,
+            "timeStamp": 228.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1861,7 +1861,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 226.89999997615814,
+            "timeStamp": 228.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1924,7 +1924,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 226.89999997615814,
+            "timeStamp": 228.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1989,7 +1989,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 226.89999997615814,
+            "timeStamp": 228.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2062,7 +2062,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 239.29999995231628,
+            "timeStamp": 238.5999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2162,7 +2162,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 311.7999999523163,
+            "timeStamp": 310.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2457,9 +2457,7 @@
             "handleBounds": {
               "source": [
                 {
-                  "id": {
-                    "@undefined": true
-                  },
+                  "id": null,
                   "nodeId": "1",
                   "x": 71.00001857790781,
                   "y": 31.999994842827817,

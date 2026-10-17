@@ -25101,11 +25101,11 @@ var bottomNumber = Number.NEGATIVE_INFINITY;
 
 // output/Data.Ord/foreign.js
 var unsafeCompareImpl = function(lt) {
-  return function(eq46) {
+  return function(eq48) {
     return function(gt) {
       return function(x) {
         return function(y) {
-          return x < y ? lt : x === y ? eq46 : gt;
+          return x < y ? lt : x === y ? eq48 : gt;
         };
       };
     };
@@ -25488,7 +25488,7 @@ var fromJust = function() {
   };
 };
 var eqMaybe = function(dictEq) {
-  var eq46 = eq(dictEq);
+  var eq48 = eq(dictEq);
   return {
     eq: function(x) {
       return function(y) {
@@ -25497,7 +25497,7 @@ var eqMaybe = function(dictEq) {
         }
         ;
         if (x instanceof Just && y instanceof Just) {
-          return eq46(x.value0)(y.value0);
+          return eq48(x.value0)(y.value0);
         }
         ;
         return false;
@@ -26006,13 +26006,13 @@ var fst = function(v) {
   return v.value0;
 };
 var eqTuple = function(dictEq) {
-  var eq46 = eq(dictEq);
+  var eq48 = eq(dictEq);
   return function(dictEq1) {
     var eq113 = eq(dictEq1);
     return {
       eq: function(x) {
         return function(y) {
-          return eq46(x.value0)(y.value0) && eq113(x.value1)(y.value1);
+          return eq48(x.value0)(y.value0) && eq113(x.value1)(y.value1);
         };
       }
     };
@@ -26995,6 +26995,30 @@ var Target = /* @__PURE__ */ function() {
   Target2.value = new Target2();
   return Target2;
 }();
+var HandleIdUnset = /* @__PURE__ */ function() {
+  function HandleIdUnset2() {
+  }
+  ;
+  HandleIdUnset2.value = new HandleIdUnset2();
+  return HandleIdUnset2;
+}();
+var HandleIdNull = /* @__PURE__ */ function() {
+  function HandleIdNull2() {
+  }
+  ;
+  HandleIdNull2.value = new HandleIdNull2();
+  return HandleIdNull2;
+}();
+var HandleIdSet = /* @__PURE__ */ function() {
+  function HandleIdSet2(value0) {
+    this.value0 = value0;
+  }
+  ;
+  HandleIdSet2.create = function(value0) {
+    return new HandleIdSet2(value0);
+  };
+  return HandleIdSet2;
+}();
 var unTargetHandle = function(v) {
   return v;
 };
@@ -27010,7 +27034,7 @@ var mkTargetHandle = function(h) {
     return Nothing.value;
   }
   ;
-  throw new Error("Failed pattern match at System.Types.Handle (line 83, column 20 - line 85, column 20): " + [h.handleType.constructor.name]);
+  throw new Error("Failed pattern match at System.Types.Handle (line 111, column 20 - line 113, column 20): " + [h.handleType.constructor.name]);
 };
 var mkSourceHandle = function(h) {
   if (h.handleType instanceof Source) {
@@ -27021,7 +27045,14 @@ var mkSourceHandle = function(h) {
     return Nothing.value;
   }
   ;
-  throw new Error("Failed pattern match at System.Types.Handle (line 78, column 20 - line 80, column 20): " + [h.handleType.constructor.name]);
+  throw new Error("Failed pattern match at System.Types.Handle (line 106, column 20 - line 108, column 20): " + [h.handleType.constructor.name]);
+};
+var handleIdString = function(v) {
+  if (v instanceof HandleIdSet) {
+    return new Just(v.value0);
+  }
+  ;
+  return Nothing.value;
 };
 var eqHandleType = {
   eq: function(x) {
@@ -27038,7 +27069,26 @@ var eqHandleType = {
     };
   }
 };
-var eqRec3 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()(yIsSymbol)(eqNumber))()(xIsSymbol)(eqNumber))()(widthIsSymbol)(eqNumber))()(positionIsSymbol)(eqPosition))()(nodeIdIsSymbol)(eqNodeId))()(idIsSymbol)(/* @__PURE__ */ eqMaybe(eqString)))()(heightIsSymbol)(eqNumber))()(handleTypeIsSymbol)(eqHandleType));
+var eqHandleIdField = {
+  eq: function(x) {
+    return function(y) {
+      if (x instanceof HandleIdUnset && y instanceof HandleIdUnset) {
+        return true;
+      }
+      ;
+      if (x instanceof HandleIdNull && y instanceof HandleIdNull) {
+        return true;
+      }
+      ;
+      if (x instanceof HandleIdSet && y instanceof HandleIdSet) {
+        return x.value0 === y.value0;
+      }
+      ;
+      return false;
+    };
+  }
+};
+var eqRec3 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()(yIsSymbol)(eqNumber))()(xIsSymbol)(eqNumber))()(widthIsSymbol)(eqNumber))()(positionIsSymbol)(eqPosition))()(nodeIdIsSymbol)(eqNodeId))()(idIsSymbol)(eqHandleIdField))()(heightIsSymbol)(eqNumber))()(handleTypeIsSymbol)(eqHandleType));
 var eqSourceHandle = eqRec3;
 var eqTargetHandle = eqRec3;
 
@@ -29756,12 +29806,12 @@ var lookup = /* @__PURE__ */ function() {
   return runFn4(_lookup)(Nothing.value)(Just.create);
 }();
 var isSubmap = function(dictEq) {
-  var eq46 = eq(dictEq);
+  var eq48 = eq(dictEq);
   return function(m1) {
     return function(m2) {
       var f = function(k) {
         return function(v) {
-          return _lookup(false, eq46(v), k, m2);
+          return _lookup(false, eq48(v), k, m2);
         };
       };
       return all3(f)(m1);
@@ -29916,7 +29966,7 @@ var setAttributesOut = function(m) {
     return false;
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Elements (line 1008, column 22 - line 1012, column 37): " + [m.width.constructor.name, m.height.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Elements (line 1022, column 22 - line 1026, column 37): " + [m.width.constructor.name, m.height.constructor.name]);
 };
 var setAttributesIn = function(raw) {
   var v = asBoolean(raw);
@@ -29946,16 +29996,16 @@ var setAttributesIn = function(raw) {
     return unsafeThrow("ps-flow: a dimension change's `setAttributes` must be a boolean, " + ('"width" or "height", got ' + (typeName(raw) + ".")));
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Elements (line 1015, column 23 - line 1025, column 17): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Elements (line 1029, column 23 - line 1039, column 17): " + [v.constructor.name]);
 };
 var requiredMember = function(tag) {
   return function(member10) {
     var $$throw2 = function(v) {
       return unsafeThrow("ps-flow: a `" + (tag + ("` change must carry `" + (member10 + "`."))));
     };
-    var $116 = fromMaybe$prime($$throw2);
-    return function($117) {
-      return $116(fromUndefinable($117));
+    var $120 = fromMaybe$prime($$throw2);
+    return function($121) {
+      return $120(fromUndefinable($121));
     };
   };
 };
@@ -30041,28 +30091,6 @@ var nodeOriginIn = function(field) {
     return unsafeThrow(pairError(field)("[originX, originY]")(v));
   };
 };
-var nodeHandleOut = function(h) {
-  return {
-    id: toUndefinable(h.id),
-    x: h.x,
-    y: h.y,
-    position: positionOut(h.position),
-    type: handleTypeOut(h.handleType),
-    width: toUndefinable(h.width),
-    height: toUndefinable(h.height)
-  };
-};
-var nodeHandleIn = function(h) {
-  return {
-    id: fromUndefinable(h.id),
-    x: h.x,
-    y: h.y,
-    position: positionIn("node.handles[].position")(h.position),
-    handleType: handleTypeIn("node.handles[].type")(h.type),
-    width: fromUndefinable(h.width),
-    height: fromUndefinable(h.height)
-  };
-};
 var nodeBoundsOut = function(b) {
   return {
     x: b.x,
@@ -30124,9 +30152,24 @@ var keyCodeIn = function(v) {
     return map7(keyCodeValueIn(v))(fromUndefinable(v1));
   };
 };
+var handleIdOut = function(v) {
+  if (v instanceof HandleIdUnset) {
+    return undefined2;
+  }
+  ;
+  if (v instanceof HandleIdNull) {
+    return nullUndefinable;
+  }
+  ;
+  if (v instanceof HandleIdSet) {
+    return defined(v.value0);
+  }
+  ;
+  throw new Error("Failed pattern match at Boundary.Elements (line 693, column 15 - line 696, column 29): " + [v.constructor.name]);
+};
 var handleOut = function(h) {
   return {
-    id: toUndefinable(h.id),
+    id: handleIdOut(h.id),
     nodeId: unwrap2(h.nodeId),
     x: h.x,
     y: h.y,
@@ -30136,13 +30179,46 @@ var handleOut = function(h) {
     height: h.height
   };
 };
+var nodeHandleOut = function(h) {
+  return {
+    id: handleIdOut(h.id),
+    x: h.x,
+    y: h.y,
+    position: positionOut(h.position),
+    type: handleTypeOut(h.handleType),
+    width: toUndefinable(h.width),
+    height: toUndefinable(h.height)
+  };
+};
+var handleIdIn = function(u) {
+  if (isNull(u)) {
+    return HandleIdNull.value;
+  }
+  ;
+  if (otherwise) {
+    return maybe(HandleIdUnset.value)(HandleIdSet.create)(fromUndefinable(u));
+  }
+  ;
+  throw new Error("Failed pattern match at Boundary.Elements (line 687, column 1 - line 687, column 50): " + [u.constructor.name]);
+};
+var nodeHandleIn = function(h) {
+  return {
+    id: handleIdIn(h.id),
+    x: h.x,
+    y: h.y,
+    position: positionIn("node.handles[].position")(h.position),
+    handleType: handleTypeIn("node.handles[].type")(h.type),
+    width: fromUndefinable(h.width),
+    height: fromUndefinable(h.height)
+  };
+};
 var handleBoundsOut = function(b) {
   return {
-    source: map12(function($118) {
-      return handleOut(unSourceHandle($118));
+    source: map12(function($122) {
+      return handleOut(unSourceHandle($122));
     })(b.source),
-    target: map12(function($119) {
-      return handleOut(unTargetHandle($119));
+    target: map12(function($123) {
+      return handleOut(unTargetHandle($123));
     })(b.target)
   };
 };
@@ -30202,7 +30278,7 @@ var markerOut = function(v) {
     return edgeMarkerOut(v.value0);
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Elements (line 811, column 13 - line 813, column 51): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Elements (line 825, column 13 - line 827, column 51): " + [v.constructor.name]);
 };
 var edgeMarkerIn = function(field) {
   return function(m) {
@@ -30228,7 +30304,7 @@ var markerIn = function(field) {
       return new CustomMarker(edgeMarkerIn(field)(raw));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Elements (line 806, column 22 - line 808, column 66): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Elements (line 820, column 22 - line 822, column 66): " + [v.constructor.name]);
   };
 };
 var edgeAriaLabelOut = function(v) {
@@ -30244,7 +30320,7 @@ var edgeAriaLabelOut = function(v) {
     return defined(v.value0.value0);
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Elements (line 798, column 20 - line 801, column 34): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Elements (line 812, column 20 - line 815, column 34): " + [v.constructor.name]);
 };
 var edgeOut = function(e) {
   return pruneUndefined({
@@ -30270,7 +30346,7 @@ var edgeOut = function(e) {
     style: toUndefinable(map7(fromCssObject)(e.style))
   });
 };
-var edgeChangeOut = function($120) {
+var edgeChangeOut = function($124) {
   return pruneUndefined(function(v) {
     if (v instanceof EdgeSelectionChange) {
       return {
@@ -30312,8 +30388,8 @@ var edgeChangeOut = function($120) {
       };
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Elements (line 1047, column 36 - line 1066, column 6): " + [v.constructor.name]);
-  }($120));
+    throw new Error("Failed pattern match at Boundary.Elements (line 1061, column 36 - line 1080, column 6): " + [v.constructor.name]);
+  }($124));
 };
 var edgeAriaLabelIn = function(u) {
   if (isNull(u)) {
@@ -30324,7 +30400,7 @@ var edgeAriaLabelIn = function(u) {
     return map7(AriaLabel.create)(fromUndefinable(u));
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Elements (line 790, column 1 - line 790, column 61): " + [u.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Elements (line 804, column 1 - line 804, column 61): " + [u.constructor.name]);
 };
 var coordinateExtentOut = function(e) {
   return [[unwrap2(e).minX, unwrap2(e).minY], [unwrap2(e).maxX, unwrap2(e).maxY]];
@@ -30401,8 +30477,8 @@ var nodeOut = function(n) {
     origin: toUndefinable(map7(nodeOriginOut)(n.origin)),
     handles: toUndefinable(map7(map12(nodeHandleOut))(n.handles)),
     measured: function() {
-      var $94 = eq5(n.measured)(emptyMeasured);
-      if ($94) {
+      var $98 = eq5(n.measured)(emptyMeasured);
+      if ($98) {
         return undefined2;
       }
       ;
@@ -30418,7 +30494,7 @@ var graphSelectionOut = function(s) {
     edges: map12(edgeOut)(s.edges)
   };
 };
-var nodeChangeOut = function($121) {
+var nodeChangeOut = function($125) {
   return pruneUndefined(function(v) {
     if (v instanceof NodeDimensionChange) {
       return {
@@ -30516,8 +30592,8 @@ var nodeChangeOut = function($121) {
       };
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Elements (line 953, column 36 - line 986, column 6): " + [v.constructor.name]);
-  }($121));
+    throw new Error("Failed pattern match at Boundary.Elements (line 967, column 36 - line 1000, column 6): " + [v.constructor.name]);
+  }($125));
 };
 var coordinateExtentIn = function(field) {
   return function(v) {
@@ -32738,9 +32814,9 @@ function toString(num) {
 
 // output/React.Basic.Hooks/foreign.js
 var import_react2 = __toESM(require_react(), 1);
-var useEqCache = (eq46, a) => {
+var useEqCache = (eq48, a) => {
   const memoRef = import_react2.default.useRef(a);
-  if (memoRef.current !== a && !eq46(memoRef.current, a)) {
+  if (memoRef.current !== a && !eq48(memoRef.current, a)) {
     memoRef.current = a;
   }
   return memoRef.current;
@@ -32759,15 +32835,15 @@ function useState_(tuple, initialState2) {
   }
   return tuple(state3, setState.$$reactBasicHooks$$cachedSetState);
 }
-function useEffect_(eq46, deps, effect) {
-  const memoizedKey = useEqCache(eq46, deps);
+function useEffect_(eq48, deps, effect) {
+  const memoizedKey = useEqCache(eq48, deps);
   import_react2.default.useEffect(effect, [memoizedKey]);
 }
 function useEffectAlways_(effect) {
   return import_react2.default.useEffect(effect);
 }
-function useLayoutEffect_(eq46, deps, effect) {
-  const memoizedKey = useEqCache(eq46, deps);
+function useLayoutEffect_(eq48, deps, effect) {
+  const memoizedKey = useEqCache(eq48, deps);
   import_react2.default.useLayoutEffect(effect, [memoizedKey]);
 }
 var useRef_ = import_react2.default.useRef;
@@ -32778,8 +32854,8 @@ function writeRef_(ref, a) {
   ref.current = a;
 }
 var useContext_ = import_react2.default.useContext;
-function useMemo_(eq46, deps, computeA) {
-  const memoizedKey = useEqCache(eq46, deps);
+function useMemo_(eq48, deps, computeA) {
+  const memoizedKey = useEqCache(eq48, deps);
   return import_react2.default.useMemo(computeA, [memoizedKey]);
 }
 var useDebugValue_ = import_react2.default.useDebugValue;
@@ -32907,21 +32983,21 @@ var useRef = function(initialValue) {
   });
 };
 var useMemo = function(dictEq) {
-  var eq46 = eq(dictEq);
+  var eq48 = eq(dictEq);
   return function(deps) {
     return function(computeA) {
       return unsafeHook(function() {
-        return useMemo_(mkFn2(eq46), deps, computeA);
+        return useMemo_(mkFn2(eq48), deps, computeA);
       });
     };
   };
 };
 var useLayoutEffect = function(dictEq) {
-  var eq46 = eq(dictEq);
+  var eq48 = eq(dictEq);
   return function(deps) {
     return function(effect) {
       return unsafeHook(function() {
-        return useLayoutEffect_(mkFn2(eq46), deps, effect);
+        return useLayoutEffect_(mkFn2(eq48), deps, effect);
       });
     };
   };
@@ -32939,11 +33015,11 @@ var useEffectAlways = function(effect) {
   });
 };
 var useEffect = function(dictEq) {
-  var eq46 = eq(dictEq);
+  var eq48 = eq(dictEq);
   return function(deps) {
     return function(effect) {
       return unsafeHook(function() {
-        return useEffect_(mkFn2(eq46), deps, effect);
+        return useEffect_(mkFn2(eq48), deps, effect);
       });
     };
   };
@@ -33415,7 +33491,7 @@ var useStoreApi = /* @__PURE__ */ coerceHook2(/* @__PURE__ */ bind6(/* @__PURE__
   throw new Error("Failed pattern match at React.Hook.Store (line 83, column 3 - line 85, column 47): " + [mStore.constructor.name]);
 }));
 var useStore = function(dictEq) {
-  var eq46 = eq(dictEq);
+  var eq48 = eq(dictEq);
   return function(selector4) {
     return coerceHook2(bind6(useContext(storeContext))(function(mStore) {
       var store = function() {
@@ -33430,7 +33506,7 @@ var useStore = function(dictEq) {
         throw new Error("Failed pattern match at React.Hook.Store (line 106, column 13 - line 108, column 42): " + [mStore.constructor.name]);
       }();
       return unsafeHook(function() {
-        return useStoreImpl(store, selector4, eq46);
+        return useStoreImpl(store, selector4, eq48);
       });
     }));
   };
@@ -34903,11 +34979,11 @@ var insert5 = function(dictOrd) {
   };
 };
 var eqSet = function(dictEq) {
-  var eq46 = eq(eqMap(dictEq)(eqUnit));
+  var eq48 = eq(eqMap(dictEq)(eqUnit));
   return {
     eq: function(v) {
       return function(v1) {
-        return eq46(v)(v1);
+        return eq48(v)(v1);
       };
     }
   };
@@ -35407,7 +35483,7 @@ var getHandleBounds = function(ht) {
             return function(nid) {
               return function(raw) {
                 return {
-                  id: toMaybe(raw.id),
+                  id: maybe(HandleIdNull.value)(HandleIdSet.create)(toMaybe(raw.id)),
                   nodeId: nid,
                   x: raw.x,
                   y: raw.y,
@@ -44053,7 +44129,7 @@ var toHandleBounds = function(node) {
     });
   }
   ;
-  throw new Error("Failed pattern match at System.Utils.Edges.Positions (line 57, column 23 - line 66, column 10): " + [node.handles.constructor.name]);
+  throw new Error("Failed pattern match at System.Utils.Edges.Positions (line 58, column 23 - line 67, column 10): " + [node.handles.constructor.name]);
 };
 var isNodeInitialized = function(node) {
   var hasSomeWidth = isJust(node.measured.width) || (isJust(node.width) || isJust(node.initialWidth));
@@ -44071,10 +44147,10 @@ var isNodeInitialized = function(node) {
         return false;
       }
       ;
-      throw new Error("Failed pattern match at System.Utils.Edges.Positions (line 48, column 16 - line 50, column 23): " + [node.handles.constructor.name]);
+      throw new Error("Failed pattern match at System.Utils.Edges.Positions (line 49, column 16 - line 51, column 23): " + [node.handles.constructor.name]);
     }
     ;
-    throw new Error("Failed pattern match at System.Utils.Edges.Positions (line 46, column 16 - line 50, column 23): " + [node.internals.handleBounds.constructor.name]);
+    throw new Error("Failed pattern match at System.Utils.Edges.Positions (line 47, column 16 - line 51, column 23): " + [node.internals.handleBounds.constructor.name]);
   }();
   return hasHandles && hasSomeWidth;
 };
@@ -44091,7 +44167,7 @@ var getHandlePosition = function(node) {
             return fallbackPosition;
           }
           ;
-          throw new Error("Failed pattern match at System.Utils.Edges.Positions (line 152, column 11 - line 154, column 34): " + [handle3.constructor.name]);
+          throw new Error("Failed pattern match at System.Utils.Edges.Positions (line 153, column 11 - line 155, column 34): " + [handle3.constructor.name]);
         }();
         var dim = function() {
           if (handle3 instanceof Just) {
@@ -44108,7 +44184,7 @@ var getHandlePosition = function(node) {
             })(getNodeDimensions(node));
           }
           ;
-          throw new Error("Failed pattern match at System.Utils.Edges.Positions (line 148, column 11 - line 151, column 33): " + [handle3.constructor.name]);
+          throw new Error("Failed pattern match at System.Utils.Edges.Positions (line 149, column 11 - line 152, column 33): " + [handle3.constructor.name]);
         }();
         var baseY = function() {
           if (handle3 instanceof Just) {
@@ -44119,7 +44195,7 @@ var getHandlePosition = function(node) {
             return 0;
           }
           ;
-          throw new Error("Failed pattern match at System.Utils.Edges.Positions (line 143, column 13 - line 145, column 21): " + [handle3.constructor.name]);
+          throw new Error("Failed pattern match at System.Utils.Edges.Positions (line 144, column 13 - line 146, column 21): " + [handle3.constructor.name]);
         }();
         var y = baseY + node.internals.positionAbsolute.y;
         var baseX = function() {
@@ -44131,7 +44207,7 @@ var getHandlePosition = function(node) {
             return 0;
           }
           ;
-          throw new Error("Failed pattern match at System.Utils.Edges.Positions (line 140, column 13 - line 142, column 21): " + [handle3.constructor.name]);
+          throw new Error("Failed pattern match at System.Utils.Edges.Positions (line 141, column 13 - line 143, column 21): " + [handle3.constructor.name]);
         }();
         var x = baseX + node.internals.positionAbsolute.x;
         if (center) {
@@ -44169,7 +44245,7 @@ var getHandlePosition = function(node) {
           };
         }
         ;
-        throw new Error("Failed pattern match at System.Utils.Edges.Positions (line 157, column 10 - line 161, column 48): " + [pos.constructor.name]);
+        throw new Error("Failed pattern match at System.Utils.Edges.Positions (line 158, column 10 - line 162, column 48): " + [pos.constructor.name]);
       };
     };
   };
@@ -44182,11 +44258,11 @@ var getHandle = function(bounds) {
     ;
     if (handleId instanceof Just) {
       return find2(function(h) {
-        return eq10(h.id)(new Just(handleId.value0));
+        return eq10(handleIdString(h.id))(new Just(handleId.value0));
       })(bounds);
     }
     ;
-    throw new Error("Failed pattern match at System.Utils.Edges.Positions (line 81, column 29 - line 83, column 57): " + [handleId.constructor.name]);
+    throw new Error("Failed pattern match at System.Utils.Edges.Positions (line 82, column 29 - line 84, column 72): " + [handleId.constructor.name]);
   };
 };
 var getEdgePosition = function(params) {
@@ -44204,7 +44280,7 @@ var getEdgePosition = function(params) {
       return toHandleBounds(params.targetNode);
     }
     ;
-    throw new Error("Failed pattern match at System.Utils.Edges.Positions (line 97, column 22 - line 99, column 52): " + [params.targetNode.internals.handleBounds.constructor.name]);
+    throw new Error("Failed pattern match at System.Utils.Edges.Positions (line 98, column 22 - line 100, column 52): " + [params.targetNode.internals.handleBounds.constructor.name]);
   }();
   var targetHandlePool = function() {
     if (params.connectionMode instanceof Strict) {
@@ -44216,7 +44292,7 @@ var getEdgePosition = function(params) {
         return [];
       }
       ;
-      throw new Error("Failed pattern match at System.Utils.Edges.Positions (line 105, column 11 - line 107, column 26): " + [targetBounds.constructor.name]);
+      throw new Error("Failed pattern match at System.Utils.Edges.Positions (line 106, column 11 - line 108, column 26): " + [targetBounds.constructor.name]);
     }
     ;
     if (params.connectionMode instanceof Loose) {
@@ -44228,10 +44304,10 @@ var getEdgePosition = function(params) {
         return [];
       }
       ;
-      throw new Error("Failed pattern match at System.Utils.Edges.Positions (line 111, column 11 - line 114, column 26): " + [targetBounds.constructor.name]);
+      throw new Error("Failed pattern match at System.Utils.Edges.Positions (line 112, column 11 - line 115, column 26): " + [targetBounds.constructor.name]);
     }
     ;
-    throw new Error("Failed pattern match at System.Utils.Edges.Positions (line 103, column 26 - line 114, column 26): " + [params.connectionMode.constructor.name]);
+    throw new Error("Failed pattern match at System.Utils.Edges.Positions (line 104, column 26 - line 115, column 26): " + [params.connectionMode.constructor.name]);
   }();
   var sourceBounds = function() {
     if (params.sourceNode.internals.handleBounds instanceof Just) {
@@ -44242,7 +44318,7 @@ var getEdgePosition = function(params) {
       return toHandleBounds(params.sourceNode);
     }
     ;
-    throw new Error("Failed pattern match at System.Utils.Edges.Positions (line 94, column 22 - line 96, column 52): " + [params.sourceNode.internals.handleBounds.constructor.name]);
+    throw new Error("Failed pattern match at System.Utils.Edges.Positions (line 95, column 22 - line 97, column 52): " + [params.sourceNode.internals.handleBounds.constructor.name]);
   }();
   var sourceHandles = function() {
     if (sourceBounds instanceof Just) {
@@ -44253,7 +44329,7 @@ var getEdgePosition = function(params) {
       return [];
     }
     ;
-    throw new Error("Failed pattern match at System.Utils.Edges.Positions (line 100, column 23 - line 102, column 22): " + [sourceBounds.constructor.name]);
+    throw new Error("Failed pattern match at System.Utils.Edges.Positions (line 101, column 23 - line 103, column 22): " + [sourceBounds.constructor.name]);
   }();
   return bind21(getHandle(sourceHandles)(params.sourceHandle))(function(sh) {
     return bind21(getHandle(targetHandlePool)(params.targetHandle))(function(th) {
@@ -44286,6 +44362,7 @@ var map34 = /* @__PURE__ */ map(functorArray);
 var eq11 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqString));
 var eq16 = /* @__PURE__ */ eq(eqNodeId);
 var eq25 = /* @__PURE__ */ eq(eqHandleType);
+var eq34 = /* @__PURE__ */ eq(eqHandleIdField);
 var min6 = /* @__PURE__ */ min(ordNumber);
 var zeroOrigin = /* @__PURE__ */ mkNodeOrigin(0)(0);
 var mapValues = function(lookup112) {
@@ -44302,8 +44379,8 @@ var nodesWithinDistance = function(position3) {
       };
       return foldl2(function(acc) {
         return function(node) {
-          var $24 = getOverlappingArea(rect)(nodeToRect(new Right(node))(zeroOrigin)) > 0;
-          if ($24) {
+          var $25 = getOverlappingArea(rect)(nodeToRect(new Right(node))(zeroOrigin)) > 0;
+          if ($25) {
             return append4(acc)([node]);
           }
           ;
@@ -44416,7 +44493,7 @@ var getHandle2 = function(nodeId) {
               var match = function() {
                 if (handleId instanceof Just) {
                   return find2(function(h) {
-                    return eq11(h.id)(new Just(handleId.value0));
+                    return eq11(handleIdString(h.id))(new Just(handleId.value0));
                   })(handles);
                 }
                 ;
@@ -44478,7 +44555,7 @@ var getClosestHandle = function(position3) {
           throw new Error("Failed pattern match at System.XYHandle.Utils (line 159, column 20 - line 161, column 23): " + [fromHandle.handleType.constructor.name]);
         }();
         var isFromHandle = function(h) {
-          return eq16(fromHandle.nodeId)(h.nodeId) && (eq25(fromHandle.handleType)(h.handleType) && eq11(fromHandle.id)(h.id));
+          return eq16(fromHandle.nodeId)(h.nodeId) && (eq25(fromHandle.handleType)(h.handleType) && eq34(fromHandle.id)(h.id));
         };
         var closeNodes = nodesWithinDistance(position3)(lookup112)(connectionRadius + additionalDistance);
         var pairs = function() {
@@ -44511,8 +44588,8 @@ var getClosestHandle = function(position3) {
         }();
         var annotated = foldl2(function(acc) {
           return function(v2) {
-            var $51 = isFromHandle(v2.value1);
-            if ($51) {
+            var $52 = isFromHandle(v2.value1);
+            if ($52) {
               return acc;
             }
             ;
@@ -44520,8 +44597,8 @@ var getClosestHandle = function(position3) {
             var dx = abs4.x - position3.x;
             var dy = abs4.y - position3.y;
             var d = sqrt(dx * dx + dy * dy);
-            var $52 = d > connectionRadius;
-            if ($52) {
+            var $53 = d > connectionRadius;
+            if ($53) {
               return acc;
             }
             ;
@@ -44547,8 +44624,8 @@ var getClosestHandle = function(position3) {
         })(infinity2)(annotated);
         var closest = foldl2(function(acc) {
           return function(r) {
-            var $55 = r.distance === minDistance;
-            if ($55) {
+            var $56 = r.distance === minDistance;
+            if ($56) {
               return append4(acc)([r.handle]);
             }
             ;
@@ -44643,6 +44720,21 @@ var initialDragState = function(startPos) {
 var handleSelector = function(lib) {
   return function(flowId) {
     return function(h) {
+      var idTag = function(v) {
+        if (v instanceof HandleIdSet) {
+          return v.value0;
+        }
+        ;
+        if (v instanceof HandleIdNull) {
+          return "null";
+        }
+        ;
+        if (v instanceof HandleIdUnset) {
+          return "undefined";
+        }
+        ;
+        throw new Error("Failed pattern match at System.XYHandle (line 598, column 11 - line 601, column 33): " + [v.constructor.name]);
+      };
       var handleTypeTag = function(v) {
         if (v instanceof Source) {
           return "source";
@@ -44652,9 +44744,9 @@ var handleSelector = function(lib) {
           return "target";
         }
         ;
-        throw new Error("Failed pattern match at System.XYHandle (line 593, column 19 - line 595, column 23): " + [v.constructor.name]);
+        throw new Error("Failed pattern match at System.XYHandle (line 595, column 19 - line 597, column 23): " + [v.constructor.name]);
       };
-      return "." + (lib + ('-flow__handle[data-id="' + (fromMaybe("")(flowId) + ("-" + (unwrap11(h.nodeId) + ("-" + (fromMaybe("null")(h.id) + ("-" + (handleTypeTag(h.handleType) + '"]')))))))));
+      return "." + (lib + ('-flow__handle[data-id="' + (fromMaybe("")(flowId) + ("-" + (unwrap11(h.nodeId) + ("-" + (idTag(h.id) + ("-" + (handleTypeTag(h.handleType) + '"]')))))))));
     };
   };
 };
@@ -44678,7 +44770,7 @@ var docTag = function(v) {
     };
   }
   ;
-  throw new Error("Failed pattern match at System.XYHandle (line 640, column 10 - line 642, column 56): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at System.XYHandle (line 646, column 10 - line 648, column 56): " + [v.constructor.name]);
 };
 var elementFromPointOnDoc = function(d) {
   return function(x) {
@@ -44827,16 +44919,16 @@ var autoPanStep = function(env) {
       }))))(function() {
         return bind110(liftEffect7(requestAnimationFrame(autoPanLoop(env)(stateRef))))(function(handle3) {
           return modify_3(function(v) {
-            var $75 = {};
-            for (var $76 in v) {
-              if ({}.hasOwnProperty.call(v, $76)) {
-                $75[$76] = v[$76];
+            var $78 = {};
+            for (var $79 in v) {
+              if ({}.hasOwnProperty.call(v, $79)) {
+                $78[$79] = v[$79];
               }
               ;
             }
             ;
-            $75.autoPanId = new Just(handle3);
-            return $75;
+            $78.autoPanId = new Just(handle3);
+            return $78;
           });
         });
       });
@@ -44853,31 +44945,31 @@ var trackPointer = function(env) {
     return function(position3) {
       return function(closestHandle) {
         return discard22(modify_3(function(v) {
-          var $78 = {};
-          for (var $79 in v) {
-            if ({}.hasOwnProperty.call(v, $79)) {
-              $78[$79] = v[$79];
+          var $81 = {};
+          for (var $82 in v) {
+            if ({}.hasOwnProperty.call(v, $82)) {
+              $81[$82] = v[$82];
             }
             ;
           }
           ;
-          $78.position = position3;
-          $78.closestHandle = closestHandle;
-          return $78;
+          $81.position = position3;
+          $81.closestHandle = closestHandle;
+          return $81;
         }))(function() {
           return bind110(get5)(function(s) {
             return unless2(s.autoPanStarted)(discard22(autoPanStep(env)(stateRef))(function() {
               return modify_3(function(v) {
-                var $81 = {};
-                for (var $82 in v) {
-                  if ({}.hasOwnProperty.call(v, $82)) {
-                    $81[$82] = v[$82];
+                var $84 = {};
+                for (var $85 in v) {
+                  if ({}.hasOwnProperty.call(v, $85)) {
+                    $84[$85] = v[$85];
                   }
                   ;
                 }
                 ;
-                $81.autoPanStarted = true;
-                return $81;
+                $84.autoPanStarted = true;
+                return $84;
               });
             }));
           });
@@ -44950,16 +45042,16 @@ var onPointerDown = function(event) {
             };
             var previousConnection = $$new(initialConnection)();
             var startConnection = discard22(modify_3(function(v) {
-              var $90 = {};
-              for (var $91 in v) {
-                if ({}.hasOwnProperty.call(v, $91)) {
-                  $90[$91] = v[$91];
+              var $93 = {};
+              for (var $94 in v) {
+                if ({}.hasOwnProperty.call(v, $94)) {
+                  $93[$94] = v[$94];
                 }
                 ;
               }
               ;
-              $90.connectionStarted = true;
-              return $90;
+              $93.connectionStarted = true;
+              return $93;
             }))(function() {
               return bind110(liftEffect7(read(previousConnection)))(function(prev) {
                 return discard22(liftEffect7(params.updateConnection(new ConnectionInProgress(prev))))(function() {
@@ -44990,7 +45082,7 @@ var onPointerDown = function(event) {
                 var rendererPos = pointToRendererPoint(curPos)(transform2)(Nothing.value);
                 var fromHandleRef = {
                   nodeId: params.nodeId,
-                  id: params.handleId,
+                  id: fromHandle.id,
                   handleType: hType.value0
                 };
                 var closest = getClosestHandle(rendererPos)(params.connectionRadius)(params.nodeLookup)(fromHandleRef);
@@ -45029,18 +45121,18 @@ var onPointerDown = function(event) {
                 })();
                 var validNow = isConnectionValid(isJust(closest))(result.isValid);
                 runOnRef(stateRef)(modify_3(function(v) {
-                  var $96 = {};
-                  for (var $97 in v) {
-                    if ({}.hasOwnProperty.call(v, $97)) {
-                      $96[$97] = v[$97];
+                  var $99 = {};
+                  for (var $100 in v) {
+                    if ({}.hasOwnProperty.call(v, $100)) {
+                      $99[$100] = v[$100];
                     }
                     ;
                   }
                   ;
-                  $96.resultHandleDomNode = result.handleDomNode;
-                  $96.connection = result.connection;
-                  $96.isValid = validNow;
-                  return $96;
+                  $99.resultHandleDomNode = result.handleDomNode;
+                  $99.connection = result.connection;
+                  $99.isValid = validNow;
+                  return $99;
                 }))();
                 var prev = read(previousConnection)();
                 var nextToPosition = function() {
@@ -45126,20 +45218,20 @@ var onPointerDown = function(event) {
                     return discard22(liftEffect7(params.cancelConnection))(function() {
                       return discard22(liftEffect7(for_7(s.autoPanId)(cancelAnimationFrame)))(function() {
                         return discard22(modify_3(function(v) {
-                          var $115 = {};
-                          for (var $116 in v) {
-                            if ({}.hasOwnProperty.call(v, $116)) {
-                              $115[$116] = v[$116];
+                          var $118 = {};
+                          for (var $119 in v) {
+                            if ({}.hasOwnProperty.call(v, $119)) {
+                              $118[$119] = v[$119];
                             }
                             ;
                           }
                           ;
-                          $115.autoPanId = Nothing.value;
-                          $115.autoPanStarted = false;
-                          $115.isValid = Nothing.value;
-                          $115.connection = Nothing.value;
-                          $115.resultHandleDomNode = Nothing.value;
-                          return $115;
+                          $118.autoPanId = Nothing.value;
+                          $118.autoPanStarted = false;
+                          $118.isValid = Nothing.value;
+                          $118.connection = Nothing.value;
+                          $118.resultHandleDomNode = Nothing.value;
+                          return $118;
                         }))(function() {
                           return liftEffect7(removeDocListeners(doc)(onPointerMove)(onPointerUp));
                         });
@@ -46706,7 +46798,9 @@ var eq26 = /* @__PURE__ */ eq(eqHandleType);
 var notEq6 = /* @__PURE__ */ notEq(eqHandleType);
 var notEq14 = /* @__PURE__ */ notEq(eqNodeId);
 var notEq23 = /* @__PURE__ */ notEq(eqMaybe6);
-var eq34 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
+var eq35 = /* @__PURE__ */ eq(eqHandleIdField);
+var notEq32 = /* @__PURE__ */ notEq(eqHandleIdField);
+var eq44 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var map41 = /* @__PURE__ */ map(functorMaybe);
 var bindFlipped4 = /* @__PURE__ */ bindFlipped(bindMaybe);
 var when8 = /* @__PURE__ */ when(applicativeEffect);
@@ -46781,7 +46875,7 @@ var selectConnectingFlags = function(nodeId) {
             return false;
           }
           ;
-          throw new Error("Failed pattern match at React.Handle (line 135, column 21 - line 139, column 21): " + [state3.connectionClickStartHandle.constructor.name]);
+          throw new Error("Failed pattern match at React.Handle (line 138, column 21 - line 142, column 21): " + [state3.connectionClickStartHandle.constructor.name]);
         }();
         if (state3.connection instanceof NoConnection) {
           return {
@@ -46814,18 +46908,19 @@ var selectConnectingFlags = function(nodeId) {
         }
         ;
         if (state3.connection instanceof ConnectionInProgress) {
+          var ownId = maybe(HandleIdNull.value)(HandleIdSet.create)(handleId);
           var toMatches = function() {
             if (state3.connection.value0.toHandle instanceof Just) {
-              return eq20(state3.connection.value0.toHandle.value0.nodeId)(nodeId) && (eq110(state3.connection.value0.toHandle.value0.id)(handleId) && eq26(state3.connection.value0.toHandle.value0.handleType)(hType));
+              return eq20(state3.connection.value0.toHandle.value0.nodeId)(nodeId) && (eq35(state3.connection.value0.toHandle.value0.id)(ownId) && eq26(state3.connection.value0.toHandle.value0.handleType)(hType));
             }
             ;
             if (state3.connection.value0.toHandle instanceof Nothing) {
               return false;
             }
             ;
-            throw new Error("Failed pattern match at React.Handle (line 117, column 21 - line 121, column 27): " + [state3.connection.value0.toHandle.constructor.name]);
+            throw new Error("Failed pattern match at React.Handle (line 120, column 21 - line 124, column 27): " + [state3.connection.value0.toHandle.constructor.name]);
           }();
-          var fromMatches = eq20(state3.connection.value0.fromHandle.nodeId)(nodeId) && (eq110(state3.connection.value0.fromHandle.id)(handleId) && eq26(state3.connection.value0.fromHandle.handleType)(hType));
+          var fromMatches = eq20(state3.connection.value0.fromHandle.nodeId)(nodeId) && (eq35(state3.connection.value0.fromHandle.id)(ownId) && eq26(state3.connection.value0.fromHandle.handleType)(hType));
           return {
             connectingFrom: fromMatches,
             connectingTo: toMatches,
@@ -46836,18 +46931,18 @@ var selectConnectingFlags = function(nodeId) {
               }
               ;
               if (state3.connectionMode instanceof Loose) {
-                return notEq14(nodeId)(state3.connection.value0.fromHandle.nodeId) || notEq23(handleId)(state3.connection.value0.fromHandle.id);
+                return notEq14(nodeId)(state3.connection.value0.fromHandle.nodeId) || notEq32(ownId)(state3.connection.value0.fromHandle.id);
               }
               ;
-              throw new Error("Failed pattern match at React.Handle (line 126, column 32 - line 129, column 45): " + [state3.connectionMode.constructor.name]);
+              throw new Error("Failed pattern match at React.Handle (line 129, column 32 - line 132, column 42): " + [state3.connectionMode.constructor.name]);
             }(),
             connectionInProcess: true,
             clickConnectionInProcess,
-            valid: toMatches && eq34(state3.connection.value0.isValid)(new Just(true))
+            valid: toMatches && eq44(state3.connection.value0.isValid)(new Just(true))
           };
         }
         ;
-        throw new Error("Failed pattern match at React.Handle (line 97, column 3 - line 133, column 10): " + [state3.connection.constructor.name]);
+        throw new Error("Failed pattern match at React.Handle (line 97, column 3 - line 136, column 10): " + [state3.connection.constructor.name]);
       };
     };
   };
@@ -46869,7 +46964,7 @@ var positionString = function(v) {
     return "bottom";
   }
   ;
-  throw new Error("Failed pattern match at React.Handle (line 144, column 18 - line 148, column 24): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at React.Handle (line 147, column 18 - line 151, column 24): " + [v.constructor.name]);
 };
 var liftValidConn = function(iv) {
   return function(conn) {
@@ -46916,7 +47011,7 @@ var joinNonEmpty = /* @__PURE__ */ function() {
           ;
         }
         ;
-        throw new Error("Failed pattern match at React.Handle (line 197, column 22 - line 202, column 57): " + [v.constructor.name]);
+        throw new Error("Failed pattern match at React.Handle (line 200, column 22 - line 205, column 57): " + [v.constructor.name]);
       }
       ;
       while (!$tco_done) {
@@ -46937,7 +47032,7 @@ var handleTypeString = function(v) {
     return "target";
   }
   ;
-  throw new Error("Failed pattern match at React.Handle (line 151, column 20 - line 153, column 21): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at React.Handle (line 154, column 20 - line 156, column 21): " + [v.constructor.name]);
 };
 var extractFromHandle2 = function(v) {
   if (v instanceof NoConnection) {
@@ -46948,7 +47043,7 @@ var extractFromHandle2 = function(v) {
     return new Just(v.value0.fromHandle);
   }
   ;
-  throw new Error("Failed pattern match at React.Handle (line 219, column 21 - line 221, column 46): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at React.Handle (line 222, column 21 - line 224, column 46): " + [v.constructor.name]);
 };
 var currentTargetElement2 = function(se) {
   return map41(unsafeCoerce2)(currentTarget(toEvent(syntheticToMouse2(se))));
@@ -47011,7 +47106,7 @@ var onConnectExtended = function(store) {
             return pure42(unit);
           }
           ;
-          throw new Error("Failed pattern match at React.Handle (line 283, column 5 - line 285, column 26): " + [v.constructor.name]);
+          throw new Error("Failed pattern match at React.Handle (line 286, column 5 - line 288, column 26): " + [v.constructor.name]);
         }())();
         for_10(state3.onConnect)(function(cb) {
           return cb(conn);
@@ -47025,8 +47120,8 @@ var onConnectExtended = function(store) {
 };
 var buildClassName = function(p) {
   var endSlotOk = function() {
-    var $129 = p.flags.connectionInProcess || p.flags.clickConnectionInProcess;
-    if ($129) {
+    var $131 = p.flags.connectionInProcess || p.flags.clickConnectionInProcess;
+    if ($131) {
       return p.isConnectableEnd;
     }
     ;
@@ -47102,7 +47197,7 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
             return unsafeThrow(errorMessage(E010.value));
           }
           ;
-          throw new Error("Failed pattern match at React.Handle (line 299, column 17 - line 301, column 49): " + [nodeIdM.constructor.name]);
+          throw new Error("Failed pattern match at React.Handle (line 302, column 17 - line 304, column 49): " + [nodeIdM.constructor.name]);
         }();
         var handleId = function() {
           if (v.id instanceof Just && v.id.value0 === "") {
@@ -47121,7 +47216,7 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
               return false;
             }
             ;
-            throw new Error("Failed pattern match at React.Handle (line 313, column 16 - line 315, column 22): " + [v.handleType.constructor.name]);
+            throw new Error("Failed pattern match at React.Handle (line 316, column 16 - line 318, column 22): " + [v.handleType.constructor.name]);
           }();
           var isConnectableStart = fromMaybe(true)(v.isConnectableStart);
           var onClick = handler(syntheticEvent)(function(se) {
@@ -47241,7 +47336,7 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
                     var result = xyHandle.isValid(new Left(me))({
                       handle: new Just({
                         nodeId: nodeIdStr,
-                        id: handleId,
+                        id: maybe(HandleIdNull.value)(HandleIdSet.create)(handleId),
                         handleType: v.handleType
                       }),
                       connectionMode: state3.connectionMode,
@@ -47264,10 +47359,10 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
                             };
                           }
                           ;
-                          throw new Error("Failed pattern match at React.Handle (line 416, column 30 - line 418, column 42): " + [state3.isValidConnection.constructor.name]);
+                          throw new Error("Failed pattern match at React.Handle (line 419, column 30 - line 421, column 42): " + [state3.isValidConnection.constructor.name]);
                         }
                         ;
-                        throw new Error("Failed pattern match at React.Handle (line 414, column 36 - line 418, column 42): " + [v.isValidConnection.constructor.name]);
+                        throw new Error("Failed pattern match at React.Handle (line 417, column 36 - line 421, column 42): " + [v.isValidConnection.constructor.name]);
                       }(),
                       doc: host3,
                       lib: state3.lib,
@@ -47290,7 +47385,7 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
                         return new Just(state3.connection.value0);
                       }
                       ;
-                      throw new Error("Failed pattern match at React.Handle (line 432, column 28 - line 434, column 49): " + [state3.connection.constructor.name]);
+                      throw new Error("Failed pattern match at React.Handle (line 435, column 28 - line 437, column 49): " + [state3.connection.constructor.name]);
                     }();
                     for_10(state3.onClickConnectEnd)(function(cb) {
                       return cb(new Left(me))(finalState);
@@ -47387,7 +47482,7 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
                   };
                 }
                 ;
-                throw new Error("Failed pattern match at React.Handle (line 384, column 9 - line 437, column 74): " + [state3.connectionClickStartHandle.constructor.name]);
+                throw new Error("Failed pattern match at React.Handle (line 387, column 9 - line 440, column 74): " + [state3.connectionClickStartHandle.constructor.name]);
               }())();
             };
           });
@@ -47437,10 +47532,10 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
                         };
                       }
                       ;
-                      throw new Error("Failed pattern match at React.Handle (line 363, column 28 - line 365, column 40): " + [state3.isValidConnection.constructor.name]);
+                      throw new Error("Failed pattern match at React.Handle (line 366, column 28 - line 368, column 40): " + [state3.isValidConnection.constructor.name]);
                     }
                     ;
-                    throw new Error("Failed pattern match at React.Handle (line 361, column 34 - line 365, column 40): " + [v.isValidConnection.constructor.name]);
+                    throw new Error("Failed pattern match at React.Handle (line 364, column 34 - line 368, column 40): " + [v.isValidConnection.constructor.name]);
                   }(),
                   onReconnectEnd: Nothing.value,
                   getTransform: map113(function(v2) {
@@ -47456,7 +47551,7 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
                 })();
               }
               ;
-              throw new Error("Failed pattern match at React.Handle (line 341, column 9 - line 374, column 14): " + [v1.constructor.name]);
+              throw new Error("Failed pattern match at React.Handle (line 344, column 9 - line 377, column 14): " + [v1.constructor.name]);
             });
           });
           var isConnectableEnd = fromMaybe(true)(v.isConnectableEnd);
@@ -52824,7 +52919,7 @@ var useEffect9 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqRec()(/* @__PURE__ 
   }
 })(eqBoolean)));
 var eqMaybe7 = /* @__PURE__ */ eqMaybe(eqBoolean);
-var eq35 = /* @__PURE__ */ eq(eqMaybe7);
+var eq36 = /* @__PURE__ */ eq(eqMaybe7);
 var notEq9 = /* @__PURE__ */ notEq(eqMaybe7);
 var when16 = /* @__PURE__ */ when(applicativeEffect);
 var notEq16 = /* @__PURE__ */ notEq(/* @__PURE__ */ eqArray(eqNodeId));
@@ -52932,7 +53027,7 @@ var useGlobalKeyHandler = function(opts) {
             if (deletePressed) {
               var st = store.getState();
               var selectedNodeIds = mapMaybe(function(n) {
-                var $31 = eq35(n.selected)(new Just(true)) && notEq9(n.deletable)(new Just(false));
+                var $31 = eq36(n.selected)(new Just(true)) && notEq9(n.deletable)(new Just(false));
                 if ($31) {
                   return new Just(n.id);
                 }
@@ -52940,7 +53035,7 @@ var useGlobalKeyHandler = function(opts) {
                 return Nothing.value;
               })(st.nodes);
               var selectedEdgeIds = mapMaybe(function(e) {
-                var $32 = eq35(e.selected)(new Just(true)) && notEq9(e.deletable)(new Just(false));
+                var $32 = eq36(e.selected)(new Just(true)) && notEq9(e.deletable)(new Just(false));
                 if ($32) {
                   return new Just(e.id);
                 }
@@ -53137,7 +53232,7 @@ var lookup21 = /* @__PURE__ */ lookup2(ordNodeId);
 var unwrap16 = /* @__PURE__ */ unwrap();
 var eqMaybe8 = /* @__PURE__ */ eqMaybe(eqBoolean);
 var notEq10 = /* @__PURE__ */ notEq(eqMaybe8);
-var eq36 = /* @__PURE__ */ eq(eqMaybe8);
+var eq37 = /* @__PURE__ */ eq(eqMaybe8);
 var $$void9 = /* @__PURE__ */ $$void(functorEffect);
 var map52 = /* @__PURE__ */ map(functorEffect);
 var for_17 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
@@ -53163,7 +53258,7 @@ var handleNodeClick = function(args) {
         return args.store.dispatch(new AddSelectedNodes([args.id]))();
       }
       ;
-      var $21 = args.unselect || eq36(v.value0.selected)(new Just(true)) && state3.multiSelectionActive;
+      var $21 = args.unselect || eq37(v.value0.selected)(new Just(true)) && state3.multiSelectionActive;
       if ($21) {
         args.store.dispatch(new UnselectNodesAndEdges({
           nodes: new Just([v.value0]),
@@ -53201,7 +53296,7 @@ var useStore22 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ *
     return "isParent";
   }
 })(eqBoolean)));
-var eq37 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
+var eq38 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var unless6 = /* @__PURE__ */ unless(applicativeEffect);
 var elem9 = /* @__PURE__ */ elem2(eqString);
 var lookup24 = /* @__PURE__ */ lookup2(ordString);
@@ -53492,7 +53587,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
       return bind117(useRef(toNullable(Nothing.value)))(function(nodeRef) {
         return bind117(useDrag({
           wrapperRef: nodeRef,
-          disabled: eq37(slice3.node.hidden)(new Just(true)) || !isDraggable,
+          disabled: eq38(slice3.node.hidden)(new Just(true)) || !isDraggable,
           nodeId: new Just(v.id),
           noDragClassName: new Just(v.noDragClassName),
           handleSelector: slice3.node.dragHandle,
@@ -53535,7 +53630,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                     }
                     ;
                     var v1 = lookup24(k)(arrowKeyDiffs);
-                    if (v1 instanceof Just && (isDraggable && eq37(slice3.node.selected)(new Just(true)))) {
+                    if (v1 instanceof Just && (isDraggable && eq38(slice3.node.selected)(new Just(true)))) {
                       return function __do4() {
                         preventDefault(toEvent2(ke))();
                         return moveSelectedNodes(v1.value0)(function() {
@@ -53650,7 +53745,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
               });
               var mergedStyle = mergeStyles(mergeStyles(baseStyle)(fromMaybe(emptyForeign2)(map53(unsafeToForeign)(slice3.node.style))))(dimStyle);
               return pure124(function() {
-                var $86 = eq37(slice3.node.hidden)(new Just(true));
+                var $86 = eq38(slice3.node.hidden)(new Just(true));
                 if ($86) {
                   return mempty16;
                 }
@@ -53663,7 +53758,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                     isDraggable,
                     isSelectable,
                     isParent: slice3.isParent,
-                    selected: eq37(slice3.node.selected)(new Just(true)),
+                    selected: eq38(slice3.node.selected)(new Just(true)),
                     dragging
                   }),
                   ref: nodeRef,
@@ -54684,7 +54779,7 @@ var fromFoldable11 = /* @__PURE__ */ fromFoldable5(foldableArray);
 var fromFoldable13 = /* @__PURE__ */ fromFoldable11(ordString);
 var fromFoldable23 = /* @__PURE__ */ fromFoldable11(ordNodeId);
 var toUnfoldable10 = /* @__PURE__ */ toUnfoldable5(unfoldableArray);
-var eq38 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
+var eq39 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var insert13 = /* @__PURE__ */ insert4(ordMiddlewareKey);
 var $$delete4 = /* @__PURE__ */ $$delete3(ordMiddlewareKey);
 var reduceTriggerEdgeChanges = function(state3) {
@@ -56116,7 +56211,7 @@ var reduceResetSelectedElements = function(state3) {
   if (otherwise) {
     var nodePairs = toUnfoldable10(state3.nodeLookup);
     var nodeChanges = mapMaybe(function(v) {
-      var $72 = eq38(v.value1.selected)(new Just(true));
+      var $72 = eq39(v.value1.selected)(new Just(true));
       if ($72) {
         return new Just(new NodeSelectionChange({
           id: v.value1.id,
@@ -56128,7 +56223,7 @@ var reduceResetSelectedElements = function(state3) {
     })(nodePairs);
     var edgePairs = toUnfoldable10(state3.edgeLookup);
     var edgeChanges = mapMaybe(function(v) {
-      var $76 = eq38(v.value1.selected)(new Just(true));
+      var $76 = eq39(v.value1.selected)(new Just(true));
       if ($76) {
         return new Just(new EdgeSelectionChange({
           id: v.value1.id,
@@ -56178,7 +56273,7 @@ var reduceUnselectNodesAndEdges = function(state3) {
         selected: false
       });
     })(filter(function(n) {
-      return eq38(n.selected)(new Just(true));
+      return eq39(n.selected)(new Just(true));
     })(targetNodes));
     var edgeChanges = map59(function(e) {
       return new EdgeSelectionChange({
@@ -56186,7 +56281,7 @@ var reduceUnselectNodesAndEdges = function(state3) {
         selected: false
       });
     })(filter(function(e) {
-      return eq38(e.selected)(new Just(true));
+      return eq39(e.selected)(new Just(true));
     })(targetEdges));
     var afterNodes = reduceTriggerNodeChanges(state3)(nodeChanges);
     var afterEdges = reduceTriggerEdgeChanges(afterNodes.state)(edgeChanges);
@@ -57541,7 +57636,7 @@ var createStore = function(opts) {
       };
     };
     var subscribe = function(dictEq) {
-      var eq46 = eq(dictEq);
+      var eq48 = eq(dictEq);
       return function(selector4) {
         return function(cb) {
           return function __do4() {
@@ -57552,7 +57647,7 @@ var createStore = function(opts) {
               return function(next) {
                 var prevV = selector4(prev);
                 var nextV = selector4(next);
-                var $54 = eq46(prevV)(nextV);
+                var $54 = eq48(prevV)(nextV);
                 if ($54) {
                   return pure70(unit);
                 }
@@ -57737,7 +57832,7 @@ var useColorModeClass = function(mode) {
 };
 
 // output/React.Provider.SelectionListener/index.js
-var eq39 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
+var eq40 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var unwrap19 = /* @__PURE__ */ unwrap();
 var fromFoldable14 = /* @__PURE__ */ fromFoldable(foldableList);
 var reactComponent10 = /* @__PURE__ */ reactComponent()()();
@@ -57762,7 +57857,7 @@ var useStore110 = /* @__PURE__ */ useStore(eqBoolean);
 var selectIds = function(s) {
   return {
     nodes: mapMaybe(function(n) {
-      var $40 = eq39(n.selected)(new Just(true));
+      var $40 = eq40(n.selected)(new Just(true));
       if ($40) {
         return new Just(unwrap19(n.id));
       }
@@ -57770,7 +57865,7 @@ var selectIds = function(s) {
       return Nothing.value;
     })(fromFoldable14(values(s.nodeLookup))),
     edges: mapMaybe(function(e) {
-      var $41 = eq39(e.selected)(new Just(true));
+      var $41 = eq40(e.selected)(new Just(true));
       if ($41) {
         return new Just(e.id);
       }
@@ -57785,10 +57880,10 @@ var selectionListenerInner = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */
       return discard21(useEffect15(selected2)(function __do3() {
         var s = store.getState();
         var selectedNodes = filter(function(n) {
-          return eq39(n.selected)(new Just(true));
+          return eq40(n.selected)(new Just(true));
         })(s.nodes);
         var selectedEdges = filter(function(e) {
-          return eq39(e.selected)(new Just(true));
+          return eq40(e.selected)(new Just(true));
         })(s.edges);
         var params = {
           nodes: selectedNodes,
@@ -63225,7 +63320,7 @@ var eqRec9 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ e
     return "edgeId";
   }
 })(eqString));
-var eq40 = /* @__PURE__ */ eq(eqRec9);
+var eq41 = /* @__PURE__ */ eq(eqRec9);
 var coerceHook13 = /* @__PURE__ */ coerceHook();
 var bind54 = /* @__PURE__ */ bind4(ixBindRender);
 var alt8 = /* @__PURE__ */ alt(altMaybe);
@@ -63248,7 +63343,7 @@ var toConnection = function(c) {
 };
 var notIn = function(xs) {
   return function(x) {
-    return !any2(eq40(x))(xs);
+    return !any2(eq41(x))(xs);
   };
 };
 var handleTypeName2 = function(v) {
@@ -63396,7 +63491,7 @@ var eqRec10 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ 
     return "edgeId";
   }
 })(eqString));
-var eq41 = /* @__PURE__ */ eq(eqRec10);
+var eq45 = /* @__PURE__ */ eq(eqRec10);
 var coerceHook15 = /* @__PURE__ */ coerceHook();
 var bind56 = /* @__PURE__ */ bind4(ixBindRender);
 var alt9 = /* @__PURE__ */ alt(altMaybe);
@@ -63410,7 +63505,7 @@ var pure78 = /* @__PURE__ */ pure(applicativeEffect);
 var pure133 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var notIn2 = function(xs) {
   return function(x) {
-    return !any2(eq41(x))(xs);
+    return !any2(eq45(x))(xs);
   };
 };
 var handleTypeName3 = function(v) {
@@ -63543,7 +63638,7 @@ var xIsSymbol2 = {
   }
 };
 var eqMaybe11 = /* @__PURE__ */ eqMaybe(eqBoolean);
-var eq44 = /* @__PURE__ */ eq(eqMaybe11);
+var eq46 = /* @__PURE__ */ eq(eqMaybe11);
 var foldl9 = /* @__PURE__ */ foldl(foldableList);
 var useStore29 = /* @__PURE__ */ useStore(eqBoolean);
 var nub5 = /* @__PURE__ */ nub(ordNodeId);
@@ -63652,7 +63747,7 @@ var handlesIsSymbol = {
     return "handles";
   }
 };
-var eqMaybe62 = /* @__PURE__ */ eqMaybe(/* @__PURE__ */ eqArray(/* @__PURE__ */ eqRec11(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons42(positionIsSymbol2)(eqPosition))()(idIsSymbol2)(eqMaybe52))()(heightIsSymbol2)(eqMaybe22))()({
+var eqMaybe62 = /* @__PURE__ */ eqMaybe(/* @__PURE__ */ eqArray(/* @__PURE__ */ eqRec11(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons42(positionIsSymbol2)(eqPosition))()(idIsSymbol2)(eqHandleIdField))()(heightIsSymbol2)(eqMaybe22))()({
   reflectSymbol: function() {
     return "handleType";
   }
@@ -63789,7 +63884,7 @@ var useNodesInitialized = function(opts) {
   var selectInitialized = function(s) {
     var step2 = function(acc) {
       return function(n) {
-        var $455 = eq44(n.hidden)(new Just(true)) && !opts.includeHiddenNodes;
+        var $455 = eq46(n.hidden)(new Just(true)) && !opts.includeHiddenNodes;
         if ($455) {
           return acc;
         }
@@ -64254,7 +64349,7 @@ var nodeToolbarPortal = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reac
 var max14 = /* @__PURE__ */ max(ordNumber);
 var lookup28 = /* @__PURE__ */ lookup2(ordNodeId);
 var insert15 = /* @__PURE__ */ insert4(ordNodeId);
-var eq45 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
+var eq47 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var map65 = /* @__PURE__ */ map(functorArray);
 var eq310 = /* @__PURE__ */ eq(eqUnsafeReference);
 var bind59 = /* @__PURE__ */ bind4(ixBindRender);
@@ -64302,7 +64397,7 @@ var selectorFor = function(ids) {
       y: s.transform.ty,
       zoom: s.transform.scale,
       selectedNodesCount: length(filter(function(n) {
-        return eq45(n.selected)(new Just(true));
+        return eq47(n.selected)(new Just(true));
       })(s.nodes)),
       nodes: lookupNodes(ids)(s)
     };
@@ -64354,7 +64449,7 @@ var nodeToolbar = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompo
         if (v.isVisible instanceof Nothing) {
           return length(nodesArr) === 1 && (function() {
             if (nodesArr.length === 1) {
-              return eq45(nodesArr[0].selected)(new Just(true));
+              return eq47(nodesArr[0].selected)(new Just(true));
             }
             ;
             return false;
