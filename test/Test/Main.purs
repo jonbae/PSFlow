@@ -50,6 +50,7 @@ import Test.Properties (runProperties)
 import Test.React.Additional.MiniMap (runMiniMapSliceTests)
 import Test.React.Component.AriaDescribedBy (runAriaDescribedByTests)
 import Test.React.Component.EdgeAriaLabel (runEdgeAriaLabelTests)
+import Test.React.Component.HandleDataId (runHandleDataIdTests)
 import Test.React.Container.AttributionPanel (runAttributionPanelTests)
 import Test.React.Container.NodeA11yDescription (runNodeA11yDescriptionTests)
 import Test.React.Container.Pane (runPaneAutoPanTests)
@@ -1109,6 +1110,7 @@ main = do
   runMeasuredDimensionsTests
   runPrunedKeysTests
   runAttributionPanelTests
+  runHandleDataIdTests
 
   -- Function parity — live differential against XYFlow (via the @psflow/oracle bundle).
   -- Requires `npm run build:oracle` to have produced oracle/index.js.

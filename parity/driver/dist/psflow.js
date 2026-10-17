@@ -47052,7 +47052,14 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
           ;
           throw new Error("Failed pattern match at React.Handle (line 299, column 17 - line 301, column 49): " + [nodeIdM.constructor.name]);
         }();
-        return bind112(useStore16(selectConnectingFlags(nodeIdStr)(v.id)(v.handleType)))(function(flags) {
+        var handleId = function() {
+          if (v.id instanceof Just && v.id.value0 === "") {
+            return Nothing.value;
+          }
+          ;
+          return v.id;
+        }();
+        return bind112(useStore16(selectConnectingFlags(nodeIdStr)(handleId)(v.handleType)))(function(flags) {
           var isTarget = function() {
             if (v.handleType instanceof Target) {
               return true;
@@ -47062,7 +47069,7 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
               return false;
             }
             ;
-            throw new Error("Failed pattern match at React.Handle (line 310, column 16 - line 312, column 22): " + [v.handleType.constructor.name]);
+            throw new Error("Failed pattern match at React.Handle (line 313, column 16 - line 315, column 22): " + [v.handleType.constructor.name]);
           }();
           var isConnectableStart = fromMaybe(true)(v.isConnectableStart);
           var onClick = handler(syntheticEvent)(function(se) {
@@ -47076,7 +47083,7 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
                     for_10(state3.onClickConnectStart)(function(cb) {
                       return cb(new Left(me))({
                         nodeId: new Just(nodeIdStr),
-                        handleId: v.id,
+                        handleId,
                         handleType: new Just(v.handleType)
                       });
                     })();
@@ -47168,7 +47175,7 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
                         onEdgesChangeMiddlewareMap: v1.onEdgesChangeMiddlewareMap,
                         connectionClickStartHandle: new Just({
                           nodeId: nodeIdStr,
-                          id: v.id,
+                          id: handleId,
                           handleType: v.handleType
                         })
                       };
@@ -47182,7 +47189,7 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
                     var result = xyHandle.isValid(new Left(me))({
                       handle: new Just({
                         nodeId: nodeIdStr,
-                        id: v.id,
+                        id: handleId,
                         handleType: v.handleType
                       }),
                       connectionMode: state3.connectionMode,
@@ -47205,10 +47212,10 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
                             };
                           }
                           ;
-                          throw new Error("Failed pattern match at React.Handle (line 411, column 30 - line 413, column 42): " + [state3.isValidConnection.constructor.name]);
+                          throw new Error("Failed pattern match at React.Handle (line 416, column 30 - line 418, column 42): " + [state3.isValidConnection.constructor.name]);
                         }
                         ;
-                        throw new Error("Failed pattern match at React.Handle (line 409, column 36 - line 413, column 42): " + [v.isValidConnection.constructor.name]);
+                        throw new Error("Failed pattern match at React.Handle (line 414, column 36 - line 418, column 42): " + [v.isValidConnection.constructor.name]);
                       }(),
                       doc: host3,
                       lib: state3.lib,
@@ -47231,7 +47238,7 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
                         return new Just(state3.connection.value0);
                       }
                       ;
-                      throw new Error("Failed pattern match at React.Handle (line 427, column 28 - line 429, column 49): " + [state3.connection.constructor.name]);
+                      throw new Error("Failed pattern match at React.Handle (line 432, column 28 - line 434, column 49): " + [state3.connection.constructor.name]);
                     }();
                     for_10(state3.onClickConnectEnd)(function(cb) {
                       return cb(new Left(me))(finalState);
@@ -47328,7 +47335,7 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
                   };
                 }
                 ;
-                throw new Error("Failed pattern match at React.Handle (line 379, column 9 - line 432, column 74): " + [state3.connectionClickStartHandle.constructor.name]);
+                throw new Error("Failed pattern match at React.Handle (line 384, column 9 - line 437, column 74): " + [state3.connectionClickStartHandle.constructor.name]);
               }())();
             };
           });
@@ -47347,7 +47354,7 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
                   connectionMode: state3.connectionMode,
                   connectionRadius: state3.connectionRadius,
                   domNode: state3.domNode,
-                  handleId: v.id,
+                  handleId,
                   nodeId: nodeIdStr,
                   isTarget,
                   nodeLookup: state3.nodeLookup,
@@ -47378,10 +47385,10 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
                         };
                       }
                       ;
-                      throw new Error("Failed pattern match at React.Handle (line 358, column 28 - line 360, column 40): " + [state3.isValidConnection.constructor.name]);
+                      throw new Error("Failed pattern match at React.Handle (line 363, column 28 - line 365, column 40): " + [state3.isValidConnection.constructor.name]);
                     }
                     ;
-                    throw new Error("Failed pattern match at React.Handle (line 356, column 34 - line 360, column 40): " + [v.isValidConnection.constructor.name]);
+                    throw new Error("Failed pattern match at React.Handle (line 361, column 34 - line 365, column 40): " + [v.isValidConnection.constructor.name]);
                   }(),
                   onReconnectEnd: Nothing.value,
                   getTransform: map113(function(v2) {
@@ -47397,12 +47404,12 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
                 })();
               }
               ;
-              throw new Error("Failed pattern match at React.Handle (line 336, column 9 - line 369, column 14): " + [v1.constructor.name]);
+              throw new Error("Failed pattern match at React.Handle (line 341, column 9 - line 374, column 14): " + [v1.constructor.name]);
             });
           });
           var isConnectableEnd = fromMaybe(true)(v.isConnectableEnd);
           var isConnectable = fromMaybe(true)(v.isConnectable);
-          var dataId = slice3.rfId + ("-" + (nodeIdStr + ("-" + (fromMaybe("")(v.id) + ("-" + handleTypeString(v.handleType))))));
+          var dataId = slice3.rfId + ("-" + (nodeIdStr + ("-" + (fromMaybe("null")(handleId) + ("-" + handleTypeString(v.handleType))))));
           var className3 = buildClassName({
             position: v.position,
             isTarget,
@@ -47417,7 +47424,7 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
             className: className3,
             ref: v.innerRef,
             style: opt(v.style),
-            "data-handleid": opt(v.id),
+            "data-handleid": opt(handleId),
             "data-nodeid": nodeIdStr,
             "data-handlepos": positionString(v.position),
             "data-id": dataId,

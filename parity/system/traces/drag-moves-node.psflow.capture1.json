@@ -283,7 +283,7 @@
                                   "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator",
                                   "data-nodeid": "Node-1",
                                   "data-handlepos": "bottom",
-                                  "data-id": "1-Node-1--source"
+                                  "data-id": "1-Node-1-null-source"
                                 },
                                 "children": []
                               }
@@ -309,7 +309,7 @@
                                   "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator",
                                   "data-nodeid": "Node-2",
                                   "data-handlepos": "top",
-                                  "data-id": "1-Node-2--target"
+                                  "data-id": "1-Node-2-null-target"
                                 },
                                 "children": []
                               }
@@ -335,7 +335,7 @@
                                   "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator",
                                   "data-nodeid": "Node-3",
                                   "data-handlepos": "top",
-                                  "data-id": "1-Node-3--target"
+                                  "data-id": "1-Node-3-null-target"
                                 },
                                 "children": []
                               },
@@ -345,7 +345,7 @@
                                   "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator",
                                   "data-nodeid": "Node-3",
                                   "data-handlepos": "bottom",
-                                  "data-id": "1-Node-3--source"
+                                  "data-id": "1-Node-3-null-source"
                                 },
                                 "children": []
                               }
@@ -371,7 +371,7 @@
                                   "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator",
                                   "data-nodeid": "Node-4",
                                   "data-handlepos": "top",
-                                  "data-id": "1-Node-4--target"
+                                  "data-id": "1-Node-4-null-target"
                                 },
                                 "children": []
                               }
@@ -429,7 +429,7 @@
                                   "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectablestart connectableend",
                                   "data-nodeid": "notConnectable",
                                   "data-handlepos": "top",
-                                  "data-id": "1-notConnectable--target"
+                                  "data-id": "1-notConnectable-null-target"
                                 },
                                 "children": []
                               }
@@ -455,7 +455,7 @@
                                   "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator",
                                   "data-nodeid": "notDeletable",
                                   "data-handlepos": "top",
-                                  "data-id": "1-notDeletable--target"
+                                  "data-id": "1-notDeletable-null-target"
                                 },
                                 "children": []
                               },
@@ -465,7 +465,7 @@
                                   "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator",
                                   "data-nodeid": "notDeletable",
                                   "data-handlepos": "bottom",
-                                  "data-id": "1-notDeletable--source"
+                                  "data-id": "1-notDeletable-null-source"
                                 },
                                 "children": []
                               }
@@ -491,7 +491,7 @@
                                   "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator",
                                   "data-nodeid": "notDraggable",
                                   "data-handlepos": "top",
-                                  "data-id": "1-notDraggable--target"
+                                  "data-id": "1-notDraggable-null-target"
                                 },
                                 "children": []
                               },
@@ -501,7 +501,7 @@
                                   "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator",
                                   "data-nodeid": "notDraggable",
                                   "data-handlepos": "bottom",
-                                  "data-id": "1-notDraggable--source"
+                                  "data-id": "1-notDraggable-null-source"
                                 },
                                 "children": []
                               }
@@ -527,7 +527,7 @@
                                   "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator",
                                   "data-nodeid": "notSelectable",
                                   "data-handlepos": "top",
-                                  "data-id": "1-notSelectable--target"
+                                  "data-id": "1-notSelectable-null-target"
                                 },
                                 "children": []
                               },
@@ -537,7 +537,7 @@
                                   "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator",
                                   "data-nodeid": "notSelectable",
                                   "data-handlepos": "bottom",
-                                  "data-id": "1-notSelectable--source"
+                                  "data-id": "1-notSelectable-null-source"
                                 },
                                 "children": []
                               }
@@ -773,7 +773,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 306,
+            "timeStamp": 308.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -842,7 +842,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 306,
+            "timeStamp": 308.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -922,7 +922,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 306,
+            "timeStamp": 308.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -987,7 +987,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 306,
+            "timeStamp": 308.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1169,7 +1169,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 342.30000001192093,
+            "timeStamp": 345,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1251,7 +1251,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 342.30000001192093,
+            "timeStamp": 345,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1318,7 +1318,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 342.30000001192093,
+            "timeStamp": 345,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1460,7 +1460,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 369.5,
+            "timeStamp": 369.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1604,7 +1604,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 400.9000000357628,
+            "timeStamp": 398.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1673,7 +1673,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 400.9000000357628,
+            "timeStamp": 398.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1748,7 +1748,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 400.9000000357628,
+            "timeStamp": 398.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1892,7 +1892,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 429.4000000357628,
+            "timeStamp": 430.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1967,7 +1967,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 429.4000000357628,
+            "timeStamp": 430.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2089,170 +2089,6 @@
         ]
       },
       {
-        "name": "onNodeMouseEnter",
-        "args": [
-          {
-            "@class": "SyntheticBaseEvent",
-            "_reactName": "onMouseEnter",
-            "_targetInst": {
-              "@ref": "React fiber"
-            },
-            "type": "mouseenter",
-            "nativeEvent": {
-              "@class": "MouseEvent",
-              "isTrusted": true
-            },
-            "target": {
-              "@ref": "DIV"
-            },
-            "currentTarget": {
-              "@ref": "DIV"
-            },
-            "eventPhase": 3,
-            "bubbles": true,
-            "cancelable": true,
-            "timeStamp": 448.10000002384186,
-            "defaultPrevented": false,
-            "isTrusted": true,
-            "view": {
-              "@ref": "Window"
-            },
-            "detail": 0,
-            "screenX": 774,
-            "screenY": 211,
-            "clientX": 774,
-            "clientY": 211,
-            "pageX": 774,
-            "pageY": 211,
-            "ctrlKey": false,
-            "shiftKey": false,
-            "altKey": false,
-            "metaKey": false,
-            "getModifierState": {
-              "@ref": "function"
-            },
-            "button": 0,
-            "buttons": 1,
-            "relatedTarget": {
-              "@ref": "DIV"
-            },
-            "movementX": 0,
-            "movementY": 0,
-            "isDefaultPrevented": {
-              "@ref": "function"
-            },
-            "isPropagationStopped": {
-              "@ref": "function"
-            }
-          },
-          {
-            "id": "Node-1",
-            "position": {
-              "x": 155.36585365853657,
-              "y": 155.3658536585366
-            },
-            "data": {
-              "label": "Node-1"
-            },
-            "type": "input",
-            "hidden": false,
-            "selected": true,
-            "dragging": true,
-            "expandParent": false,
-            "measured": {
-              "width": 150,
-              "height": 37
-            },
-            "className": "playwright-test-class-123",
-            "style": {
-              "backgroundColor": "red"
-            }
-          }
-        ]
-      },
-      {
-        "name": "onNodeMouseLeave",
-        "args": [
-          {
-            "@class": "SyntheticBaseEvent",
-            "_reactName": "onMouseLeave",
-            "_targetInst": {
-              "@ref": "React fiber"
-            },
-            "type": "mouseleave",
-            "nativeEvent": {
-              "@class": "MouseEvent",
-              "isTrusted": true
-            },
-            "target": {
-              "@ref": "DIV"
-            },
-            "currentTarget": {
-              "@ref": "DIV"
-            },
-            "eventPhase": 3,
-            "bubbles": true,
-            "cancelable": true,
-            "timeStamp": 448.4000000357628,
-            "defaultPrevented": false,
-            "isTrusted": true,
-            "view": {
-              "@ref": "Window"
-            },
-            "detail": 0,
-            "screenX": 814,
-            "screenY": 251,
-            "clientX": 814,
-            "clientY": 251,
-            "pageX": 814,
-            "pageY": 251,
-            "ctrlKey": false,
-            "shiftKey": false,
-            "altKey": false,
-            "metaKey": false,
-            "getModifierState": {
-              "@ref": "function"
-            },
-            "button": 0,
-            "buttons": 1,
-            "relatedTarget": {
-              "@ref": "DIV"
-            },
-            "movementX": 0,
-            "movementY": 0,
-            "isDefaultPrevented": {
-              "@ref": "function"
-            },
-            "isPropagationStopped": {
-              "@ref": "function"
-            }
-          },
-          {
-            "id": "Node-1",
-            "position": {
-              "x": 155.36585365853657,
-              "y": 155.3658536585366
-            },
-            "data": {
-              "label": "Node-1"
-            },
-            "type": "input",
-            "hidden": false,
-            "selected": true,
-            "dragging": true,
-            "expandParent": false,
-            "measured": {
-              "width": 150,
-              "height": 37
-            },
-            "className": "playwright-test-class-123",
-            "style": {
-              "backgroundColor": "red"
-            }
-          }
-        ]
-      },
-      {
         "name": "onPaneMouseMove",
         "args": [
           {
@@ -2273,7 +2109,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 448.4000000357628,
+            "timeStamp": 447.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2417,7 +2253,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 479,
+            "timeStamp": 463.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

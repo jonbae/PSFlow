@@ -283,7 +283,7 @@
                                   "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator",
                                   "data-nodeid": "Node-1",
                                   "data-handlepos": "bottom",
-                                  "data-id": "1-Node-1--source"
+                                  "data-id": "1-Node-1-null-source"
                                 },
                                 "children": []
                               }
@@ -309,7 +309,7 @@
                                   "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator",
                                   "data-nodeid": "Node-2",
                                   "data-handlepos": "top",
-                                  "data-id": "1-Node-2--target"
+                                  "data-id": "1-Node-2-null-target"
                                 },
                                 "children": []
                               }
@@ -335,7 +335,7 @@
                                   "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator",
                                   "data-nodeid": "Node-3",
                                   "data-handlepos": "top",
-                                  "data-id": "1-Node-3--target"
+                                  "data-id": "1-Node-3-null-target"
                                 },
                                 "children": []
                               },
@@ -345,7 +345,7 @@
                                   "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator",
                                   "data-nodeid": "Node-3",
                                   "data-handlepos": "bottom",
-                                  "data-id": "1-Node-3--source"
+                                  "data-id": "1-Node-3-null-source"
                                 },
                                 "children": []
                               }
@@ -371,7 +371,7 @@
                                   "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator",
                                   "data-nodeid": "Node-4",
                                   "data-handlepos": "top",
-                                  "data-id": "1-Node-4--target"
+                                  "data-id": "1-Node-4-null-target"
                                 },
                                 "children": []
                               }
@@ -519,7 +519,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 181.5,
+            "timeStamp": 179.29999995231628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -586,7 +586,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 181.5,
+            "timeStamp": 179.29999995231628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -665,7 +665,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 187.19999998807907,
+            "timeStamp": 185.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -756,7 +756,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 204.5,
+            "timeStamp": 201.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
