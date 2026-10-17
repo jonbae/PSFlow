@@ -764,7 +764,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 299.80000001192093,
+            "timeStamp": 330.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -833,7 +833,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 299.80000001192093,
+            "timeStamp": 330.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -909,7 +909,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 299.80000001192093,
+            "timeStamp": 330.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -974,7 +974,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 299.80000001192093,
+            "timeStamp": 330.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1143,7 +1143,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 345.0999999642372,
+            "timeStamp": 373.0999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1220,7 +1220,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 345.0999999642372,
+            "timeStamp": 373.0999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1272,10 +1272,6 @@
               "type": "position",
               "id": "Node-1",
               "position": {
-                "x": 58.26219512195121,
-                "y": 38.84146341463415
-              },
-              "positionAbsolute": {
                 "x": 58.26219512195121,
                 "y": 38.84146341463415
               },
@@ -1358,7 +1354,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 371.5999999642372,
+            "timeStamp": 400.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1410,10 +1406,6 @@
               "type": "position",
               "id": "Node-1",
               "position": {
-                "x": 116.52439024390242,
-                "y": 77.68292682926828
-              },
-              "positionAbsolute": {
                 "x": 116.52439024390242,
                 "y": 77.68292682926828
               },
@@ -1519,7 +1511,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 408.69999998807907,
+            "timeStamp": 439.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1599,7 +1591,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 413.80000001192093,
+            "timeStamp": 445.5999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1679,7 +1671,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 413.80000001192093,
+            "timeStamp": 445.5999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1750,7 +1742,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 413.80000001192093,
+            "timeStamp": 445.5999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1802,10 +1794,6 @@
               "type": "position",
               "id": "Node-1",
               "position": {
-                "x": 174.78658536585363,
-                "y": 116.52439024390243
-              },
-              "positionAbsolute": {
                 "x": 174.78658536585363,
                 "y": 116.52439024390243
               },

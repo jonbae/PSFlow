@@ -26008,11 +26008,11 @@ var fst = function(v) {
 var eqTuple = function(dictEq) {
   var eq48 = eq(dictEq);
   return function(dictEq1) {
-    var eq113 = eq(dictEq1);
+    var eq114 = eq(dictEq1);
     return {
       eq: function(x) {
         return function(y) {
-          return eq48(x.value0)(y.value0) && eq113(x.value1)(y.value1);
+          return eq48(x.value0)(y.value0) && eq114(x.value1)(y.value1);
         };
       }
     };
@@ -34206,7 +34206,7 @@ var stepAsc = /* @__PURE__ */ function() {
   })($$const(IterDone.value));
 }();
 var eqMapIter = function(dictEq) {
-  var eq113 = eq(dictEq);
+  var eq114 = eq(dictEq);
   return function(dictEq1) {
     var eq210 = eq(dictEq1);
     return {
@@ -34220,7 +34220,7 @@ var eqMapIter = function(dictEq) {
               var v = stepAsc(a);
               if (v instanceof IterNext) {
                 var v2 = stepAsc(b);
-                if (v2 instanceof IterNext && (eq113(v.value0)(v2.value0) && eq210(v.value1)(v2.value1))) {
+                if (v2 instanceof IterNext && (eq114(v.value0)(v2.value0) && eq210(v.value1)(v2.value1))) {
                   $tco_var_a = v.value2;
                   $copy_b = v2.value2;
                   return;
@@ -34474,7 +34474,7 @@ var filter4 = function(dictOrd) {
 var eqMap = function(dictEq) {
   var eqMapIter1 = eqMapIter(dictEq);
   return function(dictEq1) {
-    var eq113 = eq(eqMapIter1(dictEq1));
+    var eq114 = eq(eqMapIter1(dictEq1));
     return {
       eq: function(xs) {
         return function(ys) {
@@ -34488,7 +34488,7 @@ var eqMap = function(dictEq) {
           ;
           if (xs instanceof Node) {
             if (ys instanceof Node && xs.value1 === ys.value1) {
-              return eq113(toMapIter(xs))(toMapIter(ys));
+              return eq114(toMapIter(xs))(toMapIter(ys));
             }
             ;
             return false;
@@ -37039,12 +37039,12 @@ function hslConvert(o) {
   if (!o) return new Hsl();
   if (o instanceof Hsl) return o;
   o = o.rgb();
-  var r = o.r / 255, g = o.g / 255, b = o.b / 255, min10 = Math.min(r, g, b), max15 = Math.max(r, g, b), h = NaN, s = max15 - min10, l = (max15 + min10) / 2;
+  var r = o.r / 255, g = o.g / 255, b = o.b / 255, min10 = Math.min(r, g, b), max16 = Math.max(r, g, b), h = NaN, s = max16 - min10, l = (max16 + min10) / 2;
   if (s) {
-    if (r === max15) h = (g - b) / s + (g < b) * 6;
-    else if (g === max15) h = (b - r) / s + 2;
+    if (r === max16) h = (g - b) / s + (g < b) * 6;
+    else if (g === max16) h = (b - r) / s + 2;
     else h = (r - g) / s + 4;
-    s /= l < 0.5 ? max15 + min10 : 2 - max15 - min10;
+    s /= l < 0.5 ? max16 + min10 : 2 - max16 - min10;
     h *= 60;
   } else {
     s = l > 0 && l < 1 ? 0 : h;
@@ -39917,7 +39917,7 @@ var toIdOnly = function(v) {
   throw new Error("Failed pattern match at React.Hook.ReactFlow (line 425, column 12 - line 427, column 31): " + [v.constructor.name]);
 };
 var stripInternals = unsafeCoerce2;
-var resolveBoundsRef = function(lookup29) {
+var resolveBoundsRef = function(lookup210) {
   return function(v) {
     if (v instanceof BoundsNode) {
       return new Just(v.value0);
@@ -39928,7 +39928,7 @@ var resolveBoundsRef = function(lookup29) {
     }
     ;
     if (v instanceof BoundsId) {
-      return map21(stripInternals)(lookup6(v.value0)(lookup29));
+      return map21(stripInternals)(lookup6(v.value0)(lookup210));
     }
     ;
     throw new Error("Failed pattern match at React.Hook.ReactFlow (line 518, column 27 - line 521, column 59): " + [v.constructor.name]);
@@ -49646,12 +49646,12 @@ var getSelectionChangesGeneric = function(dictOrd) {
 };
 var getSelectionChangesGeneric1 = /* @__PURE__ */ getSelectionChangesGeneric(ordNodeId);
 var getSelectionChangesGeneric2 = /* @__PURE__ */ getSelectionChangesGeneric(ordString);
-var getNodeSelectionChanges = function(lookup29) {
+var getNodeSelectionChanges = function(lookup210) {
   return function(selectedIds) {
     return function(mutate2) {
       var r = getSelectionChangesGeneric1(function(v) {
         return eq31(v)(new Just(true));
-      })(Just.create)(lookup29)(selectedIds)(mutate2);
+      })(Just.create)(lookup210)(selectedIds)(mutate2);
       var changes = map46(function(p) {
         return new NodeSelectionChange({
           id: p.id,
@@ -49666,7 +49666,7 @@ var getNodeSelectionChanges = function(lookup29) {
   };
 };
 var getNodeElementsDiffChanges = function(mItems) {
-  return function(lookup29) {
+  return function(lookup210) {
     var items = function() {
       if (mItems instanceof Just) {
         return mItems.value0;
@@ -49692,10 +49692,10 @@ var getNodeElementsDiffChanges = function(mItems) {
           id: v.value0
         }));
       };
-    })([])(toUnfoldable8(lookup29));
+    })([])(toUnfoldable8(lookup210));
     var forwardStep = function(acc) {
       return function(item) {
-        var storeItem = lookup19(item.id)(lookup29);
+        var storeItem = lookup19(item.id)(lookup210);
         var change = function() {
           if (storeItem instanceof Just) {
             return new NodeReplaceChange({
@@ -49726,11 +49726,11 @@ var getNodeElementsDiffChanges = function(mItems) {
     return append10(forwardPass.changes)(removes);
   };
 };
-var getEdgeSelectionChanges = function(lookup29) {
+var getEdgeSelectionChanges = function(lookup210) {
   return function(selectedIds) {
     var r = getSelectionChangesGeneric2(function(v) {
       return eq31(v)(new Just(true));
-    })(Just.create)(lookup29)(selectedIds)(false);
+    })(Just.create)(lookup210)(selectedIds)(false);
     var changes = map46(function(p) {
       return new EdgeSelectionChange({
         id: p.id,
@@ -49743,7 +49743,7 @@ var getEdgeSelectionChanges = function(lookup29) {
   };
 };
 var getEdgeElementsDiffChanges = function(mItems) {
-  return function(lookup29) {
+  return function(lookup210) {
     var items = function() {
       if (mItems instanceof Just) {
         return mItems.value0;
@@ -49769,11 +49769,11 @@ var getEdgeElementsDiffChanges = function(mItems) {
           id: v.value0
         }));
       };
-    })([])(toUnfoldable8(lookup29));
+    })([])(toUnfoldable8(lookup210));
     var forwardStep = function(acc) {
       return function(item) {
         var change = function() {
-          var v = lookup110(item.id)(lookup29);
+          var v = lookup110(item.id)(lookup210);
           if (v instanceof Just) {
             return new EdgeReplaceChange({
               id: item.id,
@@ -54797,6 +54797,10 @@ var fromFoldable13 = /* @__PURE__ */ fromFoldable11(ordString);
 var fromFoldable23 = /* @__PURE__ */ fromFoldable11(ordNodeId);
 var toUnfoldable10 = /* @__PURE__ */ toUnfoldable5(unfoldableArray);
 var eq39 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
+var lookup25 = /* @__PURE__ */ lookup2(ordNodeId);
+var eq113 = /* @__PURE__ */ eq(eqNodeId);
+var max14 = /* @__PURE__ */ max(ordNumber);
+var foldl9 = /* @__PURE__ */ foldl(foldableList);
 var insert13 = /* @__PURE__ */ insert4(ordMiddlewareKey);
 var $$delete4 = /* @__PURE__ */ $$delete3(ordMiddlewareKey);
 var reduceTriggerEdgeChanges = function(state3) {
@@ -54910,7 +54914,7 @@ var reduceTriggerEdgeChanges = function(state3) {
       };
     }
     ;
-    throw new Error("Failed pattern match at React.Store.Reduce (line 319, column 1 - line 323, column 22): " + [state3.constructor.name, changes.constructor.name]);
+    throw new Error("Failed pattern match at React.Store.Reduce (line 366, column 1 - line 370, column 22): " + [state3.constructor.name, changes.constructor.name]);
   };
 };
 var reduceSetNodeExtent = function(state3) {
@@ -55207,8 +55211,8 @@ var reduceInstallViewportListeners = function(state3) {
 var clearIf = function(installed) {
   return function(current) {
     if (installed instanceof Just && current instanceof Just) {
-      var $48 = unsafeRefEq(installed.value0)(current.value0);
-      if ($48) {
+      var $54 = unsafeRefEq(installed.value0)(current.value0);
+      if ($54) {
         return Nothing.value;
       }
       ;
@@ -55624,7 +55628,7 @@ var reduceSetDefaults = function(state3) {
           };
         }
         ;
-        throw new Error("Failed pattern match at React.Store.Reduce (line 221, column 18 - line 227, column 40): " + [mNs.constructor.name]);
+        throw new Error("Failed pattern match at React.Store.Reduce (line 224, column 18 - line 230, column 40): " + [mNs.constructor.name]);
       }();
       var afterEdges = function() {
         if (mEs instanceof Just) {
@@ -55725,7 +55729,7 @@ var reduceSetDefaults = function(state3) {
           return afterNodes;
         }
         ;
-        throw new Error("Failed pattern match at React.Store.Reduce (line 228, column 18 - line 236, column 28): " + [mEs.constructor.name]);
+        throw new Error("Failed pattern match at React.Store.Reduce (line 231, column 18 - line 239, column 28): " + [mEs.constructor.name]);
       }();
       return afterEdges;
     };
@@ -55754,7 +55758,7 @@ var reduceTriggerNodeChanges = function(state3) {
       };
     }
     ;
-    throw new Error("Failed pattern match at React.Store.Reduce (line 294, column 1 - line 298, column 22): " + [state3.constructor.name, changes.constructor.name]);
+    throw new Error("Failed pattern match at React.Store.Reduce (line 341, column 1 - line 345, column 22): " + [state3.constructor.name, changes.constructor.name]);
   };
 };
 var reduceAddSelectedEdges = function(state3) {
@@ -55772,8 +55776,8 @@ var reduceAddSelectedEdges = function(state3) {
     if (otherwise) {
       var selectedSet = fromFoldable13(ids);
       var nodeRes = function() {
-        var $62 = $$null(ids);
-        if ($62) {
+        var $68 = $$null(ids);
+        if ($68) {
           return {
             changes: [],
             items: state3.nodeLookup
@@ -55878,7 +55882,7 @@ var reduceAddSelectedEdges = function(state3) {
       };
     }
     ;
-    throw new Error("Failed pattern match at React.Store.Reduce (line 382, column 1 - line 386, column 22): " + [state3.constructor.name, ids.constructor.name]);
+    throw new Error("Failed pattern match at React.Store.Reduce (line 429, column 1 - line 433, column 22): " + [state3.constructor.name, ids.constructor.name]);
   };
 };
 var reduceAddSelectedNodes = function(state3) {
@@ -55984,8 +55988,8 @@ var reduceAddSelectedNodes = function(state3) {
         nodeLookup: nodeRes.items
       };
       var edgeRes = function() {
-        var $65 = $$null(ids);
-        if ($65) {
+        var $71 = $$null(ids);
+        if ($71) {
           return {
             changes: []
           };
@@ -56001,7 +56005,7 @@ var reduceAddSelectedNodes = function(state3) {
       };
     }
     ;
-    throw new Error("Failed pattern match at React.Store.Reduce (line 351, column 1 - line 355, column 22): " + [state3.constructor.name, ids.constructor.name]);
+    throw new Error("Failed pattern match at React.Store.Reduce (line 398, column 1 - line 402, column 22): " + [state3.constructor.name, ids.constructor.name]);
   };
 };
 var reduceMergeNodeInternals = function(state3) {
@@ -56201,8 +56205,8 @@ var reduceMergeNodeInternals = function(state3) {
       return [];
     }();
     var afterChanges = function() {
-      var $69 = $$null(r.changes);
-      if ($69) {
+      var $75 = $$null(r.changes);
+      if ($75) {
         return {
           state: s2,
           effects: []
@@ -56228,8 +56232,8 @@ var reduceResetSelectedElements = function(state3) {
   if (otherwise) {
     var nodePairs = toUnfoldable10(state3.nodeLookup);
     var nodeChanges = mapMaybe(function(v) {
-      var $72 = eq39(v.value1.selected)(new Just(true));
-      if ($72) {
+      var $78 = eq39(v.value1.selected)(new Just(true));
+      if ($78) {
         return new Just(new NodeSelectionChange({
           id: v.value1.id,
           selected: false
@@ -56240,8 +56244,8 @@ var reduceResetSelectedElements = function(state3) {
     })(nodePairs);
     var edgePairs = toUnfoldable10(state3.edgeLookup);
     var edgeChanges = mapMaybe(function(v) {
-      var $76 = eq39(v.value1.selected)(new Just(true));
-      if ($76) {
+      var $82 = eq39(v.value1.selected)(new Just(true));
+      if ($82) {
         return new Just(new EdgeSelectionChange({
           id: v.value1.id,
           selected: false
@@ -56258,7 +56262,7 @@ var reduceResetSelectedElements = function(state3) {
     };
   }
   ;
-  throw new Error("Failed pattern match at React.Store.Reduce (line 529, column 1 - line 532, column 22): " + [state3.constructor.name]);
+  throw new Error("Failed pattern match at React.Store.Reduce (line 576, column 1 - line 579, column 22): " + [state3.constructor.name]);
 };
 var reduceUnselectNodesAndEdges = function(state3) {
   return function(params) {
@@ -56271,7 +56275,7 @@ var reduceUnselectNodesAndEdges = function(state3) {
         return state3.nodes;
       }
       ;
-      throw new Error("Failed pattern match at React.Store.Reduce (line 419, column 19 - line 421, column 29): " + [params.nodes.constructor.name]);
+      throw new Error("Failed pattern match at React.Store.Reduce (line 466, column 19 - line 468, column 29): " + [params.nodes.constructor.name]);
     }();
     var targetEdges = function() {
       if (params.edges instanceof Just) {
@@ -56282,7 +56286,7 @@ var reduceUnselectNodesAndEdges = function(state3) {
         return state3.edges;
       }
       ;
-      throw new Error("Failed pattern match at React.Store.Reduce (line 422, column 19 - line 424, column 29): " + [params.edges.constructor.name]);
+      throw new Error("Failed pattern match at React.Store.Reduce (line 469, column 19 - line 471, column 29): " + [params.edges.constructor.name]);
     }();
     var nodeChanges = map59(function(n) {
       return new NodeSelectionChange({
@@ -56311,15 +56315,185 @@ var reduceUnselectNodesAndEdges = function(state3) {
 var reduceUpdateNodePositions = function(state3) {
   return function(items) {
     return function(dragging) {
-      var changes = map59(function(item) {
-        return new NodePositionChange({
-          id: item.id,
-          position: new Just(item.position),
-          positionAbsolute: new Just(item.internals.positionAbsolute),
-          dragging: new Just(dragging)
-        });
+      var step2 = function(acc) {
+        return function(item) {
+          var mNode = lookup25(item.id)(state3.nodeLookup);
+          var expandParentOf = function() {
+            if (mNode instanceof Just && eq39(mNode.value0.expandParent)(new Just(true))) {
+              return mNode.value0.parentId;
+            }
+            ;
+            return Nothing.value;
+          }();
+          var expandChild = function() {
+            if (expandParentOf instanceof Just) {
+              return [{
+                id: item.id,
+                parentId: expandParentOf.value0,
+                rect: {
+                  x: item.internals.positionAbsolute.x,
+                  y: item.internals.positionAbsolute.y,
+                  width: item.measured.width,
+                  height: item.measured.height
+                }
+              }];
+            }
+            ;
+            if (expandParentOf instanceof Nothing) {
+              return [];
+            }
+            ;
+            throw new Error("Failed pattern match at React.Store.Reduce (line 310, column 23 - line 322, column 24): " + [expandParentOf.constructor.name]);
+          }();
+          var connection = function() {
+            if (mNode instanceof Just && (acc.connection instanceof ConnectionInProgress && eq113(acc.connection.value0.fromNode.id)(mNode.value0.id))) {
+              return new ConnectionInProgress({
+                isValid: acc.connection.value0.isValid,
+                fromHandle: acc.connection.value0.fromHandle,
+                fromPosition: acc.connection.value0.fromPosition,
+                fromNode: acc.connection.value0.fromNode,
+                to: acc.connection.value0.to,
+                toHandle: acc.connection.value0.toHandle,
+                toPosition: acc.connection.value0.toPosition,
+                toNode: acc.connection.value0.toNode,
+                pointer: acc.connection.value0.pointer,
+                from: getHandlePosition(mNode.value0)(new Just(acc.connection.value0.fromHandle))(PosLeft.value)(true)
+              });
+            }
+            ;
+            return acc.connection;
+          }();
+          var change = new NodePositionChange({
+            id: item.id,
+            position: new Just(function() {
+              if (expandParentOf instanceof Just) {
+                return {
+                  x: max14(0)(item.position.x),
+                  y: max14(0)(item.position.y)
+                };
+              }
+              ;
+              if (expandParentOf instanceof Nothing) {
+                return item.position;
+              }
+              ;
+              throw new Error("Failed pattern match at React.Store.Reduce (line 295, column 28 - line 297, column 39): " + [expandParentOf.constructor.name]);
+            }()),
+            positionAbsolute: Nothing.value,
+            dragging: new Just(dragging)
+          });
+          return {
+            changes: snoc(acc.changes)(change),
+            parentExpandChildren: append19(acc.parentExpandChildren)(expandChild),
+            connection
+          };
+        };
+      };
+      var stepped = foldl2(step2)({
+        changes: [],
+        parentExpandChildren: [],
+        connection: state3.connection
       })(items);
-      return reduceTriggerNodeChanges(state3)(changes);
+      var expandChanges = function() {
+        var $99 = $$null(stepped.parentExpandChildren);
+        if ($99) {
+          return [];
+        }
+        ;
+        return handleExpandParent(stepped.parentExpandChildren)(state3.nodeLookup)(state3.parentLookup)(state3.nodeOrigin);
+      }();
+      var changes = foldl9(function(cs) {
+        return function(middleware) {
+          return middleware(cs);
+        };
+      })(append19(stepped.changes)(expandChanges))(values(state3.onNodesChangeMiddlewareMap));
+      return reduceTriggerNodeChanges({
+        rfId: state3.rfId,
+        width: state3.width,
+        height: state3.height,
+        transform: state3.transform,
+        nodes: state3.nodes,
+        nodesInitialized: state3.nodesInitialized,
+        nodeLookup: state3.nodeLookup,
+        parentLookup: state3.parentLookup,
+        edges: state3.edges,
+        edgeLookup: state3.edgeLookup,
+        connectionLookup: state3.connectionLookup,
+        onNodesChange: state3.onNodesChange,
+        onEdgesChange: state3.onEdgesChange,
+        hasDefaultNodes: state3.hasDefaultNodes,
+        hasDefaultEdges: state3.hasDefaultEdges,
+        domNode: state3.domNode,
+        paneDragging: state3.paneDragging,
+        noPanClassName: state3.noPanClassName,
+        panZoom: state3.panZoom,
+        minZoom: state3.minZoom,
+        maxZoom: state3.maxZoom,
+        translateExtent: state3.translateExtent,
+        nodeExtent: state3.nodeExtent,
+        nodeOrigin: state3.nodeOrigin,
+        nodeDragThreshold: state3.nodeDragThreshold,
+        connectionDragThreshold: state3.connectionDragThreshold,
+        nodesSelectionActive: state3.nodesSelectionActive,
+        userSelectionActive: state3.userSelectionActive,
+        userSelectionRect: state3.userSelectionRect,
+        connectionMode: state3.connectionMode,
+        connectionClickStartHandle: state3.connectionClickStartHandle,
+        snapToGrid: state3.snapToGrid,
+        snapGrid: state3.snapGrid,
+        nodesDraggable: state3.nodesDraggable,
+        autoPanOnNodeFocus: state3.autoPanOnNodeFocus,
+        nodesConnectable: state3.nodesConnectable,
+        nodesFocusable: state3.nodesFocusable,
+        edgesFocusable: state3.edgesFocusable,
+        edgesReconnectable: state3.edgesReconnectable,
+        elementsSelectable: state3.elementsSelectable,
+        elevateNodesOnSelect: state3.elevateNodesOnSelect,
+        elevateEdgesOnSelect: state3.elevateEdgesOnSelect,
+        selectNodesOnDrag: state3.selectNodesOnDrag,
+        multiSelectionActive: state3.multiSelectionActive,
+        onNodeDragStart: state3.onNodeDragStart,
+        onNodeDrag: state3.onNodeDrag,
+        onNodeDragStop: state3.onNodeDragStop,
+        onSelectionDragStart: state3.onSelectionDragStart,
+        onSelectionDrag: state3.onSelectionDrag,
+        onSelectionDragStop: state3.onSelectionDragStop,
+        onMoveStart: state3.onMoveStart,
+        onMove: state3.onMove,
+        onMoveEnd: state3.onMoveEnd,
+        onConnect: state3.onConnect,
+        onConnectStart: state3.onConnectStart,
+        onConnectEnd: state3.onConnectEnd,
+        onClickConnectStart: state3.onClickConnectStart,
+        onClickConnectEnd: state3.onClickConnectEnd,
+        connectOnClick: state3.connectOnClick,
+        defaultEdgeOptions: state3.defaultEdgeOptions,
+        fitViewQueued: state3.fitViewQueued,
+        fitViewOptions: state3.fitViewOptions,
+        fitViewResolver: state3.fitViewResolver,
+        onNodesDelete: state3.onNodesDelete,
+        onEdgesDelete: state3.onEdgesDelete,
+        onDelete: state3.onDelete,
+        onError: state3.onError,
+        onViewportChangeStart: state3.onViewportChangeStart,
+        onViewportChange: state3.onViewportChange,
+        onViewportChangeEnd: state3.onViewportChangeEnd,
+        onBeforeDelete: state3.onBeforeDelete,
+        onSelectionChangeHandlers: state3.onSelectionChangeHandlers,
+        ariaLiveMessage: state3.ariaLiveMessage,
+        autoPanOnConnect: state3.autoPanOnConnect,
+        autoPanOnNodeDrag: state3.autoPanOnNodeDrag,
+        autoPanSpeed: state3.autoPanSpeed,
+        connectionRadius: state3.connectionRadius,
+        isValidConnection: state3.isValidConnection,
+        lib: state3.lib,
+        debug: state3.debug,
+        ariaLabelConfig: state3.ariaLabelConfig,
+        zIndexMode: state3.zIndexMode,
+        onNodesChangeMiddlewareMap: state3.onNodesChangeMiddlewareMap,
+        onEdgesChangeMiddlewareMap: state3.onEdgesChangeMiddlewareMap,
+        connection: stepped.connection
+      })(changes);
     };
   };
 };
@@ -57434,7 +57608,7 @@ var reduce = function(state3) {
       };
     }
     ;
-    throw new Error("Failed pattern match at React.Store.Reduce (line 60, column 16 - line 143, column 50): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at React.Store.Reduce (line 63, column 16 - line 146, column 50): " + [v.constructor.name]);
   };
 };
 
@@ -63342,7 +63516,7 @@ var coerceHook13 = /* @__PURE__ */ coerceHook();
 var bind55 = /* @__PURE__ */ bind4(ixBindRender);
 var alt8 = /* @__PURE__ */ alt(altMaybe);
 var useStore27 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqArray(eqRec9));
-var lookup25 = /* @__PURE__ */ lookup2(ordString);
+var lookup26 = /* @__PURE__ */ lookup2(ordString);
 var discard24 = /* @__PURE__ */ discard2(ixBindRender);
 var useEffect17 = /* @__PURE__ */ useEffect(eqUnsafeReference);
 var when23 = /* @__PURE__ */ when(applicativeEffect);
@@ -63396,7 +63570,7 @@ var useHandleConnections = function(params) {
     var currentNodeId = fromMaybe("")(alt8(params.nodeId)(mContextId));
     var key2 = handleLookupKey(currentNodeId)(params.handleType)(params.id);
     return bind55(useStore27(function(s) {
-      var v = lookup25(key2)(s.connectionLookup);
+      var v = lookup26(key2)(s.connectionLookup);
       if (v instanceof Nothing) {
         return [];
       }
@@ -63513,7 +63687,7 @@ var coerceHook15 = /* @__PURE__ */ coerceHook();
 var bind57 = /* @__PURE__ */ bind4(ixBindRender);
 var alt9 = /* @__PURE__ */ alt(altMaybe);
 var useStore28 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqArray(eqRec10));
-var lookup26 = /* @__PURE__ */ lookup2(ordString);
+var lookup27 = /* @__PURE__ */ lookup2(ordString);
 var discard25 = /* @__PURE__ */ discard2(ixBindRender);
 var useEffect19 = /* @__PURE__ */ useEffect(eqUnsafeReference);
 var when24 = /* @__PURE__ */ when(applicativeEffect);
@@ -63577,7 +63751,7 @@ var useNodeConnections = function(params) {
     }();
     var key2 = nodeLookupKey(currentNodeId)(params.handleType)(params.handleId);
     return bind57(useStore28(function(s) {
-      var v = lookup26(key2)(s.connectionLookup);
+      var v = lookup27(key2)(s.connectionLookup);
       if (v instanceof Nothing) {
         return [];
       }
@@ -63656,10 +63830,10 @@ var xIsSymbol2 = {
 };
 var eqMaybe11 = /* @__PURE__ */ eqMaybe(eqBoolean);
 var eq46 = /* @__PURE__ */ eq(eqMaybe11);
-var foldl9 = /* @__PURE__ */ foldl(foldableList);
+var foldl10 = /* @__PURE__ */ foldl(foldableList);
 var useStore29 = /* @__PURE__ */ useStore(eqBoolean);
 var nub5 = /* @__PURE__ */ nub(ordNodeId);
-var lookup27 = /* @__PURE__ */ lookup2(ordNodeId);
+var lookup28 = /* @__PURE__ */ lookup2(ordNodeId);
 var append22 = /* @__PURE__ */ append(semigroupArray);
 var eqMaybe12 = /* @__PURE__ */ eqMaybe(eqInt);
 var eqRowCons1 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons8({
@@ -63928,7 +64102,7 @@ var useNodesInitialized = function(opts) {
       };
     };
     var nodes3 = values(s.nodeLookup);
-    var result = foldl9(step2)({
+    var result = foldl10(step2)({
       initialised: false,
       broken: false
     })(nodes3);
@@ -63943,7 +64117,7 @@ var useNodesData = function(dictEq) {
     var selectNodesData = function(s) {
       return foldl2(function(acc) {
         return function(i) {
-          var v = lookup27(i)(s.nodeLookup);
+          var v = lookup28(i)(s.nodeLookup);
           if (v instanceof Just) {
             return append22(acc)([v.value0]);
           }
@@ -63969,7 +64143,7 @@ var useInternalNode = function(dictEq) {
   var useStore111 = useStore(eqMaybe(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons52(dictEq))()(connectableIsSymbol)(eqMaybe11))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe52))));
   return function(nodeId) {
     var selectOne = function(s) {
-      return lookup27(nodeId)(s.nodeLookup);
+      return lookup28(nodeId)(s.nodeLookup);
     };
     return useStore111(selectOne);
   };
@@ -64004,7 +64178,7 @@ var querySelectorNodeImpl = (host3) => (id3) => () => {
 var map63 = /* @__PURE__ */ map(functorEffect);
 var insert14 = /* @__PURE__ */ insert4(ordNodeId);
 var traverse2 = /* @__PURE__ */ traverse(traversableArray)(applicativeEffect);
-var foldl10 = /* @__PURE__ */ foldl(foldableArray);
+var foldl11 = /* @__PURE__ */ foldl(foldableArray);
 var bind120 = /* @__PURE__ */ bind4(ixBindRender);
 var useMemo7 = /* @__PURE__ */ useMemo(eqUnit);
 var pure134 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
@@ -64066,7 +64240,7 @@ var mkFn = function(store) {
       ;
       if (s.domNode instanceof Just) {
         var pairs = traverse2(queryOne(s.domNode.value0))(ids)();
-        var updates = foldl10(insertUpdate)(empty5)(pairs);
+        var updates = foldl11(insertUpdate)(empty5)(pairs);
         requestAnimationFrame(store.dispatch(new UpdateNodeInternals(updates, {
           triggerFitView: false
         })))();
@@ -64363,8 +64537,8 @@ var nodeToolbarPortal = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reac
 }));
 
 // output/React.Additional.NodeToolbar/index.js
-var max14 = /* @__PURE__ */ max(ordNumber);
-var lookup28 = /* @__PURE__ */ lookup2(ordNodeId);
+var max15 = /* @__PURE__ */ max(ordNumber);
+var lookup29 = /* @__PURE__ */ lookup2(ordNodeId);
 var insert15 = /* @__PURE__ */ insert4(ordNodeId);
 var eq47 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var map65 = /* @__PURE__ */ map(functorArray);
@@ -64377,7 +64551,7 @@ var unwrap22 = /* @__PURE__ */ unwrap();
 var toolbarZIndex = /* @__PURE__ */ function() {
   return foldl2(function(m) {
     return function(z) {
-      return max14(m)(z + 1);
+      return max15(m)(z + 1);
     };
   })(-infinity);
 }();
@@ -64393,7 +64567,7 @@ var lookupNodes = function(ids) {
   return function(s) {
     return foldl2(function(acc) {
       return function(nid) {
-        var v = lookup28(nid)(s.nodeLookup);
+        var v = lookup29(nid)(s.nodeLookup);
         if (v instanceof Nothing) {
           return acc;
         }

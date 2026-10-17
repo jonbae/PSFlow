@@ -526,7 +526,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 164.9000000357628,
+            "timeStamp": 162.70000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -595,7 +595,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 164.9000000357628,
+            "timeStamp": 162.70000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -667,7 +667,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 164.9000000357628,
+            "timeStamp": 162.70000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -732,7 +732,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 164.9000000357628,
+            "timeStamp": 162.70000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -928,7 +928,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 195.4000000357628,
+            "timeStamp": 178.20000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -989,10 +989,6 @@
                 "x": 0,
                 "y": 1
               },
-              "positionAbsolute": {
-                "x": 0,
-                "y": 0
-              },
               "dragging": false
             }
           ]
@@ -1008,10 +1004,6 @@
               "position": {
                 "x": 0,
                 "y": 2
-              },
-              "positionAbsolute": {
-                "x": 0,
-                "y": 1
               },
               "dragging": false
             }
@@ -1028,10 +1020,6 @@
               "position": {
                 "x": 0,
                 "y": 3
-              },
-              "positionAbsolute": {
-                "x": 0,
-                "y": 2
               },
               "dragging": false
             }
@@ -1048,10 +1036,6 @@
               "position": {
                 "x": 0,
                 "y": 4
-              },
-              "positionAbsolute": {
-                "x": 0,
-                "y": 3
               },
               "dragging": false
             }
@@ -1067,10 +1051,6 @@
               "id": "Node-1",
               "position": {
                 "x": 1,
-                "y": 4
-              },
-              "positionAbsolute": {
-                "x": 0,
                 "y": 4
               },
               "dragging": false
@@ -1087,10 +1067,6 @@
               "id": "Node-1",
               "position": {
                 "x": 2,
-                "y": 4
-              },
-              "positionAbsolute": {
-                "x": 1,
                 "y": 4
               },
               "dragging": false
