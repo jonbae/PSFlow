@@ -1,8 +1,9 @@
--- | `<NodeToolbarPortal />` — portals its children into the React Flow
--- | root div so the toolbar escapes node clipping. Mirrors
+-- | `<NodeToolbarPortal />` — portals its children into the flow's
+-- | `.react-flow__renderer` so the toolbar escapes node clipping. Mirrors
 -- | `xyflow/.../NodeToolbar/NodeToolbarPortal.tsx`.
 module React.Additional.NodeToolbar.Portal
   ( nodeToolbarPortal
+  , selectTarget
   ) where
 
 import Prelude
@@ -17,14 +18,19 @@ import React.Portal.FFI (createPortal)
 import React.Types.Component (EdgeLabelRendererProps) as Re
 import React.Types.Store (ReactFlowState)
 import Web.DOM.Element (Element)
-import Web.HTML.HTMLDivElement (toElement)
+import Web.DOM.ParentNode (QuerySelector(..), querySelector)
+import Web.HTML.HTMLDivElement (toParentNode)
 
--- | The portal target is the React Flow root div itself. The slice is
--- | `Maybe Element` wrapped in `UnsafeReference` for stable Eq.
+-- | Upstream's `state.domNode?.querySelector('.react-flow__renderer')`. The
+-- | slice is `Maybe Element` wrapped in `UnsafeReference` for stable Eq.
 selectTarget :: forall n e. ReactFlowState n e -> Maybe (UnsafeReference Element)
 selectTarget s = case s.domNode of
   Nothing -> Nothing
-  Just dn -> Just (UnsafeReference (toElement dn))
+  Just dn -> case unsafePerformEffect (querySelector qs (toParentNode dn)) of
+    Nothing -> Nothing
+    Just el -> Just (UnsafeReference el)
+  where
+  qs = QuerySelector ".react-flow__renderer"
 
 nodeToolbarPortal :: ReactComponent Re.EdgeLabelRendererProps
 nodeToolbarPortal =
