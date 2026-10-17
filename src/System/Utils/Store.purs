@@ -835,7 +835,7 @@ processUpdate update acc zoom origin extent zMode =
                 ]
               else []
             extraExpand = case node.parentId of
-              Just pid | dimensionChanged && node.expandParent ->
+              Just pid | dimensionChanged && node.expandParent == Just true ->
                 [ { id: node.id
                   , parentId: pid
                   , rect: nodeToRect (Right newNode) origin

@@ -12,109 +12,109 @@ claimed by a region — never by loosening what the net looks at.
 
 | scenario | verdict | failure classes | differences |
 |---|---|---|---|
-| `mount-baseline--edges-general` | **failed** | unclaimed-difference | 365 |
-| `mount-baseline--node-toolbar-general` | **failed** | unclaimed-difference | 211 |
-| `mount-baseline--nodes-general` | **failed** | unclaimed-difference | 172 |
-| `mount-baseline--pane-general` | **failed** | unclaimed-difference | 80 |
-| `mount-baseline--pane-non-defaults` | **failed** | unclaimed-difference | 65 |
-| `mount-baseline--chrome-background` | **failed** | unclaimed-difference | 83 |
-| `mount-baseline--chrome-controls` | **failed** | unclaimed-difference | 81 |
-| `mount-baseline--chrome-minimap-colors` | **failed** | unclaimed-difference | 82 |
-| `mount-baseline--chrome-minimap-hidden-nodes` | **failed** | unclaimed-difference | 44 |
-| `mount-baseline--chrome-panels` | **failed** | unclaimed-difference | 81 |
+| `mount-baseline--edges-general` | **failed** | unclaimed-difference | 275 |
+| `mount-baseline--node-toolbar-general` | **failed** | unclaimed-difference | 164 |
+| `mount-baseline--nodes-general` | **failed** | unclaimed-difference | 130 |
+| `mount-baseline--pane-general` | **failed** | unclaimed-difference | 59 |
+| `mount-baseline--pane-non-defaults` | **failed** | unclaimed-difference | 44 |
+| `mount-baseline--chrome-background` | **failed** | unclaimed-difference | 59 |
+| `mount-baseline--chrome-controls` | **failed** | unclaimed-difference | 57 |
+| `mount-baseline--chrome-minimap-colors` | **failed** | unclaimed-difference | 58 |
+| `mount-baseline--chrome-minimap-hidden-nodes` | **failed** | unclaimed-difference | 27 |
+| `mount-baseline--chrome-panels` | **failed** | unclaimed-difference | 57 |
 | `mount-baseline--edges-base-edge-path` | **failed** | driving-divergence, unclaimed-difference | 67 |
-| `mount-baseline--fitview-uncontrolled` | **failed** | unclaimed-difference | 81 |
-| `mount-baseline--flow-chrome-defaults` | **failed** | unclaimed-difference | 47 |
-| `mount-baseline--flow-custom-testid` | **failed** | unclaimed-difference | 82 |
-| `mount-baseline--flow-display-none` | **failed** | unclaimed-difference | 81 |
-| `mount-baseline--flow-limits-change` | **failed** | unclaimed-difference | 80 |
-| `mount-baseline--flow-not-selectable` | **failed** | unclaimed-difference | 78 |
-| `mount-baseline--flow-props-change` | **failed** | unclaimed-difference | 81 |
-| `mount-baseline--nodes-autopan` | **failed** | unclaimed-difference | 65 |
-| `mount-baseline--nodes-connections` | **failed** | unclaimed-difference | 167 |
-| `mount-baseline--nodes-expand-parent` | **failed** | unclaimed-difference | 96 |
-| `mount-baseline--nodes-no-select-on-drag` | **failed** | unclaimed-difference | 81 |
-| `mount-baseline--nodes-nowheel` | **failed** | unclaimed-difference | 79 |
-| `mount-baseline--nodes-props-record` | **failed** | unclaimed-difference | 35 |
-| `mount-baseline--nodes-tall` | **failed** | unclaimed-difference | 84 |
-| `mount-baseline--nodes-unmeasured` | **failed** | unclaimed-difference | 53 |
-| `mount-baseline--viewport-controlled` | **failed** | unclaimed-difference | 81 |
-| `mount-baseline--viewport-helpers` | **failed** | unclaimed-difference | 105 |
-| `mount-baseline--viewport-pan-on-scroll` | **failed** | unclaimed-difference | 80 |
+| `mount-baseline--fitview-uncontrolled` | **failed** | unclaimed-difference | 57 |
+| `mount-baseline--flow-chrome-defaults` | **failed** | unclaimed-difference | 33 |
+| `mount-baseline--flow-custom-testid` | **failed** | unclaimed-difference | 58 |
+| `mount-baseline--flow-display-none` | **failed** | unclaimed-difference | 57 |
+| `mount-baseline--flow-limits-change` | **failed** | unclaimed-difference | 56 |
+| `mount-baseline--flow-not-selectable` | **failed** | unclaimed-difference | 51 |
+| `mount-baseline--flow-props-change` | **failed** | unclaimed-difference | 57 |
+| `mount-baseline--nodes-autopan` | **failed** | unclaimed-difference | 44 |
+| `mount-baseline--nodes-connections` | **failed** | unclaimed-difference | 125 |
+| `mount-baseline--nodes-expand-parent` | **failed** | unclaimed-difference | 82 |
+| `mount-baseline--nodes-no-select-on-drag` | **failed** | unclaimed-difference | 57 |
+| `mount-baseline--nodes-nowheel` | **failed** | unclaimed-difference | 65 |
+| `mount-baseline--nodes-props-record` | **failed** | unclaimed-difference | 27 |
+| `mount-baseline--nodes-tall` | **failed** | unclaimed-difference | 56 |
+| `mount-baseline--nodes-unmeasured` | **failed** | unclaimed-difference | 34 |
+| `mount-baseline--viewport-controlled` | **failed** | self-inconsistent, unclaimed-difference | 58 |
+| `mount-baseline--viewport-helpers` | **failed** | unclaimed-difference | 77 |
+| `mount-baseline--viewport-pan-on-scroll` | **failed** | unclaimed-difference | 56 |
 | `mount-baseline--examples-color-mode` | **failed** | unclaimed-difference | 9 |
-| `click-selects-edge` | **failed** | driving-divergence, unclaimed-difference | 383 |
-| `multi-select-edges-with-modifier` | **failed** | driving-divergence, unclaimed-difference | 406 |
-| `click-unselectable-edge` | **failed** | unclaimed-difference | 374 |
-| `delete-key-removes-edge` | **failed** | driving-divergence, unclaimed-difference | 380 |
-| `delete-key-spares-undeletable-edge` | **failed** | driving-divergence, unclaimed-difference | 385 |
-| `click-inside-interaction-width` | **failed** | driving-divergence, unclaimed-difference | 376 |
-| `click-selects-node` | **failed** | unclaimed-difference | 191 |
-| `shift-drag-selects-nodes` | **failed** | unclaimed-difference | 172 |
-| `click-unselectable-node` | **failed** | unclaimed-difference | 196 |
-| `drag-moves-node` | **failed** | unclaimed-difference | 228 |
-| `drag-does-not-move-undraggable-node` | **failed** | unclaimed-difference | 197 |
-| `drag-by-custom-drag-handle` | **failed** | unclaimed-difference | 234 |
-| `delete-key-removes-node-and-edges` | **failed** | unclaimed-difference | 174 |
-| `delete-key-spares-undeletable-node` | **failed** | unclaimed-difference | 194 |
-| `connect-source-handle-to-target-handle` | **failed** | unclaimed-difference | 272 |
-| `connect-output-to-output-handle` | **failed** | unclaimed-difference | 249 |
-| `connect-input-to-input-handle` | **failed** | unclaimed-difference | 260 |
-| `connect-to-unconnectable-handle` | **failed** | unclaimed-difference | 250 |
-| `drag-pans-the-pane` | **failed** | unclaimed-difference | 80 |
-| `wheel-zooms-the-pane` | **failed** | unclaimed-difference | 80 |
-| `wheel-zooms-out-to-min` | **failed** | unclaimed-difference | 66 |
-| `wheel-zooms-in-to-max` | **failed** | unclaimed-difference | 66 |
-| `wheel-pans-with-panonscroll` | **failed** | unclaimed-difference | 77 |
-| `click-reveals-default-toolbar` | **failed** | unclaimed-difference | 221 |
+| `click-selects-edge` | **failed** | driving-divergence, unclaimed-difference | 285 |
+| `multi-select-edges-with-modifier` | **failed** | driving-divergence, unclaimed-difference | 296 |
+| `click-unselectable-edge` | **failed** | unclaimed-difference | 278 |
+| `delete-key-removes-edge` | **failed** | driving-divergence, unclaimed-difference | 286 |
+| `delete-key-spares-undeletable-edge` | **failed** | driving-divergence, unclaimed-difference | 287 |
+| `click-inside-interaction-width` | **failed** | driving-divergence, unclaimed-difference | 278 |
+| `click-selects-node` | **failed** | unclaimed-difference | 141 |
+| `shift-drag-selects-nodes` | **failed** | unclaimed-difference | 127 |
+| `click-unselectable-node` | **failed** | unclaimed-difference | 147 |
+| `drag-moves-node` | **failed** | unclaimed-difference | 161 |
+| `drag-does-not-move-undraggable-node` | **failed** | unclaimed-difference | 151 |
+| `drag-by-custom-drag-handle` | **failed** | unclaimed-difference | 169 |
+| `delete-key-removes-node-and-edges` | **failed** | unclaimed-difference | 135 |
+| `delete-key-spares-undeletable-node` | **failed** | unclaimed-difference | 144 |
+| `connect-source-handle-to-target-handle` | **failed** | unclaimed-difference | 213 |
+| `connect-output-to-output-handle` | **failed** | unclaimed-difference | 200 |
+| `connect-input-to-input-handle` | **failed** | unclaimed-difference | 205 |
+| `connect-to-unconnectable-handle` | **failed** | unclaimed-difference | 197 |
+| `drag-pans-the-pane` | **failed** | unclaimed-difference | 59 |
+| `wheel-zooms-the-pane` | **failed** | unclaimed-difference | 59 |
+| `wheel-zooms-out-to-min` | **failed** | unclaimed-difference | 45 |
+| `wheel-zooms-in-to-max` | **failed** | unclaimed-difference | 45 |
+| `wheel-pans-with-panonscroll` | **failed** | unclaimed-difference | 56 |
+| `click-reveals-default-toolbar` | **failed** | unclaimed-difference | 170 |
 | `select-dark-color-mode` | **failed** | unclaimed-difference | 9 |
-| `drag-node-release` | **failed** | unclaimed-difference | 291 |
-| `drag-node-escape-mid-gesture` | **failed** | unclaimed-difference | 216 |
-| `drag-node-autopan` | **failed** | self-inconsistent, unclaimed-difference | 373 |
-| `drag-node-no-select-on-drag` | **failed** | unclaimed-difference | 188 |
-| `drag-child-expand-parent` | **failed** | driving-divergence, unclaimed-difference | 179 |
-| `drag-unmeasured-node` | **failed** | unclaimed-difference | 103 |
-| `selection-box-from-node` | **failed** | unclaimed-difference | 188 |
-| `selection-box-then-click-node` | **failed** | unclaimed-difference | 228 |
-| `selection-box-mid-gesture` | **failed** | unclaimed-difference | 81 |
-| `selection-box-touch` | **failed** | unclaimed-difference | 196 |
-| `arrow-key-selected-node` | **failed** | self-inconsistent, unclaimed-difference | 136 |
-| `keyboard-focus-node` | **failed** | unclaimed-difference | 82 |
-| `connect-handle-to-handle` | **failed** | unclaimed-difference | 347 |
-| `connect-then-keyboard-move` | **failed** | unclaimed-difference | 246 |
-| `connect-second-touch-point` | **failed** | unclaimed-difference | 186 |
-| `probe-node-connections` | **failed** | unclaimed-difference | 256 |
-| `viewport-helpers-with-options` | **failed** | unclaimed-difference | 102 |
-| `pan-gesture-complete` | **failed** | unclaimed-difference | 80 |
-| `fitview-onnodeschange-variants` | **failed** | unclaimed-difference | 118 |
-| `uncontrolled-update-node` | **failed** | unclaimed-difference | 107 |
-| `flow-props-change-after-mount` | **failed** | unclaimed-difference | 115 |
-| `mount-in-display-none` | **failed** | unclaimed-difference | 82 |
-| `minimap-all-nodes-hidden` | **failed** | unclaimed-difference | 44 |
-| `minimap-custom-mask-colors` | **failed** | unclaimed-difference | 95 |
-| `controls-horizontal` | **failed** | unclaimed-difference | 82 |
-| `panel-center-positions` | **failed** | unclaimed-difference | 81 |
-| `background-custom-bgcolor` | **failed** | unclaimed-difference | 83 |
-| `flow-custom-testid` | **failed** | driving-divergence, unclaimed-difference | 104 |
+| `drag-node-release` | **failed** | unclaimed-difference | 208 |
+| `drag-node-escape-mid-gesture` | **failed** | unclaimed-difference | 161 |
+| `drag-node-autopan` | **failed** | self-inconsistent, unclaimed-difference | 291 |
+| `drag-node-no-select-on-drag` | **failed** | unclaimed-difference | 131 |
+| `drag-child-expand-parent` | **failed** | driving-divergence, unclaimed-difference | 165 |
+| `drag-unmeasured-node` | **failed** | unclaimed-difference | 61 |
+| `selection-box-from-node` | **failed** | unclaimed-difference | 142 |
+| `selection-box-then-click-node` | **failed** | unclaimed-difference | 169 |
+| `selection-box-mid-gesture` | **failed** | unclaimed-difference | 57 |
+| `selection-box-touch` | **failed** | unclaimed-difference | 151 |
+| `arrow-key-selected-node` | **failed** | unclaimed-difference | 98 |
+| `keyboard-focus-node` | **failed** | unclaimed-difference | 53 |
+| `connect-handle-to-handle` | **failed** | unclaimed-difference | 276 |
+| `connect-then-keyboard-move` | **failed** | unclaimed-difference | 188 |
+| `connect-second-touch-point` | **failed** | unclaimed-difference | 141 |
+| `probe-node-connections` | **failed** | unclaimed-difference | 203 |
+| `viewport-helpers-with-options` | **failed** | unclaimed-difference | 69 |
+| `pan-gesture-complete` | **failed** | unclaimed-difference | 59 |
+| `fitview-onnodeschange-variants` | **failed** | unclaimed-difference | 77 |
+| `uncontrolled-update-node` | **failed** | unclaimed-difference | 76 |
+| `flow-props-change-after-mount` | **failed** | unclaimed-difference | 79 |
+| `mount-in-display-none` | **failed** | unclaimed-difference | 58 |
+| `minimap-all-nodes-hidden` | **failed** | unclaimed-difference | 27 |
+| `minimap-custom-mask-colors` | **failed** | unclaimed-difference | 66 |
+| `controls-horizontal` | **failed** | unclaimed-difference | 58 |
+| `panel-center-positions` | **failed** | unclaimed-difference | 57 |
+| `background-custom-bgcolor` | **failed** | unclaimed-difference | 59 |
+| `flow-custom-testid` | **failed** | driving-divergence, unclaimed-difference | 80 |
 | `custom-edge-baseedge-path` | **failed** | driving-divergence, unclaimed-difference | 92 |
-| `pinch-over-nowheel-node` | **failed** | driving-divergence, unclaimed-difference | 173 |
-| `minimap-default-click` | **failed** | unclaimed-difference | 47 |
-| `controls-default-zoom` | **failed** | unclaimed-difference | 48 |
-| `wheel-zoom-from-identity-viewport` | **failed** | unclaimed-difference | 57 |
-| `pane-drag-from-identity-viewport` | **failed** | unclaimed-difference | 47 |
-| `drag-node-reports-changes` | **failed** | unclaimed-difference | 116 |
-| `click-connect-reverse-direction` | **failed** | unclaimed-difference | 109 |
-| `connect-drag-holding-source` | **failed** | unclaimed-difference | 99 |
-| `connect-drag-released-on-pane` | **failed** | unclaimed-difference | 108 |
-| `node-props-record-parented` | **failed** | unclaimed-difference | 61 |
-| `wheel-zooms-to-changed-limits` | **failed** | unclaimed-difference | 82 |
-| `drag-pans-into-changed-extent` | **failed** | unclaimed-difference | 80 |
-| `pan-after-controlled-viewport-change` | **failed** | unclaimed-difference | 81 |
-| `ctrl-wheel-pinches-with-panonscroll` | **failed** | unclaimed-difference | 94 |
-| `pane-click-keeps-selection-when-not-selectable` | **failed** | unclaimed-difference | 78 |
-| `click-selects-node--probe-flow-node` | **failed** | unclaimed-difference | 217 |
-| `wheel-zooms-the-pane--probe-flow-node` | **failed** | unclaimed-difference | 113 |
-| `mount-baseline--edges-general--probe-edge` | **failed** | unclaimed-difference | 16 |
-| `connect-source-handle-to-target-handle--probe-connection-line` | **failed** | unclaimed-difference | 28 |
+| `pinch-over-nowheel-node` | **failed** | driving-divergence, unclaimed-difference | 159 |
+| `minimap-default-click` | **failed** | unclaimed-difference | 33 |
+| `controls-default-zoom` | **failed** | unclaimed-difference | 34 |
+| `wheel-zoom-from-identity-viewport` | **failed** | unclaimed-difference | 43 |
+| `pane-drag-from-identity-viewport` | **failed** | unclaimed-difference | 33 |
+| `drag-node-reports-changes` | **failed** | self-inconsistent, unclaimed-difference | 234 |
+| `click-connect-reverse-direction` | **failed** | unclaimed-difference | 82 |
+| `connect-drag-holding-source` | **failed** | unclaimed-difference | 76 |
+| `connect-drag-released-on-pane` | **failed** | unclaimed-difference | 84 |
+| `node-props-record-parented` | **failed** | unclaimed-difference | 45 |
+| `wheel-zooms-to-changed-limits` | **failed** | unclaimed-difference | 58 |
+| `drag-pans-into-changed-extent` | **failed** | unclaimed-difference | 56 |
+| `pan-after-controlled-viewport-change` | **failed** | unclaimed-difference | 57 |
+| `ctrl-wheel-pinches-with-panonscroll` | **failed** | unclaimed-difference | 70 |
+| `pane-click-keeps-selection-when-not-selectable` | **failed** | unclaimed-difference | 51 |
+| `click-selects-node--probe-flow-node` | **failed** | unclaimed-difference | 160 |
+| `wheel-zooms-the-pane--probe-flow-node` | **failed** | unclaimed-difference | 84 |
+| `mount-baseline--edges-general--probe-edge` | **failed** | unclaimed-difference | 14 |
+| `connect-source-handle-to-target-handle--probe-connection-line` | **failed** | unclaimed-difference | 26 |
 
 Every trace behind this report is on disk under `parity/system/traces` — four per scenario, two sides captured
 twice each. They are the artifact: re-diffing them costs seconds and no browser.
@@ -147,7 +147,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 365 unclaimed difference(s).
+**Failed:** 275 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -274,70 +274,55 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/13/dimensions/height` | differs | 50 | 37 |
 | `callbacks/4/args/0/13/resizing` | right only | — | false |
 
-### api (252)
+### api (162)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
 | `api/queries/getNodes/4/selected` | right only | — | false |
 | `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNodes/5/hidden` | right only | — | false |
 | `api/queries/getNodes/5/selected` | right only | — | false |
 | `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/5/expandParent` | right only | — | false |
 | `api/queries/getNodes/6/hidden` | right only | — | false |
 | `api/queries/getNodes/6/selected` | right only | — | false |
 | `api/queries/getNodes/6/dragging` | right only | — | false |
-| `api/queries/getNodes/6/expandParent` | right only | — | false |
 | `api/queries/getNodes/7/hidden` | right only | — | false |
 | `api/queries/getNodes/7/selected` | right only | — | false |
 | `api/queries/getNodes/7/dragging` | right only | — | false |
-| `api/queries/getNodes/7/expandParent` | right only | — | false |
 | `api/queries/getNodes/8/hidden` | right only | — | false |
 | `api/queries/getNodes/8/selected` | right only | — | false |
 | `api/queries/getNodes/8/dragging` | right only | — | false |
-| `api/queries/getNodes/8/expandParent` | right only | — | false |
 | `api/queries/getNodes/9/hidden` | right only | — | false |
 | `api/queries/getNodes/9/selected` | right only | — | false |
 | `api/queries/getNodes/9/dragging` | right only | — | false |
-| `api/queries/getNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNodes/10/hidden` | right only | — | false |
 | `api/queries/getNodes/10/selected` | right only | — | false |
 | `api/queries/getNodes/10/dragging` | right only | — | false |
-| `api/queries/getNodes/10/expandParent` | right only | — | false |
 | `api/queries/getNodes/11/hidden` | right only | — | false |
 | `api/queries/getNodes/11/selected` | right only | — | false |
 | `api/queries/getNodes/11/dragging` | right only | — | false |
-| `api/queries/getNodes/11/expandParent` | right only | — | false |
 | `api/queries/getNodes/12/hidden` | right only | — | false |
 | `api/queries/getNodes/12/selected` | right only | — | false |
 | `api/queries/getNodes/12/dragging` | right only | — | false |
-| `api/queries/getNodes/12/expandParent` | right only | — | false |
 | `api/queries/getNodes/13/hidden` | right only | — | false |
 | `api/queries/getNodes/13/selected` | right only | — | false |
 | `api/queries/getNodes/13/dragging` | right only | — | false |
-| `api/queries/getNodes/13/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00001857790781 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999994842827817 |
@@ -346,189 +331,114 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdges/2/animated` | right only | — | false |
 | `api/queries/getEdges/2/selected` | right only | — | false |
-| `api/queries/getEdges/3/hidden` | right only | — | false |
 | `api/queries/getEdges/3/selected` | right only | — | false |
-| `api/queries/getEdges/4/animated` | right only | — | false |
-| `api/queries/getEdges/4/hidden` | right only | — | false |
 | `api/queries/getEdges/4/selected` | right only | — | false |
-| `api/queries/getEdges/5/animated` | right only | — | false |
-| `api/queries/getEdges/5/hidden` | right only | — | false |
 | `api/queries/getEdges/5/selected` | right only | — | false |
-| `api/queries/getEdges/6/animated` | right only | — | false |
-| `api/queries/getEdges/6/hidden` | right only | — | false |
 | `api/queries/getEdges/6/selected` | right only | — | false |
-| `api/queries/getEdges/7/animated` | right only | — | false |
-| `api/queries/getEdges/7/hidden` | right only | — | false |
 | `api/queries/getEdges/7/selected` | right only | — | false |
-| `api/queries/getEdges/8/animated` | right only | — | false |
-| `api/queries/getEdges/8/hidden` | right only | — | false |
 | `api/queries/getEdges/8/selected` | right only | — | false |
-| `api/queries/getEdges/9/animated` | right only | — | false |
-| `api/queries/getEdges/9/hidden` | right only | — | false |
 | `api/queries/getEdges/9/selected` | right only | — | false |
-| `api/queries/getEdges/10/animated` | right only | — | false |
-| `api/queries/getEdges/10/hidden` | right only | — | false |
 | `api/queries/getEdges/10/selected` | right only | — | false |
-| `api/queries/getEdges/11/animated` | right only | — | false |
-| `api/queries/getEdges/11/hidden` | right only | — | false |
 | `api/queries/getEdges/11/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/10/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/10/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/10/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/10/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/11/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/11/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/11/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/11/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/12/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/12/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/12/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/12/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/13/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/selected` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/6/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/6/selected` | right only | — | false |
 | `api/queries/toObject/nodes/6/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/6/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/7/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/7/selected` | right only | — | false |
 | `api/queries/toObject/nodes/7/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/7/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/8/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/8/selected` | right only | — | false |
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/8/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/9/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/9/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/10/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/10/selected` | right only | — | false |
 | `api/queries/toObject/nodes/10/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/10/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/11/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/11/selected` | right only | — | false |
 | `api/queries/toObject/nodes/11/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/11/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/12/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/12/selected` | right only | — | false |
 | `api/queries/toObject/nodes/12/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/12/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/13/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/13/selected` | right only | — | false |
 | `api/queries/toObject/nodes/13/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/13/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
-| `api/queries/toObject/edges/2/animated` | right only | — | false |
 | `api/queries/toObject/edges/2/selected` | right only | — | false |
-| `api/queries/toObject/edges/3/hidden` | right only | — | false |
 | `api/queries/toObject/edges/3/selected` | right only | — | false |
-| `api/queries/toObject/edges/4/animated` | right only | — | false |
-| `api/queries/toObject/edges/4/hidden` | right only | — | false |
 | `api/queries/toObject/edges/4/selected` | right only | — | false |
-| `api/queries/toObject/edges/5/animated` | right only | — | false |
-| `api/queries/toObject/edges/5/hidden` | right only | — | false |
 | `api/queries/toObject/edges/5/selected` | right only | — | false |
-| `api/queries/toObject/edges/6/animated` | right only | — | false |
-| `api/queries/toObject/edges/6/hidden` | right only | — | false |
 | `api/queries/toObject/edges/6/selected` | right only | — | false |
-| `api/queries/toObject/edges/7/animated` | right only | — | false |
-| `api/queries/toObject/edges/7/hidden` | right only | — | false |
 | `api/queries/toObject/edges/7/selected` | right only | — | false |
-| `api/queries/toObject/edges/8/animated` | right only | — | false |
-| `api/queries/toObject/edges/8/hidden` | right only | — | false |
 | `api/queries/toObject/edges/8/selected` | right only | — | false |
-| `api/queries/toObject/edges/9/animated` | right only | — | false |
-| `api/queries/toObject/edges/9/hidden` | right only | — | false |
 | `api/queries/toObject/edges/9/selected` | right only | — | false |
-| `api/queries/toObject/edges/10/animated` | right only | — | false |
-| `api/queries/toObject/edges/10/hidden` | right only | — | false |
 | `api/queries/toObject/edges/10/selected` | right only | — | false |
-| `api/queries/toObject/edges/11/animated` | right only | — | false |
-| `api/queries/toObject/edges/11/hidden` | right only | — | false |
 | `api/queries/toObject/edges/11/selected` | right only | — | false |
 
 
@@ -560,7 +470,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 211 unclaimed difference(s).
+**Failed:** 164 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -605,66 +515,52 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/12/id` | differs | node-end-left | node-start-top |
 | `callbacks/4/args/0/12/resizing` | right only | — | false |
 
-### api (180)
+### api (133)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
 | `api/queries/getNodes/4/selected` | right only | — | false |
 | `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNodes/5/hidden` | right only | — | false |
 | `api/queries/getNodes/5/selected` | right only | — | false |
 | `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/5/expandParent` | right only | — | false |
 | `api/queries/getNodes/6/hidden` | right only | — | false |
 | `api/queries/getNodes/6/selected` | right only | — | false |
 | `api/queries/getNodes/6/dragging` | right only | — | false |
-| `api/queries/getNodes/6/expandParent` | right only | — | false |
 | `api/queries/getNodes/7/hidden` | right only | — | false |
 | `api/queries/getNodes/7/selected` | right only | — | false |
 | `api/queries/getNodes/7/dragging` | right only | — | false |
-| `api/queries/getNodes/7/expandParent` | right only | — | false |
 | `api/queries/getNodes/8/hidden` | right only | — | false |
 | `api/queries/getNodes/8/selected` | right only | — | false |
 | `api/queries/getNodes/8/dragging` | right only | — | false |
-| `api/queries/getNodes/8/expandParent` | right only | — | false |
 | `api/queries/getNodes/9/hidden` | right only | — | false |
 | `api/queries/getNodes/9/selected` | right only | — | false |
 | `api/queries/getNodes/9/dragging` | right only | — | false |
-| `api/queries/getNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNodes/10/hidden` | right only | — | false |
 | `api/queries/getNodes/10/selected` | right only | — | false |
 | `api/queries/getNodes/10/dragging` | right only | — | false |
-| `api/queries/getNodes/10/expandParent` | right only | — | false |
 | `api/queries/getNodes/11/hidden` | right only | — | false |
 | `api/queries/getNodes/11/selected` | right only | — | false |
 | `api/queries/getNodes/11/dragging` | right only | — | false |
-| `api/queries/getNodes/11/expandParent` | right only | — | false |
 | `api/queries/getNodes/12/hidden` | right only | — | false |
 | `api/queries/getNodes/12/selected` | right only | — | false |
 | `api/queries/getNodes/12/dragging` | right only | — | false |
-| `api/queries/getNodes/12/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 145 | 145.00018842898396 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 14.5 | 14.50001333714267 |
@@ -675,119 +571,86 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/10/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/10/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/10/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/10/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/11/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/11/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/11/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/11/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/12/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/12/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/12/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/12/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/selected` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/6/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/6/selected` | right only | — | false |
 | `api/queries/toObject/nodes/6/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/6/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/7/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/7/selected` | right only | — | false |
 | `api/queries/toObject/nodes/7/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/7/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/8/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/8/selected` | right only | — | false |
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/8/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/9/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/9/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/10/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/10/selected` | right only | — | false |
 | `api/queries/toObject/nodes/10/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/10/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/11/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/11/selected` | right only | — | false |
 | `api/queries/toObject/nodes/11/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/11/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/12/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/12/selected` | right only | — | false |
 | `api/queries/toObject/nodes/12/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/12/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
 
 
@@ -819,7 +682,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 172 unclaimed difference(s).
+**Failed:** 130 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -860,53 +723,42 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/8/id` | differs | notDeletable | notSelectable |
 | `callbacks/4/args/0/8/resizing` | right only | — | false |
 
-### api (145)
+### api (103)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
 | `api/queries/getNodes/4/selected` | right only | — | false |
 | `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNodes/5/hidden` | right only | — | false |
 | `api/queries/getNodes/5/selected` | right only | — | false |
 | `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/5/expandParent` | right only | — | false |
 | `api/queries/getNodes/6/hidden` | right only | — | false |
 | `api/queries/getNodes/6/selected` | right only | — | false |
 | `api/queries/getNodes/6/dragging` | right only | — | false |
-| `api/queries/getNodes/6/expandParent` | right only | — | false |
 | `api/queries/getNodes/7/hidden` | right only | — | false |
 | `api/queries/getNodes/7/selected` | right only | — | false |
 | `api/queries/getNodes/7/dragging` | right only | — | false |
-| `api/queries/getNodes/7/expandParent` | right only | — | false |
 | `api/queries/getNodes/8/hidden` | right only | — | false |
 | `api/queries/getNodes/8/selected` | right only | — | false |
 | `api/queries/getNodes/8/dragging` | right only | — | false |
-| `api/queries/getNodes/8/expandParent` | right only | — | false |
 | `api/queries/getNodes/9/selected` | right only | — | false |
 | `api/queries/getNodes/9/dragging` | right only | — | false |
-| `api/queries/getNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
@@ -915,99 +767,68 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/selected` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/6/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/6/selected` | right only | — | false |
 | `api/queries/toObject/nodes/6/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/6/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/7/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/7/selected` | right only | — | false |
 | `api/queries/toObject/nodes/7/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/7/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/8/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/8/selected` | right only | — | false |
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/8/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/9/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
@@ -1039,7 +860,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 80 unclaimed difference(s).
+**Failed:** 59 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1069,26 +890,22 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/1/resizing` | right only | — | false |
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 
-### api (64)
+### api (43)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00008777202368 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 32.00003955922194 |
@@ -1097,45 +914,28 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
@@ -1167,7 +967,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 65 unclaimed difference(s).
+**Failed:** 44 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1179,71 +979,50 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/1/args/0/1/resizing` | right only | — | false |
 | `callbacks/1/args/0/2/resizing` | right only | — | false |
 
-### api (62)
+### api (41)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
@@ -1275,7 +1054,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 83 unclaimed difference(s).
+**Failed:** 59 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1298,83 +1077,59 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (74)
+### api (50)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
@@ -1406,7 +1161,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 81 unclaimed difference(s).
+**Failed:** 57 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1427,83 +1182,59 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (74)
+### api (50)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
@@ -1535,7 +1266,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 82 unclaimed difference(s).
+**Failed:** 58 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1557,83 +1288,59 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (74)
+### api (50)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
@@ -1665,7 +1372,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 44 unclaimed difference(s).
+**Failed:** 27 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1675,52 +1382,35 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `dom/root/children/div[1]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-184h1408v1088h-1408z⏎        M0,0h1280v720h-1280z | M-64,-184h1408v1088h-1408z M0,0h1280v720h-1280z |
 
-### api (43)
+### api (26)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","hidden":true} | — |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
 
 
@@ -1752,7 +1442,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 81 unclaimed difference(s).
+**Failed:** 57 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1773,83 +1463,59 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (74)
+### api (50)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
@@ -1980,8 +1646,8 @@ a real divergence is exactly what would be hiding down there.
 | `console/2` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/3` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/4` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:52656/parity/driver/dist/… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:52656/parity/driver/dist/… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:59602/parity/driver/dist/… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:59602/parity/driver/dist/… |
 | `console/7` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 
 
@@ -2013,7 +1679,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 81 unclaimed difference(s).
+**Failed:** 57 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -2034,83 +1700,59 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (74)
+### api (50)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
@@ -2142,7 +1784,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 47 unclaimed difference(s).
+**Failed:** 33 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -2154,53 +1796,39 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","patternTransform":"translate(-11,-11)"},… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","pat… |
 
-### api (44)
+### api (30)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"n1","data":{"label":"n1"},"position":{"x":0,"y":0},"sourcePosition":"right","targetPosition":"left","width":100,"height":40,"measured":{"width":100,"hei… | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
 
 
@@ -2232,7 +1860,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 82 unclaimed difference(s).
+**Failed:** 58 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -2254,83 +1882,59 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (74)
+### api (50)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
@@ -2362,7 +1966,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 81 unclaimed difference(s).
+**Failed:** 57 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -2383,83 +1987,59 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (74)
+### api (50)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
@@ -2491,7 +2071,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 80 unclaimed difference(s).
+**Failed:** 56 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -2511,83 +2091,59 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/1/args/0/2/resizing` | right only | — | false |
 | `callbacks/1/args/0/3/resizing` | right only | — | false |
 
-### api (74)
+### api (50)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
@@ -2619,7 +2175,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 78 unclaimed difference(s).
+**Failed:** 51 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -2630,90 +2186,63 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/g[0]/attrs/transform` | differs | translate(15.53076171875 63) | translate(15.53076171875 63.0) |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/g[0]/attrs/transform` | differs | translate(115.53076171875 63) | translate(115.53076171875 63.0) |
 
-### callbacks (10)
+### callbacks (7)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1"] | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1"] |
 | `callbacks/0/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/0/args/0/nodes/0/dragging` | right only | — | false |
-| `callbacks/0/args/0/nodes/0/expandParent` | right only | — | false |
-| `callbacks/0/args/0/edges/0/animated` | right only | — | false |
-| `callbacks/0/args/0/edges/0/hidden` | right only | — | false |
 | `callbacks/4/args/0/0/resizing` | right only | — | false |
 | `callbacks/4/args/0/1/resizing` | right only | — | false |
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (66)
+### api (42)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","selected":true,"measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
@@ -2745,7 +2274,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 81 unclaimed difference(s).
+**Failed:** 57 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -2766,83 +2295,59 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (74)
+### api (50)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
@@ -2874,7 +2379,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 65 unclaimed difference(s).
+**Failed:** 44 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -2886,71 +2391,50 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/1/args/0/1/resizing` | right only | — | false |
 | `callbacks/1/args/0/2/resizing` | right only | — | false |
 
-### api (62)
+### api (41)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
@@ -2982,7 +2466,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 167 unclaimed difference(s).
+**Failed:** 125 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -3045,38 +2529,31 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/5/dimensions/width` | differs | 49 | 29 |
 | `callbacks/4/args/0/5/resizing` | right only | — | false |
 
-### api (118)
+### api (76)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
 | `api/queries/getNodes/4/selected` | right only | — | false |
 | `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNodes/5/hidden` | right only | — | false |
 | `api/queries/getNodes/5/selected` | right only | — | false |
 | `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/5/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 8 | 8.000016734630268 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 14 | 14.000024769565009 |
 | `api/queries/getInternalNode/internals/handleBounds/target/0/x` | differs | 8 | 8.000016734630268 |
@@ -3085,87 +2562,52 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdges/2/animated` | right only | — | false |
-| `api/queries/getEdges/2/hidden` | right only | — | false |
 | `api/queries/getEdges/2/selected` | right only | — | false |
-| `api/queries/getEdges/3/animated` | right only | — | false |
-| `api/queries/getEdges/3/hidden` | right only | — | false |
 | `api/queries/getEdges/3/selected` | right only | — | false |
-| `api/queries/getEdges/4/animated` | right only | — | false |
-| `api/queries/getEdges/4/hidden` | right only | — | false |
 | `api/queries/getEdges/4/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/selected` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
-| `api/queries/toObject/edges/2/animated` | right only | — | false |
-| `api/queries/toObject/edges/2/hidden` | right only | — | false |
 | `api/queries/toObject/edges/2/selected` | right only | — | false |
-| `api/queries/toObject/edges/3/animated` | right only | — | false |
-| `api/queries/toObject/edges/3/hidden` | right only | — | false |
 | `api/queries/toObject/edges/3/selected` | right only | — | false |
-| `api/queries/toObject/edges/4/animated` | right only | — | false |
-| `api/queries/toObject/edges/4/hidden` | right only | — | false |
 | `api/queries/toObject/edges/4/selected` | right only | — | false |
 
 
@@ -3197,7 +2639,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 96 unclaimed difference(s).
+**Failed:** 82 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -3226,7 +2668,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/3` | right only | — | {"type":"dimensions","id":"parent","dimensions":{"width":190,"height":77},"resizing":false,"setAttributes":true} |
 | `callbacks/5/args/1/y` | differs | 140 | 283 |
 
-### api (81)
+### api (67)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -3237,14 +2679,12 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getNodes/0/dragging` | right only | — | false |
 | `api/queries/getNodes/0/width` | right only | — | 190 |
 | `api/queries/getNodes/0/height` | right only | — | 77 |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNode/measured/width` | differs | 320 | 190 |
 | `api/queries/getNode/measured/height` | differs | 220 | 77 |
 | `api/queries/getNode/hidden` | right only | — | false |
@@ -3252,7 +2692,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getNode/dragging` | right only | — | false |
 | `api/queries/getNode/width` | right only | — | 190 |
 | `api/queries/getNode/height` | right only | — | 77 |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/measured/width` | differs | 320 | 190 |
 | `api/queries/getInternalNode/measured/height` | differs | 220 | 77 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
@@ -3266,12 +2705,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/dragging` | right only | — | false |
 | `api/queries/getInternalNode/width` | right only | — | 190 |
 | `api/queries/getInternalNode/height` | right only | — | 77 |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/measured/width` | differs | 320 | 190 |
 | `api/queries/getIntersectingNodes/0/measured/height` | differs | 220 | 77 |
@@ -3280,14 +2714,12 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/width` | right only | — | 190 |
 | `api/queries/getIntersectingNodes/0/height` | right only | — | 77 |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodesBounds/height` | differs | 220 | 77 |
 | `api/queries/toObject/nodes/0/measured/width` | differs | 320 | 190 |
 | `api/queries/toObject/nodes/0/measured/height` | differs | 220 | 77 |
@@ -3296,16 +2728,12 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/0/width` | right only | — | 190 |
 | `api/queries/toObject/nodes/0/height` | right only | — | 77 |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
 | `api/queries/toObject/viewport/y` | differs | 140 | 283 |
 | `api/queries/getViewport/y` | differs | 140 | 283 |
@@ -3341,7 +2769,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 81 unclaimed difference(s).
+**Failed:** 57 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -3362,83 +2790,59 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (74)
+### api (50)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
@@ -3470,7 +2874,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 79 unclaimed difference(s).
+**Failed:** 65 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -3500,7 +2904,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/1/resizing` | right only | — | false |
 | `callbacks/5/args/1/y` | differs | 54.68852459016392 | 324.6983606557377 |
 
-### api (63)
+### api (49)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -3509,17 +2913,14 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNode/measured/width` | differs | 400 | 150 |
 | `api/queries/getNode/measured/height` | differs | 320 | 37 |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/measured/width` | differs | 400 | 150 |
 | `api/queries/getInternalNode/measured/height` | differs | 320 | 37 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
@@ -3532,36 +2933,25 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/measured/width` | differs | 400 | 150 |
 | `api/queries/getIntersectingNodes/0/measured/height` | differs | 320 | 37 |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodesBounds/height` | differs | 320 | 37 |
 | `api/queries/toObject/nodes/0/measured/width` | differs | 400 | 150 |
 | `api/queries/toObject/nodes/0/measured/height` | differs | 320 | 37 |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
 | `api/queries/toObject/viewport/y` | differs | 54.68852459016392 | 324.6983606557377 |
 | `api/queries/getViewport/y` | differs | 54.68852459016392 | 324.6983606557377 |
@@ -3597,49 +2987,41 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 35 unclaimed difference(s).
+**Failed:** 27 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### api (35)
+### api (27)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source` | differs | null | [] |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"props-parent","type":"propsRecord","data":{"label":"props-parent"},"position":{"x":100,"y":200},"width":300,"height":200,"measured":{"width":300,"height… | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 
 
 ---
@@ -3670,7 +3052,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 84 unclaimed difference(s).
+**Failed:** 56 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -3683,89 +3065,61 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/1/args/0/2/resizing` | right only | — | false |
 | `callbacks/1/args/0/3/resizing` | right only | — | false |
 
-### api (80)
+### api (52)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdges/2/animated` | right only | — | false |
-| `api/queries/getEdges/2/hidden` | right only | — | false |
 | `api/queries/getEdges/2/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
-| `api/queries/toObject/edges/2/animated` | right only | — | false |
-| `api/queries/toObject/edges/2/hidden` | right only | — | false |
 | `api/queries/toObject/edges/2/selected` | right only | — | false |
 
 
@@ -3797,71 +3151,52 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 53 unclaimed difference(s).
+**Failed:** 34 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### callbacks (8)
+### callbacks (6)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1"] | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1"] |
 | `callbacks/0/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/0/args/0/nodes/0/dragging` | right only | — | false |
-| `callbacks/0/args/0/nodes/0/expandParent` | right only | — | false |
 | `callbacks/0/args/0/nodes/1/dragging` | right only | — | false |
-| `callbacks/0/args/0/nodes/1/expandParent` | right only | — | false |
 | `callbacks/4/args/0/0/resizing` | right only | — | false |
 | `callbacks/4/args/0/1/resizing` | right only | — | false |
 
-### api (45)
+### api (28)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","selected":true,"measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
 
 
@@ -3869,7 +3204,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 # System parity run — mount-baseline--viewport-controlled
 
-**Failed:** unclaimed-difference.
+**Failed:** self-inconsistent, unclaimed-difference.
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -3882,8 +3217,18 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 
 | side | captures | verdict | differences |
 |---|---|---|---|
-| upstream | 1, 2 | reproduced | 0 |
+| upstream | 1, 2 | **disagrees with itself** | 1 |
 | psflow | 1, 2 | reproduced | 0 |
+
+### upstream disagrees with itself
+
+| path | kind | capture 1 | capture 2 |
+|---|---|---|---|
+| `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onMove#1","onNodesChange#1","onMoveEnd#1"] | ["onSelectionChange#1","onMoveStart#1","onMove#1","onMoveEnd#1","onNodesChange#1"] |
+
+**upstream did not reproduce.** The comparison below ran anyway —
+capture-everything applies to a failed run as much as to a passing one — but a difference it reports
+cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
 ---
 
@@ -3893,7 +3238,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 81 unclaimed difference(s).
+**Failed:** 57 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -3914,83 +3259,59 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/3/args/0/2/resizing` | right only | — | false |
 | `callbacks/3/args/0/3/resizing` | right only | — | false |
 
-### api (74)
+### api (50)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
@@ -4022,7 +3343,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 105 unclaimed difference(s).
+**Failed:** 77 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -4059,30 +3380,25 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (82)
+### api (54)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.999868193001 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.99993785684738 |
@@ -4091,59 +3407,36 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdges/2/animated` | right only | — | false |
-| `api/queries/getEdges/2/hidden` | right only | — | false |
 | `api/queries/getEdges/2/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
-| `api/queries/toObject/edges/2/animated` | right only | — | false |
-| `api/queries/toObject/edges/2/hidden` | right only | — | false |
 | `api/queries/toObject/edges/2/selected` | right only | — | false |
 
 
@@ -4175,7 +3468,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 80 unclaimed difference(s).
+**Failed:** 56 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -4195,83 +3488,59 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/1/args/0/2/resizing` | right only | — | false |
 | `callbacks/1/args/0/3/resizing` | right only | — | false |
 
-### api (74)
+### api (50)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
@@ -4350,7 +3619,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 4 driving divergence(s), 379 unclaimed difference(s).
+**Failed:** 4 driving divergence(s), 281 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -4448,7 +3717,7 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[1]/attrs/cx` | differs | 265 | 265.0000541122726 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[1]/attrs/cy` | differs | 607 | 607.0000294862283 |
 
-### callbacks (57) — consequence of the driving divergence
+### callbacks (49) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -4495,85 +3764,62 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/6/args/0/screenY` | differs | 96.19429016113281 | 96.19428253173828 |
 | `callbacks/6/args/0/clientY` | differs | 96.19429016113281 | 96.19428253173828 |
 | `callbacks/6/args/0/pageY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/7/args/1/animated` | right only | — | false |
-| `callbacks/7/args/1/hidden` | right only | — | false |
 | `callbacks/7/args/1/selected` | right only | — | false |
 | `callbacks/8/args/0/screenY` | differs | 96.19429016113281 | 96.19428253173828 |
 | `callbacks/8/args/0/clientY` | differs | 96.19429016113281 | 96.19428253173828 |
 | `callbacks/8/args/0/pageY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/9/args/1/animated` | right only | — | false |
-| `callbacks/9/args/1/hidden` | right only | — | false |
 | `callbacks/9/args/1/selected` | right only | — | false |
-| `callbacks/11/args/1/animated` | right only | — | false |
-| `callbacks/11/args/1/hidden` | right only | — | false |
 | `callbacks/11/args/1/selected` | right only | — | false |
-| `callbacks/12/args/0/edges/0/animated` | right only | — | false |
-| `callbacks/12/args/0/edges/0/hidden` | right only | — | false |
 
-### api (249) — consequence of the driving divergence
+### api (159) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
 | `api/queries/getNodes/4/selected` | right only | — | false |
 | `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNodes/5/hidden` | right only | — | false |
 | `api/queries/getNodes/5/selected` | right only | — | false |
 | `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/5/expandParent` | right only | — | false |
 | `api/queries/getNodes/6/hidden` | right only | — | false |
 | `api/queries/getNodes/6/selected` | right only | — | false |
 | `api/queries/getNodes/6/dragging` | right only | — | false |
-| `api/queries/getNodes/6/expandParent` | right only | — | false |
 | `api/queries/getNodes/7/hidden` | right only | — | false |
 | `api/queries/getNodes/7/selected` | right only | — | false |
 | `api/queries/getNodes/7/dragging` | right only | — | false |
-| `api/queries/getNodes/7/expandParent` | right only | — | false |
 | `api/queries/getNodes/8/hidden` | right only | — | false |
 | `api/queries/getNodes/8/selected` | right only | — | false |
 | `api/queries/getNodes/8/dragging` | right only | — | false |
-| `api/queries/getNodes/8/expandParent` | right only | — | false |
 | `api/queries/getNodes/9/hidden` | right only | — | false |
 | `api/queries/getNodes/9/selected` | right only | — | false |
 | `api/queries/getNodes/9/dragging` | right only | — | false |
-| `api/queries/getNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNodes/10/hidden` | right only | — | false |
 | `api/queries/getNodes/10/selected` | right only | — | false |
 | `api/queries/getNodes/10/dragging` | right only | — | false |
-| `api/queries/getNodes/10/expandParent` | right only | — | false |
 | `api/queries/getNodes/11/hidden` | right only | — | false |
 | `api/queries/getNodes/11/selected` | right only | — | false |
 | `api/queries/getNodes/11/dragging` | right only | — | false |
-| `api/queries/getNodes/11/expandParent` | right only | — | false |
 | `api/queries/getNodes/12/hidden` | right only | — | false |
 | `api/queries/getNodes/12/selected` | right only | — | false |
 | `api/queries/getNodes/12/dragging` | right only | — | false |
-| `api/queries/getNodes/12/expandParent` | right only | — | false |
 | `api/queries/getNodes/13/hidden` | right only | — | false |
 | `api/queries/getNodes/13/selected` | right only | — | false |
 | `api/queries/getNodes/13/dragging` | right only | — | false |
-| `api/queries/getNodes/13/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00001857790781 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999994842827817 |
@@ -4582,186 +3828,111 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdges/2/animated` | right only | — | false |
 | `api/queries/getEdges/2/selected` | right only | — | false |
-| `api/queries/getEdges/3/hidden` | right only | — | false |
 | `api/queries/getEdges/3/selected` | right only | — | false |
-| `api/queries/getEdges/4/animated` | right only | — | false |
-| `api/queries/getEdges/4/hidden` | right only | — | false |
 | `api/queries/getEdges/4/selected` | right only | — | false |
-| `api/queries/getEdges/5/animated` | right only | — | false |
-| `api/queries/getEdges/5/hidden` | right only | — | false |
 | `api/queries/getEdges/5/selected` | right only | — | false |
-| `api/queries/getEdges/6/animated` | right only | — | false |
-| `api/queries/getEdges/6/hidden` | right only | — | false |
 | `api/queries/getEdges/6/selected` | right only | — | false |
-| `api/queries/getEdges/7/animated` | right only | — | false |
-| `api/queries/getEdges/7/hidden` | right only | — | false |
 | `api/queries/getEdges/7/selected` | right only | — | false |
-| `api/queries/getEdges/8/animated` | right only | — | false |
-| `api/queries/getEdges/8/hidden` | right only | — | false |
 | `api/queries/getEdges/8/selected` | right only | — | false |
-| `api/queries/getEdges/9/animated` | right only | — | false |
-| `api/queries/getEdges/9/hidden` | right only | — | false |
 | `api/queries/getEdges/9/selected` | right only | — | false |
-| `api/queries/getEdges/10/animated` | right only | — | false |
-| `api/queries/getEdges/10/hidden` | right only | — | false |
 | `api/queries/getEdges/10/selected` | right only | — | false |
-| `api/queries/getEdges/11/animated` | right only | — | false |
-| `api/queries/getEdges/11/hidden` | right only | — | false |
 | `api/queries/getEdges/11/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/10/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/10/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/10/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/10/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/11/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/11/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/11/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/11/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/12/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/12/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/12/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/12/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/13/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/selected` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/6/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/6/selected` | right only | — | false |
 | `api/queries/toObject/nodes/6/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/6/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/7/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/7/selected` | right only | — | false |
 | `api/queries/toObject/nodes/7/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/7/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/8/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/8/selected` | right only | — | false |
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/8/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/9/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/9/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/10/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/10/selected` | right only | — | false |
 | `api/queries/toObject/nodes/10/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/10/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/11/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/11/selected` | right only | — | false |
 | `api/queries/toObject/nodes/11/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/11/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/12/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/12/selected` | right only | — | false |
 | `api/queries/toObject/nodes/12/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/12/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/13/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/13/selected` | right only | — | false |
 | `api/queries/toObject/nodes/13/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/13/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
-| `api/queries/toObject/edges/2/animated` | right only | — | false |
 | `api/queries/toObject/edges/2/selected` | right only | — | false |
-| `api/queries/toObject/edges/3/hidden` | right only | — | false |
 | `api/queries/toObject/edges/3/selected` | right only | — | false |
-| `api/queries/toObject/edges/4/animated` | right only | — | false |
-| `api/queries/toObject/edges/4/hidden` | right only | — | false |
 | `api/queries/toObject/edges/4/selected` | right only | — | false |
-| `api/queries/toObject/edges/5/animated` | right only | — | false |
-| `api/queries/toObject/edges/5/hidden` | right only | — | false |
 | `api/queries/toObject/edges/5/selected` | right only | — | false |
-| `api/queries/toObject/edges/6/animated` | right only | — | false |
-| `api/queries/toObject/edges/6/hidden` | right only | — | false |
 | `api/queries/toObject/edges/6/selected` | right only | — | false |
-| `api/queries/toObject/edges/7/animated` | right only | — | false |
-| `api/queries/toObject/edges/7/hidden` | right only | — | false |
 | `api/queries/toObject/edges/7/selected` | right only | — | false |
-| `api/queries/toObject/edges/8/animated` | right only | — | false |
-| `api/queries/toObject/edges/8/hidden` | right only | — | false |
 | `api/queries/toObject/edges/8/selected` | right only | — | false |
-| `api/queries/toObject/edges/9/animated` | right only | — | false |
-| `api/queries/toObject/edges/9/hidden` | right only | — | false |
 | `api/queries/toObject/edges/9/selected` | right only | — | false |
-| `api/queries/toObject/edges/10/animated` | right only | — | false |
-| `api/queries/toObject/edges/10/hidden` | right only | — | false |
 | `api/queries/toObject/edges/10/selected` | right only | — | false |
-| `api/queries/toObject/edges/11/animated` | right only | — | false |
-| `api/queries/toObject/edges/11/hidden` | right only | — | false |
 | `api/queries/toObject/edges/11/selected` | right only | — | false |
 
 ## Normalization
@@ -4799,7 +3970,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 11 driving divergence(s), 395 unclaimed difference(s).
+**Failed:** 11 driving divergence(s), 285 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -4904,7 +4075,7 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[1]/attrs/cx` | differs | 265 | 265.0000541122726 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[1]/attrs/cy` | differs | 607 | 607.0000294862283 |
 
-### callbacks (75) — consequence of the driving divergence
+### callbacks (55) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -4951,103 +4122,68 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/6/args/0/screenY` | differs | 96.19429016113281 | 96.19428253173828 |
 | `callbacks/6/args/0/clientY` | differs | 96.19429016113281 | 96.19428253173828 |
 | `callbacks/6/args/0/pageY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/7/args/1/animated` | right only | — | false |
-| `callbacks/7/args/1/hidden` | right only | — | false |
 | `callbacks/7/args/1/selected` | right only | — | false |
 | `callbacks/8/args/0/screenY` | differs | 96.19429016113281 | 96.19428253173828 |
 | `callbacks/8/args/0/clientY` | differs | 96.19429016113281 | 96.19428253173828 |
 | `callbacks/8/args/0/pageY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/9/args/1/animated` | right only | — | false |
-| `callbacks/9/args/1/hidden` | right only | — | false |
 | `callbacks/9/args/1/selected` | right only | — | false |
-| `callbacks/11/args/1/animated` | right only | — | false |
-| `callbacks/11/args/1/hidden` | right only | — | false |
 | `callbacks/11/args/1/selected` | right only | — | false |
-| `callbacks/12/args/0/edges/0/animated` | right only | — | false |
-| `callbacks/12/args/0/edges/0/hidden` | right only | — | false |
-| `callbacks/13/args/1/animated` | right only | — | false |
-| `callbacks/13/args/1/hidden` | right only | — | false |
-| `callbacks/14/args/1/animated` | right only | — | false |
-| `callbacks/14/args/1/hidden` | right only | — | false |
 | `callbacks/14/args/1/selected` | right only | — | false |
 | `callbacks/15/args/0/screenY` | differs | 96.19429016113281 | 96.19428253173828 |
 | `callbacks/15/args/0/clientY` | differs | 96.19429016113281 | 96.19428253173828 |
 | `callbacks/15/args/0/pageY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/16/args/1/animated` | right only | — | false |
-| `callbacks/16/args/1/hidden` | right only | — | false |
 | `callbacks/16/args/1/selected` | right only | — | false |
-| `callbacks/18/args/1/animated` | right only | — | false |
-| `callbacks/18/args/1/hidden` | right only | — | false |
 | `callbacks/18/args/1/selected` | right only | — | false |
-| `callbacks/19/args/0/edges/0/animated` | right only | — | false |
-| `callbacks/19/args/0/edges/0/hidden` | right only | — | false |
-| `callbacks/19/args/0/edges/1/animated` | right only | — | false |
-| `callbacks/19/args/0/edges/1/hidden` | right only | — | false |
 
-### api (247) — consequence of the driving divergence
+### api (157) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
 | `api/queries/getNodes/4/selected` | right only | — | false |
 | `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNodes/5/hidden` | right only | — | false |
 | `api/queries/getNodes/5/selected` | right only | — | false |
 | `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/5/expandParent` | right only | — | false |
 | `api/queries/getNodes/6/hidden` | right only | — | false |
 | `api/queries/getNodes/6/selected` | right only | — | false |
 | `api/queries/getNodes/6/dragging` | right only | — | false |
-| `api/queries/getNodes/6/expandParent` | right only | — | false |
 | `api/queries/getNodes/7/hidden` | right only | — | false |
 | `api/queries/getNodes/7/selected` | right only | — | false |
 | `api/queries/getNodes/7/dragging` | right only | — | false |
-| `api/queries/getNodes/7/expandParent` | right only | — | false |
 | `api/queries/getNodes/8/hidden` | right only | — | false |
 | `api/queries/getNodes/8/selected` | right only | — | false |
 | `api/queries/getNodes/8/dragging` | right only | — | false |
-| `api/queries/getNodes/8/expandParent` | right only | — | false |
 | `api/queries/getNodes/9/hidden` | right only | — | false |
 | `api/queries/getNodes/9/selected` | right only | — | false |
 | `api/queries/getNodes/9/dragging` | right only | — | false |
-| `api/queries/getNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNodes/10/hidden` | right only | — | false |
 | `api/queries/getNodes/10/selected` | right only | — | false |
 | `api/queries/getNodes/10/dragging` | right only | — | false |
-| `api/queries/getNodes/10/expandParent` | right only | — | false |
 | `api/queries/getNodes/11/hidden` | right only | — | false |
 | `api/queries/getNodes/11/selected` | right only | — | false |
 | `api/queries/getNodes/11/dragging` | right only | — | false |
-| `api/queries/getNodes/11/expandParent` | right only | — | false |
 | `api/queries/getNodes/12/hidden` | right only | — | false |
 | `api/queries/getNodes/12/selected` | right only | — | false |
 | `api/queries/getNodes/12/dragging` | right only | — | false |
-| `api/queries/getNodes/12/expandParent` | right only | — | false |
 | `api/queries/getNodes/13/hidden` | right only | — | false |
 | `api/queries/getNodes/13/selected` | right only | — | false |
 | `api/queries/getNodes/13/dragging` | right only | — | false |
-| `api/queries/getNodes/13/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00001857790781 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999994842827817 |
@@ -5056,184 +4192,109 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
-| `api/queries/getEdges/2/animated` | right only | — | false |
 | `api/queries/getEdges/2/selected` | right only | — | false |
-| `api/queries/getEdges/3/hidden` | right only | — | false |
 | `api/queries/getEdges/3/selected` | right only | — | false |
-| `api/queries/getEdges/4/animated` | right only | — | false |
-| `api/queries/getEdges/4/hidden` | right only | — | false |
 | `api/queries/getEdges/4/selected` | right only | — | false |
-| `api/queries/getEdges/5/animated` | right only | — | false |
-| `api/queries/getEdges/5/hidden` | right only | — | false |
 | `api/queries/getEdges/5/selected` | right only | — | false |
-| `api/queries/getEdges/6/animated` | right only | — | false |
-| `api/queries/getEdges/6/hidden` | right only | — | false |
 | `api/queries/getEdges/6/selected` | right only | — | false |
-| `api/queries/getEdges/7/animated` | right only | — | false |
-| `api/queries/getEdges/7/hidden` | right only | — | false |
 | `api/queries/getEdges/7/selected` | right only | — | false |
-| `api/queries/getEdges/8/animated` | right only | — | false |
-| `api/queries/getEdges/8/hidden` | right only | — | false |
 | `api/queries/getEdges/8/selected` | right only | — | false |
-| `api/queries/getEdges/9/animated` | right only | — | false |
-| `api/queries/getEdges/9/hidden` | right only | — | false |
 | `api/queries/getEdges/9/selected` | right only | — | false |
-| `api/queries/getEdges/10/animated` | right only | — | false |
-| `api/queries/getEdges/10/hidden` | right only | — | false |
 | `api/queries/getEdges/10/selected` | right only | — | false |
-| `api/queries/getEdges/11/animated` | right only | — | false |
-| `api/queries/getEdges/11/hidden` | right only | — | false |
 | `api/queries/getEdges/11/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/10/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/10/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/10/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/10/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/11/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/11/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/11/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/11/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/12/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/12/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/12/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/12/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/13/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/selected` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/6/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/6/selected` | right only | — | false |
 | `api/queries/toObject/nodes/6/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/6/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/7/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/7/selected` | right only | — | false |
 | `api/queries/toObject/nodes/7/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/7/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/8/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/8/selected` | right only | — | false |
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/8/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/9/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/9/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/10/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/10/selected` | right only | — | false |
 | `api/queries/toObject/nodes/10/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/10/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/11/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/11/selected` | right only | — | false |
 | `api/queries/toObject/nodes/11/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/11/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/12/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/12/selected` | right only | — | false |
 | `api/queries/toObject/nodes/12/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/12/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/13/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/13/selected` | right only | — | false |
 | `api/queries/toObject/nodes/13/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/13/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
-| `api/queries/toObject/edges/2/animated` | right only | — | false |
 | `api/queries/toObject/edges/2/selected` | right only | — | false |
-| `api/queries/toObject/edges/3/hidden` | right only | — | false |
 | `api/queries/toObject/edges/3/selected` | right only | — | false |
-| `api/queries/toObject/edges/4/animated` | right only | — | false |
-| `api/queries/toObject/edges/4/hidden` | right only | — | false |
 | `api/queries/toObject/edges/4/selected` | right only | — | false |
-| `api/queries/toObject/edges/5/animated` | right only | — | false |
-| `api/queries/toObject/edges/5/hidden` | right only | — | false |
 | `api/queries/toObject/edges/5/selected` | right only | — | false |
-| `api/queries/toObject/edges/6/animated` | right only | — | false |
-| `api/queries/toObject/edges/6/hidden` | right only | — | false |
 | `api/queries/toObject/edges/6/selected` | right only | — | false |
-| `api/queries/toObject/edges/7/animated` | right only | — | false |
-| `api/queries/toObject/edges/7/hidden` | right only | — | false |
 | `api/queries/toObject/edges/7/selected` | right only | — | false |
-| `api/queries/toObject/edges/8/animated` | right only | — | false |
-| `api/queries/toObject/edges/8/hidden` | right only | — | false |
 | `api/queries/toObject/edges/8/selected` | right only | — | false |
-| `api/queries/toObject/edges/9/animated` | right only | — | false |
-| `api/queries/toObject/edges/9/hidden` | right only | — | false |
 | `api/queries/toObject/edges/9/selected` | right only | — | false |
-| `api/queries/toObject/edges/10/animated` | right only | — | false |
-| `api/queries/toObject/edges/10/hidden` | right only | — | false |
 | `api/queries/toObject/edges/10/selected` | right only | — | false |
-| `api/queries/toObject/edges/11/animated` | right only | — | false |
-| `api/queries/toObject/edges/11/hidden` | right only | — | false |
 | `api/queries/toObject/edges/11/selected` | right only | — | false |
 
 ## Normalization
@@ -5271,7 +4332,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 374 unclaimed difference(s).
+**Failed:** 278 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -5353,7 +4414,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[1]/attrs/cx` | differs | 265 | 265.0000541122726 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[1]/attrs/cy` | differs | 607 | 607.0000294862283 |
 
-### callbacks (49)
+### callbacks (43)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -5397,80 +4458,59 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/13/dimensions/width` | differs | 50 | 150 |
 | `callbacks/4/args/0/13/dimensions/height` | differs | 50 | 37 |
 | `callbacks/4/args/0/13/resizing` | right only | — | false |
-| `callbacks/7/args/1/animated` | right only | — | false |
-| `callbacks/7/args/1/hidden` | right only | — | false |
 | `callbacks/7/args/1/selected` | right only | — | false |
-| `callbacks/9/args/1/animated` | right only | — | false |
-| `callbacks/9/args/1/hidden` | right only | — | false |
 | `callbacks/9/args/1/selected` | right only | — | false |
-| `callbacks/10/args/1/animated` | right only | — | false |
-| `callbacks/10/args/1/hidden` | right only | — | false |
 | `callbacks/10/args/1/selected` | right only | — | false |
 
-### api (252)
+### api (162)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
 | `api/queries/getNodes/4/selected` | right only | — | false |
 | `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNodes/5/hidden` | right only | — | false |
 | `api/queries/getNodes/5/selected` | right only | — | false |
 | `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/5/expandParent` | right only | — | false |
 | `api/queries/getNodes/6/hidden` | right only | — | false |
 | `api/queries/getNodes/6/selected` | right only | — | false |
 | `api/queries/getNodes/6/dragging` | right only | — | false |
-| `api/queries/getNodes/6/expandParent` | right only | — | false |
 | `api/queries/getNodes/7/hidden` | right only | — | false |
 | `api/queries/getNodes/7/selected` | right only | — | false |
 | `api/queries/getNodes/7/dragging` | right only | — | false |
-| `api/queries/getNodes/7/expandParent` | right only | — | false |
 | `api/queries/getNodes/8/hidden` | right only | — | false |
 | `api/queries/getNodes/8/selected` | right only | — | false |
 | `api/queries/getNodes/8/dragging` | right only | — | false |
-| `api/queries/getNodes/8/expandParent` | right only | — | false |
 | `api/queries/getNodes/9/hidden` | right only | — | false |
 | `api/queries/getNodes/9/selected` | right only | — | false |
 | `api/queries/getNodes/9/dragging` | right only | — | false |
-| `api/queries/getNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNodes/10/hidden` | right only | — | false |
 | `api/queries/getNodes/10/selected` | right only | — | false |
 | `api/queries/getNodes/10/dragging` | right only | — | false |
-| `api/queries/getNodes/10/expandParent` | right only | — | false |
 | `api/queries/getNodes/11/hidden` | right only | — | false |
 | `api/queries/getNodes/11/selected` | right only | — | false |
 | `api/queries/getNodes/11/dragging` | right only | — | false |
-| `api/queries/getNodes/11/expandParent` | right only | — | false |
 | `api/queries/getNodes/12/hidden` | right only | — | false |
 | `api/queries/getNodes/12/selected` | right only | — | false |
 | `api/queries/getNodes/12/dragging` | right only | — | false |
-| `api/queries/getNodes/12/expandParent` | right only | — | false |
 | `api/queries/getNodes/13/hidden` | right only | — | false |
 | `api/queries/getNodes/13/selected` | right only | — | false |
 | `api/queries/getNodes/13/dragging` | right only | — | false |
-| `api/queries/getNodes/13/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00001857790781 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999994842827817 |
@@ -5479,189 +4519,114 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdges/2/animated` | right only | — | false |
 | `api/queries/getEdges/2/selected` | right only | — | false |
-| `api/queries/getEdges/3/hidden` | right only | — | false |
 | `api/queries/getEdges/3/selected` | right only | — | false |
-| `api/queries/getEdges/4/animated` | right only | — | false |
-| `api/queries/getEdges/4/hidden` | right only | — | false |
 | `api/queries/getEdges/4/selected` | right only | — | false |
-| `api/queries/getEdges/5/animated` | right only | — | false |
-| `api/queries/getEdges/5/hidden` | right only | — | false |
 | `api/queries/getEdges/5/selected` | right only | — | false |
-| `api/queries/getEdges/6/animated` | right only | — | false |
-| `api/queries/getEdges/6/hidden` | right only | — | false |
 | `api/queries/getEdges/6/selected` | right only | — | false |
-| `api/queries/getEdges/7/animated` | right only | — | false |
-| `api/queries/getEdges/7/hidden` | right only | — | false |
 | `api/queries/getEdges/7/selected` | right only | — | false |
-| `api/queries/getEdges/8/animated` | right only | — | false |
-| `api/queries/getEdges/8/hidden` | right only | — | false |
 | `api/queries/getEdges/8/selected` | right only | — | false |
-| `api/queries/getEdges/9/animated` | right only | — | false |
-| `api/queries/getEdges/9/hidden` | right only | — | false |
 | `api/queries/getEdges/9/selected` | right only | — | false |
-| `api/queries/getEdges/10/animated` | right only | — | false |
-| `api/queries/getEdges/10/hidden` | right only | — | false |
 | `api/queries/getEdges/10/selected` | right only | — | false |
-| `api/queries/getEdges/11/animated` | right only | — | false |
-| `api/queries/getEdges/11/hidden` | right only | — | false |
 | `api/queries/getEdges/11/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/10/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/10/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/10/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/10/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/11/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/11/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/11/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/11/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/12/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/12/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/12/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/12/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/13/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/selected` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/6/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/6/selected` | right only | — | false |
 | `api/queries/toObject/nodes/6/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/6/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/7/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/7/selected` | right only | — | false |
 | `api/queries/toObject/nodes/7/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/7/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/8/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/8/selected` | right only | — | false |
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/8/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/9/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/9/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/10/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/10/selected` | right only | — | false |
 | `api/queries/toObject/nodes/10/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/10/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/11/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/11/selected` | right only | — | false |
 | `api/queries/toObject/nodes/11/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/11/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/12/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/12/selected` | right only | — | false |
 | `api/queries/toObject/nodes/12/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/12/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/13/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/13/selected` | right only | — | false |
 | `api/queries/toObject/nodes/13/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/13/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
-| `api/queries/toObject/edges/2/animated` | right only | — | false |
 | `api/queries/toObject/edges/2/selected` | right only | — | false |
-| `api/queries/toObject/edges/3/hidden` | right only | — | false |
 | `api/queries/toObject/edges/3/selected` | right only | — | false |
-| `api/queries/toObject/edges/4/animated` | right only | — | false |
-| `api/queries/toObject/edges/4/hidden` | right only | — | false |
 | `api/queries/toObject/edges/4/selected` | right only | — | false |
-| `api/queries/toObject/edges/5/animated` | right only | — | false |
-| `api/queries/toObject/edges/5/hidden` | right only | — | false |
 | `api/queries/toObject/edges/5/selected` | right only | — | false |
-| `api/queries/toObject/edges/6/animated` | right only | — | false |
-| `api/queries/toObject/edges/6/hidden` | right only | — | false |
 | `api/queries/toObject/edges/6/selected` | right only | — | false |
-| `api/queries/toObject/edges/7/animated` | right only | — | false |
-| `api/queries/toObject/edges/7/hidden` | right only | — | false |
 | `api/queries/toObject/edges/7/selected` | right only | — | false |
-| `api/queries/toObject/edges/8/animated` | right only | — | false |
-| `api/queries/toObject/edges/8/hidden` | right only | — | false |
 | `api/queries/toObject/edges/8/selected` | right only | — | false |
-| `api/queries/toObject/edges/9/animated` | right only | — | false |
-| `api/queries/toObject/edges/9/hidden` | right only | — | false |
 | `api/queries/toObject/edges/9/selected` | right only | — | false |
-| `api/queries/toObject/edges/10/animated` | right only | — | false |
-| `api/queries/toObject/edges/10/hidden` | right only | — | false |
 | `api/queries/toObject/edges/10/selected` | right only | — | false |
-| `api/queries/toObject/edges/11/animated` | right only | — | false |
-| `api/queries/toObject/edges/11/hidden` | right only | — | false |
 | `api/queries/toObject/edges/11/selected` | right only | — | false |
 
 ## Normalization
@@ -5699,7 +4664,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 4 driving divergence(s), 376 unclaimed difference(s).
+**Failed:** 4 driving divergence(s), 282 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -5791,7 +4756,7 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge-2/children/circle[1]/attrs/cx` | differs | 265 | 265.0000541122726 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge-2/children/circle[1]/attrs/cy` | differs | 607 | 607.0000294862283 |
 
-### callbacks (63) — consequence of the driving divergence
+### callbacks (55) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -5841,88 +4806,65 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/6/args/0/screenY` | differs | 96.19429016113281 | 96.19428253173828 |
 | `callbacks/6/args/0/clientY` | differs | 96.19429016113281 | 96.19428253173828 |
 | `callbacks/6/args/0/pageY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/7/args/1/animated` | right only | — | false |
-| `callbacks/7/args/1/hidden` | right only | — | false |
 | `callbacks/7/args/1/selected` | right only | — | false |
 | `callbacks/8/args/0/screenY` | differs | 96.19429016113281 | 96.19428253173828 |
 | `callbacks/8/args/0/clientY` | differs | 96.19429016113281 | 96.19428253173828 |
 | `callbacks/8/args/0/pageY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/9/args/1/animated` | right only | — | false |
-| `callbacks/9/args/1/hidden` | right only | — | false |
 | `callbacks/9/args/1/selected` | right only | — | false |
-| `callbacks/11/args/1/animated` | right only | — | false |
-| `callbacks/11/args/1/hidden` | right only | — | false |
 | `callbacks/11/args/1/selected` | right only | — | false |
-| `callbacks/12/args/0/edges/0/animated` | right only | — | false |
-| `callbacks/12/args/0/edges/0/hidden` | right only | — | false |
 | `callbacks/18/args/0/screenY` | differs | 96.19429016113281 | 96.19428253173828 |
 | `callbacks/18/args/0/clientY` | differs | 96.19429016113281 | 96.19428253173828 |
 | `callbacks/18/args/0/pageY` | differs | 96.19429016113281 | 96.19428253173828 |
 
-### api (246) — consequence of the driving divergence
+### api (160) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
 | `api/queries/getNodes/4/selected` | right only | — | false |
 | `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNodes/5/hidden` | right only | — | false |
 | `api/queries/getNodes/5/selected` | right only | — | false |
 | `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/5/expandParent` | right only | — | false |
 | `api/queries/getNodes/6/hidden` | right only | — | false |
 | `api/queries/getNodes/6/selected` | right only | — | false |
 | `api/queries/getNodes/6/dragging` | right only | — | false |
-| `api/queries/getNodes/6/expandParent` | right only | — | false |
 | `api/queries/getNodes/7/hidden` | right only | — | false |
 | `api/queries/getNodes/7/selected` | right only | — | false |
 | `api/queries/getNodes/7/dragging` | right only | — | false |
-| `api/queries/getNodes/7/expandParent` | right only | — | false |
 | `api/queries/getNodes/8/hidden` | right only | — | false |
 | `api/queries/getNodes/8/selected` | right only | — | false |
 | `api/queries/getNodes/8/dragging` | right only | — | false |
-| `api/queries/getNodes/8/expandParent` | right only | — | false |
 | `api/queries/getNodes/9/hidden` | right only | — | false |
 | `api/queries/getNodes/9/selected` | right only | — | false |
 | `api/queries/getNodes/9/dragging` | right only | — | false |
-| `api/queries/getNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNodes/10/hidden` | right only | — | false |
 | `api/queries/getNodes/10/selected` | right only | — | false |
 | `api/queries/getNodes/10/dragging` | right only | — | false |
-| `api/queries/getNodes/10/expandParent` | right only | — | false |
 | `api/queries/getNodes/11/hidden` | right only | — | false |
 | `api/queries/getNodes/11/selected` | right only | — | false |
 | `api/queries/getNodes/11/dragging` | right only | — | false |
-| `api/queries/getNodes/11/expandParent` | right only | — | false |
 | `api/queries/getNodes/12/hidden` | right only | — | false |
 | `api/queries/getNodes/12/selected` | right only | — | false |
 | `api/queries/getNodes/12/dragging` | right only | — | false |
-| `api/queries/getNodes/12/expandParent` | right only | — | false |
 | `api/queries/getNodes/13/hidden` | right only | — | false |
 | `api/queries/getNodes/13/selected` | right only | — | false |
 | `api/queries/getNodes/13/dragging` | right only | — | false |
-| `api/queries/getNodes/13/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00001857790781 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999994842827817 |
@@ -5931,183 +4873,112 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdges/2/hidden` | right only | — | false |
 | `api/queries/getEdges/2/selected` | right only | — | false |
-| `api/queries/getEdges/3/animated` | right only | — | false |
-| `api/queries/getEdges/3/hidden` | right only | — | false |
 | `api/queries/getEdges/3/selected` | right only | — | false |
-| `api/queries/getEdges/4/animated` | right only | — | false |
-| `api/queries/getEdges/4/hidden` | right only | — | false |
 | `api/queries/getEdges/4/selected` | right only | — | false |
-| `api/queries/getEdges/5/animated` | right only | — | false |
-| `api/queries/getEdges/5/hidden` | right only | — | false |
 | `api/queries/getEdges/5/selected` | right only | — | false |
-| `api/queries/getEdges/6/animated` | right only | — | false |
-| `api/queries/getEdges/6/hidden` | right only | — | false |
 | `api/queries/getEdges/6/selected` | right only | — | false |
-| `api/queries/getEdges/7/animated` | right only | — | false |
-| `api/queries/getEdges/7/hidden` | right only | — | false |
 | `api/queries/getEdges/7/selected` | right only | — | false |
-| `api/queries/getEdges/8/animated` | right only | — | false |
-| `api/queries/getEdges/8/hidden` | right only | — | false |
 | `api/queries/getEdges/8/selected` | right only | — | false |
-| `api/queries/getEdges/9/animated` | right only | — | false |
-| `api/queries/getEdges/9/hidden` | right only | — | false |
 | `api/queries/getEdges/9/selected` | right only | — | false |
-| `api/queries/getEdges/10/animated` | right only | — | false |
-| `api/queries/getEdges/10/hidden` | right only | — | false |
 | `api/queries/getEdges/10/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/10/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/10/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/10/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/10/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/11/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/11/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/11/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/11/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/12/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/12/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/12/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/12/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/13/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/selected` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/6/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/6/selected` | right only | — | false |
 | `api/queries/toObject/nodes/6/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/6/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/7/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/7/selected` | right only | — | false |
 | `api/queries/toObject/nodes/7/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/7/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/8/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/8/selected` | right only | — | false |
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/8/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/9/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/9/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/10/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/10/selected` | right only | — | false |
 | `api/queries/toObject/nodes/10/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/10/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/11/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/11/selected` | right only | — | false |
 | `api/queries/toObject/nodes/11/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/11/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/12/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/12/selected` | right only | — | false |
 | `api/queries/toObject/nodes/12/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/12/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/13/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/13/selected` | right only | — | false |
 | `api/queries/toObject/nodes/13/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/13/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
-| `api/queries/toObject/edges/2/hidden` | right only | — | false |
 | `api/queries/toObject/edges/2/selected` | right only | — | false |
-| `api/queries/toObject/edges/3/animated` | right only | — | false |
-| `api/queries/toObject/edges/3/hidden` | right only | — | false |
 | `api/queries/toObject/edges/3/selected` | right only | — | false |
-| `api/queries/toObject/edges/4/animated` | right only | — | false |
-| `api/queries/toObject/edges/4/hidden` | right only | — | false |
 | `api/queries/toObject/edges/4/selected` | right only | — | false |
-| `api/queries/toObject/edges/5/animated` | right only | — | false |
-| `api/queries/toObject/edges/5/hidden` | right only | — | false |
 | `api/queries/toObject/edges/5/selected` | right only | — | false |
-| `api/queries/toObject/edges/6/animated` | right only | — | false |
-| `api/queries/toObject/edges/6/hidden` | right only | — | false |
 | `api/queries/toObject/edges/6/selected` | right only | — | false |
-| `api/queries/toObject/edges/7/animated` | right only | — | false |
-| `api/queries/toObject/edges/7/hidden` | right only | — | false |
 | `api/queries/toObject/edges/7/selected` | right only | — | false |
-| `api/queries/toObject/edges/8/animated` | right only | — | false |
-| `api/queries/toObject/edges/8/hidden` | right only | — | false |
 | `api/queries/toObject/edges/8/selected` | right only | — | false |
-| `api/queries/toObject/edges/9/animated` | right only | — | false |
-| `api/queries/toObject/edges/9/hidden` | right only | — | false |
 | `api/queries/toObject/edges/9/selected` | right only | — | false |
-| `api/queries/toObject/edges/10/animated` | right only | — | false |
-| `api/queries/toObject/edges/10/hidden` | right only | — | false |
 | `api/queries/toObject/edges/10/selected` | right only | — | false |
 
 ## Normalization
@@ -6145,7 +5016,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 4 driving divergence(s), 381 unclaimed difference(s).
+**Failed:** 4 driving divergence(s), 283 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -6243,7 +5114,7 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[1]/attrs/cx` | differs | 265 | 265.0000541122726 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[1]/attrs/cy` | differs | 607 | 607.0000294862283 |
 
-### callbacks (58) — consequence of the driving divergence
+### callbacks (50) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -6291,85 +5162,62 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/6/args/0/screenX` | differs | 710.2857055664062 | 710.28564453125 |
 | `callbacks/6/args/0/clientX` | differs | 710.2857055664062 | 710.28564453125 |
 | `callbacks/6/args/0/pageX` | differs | 710.2857055664062 | 710.28564453125 |
-| `callbacks/7/args/1/animated` | right only | — | false |
-| `callbacks/7/args/1/hidden` | right only | — | false |
 | `callbacks/7/args/1/selected` | right only | — | false |
 | `callbacks/8/args/0/screenX` | differs | 710.2857055664062 | 710.28564453125 |
 | `callbacks/8/args/0/clientX` | differs | 710.2857055664062 | 710.28564453125 |
 | `callbacks/8/args/0/pageX` | differs | 710.2857055664062 | 710.28564453125 |
-| `callbacks/9/args/1/animated` | right only | — | false |
-| `callbacks/9/args/1/hidden` | right only | — | false |
 | `callbacks/9/args/1/selected` | right only | — | false |
-| `callbacks/11/args/1/animated` | right only | — | false |
-| `callbacks/11/args/1/hidden` | right only | — | false |
 | `callbacks/11/args/1/selected` | right only | — | false |
-| `callbacks/12/args/0/edges/0/animated` | right only | — | false |
-| `callbacks/12/args/0/edges/0/hidden` | right only | — | false |
 
-### api (250) — consequence of the driving divergence
+### api (160) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
 | `api/queries/getNodes/4/selected` | right only | — | false |
 | `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNodes/5/hidden` | right only | — | false |
 | `api/queries/getNodes/5/selected` | right only | — | false |
 | `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/5/expandParent` | right only | — | false |
 | `api/queries/getNodes/6/hidden` | right only | — | false |
 | `api/queries/getNodes/6/selected` | right only | — | false |
 | `api/queries/getNodes/6/dragging` | right only | — | false |
-| `api/queries/getNodes/6/expandParent` | right only | — | false |
 | `api/queries/getNodes/7/hidden` | right only | — | false |
 | `api/queries/getNodes/7/selected` | right only | — | false |
 | `api/queries/getNodes/7/dragging` | right only | — | false |
-| `api/queries/getNodes/7/expandParent` | right only | — | false |
 | `api/queries/getNodes/8/hidden` | right only | — | false |
 | `api/queries/getNodes/8/selected` | right only | — | false |
 | `api/queries/getNodes/8/dragging` | right only | — | false |
-| `api/queries/getNodes/8/expandParent` | right only | — | false |
 | `api/queries/getNodes/9/hidden` | right only | — | false |
 | `api/queries/getNodes/9/selected` | right only | — | false |
 | `api/queries/getNodes/9/dragging` | right only | — | false |
-| `api/queries/getNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNodes/10/hidden` | right only | — | false |
 | `api/queries/getNodes/10/selected` | right only | — | false |
 | `api/queries/getNodes/10/dragging` | right only | — | false |
-| `api/queries/getNodes/10/expandParent` | right only | — | false |
 | `api/queries/getNodes/11/hidden` | right only | — | false |
 | `api/queries/getNodes/11/selected` | right only | — | false |
 | `api/queries/getNodes/11/dragging` | right only | — | false |
-| `api/queries/getNodes/11/expandParent` | right only | — | false |
 | `api/queries/getNodes/12/hidden` | right only | — | false |
 | `api/queries/getNodes/12/selected` | right only | — | false |
 | `api/queries/getNodes/12/dragging` | right only | — | false |
-| `api/queries/getNodes/12/expandParent` | right only | — | false |
 | `api/queries/getNodes/13/hidden` | right only | — | false |
 | `api/queries/getNodes/13/selected` | right only | — | false |
 | `api/queries/getNodes/13/dragging` | right only | — | false |
-| `api/queries/getNodes/13/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00001857790781 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999994842827817 |
@@ -6378,187 +5226,112 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdges/2/animated` | right only | — | false |
 | `api/queries/getEdges/2/selected` | right only | — | false |
-| `api/queries/getEdges/3/hidden` | right only | — | false |
 | `api/queries/getEdges/3/selected` | right only | — | false |
-| `api/queries/getEdges/4/animated` | right only | — | false |
-| `api/queries/getEdges/4/hidden` | right only | — | false |
 | `api/queries/getEdges/4/selected` | right only | — | false |
-| `api/queries/getEdges/5/animated` | right only | — | false |
-| `api/queries/getEdges/5/hidden` | right only | — | false |
-| `api/queries/getEdges/6/animated` | right only | — | false |
-| `api/queries/getEdges/6/hidden` | right only | — | false |
 | `api/queries/getEdges/6/selected` | right only | — | false |
-| `api/queries/getEdges/7/animated` | right only | — | false |
-| `api/queries/getEdges/7/hidden` | right only | — | false |
 | `api/queries/getEdges/7/selected` | right only | — | false |
-| `api/queries/getEdges/8/animated` | right only | — | false |
-| `api/queries/getEdges/8/hidden` | right only | — | false |
 | `api/queries/getEdges/8/selected` | right only | — | false |
-| `api/queries/getEdges/9/animated` | right only | — | false |
-| `api/queries/getEdges/9/hidden` | right only | — | false |
 | `api/queries/getEdges/9/selected` | right only | — | false |
-| `api/queries/getEdges/10/animated` | right only | — | false |
-| `api/queries/getEdges/10/hidden` | right only | — | false |
 | `api/queries/getEdges/10/selected` | right only | — | false |
-| `api/queries/getEdges/11/animated` | right only | — | false |
-| `api/queries/getEdges/11/hidden` | right only | — | false |
 | `api/queries/getEdges/11/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/10/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/10/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/10/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/10/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/11/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/11/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/11/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/11/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/12/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/12/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/12/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/12/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/13/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/selected` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/6/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/6/selected` | right only | — | false |
 | `api/queries/toObject/nodes/6/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/6/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/7/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/7/selected` | right only | — | false |
 | `api/queries/toObject/nodes/7/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/7/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/8/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/8/selected` | right only | — | false |
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/8/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/9/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/9/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/10/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/10/selected` | right only | — | false |
 | `api/queries/toObject/nodes/10/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/10/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/11/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/11/selected` | right only | — | false |
 | `api/queries/toObject/nodes/11/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/11/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/12/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/12/selected` | right only | — | false |
 | `api/queries/toObject/nodes/12/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/12/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/13/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/13/selected` | right only | — | false |
 | `api/queries/toObject/nodes/13/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/13/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
-| `api/queries/toObject/edges/2/animated` | right only | — | false |
 | `api/queries/toObject/edges/2/selected` | right only | — | false |
-| `api/queries/toObject/edges/3/hidden` | right only | — | false |
 | `api/queries/toObject/edges/3/selected` | right only | — | false |
-| `api/queries/toObject/edges/4/animated` | right only | — | false |
-| `api/queries/toObject/edges/4/hidden` | right only | — | false |
 | `api/queries/toObject/edges/4/selected` | right only | — | false |
-| `api/queries/toObject/edges/5/animated` | right only | — | false |
-| `api/queries/toObject/edges/5/hidden` | right only | — | false |
-| `api/queries/toObject/edges/6/animated` | right only | — | false |
-| `api/queries/toObject/edges/6/hidden` | right only | — | false |
 | `api/queries/toObject/edges/6/selected` | right only | — | false |
-| `api/queries/toObject/edges/7/animated` | right only | — | false |
-| `api/queries/toObject/edges/7/hidden` | right only | — | false |
 | `api/queries/toObject/edges/7/selected` | right only | — | false |
-| `api/queries/toObject/edges/8/animated` | right only | — | false |
-| `api/queries/toObject/edges/8/hidden` | right only | — | false |
 | `api/queries/toObject/edges/8/selected` | right only | — | false |
-| `api/queries/toObject/edges/9/animated` | right only | — | false |
-| `api/queries/toObject/edges/9/hidden` | right only | — | false |
 | `api/queries/toObject/edges/9/selected` | right only | — | false |
-| `api/queries/toObject/edges/10/animated` | right only | — | false |
-| `api/queries/toObject/edges/10/hidden` | right only | — | false |
 | `api/queries/toObject/edges/10/selected` | right only | — | false |
-| `api/queries/toObject/edges/11/animated` | right only | — | false |
-| `api/queries/toObject/edges/11/hidden` | right only | — | false |
 | `api/queries/toObject/edges/11/selected` | right only | — | false |
 
 ## Normalization
@@ -6596,7 +5369,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 2 driving divergence(s), 374 unclaimed difference(s).
+**Failed:** 2 driving divergence(s), 276 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -6692,7 +5465,7 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[1]/attrs/cx` | differs | 265 | 265.0000541122726 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[1]/attrs/cy` | differs | 607 | 607.0000294862283 |
 
-### callbacks (51) — consequence of the driving divergence
+### callbacks (43) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -6736,82 +5509,59 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/4/args/0/13/dimensions/width` | differs | 50 | 150 |
 | `callbacks/4/args/0/13/dimensions/height` | differs | 50 | 37 |
 | `callbacks/4/args/0/13/resizing` | right only | — | false |
-| `callbacks/7/args/1/animated` | right only | — | false |
-| `callbacks/7/args/1/hidden` | right only | — | false |
 | `callbacks/7/args/1/selected` | right only | — | false |
-| `callbacks/9/args/1/animated` | right only | — | false |
-| `callbacks/9/args/1/hidden` | right only | — | false |
 | `callbacks/9/args/1/selected` | right only | — | false |
-| `callbacks/11/args/1/animated` | right only | — | false |
-| `callbacks/11/args/1/hidden` | right only | — | false |
 | `callbacks/11/args/1/selected` | right only | — | false |
-| `callbacks/12/args/0/edges/0/animated` | right only | — | false |
-| `callbacks/12/args/0/edges/0/hidden` | right only | — | false |
 
-### api (250) — consequence of the driving divergence
+### api (160) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
 | `api/queries/getNodes/4/selected` | right only | — | false |
 | `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNodes/5/hidden` | right only | — | false |
 | `api/queries/getNodes/5/selected` | right only | — | false |
 | `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/5/expandParent` | right only | — | false |
 | `api/queries/getNodes/6/hidden` | right only | — | false |
 | `api/queries/getNodes/6/selected` | right only | — | false |
 | `api/queries/getNodes/6/dragging` | right only | — | false |
-| `api/queries/getNodes/6/expandParent` | right only | — | false |
 | `api/queries/getNodes/7/hidden` | right only | — | false |
 | `api/queries/getNodes/7/selected` | right only | — | false |
 | `api/queries/getNodes/7/dragging` | right only | — | false |
-| `api/queries/getNodes/7/expandParent` | right only | — | false |
 | `api/queries/getNodes/8/hidden` | right only | — | false |
 | `api/queries/getNodes/8/selected` | right only | — | false |
 | `api/queries/getNodes/8/dragging` | right only | — | false |
-| `api/queries/getNodes/8/expandParent` | right only | — | false |
 | `api/queries/getNodes/9/hidden` | right only | — | false |
 | `api/queries/getNodes/9/selected` | right only | — | false |
 | `api/queries/getNodes/9/dragging` | right only | — | false |
-| `api/queries/getNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNodes/10/hidden` | right only | — | false |
 | `api/queries/getNodes/10/selected` | right only | — | false |
 | `api/queries/getNodes/10/dragging` | right only | — | false |
-| `api/queries/getNodes/10/expandParent` | right only | — | false |
 | `api/queries/getNodes/11/hidden` | right only | — | false |
 | `api/queries/getNodes/11/selected` | right only | — | false |
 | `api/queries/getNodes/11/dragging` | right only | — | false |
-| `api/queries/getNodes/11/expandParent` | right only | — | false |
 | `api/queries/getNodes/12/hidden` | right only | — | false |
 | `api/queries/getNodes/12/selected` | right only | — | false |
 | `api/queries/getNodes/12/dragging` | right only | — | false |
-| `api/queries/getNodes/12/expandParent` | right only | — | false |
 | `api/queries/getNodes/13/hidden` | right only | — | false |
 | `api/queries/getNodes/13/selected` | right only | — | false |
 | `api/queries/getNodes/13/dragging` | right only | — | false |
-| `api/queries/getNodes/13/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00001857790781 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999994842827817 |
@@ -6820,187 +5570,112 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdges/2/animated` | right only | — | false |
 | `api/queries/getEdges/2/selected` | right only | — | false |
-| `api/queries/getEdges/3/hidden` | right only | — | false |
 | `api/queries/getEdges/3/selected` | right only | — | false |
-| `api/queries/getEdges/4/animated` | right only | — | false |
-| `api/queries/getEdges/4/hidden` | right only | — | false |
 | `api/queries/getEdges/4/selected` | right only | — | false |
-| `api/queries/getEdges/5/animated` | right only | — | false |
-| `api/queries/getEdges/5/hidden` | right only | — | false |
 | `api/queries/getEdges/5/selected` | right only | — | false |
-| `api/queries/getEdges/6/animated` | right only | — | false |
-| `api/queries/getEdges/6/hidden` | right only | — | false |
 | `api/queries/getEdges/6/selected` | right only | — | false |
-| `api/queries/getEdges/7/animated` | right only | — | false |
-| `api/queries/getEdges/7/hidden` | right only | — | false |
 | `api/queries/getEdges/7/selected` | right only | — | false |
-| `api/queries/getEdges/8/animated` | right only | — | false |
-| `api/queries/getEdges/8/hidden` | right only | — | false |
-| `api/queries/getEdges/9/animated` | right only | — | false |
-| `api/queries/getEdges/9/hidden` | right only | — | false |
 | `api/queries/getEdges/9/selected` | right only | — | false |
-| `api/queries/getEdges/10/animated` | right only | — | false |
-| `api/queries/getEdges/10/hidden` | right only | — | false |
 | `api/queries/getEdges/10/selected` | right only | — | false |
-| `api/queries/getEdges/11/animated` | right only | — | false |
-| `api/queries/getEdges/11/hidden` | right only | — | false |
 | `api/queries/getEdges/11/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/10/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/10/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/10/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/10/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/11/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/11/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/11/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/11/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/12/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/12/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/12/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/12/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/13/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/selected` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/6/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/6/selected` | right only | — | false |
 | `api/queries/toObject/nodes/6/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/6/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/7/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/7/selected` | right only | — | false |
 | `api/queries/toObject/nodes/7/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/7/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/8/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/8/selected` | right only | — | false |
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/8/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/9/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/9/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/10/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/10/selected` | right only | — | false |
 | `api/queries/toObject/nodes/10/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/10/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/11/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/11/selected` | right only | — | false |
 | `api/queries/toObject/nodes/11/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/11/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/12/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/12/selected` | right only | — | false |
 | `api/queries/toObject/nodes/12/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/12/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/13/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/13/selected` | right only | — | false |
 | `api/queries/toObject/nodes/13/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/13/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
-| `api/queries/toObject/edges/2/animated` | right only | — | false |
 | `api/queries/toObject/edges/2/selected` | right only | — | false |
-| `api/queries/toObject/edges/3/hidden` | right only | — | false |
 | `api/queries/toObject/edges/3/selected` | right only | — | false |
-| `api/queries/toObject/edges/4/animated` | right only | — | false |
-| `api/queries/toObject/edges/4/hidden` | right only | — | false |
 | `api/queries/toObject/edges/4/selected` | right only | — | false |
-| `api/queries/toObject/edges/5/animated` | right only | — | false |
-| `api/queries/toObject/edges/5/hidden` | right only | — | false |
 | `api/queries/toObject/edges/5/selected` | right only | — | false |
-| `api/queries/toObject/edges/6/animated` | right only | — | false |
-| `api/queries/toObject/edges/6/hidden` | right only | — | false |
 | `api/queries/toObject/edges/6/selected` | right only | — | false |
-| `api/queries/toObject/edges/7/animated` | right only | — | false |
-| `api/queries/toObject/edges/7/hidden` | right only | — | false |
 | `api/queries/toObject/edges/7/selected` | right only | — | false |
-| `api/queries/toObject/edges/8/animated` | right only | — | false |
-| `api/queries/toObject/edges/8/hidden` | right only | — | false |
-| `api/queries/toObject/edges/9/animated` | right only | — | false |
-| `api/queries/toObject/edges/9/hidden` | right only | — | false |
 | `api/queries/toObject/edges/9/selected` | right only | — | false |
-| `api/queries/toObject/edges/10/animated` | right only | — | false |
-| `api/queries/toObject/edges/10/hidden` | right only | — | false |
 | `api/queries/toObject/edges/10/selected` | right only | — | false |
-| `api/queries/toObject/edges/11/animated` | right only | — | false |
-| `api/queries/toObject/edges/11/hidden` | right only | — | false |
 | `api/queries/toObject/edges/11/selected` | right only | — | false |
 
 ## Normalization
@@ -7038,7 +5713,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 191 unclaimed difference(s).
+**Failed:** 141 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -7061,7 +5736,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
 
-### callbacks (37)
+### callbacks (29)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -7081,73 +5756,54 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/7/args/1/hidden` | right only | — | false |
 | `callbacks/7/args/1/selected` | right only | — | false |
 | `callbacks/7/args/1/dragging` | right only | — | false |
-| `callbacks/7/args/1/expandParent` | right only | — | false |
 | `callbacks/9/args/1/hidden` | right only | — | false |
 | `callbacks/9/args/1/selected` | right only | — | false |
 | `callbacks/9/args/1/dragging` | right only | — | false |
-| `callbacks/9/args/1/expandParent` | right only | — | false |
 | `callbacks/11/args/1/hidden` | right only | — | false |
 | `callbacks/11/args/1/selected` | right only | — | false |
-| `callbacks/11/args/1/expandParent` | right only | — | false |
 | `callbacks/11/args/2/0/hidden` | right only | — | false |
 | `callbacks/11/args/2/0/selected` | right only | — | false |
-| `callbacks/11/args/2/0/expandParent` | right only | — | false |
 | `callbacks/12/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/12/args/0/nodes/0/dragging` | right only | — | false |
-| `callbacks/12/args/0/nodes/0/expandParent` | right only | — | false |
 | `callbacks/13/args/1/hidden` | right only | — | false |
-| `callbacks/13/args/1/expandParent` | right only | — | false |
 | `callbacks/13/args/2/0/hidden` | right only | — | false |
-| `callbacks/13/args/2/0/expandParent` | right only | — | false |
 | `callbacks/14/args/1/hidden` | right only | — | false |
 | `callbacks/14/args/1/dragging` | right only | — | false |
-| `callbacks/14/args/1/expandParent` | right only | — | false |
 
-### api (140)
+### api (98)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
 | `api/queries/getNodes/4/selected` | right only | — | false |
 | `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNodes/5/hidden` | right only | — | false |
 | `api/queries/getNodes/5/selected` | right only | — | false |
 | `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/5/expandParent` | right only | — | false |
 | `api/queries/getNodes/6/hidden` | right only | — | false |
 | `api/queries/getNodes/6/selected` | right only | — | false |
 | `api/queries/getNodes/6/dragging` | right only | — | false |
-| `api/queries/getNodes/6/expandParent` | right only | — | false |
 | `api/queries/getNodes/7/hidden` | right only | — | false |
 | `api/queries/getNodes/7/selected` | right only | — | false |
 | `api/queries/getNodes/7/dragging` | right only | — | false |
-| `api/queries/getNodes/7/expandParent` | right only | — | false |
 | `api/queries/getNodes/8/hidden` | right only | — | false |
 | `api/queries/getNodes/8/selected` | right only | — | false |
 | `api/queries/getNodes/8/dragging` | right only | — | false |
-| `api/queries/getNodes/8/expandParent` | right only | — | false |
 | `api/queries/getNodes/9/selected` | right only | — | false |
 | `api/queries/getNodes/9/dragging` | right only | — | false |
-| `api/queries/getNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
@@ -7155,97 +5811,66 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/selected` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/6/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/6/selected` | right only | — | false |
 | `api/queries/toObject/nodes/6/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/6/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/7/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/7/selected` | right only | — | false |
 | `api/queries/toObject/nodes/7/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/7/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/8/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/8/selected` | right only | — | false |
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/8/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/9/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
@@ -7283,7 +5908,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 172 unclaimed difference(s).
+**Failed:** 127 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -7307,7 +5932,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
 | `dom/root/children/div[0]/children/div[0]/children/div[1]/children/div[0]/attrs/style` | left only | height: 137px; width: 350px; | — |
 
-### callbacks (28)
+### callbacks (25)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -7328,61 +5953,47 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/9/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/9/args/0/nodes/0/selected` | right only | — | true |
 | `callbacks/9/args/0/nodes/0/dragging` | right only | — | false |
-| `callbacks/9/args/0/nodes/0/expandParent` | right only | — | false |
 | `callbacks/9/args/0/nodes/1/hidden` | right only | — | false |
 | `callbacks/9/args/0/nodes/1/selected` | right only | — | true |
 | `callbacks/9/args/0/nodes/1/dragging` | right only | — | false |
-| `callbacks/9/args/0/nodes/1/expandParent` | right only | — | false |
 | `callbacks/9/args/0/nodes/2/hidden` | right only | — | false |
 | `callbacks/9/args/0/nodes/2/selected` | right only | — | true |
 | `callbacks/9/args/0/nodes/2/dragging` | right only | — | false |
-| `callbacks/9/args/0/nodes/2/expandParent` | right only | — | false |
-| `callbacks/9/args/0/edges/0` | right only | — | {"id":"1-2","type":"default","source":"Node-1","target":"Node-2","animated":false,"hidden":false,"selected":true,"label":"edge"} |
-| `callbacks/9/args/0/edges/1` | right only | — | {"id":"1-3","type":"default","source":"Node-1","target":"Node-3","animated":false,"hidden":false,"selected":true,"label":"edge"} |
+| `callbacks/9/args/0/edges/0` | right only | — | {"id":"1-2","type":"default","source":"Node-1","target":"Node-2","selected":true,"label":"edge"} |
+| `callbacks/9/args/0/edges/1` | right only | — | {"id":"1-3","type":"default","source":"Node-1","target":"Node-3","selected":true,"label":"edge"} |
 
-### api (129)
+### api (87)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
 | `api/queries/getNodes/4/selected` | right only | — | false |
 | `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNodes/5/hidden` | right only | — | false |
 | `api/queries/getNodes/5/selected` | right only | — | false |
 | `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/5/expandParent` | right only | — | false |
 | `api/queries/getNodes/6/hidden` | right only | — | false |
 | `api/queries/getNodes/6/selected` | right only | — | false |
 | `api/queries/getNodes/6/dragging` | right only | — | false |
-| `api/queries/getNodes/6/expandParent` | right only | — | false |
 | `api/queries/getNodes/7/hidden` | right only | — | false |
 | `api/queries/getNodes/7/selected` | right only | — | false |
 | `api/queries/getNodes/7/dragging` | right only | — | false |
-| `api/queries/getNodes/7/expandParent` | right only | — | false |
 | `api/queries/getNodes/8/hidden` | right only | — | false |
 | `api/queries/getNodes/8/selected` | right only | — | false |
 | `api/queries/getNodes/8/dragging` | right only | — | false |
-| `api/queries/getNodes/8/expandParent` | right only | — | false |
 | `api/queries/getNodes/9/selected` | right only | — | false |
 | `api/queries/getNodes/9/dragging` | right only | — | false |
-| `api/queries/getNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
@@ -7390,89 +6001,58 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/selected` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/6/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/6/selected` | right only | — | false |
 | `api/queries/toObject/nodes/6/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/6/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/7/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/7/selected` | right only | — | false |
 | `api/queries/toObject/nodes/7/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/7/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/8/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/8/selected` | right only | — | false |
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/8/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/9/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 
 ## Normalization
 
@@ -7509,7 +6089,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 196 unclaimed difference(s).
+**Failed:** 147 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -7532,7 +6112,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
 
-### callbacks (37)
+### callbacks (30)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -7552,75 +6132,57 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/7/args/1/hidden` | right only | — | false |
 | `callbacks/7/args/1/selected` | right only | — | false |
 | `callbacks/7/args/1/dragging` | right only | — | false |
-| `callbacks/7/args/1/expandParent` | right only | — | false |
 | `callbacks/9/args/1/hidden` | right only | — | false |
 | `callbacks/9/args/1/selected` | right only | — | false |
 | `callbacks/9/args/1/dragging` | right only | — | false |
-| `callbacks/9/args/1/expandParent` | right only | — | false |
 | `callbacks/10/args/1/hidden` | right only | — | false |
 | `callbacks/10/args/1/selected` | right only | — | false |
-| `callbacks/10/args/1/expandParent` | right only | — | false |
 | `callbacks/10/args/2/0/hidden` | right only | — | false |
 | `callbacks/10/args/2/0/selected` | right only | — | false |
-| `callbacks/10/args/2/0/expandParent` | right only | — | false |
 | `callbacks/11/args/1/hidden` | right only | — | false |
 | `callbacks/11/args/1/selected` | right only | — | false |
-| `callbacks/11/args/1/expandParent` | right only | — | false |
 | `callbacks/11/args/2/0/hidden` | right only | — | false |
 | `callbacks/11/args/2/0/selected` | right only | — | false |
-| `callbacks/11/args/2/0/expandParent` | right only | — | false |
 | `callbacks/12/args/1/hidden` | right only | — | false |
 | `callbacks/12/args/1/selected` | right only | — | false |
 | `callbacks/12/args/1/dragging` | right only | — | false |
-| `callbacks/12/args/1/expandParent` | right only | — | false |
 
-### api (145)
+### api (103)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
 | `api/queries/getNodes/4/selected` | right only | — | false |
 | `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNodes/5/hidden` | right only | — | false |
 | `api/queries/getNodes/5/selected` | right only | — | false |
 | `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/5/expandParent` | right only | — | false |
 | `api/queries/getNodes/6/hidden` | right only | — | false |
 | `api/queries/getNodes/6/selected` | right only | — | false |
 | `api/queries/getNodes/6/dragging` | right only | — | false |
-| `api/queries/getNodes/6/expandParent` | right only | — | false |
 | `api/queries/getNodes/7/hidden` | right only | — | false |
 | `api/queries/getNodes/7/selected` | right only | — | false |
 | `api/queries/getNodes/7/dragging` | right only | — | false |
-| `api/queries/getNodes/7/expandParent` | right only | — | false |
 | `api/queries/getNodes/8/hidden` | right only | — | false |
 | `api/queries/getNodes/8/selected` | right only | — | false |
 | `api/queries/getNodes/8/dragging` | right only | — | false |
-| `api/queries/getNodes/8/expandParent` | right only | — | false |
 | `api/queries/getNodes/9/selected` | right only | — | false |
 | `api/queries/getNodes/9/dragging` | right only | — | false |
-| `api/queries/getNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
@@ -7629,99 +6191,68 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/selected` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/6/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/6/selected` | right only | — | false |
 | `api/queries/toObject/nodes/6/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/6/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/7/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/7/selected` | right only | — | false |
 | `api/queries/toObject/nodes/7/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/7/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/8/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/8/selected` | right only | — | false |
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/8/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/9/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
@@ -7759,7 +6290,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 228 unclaimed difference(s).
+**Failed:** 161 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -7782,7 +6313,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
 
-### callbacks (79)
+### callbacks (54)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -7802,208 +6333,141 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/7/args/1/hidden` | right only | — | false |
 | `callbacks/7/args/1/selected` | right only | — | false |
 | `callbacks/7/args/1/dragging` | right only | — | false |
-| `callbacks/7/args/1/expandParent` | right only | — | false |
 | `callbacks/9/args/1/hidden` | right only | — | false |
 | `callbacks/9/args/1/selected` | right only | — | false |
 | `callbacks/9/args/1/dragging` | right only | — | false |
-| `callbacks/9/args/1/expandParent` | right only | — | false |
 | `callbacks/11/args/1/hidden` | right only | — | false |
 | `callbacks/11/args/1/selected` | right only | — | false |
-| `callbacks/11/args/1/expandParent` | right only | — | false |
 | `callbacks/11/args/2/0/hidden` | right only | — | false |
 | `callbacks/11/args/2/0/selected` | right only | — | false |
-| `callbacks/11/args/2/0/expandParent` | right only | — | false |
 | `callbacks/12/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/12/args/0/nodes/0/dragging` | right only | — | false |
-| `callbacks/12/args/0/nodes/0/expandParent` | right only | — | false |
 | `callbacks/13/args/1/hidden` | right only | — | false |
 | `callbacks/13/args/1/dragging` | right only | — | false |
-| `callbacks/13/args/1/expandParent` | right only | — | false |
-| `callbacks/14/args/1/animated` | right only | — | false |
-| `callbacks/14/args/1/hidden` | right only | — | false |
 | `callbacks/14/args/1/selected` | right only | — | false |
 | `callbacks/16/args/0/0/positionAbsolute` | right only | — | {"x":38.841463414634134,"y":38.84146341463415} |
 | `callbacks/17/args/1/hidden` | right only | — | false |
-| `callbacks/17/args/1/expandParent` | right only | — | false |
 | `callbacks/17/args/2/0/hidden` | right only | — | false |
-| `callbacks/17/args/2/0/expandParent` | right only | — | false |
 | `callbacks/19/args/0/0/positionAbsolute` | right only | — | {"x":77.68292682926827,"y":77.68292682926828} |
 | `callbacks/20/args/1/hidden` | right only | — | false |
-| `callbacks/20/args/1/expandParent` | right only | — | false |
 | `callbacks/20/args/2/0/hidden` | right only | — | false |
-| `callbacks/20/args/2/0/expandParent` | right only | — | false |
-| `callbacks/21/args/1/animated` | right only | — | false |
-| `callbacks/21/args/1/hidden` | right only | — | false |
 | `callbacks/21/args/1/selected` | right only | — | false |
 | `callbacks/22/args/1/hidden` | right only | — | false |
 | `callbacks/22/args/1/selected` | right only | — | false |
 | `callbacks/22/args/1/dragging` | right only | — | false |
-| `callbacks/22/args/1/expandParent` | right only | — | false |
 | `callbacks/24/args/0/0/positionAbsolute` | right only | — | {"x":116.52439024390242,"y":116.52439024390243} |
 | `callbacks/25/args/1/hidden` | right only | — | false |
-| `callbacks/25/args/1/expandParent` | right only | — | false |
 | `callbacks/25/args/2/0/hidden` | right only | — | false |
-| `callbacks/25/args/2/0/expandParent` | right only | — | false |
 | `callbacks/26/args/1/hidden` | right only | — | false |
 | `callbacks/26/args/1/selected` | right only | — | false |
 | `callbacks/26/args/1/dragging` | right only | — | false |
-| `callbacks/26/args/1/expandParent` | right only | — | false |
 | `callbacks/28/args/0/0/positionAbsolute` | right only | — | {"x":155.36585365853657,"y":155.3658536585366} |
 | `callbacks/29/args/1/hidden` | right only | — | false |
-| `callbacks/29/args/1/expandParent` | right only | — | false |
 | `callbacks/29/args/2/0/hidden` | right only | — | false |
-| `callbacks/29/args/2/0/expandParent` | right only | — | false |
 | `callbacks/31/args/0/0/positionAbsolute` | right only | — | {"x":194.2073170731707,"y":194.2073170731707} |
 | `callbacks/32/args/1/hidden` | right only | — | false |
-| `callbacks/32/args/1/expandParent` | right only | — | false |
 | `callbacks/32/args/2/0/hidden` | right only | — | false |
-| `callbacks/32/args/2/0/expandParent` | right only | — | false |
 | `callbacks/33/args/1/hidden` | right only | — | false |
-| `callbacks/33/args/1/expandParent` | right only | — | false |
 | `callbacks/34/args/0/0/positionAbsolute` | right only | — | {"x":194.2073170731707,"y":194.2073170731707} |
 | `callbacks/35/args/1/hidden` | right only | — | false |
-| `callbacks/35/args/1/expandParent` | right only | — | false |
 | `callbacks/35/args/2/0/hidden` | right only | — | false |
-| `callbacks/35/args/2/0/expandParent` | right only | — | false |
 
-### api (135)
+### api (93)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
 | `api/queries/getNodes/4/selected` | right only | — | false |
 | `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNodes/5/hidden` | right only | — | false |
 | `api/queries/getNodes/5/selected` | right only | — | false |
 | `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/5/expandParent` | right only | — | false |
 | `api/queries/getNodes/6/hidden` | right only | — | false |
 | `api/queries/getNodes/6/selected` | right only | — | false |
 | `api/queries/getNodes/6/dragging` | right only | — | false |
-| `api/queries/getNodes/6/expandParent` | right only | — | false |
 | `api/queries/getNodes/7/hidden` | right only | — | false |
 | `api/queries/getNodes/7/selected` | right only | — | false |
 | `api/queries/getNodes/7/dragging` | right only | — | false |
-| `api/queries/getNodes/7/expandParent` | right only | — | false |
 | `api/queries/getNodes/8/hidden` | right only | — | false |
 | `api/queries/getNodes/8/selected` | right only | — | false |
 | `api/queries/getNodes/8/dragging` | right only | — | false |
-| `api/queries/getNodes/8/expandParent` | right only | — | false |
 | `api/queries/getNodes/9/selected` | right only | — | false |
 | `api/queries/getNodes/9/dragging` | right only | — | false |
-| `api/queries/getNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999895628063307 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":194.2073170731707,"y":194.2073170731707},"type":"input","className":"playwright-test-class-123","style… | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/selected` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/6/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/6/selected` | right only | — | false |
 | `api/queries/toObject/nodes/6/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/6/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/7/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/7/selected` | right only | — | false |
 | `api/queries/toObject/nodes/7/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/7/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/8/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/8/selected` | right only | — | false |
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/8/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/9/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
@@ -8041,7 +6505,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 197 unclaimed difference(s).
+**Failed:** 151 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -8064,7 +6528,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
 
-### callbacks (38)
+### callbacks (34)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -8086,15 +6550,12 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/7/args/1/hidden` | right only | — | false |
 | `callbacks/7/args/1/selected` | right only | — | false |
 | `callbacks/7/args/1/dragging` | right only | — | false |
-| `callbacks/7/args/1/expandParent` | right only | — | false |
 | `callbacks/9/args/1/hidden` | right only | — | false |
 | `callbacks/9/args/1/selected` | right only | — | false |
 | `callbacks/9/args/1/dragging` | right only | — | false |
-| `callbacks/9/args/1/expandParent` | right only | — | false |
 | `callbacks/11/args/1/hidden` | right only | — | false |
 | `callbacks/11/args/1/selected` | right only | — | false |
 | `callbacks/11/args/1/dragging` | right only | — | false |
-| `callbacks/11/args/1/expandParent` | right only | — | false |
 | `callbacks/27/args/0/screenX` | differs | 814 | 734 |
 | `callbacks/27/args/0/screenY` | differs | 662 | 582 |
 | `callbacks/27/args/0/clientX` | differs | 814 | 734 |
@@ -8105,55 +6566,43 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/27/args/1/hidden` | right only | — | false |
 | `callbacks/27/args/1/selected` | right only | — | false |
 | `callbacks/27/args/1/dragging` | right only | — | false |
-| `callbacks/27/args/1/expandParent` | right only | — | false |
 
-### api (145)
+### api (103)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
 | `api/queries/getNodes/4/selected` | right only | — | false |
 | `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNodes/5/hidden` | right only | — | false |
 | `api/queries/getNodes/5/selected` | right only | — | false |
 | `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/5/expandParent` | right only | — | false |
 | `api/queries/getNodes/6/hidden` | right only | — | false |
 | `api/queries/getNodes/6/selected` | right only | — | false |
 | `api/queries/getNodes/6/dragging` | right only | — | false |
-| `api/queries/getNodes/6/expandParent` | right only | — | false |
 | `api/queries/getNodes/7/hidden` | right only | — | false |
 | `api/queries/getNodes/7/selected` | right only | — | false |
 | `api/queries/getNodes/7/dragging` | right only | — | false |
-| `api/queries/getNodes/7/expandParent` | right only | — | false |
 | `api/queries/getNodes/8/hidden` | right only | — | false |
 | `api/queries/getNodes/8/selected` | right only | — | false |
 | `api/queries/getNodes/8/dragging` | right only | — | false |
-| `api/queries/getNodes/8/expandParent` | right only | — | false |
 | `api/queries/getNodes/9/selected` | right only | — | false |
 | `api/queries/getNodes/9/dragging` | right only | — | false |
-| `api/queries/getNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999910444867112 |
@@ -8162,99 +6611,68 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/selected` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/6/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/6/selected` | right only | — | false |
 | `api/queries/toObject/nodes/6/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/6/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/7/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/7/selected` | right only | — | false |
 | `api/queries/toObject/nodes/7/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/7/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/8/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/8/selected` | right only | — | false |
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/8/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/9/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
@@ -8292,7 +6710,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 234 unclaimed difference(s).
+**Failed:** 169 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -8315,7 +6733,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
 
-### callbacks (81)
+### callbacks (58)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -8335,117 +6753,83 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/7/args/1/hidden` | right only | — | false |
 | `callbacks/7/args/1/selected` | right only | — | false |
 | `callbacks/7/args/1/dragging` | right only | — | false |
-| `callbacks/7/args/1/expandParent` | right only | — | false |
 | `callbacks/9/args/1/hidden` | right only | — | false |
 | `callbacks/9/args/1/selected` | right only | — | false |
 | `callbacks/9/args/1/dragging` | right only | — | false |
-| `callbacks/9/args/1/expandParent` | right only | — | false |
 | `callbacks/11/args/1/hidden` | right only | — | false |
 | `callbacks/11/args/1/selected` | right only | — | false |
 | `callbacks/11/args/1/dragging` | right only | — | false |
-| `callbacks/11/args/1/expandParent` | right only | — | false |
 | `callbacks/12/args/1/hidden` | right only | — | false |
 | `callbacks/12/args/1/selected` | right only | — | false |
 | `callbacks/12/args/1/dragging` | right only | — | false |
-| `callbacks/12/args/1/expandParent` | right only | — | false |
 | `callbacks/18/args/1/hidden` | right only | — | false |
 | `callbacks/18/args/1/selected` | right only | — | false |
 | `callbacks/18/args/1/dragging` | right only | — | false |
-| `callbacks/18/args/1/expandParent` | right only | — | false |
 | `callbacks/20/args/1/hidden` | right only | — | false |
 | `callbacks/20/args/1/selected` | right only | — | false |
 | `callbacks/20/args/1/dragging` | right only | — | false |
-| `callbacks/20/args/1/expandParent` | right only | — | false |
 | `callbacks/22/args/1/hidden` | right only | — | false |
 | `callbacks/22/args/1/selected` | right only | — | false |
-| `callbacks/22/args/1/expandParent` | right only | — | false |
 | `callbacks/22/args/2/0/hidden` | right only | — | false |
 | `callbacks/22/args/2/0/selected` | right only | — | false |
-| `callbacks/22/args/2/0/expandParent` | right only | — | false |
 | `callbacks/23/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/23/args/0/nodes/0/dragging` | right only | — | false |
-| `callbacks/23/args/0/nodes/0/expandParent` | right only | — | false |
 | `callbacks/24/args/1/hidden` | right only | — | false |
 | `callbacks/24/args/1/dragging` | right only | — | false |
-| `callbacks/24/args/1/expandParent` | right only | — | false |
 | `callbacks/26/args/0/0/positionAbsolute` | right only | — | {"x":238.84146341463418,"y":38.84146341463414} |
 | `callbacks/27/args/1/hidden` | right only | — | false |
-| `callbacks/27/args/1/expandParent` | right only | — | false |
 | `callbacks/27/args/2/0/hidden` | right only | — | false |
-| `callbacks/27/args/2/0/expandParent` | right only | — | false |
 | `callbacks/29/args/0/0/positionAbsolute` | right only | — | {"x":277.6829268292683,"y":77.6829268292683} |
 | `callbacks/30/args/1/hidden` | right only | — | false |
-| `callbacks/30/args/1/expandParent` | right only | — | false |
 | `callbacks/30/args/2/0/hidden` | right only | — | false |
-| `callbacks/30/args/2/0/expandParent` | right only | — | false |
 | `callbacks/32/args/0/0/positionAbsolute` | right only | — | {"x":316.5243902439024,"y":116.52439024390242} |
 | `callbacks/33/args/1/hidden` | right only | — | false |
-| `callbacks/33/args/1/expandParent` | right only | — | false |
 | `callbacks/33/args/2/0/hidden` | right only | — | false |
-| `callbacks/33/args/2/0/expandParent` | right only | — | false |
 | `callbacks/35/args/0/0/positionAbsolute` | right only | — | {"x":355.3658536585366,"y":155.36585365853657} |
 | `callbacks/36/args/1/hidden` | right only | — | false |
-| `callbacks/36/args/1/expandParent` | right only | — | false |
 | `callbacks/36/args/2/0/hidden` | right only | — | false |
-| `callbacks/36/args/2/0/expandParent` | right only | — | false |
 | `callbacks/38/args/0/0/positionAbsolute` | right only | — | {"x":394.2073170731707,"y":194.2073170731707} |
 | `callbacks/39/args/1/hidden` | right only | — | false |
-| `callbacks/39/args/1/expandParent` | right only | — | false |
 | `callbacks/39/args/2/0/hidden` | right only | — | false |
-| `callbacks/39/args/2/0/expandParent` | right only | — | false |
 | `callbacks/40/args/1/hidden` | right only | — | false |
-| `callbacks/40/args/1/expandParent` | right only | — | false |
 | `callbacks/41/args/0/0/positionAbsolute` | right only | — | {"x":394.2073170731707,"y":194.2073170731707} |
 | `callbacks/42/args/1/hidden` | right only | — | false |
-| `callbacks/42/args/1/expandParent` | right only | — | false |
 | `callbacks/42/args/2/0/hidden` | right only | — | false |
-| `callbacks/42/args/2/0/expandParent` | right only | — | false |
 
-### api (139)
+### api (97)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNodes/5/hidden` | right only | — | false |
 | `api/queries/getNodes/5/selected` | right only | — | false |
 | `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/5/expandParent` | right only | — | false |
 | `api/queries/getNodes/6/hidden` | right only | — | false |
 | `api/queries/getNodes/6/selected` | right only | — | false |
 | `api/queries/getNodes/6/dragging` | right only | — | false |
-| `api/queries/getNodes/6/expandParent` | right only | — | false |
 | `api/queries/getNodes/7/hidden` | right only | — | false |
 | `api/queries/getNodes/7/selected` | right only | — | false |
 | `api/queries/getNodes/7/dragging` | right only | — | false |
-| `api/queries/getNodes/7/expandParent` | right only | — | false |
 | `api/queries/getNodes/8/hidden` | right only | — | false |
 | `api/queries/getNodes/8/selected` | right only | — | false |
 | `api/queries/getNodes/8/dragging` | right only | — | false |
-| `api/queries/getNodes/8/expandParent` | right only | — | false |
 | `api/queries/getNodes/9/selected` | right only | — | false |
 | `api/queries/getNodes/9/dragging` | right only | — | false |
-| `api/queries/getNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
@@ -8454,95 +6838,64 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/selected` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/6/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/6/selected` | right only | — | false |
 | `api/queries/toObject/nodes/6/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/6/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/7/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/7/selected` | right only | — | false |
 | `api/queries/toObject/nodes/7/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/7/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/8/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/8/selected` | right only | — | false |
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/8/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/9/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
@@ -8580,11 +6933,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 174 unclaimed difference(s).
+**Failed:** 135 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### callbacks (42)
+### callbacks (34)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -8609,71 +6962,53 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/7/args/1/hidden` | right only | — | false |
 | `callbacks/7/args/1/selected` | right only | — | false |
 | `callbacks/7/args/1/dragging` | right only | — | false |
-| `callbacks/7/args/1/expandParent` | right only | — | false |
 | `callbacks/9/args/1/hidden` | right only | — | false |
 | `callbacks/9/args/1/selected` | right only | — | false |
 | `callbacks/9/args/1/dragging` | right only | — | false |
-| `callbacks/9/args/1/expandParent` | right only | — | false |
 | `callbacks/11/args/1/hidden` | right only | — | false |
 | `callbacks/11/args/1/selected` | right only | — | false |
-| `callbacks/11/args/1/expandParent` | right only | — | false |
 | `callbacks/11/args/2/0/hidden` | right only | — | false |
 | `callbacks/11/args/2/0/selected` | right only | — | false |
-| `callbacks/11/args/2/0/expandParent` | right only | — | false |
 | `callbacks/12/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/12/args/0/nodes/0/dragging` | right only | — | false |
-| `callbacks/12/args/0/nodes/0/expandParent` | right only | — | false |
 | `callbacks/13/args/1/hidden` | right only | — | false |
-| `callbacks/13/args/1/expandParent` | right only | — | false |
 | `callbacks/13/args/2/0/hidden` | right only | — | false |
-| `callbacks/13/args/2/0/expandParent` | right only | — | false |
 | `callbacks/14/args/1/hidden` | right only | — | false |
 | `callbacks/14/args/1/dragging` | right only | — | false |
-| `callbacks/14/args/1/expandParent` | right only | — | false |
 
-### api (132)
+### api (101)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
 | `api/queries/getNodes/4/selected` | right only | — | false |
 | `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNodes/5/hidden` | right only | — | false |
 | `api/queries/getNodes/5/selected` | right only | — | false |
 | `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/5/expandParent` | right only | — | false |
 | `api/queries/getNodes/6/hidden` | right only | — | false |
 | `api/queries/getNodes/6/selected` | right only | — | false |
 | `api/queries/getNodes/6/dragging` | right only | — | false |
-| `api/queries/getNodes/6/expandParent` | right only | — | false |
 | `api/queries/getNodes/7/hidden` | right only | — | false |
 | `api/queries/getNodes/7/selected` | right only | — | false |
 | `api/queries/getNodes/7/dragging` | right only | — | false |
-| `api/queries/getNodes/7/expandParent` | right only | — | false |
 | `api/queries/getNodes/8/selected` | right only | — | false |
 | `api/queries/getNodes/8/dragging` | right only | — | false |
-| `api/queries/getNodes/8/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source` | differs | null | [] |
 | `api/queries/getInternalNode/internals/handleBounds/target/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target/0/x` | differs | 71 | 70.99981241215175 |
@@ -8682,91 +7017,70 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0` | right only | — | {"id":"1-2","type":"default","source":"Node-1","target":"Node-2","animated":false,"hidden":false,"selected":false,"label":"edge"} |
-| `api/queries/getEdges/1` | right only | — | {"id":"1-3","type":"default","source":"Node-1","target":"Node-3","animated":false,"hidden":false,"selected":false,"label":"edge"} |
+| `api/queries/getEdges/0` | right only | — | {"id":"1-2","type":"default","source":"Node-1","target":"Node-2","selected":false,"label":"edge"} |
+| `api/queries/getEdges/1` | right only | — | {"id":"1-3","type":"default","source":"Node-1","target":"Node-3","selected":false,"label":"edge"} |
 | `api/queries/getEdge/@undefined` | left only | true | — |
 | `api/queries/getEdge/id` | right only | — | 1-2 |
 | `api/queries/getEdge/type` | right only | — | default |
 | `api/queries/getEdge/source` | right only | — | Node-1 |
 | `api/queries/getEdge/target` | right only | — | Node-2 |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getEdge/label` | right only | — | edge |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/expandParent` | right only | — | false |
 | `api/queries/getNodeConnections/0` | right only | — | {"edgeId":"1-2","source":"Node-1","target":"Node-2","sourceHandle":null,"targetHandle":null} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/selected` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/6/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/6/selected` | right only | — | false |
 | `api/queries/toObject/nodes/6/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/6/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/7/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/7/selected` | right only | — | false |
 | `api/queries/toObject/nodes/7/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/7/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/8/selected` | right only | — | false |
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/8/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0` | right only | — | {"id":"1-2","type":"default","source":"Node-1","target":"Node-2","animated":false,"hidden":false,"selected":false,"label":"edge"} |
-| `api/queries/toObject/edges/1` | right only | — | {"id":"1-3","type":"default","source":"Node-1","target":"Node-3","animated":false,"hidden":false,"selected":false,"label":"edge"} |
+| `api/queries/toObject/edges/0` | right only | — | {"id":"1-2","type":"default","source":"Node-1","target":"Node-2","selected":false,"label":"edge"} |
+| `api/queries/toObject/edges/1` | right only | — | {"id":"1-3","type":"default","source":"Node-1","target":"Node-3","selected":false,"label":"edge"} |
 
 ## Normalization
 
@@ -8803,7 +7117,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 194 unclaimed difference(s).
+**Failed:** 144 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -8826,7 +7140,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
 
-### callbacks (38)
+### callbacks (30)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -8847,74 +7161,55 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/7/args/1/hidden` | right only | — | false |
 | `callbacks/7/args/1/selected` | right only | — | false |
 | `callbacks/7/args/1/dragging` | right only | — | false |
-| `callbacks/7/args/1/expandParent` | right only | — | false |
 | `callbacks/9/args/1/hidden` | right only | — | false |
 | `callbacks/9/args/1/selected` | right only | — | false |
 | `callbacks/9/args/1/dragging` | right only | — | false |
-| `callbacks/9/args/1/expandParent` | right only | — | false |
 | `callbacks/11/args/1/hidden` | right only | — | false |
 | `callbacks/11/args/1/selected` | right only | — | false |
-| `callbacks/11/args/1/expandParent` | right only | — | false |
 | `callbacks/11/args/2/0/hidden` | right only | — | false |
 | `callbacks/11/args/2/0/selected` | right only | — | false |
-| `callbacks/11/args/2/0/expandParent` | right only | — | false |
 | `callbacks/12/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/12/args/0/nodes/0/dragging` | right only | — | false |
-| `callbacks/12/args/0/nodes/0/expandParent` | right only | — | false |
 | `callbacks/13/args/1/hidden` | right only | — | false |
-| `callbacks/13/args/1/expandParent` | right only | — | false |
 | `callbacks/13/args/2/0/hidden` | right only | — | false |
-| `callbacks/13/args/2/0/expandParent` | right only | — | false |
 | `callbacks/14/args/1/hidden` | right only | — | false |
 | `callbacks/14/args/1/dragging` | right only | — | false |
-| `callbacks/14/args/1/expandParent` | right only | — | false |
 
-### api (142)
+### api (100)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
 | `api/queries/getNodes/4/selected` | right only | — | false |
 | `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNodes/5/hidden` | right only | — | false |
 | `api/queries/getNodes/5/selected` | right only | — | false |
 | `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/5/expandParent` | right only | — | false |
 | `api/queries/getNodes/6/hidden` | right only | — | false |
 | `api/queries/getNodes/6/selected` | right only | — | false |
 | `api/queries/getNodes/6/dragging` | right only | — | false |
-| `api/queries/getNodes/6/expandParent` | right only | — | false |
 | `api/queries/getNodes/7/hidden` | right only | — | false |
 | `api/queries/getNodes/7/selected` | right only | — | false |
 | `api/queries/getNodes/7/dragging` | right only | — | false |
-| `api/queries/getNodes/7/expandParent` | right only | — | false |
 | `api/queries/getNodes/8/hidden` | right only | — | false |
 | `api/queries/getNodes/8/dragging` | right only | — | false |
-| `api/queries/getNodes/8/expandParent` | right only | — | false |
 | `api/queries/getNodes/9/selected` | right only | — | false |
 | `api/queries/getNodes/9/dragging` | right only | — | false |
-| `api/queries/getNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
@@ -8923,97 +7218,66 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/selected` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/6/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/6/selected` | right only | — | false |
 | `api/queries/toObject/nodes/6/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/6/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/7/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/7/selected` | right only | — | false |
 | `api/queries/toObject/nodes/7/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/7/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/8/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/8/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/9/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
@@ -9051,7 +7315,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 272 unclaimed difference(s).
+**Failed:** 213 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -9080,7 +7344,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/xy-edge__Node-1-Node-4/children/circle[1]/attrs/cx` | differs | 75 | 74.99981241215175 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/xy-edge__Node-1-Node-4/children/circle[1]/attrs/cy` | differs | 187 | 187.00001209999465 |
 
-### callbacks (101)
+### callbacks (88)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -9100,20 +7364,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/7/args/1/hidden` | right only | — | false |
 | `callbacks/7/args/1/selected` | right only | — | false |
 | `callbacks/7/args/1/dragging` | right only | — | false |
-| `callbacks/7/args/1/expandParent` | right only | — | false |
 | `callbacks/9/args/1/hidden` | right only | — | false |
 | `callbacks/9/args/1/selected` | right only | — | false |
 | `callbacks/9/args/1/dragging` | right only | — | false |
-| `callbacks/9/args/1/expandParent` | right only | — | false |
 | `callbacks/10/args/1/hidden` | right only | — | false |
 | `callbacks/10/args/1/selected` | right only | — | false |
 | `callbacks/10/args/1/dragging` | right only | — | false |
-| `callbacks/10/args/1/expandParent` | right only | — | false |
-| `callbacks/11/args/1/animated` | right only | — | false |
-| `callbacks/11/args/1/hidden` | right only | — | false |
 | `callbacks/11/args/1/selected` | right only | — | false |
-| `callbacks/13/args/1/animated` | right only | — | false |
-| `callbacks/13/args/1/hidden` | right only | — | false |
 | `callbacks/13/args/1/selected` | right only | — | false |
 | `callbacks/14/args/0/@class` | differs | MouseEvent | SyntheticBaseEvent |
 | `callbacks/14/args/0/_reactName` | right only | — | onMouseDown |
@@ -9146,17 +7403,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/14/args/0/movementY` | right only | — | 0 |
 | `callbacks/14/args/0/isDefaultPrevented` | right only | — | {"@ref":"function"} |
 | `callbacks/14/args/0/isPropagationStopped` | right only | — | {"@ref":"function"} |
-| `callbacks/15/args/1/animated` | right only | — | false |
-| `callbacks/15/args/1/hidden` | right only | — | false |
 | `callbacks/15/args/1/selected` | right only | — | false |
 | `callbacks/16/args/1/hidden` | right only | — | false |
 | `callbacks/16/args/1/selected` | right only | — | false |
 | `callbacks/16/args/1/dragging` | right only | — | false |
-| `callbacks/16/args/1/expandParent` | right only | — | false |
 | `callbacks/18/args/1/hidden` | right only | — | false |
 | `callbacks/18/args/1/selected` | right only | — | false |
 | `callbacks/18/args/1/dragging` | right only | — | false |
-| `callbacks/18/args/1/expandParent` | right only | — | false |
 | `callbacks/21/args/1/from/x` | differs | 75 | 74.99981241215175 |
 | `callbacks/21/args/1/from/y` | differs | 36 | 35.99991785326901 |
 | `callbacks/21/args/1/fromHandle/id` | differs | null | {"@undefined":true} |
@@ -9170,7 +7423,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/21/args/1/fromNode/hidden` | right only | — | false |
 | `callbacks/21/args/1/fromNode/selected` | right only | — | false |
 | `callbacks/21/args/1/fromNode/dragging` | right only | — | false |
-| `callbacks/21/args/1/fromNode/expandParent` | right only | — | false |
 | `callbacks/21/args/1/to/x` | differs | 614.25431711146 | 614.2541239283697 |
 | `callbacks/21/args/1/to/y` | differs | 238.99529042386186 | 238.9953028847669 |
 | `callbacks/21/args/1/toHandle/id` | differs | null | {"@undefined":true} |
@@ -9184,55 +7436,43 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/21/args/1/toNode/hidden` | right only | — | false |
 | `callbacks/21/args/1/toNode/selected` | right only | — | false |
 | `callbacks/21/args/1/toNode/dragging` | right only | — | false |
-| `callbacks/21/args/1/toNode/expandParent` | right only | — | false |
 
-### api (151)
+### api (105)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
 | `api/queries/getNodes/4/selected` | right only | — | false |
 | `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNodes/5/hidden` | right only | — | false |
 | `api/queries/getNodes/5/selected` | right only | — | false |
 | `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/5/expandParent` | right only | — | false |
 | `api/queries/getNodes/6/hidden` | right only | — | false |
 | `api/queries/getNodes/6/selected` | right only | — | false |
 | `api/queries/getNodes/6/dragging` | right only | — | false |
-| `api/queries/getNodes/6/expandParent` | right only | — | false |
 | `api/queries/getNodes/7/hidden` | right only | — | false |
 | `api/queries/getNodes/7/selected` | right only | — | false |
 | `api/queries/getNodes/7/dragging` | right only | — | false |
-| `api/queries/getNodes/7/expandParent` | right only | — | false |
 | `api/queries/getNodes/8/hidden` | right only | — | false |
 | `api/queries/getNodes/8/selected` | right only | — | false |
 | `api/queries/getNodes/8/dragging` | right only | — | false |
-| `api/queries/getNodes/8/expandParent` | right only | — | false |
 | `api/queries/getNodes/9/selected` | right only | — | false |
 | `api/queries/getNodes/9/dragging` | right only | — | false |
-| `api/queries/getNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
@@ -9241,105 +7481,70 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdges/2/animated` | right only | — | false |
-| `api/queries/getEdges/2/hidden` | right only | — | false |
 | `api/queries/getEdges/2/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/selected` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/6/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/6/selected` | right only | — | false |
 | `api/queries/toObject/nodes/6/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/6/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/7/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/7/selected` | right only | — | false |
 | `api/queries/toObject/nodes/7/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/7/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/8/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/8/selected` | right only | — | false |
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/8/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/9/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
-| `api/queries/toObject/edges/2/animated` | right only | — | false |
-| `api/queries/toObject/edges/2/hidden` | right only | — | false |
 | `api/queries/toObject/edges/2/selected` | right only | — | false |
 
 ## Normalization
@@ -9377,7 +7582,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 249 unclaimed difference(s).
+**Failed:** 200 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -9400,7 +7605,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
 
-### callbacks (90)
+### callbacks (83)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -9420,15 +7625,12 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/7/args/1/hidden` | right only | — | false |
 | `callbacks/7/args/1/selected` | right only | — | false |
 | `callbacks/7/args/1/dragging` | right only | — | false |
-| `callbacks/7/args/1/expandParent` | right only | — | false |
 | `callbacks/9/args/1/hidden` | right only | — | false |
 | `callbacks/9/args/1/selected` | right only | — | false |
 | `callbacks/9/args/1/dragging` | right only | — | false |
-| `callbacks/9/args/1/expandParent` | right only | — | false |
 | `callbacks/11/args/1/hidden` | right only | — | false |
 | `callbacks/11/args/1/selected` | right only | — | false |
 | `callbacks/11/args/1/dragging` | right only | — | false |
-| `callbacks/11/args/1/expandParent` | right only | — | false |
 | `callbacks/12/args/0/@class` | differs | MouseEvent | SyntheticBaseEvent |
 | `callbacks/12/args/0/_reactName` | right only | — | onMouseDown |
 | `callbacks/12/args/0/_targetInst` | right only | — | null |
@@ -9463,7 +7665,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/13/args/1/hidden` | right only | — | false |
 | `callbacks/13/args/1/selected` | right only | — | false |
 | `callbacks/13/args/1/dragging` | right only | — | false |
-| `callbacks/13/args/1/expandParent` | right only | — | false |
 | `callbacks/15/args/1/from/x` | differs | -25 | -25.000187587848245 |
 | `callbacks/15/args/1/from/y` | differs | 101 | 101.00001209999466 |
 | `callbacks/15/args/1/fromHandle/id` | differs | null | {"@undefined":true} |
@@ -9477,7 +7678,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/15/args/1/fromNode/hidden` | right only | — | false |
 | `callbacks/15/args/1/fromNode/selected` | right only | — | false |
 | `callbacks/15/args/1/fromNode/dragging` | right only | — | false |
-| `callbacks/15/args/1/fromNode/expandParent` | right only | — | false |
 | `callbacks/15/args/1/toHandle/id` | differs | null | {"@undefined":true} |
 | `callbacks/15/args/1/toHandle/x` | differs | 75 | 74.99981241215175 |
 | `callbacks/15/args/1/toHandle/y` | differs | 201 | 201.00001209999465 |
@@ -9489,59 +7689,46 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/15/args/1/toNode/hidden` | right only | — | false |
 | `callbacks/15/args/1/toNode/selected` | right only | — | false |
 | `callbacks/15/args/1/toNode/dragging` | right only | — | false |
-| `callbacks/15/args/1/toNode/expandParent` | right only | — | false |
 | `callbacks/17/args/1/hidden` | right only | — | false |
 | `callbacks/17/args/1/selected` | right only | — | false |
 | `callbacks/17/args/1/dragging` | right only | — | false |
-| `callbacks/17/args/1/expandParent` | right only | — | false |
 
-### api (145)
+### api (103)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
 | `api/queries/getNodes/4/selected` | right only | — | false |
 | `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNodes/5/hidden` | right only | — | false |
 | `api/queries/getNodes/5/selected` | right only | — | false |
 | `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/5/expandParent` | right only | — | false |
 | `api/queries/getNodes/6/hidden` | right only | — | false |
 | `api/queries/getNodes/6/selected` | right only | — | false |
 | `api/queries/getNodes/6/dragging` | right only | — | false |
-| `api/queries/getNodes/6/expandParent` | right only | — | false |
 | `api/queries/getNodes/7/hidden` | right only | — | false |
 | `api/queries/getNodes/7/selected` | right only | — | false |
 | `api/queries/getNodes/7/dragging` | right only | — | false |
-| `api/queries/getNodes/7/expandParent` | right only | — | false |
 | `api/queries/getNodes/8/hidden` | right only | — | false |
 | `api/queries/getNodes/8/selected` | right only | — | false |
 | `api/queries/getNodes/8/dragging` | right only | — | false |
-| `api/queries/getNodes/8/expandParent` | right only | — | false |
 | `api/queries/getNodes/9/selected` | right only | — | false |
 | `api/queries/getNodes/9/dragging` | right only | — | false |
-| `api/queries/getNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
@@ -9550,99 +7737,68 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/selected` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/6/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/6/selected` | right only | — | false |
 | `api/queries/toObject/nodes/6/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/6/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/7/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/7/selected` | right only | — | false |
 | `api/queries/toObject/nodes/7/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/7/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/8/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/8/selected` | right only | — | false |
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/8/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/9/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
@@ -9680,7 +7836,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 260 unclaimed difference(s).
+**Failed:** 205 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -9703,7 +7859,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
 
-### callbacks (101)
+### callbacks (88)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -9723,20 +7879,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/7/args/1/hidden` | right only | — | false |
 | `callbacks/7/args/1/selected` | right only | — | false |
 | `callbacks/7/args/1/dragging` | right only | — | false |
-| `callbacks/7/args/1/expandParent` | right only | — | false |
 | `callbacks/9/args/1/hidden` | right only | — | false |
 | `callbacks/9/args/1/selected` | right only | — | false |
 | `callbacks/9/args/1/dragging` | right only | — | false |
-| `callbacks/9/args/1/expandParent` | right only | — | false |
 | `callbacks/10/args/1/hidden` | right only | — | false |
 | `callbacks/10/args/1/selected` | right only | — | false |
 | `callbacks/10/args/1/dragging` | right only | — | false |
-| `callbacks/10/args/1/expandParent` | right only | — | false |
-| `callbacks/11/args/1/animated` | right only | — | false |
-| `callbacks/11/args/1/hidden` | right only | — | false |
 | `callbacks/11/args/1/selected` | right only | — | false |
-| `callbacks/13/args/1/animated` | right only | — | false |
-| `callbacks/13/args/1/hidden` | right only | — | false |
 | `callbacks/13/args/1/selected` | right only | — | false |
 | `callbacks/14/args/0/@class` | differs | MouseEvent | SyntheticBaseEvent |
 | `callbacks/14/args/0/_reactName` | right only | — | onMouseDown |
@@ -9769,17 +7918,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/14/args/0/movementY` | right only | — | 0 |
 | `callbacks/14/args/0/isDefaultPrevented` | right only | — | {"@ref":"function"} |
 | `callbacks/14/args/0/isPropagationStopped` | right only | — | {"@ref":"function"} |
-| `callbacks/15/args/1/animated` | right only | — | false |
-| `callbacks/15/args/1/hidden` | right only | — | false |
 | `callbacks/15/args/1/selected` | right only | — | false |
 | `callbacks/16/args/1/hidden` | right only | — | false |
 | `callbacks/16/args/1/selected` | right only | — | false |
 | `callbacks/16/args/1/dragging` | right only | — | false |
-| `callbacks/16/args/1/expandParent` | right only | — | false |
 | `callbacks/18/args/1/hidden` | right only | — | false |
 | `callbacks/18/args/1/selected` | right only | — | false |
 | `callbacks/18/args/1/dragging` | right only | — | false |
-| `callbacks/18/args/1/expandParent` | right only | — | false |
 | `callbacks/19/args/1/from/x` | differs | 75 | 74.99981241215175 |
 | `callbacks/19/args/1/from/y` | differs | 36 | 35.99991785326901 |
 | `callbacks/19/args/1/fromHandle/id` | differs | null | {"@undefined":true} |
@@ -9793,7 +7938,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/19/args/1/fromNode/hidden` | right only | — | false |
 | `callbacks/19/args/1/fromNode/selected` | right only | — | false |
 | `callbacks/19/args/1/fromNode/dragging` | right only | — | false |
-| `callbacks/19/args/1/fromNode/expandParent` | right only | — | false |
 | `callbacks/19/args/1/toHandle/id` | differs | null | {"@undefined":true} |
 | `callbacks/19/args/1/toHandle/x` | differs | 175 | 174.99981241215175 |
 | `callbacks/19/args/1/toHandle/y` | differs | 136 | 135.9999252616709 |
@@ -9807,55 +7951,43 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/19/args/1/toNode/hidden` | right only | — | false |
 | `callbacks/19/args/1/toNode/selected` | right only | — | false |
 | `callbacks/19/args/1/toNode/dragging` | right only | — | false |
-| `callbacks/19/args/1/toNode/expandParent` | right only | — | false |
 
-### api (145)
+### api (103)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
 | `api/queries/getNodes/4/selected` | right only | — | false |
 | `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNodes/5/hidden` | right only | — | false |
 | `api/queries/getNodes/5/selected` | right only | — | false |
 | `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/5/expandParent` | right only | — | false |
 | `api/queries/getNodes/6/hidden` | right only | — | false |
 | `api/queries/getNodes/6/selected` | right only | — | false |
 | `api/queries/getNodes/6/dragging` | right only | — | false |
-| `api/queries/getNodes/6/expandParent` | right only | — | false |
 | `api/queries/getNodes/7/hidden` | right only | — | false |
 | `api/queries/getNodes/7/selected` | right only | — | false |
 | `api/queries/getNodes/7/dragging` | right only | — | false |
-| `api/queries/getNodes/7/expandParent` | right only | — | false |
 | `api/queries/getNodes/8/hidden` | right only | — | false |
 | `api/queries/getNodes/8/selected` | right only | — | false |
 | `api/queries/getNodes/8/dragging` | right only | — | false |
-| `api/queries/getNodes/8/expandParent` | right only | — | false |
 | `api/queries/getNodes/9/selected` | right only | — | false |
 | `api/queries/getNodes/9/dragging` | right only | — | false |
-| `api/queries/getNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
@@ -9864,99 +7996,68 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/selected` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/6/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/6/selected` | right only | — | false |
 | `api/queries/toObject/nodes/6/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/6/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/7/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/7/selected` | right only | — | false |
 | `api/queries/toObject/nodes/7/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/7/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/8/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/8/selected` | right only | — | false |
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/8/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/9/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
@@ -9994,7 +8095,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 250 unclaimed difference(s).
+**Failed:** 197 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -10017,7 +8118,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
 
-### callbacks (91)
+### callbacks (80)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -10037,20 +8138,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/7/args/1/hidden` | right only | — | false |
 | `callbacks/7/args/1/selected` | right only | — | false |
 | `callbacks/7/args/1/dragging` | right only | — | false |
-| `callbacks/7/args/1/expandParent` | right only | — | false |
 | `callbacks/9/args/1/hidden` | right only | — | false |
 | `callbacks/9/args/1/selected` | right only | — | false |
 | `callbacks/9/args/1/dragging` | right only | — | false |
-| `callbacks/9/args/1/expandParent` | right only | — | false |
 | `callbacks/10/args/1/hidden` | right only | — | false |
 | `callbacks/10/args/1/selected` | right only | — | false |
 | `callbacks/10/args/1/dragging` | right only | — | false |
-| `callbacks/10/args/1/expandParent` | right only | — | false |
-| `callbacks/11/args/1/animated` | right only | — | false |
-| `callbacks/11/args/1/hidden` | right only | — | false |
 | `callbacks/11/args/1/selected` | right only | — | false |
-| `callbacks/13/args/1/animated` | right only | — | false |
-| `callbacks/13/args/1/hidden` | right only | — | false |
 | `callbacks/13/args/1/selected` | right only | — | false |
 | `callbacks/14/args/0/@class` | differs | MouseEvent | SyntheticBaseEvent |
 | `callbacks/14/args/0/_reactName` | right only | — | onMouseDown |
@@ -10083,8 +8177,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/14/args/0/movementY` | right only | — | 0 |
 | `callbacks/14/args/0/isDefaultPrevented` | right only | — | {"@ref":"function"} |
 | `callbacks/14/args/0/isPropagationStopped` | right only | — | {"@ref":"function"} |
-| `callbacks/15/args/1/animated` | right only | — | false |
-| `callbacks/15/args/1/hidden` | right only | — | false |
 | `callbacks/15/args/1/selected` | right only | — | false |
 | `callbacks/17/args/1/from/x` | differs | 75 | 74.99981241215175 |
 | `callbacks/17/args/1/from/y` | differs | 36 | 35.99991785326901 |
@@ -10099,7 +8191,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/17/args/1/fromNode/hidden` | right only | — | false |
 | `callbacks/17/args/1/fromNode/selected` | right only | — | false |
 | `callbacks/17/args/1/fromNode/dragging` | right only | — | false |
-| `callbacks/17/args/1/fromNode/expandParent` | right only | — | false |
 | `callbacks/17/args/1/toHandle/id` | differs | null | {"@undefined":true} |
 | `callbacks/17/args/1/toHandle/x` | differs | 75 | 74.99981241215175 |
 | `callbacks/17/args/1/toHandle/y` | differs | 301 | 301.00001209999465 |
@@ -10111,55 +8202,43 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/17/args/1/toNode/hidden` | right only | — | false |
 | `callbacks/17/args/1/toNode/selected` | right only | — | false |
 | `callbacks/17/args/1/toNode/dragging` | right only | — | false |
-| `callbacks/17/args/1/toNode/expandParent` | right only | — | false |
 
-### api (145)
+### api (103)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
 | `api/queries/getNodes/4/selected` | right only | — | false |
 | `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNodes/5/hidden` | right only | — | false |
 | `api/queries/getNodes/5/selected` | right only | — | false |
 | `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/5/expandParent` | right only | — | false |
 | `api/queries/getNodes/6/hidden` | right only | — | false |
 | `api/queries/getNodes/6/selected` | right only | — | false |
 | `api/queries/getNodes/6/dragging` | right only | — | false |
-| `api/queries/getNodes/6/expandParent` | right only | — | false |
 | `api/queries/getNodes/7/hidden` | right only | — | false |
 | `api/queries/getNodes/7/selected` | right only | — | false |
 | `api/queries/getNodes/7/dragging` | right only | — | false |
-| `api/queries/getNodes/7/expandParent` | right only | — | false |
 | `api/queries/getNodes/8/hidden` | right only | — | false |
 | `api/queries/getNodes/8/selected` | right only | — | false |
 | `api/queries/getNodes/8/dragging` | right only | — | false |
-| `api/queries/getNodes/8/expandParent` | right only | — | false |
 | `api/queries/getNodes/9/selected` | right only | — | false |
 | `api/queries/getNodes/9/dragging` | right only | — | false |
-| `api/queries/getNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
@@ -10168,99 +8247,68 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/selected` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/6/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/6/selected` | right only | — | false |
 | `api/queries/toObject/nodes/6/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/6/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/7/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/7/selected` | right only | — | false |
 | `api/queries/toObject/nodes/7/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/7/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/8/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/8/selected` | right only | — | false |
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/8/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/9/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
@@ -10298,7 +8346,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 80 unclaimed difference(s).
+**Failed:** 59 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -10328,26 +8376,22 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/1/resizing` | right only | — | false |
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 
-### api (64)
+### api (43)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00008777202368 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 32.00003955922194 |
@@ -10356,45 +8400,28 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
@@ -10432,7 +8459,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 80 unclaimed difference(s).
+**Failed:** 59 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -10462,26 +8489,22 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/1/resizing` | right only | — | false |
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 
-### api (64)
+### api (43)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.0000646611741 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 32.0000238726896 |
@@ -10490,45 +8513,28 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
@@ -10566,7 +8572,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 66 unclaimed difference(s).
+**Failed:** 45 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -10579,71 +8585,50 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/1/resizing` | right only | — | false |
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 
-### api (62)
+### api (41)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
@@ -10681,7 +8666,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 66 unclaimed difference(s).
+**Failed:** 45 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -10694,71 +8679,50 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/1/resizing` | right only | — | false |
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 
-### api (62)
+### api (41)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
@@ -10796,7 +8760,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 77 unclaimed difference(s).
+**Failed:** 56 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -10823,26 +8787,22 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/1/args/0/1/resizing` | right only | — | false |
 | `callbacks/1/args/0/2/resizing` | right only | — | false |
 
-### api (64)
+### api (43)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71.000001418919 | 70.99999871400806 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 31.999998386327412 | 31.999999159159113 |
@@ -10851,45 +8811,28 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
@@ -10927,7 +8870,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 221 unclaimed difference(s).
+**Failed:** 170 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -10942,7 +8885,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/circle[1]/attrs/cx` | differs | -13 | -13.000003708677056 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/first-edge/children/circle[1]/attrs/cy` | differs | 18.5 | 18.50001333714267 |
 
-### callbacks (40)
+### callbacks (36)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -10974,77 +8917,59 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/7/args/1/hidden` | right only | — | false |
 | `callbacks/7/args/1/selected` | right only | — | false |
 | `callbacks/7/args/1/dragging` | right only | — | false |
-| `callbacks/7/args/1/expandParent` | right only | — | false |
 | `callbacks/9/args/1/hidden` | right only | — | false |
 | `callbacks/9/args/1/selected` | right only | — | false |
 | `callbacks/9/args/1/dragging` | right only | — | false |
-| `callbacks/9/args/1/expandParent` | right only | — | false |
 | `callbacks/11/args/1/hidden` | right only | — | false |
 | `callbacks/11/args/1/selected` | right only | — | false |
 | `callbacks/11/args/1/dragging` | right only | — | false |
-| `callbacks/11/args/1/expandParent` | right only | — | false |
 | `callbacks/12/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/12/args/0/nodes/0/dragging` | right only | — | false |
-| `callbacks/12/args/0/nodes/0/expandParent` | right only | — | false |
 
-### api (175)
+### api (128)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
 | `api/queries/getNodes/4/selected` | right only | — | false |
 | `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNodes/5/hidden` | right only | — | false |
 | `api/queries/getNodes/5/selected` | right only | — | false |
 | `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/5/expandParent` | right only | — | false |
 | `api/queries/getNodes/6/hidden` | right only | — | false |
 | `api/queries/getNodes/6/selected` | right only | — | false |
 | `api/queries/getNodes/6/dragging` | right only | — | false |
-| `api/queries/getNodes/6/expandParent` | right only | — | false |
 | `api/queries/getNodes/7/hidden` | right only | — | false |
 | `api/queries/getNodes/7/selected` | right only | — | false |
 | `api/queries/getNodes/7/dragging` | right only | — | false |
-| `api/queries/getNodes/7/expandParent` | right only | — | false |
 | `api/queries/getNodes/8/hidden` | right only | — | false |
 | `api/queries/getNodes/8/selected` | right only | — | false |
 | `api/queries/getNodes/8/dragging` | right only | — | false |
-| `api/queries/getNodes/8/expandParent` | right only | — | false |
 | `api/queries/getNodes/9/hidden` | right only | — | false |
 | `api/queries/getNodes/9/selected` | right only | — | false |
 | `api/queries/getNodes/9/dragging` | right only | — | false |
-| `api/queries/getNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNodes/10/hidden` | right only | — | false |
 | `api/queries/getNodes/10/selected` | right only | — | false |
 | `api/queries/getNodes/10/dragging` | right only | — | false |
-| `api/queries/getNodes/10/expandParent` | right only | — | false |
 | `api/queries/getNodes/11/hidden` | right only | — | false |
 | `api/queries/getNodes/11/selected` | right only | — | false |
 | `api/queries/getNodes/11/dragging` | right only | — | false |
-| `api/queries/getNodes/11/expandParent` | right only | — | false |
 | `api/queries/getNodes/12/hidden` | right only | — | false |
 | `api/queries/getNodes/12/selected` | right only | — | false |
 | `api/queries/getNodes/12/dragging` | right only | — | false |
-| `api/queries/getNodes/12/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 145 | 145.00018842898396 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 14.5 | 14.50001333714267 |
@@ -11054,117 +8979,84 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"default-node","type":"ToolbarNode","data":{"label":"toolbar top","toolbarPosition":"top"},"position":{"x":0,"y":-200},"className":"react-flow__node-defa… | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/10/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/10/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/10/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/10/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/11/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/11/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/11/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/11/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/12/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/12/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/12/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/12/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/selected` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/6/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/6/selected` | right only | — | false |
 | `api/queries/toObject/nodes/6/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/6/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/7/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/7/selected` | right only | — | false |
 | `api/queries/toObject/nodes/7/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/7/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/8/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/8/selected` | right only | — | false |
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/8/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/9/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/9/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/10/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/10/selected` | right only | — | false |
 | `api/queries/toObject/nodes/10/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/10/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/11/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/11/selected` | right only | — | false |
 | `api/queries/toObject/nodes/11/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/11/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/12/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/12/selected` | right only | — | false |
 | `api/queries/toObject/nodes/12/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/12/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
 
 ## Normalization
@@ -11249,7 +9141,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 291 unclaimed difference(s).
+**Failed:** 208 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -11273,7 +9165,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-2/attrs/style` | differs | pointer-events: all; transform: translate(-100px, 100px); visibility: visible; z-index: 0; | pointer-events: all; transform: translate(16.5244px, 177.683px); visibility: visible; z-index: 0; |
 
-### callbacks (136)
+### callbacks (95)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -11293,270 +9185,187 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/7/args/1/hidden` | right only | — | false |
 | `callbacks/7/args/1/selected` | right only | — | false |
 | `callbacks/7/args/1/dragging` | right only | — | false |
-| `callbacks/7/args/1/expandParent` | right only | — | false |
 | `callbacks/9/args/1/hidden` | right only | — | false |
 | `callbacks/9/args/1/selected` | right only | — | false |
 | `callbacks/9/args/1/dragging` | right only | — | false |
-| `callbacks/9/args/1/expandParent` | right only | — | false |
 | `callbacks/11/args/1/hidden` | right only | — | false |
 | `callbacks/11/args/1/selected` | right only | — | false |
-| `callbacks/11/args/1/expandParent` | right only | — | false |
 | `callbacks/11/args/2/0/hidden` | right only | — | false |
 | `callbacks/11/args/2/0/selected` | right only | — | false |
-| `callbacks/11/args/2/0/expandParent` | right only | — | false |
 | `callbacks/12/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/12/args/0/nodes/0/dragging` | right only | — | false |
-| `callbacks/12/args/0/nodes/0/expandParent` | right only | — | false |
 | `callbacks/13/args/1/hidden` | right only | — | false |
-| `callbacks/13/args/1/expandParent` | right only | — | false |
 | `callbacks/13/args/2/0/hidden` | right only | — | false |
-| `callbacks/13/args/2/0/expandParent` | right only | — | false |
 | `callbacks/14/args/1/hidden` | right only | — | false |
 | `callbacks/14/args/1/dragging` | right only | — | false |
-| `callbacks/14/args/1/expandParent` | right only | — | false |
 | `callbacks/15/args/1/hidden` | right only | — | false |
 | `callbacks/15/args/1/dragging` | right only | — | false |
-| `callbacks/15/args/1/expandParent` | right only | — | false |
 | `callbacks/16/args/1/hidden` | right only | — | false |
 | `callbacks/16/args/1/selected` | right only | — | false |
 | `callbacks/16/args/1/dragging` | right only | — | false |
-| `callbacks/16/args/1/expandParent` | right only | — | false |
 | `callbacks/18/args/1/hidden` | right only | — | false |
 | `callbacks/18/args/1/selected` | right only | — | false |
 | `callbacks/18/args/1/dragging` | right only | — | false |
-| `callbacks/18/args/1/expandParent` | right only | — | false |
 | `callbacks/20/args/1/hidden` | right only | — | false |
 | `callbacks/20/args/1/selected` | right only | — | false |
-| `callbacks/20/args/1/expandParent` | right only | — | false |
 | `callbacks/20/args/2/0/hidden` | right only | — | false |
 | `callbacks/20/args/2/0/selected` | right only | — | false |
-| `callbacks/20/args/2/0/expandParent` | right only | — | false |
-| `callbacks/20/args/2/1` | right only | — | {"id":"Node-2","position":{"x":-100,"y":100},"data":{"label":"Node-2"},"type":"output","hidden":false,"selected":true,"dragging":true,"expandParent":false,"mea… |
+| `callbacks/20/args/2/1` | right only | — | {"id":"Node-2","position":{"x":-100,"y":100},"data":{"label":"Node-2"},"type":"output","hidden":false,"selected":true,"dragging":true,"measured":{"width":150,"… |
 | `callbacks/21/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/21/args/0/nodes/0/dragging` | right only | — | false |
-| `callbacks/21/args/0/nodes/0/expandParent` | right only | — | false |
 | `callbacks/23/args/0/0/positionAbsolute` | right only | — | {"x":23.30487804878048,"y":15.536585365853657} |
 | `callbacks/23/args/0/1` | right only | — | {"type":"position","id":"Node-2","position":{"x":-76.69512195121952,"y":115.53658536585365},"positionAbsolute":{"x":-76.69512195121952,"y":115.53658536585365},… |
 | `callbacks/24/args/1/hidden` | right only | — | false |
-| `callbacks/24/args/1/expandParent` | right only | — | false |
 | `callbacks/24/args/2/0/hidden` | right only | — | false |
-| `callbacks/24/args/2/0/expandParent` | right only | — | false |
 | `callbacks/24/args/2/1` | right only | — | {"id":"Node-2","position":{"x":-76.69512195121952,"y":115.53658536585365},"data":{"label":"Node-2"},"type":"output","hidden":false,"selected":false,"dragging":… |
 | `callbacks/26/args/0/0/positionAbsolute` | right only | — | {"x":46.60975609756096,"y":31.07317073170731} |
 | `callbacks/26/args/0/1` | right only | — | {"type":"position","id":"Node-2","position":{"x":-53.39024390243904,"y":131.0731707317073},"positionAbsolute":{"x":-53.39024390243904,"y":131.0731707317073},"d… |
 | `callbacks/27/args/1/hidden` | right only | — | false |
-| `callbacks/27/args/1/expandParent` | right only | — | false |
 | `callbacks/27/args/2/0/hidden` | right only | — | false |
-| `callbacks/27/args/2/0/expandParent` | right only | — | false |
 | `callbacks/27/args/2/1` | right only | — | {"id":"Node-2","position":{"x":-53.39024390243904,"y":131.0731707317073},"data":{"label":"Node-2"},"type":"output","hidden":false,"selected":false,"dragging":t… |
 | `callbacks/29/args/0/0/positionAbsolute` | right only | — | {"x":69.91463414634146,"y":46.60975609756096} |
 | `callbacks/29/args/0/1` | right only | — | {"type":"position","id":"Node-2","position":{"x":-30.085365853658544,"y":146.60975609756096},"positionAbsolute":{"x":-30.085365853658544,"y":146.60975609756096… |
 | `callbacks/30/args/1/hidden` | right only | — | false |
-| `callbacks/30/args/1/expandParent` | right only | — | false |
 | `callbacks/30/args/2/0/hidden` | right only | — | false |
-| `callbacks/30/args/2/0/expandParent` | right only | — | false |
 | `callbacks/30/args/2/1` | right only | — | {"id":"Node-2","position":{"x":-30.085365853658544,"y":146.60975609756096},"data":{"label":"Node-2"},"type":"output","hidden":false,"selected":false,"dragging"… |
 | `callbacks/32/args/0/0/positionAbsolute` | right only | — | {"x":93.21951219512195,"y":62.14634146341463} |
 | `callbacks/32/args/0/1` | right only | — | {"type":"position","id":"Node-2","position":{"x":-6.7804878048780495,"y":162.14634146341461},"positionAbsolute":{"x":-6.7804878048780495,"y":162.14634146341461… |
 | `callbacks/33/args/1/hidden` | right only | — | false |
-| `callbacks/33/args/1/expandParent` | right only | — | false |
 | `callbacks/33/args/2/0/hidden` | right only | — | false |
-| `callbacks/33/args/2/0/expandParent` | right only | — | false |
 | `callbacks/33/args/2/1` | right only | — | {"id":"Node-2","position":{"x":-6.7804878048780495,"y":162.14634146341461},"data":{"label":"Node-2"},"type":"output","hidden":false,"selected":false,"dragging"… |
 | `callbacks/35/args/0/0/positionAbsolute` | right only | — | {"x":116.52439024390242,"y":77.68292682926828} |
 | `callbacks/35/args/0/1` | right only | — | {"type":"position","id":"Node-2","position":{"x":16.524390243902417,"y":177.6829268292683},"positionAbsolute":{"x":16.524390243902417,"y":177.6829268292683},"d… |
 | `callbacks/36/args/1/hidden` | right only | — | false |
-| `callbacks/36/args/1/expandParent` | right only | — | false |
 | `callbacks/36/args/2/0/hidden` | right only | — | false |
-| `callbacks/36/args/2/0/expandParent` | right only | — | false |
 | `callbacks/36/args/2/1` | right only | — | {"id":"Node-2","position":{"x":16.524390243902417,"y":177.6829268292683},"data":{"label":"Node-2"},"type":"output","hidden":false,"selected":false,"dragging":t… |
 | `callbacks/37/args/0/0/positionAbsolute` | right only | — | {"x":116.52439024390242,"y":77.68292682926828} |
 | `callbacks/37/args/0/1` | right only | — | {"type":"position","id":"Node-2","position":{"x":16.524390243902417,"y":177.6829268292683},"positionAbsolute":{"x":16.524390243902417,"y":177.6829268292683},"d… |
 | `callbacks/38/args/1/hidden` | right only | — | false |
-| `callbacks/38/args/1/expandParent` | right only | — | false |
 | `callbacks/38/args/2/0/hidden` | right only | — | false |
-| `callbacks/38/args/2/0/expandParent` | right only | — | false |
 | `callbacks/38/args/2/1` | right only | — | {"id":"Node-2","position":{"x":16.524390243902417,"y":177.6829268292683},"data":{"label":"Node-2"},"type":"output","hidden":false,"selected":false,"dragging":f… |
 | `callbacks/40/args/1/hidden` | right only | — | false |
-| `callbacks/40/args/1/expandParent` | right only | — | false |
 | `callbacks/41/args/1/hidden` | right only | — | false |
-| `callbacks/41/args/1/expandParent` | right only | — | false |
 | `callbacks/41/args/2/0/hidden` | right only | — | false |
-| `callbacks/41/args/2/0/expandParent` | right only | — | false |
 | `callbacks/43/args/0/0/positionAbsolute` | right only | — | {"x":104.87195121951217,"y":69.91463414634146} |
 | `callbacks/44/args/1/hidden` | right only | — | false |
-| `callbacks/44/args/1/expandParent` | right only | — | false |
 | `callbacks/44/args/2/0/hidden` | right only | — | false |
-| `callbacks/44/args/2/0/expandParent` | right only | — | false |
 | `callbacks/46/args/0/0/positionAbsolute` | right only | — | {"x":93.21951219512195,"y":62.14634146341463} |
 | `callbacks/47/args/1/hidden` | right only | — | false |
-| `callbacks/47/args/1/expandParent` | right only | — | false |
 | `callbacks/47/args/2/0/hidden` | right only | — | false |
-| `callbacks/47/args/2/0/expandParent` | right only | — | false |
 | `callbacks/49/args/0/0/positionAbsolute` | right only | — | {"x":81.5670731707317,"y":54.3780487804878} |
 | `callbacks/50/args/1/hidden` | right only | — | false |
-| `callbacks/50/args/1/expandParent` | right only | — | false |
 | `callbacks/50/args/2/0/hidden` | right only | — | false |
-| `callbacks/50/args/2/0/expandParent` | right only | — | false |
 | `callbacks/52/args/0/0/positionAbsolute` | right only | — | {"x":69.91463414634146,"y":46.60975609756096} |
 | `callbacks/53/args/1/hidden` | right only | — | false |
-| `callbacks/53/args/1/expandParent` | right only | — | false |
 | `callbacks/53/args/2/0/hidden` | right only | — | false |
-| `callbacks/53/args/2/0/expandParent` | right only | — | false |
 | `callbacks/55/args/0/0/positionAbsolute` | right only | — | {"x":58.26219512195121,"y":38.84146341463414} |
 | `callbacks/56/args/1/hidden` | right only | — | false |
-| `callbacks/56/args/1/expandParent` | right only | — | false |
 | `callbacks/56/args/2/0/hidden` | right only | — | false |
-| `callbacks/56/args/2/0/expandParent` | right only | — | false |
 | `callbacks/57/args/0/0/positionAbsolute` | right only | — | {"x":58.26219512195121,"y":38.84146341463414} |
 | `callbacks/58/args/1/hidden` | right only | — | false |
-| `callbacks/58/args/1/expandParent` | right only | — | false |
 | `callbacks/58/args/2/0/hidden` | right only | — | false |
-| `callbacks/58/args/2/0/expandParent` | right only | — | false |
 
-### api (140)
+### api (98)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/position/x` | differs | -100 | 16.524390243902417 |
 | `api/queries/getNodes/1/position/y` | differs | 100 | 177.6829268292683 |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
 | `api/queries/getNodes/4/selected` | right only | — | false |
 | `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNodes/5/hidden` | right only | — | false |
 | `api/queries/getNodes/5/selected` | right only | — | false |
 | `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/5/expandParent` | right only | — | false |
 | `api/queries/getNodes/6/hidden` | right only | — | false |
 | `api/queries/getNodes/6/selected` | right only | — | false |
 | `api/queries/getNodes/6/dragging` | right only | — | false |
-| `api/queries/getNodes/6/expandParent` | right only | — | false |
 | `api/queries/getNodes/7/hidden` | right only | — | false |
 | `api/queries/getNodes/7/selected` | right only | — | false |
 | `api/queries/getNodes/7/dragging` | right only | — | false |
-| `api/queries/getNodes/7/expandParent` | right only | — | false |
 | `api/queries/getNodes/8/hidden` | right only | — | false |
 | `api/queries/getNodes/8/selected` | right only | — | false |
 | `api/queries/getNodes/8/dragging` | right only | — | false |
-| `api/queries/getNodes/8/expandParent` | right only | — | false |
 | `api/queries/getNodes/9/selected` | right only | — | false |
 | `api/queries/getNodes/9/dragging` | right only | — | false |
-| `api/queries/getNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":58.26219512195121,"y":38.84146341463414},"type":"input","className":"playwright-test-class-123","style… | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/position/x` | differs | -100 | 16.524390243902417 |
 | `api/queries/getIntersectingNodes/1/position/y` | differs | 100 | 177.6829268292683 |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNodesBounds/x` | differs | -100 | 0 |
 | `api/queries/getNodesBounds/width` | differs | 400 | 300 |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/position/x` | differs | -100 | 16.524390243902417 |
 | `api/queries/toObject/nodes/1/position/y` | differs | 100 | 177.6829268292683 |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/selected` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/6/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/6/selected` | right only | — | false |
 | `api/queries/toObject/nodes/6/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/6/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/7/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/7/selected` | right only | — | false |
 | `api/queries/toObject/nodes/7/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/7/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/8/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/8/selected` | right only | — | false |
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/8/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/9/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
@@ -11594,7 +9403,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 216 unclaimed difference(s).
+**Failed:** 161 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -11617,7 +9426,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
 
-### callbacks (67)
+### callbacks (54)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -11639,33 +9448,23 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/7/args/1/hidden` | right only | — | false |
 | `callbacks/7/args/1/selected` | right only | — | false |
 | `callbacks/7/args/1/dragging` | right only | — | false |
-| `callbacks/7/args/1/expandParent` | right only | — | false |
 | `callbacks/9/args/1/hidden` | right only | — | false |
 | `callbacks/9/args/1/selected` | right only | — | false |
 | `callbacks/9/args/1/dragging` | right only | — | false |
-| `callbacks/9/args/1/expandParent` | right only | — | false |
 | `callbacks/11/args/1/hidden` | right only | — | false |
 | `callbacks/11/args/1/selected` | right only | — | false |
-| `callbacks/11/args/1/expandParent` | right only | — | false |
 | `callbacks/11/args/2/0/hidden` | right only | — | false |
 | `callbacks/11/args/2/0/selected` | right only | — | false |
-| `callbacks/11/args/2/0/expandParent` | right only | — | false |
 | `callbacks/12/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/12/args/0/nodes/0/dragging` | right only | — | false |
-| `callbacks/12/args/0/nodes/0/expandParent` | right only | — | false |
 | `callbacks/13/args/1/hidden` | right only | — | false |
 | `callbacks/13/args/1/dragging` | right only | — | false |
-| `callbacks/13/args/1/expandParent` | right only | — | false |
 | `callbacks/15/args/0/0/positionAbsolute` | right only | — | {"x":58.26219512195121,"y":38.84146341463415} |
 | `callbacks/16/args/1/hidden` | right only | — | false |
-| `callbacks/16/args/1/expandParent` | right only | — | false |
 | `callbacks/16/args/2/0/hidden` | right only | — | false |
-| `callbacks/16/args/2/0/expandParent` | right only | — | false |
 | `callbacks/18/args/0/0/positionAbsolute` | right only | — | {"x":116.52439024390242,"y":77.68292682926828} |
 | `callbacks/19/args/1/hidden` | right only | — | false |
-| `callbacks/19/args/1/expandParent` | right only | — | false |
 | `callbacks/19/args/2/0/hidden` | right only | — | false |
-| `callbacks/19/args/2/0/expandParent` | right only | — | false |
 | `callbacks/22/args/0/screenX` | differs | 794 | 734 |
 | `callbacks/22/args/0/screenY` | differs | 171 | 131 |
 | `callbacks/22/args/0/clientX` | differs | 794 | 734 |
@@ -11680,153 +9479,108 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/22/args/1/hidden` | right only | — | false |
 | `callbacks/22/args/1/selected` | right only | — | false |
 | `callbacks/22/args/1/dragging` | right only | — | true |
-| `callbacks/22/args/1/expandParent` | right only | — | false |
 | `callbacks/22/args/1/className` | right only | — | playwright-test-class-123 |
 | `callbacks/22/args/1/style` | right only | — | {"backgroundColor":"red"} |
 | `callbacks/24/args/0/0/positionAbsolute` | right only | — | {"x":174.78658536585363,"y":116.52439024390243} |
 | `callbacks/25/args/1/hidden` | right only | — | false |
-| `callbacks/25/args/1/expandParent` | right only | — | false |
 | `callbacks/25/args/2/0/hidden` | right only | — | false |
-| `callbacks/25/args/2/0/expandParent` | right only | — | false |
 
-### api (135)
+### api (93)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
 | `api/queries/getNodes/4/selected` | right only | — | false |
 | `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNodes/5/hidden` | right only | — | false |
 | `api/queries/getNodes/5/selected` | right only | — | false |
 | `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/5/expandParent` | right only | — | false |
 | `api/queries/getNodes/6/hidden` | right only | — | false |
 | `api/queries/getNodes/6/selected` | right only | — | false |
 | `api/queries/getNodes/6/dragging` | right only | — | false |
-| `api/queries/getNodes/6/expandParent` | right only | — | false |
 | `api/queries/getNodes/7/hidden` | right only | — | false |
 | `api/queries/getNodes/7/selected` | right only | — | false |
 | `api/queries/getNodes/7/dragging` | right only | — | false |
-| `api/queries/getNodes/7/expandParent` | right only | — | false |
 | `api/queries/getNodes/8/hidden` | right only | — | false |
 | `api/queries/getNodes/8/selected` | right only | — | false |
 | `api/queries/getNodes/8/dragging` | right only | — | false |
-| `api/queries/getNodes/8/expandParent` | right only | — | false |
 | `api/queries/getNodes/9/selected` | right only | — | false |
 | `api/queries/getNodes/9/dragging` | right only | — | false |
-| `api/queries/getNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999910444867112 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":174.78658536585363,"y":116.52439024390243},"type":"input","className":"playwright-test-class-123","sty… | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/selected` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/6/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/6/selected` | right only | — | false |
 | `api/queries/toObject/nodes/6/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/6/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/7/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/7/selected` | right only | — | false |
 | `api/queries/toObject/nodes/7/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/7/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/8/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/8/selected` | right only | — | false |
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/8/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/9/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
@@ -11854,125 +9608,105 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | **disagrees with itself** | 121 |
+| psflow | 1, 2 | **disagrees with itself** | 101 |
 
 ### psflow disagrees with itself
 
 | path | kind | capture 1 | capture 2 |
 |---|---|---|---|
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/attrs/style` | differs | transform: translate(2000px, 2000px) scale(1); | transform: translate(1720px, 1940px) scale(1); |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M-1995,-1973 C-1995,-938 -25,-938 -25,97 | M-1715,-1913 C-1715,-908 -25,-908 -25,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M-1995,-1973 C-1995,-938 -25,-938 -25,97 | M-1715,-1913 C-1715,-908 -25,-908 -25,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | -1995 | -1715 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | -1963 | -1903 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M-1995,-1973 C-1995,-938 175,-938 175,97 | M-1715,-1913 C-1715,-908 175,-908 175,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M-1995,-1973 C-1995,-938 175,-938 175,97 | M-1715,-1913 C-1715,-908 175,-908 175,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | -1995 | -1715 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | -1963 | -1903 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | pointer-events: all; transform: translate(-2070px, -2013px); visibility: visible; z-index: 1000; | pointer-events: all; transform: translate(-1790px, -1953px); visibility: visible; z-index: 1000; |
-| `callbacks/54` | left only | {"name":"onMoveStart","args":[null,{"x":1720,"y":1920,"zoom":1}]} | — |
-| `callbacks/55` | left only | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/56` | left only | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/57` | left only | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/60` | left only | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… | — |
-| `callbacks/63` | left only | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2070,"y":-2013},"data":{"label":"Node-1"},"type":"input",… | — |
-| `callbacks/64` | left only | {"name":"onMoveStart","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/65` | left only | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/66` | left only | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/67` | left only | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/68` | left only | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… | — |
-| `callbacks/69` | left only | {"name":"onNodesChange","args":[[{"type":"position","id":"Node-1","position":{"x":-2070,"y":-2013},"positionAbsolute":{"x":-2070,"y":-2013},"dragging":false}]]} | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M-2065,-2253 C-2065,-1078 -25,-1078 -25,97 | M-1715,-1913 C-1715,-908 -25,-908 -25,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M-2065,-2253 C-2065,-1078 -25,-1078 -25,97 | M-1715,-1913 C-1715,-908 -25,-908 -25,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | -2065 | -1715 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | -2243 | -1903 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M-2065,-2253 C-2065,-1078 175,-1078 175,97 | M-1715,-1913 C-1715,-908 175,-908 175,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M-2065,-2253 C-2065,-1078 175,-1078 175,97 | M-1715,-1913 C-1715,-908 175,-908 175,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | -2065 | -1715 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | -2243 | -1903 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | pointer-events: all; transform: translate(-2140px, -2293px); visibility: visible; z-index: 1000; | pointer-events: all; transform: translate(-1790px, -1953px); visibility: visible; z-index: 1000; |
+| `callbacks/57` | left only | {"name":"onMoveStart","args":[null,{"x":1720,"y":1930,"zoom":1}]} | — |
+| `callbacks/58` | left only | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} | — |
+| `callbacks/59` | left only | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
+| `callbacks/60` | left only | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
+| `callbacks/62` | left only | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2140,"y":-2293},"data":{"label":"Node-1"},"type":"input",… | — |
+| `callbacks/63` | left only | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… | — |
+| `callbacks/64` | left only | {"name":"onNodesChange","args":[[{"type":"position","id":"Node-1","position":{"x":-2140,"y":-2293},"positionAbsolute":{"x":-2140,"y":-2293},"dragging":false}]]} | — |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… |
+| `callbacks/28/args/0/screenX` | differs | 5 | 6 |
+| `callbacks/28/args/0/clientX` | differs | 5 | 6 |
+| `callbacks/28/args/0/pageX` | differs | 5 | 6 |
 | `callbacks/28/args/1/position/x` | differs | -749 | -409 |
 | `callbacks/28/args/1/position/y` | differs | -692 | -352 |
-| `callbacks/30/args/0/x` | differs | 1020 | 1030 |
-| `callbacks/31/args/1/x` | differs | 1020 | 1030 |
-| `callbacks/32/args/1/x` | differs | 1020 | 1030 |
-| `callbacks/33/args/0/0/position/x` | differs | -1089 | -750 |
-| `callbacks/33/args/0/0/position/y` | differs | -1032 | -912 |
-| `callbacks/33/args/0/0/positionAbsolute/x` | differs | -1089 | -750 |
-| `callbacks/33/args/0/0/positionAbsolute/y` | differs | -1032 | -912 |
-| `callbacks/34/args/1/position/x` | differs | -1089 | -750 |
-| `callbacks/34/args/1/position/y` | differs | -1032 | -912 |
-| `callbacks/34/args/2/0/position/x` | differs | -1089 | -750 |
-| `callbacks/34/args/2/0/position/y` | differs | -1032 | -912 |
-| `callbacks/36/args/0/0/position/x` | differs | -1090 | -1100 |
-| `callbacks/36/args/0/0/positionAbsolute/x` | differs | -1090 | -1100 |
-| `callbacks/37/args/1/position/x` | differs | -1090 | -1100 |
-| `callbacks/37/args/2/0/position/x` | differs | -1090 | -1100 |
-| `callbacks/38/args/1/x` | differs | 1020 | 1030 |
-| `callbacks/39/args/0/y` | differs | 1580 | 1590 |
-| `callbacks/40/args/1/y` | differs | 1580 | 1590 |
+| `callbacks/38/args/0/screenX` | differs | 5 | 6 |
+| `callbacks/38/args/0/screenY` | differs | 6 | 5 |
+| `callbacks/38/args/0/clientX` | differs | 5 | 6 |
+| `callbacks/38/args/0/clientY` | differs | 6 | 5 |
+| `callbacks/38/args/0/pageX` | differs | 5 | 6 |
+| `callbacks/38/args/0/pageY` | differs | 6 | 5 |
+| `callbacks/40/args/0/x` | differs | 1380 | 1370 |
+| `callbacks/40/args/0/y` | differs | 1580 | 1590 |
+| `callbacks/41/args/1/x` | differs | 1380 | 1370 |
 | `callbacks/41/args/1/y` | differs | 1580 | 1590 |
-| `callbacks/42/args/0/0/position/x` | differs | -1440 | -1099 |
-| `callbacks/42/args/0/0/position/y` | differs | -1592 | -1253 |
-| `callbacks/42/args/0/0/positionAbsolute/x` | differs | -1440 | -1099 |
-| `callbacks/42/args/0/0/positionAbsolute/y` | differs | -1592 | -1253 |
-| `callbacks/43/args/1/position/x` | differs | -1440 | -1099 |
-| `callbacks/43/args/1/position/y` | differs | -1592 | -1253 |
-| `callbacks/43/args/2/0/position/x` | differs | -1440 | -1099 |
-| `callbacks/43/args/2/0/position/y` | differs | -1592 | -1253 |
-| `callbacks/44/args/0/screenX` | differs | 5 | 6 |
-| `callbacks/44/args/0/screenY` | differs | 6 | 5 |
-| `callbacks/44/args/0/clientX` | differs | 5 | 6 |
-| `callbacks/44/args/0/clientY` | differs | 6 | 5 |
-| `callbacks/44/args/0/pageX` | differs | 5 | 6 |
-| `callbacks/44/args/0/pageY` | differs | 6 | 5 |
-| `callbacks/44/args/1/position/x` | differs | -1440 | -1100 |
-| `callbacks/44/args/1/position/y` | differs | -1592 | -1252 |
-| `callbacks/45/args/1/y` | differs | 1580 | 1590 |
-| `callbacks/46/args/0/y` | differs | 1920 | 1940 |
-| `callbacks/47/args/1/y` | differs | 1920 | 1940 |
-| `callbacks/48/args/1/y` | differs | 1920 | 1940 |
-| `callbacks/49/args/0/0/position/x` | differs | -1790 | -1439 |
-| `callbacks/49/args/0/0/position/y` | differs | -1932 | -1603 |
-| `callbacks/49/args/0/0/positionAbsolute/x` | differs | -1790 | -1439 |
-| `callbacks/49/args/0/0/positionAbsolute/y` | differs | -1932 | -1603 |
-| `callbacks/50/args/1/position/x` | differs | -1790 | -1439 |
-| `callbacks/50/args/1/position/y` | differs | -1932 | -1603 |
-| `callbacks/50/args/2/0/position/x` | differs | -1790 | -1439 |
-| `callbacks/50/args/2/0/position/y` | differs | -1932 | -1603 |
+| `callbacks/42/args/1/x` | differs | 1380 | 1370 |
+| `callbacks/42/args/1/y` | differs | 1580 | 1590 |
+| `callbacks/43/args/0/0/position/x` | differs | -1450 | -1099 |
+| `callbacks/43/args/0/0/position/y` | differs | -1592 | -1253 |
+| `callbacks/43/args/0/0/positionAbsolute/x` | differs | -1450 | -1099 |
+| `callbacks/43/args/0/0/positionAbsolute/y` | differs | -1592 | -1253 |
+| `callbacks/44/args/1/position/x` | differs | -1450 | -1099 |
+| `callbacks/44/args/1/position/y` | differs | -1592 | -1253 |
+| `callbacks/44/args/2/0/position/x` | differs | -1450 | -1099 |
+| `callbacks/44/args/2/0/position/y` | differs | -1592 | -1253 |
+| `callbacks/46/args/0/0/position/x` | differs | -1449 | -1439 |
+| `callbacks/46/args/0/0/position/y` | differs | -1593 | -1603 |
+| `callbacks/46/args/0/0/positionAbsolute/x` | differs | -1449 | -1439 |
+| `callbacks/46/args/0/0/positionAbsolute/y` | differs | -1593 | -1603 |
+| `callbacks/47/args/1/position/x` | differs | -1449 | -1439 |
+| `callbacks/47/args/1/position/y` | differs | -1593 | -1603 |
+| `callbacks/47/args/2/0/position/x` | differs | -1449 | -1439 |
+| `callbacks/47/args/2/0/position/y` | differs | -1593 | -1603 |
+| `callbacks/48/args/1/x` | differs | 1380 | 1370 |
+| `callbacks/48/args/1/y` | differs | 1580 | 1590 |
+| `callbacks/49/args/0/y` | differs | 1930 | 1940 |
+| `callbacks/50/args/1/y` | differs | 1930 | 1940 |
+| `callbacks/51/args/1/y` | differs | 1930 | 1940 |
 | `callbacks/52/args/0/0/position/x` | differs | -1789 | -1440 |
-| `callbacks/52/args/0/0/position/y` | differs | -1933 | -1603 |
+| `callbacks/52/args/0/0/position/y` | differs | -1943 | -1603 |
 | `callbacks/52/args/0/0/positionAbsolute/x` | differs | -1789 | -1440 |
-| `callbacks/52/args/0/0/positionAbsolute/y` | differs | -1933 | -1603 |
+| `callbacks/52/args/0/0/positionAbsolute/y` | differs | -1943 | -1603 |
 | `callbacks/53/args/1/position/x` | differs | -1789 | -1440 |
-| `callbacks/53/args/1/position/y` | differs | -1933 | -1603 |
+| `callbacks/53/args/1/position/y` | differs | -1943 | -1603 |
 | `callbacks/53/args/2/0/position/x` | differs | -1789 | -1440 |
-| `callbacks/53/args/2/0/position/y` | differs | -1933 | -1603 |
-| `callbacks/58/args/0/0/position/x` | differs | -2129 | -1790 |
-| `callbacks/58/args/0/0/position/y` | differs | -2283 | -1953 |
-| `callbacks/58/args/0/0/positionAbsolute/x` | differs | -2129 | -1790 |
-| `callbacks/58/args/0/0/positionAbsolute/y` | differs | -2283 | -1953 |
-| `callbacks/59/args/1/position/x` | differs | -2129 | -1790 |
-| `callbacks/59/args/1/position/y` | differs | -2283 | -1953 |
-| `callbacks/59/args/2/0/position/x` | differs | -2129 | -1790 |
-| `callbacks/59/args/2/0/position/y` | differs | -2283 | -1953 |
-| `callbacks/62/args/0/0/position/x` | differs | -2070 | -1790 |
-| `callbacks/62/args/0/0/position/y` | differs | -2013 | -1953 |
-| `callbacks/62/args/0/0/positionAbsolute/x` | differs | -2070 | -1790 |
-| `callbacks/62/args/0/0/positionAbsolute/y` | differs | -2013 | -1953 |
-| `callbacks/62/args/0/0/dragging` | differs | true | false |
-| `callbacks/70/args/1/position/x` | differs | -2070 | -1790 |
-| `callbacks/70/args/1/position/y` | differs | -2013 | -1953 |
-| `callbacks/70/args/2/0/position/x` | differs | -2070 | -1790 |
-| `callbacks/70/args/2/0/position/y` | differs | -2013 | -1953 |
-| `api/queries/getNodes/0/position/x` | differs | -2070 | -1790 |
-| `api/queries/getNodes/0/position/y` | differs | -2013 | -1953 |
-| `api/queries/getNode/position/x` | differs | -2070 | -1790 |
-| `api/queries/getNode/position/y` | differs | -2013 | -1953 |
-| `api/queries/getInternalNode/position/x` | differs | -2070 | -1790 |
-| `api/queries/getInternalNode/position/y` | differs | -2013 | -1953 |
-| `api/queries/getInternalNode/internals/positionAbsolute/x` | differs | -2070 | -1790 |
-| `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | -2013 | -1953 |
-| `api/queries/getIntersectingNodes/0/position/x` | differs | -2070 | -1790 |
-| `api/queries/getIntersectingNodes/0/position/y` | differs | -2013 | -1953 |
-| `api/queries/getNodesBounds/x` | differs | -2070 | -1790 |
-| `api/queries/getNodesBounds/y` | differs | -2013 | -1953 |
-| `api/queries/getNodesBounds/width` | differs | 2320 | 2040 |
-| `api/queries/getNodesBounds/height` | differs | 2150 | 2090 |
-| `api/queries/toObject/nodes/0/position/x` | differs | -2070 | -1790 |
-| `api/queries/toObject/nodes/0/position/y` | differs | -2013 | -1953 |
+| `callbacks/53/args/2/0/position/y` | differs | -1943 | -1603 |
+| `callbacks/55/args/0/0/position/y` | differs | -1943 | -1953 |
+| `callbacks/55/args/0/0/positionAbsolute/y` | differs | -1943 | -1953 |
+| `callbacks/56/args/1/position/y` | differs | -1943 | -1953 |
+| `callbacks/56/args/2/0/position/y` | differs | -1943 | -1953 |
+| `callbacks/61/args/0/0/position/x` | differs | -2140 | -1790 |
+| `callbacks/61/args/0/0/position/y` | differs | -2293 | -1953 |
+| `callbacks/61/args/0/0/positionAbsolute/x` | differs | -2140 | -1790 |
+| `callbacks/61/args/0/0/positionAbsolute/y` | differs | -2293 | -1953 |
+| `callbacks/61/args/0/0/dragging` | differs | true | false |
+| `callbacks/65/args/1/position/x` | differs | -2140 | -1790 |
+| `callbacks/65/args/1/position/y` | differs | -2293 | -1953 |
+| `callbacks/65/args/2/0/position/x` | differs | -2140 | -1790 |
+| `callbacks/65/args/2/0/position/y` | differs | -2293 | -1953 |
+| `api/queries/getNodes/0/position/x` | differs | -2140 | -1790 |
+| `api/queries/getNodes/0/position/y` | differs | -2293 | -1953 |
+| `api/queries/getNode/position/x` | differs | -2140 | -1790 |
+| `api/queries/getNode/position/y` | differs | -2293 | -1953 |
+| `api/queries/getInternalNode/position/x` | differs | -2140 | -1790 |
+| `api/queries/getInternalNode/position/y` | differs | -2293 | -1953 |
+| `api/queries/getInternalNode/internals/positionAbsolute/x` | differs | -2140 | -1790 |
+| `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | -2293 | -1953 |
+| `api/queries/getIntersectingNodes/0/position/x` | differs | -2140 | -1790 |
+| `api/queries/getIntersectingNodes/0/position/y` | differs | -2293 | -1953 |
+| `api/queries/getNodesBounds/x` | differs | -2140 | -1790 |
+| `api/queries/getNodesBounds/y` | differs | -2293 | -1953 |
+| `api/queries/getNodesBounds/width` | differs | 2390 | 2040 |
+| `api/queries/getNodesBounds/height` | differs | 2430 | 2090 |
+| `api/queries/toObject/nodes/0/position/x` | differs | -2140 | -1790 |
+| `api/queries/toObject/nodes/0/position/y` | differs | -2293 | -1953 |
 | `api/queries/toObject/viewport/x` | differs | 2000 | 1720 |
 | `api/queries/toObject/viewport/y` | differs | 2000 | 1940 |
 | `api/queries/getViewport/x` | differs | 2000 | 1720 |
@@ -11994,7 +9728,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 252 unclaimed difference(s).
+**Failed:** 190 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -12003,39 +9737,34 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/attrs/style` | differs | transform: translate(1380px, 1600px) scale(1); | transform: translate(2000px, 2000px) scale(1); |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M-1375,-1573 C-1375,-738 -25,-738 -25,97 | M-1995,-1973 C-1995,-938 -25,-938 -25,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M-1375,-1573 C-1375,-738 -25,-738 -25,97 | M-1995,-1973 C-1995,-938 -25,-938 -25,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | -1375 | -1995 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | -1563 | -1963 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M-1375,-1573 C-1375,-738 175,-738 175,97 | M-1995,-1973 C-1995,-938 175,-938 175,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M-1375,-1573 C-1375,-738 175,-738 175,97 | M-1995,-1973 C-1995,-938 175,-938 175,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | -1375 | -1995 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | -1563 | -1963 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | pointer-events: all; transform: translate(-1450px, -1613px); visibility: visible; z-index: 1000; | pointer-events: all; transform: translate(-2070px, -2013px); visibility: visible; z-index: 1000; |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M-1375,-1573 C-1375,-738 -25,-738 -25,97 | M-2065,-2253 C-2065,-1078 -25,-1078 -25,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M-1375,-1573 C-1375,-738 -25,-738 -25,97 | M-2065,-2253 C-2065,-1078 -25,-1078 -25,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | -1375 | -2065 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | -1563 | -2243 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M-1375,-1573 C-1375,-738 175,-738 175,97 | M-2065,-2253 C-2065,-1078 175,-1078 175,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M-1375,-1573 C-1375,-738 175,-738 175,97 | M-2065,-2253 C-2065,-1078 175,-1078 175,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | -1375 | -2065 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | -1563 | -2243 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | pointer-events: all; transform: translate(-1450px, -1613px); visibility: visible; z-index: 1000; | pointer-events: all; transform: translate(-2140px, -2293px); visibility: visible; z-index: 1000; |
 
-### callbacks (166)
+### callbacks (125)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/41` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1370,"y":1580,"zoom":1}]} |
-| `callbacks/45` | right only | — | {"name":"onMoveStart","args":[null,{"x":1370,"y":1580,"zoom":1}]} |
-| `callbacks/46` | right only | — | {"name":"onViewportChange","args":[{"x":1720,"y":1920,"zoom":1}]} |
-| `callbacks/47` | right only | — | {"name":"onMove","args":[null,{"x":1720,"y":1920,"zoom":1}]} |
-| `callbacks/48` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1720,"y":1920,"zoom":1}]} |
-| `callbacks/54` | right only | — | {"name":"onMoveStart","args":[null,{"x":1720,"y":1920,"zoom":1}]} |
-| `callbacks/55` | right only | — | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/56` | right only | — | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/57` | right only | — | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/59` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2129,"y":-2283},"data":{"label":"Node-1"},"type":"input",… |
-| `callbacks/60` | right only | — | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… |
-| `callbacks/62` | right only | — | {"name":"onNodesChange","args":[[{"type":"position","id":"Node-1","position":{"x":-2070,"y":-2013},"positionAbsolute":{"x":-2070,"y":-2013},"dragging":true}]]} |
-| `callbacks/63` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2070,"y":-2013},"data":{"label":"Node-1"},"type":"input",… |
-| `callbacks/64` | right only | — | {"name":"onMoveStart","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/65` | right only | — | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/66` | right only | — | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/67` | right only | — | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/68` | right only | — | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… |
-| `callbacks/69` | right only | — | {"name":"onNodesChange","args":[[{"type":"position","id":"Node-1","position":{"x":-2070,"y":-2013},"positionAbsolute":{"x":-2070,"y":-2013},"dragging":false}]]} |
+| `callbacks/42` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1380,"y":1580,"zoom":1}]} |
+| `callbacks/48` | right only | — | {"name":"onMoveStart","args":[null,{"x":1380,"y":1580,"zoom":1}]} |
+| `callbacks/49` | right only | — | {"name":"onViewportChange","args":[{"x":1720,"y":1930,"zoom":1}]} |
+| `callbacks/50` | right only | — | {"name":"onMove","args":[null,{"x":1720,"y":1930,"zoom":1}]} |
+| `callbacks/51` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1720,"y":1930,"zoom":1}]} |
+| `callbacks/56` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-1790,"y":-1943},"data":{"label":"Node-1"},"type":"input",… |
+| `callbacks/57` | right only | — | {"name":"onMoveStart","args":[null,{"x":1720,"y":1930,"zoom":1}]} |
+| `callbacks/58` | right only | — | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} |
+| `callbacks/59` | right only | — | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
+| `callbacks/60` | right only | — | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
+| `callbacks/61` | right only | — | {"name":"onNodesChange","args":[[{"type":"position","id":"Node-1","position":{"x":-2140,"y":-2293},"positionAbsolute":{"x":-2140,"y":-2293},"dragging":true}]]} |
+| `callbacks/62` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2140,"y":-2293},"data":{"label":"Node-1"},"type":"input",… |
+| `callbacks/63` | right only | — | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… |
+| `callbacks/64` | right only | — | {"name":"onNodesChange","args":[[{"type":"position","id":"Node-1","position":{"x":-2140,"y":-2293},"positionAbsolute":{"x":-2140,"y":-2293},"dragging":false}]]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… |
 | `callbacks/1/args/0/0/resizing` | right only | — | false |
 | `callbacks/1/args/0/1/resizing` | right only | — | false |
@@ -12043,63 +9772,43 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/3/args/1/hidden` | right only | — | false |
 | `callbacks/3/args/1/selected` | right only | — | false |
 | `callbacks/3/args/1/dragging` | right only | — | false |
-| `callbacks/3/args/1/expandParent` | right only | — | false |
 | `callbacks/5/args/1/hidden` | right only | — | false |
 | `callbacks/5/args/1/selected` | right only | — | false |
 | `callbacks/5/args/1/dragging` | right only | — | false |
-| `callbacks/5/args/1/expandParent` | right only | — | false |
 | `callbacks/7/args/1/hidden` | right only | — | false |
 | `callbacks/7/args/1/selected` | right only | — | false |
-| `callbacks/7/args/1/expandParent` | right only | — | false |
 | `callbacks/7/args/2/0/hidden` | right only | — | false |
 | `callbacks/7/args/2/0/selected` | right only | — | false |
-| `callbacks/7/args/2/0/expandParent` | right only | — | false |
 | `callbacks/8/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/8/args/0/nodes/0/dragging` | right only | — | false |
-| `callbacks/8/args/0/nodes/0/expandParent` | right only | — | false |
 | `callbacks/13/args/0/0/positionAbsolute` | right only | — | {"x":-69,"y":-12} |
 | `callbacks/14/args/1/hidden` | right only | — | false |
-| `callbacks/14/args/1/expandParent` | right only | — | false |
 | `callbacks/14/args/2/0/hidden` | right only | — | false |
-| `callbacks/14/args/2/0/expandParent` | right only | — | false |
 | `callbacks/18/args/0/0/positionAbsolute` | right only | — | {"x":-409,"y":-352} |
 | `callbacks/19/args/1/hidden` | right only | — | false |
-| `callbacks/19/args/1/expandParent` | right only | — | false |
 | `callbacks/19/args/2/0/hidden` | right only | — | false |
-| `callbacks/19/args/2/0/expandParent` | right only | — | false |
 | `callbacks/20/args/1/x` | differs | 340 | 0 |
 | `callbacks/20/args/1/y` | differs | 560 | 220.00000000000003 |
-| `callbacks/21/args/0/screenX` | differs | 5 | 6 |
-| `callbacks/21/args/0/clientX` | differs | 5 | 6 |
-| `callbacks/21/args/0/pageX` | differs | 5 | 6 |
 | `callbacks/21/args/1/position/x` | differs | -409 | -749 |
 | `callbacks/21/args/1/position/y` | differs | -352 | -692 |
 | `callbacks/21/args/1/hidden` | right only | — | false |
-| `callbacks/21/args/1/expandParent` | right only | — | false |
 | `callbacks/23/args/0/0/position/x` | differs | -410 | -749 |
 | `callbacks/23/args/0/0/position/y` | differs | -572 | -692 |
 | `callbacks/23/args/0/0/positionAbsolute` | right only | — | {"x":-749,"y":-692} |
 | `callbacks/24/args/1/position/x` | differs | -410 | -749 |
 | `callbacks/24/args/1/position/y` | differs | -572 | -692 |
 | `callbacks/24/args/1/hidden` | right only | — | false |
-| `callbacks/24/args/1/expandParent` | right only | — | false |
 | `callbacks/24/args/2/0/position/x` | differs | -410 | -749 |
 | `callbacks/24/args/2/0/position/y` | differs | -572 | -692 |
 | `callbacks/24/args/2/0/hidden` | right only | — | false |
-| `callbacks/24/args/2/0/expandParent` | right only | — | false |
 | `callbacks/26/args/0/x` | differs | 690 | 680 |
 | `callbacks/27/args/1/x` | differs | 690 | 680 |
-| `callbacks/28/args/0/0/position/x` | differs | -760 | -1089 |
-| `callbacks/28/args/0/0/position/y` | differs | -912 | -1032 |
-| `callbacks/28/args/0/0/positionAbsolute` | right only | — | {"x":-1089,"y":-1032} |
-| `callbacks/29/args/1/position/x` | differs | -760 | -1089 |
-| `callbacks/29/args/1/position/y` | differs | -912 | -1032 |
+| `callbacks/28/args/0/0/position/x` | differs | -760 | -750 |
+| `callbacks/28/args/0/0/positionAbsolute` | right only | — | {"x":-750,"y":-912} |
+| `callbacks/29/args/1/position/x` | differs | -760 | -750 |
 | `callbacks/29/args/1/hidden` | right only | — | false |
-| `callbacks/29/args/1/expandParent` | right only | — | false |
-| `callbacks/29/args/2/0/position/x` | differs | -760 | -1089 |
-| `callbacks/29/args/2/0/position/y` | differs | -912 | -1032 |
+| `callbacks/29/args/2/0/position/x` | differs | -760 | -750 |
 | `callbacks/29/args/2/0/hidden` | right only | — | false |
-| `callbacks/29/args/2/0/expandParent` | right only | — | false |
 | `callbacks/30/args/1/x` | differs | 690 | 340 |
 | `callbacks/30/args/1/y` | differs | 900 | 560 |
 | `callbacks/31/args/0/screenX` | differs | 6 | 5 |
@@ -12108,153 +9817,116 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/31/args/0/clientY` | differs | 5 | 6 |
 | `callbacks/31/args/0/pageX` | differs | 6 | 5 |
 | `callbacks/31/args/0/pageY` | differs | 5 | 6 |
-| `callbacks/31/args/1/position/x` | differs | -760 | -1440 |
-| `callbacks/31/args/1/position/y` | differs | -912 | -1592 |
+| `callbacks/31/args/1/position/x` | differs | -760 | -1100 |
+| `callbacks/31/args/1/position/y` | differs | -912 | -1252 |
 | `callbacks/31/args/1/hidden` | right only | — | false |
-| `callbacks/31/args/1/expandParent` | right only | — | false |
-| `callbacks/33/args/0/0/position/x` | differs | -759 | -1090 |
+| `callbacks/33/args/0/0/position/x` | differs | -759 | -1100 |
 | `callbacks/33/args/0/0/position/y` | differs | -913 | -1252 |
-| `callbacks/33/args/0/0/positionAbsolute` | right only | — | {"x":-1090,"y":-1252} |
-| `callbacks/34/args/1/position/x` | differs | -759 | -1090 |
+| `callbacks/33/args/0/0/positionAbsolute` | right only | — | {"x":-1100,"y":-1252} |
+| `callbacks/34/args/1/position/x` | differs | -759 | -1100 |
 | `callbacks/34/args/1/position/y` | differs | -913 | -1252 |
 | `callbacks/34/args/1/hidden` | right only | — | false |
-| `callbacks/34/args/1/expandParent` | right only | — | false |
-| `callbacks/34/args/2/0/position/x` | differs | -759 | -1090 |
+| `callbacks/34/args/2/0/position/x` | differs | -759 | -1100 |
 | `callbacks/34/args/2/0/position/y` | differs | -913 | -1252 |
 | `callbacks/34/args/2/0/hidden` | right only | — | false |
-| `callbacks/34/args/2/0/expandParent` | right only | — | false |
 | `callbacks/35/args/1/x` | differs | 690 | 680 |
-| `callbacks/36/args/0/x` | differs | 1030 | 1020 |
 | `callbacks/36/args/0/y` | differs | 1250 | 1240 |
-| `callbacks/37/args/1/x` | differs | 1030 | 1020 |
 | `callbacks/37/args/1/y` | differs | 1250 | 1240 |
-| `callbacks/38/args/0/0/position/x` | differs | -1099 | -1440 |
+| `callbacks/38/args/0/0/position/x` | differs | -1099 | -1450 |
 | `callbacks/38/args/0/0/position/y` | differs | -1263 | -1592 |
-| `callbacks/38/args/0/0/positionAbsolute` | right only | — | {"x":-1440,"y":-1592} |
-| `callbacks/39/args/1/position/x` | differs | -1099 | -1440 |
+| `callbacks/38/args/0/0/positionAbsolute` | right only | — | {"x":-1450,"y":-1592} |
+| `callbacks/39/args/1/position/x` | differs | -1099 | -1450 |
 | `callbacks/39/args/1/position/y` | differs | -1263 | -1592 |
 | `callbacks/39/args/1/hidden` | right only | — | false |
-| `callbacks/39/args/1/expandParent` | right only | — | false |
-| `callbacks/39/args/2/0/position/x` | differs | -1099 | -1440 |
+| `callbacks/39/args/2/0/position/x` | differs | -1099 | -1450 |
 | `callbacks/39/args/2/0/position/y` | differs | -1263 | -1592 |
 | `callbacks/39/args/2/0/hidden` | right only | — | false |
-| `callbacks/39/args/2/0/expandParent` | right only | — | false |
 | `callbacks/40/args/1/x` | differs | 1030 | 680 |
 | `callbacks/40/args/1/y` | differs | 1250 | 900 |
-| `callbacks/42/args/0/0/position/x` | differs | -1100 | -1790 |
-| `callbacks/42/args/0/0/position/y` | differs | -1263 | -1932 |
-| `callbacks/42/args/0/0/positionAbsolute` | right only | — | {"x":-1790,"y":-1932} |
-| `callbacks/43/args/1/position/x` | differs | -1100 | -1790 |
-| `callbacks/43/args/1/position/y` | differs | -1263 | -1932 |
+| `callbacks/42/args/0/0/position/x` | differs | -1100 | -1449 |
+| `callbacks/42/args/0/0/position/y` | differs | -1263 | -1593 |
+| `callbacks/42/args/0/0/positionAbsolute` | right only | — | {"x":-1449,"y":-1593} |
+| `callbacks/43/args/1/position/x` | differs | -1100 | -1449 |
+| `callbacks/43/args/1/position/y` | differs | -1263 | -1593 |
 | `callbacks/43/args/1/hidden` | right only | — | false |
-| `callbacks/43/args/1/expandParent` | right only | — | false |
-| `callbacks/43/args/2/0/position/x` | differs | -1100 | -1790 |
-| `callbacks/43/args/2/0/position/y` | differs | -1263 | -1932 |
+| `callbacks/43/args/2/0/position/x` | differs | -1100 | -1449 |
+| `callbacks/43/args/2/0/position/y` | differs | -1263 | -1593 |
 | `callbacks/43/args/2/0/hidden` | right only | — | false |
-| `callbacks/43/args/2/0/expandParent` | right only | — | false |
-| `callbacks/44/args/1/x` | differs | 1030 | 1020 |
 | `callbacks/44/args/1/y` | differs | 1250 | 1240 |
-| `callbacks/45/args/0/x` | differs | 1380 | 1370 |
 | `callbacks/45/args/0/y` | differs | 1600 | 1580 |
-| `callbacks/46/args/1/x` | differs | 1380 | 1370 |
 | `callbacks/46/args/1/y` | differs | 1600 | 1580 |
 | `callbacks/47/args/0/0/position/x` | differs | -1450 | -1789 |
-| `callbacks/47/args/0/0/position/y` | differs | -1613 | -1933 |
-| `callbacks/47/args/0/0/positionAbsolute` | right only | — | {"x":-1789,"y":-1933} |
+| `callbacks/47/args/0/0/position/y` | differs | -1613 | -1943 |
+| `callbacks/47/args/0/0/positionAbsolute` | right only | — | {"x":-1789,"y":-1943} |
 | `callbacks/48/args/1/position/x` | differs | -1450 | -1789 |
-| `callbacks/48/args/1/position/y` | differs | -1613 | -1933 |
+| `callbacks/48/args/1/position/y` | differs | -1613 | -1943 |
 | `callbacks/48/args/1/hidden` | right only | — | false |
-| `callbacks/48/args/1/expandParent` | right only | — | false |
 | `callbacks/48/args/2/0/position/x` | differs | -1450 | -1789 |
-| `callbacks/48/args/2/0/position/y` | differs | -1613 | -1933 |
+| `callbacks/48/args/2/0/position/y` | differs | -1613 | -1943 |
 | `callbacks/48/args/2/0/hidden` | right only | — | false |
-| `callbacks/48/args/2/0/expandParent` | right only | — | false |
-| `callbacks/49/args/1/x` | differs | 1380 | 1020 |
+| `callbacks/49/args/1/x` | differs | 1380 | 1030 |
 | `callbacks/49/args/1/y` | differs | 1600 | 1240 |
-| `callbacks/50/args/0/0/position/x` | differs | -1450 | -2129 |
-| `callbacks/50/args/0/0/position/y` | differs | -1613 | -2283 |
+| `callbacks/50/args/0/0/position/x` | differs | -1450 | -1790 |
+| `callbacks/50/args/0/0/position/y` | differs | -1613 | -1943 |
 | `callbacks/50/args/0/0/dragging` | differs | false | true |
-| `callbacks/50/args/0/0/positionAbsolute` | right only | — | {"x":-2129,"y":-2283} |
-| `callbacks/51/args/1/position/x` | differs | -1450 | -2070 |
-| `callbacks/51/args/1/position/y` | differs | -1613 | -2013 |
+| `callbacks/50/args/0/0/positionAbsolute` | right only | — | {"x":-1790,"y":-1943} |
+| `callbacks/51/args/1/position/x` | differs | -1450 | -2140 |
+| `callbacks/51/args/1/position/y` | differs | -1613 | -2293 |
 | `callbacks/51/args/1/hidden` | right only | — | false |
-| `callbacks/51/args/1/expandParent` | right only | — | false |
-| `callbacks/51/args/2/0/position/x` | differs | -1450 | -2070 |
-| `callbacks/51/args/2/0/position/y` | differs | -1613 | -2013 |
+| `callbacks/51/args/2/0/position/x` | differs | -1450 | -2140 |
+| `callbacks/51/args/2/0/position/y` | differs | -1613 | -2293 |
 | `callbacks/51/args/2/0/hidden` | right only | — | false |
-| `callbacks/51/args/2/0/expandParent` | right only | — | false |
 
-### api (76)
+### api (55)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getNodes/0/position/x` | differs | -1450 | -2070 |
-| `api/queries/getNodes/0/position/y` | differs | -1613 | -2013 |
+| `api/queries/getNodes/0/position/x` | differs | -1450 | -2140 |
+| `api/queries/getNodes/0/position/y` | differs | -1613 | -2293 |
 | `api/queries/getNodes/0/hidden` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
-| `api/queries/getNode/position/x` | differs | -1450 | -2070 |
-| `api/queries/getNode/position/y` | differs | -1613 | -2013 |
+| `api/queries/getNode/position/x` | differs | -1450 | -2140 |
+| `api/queries/getNode/position/y` | differs | -1613 | -2293 |
 | `api/queries/getNode/hidden` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
-| `api/queries/getInternalNode/position/x` | differs | -1450 | -2070 |
-| `api/queries/getInternalNode/position/y` | differs | -1613 | -2013 |
-| `api/queries/getInternalNode/internals/positionAbsolute/x` | differs | -1450 | -2070 |
-| `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | -1613 | -2013 |
+| `api/queries/getInternalNode/position/x` | differs | -1450 | -2140 |
+| `api/queries/getInternalNode/position/y` | differs | -1613 | -2293 |
+| `api/queries/getInternalNode/internals/positionAbsolute/x` | differs | -1450 | -2140 |
+| `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | -1613 | -2293 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":-1450,"y":-1613},"type":"input","measured":{"width":150,"height":37},"selected":true,"dragging":false} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/position/x` | differs | -1450 | -2070 |
-| `api/queries/getIntersectingNodes/0/position/y` | differs | -1613 | -2013 |
+| `api/queries/getIntersectingNodes/0/position/x` | differs | -1450 | -2140 |
+| `api/queries/getIntersectingNodes/0/position/y` | differs | -1613 | -2293 |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
-| `api/queries/getNodesBounds/x` | differs | -1450 | -2070 |
-| `api/queries/getNodesBounds/y` | differs | -1613 | -2013 |
-| `api/queries/getNodesBounds/width` | differs | 1700 | 2320 |
-| `api/queries/getNodesBounds/height` | differs | 1750 | 2150 |
-| `api/queries/toObject/nodes/0/position/x` | differs | -1450 | -2070 |
-| `api/queries/toObject/nodes/0/position/y` | differs | -1613 | -2013 |
+| `api/queries/getNodesBounds/x` | differs | -1450 | -2140 |
+| `api/queries/getNodesBounds/y` | differs | -1613 | -2293 |
+| `api/queries/getNodesBounds/width` | differs | 1700 | 2390 |
+| `api/queries/getNodesBounds/height` | differs | 1750 | 2430 |
+| `api/queries/toObject/nodes/0/position/x` | differs | -1450 | -2140 |
+| `api/queries/toObject/nodes/0/position/y` | differs | -1613 | -2293 |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 | `api/queries/toObject/viewport/x` | differs | 1380 | 2000 |
 | `api/queries/toObject/viewport/y` | differs | 1600 | 2000 |
@@ -12267,9 +9939,9 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 ## Normalization
 
-22 field(s) deleted by name and therefore **unobserved** — not passing:
+21 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (17) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (16) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -12300,7 +9972,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 188 unclaimed difference(s).
+**Failed:** 131 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -12311,7 +9983,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/g[0]/attrs/transform` | differs | translate(45.53076171875 83) | translate(45.53076171875 83.0) |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/g[0]/attrs/transform` | differs | translate(125.53076171875 98) | translate(125.53076171875 98.0) |
 
-### callbacks (120)
+### callbacks (87)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -12323,188 +9995,131 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/7/args/1/hidden` | right only | — | false |
 | `callbacks/7/args/1/selected` | right only | — | false |
 | `callbacks/7/args/1/dragging` | right only | — | false |
-| `callbacks/7/args/1/expandParent` | right only | — | false |
 | `callbacks/9/args/1/hidden` | right only | — | false |
 | `callbacks/9/args/1/selected` | right only | — | false |
 | `callbacks/9/args/1/dragging` | right only | — | false |
-| `callbacks/9/args/1/expandParent` | right only | — | false |
 | `callbacks/10/args/1/hidden` | right only | — | false |
 | `callbacks/10/args/1/selected` | right only | — | false |
-| `callbacks/10/args/1/expandParent` | right only | — | false |
 | `callbacks/10/args/2/0/hidden` | right only | — | false |
 | `callbacks/10/args/2/0/selected` | right only | — | false |
-| `callbacks/10/args/2/0/expandParent` | right only | — | false |
 | `callbacks/12/args/0/0/positionAbsolute` | right only | — | {"x":12,"y":8} |
 | `callbacks/13/args/1/hidden` | right only | — | false |
 | `callbacks/13/args/1/selected` | right only | — | false |
-| `callbacks/13/args/1/expandParent` | right only | — | false |
 | `callbacks/13/args/2/0/hidden` | right only | — | false |
 | `callbacks/13/args/2/0/selected` | right only | — | false |
-| `callbacks/13/args/2/0/expandParent` | right only | — | false |
 | `callbacks/15/args/0/0/positionAbsolute` | right only | — | {"x":24,"y":16} |
 | `callbacks/16/args/1/hidden` | right only | — | false |
 | `callbacks/16/args/1/selected` | right only | — | false |
-| `callbacks/16/args/1/expandParent` | right only | — | false |
 | `callbacks/16/args/2/0/hidden` | right only | — | false |
 | `callbacks/16/args/2/0/selected` | right only | — | false |
-| `callbacks/16/args/2/0/expandParent` | right only | — | false |
 | `callbacks/18/args/0/0/positionAbsolute` | right only | — | {"x":36,"y":24} |
 | `callbacks/19/args/1/hidden` | right only | — | false |
 | `callbacks/19/args/1/selected` | right only | — | false |
-| `callbacks/19/args/1/expandParent` | right only | — | false |
 | `callbacks/19/args/2/0/hidden` | right only | — | false |
 | `callbacks/19/args/2/0/selected` | right only | — | false |
-| `callbacks/19/args/2/0/expandParent` | right only | — | false |
 | `callbacks/21/args/0/0/positionAbsolute` | right only | — | {"x":48,"y":32} |
 | `callbacks/22/args/1/hidden` | right only | — | false |
 | `callbacks/22/args/1/selected` | right only | — | false |
-| `callbacks/22/args/1/expandParent` | right only | — | false |
 | `callbacks/22/args/2/0/hidden` | right only | — | false |
 | `callbacks/22/args/2/0/selected` | right only | — | false |
-| `callbacks/22/args/2/0/expandParent` | right only | — | false |
 | `callbacks/24/args/0/0/positionAbsolute` | right only | — | {"x":60,"y":40} |
 | `callbacks/25/args/1/hidden` | right only | — | false |
 | `callbacks/25/args/1/selected` | right only | — | false |
-| `callbacks/25/args/1/expandParent` | right only | — | false |
 | `callbacks/25/args/2/0/hidden` | right only | — | false |
 | `callbacks/25/args/2/0/selected` | right only | — | false |
-| `callbacks/25/args/2/0/expandParent` | right only | — | false |
 | `callbacks/26/args/0/0/positionAbsolute` | right only | — | {"x":60,"y":40} |
 | `callbacks/27/args/1/hidden` | right only | — | false |
 | `callbacks/27/args/1/selected` | right only | — | false |
-| `callbacks/27/args/1/expandParent` | right only | — | false |
 | `callbacks/27/args/2/0/hidden` | right only | — | false |
 | `callbacks/27/args/2/0/selected` | right only | — | false |
-| `callbacks/27/args/2/0/expandParent` | right only | — | false |
 | `callbacks/28/args/1/hidden` | right only | — | false |
 | `callbacks/28/args/1/selected` | right only | — | false |
-| `callbacks/28/args/1/expandParent` | right only | — | false |
 | `callbacks/29/args/1/hidden` | right only | — | false |
 | `callbacks/29/args/1/selected` | right only | — | false |
 | `callbacks/29/args/1/dragging` | right only | — | false |
-| `callbacks/29/args/1/expandParent` | right only | — | false |
 | `callbacks/31/args/1/hidden` | right only | — | false |
 | `callbacks/31/args/1/selected` | right only | — | false |
 | `callbacks/31/args/1/dragging` | right only | — | false |
-| `callbacks/31/args/1/expandParent` | right only | — | false |
 | `callbacks/32/args/1/hidden` | right only | — | false |
 | `callbacks/32/args/1/selected` | right only | — | false |
-| `callbacks/32/args/1/expandParent` | right only | — | false |
 | `callbacks/32/args/2/0/hidden` | right only | — | false |
 | `callbacks/32/args/2/0/selected` | right only | — | false |
-| `callbacks/32/args/2/0/expandParent` | right only | — | false |
 | `callbacks/34/args/0/0/positionAbsolute` | right only | — | {"x":92,"y":106} |
 | `callbacks/35/args/1/hidden` | right only | — | false |
 | `callbacks/35/args/1/selected` | right only | — | false |
-| `callbacks/35/args/1/expandParent` | right only | — | false |
 | `callbacks/35/args/2/0/hidden` | right only | — | false |
 | `callbacks/35/args/2/0/selected` | right only | — | false |
-| `callbacks/35/args/2/0/expandParent` | right only | — | false |
 | `callbacks/37/args/0/0/positionAbsolute` | right only | — | {"x":84,"y":112} |
 | `callbacks/38/args/1/hidden` | right only | — | false |
 | `callbacks/38/args/1/selected` | right only | — | false |
-| `callbacks/38/args/1/expandParent` | right only | — | false |
 | `callbacks/38/args/2/0/hidden` | right only | — | false |
 | `callbacks/38/args/2/0/selected` | right only | — | false |
-| `callbacks/38/args/2/0/expandParent` | right only | — | false |
 | `callbacks/40/args/0/0/positionAbsolute` | right only | — | {"x":76,"y":118} |
 | `callbacks/41/args/1/hidden` | right only | — | false |
 | `callbacks/41/args/1/selected` | right only | — | false |
-| `callbacks/41/args/1/expandParent` | right only | — | false |
 | `callbacks/41/args/2/0/hidden` | right only | — | false |
 | `callbacks/41/args/2/0/selected` | right only | — | false |
-| `callbacks/41/args/2/0/expandParent` | right only | — | false |
 | `callbacks/43/args/0/0/positionAbsolute` | right only | — | {"x":68,"y":124} |
 | `callbacks/44/args/1/hidden` | right only | — | false |
 | `callbacks/44/args/1/selected` | right only | — | false |
-| `callbacks/44/args/1/expandParent` | right only | — | false |
 | `callbacks/44/args/2/0/hidden` | right only | — | false |
 | `callbacks/44/args/2/0/selected` | right only | — | false |
-| `callbacks/44/args/2/0/expandParent` | right only | — | false |
 | `callbacks/46/args/0/0/positionAbsolute` | right only | — | {"x":60,"y":130} |
 | `callbacks/47/args/1/hidden` | right only | — | false |
 | `callbacks/47/args/1/selected` | right only | — | false |
-| `callbacks/47/args/1/expandParent` | right only | — | false |
 | `callbacks/47/args/2/0/hidden` | right only | — | false |
 | `callbacks/47/args/2/0/selected` | right only | — | false |
-| `callbacks/47/args/2/0/expandParent` | right only | — | false |
 | `callbacks/48/args/0/0/positionAbsolute` | right only | — | {"x":60,"y":130} |
 | `callbacks/49/args/1/hidden` | right only | — | false |
 | `callbacks/49/args/1/selected` | right only | — | false |
-| `callbacks/49/args/1/expandParent` | right only | — | false |
 | `callbacks/49/args/2/0/hidden` | right only | — | false |
 | `callbacks/49/args/2/0/selected` | right only | — | false |
-| `callbacks/49/args/2/0/expandParent` | right only | — | false |
 
-### api (66)
+### api (42)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":60,"y":40},"type":"input","measured":{"width":150,"height":37},"dragging":false} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
@@ -12542,7 +10157,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 11 driving divergence(s), 168 unclaimed difference(s).
+**Failed:** 11 driving divergence(s), 154 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -12672,7 +10287,7 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/38/args/1/hidden` | right only | — | false |
 | `callbacks/38/args/2/0/hidden` | right only | — | false |
 
-### api (75) — consequence of the driving divergence
+### api (61) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -12683,12 +10298,10 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNode/measured/width` | differs | 330 | 190 |
 | `api/queries/getNode/measured/height` | differs | 220 | 77 |
 | `api/queries/getNode/width` | differs | 330 | 190 |
@@ -12696,7 +10309,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/measured/width` | differs | 330 | 190 |
 | `api/queries/getInternalNode/measured/height` | differs | 220 | 77 |
 | `api/queries/getInternalNode/width` | differs | 330 | 190 |
@@ -12710,12 +10322,7 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/measured/width` | differs | 330 | 190 |
 | `api/queries/getIntersectingNodes/0/measured/height` | differs | 220 | 77 |
@@ -12724,12 +10331,10 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodesBounds/height` | differs | 220 | 177 |
 | `api/queries/toObject/nodes/0/measured/width` | differs | 330 | 190 |
 | `api/queries/toObject/nodes/0/measured/height` | differs | 220 | 77 |
@@ -12738,14 +10343,10 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
 | `api/queries/toObject/viewport/y` | differs | 140 | 283 |
 | `api/queries/getViewport/y` | differs | 140 | 283 |
@@ -12787,11 +10388,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 103 unclaimed difference(s).
+**Failed:** 61 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### callbacks (66)
+### callbacks (41)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -12803,105 +10404,63 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 | `callbacks/0/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/0/args/0/nodes/0/dragging` | right only | — | false |
-| `callbacks/0/args/0/nodes/0/expandParent` | right only | — | false |
 | `callbacks/0/args/0/nodes/1/dragging` | right only | — | false |
-| `callbacks/0/args/0/nodes/1/expandParent` | right only | — | false |
 | `callbacks/4/args/0/0/resizing` | right only | — | false |
 | `callbacks/4/args/0/1/resizing` | right only | — | false |
 | `callbacks/7/args/1/hidden` | right only | — | false |
 | `callbacks/7/args/1/dragging` | right only | — | false |
-| `callbacks/7/args/1/expandParent` | right only | — | false |
 | `callbacks/9/args/1/hidden` | right only | — | false |
 | `callbacks/9/args/1/dragging` | right only | — | false |
-| `callbacks/9/args/1/expandParent` | right only | — | false |
 | `callbacks/10/args/1/hidden` | right only | — | false |
-| `callbacks/10/args/1/expandParent` | right only | — | false |
 | `callbacks/10/args/2/0/hidden` | right only | — | false |
-| `callbacks/10/args/2/0/expandParent` | right only | — | false |
-| `callbacks/10/args/2/1/expandParent` | right only | — | false |
 | `callbacks/13/args/0/0/positionAbsolute` | right only | — | {"x":10,"y":6} |
 | `callbacks/13/args/0/1/positionAbsolute` | right only | — | {"x":110,"y":106} |
 | `callbacks/14/args/1/hidden` | right only | — | false |
-| `callbacks/14/args/1/expandParent` | right only | — | false |
 | `callbacks/14/args/2/0/hidden` | right only | — | false |
-| `callbacks/14/args/2/0/expandParent` | right only | — | false |
-| `callbacks/14/args/2/1/expandParent` | right only | — | false |
 | `callbacks/17/args/0/0/positionAbsolute` | right only | — | {"x":20,"y":12} |
 | `callbacks/17/args/0/1/positionAbsolute` | right only | — | {"x":120,"y":112} |
 | `callbacks/18/args/1/hidden` | right only | — | false |
-| `callbacks/18/args/1/expandParent` | right only | — | false |
 | `callbacks/18/args/2/0/hidden` | right only | — | false |
-| `callbacks/18/args/2/0/expandParent` | right only | — | false |
-| `callbacks/18/args/2/1/expandParent` | right only | — | false |
 | `callbacks/21/args/0/0/positionAbsolute` | right only | — | {"x":30,"y":18} |
 | `callbacks/21/args/0/1/positionAbsolute` | right only | — | {"x":130,"y":118} |
 | `callbacks/22/args/1/hidden` | right only | — | false |
-| `callbacks/22/args/1/expandParent` | right only | — | false |
 | `callbacks/22/args/2/0/hidden` | right only | — | false |
-| `callbacks/22/args/2/0/expandParent` | right only | — | false |
-| `callbacks/22/args/2/1/expandParent` | right only | — | false |
 | `callbacks/25/args/0/0/positionAbsolute` | right only | — | {"x":40,"y":24} |
 | `callbacks/25/args/0/1/positionAbsolute` | right only | — | {"x":140,"y":124} |
 | `callbacks/26/args/1/hidden` | right only | — | false |
-| `callbacks/26/args/1/expandParent` | right only | — | false |
 | `callbacks/26/args/2/0/hidden` | right only | — | false |
-| `callbacks/26/args/2/0/expandParent` | right only | — | false |
-| `callbacks/26/args/2/1/expandParent` | right only | — | false |
 | `callbacks/29/args/0/0/positionAbsolute` | right only | — | {"x":50,"y":30} |
 | `callbacks/29/args/0/1/positionAbsolute` | right only | — | {"x":150,"y":130} |
 | `callbacks/30/args/1/hidden` | right only | — | false |
-| `callbacks/30/args/1/expandParent` | right only | — | false |
 | `callbacks/30/args/2/0/hidden` | right only | — | false |
-| `callbacks/30/args/2/0/expandParent` | right only | — | false |
-| `callbacks/30/args/2/1/expandParent` | right only | — | false |
 | `callbacks/31/args/0/0/positionAbsolute` | right only | — | {"x":50,"y":30} |
 | `callbacks/31/args/0/1/positionAbsolute` | right only | — | {"x":150,"y":130} |
 | `callbacks/32/args/1/hidden` | right only | — | false |
-| `callbacks/32/args/1/expandParent` | right only | — | false |
 | `callbacks/32/args/2/0/hidden` | right only | — | false |
-| `callbacks/32/args/2/0/expandParent` | right only | — | false |
-| `callbacks/32/args/2/1/expandParent` | right only | — | false |
 
-### api (37)
+### api (20)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":50,"y":30},"type":"input","selected":true,"measured":{"width":150,"height":37},"dragging":false} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
 
 ## Normalization
@@ -12939,7 +10498,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 188 unclaimed difference(s).
+**Failed:** 142 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -12962,7 +10521,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
 
-### callbacks (29)
+### callbacks (25)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -12982,67 +10541,52 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/6/args/1/hidden` | right only | — | false |
 | `callbacks/6/args/1/selected` | right only | — | false |
 | `callbacks/6/args/1/dragging` | right only | — | false |
-| `callbacks/6/args/1/expandParent` | right only | — | false |
 | `callbacks/7/args/1/hidden` | right only | — | false |
 | `callbacks/7/args/1/selected` | right only | — | false |
 | `callbacks/7/args/1/dragging` | right only | — | false |
-| `callbacks/7/args/1/expandParent` | right only | — | false |
 | `callbacks/10/args/1/hidden` | right only | — | false |
 | `callbacks/10/args/1/selected` | right only | — | false |
 | `callbacks/10/args/1/dragging` | right only | — | false |
-| `callbacks/10/args/1/expandParent` | right only | — | false |
 | `callbacks/11/args/1/hidden` | right only | — | false |
 | `callbacks/11/args/1/selected` | right only | — | false |
 | `callbacks/11/args/1/dragging` | right only | — | false |
-| `callbacks/11/args/1/expandParent` | right only | — | false |
 
-### api (145)
+### api (103)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
 | `api/queries/getNodes/4/selected` | right only | — | false |
 | `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNodes/5/hidden` | right only | — | false |
 | `api/queries/getNodes/5/selected` | right only | — | false |
 | `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/5/expandParent` | right only | — | false |
 | `api/queries/getNodes/6/hidden` | right only | — | false |
 | `api/queries/getNodes/6/selected` | right only | — | false |
 | `api/queries/getNodes/6/dragging` | right only | — | false |
-| `api/queries/getNodes/6/expandParent` | right only | — | false |
 | `api/queries/getNodes/7/hidden` | right only | — | false |
 | `api/queries/getNodes/7/selected` | right only | — | false |
 | `api/queries/getNodes/7/dragging` | right only | — | false |
-| `api/queries/getNodes/7/expandParent` | right only | — | false |
 | `api/queries/getNodes/8/hidden` | right only | — | false |
 | `api/queries/getNodes/8/selected` | right only | — | false |
 | `api/queries/getNodes/8/dragging` | right only | — | false |
-| `api/queries/getNodes/8/expandParent` | right only | — | false |
 | `api/queries/getNodes/9/selected` | right only | — | false |
 | `api/queries/getNodes/9/dragging` | right only | — | false |
-| `api/queries/getNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
@@ -13051,99 +10595,68 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/selected` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/6/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/6/selected` | right only | — | false |
 | `api/queries/toObject/nodes/6/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/6/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/7/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/7/selected` | right only | — | false |
 | `api/queries/toObject/nodes/7/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/7/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/8/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/8/selected` | right only | — | false |
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/8/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/9/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
@@ -13181,7 +10694,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 228 unclaimed difference(s).
+**Failed:** 169 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -13204,7 +10717,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
 
-### callbacks (75)
+### callbacks (58)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -13224,111 +10737,83 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/6/args/1/hidden` | right only | — | false |
 | `callbacks/6/args/1/selected` | right only | — | false |
 | `callbacks/6/args/1/dragging` | right only | — | false |
-| `callbacks/6/args/1/expandParent` | right only | — | false |
 | `callbacks/8/args/1/hidden` | right only | — | false |
 | `callbacks/8/args/1/selected` | right only | — | false |
 | `callbacks/8/args/1/dragging` | right only | — | false |
-| `callbacks/8/args/1/expandParent` | right only | — | false |
 | `callbacks/10/args/1/hidden` | right only | — | false |
 | `callbacks/10/args/1/selected` | right only | — | false |
-| `callbacks/10/args/1/expandParent` | right only | — | false |
 | `callbacks/10/args/2/0/hidden` | right only | — | false |
 | `callbacks/10/args/2/0/selected` | right only | — | false |
-| `callbacks/10/args/2/0/expandParent` | right only | — | false |
 | `callbacks/11/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/11/args/0/nodes/0/dragging` | right only | — | false |
-| `callbacks/11/args/0/nodes/0/expandParent` | right only | — | false |
 | `callbacks/12/args/1/hidden` | right only | — | false |
-| `callbacks/12/args/1/expandParent` | right only | — | false |
 | `callbacks/12/args/2/0/hidden` | right only | — | false |
-| `callbacks/12/args/2/0/expandParent` | right only | — | false |
 | `callbacks/13/args/1/hidden` | right only | — | false |
 | `callbacks/13/args/1/dragging` | right only | — | false |
-| `callbacks/13/args/1/expandParent` | right only | — | false |
 | `callbacks/14/args/1/hidden` | right only | — | false |
 | `callbacks/14/args/1/dragging` | right only | — | false |
-| `callbacks/14/args/1/expandParent` | right only | — | false |
 | `callbacks/15/args/1/hidden` | right only | — | false |
 | `callbacks/15/args/1/selected` | right only | — | false |
 | `callbacks/15/args/1/dragging` | right only | — | false |
-| `callbacks/15/args/1/expandParent` | right only | — | false |
 | `callbacks/17/args/1/hidden` | right only | — | false |
 | `callbacks/17/args/1/selected` | right only | — | false |
 | `callbacks/17/args/1/dragging` | right only | — | false |
-| `callbacks/17/args/1/expandParent` | right only | — | false |
 | `callbacks/19/args/1/hidden` | right only | — | false |
 | `callbacks/19/args/1/selected` | right only | — | false |
-| `callbacks/19/args/1/expandParent` | right only | — | false |
 | `callbacks/19/args/2/0/id` | differs | notConnectable | Node-4 |
 | `callbacks/19/args/2/0/data/label` | differs | notConnectable | Node-4 |
 | `callbacks/19/args/2/0/position/y` | differs | 300 | 200 |
 | `callbacks/19/args/2/0/connectable` | left only | false | — |
 | `callbacks/19/args/2/0/hidden` | right only | — | false |
 | `callbacks/19/args/2/0/selected` | right only | — | true |
-| `callbacks/19/args/2/0/expandParent` | right only | — | false |
 | `callbacks/19/args/2/1` | right only | — | {"id":"notConnectable","position":{"x":0,"y":300},"data":{"label":"notConnectable"},"type":"output","hidden":false,"selected":false,"dragging":true,"connectabl… |
 | `callbacks/20/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/20/args/0/nodes/0/dragging` | right only | — | false |
-| `callbacks/20/args/0/nodes/0/expandParent` | right only | — | false |
 | `callbacks/21/args/1/hidden` | right only | — | false |
-| `callbacks/21/args/1/expandParent` | right only | — | false |
 | `callbacks/21/args/2/0/id` | differs | notConnectable | Node-4 |
 | `callbacks/21/args/2/0/data/label` | differs | notConnectable | Node-4 |
 | `callbacks/21/args/2/0/position/y` | differs | 300 | 200 |
 | `callbacks/21/args/2/0/connectable` | left only | false | — |
 | `callbacks/21/args/2/0/selected` | differs | true | false |
 | `callbacks/21/args/2/0/hidden` | right only | — | false |
-| `callbacks/21/args/2/0/expandParent` | right only | — | false |
 | `callbacks/21/args/2/1` | right only | — | {"id":"notConnectable","position":{"x":0,"y":300},"data":{"label":"notConnectable"},"type":"output","hidden":false,"selected":true,"dragging":false,"connectabl… |
 | `callbacks/22/args/1/hidden` | right only | — | false |
 | `callbacks/22/args/1/dragging` | right only | — | false |
-| `callbacks/22/args/1/expandParent` | right only | — | false |
 
-### api (139)
+### api (97)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
 | `api/queries/getNodes/4/selected` | right only | — | false |
 | `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNodes/5/hidden` | right only | — | false |
 | `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/5/expandParent` | right only | — | false |
 | `api/queries/getNodes/6/hidden` | right only | — | false |
 | `api/queries/getNodes/6/selected` | right only | — | false |
 | `api/queries/getNodes/6/dragging` | right only | — | false |
-| `api/queries/getNodes/6/expandParent` | right only | — | false |
 | `api/queries/getNodes/7/hidden` | right only | — | false |
 | `api/queries/getNodes/7/selected` | right only | — | false |
 | `api/queries/getNodes/7/dragging` | right only | — | false |
-| `api/queries/getNodes/7/expandParent` | right only | — | false |
 | `api/queries/getNodes/8/hidden` | right only | — | false |
 | `api/queries/getNodes/8/selected` | right only | — | false |
 | `api/queries/getNodes/8/dragging` | right only | — | false |
-| `api/queries/getNodes/8/expandParent` | right only | — | false |
 | `api/queries/getNodes/9/selected` | right only | — | false |
 | `api/queries/getNodes/9/dragging` | right only | — | false |
-| `api/queries/getNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
@@ -13337,95 +10822,64 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/6/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/6/selected` | right only | — | false |
 | `api/queries/toObject/nodes/6/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/6/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/7/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/7/selected` | right only | — | false |
 | `api/queries/toObject/nodes/7/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/7/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/8/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/8/selected` | right only | — | false |
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/8/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/9/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
@@ -13463,7 +10917,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 81 unclaimed difference(s).
+**Failed:** 57 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -13484,83 +10938,59 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (74)
+### api (50)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
@@ -13598,7 +11028,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 196 unclaimed difference(s).
+**Failed:** 151 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -13624,7 +11054,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notConnectable/attrs/class` | differs | draggable nopan react-flow__node react-flow__node-output selectable selected | draggable dragging nopan react-flow__node react-flow__node-output selectable |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notConnectable/attrs/style` | differs | -webkit-tap-highlight-color: rgba(0, 0, 0, 0); pointer-events: all; touch-action: none; transform: translate(213.628px, 455.366px); visibility: visible; z-inde… | -webkit-tap-highlight-color: rgba(0, 0, 0, 0); pointer-events: all; touch-action: none; transform: translate(0px, 300px); visibility: visible; z-index: 0; |
 
-### callbacks (30)
+### callbacks (27)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -13651,62 +11081,48 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/8/resizing` | right only | — | false |
 | `callbacks/7/args/1/hidden` | right only | — | false |
 | `callbacks/7/args/1/selected` | right only | — | false |
-| `callbacks/7/args/1/expandParent` | right only | — | false |
 | `callbacks/7/args/2/0/hidden` | right only | — | false |
 | `callbacks/7/args/2/0/selected` | right only | — | false |
-| `callbacks/7/args/2/0/expandParent` | right only | — | false |
 | `callbacks/8/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/8/args/0/nodes/0/dragging` | right only | — | false |
-| `callbacks/8/args/0/nodes/0/expandParent` | right only | — | false |
 
-### api (149)
+### api (107)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
 | `api/queries/getNodes/4/selected` | right only | — | false |
 | `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNodes/5/position/x` | differs | 213.6280487804878 | 0 |
 | `api/queries/getNodes/5/position/y` | differs | 455.36585365853654 | 300 |
 | `api/queries/getNodes/5/selected` | differs | true | false |
 | `api/queries/getNodes/5/hidden` | right only | — | false |
-| `api/queries/getNodes/5/expandParent` | right only | — | false |
 | `api/queries/getNodes/6/hidden` | right only | — | false |
 | `api/queries/getNodes/6/selected` | right only | — | false |
 | `api/queries/getNodes/6/dragging` | right only | — | false |
-| `api/queries/getNodes/6/expandParent` | right only | — | false |
 | `api/queries/getNodes/7/hidden` | right only | — | false |
 | `api/queries/getNodes/7/selected` | right only | — | false |
 | `api/queries/getNodes/7/dragging` | right only | — | false |
-| `api/queries/getNodes/7/expandParent` | right only | — | false |
 | `api/queries/getNodes/8/hidden` | right only | — | false |
 | `api/queries/getNodes/8/selected` | right only | — | false |
 | `api/queries/getNodes/8/dragging` | right only | — | false |
-| `api/queries/getNodes/8/expandParent` | right only | — | false |
 | `api/queries/getNodes/9/selected` | right only | — | false |
 | `api/queries/getNodes/9/dragging` | right only | — | false |
-| `api/queries/getNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
@@ -13715,102 +11131,71 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/position/x` | differs | 213.6280487804878 | 0 |
 | `api/queries/getIntersectingNodes/5/position/y` | differs | 455.36585365853654 | 300 |
 | `api/queries/getIntersectingNodes/5/selected` | differs | true | false |
 | `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNodesBounds/width` | differs | 463.6280487804878 | 400 |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/5/position/x` | differs | 213.6280487804878 | 0 |
 | `api/queries/toObject/nodes/5/position/y` | differs | 455.36585365853654 | 300 |
 | `api/queries/toObject/nodes/5/selected` | differs | true | false |
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/5/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/6/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/6/selected` | right only | — | false |
 | `api/queries/toObject/nodes/6/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/6/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/7/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/7/selected` | right only | — | false |
 | `api/queries/toObject/nodes/7/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/7/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/8/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/8/selected` | right only | — | false |
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/8/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/9/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
@@ -13824,7 +11209,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 # System parity run — arrow-key-selected-node
 
-**Failed:** self-inconsistent, unclaimed-difference.
+**Failed:** unclaimed-difference.
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -13837,19 +11222,8 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 
 | side | captures | verdict | differences |
 |---|---|---|---|
-| upstream | 1, 2 | **disagrees with itself** | 2 |
+| upstream | 1, 2 | reproduced | 0 |
 | psflow | 1, 2 | reproduced | 0 |
-
-### upstream disagrees with itself
-
-| path | kind | capture 1 | capture 2 |
-|---|---|---|---|
-| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… |
-| `callbacks/17/args/1/position/x` | differs | 10 | 5 |
-
-**upstream did not reproduce.** The comparison below ran anyway —
-capture-everything applies to a failed run as much as to a passing one — but a difference it reports
-cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
 ---
 
@@ -13859,7 +11233,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 134 unclaimed difference(s).
+**Failed:** 98 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -13874,7 +11248,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | pointer-events: all; transform: translate(10px, 20px); visibility: visible; z-index: 1000; | pointer-events: all; transform: translate(2px, 4px); visibility: visible; z-index: 1000; |
 | `dom/root/children/react-flow__aria-live-1/text` | left only | Moved selected node right. New position, x: 5, y: 20 | — |
 
-### callbacks (43)
+### callbacks (35)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -13886,27 +11260,19 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/3/args/1/hidden` | right only | — | false |
 | `callbacks/3/args/1/selected` | right only | — | false |
 | `callbacks/3/args/1/dragging` | right only | — | false |
-| `callbacks/3/args/1/expandParent` | right only | — | false |
 | `callbacks/5/args/1/hidden` | right only | — | false |
 | `callbacks/5/args/1/selected` | right only | — | false |
 | `callbacks/5/args/1/dragging` | right only | — | false |
-| `callbacks/5/args/1/expandParent` | right only | — | false |
 | `callbacks/7/args/1/hidden` | right only | — | false |
 | `callbacks/7/args/1/selected` | right only | — | false |
-| `callbacks/7/args/1/expandParent` | right only | — | false |
 | `callbacks/7/args/2/0/hidden` | right only | — | false |
 | `callbacks/7/args/2/0/selected` | right only | — | false |
-| `callbacks/7/args/2/0/expandParent` | right only | — | false |
 | `callbacks/8/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/8/args/0/nodes/0/dragging` | right only | — | false |
-| `callbacks/8/args/0/nodes/0/expandParent` | right only | — | false |
 | `callbacks/9/args/1/hidden` | right only | — | false |
-| `callbacks/9/args/1/expandParent` | right only | — | false |
 | `callbacks/9/args/2/0/hidden` | right only | — | false |
-| `callbacks/9/args/2/0/expandParent` | right only | — | false |
 | `callbacks/10/args/1/hidden` | right only | — | false |
 | `callbacks/10/args/1/dragging` | right only | — | false |
-| `callbacks/10/args/1/expandParent` | right only | — | false |
 | `callbacks/11/args/0/0/position/y` | differs | 5 | 1 |
 | `callbacks/11/args/0/0/positionAbsolute` | right only | — | {"x":0,"y":0} |
 | `callbacks/12/args/0/0/position/y` | differs | 10 | 2 |
@@ -13922,30 +11288,25 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/16/args/0/0/position/y` | differs | 20 | 4 |
 | `callbacks/16/args/0/0/positionAbsolute` | right only | — | {"x":1,"y":4} |
 
-### api (85)
+### api (57)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/position/x` | differs | 10 | 2 |
 | `api/queries/getNodes/0/position/y` | differs | 20 | 4 |
 | `api/queries/getNodes/0/hidden` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNode/position/x` | differs | 10 | 2 |
 | `api/queries/getNode/position/y` | differs | 20 | 4 |
 | `api/queries/getNode/hidden` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/position/x` | differs | 10 | 2 |
 | `api/queries/getInternalNode/position/y` | differs | 20 | 4 |
 | `api/queries/getInternalNode/internals/positionAbsolute/x` | differs | 10 | 2 |
@@ -13954,62 +11315,39 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":10,"y":20},"type":"input","measured":{"width":150,"height":37},"selected":true,"dragging":false} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdges/2/animated` | right only | — | false |
-| `api/queries/getEdges/2/hidden` | right only | — | false |
 | `api/queries/getEdges/2/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/position/x` | differs | 10 | 2 |
 | `api/queries/getIntersectingNodes/0/position/y` | differs | 20 | 4 |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodesBounds/y` | differs | 20 | 4 |
 | `api/queries/getNodesBounds/width` | differs | 160 | 152 |
 | `api/queries/getNodesBounds/height` | differs | 1217 | 1233 |
 | `api/queries/toObject/nodes/0/position/x` | differs | 10 | 2 |
 | `api/queries/toObject/nodes/0/position/y` | differs | 20 | 4 |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
-| `api/queries/toObject/edges/2/animated` | right only | — | false |
-| `api/queries/toObject/edges/2/hidden` | right only | — | false |
 | `api/queries/toObject/edges/2/selected` | right only | — | false |
 
 ## Normalization
@@ -14047,11 +11385,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 82 unclaimed difference(s).
+**Failed:** 53 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### callbacks (7)
+### callbacks (6)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -14061,86 +11399,57 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/1/args/0/3/resizing` | right only | — | false |
 | `callbacks/3/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/3/args/0/nodes/0/dragging` | right only | — | false |
-| `callbacks/3/args/0/nodes/0/expandParent` | right only | — | false |
 
-### api (75)
+### api (47)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37},"selected":true} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdges/2/animated` | right only | — | false |
-| `api/queries/getEdges/2/hidden` | right only | — | false |
 | `api/queries/getEdges/2/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
-| `api/queries/toObject/edges/2/animated` | right only | — | false |
-| `api/queries/toObject/edges/2/hidden` | right only | — | false |
 | `api/queries/toObject/edges/2/selected` | right only | — | false |
 
 
@@ -14172,7 +11481,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 347 unclaimed difference(s).
+**Failed:** 276 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -14207,7 +11516,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/xy-edge__Node-3-Node-2/children/circle[1]/attrs/cx` | differs | -25 | -25.000187587848245 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/xy-edge__Node-3-Node-2/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
 
-### callbacks (164)
+### callbacks (143)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -14227,20 +11536,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/7/args/1/hidden` | right only | — | false |
 | `callbacks/7/args/1/selected` | right only | — | false |
 | `callbacks/7/args/1/dragging` | right only | — | false |
-| `callbacks/7/args/1/expandParent` | right only | — | false |
 | `callbacks/9/args/1/hidden` | right only | — | false |
 | `callbacks/9/args/1/selected` | right only | — | false |
 | `callbacks/9/args/1/dragging` | right only | — | false |
-| `callbacks/9/args/1/expandParent` | right only | — | false |
 | `callbacks/10/args/1/hidden` | right only | — | false |
 | `callbacks/10/args/1/selected` | right only | — | false |
 | `callbacks/10/args/1/dragging` | right only | — | false |
-| `callbacks/10/args/1/expandParent` | right only | — | false |
-| `callbacks/11/args/1/animated` | right only | — | false |
-| `callbacks/11/args/1/hidden` | right only | — | false |
 | `callbacks/11/args/1/selected` | right only | — | false |
-| `callbacks/13/args/1/animated` | right only | — | false |
-| `callbacks/13/args/1/hidden` | right only | — | false |
 | `callbacks/13/args/1/selected` | right only | — | false |
 | `callbacks/14/args/0/@class` | differs | MouseEvent | SyntheticBaseEvent |
 | `callbacks/14/args/0/_reactName` | right only | — | onMouseDown |
@@ -14273,17 +11575,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/14/args/0/movementY` | right only | — | 0 |
 | `callbacks/14/args/0/isDefaultPrevented` | right only | — | {"@ref":"function"} |
 | `callbacks/14/args/0/isPropagationStopped` | right only | — | {"@ref":"function"} |
-| `callbacks/15/args/1/animated` | right only | — | false |
-| `callbacks/15/args/1/hidden` | right only | — | false |
 | `callbacks/15/args/1/selected` | right only | — | false |
 | `callbacks/16/args/1/hidden` | right only | — | false |
 | `callbacks/16/args/1/selected` | right only | — | false |
 | `callbacks/16/args/1/dragging` | right only | — | false |
-| `callbacks/16/args/1/expandParent` | right only | — | false |
 | `callbacks/18/args/1/hidden` | right only | — | false |
 | `callbacks/18/args/1/selected` | right only | — | false |
 | `callbacks/18/args/1/dragging` | right only | — | false |
-| `callbacks/18/args/1/expandParent` | right only | — | false |
 | `callbacks/21/args/1/from/x` | differs | 75 | 74.99981241215175 |
 | `callbacks/21/args/1/from/y` | differs | 36 | 35.99991785326901 |
 | `callbacks/21/args/1/fromHandle/id` | differs | null | {"@undefined":true} |
@@ -14297,7 +11595,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/21/args/1/fromNode/hidden` | right only | — | false |
 | `callbacks/21/args/1/fromNode/selected` | right only | — | false |
 | `callbacks/21/args/1/fromNode/dragging` | right only | — | false |
-| `callbacks/21/args/1/fromNode/expandParent` | right only | — | false |
 | `callbacks/21/args/1/to/x` | differs | 614.25431711146 | 614.2541239283697 |
 | `callbacks/21/args/1/to/y` | differs | 238.99529042386186 | 238.9953028847669 |
 | `callbacks/21/args/1/toHandle/id` | differs | null | {"@undefined":true} |
@@ -14311,19 +11608,15 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/21/args/1/toNode/hidden` | right only | — | false |
 | `callbacks/21/args/1/toNode/selected` | right only | — | false |
 | `callbacks/21/args/1/toNode/dragging` | right only | — | false |
-| `callbacks/21/args/1/toNode/expandParent` | right only | — | false |
 | `callbacks/22/args/1/hidden` | right only | — | false |
 | `callbacks/22/args/1/selected` | right only | — | false |
 | `callbacks/22/args/1/dragging` | right only | — | false |
-| `callbacks/22/args/1/expandParent` | right only | — | false |
 | `callbacks/23/args/1/hidden` | right only | — | false |
 | `callbacks/23/args/1/selected` | right only | — | false |
 | `callbacks/23/args/1/dragging` | right only | — | false |
-| `callbacks/23/args/1/expandParent` | right only | — | false |
 | `callbacks/25/args/1/hidden` | right only | — | false |
 | `callbacks/25/args/1/selected` | right only | — | false |
 | `callbacks/25/args/1/dragging` | right only | — | false |
-| `callbacks/25/args/1/expandParent` | right only | — | false |
 | `callbacks/26/args/0/@class` | differs | PointerEvent | SyntheticBaseEvent |
 | `callbacks/26/args/0/_reactName` | right only | — | onClick |
 | `callbacks/26/args/0/_targetInst` | right only | — | null |
@@ -14358,71 +11651,55 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/27/args/1/hidden` | right only | — | false |
 | `callbacks/27/args/1/selected` | right only | — | false |
 | `callbacks/27/args/1/dragging` | right only | — | false |
-| `callbacks/27/args/1/expandParent` | right only | — | false |
 | `callbacks/28/args/1/hidden` | right only | — | false |
 | `callbacks/28/args/1/selected` | right only | — | false |
 | `callbacks/28/args/1/dragging` | right only | — | false |
-| `callbacks/28/args/1/expandParent` | right only | — | false |
 | `callbacks/29/args/1/hidden` | right only | — | false |
 | `callbacks/29/args/1/selected` | right only | — | false |
 | `callbacks/29/args/1/dragging` | right only | — | false |
-| `callbacks/29/args/1/expandParent` | right only | — | false |
 | `callbacks/31/args/1/hidden` | right only | — | false |
 | `callbacks/31/args/1/selected` | right only | — | false |
 | `callbacks/31/args/1/dragging` | right only | — | false |
-| `callbacks/31/args/1/expandParent` | right only | — | false |
 | `callbacks/35/args/1/hidden` | right only | — | false |
 | `callbacks/35/args/1/selected` | right only | — | false |
 | `callbacks/35/args/1/dragging` | right only | — | false |
-| `callbacks/35/args/1/expandParent` | right only | — | false |
 
-### api (157)
+### api (107)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
 | `api/queries/getNodes/4/selected` | right only | — | false |
 | `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNodes/5/hidden` | right only | — | false |
 | `api/queries/getNodes/5/selected` | right only | — | false |
 | `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/5/expandParent` | right only | — | false |
 | `api/queries/getNodes/6/hidden` | right only | — | false |
 | `api/queries/getNodes/6/selected` | right only | — | false |
 | `api/queries/getNodes/6/dragging` | right only | — | false |
-| `api/queries/getNodes/6/expandParent` | right only | — | false |
 | `api/queries/getNodes/7/hidden` | right only | — | false |
 | `api/queries/getNodes/7/selected` | right only | — | false |
 | `api/queries/getNodes/7/dragging` | right only | — | false |
-| `api/queries/getNodes/7/expandParent` | right only | — | false |
 | `api/queries/getNodes/8/hidden` | right only | — | false |
 | `api/queries/getNodes/8/selected` | right only | — | false |
 | `api/queries/getNodes/8/dragging` | right only | — | false |
-| `api/queries/getNodes/8/expandParent` | right only | — | false |
 | `api/queries/getNodes/9/selected` | right only | — | false |
 | `api/queries/getNodes/9/dragging` | right only | — | false |
-| `api/queries/getNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
@@ -14431,111 +11708,72 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdges/2/animated` | right only | — | false |
-| `api/queries/getEdges/2/hidden` | right only | — | false |
 | `api/queries/getEdges/2/selected` | right only | — | false |
-| `api/queries/getEdges/3/animated` | right only | — | false |
-| `api/queries/getEdges/3/hidden` | right only | — | false |
 | `api/queries/getEdges/3/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/selected` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/6/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/6/selected` | right only | — | false |
 | `api/queries/toObject/nodes/6/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/6/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/7/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/7/selected` | right only | — | false |
 | `api/queries/toObject/nodes/7/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/7/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/8/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/8/selected` | right only | — | false |
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/8/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/9/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
-| `api/queries/toObject/edges/2/animated` | right only | — | false |
-| `api/queries/toObject/edges/2/hidden` | right only | — | false |
 | `api/queries/toObject/edges/2/selected` | right only | — | false |
-| `api/queries/toObject/edges/3/animated` | right only | — | false |
-| `api/queries/toObject/edges/3/hidden` | right only | — | false |
 | `api/queries/toObject/edges/3/selected` | right only | — | false |
 
 ## Normalization
@@ -14573,7 +11811,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 246 unclaimed difference(s).
+**Failed:** 188 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -14597,7 +11835,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/g[0]/children/path[0]/attrs/d` | differs | M75,36 C75,45.67454268292683 94.17378048780492,45.67454268292683 94.17378048780492,55.349085365853654 | M74.99981241215175,35.99991785326901 C74.99981241215175,62.499958926634505 634,62.499958926634505 634,89 |
 
-### callbacks (89)
+### callbacks (73)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -14617,47 +11855,31 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/7/args/1/hidden` | right only | — | false |
 | `callbacks/7/args/1/selected` | right only | — | false |
 | `callbacks/7/args/1/dragging` | right only | — | false |
-| `callbacks/7/args/1/expandParent` | right only | — | false |
 | `callbacks/9/args/1/hidden` | right only | — | false |
 | `callbacks/9/args/1/selected` | right only | — | false |
 | `callbacks/9/args/1/dragging` | right only | — | false |
-| `callbacks/9/args/1/expandParent` | right only | — | false |
 | `callbacks/11/args/1/hidden` | right only | — | false |
 | `callbacks/11/args/1/selected` | right only | — | false |
-| `callbacks/11/args/1/expandParent` | right only | — | false |
 | `callbacks/11/args/2/0/hidden` | right only | — | false |
 | `callbacks/11/args/2/0/selected` | right only | — | false |
-| `callbacks/11/args/2/0/expandParent` | right only | — | false |
 | `callbacks/12/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/12/args/0/nodes/0/dragging` | right only | — | false |
-| `callbacks/12/args/0/nodes/0/expandParent` | right only | — | false |
 | `callbacks/13/args/1/hidden` | right only | — | false |
-| `callbacks/13/args/1/expandParent` | right only | — | false |
 | `callbacks/13/args/2/0/hidden` | right only | — | false |
-| `callbacks/13/args/2/0/expandParent` | right only | — | false |
 | `callbacks/14/args/1/hidden` | right only | — | false |
 | `callbacks/14/args/1/dragging` | right only | — | false |
-| `callbacks/14/args/1/expandParent` | right only | — | false |
 | `callbacks/15/args/1/hidden` | right only | — | false |
 | `callbacks/15/args/1/dragging` | right only | — | false |
-| `callbacks/15/args/1/expandParent` | right only | — | false |
 | `callbacks/16/args/1/hidden` | right only | — | false |
 | `callbacks/16/args/1/selected` | right only | — | false |
 | `callbacks/16/args/1/dragging` | right only | — | false |
-| `callbacks/16/args/1/expandParent` | right only | — | false |
 | `callbacks/18/args/1/hidden` | right only | — | false |
 | `callbacks/18/args/1/selected` | right only | — | false |
 | `callbacks/18/args/1/dragging` | right only | — | false |
-| `callbacks/18/args/1/expandParent` | right only | — | false |
 | `callbacks/19/args/1/hidden` | right only | — | false |
 | `callbacks/19/args/1/selected` | right only | — | false |
 | `callbacks/19/args/1/dragging` | right only | — | false |
-| `callbacks/19/args/1/expandParent` | right only | — | false |
-| `callbacks/20/args/1/animated` | right only | — | false |
-| `callbacks/20/args/1/hidden` | right only | — | false |
 | `callbacks/20/args/1/selected` | right only | — | false |
-| `callbacks/22/args/1/animated` | right only | — | false |
-| `callbacks/22/args/1/hidden` | right only | — | false |
 | `callbacks/22/args/1/selected` | right only | — | false |
 | `callbacks/23/args/0/@class` | differs | MouseEvent | SyntheticBaseEvent |
 | `callbacks/23/args/0/_reactName` | right only | — | onMouseDown |
@@ -14691,52 +11913,41 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/23/args/0/isDefaultPrevented` | right only | — | {"@ref":"function"} |
 | `callbacks/23/args/0/isPropagationStopped` | right only | — | {"@ref":"function"} |
 
-### api (142)
+### api (100)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
 | `api/queries/getNodes/4/selected` | right only | — | false |
 | `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNodes/5/hidden` | right only | — | false |
 | `api/queries/getNodes/5/selected` | right only | — | false |
 | `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/5/expandParent` | right only | — | false |
 | `api/queries/getNodes/6/hidden` | right only | — | false |
 | `api/queries/getNodes/6/selected` | right only | — | false |
 | `api/queries/getNodes/6/dragging` | right only | — | false |
-| `api/queries/getNodes/6/expandParent` | right only | — | false |
 | `api/queries/getNodes/7/hidden` | right only | — | false |
 | `api/queries/getNodes/7/selected` | right only | — | false |
 | `api/queries/getNodes/7/dragging` | right only | — | false |
-| `api/queries/getNodes/7/expandParent` | right only | — | false |
 | `api/queries/getNodes/8/hidden` | right only | — | false |
 | `api/queries/getNodes/8/selected` | right only | — | false |
 | `api/queries/getNodes/8/dragging` | right only | — | false |
-| `api/queries/getNodes/8/expandParent` | right only | — | false |
 | `api/queries/getNodes/9/selected` | right only | — | false |
 | `api/queries/getNodes/9/dragging` | right only | — | false |
-| `api/queries/getNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
@@ -14745,97 +11956,66 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/selected` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/6/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/6/selected` | right only | — | false |
 | `api/queries/toObject/nodes/6/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/6/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/7/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/7/selected` | right only | — | false |
 | `api/queries/toObject/nodes/7/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/7/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/8/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/8/selected` | right only | — | false |
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/8/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/9/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
@@ -14873,7 +12053,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 186 unclaimed difference(s).
+**Failed:** 141 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -14902,7 +12082,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notSelectable/children/1-notSelectable-null-source/attrs/class` | differs | connectable connectableend connectablestart nodrag nopan react-flow__handle react-flow__handle-bottom source | connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable-null-source/attrs/class` | differs | connectable connectableend connectablestart nodrag nopan react-flow__handle react-flow__handle-bottom source | connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source |
 
-### callbacks (23)
+### callbacks (20)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -14922,60 +12102,46 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/8/resizing` | right only | — | false |
 | `callbacks/11/args/1/hidden` | right only | — | false |
 | `callbacks/11/args/1/selected` | right only | — | false |
-| `callbacks/11/args/1/expandParent` | right only | — | false |
 | `callbacks/11/args/2/0/hidden` | right only | — | false |
 | `callbacks/11/args/2/0/selected` | right only | — | false |
-| `callbacks/11/args/2/0/expandParent` | right only | — | false |
 | `callbacks/12/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/12/args/0/nodes/0/dragging` | right only | — | false |
-| `callbacks/12/args/0/nodes/0/expandParent` | right only | — | false |
 
-### api (142)
+### api (100)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
 | `api/queries/getNodes/4/selected` | right only | — | false |
 | `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNodes/5/hidden` | right only | — | false |
 | `api/queries/getNodes/5/selected` | right only | — | false |
 | `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/5/expandParent` | right only | — | false |
 | `api/queries/getNodes/6/hidden` | right only | — | false |
 | `api/queries/getNodes/6/selected` | right only | — | false |
 | `api/queries/getNodes/6/dragging` | right only | — | false |
-| `api/queries/getNodes/6/expandParent` | right only | — | false |
 | `api/queries/getNodes/7/hidden` | right only | — | false |
 | `api/queries/getNodes/7/selected` | right only | — | false |
 | `api/queries/getNodes/7/dragging` | right only | — | false |
-| `api/queries/getNodes/7/expandParent` | right only | — | false |
 | `api/queries/getNodes/8/hidden` | right only | — | false |
 | `api/queries/getNodes/8/selected` | right only | — | false |
 | `api/queries/getNodes/8/dragging` | right only | — | false |
-| `api/queries/getNodes/8/expandParent` | right only | — | false |
 | `api/queries/getNodes/9/selected` | right only | — | false |
 | `api/queries/getNodes/9/dragging` | right only | — | false |
-| `api/queries/getNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99981241215175 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999917853269015 |
@@ -14984,97 +12150,66 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/selected` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/6/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/6/selected` | right only | — | false |
 | `api/queries/toObject/nodes/6/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/6/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/7/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/7/selected` | right only | — | false |
 | `api/queries/toObject/nodes/7/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/7/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/8/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/8/selected` | right only | — | false |
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/8/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/9/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ### console (1)
@@ -15118,7 +12253,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 256 unclaimed difference(s).
+**Failed:** 203 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -15163,7 +12298,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/xy-edge__down-1out-hubin/children/circle[1]/attrs/cx` | differs | 172 | 172.00001673463026 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/xy-edge__down-1out-hubin/children/circle[1]/attrs/cy` | differs | 146 | 145.99998260060894 |
 
-### callbacks (96)
+### callbacks (89)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -15189,15 +12324,12 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/7/args/1/hidden` | right only | — | false |
 | `callbacks/7/args/1/selected` | right only | — | false |
 | `callbacks/7/args/1/dragging` | right only | — | false |
-| `callbacks/7/args/1/expandParent` | right only | — | false |
 | `callbacks/9/args/1/hidden` | right only | — | false |
 | `callbacks/9/args/1/selected` | right only | — | false |
 | `callbacks/9/args/1/dragging` | right only | — | false |
-| `callbacks/9/args/1/expandParent` | right only | — | false |
 | `callbacks/10/args/1/hidden` | right only | — | false |
 | `callbacks/10/args/1/selected` | right only | — | false |
 | `callbacks/10/args/1/dragging` | right only | — | false |
-| `callbacks/10/args/1/expandParent` | right only | — | false |
 | `callbacks/12/args/0/@class` | differs | MouseEvent | SyntheticBaseEvent |
 | `callbacks/12/args/0/_reactName` | right only | — | onMouseDown |
 | `callbacks/12/args/0/_targetInst` | right only | — | null |
@@ -15232,11 +12364,9 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/13/args/1/hidden` | right only | — | false |
 | `callbacks/13/args/1/selected` | right only | — | false |
 | `callbacks/13/args/1/dragging` | right only | — | false |
-| `callbacks/13/args/1/expandParent` | right only | — | false |
 | `callbacks/15/args/1/hidden` | right only | — | false |
 | `callbacks/15/args/1/selected` | right only | — | false |
 | `callbacks/15/args/1/dragging` | right only | — | false |
-| `callbacks/15/args/1/expandParent` | right only | — | false |
 | `callbacks/18/args/1/from/x` | differs | 24.4375 | 24.437560110271676 |
 | `callbacks/18/args/1/from/y` | differs | 338 | 338.00000670541317 |
 | `callbacks/18/args/1/fromHandle/x` | differs | 20.4375 | 20.437560110271676 |
@@ -15249,7 +12379,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/18/args/1/fromNode/hidden` | right only | — | false |
 | `callbacks/18/args/1/fromNode/selected` | right only | — | false |
 | `callbacks/18/args/1/fromNode/dragging` | right only | — | false |
-| `callbacks/18/args/1/fromNode/expandParent` | right only | — | false |
 | `callbacks/18/args/1/to/x` | differs | 348.577648766328 | 348.57767703789494 |
 | `callbacks/18/args/1/to/y` | differs | 344.79535558780844 | 344.79532619319133 |
 | `callbacks/18/args/1/toHandle/x` | differs | 172 | 172.00001673463026 |
@@ -15262,40 +12391,32 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/18/args/1/toNode/hidden` | right only | — | false |
 | `callbacks/18/args/1/toNode/selected` | right only | — | false |
 | `callbacks/18/args/1/toNode/dragging` | right only | — | false |
-| `callbacks/18/args/1/toNode/expandParent` | right only | — | false |
 
-### api (124)
+### api (78)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
 | `api/queries/getNodes/4/selected` | right only | — | false |
 | `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNodes/5/hidden` | right only | — | false |
 | `api/queries/getNodes/5/selected` | right only | — | false |
 | `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/5/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 8 | 8.000016734630268 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 14 | 14.000024769565009 |
 | `api/queries/getInternalNode/internals/handleBounds/target/0/x` | differs | 8 | 8.000016734630268 |
@@ -15304,93 +12425,54 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdges/2/animated` | right only | — | false |
-| `api/queries/getEdges/2/hidden` | right only | — | false |
 | `api/queries/getEdges/2/selected` | right only | — | false |
-| `api/queries/getEdges/3/animated` | right only | — | false |
-| `api/queries/getEdges/3/hidden` | right only | — | false |
 | `api/queries/getEdges/3/selected` | right only | — | false |
-| `api/queries/getEdges/4/animated` | right only | — | false |
-| `api/queries/getEdges/4/hidden` | right only | — | false |
 | `api/queries/getEdges/4/selected` | right only | — | false |
-| `api/queries/getEdges/5/animated` | right only | — | false |
-| `api/queries/getEdges/5/hidden` | right only | — | false |
 | `api/queries/getEdges/5/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/selected` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
-| `api/queries/toObject/edges/2/animated` | right only | — | false |
-| `api/queries/toObject/edges/2/hidden` | right only | — | false |
 | `api/queries/toObject/edges/2/selected` | right only | — | false |
-| `api/queries/toObject/edges/3/animated` | right only | — | false |
-| `api/queries/toObject/edges/3/hidden` | right only | — | false |
 | `api/queries/toObject/edges/3/selected` | right only | — | false |
-| `api/queries/toObject/edges/4/animated` | right only | — | false |
-| `api/queries/toObject/edges/4/hidden` | right only | — | false |
 | `api/queries/toObject/edges/4/selected` | right only | — | false |
-| `api/queries/toObject/edges/5/animated` | right only | — | false |
-| `api/queries/toObject/edges/5/hidden` | right only | — | false |
 | `api/queries/toObject/edges/5/selected` | right only | — | false |
 
 ## Normalization
@@ -15428,11 +12510,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 102 unclaimed difference(s).
+**Failed:** 69 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### callbacks (33)
+### callbacks (24)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -15445,103 +12527,70 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/34/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/34/args/0/nodes/0/selected` | right only | — | false |
 | `callbacks/34/args/0/nodes/0/dragging` | right only | — | false |
-| `callbacks/34/args/0/nodes/0/expandParent` | right only | — | false |
-| `callbacks/34/args/0/edges/0/animated` | right only | — | false |
-| `callbacks/34/args/0/edges/0/hidden` | right only | — | false |
 | `callbacks/34/args/0/edges/0/selected` | right only | — | false |
-| `callbacks/35/args/0/0/animated` | right only | — | false |
-| `callbacks/35/args/0/0/hidden` | right only | — | false |
 | `callbacks/35/args/0/0/selected` | right only | — | false |
 | `callbacks/37/args/0/0/hidden` | right only | — | false |
 | `callbacks/37/args/0/0/selected` | right only | — | false |
 | `callbacks/37/args/0/0/dragging` | right only | — | false |
-| `callbacks/37/args/0/0/expandParent` | right only | — | false |
 | `callbacks/38/args/0/0/id` | differs | 3 | 1 |
 | `callbacks/38/args/0/0/type` | differs | remove | replace |
-| `callbacks/38/args/0/0/item` | right only | — | {"id":"1","position":{"x":0,"y":0},"data":{"label":"1"},"type":"input","hidden":false,"selected":false,"dragging":false,"expandParent":false,"measured":{"width… |
-| `callbacks/38/args/0/1` | right only | — | {"type":"replace","id":"2","item":{"id":"2","position":{"x":-260,"y":240},"data":{"label":"2"},"hidden":false,"selected":false,"dragging":false,"expandParent":… |
-| `callbacks/38/args/0/2` | right only | — | {"type":"replace","id":"3","item":{"id":"3","position":{"x":260,"y":240},"data":{"label":"3"},"hidden":false,"selected":false,"dragging":false,"expandParent":f… |
-| `callbacks/38/args/0/3` | right only | — | {"type":"replace","id":"4","item":{"id":"4","position":{"x":0,"y":520},"data":{"label":"4"},"type":"output","hidden":false,"selected":false,"dragging":false,"e… |
+| `callbacks/38/args/0/0/item` | right only | — | {"id":"1","position":{"x":0,"y":0},"data":{"label":"1"},"type":"input","hidden":false,"selected":false,"dragging":false,"measured":{"width":150,"height":37}} |
+| `callbacks/38/args/0/1` | right only | — | {"type":"replace","id":"2","item":{"id":"2","position":{"x":-260,"y":240},"data":{"label":"2"},"hidden":false,"selected":false,"dragging":false,"measured":{"wi… |
+| `callbacks/38/args/0/2` | right only | — | {"type":"replace","id":"3","item":{"id":"3","position":{"x":260,"y":240},"data":{"label":"3"},"hidden":false,"selected":false,"dragging":false,"measured":{"wid… |
+| `callbacks/38/args/0/3` | right only | — | {"type":"replace","id":"4","item":{"id":"4","position":{"x":0,"y":520},"data":{"label":"4"},"type":"output","hidden":false,"selected":false,"dragging":false,"m… |
 | `callbacks/39/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/39/args/0/nodes/0/selected` | right only | — | false |
 | `callbacks/39/args/0/nodes/0/dragging` | right only | — | false |
-| `callbacks/39/args/0/nodes/0/expandParent` | right only | — | false |
-| `callbacks/39/args/0/edges/0/animated` | right only | — | false |
-| `callbacks/39/args/0/edges/0/hidden` | right only | — | false |
 | `callbacks/39/args/0/edges/0/selected` | right only | — | false |
 
-### api (69)
+### api (45)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 | `api/calls/7/result/deletedNodes/0/hidden` | right only | — | false |
 | `api/calls/7/result/deletedNodes/0/selected` | right only | — | false |
 | `api/calls/7/result/deletedNodes/0/dragging` | right only | — | false |
-| `api/calls/7/result/deletedNodes/0/expandParent` | right only | — | false |
-| `api/calls/7/result/deletedEdges/0/animated` | right only | — | false |
-| `api/calls/7/result/deletedEdges/0/hidden` | right only | — | false |
 | `api/calls/7/result/deletedEdges/0/selected` | right only | — | false |
 
 
@@ -15573,7 +12622,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 80 unclaimed difference(s).
+**Failed:** 59 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -15603,26 +12652,22 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/1/resizing` | right only | — | false |
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 
-### api (64)
+### api (43)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00008777202368 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 32.00003955922194 |
@@ -15631,45 +12676,28 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
@@ -15707,7 +12735,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 118 unclaimed difference(s).
+**Failed:** 77 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -15718,7 +12746,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/g[0]/attrs/transform` | differs | translate(55.53076171875 93) | translate(55.53076171875 93.0) |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/g[0]/attrs/transform` | differs | translate(155.53076171875 93) | translate(155.53076171875 93.0) |
 
-### callbacks (52)
+### callbacks (35)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -15730,118 +12758,77 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/11/args/1/hidden` | right only | — | false |
 | `callbacks/11/args/1/selected` | right only | — | false |
 | `callbacks/11/args/1/dragging` | right only | — | false |
-| `callbacks/11/args/1/expandParent` | right only | — | false |
 | `callbacks/13/args/1/hidden` | right only | — | false |
 | `callbacks/13/args/1/selected` | right only | — | false |
 | `callbacks/13/args/1/dragging` | right only | — | false |
-| `callbacks/13/args/1/expandParent` | right only | — | false |
 | `callbacks/15/args/1/selected` | differs | true | false |
 | `callbacks/15/args/1/hidden` | right only | — | false |
-| `callbacks/15/args/1/expandParent` | right only | — | false |
 | `callbacks/15/args/2/0/selected` | differs | true | false |
 | `callbacks/15/args/2/0/hidden` | right only | — | false |
-| `callbacks/15/args/2/0/expandParent` | right only | — | false |
 | `callbacks/16/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/16/args/0/nodes/0/dragging` | right only | — | false |
-| `callbacks/16/args/0/nodes/0/expandParent` | right only | — | false |
 | `callbacks/18/args/0/0/positionAbsolute` | right only | — | {"x":16,"y":12} |
 | `callbacks/19/args/1/hidden` | right only | — | false |
-| `callbacks/19/args/1/expandParent` | right only | — | false |
 | `callbacks/19/args/2/0/hidden` | right only | — | false |
-| `callbacks/19/args/2/0/expandParent` | right only | — | false |
 | `callbacks/21/args/0/0/positionAbsolute` | right only | — | {"x":32,"y":24} |
 | `callbacks/22/args/1/hidden` | right only | — | false |
-| `callbacks/22/args/1/expandParent` | right only | — | false |
 | `callbacks/22/args/2/0/hidden` | right only | — | false |
-| `callbacks/22/args/2/0/expandParent` | right only | — | false |
 | `callbacks/24/args/0/0/positionAbsolute` | right only | — | {"x":48,"y":36} |
 | `callbacks/25/args/1/hidden` | right only | — | false |
-| `callbacks/25/args/1/expandParent` | right only | — | false |
 | `callbacks/25/args/2/0/hidden` | right only | — | false |
-| `callbacks/25/args/2/0/expandParent` | right only | — | false |
 | `callbacks/27/args/0/0/positionAbsolute` | right only | — | {"x":64,"y":48} |
 | `callbacks/28/args/1/hidden` | right only | — | false |
-| `callbacks/28/args/1/expandParent` | right only | — | false |
 | `callbacks/28/args/2/0/hidden` | right only | — | false |
-| `callbacks/28/args/2/0/expandParent` | right only | — | false |
 | `callbacks/30/args/0/0/positionAbsolute` | right only | — | {"x":80,"y":60} |
 | `callbacks/31/args/1/hidden` | right only | — | false |
-| `callbacks/31/args/1/expandParent` | right only | — | false |
 | `callbacks/31/args/2/0/hidden` | right only | — | false |
-| `callbacks/31/args/2/0/expandParent` | right only | — | false |
 | `callbacks/32/args/0/0/positionAbsolute` | right only | — | {"x":80,"y":60} |
 | `callbacks/33/args/1/hidden` | right only | — | false |
-| `callbacks/33/args/1/expandParent` | right only | — | false |
 | `callbacks/33/args/2/0/hidden` | right only | — | false |
-| `callbacks/33/args/2/0/expandParent` | right only | — | false |
 
-### api (64)
+### api (40)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":80,"y":60},"type":"input","measured":{"width":150,"height":37},"selected":true,"dragging":false} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
@@ -15879,7 +12866,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 107 unclaimed difference(s).
+**Failed:** 76 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -15908,101 +12895,70 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/6/args/0/0/dimensions` | right only | — | {"width":150,"height":37} |
 | `callbacks/6/args/0/0/resizing` | right only | — | false |
 
-### api (92)
+### api (61)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
 | `api/queries/getNodes/4/selected` | right only | — | false |
 | `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"updated"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdges/2/animated` | right only | — | false |
-| `api/queries/getEdges/2/hidden` | right only | — | false |
 | `api/queries/getEdges/2/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
-| `api/queries/toObject/edges/2/animated` | right only | — | false |
-| `api/queries/toObject/edges/2/hidden` | right only | — | false |
 | `api/queries/toObject/edges/2/selected` | right only | — | false |
 
 
@@ -16034,7 +12990,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 115 unclaimed difference(s).
+**Failed:** 79 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -16045,7 +13001,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/g[0]/attrs/transform` | differs | translate(15.53076171875 63) | translate(15.53076171875 63.0) |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/g[0]/attrs/transform` | differs | translate(115.53076171875 63) | translate(115.53076171875 63.0) |
 
-### callbacks (44)
+### callbacks (32)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -16057,115 +13013,79 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/7/args/1/hidden` | right only | — | false |
 | `callbacks/7/args/1/selected` | right only | — | false |
 | `callbacks/7/args/1/dragging` | right only | — | false |
-| `callbacks/7/args/1/expandParent` | right only | — | false |
 | `callbacks/9/args/1/hidden` | right only | — | false |
 | `callbacks/9/args/1/selected` | right only | — | false |
 | `callbacks/9/args/1/dragging` | right only | — | false |
-| `callbacks/9/args/1/expandParent` | right only | — | false |
 | `callbacks/11/args/1/hidden` | right only | — | false |
 | `callbacks/11/args/1/selected` | right only | — | false |
-| `callbacks/11/args/1/expandParent` | right only | — | false |
 | `callbacks/11/args/2/0/hidden` | right only | — | false |
 | `callbacks/11/args/2/0/selected` | right only | — | false |
-| `callbacks/11/args/2/0/expandParent` | right only | — | false |
 | `callbacks/12/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/12/args/0/nodes/0/dragging` | right only | — | false |
-| `callbacks/12/args/0/nodes/0/expandParent` | right only | — | false |
 | `callbacks/13/args/1/hidden` | right only | — | false |
-| `callbacks/13/args/1/expandParent` | right only | — | false |
 | `callbacks/13/args/2/0/hidden` | right only | — | false |
-| `callbacks/13/args/2/0/expandParent` | right only | — | false |
 | `callbacks/14/args/1/hidden` | right only | — | false |
 | `callbacks/14/args/1/dragging` | right only | — | false |
-| `callbacks/14/args/1/expandParent` | right only | — | false |
 | `callbacks/16/args/1/hidden` | right only | — | false |
 | `callbacks/16/args/1/dragging` | right only | — | false |
-| `callbacks/16/args/1/expandParent` | right only | — | false |
 | `callbacks/18/args/1/hidden` | right only | — | false |
 | `callbacks/18/args/1/selected` | right only | — | false |
 | `callbacks/18/args/1/dragging` | right only | — | false |
-| `callbacks/18/args/1/expandParent` | right only | — | false |
 | `callbacks/20/args/1/hidden` | right only | — | false |
 | `callbacks/20/args/1/selected` | right only | — | false |
 | `callbacks/20/args/1/dragging` | right only | — | false |
-| `callbacks/20/args/1/expandParent` | right only | — | false |
 | `callbacks/22/args/1/hidden` | right only | — | false |
 | `callbacks/22/args/1/selected` | right only | — | false |
 | `callbacks/22/args/1/dragging` | right only | — | false |
-| `callbacks/22/args/1/expandParent` | right only | — | false |
 
-### api (69)
+### api (45)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37},"selected":true} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
@@ -16203,7 +13123,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 82 unclaimed difference(s).
+**Failed:** 58 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -16225,83 +13145,59 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (74)
+### api (50)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
@@ -16333,7 +13229,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 44 unclaimed difference(s).
+**Failed:** 27 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -16343,52 +13239,35 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `dom/root/children/div[1]/children/svg[0]/children/path[0]/attrs/d` | differs | M-59.09584999560087,-169.90056873735244h1300.1086999032193v1004.6294499252149h-1300.1086999032193z⏎        M98.0830000879826,55.17168754949017h1083.83399982403… | M-59.09584999560087,-169.90056873735244h1300.1086999032193v1004.6294499252149h-1300.1086999032193z M98.0830000879826,55.17168754949017h1083.833999824035v609.65… |
 
-### api (43)
+### api (26)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","hidden":true} | — |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
 
 
@@ -16420,7 +13299,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 95 unclaimed difference(s).
+**Failed:** 66 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -16432,7 +13311,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/g[0]/attrs/transform` | differs | translate(115.53076171875 63) | translate(115.53076171875 63.0) |
 | `dom/root/children/div[1]/children/svg[0]/children/path[0]/attrs/d` | differs | M-277,-153.5h704v544h-704z⏎        M-245,-61.5h640v360h-640z | M-277,-153.5h704v544h-704z M-245,-61.5h640v360h-640z |
 
-### callbacks (23)
+### callbacks (18)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -16444,94 +13323,65 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/7/args/1/hidden` | right only | — | false |
 | `callbacks/7/args/1/selected` | right only | — | false |
 | `callbacks/7/args/1/dragging` | right only | — | false |
-| `callbacks/7/args/1/expandParent` | right only | — | false |
 | `callbacks/9/args/1/hidden` | right only | — | false |
 | `callbacks/9/args/1/selected` | right only | — | false |
 | `callbacks/9/args/1/dragging` | right only | — | false |
-| `callbacks/9/args/1/expandParent` | right only | — | false |
 | `callbacks/11/args/1/hidden` | right only | — | false |
 | `callbacks/11/args/1/selected` | right only | — | false |
 | `callbacks/11/args/1/dragging` | right only | — | false |
-| `callbacks/11/args/1/expandParent` | right only | — | false |
 | `callbacks/12/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/12/args/0/nodes/0/dragging` | right only | — | false |
-| `callbacks/12/args/0/nodes/0/expandParent` | right only | — | false |
 | `callbacks/14/args/1/hidden` | right only | — | false |
 | `callbacks/14/args/1/dragging` | right only | — | false |
-| `callbacks/14/args/1/expandParent` | right only | — | false |
 
-### api (69)
+### api (45)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37},"selected":true} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
@@ -16569,7 +13419,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 82 unclaimed difference(s).
+**Failed:** 58 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -16591,83 +13441,59 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (74)
+### api (50)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
@@ -16699,7 +13525,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 81 unclaimed difference(s).
+**Failed:** 57 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -16720,83 +13546,59 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (74)
+### api (50)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
@@ -16828,7 +13630,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 83 unclaimed difference(s).
+**Failed:** 59 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -16851,83 +13653,59 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (74)
+### api (50)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
@@ -16965,7 +13743,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 5 driving divergence(s), 99 unclaimed difference(s).
+**Failed:** 5 driving divergence(s), 75 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -17021,83 +13799,59 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/7/args/0/movementX` | differs | 9 | 1 |
 | `callbacks/7/args/0/movementY` | differs | 9 | 1 |
 
-### api (74) — consequence of the driving divergence
+### api (50) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
@@ -17259,8 +14013,8 @@ a real divergence is exactly what would be hiding down there.
 | `console/2` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/3` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/4` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:52656/parity/driver/dist/… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:52656/parity/driver/dist/… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:59602/parity/driver/dist/… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:59602/parity/driver/dist/… |
 | `console/7` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 
 ## Normalization
@@ -17298,7 +14052,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 50 driving divergence(s), 123 unclaimed difference(s).
+**Failed:** 50 driving divergence(s), 109 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -17434,7 +14188,7 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/17/args/0/clientX` | differs | 589.6393432617188 | 351.11474609375 |
 | `callbacks/17/args/0/pageX` | differs | 589.6393432617188 | 351.11474609375 |
 
-### api (63) — consequence of the driving divergence
+### api (49) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -17443,17 +14197,14 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNode/measured/width` | differs | 400 | 150 |
 | `api/queries/getNode/measured/height` | differs | 320 | 37 |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/measured/width` | differs | 400 | 150 |
 | `api/queries/getInternalNode/measured/height` | differs | 320 | 37 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
@@ -17466,36 +14217,25 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/measured/width` | differs | 400 | 150 |
 | `api/queries/getIntersectingNodes/0/measured/height` | differs | 320 | 37 |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodesBounds/height` | differs | 320 | 37 |
 | `api/queries/toObject/nodes/0/measured/width` | differs | 400 | 150 |
 | `api/queries/toObject/nodes/0/measured/height` | differs | 320 | 37 |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
 | `api/queries/toObject/viewport/y` | differs | 54.68852459016392 | 324.6983606557377 |
 | `api/queries/getViewport/y` | differs | 54.68852459016392 | 324.6983606557377 |
@@ -17537,7 +14277,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 47 unclaimed difference(s).
+**Failed:** 33 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -17549,53 +14289,39 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","patternTransform":"translate(-11,-11)"},… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","pat… |
 
-### api (44)
+### api (30)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"n1","data":{"label":"n1"},"position":{"x":0,"y":0},"sourcePosition":"right","targetPosition":"left","width":100,"height":40,"measured":{"width":100,"hei… | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
 
 
@@ -17627,7 +14353,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 48 unclaimed difference(s).
+**Failed:** 34 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -17645,53 +14371,39 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks/9` | right only | — | {"name":"onNodesChange","args":[[{"type":"replace","id":"n1","item":{"id":"n1","position":{"x":0,"y":0},"data":{"label":"n1"},"sourcePosition":"right","targetP… |
 
-### api (44)
+### api (30)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"n1","data":{"label":"n1"},"position":{"x":0,"y":0},"sourcePosition":"right","targetPosition":"left","width":100,"height":40,"measured":{"width":100,"hei… | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
 
 
@@ -17723,7 +14435,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 57 unclaimed difference(s).
+**Failed:** 43 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -17741,22 +14453,19 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"-19.7539553864471","y":"-9.462215016410383","width":"26.390158215457884","height":"26.390158215457884","pattern… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"6.636202829010784","y":"16.92794319904749","width":"26.390158215457884","h… |
 
-### api (48)
+### api (34)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 95 | 94.99985314668774 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 16 | 15.999976666660944 |
@@ -17767,31 +14476,20 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
 
 ## Normalization
@@ -17829,7 +14527,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 47 unclaimed difference(s).
+**Failed:** 33 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -17841,53 +14539,39 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"10","width":"20","height":"20","patternUnits":"userSpaceOnUse","patternTransform":"translate(-11,-11)"}… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"10","width":"20","height":"20","patternUnits":"userSpaceOnUse","pa… |
 
-### api (44)
+### api (30)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"n1","data":{"label":"n1"},"position":{"x":0,"y":0},"sourcePosition":"right","targetPosition":"left","width":100,"height":40,"measured":{"width":100,"hei… | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
 
 ## Normalization
@@ -17901,7 +14585,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 # System parity run — drag-node-reports-changes
 
-**Failed:** unclaimed-difference.
+**Failed:** self-inconsistent, unclaimed-difference.
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -17915,7 +14599,105 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | **disagrees with itself** | 89 |
+
+### psflow disagrees with itself
+
+| path | kind | capture 1 | capture 2 |
+|---|---|---|---|
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/attrs/style` | differs | transform: translate(0px, 15px) scale(1); | transform: translate(0px, 13.125px) scale(1); |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/path[0]/attrs/d` | differs | M148,50 C197.5,50 197.5,120 247,120 | M148,51.875 C197.5,51.875 197.5,120 247,120 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/path[1]/attrs/d` | differs | M148,50 C197.5,50 197.5,120 247,120 | M148,51.875 C197.5,51.875 197.5,120 247,120 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/circle[0]/attrs/cy` | differs | 50 | 51.875 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n1/attrs/style` | differs | height: 40px; pointer-events: all; transform: translate(45px, 30px); visibility: visible; width: 100px; z-index: 1000; | height: 40px; pointer-events: all; transform: translate(45px, 31.875px); visibility: visible; width: 100px; z-index: 1000; |
+| `dom/root/children/div[2]/children/svg[0]/attrs/viewBox` | differs | -32 -167 1344 1024 | -32 -165.125 1344 1024 |
+| `dom/root/children/div[2]/children/svg[0]/children/rect[0]/attrs/y` | differs | 30 | 31.875 |
+| `dom/root/children/div[2]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-199h1408v1088h-1408z M0,-15h1280v720h-1280z | M-64,-197.125h1408v1088h-1408z M0,-13.125h1280v720h-1280z |
+| `dom/root/children/svg[0]/children/defs[0]/children/pattern-1/attrs/y` | differs | 15 | 13.125 |
+| `callbacks/31` | left only | {"name":"onMoveStart","args":[null,{"x":0,"y":13.125,"zoom":1}]} | — |
+| `callbacks/32` | left only | {"name":"onViewportChange","args":[{"x":0,"y":15,"zoom":1}]} | — |
+| `callbacks/33` | left only | {"name":"onMove","args":[null,{"x":0,"y":15,"zoom":1}]} | — |
+| `callbacks/34` | left only | {"name":"onMoveEnd","args":[null,{"x":0,"y":15,"zoom":1}]} | — |
+| `callbacks/57` | left only | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"n1","position":{"x":45,"y":30},"data":{"label":"n1"},"sourcePosition":"right","tar… | — |
+| `callbacks/58` | left only | {"name":"onNodesChange","args":[[{"type":"position","id":"n1","position":{"x":45,"y":30},"positionAbsolute":{"x":45,"y":30},"dragging":false}]]} | — |
+| `callbacks` | ordered differently | ["onSelectionChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onPaneMouseMove#2","onNodesChange#1","onNodeDragStart… | ["onSelectionChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onPaneMouseMove#2","onNodesChange#1","onNodeDragStart… |
+| `callbacks/35/args/0/0/position/x` | differs | 10 | 15 |
+| `callbacks/35/args/0/0/position/y` | differs | -5 | 1.875 |
+| `callbacks/35/args/0/0/positionAbsolute/x` | differs | 10 | 15 |
+| `callbacks/35/args/0/0/positionAbsolute/y` | differs | -5 | 1.875 |
+| `callbacks/36/args/1/position/x` | differs | 10 | 15 |
+| `callbacks/36/args/1/position/y` | differs | -5 | 1.875 |
+| `callbacks/36/args/2/0/position/x` | differs | 10 | 15 |
+| `callbacks/36/args/2/0/position/y` | differs | -5 | 1.875 |
+| `callbacks/38/args/0/0/position/x` | differs | 15 | 20 |
+| `callbacks/38/args/0/0/position/y` | differs | 0 | 6.875 |
+| `callbacks/38/args/0/0/positionAbsolute/x` | differs | 15 | 20 |
+| `callbacks/38/args/0/0/positionAbsolute/y` | differs | 0 | 6.875 |
+| `callbacks/39/args/1/position/x` | differs | 15 | 20 |
+| `callbacks/39/args/1/position/y` | differs | 0 | 6.875 |
+| `callbacks/39/args/2/0/position/x` | differs | 15 | 20 |
+| `callbacks/39/args/2/0/position/y` | differs | 0 | 6.875 |
+| `callbacks/41/args/0/0/position/x` | differs | 20 | 25 |
+| `callbacks/41/args/0/0/position/y` | differs | 5 | 11.875 |
+| `callbacks/41/args/0/0/positionAbsolute/x` | differs | 20 | 25 |
+| `callbacks/41/args/0/0/positionAbsolute/y` | differs | 5 | 11.875 |
+| `callbacks/42/args/1/position/x` | differs | 20 | 25 |
+| `callbacks/42/args/1/position/y` | differs | 5 | 11.875 |
+| `callbacks/42/args/2/0/position/x` | differs | 20 | 25 |
+| `callbacks/42/args/2/0/position/y` | differs | 5 | 11.875 |
+| `callbacks/44/args/0/0/position/x` | differs | 25 | 30 |
+| `callbacks/44/args/0/0/position/y` | differs | 10 | 16.875 |
+| `callbacks/44/args/0/0/positionAbsolute/x` | differs | 25 | 30 |
+| `callbacks/44/args/0/0/positionAbsolute/y` | differs | 10 | 16.875 |
+| `callbacks/45/args/1/position/x` | differs | 25 | 30 |
+| `callbacks/45/args/1/position/y` | differs | 10 | 16.875 |
+| `callbacks/45/args/2/0/position/x` | differs | 25 | 30 |
+| `callbacks/45/args/2/0/position/y` | differs | 10 | 16.875 |
+| `callbacks/47/args/0/0/position/x` | differs | 30 | 35 |
+| `callbacks/47/args/0/0/position/y` | differs | 15 | 21.875 |
+| `callbacks/47/args/0/0/positionAbsolute/x` | differs | 30 | 35 |
+| `callbacks/47/args/0/0/positionAbsolute/y` | differs | 15 | 21.875 |
+| `callbacks/48/args/1/position/x` | differs | 30 | 35 |
+| `callbacks/48/args/1/position/y` | differs | 15 | 21.875 |
+| `callbacks/48/args/2/0/position/x` | differs | 30 | 35 |
+| `callbacks/48/args/2/0/position/y` | differs | 15 | 21.875 |
+| `callbacks/50/args/0/0/position/x` | differs | 35 | 40 |
+| `callbacks/50/args/0/0/position/y` | differs | 20 | 26.875 |
+| `callbacks/50/args/0/0/positionAbsolute/x` | differs | 35 | 40 |
+| `callbacks/50/args/0/0/positionAbsolute/y` | differs | 20 | 26.875 |
+| `callbacks/51/args/1/position/x` | differs | 35 | 40 |
+| `callbacks/51/args/1/position/y` | differs | 20 | 26.875 |
+| `callbacks/51/args/2/0/position/x` | differs | 35 | 40 |
+| `callbacks/51/args/2/0/position/y` | differs | 20 | 26.875 |
+| `callbacks/53/args/0/0/position/x` | differs | 40 | 45 |
+| `callbacks/53/args/0/0/position/y` | differs | 25 | 31.875 |
+| `callbacks/53/args/0/0/positionAbsolute/x` | differs | 40 | 45 |
+| `callbacks/53/args/0/0/positionAbsolute/y` | differs | 25 | 31.875 |
+| `callbacks/54/args/1/position/x` | differs | 40 | 45 |
+| `callbacks/54/args/1/position/y` | differs | 25 | 31.875 |
+| `callbacks/54/args/2/0/position/x` | differs | 40 | 45 |
+| `callbacks/54/args/2/0/position/y` | differs | 25 | 31.875 |
+| `callbacks/56/args/0/0/position/y` | differs | 30 | 31.875 |
+| `callbacks/56/args/0/0/positionAbsolute/y` | differs | 30 | 31.875 |
+| `callbacks/56/args/0/0/dragging` | differs | true | false |
+| `callbacks/59/args/1/position/y` | differs | 30 | 31.875 |
+| `callbacks/59/args/2/0/position/y` | differs | 30 | 31.875 |
+| `api/queries/getNodes/0/position/y` | differs | 30 | 31.875 |
+| `api/queries/getNode/position/y` | differs | 30 | 31.875 |
+| `api/queries/getInternalNode/position/y` | differs | 30 | 31.875 |
+| `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | 30 | 31.875 |
+| `api/queries/getIntersectingNodes/0/position/y` | differs | 30 | 31.875 |
+| `api/queries/getNodesBounds/y` | differs | 30 | 31.875 |
+| `api/queries/getNodesBounds/height` | differs | 110 | 108.125 |
+| `api/queries/toObject/nodes/0/position/y` | differs | 30 | 31.875 |
+| `api/queries/toObject/viewport/y` | differs | 15 | 13.125 |
+| `api/queries/getViewport/y` | differs | 15 | 13.125 |
+| `api/queries/screenToFlowPosition/y` | differs | -15 | -13.125 |
+| `api/queries/flowToScreenPosition/y` | differs | 15 | 13.125 |
+
+**psflow did not reproduce.** The comparison below ran anyway —
+capture-everything applies to a failed run as much as to a passing one — but a difference it reports
+cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
 ---
 
@@ -17925,140 +14707,169 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 116 unclaimed difference(s).
+**Failed:** 145 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (3)
+### dom (10)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `dom/root/children/div[2]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-197.125h1408v1088h-1408z⏎        M0,-13.125h1280v720h-1280z | M-64,-197.125h1408v1088h-1408z M0,-13.125h1280v720h-1280z |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/attrs/style` | differs | transform: translate(0px, 13.125px) scale(1); | transform: translate(0px, 15px) scale(1); |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/path[0]/attrs/d` | differs | M148,51.875 C197.5,51.875 197.5,120 247,120 | M148,50 C197.5,50 197.5,120 247,120 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/path[1]/attrs/d` | differs | M148,51.875 C197.5,51.875 197.5,120 247,120 | M148,50 C197.5,50 197.5,120 247,120 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/circle[0]/attrs/cy` | differs | 51.875 | 50 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n1/attrs/style` | differs | height: 40px; pointer-events: all; transform: translate(45px, 31.875px); visibility: visible; width: 100px; z-index: 1000; | height: 40px; pointer-events: all; transform: translate(45px, 30px); visibility: visible; width: 100px; z-index: 1000; |
+| `dom/root/children/div[2]/children/svg[0]/attrs/viewBox` | differs | -32 -165.125 1344 1024 | -32 -167 1344 1024 |
+| `dom/root/children/div[2]/children/svg[0]/children/rect[0]/attrs/y` | differs | 31.875 | 30 |
+| `dom/root/children/div[2]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-197.125h1408v1088h-1408z⏎        M0,-13.125h1280v720h-1280z | M-64,-199h1408v1088h-1408z M0,-15h1280v720h-1280z |
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"13.125","width":"20","height":"20","patternUnits":"userSpaceOnUse","patternTransform":"translate(-11,-1… | — |
-| `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"13.125","width":"20","height":"20","patternUnits":"userSpaceOnUse"… |
+| `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"15","width":"20","height":"20","patternUnits":"userSpaceOnUse","pa… |
 
-### callbacks (79)
+### callbacks (103)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `callbacks/28` | right only | — | {"name":"onMoveEnd","args":[null,{"x":0,"y":13.125,"zoom":1}]} |
+| `callbacks/31` | right only | — | {"name":"onMoveStart","args":[null,{"x":0,"y":13.125,"zoom":1}]} |
+| `callbacks/32` | right only | — | {"name":"onViewportChange","args":[{"x":0,"y":15,"zoom":1}]} |
+| `callbacks/33` | right only | — | {"name":"onMove","args":[null,{"x":0,"y":15,"zoom":1}]} |
+| `callbacks/34` | right only | — | {"name":"onMoveEnd","args":[null,{"x":0,"y":15,"zoom":1}]} |
+| `callbacks/57` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"n1","position":{"x":45,"y":30},"data":{"label":"n1"},"sourcePosition":"right","tar… |
+| `callbacks/58` | right only | — | {"name":"onNodesChange","args":[[{"type":"position","id":"n1","position":{"x":45,"y":30},"positionAbsolute":{"x":45,"y":30},"dragging":false}]]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onPaneMouseMove#2","onNodesChange#1","onNodeDragStart… | ["onSelectionChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onPaneMouseMove#2","onNodesChange#1","onNodeDragStart… |
 | `callbacks/2/args/1/hidden` | right only | — | false |
 | `callbacks/2/args/1/selected` | right only | — | false |
 | `callbacks/2/args/1/dragging` | right only | — | false |
-| `callbacks/2/args/1/expandParent` | right only | — | false |
 | `callbacks/4/args/1/hidden` | right only | — | false |
 | `callbacks/4/args/1/selected` | right only | — | false |
 | `callbacks/4/args/1/dragging` | right only | — | false |
-| `callbacks/4/args/1/expandParent` | right only | — | false |
 | `callbacks/7/args/1/hidden` | right only | — | false |
 | `callbacks/7/args/1/selected` | right only | — | false |
-| `callbacks/7/args/1/expandParent` | right only | — | false |
 | `callbacks/7/args/2/0/hidden` | right only | — | false |
 | `callbacks/7/args/2/0/selected` | right only | — | false |
-| `callbacks/7/args/2/0/expandParent` | right only | — | false |
 | `callbacks/8/args/0/nodes/0` | left only | {"id":"n1","data":{"label":"n1"},"position":{"x":0,"y":0},"sourcePosition":"right","targetPosition":"left","width":100,"height":40,"measured":{"width":100,"hei… | — |
 | `callbacks/13/args/0/0/positionAbsolute` | right only | — | {"x":5,"y":5} |
 | `callbacks/14/args/1/hidden` | right only | — | false |
-| `callbacks/14/args/1/expandParent` | right only | — | false |
 | `callbacks/14/args/2/0/hidden` | right only | — | false |
-| `callbacks/14/args/2/0/expandParent` | right only | — | false |
 | `callbacks/18/args/0/0/positionAbsolute` | right only | — | {"x":5,"y":1.25} |
 | `callbacks/19/args/1/hidden` | right only | — | false |
-| `callbacks/19/args/1/expandParent` | right only | — | false |
 | `callbacks/19/args/2/0/hidden` | right only | — | false |
-| `callbacks/19/args/2/0/expandParent` | right only | — | false |
 | `callbacks/20/args/1/y` | differs | 11.25 | 7.5 |
 | `callbacks/22/args/0/0/positionAbsolute` | right only | — | {"x":10,"y":-1.25} |
 | `callbacks/23/args/1/hidden` | right only | — | false |
-| `callbacks/23/args/1/expandParent` | right only | — | false |
 | `callbacks/23/args/2/0/hidden` | right only | — | false |
-| `callbacks/23/args/2/0/expandParent` | right only | — | false |
 | `callbacks/27/args/0/0/positionAbsolute` | right only | — | {"x":10,"y":-3.125} |
 | `callbacks/28/args/1/hidden` | right only | — | false |
-| `callbacks/28/args/1/expandParent` | right only | — | false |
 | `callbacks/28/args/2/0/hidden` | right only | — | false |
-| `callbacks/28/args/2/0/expandParent` | right only | — | false |
 | `callbacks/29/args/1/y` | differs | 13.125 | 11.25 |
-| `callbacks/31/args/0/0/positionAbsolute` | right only | — | {"x":15,"y":1.875} |
+| `callbacks/31/args/0/0/position/x` | differs | 15 | 10 |
+| `callbacks/31/args/0/0/position/y` | differs | 1.875 | -5 |
+| `callbacks/31/args/0/0/positionAbsolute` | right only | — | {"x":10,"y":-5} |
+| `callbacks/32/args/1/position/x` | differs | 15 | 10 |
+| `callbacks/32/args/1/position/y` | differs | 1.875 | -5 |
 | `callbacks/32/args/1/hidden` | right only | — | false |
-| `callbacks/32/args/1/expandParent` | right only | — | false |
+| `callbacks/32/args/2/0/position/x` | differs | 15 | 10 |
+| `callbacks/32/args/2/0/position/y` | differs | 1.875 | -5 |
 | `callbacks/32/args/2/0/hidden` | right only | — | false |
-| `callbacks/32/args/2/0/expandParent` | right only | — | false |
-| `callbacks/34/args/0/0/positionAbsolute` | right only | — | {"x":20,"y":6.875} |
+| `callbacks/34/args/0/0/position/x` | differs | 20 | 15 |
+| `callbacks/34/args/0/0/position/y` | differs | 6.875 | 0 |
+| `callbacks/34/args/0/0/positionAbsolute` | right only | — | {"x":15,"y":0} |
+| `callbacks/35/args/1/position/x` | differs | 20 | 15 |
+| `callbacks/35/args/1/position/y` | differs | 6.875 | 0 |
 | `callbacks/35/args/1/hidden` | right only | — | false |
-| `callbacks/35/args/1/expandParent` | right only | — | false |
+| `callbacks/35/args/2/0/position/x` | differs | 20 | 15 |
+| `callbacks/35/args/2/0/position/y` | differs | 6.875 | 0 |
 | `callbacks/35/args/2/0/hidden` | right only | — | false |
-| `callbacks/35/args/2/0/expandParent` | right only | — | false |
-| `callbacks/37/args/0/0/positionAbsolute` | right only | — | {"x":25,"y":11.875} |
+| `callbacks/37/args/0/0/position/x` | differs | 25 | 20 |
+| `callbacks/37/args/0/0/position/y` | differs | 11.875 | 5 |
+| `callbacks/37/args/0/0/positionAbsolute` | right only | — | {"x":20,"y":5} |
+| `callbacks/38/args/1/position/x` | differs | 25 | 20 |
+| `callbacks/38/args/1/position/y` | differs | 11.875 | 5 |
 | `callbacks/38/args/1/hidden` | right only | — | false |
-| `callbacks/38/args/1/expandParent` | right only | — | false |
+| `callbacks/38/args/2/0/position/x` | differs | 25 | 20 |
+| `callbacks/38/args/2/0/position/y` | differs | 11.875 | 5 |
 | `callbacks/38/args/2/0/hidden` | right only | — | false |
-| `callbacks/38/args/2/0/expandParent` | right only | — | false |
-| `callbacks/40/args/0/0/positionAbsolute` | right only | — | {"x":30,"y":16.875} |
+| `callbacks/40/args/0/0/position/x` | differs | 30 | 25 |
+| `callbacks/40/args/0/0/position/y` | differs | 16.875 | 10 |
+| `callbacks/40/args/0/0/positionAbsolute` | right only | — | {"x":25,"y":10} |
+| `callbacks/41/args/1/position/x` | differs | 30 | 25 |
+| `callbacks/41/args/1/position/y` | differs | 16.875 | 10 |
 | `callbacks/41/args/1/hidden` | right only | — | false |
-| `callbacks/41/args/1/expandParent` | right only | — | false |
+| `callbacks/41/args/2/0/position/x` | differs | 30 | 25 |
+| `callbacks/41/args/2/0/position/y` | differs | 16.875 | 10 |
 | `callbacks/41/args/2/0/hidden` | right only | — | false |
-| `callbacks/41/args/2/0/expandParent` | right only | — | false |
-| `callbacks/43/args/0/0/positionAbsolute` | right only | — | {"x":35,"y":21.875} |
+| `callbacks/43/args/0/0/position/x` | differs | 35 | 30 |
+| `callbacks/43/args/0/0/position/y` | differs | 21.875 | 15 |
+| `callbacks/43/args/0/0/positionAbsolute` | right only | — | {"x":30,"y":15} |
+| `callbacks/44/args/1/position/x` | differs | 35 | 30 |
+| `callbacks/44/args/1/position/y` | differs | 21.875 | 15 |
 | `callbacks/44/args/1/hidden` | right only | — | false |
-| `callbacks/44/args/1/expandParent` | right only | — | false |
+| `callbacks/44/args/2/0/position/x` | differs | 35 | 30 |
+| `callbacks/44/args/2/0/position/y` | differs | 21.875 | 15 |
 | `callbacks/44/args/2/0/hidden` | right only | — | false |
-| `callbacks/44/args/2/0/expandParent` | right only | — | false |
-| `callbacks/46/args/0/0/positionAbsolute` | right only | — | {"x":40,"y":26.875} |
+| `callbacks/46/args/0/0/position/x` | differs | 40 | 35 |
+| `callbacks/46/args/0/0/position/y` | differs | 26.875 | 20 |
+| `callbacks/46/args/0/0/positionAbsolute` | right only | — | {"x":35,"y":20} |
+| `callbacks/47/args/1/position/x` | differs | 40 | 35 |
+| `callbacks/47/args/1/position/y` | differs | 26.875 | 20 |
 | `callbacks/47/args/1/hidden` | right only | — | false |
-| `callbacks/47/args/1/expandParent` | right only | — | false |
+| `callbacks/47/args/2/0/position/x` | differs | 40 | 35 |
+| `callbacks/47/args/2/0/position/y` | differs | 26.875 | 20 |
 | `callbacks/47/args/2/0/hidden` | right only | — | false |
-| `callbacks/47/args/2/0/expandParent` | right only | — | false |
-| `callbacks/49/args/0/0/positionAbsolute` | right only | — | {"x":45,"y":31.875} |
+| `callbacks/49/args/0/0/position/x` | differs | 45 | 40 |
+| `callbacks/49/args/0/0/position/y` | differs | 31.875 | 25 |
+| `callbacks/49/args/0/0/positionAbsolute` | right only | — | {"x":40,"y":25} |
+| `callbacks/50/args/1/position/x` | differs | 45 | 40 |
+| `callbacks/50/args/1/position/y` | differs | 31.875 | 25 |
 | `callbacks/50/args/1/hidden` | right only | — | false |
-| `callbacks/50/args/1/expandParent` | right only | — | false |
+| `callbacks/50/args/2/0/position/x` | differs | 45 | 40 |
+| `callbacks/50/args/2/0/position/y` | differs | 31.875 | 25 |
 | `callbacks/50/args/2/0/hidden` | right only | — | false |
-| `callbacks/50/args/2/0/expandParent` | right only | — | false |
-| `callbacks/51/args/0/0/positionAbsolute` | right only | — | {"x":45,"y":31.875} |
+| `callbacks/51/args/0/0/position/y` | differs | 31.875 | 30 |
+| `callbacks/51/args/0/0/dragging` | differs | false | true |
+| `callbacks/51/args/0/0/positionAbsolute` | right only | — | {"x":45,"y":30} |
+| `callbacks/52/args/1/position/y` | differs | 31.875 | 30 |
 | `callbacks/52/args/1/hidden` | right only | — | false |
-| `callbacks/52/args/1/expandParent` | right only | — | false |
+| `callbacks/52/args/2/0/position/y` | differs | 31.875 | 30 |
 | `callbacks/52/args/2/0/hidden` | right only | — | false |
-| `callbacks/52/args/2/0/expandParent` | right only | — | false |
 
-### api (34)
+### api (32)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
+| `api/queries/getNodes/0/position/y` | differs | 31.875 | 30 |
 | `api/queries/getNodes/0/hidden` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
+| `api/queries/getNode/position/y` | differs | 31.875 | 30 |
 | `api/queries/getNode/hidden` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
+| `api/queries/getInternalNode/position/y` | differs | 31.875 | 30 |
+| `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | 31.875 | 30 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"n1","data":{"label":"n1"},"position":{"x":45,"y":31.875},"sourcePosition":"right","targetPosition":"left","width":100,"height":40,"measured":{"width":10… | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/0/position/y` | differs | 31.875 | 30 |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
+| `api/queries/getNodesBounds/y` | differs | 31.875 | 30 |
+| `api/queries/getNodesBounds/height` | differs | 108.125 | 110 |
+| `api/queries/toObject/nodes/0/position/y` | differs | 31.875 | 30 |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
+| `api/queries/toObject/viewport/y` | differs | 13.125 | 15 |
+| `api/queries/getViewport/y` | differs | 13.125 | 15 |
+| `api/queries/screenToFlowPosition/y` | differs | -13.125 | -15 |
+| `api/queries/flowToScreenPosition/y` | differs | 13.125 | 15 |
 
 ## Normalization
 
@@ -18095,7 +14906,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 109 unclaimed difference(s).
+**Failed:** 82 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -18107,18 +14918,16 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","patternTransform":"translate(-11,-11)"},… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","pat… |
 
-### callbacks (64)
+### callbacks (55)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `callbacks/2/args/1/hidden` | right only | — | false |
 | `callbacks/2/args/1/selected` | right only | — | false |
 | `callbacks/2/args/1/dragging` | right only | — | false |
-| `callbacks/2/args/1/expandParent` | right only | — | false |
 | `callbacks/4/args/1/hidden` | right only | — | false |
 | `callbacks/4/args/1/selected` | right only | — | false |
 | `callbacks/4/args/1/dragging` | right only | — | false |
-| `callbacks/4/args/1/expandParent` | right only | — | false |
 | `callbacks/5/args/0/@class` | differs | PointerEvent | SyntheticBaseEvent |
 | `callbacks/5/args/0/_reactName` | right only | — | onClick |
 | `callbacks/5/args/0/_targetInst` | right only | — | null |
@@ -18153,74 +14962,49 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/7/args/1/hidden` | right only | — | false |
 | `callbacks/7/args/1/selected` | right only | — | false |
 | `callbacks/7/args/1/dragging` | right only | — | false |
-| `callbacks/7/args/1/expandParent` | right only | — | false |
 | `callbacks/8/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/8/args/0/nodes/0/dragging` | right only | — | false |
-| `callbacks/8/args/0/nodes/0/expandParent` | right only | — | false |
 | `callbacks/9/args/1/hidden` | right only | — | false |
 | `callbacks/9/args/1/dragging` | right only | — | false |
-| `callbacks/9/args/1/expandParent` | right only | — | false |
 | `callbacks/10/args/1/hidden` | right only | — | false |
 | `callbacks/10/args/1/selected` | right only | — | false |
 | `callbacks/10/args/1/dragging` | right only | — | false |
-| `callbacks/10/args/1/expandParent` | right only | — | false |
 | `callbacks/12/args/1/hidden` | right only | — | false |
 | `callbacks/12/args/1/selected` | right only | — | false |
 | `callbacks/12/args/1/dragging` | right only | — | false |
-| `callbacks/12/args/1/expandParent` | right only | — | false |
 | `callbacks/17/args/1/hidden` | right only | — | false |
 | `callbacks/17/args/1/selected` | right only | — | false |
 | `callbacks/17/args/1/dragging` | right only | — | false |
-| `callbacks/17/args/1/expandParent` | right only | — | false |
 | `callbacks/18/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/18/args/0/nodes/0/dragging` | right only | — | false |
-| `callbacks/18/args/0/nodes/0/expandParent` | right only | — | false |
 
-### api (42)
+### api (24)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"n1","data":{"label":"n1"},"position":{"x":0,"y":0},"sourcePosition":"right","targetPosition":"left","width":100,"height":40,"measured":{"width":100,"hei… | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
@@ -18258,7 +15042,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 99 unclaimed difference(s).
+**Failed:** 76 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -18270,27 +15054,20 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","patternTransform":"translate(-11,-11)"},… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","pat… |
 
-### callbacks (52)
+### callbacks (43)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `callbacks/2/args/1/hidden` | right only | — | false |
 | `callbacks/2/args/1/selected` | right only | — | false |
 | `callbacks/2/args/1/dragging` | right only | — | false |
-| `callbacks/2/args/1/expandParent` | right only | — | false |
 | `callbacks/4/args/1/hidden` | right only | — | false |
 | `callbacks/4/args/1/selected` | right only | — | false |
 | `callbacks/4/args/1/dragging` | right only | — | false |
-| `callbacks/4/args/1/expandParent` | right only | — | false |
 | `callbacks/5/args/1/hidden` | right only | — | false |
 | `callbacks/5/args/1/selected` | right only | — | false |
 | `callbacks/5/args/1/dragging` | right only | — | false |
-| `callbacks/5/args/1/expandParent` | right only | — | false |
-| `callbacks/6/args/1/animated` | right only | — | false |
-| `callbacks/6/args/1/hidden` | right only | — | false |
 | `callbacks/6/args/1/selected` | right only | — | false |
-| `callbacks/8/args/1/animated` | right only | — | false |
-| `callbacks/8/args/1/hidden` | right only | — | false |
 | `callbacks/8/args/1/selected` | right only | — | false |
 | `callbacks/9/args/0/@class` | differs | MouseEvent | SyntheticBaseEvent |
 | `callbacks/9/args/0/_reactName` | right only | — | onMouseDown |
@@ -18323,57 +15100,41 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/9/args/0/movementY` | right only | — | 0 |
 | `callbacks/9/args/0/isDefaultPrevented` | right only | — | {"@ref":"function"} |
 | `callbacks/9/args/0/isPropagationStopped` | right only | — | {"@ref":"function"} |
-| `callbacks/11/args/1/animated` | right only | — | false |
-| `callbacks/11/args/1/hidden` | right only | — | false |
 | `callbacks/11/args/1/selected` | right only | — | false |
 
-### api (44)
+### api (30)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"n1","data":{"label":"n1"},"position":{"x":0,"y":0},"sourcePosition":"right","targetPosition":"left","width":100,"height":40,"measured":{"width":100,"hei… | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
 
 ## Normalization
@@ -18411,7 +15172,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 108 unclaimed difference(s).
+**Failed:** 84 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -18423,27 +15184,20 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","patternTransform":"translate(-11,-11)"},… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","pat… |
 
-### callbacks (61)
+### callbacks (51)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `callbacks/2/args/1/hidden` | right only | — | false |
 | `callbacks/2/args/1/selected` | right only | — | false |
 | `callbacks/2/args/1/dragging` | right only | — | false |
-| `callbacks/2/args/1/expandParent` | right only | — | false |
 | `callbacks/4/args/1/hidden` | right only | — | false |
 | `callbacks/4/args/1/selected` | right only | — | false |
 | `callbacks/4/args/1/dragging` | right only | — | false |
-| `callbacks/4/args/1/expandParent` | right only | — | false |
 | `callbacks/5/args/1/hidden` | right only | — | false |
 | `callbacks/5/args/1/selected` | right only | — | false |
 | `callbacks/5/args/1/dragging` | right only | — | false |
-| `callbacks/5/args/1/expandParent` | right only | — | false |
-| `callbacks/6/args/1/animated` | right only | — | false |
-| `callbacks/6/args/1/hidden` | right only | — | false |
 | `callbacks/6/args/1/selected` | right only | — | false |
-| `callbacks/8/args/1/animated` | right only | — | false |
-| `callbacks/8/args/1/hidden` | right only | — | false |
 | `callbacks/8/args/1/selected` | right only | — | false |
 | `callbacks/9/args/0/@class` | differs | MouseEvent | SyntheticBaseEvent |
 | `callbacks/9/args/0/_reactName` | right only | — | onMouseDown |
@@ -18476,8 +15230,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/9/args/0/movementY` | right only | — | 0 |
 | `callbacks/9/args/0/isDefaultPrevented` | right only | — | {"@ref":"function"} |
 | `callbacks/9/args/0/isPropagationStopped` | right only | — | {"@ref":"function"} |
-| `callbacks/11/args/1/animated` | right only | — | false |
-| `callbacks/11/args/1/hidden` | right only | — | false |
 | `callbacks/11/args/1/selected` | right only | — | false |
 | `callbacks/12/args/1/fromHandle/id` | differs | null | {"@undefined":true} |
 | `callbacks/12/args/1/fromNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
@@ -18486,56 +15238,41 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/12/args/1/fromNode/hidden` | right only | — | false |
 | `callbacks/12/args/1/fromNode/selected` | right only | — | false |
 | `callbacks/12/args/1/fromNode/dragging` | right only | — | false |
-| `callbacks/12/args/1/fromNode/expandParent` | right only | — | false |
 | `callbacks/12/args/1/toPosition` | differs | null | left |
 
-### api (44)
+### api (30)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"n1","data":{"label":"n1"},"position":{"x":0,"y":0},"sourcePosition":"right","targetPosition":"left","width":100,"height":40,"measured":{"width":100,"hei… | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
 
 ## Normalization
@@ -18573,11 +15310,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 61 unclaimed difference(s).
+**Failed:** 45 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### callbacks (31)
+### callbacks (23)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -18585,68 +15322,52 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/6/args/1/hidden` | right only | — | false |
 | `callbacks/6/args/1/selected` | right only | — | false |
 | `callbacks/6/args/1/dragging` | right only | — | false |
-| `callbacks/6/args/1/expandParent` | right only | — | false |
 | `callbacks/8/args/1/hidden` | right only | — | false |
 | `callbacks/8/args/1/selected` | right only | — | false |
 | `callbacks/8/args/1/dragging` | right only | — | false |
-| `callbacks/8/args/1/expandParent` | right only | — | false |
 | `callbacks/10/args/1/hidden` | right only | — | false |
 | `callbacks/10/args/1/selected` | right only | — | false |
 | `callbacks/10/args/1/dragging` | right only | — | false |
-| `callbacks/10/args/1/expandParent` | right only | — | false |
 | `callbacks/11/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/11/args/0/nodes/0/dragging` | right only | — | false |
-| `callbacks/11/args/0/nodes/0/expandParent` | right only | — | false |
 | `callbacks/12/args/1/hidden` | right only | — | false |
 | `callbacks/12/args/1/dragging` | right only | — | false |
-| `callbacks/12/args/1/expandParent` | right only | — | false |
 | `callbacks/13/args/1/hidden` | right only | — | false |
 | `callbacks/13/args/1/selected` | right only | — | false |
 | `callbacks/13/args/1/dragging` | right only | — | false |
-| `callbacks/13/args/1/expandParent` | right only | — | false |
 | `callbacks/15/args/1/hidden` | right only | — | false |
 | `callbacks/15/args/1/selected` | right only | — | false |
 | `callbacks/15/args/1/dragging` | right only | — | false |
-| `callbacks/15/args/1/expandParent` | right only | — | false |
 | `callbacks/17/args/1/hidden` | right only | — | false |
 | `callbacks/17/args/1/selected` | right only | — | false |
 | `callbacks/17/args/1/dragging` | right only | — | false |
-| `callbacks/17/args/1/expandParent` | right only | — | false |
 
-### api (30)
+### api (22)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source` | differs | null | [] |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"props-parent","type":"propsRecord","data":{"label":"props-parent"},"position":{"x":100,"y":200},"width":300,"height":200,"measured":{"width":300,"height… | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 
 ## Normalization
 
@@ -18683,7 +15404,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 82 unclaimed difference(s).
+**Failed:** 58 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -18704,83 +15425,59 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (75)
+### api (51)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 | `api/queries/screenToFlowPosition/x` | differs | {"@number":"-0"} | 0 |
 
@@ -18819,7 +15516,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 80 unclaimed difference(s).
+**Failed:** 56 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -18839,83 +15536,59 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/1/args/0/2/resizing` | right only | — | false |
 | `callbacks/1/args/0/3/resizing` | right only | — | false |
 
-### api (74)
+### api (50)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
@@ -18953,7 +15626,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 81 unclaimed difference(s).
+**Failed:** 57 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -18974,83 +15647,59 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/3/args/0/2/resizing` | right only | — | false |
 | `callbacks/3/args/0/3/resizing` | right only | — | false |
 
-### api (74)
+### api (50)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
@@ -19088,7 +15737,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 94 unclaimed difference(s).
+**Failed:** 70 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -19120,30 +15769,25 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/1/args/0/2/resizing` | right only | — | false |
 | `callbacks/1/args/0/3/resizing` | right only | — | false |
 
-### api (76)
+### api (52)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 70.99989469881373 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999953475770162 |
@@ -19152,53 +15796,34 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
@@ -19236,7 +15861,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 78 unclaimed difference(s).
+**Failed:** 51 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -19247,90 +15872,63 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/g[0]/attrs/transform` | differs | translate(15.53076171875 63) | translate(15.53076171875 63.0) |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/g[0]/attrs/transform` | differs | translate(115.53076171875 63) | translate(115.53076171875 63.0) |
 
-### callbacks (10)
+### callbacks (7)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveStart#2"… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveStart#2"… |
 | `callbacks/0/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/0/args/0/nodes/0/dragging` | right only | — | false |
-| `callbacks/0/args/0/nodes/0/expandParent` | right only | — | false |
-| `callbacks/0/args/0/edges/0/animated` | right only | — | false |
-| `callbacks/0/args/0/edges/0/hidden` | right only | — | false |
 | `callbacks/4/args/0/0/resizing` | right only | — | false |
 | `callbacks/4/args/0/1/resizing` | right only | — | false |
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (66)
+### api (42)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","selected":true,"measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
@@ -19368,7 +15966,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 217 unclaimed difference(s).
+**Failed:** 160 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -19379,16 +15977,12 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `callbacks/1` | right only | — | {"name":"useOnSelectionChange","args":[{"nodes":[{"id":"Node-1","position":{"x":0,"y":0},"data":{"label":"Node-1"},"type":"input","hidden":false,"selected":tru… |
 | `callbacks/0/args/0/nodes/0` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
-### hooks (62)
+### hooks (47)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `hooks/flow-probe/useConnection/inProgress` | left only | false | — |
-| `hooks/flow-probe/useEdges/0/animated` | right only | — | false |
-| `hooks/flow-probe/useEdges/0/hidden` | right only | — | false |
 | `hooks/flow-probe/useEdges/0/selected` | right only | — | false |
-| `hooks/flow-probe/useEdges/1/animated` | right only | — | false |
-| `hooks/flow-probe/useEdges/1/hidden` | right only | — | false |
 | `hooks/flow-probe/useEdges/1/selected` | right only | — | false |
 | `hooks/flow-probe/useInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `hooks/flow-probe/useInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00008481768275 |
@@ -19397,45 +15991,34 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `hooks/flow-probe/useInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 | `hooks/flow-probe/useInternalNode/hidden` | right only | — | false |
 | `hooks/flow-probe/useInternalNode/dragging` | right only | — | false |
-| `hooks/flow-probe/useInternalNode/expandParent` | right only | — | false |
 | `hooks/flow-probe/useNodes/0/hidden` | right only | — | false |
 | `hooks/flow-probe/useNodes/0/dragging` | right only | — | false |
-| `hooks/flow-probe/useNodes/0/expandParent` | right only | — | false |
 | `hooks/flow-probe/useNodes/1/hidden` | right only | — | false |
 | `hooks/flow-probe/useNodes/1/selected` | right only | — | false |
 | `hooks/flow-probe/useNodes/1/dragging` | right only | — | false |
-| `hooks/flow-probe/useNodes/1/expandParent` | right only | — | false |
 | `hooks/flow-probe/useNodes/2/hidden` | right only | — | false |
 | `hooks/flow-probe/useNodes/2/selected` | right only | — | false |
 | `hooks/flow-probe/useNodes/2/dragging` | right only | — | false |
-| `hooks/flow-probe/useNodes/2/expandParent` | right only | — | false |
 | `hooks/flow-probe/useNodes/3/hidden` | right only | — | false |
 | `hooks/flow-probe/useNodes/3/selected` | right only | — | false |
 | `hooks/flow-probe/useNodes/3/dragging` | right only | — | false |
-| `hooks/flow-probe/useNodes/3/expandParent` | right only | — | false |
 | `hooks/flow-probe/useNodes/4/hidden` | right only | — | false |
 | `hooks/flow-probe/useNodes/4/selected` | right only | — | false |
 | `hooks/flow-probe/useNodes/4/dragging` | right only | — | false |
-| `hooks/flow-probe/useNodes/4/expandParent` | right only | — | false |
 | `hooks/flow-probe/useNodes/5/hidden` | right only | — | false |
 | `hooks/flow-probe/useNodes/5/selected` | right only | — | false |
 | `hooks/flow-probe/useNodes/5/dragging` | right only | — | false |
-| `hooks/flow-probe/useNodes/5/expandParent` | right only | — | false |
 | `hooks/flow-probe/useNodes/6/hidden` | right only | — | false |
 | `hooks/flow-probe/useNodes/6/selected` | right only | — | false |
 | `hooks/flow-probe/useNodes/6/dragging` | right only | — | false |
-| `hooks/flow-probe/useNodes/6/expandParent` | right only | — | false |
 | `hooks/flow-probe/useNodes/7/hidden` | right only | — | false |
 | `hooks/flow-probe/useNodes/7/selected` | right only | — | false |
 | `hooks/flow-probe/useNodes/7/dragging` | right only | — | false |
-| `hooks/flow-probe/useNodes/7/expandParent` | right only | — | false |
 | `hooks/flow-probe/useNodes/8/hidden` | right only | — | false |
 | `hooks/flow-probe/useNodes/8/selected` | right only | — | false |
 | `hooks/flow-probe/useNodes/8/dragging` | right only | — | false |
-| `hooks/flow-probe/useNodes/8/expandParent` | right only | — | false |
 | `hooks/flow-probe/useNodes/9/selected` | right only | — | false |
 | `hooks/flow-probe/useNodes/9/dragging` | right only | — | false |
-| `hooks/flow-probe/useNodes/9/expandParent` | right only | — | false |
 | `hooks/flow-probe/useStore/nodes` | left only | [{"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"me… | — |
 | `hooks/flow-probe/useStore/edges` | left only | [{"id":"1-2","type":"default","source":"Node-1","target":"Node-2","label":"edge"},{"id":"1-3","type":"default","source":"Node-1","target":"Node-3","label":"edg… | — |
 | `hooks/flow-probe/useStore/transform` | left only | [517.8398510242085,32,1.2216014897579144] | — |
@@ -19446,52 +16029,41 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `hooks/flow-probe/useStoreApi/subscribe` | left only | {"@ref":"function"} | — |
 | `hooks/flow-probe/useStoreApi/error` | right only | — | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
 
-### api (141)
+### api (99)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getState` | left only | {"rfId":"1","width":1280,"height":720,"transform":[517.8398510242085,32,1.2216014897579144],"nodes":[{"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0… | — |
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodes/3/hidden` | right only | — | false |
 | `api/queries/getNodes/3/selected` | right only | — | false |
 | `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/3/expandParent` | right only | — | false |
 | `api/queries/getNodes/4/hidden` | right only | — | false |
 | `api/queries/getNodes/4/selected` | right only | — | false |
 | `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/4/expandParent` | right only | — | false |
 | `api/queries/getNodes/5/hidden` | right only | — | false |
 | `api/queries/getNodes/5/selected` | right only | — | false |
 | `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/5/expandParent` | right only | — | false |
 | `api/queries/getNodes/6/hidden` | right only | — | false |
 | `api/queries/getNodes/6/selected` | right only | — | false |
 | `api/queries/getNodes/6/dragging` | right only | — | false |
-| `api/queries/getNodes/6/expandParent` | right only | — | false |
 | `api/queries/getNodes/7/hidden` | right only | — | false |
 | `api/queries/getNodes/7/selected` | right only | — | false |
 | `api/queries/getNodes/7/dragging` | right only | — | false |
-| `api/queries/getNodes/7/expandParent` | right only | — | false |
 | `api/queries/getNodes/8/hidden` | right only | — | false |
 | `api/queries/getNodes/8/selected` | right only | — | false |
 | `api/queries/getNodes/8/dragging` | right only | — | false |
-| `api/queries/getNodes/8/expandParent` | right only | — | false |
 | `api/queries/getNodes/9/selected` | right only | — | false |
 | `api/queries/getNodes/9/dragging` | right only | — | false |
-| `api/queries/getNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00008481768275 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 32.000038931396325 |
@@ -19499,97 +16071,66 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/selected` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/6/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/6/selected` | right only | — | false |
 | `api/queries/toObject/nodes/6/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/6/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/7/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/7/selected` | right only | — | false |
 | `api/queries/toObject/nodes/7/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/7/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/8/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/8/selected` | right only | — | false |
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/8/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/9/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ### props (2)
@@ -19611,8 +16152,8 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `console/3/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
 | `console/4/level` | differs | warning | pageerror |
 | `console/4/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:52656/parity/driver/dist/psflow.js:65092:… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:52656/parity/driver/dist/psflow.js:65092:… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:59602/parity/driver/dist/psflow.js:65094:… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:59602/parity/driver/dist/psflow.js:65094:… |
 
 
 ---
@@ -19643,20 +16184,16 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 113 unclaimed difference(s).
+**Failed:** 84 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### hooks (37)
+### hooks (29)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `hooks/flow-probe/useConnection/inProgress` | left only | false | — |
-| `hooks/flow-probe/useEdges/0/animated` | right only | — | false |
-| `hooks/flow-probe/useEdges/0/hidden` | right only | — | false |
 | `hooks/flow-probe/useEdges/0/selected` | right only | — | false |
-| `hooks/flow-probe/useEdges/1/animated` | right only | — | false |
-| `hooks/flow-probe/useEdges/1/hidden` | right only | — | false |
 | `hooks/flow-probe/useEdges/1/selected` | right only | — | false |
 | `hooks/flow-probe/useInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `hooks/flow-probe/useInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00003679426798 |
@@ -19666,19 +16203,15 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `hooks/flow-probe/useInternalNode/hidden` | right only | — | false |
 | `hooks/flow-probe/useInternalNode/selected` | right only | — | false |
 | `hooks/flow-probe/useInternalNode/dragging` | right only | — | false |
-| `hooks/flow-probe/useInternalNode/expandParent` | right only | — | false |
 | `hooks/flow-probe/useNodes/0/hidden` | right only | — | false |
 | `hooks/flow-probe/useNodes/0/selected` | right only | — | false |
 | `hooks/flow-probe/useNodes/0/dragging` | right only | — | false |
-| `hooks/flow-probe/useNodes/0/expandParent` | right only | — | false |
 | `hooks/flow-probe/useNodes/1/hidden` | right only | — | false |
 | `hooks/flow-probe/useNodes/1/selected` | right only | — | false |
 | `hooks/flow-probe/useNodes/1/dragging` | right only | — | false |
-| `hooks/flow-probe/useNodes/1/expandParent` | right only | — | false |
 | `hooks/flow-probe/useNodes/2/hidden` | right only | — | false |
 | `hooks/flow-probe/useNodes/2/selected` | right only | — | false |
 | `hooks/flow-probe/useNodes/2/dragging` | right only | — | false |
-| `hooks/flow-probe/useNodes/2/expandParent` | right only | — | false |
 | `hooks/flow-probe/useStore/nodes` | left only | [{"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}},{"id":"2","data":{"label":"2"},"position":{"x":-1… | — |
 | `hooks/flow-probe/useStore/edges` | left only | [{"id":"first-edge","source":"1","target":"2"},{"id":"second-edge","source":"1","target":"3"}] | — |
 | `hooks/flow-probe/useStore/transform` | left only | [552.9449436703876,121.469145656862,3.4822022531844965] | — |
@@ -19689,7 +16222,7 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `hooks/flow-probe/useStoreApi/subscribe` | left only | {"@ref":"function"} | — |
 | `hooks/flow-probe/useStoreApi/error` | right only | — | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
 
-### api (65)
+### api (44)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -19697,19 +16230,15 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/selected` | right only | — | false |
 | `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/selected` | right only | — | false |
 | `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00003679426798 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 32.0000232488172 |
@@ -19718,45 +16247,28 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/expandParent` | right only | — | false |
-| `api/queries/getEdges/0/animated` | right only | — | false |
-| `api/queries/getEdges/0/hidden` | right only | — | false |
 | `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/animated` | right only | — | false |
-| `api/queries/getEdges/1/hidden` | right only | — | false |
 | `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/animated` | right only | — | false |
-| `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/expandParent` | right only | — | false |
-| `api/queries/toObject/edges/0/animated` | right only | — | false |
-| `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/animated` | right only | — | false |
-| `api/queries/toObject/edges/1/hidden` | right only | — | false |
 | `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ### props (2)
@@ -19777,8 +16289,8 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `console/3/level` | differs | warning | pageerror |
 | `console/3/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
 | `console/4` | right only | — | {"level":"pageerror","text":"ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScri… |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:52656/parity/driver/dist/psflow.js:65092:… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:52656/parity/driver/dist/psflow.js:65092:… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:59602/parity/driver/dist/psflow.js:65094:… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:59602/parity/driver/dist/psflow.js:65094:… |
 
 
 ---
@@ -19809,16 +16321,15 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `props`, `console`.
 
-**Failed:** 16 unclaimed difference(s).
+**Failed:** 14 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### props (16)
+### props (14)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `props/edge-component-props/selected` | differs | {"@undefined":true} | false |
-| `props/edge-component-props/animated` | differs | {"@undefined":true} | false |
 | `props/edge-component-props/selectable` | differs | true | {"@undefined":true} |
 | `props/edge-component-props/deletable` | differs | true | {"@undefined":true} |
 | `props/edge-component-props/sourceX` | differs | 75 | 75.00001857790781 |
@@ -19826,7 +16337,6 @@ Compared sections: `props`, `console`.
 | `props/edge-component-props/targetX` | differs | -25 | -24.99998142209219 |
 | `props/edge-component-props/targetY` | differs | 97 | 96.99999692174447 |
 | `props/edge-props/selected` | differs | {"@undefined":true} | false |
-| `props/edge-props/animated` | differs | {"@undefined":true} | false |
 | `props/edge-props/selectable` | differs | true | {"@undefined":true} |
 | `props/edge-props/deletable` | differs | true | {"@undefined":true} |
 | `props/edge-props/sourceX` | differs | 75 | 75.00001857790781 |
@@ -19863,11 +16373,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `props`, `console`.
 
-**Failed:** 28 unclaimed difference(s).
+**Failed:** 26 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### props (28)
+### props (26)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -19879,7 +16389,6 @@ Compared sections: `props`, `console`.
 | `props/connection-line-props/fromNode/hidden` | right only | — | false |
 | `props/connection-line-props/fromNode/selected` | right only | — | false |
 | `props/connection-line-props/fromNode/dragging` | right only | — | false |
-| `props/connection-line-props/fromNode/expandParent` | right only | — | false |
 | `props/connection-line-props/fromHandle/id` | differs | null | {"@undefined":true} |
 | `props/connection-line-props/fromHandle/x` | differs | 71 | 70.99981241215175 |
 | `props/connection-line-props/fromHandle/y` | differs | 32 | 31.999917853269015 |
@@ -19895,7 +16404,6 @@ Compared sections: `props`, `console`.
 | `props/connection-line-props/toNode/hidden` | right only | — | false |
 | `props/connection-line-props/toNode/selected` | right only | — | false |
 | `props/connection-line-props/toNode/dragging` | right only | — | false |
-| `props/connection-line-props/toNode/expandParent` | right only | — | false |
 | `props/connection-line-props/toHandle/id` | differs | null | {"@undefined":true} |
 | `props/connection-line-props/toHandle/x` | differs | 75 | 74.99981241215175 |
 | `props/connection-line-props/toHandle/y` | differs | 201 | 201.00001209999465 |

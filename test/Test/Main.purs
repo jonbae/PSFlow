@@ -45,6 +45,9 @@ import Test.Parity.Graph (runGraphParity)
 import Test.Parity.Marker (runMarkerParity)
 import Test.Parity.Toolbar (runToolbarParity)
 import Test.Boundary.ConnectionNullHandle (runConnectionNullHandleTests)
+import Test.Boundary.EdgeAnimated (runEdgeAnimatedTests)
+import Test.Boundary.EdgeHidden (runEdgeHiddenTests)
+import Test.Boundary.NodeExpandParent (runNodeExpandParentTests)
 import Test.Boundary.PrunedKeys (runPrunedKeysTests)
 import Test.Boundary.Wrapper (runWrapperTests)
 import Test.Properties (runProperties)
@@ -498,7 +501,7 @@ main = do
       , parentId: Nothing
       , zIndex: Nothing
       , extent: Nothing
-      , expandParent: false
+      , expandParent: Nothing
       , ariaLabel: Nothing
       , origin: Nothing
       , handles: Nothing
@@ -515,8 +518,8 @@ main = do
       , target: NodeId tgt
       , sourceHandle: Nothing
       , targetHandle: Nothing
-      , animated: false
-      , hidden: false
+      , animated: Nothing
+      , hidden: Nothing
       , deletable: Nothing
       , selectable: Nothing
       , data: Nothing
@@ -658,7 +661,7 @@ main = do
       , parentId
       , zIndex: Nothing
       , extent: Nothing
-      , expandParent: false
+      , expandParent: Nothing
       , ariaLabel: Nothing
       , origin: Nothing
       , handles: Nothing
@@ -741,7 +744,7 @@ main = do
       , extent: Nothing
       , parentId: Nothing
       , origin: Nothing
-      , expandParent: false
+      , expandParent: Nothing
       , internals: { positionAbsolute: { x: 0.0, y: 0.0 } }
       , measured: { width: 0.0, height: 0.0 }
       , dragging: false
@@ -1119,6 +1122,9 @@ main = do
   runNodeRenderOrderTests
   runConnectionOrderTests
   runConnectionNullHandleTests
+  runEdgeAnimatedTests
+  runNodeExpandParentTests
+  runEdgeHiddenTests
 
   -- Function parity — live differential against XYFlow (via the @psflow/oracle bundle).
   -- Requires `npm run build:oracle` to have produced oracle/index.js.

@@ -39,7 +39,8 @@
 -- |     `onError` callback fires on every miss. Acceptable because
 -- |     `nodeTypes`/`edgeTypes` are expected to be stable references.
 module React.Component.EdgeWrapper
-  ( edgeWrapper
+  ( applyDefaults
+  , edgeWrapper
   ) where
 
 import Prelude
@@ -124,8 +125,8 @@ placeholderEdge edgeId =
   , target: NodeId ""
   , sourceHandle: Nothing
   , targetHandle: Nothing
-  , animated: false
-  , hidden: true
+  , animated: Nothing
+  , hidden: Just true
   , deletable: Nothing
   , selectable: Nothing
   , data: Nothing
@@ -150,8 +151,8 @@ applyDefaults
 applyDefaults Nothing edge = edge
 applyDefaults (Just defaults) edge =
   edge
-    { animated = edge.animated || fromMaybe false defaults.animated
-    , hidden = edge.hidden || fromMaybe false defaults.hidden
+    { animated = orElse edge.animated defaults.animated
+    , hidden = orElse edge.hidden defaults.hidden
     , deletable = orElse edge.deletable defaults.deletable
     , selectable = orElse edge.selectable defaults.selectable
     , data = orElse edge.data defaults.data
@@ -364,7 +365,7 @@ edgeWrapper =
           Just m -> Just (markerUrl m props.rfId)
           Nothing -> Nothing
 
-        hide = edge.hidden
+        hide = edge.hidden == Just true
           || isNothing positionSlice.sourceX
           || isNothing positionSlice.sourceY
           || isNothing positionSlice.targetX
@@ -431,7 +432,7 @@ edgeWrapper =
                     { edgeType
                     , noPanClassName: props.noPanClassName
                     , selected: edge.selected
-                    , animated: edge.animated
+                    , animated: fromMaybe false edge.animated
                     , selectable: isSelectable
                     , inactive: not isSelectable && isNothing props.onClick
                     , updating: updateHover

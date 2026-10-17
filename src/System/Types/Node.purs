@@ -74,7 +74,10 @@ type NodeBaseRow nodeData =
   , parentId :: Maybe ParentId
   , zIndex :: Maybe Int
   , extent :: Maybe NodeExtent
-  , expandParent :: Boolean
+  -- | Absent unless the consumer sets it, as upstream's optional field is:
+  -- | upstream builds an internal node from `{ ...defaults, ...userNode }`,
+  -- | and every reader treats absent as `false`.
+  , expandParent :: Maybe Boolean
   , ariaLabel :: Maybe String
   , origin :: Maybe NodeOrigin
   , handles :: Maybe (Array NodeHandle)
@@ -136,7 +139,7 @@ type NodeDragItem =
   , extent :: Maybe NodeExtent
   , parentId :: Maybe ParentId
   , origin :: Maybe NodeOrigin
-  , expandParent :: Boolean
+  , expandParent :: Maybe Boolean
   , dragging :: Boolean
   }
 

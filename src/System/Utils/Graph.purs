@@ -427,7 +427,7 @@ calculateNodePosition p = case Map.lookup p.nodeId p.nodeLookup of
         Nothing -> p.nodeExtent
 
       extent = case node.extent of
-        Just ParentExtent | not node.expandParent ->
+        Just ParentExtent | node.expandParent /= Just true ->
           case parentNode of
             Just pn -> case pn.measured.width, pn.measured.height of
               Just pw, Just ph ->
