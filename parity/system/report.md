@@ -12,107 +12,107 @@ claimed by a region — never by loosening what the net looks at.
 
 | scenario | verdict | failure classes | differences |
 |---|---|---|---|
-| `mount-baseline--edges-general` | **failed** | unclaimed-difference | 373 |
-| `mount-baseline--node-toolbar-general` | **failed** | unclaimed-difference | 215 |
-| `mount-baseline--nodes-general` | **failed** | unclaimed-difference | 180 |
-| `mount-baseline--pane-general` | **failed** | unclaimed-difference | 88 |
-| `mount-baseline--pane-non-defaults` | **failed** | unclaimed-difference | 73 |
-| `mount-baseline--chrome-background` | **failed** | unclaimed-difference | 91 |
-| `mount-baseline--chrome-controls` | **failed** | unclaimed-difference | 89 |
-| `mount-baseline--chrome-minimap-colors` | **failed** | unclaimed-difference | 90 |
-| `mount-baseline--chrome-minimap-hidden-nodes` | **failed** | unclaimed-difference | 48 |
-| `mount-baseline--chrome-panels` | **failed** | unclaimed-difference | 89 |
+| `mount-baseline--edges-general` | **failed** | unclaimed-difference | 365 |
+| `mount-baseline--node-toolbar-general` | **failed** | unclaimed-difference | 211 |
+| `mount-baseline--nodes-general` | **failed** | unclaimed-difference | 172 |
+| `mount-baseline--pane-general` | **failed** | unclaimed-difference | 80 |
+| `mount-baseline--pane-non-defaults` | **failed** | unclaimed-difference | 65 |
+| `mount-baseline--chrome-background` | **failed** | unclaimed-difference | 83 |
+| `mount-baseline--chrome-controls` | **failed** | unclaimed-difference | 81 |
+| `mount-baseline--chrome-minimap-colors` | **failed** | unclaimed-difference | 82 |
+| `mount-baseline--chrome-minimap-hidden-nodes` | **failed** | unclaimed-difference | 44 |
+| `mount-baseline--chrome-panels` | **failed** | unclaimed-difference | 81 |
 | `mount-baseline--edges-base-edge-path` | **failed** | driving-divergence, unclaimed-difference | 67 |
-| `mount-baseline--fitview-uncontrolled` | **failed** | unclaimed-difference | 89 |
-| `mount-baseline--flow-chrome-defaults` | **failed** | unclaimed-difference | 51 |
-| `mount-baseline--flow-custom-testid` | **failed** | unclaimed-difference | 90 |
-| `mount-baseline--flow-display-none` | **failed** | unclaimed-difference | 89 |
-| `mount-baseline--flow-limits-change` | **failed** | unclaimed-difference | 88 |
-| `mount-baseline--flow-not-selectable` | **failed** | unclaimed-difference | 86 |
-| `mount-baseline--flow-props-change` | **failed** | unclaimed-difference | 89 |
-| `mount-baseline--nodes-autopan` | **failed** | unclaimed-difference | 73 |
+| `mount-baseline--fitview-uncontrolled` | **failed** | unclaimed-difference | 81 |
+| `mount-baseline--flow-chrome-defaults` | **failed** | unclaimed-difference | 47 |
+| `mount-baseline--flow-custom-testid` | **failed** | unclaimed-difference | 82 |
+| `mount-baseline--flow-display-none` | **failed** | unclaimed-difference | 81 |
+| `mount-baseline--flow-limits-change` | **failed** | unclaimed-difference | 80 |
+| `mount-baseline--flow-not-selectable` | **failed** | unclaimed-difference | 78 |
+| `mount-baseline--flow-props-change` | **failed** | unclaimed-difference | 81 |
+| `mount-baseline--nodes-autopan` | **failed** | unclaimed-difference | 65 |
 | `mount-baseline--nodes-connections` | **failed** | unclaimed-difference | 167 |
 | `mount-baseline--nodes-expand-parent` | **failed** | unclaimed-difference | 96 |
-| `mount-baseline--nodes-no-select-on-drag` | **failed** | unclaimed-difference | 89 |
-| `mount-baseline--nodes-nowheel` | **failed** | unclaimed-difference | 83 |
+| `mount-baseline--nodes-no-select-on-drag` | **failed** | unclaimed-difference | 81 |
+| `mount-baseline--nodes-nowheel` | **failed** | unclaimed-difference | 79 |
 | `mount-baseline--nodes-props-record` | **failed** | unclaimed-difference | 35 |
-| `mount-baseline--nodes-tall` | **failed** | unclaimed-difference | 88 |
-| `mount-baseline--nodes-unmeasured` | **failed** | unclaimed-difference | 57 |
-| `mount-baseline--viewport-controlled` | **failed** | unclaimed-difference | 89 |
-| `mount-baseline--viewport-helpers` | **failed** | unclaimed-difference | 113 |
-| `mount-baseline--viewport-pan-on-scroll` | **failed** | unclaimed-difference | 88 |
+| `mount-baseline--nodes-tall` | **failed** | unclaimed-difference | 84 |
+| `mount-baseline--nodes-unmeasured` | **failed** | unclaimed-difference | 53 |
+| `mount-baseline--viewport-controlled` | **failed** | unclaimed-difference | 81 |
+| `mount-baseline--viewport-helpers` | **failed** | unclaimed-difference | 105 |
+| `mount-baseline--viewport-pan-on-scroll` | **failed** | unclaimed-difference | 80 |
 | `mount-baseline--examples-color-mode` | **failed** | unclaimed-difference | 9 |
-| `click-selects-edge` | **failed** | driving-divergence, unclaimed-difference | 391 |
-| `multi-select-edges-with-modifier` | **failed** | driving-divergence, unclaimed-difference | 414 |
-| `click-unselectable-edge` | **failed** | unclaimed-difference | 382 |
-| `delete-key-removes-edge` | **failed** | driving-divergence, unclaimed-difference | 384 |
-| `delete-key-spares-undeletable-edge` | **failed** | driving-divergence, unclaimed-difference | 393 |
-| `click-inside-interaction-width` | **failed** | driving-divergence, unclaimed-difference | 384 |
-| `click-selects-node` | **failed** | unclaimed-difference | 199 |
-| `shift-drag-selects-nodes` | **failed** | unclaimed-difference | 180 |
-| `click-unselectable-node` | **failed** | unclaimed-difference | 204 |
-| `drag-moves-node` | **failed** | unclaimed-difference | 236 |
-| `drag-does-not-move-undraggable-node` | **failed** | unclaimed-difference | 205 |
-| `drag-by-custom-drag-handle` | **failed** | unclaimed-difference | 242 |
+| `click-selects-edge` | **failed** | driving-divergence, unclaimed-difference | 383 |
+| `multi-select-edges-with-modifier` | **failed** | driving-divergence, unclaimed-difference | 406 |
+| `click-unselectable-edge` | **failed** | unclaimed-difference | 374 |
+| `delete-key-removes-edge` | **failed** | driving-divergence, unclaimed-difference | 380 |
+| `delete-key-spares-undeletable-edge` | **failed** | driving-divergence, unclaimed-difference | 385 |
+| `click-inside-interaction-width` | **failed** | driving-divergence, unclaimed-difference | 376 |
+| `click-selects-node` | **failed** | unclaimed-difference | 191 |
+| `shift-drag-selects-nodes` | **failed** | unclaimed-difference | 172 |
+| `click-unselectable-node` | **failed** | unclaimed-difference | 196 |
+| `drag-moves-node` | **failed** | unclaimed-difference | 228 |
+| `drag-does-not-move-undraggable-node` | **failed** | unclaimed-difference | 197 |
+| `drag-by-custom-drag-handle` | **failed** | unclaimed-difference | 234 |
 | `delete-key-removes-node-and-edges` | **failed** | unclaimed-difference | 174 |
-| `delete-key-spares-undeletable-node` | **failed** | unclaimed-difference | 202 |
-| `connect-source-handle-to-target-handle` | **failed** | unclaimed-difference | 284 |
-| `connect-output-to-output-handle` | **failed** | unclaimed-difference | 257 |
-| `connect-input-to-input-handle` | **failed** | unclaimed-difference | 268 |
-| `connect-to-unconnectable-handle` | **failed** | unclaimed-difference | 258 |
-| `drag-pans-the-pane` | **failed** | unclaimed-difference | 88 |
-| `wheel-zooms-the-pane` | **failed** | unclaimed-difference | 88 |
-| `wheel-zooms-out-to-min` | **failed** | unclaimed-difference | 74 |
-| `wheel-zooms-in-to-max` | **failed** | unclaimed-difference | 74 |
-| `wheel-pans-with-panonscroll` | **failed** | unclaimed-difference | 85 |
-| `click-reveals-default-toolbar` | **failed** | unclaimed-difference | 225 |
+| `delete-key-spares-undeletable-node` | **failed** | unclaimed-difference | 194 |
+| `connect-source-handle-to-target-handle` | **failed** | unclaimed-difference | 272 |
+| `connect-output-to-output-handle` | **failed** | unclaimed-difference | 249 |
+| `connect-input-to-input-handle` | **failed** | unclaimed-difference | 260 |
+| `connect-to-unconnectable-handle` | **failed** | unclaimed-difference | 250 |
+| `drag-pans-the-pane` | **failed** | unclaimed-difference | 80 |
+| `wheel-zooms-the-pane` | **failed** | unclaimed-difference | 80 |
+| `wheel-zooms-out-to-min` | **failed** | unclaimed-difference | 66 |
+| `wheel-zooms-in-to-max` | **failed** | unclaimed-difference | 66 |
+| `wheel-pans-with-panonscroll` | **failed** | unclaimed-difference | 77 |
+| `click-reveals-default-toolbar` | **failed** | unclaimed-difference | 221 |
 | `select-dark-color-mode` | **failed** | unclaimed-difference | 9 |
-| `drag-node-release` | **failed** | unclaimed-difference | 299 |
-| `drag-node-escape-mid-gesture` | **failed** | unclaimed-difference | 224 |
-| `drag-node-autopan` | **failed** | self-inconsistent, unclaimed-difference | 359 |
-| `drag-node-no-select-on-drag` | **failed** | unclaimed-difference | 196 |
+| `drag-node-release` | **failed** | unclaimed-difference | 291 |
+| `drag-node-escape-mid-gesture` | **failed** | unclaimed-difference | 216 |
+| `drag-node-autopan` | **failed** | self-inconsistent, unclaimed-difference | 373 |
+| `drag-node-no-select-on-drag` | **failed** | unclaimed-difference | 188 |
 | `drag-child-expand-parent` | **failed** | driving-divergence, unclaimed-difference | 179 |
-| `drag-unmeasured-node` | **failed** | unclaimed-difference | 107 |
-| `selection-box-from-node` | **failed** | unclaimed-difference | 196 |
-| `selection-box-then-click-node` | **failed** | unclaimed-difference | 236 |
-| `selection-box-mid-gesture` | **failed** | unclaimed-difference | 89 |
-| `selection-box-touch` | **failed** | unclaimed-difference | 204 |
-| `arrow-key-selected-node` | **failed** | self-inconsistent, unclaimed-difference | 140 |
-| `keyboard-focus-node` | **failed** | unclaimed-difference | 86 |
-| `connect-handle-to-handle` | **failed** | unclaimed-difference | 359 |
-| `connect-then-keyboard-move` | **failed** | unclaimed-difference | 254 |
-| `connect-second-touch-point` | **failed** | unclaimed-difference | 194 |
+| `drag-unmeasured-node` | **failed** | unclaimed-difference | 103 |
+| `selection-box-from-node` | **failed** | unclaimed-difference | 188 |
+| `selection-box-then-click-node` | **failed** | unclaimed-difference | 228 |
+| `selection-box-mid-gesture` | **failed** | unclaimed-difference | 81 |
+| `selection-box-touch` | **failed** | unclaimed-difference | 196 |
+| `arrow-key-selected-node` | **failed** | self-inconsistent, unclaimed-difference | 136 |
+| `keyboard-focus-node` | **failed** | unclaimed-difference | 82 |
+| `connect-handle-to-handle` | **failed** | unclaimed-difference | 347 |
+| `connect-then-keyboard-move` | **failed** | unclaimed-difference | 246 |
+| `connect-second-touch-point` | **failed** | unclaimed-difference | 186 |
 | `probe-node-connections` | **failed** | unclaimed-difference | 256 |
-| `viewport-helpers-with-options` | **failed** | unclaimed-difference | 106 |
-| `pan-gesture-complete` | **failed** | unclaimed-difference | 88 |
-| `fitview-onnodeschange-variants` | **failed** | unclaimed-difference | 126 |
-| `uncontrolled-update-node` | **failed** | unclaimed-difference | 119 |
-| `flow-props-change-after-mount` | **failed** | unclaimed-difference | 123 |
-| `mount-in-display-none` | **failed** | unclaimed-difference | 90 |
-| `minimap-all-nodes-hidden` | **failed** | unclaimed-difference | 48 |
-| `minimap-custom-mask-colors` | **failed** | unclaimed-difference | 103 |
-| `controls-horizontal` | **failed** | unclaimed-difference | 90 |
-| `panel-center-positions` | **failed** | unclaimed-difference | 89 |
-| `background-custom-bgcolor` | **failed** | unclaimed-difference | 91 |
-| `flow-custom-testid` | **failed** | driving-divergence, unclaimed-difference | 112 |
+| `viewport-helpers-with-options` | **failed** | unclaimed-difference | 102 |
+| `pan-gesture-complete` | **failed** | unclaimed-difference | 80 |
+| `fitview-onnodeschange-variants` | **failed** | unclaimed-difference | 118 |
+| `uncontrolled-update-node` | **failed** | unclaimed-difference | 107 |
+| `flow-props-change-after-mount` | **failed** | unclaimed-difference | 115 |
+| `mount-in-display-none` | **failed** | unclaimed-difference | 82 |
+| `minimap-all-nodes-hidden` | **failed** | unclaimed-difference | 44 |
+| `minimap-custom-mask-colors` | **failed** | unclaimed-difference | 95 |
+| `controls-horizontal` | **failed** | unclaimed-difference | 82 |
+| `panel-center-positions` | **failed** | unclaimed-difference | 81 |
+| `background-custom-bgcolor` | **failed** | unclaimed-difference | 83 |
+| `flow-custom-testid` | **failed** | driving-divergence, unclaimed-difference | 104 |
 | `custom-edge-baseedge-path` | **failed** | driving-divergence, unclaimed-difference | 92 |
-| `pinch-over-nowheel-node` | **failed** | driving-divergence, unclaimed-difference | 177 |
-| `minimap-default-click` | **failed** | unclaimed-difference | 51 |
-| `controls-default-zoom` | **failed** | unclaimed-difference | 52 |
-| `wheel-zoom-from-identity-viewport` | **failed** | unclaimed-difference | 61 |
-| `pane-drag-from-identity-viewport` | **failed** | unclaimed-difference | 51 |
-| `drag-node-reports-changes` | **failed** | self-inconsistent, unclaimed-difference | 280 |
-| `click-connect-reverse-direction` | **failed** | unclaimed-difference | 113 |
-| `connect-drag-holding-source` | **failed** | unclaimed-difference | 103 |
-| `connect-drag-released-on-pane` | **failed** | unclaimed-difference | 112 |
+| `pinch-over-nowheel-node` | **failed** | driving-divergence, unclaimed-difference | 173 |
+| `minimap-default-click` | **failed** | unclaimed-difference | 47 |
+| `controls-default-zoom` | **failed** | unclaimed-difference | 48 |
+| `wheel-zoom-from-identity-viewport` | **failed** | unclaimed-difference | 57 |
+| `pane-drag-from-identity-viewport` | **failed** | unclaimed-difference | 47 |
+| `drag-node-reports-changes` | **failed** | unclaimed-difference | 116 |
+| `click-connect-reverse-direction` | **failed** | unclaimed-difference | 109 |
+| `connect-drag-holding-source` | **failed** | unclaimed-difference | 99 |
+| `connect-drag-released-on-pane` | **failed** | unclaimed-difference | 108 |
 | `node-props-record-parented` | **failed** | unclaimed-difference | 61 |
-| `wheel-zooms-to-changed-limits` | **failed** | unclaimed-difference | 90 |
-| `drag-pans-into-changed-extent` | **failed** | unclaimed-difference | 88 |
-| `pan-after-controlled-viewport-change` | **failed** | self-inconsistent, unclaimed-difference | 90 |
-| `ctrl-wheel-pinches-with-panonscroll` | **failed** | unclaimed-difference | 102 |
-| `pane-click-keeps-selection-when-not-selectable` | **failed** | unclaimed-difference | 86 |
-| `click-selects-node--probe-flow-node` | **failed** | unclaimed-difference | 225 |
-| `wheel-zooms-the-pane--probe-flow-node` | **failed** | unclaimed-difference | 123 |
+| `wheel-zooms-to-changed-limits` | **failed** | unclaimed-difference | 82 |
+| `drag-pans-into-changed-extent` | **failed** | unclaimed-difference | 80 |
+| `pan-after-controlled-viewport-change` | **failed** | unclaimed-difference | 81 |
+| `ctrl-wheel-pinches-with-panonscroll` | **failed** | unclaimed-difference | 94 |
+| `pane-click-keeps-selection-when-not-selectable` | **failed** | unclaimed-difference | 78 |
+| `click-selects-node--probe-flow-node` | **failed** | unclaimed-difference | 217 |
+| `wheel-zooms-the-pane--probe-flow-node` | **failed** | unclaimed-difference | 113 |
 | `mount-baseline--edges-general--probe-edge` | **failed** | unclaimed-difference | 16 |
 | `connect-source-handle-to-target-handle--probe-connection-line` | **failed** | unclaimed-difference | 28 |
 
@@ -147,7 +147,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 373 unclaimed difference(s).
+**Failed:** 365 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -274,7 +274,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/13/dimensions/height` | differs | 50 | 37 |
 | `callbacks/4/args/0/13/resizing` | right only | — | false |
 
-### api (260)
+### api (252)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -440,14 +440,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/13/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -568,7 +560,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 215 unclaimed difference(s).
+**Failed:** 211 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -613,7 +605,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/12/id` | differs | node-end-left | node-start-top |
 | `callbacks/4/args/0/12/resizing` | right only | — | false |
 
-### api (184)
+### api (180)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -742,10 +734,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/12/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/12/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/12/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -831,7 +819,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 180 unclaimed difference(s).
+**Failed:** 172 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -872,7 +860,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/8/id` | differs | notDeletable | notSelectable |
 | `callbacks/4/args/0/8/resizing` | right only | — | false |
 
-### api (153)
+### api (145)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -976,14 +964,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -1059,7 +1039,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 88 unclaimed difference(s).
+**Failed:** 80 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1089,7 +1069,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/1/resizing` | right only | — | false |
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 
-### api (72)
+### api (64)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -1139,14 +1119,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -1195,7 +1167,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 73 unclaimed difference(s).
+**Failed:** 65 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1207,7 +1179,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/1/args/0/1/resizing` | right only | — | false |
 | `callbacks/1/args/0/2/resizing` | right only | — | false |
 
-### api (70)
+### api (62)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -1255,14 +1227,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -1311,7 +1275,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 91 unclaimed difference(s).
+**Failed:** 83 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1334,7 +1298,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (82)
+### api (74)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -1390,14 +1354,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -1450,7 +1406,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 89 unclaimed difference(s).
+**Failed:** 81 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1471,7 +1427,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (82)
+### api (74)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -1527,14 +1483,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -1587,7 +1535,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 90 unclaimed difference(s).
+**Failed:** 82 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1609,7 +1557,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (82)
+### api (74)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -1665,14 +1613,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -1725,7 +1665,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 48 unclaimed difference(s).
+**Failed:** 44 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1735,7 +1675,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `dom/root/children/div[1]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-184h1408v1088h-1408z⏎        M0,0h1280v720h-1280z | M-64,-184h1408v1088h-1408z M0,0h1280v720h-1280z |
 
-### api (47)
+### api (43)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -1770,10 +1710,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
@@ -1816,7 +1752,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 89 unclaimed difference(s).
+**Failed:** 81 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1837,7 +1773,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (82)
+### api (74)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -1893,14 +1829,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -2052,8 +1980,8 @@ a real divergence is exactly what would be hiding down there.
 | `console/2` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/3` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/4` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:50397/parity/driver/dist/… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:50397/parity/driver/dist/… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:52656/parity/driver/dist/… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:52656/parity/driver/dist/… |
 | `console/7` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 
 
@@ -2085,7 +2013,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 89 unclaimed difference(s).
+**Failed:** 81 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -2106,7 +2034,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (82)
+### api (74)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -2162,14 +2090,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -2222,7 +2142,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 51 unclaimed difference(s).
+**Failed:** 47 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -2234,7 +2154,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","patternTransform":"translate(-11,-11)"},… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","pat… |
 
-### api (48)
+### api (44)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -2271,10 +2191,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -2316,7 +2232,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 90 unclaimed difference(s).
+**Failed:** 82 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -2338,7 +2254,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (82)
+### api (74)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -2394,14 +2310,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -2454,7 +2362,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 89 unclaimed difference(s).
+**Failed:** 81 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -2475,7 +2383,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (82)
+### api (74)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -2531,14 +2439,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -2591,7 +2491,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 88 unclaimed difference(s).
+**Failed:** 80 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -2611,7 +2511,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/1/args/0/2/resizing` | right only | — | false |
 | `callbacks/1/args/0/3/resizing` | right only | — | false |
 
-### api (82)
+### api (74)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -2667,14 +2567,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -2727,7 +2619,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 86 unclaimed difference(s).
+**Failed:** 78 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -2753,7 +2645,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (74)
+### api (66)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -2803,14 +2695,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
@@ -2861,7 +2745,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 89 unclaimed difference(s).
+**Failed:** 81 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -2882,7 +2766,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (82)
+### api (74)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -2938,14 +2822,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -2998,7 +2874,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 73 unclaimed difference(s).
+**Failed:** 65 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -3010,7 +2886,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/1/args/0/1/resizing` | right only | — | false |
 | `callbacks/1/args/0/2/resizing` | right only | — | false |
 
-### api (70)
+### api (62)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -3058,14 +2934,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -3473,7 +3341,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 89 unclaimed difference(s).
+**Failed:** 81 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -3494,7 +3362,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (82)
+### api (74)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -3550,14 +3418,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -3610,7 +3470,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 83 unclaimed difference(s).
+**Failed:** 79 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -3640,7 +3500,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/1/resizing` | right only | — | false |
 | `callbacks/5/args/1/y` | differs | 54.68852459016392 | 324.6983606557377 |
 
-### api (67)
+### api (63)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -3690,10 +3550,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodesBounds/height` | differs | 320 | 37 |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/measured/width` | differs | 400 | 150 |
 | `api/queries/toObject/nodes/0/measured/height` | differs | 320 | 37 |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
@@ -3814,7 +3670,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 88 unclaimed difference(s).
+**Failed:** 84 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -3827,7 +3683,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/1/args/0/2/resizing` | right only | — | false |
 | `callbacks/1/args/0/3/resizing` | right only | — | false |
 
-### api (84)
+### api (80)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -3886,10 +3742,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -3945,7 +3797,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 57 unclaimed difference(s).
+**Failed:** 53 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -3962,7 +3814,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/0/resizing` | right only | — | false |
 | `callbacks/4/args/0/1/resizing` | right only | — | false |
 
-### api (49)
+### api (45)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -3999,10 +3851,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
@@ -4045,7 +3893,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 89 unclaimed difference(s).
+**Failed:** 81 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -4066,7 +3914,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/3/args/0/2/resizing` | right only | — | false |
 | `callbacks/3/args/0/3/resizing` | right only | — | false |
 
-### api (82)
+### api (74)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -4122,14 +3970,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -4182,7 +4022,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 113 unclaimed difference(s).
+**Failed:** 105 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -4219,7 +4059,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (90)
+### api (82)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -4280,14 +4120,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -4343,7 +4175,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 88 unclaimed difference(s).
+**Failed:** 80 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -4363,7 +4195,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/1/args/0/2/resizing` | right only | — | false |
 | `callbacks/1/args/0/3/resizing` | right only | — | false |
 
-### api (82)
+### api (74)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -4419,14 +4251,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -4526,7 +4350,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 4 driving divergence(s), 387 unclaimed difference(s).
+**Failed:** 4 driving divergence(s), 379 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -4686,7 +4510,7 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/12/args/0/edges/0/animated` | right only | — | false |
 | `callbacks/12/args/0/edges/0/hidden` | right only | — | false |
 
-### api (257) — consequence of the driving divergence
+### api (249) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -4850,14 +4674,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getIntersectingNodes/13/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -4983,7 +4799,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 11 driving divergence(s), 403 unclaimed difference(s).
+**Failed:** 11 driving divergence(s), 395 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -5168,7 +4984,7 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/19/args/0/edges/1/animated` | right only | — | false |
 | `callbacks/19/args/0/edges/1/hidden` | right only | — | false |
 
-### api (255) — consequence of the driving divergence
+### api (247) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -5331,14 +5147,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getIntersectingNodes/13/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -5463,7 +5271,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 382 unclaimed difference(s).
+**Failed:** 374 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -5599,7 +5407,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/10/args/1/hidden` | right only | — | false |
 | `callbacks/10/args/1/selected` | right only | — | false |
 
-### api (260)
+### api (252)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -5765,14 +5573,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/13/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -5899,7 +5699,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 4 driving divergence(s), 380 unclaimed difference(s).
+**Failed:** 4 driving divergence(s), 376 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -6059,7 +5859,7 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/18/args/0/clientY` | differs | 96.19429016113281 | 96.19428253173828 |
 | `callbacks/18/args/0/pageY` | differs | 96.19429016113281 | 96.19428253173828 |
 
-### api (250) — consequence of the driving divergence
+### api (246) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -6222,10 +6022,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getIntersectingNodes/13/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -6349,7 +6145,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 4 driving divergence(s), 389 unclaimed difference(s).
+**Failed:** 4 driving divergence(s), 381 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -6510,7 +6306,7 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/12/args/0/edges/0/animated` | right only | — | false |
 | `callbacks/12/args/0/edges/0/hidden` | right only | — | false |
 
-### api (258) — consequence of the driving divergence
+### api (250) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -6675,14 +6471,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getIntersectingNodes/13/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -6808,7 +6596,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 2 driving divergence(s), 382 unclaimed difference(s).
+**Failed:** 2 driving divergence(s), 374 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -6960,7 +6748,7 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/12/args/0/edges/0/animated` | right only | — | false |
 | `callbacks/12/args/0/edges/0/hidden` | right only | — | false |
 
-### api (258) — consequence of the driving divergence
+### api (250) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -7125,14 +6913,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getIntersectingNodes/13/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/13/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -7258,7 +7038,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 199 unclaimed difference(s).
+**Failed:** 191 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -7323,7 +7103,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/14/args/1/dragging` | right only | — | false |
 | `callbacks/14/args/1/expandParent` | right only | — | false |
 
-### api (148)
+### api (140)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -7423,14 +7203,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
@@ -7511,7 +7283,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 180 unclaimed difference(s).
+**Failed:** 172 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -7568,7 +7340,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/9/args/0/edges/0` | right only | — | {"id":"1-2","type":"default","source":"Node-1","target":"Node-2","animated":false,"hidden":false,"selected":true,"label":"edge"} |
 | `callbacks/9/args/0/edges/1` | right only | — | {"id":"1-3","type":"default","source":"Node-1","target":"Node-3","animated":false,"hidden":false,"selected":true,"label":"edge"} |
 
-### api (137)
+### api (129)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -7661,14 +7433,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
@@ -7745,7 +7509,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 204 unclaimed difference(s).
+**Failed:** 196 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -7810,7 +7574,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/12/args/1/dragging` | right only | — | false |
 | `callbacks/12/args/1/expandParent` | right only | — | false |
 
-### api (153)
+### api (145)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -7914,14 +7678,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -8003,7 +7759,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 236 unclaimed difference(s).
+**Failed:** 228 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -8110,7 +7866,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/35/args/2/0/hidden` | right only | — | false |
 | `callbacks/35/args/2/0/expandParent` | right only | — | false |
 
-### api (143)
+### api (135)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -8206,14 +7962,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
@@ -8293,7 +8041,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 205 unclaimed difference(s).
+**Failed:** 197 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -8359,7 +8107,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/27/args/1/dragging` | right only | — | false |
 | `callbacks/27/args/1/expandParent` | right only | — | false |
 
-### api (153)
+### api (145)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -8463,14 +8211,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -8552,7 +8292,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 242 unclaimed difference(s).
+**Failed:** 234 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -8661,7 +8401,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/42/args/2/0/hidden` | right only | — | false |
 | `callbacks/42/args/2/0/expandParent` | right only | — | false |
 
-### api (147)
+### api (139)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -8761,14 +8501,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -8997,7 +8729,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/8/expandParent` | right only | — | false |
-| `api/queries/getNodeConnections/0` | right only | — | {"source":"Node-1","target":"Node-2","sourceHandle":{"@undefined":true},"targetHandle":{"@undefined":true},"edgeId":"1-2"} |
+| `api/queries/getNodeConnections/0` | right only | — | {"edgeId":"1-2","source":"Node-1","target":"Node-2","sourceHandle":null,"targetHandle":null} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -9071,7 +8803,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 202 unclaimed difference(s).
+**Failed:** 194 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -9137,7 +8869,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/14/args/1/dragging` | right only | — | false |
 | `callbacks/14/args/1/expandParent` | right only | — | false |
 
-### api (150)
+### api (142)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -9239,14 +8971,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -9327,7 +9051,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 284 unclaimed difference(s).
+**Failed:** 272 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -9462,7 +9186,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/21/args/1/toNode/dragging` | right only | — | false |
 | `callbacks/21/args/1/toNode/expandParent` | right only | — | false |
 
-### api (163)
+### api (151)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -9569,18 +9293,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/2/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/2/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/2/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/2/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -9665,7 +9377,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 257 unclaimed difference(s).
+**Failed:** 249 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -9783,7 +9495,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/17/args/1/dragging` | right only | — | false |
 | `callbacks/17/args/1/expandParent` | right only | — | false |
 
-### api (153)
+### api (145)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -9887,14 +9599,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -9976,7 +9680,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 268 unclaimed difference(s).
+**Failed:** 260 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -10105,7 +9809,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/19/args/1/toNode/dragging` | right only | — | false |
 | `callbacks/19/args/1/toNode/expandParent` | right only | — | false |
 
-### api (153)
+### api (145)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -10209,14 +9913,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -10298,7 +9994,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 258 unclaimed difference(s).
+**Failed:** 250 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -10417,7 +10113,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/17/args/1/toNode/dragging` | right only | — | false |
 | `callbacks/17/args/1/toNode/expandParent` | right only | — | false |
 
-### api (153)
+### api (145)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -10521,14 +10217,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -10610,7 +10298,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 88 unclaimed difference(s).
+**Failed:** 80 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -10640,7 +10328,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/1/resizing` | right only | — | false |
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 
-### api (72)
+### api (64)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -10690,14 +10378,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -10752,7 +10432,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 88 unclaimed difference(s).
+**Failed:** 80 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -10782,7 +10462,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/1/resizing` | right only | — | false |
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 
-### api (72)
+### api (64)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -10832,14 +10512,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -10894,7 +10566,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 74 unclaimed difference(s).
+**Failed:** 66 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -10907,7 +10579,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/1/resizing` | right only | — | false |
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 
-### api (70)
+### api (62)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -10955,14 +10627,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -11017,7 +10681,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 74 unclaimed difference(s).
+**Failed:** 66 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -11030,7 +10694,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/1/resizing` | right only | — | false |
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 
-### api (70)
+### api (62)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -11078,14 +10742,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -11140,7 +10796,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 85 unclaimed difference(s).
+**Failed:** 77 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -11167,7 +10823,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/1/args/0/1/resizing` | right only | — | false |
 | `callbacks/1/args/0/2/resizing` | right only | — | false |
 
-### api (72)
+### api (64)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -11217,14 +10873,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -11279,7 +10927,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 225 unclaimed difference(s).
+**Failed:** 221 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -11339,7 +10987,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/12/args/0/nodes/0/dragging` | right only | — | false |
 | `callbacks/12/args/0/nodes/0/expandParent` | right only | — | false |
 
-### api (179)
+### api (175)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -11464,10 +11112,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/12/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/12/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/12/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
@@ -11605,7 +11249,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 299 unclaimed difference(s).
+**Failed:** 291 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -11770,7 +11414,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/58/args/2/0/hidden` | right only | — | false |
 | `callbacks/58/args/2/0/expandParent` | right only | — | false |
 
-### api (148)
+### api (140)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -11870,14 +11514,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNodesBounds/x` | differs | -100 | 0 |
 | `api/queries/getNodesBounds/width` | differs | 400 | 300 |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/position/x` | differs | -100 | 16.524390243902417 |
@@ -11958,7 +11594,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 224 unclaimed difference(s).
+**Failed:** 216 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -12053,7 +11689,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/25/args/2/0/hidden` | right only | — | false |
 | `callbacks/25/args/2/0/expandParent` | right only | — | false |
 
-### api (143)
+### api (135)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -12149,14 +11785,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
@@ -12226,7 +11854,7 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | **disagrees with itself** | 110 |
+| psflow | 1, 2 | **disagrees with itself** | 121 |
 
 ### psflow disagrees with itself
 
@@ -12242,7 +11870,7 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | -1995 | -1715 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | -1963 | -1903 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | pointer-events: all; transform: translate(-2070px, -2013px); visibility: visible; z-index: 1000; | pointer-events: all; transform: translate(-1790px, -1953px); visibility: visible; z-index: 1000; |
-| `callbacks/54` | left only | {"name":"onMoveStart","args":[null,{"x":1720,"y":1930,"zoom":1}]} | — |
+| `callbacks/54` | left only | {"name":"onMoveStart","args":[null,{"x":1720,"y":1920,"zoom":1}]} | — |
 | `callbacks/55` | left only | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} | — |
 | `callbacks/56` | left only | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
 | `callbacks/57` | left only | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
@@ -12255,60 +11883,71 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | `callbacks/68` | left only | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… | — |
 | `callbacks/69` | left only | {"name":"onNodesChange","args":[[{"type":"position","id":"Node-1","position":{"x":-2070,"y":-2013},"positionAbsolute":{"x":-2070,"y":-2013},"dragging":false}]]} | — |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… |
-| `callbacks/28/args/0/screenX` | differs | 5 | 6 |
-| `callbacks/28/args/0/clientX` | differs | 5 | 6 |
-| `callbacks/28/args/0/pageX` | differs | 5 | 6 |
 | `callbacks/28/args/1/position/x` | differs | -749 | -409 |
 | `callbacks/28/args/1/position/y` | differs | -692 | -352 |
-| `callbacks/38/args/0/screenX` | differs | 5 | 6 |
-| `callbacks/38/args/0/screenY` | differs | 6 | 5 |
-| `callbacks/38/args/0/clientX` | differs | 5 | 6 |
-| `callbacks/38/args/0/clientY` | differs | 6 | 5 |
-| `callbacks/38/args/0/pageX` | differs | 5 | 6 |
-| `callbacks/38/args/0/pageY` | differs | 6 | 5 |
-| `callbacks/40/args/0/x` | differs | 1380 | 1370 |
-| `callbacks/40/args/0/y` | differs | 1580 | 1590 |
-| `callbacks/41/args/1/x` | differs | 1380 | 1370 |
+| `callbacks/30/args/0/x` | differs | 1020 | 1030 |
+| `callbacks/31/args/1/x` | differs | 1020 | 1030 |
+| `callbacks/32/args/1/x` | differs | 1020 | 1030 |
+| `callbacks/33/args/0/0/position/x` | differs | -1089 | -750 |
+| `callbacks/33/args/0/0/position/y` | differs | -1032 | -912 |
+| `callbacks/33/args/0/0/positionAbsolute/x` | differs | -1089 | -750 |
+| `callbacks/33/args/0/0/positionAbsolute/y` | differs | -1032 | -912 |
+| `callbacks/34/args/1/position/x` | differs | -1089 | -750 |
+| `callbacks/34/args/1/position/y` | differs | -1032 | -912 |
+| `callbacks/34/args/2/0/position/x` | differs | -1089 | -750 |
+| `callbacks/34/args/2/0/position/y` | differs | -1032 | -912 |
+| `callbacks/36/args/0/0/position/x` | differs | -1090 | -1100 |
+| `callbacks/36/args/0/0/positionAbsolute/x` | differs | -1090 | -1100 |
+| `callbacks/37/args/1/position/x` | differs | -1090 | -1100 |
+| `callbacks/37/args/2/0/position/x` | differs | -1090 | -1100 |
+| `callbacks/38/args/1/x` | differs | 1020 | 1030 |
+| `callbacks/39/args/0/y` | differs | 1580 | 1590 |
+| `callbacks/40/args/1/y` | differs | 1580 | 1590 |
 | `callbacks/41/args/1/y` | differs | 1580 | 1590 |
-| `callbacks/42/args/1/x` | differs | 1380 | 1370 |
-| `callbacks/42/args/1/y` | differs | 1580 | 1590 |
-| `callbacks/43/args/0/0/position/x` | differs | -1450 | -1099 |
-| `callbacks/43/args/0/0/position/y` | differs | -1592 | -1253 |
-| `callbacks/43/args/0/0/positionAbsolute/x` | differs | -1450 | -1099 |
-| `callbacks/43/args/0/0/positionAbsolute/y` | differs | -1592 | -1253 |
-| `callbacks/44/args/1/position/x` | differs | -1450 | -1099 |
-| `callbacks/44/args/1/position/y` | differs | -1592 | -1253 |
-| `callbacks/44/args/2/0/position/x` | differs | -1450 | -1099 |
-| `callbacks/44/args/2/0/position/y` | differs | -1592 | -1253 |
-| `callbacks/46/args/0/0/position/x` | differs | -1449 | -1439 |
-| `callbacks/46/args/0/0/position/y` | differs | -1593 | -1603 |
-| `callbacks/46/args/0/0/positionAbsolute/x` | differs | -1449 | -1439 |
-| `callbacks/46/args/0/0/positionAbsolute/y` | differs | -1593 | -1603 |
-| `callbacks/47/args/1/position/x` | differs | -1449 | -1439 |
-| `callbacks/47/args/1/position/y` | differs | -1593 | -1603 |
-| `callbacks/47/args/2/0/position/x` | differs | -1449 | -1439 |
-| `callbacks/47/args/2/0/position/y` | differs | -1593 | -1603 |
-| `callbacks/48/args/1/x` | differs | 1380 | 1370 |
-| `callbacks/48/args/1/y` | differs | 1580 | 1590 |
-| `callbacks/49/args/0/y` | differs | 1930 | 1940 |
-| `callbacks/50/args/1/y` | differs | 1930 | 1940 |
-| `callbacks/51/args/1/y` | differs | 1930 | 1940 |
+| `callbacks/42/args/0/0/position/x` | differs | -1440 | -1099 |
+| `callbacks/42/args/0/0/position/y` | differs | -1592 | -1253 |
+| `callbacks/42/args/0/0/positionAbsolute/x` | differs | -1440 | -1099 |
+| `callbacks/42/args/0/0/positionAbsolute/y` | differs | -1592 | -1253 |
+| `callbacks/43/args/1/position/x` | differs | -1440 | -1099 |
+| `callbacks/43/args/1/position/y` | differs | -1592 | -1253 |
+| `callbacks/43/args/2/0/position/x` | differs | -1440 | -1099 |
+| `callbacks/43/args/2/0/position/y` | differs | -1592 | -1253 |
+| `callbacks/44/args/0/screenX` | differs | 5 | 6 |
+| `callbacks/44/args/0/screenY` | differs | 6 | 5 |
+| `callbacks/44/args/0/clientX` | differs | 5 | 6 |
+| `callbacks/44/args/0/clientY` | differs | 6 | 5 |
+| `callbacks/44/args/0/pageX` | differs | 5 | 6 |
+| `callbacks/44/args/0/pageY` | differs | 6 | 5 |
+| `callbacks/44/args/1/position/x` | differs | -1440 | -1100 |
+| `callbacks/44/args/1/position/y` | differs | -1592 | -1252 |
+| `callbacks/45/args/1/y` | differs | 1580 | 1590 |
+| `callbacks/46/args/0/y` | differs | 1920 | 1940 |
+| `callbacks/47/args/1/y` | differs | 1920 | 1940 |
+| `callbacks/48/args/1/y` | differs | 1920 | 1940 |
+| `callbacks/49/args/0/0/position/x` | differs | -1790 | -1439 |
+| `callbacks/49/args/0/0/position/y` | differs | -1932 | -1603 |
+| `callbacks/49/args/0/0/positionAbsolute/x` | differs | -1790 | -1439 |
+| `callbacks/49/args/0/0/positionAbsolute/y` | differs | -1932 | -1603 |
+| `callbacks/50/args/1/position/x` | differs | -1790 | -1439 |
+| `callbacks/50/args/1/position/y` | differs | -1932 | -1603 |
+| `callbacks/50/args/2/0/position/x` | differs | -1790 | -1439 |
+| `callbacks/50/args/2/0/position/y` | differs | -1932 | -1603 |
 | `callbacks/52/args/0/0/position/x` | differs | -1789 | -1440 |
-| `callbacks/52/args/0/0/position/y` | differs | -1943 | -1603 |
+| `callbacks/52/args/0/0/position/y` | differs | -1933 | -1603 |
 | `callbacks/52/args/0/0/positionAbsolute/x` | differs | -1789 | -1440 |
-| `callbacks/52/args/0/0/positionAbsolute/y` | differs | -1943 | -1603 |
+| `callbacks/52/args/0/0/positionAbsolute/y` | differs | -1933 | -1603 |
 | `callbacks/53/args/1/position/x` | differs | -1789 | -1440 |
-| `callbacks/53/args/1/position/y` | differs | -1943 | -1603 |
+| `callbacks/53/args/1/position/y` | differs | -1933 | -1603 |
 | `callbacks/53/args/2/0/position/x` | differs | -1789 | -1440 |
-| `callbacks/53/args/2/0/position/y` | differs | -1943 | -1603 |
+| `callbacks/53/args/2/0/position/y` | differs | -1933 | -1603 |
 | `callbacks/58/args/0/0/position/x` | differs | -2129 | -1790 |
-| `callbacks/58/args/0/0/position/y` | differs | -2293 | -1953 |
+| `callbacks/58/args/0/0/position/y` | differs | -2283 | -1953 |
 | `callbacks/58/args/0/0/positionAbsolute/x` | differs | -2129 | -1790 |
-| `callbacks/58/args/0/0/positionAbsolute/y` | differs | -2293 | -1953 |
+| `callbacks/58/args/0/0/positionAbsolute/y` | differs | -2283 | -1953 |
 | `callbacks/59/args/1/position/x` | differs | -2129 | -1790 |
-| `callbacks/59/args/1/position/y` | differs | -2293 | -1953 |
+| `callbacks/59/args/1/position/y` | differs | -2283 | -1953 |
 | `callbacks/59/args/2/0/position/x` | differs | -2129 | -1790 |
-| `callbacks/59/args/2/0/position/y` | differs | -2293 | -1953 |
+| `callbacks/59/args/2/0/position/y` | differs | -2283 | -1953 |
 | `callbacks/62/args/0/0/position/x` | differs | -2070 | -1790 |
 | `callbacks/62/args/0/0/position/y` | differs | -2013 | -1953 |
 | `callbacks/62/args/0/0/positionAbsolute/x` | differs | -2070 | -1790 |
@@ -12355,7 +11994,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 249 unclaimed difference(s).
+**Failed:** 252 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -12374,20 +12013,20 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | -1563 | -1963 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | pointer-events: all; transform: translate(-1450px, -1613px); visibility: visible; z-index: 1000; | pointer-events: all; transform: translate(-2070px, -2013px); visibility: visible; z-index: 1000; |
 
-### callbacks (155)
+### callbacks (166)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/42` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1380,"y":1580,"zoom":1}]} |
-| `callbacks/48` | right only | — | {"name":"onMoveStart","args":[null,{"x":1380,"y":1580,"zoom":1}]} |
-| `callbacks/49` | right only | — | {"name":"onViewportChange","args":[{"x":1720,"y":1930,"zoom":1}]} |
-| `callbacks/50` | right only | — | {"name":"onMove","args":[null,{"x":1720,"y":1930,"zoom":1}]} |
-| `callbacks/51` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1720,"y":1930,"zoom":1}]} |
-| `callbacks/54` | right only | — | {"name":"onMoveStart","args":[null,{"x":1720,"y":1930,"zoom":1}]} |
+| `callbacks/41` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1370,"y":1580,"zoom":1}]} |
+| `callbacks/45` | right only | — | {"name":"onMoveStart","args":[null,{"x":1370,"y":1580,"zoom":1}]} |
+| `callbacks/46` | right only | — | {"name":"onViewportChange","args":[{"x":1720,"y":1920,"zoom":1}]} |
+| `callbacks/47` | right only | — | {"name":"onMove","args":[null,{"x":1720,"y":1920,"zoom":1}]} |
+| `callbacks/48` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1720,"y":1920,"zoom":1}]} |
+| `callbacks/54` | right only | — | {"name":"onMoveStart","args":[null,{"x":1720,"y":1920,"zoom":1}]} |
 | `callbacks/55` | right only | — | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} |
 | `callbacks/56` | right only | — | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
 | `callbacks/57` | right only | — | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/59` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2129,"y":-2293},"data":{"label":"Node-1"},"type":"input",… |
+| `callbacks/59` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2129,"y":-2283},"data":{"label":"Node-1"},"type":"input",… |
 | `callbacks/60` | right only | — | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… |
 | `callbacks/62` | right only | — | {"name":"onNodesChange","args":[[{"type":"position","id":"Node-1","position":{"x":-2070,"y":-2013},"positionAbsolute":{"x":-2070,"y":-2013},"dragging":true}]]} |
 | `callbacks/63` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2070,"y":-2013},"data":{"label":"Node-1"},"type":"input",… |
@@ -12430,6 +12069,9 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/19/args/2/0/expandParent` | right only | — | false |
 | `callbacks/20/args/1/x` | differs | 340 | 0 |
 | `callbacks/20/args/1/y` | differs | 560 | 220.00000000000003 |
+| `callbacks/21/args/0/screenX` | differs | 5 | 6 |
+| `callbacks/21/args/0/clientX` | differs | 5 | 6 |
+| `callbacks/21/args/0/pageX` | differs | 5 | 6 |
 | `callbacks/21/args/1/position/x` | differs | -409 | -749 |
 | `callbacks/21/args/1/position/y` | differs | -352 | -692 |
 | `callbacks/21/args/1/hidden` | right only | — | false |
@@ -12447,12 +12089,15 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/24/args/2/0/expandParent` | right only | — | false |
 | `callbacks/26/args/0/x` | differs | 690 | 680 |
 | `callbacks/27/args/1/x` | differs | 690 | 680 |
-| `callbacks/28/args/0/0/position/x` | differs | -760 | -750 |
-| `callbacks/28/args/0/0/positionAbsolute` | right only | — | {"x":-750,"y":-912} |
-| `callbacks/29/args/1/position/x` | differs | -760 | -750 |
+| `callbacks/28/args/0/0/position/x` | differs | -760 | -1089 |
+| `callbacks/28/args/0/0/position/y` | differs | -912 | -1032 |
+| `callbacks/28/args/0/0/positionAbsolute` | right only | — | {"x":-1089,"y":-1032} |
+| `callbacks/29/args/1/position/x` | differs | -760 | -1089 |
+| `callbacks/29/args/1/position/y` | differs | -912 | -1032 |
 | `callbacks/29/args/1/hidden` | right only | — | false |
 | `callbacks/29/args/1/expandParent` | right only | — | false |
-| `callbacks/29/args/2/0/position/x` | differs | -760 | -750 |
+| `callbacks/29/args/2/0/position/x` | differs | -760 | -1089 |
+| `callbacks/29/args/2/0/position/y` | differs | -912 | -1032 |
 | `callbacks/29/args/2/0/hidden` | right only | — | false |
 | `callbacks/29/args/2/0/expandParent` | right only | — | false |
 | `callbacks/30/args/1/x` | differs | 690 | 340 |
@@ -12463,68 +12108,73 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/31/args/0/clientY` | differs | 5 | 6 |
 | `callbacks/31/args/0/pageX` | differs | 6 | 5 |
 | `callbacks/31/args/0/pageY` | differs | 5 | 6 |
-| `callbacks/31/args/1/position/x` | differs | -760 | -1100 |
-| `callbacks/31/args/1/position/y` | differs | -912 | -1252 |
+| `callbacks/31/args/1/position/x` | differs | -760 | -1440 |
+| `callbacks/31/args/1/position/y` | differs | -912 | -1592 |
 | `callbacks/31/args/1/hidden` | right only | — | false |
 | `callbacks/31/args/1/expandParent` | right only | — | false |
-| `callbacks/33/args/0/0/position/x` | differs | -759 | -1100 |
+| `callbacks/33/args/0/0/position/x` | differs | -759 | -1090 |
 | `callbacks/33/args/0/0/position/y` | differs | -913 | -1252 |
-| `callbacks/33/args/0/0/positionAbsolute` | right only | — | {"x":-1100,"y":-1252} |
-| `callbacks/34/args/1/position/x` | differs | -759 | -1100 |
+| `callbacks/33/args/0/0/positionAbsolute` | right only | — | {"x":-1090,"y":-1252} |
+| `callbacks/34/args/1/position/x` | differs | -759 | -1090 |
 | `callbacks/34/args/1/position/y` | differs | -913 | -1252 |
 | `callbacks/34/args/1/hidden` | right only | — | false |
 | `callbacks/34/args/1/expandParent` | right only | — | false |
-| `callbacks/34/args/2/0/position/x` | differs | -759 | -1100 |
+| `callbacks/34/args/2/0/position/x` | differs | -759 | -1090 |
 | `callbacks/34/args/2/0/position/y` | differs | -913 | -1252 |
 | `callbacks/34/args/2/0/hidden` | right only | — | false |
 | `callbacks/34/args/2/0/expandParent` | right only | — | false |
 | `callbacks/35/args/1/x` | differs | 690 | 680 |
+| `callbacks/36/args/0/x` | differs | 1030 | 1020 |
 | `callbacks/36/args/0/y` | differs | 1250 | 1240 |
+| `callbacks/37/args/1/x` | differs | 1030 | 1020 |
 | `callbacks/37/args/1/y` | differs | 1250 | 1240 |
-| `callbacks/38/args/0/0/position/x` | differs | -1099 | -1450 |
+| `callbacks/38/args/0/0/position/x` | differs | -1099 | -1440 |
 | `callbacks/38/args/0/0/position/y` | differs | -1263 | -1592 |
-| `callbacks/38/args/0/0/positionAbsolute` | right only | — | {"x":-1450,"y":-1592} |
-| `callbacks/39/args/1/position/x` | differs | -1099 | -1450 |
+| `callbacks/38/args/0/0/positionAbsolute` | right only | — | {"x":-1440,"y":-1592} |
+| `callbacks/39/args/1/position/x` | differs | -1099 | -1440 |
 | `callbacks/39/args/1/position/y` | differs | -1263 | -1592 |
 | `callbacks/39/args/1/hidden` | right only | — | false |
 | `callbacks/39/args/1/expandParent` | right only | — | false |
-| `callbacks/39/args/2/0/position/x` | differs | -1099 | -1450 |
+| `callbacks/39/args/2/0/position/x` | differs | -1099 | -1440 |
 | `callbacks/39/args/2/0/position/y` | differs | -1263 | -1592 |
 | `callbacks/39/args/2/0/hidden` | right only | — | false |
 | `callbacks/39/args/2/0/expandParent` | right only | — | false |
 | `callbacks/40/args/1/x` | differs | 1030 | 680 |
 | `callbacks/40/args/1/y` | differs | 1250 | 900 |
-| `callbacks/42/args/0/0/position/x` | differs | -1100 | -1449 |
-| `callbacks/42/args/0/0/position/y` | differs | -1263 | -1593 |
-| `callbacks/42/args/0/0/positionAbsolute` | right only | — | {"x":-1449,"y":-1593} |
-| `callbacks/43/args/1/position/x` | differs | -1100 | -1449 |
-| `callbacks/43/args/1/position/y` | differs | -1263 | -1593 |
+| `callbacks/42/args/0/0/position/x` | differs | -1100 | -1790 |
+| `callbacks/42/args/0/0/position/y` | differs | -1263 | -1932 |
+| `callbacks/42/args/0/0/positionAbsolute` | right only | — | {"x":-1790,"y":-1932} |
+| `callbacks/43/args/1/position/x` | differs | -1100 | -1790 |
+| `callbacks/43/args/1/position/y` | differs | -1263 | -1932 |
 | `callbacks/43/args/1/hidden` | right only | — | false |
 | `callbacks/43/args/1/expandParent` | right only | — | false |
-| `callbacks/43/args/2/0/position/x` | differs | -1100 | -1449 |
-| `callbacks/43/args/2/0/position/y` | differs | -1263 | -1593 |
+| `callbacks/43/args/2/0/position/x` | differs | -1100 | -1790 |
+| `callbacks/43/args/2/0/position/y` | differs | -1263 | -1932 |
 | `callbacks/43/args/2/0/hidden` | right only | — | false |
 | `callbacks/43/args/2/0/expandParent` | right only | — | false |
+| `callbacks/44/args/1/x` | differs | 1030 | 1020 |
 | `callbacks/44/args/1/y` | differs | 1250 | 1240 |
+| `callbacks/45/args/0/x` | differs | 1380 | 1370 |
 | `callbacks/45/args/0/y` | differs | 1600 | 1580 |
+| `callbacks/46/args/1/x` | differs | 1380 | 1370 |
 | `callbacks/46/args/1/y` | differs | 1600 | 1580 |
 | `callbacks/47/args/0/0/position/x` | differs | -1450 | -1789 |
-| `callbacks/47/args/0/0/position/y` | differs | -1613 | -1943 |
-| `callbacks/47/args/0/0/positionAbsolute` | right only | — | {"x":-1789,"y":-1943} |
+| `callbacks/47/args/0/0/position/y` | differs | -1613 | -1933 |
+| `callbacks/47/args/0/0/positionAbsolute` | right only | — | {"x":-1789,"y":-1933} |
 | `callbacks/48/args/1/position/x` | differs | -1450 | -1789 |
-| `callbacks/48/args/1/position/y` | differs | -1613 | -1943 |
+| `callbacks/48/args/1/position/y` | differs | -1613 | -1933 |
 | `callbacks/48/args/1/hidden` | right only | — | false |
 | `callbacks/48/args/1/expandParent` | right only | — | false |
 | `callbacks/48/args/2/0/position/x` | differs | -1450 | -1789 |
-| `callbacks/48/args/2/0/position/y` | differs | -1613 | -1943 |
+| `callbacks/48/args/2/0/position/y` | differs | -1613 | -1933 |
 | `callbacks/48/args/2/0/hidden` | right only | — | false |
 | `callbacks/48/args/2/0/expandParent` | right only | — | false |
-| `callbacks/49/args/1/x` | differs | 1380 | 1030 |
+| `callbacks/49/args/1/x` | differs | 1380 | 1020 |
 | `callbacks/49/args/1/y` | differs | 1600 | 1240 |
 | `callbacks/50/args/0/0/position/x` | differs | -1450 | -2129 |
-| `callbacks/50/args/0/0/position/y` | differs | -1613 | -2293 |
+| `callbacks/50/args/0/0/position/y` | differs | -1613 | -2283 |
 | `callbacks/50/args/0/0/dragging` | differs | false | true |
-| `callbacks/50/args/0/0/positionAbsolute` | right only | — | {"x":-2129,"y":-2293} |
+| `callbacks/50/args/0/0/positionAbsolute` | right only | — | {"x":-2129,"y":-2283} |
 | `callbacks/51/args/1/position/x` | differs | -1450 | -2070 |
 | `callbacks/51/args/1/position/y` | differs | -1613 | -2013 |
 | `callbacks/51/args/1/hidden` | right only | — | false |
@@ -12534,7 +12184,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/51/args/2/0/hidden` | right only | — | false |
 | `callbacks/51/args/2/0/expandParent` | right only | — | false |
 
-### api (84)
+### api (76)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -12588,14 +12238,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getNodesBounds/y` | differs | -1613 | -2013 |
 | `api/queries/getNodesBounds/width` | differs | 1700 | 2320 |
 | `api/queries/getNodesBounds/height` | differs | 1750 | 2150 |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/position/x` | differs | -1450 | -2070 |
 | `api/queries/toObject/nodes/0/position/y` | differs | -1613 | -2013 |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
@@ -12658,7 +12300,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 196 unclaimed difference(s).
+**Failed:** 188 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -12794,7 +12436,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/49/args/2/0/selected` | right only | — | false |
 | `callbacks/49/args/2/0/expandParent` | right only | — | false |
 
-### api (74)
+### api (66)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -12844,14 +12486,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
@@ -13153,7 +12787,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 107 unclaimed difference(s).
+**Failed:** 103 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -13228,7 +12862,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/32/args/2/0/expandParent` | right only | — | false |
 | `callbacks/32/args/2/1/expandParent` | right only | — | false |
 
-### api (41)
+### api (37)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -13259,10 +12893,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
@@ -13309,7 +12939,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 196 unclaimed difference(s).
+**Failed:** 188 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -13366,7 +12996,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/11/args/1/dragging` | right only | — | false |
 | `callbacks/11/args/1/expandParent` | right only | — | false |
 
-### api (153)
+### api (145)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -13470,14 +13100,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -13559,7 +13181,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 236 unclaimed difference(s).
+**Failed:** 228 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -13662,7 +13284,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/22/args/1/dragging` | right only | — | false |
 | `callbacks/22/args/1/expandParent` | right only | — | false |
 
-### api (147)
+### api (139)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -13762,14 +13384,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -13849,7 +13463,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 89 unclaimed difference(s).
+**Failed:** 81 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -13870,7 +13484,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (82)
+### api (74)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -13926,14 +13540,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -13992,7 +13598,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 204 unclaimed difference(s).
+**Failed:** 196 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -14053,7 +13659,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/8/args/0/nodes/0/dragging` | right only | — | false |
 | `callbacks/8/args/0/nodes/0/expandParent` | right only | — | false |
 
-### api (157)
+### api (149)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -14160,14 +13766,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
 | `api/queries/getNodesBounds/width` | differs | 463.6280487804878 | 400 |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -14247,7 +13845,7 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | path | kind | capture 1 | capture 2 |
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… |
-| `callbacks/17/args/1/position/x` | differs | 10 | 0 |
+| `callbacks/17/args/1/position/x` | differs | 10 | 5 |
 
 **upstream did not reproduce.** The comparison below ran anyway —
 capture-everything applies to a failed run as much as to a passing one — but a difference it reports
@@ -14261,7 +13859,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 138 unclaimed difference(s).
+**Failed:** 134 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -14324,7 +13922,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/16/args/0/0/position/y` | differs | 20 | 4 |
 | `callbacks/16/args/0/0/positionAbsolute` | right only | — | {"x":1,"y":4} |
 
-### api (89)
+### api (85)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -14388,10 +13986,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getNodesBounds/y` | differs | 20 | 4 |
 | `api/queries/getNodesBounds/width` | differs | 160 | 152 |
 | `api/queries/getNodesBounds/height` | differs | 1217 | 1233 |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/position/x` | differs | 10 | 2 |
 | `api/queries/toObject/nodes/0/position/y` | differs | 20 | 4 |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
@@ -14453,7 +14047,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 86 unclaimed difference(s).
+**Failed:** 82 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -14469,7 +14063,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/3/args/0/nodes/0/dragging` | right only | — | false |
 | `callbacks/3/args/0/nodes/0/expandParent` | right only | — | false |
 
-### api (79)
+### api (75)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -14524,10 +14118,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
@@ -14582,7 +14172,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 359 unclaimed difference(s).
+**Failed:** 347 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -14786,7 +14376,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/35/args/1/dragging` | right only | — | false |
 | `callbacks/35/args/1/expandParent` | right only | — | false |
 
-### api (169)
+### api (157)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -14896,18 +14486,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/2/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/2/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/2/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/2/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -14995,7 +14573,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 254 unclaimed difference(s).
+**Failed:** 246 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -15113,7 +14691,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/23/args/0/isDefaultPrevented` | right only | — | {"@ref":"function"} |
 | `callbacks/23/args/0/isPropagationStopped` | right only | — | {"@ref":"function"} |
 
-### api (150)
+### api (142)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -15215,14 +14793,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -15303,7 +14873,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 194 unclaimed difference(s).
+**Failed:** 186 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -15360,7 +14930,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/12/args/0/nodes/0/dragging` | right only | — | false |
 | `callbacks/12/args/0/nodes/0/expandParent` | right only | — | false |
 
-### api (150)
+### api (142)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -15462,14 +15032,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -15866,7 +15428,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 106 unclaimed difference(s).
+**Failed:** 102 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -15908,7 +15470,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/39/args/0/edges/0/hidden` | right only | — | false |
 | `callbacks/39/args/0/edges/0/selected` | right only | — | false |
 
-### api (73)
+### api (69)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -15956,10 +15518,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -16015,7 +15573,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 88 unclaimed difference(s).
+**Failed:** 80 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -16045,7 +15603,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/1/resizing` | right only | — | false |
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 
-### api (72)
+### api (64)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -16095,14 +15653,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -16157,7 +15707,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 126 unclaimed difference(s).
+**Failed:** 118 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -16225,7 +15775,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/33/args/2/0/hidden` | right only | — | false |
 | `callbacks/33/args/2/0/expandParent` | right only | — | false |
 
-### api (72)
+### api (64)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -16273,14 +15823,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
@@ -16337,7 +15879,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 119 unclaimed difference(s).
+**Failed:** 107 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -16366,7 +15908,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/6/args/0/0/dimensions` | right only | — | {"width":150,"height":37} |
 | `callbacks/6/args/0/0/resizing` | right only | — | false |
 
-### api (104)
+### api (92)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -16433,18 +15975,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/4/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/2/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/2/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/2/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/2/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -16504,7 +16034,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 123 unclaimed difference(s).
+**Failed:** 115 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -16564,7 +16094,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/22/args/1/dragging` | right only | — | false |
 | `callbacks/22/args/1/expandParent` | right only | — | false |
 
-### api (77)
+### api (69)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -16616,14 +16146,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
@@ -16681,7 +16203,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 90 unclaimed difference(s).
+**Failed:** 82 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -16703,7 +16225,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (82)
+### api (74)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -16759,14 +16281,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -16819,7 +16333,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 48 unclaimed difference(s).
+**Failed:** 44 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -16829,7 +16343,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `dom/root/children/div[1]/children/svg[0]/children/path[0]/attrs/d` | differs | M-59.09584999560087,-169.90056873735244h1300.1086999032193v1004.6294499252149h-1300.1086999032193z⏎        M98.0830000879826,55.17168754949017h1083.83399982403… | M-59.09584999560087,-169.90056873735244h1300.1086999032193v1004.6294499252149h-1300.1086999032193z M98.0830000879826,55.17168754949017h1083.833999824035v609.65… |
 
-### api (47)
+### api (43)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -16864,10 +16378,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
@@ -16910,7 +16420,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 103 unclaimed difference(s).
+**Failed:** 95 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -16950,7 +16460,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/14/args/1/dragging` | right only | — | false |
 | `callbacks/14/args/1/expandParent` | right only | — | false |
 
-### api (77)
+### api (69)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -17002,14 +16512,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
@@ -17067,7 +16569,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 90 unclaimed difference(s).
+**Failed:** 82 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -17089,7 +16591,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (82)
+### api (74)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -17145,14 +16647,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -17205,7 +16699,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 89 unclaimed difference(s).
+**Failed:** 81 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -17226,7 +16720,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (82)
+### api (74)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -17282,14 +16776,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -17342,7 +16828,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 91 unclaimed difference(s).
+**Failed:** 83 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -17365,7 +16851,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (82)
+### api (74)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -17421,14 +16907,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -17487,7 +16965,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 5 driving divergence(s), 107 unclaimed difference(s).
+**Failed:** 5 driving divergence(s), 99 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -17543,7 +17021,7 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/7/args/0/movementX` | differs | 9 | 1 |
 | `callbacks/7/args/0/movementY` | differs | 9 | 1 |
 
-### api (82) — consequence of the driving divergence
+### api (74) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -17599,14 +17077,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -17789,8 +17259,8 @@ a real divergence is exactly what would be hiding down there.
 | `console/2` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/3` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/4` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:50397/parity/driver/dist/… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:50397/parity/driver/dist/… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:52656/parity/driver/dist/… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:52656/parity/driver/dist/… |
 | `console/7` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 
 ## Normalization
@@ -17828,7 +17298,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 50 driving divergence(s), 127 unclaimed difference(s).
+**Failed:** 50 driving divergence(s), 123 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -17964,7 +17434,7 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/17/args/0/clientX` | differs | 589.6393432617188 | 351.11474609375 |
 | `callbacks/17/args/0/pageX` | differs | 589.6393432617188 | 351.11474609375 |
 
-### api (67) — consequence of the driving divergence
+### api (63) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -18014,10 +17484,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
 | `api/queries/getNodesBounds/height` | differs | 320 | 37 |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/measured/width` | differs | 400 | 150 |
 | `api/queries/toObject/nodes/0/measured/height` | differs | 320 | 37 |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
@@ -18071,7 +17537,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 51 unclaimed difference(s).
+**Failed:** 47 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -18083,7 +17549,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","patternTransform":"translate(-11,-11)"},… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","pat… |
 
-### api (48)
+### api (44)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -18120,10 +17586,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -18165,7 +17627,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 52 unclaimed difference(s).
+**Failed:** 48 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -18183,7 +17645,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks/9` | right only | — | {"name":"onNodesChange","args":[[{"type":"replace","id":"n1","item":{"id":"n1","position":{"x":0,"y":0},"data":{"label":"n1"},"sourcePosition":"right","targetP… |
 
-### api (48)
+### api (44)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -18220,10 +17682,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -18265,7 +17723,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 61 unclaimed difference(s).
+**Failed:** 57 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -18283,7 +17741,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"-19.7539553864471","y":"-9.462215016410383","width":"26.390158215457884","height":"26.390158215457884","pattern… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"6.636202829010784","y":"16.92794319904749","width":"26.390158215457884","h… |
 
-### api (52)
+### api (48)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -18324,10 +17782,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -18375,7 +17829,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 51 unclaimed difference(s).
+**Failed:** 47 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -18387,7 +17841,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"10","width":"20","height":"20","patternUnits":"userSpaceOnUse","patternTransform":"translate(-11,-11)"}… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"10","width":"20","height":"20","patternUnits":"userSpaceOnUse","pa… |
 
-### api (48)
+### api (44)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -18424,10 +17878,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -18451,7 +17901,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 # System parity run — drag-node-reports-changes
 
-**Failed:** self-inconsistent, unclaimed-difference.
+**Failed:** unclaimed-difference.
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -18465,105 +17915,7 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | **disagrees with itself** | 89 |
-
-### psflow disagrees with itself
-
-| path | kind | capture 1 | capture 2 |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/attrs/style` | differs | transform: translate(0px, 15px) scale(1); | transform: translate(0px, 13.125px) scale(1); |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/path[0]/attrs/d` | differs | M148,50 C197.5,50 197.5,120 247,120 | M148,51.875 C197.5,51.875 197.5,120 247,120 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/path[1]/attrs/d` | differs | M148,50 C197.5,50 197.5,120 247,120 | M148,51.875 C197.5,51.875 197.5,120 247,120 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/circle[0]/attrs/cy` | differs | 50 | 51.875 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n1/attrs/style` | differs | height: 40px; pointer-events: all; transform: translate(45px, 30px); visibility: visible; width: 100px; z-index: 1000; | height: 40px; pointer-events: all; transform: translate(45px, 31.875px); visibility: visible; width: 100px; z-index: 1000; |
-| `dom/root/children/div[2]/children/svg[0]/attrs/viewBox` | differs | -32 -167 1344 1024 | -32 -165.125 1344 1024 |
-| `dom/root/children/div[2]/children/svg[0]/children/rect[0]/attrs/y` | differs | 30 | 31.875 |
-| `dom/root/children/div[2]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-199h1408v1088h-1408z M0,-15h1280v720h-1280z | M-64,-197.125h1408v1088h-1408z M0,-13.125h1280v720h-1280z |
-| `dom/root/children/svg[0]/children/defs[0]/children/pattern-1/attrs/y` | differs | 15 | 13.125 |
-| `callbacks/31` | left only | {"name":"onMoveStart","args":[null,{"x":0,"y":13.125,"zoom":1}]} | — |
-| `callbacks/32` | left only | {"name":"onViewportChange","args":[{"x":0,"y":15,"zoom":1}]} | — |
-| `callbacks/33` | left only | {"name":"onMove","args":[null,{"x":0,"y":15,"zoom":1}]} | — |
-| `callbacks/34` | left only | {"name":"onMoveEnd","args":[null,{"x":0,"y":15,"zoom":1}]} | — |
-| `callbacks/57` | left only | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"n1","position":{"x":45,"y":30},"data":{"label":"n1"},"sourcePosition":"right","tar… | — |
-| `callbacks/58` | left only | {"name":"onNodesChange","args":[[{"type":"position","id":"n1","position":{"x":45,"y":30},"positionAbsolute":{"x":45,"y":30},"dragging":false}]]} | — |
-| `callbacks` | ordered differently | ["onSelectionChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onPaneMouseMove#2","onNodesChange#1","onNodeDragStart… | ["onSelectionChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onPaneMouseMove#2","onNodesChange#1","onNodeDragStart… |
-| `callbacks/35/args/0/0/position/x` | differs | 10 | 15 |
-| `callbacks/35/args/0/0/position/y` | differs | -5 | 1.875 |
-| `callbacks/35/args/0/0/positionAbsolute/x` | differs | 10 | 15 |
-| `callbacks/35/args/0/0/positionAbsolute/y` | differs | -5 | 1.875 |
-| `callbacks/36/args/1/position/x` | differs | 10 | 15 |
-| `callbacks/36/args/1/position/y` | differs | -5 | 1.875 |
-| `callbacks/36/args/2/0/position/x` | differs | 10 | 15 |
-| `callbacks/36/args/2/0/position/y` | differs | -5 | 1.875 |
-| `callbacks/38/args/0/0/position/x` | differs | 15 | 20 |
-| `callbacks/38/args/0/0/position/y` | differs | 0 | 6.875 |
-| `callbacks/38/args/0/0/positionAbsolute/x` | differs | 15 | 20 |
-| `callbacks/38/args/0/0/positionAbsolute/y` | differs | 0 | 6.875 |
-| `callbacks/39/args/1/position/x` | differs | 15 | 20 |
-| `callbacks/39/args/1/position/y` | differs | 0 | 6.875 |
-| `callbacks/39/args/2/0/position/x` | differs | 15 | 20 |
-| `callbacks/39/args/2/0/position/y` | differs | 0 | 6.875 |
-| `callbacks/41/args/0/0/position/x` | differs | 20 | 25 |
-| `callbacks/41/args/0/0/position/y` | differs | 5 | 11.875 |
-| `callbacks/41/args/0/0/positionAbsolute/x` | differs | 20 | 25 |
-| `callbacks/41/args/0/0/positionAbsolute/y` | differs | 5 | 11.875 |
-| `callbacks/42/args/1/position/x` | differs | 20 | 25 |
-| `callbacks/42/args/1/position/y` | differs | 5 | 11.875 |
-| `callbacks/42/args/2/0/position/x` | differs | 20 | 25 |
-| `callbacks/42/args/2/0/position/y` | differs | 5 | 11.875 |
-| `callbacks/44/args/0/0/position/x` | differs | 25 | 30 |
-| `callbacks/44/args/0/0/position/y` | differs | 10 | 16.875 |
-| `callbacks/44/args/0/0/positionAbsolute/x` | differs | 25 | 30 |
-| `callbacks/44/args/0/0/positionAbsolute/y` | differs | 10 | 16.875 |
-| `callbacks/45/args/1/position/x` | differs | 25 | 30 |
-| `callbacks/45/args/1/position/y` | differs | 10 | 16.875 |
-| `callbacks/45/args/2/0/position/x` | differs | 25 | 30 |
-| `callbacks/45/args/2/0/position/y` | differs | 10 | 16.875 |
-| `callbacks/47/args/0/0/position/x` | differs | 30 | 35 |
-| `callbacks/47/args/0/0/position/y` | differs | 15 | 21.875 |
-| `callbacks/47/args/0/0/positionAbsolute/x` | differs | 30 | 35 |
-| `callbacks/47/args/0/0/positionAbsolute/y` | differs | 15 | 21.875 |
-| `callbacks/48/args/1/position/x` | differs | 30 | 35 |
-| `callbacks/48/args/1/position/y` | differs | 15 | 21.875 |
-| `callbacks/48/args/2/0/position/x` | differs | 30 | 35 |
-| `callbacks/48/args/2/0/position/y` | differs | 15 | 21.875 |
-| `callbacks/50/args/0/0/position/x` | differs | 35 | 40 |
-| `callbacks/50/args/0/0/position/y` | differs | 20 | 26.875 |
-| `callbacks/50/args/0/0/positionAbsolute/x` | differs | 35 | 40 |
-| `callbacks/50/args/0/0/positionAbsolute/y` | differs | 20 | 26.875 |
-| `callbacks/51/args/1/position/x` | differs | 35 | 40 |
-| `callbacks/51/args/1/position/y` | differs | 20 | 26.875 |
-| `callbacks/51/args/2/0/position/x` | differs | 35 | 40 |
-| `callbacks/51/args/2/0/position/y` | differs | 20 | 26.875 |
-| `callbacks/53/args/0/0/position/x` | differs | 40 | 45 |
-| `callbacks/53/args/0/0/position/y` | differs | 25 | 31.875 |
-| `callbacks/53/args/0/0/positionAbsolute/x` | differs | 40 | 45 |
-| `callbacks/53/args/0/0/positionAbsolute/y` | differs | 25 | 31.875 |
-| `callbacks/54/args/1/position/x` | differs | 40 | 45 |
-| `callbacks/54/args/1/position/y` | differs | 25 | 31.875 |
-| `callbacks/54/args/2/0/position/x` | differs | 40 | 45 |
-| `callbacks/54/args/2/0/position/y` | differs | 25 | 31.875 |
-| `callbacks/56/args/0/0/position/y` | differs | 30 | 31.875 |
-| `callbacks/56/args/0/0/positionAbsolute/y` | differs | 30 | 31.875 |
-| `callbacks/56/args/0/0/dragging` | differs | true | false |
-| `callbacks/59/args/1/position/y` | differs | 30 | 31.875 |
-| `callbacks/59/args/2/0/position/y` | differs | 30 | 31.875 |
-| `api/queries/getNodes/0/position/y` | differs | 30 | 31.875 |
-| `api/queries/getNode/position/y` | differs | 30 | 31.875 |
-| `api/queries/getInternalNode/position/y` | differs | 30 | 31.875 |
-| `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | 30 | 31.875 |
-| `api/queries/getIntersectingNodes/0/position/y` | differs | 30 | 31.875 |
-| `api/queries/getNodesBounds/y` | differs | 30 | 31.875 |
-| `api/queries/getNodesBounds/height` | differs | 110 | 108.125 |
-| `api/queries/toObject/nodes/0/position/y` | differs | 30 | 31.875 |
-| `api/queries/toObject/viewport/y` | differs | 15 | 13.125 |
-| `api/queries/getViewport/y` | differs | 15 | 13.125 |
-| `api/queries/screenToFlowPosition/y` | differs | -15 | -13.125 |
-| `api/queries/flowToScreenPosition/y` | differs | 15 | 13.125 |
-
-**psflow did not reproduce.** The comparison below ran anyway —
-capture-everything applies to a failed run as much as to a passing one — but a difference it reports
-cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
+| psflow | 1, 2 | reproduced | 0 |
 
 ---
 
@@ -18573,36 +17925,23 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 191 unclaimed difference(s).
+**Failed:** 116 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (10)
+### dom (3)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/attrs/style` | differs | transform: translate(0px, 13.125px) scale(1); | transform: translate(0px, 15px) scale(1); |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/path[0]/attrs/d` | differs | M148,51.875 C197.5,51.875 197.5,120 247,120 | M148,50 C197.5,50 197.5,120 247,120 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/path[1]/attrs/d` | differs | M148,51.875 C197.5,51.875 197.5,120 247,120 | M148,50 C197.5,50 197.5,120 247,120 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/circle[0]/attrs/cy` | differs | 51.875 | 50 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n1/attrs/style` | differs | height: 40px; pointer-events: all; transform: translate(45px, 31.875px); visibility: visible; width: 100px; z-index: 1000; | height: 40px; pointer-events: all; transform: translate(45px, 30px); visibility: visible; width: 100px; z-index: 1000; |
-| `dom/root/children/div[2]/children/svg[0]/attrs/viewBox` | differs | -32 -165.125 1344 1024 | -32 -167 1344 1024 |
-| `dom/root/children/div[2]/children/svg[0]/children/rect[0]/attrs/y` | differs | 31.875 | 30 |
-| `dom/root/children/div[2]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-197.125h1408v1088h-1408z⏎        M0,-13.125h1280v720h-1280z | M-64,-199h1408v1088h-1408z M0,-15h1280v720h-1280z |
+| `dom/root/children/div[2]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-197.125h1408v1088h-1408z⏎        M0,-13.125h1280v720h-1280z | M-64,-197.125h1408v1088h-1408z M0,-13.125h1280v720h-1280z |
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"13.125","width":"20","height":"20","patternUnits":"userSpaceOnUse","patternTransform":"translate(-11,-1… | — |
-| `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"15","width":"20","height":"20","patternUnits":"userSpaceOnUse","pa… |
+| `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"13.125","width":"20","height":"20","patternUnits":"userSpaceOnUse"… |
 
-### callbacks (131)
+### callbacks (79)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `callbacks/28` | right only | — | {"name":"onMoveEnd","args":[null,{"x":0,"y":13.125,"zoom":1}]} |
-| `callbacks/31` | right only | — | {"name":"onMoveStart","args":[null,{"x":0,"y":13.125,"zoom":1}]} |
-| `callbacks/32` | right only | — | {"name":"onViewportChange","args":[{"x":0,"y":15,"zoom":1}]} |
-| `callbacks/33` | right only | — | {"name":"onMove","args":[null,{"x":0,"y":15,"zoom":1}]} |
-| `callbacks/34` | right only | — | {"name":"onMoveEnd","args":[null,{"x":0,"y":15,"zoom":1}]} |
-| `callbacks/57` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"n1","position":{"x":45,"y":30},"data":{"label":"n1"},"sourcePosition":"right","tar… |
-| `callbacks/58` | right only | — | {"name":"onNodesChange","args":[[{"type":"position","id":"n1","position":{"x":45,"y":30},"positionAbsolute":{"x":45,"y":30},"dragging":false}]]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onPaneMouseMove#2","onNodesChange#1","onNodeDragStart… | ["onSelectionChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onPaneMouseMove#2","onNodesChange#1","onNodeDragStart… |
 | `callbacks/2/args/1/hidden` | right only | — | false |
 | `callbacks/2/args/1/selected` | right only | — | false |
@@ -18641,109 +17980,59 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/28/args/2/0/hidden` | right only | — | false |
 | `callbacks/28/args/2/0/expandParent` | right only | — | false |
 | `callbacks/29/args/1/y` | differs | 13.125 | 11.25 |
-| `callbacks/31/args/0/0/position/x` | differs | 15 | 10 |
-| `callbacks/31/args/0/0/position/y` | differs | 1.875 | -5 |
-| `callbacks/31/args/0/0/positionAbsolute` | right only | — | {"x":10,"y":-5} |
-| `callbacks/32/args/1/position/x` | differs | 15 | 10 |
-| `callbacks/32/args/1/position/y` | differs | 1.875 | -5 |
+| `callbacks/31/args/0/0/positionAbsolute` | right only | — | {"x":15,"y":1.875} |
 | `callbacks/32/args/1/hidden` | right only | — | false |
 | `callbacks/32/args/1/expandParent` | right only | — | false |
-| `callbacks/32/args/2/0/position/x` | differs | 15 | 10 |
-| `callbacks/32/args/2/0/position/y` | differs | 1.875 | -5 |
 | `callbacks/32/args/2/0/hidden` | right only | — | false |
 | `callbacks/32/args/2/0/expandParent` | right only | — | false |
-| `callbacks/34/args/0/0/position/x` | differs | 20 | 15 |
-| `callbacks/34/args/0/0/position/y` | differs | 6.875 | 0 |
-| `callbacks/34/args/0/0/positionAbsolute` | right only | — | {"x":15,"y":0} |
-| `callbacks/35/args/1/position/x` | differs | 20 | 15 |
-| `callbacks/35/args/1/position/y` | differs | 6.875 | 0 |
+| `callbacks/34/args/0/0/positionAbsolute` | right only | — | {"x":20,"y":6.875} |
 | `callbacks/35/args/1/hidden` | right only | — | false |
 | `callbacks/35/args/1/expandParent` | right only | — | false |
-| `callbacks/35/args/2/0/position/x` | differs | 20 | 15 |
-| `callbacks/35/args/2/0/position/y` | differs | 6.875 | 0 |
 | `callbacks/35/args/2/0/hidden` | right only | — | false |
 | `callbacks/35/args/2/0/expandParent` | right only | — | false |
-| `callbacks/37/args/0/0/position/x` | differs | 25 | 20 |
-| `callbacks/37/args/0/0/position/y` | differs | 11.875 | 5 |
-| `callbacks/37/args/0/0/positionAbsolute` | right only | — | {"x":20,"y":5} |
-| `callbacks/38/args/1/position/x` | differs | 25 | 20 |
-| `callbacks/38/args/1/position/y` | differs | 11.875 | 5 |
+| `callbacks/37/args/0/0/positionAbsolute` | right only | — | {"x":25,"y":11.875} |
 | `callbacks/38/args/1/hidden` | right only | — | false |
 | `callbacks/38/args/1/expandParent` | right only | — | false |
-| `callbacks/38/args/2/0/position/x` | differs | 25 | 20 |
-| `callbacks/38/args/2/0/position/y` | differs | 11.875 | 5 |
 | `callbacks/38/args/2/0/hidden` | right only | — | false |
 | `callbacks/38/args/2/0/expandParent` | right only | — | false |
-| `callbacks/40/args/0/0/position/x` | differs | 30 | 25 |
-| `callbacks/40/args/0/0/position/y` | differs | 16.875 | 10 |
-| `callbacks/40/args/0/0/positionAbsolute` | right only | — | {"x":25,"y":10} |
-| `callbacks/41/args/1/position/x` | differs | 30 | 25 |
-| `callbacks/41/args/1/position/y` | differs | 16.875 | 10 |
+| `callbacks/40/args/0/0/positionAbsolute` | right only | — | {"x":30,"y":16.875} |
 | `callbacks/41/args/1/hidden` | right only | — | false |
 | `callbacks/41/args/1/expandParent` | right only | — | false |
-| `callbacks/41/args/2/0/position/x` | differs | 30 | 25 |
-| `callbacks/41/args/2/0/position/y` | differs | 16.875 | 10 |
 | `callbacks/41/args/2/0/hidden` | right only | — | false |
 | `callbacks/41/args/2/0/expandParent` | right only | — | false |
-| `callbacks/43/args/0/0/position/x` | differs | 35 | 30 |
-| `callbacks/43/args/0/0/position/y` | differs | 21.875 | 15 |
-| `callbacks/43/args/0/0/positionAbsolute` | right only | — | {"x":30,"y":15} |
-| `callbacks/44/args/1/position/x` | differs | 35 | 30 |
-| `callbacks/44/args/1/position/y` | differs | 21.875 | 15 |
+| `callbacks/43/args/0/0/positionAbsolute` | right only | — | {"x":35,"y":21.875} |
 | `callbacks/44/args/1/hidden` | right only | — | false |
 | `callbacks/44/args/1/expandParent` | right only | — | false |
-| `callbacks/44/args/2/0/position/x` | differs | 35 | 30 |
-| `callbacks/44/args/2/0/position/y` | differs | 21.875 | 15 |
 | `callbacks/44/args/2/0/hidden` | right only | — | false |
 | `callbacks/44/args/2/0/expandParent` | right only | — | false |
-| `callbacks/46/args/0/0/position/x` | differs | 40 | 35 |
-| `callbacks/46/args/0/0/position/y` | differs | 26.875 | 20 |
-| `callbacks/46/args/0/0/positionAbsolute` | right only | — | {"x":35,"y":20} |
-| `callbacks/47/args/1/position/x` | differs | 40 | 35 |
-| `callbacks/47/args/1/position/y` | differs | 26.875 | 20 |
+| `callbacks/46/args/0/0/positionAbsolute` | right only | — | {"x":40,"y":26.875} |
 | `callbacks/47/args/1/hidden` | right only | — | false |
 | `callbacks/47/args/1/expandParent` | right only | — | false |
-| `callbacks/47/args/2/0/position/x` | differs | 40 | 35 |
-| `callbacks/47/args/2/0/position/y` | differs | 26.875 | 20 |
 | `callbacks/47/args/2/0/hidden` | right only | — | false |
 | `callbacks/47/args/2/0/expandParent` | right only | — | false |
-| `callbacks/49/args/0/0/position/x` | differs | 45 | 40 |
-| `callbacks/49/args/0/0/position/y` | differs | 31.875 | 25 |
-| `callbacks/49/args/0/0/positionAbsolute` | right only | — | {"x":40,"y":25} |
-| `callbacks/50/args/1/position/x` | differs | 45 | 40 |
-| `callbacks/50/args/1/position/y` | differs | 31.875 | 25 |
+| `callbacks/49/args/0/0/positionAbsolute` | right only | — | {"x":45,"y":31.875} |
 | `callbacks/50/args/1/hidden` | right only | — | false |
 | `callbacks/50/args/1/expandParent` | right only | — | false |
-| `callbacks/50/args/2/0/position/x` | differs | 45 | 40 |
-| `callbacks/50/args/2/0/position/y` | differs | 31.875 | 25 |
 | `callbacks/50/args/2/0/hidden` | right only | — | false |
 | `callbacks/50/args/2/0/expandParent` | right only | — | false |
-| `callbacks/51/args/0/0/position/y` | differs | 31.875 | 30 |
-| `callbacks/51/args/0/0/dragging` | differs | false | true |
-| `callbacks/51/args/0/0/positionAbsolute` | right only | — | {"x":45,"y":30} |
-| `callbacks/52/args/1/position/y` | differs | 31.875 | 30 |
+| `callbacks/51/args/0/0/positionAbsolute` | right only | — | {"x":45,"y":31.875} |
 | `callbacks/52/args/1/hidden` | right only | — | false |
 | `callbacks/52/args/1/expandParent` | right only | — | false |
-| `callbacks/52/args/2/0/position/y` | differs | 31.875 | 30 |
 | `callbacks/52/args/2/0/hidden` | right only | — | false |
 | `callbacks/52/args/2/0/expandParent` | right only | — | false |
 
-### api (50)
+### api (34)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getNodes/0/position/y` | differs | 31.875 | 30 |
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
 | `api/queries/getNodes/1/expandParent` | right only | — | false |
-| `api/queries/getNode/position/y` | differs | 31.875 | 30 |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/expandParent` | right only | — | false |
-| `api/queries/getInternalNode/position/y` | differs | 31.875 | 30 |
-| `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | 31.875 | 30 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"n1","data":{"label":"n1"},"position":{"x":45,"y":31.875},"sourcePosition":"right","targetPosition":"left","width":100,"height":40,"measured":{"width":10… | — |
@@ -18755,20 +18044,12 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getEdge/animated` | right only | — | false |
 | `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/position/y` | differs | 31.875 | 30 |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
-| `api/queries/getNodesBounds/y` | differs | 31.875 | 30 |
-| `api/queries/getNodesBounds/height` | differs | 108.125 | 110 |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/toObject/nodes/0/position/y` | differs | 31.875 | 30 |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
@@ -18778,10 +18059,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/0/animated` | right only | — | false |
 | `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/viewport/y` | differs | 13.125 | 15 |
-| `api/queries/getViewport/y` | differs | 13.125 | 15 |
-| `api/queries/screenToFlowPosition/y` | differs | -13.125 | -15 |
-| `api/queries/flowToScreenPosition/y` | differs | 13.125 | 15 |
 
 ## Normalization
 
@@ -18818,7 +18095,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 113 unclaimed difference(s).
+**Failed:** 109 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -18899,7 +18176,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/18/args/0/nodes/0/dragging` | right only | — | false |
 | `callbacks/18/args/0/nodes/0/expandParent` | right only | — | false |
 
-### api (46)
+### api (42)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -18933,10 +18210,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
@@ -18985,7 +18258,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 103 unclaimed difference(s).
+**Failed:** 99 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -19054,7 +18327,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/11/args/1/hidden` | right only | — | false |
 | `callbacks/11/args/1/selected` | right only | — | false |
 
-### api (48)
+### api (44)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -19091,10 +18364,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -19142,7 +18411,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 112 unclaimed difference(s).
+**Failed:** 108 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -19220,7 +18489,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/12/args/1/fromNode/expandParent` | right only | — | false |
 | `callbacks/12/args/1/toPosition` | differs | null | left |
 
-### api (48)
+### api (44)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -19257,10 +18526,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -19418,7 +18683,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 90 unclaimed difference(s).
+**Failed:** 82 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -19439,7 +18704,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (83)
+### api (75)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -19495,14 +18760,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -19562,7 +18819,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 88 unclaimed difference(s).
+**Failed:** 80 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -19582,7 +18839,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/1/args/0/2/resizing` | right only | — | false |
 | `callbacks/1/args/0/3/resizing` | right only | — | false |
 
-### api (82)
+### api (74)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -19638,14 +18895,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -19680,7 +18929,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 # System parity run — pan-after-controlled-viewport-change
 
-**Failed:** self-inconsistent, unclaimed-difference.
+**Failed:** unclaimed-difference.
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -19693,18 +18942,8 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 
 | side | captures | verdict | differences |
 |---|---|---|---|
-| upstream | 1, 2 | **disagrees with itself** | 1 |
+| upstream | 1, 2 | reproduced | 0 |
 | psflow | 1, 2 | reproduced | 0 |
-
-### upstream disagrees with itself
-
-| path | kind | capture 1 | capture 2 |
-|---|---|---|---|
-| `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onMove#1","onNodesChange#1","onMoveEnd#1","onMoveStart#2","onMove#2","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveEn… | ["onSelectionChange#1","onMoveStart#1","onMove#1","onMoveEnd#1","onNodesChange#1","onMoveStart#2","onMove#2","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveEn… |
-
-**upstream did not reproduce.** The comparison below ran anyway —
-capture-everything applies to a failed run as much as to a passing one — but a difference it reports
-cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
 ---
 
@@ -19714,7 +18953,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 89 unclaimed difference(s).
+**Failed:** 81 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -19735,7 +18974,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/3/args/0/2/resizing` | right only | — | false |
 | `callbacks/3/args/0/3/resizing` | right only | — | false |
 
-### api (82)
+### api (74)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -19791,14 +19030,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -19857,7 +19088,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 102 unclaimed difference(s).
+**Failed:** 94 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -19889,7 +19120,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/1/args/0/2/resizing` | right only | — | false |
 | `callbacks/1/args/0/3/resizing` | right only | — | false |
 
-### api (84)
+### api (76)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -19947,14 +19178,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -20013,7 +19236,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 86 unclaimed difference(s).
+**Failed:** 78 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -20039,7 +19262,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (74)
+### api (66)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -20089,14 +19312,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/3/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
@@ -20153,7 +19368,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 225 unclaimed difference(s).
+**Failed:** 217 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -20231,7 +19446,7 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `hooks/flow-probe/useStoreApi/subscribe` | left only | {"@ref":"function"} | — |
 | `hooks/flow-probe/useStoreApi/error` | right only | — | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
 
-### api (149)
+### api (141)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -20332,14 +19547,6 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/9/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
@@ -20404,8 +19611,8 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `console/3/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
 | `console/4/level` | differs | warning | pageerror |
 | `console/4/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:50397/parity/driver/dist/psflow.js:65092:… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:50397/parity/driver/dist/psflow.js:65092:… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:52656/parity/driver/dist/psflow.js:65092:… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:52656/parity/driver/dist/psflow.js:65092:… |
 
 
 ---
@@ -20436,16 +19643,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 123 unclaimed difference(s).
+**Failed:** 113 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### hooks (39)
+### hooks (37)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `hooks/node-probe/useNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `hooks/node-probe/useNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
 | `hooks/flow-probe/useConnection/inProgress` | left only | false | — |
 | `hooks/flow-probe/useEdges/0/animated` | right only | — | false |
 | `hooks/flow-probe/useEdges/0/hidden` | right only | — | false |
@@ -20484,7 +19689,7 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `hooks/flow-probe/useStoreApi/subscribe` | left only | {"@ref":"function"} | — |
 | `hooks/flow-probe/useStoreApi/error` | right only | — | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
 
-### api (73)
+### api (65)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -20535,14 +19740,6 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
-| `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getHandleConnections/1/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
-| `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/selected` | right only | — | false |
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
@@ -20580,8 +19777,8 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `console/3/level` | differs | warning | pageerror |
 | `console/3/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
 | `console/4` | right only | — | {"level":"pageerror","text":"ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScri… |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:50397/parity/driver/dist/psflow.js:65092:… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:50397/parity/driver/dist/psflow.js:65092:… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:52656/parity/driver/dist/psflow.js:65092:… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:52656/parity/driver/dist/psflow.js:65092:… |
 
 
 ---

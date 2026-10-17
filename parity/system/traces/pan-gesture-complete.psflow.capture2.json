@@ -471,7 +471,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 144.60000002384186,
+            "timeStamp": 161.70000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -538,7 +538,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 144.60000002384186,
+            "timeStamp": 161.70000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -617,7 +617,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 153.30000001192093,
+            "timeStamp": 169.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -706,7 +706,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 170.30000001192093,
+            "timeStamp": 186.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -795,7 +795,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 186.19999998807907,
+            "timeStamp": 202.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -884,7 +884,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 203.19999998807907,
+            "timeStamp": 219.4000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -973,7 +973,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 219.80000001192093,
+            "timeStamp": 236.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1076,7 +1076,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 241.60000002384186,
+            "timeStamp": 259.7000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1155,7 +1155,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 252.5,
+            "timeStamp": 269.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1244,7 +1244,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 269.39999997615814,
+            "timeStamp": 286.4000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1333,7 +1333,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 286.19999998807907,
+            "timeStamp": 303.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1422,7 +1422,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 303.30000001192093,
+            "timeStamp": 319.2000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1511,7 +1511,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 319.10000002384186,
+            "timeStamp": 337.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1808,50 +1808,34 @@
         },
         "getHandleConnections": [
           {
+            "edgeId": "first-edge",
             "source": "1",
             "target": "2",
-            "sourceHandle": {
-              "@undefined": true
-            },
-            "targetHandle": {
-              "@undefined": true
-            },
-            "edgeId": "first-edge"
+            "sourceHandle": null,
+            "targetHandle": null
           },
           {
+            "edgeId": "second-edge",
             "source": "1",
             "target": "3",
-            "sourceHandle": {
-              "@undefined": true
-            },
-            "targetHandle": {
-              "@undefined": true
-            },
-            "edgeId": "second-edge"
+            "sourceHandle": null,
+            "targetHandle": null
           }
         ],
         "getNodeConnections": [
           {
+            "edgeId": "first-edge",
             "source": "1",
             "target": "2",
-            "sourceHandle": {
-              "@undefined": true
-            },
-            "targetHandle": {
-              "@undefined": true
-            },
-            "edgeId": "first-edge"
+            "sourceHandle": null,
+            "targetHandle": null
           },
           {
+            "edgeId": "second-edge",
             "source": "1",
             "target": "3",
-            "sourceHandle": {
-              "@undefined": true
-            },
-            "targetHandle": {
-              "@undefined": true
-            },
-            "edgeId": "second-edge"
+            "sourceHandle": null,
+            "targetHandle": null
           }
         ],
         "toObject": {

@@ -538,7 +538,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 165.80000001192093,
+            "timeStamp": 162.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -605,7 +605,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 165.80000001192093,
+            "timeStamp": 162.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -684,7 +684,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 187.70000004768372,
+            "timeStamp": 168.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -773,7 +773,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 205.30000001192093,
+            "timeStamp": 185.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -862,7 +862,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 221.4000000357628,
+            "timeStamp": 202,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -951,7 +951,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 237,
+            "timeStamp": 219,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1040,7 +1040,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 253.70000004768372,
+            "timeStamp": 235,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1129,7 +1129,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 270.2000000476837,
+            "timeStamp": 251.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1218,7 +1218,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 287.4000000357628,
+            "timeStamp": 269,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1307,7 +1307,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 302.7000000476837,
+            "timeStamp": 285.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1396,7 +1396,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 319.7000000476837,
+            "timeStamp": 301.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1485,7 +1485,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 337.7000000476837,
+            "timeStamp": 318.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1771,28 +1771,20 @@
         },
         "getHandleConnections": [
           {
+            "edgeId": "e1-2",
             "source": "n1",
             "target": "n2",
-            "sourceHandle": {
-              "@undefined": true
-            },
-            "targetHandle": {
-              "@undefined": true
-            },
-            "edgeId": "e1-2"
+            "sourceHandle": null,
+            "targetHandle": null
           }
         ],
         "getNodeConnections": [
           {
+            "edgeId": "e1-2",
             "source": "n1",
             "target": "n2",
-            "sourceHandle": {
-              "@undefined": true
-            },
-            "targetHandle": {
-              "@undefined": true
-            },
-            "edgeId": "e1-2"
+            "sourceHandle": null,
+            "targetHandle": null
           }
         ],
         "toObject": {

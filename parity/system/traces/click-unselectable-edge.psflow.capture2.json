@@ -1873,7 +1873,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 225.5999999642372,
+            "timeStamp": 227.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1942,7 +1942,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 225.5999999642372,
+            "timeStamp": 227.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2009,7 +2009,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 225.5999999642372,
+            "timeStamp": 227.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2074,7 +2074,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 225.5999999642372,
+            "timeStamp": 227.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2139,7 +2139,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 236.79999995231628,
+            "timeStamp": 238.20000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2914,50 +2914,34 @@
         },
         "getHandleConnections": [
           {
+            "edgeId": "edge-with-class",
             "source": "1",
             "target": "2",
-            "sourceHandle": {
-              "@undefined": true
-            },
-            "targetHandle": {
-              "@undefined": true
-            },
-            "edgeId": "edge-with-class"
+            "sourceHandle": null,
+            "targetHandle": null
           },
           {
+            "edgeId": "edge-with-style",
             "source": "1",
             "target": "3",
-            "sourceHandle": {
-              "@undefined": true
-            },
-            "targetHandle": {
-              "@undefined": true
-            },
-            "edgeId": "edge-with-style"
+            "sourceHandle": null,
+            "targetHandle": null
           }
         ],
         "getNodeConnections": [
           {
+            "edgeId": "edge-with-class",
             "source": "1",
             "target": "2",
-            "sourceHandle": {
-              "@undefined": true
-            },
-            "targetHandle": {
-              "@undefined": true
-            },
-            "edgeId": "edge-with-class"
+            "sourceHandle": null,
+            "targetHandle": null
           },
           {
+            "edgeId": "edge-with-style",
             "source": "1",
             "target": "3",
-            "sourceHandle": {
-              "@undefined": true
-            },
-            "targetHandle": {
-              "@undefined": true
-            },
-            "edgeId": "edge-with-style"
+            "sourceHandle": null,
+            "targetHandle": null
           }
         ],
         "toObject": {

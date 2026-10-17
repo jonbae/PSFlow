@@ -620,50 +620,34 @@
         },
         "getHandleConnections": [
           {
+            "edgeId": "first-edge",
             "source": "1",
             "target": "2",
-            "sourceHandle": {
-              "@undefined": true
-            },
-            "targetHandle": {
-              "@undefined": true
-            },
-            "edgeId": "first-edge"
+            "sourceHandle": null,
+            "targetHandle": null
           },
           {
+            "edgeId": "second-edge",
             "source": "1",
             "target": "3",
-            "sourceHandle": {
-              "@undefined": true
-            },
-            "targetHandle": {
-              "@undefined": true
-            },
-            "edgeId": "second-edge"
+            "sourceHandle": null,
+            "targetHandle": null
           }
         ],
         "getNodeConnections": [
           {
+            "edgeId": "first-edge",
             "source": "1",
             "target": "2",
-            "sourceHandle": {
-              "@undefined": true
-            },
-            "targetHandle": {
-              "@undefined": true
-            },
-            "edgeId": "first-edge"
+            "sourceHandle": null,
+            "targetHandle": null
           },
           {
+            "edgeId": "second-edge",
             "source": "1",
             "target": "3",
-            "sourceHandle": {
-              "@undefined": true
-            },
-            "targetHandle": {
-              "@undefined": true
-            },
-            "edgeId": "second-edge"
+            "sourceHandle": null,
+            "targetHandle": null
           }
         ],
         "toObject": {

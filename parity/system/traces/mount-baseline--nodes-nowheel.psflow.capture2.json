@@ -546,28 +546,20 @@
         },
         "getHandleConnections": [
           {
+            "edgeId": "nowheel-plain",
             "source": "nowheel",
             "target": "plain",
-            "sourceHandle": {
-              "@undefined": true
-            },
-            "targetHandle": {
-              "@undefined": true
-            },
-            "edgeId": "nowheel-plain"
+            "sourceHandle": null,
+            "targetHandle": null
           }
         ],
         "getNodeConnections": [
           {
+            "edgeId": "nowheel-plain",
             "source": "nowheel",
             "target": "plain",
-            "sourceHandle": {
-              "@undefined": true
-            },
-            "targetHandle": {
-              "@undefined": true
-            },
-            "edgeId": "nowheel-plain"
+            "sourceHandle": null,
+            "targetHandle": null
           }
         ],
         "toObject": {

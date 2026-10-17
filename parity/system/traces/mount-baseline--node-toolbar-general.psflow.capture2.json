@@ -1950,28 +1950,20 @@
         },
         "getHandleConnections": [
           {
+            "edgeId": "first-edge",
             "source": "default-node",
             "target": "node-start-top",
-            "sourceHandle": {
-              "@undefined": true
-            },
-            "targetHandle": {
-              "@undefined": true
-            },
-            "edgeId": "first-edge"
+            "sourceHandle": null,
+            "targetHandle": null
           }
         ],
         "getNodeConnections": [
           {
+            "edgeId": "first-edge",
             "source": "default-node",
             "target": "node-start-top",
-            "sourceHandle": {
-              "@undefined": true
-            },
-            "targetHandle": {
-              "@undefined": true
-            },
-            "edgeId": "first-edge"
+            "sourceHandle": null,
+            "targetHandle": null
           }
         ],
         "toObject": {

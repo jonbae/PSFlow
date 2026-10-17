@@ -768,28 +768,20 @@
         },
         "getHandleConnections": [
           {
+            "edgeId": "1-2",
             "source": "Node-1",
             "target": "Node-2",
-            "sourceHandle": {
-              "@undefined": true
-            },
-            "targetHandle": {
-              "@undefined": true
-            },
-            "edgeId": "1-2"
+            "sourceHandle": null,
+            "targetHandle": null
           }
         ],
         "getNodeConnections": [
           {
+            "edgeId": "1-2",
             "source": "Node-1",
             "target": "Node-2",
-            "sourceHandle": {
-              "@undefined": true
-            },
-            "targetHandle": {
-              "@undefined": true
-            },
-            "edgeId": "1-2"
+            "sourceHandle": null,
+            "targetHandle": null
           }
         ],
         "toObject": {

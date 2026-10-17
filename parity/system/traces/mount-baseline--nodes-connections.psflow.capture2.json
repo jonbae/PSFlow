@@ -1250,62 +1250,62 @@
         },
         "getHandleConnections": [
           {
+            "edgeId": "hub-down-1",
             "source": "hub",
             "target": "down-1",
             "sourceHandle": "out",
-            "targetHandle": "in",
-            "edgeId": "hub-down-1"
+            "targetHandle": "in"
           },
           {
+            "edgeId": "hub-down-2",
             "source": "hub",
             "target": "down-2",
             "sourceHandle": "out",
-            "targetHandle": "in",
-            "edgeId": "hub-down-2"
+            "targetHandle": "in"
           },
           {
+            "edgeId": "hub-down-3",
             "source": "hub",
             "target": "down-3",
             "sourceHandle": "out",
-            "targetHandle": "in",
-            "edgeId": "hub-down-3"
+            "targetHandle": "in"
           }
         ],
         "getNodeConnections": [
           {
+            "edgeId": "up-1-hub",
             "source": "up-1",
             "target": "hub",
             "sourceHandle": "out",
-            "targetHandle": "in",
-            "edgeId": "up-1-hub"
+            "targetHandle": "in"
           },
           {
+            "edgeId": "up-2-hub",
             "source": "up-2",
             "target": "hub",
             "sourceHandle": "out",
-            "targetHandle": "in",
-            "edgeId": "up-2-hub"
+            "targetHandle": "in"
           },
           {
+            "edgeId": "hub-down-1",
             "source": "hub",
             "target": "down-1",
             "sourceHandle": "out",
-            "targetHandle": "in",
-            "edgeId": "hub-down-1"
+            "targetHandle": "in"
           },
           {
+            "edgeId": "hub-down-2",
             "source": "hub",
             "target": "down-2",
             "sourceHandle": "out",
-            "targetHandle": "in",
-            "edgeId": "hub-down-2"
+            "targetHandle": "in"
           },
           {
+            "edgeId": "hub-down-3",
             "source": "hub",
             "target": "down-3",
             "sourceHandle": "out",
-            "targetHandle": "in",
-            "edgeId": "hub-down-3"
+            "targetHandle": "in"
           }
         ],
         "toObject": {

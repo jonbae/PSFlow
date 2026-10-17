@@ -2581,50 +2581,34 @@
         },
         "getHandleConnections": [
           {
+            "edgeId": "edge-with-class",
             "source": "1",
             "target": "2",
-            "sourceHandle": {
-              "@undefined": true
-            },
-            "targetHandle": {
-              "@undefined": true
-            },
-            "edgeId": "edge-with-class"
+            "sourceHandle": null,
+            "targetHandle": null
           },
           {
+            "edgeId": "edge-with-style",
             "source": "1",
             "target": "3",
-            "sourceHandle": {
-              "@undefined": true
-            },
-            "targetHandle": {
-              "@undefined": true
-            },
-            "edgeId": "edge-with-style"
+            "sourceHandle": null,
+            "targetHandle": null
           }
         ],
         "getNodeConnections": [
           {
+            "edgeId": "edge-with-class",
             "source": "1",
             "target": "2",
-            "sourceHandle": {
-              "@undefined": true
-            },
-            "targetHandle": {
-              "@undefined": true
-            },
-            "edgeId": "edge-with-class"
+            "sourceHandle": null,
+            "targetHandle": null
           },
           {
+            "edgeId": "edge-with-style",
             "source": "1",
             "target": "3",
-            "sourceHandle": {
-              "@undefined": true
-            },
-            "targetHandle": {
-              "@undefined": true
-            },
-            "edgeId": "edge-with-style"
+            "sourceHandle": null,
+            "targetHandle": null
           }
         ],
         "toObject": {
