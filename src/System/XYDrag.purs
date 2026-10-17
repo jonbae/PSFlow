@@ -460,7 +460,7 @@ startDrag params upd ev = do
   liftEffect $ case upd.nodeId of
     Just nid | deselectFirst -> do
       let alreadySelected = case Map.lookup nid store.nodeLookup of
-            Just n -> n.selected
+            Just n -> n.selected == Just true
             Nothing -> false
       when (not alreadySelected) store.unselectNodesAndEdges
     _ -> pure unit

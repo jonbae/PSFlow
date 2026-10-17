@@ -28,7 +28,7 @@ useMoveSelectedNodes = map mkMover useStoreApi
   mkMover store = \delta factor -> do
     st <- store.getState
     let
-      selected = Array.filter _.selected st.nodes
+      selected = Array.filter (\n -> n.selected == Just true) st.nodes
       dragItems =
         map
           ( \n ->
@@ -53,7 +53,7 @@ useMoveSelectedNodes = map mkMover useStoreApi
                 , parentId: n.parentId
                 , origin: n.origin
                 , expandParent: n.expandParent
-                , dragging: false
+                , dragging: Nothing
                 }
           )
           selected

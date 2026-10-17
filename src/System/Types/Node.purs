@@ -59,9 +59,15 @@ type NodeBaseRow nodeData =
   , data :: nodeData
   , sourcePosition :: Maybe Position
   , targetPosition :: Maybe Position
-  , hidden :: Boolean
-  , selected :: Boolean
-  , dragging :: Boolean
+  -- | Absent unless the consumer sets it, as upstream's optional field is.
+  -- | Every reader treats absent as `false`.
+  , hidden :: Maybe Boolean
+  -- | Absent until a selection change sets it, as upstream's optional field
+  -- | is. Every reader treats absent as `false`.
+  , selected :: Maybe Boolean
+  -- | Absent until a position change that carries it sets it, as upstream's
+  -- | optional field is. Every reader treats absent as `false`.
+  , dragging :: Maybe Boolean
   , draggable :: Maybe Boolean
   , selectable :: Maybe Boolean
   , connectable :: Maybe Boolean
@@ -74,7 +80,10 @@ type NodeBaseRow nodeData =
   , parentId :: Maybe ParentId
   , zIndex :: Maybe Int
   , extent :: Maybe NodeExtent
-  , expandParent :: Boolean
+  -- | Absent unless the consumer sets it, as upstream's optional field is:
+  -- | upstream builds an internal node from `{ ...defaults, ...userNode }`,
+  -- | and every reader treats absent as `false`.
+  , expandParent :: Maybe Boolean
   , ariaLabel :: Maybe String
   , origin :: Maybe NodeOrigin
   , handles :: Maybe (Array NodeHandle)
@@ -136,8 +145,8 @@ type NodeDragItem =
   , extent :: Maybe NodeExtent
   , parentId :: Maybe ParentId
   , origin :: Maybe NodeOrigin
-  , expandParent :: Boolean
-  , dragging :: Boolean
+  , expandParent :: Maybe Boolean
+  , dragging :: Maybe Boolean
   }
 
 type NodeProps nodeData =
@@ -221,14 +230,19 @@ data NodeChange nodeData
   = NodeDimensionChange
       { id :: NodeId
       , dimensions :: Maybe Dimensions
-      , resizing :: Boolean
+      -- | Upstream's is optional: `NodeResizeControl`'s dimension changes
+      -- | carry it, and `updateNodeInternals`' and `handleExpandParent`'s
+      -- | don't.
+      , resizing :: Maybe Boolean
       , setAttributes :: SetAttributesMode
       }
   | NodePositionChange
       { id :: NodeId
       , position :: Maybe XYPosition
       , positionAbsolute :: Maybe XYPosition
-      , dragging :: Boolean
+      -- | Upstream's is optional: the store's position changes carry it, and
+      -- | `NodeResizeControl`'s and `handleExpandParent`'s don't.
+      , dragging :: Maybe Boolean
       }
   | NodeSelectionChange
       { id :: NodeId
