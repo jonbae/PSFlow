@@ -133,6 +133,42 @@
                           {
                             "tag": "div",
                             "attrs": {
+                              "class": "react-flow__node react-flow__node-default nopan selectable parent draggable",
+                              "data-id": "parent",
+                              "data-testid": "rf__node-parent",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(0px, 0px); pointer-events: all; visibility: visible; background-color: rgba(80, 120, 200, 0.12); width: 190px; height: 77px;"
+                            },
+                            "text": "parent",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator",
+                                  "data-nodeid": "parent",
+                                  "data-handlepos": "top",
+                                  "data-id": "1-parent-null-target"
+                                },
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator",
+                                  "data-nodeid": "parent",
+                                  "data-handlepos": "bottom",
+                                  "data-id": "1-parent-null-source"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
                               "class": "react-flow__node react-flow__node-default nopan selectable draggable",
                               "data-id": "child",
                               "data-testid": "rf__node-child",
@@ -197,42 +233,6 @@
                                   "data-nodeid": "outside",
                                   "data-handlepos": "bottom",
                                   "data-id": "1-outside-null-source"
-                                },
-                                "children": []
-                              }
-                            ]
-                          },
-                          {
-                            "tag": "div",
-                            "attrs": {
-                              "class": "react-flow__node react-flow__node-default nopan selectable parent draggable",
-                              "data-id": "parent",
-                              "data-testid": "rf__node-parent",
-                              "tabindex": "0",
-                              "role": "group",
-                              "aria-roledescription": "node",
-                              "aria-describedby": "react-flow__node-desc-1",
-                              "style": "z-index: 0; transform: translate(0px, 0px); pointer-events: all; visibility: visible; background-color: rgba(80, 120, 200, 0.12); width: 190px; height: 77px;"
-                            },
-                            "text": "parent",
-                            "children": [
-                              {
-                                "tag": "div",
-                                "attrs": {
-                                  "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator",
-                                  "data-nodeid": "parent",
-                                  "data-handlepos": "top",
-                                  "data-id": "1-parent-null-target"
-                                },
-                                "children": []
-                              },
-                              {
-                                "tag": "div",
-                                "attrs": {
-                                  "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator",
-                                  "data-nodeid": "parent",
-                                  "data-handlepos": "bottom",
-                                  "data-id": "1-parent-null-source"
                                 },
                                 "children": []
                               }

@@ -65,39 +65,6 @@
                           {
                             "tag": "div",
                             "attrs": {
-                              "class": "react-flow__node react-flow__node-propsRecord",
-                              "data-id": "props-child",
-                              "data-testid": "rf__node-props-child",
-                              "tabindex": "0",
-                              "role": "group",
-                              "aria-roledescription": "node",
-                              "aria-describedby": "react-flow__node-desc-1",
-                              "style": "z-index: 1001; transform: translate(150px, 225px); pointer-events: all; visibility: visible; width: 120px; height: 40px;"
-                            },
-                            "children": [
-                              {
-                                "tag": "div",
-                                "attrs": {
-                                  "class": "props-record-node",
-                                  "data-psflow-selectable": "false",
-                                  "data-psflow-draggable": "false",
-                                  "data-psflow-deletable": "false",
-                                  "data-psflow-width": "120",
-                                  "data-psflow-height": "40",
-                                  "data-psflow-parent-id": "props-parent",
-                                  "data-psflow-pos-x": "150",
-                                  "data-psflow-pos-y": "225",
-                                  "data-psflow-type": "propsRecord",
-                                  "style": "width: 120px; height: 40px; border: 1px solid rgb(34, 34, 34); background: rgb(238, 238, 238); font-size: 10px;"
-                                },
-                                "text": "props-child",
-                                "children": []
-                              }
-                            ]
-                          },
-                          {
-                            "tag": "div",
-                            "attrs": {
                               "class": "react-flow__node react-flow__node-propsRecord nopan selected selectable parent draggable",
                               "data-id": "props-parent",
                               "data-testid": "rf__node-props-parent",
@@ -124,6 +91,39 @@
                                   "style": "width: 300px; height: 200px; border: 1px solid rgb(34, 34, 34); background: rgb(238, 238, 238); font-size: 10px;"
                                 },
                                 "text": "props-parent",
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-propsRecord",
+                              "data-id": "props-child",
+                              "data-testid": "rf__node-props-child",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 1001; transform: translate(150px, 225px); pointer-events: all; visibility: visible; width: 120px; height: 40px;"
+                            },
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "props-record-node",
+                                  "data-psflow-selectable": "false",
+                                  "data-psflow-draggable": "false",
+                                  "data-psflow-deletable": "false",
+                                  "data-psflow-width": "120",
+                                  "data-psflow-height": "40",
+                                  "data-psflow-parent-id": "props-parent",
+                                  "data-psflow-pos-x": "150",
+                                  "data-psflow-pos-y": "225",
+                                  "data-psflow-type": "propsRecord",
+                                  "style": "width: 120px; height: 40px; border: 1px solid rgb(34, 34, 34); background: rgb(238, 238, 238); font-size: 10px;"
+                                },
+                                "text": "props-child",
                                 "children": []
                               }
                             ]
@@ -270,7 +270,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 311.69999998807907,
+            "timeStamp": 276.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -339,7 +339,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 311.69999998807907,
+            "timeStamp": 276.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -417,7 +417,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 311.69999998807907,
+            "timeStamp": 276.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -482,7 +482,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 311.69999998807907,
+            "timeStamp": 276.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -570,7 +570,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 321.60000002384186,
+            "timeStamp": 287.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -679,7 +679,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 337.10000002384186,
+            "timeStamp": 303.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -759,7 +759,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 337.10000002384186,
+            "timeStamp": 303.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -841,7 +841,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 337.10000002384186,
+            "timeStamp": 303.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -906,7 +906,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 337.10000002384186,
+            "timeStamp": 303.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1014,7 +1014,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 353,
+            "timeStamp": 318.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
