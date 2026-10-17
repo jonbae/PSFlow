@@ -37,7 +37,7 @@ import React.Store.Shell (Store, createStore)
 import React.Types.Edges (DefaultEdgeOptions, EdgeWrapperProps)
 import System.Types.Edge (EdgeAriaLabel(..), EdgeBase)
 import System.Types.Geometry (Position(..), XYPosition)
-import System.Types.Handle (HandleType(..))
+import System.Types.Handle (HandleIdField(..), HandleType(..))
 import System.Types.Ids (NodeId(..))
 import System.Types.Node (NodeBase, NodeHandle)
 import Unsafe.Coerce (unsafeCoerce)
@@ -90,7 +90,7 @@ nodeAt id at handles =
 
 handleAt :: HandleType -> Position -> Number -> NodeHandle
 handleAt handleType position y =
-  { id: Nothing, x: 24.0, y, position, handleType, width: Just 2.0, height: Just 2.0 }
+  { id: HandleIdUnset, x: 24.0, y, position, handleType, width: Just 2.0, height: Just 2.0 }
 
 edgeLabelled :: Maybe EdgeAriaLabel -> EdgeBase Unit
 edgeLabelled ariaLabel =

@@ -38,7 +38,7 @@ import System.Types.Geometry
   , Rect
   , XYPosition
   )
-import System.Types.Handle (HandleType, SourceHandle, TargetHandle)
+import System.Types.Handle (HandleIdField, HandleType, SourceHandle, TargetHandle)
 import System.Types.Ids (NodeId, ParentId)
 
 -- | The shared row of `NodeBase` fields. `InternalNodeBase` extends this
@@ -172,7 +172,7 @@ type NodeProps nodeData =
 
 -- | `Handle` minus `nodeId`, with `width`/`height` made optional.
 type NodeHandle =
-  { id :: Maybe String
+  { id :: HandleIdField
   , x :: Number
   , y :: Number
   , position :: Position
