@@ -63,7 +63,7 @@ import React.Basic (ReactComponent, element)
 import React.Basic.Events (EventHandler, handler, handler_, syntheticEvent)
 import React.Basic.Hooks (UnsafeReference(..), memo, reactComponent, useRef)
 import React.Basic.Hooks as React
-import React.Component.NodeWrapper.Util (arrowKeyDiffs, builtinNodeTypes, getNodeInlineStyleDimensions)
+import React.Component.NodeWrapper.Util (arrowKeyDiffs, builtinNodeTypes, getNodeInlineStyleDimensions, nodeTransform)
 import React.Container.A11yDescriptions (ariaNodeDescKey)
 import React.Context.NodeId (nodeIdProvider)
 import React.FFI.DOM (div_, opt)
@@ -139,9 +139,9 @@ placeholderNode nodeId =
   , data: (unsafeCoerce {} :: n)
   , sourcePosition: Nothing
   , targetPosition: Nothing
-  , hidden: true
-  , selected: false
-  , dragging: false
+  , hidden: Just true
+  , selected: Nothing
+  , dragging: Nothing
   , draggable: Nothing
   , selectable: Nothing
   , connectable: Nothing
@@ -154,7 +154,7 @@ placeholderNode nodeId =
   , parentId: Nothing
   , zIndex: Nothing
   , extent: Nothing
-  , expandParent: false
+  , expandParent: Nothing
   , ariaLabel: Nothing
   , origin: Nothing
   , handles: Nothing
@@ -292,7 +292,7 @@ mkNodeProps node nodeType selectable draggable connectable dragging =
   , zIndex: node.internals.z
   , selectable
   , deletable: fromMaybe true node.deletable
-  , selected: node.selected
+  , selected: fromMaybe false node.selected
   , draggable
   , isConnectable: connectable
   , positionAbsoluteX: node.internals.positionAbsolute.x
@@ -335,7 +335,7 @@ nodeWrapper =
 
       dragging <- useDrag
         { wrapperRef: nodeRef
-        , disabled: node.hidden || not isDraggable
+        , disabled: node.hidden == Just true || not isDraggable
         , nodeId: Just (NodeId props.id)
         , noDragClassName: Just props.noDragClassName
         , handleSelector: node.dragHandle
@@ -373,12 +373,7 @@ nodeWrapper =
         baseStyle :: Foreign
         baseStyle = toForeignStyle
           { zIndex: node.internals.z
-          , transform:
-              "translate("
-                <> show node.internals.positionAbsolute.x
-                <> "px,"
-                <> show node.internals.positionAbsolute.y
-                <> "px)"
+          , transform: nodeTransform node.internals.positionAbsolute
           , pointerEvents: if hasPointerEvents then "all" else "none"
           , visibility: if hasDims then "visible" else "hidden"
           }
@@ -456,7 +451,7 @@ nodeWrapper =
                 }
             else case Map.lookup k arrowKeyDiffs of
               Just delta
-                | isDraggable && node.selected -> do
+                | isDraggable && node.selected == Just true -> do
                     preventDefault (KE.toEvent ke)
                     moveSelectedNodes delta (if shift then 4.0 else 1.0)
               _ -> pure unit
@@ -493,7 +488,7 @@ nodeWrapper =
                   )
 
       pure $
-        if node.hidden then mempty
+        if node.hidden == Just true then mempty
         else
           div_
             { className: buildNodeClassName
@@ -503,7 +498,7 @@ nodeWrapper =
                 , isDraggable
                 , isSelectable
                 , isParent: slice.isParent
-                , selected: node.selected
+                , selected: node.selected == Just true
                 , dragging
                 }
             , ref: nodeRef

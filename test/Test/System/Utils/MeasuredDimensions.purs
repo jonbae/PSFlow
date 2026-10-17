@@ -52,9 +52,9 @@ nodeAt id at =
   , data: unit
   , sourcePosition: Nothing
   , targetPosition: Nothing
-  , hidden: false
-  , selected: false
-  , dragging: false
+  , hidden: Nothing
+  , selected: Nothing
+  , dragging: Nothing
   , draggable: Nothing
   , selectable: Nothing
   , connectable: Nothing
@@ -67,7 +67,7 @@ nodeAt id at =
   , parentId: Nothing
   , zIndex: Nothing
   , extent: Nothing
-  , expandParent: false
+  , expandParent: Nothing
   , ariaLabel: Nothing
   , origin: Nothing
   , handles: Nothing
@@ -77,11 +77,16 @@ nodeAt id at =
   , style: Nothing
   }
 
-type DimensionChange = { dimensions :: Maybe Dimensions, setAttributes :: SetAttributesMode }
+type DimensionChange =
+  { dimensions :: Maybe Dimensions
+  , setAttributes :: SetAttributesMode
+  , resizing :: Maybe Boolean
+  }
 
 dimensionChangeFor :: NodeId -> Array (NodeChange Unit) -> Maybe DimensionChange
 dimensionChangeFor id = Array.findMap case _ of
-  NodeDimensionChange c | c.id == id -> Just { dimensions: c.dimensions, setAttributes: c.setAttributes }
+  NodeDimensionChange c | c.id == id ->
+    Just { dimensions: c.dimensions, setAttributes: c.setAttributes, resizing: c.resizing }
   _ -> Nothing
 
 -- | The changes `updateNodeInternals` returns when each of `measured` is
@@ -115,6 +120,8 @@ runMeasuredDimensionsTests = do
     (map _.dimensions measuredA == Just (Just { width: 50.0, height: 25.0 }))
   assert "a node's measurement change carries no setAttributes"
     (map _.setAttributes measuredA == Just Nothing)
+  assert "a node's measurement change carries no resizing, as upstream's doesn't"
+    (map _.resizing measuredA == Just Nothing)
 
   let applied = applyNodeChanges changes [ a ]
   assert "applying the measurement sets the node's measured size"
@@ -127,10 +134,12 @@ runMeasuredDimensionsTests = do
   let
     parent = (nodeAt "p" { x: 0.0, y: 0.0 }) { measured = { width: Just 50.0, height: Just 25.0 } }
     child = (nodeAt "c" { x: 40.0, y: 0.0 })
-      { parentId = Just (nodeToParent (NodeId "p")), expandParent = true }
+      { parentId = Just (nodeToParent (NodeId "p")), expandParent = Just true }
   expandChanges <- measure [ parent, child ] [ "c" ]
   let grown = dimensionChangeFor (NodeId "p") expandChanges
   assert "an expandParent child grows its parent"
     (map (map _.width <<< _.dimensions) grown == Just (Just 90.0))
   assert "the parent's change still carries setAttributes, as upstream's does"
     (map _.setAttributes grown == Just (Just { width: true, height: true }))
+  assert "the parent's change carries no resizing, as upstream's doesn't"
+    (map _.resizing grown == Just Nothing)
