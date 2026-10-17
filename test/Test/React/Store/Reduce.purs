@@ -40,7 +40,7 @@ sampleNode =
   , data: unit
   , sourcePosition: Nothing
   , targetPosition: Nothing
-  , hidden: false
+  , hidden: Nothing
   , selected: true
   , dragging: false
   , draggable: Nothing
@@ -103,7 +103,7 @@ freshNode =
   , data: unit
   , sourcePosition: Nothing
   , targetPosition: Nothing
-  , hidden: false
+  , hidden: Nothing
   , selected: false
   , dragging: false
   , draggable: Nothing

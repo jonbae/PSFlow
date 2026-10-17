@@ -180,7 +180,7 @@ useNodesInitialized opts = useStore selectInitialized
       -- visible measured node, hard-stop at `false` on any visible
       -- missing-measurement node. `acc.broken` carries the hard-stop.
       step acc n =
-        if n.hidden && not opts.includeHiddenNodes then acc
+        if n.hidden == Just true && not opts.includeHiddenNodes then acc
         else if acc.broken then acc
         else case n.internals.handleBounds of
           Nothing -> { initialised: false, broken: true }

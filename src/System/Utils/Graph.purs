@@ -252,7 +252,7 @@ getNodesInside nodes rect transform opts =
 
   visible node =
     let
-      hidden = node.hidden
+      hidden = node.hidden == Just true
       selectable = fromMaybe true node.selectable
     in
       if (opts.excludeNonSelectable && not selectable) || hidden then false
@@ -371,7 +371,7 @@ filterFitViewNodes nodes opts =
           let
             hasSize =
               isJust n.measured.width && isJust n.measured.height
-            visible = opts.includeHiddenNodes || not n.hidden
+            visible = opts.includeHiddenNodes || n.hidden /= Just true
             inOptions = case optionIds of
               Nothing -> true
               Just ids -> Set.member n.id ids

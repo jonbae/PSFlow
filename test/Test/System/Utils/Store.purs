@@ -53,7 +53,7 @@ mkNode r =
   , data: unit
   , sourcePosition: Nothing
   , targetPosition: Nothing
-  , hidden: false
+  , hidden: Nothing
   , selected: r.selected
   , dragging: false
   , draggable: Nothing

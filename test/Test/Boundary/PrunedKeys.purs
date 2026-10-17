@@ -48,7 +48,7 @@ node =
   , data: unsafeToForeign {}
   , sourcePosition: Nothing
   , targetPosition: Nothing
-  , hidden: false
+  , hidden: Nothing
   , selected: false
   , dragging: false
   , draggable: Nothing
@@ -80,7 +80,7 @@ internalNode =
   , data: node.data
   , sourcePosition: Nothing
   , targetPosition: Nothing
-  , hidden: false
+  , hidden: Nothing
   , selected: false
   , dragging: false
   , draggable: Nothing
