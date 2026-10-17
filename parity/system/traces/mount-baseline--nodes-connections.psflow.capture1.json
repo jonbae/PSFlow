@@ -414,7 +414,7 @@
                               {
                                 "tag": "div",
                                 "attrs": {
-                                  "data-psflow-connections": "[[\"hub-down-1\",\"hub\",\"down-1\",\"out\",\"in\"],[\"hub-down-2\",\"hub\",\"down-2\",\"out\",\"in\"],[\"hub-down-3\",\"hub\",\"down-3\",\"out\",\"in\"],[\"up-1-hub\",\"up-1\",\"hub\",\"out\",\"in\"],[\"up-2-hub\",\"up-2\",\"hub\",\"out\",\"in\"]]",
+                                  "data-psflow-connections": "[[\"up-1-hub\",\"up-1\",\"hub\",\"out\",\"in\"],[\"up-2-hub\",\"up-2\",\"hub\",\"out\",\"in\"],[\"hub-down-1\",\"hub\",\"down-1\",\"out\",\"in\"],[\"hub-down-2\",\"hub\",\"down-2\",\"out\",\"in\"],[\"hub-down-3\",\"hub\",\"down-3\",\"out\",\"in\"]]",
                                   "data-psflow-connections-source": "[[\"hub-down-1\",\"hub\",\"down-1\",\"out\",\"in\"],[\"hub-down-2\",\"hub\",\"down-2\",\"out\",\"in\"],[\"hub-down-3\",\"hub\",\"down-3\",\"out\",\"in\"]]",
                                   "data-psflow-connections-target": "[[\"up-1-hub\",\"up-1\",\"hub\",\"out\",\"in\"],[\"up-2-hub\",\"up-2\",\"hub\",\"out\",\"in\"]]",
                                   "data-psflow-connections-count": "5"
@@ -1273,6 +1273,20 @@
         ],
         "getNodeConnections": [
           {
+            "source": "up-1",
+            "target": "hub",
+            "sourceHandle": "out",
+            "targetHandle": "in",
+            "edgeId": "up-1-hub"
+          },
+          {
+            "source": "up-2",
+            "target": "hub",
+            "sourceHandle": "out",
+            "targetHandle": "in",
+            "edgeId": "up-2-hub"
+          },
+          {
             "source": "hub",
             "target": "down-1",
             "sourceHandle": "out",
@@ -1292,20 +1306,6 @@
             "sourceHandle": "out",
             "targetHandle": "in",
             "edgeId": "hub-down-3"
-          },
-          {
-            "source": "up-1",
-            "target": "hub",
-            "sourceHandle": "out",
-            "targetHandle": "in",
-            "edgeId": "up-1-hub"
-          },
-          {
-            "source": "up-2",
-            "target": "hub",
-            "sourceHandle": "out",
-            "targetHandle": "in",
-            "edgeId": "up-2-hub"
           }
         ],
         "toObject": {

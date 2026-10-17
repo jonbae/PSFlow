@@ -134,7 +134,7 @@ collectIncidentEdgeIds state selectedNodeIds =
     -- index); convert at the lookup boundary.
     addEdgesForNode acc nodeId = case Map.lookup (unwrap nodeId) state.connectionLookup of
       Nothing -> acc
-      Just handleMap -> foldl (addEdgeIfSelectable edgesSelectableDefault) acc (Map.values handleMap)
+      Just handleMap -> foldl (addEdgeIfSelectable edgesSelectableDefault) acc (Map.values handleMap.byKey)
   in
     foldl addEdgesForNode Set.empty (Set.toUnfoldable selectedNodeIds :: Array NodeId)
   where

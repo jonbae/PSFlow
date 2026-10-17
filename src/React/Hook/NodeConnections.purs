@@ -25,10 +25,9 @@ module React.Hook.NodeConnections
 import Prelude
 
 import Control.Alt ((<|>))
-import Data.Array (any, filter, fromFoldable, null) as Array
+import Data.Array (any, filter, null) as Array
 import Data.Foldable (for_)
 import Data.Map (lookup) as Map
-import Data.Map.Internal (values) as Map
 import Data.Maybe (Maybe(..))
 import Data.Newtype (class Newtype)
 import Effect (Effect)
@@ -40,6 +39,7 @@ import React.Hook.Store (UseStore, useStore)
 import System.Constants (ErrorCode(..), errorMessage)
 import System.Types.Connection (NodeConnection)
 import System.Types.Handle (HandleType(..))
+import System.Utils.Store (handleConnectionsInOrder)
 
 -- | Inputs. The optional `nodeId` (TS `id`) is renamed to clarify which
 -- | id this refers to.
@@ -90,7 +90,7 @@ useNodeConnections params = coerceHook React.do
   connections <- useStore \s ->
     case Map.lookup key s.connectionLookup of
       Nothing -> [] :: Array NodeConnection
-      Just inner -> Array.fromFoldable (Map.values inner)
+      Just inner -> handleConnectionsInOrder inner
 
   prevRef <- useRef ([] :: Array NodeConnection)
 
