@@ -51,6 +51,7 @@ import Test.Boundary.EdgeSelected (runEdgeSelectedTests)
 import Test.Boundary.NodeDragging (runNodeDraggingTests)
 import Test.Boundary.NodeHidden (runNodeHiddenTests)
 import Test.Boundary.NodeSelected (runNodeSelectedTests)
+import Test.Boundary.DimensionResizing (runDimensionResizingTests)
 import Test.Boundary.NodeExpandParent (runNodeExpandParentTests)
 import Test.Boundary.PrunedKeys (runPrunedKeysTests)
 import Test.Boundary.Wrapper (runWrapperTests)
@@ -307,7 +308,7 @@ main = do
         , change: NodeDimensionChange
             { id: NodeId "1"
             , dimensions: Nothing
-            , resizing: false
+            , resizing: Nothing
             , setAttributes: Nothing
             }
         }
@@ -1133,6 +1134,7 @@ main = do
   runNodeHiddenTests
   runNodeDraggingTests
   runNodeSelectedTests
+  runDimensionResizingTests
 
   -- Function parity — live differential against XYFlow (via the @psflow/oracle bundle).
   -- Requires `npm run build:oracle` to have produced oracle/index.js.

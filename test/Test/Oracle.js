@@ -219,9 +219,10 @@ const nodeChangeOut = (c) => {
       return change;
     }
     case "dimensions": {
-      const change = { type: "dimensions", id: c.id, resizing: c.resizing };
+      const change = { type: "dimensions", id: c.id };
       if (c.dimensions != null) change.dimensions = c.dimensions;
       if (c.setAttributes != null) change.setAttributes = setAttributesOut(c.setAttributes);
+      if (c.resizing != null) change.resizing = c.resizing;
       return change;
     }
     case "remove":

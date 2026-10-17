@@ -110,7 +110,7 @@ import Boundary.Wrapper (mkComponentWrapper)
 import Data.Array (length) as Array
 import Data.Array.NonEmpty (fromArray) as NEA
 import Data.Int (round, toNumber) as Int
-import Data.Maybe (Maybe(..), fromMaybe, fromMaybe', maybe)
+import Data.Maybe (Maybe(..), fromMaybe', maybe)
 import Data.Newtype (unwrap, wrap)
 import Data.Nullable (Nullable, toMaybe, toNullable)
 import Effect.Exception.Unsafe (unsafeThrow)
@@ -919,7 +919,7 @@ nodeChangeIn c = case c.type of
   "dimensions" -> NodeDimensionChange
     { id: wrap (requiredMember c.type "id" c.id)
     , dimensions: fromUndefinable c.dimensions
-    , resizing: fromMaybe false (fromUndefinable c.resizing)
+    , resizing: fromUndefinable c.resizing
     , setAttributes: map setAttributesIn (fromUndefinable c.setAttributes)
     }
   "position" -> NodePositionChange
@@ -955,7 +955,7 @@ nodeChangeOut = pruneUndefined <<< case _ of
     { type = "dimensions"
     , id = toUndefinable (Just (unwrap c.id))
     , dimensions = toUndefinable c.dimensions
-    , resizing = toUndefinable (Just c.resizing)
+    , resizing = toUndefinable c.resizing
     , setAttributes = toUndefinable (map setAttributesOut c.setAttributes)
     }
   NodePositionChange c -> emptyNodeChange

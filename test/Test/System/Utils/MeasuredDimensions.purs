@@ -77,11 +77,16 @@ nodeAt id at =
   , style: Nothing
   }
 
-type DimensionChange = { dimensions :: Maybe Dimensions, setAttributes :: SetAttributesMode }
+type DimensionChange =
+  { dimensions :: Maybe Dimensions
+  , setAttributes :: SetAttributesMode
+  , resizing :: Maybe Boolean
+  }
 
 dimensionChangeFor :: NodeId -> Array (NodeChange Unit) -> Maybe DimensionChange
 dimensionChangeFor id = Array.findMap case _ of
-  NodeDimensionChange c | c.id == id -> Just { dimensions: c.dimensions, setAttributes: c.setAttributes }
+  NodeDimensionChange c | c.id == id ->
+    Just { dimensions: c.dimensions, setAttributes: c.setAttributes, resizing: c.resizing }
   _ -> Nothing
 
 -- | The changes `updateNodeInternals` returns when each of `measured` is
@@ -115,6 +120,8 @@ runMeasuredDimensionsTests = do
     (map _.dimensions measuredA == Just (Just { width: 50.0, height: 25.0 }))
   assert "a node's measurement change carries no setAttributes"
     (map _.setAttributes measuredA == Just Nothing)
+  assert "a node's measurement change carries no resizing, as upstream's doesn't"
+    (map _.resizing measuredA == Just Nothing)
 
   let applied = applyNodeChanges changes [ a ]
   assert "applying the measurement sets the node's measured size"
@@ -134,3 +141,5 @@ runMeasuredDimensionsTests = do
     (map (map _.width <<< _.dimensions) grown == Just (Just 90.0))
   assert "the parent's change still carries setAttributes, as upstream's does"
     (map _.setAttributes grown == Just (Just { width: true, height: true }))
+  assert "the parent's change carries no resizing, as upstream's doesn't"
+    (map _.resizing grown == Just Nothing)
