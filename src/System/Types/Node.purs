@@ -63,7 +63,9 @@ type NodeBaseRow nodeData =
   -- | Every reader treats absent as `false`.
   , hidden :: Maybe Boolean
   , selected :: Boolean
-  , dragging :: Boolean
+  -- | Absent until a position change that carries it sets it, as upstream's
+  -- | optional field is. Every reader treats absent as `false`.
+  , dragging :: Maybe Boolean
   , draggable :: Maybe Boolean
   , selectable :: Maybe Boolean
   , connectable :: Maybe Boolean
@@ -142,7 +144,7 @@ type NodeDragItem =
   , parentId :: Maybe ParentId
   , origin :: Maybe NodeOrigin
   , expandParent :: Maybe Boolean
-  , dragging :: Boolean
+  , dragging :: Maybe Boolean
   }
 
 type NodeProps nodeData =
@@ -233,7 +235,9 @@ data NodeChange nodeData
       { id :: NodeId
       , position :: Maybe XYPosition
       , positionAbsolute :: Maybe XYPosition
-      , dragging :: Boolean
+      -- | Upstream's is optional: the store's position changes carry it, and
+      -- | `NodeResizeControl`'s and `handleExpandParent`'s don't.
+      , dragging :: Maybe Boolean
       }
   | NodeSelectionChange
       { id :: NodeId

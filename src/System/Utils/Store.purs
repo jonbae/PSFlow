@@ -586,7 +586,7 @@ stepExpansion children parentLookup defaultOrigin changes (Tuple parentId rec) =
                 , y: rec.parent.position.y - yChange + heightChange
                 }
             , positionAbsolute: Nothing
-            , dragging: false
+            , dragging: Nothing
             }
         ]
       else []
@@ -609,7 +609,7 @@ stepExpansion children parentLookup defaultOrigin changes (Tuple parentId rec) =
                                     , y: kid.position.y + yChange
                                     }
                                 , positionAbsolute: Nothing
-                                , dragging: false
+                                , dragging: Nothing
                                 }
                             )
                     )

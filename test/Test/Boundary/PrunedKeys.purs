@@ -50,7 +50,7 @@ node =
   , targetPosition: Nothing
   , hidden: Nothing
   , selected: false
-  , dragging: false
+  , dragging: Nothing
   , draggable: Nothing
   , selectable: Nothing
   , connectable: Nothing
@@ -82,7 +82,7 @@ internalNode =
   , targetPosition: Nothing
   , hidden: Nothing
   , selected: false
-  , dragging: false
+  , dragging: Nothing
   , draggable: Nothing
   , selectable: Nothing
   , connectable: Nothing

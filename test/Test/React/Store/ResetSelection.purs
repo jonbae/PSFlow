@@ -48,7 +48,7 @@ selectedNode =
   , targetPosition: Nothing
   , hidden: Nothing
   , selected: true
-  , dragging: false
+  , dragging: Nothing
   , draggable: Nothing
   , selectable: Nothing
   , connectable: Nothing

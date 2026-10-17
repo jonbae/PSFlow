@@ -27,15 +27,15 @@
 -- |
 -- | ## Fields PureScript makes required and upstream leaves optional
 -- |
--- | Two Booleans — a node's `selected` and `dragging` — plus a node's
--- | `measured` record. An edge's `animated`, `hidden`, and `selected` and a
--- | node's `expandParent` and `hidden` were the other five, and are
--- | `Maybe Boolean`s that cross only when they're set. Inbound they default (`false`, and an empty
+-- | One Boolean — a node's `selected` — plus a node's `measured` record. An
+-- | edge's `animated`, `hidden`, and `selected` and a node's `expandParent`,
+-- | `hidden`, and `dragging` were the other six, and are `Maybe Boolean`s
+-- | that cross only when they're set. Inbound they default (`false`, and an empty
 -- | measurement); outbound they are **emitted always**, so a JavaScript
 -- | consumer reading a node back sees `hidden: false` where upstream would
 -- | have no such key. That is a real divergence, it is recorded as a region in
 -- | `parity/boundary/regions.json`, and it is deliberately not fixed here:
--- | `Maybe`-ifying three fields of the internals is churn ahead of the first
+-- | `Maybe`-ifying two fields of the internals is churn ahead of the first
 -- | green signal on the JS surface. The stale-region rule is what forces the
 -- | cleanup once the net's `props` and `dom` sections are green.
 -- |
@@ -505,7 +505,7 @@ nodeIn n =
   , targetPosition: map (positionIn "node.targetPosition") (fromUndefinable n.targetPosition)
   , hidden: fromUndefinable n.hidden
   , selected: fromMaybe false (fromUndefinable n.selected)
-  , dragging: fromMaybe false (fromUndefinable n.dragging)
+  , dragging: fromUndefinable n.dragging
   , draggable: fromUndefinable n.draggable
   , selectable: fromUndefinable n.selectable
   , connectable: fromUndefinable n.connectable
@@ -544,7 +544,7 @@ nodeOut n = pruneUndefined
   , targetPosition: toUndefinable (map positionOut n.targetPosition)
   , hidden: toUndefinable n.hidden
   , selected: toUndefinable (Just n.selected)
-  , dragging: toUndefinable (Just n.dragging)
+  , dragging: toUndefinable n.dragging
   , draggable: toUndefinable n.draggable
   , selectable: toUndefinable n.selectable
   , connectable: toUndefinable n.connectable
@@ -584,7 +584,7 @@ internalNodeOut n = pruneUndefined
   , targetPosition: toUndefinable (map positionOut n.targetPosition)
   , hidden: toUndefinable n.hidden
   , selected: toUndefinable (Just n.selected)
-  , dragging: toUndefinable (Just n.dragging)
+  , dragging: toUndefinable n.dragging
   , draggable: toUndefinable n.draggable
   , selectable: toUndefinable n.selectable
   , connectable: toUndefinable n.connectable
@@ -930,7 +930,7 @@ nodeChangeIn c = case c.type of
     { id: wrap (requiredMember c.type "id" c.id)
     , position: fromUndefinable c.position
     , positionAbsolute: fromUndefinable c.positionAbsolute
-    , dragging: fromMaybe false (fromUndefinable c.dragging)
+    , dragging: fromUndefinable c.dragging
     }
   "select" -> NodeSelectionChange
     { id: wrap (requiredMember c.type "id" c.id)
@@ -967,7 +967,7 @@ nodeChangeOut = pruneUndefined <<< case _ of
     , id = toUndefinable (Just (unwrap c.id))
     , position = toUndefinable c.position
     , positionAbsolute = toUndefinable c.positionAbsolute
-    , dragging = toUndefinable (Just c.dragging)
+    , dragging = toUndefinable c.dragging
     }
   NodeSelectionChange c -> emptyNodeChange
     { type = "select"

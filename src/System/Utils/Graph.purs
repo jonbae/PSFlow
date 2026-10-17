@@ -268,7 +268,7 @@ getNodesInside nodes rect transform opts =
           forceInitialRender = isNothing node.internals.handleBounds
         in
           forceInitialRender || partiallyVisible || overlapping >= area
-            || node.dragging
+            || node.dragging == Just true
 
 -- Connected edges --------------------------------------------------------
 

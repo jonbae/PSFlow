@@ -171,7 +171,7 @@ buildChanges store nid change childChanges resizeDirection = do
             { id: nid
             , position: Just nextPosition
             , positionAbsolute: Nothing
-            , dragging: false
+            , dragging: Nothing
             }
         ]
       _, _ -> []
@@ -198,7 +198,7 @@ buildChanges store nid change childChanges resizeDirection = do
           { id: cc.id
           , position: Just cc.position
           , positionAbsolute: Nothing
-          , dragging: false
+          , dragging: Nothing
           }
       )
       childChanges
