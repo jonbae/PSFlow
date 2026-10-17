@@ -22,6 +22,7 @@ import System.Types.Edge (EdgePosition)
 import System.Types.Geometry (Position(..), XYPosition)
 import System.Types.Handle
   ( Handle
+  , handleIdString
   , mkSourceHandle
   , mkTargetHandle
   , unSourceHandle
@@ -80,7 +81,7 @@ nodeHandleToHandle h nodeId =
 getHandle :: Array Handle -> Maybe String -> Maybe Handle
 getHandle bounds handleId = case handleId of
   Nothing -> bounds Array.!! 0
-  Just hid -> Array.find (\h -> h.id == Just hid) bounds
+  Just hid -> Array.find (\h -> handleIdString h.id == Just hid) bounds
 
 getEdgePosition
   :: forall n

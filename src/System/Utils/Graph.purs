@@ -252,7 +252,7 @@ getNodesInside nodes rect transform opts =
 
   visible node =
     let
-      hidden = node.hidden
+      hidden = node.hidden == Just true
       selectable = fromMaybe true node.selectable
     in
       if (opts.excludeNonSelectable && not selectable) || hidden then false
@@ -268,7 +268,7 @@ getNodesInside nodes rect transform opts =
           forceInitialRender = isNothing node.internals.handleBounds
         in
           forceInitialRender || partiallyVisible || overlapping >= area
-            || node.dragging
+            || node.dragging == Just true
 
 -- Connected edges --------------------------------------------------------
 
@@ -371,7 +371,7 @@ filterFitViewNodes nodes opts =
           let
             hasSize =
               isJust n.measured.width && isJust n.measured.height
-            visible = opts.includeHiddenNodes || not n.hidden
+            visible = opts.includeHiddenNodes || n.hidden /= Just true
             inOptions = case optionIds of
               Nothing -> true
               Just ids -> Set.member n.id ids
@@ -427,7 +427,7 @@ calculateNodePosition p = case Map.lookup p.nodeId p.nodeLookup of
         Nothing -> p.nodeExtent
 
       extent = case node.extent of
-        Just ParentExtent | not node.expandParent ->
+        Just ParentExtent | node.expandParent /= Just true ->
           case parentNode of
             Just pn -> case pn.measured.width, pn.measured.height of
               Just pw, Just ph ->

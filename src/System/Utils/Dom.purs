@@ -20,7 +20,7 @@ module System.Utils.Dom
 import Prelude
 
 import Data.Either (Either(..))
-import Data.Maybe (Maybe(..), fromMaybe)
+import Data.Maybe (Maybe(..), fromMaybe, maybe)
 import Data.Nullable (Nullable, toMaybe)
 import Effect (Effect)
 import Unsafe.Coerce (unsafeCoerce)
@@ -38,7 +38,7 @@ import System.Types.Geometry
   , XYPosition
   )
 import Data.Newtype (unwrap)
-import System.Types.Handle (Handle, HandleType(..))
+import System.Types.Handle (Handle, HandleIdField(..), HandleType(..))
 import System.Types.Ids (NodeId)
 import System.Utils.General (pointToRendererPoint, snapPosition)
 
@@ -202,8 +202,10 @@ getHandleBounds ht el bounds zoom nodeId = do
     Source -> "source"
     Target -> "target"
 
+  -- `getAttribute` returns `null` for a handle without `data-handleid`, and
+  -- upstream keeps it.
   toHandle handleType nid raw =
-    { id: toMaybe raw.id
+    { id: maybe HandleIdNull HandleIdSet (toMaybe raw.id)
     , nodeId: nid
     , x: raw.x
     , y: raw.y

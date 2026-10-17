@@ -176,12 +176,12 @@ edgeFromConnection generate c =
   , target: c.target
   , sourceHandle: c.sourceHandle
   , targetHandle: c.targetHandle
-  , animated: false
-  , hidden: false
+  , animated: Nothing
+  , hidden: Nothing
   , deletable: Nothing
   , selectable: Nothing
   , data: Nothing
-  , selected: false
+  , selected: Nothing
   , markerStart: Nothing
   , markerEnd: Nothing
   , zIndex: Nothing

@@ -24,7 +24,7 @@ import Prelude
 import Data.Array (uncons) as Array
 import Data.Either (Either(..))
 import Data.Foldable (for_)
-import Data.Maybe (Maybe(..), fromMaybe, isJust)
+import Data.Maybe (Maybe(..), fromMaybe, isJust, maybe)
 import Effect (Effect)
 import Effect.Exception.Unsafe (unsafeThrow)
 import Effect.Unsafe (unsafePerformEffect)
@@ -50,7 +50,7 @@ import System.Types.Connection
   )
 import System.Types.Edge (EdgeBase)
 import System.Types.Geometry (Position(..))
-import System.Types.Handle (Handle, HandleType(..))
+import System.Types.Handle (Handle, HandleIdField(..), HandleType(..))
 import System.Types.Ids (NodeId(..))
 import System.Utils.Dom (getHostForElement)
 import System.Utils.Edges.General (addEdge, getEdgeId)
@@ -110,13 +110,16 @@ selectConnectingFlags nodeId handleId hType state =
       }
     ConnectionInProgress p ->
       let
+        -- Upstream compares a handle's id with `===`, and this handle's id is
+        -- `null` when it has none.
+        ownId = maybe HandleIdNull HandleIdSet handleId
         fromMatches =
           p.fromHandle.nodeId == nodeId
-            && p.fromHandle.id == handleId
+            && p.fromHandle.id == ownId
             && p.fromHandle.handleType == hType
         toMatches = case p.toHandle of
           Just t -> t.nodeId == nodeId
-            && t.id == handleId
+            && t.id == ownId
             && t.handleType == hType
           Nothing -> false
       in
@@ -126,7 +129,7 @@ selectConnectingFlags nodeId handleId hType state =
         , isPossibleEndHandle: case state.connectionMode of
             Strict -> p.fromHandle.handleType /= hType
             Loose -> nodeId /= p.fromHandle.nodeId
-              || handleId /= p.fromHandle.id
+              || ownId /= p.fromHandle.id
         , connectionInProcess: true
         , clickConnectionInProcess
         , valid: toMatches && p.isValid == Just true
@@ -250,12 +253,12 @@ connectionToEdge mDefaults conn =
   , target: conn.target
   , sourceHandle: conn.sourceHandle
   , targetHandle: conn.targetHandle
-  , animated: fromMaybe false (_.animated =<< mDefaults)
-  , hidden: fromMaybe false (_.hidden =<< mDefaults)
+  , animated: _.animated =<< mDefaults
+  , hidden: _.hidden =<< mDefaults
   , deletable: _.deletable =<< mDefaults
   , selectable: _.selectable =<< mDefaults
   , data: _.data =<< mDefaults
-  , selected: false
+  , selected: Nothing
   , markerStart: Nothing
   , markerEnd: Nothing
   , zIndex: _.zIndex =<< mDefaults
@@ -404,7 +407,7 @@ handle = unsafePerformEffect $ memo $ reactComponent "Handle" \(props :: HandleP
             result <- xyHandle.isValid (Left me)
               { handle: Just
                   { nodeId
-                  , id: handleId
+                  , id: maybe HandleIdNull HandleIdSet handleId
                   , handleType
                   }
               , connectionMode: state.connectionMode

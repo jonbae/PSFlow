@@ -93,10 +93,10 @@ getElevatedEdgeZIndex p = case p.zIndexMode of
         else p.zIndex
       sourceContributes =
         isJust p.sourceNode.parentId
-          || (p.elevateOnSelect && p.sourceNode.selected)
+          || (p.elevateOnSelect && p.sourceNode.selected == Just true)
       targetContributes =
         isJust p.targetNode.parentId
-          || (p.elevateOnSelect && p.targetNode.selected)
+          || (p.elevateOnSelect && p.targetNode.selected == Just true)
       sourceZ = if sourceContributes then p.sourceNode.internals.z else 0.0
       targetZ = if targetContributes then p.targetNode.internals.z else 0.0
       nodeZ = max sourceZ targetZ

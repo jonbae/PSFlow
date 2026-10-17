@@ -91,9 +91,9 @@ draggedNode =
   , data: unit
   , sourcePosition: Nothing
   , targetPosition: Nothing
-  , hidden: false
-  , selected: true
-  , dragging: false
+  , hidden: Nothing
+  , selected: Just true
+  , dragging: Nothing
   , draggable: Just true
   , selectable: Nothing
   , connectable: Nothing
@@ -106,7 +106,7 @@ draggedNode =
   , parentId: Nothing
   , zIndex: Nothing
   , extent: Nothing
-  , expandParent: false
+  , expandParent: Nothing
   , ariaLabel: Nothing
   , origin: Nothing
   , handles: Nothing

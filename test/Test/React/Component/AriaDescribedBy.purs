@@ -37,7 +37,7 @@ import React.Types.Edges (EdgeWrapperProps)
 import React.Types.Nodes (NodeWrapperProps)
 import System.Types.Edge (EdgeBase)
 import System.Types.Geometry (Position(..), XYPosition)
-import System.Types.Handle (HandleType(..))
+import System.Types.Handle (HandleIdField(..), HandleType(..))
 import System.Types.Ids (NodeId(..))
 import System.Types.Node (NodeBase, NodeHandle)
 import Unsafe.Coerce (unsafeCoerce)
@@ -58,9 +58,9 @@ nodeAt id at handles =
   , data: unit
   , sourcePosition: Nothing
   , targetPosition: Nothing
-  , hidden: false
-  , selected: false
-  , dragging: false
+  , hidden: Nothing
+  , selected: Nothing
+  , dragging: Nothing
   , draggable: Nothing
   , selectable: Nothing
   , connectable: Nothing
@@ -73,7 +73,7 @@ nodeAt id at handles =
   , parentId: Nothing
   , zIndex: Nothing
   , extent: Nothing
-  , expandParent: false
+  , expandParent: Nothing
   , ariaLabel: Nothing
   , origin: Nothing
   , handles: Just handles
@@ -85,7 +85,7 @@ nodeAt id at handles =
 
 handleAt :: HandleType -> Position -> Number -> NodeHandle
 handleAt handleType position y =
-  { id: Nothing, x: 24.0, y, position, handleType, width: Just 2.0, height: Just 2.0 }
+  { id: HandleIdUnset, x: 24.0, y, position, handleType, width: Just 2.0, height: Just 2.0 }
 
 edgeAB :: EdgeBase Unit
 edgeAB =
@@ -95,12 +95,12 @@ edgeAB =
   , target: NodeId "b"
   , sourceHandle: Nothing
   , targetHandle: Nothing
-  , animated: false
-  , hidden: false
+  , animated: Nothing
+  , hidden: Nothing
   , deletable: Nothing
   , selectable: Nothing
   , data: Nothing
-  , selected: false
+  , selected: Nothing
   , markerStart: Nothing
   , markerEnd: Nothing
   , zIndex: Nothing

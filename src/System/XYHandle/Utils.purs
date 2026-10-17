@@ -24,7 +24,7 @@ import Effect (Effect)
 import Web.DOM.Element (Element)
 import System.Types.Connection (ConnectionMode(..))
 import System.Types.Geometry (NodeOrigin, XYPosition, mkNodeOrigin)
-import System.Types.Handle (Handle, HandleType(..), unSourceHandle, unTargetHandle)
+import System.Types.Handle (Handle, HandleIdField, HandleType(..), handleIdString, unSourceHandle, unTargetHandle)
 import System.Types.Ids (NodeId)
 import System.Types.Node (InternalNodeBase, NodeLookup)
 import System.Utils.Edges.Positions (getHandlePosition)
@@ -34,7 +34,7 @@ import System.Utils.General (getOverlappingArea, nodeToRect)
 -- | TS uses `Pick<Handle, 'nodeId' | 'id' | 'type'>`.
 type HandleRef =
   { nodeId :: NodeId
-  , id :: Maybe String
+  , id :: HandleIdField
   , handleType :: HandleType
   }
 
@@ -198,7 +198,7 @@ getHandle nodeId handleType handleId lookup mode withAbsolutePosition =
 
         match :: Maybe Handle
         match = case handleId of
-          Just hid -> Array.find (\h -> h.id == Just hid) handles
+          Just hid -> Array.find (\h -> handleIdString h.id == Just hid) handles
           Nothing -> Array.head handles
       in
         case match of
