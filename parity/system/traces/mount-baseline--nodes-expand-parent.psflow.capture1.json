@@ -561,7 +561,6 @@
             "id": "child-outside",
             "source": "child",
             "target": "outside",
-            "animated": false,
             "hidden": false,
             "selected": false
           }
@@ -570,7 +569,6 @@
           "id": "child-outside",
           "source": "child",
           "target": "outside",
-          "animated": false,
           "hidden": false,
           "selected": false
         },
@@ -717,7 +715,6 @@
               "id": "child-outside",
               "source": "child",
               "target": "outside",
-              "animated": false,
               "hidden": false,
               "selected": false
             }

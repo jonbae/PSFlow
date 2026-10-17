@@ -533,7 +533,6 @@
             "id": "first-edge",
             "source": "1",
             "target": "2",
-            "animated": false,
             "hidden": false,
             "selected": false
           },
@@ -541,7 +540,6 @@
             "id": "second-edge",
             "source": "1",
             "target": "3",
-            "animated": false,
             "hidden": false,
             "selected": false
           }
@@ -550,7 +548,6 @@
           "id": "first-edge",
           "source": "1",
           "target": "2",
-          "animated": false,
           "hidden": false,
           "selected": false
         },
@@ -713,7 +710,6 @@
               "id": "first-edge",
               "source": "1",
               "target": "2",
-              "animated": false,
               "hidden": false,
               "selected": false
             },
@@ -721,7 +717,6 @@
               "id": "second-edge",
               "source": "1",
               "target": "3",
-              "animated": false,
               "hidden": false,
               "selected": false
             }

@@ -773,7 +773,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 335.19999998807907,
+            "timeStamp": 303.2000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -842,7 +842,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 335.19999998807907,
+            "timeStamp": 303.2000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -918,7 +918,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 335.19999998807907,
+            "timeStamp": 303.2000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -983,7 +983,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 335.19999998807907,
+            "timeStamp": 303.2000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1057,7 +1057,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 360.89999997615814,
+            "timeStamp": 329.2000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1122,7 +1122,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 360.89999997615814,
+            "timeStamp": 329.2000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1194,7 +1194,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 350.39999997615814,
+            "timeStamp": 318.4000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1256,7 +1256,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 378.19999998807907,
+            "timeStamp": 346.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1332,7 +1332,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 378.19999998807907,
+            "timeStamp": 346.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1533,7 +1533,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 391.0999999642372,
+            "timeStamp": 358.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1590,7 +1590,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 398.39999997615814,
+            "timeStamp": 366,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1917,7 +1917,6 @@
             "type": "default",
             "source": "Node-1",
             "target": "Node-2",
-            "animated": false,
             "hidden": false,
             "selected": false,
             "label": "edge"
@@ -1927,7 +1926,6 @@
             "type": "default",
             "source": "Node-1",
             "target": "Node-3",
-            "animated": false,
             "hidden": false,
             "selected": false,
             "label": "edge"
@@ -1938,7 +1936,6 @@
           "type": "default",
           "source": "Node-1",
           "target": "Node-2",
-          "animated": false,
           "hidden": false,
           "selected": false,
           "label": "edge"
@@ -2373,7 +2370,6 @@
               "type": "default",
               "source": "Node-1",
               "target": "Node-2",
-              "animated": false,
               "hidden": false,
               "selected": false,
               "label": "edge"
@@ -2383,7 +2379,6 @@
               "type": "default",
               "source": "Node-1",
               "target": "Node-3",
-              "animated": false,
               "hidden": false,
               "selected": false,
               "label": "edge"

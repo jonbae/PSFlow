@@ -565,7 +565,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 329.9000000357628,
+            "timeStamp": 281.2000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -634,7 +634,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 329.9000000357628,
+            "timeStamp": 281.2000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -713,7 +713,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 329.9000000357628,
+            "timeStamp": 281.2000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -778,7 +778,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 329.9000000357628,
+            "timeStamp": 281.2000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -857,7 +857,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 339.9000000357628,
+            "timeStamp": 306.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -938,7 +938,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 339.9000000357628,
+            "timeStamp": 306.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -976,7 +976,6 @@
             "id": "e1-2",
             "source": "n1",
             "target": "n2",
-            "animated": false,
             "hidden": false,
             "selected": false
           }
@@ -1003,7 +1002,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 339.9000000357628,
+            "timeStamp": 306.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1068,7 +1067,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 339.9000000357628,
+            "timeStamp": 306.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1104,7 +1103,6 @@
             "id": "e1-2",
             "source": "n1",
             "target": "n2",
-            "animated": false,
             "hidden": false,
             "selected": false
           }
@@ -1129,7 +1127,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 334.80000001192093,
+            "timeStamp": 300.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1189,7 +1187,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 357.69999998807907,
+            "timeStamp": 323.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1254,7 +1252,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 357.69999998807907,
+            "timeStamp": 323.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1290,7 +1288,6 @@
             "id": "e1-2",
             "source": "n1",
             "target": "n2",
-            "animated": false,
             "hidden": false,
             "selected": false
           }
@@ -1432,7 +1429,6 @@
             "id": "e1-2",
             "source": "n1",
             "target": "n2",
-            "animated": false,
             "hidden": false,
             "selected": false
           }
@@ -1441,7 +1437,6 @@
           "id": "e1-2",
           "source": "n1",
           "target": "n2",
-          "animated": false,
           "hidden": false,
           "selected": false
         },
@@ -1568,7 +1563,6 @@
               "id": "e1-2",
               "source": "n1",
               "target": "n2",
-              "animated": false,
               "hidden": false,
               "selected": false
             }

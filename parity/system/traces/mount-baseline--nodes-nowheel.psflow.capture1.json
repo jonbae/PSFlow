@@ -481,7 +481,6 @@
             "id": "nowheel-plain",
             "source": "nowheel",
             "target": "plain",
-            "animated": false,
             "hidden": false,
             "selected": false
           }
@@ -490,7 +489,6 @@
           "id": "nowheel-plain",
           "source": "nowheel",
           "target": "plain",
-          "animated": false,
           "hidden": false,
           "selected": false
         },
@@ -611,7 +609,6 @@
               "id": "nowheel-plain",
               "source": "nowheel",
               "target": "plain",
-              "animated": false,
               "hidden": false,
               "selected": false
             }
