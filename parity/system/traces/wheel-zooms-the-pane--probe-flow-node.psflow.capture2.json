@@ -406,7 +406,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 184.60000002384186,
+            "timeStamp": 161.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -475,7 +475,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 184.60000002384186,
+            "timeStamp": 161.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -513,7 +513,6 @@
             "id": "first-edge",
             "source": "1",
             "target": "2",
-            "animated": false,
             "hidden": false,
             "selected": false
           }
@@ -540,7 +539,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 184.60000002384186,
+            "timeStamp": 161.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -605,7 +604,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 184.60000002384186,
+            "timeStamp": 161.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -641,7 +640,6 @@
             "id": "first-edge",
             "source": "1",
             "target": "2",
-            "animated": false,
             "hidden": false,
             "selected": false
           }
@@ -746,7 +744,6 @@
             "id": "first-edge",
             "source": "1",
             "target": "2",
-            "animated": false,
             "hidden": false,
             "selected": false
           },
@@ -754,7 +751,6 @@
             "id": "second-edge",
             "source": "1",
             "target": "3",
-            "animated": false,
             "hidden": false,
             "selected": false
           }
@@ -781,7 +777,6 @@
           "hidden": false,
           "selected": false,
           "dragging": false,
-          "expandParent": false,
           "measured": {
             "width": 150,
             "height": 37
@@ -826,7 +821,6 @@
             "hidden": false,
             "selected": false,
             "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -844,7 +838,6 @@
             "hidden": false,
             "selected": false,
             "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -862,8 +855,7 @@
             "type": "__psflow_node_probe",
             "hidden": false,
             "selected": false,
-            "dragging": false,
-            "expandParent": false
+            "dragging": false
           }
         ],
         "useNodesData": {
@@ -1014,7 +1006,6 @@
             "hidden": false,
             "selected": false,
             "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1032,7 +1023,6 @@
             "hidden": false,
             "selected": false,
             "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1050,8 +1040,7 @@
             "type": "__psflow_node_probe",
             "hidden": false,
             "selected": false,
-            "dragging": false,
-            "expandParent": false
+            "dragging": false
           }
         ],
         "getNode": {
@@ -1067,7 +1056,6 @@
           "hidden": false,
           "selected": false,
           "dragging": false,
-          "expandParent": false,
           "measured": {
             "width": 150,
             "height": 37
@@ -1086,7 +1074,6 @@
           "hidden": false,
           "selected": false,
           "dragging": false,
-          "expandParent": false,
           "measured": {
             "width": 150,
             "height": 37
@@ -1121,7 +1108,6 @@
             "id": "first-edge",
             "source": "1",
             "target": "2",
-            "animated": false,
             "hidden": false,
             "selected": false
           },
@@ -1129,7 +1115,6 @@
             "id": "second-edge",
             "source": "1",
             "target": "3",
-            "animated": false,
             "hidden": false,
             "selected": false
           }
@@ -1138,7 +1123,6 @@
           "id": "first-edge",
           "source": "1",
           "target": "2",
-          "animated": false,
           "hidden": false,
           "selected": false
         },
@@ -1156,7 +1140,6 @@
             "hidden": false,
             "selected": false,
             "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1174,7 +1157,6 @@
             "hidden": false,
             "selected": false,
             "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1192,8 +1174,7 @@
             "type": "__psflow_node_probe",
             "hidden": false,
             "selected": false,
-            "dragging": false,
-            "expandParent": false
+            "dragging": false
           }
         ],
         "isNodeIntersecting": true,
@@ -1250,7 +1231,6 @@
               "hidden": false,
               "selected": false,
               "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -1268,7 +1248,6 @@
               "hidden": false,
               "selected": false,
               "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -1286,8 +1265,7 @@
               "type": "__psflow_node_probe",
               "hidden": false,
               "selected": false,
-              "dragging": false,
-              "expandParent": false
+              "dragging": false
             }
           ],
           "edges": [
@@ -1295,7 +1273,6 @@
               "id": "first-edge",
               "source": "1",
               "target": "2",
-              "animated": false,
               "hidden": false,
               "selected": false
             },
@@ -1303,7 +1280,6 @@
               "id": "second-edge",
               "source": "1",
               "target": "3",
-              "animated": false,
               "hidden": false,
               "selected": false
             }
@@ -1391,11 +1367,11 @@
       },
       {
         "level": "error",
-        "text": "The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:52656/parity/driver/dist/psflow.js:65092:20)\n    at HookBoundary (http://127.0.0.1:52656/parity/driver/dist/psflow.js:65080:20)\n    at HookLevel (http://127.0.0.1:52656/parity/driver/dist/psflow.js:65099:20)\n    at NetObserver (http://127.0.0.1:52656/parity/driver/dist/psflow.js:65100:22)\n    at http://127.0.0.1:52656/parity/driver/dist/psflow.js:32963:61\n    at http://127.0.0.1:52656/parity/driver/dist/psflow.js:32963:61\n    at http://127.0.0.1:52656/parity/driver/dist/psflow.js:32963:61\n    at div\n    at http://127.0.0.1:52656/parity/driver/dist/psflow.js:32963:45\n    at http://127.0.0.1:52656/parity/driver/dist/psflow.js:41498:64\n    at div\n    at Flow_default (http://127.0.0.1:52656/parity/driver/dist/psflow.js:65129:23)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, HookBoundary."
+        "text": "The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:57256/parity/driver/dist/psflow.js:65093:20)\n    at HookBoundary (http://127.0.0.1:57256/parity/driver/dist/psflow.js:65081:20)\n    at HookLevel (http://127.0.0.1:57256/parity/driver/dist/psflow.js:65100:20)\n    at NetObserver (http://127.0.0.1:57256/parity/driver/dist/psflow.js:65101:22)\n    at http://127.0.0.1:57256/parity/driver/dist/psflow.js:32963:61\n    at http://127.0.0.1:57256/parity/driver/dist/psflow.js:32963:61\n    at http://127.0.0.1:57256/parity/driver/dist/psflow.js:32963:61\n    at div\n    at http://127.0.0.1:57256/parity/driver/dist/psflow.js:32963:45\n    at http://127.0.0.1:57256/parity/driver/dist/psflow.js:41499:64\n    at div\n    at Flow_default (http://127.0.0.1:57256/parity/driver/dist/psflow.js:65130:23)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, HookBoundary."
       },
       {
         "level": "error",
-        "text": "The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:52656/parity/driver/dist/psflow.js:65092:20)\n    at HookBoundary (http://127.0.0.1:52656/parity/driver/dist/psflow.js:65080:20)\n    at HookLevel (http://127.0.0.1:52656/parity/driver/dist/psflow.js:65099:20)\n    at NetObserver (http://127.0.0.1:52656/parity/driver/dist/psflow.js:65100:22)\n    at http://127.0.0.1:52656/parity/driver/dist/psflow.js:32963:61\n    at http://127.0.0.1:52656/parity/driver/dist/psflow.js:32963:61\n    at http://127.0.0.1:52656/parity/driver/dist/psflow.js:32963:61\n    at div\n    at http://127.0.0.1:52656/parity/driver/dist/psflow.js:32963:45\n    at http://127.0.0.1:52656/parity/driver/dist/psflow.js:41498:64\n    at div\n    at Flow_default (http://127.0.0.1:52656/parity/driver/dist/psflow.js:65129:23)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, HookBoundary."
+        "text": "The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:57256/parity/driver/dist/psflow.js:65093:20)\n    at HookBoundary (http://127.0.0.1:57256/parity/driver/dist/psflow.js:65081:20)\n    at HookLevel (http://127.0.0.1:57256/parity/driver/dist/psflow.js:65100:20)\n    at NetObserver (http://127.0.0.1:57256/parity/driver/dist/psflow.js:65101:22)\n    at http://127.0.0.1:57256/parity/driver/dist/psflow.js:32963:61\n    at http://127.0.0.1:57256/parity/driver/dist/psflow.js:32963:61\n    at http://127.0.0.1:57256/parity/driver/dist/psflow.js:32963:61\n    at div\n    at http://127.0.0.1:57256/parity/driver/dist/psflow.js:32963:45\n    at http://127.0.0.1:57256/parity/driver/dist/psflow.js:41499:64\n    at div\n    at Flow_default (http://127.0.0.1:57256/parity/driver/dist/psflow.js:65130:23)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, HookBoundary."
       }
     ],
     "driving": [

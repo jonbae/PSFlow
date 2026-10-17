@@ -250,7 +250,7 @@ connectionToEdge mDefaults conn =
   , target: conn.target
   , sourceHandle: conn.sourceHandle
   , targetHandle: conn.targetHandle
-  , animated: fromMaybe false (_.animated =<< mDefaults)
+  , animated: _.animated =<< mDefaults
   , hidden: fromMaybe false (_.hidden =<< mDefaults)
   , deletable: _.deletable =<< mDefaults
   , selectable: _.selectable =<< mDefaults

@@ -32,34 +32,32 @@
         "node.hidden",
         "node.selected",
         "node.dragging",
-        "node.expandParent",
-        "edge.animated",
         "edge.hidden",
         "edge.selected"
       ],
       "reason": [
-        "ps-flow's internal Node and Edge records make these seven Booleans",
+        "ps-flow's internal Node and Edge records make these five Booleans",
         "required where upstream leaves them optional, so the boundary emits them",
         "on every node and edge it hands back. Upstream passes the consumer's own",
         "object through and simply has no such key. The values are never wrong —",
         "an unset Boolean crosses as `false`, which is what upstream's own readers",
         "default it to — so this is a shape difference, not a behaviour one.",
         "",
-        "The ordering was settled deliberately: `Maybe`-ifying the seven is an",
+        "The ordering was settled deliberately: `Maybe`-ifying the five is an",
         "internals refactor, and doing it before the boundary lands puts churn",
         "ahead of the first green signal on the JS surface. It happens once the",
         "net's `props` and `dom` sections are green, and the stale-region rule is",
         "what forces it — this entry fails the run after the fix lands."
       ],
       "ticket": "https://github.com/jonbae/PSFlow/issues/22",
-      "retires_when": "System.Types.Node.NodeBaseRow and System.Types.Edge.EdgeBase make these seven fields Maybe"
+      "retires_when": "System.Types.Node.NodeBaseRow and System.Types.Edge.EdgeBase make these five fields Maybe; edge.animated and node.expandParent were the other two, retired under #93"
     },
     {
       "id": "boundary-required-measured",
       "sections": ["props", "callbacks", "api", "hooks"],
       "fields": ["node.measured"],
       "reason": [
-        "The same shape as the seven Booleans, one field along: `NodeBaseRow`'s",
+        "The same shape as the five Booleans, one field along: `NodeBaseRow`'s",
         "`measured` is a required record, so a node crossing outbound always",
         "carries `measured: { width, height }` with both members possibly",
         "`undefined`, where upstream's node has no `measured` key until the node",
