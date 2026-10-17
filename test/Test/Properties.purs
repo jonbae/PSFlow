@@ -115,12 +115,12 @@ mkEdge eid src tgt =
   , target: NodeId tgt
   , sourceHandle: Nothing
   , targetHandle: Nothing
-  , animated: false
-  , hidden: false
+  , animated: Nothing
+  , hidden: Nothing
   , deletable: Nothing
   , selectable: Nothing
   , data: Nothing
-  , selected: false
+  , selected: Nothing
   , markerStart: Nothing
   , markerEnd: Nothing
   , zIndex: Nothing
@@ -180,7 +180,7 @@ mkLeafInternalNode nid width height =
   , parentId: Nothing
   , zIndex: Nothing
   , extent: Nothing
-  , expandParent: false
+  , expandParent: Nothing
   , ariaLabel: Nothing
   , origin: Nothing
   , handles: Nothing

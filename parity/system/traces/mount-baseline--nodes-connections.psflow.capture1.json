@@ -890,7 +890,6 @@
             "hidden": false,
             "selected": false,
             "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 24,
               "height": 18
@@ -909,7 +908,6 @@
             "hidden": false,
             "selected": false,
             "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 29,
               "height": 18
@@ -928,7 +926,6 @@
             "hidden": false,
             "selected": false,
             "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 29,
               "height": 18
@@ -947,7 +944,6 @@
             "hidden": false,
             "selected": false,
             "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 49,
               "height": 18
@@ -966,7 +962,6 @@
             "hidden": false,
             "selected": false,
             "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 49,
               "height": 18
@@ -985,7 +980,6 @@
             "hidden": false,
             "selected": false,
             "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 49,
               "height": 18
@@ -1005,7 +999,6 @@
           "hidden": false,
           "selected": false,
           "dragging": false,
-          "expandParent": false,
           "measured": {
             "width": 24,
             "height": 18
@@ -1024,7 +1017,6 @@
           "hidden": false,
           "selected": false,
           "dragging": false,
-          "expandParent": false,
           "measured": {
             "width": 24,
             "height": 18
@@ -1069,50 +1061,35 @@
             "source": "up-1",
             "target": "hub",
             "sourceHandle": "out",
-            "targetHandle": "in",
-            "animated": false,
-            "hidden": false,
-            "selected": false
+            "targetHandle": "in"
           },
           {
             "id": "up-2-hub",
             "source": "up-2",
             "target": "hub",
             "sourceHandle": "out",
-            "targetHandle": "in",
-            "animated": false,
-            "hidden": false,
-            "selected": false
+            "targetHandle": "in"
           },
           {
             "id": "hub-down-1",
             "source": "hub",
             "target": "down-1",
             "sourceHandle": "out",
-            "targetHandle": "in",
-            "animated": false,
-            "hidden": false,
-            "selected": false
+            "targetHandle": "in"
           },
           {
             "id": "hub-down-2",
             "source": "hub",
             "target": "down-2",
             "sourceHandle": "out",
-            "targetHandle": "in",
-            "animated": false,
-            "hidden": false,
-            "selected": false
+            "targetHandle": "in"
           },
           {
             "id": "hub-down-3",
             "source": "hub",
             "target": "down-3",
             "sourceHandle": "out",
-            "targetHandle": "in",
-            "animated": false,
-            "hidden": false,
-            "selected": false
+            "targetHandle": "in"
           }
         ],
         "getEdge": {
@@ -1120,10 +1097,7 @@
           "source": "up-1",
           "target": "hub",
           "sourceHandle": "out",
-          "targetHandle": "in",
-          "animated": false,
-          "hidden": false,
-          "selected": false
+          "targetHandle": "in"
         },
         "getIntersectingNodes": [
           {
@@ -1139,7 +1113,6 @@
             "hidden": false,
             "selected": false,
             "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 24,
               "height": 18
@@ -1158,7 +1131,6 @@
             "hidden": false,
             "selected": false,
             "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 29,
               "height": 18
@@ -1177,7 +1149,6 @@
             "hidden": false,
             "selected": false,
             "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 29,
               "height": 18
@@ -1196,7 +1167,6 @@
             "hidden": false,
             "selected": false,
             "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 49,
               "height": 18
@@ -1215,7 +1185,6 @@
             "hidden": false,
             "selected": false,
             "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 49,
               "height": 18
@@ -1234,7 +1203,6 @@
             "hidden": false,
             "selected": false,
             "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 49,
               "height": 18
@@ -1323,7 +1291,6 @@
               "hidden": false,
               "selected": false,
               "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 24,
                 "height": 18
@@ -1342,7 +1309,6 @@
               "hidden": false,
               "selected": false,
               "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 29,
                 "height": 18
@@ -1361,7 +1327,6 @@
               "hidden": false,
               "selected": false,
               "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 29,
                 "height": 18
@@ -1380,7 +1345,6 @@
               "hidden": false,
               "selected": false,
               "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 49,
                 "height": 18
@@ -1399,7 +1363,6 @@
               "hidden": false,
               "selected": false,
               "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 49,
                 "height": 18
@@ -1418,7 +1381,6 @@
               "hidden": false,
               "selected": false,
               "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 49,
                 "height": 18
@@ -1431,50 +1393,35 @@
               "source": "up-1",
               "target": "hub",
               "sourceHandle": "out",
-              "targetHandle": "in",
-              "animated": false,
-              "hidden": false,
-              "selected": false
+              "targetHandle": "in"
             },
             {
               "id": "up-2-hub",
               "source": "up-2",
               "target": "hub",
               "sourceHandle": "out",
-              "targetHandle": "in",
-              "animated": false,
-              "hidden": false,
-              "selected": false
+              "targetHandle": "in"
             },
             {
               "id": "hub-down-1",
               "source": "hub",
               "target": "down-1",
               "sourceHandle": "out",
-              "targetHandle": "in",
-              "animated": false,
-              "hidden": false,
-              "selected": false
+              "targetHandle": "in"
             },
             {
               "id": "hub-down-2",
               "source": "hub",
               "target": "down-2",
               "sourceHandle": "out",
-              "targetHandle": "in",
-              "animated": false,
-              "hidden": false,
-              "selected": false
+              "targetHandle": "in"
             },
             {
               "id": "hub-down-3",
               "source": "hub",
               "target": "down-3",
               "sourceHandle": "out",
-              "targetHandle": "in",
-              "animated": false,
-              "hidden": false,
-              "selected": false
+              "targetHandle": "in"
             }
           ],
           "viewport": {

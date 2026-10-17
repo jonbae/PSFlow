@@ -21,7 +21,7 @@ import Prelude
 import Data.Array (mapWithIndex) as Array
 import Data.Array.NonEmpty as NEA
 import Data.Int (toNumber) as Int
-import Data.Maybe (Maybe(..))
+import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Newtype (unwrap)
 import Data.Nullable (toMaybe, toNullable)
 import Effect (Effect)
@@ -133,10 +133,10 @@ toOracleNodeChange = case _ of
 -- ─── Edges ────────────────────────────────────────────────────────────────
 
 toPSEdge :: OracleChangeEdge -> EdgeBase Unit
-toPSEdge s = (mkEdge s.id "a" "b") { selected = s.selected, animated = s.animated }
+toPSEdge s = (mkEdge s.id "a" "b") { selected = Just s.selected, animated = Just s.animated }
 
 psEdgeShape :: EdgeBase Unit -> OracleChangeEdge
-psEdgeShape e = { id: e.id, selected: e.selected, animated: e.animated }
+psEdgeShape e = { id: e.id, selected: fromMaybe false e.selected, animated: fromMaybe false e.animated }
 
 renderEdge :: OracleChangeEdge -> String
 renderEdge e = e.id <> "|" <> show e.selected <> "|" <> show e.animated

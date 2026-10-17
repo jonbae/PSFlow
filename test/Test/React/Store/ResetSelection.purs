@@ -61,7 +61,7 @@ selectedNode =
   , parentId: Nothing
   , zIndex: Nothing
   , extent: Nothing
-  , expandParent: false
+  , expandParent: Nothing
   , ariaLabel: Nothing
   , origin: Nothing
   , handles: Nothing
@@ -79,12 +79,12 @@ selectedEdge =
   , target: NodeId "n1"
   , sourceHandle: Nothing
   , targetHandle: Nothing
-  , animated: false
-  , hidden: false
+  , animated: Nothing
+  , hidden: Nothing
   , deletable: Nothing
   , selectable: Nothing
   , data: Nothing
-  , selected: true
+  , selected: Just true
   , markerStart: Nothing
   , markerEnd: Nothing
   , zIndex: Nothing
@@ -116,9 +116,9 @@ uncontrolled selectable =
 stillSelected :: ReactFlowState Unit Unit -> Boolean
 stillSelected s =
   maybe false _.selected (Map.lookup (NodeId "n1") s.nodeLookup)
-    && maybe false _.selected (Map.lookup "e1" s.edgeLookup)
+    && maybe false (\e -> e.selected == Just true) (Map.lookup "e1" s.edgeLookup)
     && Array.all _.selected s.nodes
-    && Array.all _.selected s.edges
+    && Array.all (\e -> e.selected == Just true) s.edges
 
 runResetSelectionTests :: Effect Unit
 runResetSelectionTests = do
