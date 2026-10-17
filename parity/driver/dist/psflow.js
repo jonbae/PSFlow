@@ -25359,10 +25359,6 @@ var bottom = function(dict) {
 var showIntImpl = function(n) {
   return n.toString();
 };
-var showNumberImpl = function(n) {
-  var str = n.toString();
-  return isNaN(str + ".0") ? str : str + ".0";
-};
 var showStringImpl = function(s) {
   var l = s.length;
   return '"' + s.replace(
@@ -25398,9 +25394,6 @@ var showStringImpl = function(s) {
 // output/Data.Show/index.js
 var showString = {
   show: showStringImpl
-};
-var showNumber = {
-  show: showNumberImpl
 };
 var showInt = {
   show: showIntImpl
@@ -33232,7 +33225,6 @@ var storeProvider = function(value12) {
 };
 
 // output/System.Constants/index.js
-var show4 = /* @__PURE__ */ show(showNumber);
 var E001 = /* @__PURE__ */ function() {
   function E0012() {
   }
@@ -33404,7 +33396,7 @@ var errorMessage = function(v) {
         return "target";
       }
       ;
-      throw new Error("Failed pattern match at System.Constants (line 65, column 19 - line 67, column 27): " + [v.value0.constructor.name]);
+      throw new Error("Failed pattern match at System.Constants (line 66, column 19 - line 68, column 27): " + [v.value0.constructor.name]);
     }();
     var handleId = function() {
       if (v.value0 instanceof Source) {
@@ -33415,7 +33407,7 @@ var errorMessage = function(v) {
         return fromMaybe("")(v.value1.targetHandle);
       }
       ;
-      throw new Error("Failed pattern match at System.Constants (line 68, column 18 - line 70, column 49): " + [v.value0.constructor.name]);
+      throw new Error("Failed pattern match at System.Constants (line 69, column 18 - line 71, column 49): " + [v.value0.constructor.name]);
     }();
     return "Couldn't create edge for " + (handleStr + (' handle id: "' + (handleId + ('", edge id: ' + (v.value1.id + ".")))));
   }
@@ -33448,14 +33440,14 @@ var errorMessage = function(v) {
     return "It seems that you are trying to drag a node that is not initialized. Please use onNodesChange as explained in the docs.";
   }
   ;
-  throw new Error("Failed pattern match at System.Constants (line 48, column 16 - line 90, column 126): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at System.Constants (line 49, column 16 - line 91, column 126): " + [v.constructor.name]);
 };
 var elementSelectionKeys = ["Enter", " ", "Escape"];
 var defaultAriaLabelConfig = {
   nodeA11yDescriptionDefault: "Press enter or space to select a node. Press delete to remove it and escape to cancel.",
   nodeA11yDescriptionKeyboardDisabled: "Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel.",
   nodeA11yDescriptionAriaLiveMessage: function(v) {
-    return "Moved selected node " + (v.direction + (". New position, x: " + (show4(v.x) + (", y: " + show4(v.y)))));
+    return "Moved selected node " + (v.direction + (". New position, x: " + (toString(v.x) + (", y: " + toString(v.y)))));
   },
   edgeA11yDescriptionDefault: "Press enter or space to select an edge. You can then press delete to remove it or escape to cancel.",
   controlsAriaLabel: "Control Panel",
@@ -40878,7 +40870,6 @@ var controls = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PU
 
 // output/React.Additional.MiniMap.Node/index.js
 var map25 = /* @__PURE__ */ map(functorMaybe);
-var show5 = /* @__PURE__ */ show(showNumber);
 var pure17 = /* @__PURE__ */ pure(applicativeEffect);
 var pure18 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var toForeignStyle2 = unsafeCoerce2;
@@ -40903,13 +40894,13 @@ var pickFill = function(color2) {
           return lookup("backgroundColor")(style.value0);
         }
         ;
-        throw new Error("Failed pattern match at React.Additional.MiniMap.Node (line 30, column 15 - line 32, column 51): " + [v.constructor.name]);
+        throw new Error("Failed pattern match at React.Additional.MiniMap.Node (line 31, column 15 - line 33, column 51): " + [v.constructor.name]);
       }
       ;
-      throw new Error("Failed pattern match at React.Additional.MiniMap.Node (line 28, column 14 - line 32, column 51): " + [style.constructor.name]);
+      throw new Error("Failed pattern match at React.Additional.MiniMap.Node (line 29, column 14 - line 33, column 51): " + [style.constructor.name]);
     }
     ;
-    throw new Error("Failed pattern match at React.Additional.MiniMap.Node (line 26, column 24 - line 32, column 51): " + [color2.constructor.name]);
+    throw new Error("Failed pattern match at React.Additional.MiniMap.Node (line 27, column 24 - line 33, column 51): " + [color2.constructor.name]);
   };
 };
 var maybeInsert = function(k) {
@@ -40923,12 +40914,12 @@ var maybeInsert = function(k) {
         return insert2(k)(mv.value0)(obj);
       }
       ;
-      throw new Error("Failed pattern match at React.Additional.MiniMap.Node (line 66, column 24 - line 68, column 34): " + [mv.constructor.name]);
+      throw new Error("Failed pattern match at React.Additional.MiniMap.Node (line 67, column 24 - line 69, column 34): " + [mv.constructor.name]);
     };
   };
 };
 var miniMapNode = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponent()()()("MiniMapNode")(function(v) {
-  var styleObj = maybeInsert("strokeWidth")(map25(show5)(v.strokeWidth))(maybeInsert("stroke")(v.strokeColor)(maybeInsert("fill")(pickFill(v.color)(v.style))(empty3)));
+  var styleObj = maybeInsert("strokeWidth")(map25(toString)(v.strokeWidth))(maybeInsert("stroke")(v.strokeColor)(maybeInsert("fill")(pickFill(v.color)(v.style))(empty3)));
   var onClickHandler = function() {
     if (v.onClick instanceof Nothing) {
       return handler_(pure17(unit));
@@ -40940,7 +40931,7 @@ var miniMapNode = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
       });
     }
     ;
-    throw new Error("Failed pattern match at React.Additional.MiniMap.Node (line 46, column 26 - line 49, column 55): " + [v.onClick.constructor.name]);
+    throw new Error("Failed pattern match at React.Additional.MiniMap.Node (line 47, column 26 - line 50, column 55): " + [v.onClick.constructor.name]);
   }();
   var baseClass = "react-flow__minimap-node" + (function() {
     if (v.selected) {
@@ -40949,8 +40940,8 @@ var miniMapNode = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
     ;
     return "";
   }() + function() {
-    var $24 = v.className === "";
-    if ($24) {
+    var $23 = v.className === "";
+    if ($23) {
       return "";
     }
     ;
@@ -41258,7 +41249,6 @@ var eqRec1 = /* @__PURE__ */ eqRec4(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eq
   }
 })(eqNumber));
 var map27 = /* @__PURE__ */ map(functorMaybe);
-var show6 = /* @__PURE__ */ show(showNumber);
 var bind13 = /* @__PURE__ */ bind4(ixBindRender);
 var max7 = /* @__PURE__ */ max(ordNumber);
 var discard4 = /* @__PURE__ */ discard2(ixBindRender);
@@ -41279,8 +41269,8 @@ var selector3 = function(s) {
     height: s.height / s.transform.scale
   };
   var boundingRect = function() {
-    var $130 = isEmpty(s.nodeLookup);
-    if ($130) {
+    var $129 = isEmpty(s.nodeLookup);
+    if ($129) {
       return viewBB;
     }
     ;
@@ -41313,7 +41303,7 @@ var maybeInsert2 = function(k) {
         return insert2(k)(mv.value0)(obj);
       }
       ;
-      throw new Error("Failed pattern match at React.Additional.MiniMap (line 153, column 24 - line 155, column 34): " + [mv.constructor.name]);
+      throw new Error("Failed pattern match at React.Additional.MiniMap (line 154, column 24 - line 156, column 34): " + [mv.constructor.name]);
     };
   };
 };
@@ -41369,8 +41359,8 @@ var buildPanelStyle = function(userStyle) {
               return function(nodeStrokeWidth) {
                 return function(viewScale) {
                   var base = fromMaybe(empty3)(userStyle);
-                  return maybeInsert2("--xy-minimap-node-stroke-width-props")(map27(show6)(nodeStrokeWidth))(maybeInsert2("--xy-minimap-node-stroke-color-props")(nodeStrokeColor)(maybeInsert2("--xy-minimap-node-background-color-props")(nodeColor)(maybeInsert2("--xy-minimap-mask-stroke-width-props")(map27(function(w) {
-                    return show6(w * viewScale);
+                  return maybeInsert2("--xy-minimap-node-stroke-width-props")(map27(toString)(nodeStrokeWidth))(maybeInsert2("--xy-minimap-node-stroke-color-props")(nodeStrokeColor)(maybeInsert2("--xy-minimap-node-background-color-props")(nodeColor)(maybeInsert2("--xy-minimap-mask-stroke-width-props")(map27(function(w) {
+                    return toString(w * viewScale);
                   })(maskStrokeWidth))(maybeInsert2("--xy-minimap-mask-stroke-color-props")(maskStrokeColor)(maybeInsert2("--xy-minimap-mask-background-color-props")(maskColor)(maybeInsert2("--xy-minimap-background-color-props")(bgColor)(base)))))));
                 };
               };
@@ -41459,8 +41449,8 @@ var miniMap = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PUR
                   var userPanelClass = fromMaybe("")(v.className);
                   var userExtras = reactChildrenToArray(v.children);
                   var titleEl = function() {
-                    var $142 = ariaText === "";
-                    if ($142) {
+                    var $141 = ariaText === "";
+                    if ($141) {
                       return mempty2;
                     }
                     ;
@@ -41470,8 +41460,8 @@ var miniMap = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PUR
                   }();
                   var panelStyle = buildPanelStyle(v.style)(v.bgColor)(v.maskColor)(v.maskStrokeColor)(v.maskStrokeWidth)(maybeNodeColorString(v.nodeColor))(maybeNodeColorString(v.nodeStrokeColor))(v.nodeStrokeWidth)(viewScale);
                   var panelClassName = "react-flow__minimap" + function() {
-                    var $143 = userPanelClass === "";
-                    if ($143) {
+                    var $142 = userPanelClass === "";
+                    if ($142) {
                       return "";
                     }
                     ;
@@ -41501,15 +41491,15 @@ var miniMap = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PUR
                               return v.onClick.value0(e)(pos$prime)();
                             }
                             ;
-                            throw new Error("Failed pattern match at React.Additional.MiniMap (line 254, column 17 - line 258, column 59): " + [mSvg.constructor.name]);
+                            throw new Error("Failed pattern match at React.Additional.MiniMap (line 255, column 17 - line 259, column 59): " + [mSvg.constructor.name]);
                           }
                           ;
-                          throw new Error("Failed pattern match at React.Additional.MiniMap (line 250, column 13 - line 258, column 59): " + [mInst.constructor.name]);
+                          throw new Error("Failed pattern match at React.Additional.MiniMap (line 251, column 13 - line 259, column 59): " + [mInst.constructor.name]);
                         };
                       });
                     }
                     ;
-                    throw new Error("Failed pattern match at React.Additional.MiniMap (line 246, column 22 - line 258, column 59): " + [v.onClick.constructor.name]);
+                    throw new Error("Failed pattern match at React.Additional.MiniMap (line 247, column 22 - line 259, column 59): " + [v.onClick.constructor.name]);
                   }();
                   var onNodeClickHandler = function() {
                     if (v.onNodeClick instanceof Nothing) {
@@ -41530,13 +41520,13 @@ var miniMap = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PUR
                               return v.onNodeClick.value0(me)(v2.value0)();
                             }
                             ;
-                            throw new Error("Failed pattern match at React.Additional.MiniMap (line 265, column 13 - line 267, column 61): " + [v2.constructor.name]);
+                            throw new Error("Failed pattern match at React.Additional.MiniMap (line 266, column 13 - line 268, column 61): " + [v2.constructor.name]);
                           };
                         };
                       });
                     }
                     ;
-                    throw new Error("Failed pattern match at React.Additional.MiniMap (line 261, column 30 - line 267, column 61): " + [v.onNodeClick.constructor.name]);
+                    throw new Error("Failed pattern match at React.Additional.MiniMap (line 262, column 30 - line 268, column 61): " + [v.onNodeClick.constructor.name]);
                   }();
                   var nodesElement = element(miniMapNodes)({
                     nodeColor: v.nodeColor,
@@ -41909,7 +41899,15 @@ var for_6 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var pure24 = /* @__PURE__ */ pure(applicativeEffect);
 var pure112 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty3 = /* @__PURE__ */ mempty(monoidJSX);
-var show7 = /* @__PURE__ */ show(showNumber);
+var labelTransform = function(x) {
+  return function(y) {
+    return function(width8) {
+      return function(height8) {
+        return "translate(" + (toString(x - width8 / 2) + (" " + (toString(y - height8 / 2) + ")")));
+      };
+    };
+  };
+};
 var initialBBox = {
   x: 1,
   y: 0,
@@ -41939,7 +41937,7 @@ var edgeText = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponen
           }
           ;
           if (v.label instanceof Just) {
-            var transform2 = "translate(" + (show7(v.x - v1.value0.width / 2) + (" " + (show7(v.y - v1.value0.height / 2) + ")")));
+            var transform2 = labelTransform(v.x)(v.y)(v1.value0.width)(v1.value0.height);
             var showBg = fromMaybe(true)(v.labelShowBg);
             var pad = fromMaybe(defaultPadding)(v.labelBgPadding);
             var labelText = text_({
@@ -41968,14 +41966,14 @@ var edgeText = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponen
                 return mempty3;
               }
               ;
-              throw new Error("Failed pattern match at React.Edge.Text (line 66, column 9 - line 66, column 18): ");
+              throw new Error("Failed pattern match at React.Edge.Text (line 73, column 9 - line 73, column 18): ");
             }();
             return g_({
               transform: transform2,
               className: "react-flow__edge-textwrapper",
               visibility: function() {
-                var $30 = v1.value0.width === 0;
-                if ($30) {
+                var $29 = v1.value0.width === 0;
+                if ($29) {
                   return "hidden";
                 }
                 ;
@@ -41984,7 +41982,7 @@ var edgeText = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponen
             })([bg, labelText]);
           }
           ;
-          throw new Error("Failed pattern match at React.Edge.Text (line 53, column 8 - line 95, column 28): " + [v.label.constructor.name]);
+          throw new Error("Failed pattern match at React.Edge.Text (line 65, column 8 - line 102, column 28): " + [v.label.constructor.name]);
         }());
       });
     });
@@ -47747,6 +47745,9 @@ var outputNode = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompon
 // output/React.Component.NodeWrapper.Util/index.js
 var bind33 = /* @__PURE__ */ bind(bindMaybe);
 var oneOf3 = /* @__PURE__ */ oneOf(foldableArray)(plusMaybe);
+var nodeTransform = function(at) {
+  return "translate(" + (toString(at.x) + ("px," + (toString(at.y) + "px)")));
+};
 var getNodeInlineStyleDimensions = function(node) {
   var styleMember = function(key2) {
     return bind33(node.style)(function(s) {
@@ -47764,7 +47765,7 @@ var getNodeInlineStyleDimensions = function(node) {
         return fromMaybe(unsafeToForeign(toNullable(Nothing.value)))(styleMember(key2));
       }
       ;
-      throw new Error("Failed pattern match at React.Component.NodeWrapper.Util (line 81, column 23 - line 83, column 100): " + [v.constructor.name]);
+      throw new Error("Failed pattern match at React.Component.NodeWrapper.Util (line 83, column 23 - line 85, column 100): " + [v.constructor.name]);
     };
   };
   if (node.internals.handleBounds instanceof Nothing) {
@@ -47781,7 +47782,7 @@ var getNodeInlineStyleDimensions = function(node) {
     };
   }
   ;
-  throw new Error("Failed pattern match at React.Component.NodeWrapper.Util (line 65, column 3 - line 73, column 8): " + [node.internals.handleBounds.constructor.name]);
+  throw new Error("Failed pattern match at React.Component.NodeWrapper.Util (line 67, column 3 - line 75, column 8): " + [node.internals.handleBounds.constructor.name]);
 };
 var builtinNodeTypes = /* @__PURE__ */ function() {
   return fromFoldable3(foldableArray)([new Tuple("input", inputNode), new Tuple("default", defaultNode), new Tuple("output", outputNode), new Tuple("group", groupNode)]);
@@ -53342,7 +53343,6 @@ var unless6 = /* @__PURE__ */ unless(applicativeEffect);
 var elem9 = /* @__PURE__ */ elem2(eqString);
 var lookup24 = /* @__PURE__ */ lookup2(ordString);
 var when17 = /* @__PURE__ */ when(applicativeEffect);
-var show8 = /* @__PURE__ */ show(showNumber);
 var pure124 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty16 = /* @__PURE__ */ mempty(monoidJSX);
 var toForeignStyle10 = unsafeCoerce2;
@@ -53660,8 +53660,8 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                   return unless6(inputFocused || v.disableKeyboardA11y)(function() {
                     var shift = shiftKey2(ke);
                     var k = key(ke);
-                    var $77 = elem9(k)(elementSelectionKeys) && isSelectable;
-                    if ($77) {
+                    var $76 = elem9(k)(elementSelectionKeys) && isSelectable;
+                    if ($76) {
                       return handleNodeClick({
                         id: v.id,
                         store,
@@ -53703,7 +53703,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                     return pure61(unit);
                   }
                   ;
-                  throw new Error("Failed pattern match at React.Component.NodeWrapper (line 402, column 35 - line 404, column 31): " + [mCb.constructor.name]);
+                  throw new Error("Failed pattern match at React.Component.NodeWrapper (line 397, column 35 - line 399, column 31): " + [mCb.constructor.name]);
                 };
               };
               var onClickHandler = handler(syntheticEvent)(function(se) {
@@ -53768,7 +53768,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
               });
               var baseStyle = toForeignStyle10({
                 zIndex: slice3.node.internals.z,
-                transform: "translate(" + (show8(slice3.node.internals.positionAbsolute.x) + ("px," + (show8(slice3.node.internals.positionAbsolute.y) + "px)"))),
+                transform: nodeTransform(slice3.node.internals.positionAbsolute),
                 pointerEvents: function() {
                   if (hasPointerEvents) {
                     return "all";
@@ -53786,8 +53786,8 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
               });
               var mergedStyle = mergeStyles(mergeStyles(baseStyle)(fromMaybe(emptyForeign2)(map53(unsafeToForeign)(slice3.node.style))))(dimStyle);
               return pure124(function() {
-                var $86 = eq38(slice3.node.hidden)(new Just(true));
-                if ($86) {
+                var $85 = eq38(slice3.node.hidden)(new Just(true));
+                if ($85) {
                   return mempty16;
                 }
                 ;
@@ -54014,17 +54014,18 @@ var nodeRenderer = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @
 // output/React.Container.Viewport/index.js
 var bind42 = /* @__PURE__ */ bind4(ixBindRender);
 var useStore24 = /* @__PURE__ */ useStore(eqTransform);
-var show9 = /* @__PURE__ */ show(showNumber);
 var pure63 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var viewportTransform = function(v) {
+  return "translate(" + (toString(v.tx) + ("px," + (toString(v.ty) + ("px) scale(" + (toString(v.scale) + ")")))));
+};
 var toForeignStyle12 = unsafeCoerce2;
 var selectTransform = function(v) {
   return v.transform;
 };
 var viewport = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponentWithChildren()()("Viewport")(function(v) {
-  return bind42(useStore24(selectTransform))(function(v1) {
-    var transformStr = "translate(" + (show9(v1.tx) + ("px," + (show9(v1.ty) + ("px) scale(" + (show9(v1.scale) + ")")))));
+  return bind42(useStore24(selectTransform))(function(transform2) {
     var styleObj = toForeignStyle12({
-      transform: transformStr
+      transform: viewportTransform(transform2)
     });
     return pure63(div_({
       className: "react-flow__viewport xyflow__viewport react-flow__container",
@@ -64852,7 +64853,7 @@ var handle2 = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PUR
 var withDefaultedOptions = (impl) => (first, second, options2 = void 0) => impl(first, second, options2);
 
 // output/Boundary.Utils/index.js
-var show10 = /* @__PURE__ */ show(showString);
+var show4 = /* @__PURE__ */ show(showString);
 var map67 = /* @__PURE__ */ map(functorArray);
 var bind61 = /* @__PURE__ */ bind(bindMaybe);
 var reportAddEdgeError = function(onError) {
@@ -64864,7 +64865,7 @@ var reportAddEdgeError = function(onError) {
     }
     ;
     if (otherwise) {
-      return unsafeThrow("ps-flow: `addEdge` failed with " + (show10(message2) + ", which is not the one error it is able to report. `options.onError` takes upstream's error code as its first argument and there is no code for this one, so it is refused rather than reported under another error's."));
+      return unsafeThrow("ps-flow: `addEdge` failed with " + (show4(message2) + ", which is not the one error it is able to report. `options.onError` takes upstream's error code as its first argument and there is no code for this one, so it is refused rather than reported under another error's."));
     }
     ;
     throw new Error("Failed pattern match at Boundary.Utils (line 158, column 1 - line 158, column 57): " + [onError.constructor.name, message2.constructor.name]);
