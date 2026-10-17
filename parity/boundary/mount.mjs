@@ -1329,6 +1329,57 @@ check("`edgeTypes` hands a consumer's edge component JS-shaped props", () => {
   );
 });
 
+// Boundary stage 5's half for `edgeTypes` (`tickets/082-boundary-stage-5-
+// pure-functions.md`). The check before this one reads what a custom edge is
+// handed; this one does what upstream's documented custom edge does with it,
+// which is pass the position strings straight to `getBezierPath` and
+// destructure an array. Raw, the PureScript function threw on the strings and
+// answered with a record, so the edge drew nothing.
+check("a custom edge can draw with `getBezierPath`, called on the props it is handed", () => {
+  let result = null;
+  let thrown = null;
+  const PathEdge = ({ sourceX, sourceY, sourcePosition, targetX, targetY, targetPosition }) => {
+    let edgePath = "";
+    try {
+      result = psflow.getBezierPath({ sourceX, sourceY, sourcePosition, targetX, targetY, targetPosition });
+      [edgePath] = result;
+    } catch (error) {
+      thrown = error;
+    }
+    return createElement("path", { className: "path-edge", d: edgePath });
+  };
+  const measured = (id, x) => ({
+    id,
+    position: { x, y: 0 },
+    data: {},
+    width: 100,
+    height: 40,
+    measured: { width: 100, height: 40 },
+    handles: [
+      { x: 50, y: 40, position: "bottom", type: "source", width: 6, height: 6 },
+      { x: 50, y: 0, position: "top", type: "target", width: 6, height: 6 },
+    ],
+  });
+  const html = renderToStaticMarkup(
+    createElement(ReactFlow, {
+      ...convertedProps,
+      nodes: [measured("a", 0), measured("b", 200)],
+      nodeTypes: {},
+      edges: [{ ...convertedProps.edges[0], type: "path" }],
+      edgeTypes: { path: PathEdge },
+    })
+  );
+  assert(thrown === null, `\`getBezierPath\` threw on the props a custom edge is handed: ${thrown}`);
+  assert(Array.isArray(result), `\`getBezierPath\` returned ${JSON.stringify(result)}, not upstream's array`);
+  const [edgePath, labelX, labelY, offsetX, offsetY] = result;
+  assert(typeof edgePath === "string" && edgePath.startsWith("M"), `the path was ${JSON.stringify(edgePath)}`);
+  assert(
+    [labelX, labelY, offsetX, offsetY].every((n) => typeof n === "number" && Number.isFinite(n)),
+    `the label and offset were ${JSON.stringify([labelX, labelY, offsetX, offsetY])}`
+  );
+  assert(html.includes(`d="${edgePath}"`), "the custom edge did not draw the path it was handed");
+});
+
 check("`MiniMap.nodeComponent` hands a consumer's component JS-shaped props", () => {
   let seen = null;
   const CustomMiniMapNode = (props) => {

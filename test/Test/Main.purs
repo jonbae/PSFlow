@@ -66,6 +66,7 @@ import Test.React.Provider.BatchQueue (runBatchQueueTests)
 import Test.React.DomNumbers (runDomNumbersTests)
 import Test.React.Hook.NodeObserver (runNodeObserverTests)
 import Test.React.Store.MergeNodeInternals (runMergeNodeInternalsTests)
+import Test.Boundary.EdgePaths (runEdgePathsTests)
 import Test.React.Additional.NodeToolbarPortal (runNodeToolbarPortalTests)
 import Test.React.Hook.NodeRenderOrder (runNodeRenderOrderTests)
 import Test.React.Component.HandleDataId (runHandleDataIdTests)
@@ -1130,6 +1131,7 @@ main = do
   runDomNumbersTests
   runNodeObserverTests
   runMergeNodeInternalsTests
+  runEdgePathsTests
   runEdgeAriaLabelTests
   runNodeA11yDescriptionTests
   runMeasuredDimensionsTests
