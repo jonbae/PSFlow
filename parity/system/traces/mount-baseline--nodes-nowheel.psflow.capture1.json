@@ -361,7 +361,6 @@
               "label": "nowheel"
             },
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -382,7 +381,6 @@
               "label": "plain"
             },
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -399,7 +397,6 @@
             "label": "nowheel"
           },
           "selected": false,
-          "dragging": false,
           "measured": {
             "width": 150,
             "height": 37
@@ -420,7 +417,6 @@
             "label": "nowheel"
           },
           "selected": false,
-          "dragging": false,
           "measured": {
             "width": 150,
             "height": 37
@@ -491,7 +487,6 @@
               "label": "nowheel"
             },
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -512,7 +507,6 @@
               "label": "plain"
             },
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -556,7 +550,6 @@
                 "label": "nowheel"
               },
               "selected": false,
-              "dragging": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -577,7 +570,6 @@
                 "label": "plain"
               },
               "selected": false,
-              "dragging": false,
               "measured": {
                 "width": 150,
                 "height": 37

@@ -1259,7 +1259,6 @@
             },
             "type": "ToolbarNode",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1280,7 +1279,6 @@
             },
             "type": "ToolbarNode",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1301,7 +1299,6 @@
             },
             "type": "ToolbarNode",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1322,7 +1319,6 @@
             },
             "type": "ToolbarNode",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1343,7 +1339,6 @@
             },
             "type": "ToolbarNode",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1364,7 +1359,6 @@
             },
             "type": "ToolbarNode",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1385,7 +1379,6 @@
             },
             "type": "ToolbarNode",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1406,7 +1399,6 @@
             },
             "type": "ToolbarNode",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1427,7 +1419,6 @@
             },
             "type": "ToolbarNode",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1448,7 +1439,6 @@
             },
             "type": "ToolbarNode",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1469,7 +1459,6 @@
             },
             "type": "ToolbarNode",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1490,7 +1479,6 @@
             },
             "type": "ToolbarNode",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1511,7 +1499,6 @@
             },
             "type": "ToolbarNode",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1531,7 +1518,6 @@
           },
           "type": "ToolbarNode",
           "selected": false,
-          "dragging": false,
           "measured": {
             "width": 150,
             "height": 37
@@ -1550,7 +1536,6 @@
           },
           "type": "ToolbarNode",
           "selected": false,
-          "dragging": false,
           "measured": {
             "width": 150,
             "height": 37
@@ -1619,7 +1604,6 @@
             },
             "type": "ToolbarNode",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1640,7 +1624,6 @@
             },
             "type": "ToolbarNode",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1661,7 +1644,6 @@
             },
             "type": "ToolbarNode",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1682,7 +1664,6 @@
             },
             "type": "ToolbarNode",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1703,7 +1684,6 @@
             },
             "type": "ToolbarNode",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1724,7 +1704,6 @@
             },
             "type": "ToolbarNode",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1745,7 +1724,6 @@
             },
             "type": "ToolbarNode",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1766,7 +1744,6 @@
             },
             "type": "ToolbarNode",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1787,7 +1764,6 @@
             },
             "type": "ToolbarNode",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1808,7 +1784,6 @@
             },
             "type": "ToolbarNode",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1829,7 +1804,6 @@
             },
             "type": "ToolbarNode",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1850,7 +1824,6 @@
             },
             "type": "ToolbarNode",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1871,7 +1844,6 @@
             },
             "type": "ToolbarNode",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1918,7 +1890,6 @@
               },
               "type": "ToolbarNode",
               "selected": false,
-              "dragging": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -1939,7 +1910,6 @@
               },
               "type": "ToolbarNode",
               "selected": false,
-              "dragging": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -1960,7 +1930,6 @@
               },
               "type": "ToolbarNode",
               "selected": false,
-              "dragging": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -1981,7 +1950,6 @@
               },
               "type": "ToolbarNode",
               "selected": false,
-              "dragging": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -2002,7 +1970,6 @@
               },
               "type": "ToolbarNode",
               "selected": false,
-              "dragging": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -2023,7 +1990,6 @@
               },
               "type": "ToolbarNode",
               "selected": false,
-              "dragging": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -2044,7 +2010,6 @@
               },
               "type": "ToolbarNode",
               "selected": false,
-              "dragging": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -2065,7 +2030,6 @@
               },
               "type": "ToolbarNode",
               "selected": false,
-              "dragging": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -2086,7 +2050,6 @@
               },
               "type": "ToolbarNode",
               "selected": false,
-              "dragging": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -2107,7 +2070,6 @@
               },
               "type": "ToolbarNode",
               "selected": false,
-              "dragging": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -2128,7 +2090,6 @@
               },
               "type": "ToolbarNode",
               "selected": false,
-              "dragging": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -2149,7 +2110,6 @@
               },
               "type": "ToolbarNode",
               "selected": false,
-              "dragging": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -2170,7 +2130,6 @@
               },
               "type": "ToolbarNode",
               "selected": false,
-              "dragging": false,
               "measured": {
                 "width": 150,
                 "height": 37

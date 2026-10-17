@@ -193,8 +193,7 @@
             },
             "type": "input",
             "hidden": true,
-            "selected": false,
-            "dragging": false
+            "selected": false
           },
           {
             "id": "Node-2",
@@ -206,8 +205,7 @@
               "label": "Node-2"
             },
             "hidden": true,
-            "selected": false,
-            "dragging": false
+            "selected": false
           },
           {
             "id": "Node-3",
@@ -219,8 +217,7 @@
               "label": "Node-3"
             },
             "hidden": true,
-            "selected": false,
-            "dragging": false
+            "selected": false
           }
         ],
         "getNode": {
@@ -234,8 +231,7 @@
           },
           "type": "input",
           "hidden": true,
-          "selected": false,
-          "dragging": false
+          "selected": false
         },
         "getInternalNode": {
           "id": "Node-1",
@@ -249,7 +245,6 @@
           "type": "input",
           "hidden": true,
           "selected": false,
-          "dragging": false,
           "measured": {
             "width": {
               "@undefined": true
@@ -293,8 +288,7 @@
             },
             "type": "input",
             "hidden": true,
-            "selected": false,
-            "dragging": false
+            "selected": false
           },
           {
             "id": "Node-2",
@@ -306,8 +300,7 @@
               "label": "Node-2"
             },
             "hidden": true,
-            "selected": false,
-            "dragging": false
+            "selected": false
           },
           {
             "id": "Node-3",
@@ -319,8 +312,7 @@
               "label": "Node-3"
             },
             "hidden": true,
-            "selected": false,
-            "dragging": false
+            "selected": false
           }
         ],
         "isNodeIntersecting": true,
@@ -361,8 +353,7 @@
               },
               "type": "input",
               "hidden": true,
-              "selected": false,
-              "dragging": false
+              "selected": false
             },
             {
               "id": "Node-2",
@@ -374,8 +365,7 @@
                 "label": "Node-2"
               },
               "hidden": true,
-              "selected": false,
-              "dragging": false
+              "selected": false
             },
             {
               "id": "Node-3",
@@ -387,8 +377,7 @@
                 "label": "Node-3"
               },
               "hidden": true,
-              "selected": false,
-              "dragging": false
+              "selected": false
             }
           ],
           "edges": [
