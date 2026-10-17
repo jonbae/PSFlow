@@ -38,12 +38,12 @@ edge id source target =
   , target: NodeId target
   , sourceHandle: Nothing
   , targetHandle: Nothing
-  , animated: false
-  , hidden: false
+  , animated: Nothing
+  , hidden: Nothing
   , deletable: Nothing
   , selectable: Nothing
   , data: Nothing
-  , selected: false
+  , selected: Nothing
   , markerStart: Nothing
   , markerEnd: Nothing
   , zIndex: Nothing

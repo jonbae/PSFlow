@@ -620,12 +620,10 @@
                 },
                 "sourcePosition": "right",
                 "targetPosition": "left",
-                "hidden": false,
                 "selected": false,
                 "dragging": false,
                 "width": 100,
                 "height": 40,
-                "expandParent": false,
                 "measured": {
                   "width": 100,
                   "height": 40
@@ -646,12 +644,10 @@
                 },
                 "sourcePosition": "right",
                 "targetPosition": "left",
-                "hidden": false,
                 "selected": false,
                 "dragging": false,
                 "width": 100,
                 "height": 40,
-                "expandParent": false,
                 "measured": {
                   "width": 100,
                   "height": 40
@@ -720,12 +716,10 @@
             },
             "sourcePosition": "right",
             "targetPosition": "left",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "width": 100,
             "height": 40,
-            "expandParent": false,
             "measured": {
               "width": 100,
               "height": 40
@@ -742,12 +736,10 @@
             },
             "sourcePosition": "right",
             "targetPosition": "left",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "width": 100,
             "height": 40,
-            "expandParent": false,
             "measured": {
               "width": 100,
               "height": 40
@@ -765,12 +757,10 @@
           },
           "sourcePosition": "right",
           "targetPosition": "left",
-          "hidden": false,
           "selected": false,
           "dragging": false,
           "width": 100,
           "height": 40,
-          "expandParent": false,
           "measured": {
             "width": 100,
             "height": 40
@@ -787,12 +777,10 @@
           },
           "sourcePosition": "right",
           "targetPosition": "left",
-          "hidden": false,
           "selected": false,
           "dragging": false,
           "width": 100,
           "height": 40,
-          "expandParent": false,
           "measured": {
             "width": 100,
             "height": 40
@@ -839,19 +827,13 @@
           {
             "id": "e1-2",
             "source": "n1",
-            "target": "n2",
-            "animated": false,
-            "hidden": false,
-            "selected": false
+            "target": "n2"
           }
         ],
         "getEdge": {
           "id": "e1-2",
           "source": "n1",
-          "target": "n2",
-          "animated": false,
-          "hidden": false,
-          "selected": false
+          "target": "n2"
         },
         "getIntersectingNodes": [
           {
@@ -865,12 +847,10 @@
             },
             "sourcePosition": "right",
             "targetPosition": "left",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "width": 100,
             "height": 40,
-            "expandParent": false,
             "measured": {
               "width": 100,
               "height": 40
@@ -887,12 +867,10 @@
             },
             "sourcePosition": "right",
             "targetPosition": "left",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "width": 100,
             "height": 40,
-            "expandParent": false,
             "measured": {
               "width": 100,
               "height": 40
@@ -937,12 +915,10 @@
               },
               "sourcePosition": "right",
               "targetPosition": "left",
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "width": 100,
               "height": 40,
-              "expandParent": false,
               "measured": {
                 "width": 100,
                 "height": 40
@@ -959,12 +935,10 @@
               },
               "sourcePosition": "right",
               "targetPosition": "left",
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "width": 100,
               "height": 40,
-              "expandParent": false,
               "measured": {
                 "width": 100,
                 "height": 40
@@ -975,10 +949,7 @@
             {
               "id": "e1-2",
               "source": "n1",
-              "target": "n2",
-              "animated": false,
-              "hidden": false,
-              "selected": false
+              "target": "n2"
             }
           ],
           "viewport": {

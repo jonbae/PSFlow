@@ -605,7 +605,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 179.70000004768372,
+            "timeStamp": 165.0999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -674,7 +674,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 179.70000004768372,
+            "timeStamp": 165.0999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -719,12 +719,10 @@
             },
             "sourcePosition": "right",
             "targetPosition": "left",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "width": 100,
             "height": 40,
-            "expandParent": false,
             "measured": {
               "width": 100,
               "height": 40
@@ -753,7 +751,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 179.70000004768372,
+            "timeStamp": 165.0999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -818,7 +816,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 179.70000004768372,
+            "timeStamp": 165.0999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -861,12 +859,10 @@
             },
             "sourcePosition": "right",
             "targetPosition": "left",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "width": 100,
             "height": 40,
-            "expandParent": false,
             "measured": {
               "width": 100,
               "height": 40
@@ -895,7 +891,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 185.9000000357628,
+            "timeStamp": 169.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -967,7 +963,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 185.9000000357628,
+            "timeStamp": 169.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1010,12 +1006,10 @@
             },
             "sourcePosition": "right",
             "targetPosition": "left",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "width": 100,
             "height": 40,
-            "expandParent": false,
             "measured": {
               "width": 100,
               "height": 40
@@ -1039,12 +1033,10 @@
                 },
                 "sourcePosition": "right",
                 "targetPosition": "left",
-                "hidden": false,
                 "selected": true,
                 "dragging": false,
                 "width": 100,
                 "height": 40,
-                "expandParent": false,
                 "measured": {
                   "width": 100,
                   "height": 40
@@ -1078,7 +1070,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 202.30000001192093,
+            "timeStamp": 187.79999995231628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1123,12 +1115,10 @@
             },
             "sourcePosition": "right",
             "targetPosition": "left",
-            "hidden": false,
             "selected": true,
             "dragging": false,
             "width": 100,
             "height": 40,
-            "expandParent": false,
             "measured": {
               "width": 100,
               "height": 40
@@ -1159,7 +1149,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 202.30000001192093,
+            "timeStamp": 187.79999995231628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1204,12 +1194,10 @@
             },
             "sourcePosition": "right",
             "targetPosition": "left",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "width": 100,
             "height": 40,
-            "expandParent": false,
             "measured": {
               "width": 100,
               "height": 40
@@ -1238,7 +1226,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 202.30000001192093,
+            "timeStamp": 187.79999995231628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1303,7 +1291,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 202.30000001192093,
+            "timeStamp": 187.79999995231628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1346,12 +1334,10 @@
             },
             "sourcePosition": "right",
             "targetPosition": "left",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "width": 100,
             "height": 40,
-            "expandParent": false,
             "measured": {
               "width": 100,
               "height": 40
@@ -1402,7 +1388,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 218.30000001192093,
+            "timeStamp": 202.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1486,7 +1472,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 218.30000001192093,
+            "timeStamp": 202.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1529,12 +1515,10 @@
             },
             "sourcePosition": "right",
             "targetPosition": "left",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "width": 100,
             "height": 40,
-            "expandParent": false,
             "measured": {
               "width": 100,
               "height": 40
@@ -1558,12 +1542,10 @@
                 },
                 "sourcePosition": "right",
                 "targetPosition": "left",
-                "hidden": false,
                 "selected": true,
                 "dragging": false,
                 "width": 100,
                 "height": 40,
-                "expandParent": false,
                 "measured": {
                   "width": 100,
                   "height": 40
@@ -1590,12 +1572,10 @@
             },
             "sourcePosition": "right",
             "targetPosition": "left",
-            "hidden": false,
             "selected": true,
             "dragging": false,
             "width": 100,
             "height": 40,
-            "expandParent": false,
             "measured": {
               "width": 100,
               "height": 40
@@ -1612,12 +1592,10 @@
             },
             "sourcePosition": "right",
             "targetPosition": "left",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "width": 100,
             "height": 40,
-            "expandParent": false,
             "measured": {
               "width": 100,
               "height": 40
@@ -1635,12 +1613,10 @@
           },
           "sourcePosition": "right",
           "targetPosition": "left",
-          "hidden": false,
           "selected": true,
           "dragging": false,
           "width": 100,
           "height": 40,
-          "expandParent": false,
           "measured": {
             "width": 100,
             "height": 40
@@ -1657,12 +1633,10 @@
           },
           "sourcePosition": "right",
           "targetPosition": "left",
-          "hidden": false,
           "selected": true,
           "dragging": false,
           "width": 100,
           "height": 40,
-          "expandParent": false,
           "measured": {
             "width": 100,
             "height": 40
@@ -1709,27 +1683,18 @@
           {
             "id": "e1-2",
             "source": "n1",
-            "target": "n2",
-            "animated": false,
-            "hidden": false,
-            "selected": false
+            "target": "n2"
           },
           {
             "id": "xy-edge__n2-n1",
             "source": "n2",
-            "target": "n1",
-            "animated": false,
-            "hidden": false,
-            "selected": false
+            "target": "n1"
           }
         ],
         "getEdge": {
           "id": "e1-2",
           "source": "n1",
-          "target": "n2",
-          "animated": false,
-          "hidden": false,
-          "selected": false
+          "target": "n2"
         },
         "getIntersectingNodes": [
           {
@@ -1743,12 +1708,10 @@
             },
             "sourcePosition": "right",
             "targetPosition": "left",
-            "hidden": false,
             "selected": true,
             "dragging": false,
             "width": 100,
             "height": 40,
-            "expandParent": false,
             "measured": {
               "width": 100,
               "height": 40
@@ -1765,12 +1728,10 @@
             },
             "sourcePosition": "right",
             "targetPosition": "left",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "width": 100,
             "height": 40,
-            "expandParent": false,
             "measured": {
               "width": 100,
               "height": 40
@@ -1815,12 +1776,10 @@
               },
               "sourcePosition": "right",
               "targetPosition": "left",
-              "hidden": false,
               "selected": true,
               "dragging": false,
               "width": 100,
               "height": 40,
-              "expandParent": false,
               "measured": {
                 "width": 100,
                 "height": 40
@@ -1837,12 +1796,10 @@
               },
               "sourcePosition": "right",
               "targetPosition": "left",
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "width": 100,
               "height": 40,
-              "expandParent": false,
               "measured": {
                 "width": 100,
                 "height": 40
@@ -1853,18 +1810,12 @@
             {
               "id": "e1-2",
               "source": "n1",
-              "target": "n2",
-              "animated": false,
-              "hidden": false,
-              "selected": false
+              "target": "n2"
             },
             {
               "id": "xy-edge__n2-n1",
               "source": "n2",
-              "target": "n1",
-              "animated": false,
-              "hidden": false,
-              "selected": false
+              "target": "n1"
             }
           ],
           "viewport": {

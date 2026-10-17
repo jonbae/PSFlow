@@ -50,7 +50,7 @@ nodeAt id at =
   , data: unit
   , sourcePosition: Nothing
   , targetPosition: Nothing
-  , hidden: false
+  , hidden: Nothing
   , selected: true
   , dragging: false
   , draggable: Just true
@@ -65,7 +65,7 @@ nodeAt id at =
   , parentId: Nothing
   , zIndex: Nothing
   , extent: Nothing
-  , expandParent: false
+  , expandParent: Nothing
   , ariaLabel: Nothing
   , origin: Nothing
   , handles: Nothing

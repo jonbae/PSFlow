@@ -194,8 +194,7 @@
             "type": "input",
             "hidden": true,
             "selected": false,
-            "dragging": false,
-            "expandParent": false
+            "dragging": false
           },
           {
             "id": "Node-2",
@@ -208,8 +207,7 @@
             },
             "hidden": true,
             "selected": false,
-            "dragging": false,
-            "expandParent": false
+            "dragging": false
           },
           {
             "id": "Node-3",
@@ -222,8 +220,7 @@
             },
             "hidden": true,
             "selected": false,
-            "dragging": false,
-            "expandParent": false
+            "dragging": false
           }
         ],
         "getNode": {
@@ -238,8 +235,7 @@
           "type": "input",
           "hidden": true,
           "selected": false,
-          "dragging": false,
-          "expandParent": false
+          "dragging": false
         },
         "getInternalNode": {
           "id": "Node-1",
@@ -254,7 +250,6 @@
           "hidden": true,
           "selected": false,
           "dragging": false,
-          "expandParent": false,
           "measured": {
             "width": {
               "@undefined": true
@@ -278,19 +273,13 @@
           {
             "id": "1-2",
             "source": "Node-1",
-            "target": "Node-2",
-            "animated": false,
-            "hidden": false,
-            "selected": false
+            "target": "Node-2"
           }
         ],
         "getEdge": {
           "id": "1-2",
           "source": "Node-1",
-          "target": "Node-2",
-          "animated": false,
-          "hidden": false,
-          "selected": false
+          "target": "Node-2"
         },
         "getIntersectingNodes": [
           {
@@ -305,8 +294,7 @@
             "type": "input",
             "hidden": true,
             "selected": false,
-            "dragging": false,
-            "expandParent": false
+            "dragging": false
           },
           {
             "id": "Node-2",
@@ -319,8 +307,7 @@
             },
             "hidden": true,
             "selected": false,
-            "dragging": false,
-            "expandParent": false
+            "dragging": false
           },
           {
             "id": "Node-3",
@@ -333,8 +320,7 @@
             },
             "hidden": true,
             "selected": false,
-            "dragging": false,
-            "expandParent": false
+            "dragging": false
           }
         ],
         "isNodeIntersecting": true,
@@ -376,8 +362,7 @@
               "type": "input",
               "hidden": true,
               "selected": false,
-              "dragging": false,
-              "expandParent": false
+              "dragging": false
             },
             {
               "id": "Node-2",
@@ -390,8 +375,7 @@
               },
               "hidden": true,
               "selected": false,
-              "dragging": false,
-              "expandParent": false
+              "dragging": false
             },
             {
               "id": "Node-3",
@@ -404,18 +388,14 @@
               },
               "hidden": true,
               "selected": false,
-              "dragging": false,
-              "expandParent": false
+              "dragging": false
             }
           ],
           "edges": [
             {
               "id": "1-2",
               "source": "Node-1",
-              "target": "Node-2",
-              "animated": false,
-              "hidden": false,
-              "selected": false
+              "target": "Node-2"
             }
           ],
           "viewport": {

@@ -360,10 +360,8 @@
             "data": {
               "label": "nowheel"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -383,10 +381,8 @@
             "data": {
               "label": "plain"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -402,10 +398,8 @@
           "data": {
             "label": "nowheel"
           },
-          "hidden": false,
           "selected": false,
           "dragging": false,
-          "expandParent": false,
           "measured": {
             "width": 150,
             "height": 37
@@ -425,10 +419,8 @@
           "data": {
             "label": "nowheel"
           },
-          "hidden": false,
           "selected": false,
           "dragging": false,
-          "expandParent": false,
           "measured": {
             "width": 150,
             "height": 37
@@ -480,19 +472,13 @@
           {
             "id": "nowheel-plain",
             "source": "nowheel",
-            "target": "plain",
-            "animated": false,
-            "hidden": false,
-            "selected": false
+            "target": "plain"
           }
         ],
         "getEdge": {
           "id": "nowheel-plain",
           "source": "nowheel",
-          "target": "plain",
-          "animated": false,
-          "hidden": false,
-          "selected": false
+          "target": "plain"
         },
         "getIntersectingNodes": [
           {
@@ -504,10 +490,8 @@
             "data": {
               "label": "nowheel"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -527,10 +511,8 @@
             "data": {
               "label": "plain"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -573,10 +555,8 @@
               "data": {
                 "label": "nowheel"
               },
-              "hidden": false,
               "selected": false,
               "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -596,10 +576,8 @@
               "data": {
                 "label": "plain"
               },
-              "hidden": false,
               "selected": false,
               "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -610,10 +588,7 @@
             {
               "id": "nowheel-plain",
               "source": "nowheel",
-              "target": "plain",
-              "animated": false,
-              "hidden": false,
-              "selected": false
+              "target": "plain"
             }
           ],
           "viewport": {
