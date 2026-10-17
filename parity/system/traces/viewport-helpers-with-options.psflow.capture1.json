@@ -636,7 +636,6 @@
                   "label": "1"
                 },
                 "type": "input",
-                "selected": false,
                 "measured": {
                   "width": 150,
                   "height": 37
@@ -655,7 +654,6 @@
                 "data": {
                   "label": "2"
                 },
-                "selected": false,
                 "measured": {
                   "width": 150,
                   "height": 37
@@ -674,7 +672,6 @@
                 "data": {
                   "label": "3"
                 },
-                "selected": false,
                 "measured": {
                   "width": 150,
                   "height": 37
@@ -694,7 +691,6 @@
                   "label": "4"
                 },
                 "type": "output",
-                "selected": false,
                 "measured": {
                   "width": 150,
                   "height": 37
@@ -847,7 +843,6 @@
                 "data": {
                   "label": "3"
                 },
-                "selected": false,
                 "measured": {
                   "width": 150,
                   "height": 37
@@ -900,7 +895,6 @@
               "data": {
                 "label": "3"
               },
-              "selected": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -934,7 +928,6 @@
                 "data": {
                   "label": "3"
                 },
-                "selected": false,
                 "measured": {
                   "width": 150,
                   "height": 37
@@ -966,7 +959,6 @@
               "label": "1"
             },
             "type": "input",
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -981,7 +973,6 @@
             "data": {
               "label": "2"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -997,7 +988,6 @@
               "label": "4"
             },
             "type": "output",
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1014,7 +1004,6 @@
             "label": "1"
           },
           "type": "input",
-          "selected": false,
           "measured": {
             "width": 150,
             "height": 37
@@ -1030,7 +1019,6 @@
             "label": "1"
           },
           "type": "input",
-          "selected": false,
           "measured": {
             "width": 150,
             "height": 37
@@ -1088,7 +1076,6 @@
               "label": "1"
             },
             "type": "input",
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1103,7 +1090,6 @@
             "data": {
               "label": "2"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1119,7 +1105,6 @@
               "label": "4"
             },
             "type": "output",
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1163,7 +1148,6 @@
                 "label": "1"
               },
               "type": "input",
-              "selected": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -1178,7 +1162,6 @@
               "data": {
                 "label": "2"
               },
-              "selected": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -1194,7 +1177,6 @@
                 "label": "4"
               },
               "type": "output",
-              "selected": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -1346,7 +1328,6 @@
                 "data": {
                   "label": "3"
                 },
-                "selected": false,
                 "measured": {
                   "width": 150,
                   "height": 37

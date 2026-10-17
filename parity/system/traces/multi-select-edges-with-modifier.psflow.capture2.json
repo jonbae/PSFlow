@@ -1873,7 +1873,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 229,
+            "timeStamp": 228.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1942,7 +1942,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 229,
+            "timeStamp": 228.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2005,7 +2005,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 229,
+            "timeStamp": 228.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2070,7 +2070,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 229,
+            "timeStamp": 228.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2143,7 +2143,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 238.19999998807907,
+            "timeStamp": 237.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2223,7 +2223,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 279,
+            "timeStamp": 278.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2289,7 +2289,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 279,
+            "timeStamp": 278.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2354,7 +2354,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 279,
+            "timeStamp": 278.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2419,7 +2419,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 279,
+            "timeStamp": 278.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2494,7 +2494,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 288,
+            "timeStamp": 287.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2577,7 +2577,6 @@
               "label": "1"
             },
             "type": "input",
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2592,7 +2591,6 @@
             "data": {
               "label": "2"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2607,7 +2605,6 @@
             "data": {
               "label": "3"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2622,7 +2619,6 @@
             "data": {
               "label": "4"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2637,7 +2633,6 @@
             "data": {
               "label": "5"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2652,7 +2647,6 @@
             "data": {
               "label": "6"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2667,7 +2661,6 @@
             "data": {
               "label": "7"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2682,7 +2675,6 @@
             "data": {
               "label": "8"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2697,7 +2689,6 @@
             "data": {
               "label": "9"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2712,7 +2703,6 @@
             "data": {
               "label": "10"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2727,7 +2717,6 @@
             "data": {
               "label": "11"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2742,7 +2731,6 @@
             "data": {
               "label": "12"
             },
-            "selected": false,
             "width": 200,
             "height": 100,
             "measured": {
@@ -2759,7 +2747,6 @@
             "data": {
               "label": "12-a"
             },
-            "selected": false,
             "width": 50,
             "height": 50,
             "parentId": "12",
@@ -2777,7 +2764,6 @@
             "data": {
               "label": "12-b"
             },
-            "selected": false,
             "width": 50,
             "height": 50,
             "parentId": "12",
@@ -2797,7 +2783,6 @@
             "label": "1"
           },
           "type": "input",
-          "selected": false,
           "measured": {
             "width": 150,
             "height": 37
@@ -2813,7 +2798,6 @@
             "label": "1"
           },
           "type": "input",
-          "selected": false,
           "measured": {
             "width": 150,
             "height": 37
@@ -2950,7 +2934,6 @@
               "label": "1"
             },
             "type": "input",
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2965,7 +2948,6 @@
             "data": {
               "label": "2"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2980,7 +2962,6 @@
             "data": {
               "label": "3"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -2995,7 +2976,6 @@
             "data": {
               "label": "4"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -3010,7 +2990,6 @@
             "data": {
               "label": "5"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -3025,7 +3004,6 @@
             "data": {
               "label": "6"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -3040,7 +3018,6 @@
             "data": {
               "label": "7"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -3055,7 +3032,6 @@
             "data": {
               "label": "8"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -3070,7 +3046,6 @@
             "data": {
               "label": "9"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -3085,7 +3060,6 @@
             "data": {
               "label": "10"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -3100,7 +3074,6 @@
             "data": {
               "label": "11"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -3115,7 +3088,6 @@
             "data": {
               "label": "12"
             },
-            "selected": false,
             "width": 200,
             "height": 100,
             "measured": {
@@ -3132,7 +3104,6 @@
             "data": {
               "label": "12-a"
             },
-            "selected": false,
             "width": 50,
             "height": 50,
             "parentId": "12",
@@ -3150,7 +3121,6 @@
             "data": {
               "label": "12-b"
             },
-            "selected": false,
             "width": 50,
             "height": 50,
             "parentId": "12",
@@ -3211,7 +3181,6 @@
                 "label": "1"
               },
               "type": "input",
-              "selected": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -3226,7 +3195,6 @@
               "data": {
                 "label": "2"
               },
-              "selected": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -3241,7 +3209,6 @@
               "data": {
                 "label": "3"
               },
-              "selected": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -3256,7 +3223,6 @@
               "data": {
                 "label": "4"
               },
-              "selected": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -3271,7 +3237,6 @@
               "data": {
                 "label": "5"
               },
-              "selected": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -3286,7 +3251,6 @@
               "data": {
                 "label": "6"
               },
-              "selected": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -3301,7 +3265,6 @@
               "data": {
                 "label": "7"
               },
-              "selected": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -3316,7 +3279,6 @@
               "data": {
                 "label": "8"
               },
-              "selected": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -3331,7 +3293,6 @@
               "data": {
                 "label": "9"
               },
-              "selected": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -3346,7 +3307,6 @@
               "data": {
                 "label": "10"
               },
-              "selected": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -3361,7 +3321,6 @@
               "data": {
                 "label": "11"
               },
-              "selected": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -3376,7 +3335,6 @@
               "data": {
                 "label": "12"
               },
-              "selected": false,
               "width": 200,
               "height": 100,
               "measured": {
@@ -3393,7 +3351,6 @@
               "data": {
                 "label": "12-a"
               },
-              "selected": false,
               "width": 50,
               "height": 50,
               "parentId": "12",
@@ -3411,7 +3368,6 @@
               "data": {
                 "label": "12-b"
               },
-              "selected": false,
               "width": 50,
               "height": 50,
               "parentId": "12",

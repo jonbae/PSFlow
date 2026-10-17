@@ -962,7 +962,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 320.80000001192093,
+            "timeStamp": 322.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1031,7 +1031,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 320.80000001192093,
+            "timeStamp": 322.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1075,7 +1075,6 @@
               "label": "down-1"
             },
             "type": "connections",
-            "selected": false,
             "measured": {
               "width": 49,
               "height": 18
@@ -1104,7 +1103,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 320.80000001192093,
+            "timeStamp": 322.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1169,7 +1168,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 320.80000001192093,
+            "timeStamp": 322.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1211,7 +1210,6 @@
               "label": "down-1"
             },
             "type": "connections",
-            "selected": false,
             "measured": {
               "width": 49,
               "height": 18
@@ -1242,7 +1240,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 345.4000000357628,
+            "timeStamp": 345.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1286,7 +1284,6 @@
               "label": "down-1"
             },
             "type": "connections",
-            "selected": false,
             "measured": {
               "width": 49,
               "height": 18
@@ -1315,7 +1312,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 345.4000000357628,
+            "timeStamp": 345.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1378,7 +1375,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 335.10000002384186,
+            "timeStamp": 334.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1440,7 +1437,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 362.19999998807907,
+            "timeStamp": 363,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1484,7 +1481,6 @@
               "label": "hub"
             },
             "type": "connections",
-            "selected": false,
             "measured": {
               "width": 24,
               "height": 18
@@ -1513,7 +1509,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 362.19999998807907,
+            "timeStamp": 363,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1578,7 +1574,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 362.19999998807907,
+            "timeStamp": 363,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1620,7 +1616,6 @@
               "label": "hub"
             },
             "type": "connections",
-            "selected": false,
             "measured": {
               "width": 24,
               "height": 18
@@ -1684,7 +1679,6 @@
                 "label": "down-1"
               },
               "type": "connections",
-              "selected": false,
               "measured": {
                 "width": 49,
                 "height": 18
@@ -1748,7 +1742,6 @@
                 "label": "hub"
               },
               "type": "connections",
-              "selected": false,
               "measured": {
                 "width": 24,
                 "height": 18
@@ -1809,7 +1802,6 @@
               "label": "hub"
             },
             "type": "connections",
-            "selected": false,
             "measured": {
               "width": 24,
               "height": 18
@@ -1825,7 +1817,6 @@
               "label": "up-1"
             },
             "type": "connections",
-            "selected": false,
             "measured": {
               "width": 29,
               "height": 18
@@ -1841,7 +1832,6 @@
               "label": "up-2"
             },
             "type": "connections",
-            "selected": false,
             "measured": {
               "width": 29,
               "height": 18
@@ -1857,7 +1847,6 @@
               "label": "down-1"
             },
             "type": "connections",
-            "selected": false,
             "measured": {
               "width": 49,
               "height": 18
@@ -1873,7 +1862,6 @@
               "label": "down-2"
             },
             "type": "connections",
-            "selected": false,
             "measured": {
               "width": 49,
               "height": 18
@@ -1889,7 +1877,6 @@
               "label": "down-3"
             },
             "type": "connections",
-            "selected": false,
             "measured": {
               "width": 49,
               "height": 18
@@ -1906,7 +1893,6 @@
             "label": "hub"
           },
           "type": "connections",
-          "selected": false,
           "measured": {
             "width": 24,
             "height": 18
@@ -1922,7 +1908,6 @@
             "label": "hub"
           },
           "type": "connections",
-          "selected": false,
           "measured": {
             "width": 24,
             "height": 18
@@ -2023,7 +2008,6 @@
               "label": "hub"
             },
             "type": "connections",
-            "selected": false,
             "measured": {
               "width": 24,
               "height": 18
@@ -2039,7 +2023,6 @@
               "label": "up-1"
             },
             "type": "connections",
-            "selected": false,
             "measured": {
               "width": 29,
               "height": 18
@@ -2055,7 +2038,6 @@
               "label": "up-2"
             },
             "type": "connections",
-            "selected": false,
             "measured": {
               "width": 29,
               "height": 18
@@ -2071,7 +2053,6 @@
               "label": "down-1"
             },
             "type": "connections",
-            "selected": false,
             "measured": {
               "width": 49,
               "height": 18
@@ -2087,7 +2068,6 @@
               "label": "down-2"
             },
             "type": "connections",
-            "selected": false,
             "measured": {
               "width": 49,
               "height": 18
@@ -2103,7 +2083,6 @@
               "label": "down-3"
             },
             "type": "connections",
-            "selected": false,
             "measured": {
               "width": 49,
               "height": 18
@@ -2196,7 +2175,6 @@
                 "label": "hub"
               },
               "type": "connections",
-              "selected": false,
               "measured": {
                 "width": 24,
                 "height": 18
@@ -2212,7 +2190,6 @@
                 "label": "up-1"
               },
               "type": "connections",
-              "selected": false,
               "measured": {
                 "width": 29,
                 "height": 18
@@ -2228,7 +2205,6 @@
                 "label": "up-2"
               },
               "type": "connections",
-              "selected": false,
               "measured": {
                 "width": 29,
                 "height": 18
@@ -2244,7 +2220,6 @@
                 "label": "down-1"
               },
               "type": "connections",
-              "selected": false,
               "measured": {
                 "width": 49,
                 "height": 18
@@ -2260,7 +2235,6 @@
                 "label": "down-2"
               },
               "type": "connections",
-              "selected": false,
               "measured": {
                 "width": 49,
                 "height": 18
@@ -2276,7 +2250,6 @@
                 "label": "down-3"
               },
               "type": "connections",
-              "selected": false,
               "measured": {
                 "width": 49,
                 "height": 18
