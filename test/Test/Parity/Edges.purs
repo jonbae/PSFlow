@@ -21,7 +21,7 @@ import Data.Array (mapWithIndex) as Array
 import Data.Array.NonEmpty as NEA
 import Data.Either (Either, either, isLeft)
 import Data.Int (toNumber) as Int
-import Data.Maybe (Maybe(..))
+import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Newtype (unwrap)
 import Data.Nullable (toMaybe, toNullable)
 import Effect (Effect)
@@ -167,7 +167,7 @@ toPSEdge :: EdgeSpec -> EdgeBase Unit
 toPSEdge s = (mkEdge s.id s.source s.target)
   { sourceHandle = s.sourceHandle
   , targetHandle = s.targetHandle
-  , animated = s.animated
+  , animated = Just s.animated
   }
 
 toOracleEdge :: EdgeSpec -> OracleEdgeShape
@@ -206,7 +206,7 @@ psEdgeShape e =
   , target: unwrap e.target
   , sourceHandle: toNullable e.sourceHandle
   , targetHandle: toNullable e.targetHandle
-  , animated: e.animated
+  , animated: fromMaybe false e.animated
   }
 
 renderEdgeShape :: OracleEdgeShape -> String

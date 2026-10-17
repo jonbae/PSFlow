@@ -213,8 +213,9 @@ const nodeChangeOut = (c) => {
     case "select":
       return { type: "select", id: c.id, selected: c.selected };
     case "position": {
-      const change = { type: "position", id: c.id, dragging: c.dragging };
+      const change = { type: "position", id: c.id };
       if (c.position != null) change.position = c.position;
+      if (c.dragging != null) change.dragging = c.dragging;
       return change;
     }
     case "dimensions": {
@@ -262,7 +263,7 @@ const appliedNodeOut = (n) => ({
   id: n.id,
   position: n.position,
   selected: n.selected,
-  dragging: n.dragging,
+  dragging: n.dragging ?? null,
   width: n.width ?? null,
   height: n.height ?? null,
   measured: { width: n.measured?.width ?? null, height: n.measured?.height ?? null },

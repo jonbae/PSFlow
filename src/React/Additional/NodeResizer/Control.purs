@@ -126,7 +126,7 @@ buildChanges store nid change childChanges resizeDirection = do
     Tuple parentChanges nextPosition = case mNode of
       Nothing -> Tuple [] initialPosition
       Just node ->
-        if not node.expandParent then Tuple [] initialPosition
+        if node.expandParent /= Just true then Tuple [] initialPosition
         else case node.parentId of
           Nothing -> Tuple [] initialPosition
           Just parentId ->
@@ -171,7 +171,7 @@ buildChanges store nid change childChanges resizeDirection = do
             { id: nid
             , position: Just nextPosition
             , positionAbsolute: Nothing
-            , dragging: false
+            , dragging: Nothing
             }
         ]
       _, _ -> []
@@ -198,7 +198,7 @@ buildChanges store nid change childChanges resizeDirection = do
           { id: cc.id
           , position: Just cc.position
           , positionAbsolute: Nothing
-          , dragging: false
+          , dragging: Nothing
           }
       )
       childChanges

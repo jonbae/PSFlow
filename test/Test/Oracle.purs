@@ -532,7 +532,7 @@ type OracleChangeNode =
   { id :: String
   , position :: XYPosition
   , selected :: Boolean
-  , dragging :: Boolean
+  , dragging :: Nullable Boolean
   , width :: Nullable Number
   , height :: Nullable Number
   , measured :: { width :: Nullable Number, height :: Nullable Number }
@@ -543,9 +543,9 @@ type OracleChangeEdge = { id :: String, selected :: Boolean, animated :: Boolean
 -- | Tagged carrier for a `NodeChange`. `tag` names upstream's `type`
 -- | discriminant, which PSFlow spends a constructor on instead.
 -- |
--- | `dragging` and `resizing` are total because PSFlow models them that way;
--- | the `Nullable` fields are the ones upstream itself guards with `typeof …
--- | !== 'undefined'`, and the JS side omits them rather than passing null.
+-- | `resizing` is total because PSFlow models it that way; the `Nullable`
+-- | fields are the ones upstream itself guards with `typeof … !== 'undefined'`,
+-- | and the JS side omits them rather than passing null.
 -- | `setAttributes` carries upstream's `boolean | 'width' | 'height'` as one of
 -- | `"true" | "false" | "width" | "height"` — see `setAttributesArg`.
 type OracleNodeChange =
@@ -553,7 +553,7 @@ type OracleNodeChange =
   , id :: String
   , selected :: Boolean
   , position :: Nullable XYPosition
-  , dragging :: Boolean
+  , dragging :: Nullable Boolean
   , dimensions :: Nullable Dimensions
   , setAttributes :: Nullable String
   , resizing :: Boolean

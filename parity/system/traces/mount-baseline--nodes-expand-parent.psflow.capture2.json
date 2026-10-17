@@ -415,12 +415,8 @@
             "data": {
               "label": "parent"
             },
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
             "width": 190,
             "height": 77,
-            "expandParent": false,
             "measured": {
               "width": 190,
               "height": 77
@@ -440,9 +436,6 @@
             "data": {
               "label": "child"
             },
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
             "parentId": "parent",
             "expandParent": true,
             "measured": {
@@ -459,10 +452,6 @@
             "data": {
               "label": "outside"
             },
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -478,12 +467,8 @@
           "data": {
             "label": "parent"
           },
-          "hidden": false,
-          "selected": false,
-          "dragging": false,
           "width": 190,
           "height": 77,
-          "expandParent": false,
           "measured": {
             "width": 190,
             "height": 77
@@ -503,12 +488,8 @@
           "data": {
             "label": "parent"
           },
-          "hidden": false,
-          "selected": false,
-          "dragging": false,
           "width": 190,
           "height": 77,
-          "expandParent": false,
           "measured": {
             "width": 190,
             "height": 77
@@ -560,19 +541,13 @@
           {
             "id": "child-outside",
             "source": "child",
-            "target": "outside",
-            "animated": false,
-            "hidden": false,
-            "selected": false
+            "target": "outside"
           }
         ],
         "getEdge": {
           "id": "child-outside",
           "source": "child",
-          "target": "outside",
-          "animated": false,
-          "hidden": false,
-          "selected": false
+          "target": "outside"
         },
         "getIntersectingNodes": [
           {
@@ -584,12 +559,8 @@
             "data": {
               "label": "parent"
             },
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
             "width": 190,
             "height": 77,
-            "expandParent": false,
             "measured": {
               "width": 190,
               "height": 77
@@ -609,9 +580,6 @@
             "data": {
               "label": "child"
             },
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
             "parentId": "parent",
             "expandParent": true,
             "measured": {
@@ -628,10 +596,6 @@
             "data": {
               "label": "outside"
             },
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -658,12 +622,8 @@
               "data": {
                 "label": "parent"
               },
-              "hidden": false,
-              "selected": false,
-              "dragging": false,
               "width": 190,
               "height": 77,
-              "expandParent": false,
               "measured": {
                 "width": 190,
                 "height": 77
@@ -683,9 +643,6 @@
               "data": {
                 "label": "child"
               },
-              "hidden": false,
-              "selected": false,
-              "dragging": false,
               "parentId": "parent",
               "expandParent": true,
               "measured": {
@@ -702,10 +659,6 @@
               "data": {
                 "label": "outside"
               },
-              "hidden": false,
-              "selected": false,
-              "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -716,10 +669,7 @@
             {
               "id": "child-outside",
               "source": "child",
-              "target": "outside",
-              "animated": false,
-              "hidden": false,
-              "selected": false
+              "target": "outside"
             }
           ],
           "viewport": {

@@ -369,7 +369,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 163.80000001192093,
+            "timeStamp": 166.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -438,7 +438,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 163.80000001192093,
+            "timeStamp": 166.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -505,7 +505,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 192.19999998807907,
+            "timeStamp": 191.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -570,7 +570,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 192.19999998807907,
+            "timeStamp": 191.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -635,7 +635,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 223.0999999642372,
+            "timeStamp": 222.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -700,7 +700,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 223.0999999642372,
+            "timeStamp": 222.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -765,7 +765,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 241.39999997615814,
+            "timeStamp": 239.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -830,7 +830,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 241.39999997615814,
+            "timeStamp": 239.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -895,7 +895,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 256.80000001192093,
+            "timeStamp": 256.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -960,7 +960,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 256.80000001192093,
+            "timeStamp": 256.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1027,7 +1027,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 268,
+            "timeStamp": 265.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1096,7 +1096,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 268,
+            "timeStamp": 265.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1156,10 +1156,6 @@
             "data": {
               "label": "nowheel"
             },
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1179,10 +1175,6 @@
             "data": {
               "label": "plain"
             },
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1198,10 +1190,6 @@
           "data": {
             "label": "nowheel"
           },
-          "hidden": false,
-          "selected": false,
-          "dragging": false,
-          "expandParent": false,
           "measured": {
             "width": 150,
             "height": 37
@@ -1221,10 +1209,6 @@
           "data": {
             "label": "nowheel"
           },
-          "hidden": false,
-          "selected": false,
-          "dragging": false,
-          "expandParent": false,
           "measured": {
             "width": 150,
             "height": 37
@@ -1276,19 +1260,13 @@
           {
             "id": "nowheel-plain",
             "source": "nowheel",
-            "target": "plain",
-            "animated": false,
-            "hidden": false,
-            "selected": false
+            "target": "plain"
           }
         ],
         "getEdge": {
           "id": "nowheel-plain",
           "source": "nowheel",
-          "target": "plain",
-          "animated": false,
-          "hidden": false,
-          "selected": false
+          "target": "plain"
         },
         "getIntersectingNodes": [
           {
@@ -1300,10 +1278,6 @@
             "data": {
               "label": "nowheel"
             },
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1323,10 +1297,6 @@
             "data": {
               "label": "plain"
             },
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -1369,10 +1339,6 @@
               "data": {
                 "label": "nowheel"
               },
-              "hidden": false,
-              "selected": false,
-              "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -1392,10 +1358,6 @@
               "data": {
                 "label": "plain"
               },
-              "hidden": false,
-              "selected": false,
-              "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -1406,10 +1368,7 @@
             {
               "id": "nowheel-plain",
               "source": "nowheel",
-              "target": "plain",
-              "animated": false,
-              "hidden": false,
-              "selected": false
+              "target": "plain"
             }
           ],
           "viewport": {

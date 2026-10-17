@@ -1316,7 +1316,13 @@ check("`edgeTypes` hands a consumer's edge component JS-shaped props", () => {
       `"bottom" — a consumer switches on these, and a PureScript constructor is not one`
   );
   assert(typeof seen.sourceX === "number", "`sourceX` is not a number");
-  assert(typeof seen.selected === "boolean", "`selected` is not a plain boolean");
+  // Upstream passes `selected={edge.selected}`, so an edge the consumer wrote
+  // without `selected`, as this one is, hands its component the key holding
+  // `undefined`: neither `false` nor a PureScript `Maybe`.
+  assert(
+    "selected" in seen && seen.selected === undefined,
+    `\`selected\` was ${JSON.stringify(seen.selected)}, not upstream's \`undefined\` for an edge that doesn't set it`
+  );
   assert(
     seen.labelBgPadding === undefined || Array.isArray(seen.labelBgPadding),
     "`labelBgPadding` crossed as ps-flow's `{ x, y }` rather than upstream's pair"
