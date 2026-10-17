@@ -31960,6 +31960,13 @@ var toPromise = function(aff) {
   };
 };
 
+// output/Boundary.SetState/foreign.js
+var keepIdentityImpl = (previous, handed, returned, inward) => {
+  const origin2 = /* @__PURE__ */ new Map();
+  for (let i = 0; i < handed.length; i++) origin2.set(handed[i], previous[i]);
+  return returned.map((element2) => origin2.has(element2) ? origin2.get(element2) : inward(element2));
+};
+
 // output/Boundary.SetState/index.js
 var map9 = /* @__PURE__ */ map(functorArray);
 var setStateOut = function(name15) {
@@ -31977,14 +31984,15 @@ var setStateOut = function(name15) {
               return unsafeThrow("ps-flow: `" + (name15 + ("` " + (what + (" " + (typeName(raw) + " \u2014 it takes the next array, or a function of the previous one."))))));
             }
             ;
-            throw new Error("Failed pattern match at Boundary.SetState (line 69, column 21 - line 74, column 78): " + [v.constructor.name]);
+            throw new Error("Failed pattern match at Boundary.SetState (line 82, column 21 - line 87, column 78): " + [v.constructor.name]);
           };
         };
         return function(action2) {
           var v = asFunction(action2);
           if (v instanceof Just) {
             return set3(function(previous) {
-              return map9(inward)(expect("returned")(v.value0(map9(outward)(previous))));
+              var handed = map9(outward)(previous);
+              return keepIdentityImpl(previous, handed, expect("returned")(v.value0(handed)), inward);
             })();
           }
           ;
@@ -31995,7 +32003,7 @@ var setStateOut = function(name15) {
             })();
           }
           ;
-          throw new Error("Failed pattern match at Boundary.SetState (line 54, column 3 - line 67, column 23): " + [v.constructor.name]);
+          throw new Error("Failed pattern match at Boundary.SetState (line 62, column 3 - line 79, column 23): " + [v.constructor.name]);
         };
       };
     };
@@ -49454,7 +49462,7 @@ var partitionNodeChanges = /* @__PURE__ */ function() {
           return insert9(id3)(snoc(v.value0)(c))(m);
         }
         ;
-        throw new Error("Failed pattern match at React.Store.Changes (line 73, column 25 - line 75, column 61): " + [v.constructor.name]);
+        throw new Error("Failed pattern match at React.Store.Changes (line 74, column 25 - line 76, column 61): " + [v.constructor.name]);
       };
     };
   };
@@ -49502,7 +49510,7 @@ var partitionNodeChanges = /* @__PURE__ */ function() {
         };
       }
       ;
-      throw new Error("Failed pattern match at React.Store.Changes (line 65, column 16 - line 71, column 76): " + [c.constructor.name]);
+      throw new Error("Failed pattern match at React.Store.Changes (line 66, column 16 - line 72, column 76): " + [c.constructor.name]);
     };
   };
   return foldl6(step2)({
@@ -49523,7 +49531,7 @@ var partitionEdgeChanges = /* @__PURE__ */ function() {
           return insert12(id3)(snoc(v.value0)(c))(m);
         }
         ;
-        throw new Error("Failed pattern match at React.Store.Changes (line 86, column 25 - line 88, column 61): " + [v.constructor.name]);
+        throw new Error("Failed pattern match at React.Store.Changes (line 87, column 25 - line 89, column 61): " + [v.constructor.name]);
       };
     };
   };
@@ -49557,7 +49565,7 @@ var partitionEdgeChanges = /* @__PURE__ */ function() {
         };
       }
       ;
-      throw new Error("Failed pattern match at React.Store.Changes (line 80, column 16 - line 84, column 76): " + [c.constructor.name]);
+      throw new Error("Failed pattern match at React.Store.Changes (line 81, column 16 - line 85, column 76): " + [c.constructor.name]);
     };
   };
   return foldl6(step2)({
@@ -49575,8 +49583,8 @@ var insertItemAt = function(mIndex) {
       if (mIndex instanceof Just) {
         var len = length(arr);
         var at = function() {
-          var $84 = mIndex.value0 < 0;
-          if ($84) {
+          var $85 = mIndex.value0 < 0;
+          if ($85) {
             return max10(0)(len + mIndex.value0 | 0);
           }
           ;
@@ -49585,7 +49593,7 @@ var insertItemAt = function(mIndex) {
         return fromMaybe(snoc(arr)(item))(insertAt(at)(item)(arr));
       }
       ;
-      throw new Error("Failed pattern match at React.Store.Changes (line 214, column 32 - line 221, column 67): " + [mIndex.constructor.name]);
+      throw new Error("Failed pattern match at React.Store.Changes (line 215, column 32 - line 222, column 67): " + [mIndex.constructor.name]);
     };
   };
 };
@@ -49600,21 +49608,21 @@ var getSelectionChangesGeneric = function(dictOrd) {
             var step2 = function(acc) {
               return function(v) {
                 var willBeSelected = member22(v.value0)(selectedIds);
-                var $88 = isSelected(v.value1.selected) !== willBeSelected;
-                if ($88) {
+                var $89 = isSelected(v.value1.selected) !== willBeSelected;
+                if ($89) {
                   var newItems = function() {
                     if (mutate2) {
                       return insert23(v.value0)(function() {
-                        var $90 = {};
-                        for (var $91 in v.value1) {
-                          if ({}.hasOwnProperty.call(v.value1, $91)) {
-                            $90[$91] = v["value1"][$91];
+                        var $91 = {};
+                        for (var $92 in v.value1) {
+                          if ({}.hasOwnProperty.call(v.value1, $92)) {
+                            $91[$92] = v["value1"][$92];
                           }
                           ;
                         }
                         ;
-                        $90.selected = toSelected(willBeSelected);
-                        return $90;
+                        $91.selected = toSelected(willBeSelected);
+                        return $91;
                       }())(acc.items);
                     }
                     ;
@@ -49667,63 +49675,72 @@ var getNodeSelectionChanges = function(lookup210) {
 };
 var getNodeElementsDiffChanges = function(mItems) {
   return function(lookup210) {
-    var items = function() {
-      if (mItems instanceof Just) {
-        return mItems.value0;
-      }
-      ;
-      if (mItems instanceof Nothing) {
-        return [];
-      }
-      ;
-      throw new Error("Failed pattern match at React.Store.Changes (line 298, column 13 - line 300, column 20): " + [mItems.constructor.name]);
-    }();
-    var itemsLookup = fromFoldable9(map46(function(n) {
-      return new Tuple(n.id, n);
-    })(items));
-    var removes = foldl6(function(acc) {
-      return function(v) {
-        var $98 = member8(v.value0)(itemsLookup);
-        if ($98) {
-          return acc;
+    return function(currentNodes) {
+      var userNodes = fromFoldable9(map46(function(n) {
+        return new Tuple(n.id, n);
+      })(currentNodes));
+      var items = function() {
+        if (mItems instanceof Just) {
+          return mItems.value0;
         }
         ;
-        return snoc(acc)(new NodeRemoveChange({
-          id: v.value0
-        }));
-      };
-    })([])(toUnfoldable8(lookup210));
-    var forwardStep = function(acc) {
-      return function(item) {
-        var storeItem = lookup19(item.id)(lookup210);
-        var change = function() {
-          if (storeItem instanceof Just) {
-            return new NodeReplaceChange({
-              id: item.id,
-              item
-            });
+        if (mItems instanceof Nothing) {
+          return [];
+        }
+        ;
+        throw new Error("Failed pattern match at React.Store.Changes (line 306, column 13 - line 308, column 20): " + [mItems.constructor.name]);
+      }();
+      var itemsLookup = fromFoldable9(map46(function(n) {
+        return new Tuple(n.id, n);
+      })(items));
+      var removes = foldl6(function(acc) {
+        return function(v) {
+          var $99 = member8(v.value0)(itemsLookup);
+          if ($99) {
+            return acc;
           }
           ;
-          if (storeItem instanceof Nothing) {
-            return new NodeAddChange({
-              item,
-              index: new Just(acc.index)
-            });
-          }
-          ;
-          throw new Error("Failed pattern match at React.Store.Changes (line 308, column 18 - line 310, column 67): " + [storeItem.constructor.name]);
-        }();
-        return {
-          changes: snoc(acc.changes)(change),
-          index: acc.index + 1 | 0
+          return snoc(acc)(new NodeRemoveChange({
+            id: v.value0
+          }));
+        };
+      })([])(toUnfoldable8(lookup210));
+      var forwardStep = function(acc) {
+        return function(item) {
+          var change = function() {
+            if (member8(item.id)(lookup210)) {
+              var v = lookup19(item.id)(userNodes);
+              if (v instanceof Just && unsafeRefEq(v.value0)(item)) {
+                return [];
+              }
+              ;
+              return [new NodeReplaceChange({
+                id: item.id,
+                item
+              })];
+            }
+            ;
+            if (otherwise) {
+              return [new NodeAddChange({
+                item,
+                index: new Just(acc.index)
+              })];
+            }
+            ;
+            throw new Error("Failed pattern match at React.Store.Changes (line 316, column 9 - line 320, column 74): ");
+          }();
+          return {
+            changes: append10(acc.changes)(change),
+            index: acc.index + 1 | 0
+          };
         };
       };
+      var forwardPass = foldl6(forwardStep)({
+        changes: [],
+        index: 0
+      })(items);
+      return append10(forwardPass.changes)(removes);
     };
-    var forwardPass = foldl6(forwardStep)({
-      changes: [],
-      index: 0
-    })(items);
-    return append10(forwardPass.changes)(removes);
   };
 };
 var getEdgeSelectionChanges = function(lookup210) {
@@ -49753,15 +49770,15 @@ var getEdgeElementsDiffChanges = function(mItems) {
         return [];
       }
       ;
-      throw new Error("Failed pattern match at React.Store.Changes (line 331, column 13 - line 333, column 20): " + [mItems.constructor.name]);
+      throw new Error("Failed pattern match at React.Store.Changes (line 341, column 13 - line 343, column 20): " + [mItems.constructor.name]);
     }();
     var itemsLookup = fromFoldable12(map46(function(e) {
       return new Tuple(e.id, e);
     })(items));
     var removes = foldl6(function(acc) {
       return function(v) {
-        var $106 = member12(v.value0)(itemsLookup);
-        if ($106) {
+        var $107 = member12(v.value0)(itemsLookup);
+        if ($107) {
           return acc;
         }
         ;
@@ -49775,23 +49792,30 @@ var getEdgeElementsDiffChanges = function(mItems) {
         var change = function() {
           var v = lookup110(item.id)(lookup210);
           if (v instanceof Just) {
-            return new EdgeReplaceChange({
-              id: item.id,
-              item
-            });
+            if (unsafeRefEq(v.value0)(item)) {
+              return [];
+            }
+            ;
+            if (otherwise) {
+              return [new EdgeReplaceChange({
+                id: item.id,
+                item
+              })];
+            }
+            ;
           }
           ;
           if (v instanceof Nothing) {
-            return new EdgeAddChange({
+            return [new EdgeAddChange({
               item,
               index: new Just(acc.index)
-            });
+            })];
           }
           ;
-          throw new Error("Failed pattern match at React.Store.Changes (line 339, column 18 - line 341, column 67): " + [v.constructor.name]);
+          throw new Error("Failed pattern match at React.Store.Changes (line 350, column 18 - line 354, column 71): " + [v.constructor.name]);
         }();
         return {
-          changes: snoc(acc.changes)(change),
+          changes: append10(acc.changes)(change),
           index: acc.index + 1 | 0
         };
       };
@@ -49877,7 +49901,7 @@ var applySingleNodeChange = function(c) {
           return node;
         }
         ;
-        throw new Error("Failed pattern match at React.Store.Changes (line 101, column 17 - line 103, column 24): " + [c.value0.position.constructor.name]);
+        throw new Error("Failed pattern match at React.Store.Changes (line 102, column 17 - line 104, column 24): " + [c.value0.position.constructor.name]);
       }();
       if (c.value0.dragging instanceof Just) {
         return {
@@ -49916,7 +49940,7 @@ var applySingleNodeChange = function(c) {
         return withPos;
       }
       ;
-      throw new Error("Failed pattern match at React.Store.Changes (line 106, column 7 - line 108, column 27): " + [c.value0.dragging.constructor.name]);
+      throw new Error("Failed pattern match at React.Store.Changes (line 107, column 7 - line 109, column 27): " + [c.value0.dragging.constructor.name]);
     }
     ;
     if (c instanceof NodeDimensionChange) {
@@ -50038,10 +50062,10 @@ var applySingleNodeChange = function(c) {
           return n2;
         }
         ;
-        throw new Error("Failed pattern match at React.Store.Changes (line 117, column 11 - line 124, column 19): " + [c.value0.setAttributes.constructor.name]);
+        throw new Error("Failed pattern match at React.Store.Changes (line 118, column 11 - line 125, column 19): " + [c.value0.setAttributes.constructor.name]);
       }
       ;
-      throw new Error("Failed pattern match at React.Store.Changes (line 110, column 5 - line 124, column 19): " + [c.value0.dimensions.constructor.name]);
+      throw new Error("Failed pattern match at React.Store.Changes (line 111, column 5 - line 125, column 19): " + [c.value0.dimensions.constructor.name]);
     }
     ;
     if (c instanceof NodeRemoveChange) {
@@ -50056,7 +50080,7 @@ var applySingleNodeChange = function(c) {
       return node;
     }
     ;
-    throw new Error("Failed pattern match at React.Store.Changes (line 97, column 32 - line 128, column 26): " + [c.constructor.name]);
+    throw new Error("Failed pattern match at React.Store.Changes (line 98, column 32 - line 129, column 26): " + [c.constructor.name]);
   };
 };
 var applySingleEdgeChange = function(c) {
@@ -50112,7 +50136,7 @@ var applyChangesForNode = function(node) {
       })(node)(changes));
     }
     ;
-    throw new Error("Failed pattern match at React.Store.Changes (line 146, column 36 - line 151, column 77): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at React.Store.Changes (line 147, column 36 - line 152, column 77): " + [v.constructor.name]);
   };
 };
 var applyNodeChanges = function(changes) {
@@ -50144,10 +50168,10 @@ var applyNodeChanges = function(changes) {
             return snoc(acc)(v1.value0);
           }
           ;
-          throw new Error("Failed pattern match at React.Store.Changes (line 172, column 24 - line 174, column 53): " + [v1.constructor.name]);
+          throw new Error("Failed pattern match at React.Store.Changes (line 173, column 24 - line 175, column 53): " + [v1.constructor.name]);
         }
         ;
-        throw new Error("Failed pattern match at React.Store.Changes (line 170, column 24 - line 174, column 53): " + [v.constructor.name]);
+        throw new Error("Failed pattern match at React.Store.Changes (line 171, column 24 - line 175, column 53): " + [v.constructor.name]);
       };
     })([])(nodes3);
     return foldl6(applyNodeAdd)(afterUpdates)(buckets.adds);
@@ -50176,7 +50200,7 @@ var applyChangesForEdge = function(edge) {
       })(edge)(changes));
     }
     ;
-    throw new Error("Failed pattern match at React.Store.Changes (line 155, column 36 - line 160, column 77): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at React.Store.Changes (line 156, column 36 - line 161, column 77): " + [v.constructor.name]);
   };
 };
 var applyEdgeChanges = function(changes) {
@@ -50208,10 +50232,10 @@ var applyEdgeChanges = function(changes) {
             return snoc(acc)(v1.value0);
           }
           ;
-          throw new Error("Failed pattern match at React.Store.Changes (line 194, column 24 - line 196, column 53): " + [v1.constructor.name]);
+          throw new Error("Failed pattern match at React.Store.Changes (line 195, column 24 - line 197, column 53): " + [v1.constructor.name]);
         }
         ;
-        throw new Error("Failed pattern match at React.Store.Changes (line 192, column 24 - line 196, column 53): " + [v.constructor.name]);
+        throw new Error("Failed pattern match at React.Store.Changes (line 193, column 24 - line 197, column 53): " + [v.constructor.name]);
       };
     })([])(edges2);
     return foldl6(applyEdgeAdd)(afterUpdates)(buckets.adds);
@@ -54515,14 +54539,59 @@ var useIsomorphicLayoutEffect = function(dictEq) {
 };
 
 // output/React.Provider.Batch/index.js
+var foldl8 = /* @__PURE__ */ foldl(foldableList);
 var bind47 = /* @__PURE__ */ bind4(ixBindRender);
+var when22 = /* @__PURE__ */ when(applicativeEffect);
 var useMemo5 = /* @__PURE__ */ useMemo(eqUnit);
 var discard19 = /* @__PURE__ */ discard2(ixBindRender);
 var useIsomorphicLayoutEffect2 = /* @__PURE__ */ useIsomorphicLayoutEffect(eqInt);
-var when22 = /* @__PURE__ */ when(applicativeEffect);
-var foldl8 = /* @__PURE__ */ foldl(foldableArray);
+var foldl13 = /* @__PURE__ */ foldl(foldableArray);
+var for_20 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
+var $$void10 = /* @__PURE__ */ $$void(functorEffect);
 var pure69 = /* @__PURE__ */ pure(applicativeEffect);
 var pure126 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var planNodeQueue = function(s) {
+  return function(nextNodes) {
+    var changes = foldl8(function(cs) {
+      return function(middleware) {
+        return middleware(cs);
+      };
+    })(getNodeElementsDiffChanges(new Just(nextNodes))(s.nodeLookup)(s.nodes))(values(s.onNodesChangeMiddlewareMap));
+    return {
+      setNodes: function() {
+        if (s.hasDefaultNodes) {
+          return new Just(nextNodes);
+        }
+        ;
+        return Nothing.value;
+      }(),
+      onNodesChange: function() {
+        var $32 = $$null(changes);
+        if ($32) {
+          return Nothing.value;
+        }
+        ;
+        return new Just(changes);
+      }(),
+      refitNextFrame: $$null(changes) && s.fitViewQueued
+    };
+  };
+};
+var planEdgeQueue = function(s) {
+  return function(nextEdges) {
+    if (s.hasDefaultEdges) {
+      return {
+        setEdges: new Just(nextEdges),
+        onEdgesChange: Nothing.value
+      };
+    }
+    ;
+    return {
+      setEdges: Nothing.value,
+      onEdgesChange: new Just(getEdgeElementsDiffChanges(new Just(nextEdges))(s.edgeLookup))
+    };
+  };
+};
 var coerceNodeQueue = unsafeCoerce2;
 var coerceEdgeQueue = unsafeCoerce2;
 var applyQueueItem = function(current) {
@@ -54535,12 +54604,16 @@ var applyQueueItem = function(current) {
       return v.value0(current);
     }
     ;
-    throw new Error("Failed pattern match at React.Provider.Batch (line 64, column 26 - line 66, column 29): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at React.Provider.Batch (line 76, column 26 - line 78, column 29): " + [v.constructor.name]);
   };
 };
 var batchProvider = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponentWithChildren()()("BatchProvider")(function(v) {
   return bind47(useStoreApi)(function(store) {
     return bind47(useState(0))(function(v1) {
+      var refitNodes = function __do3() {
+        var now2 = store.getState();
+        return when22(now2.fitViewQueued)(store.dispatch(new SetNodes(now2.nodes)))();
+      };
       var bumpSerial = v1.value1(function(v2) {
         return v2 + 1 | 0;
       });
@@ -54555,30 +54628,37 @@ var batchProvider = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCom
             var edgeItems = edgeQueue.get();
             when22(!$$null(nodeItems) || !$$null(edgeItems))(function __do4() {
               var s = store.getState();
-              var nextNodes = foldl8(applyQueueItem)(s.nodes)(nodeItems);
-              var nextEdges = foldl8(applyQueueItem)(s.edges)(edgeItems);
-              when22(!$$null(nodeItems))(function __do5() {
-                (function() {
-                  if (s.hasDefaultNodes) {
-                    return store.dispatch(new SetNodes(nextNodes))();
-                  }
-                  ;
-                  var changes = getNodeElementsDiffChanges(new Just(nextNodes))(s.nodeLookup);
-                  return store.dispatch(new TriggerNodeChanges(changes))();
-                })();
-                return nodeQueue.reset();
-              })();
-              return when22(!$$null(edgeItems))(function __do5() {
-                (function() {
-                  if (s.hasDefaultEdges) {
-                    return store.dispatch(new SetEdges(nextEdges))();
-                  }
-                  ;
-                  var changes = getEdgeElementsDiffChanges(new Just(nextEdges))(s.edgeLookup);
-                  return store.dispatch(new TriggerEdgeChanges(changes))();
-                })();
-                return edgeQueue.reset();
-              })();
+              var nextNodes = foldl13(applyQueueItem)(s.nodes)(nodeItems);
+              var nextEdges = foldl13(applyQueueItem)(s.edges)(edgeItems);
+              when22(!$$null(nodeItems))(function() {
+                var plan = planNodeQueue(s)(nextNodes);
+                return function __do5() {
+                  for_20(plan.setNodes)(function($41) {
+                    return store.dispatch(SetNodes.create($41));
+                  })();
+                  for_20(plan.onNodesChange)(function(changes) {
+                    return for_20(s.onNodesChange)(function(v2) {
+                      return v2(changes);
+                    });
+                  })();
+                  when22(plan.refitNextFrame)($$void10(requestAnimationFrame(refitNodes)))();
+                  return nodeQueue.reset();
+                };
+              }())();
+              return when22(!$$null(edgeItems))(function() {
+                var plan = planEdgeQueue(s)(nextEdges);
+                return function __do5() {
+                  for_20(plan.setEdges)(function($42) {
+                    return store.dispatch(SetEdges.create($42));
+                  })();
+                  for_20(plan.onEdgesChange)(function(changes) {
+                    return for_20(s.onEdgesChange)(function(v2) {
+                      return v2(changes);
+                    });
+                  })();
+                  return edgeQueue.reset();
+                };
+              }())();
             })();
             return pure69(unit);
           }))(function() {
@@ -57613,7 +57693,7 @@ var reduce = function(state3) {
 };
 
 // output/React.Store.Shell/index.js
-var for_20 = /* @__PURE__ */ for_(applicativeEffect)(foldableArray);
+var for_21 = /* @__PURE__ */ for_(applicativeEffect)(foldableArray);
 var pure70 = /* @__PURE__ */ pure(applicativeEffect);
 var map60 = /* @__PURE__ */ map(functorMaybe);
 var pure127 = /* @__PURE__ */ pure(applicativeAff);
@@ -57634,7 +57714,7 @@ var createStore = function(opts) {
       return function(next) {
         return function __do4() {
           var subs = read(subsRef)();
-          return for_20(subs)(function(sub2) {
+          return for_21(subs)(function(sub2) {
             return sub2.onUpdate(prev)(next);
           })();
         };
@@ -57675,7 +57755,7 @@ var createStore = function(opts) {
         if (eff instanceof FireOnSelectionChange) {
           return function __do4() {
             var s = read(stateRef)();
-            return for_20(s.onSelectionChangeHandlers)(function(cb) {
+            return for_21(s.onSelectionChangeHandlers)(function(cb) {
               return cb(eff.value0);
             })();
           };
@@ -58041,7 +58121,7 @@ var useStore26 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ *
 var discard21 = /* @__PURE__ */ discard2(ixBindRender);
 var useEffect15 = /* @__PURE__ */ useEffect(eqUnsafeReference);
 var pure74 = /* @__PURE__ */ pure(applicativeEffect);
-var for_21 = /* @__PURE__ */ for_(applicativeEffect)(foldableArray);
+var for_22 = /* @__PURE__ */ for_(applicativeEffect)(foldableArray);
 var pure129 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty17 = /* @__PURE__ */ mempty(monoidJSX);
 var useStore110 = /* @__PURE__ */ useStore(eqBoolean);
@@ -58091,7 +58171,7 @@ var selectionListenerInner = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */
           ;
           throw new Error("Failed pattern match at React.Provider.SelectionListener (line 64, column 9 - line 66, column 31): " + [v.onSelectionChange.constructor.name]);
         })();
-        for_21(s.onSelectionChangeHandlers)(function(fn) {
+        for_22(s.onSelectionChangeHandlers)(function(fn) {
           return fn(params);
         })();
         return pure74(unit);
@@ -58168,7 +58248,7 @@ var bind52 = /* @__PURE__ */ bind4(ixBindRender);
 var discard23 = /* @__PURE__ */ discard2(ixBindRender);
 var pure75 = /* @__PURE__ */ pure(applicativeEffect);
 var useEffect16 = /* @__PURE__ */ useEffect(eqTrackedProp);
-var for_22 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
+var for_23 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var pure130 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty18 = /* @__PURE__ */ mempty(monoidJSX);
 var effectOnJustFrom = function(seed) {
@@ -58180,7 +58260,7 @@ var effectOnJustFrom = function(seed) {
             return useEffect16(mValue)(function __do3() {
               var prev = readRef(previous)();
               writeRef(previous)(mValue)();
-              for_22(dispatchable(prev)(mValue))(function($72) {
+              for_23(dispatchable(prev)(mValue))(function($72) {
                 return dispatch2(mkAction($72));
               })();
               return pure75(unit);
@@ -63520,7 +63600,7 @@ var lookup26 = /* @__PURE__ */ lookup2(ordString);
 var discard24 = /* @__PURE__ */ discard2(ixBindRender);
 var useEffect17 = /* @__PURE__ */ useEffect(eqUnsafeReference);
 var when23 = /* @__PURE__ */ when(applicativeEffect);
-var for_23 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
+var for_24 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var map62 = /* @__PURE__ */ map(functorArray);
 var pure77 = /* @__PURE__ */ pure(applicativeEffect);
 var pure132 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
@@ -63586,10 +63666,10 @@ var useHandleConnections = function(params) {
           var prev = readRef(prevRef)();
           var droppedConns = filter(notIn(connections))(prev);
           var addedConns = filter(notIn(prev))(connections);
-          when23(!$$null(droppedConns))(for_23(params.onDisconnect)(function(cb) {
+          when23(!$$null(droppedConns))(for_24(params.onDisconnect)(function(cb) {
             return cb(map62(toConnection)(droppedConns));
           }))();
-          when23(!$$null(addedConns))(for_23(params.onConnect)(function(cb) {
+          when23(!$$null(addedConns))(for_24(params.onConnect)(function(cb) {
             return cb(map62(toConnection)(addedConns));
           }))();
           writeRef(prevRef)(connections)();
@@ -63691,7 +63771,7 @@ var lookup27 = /* @__PURE__ */ lookup2(ordString);
 var discard25 = /* @__PURE__ */ discard2(ixBindRender);
 var useEffect19 = /* @__PURE__ */ useEffect(eqUnsafeReference);
 var when24 = /* @__PURE__ */ when(applicativeEffect);
-var for_24 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
+var for_25 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var pure78 = /* @__PURE__ */ pure(applicativeEffect);
 var pure133 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var notIn2 = function(xs) {
@@ -63767,10 +63847,10 @@ var useNodeConnections = function(params) {
           var prev = readRef(prevRef)();
           var droppedConns = filter(notIn2(connections))(prev);
           var addedConns = filter(notIn2(prev))(connections);
-          when24(!$$null(droppedConns))(for_24(params.onDisconnect)(function(cb) {
+          when24(!$$null(droppedConns))(for_25(params.onDisconnect)(function(cb) {
             return cb(droppedConns);
           }))();
-          when24(!$$null(addedConns))(for_24(params.onConnect)(function(cb) {
+          when24(!$$null(addedConns))(for_25(params.onConnect)(function(cb) {
             return cb(addedConns);
           }))();
           writeRef(prevRef)(connections)();
