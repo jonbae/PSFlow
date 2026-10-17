@@ -38,15 +38,21 @@ panel =
   unsafePerformEffect $ memo $ reactComponentWithChildren "Panel"
     \(props :: PanelProps) ->
       let
+        -- Upstream's `cc(['react-flow__panel', className, ...positionClasses])`:
+        -- the caller's class goes before the position, and an empty one is
+        -- skipped.
         userClass = fromMaybe "" props.className
-        className = "react-flow__panel " <> panelPositionClasses props.position
+        className = "react-flow__panel"
           <> (if userClass == "" then "" else " " <> userClass)
+          <> " "
+          <> panelPositionClasses props.position
       in
         pure $ div_
           { className
           , style: opt props.style
           , "aria-label": opt props."aria-label"
           , "data-testid": opt props."data-testid"
+          , "data-message": opt props."data-message"
           -- Straight through, `null` included: React reads a null ref as no
           -- ref, which is exactly what the caller who passed none meant.
           , ref: props.innerRef

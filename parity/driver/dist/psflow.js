@@ -37401,19 +37401,20 @@ var panelPositionClasses = function(v) {
 };
 var panel = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponentWithChildren()()("Panel")(function(v) {
   var userClass = fromMaybe("")(v.className);
-  var className3 = "react-flow__panel " + (panelPositionClasses(v.position) + function() {
+  var className3 = "react-flow__panel" + (function() {
     var $10 = userClass === "";
     if ($10) {
       return "";
     }
     ;
     return " " + userClass;
-  }());
+  }() + (" " + panelPositionClasses(v.position)));
   return pure11(div_({
     className: className3,
     style: opt(v.style),
     "aria-label": opt(v["aria-label"]),
     "data-testid": opt(v["data-testid"]),
+    "data-message": opt(v["data-message"]),
     ref: v.innerRef
   })(reactChildrenToArray(v.children)));
 })));
@@ -37663,6 +37664,7 @@ var controls = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PU
           style: v.style,
           "aria-label": new Just(fromMaybe(v1.ariaLabelConfig.controlsAriaLabel)(v["aria-label"])),
           "data-testid": new Just("rf__controls"),
+          "data-message": Nothing.value,
           children: reactChildrenFromArray(allChildren),
           innerRef: nullImpl
         }));
@@ -40322,6 +40324,7 @@ var miniMap = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PUR
                     style: new Just(panelStyle),
                     "aria-label": Nothing.value,
                     "data-testid": new Just("rf__minimap"),
+                    "data-message": Nothing.value,
                     children: reactChildrenFromArray([svgEl]),
                     innerRef: nullImpl
                   }));
@@ -40364,7 +40367,7 @@ var numberPairIn = function(field) {
           return unsafeThrow("ps-flow: the " + (name15 + (" entry of `" + (field + ("` must be a number, got " + (typeName(value12) + "."))))));
         }
         ;
-        throw new Error("Failed pattern match at Boundary.Chrome (line 217, column 21 - line 223, column 17): " + [v2.constructor.name]);
+        throw new Error("Failed pattern match at Boundary.Chrome (line 219, column 21 - line 225, column 17): " + [v2.constructor.name]);
       };
     };
     var v = asNumber(raw);
@@ -40381,7 +40384,7 @@ var numberPairIn = function(field) {
       return unsafeThrow("ps-flow: `" + (field + ("` must be a number or a pair of numbers, got " + (typeName(raw) + "."))));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Chrome (line 207, column 26 - line 215, column 17): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Chrome (line 209, column 26 - line 217, column 17): " + [v.constructor.name]);
   };
 };
 var nodeAttributeIn = function(field) {
@@ -40396,7 +40399,7 @@ var nodeAttributeIn = function(field) {
         return unsafeThrow("ps-flow: `" + (field + ("` returned " + (typeName(value12) + ", not a string."))));
       }
       ;
-      throw new Error("Failed pattern match at Boundary.Chrome (line 364, column 22 - line 368, column 86): " + [v2.constructor.name]);
+      throw new Error("Failed pattern match at Boundary.Chrome (line 366, column 22 - line 370, column 86): " + [v2.constructor.name]);
     };
     var v = asFunction(raw);
     if (v instanceof Just) {
@@ -40415,10 +40418,10 @@ var nodeAttributeIn = function(field) {
         return unsafeThrow("ps-flow: `" + (field + ("` must be a function of a node, got " + (typeName(raw) + "."))));
       }
       ;
-      throw new Error("Failed pattern match at Boundary.Chrome (line 352, column 14 - line 362, column 17): " + [v1.constructor.name]);
+      throw new Error("Failed pattern match at Boundary.Chrome (line 354, column 14 - line 364, column 17): " + [v1.constructor.name]);
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Chrome (line 350, column 29 - line 362, column 17): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Chrome (line 352, column 29 - line 364, column 17): " + [v.constructor.name]);
   };
 };
 var miniMapNodePropsOut = function(p) {
@@ -40452,6 +40455,7 @@ var convertPanel = function(p) {
       style: map28(asCssObject)(fromUndefinable(p.style)),
       "aria-label": fromUndefinable(p["aria-label"]),
       "data-testid": fromUndefinable(p["data-testid"]),
+      "data-message": fromUndefinable(p["data-message"]),
       children: p.children,
       innerRef: orNullable(p.ref)(forwarded)
     };
@@ -42277,16 +42281,14 @@ var attribution = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompo
     rel: "noopener noreferrer",
     "aria-label": "React Flow attribution"
   })([textContent("React Flow")]);
-  var messageWrap = span_({
-    "data-message": "Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"
-  })([link]);
   return pure30(element(panel)({
     position: pos,
     className: new Just("react-flow__attribution"),
     style: Nothing.value,
     "aria-label": Nothing.value,
     "data-testid": Nothing.value,
-    children: reactChildrenFromArray([messageWrap]),
+    "data-message": new Just("Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"),
+    children: reactChildrenFromArray([link]),
     innerRef: nullImpl
   }));
 }));

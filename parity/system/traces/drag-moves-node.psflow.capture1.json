@@ -561,27 +561,20 @@
           {
             "tag": "div",
             "attrs": {
-              "class": "react-flow__panel bottom right react-flow__attribution"
+              "class": "react-flow__panel react-flow__attribution bottom right",
+              "data-message": "Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"
             },
             "children": [
               {
-                "tag": "span",
+                "tag": "a",
                 "attrs": {
-                  "data-message": "Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"
+                  "href": "https://reactflow.dev",
+                  "target": "_blank",
+                  "rel": "noopener noreferrer",
+                  "aria-label": "React Flow attribution"
                 },
-                "children": [
-                  {
-                    "tag": "a",
-                    "attrs": {
-                      "href": "https://reactflow.dev",
-                      "target": "_blank",
-                      "rel": "noopener noreferrer",
-                      "aria-label": "React Flow attribution"
-                    },
-                    "text": "React Flow",
-                    "children": []
-                  }
-                ]
+                "text": "React Flow",
+                "children": []
               }
             ]
           },
@@ -780,7 +773,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 303,
+            "timeStamp": 306,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -849,7 +842,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 303,
+            "timeStamp": 306,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -929,7 +922,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 303,
+            "timeStamp": 306,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -994,7 +987,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 303,
+            "timeStamp": 306,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1176,7 +1169,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 343.10000002384186,
+            "timeStamp": 342.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1258,7 +1251,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 343.10000002384186,
+            "timeStamp": 342.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1325,7 +1318,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 343.10000002384186,
+            "timeStamp": 342.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1467,7 +1460,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 370.60000002384186,
+            "timeStamp": 369.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1611,7 +1604,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 397.4000000357628,
+            "timeStamp": 400.9000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1680,7 +1673,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 397.4000000357628,
+            "timeStamp": 400.9000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1755,7 +1748,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 397.4000000357628,
+            "timeStamp": 400.9000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1899,7 +1892,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 414.30000001192093,
+            "timeStamp": 429.4000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1974,7 +1967,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 414.30000001192093,
+            "timeStamp": 429.4000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2096,6 +2089,170 @@
         ]
       },
       {
+        "name": "onNodeMouseEnter",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseEnter",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseenter",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 448.10000002384186,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 774,
+            "screenY": 211,
+            "clientX": 774,
+            "clientY": 211,
+            "pageX": 774,
+            "pageY": 211,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 1,
+            "relatedTarget": {
+              "@ref": "DIV"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "Node-1",
+            "position": {
+              "x": 155.36585365853657,
+              "y": 155.3658536585366
+            },
+            "data": {
+              "label": "Node-1"
+            },
+            "type": "input",
+            "hidden": false,
+            "selected": true,
+            "dragging": true,
+            "expandParent": false,
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodeMouseLeave",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseLeave",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseleave",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 448.4000000357628,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 814,
+            "screenY": 251,
+            "clientX": 814,
+            "clientY": 251,
+            "pageX": 814,
+            "pageY": 251,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 1,
+            "relatedTarget": {
+              "@ref": "DIV"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "Node-1",
+            "position": {
+              "x": 155.36585365853657,
+              "y": 155.3658536585366
+            },
+            "data": {
+              "label": "Node-1"
+            },
+            "type": "input",
+            "hidden": false,
+            "selected": true,
+            "dragging": true,
+            "expandParent": false,
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            }
+          }
+        ]
+      },
+      {
         "name": "onPaneMouseMove",
         "args": [
           {
@@ -2116,7 +2273,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 430.60000002384186,
+            "timeStamp": 448.4000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2260,7 +2417,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 445.10000002384186,
+            "timeStamp": 479,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

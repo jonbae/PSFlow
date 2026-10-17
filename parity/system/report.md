@@ -12,105 +12,105 @@ claimed by a region — never by loosening what the net looks at.
 
 | scenario | verdict | failure classes | differences |
 |---|---|---|---|
-| `mount-baseline--edges-general` | **failed** | unclaimed-difference | 431 |
-| `mount-baseline--node-toolbar-general` | **failed** | unclaimed-difference | 295 |
-| `mount-baseline--nodes-general` | **failed** | unclaimed-difference | 208 |
-| `mount-baseline--pane-general` | **failed** | unclaimed-difference | 101 |
-| `mount-baseline--pane-non-defaults` | **failed** | unclaimed-difference | 86 |
-| `mount-baseline--chrome-background` | **failed** | unclaimed-difference | 104 |
-| `mount-baseline--chrome-controls` | **failed** | unclaimed-difference | 102 |
-| `mount-baseline--chrome-minimap-colors` | **failed** | unclaimed-difference | 103 |
-| `mount-baseline--chrome-minimap-hidden-nodes` | **failed** | unclaimed-difference | 51 |
-| `mount-baseline--chrome-panels` | **failed** | unclaimed-difference | 102 |
+| `mount-baseline--edges-general` | **failed** | unclaimed-difference | 428 |
+| `mount-baseline--node-toolbar-general` | **failed** | unclaimed-difference | 292 |
+| `mount-baseline--nodes-general` | **failed** | unclaimed-difference | 205 |
+| `mount-baseline--pane-general` | **failed** | unclaimed-difference | 98 |
+| `mount-baseline--pane-non-defaults` | **failed** | unclaimed-difference | 83 |
+| `mount-baseline--chrome-background` | **failed** | unclaimed-difference | 101 |
+| `mount-baseline--chrome-controls` | **failed** | unclaimed-difference | 99 |
+| `mount-baseline--chrome-minimap-colors` | **failed** | unclaimed-difference | 100 |
+| `mount-baseline--chrome-minimap-hidden-nodes` | **failed** | unclaimed-difference | 48 |
+| `mount-baseline--chrome-panels` | **failed** | unclaimed-difference | 99 |
 | `mount-baseline--edges-base-edge-path` | **failed** | driving-divergence, unclaimed-difference | 67 |
-| `mount-baseline--fitview-uncontrolled` | **failed** | unclaimed-difference | 102 |
-| `mount-baseline--flow-chrome-defaults` | **failed** | unclaimed-difference | 62 |
-| `mount-baseline--flow-custom-testid` | **failed** | unclaimed-difference | 103 |
-| `mount-baseline--flow-display-none` | **failed** | unclaimed-difference | 102 |
-| `mount-baseline--flow-limits-change` | **failed** | unclaimed-difference | 101 |
-| `mount-baseline--flow-not-selectable` | **failed** | unclaimed-difference | 99 |
-| `mount-baseline--flow-props-change` | **failed** | unclaimed-difference | 102 |
-| `mount-baseline--nodes-autopan` | **failed** | unclaimed-difference | 86 |
-| `mount-baseline--nodes-connections` | **failed** | unclaimed-difference | 186 |
-| `mount-baseline--nodes-expand-parent` | **failed** | unclaimed-difference | 112 |
-| `mount-baseline--nodes-no-select-on-drag` | **failed** | unclaimed-difference | 102 |
-| `mount-baseline--nodes-nowheel` | **failed** | unclaimed-difference | 94 |
-| `mount-baseline--nodes-props-record` | **failed** | unclaimed-difference | 39 |
-| `mount-baseline--nodes-tall` | **failed** | unclaimed-difference | 103 |
-| `mount-baseline--nodes-unmeasured` | **failed** | unclaimed-difference | 66 |
-| `mount-baseline--viewport-controlled` | **failed** | unclaimed-difference | 102 |
-| `mount-baseline--viewport-helpers` | **failed** | unclaimed-difference | 128 |
-| `mount-baseline--viewport-pan-on-scroll` | **failed** | unclaimed-difference | 101 |
-| `mount-baseline--examples-color-mode` | **failed** | unclaimed-difference | 26 |
-| `click-selects-edge` | **failed** | driving-divergence, unclaimed-difference | 449 |
-| `multi-select-edges-with-modifier` | **failed** | driving-divergence, unclaimed-difference | 472 |
-| `click-unselectable-edge` | **failed** | unclaimed-difference | 440 |
-| `delete-key-removes-edge` | **failed** | driving-divergence, unclaimed-difference | 442 |
-| `delete-key-spares-undeletable-edge` | **failed** | driving-divergence, unclaimed-difference | 451 |
-| `click-inside-interaction-width` | **failed** | driving-divergence, unclaimed-difference | 442 |
-| `click-selects-node` | **failed** | unclaimed-difference | 227 |
-| `shift-drag-selects-nodes` | **failed** | unclaimed-difference | 208 |
-| `click-unselectable-node` | **failed** | unclaimed-difference | 232 |
-| `drag-moves-node` | **failed** | unclaimed-difference | 264 |
-| `drag-does-not-move-undraggable-node` | **failed** | unclaimed-difference | 233 |
-| `drag-by-custom-drag-handle` | **failed** | unclaimed-difference | 270 |
-| `delete-key-removes-node-and-edges` | **failed** | unclaimed-difference | 200 |
-| `delete-key-spares-undeletable-node` | **failed** | unclaimed-difference | 230 |
-| `connect-source-handle-to-target-handle` | **failed** | unclaimed-difference | 312 |
-| `connect-output-to-output-handle` | **failed** | unclaimed-difference | 275 |
-| `connect-input-to-input-handle` | **failed** | unclaimed-difference | 284 |
-| `connect-to-unconnectable-handle` | **failed** | unclaimed-difference | 276 |
-| `drag-pans-the-pane` | **failed** | unclaimed-difference | 101 |
-| `wheel-zooms-the-pane` | **failed** | unclaimed-difference | 101 |
-| `wheel-zooms-out-to-min` | **failed** | unclaimed-difference | 87 |
-| `wheel-zooms-in-to-max` | **failed** | unclaimed-difference | 87 |
-| `wheel-pans-with-panonscroll` | **failed** | unclaimed-difference | 98 |
-| `click-reveals-default-toolbar` | **failed** | unclaimed-difference | 307 |
-| `select-dark-color-mode` | **failed** | unclaimed-difference | 26 |
-| `drag-node-release` | **failed** | unclaimed-difference | 327 |
-| `drag-node-escape-mid-gesture` | **failed** | unclaimed-difference | 252 |
-| `drag-node-autopan` | **failed** | self-inconsistent, unclaimed-difference | 392 |
-| `drag-node-no-select-on-drag` | **failed** | unclaimed-difference | 209 |
-| `drag-child-expand-parent` | **failed** | driving-divergence, unclaimed-difference | 195 |
-| `drag-unmeasured-node` | **failed** | unclaimed-difference | 116 |
-| `selection-box-from-node` | **failed** | unclaimed-difference | 224 |
-| `selection-box-then-click-node` | **failed** | unclaimed-difference | 264 |
-| `selection-box-mid-gesture` | **failed** | unclaimed-difference | 102 |
-| `selection-box-touch` | **failed** | unclaimed-difference | 232 |
-| `arrow-key-selected-node` | **failed** | self-inconsistent, unclaimed-difference | 155 |
-| `keyboard-focus-node` | **failed** | unclaimed-difference | 101 |
-| `connect-handle-to-handle` | **failed** | unclaimed-difference | 387 |
-| `connect-then-keyboard-move` | **failed** | unclaimed-difference | 282 |
-| `connect-second-touch-point` | **failed** | unclaimed-difference | 217 |
-| `probe-node-connections` | **failed** | unclaimed-difference | 277 |
-| `viewport-helpers-with-options` | **failed** | unclaimed-difference | 117 |
-| `pan-gesture-complete` | **failed** | unclaimed-difference | 101 |
-| `fitview-onnodeschange-variants` | **failed** | unclaimed-difference | 139 |
-| `uncontrolled-update-node` | **failed** | unclaimed-difference | 136 |
-| `flow-props-change-after-mount` | **failed** | unclaimed-difference | 136 |
-| `mount-in-display-none` | **failed** | unclaimed-difference | 103 |
-| `minimap-all-nodes-hidden` | **failed** | unclaimed-difference | 51 |
-| `minimap-custom-mask-colors` | **failed** | unclaimed-difference | 116 |
-| `controls-horizontal` | **failed** | unclaimed-difference | 103 |
-| `panel-center-positions` | **failed** | unclaimed-difference | 102 |
-| `background-custom-bgcolor` | **failed** | unclaimed-difference | 104 |
-| `flow-custom-testid` | **failed** | driving-divergence, unclaimed-difference | 125 |
+| `mount-baseline--fitview-uncontrolled` | **failed** | unclaimed-difference | 99 |
+| `mount-baseline--flow-chrome-defaults` | **failed** | unclaimed-difference | 59 |
+| `mount-baseline--flow-custom-testid` | **failed** | unclaimed-difference | 100 |
+| `mount-baseline--flow-display-none` | **failed** | unclaimed-difference | 99 |
+| `mount-baseline--flow-limits-change` | **failed** | unclaimed-difference | 98 |
+| `mount-baseline--flow-not-selectable` | **failed** | unclaimed-difference | 96 |
+| `mount-baseline--flow-props-change` | **failed** | unclaimed-difference | 99 |
+| `mount-baseline--nodes-autopan` | **failed** | unclaimed-difference | 83 |
+| `mount-baseline--nodes-connections` | **failed** | unclaimed-difference | 183 |
+| `mount-baseline--nodes-expand-parent` | **failed** | unclaimed-difference | 109 |
+| `mount-baseline--nodes-no-select-on-drag` | **failed** | unclaimed-difference | 99 |
+| `mount-baseline--nodes-nowheel` | **failed** | unclaimed-difference | 91 |
+| `mount-baseline--nodes-props-record` | **failed** | unclaimed-difference | 36 |
+| `mount-baseline--nodes-tall` | **failed** | unclaimed-difference | 100 |
+| `mount-baseline--nodes-unmeasured` | **failed** | unclaimed-difference | 63 |
+| `mount-baseline--viewport-controlled` | **failed** | unclaimed-difference | 99 |
+| `mount-baseline--viewport-helpers` | **failed** | unclaimed-difference | 125 |
+| `mount-baseline--viewport-pan-on-scroll` | **failed** | unclaimed-difference | 98 |
+| `mount-baseline--examples-color-mode` | **failed** | unclaimed-difference | 23 |
+| `click-selects-edge` | **failed** | driving-divergence, unclaimed-difference | 446 |
+| `multi-select-edges-with-modifier` | **failed** | driving-divergence, unclaimed-difference | 469 |
+| `click-unselectable-edge` | **failed** | unclaimed-difference | 437 |
+| `delete-key-removes-edge` | **failed** | driving-divergence, unclaimed-difference | 439 |
+| `delete-key-spares-undeletable-edge` | **failed** | driving-divergence, unclaimed-difference | 448 |
+| `click-inside-interaction-width` | **failed** | driving-divergence, unclaimed-difference | 439 |
+| `click-selects-node` | **failed** | unclaimed-difference | 224 |
+| `shift-drag-selects-nodes` | **failed** | unclaimed-difference | 205 |
+| `click-unselectable-node` | **failed** | unclaimed-difference | 229 |
+| `drag-moves-node` | **failed** | self-inconsistent, unclaimed-difference | 284 |
+| `drag-does-not-move-undraggable-node` | **failed** | unclaimed-difference | 230 |
+| `drag-by-custom-drag-handle` | **failed** | unclaimed-difference | 267 |
+| `delete-key-removes-node-and-edges` | **failed** | unclaimed-difference | 197 |
+| `delete-key-spares-undeletable-node` | **failed** | unclaimed-difference | 227 |
+| `connect-source-handle-to-target-handle` | **failed** | unclaimed-difference | 309 |
+| `connect-output-to-output-handle` | **failed** | unclaimed-difference | 272 |
+| `connect-input-to-input-handle` | **failed** | unclaimed-difference | 281 |
+| `connect-to-unconnectable-handle` | **failed** | unclaimed-difference | 273 |
+| `drag-pans-the-pane` | **failed** | unclaimed-difference | 98 |
+| `wheel-zooms-the-pane` | **failed** | unclaimed-difference | 98 |
+| `wheel-zooms-out-to-min` | **failed** | unclaimed-difference | 84 |
+| `wheel-zooms-in-to-max` | **failed** | unclaimed-difference | 84 |
+| `wheel-pans-with-panonscroll` | **failed** | unclaimed-difference | 95 |
+| `click-reveals-default-toolbar` | **failed** | unclaimed-difference | 304 |
+| `select-dark-color-mode` | **failed** | unclaimed-difference | 23 |
+| `drag-node-release` | **failed** | unclaimed-difference | 324 |
+| `drag-node-escape-mid-gesture` | **failed** | unclaimed-difference | 249 |
+| `drag-node-autopan` | **failed** | self-inconsistent, unclaimed-difference | 364 |
+| `drag-node-no-select-on-drag` | **failed** | unclaimed-difference | 206 |
+| `drag-child-expand-parent` | **failed** | driving-divergence, unclaimed-difference | 192 |
+| `drag-unmeasured-node` | **failed** | unclaimed-difference | 113 |
+| `selection-box-from-node` | **failed** | unclaimed-difference | 221 |
+| `selection-box-then-click-node` | **failed** | unclaimed-difference | 261 |
+| `selection-box-mid-gesture` | **failed** | unclaimed-difference | 99 |
+| `selection-box-touch` | **failed** | unclaimed-difference | 229 |
+| `arrow-key-selected-node` | **failed** | self-inconsistent, unclaimed-difference | 152 |
+| `keyboard-focus-node` | **failed** | unclaimed-difference | 98 |
+| `connect-handle-to-handle` | **failed** | unclaimed-difference | 384 |
+| `connect-then-keyboard-move` | **failed** | unclaimed-difference | 279 |
+| `connect-second-touch-point` | **failed** | unclaimed-difference | 214 |
+| `probe-node-connections` | **failed** | unclaimed-difference | 274 |
+| `viewport-helpers-with-options` | **failed** | unclaimed-difference | 114 |
+| `pan-gesture-complete` | **failed** | unclaimed-difference | 98 |
+| `fitview-onnodeschange-variants` | **failed** | unclaimed-difference | 136 |
+| `uncontrolled-update-node` | **failed** | unclaimed-difference | 133 |
+| `flow-props-change-after-mount` | **failed** | unclaimed-difference | 133 |
+| `mount-in-display-none` | **failed** | unclaimed-difference | 100 |
+| `minimap-all-nodes-hidden` | **failed** | unclaimed-difference | 48 |
+| `minimap-custom-mask-colors` | **failed** | unclaimed-difference | 113 |
+| `controls-horizontal` | **failed** | unclaimed-difference | 100 |
+| `panel-center-positions` | **failed** | unclaimed-difference | 99 |
+| `background-custom-bgcolor` | **failed** | unclaimed-difference | 101 |
+| `flow-custom-testid` | **failed** | driving-divergence, unclaimed-difference | 122 |
 | `custom-edge-baseedge-path` | **failed** | driving-divergence, unclaimed-difference | 92 |
-| `pinch-over-nowheel-node` | **failed** | driving-divergence, unclaimed-difference | 188 |
-| `minimap-default-click` | **failed** | unclaimed-difference | 62 |
-| `controls-default-zoom` | **failed** | unclaimed-difference | 63 |
-| `wheel-zoom-from-identity-viewport` | **failed** | unclaimed-difference | 72 |
-| `pane-drag-from-identity-viewport` | **failed** | unclaimed-difference | 62 |
-| `drag-node-reports-changes` | **failed** | unclaimed-difference | 131 |
-| `click-connect-reverse-direction` | **failed** | unclaimed-difference | 124 |
-| `connect-drag-holding-source` | **failed** | unclaimed-difference | 114 |
-| `connect-drag-released-on-pane` | **failed** | unclaimed-difference | 123 |
-| `node-props-record-parented` | **failed** | unclaimed-difference | 65 |
-| `wheel-zooms-to-changed-limits` | **failed** | unclaimed-difference | 103 |
-| `drag-pans-into-changed-extent` | **failed** | unclaimed-difference | 101 |
-| `pan-after-controlled-viewport-change` | **failed** | unclaimed-difference | 102 |
-| `ctrl-wheel-pinches-with-panonscroll` | **failed** | unclaimed-difference | 115 |
-| `pane-click-keeps-selection-when-not-selectable` | **failed** | unclaimed-difference | 99 |
+| `pinch-over-nowheel-node` | **failed** | driving-divergence, unclaimed-difference | 185 |
+| `minimap-default-click` | **failed** | unclaimed-difference | 59 |
+| `controls-default-zoom` | **failed** | unclaimed-difference | 60 |
+| `wheel-zoom-from-identity-viewport` | **failed** | unclaimed-difference | 69 |
+| `pane-drag-from-identity-viewport` | **failed** | unclaimed-difference | 59 |
+| `drag-node-reports-changes` | **failed** | self-inconsistent, unclaimed-difference | 288 |
+| `click-connect-reverse-direction` | **failed** | unclaimed-difference | 121 |
+| `connect-drag-holding-source` | **failed** | unclaimed-difference | 111 |
+| `connect-drag-released-on-pane` | **failed** | unclaimed-difference | 120 |
+| `node-props-record-parented` | **failed** | unclaimed-difference | 62 |
+| `wheel-zooms-to-changed-limits` | **failed** | unclaimed-difference | 100 |
+| `drag-pans-into-changed-extent` | **failed** | unclaimed-difference | 98 |
+| `pan-after-controlled-viewport-change` | **failed** | unclaimed-difference | 99 |
+| `ctrl-wheel-pinches-with-panonscroll` | **failed** | unclaimed-difference | 112 |
+| `pane-click-keeps-selection-when-not-selectable` | **failed** | unclaimed-difference | 96 |
 | `click-selects-node--probe-flow-node` | **failed** | unclaimed-difference | 225 |
 | `wheel-zooms-the-pane--probe-flow-node` | **failed** | unclaimed-difference | 123 |
 | `mount-baseline--edges-general--probe-edge` | **failed** | unclaimed-difference | 16 |
@@ -147,11 +147,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 431 unclaimed difference(s).
+**Failed:** 428 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (131)
+### dom (128)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -283,9 +283,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/12-b/children/1-12-b-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"12-b","data-handlepos":"bottom","data-id":"1-12-b-null-source","class":"connectable connectableend connectablestart connec… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/12-b/children/1-12-b--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/12-b/children/1-12-b--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (40)
 
@@ -626,11 +623,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 295 unclaimed difference(s).
+**Failed:** 292 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (86)
+### dom (83)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -717,9 +714,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/node-end-left/children/1-node-end-left-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"node-end-left","data-handlepos":"right","data-id":"1-node-end-left-null-source","class":"connectable connectableend connec… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/node-end-left/children/1-node-end-left--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-left target",… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/node-end-left/children/1-node-end-left--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-right source"… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (25)
 
@@ -969,11 +963,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 208 unclaimed difference(s).
+**Failed:** 205 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (42)
+### dom (39)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -1016,9 +1010,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"notDeletable","data-handlepos":"bottom","data-id":"1-notDeletable-null-source","class":"connectable connectableend connect… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (13)
 
@@ -1225,11 +1216,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 101 unclaimed difference(s).
+**Failed:** 98 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (25)
+### dom (22)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -1255,9 +1246,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/3/children/1-3-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"3","data-handlepos":"bottom","data-id":"1-3-null-source","class":"connectable connectableend connectablestart connectionin… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/3/children/1-3--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/3/children/1-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (4)
 
@@ -1374,11 +1362,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 86 unclaimed difference(s).
+**Failed:** 83 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (13)
+### dom (10)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -1392,9 +1380,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/3/children/1-3-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"3","data-handlepos":"bottom","data-id":"1-3-null-source","class":"connectable connectableend connectablestart connectionin… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/3/children/1-3--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/3/children/1-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (3)
 
@@ -1508,11 +1493,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 104 unclaimed difference(s).
+**Failed:** 101 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (17)
+### dom (14)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -1530,9 +1515,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"10","y":"27","width":"48","height":"48","patternUnits":"userSpaceOnUse","patternTransform":"translate(-25,-25)"… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"10","y":"27","width":"48","height":"48","patternUnits":"userSpaceOnUse","p… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (5)
 
@@ -1660,11 +1642,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 102 unclaimed difference(s).
+**Failed:** 99 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (15)
+### dom (12)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -1680,9 +1662,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectable connectableend connectablestart conne… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[2]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[2]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[2]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (5)
 
@@ -1810,11 +1789,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 103 unclaimed difference(s).
+**Failed:** 100 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (16)
+### dom (13)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -1831,9 +1810,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectable connectableend connectablestart conne… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[1]/children/svg[0]/children/path[0]/attrs/d` | differs | M-277,-153.5h704v544h-704z⏎        M-245,-61.5h640v360h-640z | M-277,-153.5h704v544h-704z M-245,-61.5h640v360h-640z |
-| `dom/root/children/div[2]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[2]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[2]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (5)
 
@@ -1961,18 +1937,15 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 51 unclaimed difference(s).
+**Failed:** 48 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (4)
+### dom (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `dom/root/children/div[1]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-184h1408v1088h-1408z⏎        M0,0h1280v720h-1280z | M-64,-184h1408v1088h-1408z M0,0h1280v720h-1280z |
-| `dom/root/children/div[2]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[2]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[2]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### api (47)
 
@@ -2055,11 +2028,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 102 unclaimed difference(s).
+**Failed:** 99 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (15)
+### dom (12)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -2075,9 +2048,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectable connectableend connectablestart conne… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[3]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[3]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[3]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (5)
 
@@ -2304,8 +2274,8 @@ a real divergence is exactly what would be hiding down there.
 | `console/2` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/3` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/4` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:54052/parity/driver/dist/… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:54052/parity/driver/dist/… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:56177/parity/driver/dist/… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:56177/parity/driver/dist/… |
 | `console/7` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 
 
@@ -2337,11 +2307,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 102 unclaimed difference(s).
+**Failed:** 99 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (15)
+### dom (12)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -2357,9 +2327,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectable connectableend connectablestart conne… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (5)
 
@@ -2487,11 +2454,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 62 unclaimed difference(s).
+**Failed:** 59 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (14)
+### dom (11)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -2506,9 +2473,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[2]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-184h1408v1088h-1408z⏎        M0,0h1280v720h-1280z | M-64,-184h1408v1088h-1408z M0,0h1280v720h-1280z |
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","patternTransform":"translate(-11,-11)"},… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","pat… |
-| `dom/root/children/div[3]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[3]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[3]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### api (48)
 
@@ -2592,11 +2556,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 103 unclaimed difference(s).
+**Failed:** 100 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (16)
+### dom (13)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -2613,9 +2577,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectable connectableend connectablestart conne… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (5)
 
@@ -2743,11 +2704,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 102 unclaimed difference(s).
+**Failed:** 99 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (15)
+### dom (12)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -2763,9 +2724,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectable connectableend connectablestart conne… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (5)
 
@@ -2893,11 +2851,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 101 unclaimed difference(s).
+**Failed:** 98 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (15)
+### dom (12)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -2913,9 +2871,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectable connectableend connectablestart conne… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (4)
 
@@ -3042,11 +2997,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 99 unclaimed difference(s).
+**Failed:** 96 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (15)
+### dom (12)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -3062,9 +3017,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectable connectableend connectablestart conne… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (10)
 
@@ -3189,11 +3141,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 102 unclaimed difference(s).
+**Failed:** 99 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (15)
+### dom (12)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -3209,9 +3161,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectable connectableend connectablestart conne… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (5)
 
@@ -3339,11 +3288,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 86 unclaimed difference(s).
+**Failed:** 83 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (13)
+### dom (10)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -3357,9 +3306,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-3","data-handlepos":"bottom","data-id":"1-Node-3-null-source","class":"connectable connectableend connectablestart co… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (3)
 
@@ -3473,11 +3419,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 186 unclaimed difference(s).
+**Failed:** 183 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (35)
+### dom (32)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -3513,9 +3459,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/hub-down-3/children/circle[1]/attrs/cy` | differs | 306 | 305.9999826006089 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children` | ordered differently | ["hub","up-1","up-2","down-1","down-2","down-3"] | ["down-1","down-2","down-3","hub","up-1","up-2"] |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/hub/children/div[0]/attrs/data-psflow-connections` | differs | [["up-1-hub","up-1","hub","out","in"],["up-2-hub","up-2","hub","out","in"],["hub-down-1","hub","down-1","out","in"],["hub-down-2","hub","down-2","out","in"],["… | [["hub-down-1","hub","down-1","out","in"],["hub-down-2","hub","down-2","out","in"],["hub-down-3","hub","down-3","out","in"],["up-1-hub","up-1","hub","out","in"… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (19)
 
@@ -3707,11 +3650,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 112 unclaimed difference(s).
+**Failed:** 109 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (18)
+### dom (15)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -3730,9 +3673,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/outside/children/1-outside-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"outside","data-handlepos":"bottom","data-id":"1-outside-null-source","class":"connectable connectableend connectablestart … | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/outside/children/1-outside--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/outside/children/1-outside--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (13)
 
@@ -3867,11 +3807,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 102 unclaimed difference(s).
+**Failed:** 99 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (15)
+### dom (12)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -3887,9 +3827,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectable connectableend connectablestart conne… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (5)
 
@@ -4017,11 +3954,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 94 unclaimed difference(s).
+**Failed:** 91 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (19)
+### dom (16)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -4041,9 +3978,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/plain/children/1-plain-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"plain","data-handlepos":"bottom","data-id":"1-plain-null-source","class":"connectable connectableend connectablestart conn… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/plain/children/1-plain--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/plain/children/1-plain--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (8)
 
@@ -4159,18 +4093,15 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 39 unclaimed difference(s).
+**Failed:** 36 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (4)
+### dom (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children` | ordered differently | ["props-parent","props-child"] | ["props-child","props-parent"] |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### api (35)
 
@@ -4241,11 +4172,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 103 unclaimed difference(s).
+**Failed:** 100 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (15)
+### dom (12)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -4261,9 +4192,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectable connectableend connectablestart conne… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (4)
 
@@ -4392,11 +4320,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 66 unclaimed difference(s).
+**Failed:** 63 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (9)
+### dom (6)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -4406,9 +4334,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-2/children/1-Node-2-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-2","data-handlepos":"bottom","data-id":"1-Node-2-null-source","class":"connectable connectableend connectablestart co… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-2/children/1-Node-2--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-2/children/1-Node-2--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (8)
 
@@ -4506,11 +4431,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 102 unclaimed difference(s).
+**Failed:** 99 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (15)
+### dom (12)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -4526,9 +4451,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectable connectableend connectablestart conne… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (5)
 
@@ -4656,11 +4578,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 128 unclaimed difference(s).
+**Failed:** 125 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (33)
+### dom (30)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -4694,9 +4616,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/3/children/1-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/4/children/1-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"4","data-handlepos":"top","data-id":"1-4-null-target","class":"connectable connectableend connectablestart connectionindic… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/4/children/1-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (5)
 
@@ -4832,11 +4751,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 101 unclaimed difference(s).
+**Failed:** 98 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (15)
+### dom (12)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -4852,9 +4771,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectable connectableend connectablestart conne… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (4)
 
@@ -4981,11 +4897,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 26 unclaimed difference(s).
+**Failed:** 23 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (26)
+### dom (23)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -5012,9 +4928,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/svg[0]/children/path[0]/attrs/d` | differs | M-161.65853658536585,-110.96341463414635h723.3170731707318v558.9268292682927h-723.3170731707318z⏎        M-128.78048780487805,-16.439024390243905h657.560975609… | M-161.65853658536585,-110.96341463414635h723.3170731707318v558.9268292682927h-723.3170731707318z M-128.78048780487805,-16.439024390243905h657.5609756097562v369… |
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"17.091988130563806","y":"32","width":"38.931750741839764","height":"38.931750741839764","patternUnits":"userSpa… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"17.091988130563806","y":"32","width":"38.931750741839764","height":"38.931… |
-| `dom/root/children/div[4]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[4]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[4]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 
 ---
@@ -5045,7 +4958,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 4 driving divergence(s), 445 unclaimed difference(s).
+**Failed:** 4 driving divergence(s), 442 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -5065,7 +4978,7 @@ a real divergence is exactly what would be hiding down there.
 | `driving/1/dispatched/y` | differs | 96.19428634643555 | 96.19428253173828 |
 | `driving/2/dispatched/y` | differs | 96.19428634643555 | 96.19428253173828 |
 
-### dom (131) — consequence of the driving divergence
+### dom (128) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -5197,9 +5110,6 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/12-b/children/1-12-b-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"12-b","data-handlepos":"bottom","data-id":"1-12-b-null-source","class":"connectable connectableend connectablestart connec… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/12-b/children/1-12-b--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/12-b/children/1-12-b--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (57) — consequence of the driving divergence
 
@@ -5560,7 +5470,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 11 driving divergence(s), 461 unclaimed difference(s).
+**Failed:** 11 driving divergence(s), 458 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -5587,7 +5497,7 @@ a real divergence is exactly what would be hiding down there.
 | `driving/5/dispatched/x` | differs | 663.4285888671875 | 663.4285583496094 |
 | `driving/5/dispatched/y` | differs | 96.19428634643555 | 96.19428253173828 |
 
-### dom (131) — consequence of the driving divergence
+### dom (128) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -5719,9 +5629,6 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/12-b/children/1-12-b-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"12-b","data-handlepos":"bottom","data-id":"1-12-b-null-source","class":"connectable connectableend connectablestart connec… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/12-b/children/1-12-b--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/12-b/children/1-12-b--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (75) — consequence of the driving divergence
 
@@ -6098,11 +6005,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 440 unclaimed difference(s).
+**Failed:** 437 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (131)
+### dom (128)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -6234,9 +6141,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/12-b/children/1-12-b-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"12-b","data-handlepos":"bottom","data-id":"1-12-b-null-source","class":"connectable connectableend connectablestart connec… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/12-b/children/1-12-b--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/12-b/children/1-12-b--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (49)
 
@@ -6592,7 +6496,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 4 driving divergence(s), 438 unclaimed difference(s).
+**Failed:** 4 driving divergence(s), 435 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -6612,7 +6516,7 @@ a real divergence is exactly what would be hiding down there.
 | `driving/1/dispatched/y` | differs | 96.19428634643555 | 96.19428253173828 |
 | `driving/2/dispatched/y` | differs | 96.19428634643555 | 96.19428253173828 |
 
-### dom (125) — consequence of the driving divergence
+### dom (122) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -6738,9 +6642,6 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/12-b/children/1-12-b-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"12-b","data-handlepos":"bottom","data-id":"1-12-b-null-source","class":"connectable connectableend connectablestart connec… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/12-b/children/1-12-b--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/12-b/children/1-12-b--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (63) — consequence of the driving divergence
 
@@ -7100,7 +7001,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 4 driving divergence(s), 447 unclaimed difference(s).
+**Failed:** 4 driving divergence(s), 444 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -7120,7 +7021,7 @@ a real divergence is exactly what would be hiding down there.
 | `driving/1/dispatched/x` | differs | 710.2857055664062 | 710.2856750488281 |
 | `driving/2/dispatched/x` | differs | 710.2857055664062 | 710.2856750488281 |
 
-### dom (131) — consequence of the driving divergence
+### dom (128) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -7252,9 +7153,6 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/12-b/children/1-12-b-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"12-b","data-handlepos":"bottom","data-id":"1-12-b-null-source","class":"connectable connectableend connectablestart connec… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/12-b/children/1-12-b--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/12-b/children/1-12-b--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (58) — consequence of the driving divergence
 
@@ -7617,7 +7515,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 2 driving divergence(s), 440 unclaimed difference(s).
+**Failed:** 2 driving divergence(s), 437 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -7635,7 +7533,7 @@ a real divergence is exactly what would be hiding down there.
 | `driving/1/box/y` | differs | 442.46856689453125 | 442.4685363769531 |
 | `driving/1/box/height` | differs | 57.16571044921875 | 57.165771484375 |
 
-### dom (131) — consequence of the driving divergence
+### dom (128) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -7767,9 +7665,6 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/12-b/children/1-12-b-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"12-b","data-handlepos":"bottom","data-id":"1-12-b-null-source","class":"connectable connectableend connectablestart connec… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/12-b/children/1-12-b--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/12-b/children/1-12-b--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (51) — consequence of the driving divergence
 
@@ -8125,11 +8020,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 227 unclaimed difference(s).
+**Failed:** 224 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (42)
+### dom (39)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -8172,9 +8067,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"notDeletable","data-handlepos":"bottom","data-id":"1-notDeletable-null-source","class":"connectable connectableend connect… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (37)
 
@@ -8406,11 +8298,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 208 unclaimed difference(s).
+**Failed:** 205 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (43)
+### dom (40)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -8454,9 +8346,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
 | `dom/root/children/div[0]/children/div[0]/children/div[1]/children/div[0]/attrs/style` | left only | height: 137px; width: 350px; | — |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (28)
 
@@ -8668,11 +8557,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 232 unclaimed difference(s).
+**Failed:** 229 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (42)
+### dom (39)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -8715,9 +8604,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"notDeletable","data-handlepos":"bottom","data-id":"1-notDeletable-null-source","class":"connectable connectableend connect… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (37)
 
@@ -8930,7 +8816,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 # System parity run — drag-moves-node
 
-**Failed:** unclaimed-difference.
+**Failed:** self-inconsistent, unclaimed-difference.
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -8944,7 +8830,28 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | **disagrees with itself** | 12 |
+
+### psflow disagrees with itself
+
+| path | kind | capture 1 | capture 2 |
+|---|---|---|---|
+| `callbacks/31` | left only | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… | — |
+| `callbacks/35` | left only | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… | — |
+| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
+| `callbacks/30/args/0/screenX` | differs | 774 | 814 |
+| `callbacks/30/args/0/screenY` | differs | 211 | 251 |
+| `callbacks/30/args/0/clientX` | differs | 774 | 814 |
+| `callbacks/30/args/0/clientY` | differs | 211 | 251 |
+| `callbacks/30/args/0/pageX` | differs | 774 | 814 |
+| `callbacks/30/args/0/pageY` | differs | 211 | 251 |
+| `callbacks/30/args/0/buttons` | differs | 1 | 0 |
+| `callbacks/30/args/1/position/x` | differs | 155.36585365853657 | 194.2073170731707 |
+| `callbacks/30/args/1/position/y` | differs | 155.3658536585366 | 194.2073170731707 |
+
+**psflow did not reproduce.** The comparison below ran anyway —
+capture-everything applies to a failed run as much as to a passing one — but a difference it reports
+cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
 ---
 
@@ -8954,11 +8861,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 264 unclaimed difference(s).
+**Failed:** 272 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (42)
+### dom (39)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -9001,14 +8908,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"notDeletable","data-handlepos":"bottom","data-id":"1-notDeletable-null-source","class":"connectable connectableend connect… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
-### callbacks (79)
+### callbacks (90)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
+| `callbacks/31` | right only | — | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… |
+| `callbacks/35` | right only | — | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 | `callbacks/4/args/0/0/resizing` | right only | — | false |
 | `callbacks/4/args/0/1/resizing` | right only | — | false |
@@ -9081,6 +8987,15 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/32/args/1/expandParent` | right only | — | false |
 | `callbacks/32/args/2/0/hidden` | right only | — | false |
 | `callbacks/32/args/2/0/expandParent` | right only | — | false |
+| `callbacks/33/args/0/screenX` | differs | 814 | 774 |
+| `callbacks/33/args/0/screenY` | differs | 251 | 211 |
+| `callbacks/33/args/0/clientX` | differs | 814 | 774 |
+| `callbacks/33/args/0/clientY` | differs | 251 | 211 |
+| `callbacks/33/args/0/pageX` | differs | 814 | 774 |
+| `callbacks/33/args/0/pageY` | differs | 251 | 211 |
+| `callbacks/33/args/0/buttons` | differs | 0 | 1 |
+| `callbacks/33/args/1/position/x` | differs | 194.2073170731707 | 155.36585365853657 |
+| `callbacks/33/args/1/position/y` | differs | 194.2073170731707 | 155.3658536585366 |
 | `callbacks/33/args/1/hidden` | right only | — | false |
 | `callbacks/33/args/1/expandParent` | right only | — | false |
 | `callbacks/34/args/0/0/positionAbsolute` | right only | — | {"x":194.2073170731707,"y":194.2073170731707} |
@@ -9239,9 +9154,9 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 ## Normalization
 
-30 field(s) deleted by name and therefore **unobserved** — not passing:
+32 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (15) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (18) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -9272,11 +9187,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 233 unclaimed difference(s).
+**Failed:** 230 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (42)
+### dom (39)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -9319,9 +9234,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"notDeletable","data-handlepos":"bottom","data-id":"1-notDeletable-null-source","class":"connectable connectableend connect… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (38)
 
@@ -9559,11 +9471,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 270 unclaimed difference(s).
+**Failed:** 267 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (42)
+### dom (39)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -9606,9 +9518,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"notDeletable","data-handlepos":"bottom","data-id":"1-notDeletable-null-source","class":"connectable connectableend connect… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (81)
 
@@ -9883,11 +9792,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 200 unclaimed difference(s).
+**Failed:** 197 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (26)
+### dom (23)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -9914,9 +9823,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"notDeletable","data-handlepos":"bottom","data-id":"1-notDeletable-null-source","class":"connectable connectableend connect… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (42)
 
@@ -10137,11 +10043,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 230 unclaimed difference(s).
+**Failed:** 227 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (42)
+### dom (39)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -10184,9 +10090,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"notDeletable","data-handlepos":"bottom","data-id":"1-notDeletable-null-source","class":"connectable connectableend connect… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (38)
 
@@ -10421,11 +10324,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 312 unclaimed difference(s).
+**Failed:** 309 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (48)
+### dom (45)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -10474,9 +10377,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"notDeletable","data-handlepos":"bottom","data-id":"1-notDeletable-null-source","class":"connectable connectableend connect… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (101)
 
@@ -10787,11 +10687,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 275 unclaimed difference(s).
+**Failed:** 272 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (42)
+### dom (39)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -10834,9 +10734,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"notDeletable","data-handlepos":"bottom","data-id":"1-notDeletable-null-source","class":"connectable connectableend connect… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (80)
 
@@ -11116,11 +11013,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 284 unclaimed difference(s).
+**Failed:** 281 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (42)
+### dom (39)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -11163,9 +11060,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"notDeletable","data-handlepos":"bottom","data-id":"1-notDeletable-null-source","class":"connectable connectableend connect… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (89)
 
@@ -11454,11 +11348,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 276 unclaimed difference(s).
+**Failed:** 273 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (42)
+### dom (39)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -11501,9 +11395,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"notDeletable","data-handlepos":"bottom","data-id":"1-notDeletable-null-source","class":"connectable connectableend connect… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (81)
 
@@ -11784,11 +11675,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 101 unclaimed difference(s).
+**Failed:** 98 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (25)
+### dom (22)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -11814,9 +11705,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/3/children/1-3-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"3","data-handlepos":"bottom","data-id":"1-3-null-source","class":"connectable connectableend connectablestart connectionin… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/3/children/1-3--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/3/children/1-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (4)
 
@@ -11939,11 +11827,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 101 unclaimed difference(s).
+**Failed:** 98 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (25)
+### dom (22)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -11969,9 +11857,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/3/children/1-3-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"3","data-handlepos":"bottom","data-id":"1-3-null-source","class":"connectable connectableend connectablestart connectionin… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/3/children/1-3--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/3/children/1-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (4)
 
@@ -12094,11 +11979,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 87 unclaimed difference(s).
+**Failed:** 84 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (13)
+### dom (10)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -12112,9 +11997,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/3/children/1-3-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"3","data-handlepos":"bottom","data-id":"1-3-null-source","class":"connectable connectableend connectablestart connectionin… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/3/children/1-3--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/3/children/1-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (4)
 
@@ -12235,11 +12117,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 87 unclaimed difference(s).
+**Failed:** 84 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (13)
+### dom (10)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -12253,9 +12135,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/3/children/1-3-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"3","data-handlepos":"bottom","data-id":"1-3-null-source","class":"connectable connectableend connectablestart connectionin… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/3/children/1-3--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/3/children/1-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (4)
 
@@ -12376,11 +12255,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 98 unclaimed difference(s).
+**Failed:** 95 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (23)
+### dom (20)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -12404,9 +12283,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/3/children/1-3-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"3","data-handlepos":"bottom","data-id":"1-3-null-source","class":"connectable connectableend connectablestart connectionin… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/3/children/1-3--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/3/children/1-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (3)
 
@@ -12528,11 +12404,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 307 unclaimed difference(s).
+**Failed:** 304 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (88)
+### dom (85)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -12621,9 +12497,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/node-end-left/children/1-node-end-left-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"node-end-left","data-handlepos":"right","data-id":"1-node-end-left-null-source","class":"connectable connectableend connec… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/node-end-left/children/1-node-end-left--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-left target",… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/node-end-left/children/1-node-end-left--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-right source"… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (40)
 
@@ -12889,11 +12762,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 26 unclaimed difference(s).
+**Failed:** 23 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (26)
+### dom (23)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -12920,9 +12793,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[1]/children/svg[0]/children/path[0]/attrs/d` | differs | M-161.65853658536585,-110.96341463414635h723.3170731707318v558.9268292682927h-723.3170731707318z⏎        M-128.78048780487805,-16.439024390243905h657.560975609… | M-161.65853658536585,-110.96341463414635h723.3170731707318v558.9268292682927h-723.3170731707318z M-128.78048780487805,-16.439024390243905h657.5609756097562v369… |
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"17.091988130563806","y":"32","width":"38.931750741839764","height":"38.931750741839764","patternUnits":"userSpa… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"17.091988130563806","y":"32","width":"38.931750741839764","height":"38.931… |
-| `dom/root/children/div[4]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[4]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[4]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 
 ---
@@ -12953,11 +12823,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 327 unclaimed difference(s).
+**Failed:** 324 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (43)
+### dom (40)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -13001,9 +12871,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"notDeletable","data-handlepos":"bottom","data-id":"1-notDeletable-null-source","class":"connectable connectableend connect… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (136)
 
@@ -13334,11 +13201,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 252 unclaimed difference(s).
+**Failed:** 249 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (42)
+### dom (39)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -13381,9 +13248,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"notDeletable","data-handlepos":"bottom","data-id":"1-notDeletable-null-source","class":"connectable connectableend connect… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (67)
 
@@ -13630,134 +13494,120 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | **disagrees with itself** | 130 |
+| psflow | 1, 2 | **disagrees with itself** | 116 |
 
 ### psflow disagrees with itself
 
 | path | kind | capture 1 | capture 2 |
 |---|---|---|---|
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/attrs/style` | differs | transform: translate(2000px, 2000px) scale(1); | transform: translate(1380px, 1600px) scale(1); |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M-2055,-2253 C-2055,-1078 -25,-1078 -25,97 | M-1375,-1573 C-1375,-738 -25,-738 -25,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M-2055,-2253 C-2055,-1078 -25,-1078 -25,97 | M-1375,-1573 C-1375,-738 -25,-738 -25,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M-2055,-2263 C-2055,-1083 -25,-1083 -25,97 | M-1375,-1573 C-1375,-738 -25,-738 -25,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M-2055,-2263 C-2055,-1083 -25,-1083 -25,97 | M-1375,-1573 C-1375,-738 -25,-738 -25,97 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | -2055 | -1375 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | -2243 | -1563 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M-2055,-2253 C-2055,-1078 175,-1078 175,97 | M-1375,-1573 C-1375,-738 175,-738 175,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M-2055,-2253 C-2055,-1078 175,-1078 175,97 | M-1375,-1573 C-1375,-738 175,-738 175,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | -2253 | -1563 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M-2055,-2263 C-2055,-1083 175,-1083 175,97 | M-1375,-1573 C-1375,-738 175,-738 175,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M-2055,-2263 C-2055,-1083 175,-1083 175,97 | M-1375,-1573 C-1375,-738 175,-738 175,97 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | -2055 | -1375 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | -2243 | -1563 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | pointer-events: all; transform: translate(-2130px, -2293px); visibility: visible; z-index: 1000; | pointer-events: all; transform: translate(-1450px, -1613px); visibility: visible; z-index: 1000; |
-| `callbacks/48` | left only | {"name":"onMoveStart","args":[null,{"x":1370,"y":1580,"zoom":1}]} | — |
-| `callbacks/49` | left only | {"name":"onViewportChange","args":[{"x":1710,"y":1930,"zoom":1}]} | — |
-| `callbacks/50` | left only | {"name":"onMove","args":[null,{"x":1710,"y":1930,"zoom":1}]} | — |
-| `callbacks/51` | left only | {"name":"onMoveEnd","args":[null,{"x":1710,"y":1930,"zoom":1}]} | — |
-| `callbacks/56` | left only | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-1780,"y":-1943},"data":{"label":"Node-1"},"type":"input",… | — |
-| `callbacks/57` | left only | {"name":"onMoveStart","args":[null,{"x":1710,"y":1930,"zoom":1}]} | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | -2253 | -1563 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | pointer-events: all; transform: translate(-2130px, -2303px); visibility: visible; z-index: 1000; | pointer-events: all; transform: translate(-1450px, -1613px); visibility: visible; z-index: 1000; |
+| `callbacks/48` | left only | {"name":"onMoveStart","args":[null,{"x":1370,"y":1590,"zoom":1}]} | — |
+| `callbacks/49` | left only | {"name":"onViewportChange","args":[{"x":1710,"y":1940,"zoom":1}]} | — |
+| `callbacks/50` | left only | {"name":"onMove","args":[null,{"x":1710,"y":1940,"zoom":1}]} | — |
+| `callbacks/51` | left only | {"name":"onMoveEnd","args":[null,{"x":1710,"y":1940,"zoom":1}]} | — |
+| `callbacks/56` | left only | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-1780,"y":-1953},"data":{"label":"Node-1"},"type":"input",… | — |
+| `callbacks/57` | left only | {"name":"onMoveStart","args":[null,{"x":1710,"y":1940,"zoom":1}]} | — |
 | `callbacks/58` | left only | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} | — |
 | `callbacks/59` | left only | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
 | `callbacks/60` | left only | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/61` | left only | {"name":"onNodesChange","args":[[{"type":"position","id":"Node-1","position":{"x":-2130,"y":-2293},"positionAbsolute":{"x":-2130,"y":-2293},"dragging":true}]]} | — |
-| `callbacks/62` | left only | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2130,"y":-2293},"data":{"label":"Node-1"},"type":"input",… | — |
+| `callbacks/61` | left only | {"name":"onNodesChange","args":[[{"type":"position","id":"Node-1","position":{"x":-2130,"y":-2303},"positionAbsolute":{"x":-2130,"y":-2303},"dragging":true}]]} | — |
+| `callbacks/62` | left only | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2130,"y":-2303},"data":{"label":"Node-1"},"type":"input",… | — |
 | `callbacks/63` | left only | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… | — |
-| `callbacks/64` | left only | {"name":"onNodesChange","args":[[{"type":"position","id":"Node-1","position":{"x":-2130,"y":-2293},"positionAbsolute":{"x":-2130,"y":-2293},"dragging":false}]]} | — |
+| `callbacks/64` | left only | {"name":"onNodesChange","args":[[{"type":"position","id":"Node-1","position":{"x":-2130,"y":-2303},"positionAbsolute":{"x":-2130,"y":-2303},"dragging":false}]]} | — |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… |
-| `callbacks/23/args/0/x` | differs | 680 | 690 |
-| `callbacks/24/args/1/x` | differs | 680 | 690 |
+| `callbacks/22/args/0/screenX` | differs | 6 | 5 |
+| `callbacks/22/args/0/clientX` | differs | 6 | 5 |
+| `callbacks/22/args/0/pageX` | differs | 6 | 5 |
+| `callbacks/24/args/0/x` | differs | 680 | 690 |
 | `callbacks/25/args/1/x` | differs | 680 | 690 |
-| `callbacks/26/args/0/0/position/x` | differs | -749 | -410 |
-| `callbacks/26/args/0/0/position/y` | differs | -692 | -572 |
-| `callbacks/26/args/0/0/positionAbsolute/x` | differs | -749 | -410 |
-| `callbacks/26/args/0/0/positionAbsolute/y` | differs | -692 | -572 |
-| `callbacks/27/args/1/position/x` | differs | -749 | -410 |
-| `callbacks/27/args/1/position/y` | differs | -692 | -572 |
-| `callbacks/27/args/2/0/position/x` | differs | -749 | -410 |
-| `callbacks/27/args/2/0/position/y` | differs | -692 | -572 |
-| `callbacks/28/args/0/screenX` | differs | 6 | 5 |
-| `callbacks/28/args/0/clientX` | differs | 6 | 5 |
-| `callbacks/28/args/0/pageX` | differs | 6 | 5 |
-| `callbacks/28/args/1/position/x` | differs | -749 | -409 |
-| `callbacks/28/args/1/position/y` | differs | -692 | -352 |
-| `callbacks/29/args/1/x` | differs | 680 | 690 |
-| `callbacks/30/args/0/x` | differs | 1020 | 1030 |
-| `callbacks/30/args/0/y` | differs | 1240 | 1250 |
-| `callbacks/31/args/1/x` | differs | 1020 | 1030 |
-| `callbacks/31/args/1/y` | differs | 1240 | 1250 |
-| `callbacks/32/args/1/x` | differs | 1020 | 1030 |
-| `callbacks/32/args/1/y` | differs | 1240 | 1250 |
-| `callbacks/33/args/0/0/position/x` | differs | -1089 | -760 |
-| `callbacks/33/args/0/0/position/y` | differs | -1032 | -912 |
-| `callbacks/33/args/0/0/positionAbsolute/x` | differs | -1089 | -760 |
-| `callbacks/33/args/0/0/positionAbsolute/y` | differs | -1032 | -912 |
-| `callbacks/34/args/1/position/x` | differs | -1089 | -760 |
-| `callbacks/34/args/1/position/y` | differs | -1032 | -912 |
-| `callbacks/34/args/2/0/position/x` | differs | -1089 | -760 |
-| `callbacks/34/args/2/0/position/y` | differs | -1032 | -912 |
-| `callbacks/36/args/0/0/position/x` | differs | -1090 | -759 |
+| `callbacks/26/args/1/x` | differs | 680 | 690 |
+| `callbacks/27/args/0/0/position/x` | differs | -749 | -410 |
+| `callbacks/27/args/0/0/position/y` | differs | -692 | -572 |
+| `callbacks/27/args/0/0/positionAbsolute/x` | differs | -749 | -410 |
+| `callbacks/27/args/0/0/positionAbsolute/y` | differs | -692 | -572 |
+| `callbacks/28/args/1/position/x` | differs | -749 | -410 |
+| `callbacks/28/args/1/position/y` | differs | -692 | -572 |
+| `callbacks/28/args/2/0/position/x` | differs | -749 | -410 |
+| `callbacks/28/args/2/0/position/y` | differs | -692 | -572 |
+| `callbacks/30/args/0/0/position/x` | differs | -750 | -760 |
+| `callbacks/30/args/0/0/positionAbsolute/x` | differs | -750 | -760 |
+| `callbacks/31/args/1/position/x` | differs | -750 | -760 |
+| `callbacks/31/args/2/0/position/x` | differs | -750 | -760 |
+| `callbacks/32/args/1/x` | differs | 680 | 690 |
+| `callbacks/33/args/0/y` | differs | 1240 | 1250 |
+| `callbacks/34/args/1/y` | differs | 1240 | 1250 |
+| `callbacks/35/args/1/y` | differs | 1240 | 1250 |
+| `callbacks/36/args/0/0/position/x` | differs | -1100 | -759 |
 | `callbacks/36/args/0/0/position/y` | differs | -1252 | -913 |
-| `callbacks/36/args/0/0/positionAbsolute/x` | differs | -1090 | -759 |
+| `callbacks/36/args/0/0/positionAbsolute/x` | differs | -1100 | -759 |
 | `callbacks/36/args/0/0/positionAbsolute/y` | differs | -1252 | -913 |
-| `callbacks/37/args/1/position/x` | differs | -1090 | -759 |
+| `callbacks/37/args/1/position/x` | differs | -1100 | -759 |
 | `callbacks/37/args/1/position/y` | differs | -1252 | -913 |
-| `callbacks/37/args/2/0/position/x` | differs | -1090 | -759 |
+| `callbacks/37/args/2/0/position/x` | differs | -1100 | -759 |
 | `callbacks/37/args/2/0/position/y` | differs | -1252 | -913 |
-| `callbacks/38/args/1/x` | differs | 1020 | 1030 |
-| `callbacks/38/args/1/y` | differs | 1240 | 1250 |
-| `callbacks/39/args/0/x` | differs | 1370 | 1380 |
-| `callbacks/39/args/0/y` | differs | 1580 | 1600 |
-| `callbacks/40/args/1/x` | differs | 1370 | 1380 |
-| `callbacks/40/args/1/y` | differs | 1580 | 1600 |
-| `callbacks/41/args/1/x` | differs | 1370 | 1380 |
-| `callbacks/41/args/1/y` | differs | 1580 | 1600 |
-| `callbacks/42/args/0/0/position/x` | differs | -1440 | -1099 |
-| `callbacks/42/args/0/0/position/y` | differs | -1592 | -1263 |
-| `callbacks/42/args/0/0/positionAbsolute/x` | differs | -1440 | -1099 |
-| `callbacks/42/args/0/0/positionAbsolute/y` | differs | -1592 | -1263 |
-| `callbacks/43/args/1/position/x` | differs | -1440 | -1099 |
-| `callbacks/43/args/1/position/y` | differs | -1592 | -1263 |
-| `callbacks/43/args/2/0/position/x` | differs | -1440 | -1099 |
-| `callbacks/43/args/2/0/position/y` | differs | -1592 | -1263 |
-| `callbacks/44/args/1/position/x` | differs | -1440 | -760 |
-| `callbacks/44/args/1/position/y` | differs | -1592 | -912 |
+| `callbacks/38/args/1/position/x` | differs | -1100 | -760 |
+| `callbacks/38/args/1/position/y` | differs | -1252 | -912 |
+| `callbacks/40/args/0/0/position/y` | differs | -1253 | -1263 |
+| `callbacks/40/args/0/0/positionAbsolute/y` | differs | -1253 | -1263 |
+| `callbacks/41/args/1/position/y` | differs | -1253 | -1263 |
+| `callbacks/41/args/2/0/position/y` | differs | -1253 | -1263 |
+| `callbacks/42/args/1/y` | differs | 1240 | 1250 |
+| `callbacks/43/args/0/x` | differs | 1370 | 1380 |
+| `callbacks/43/args/0/y` | differs | 1590 | 1600 |
+| `callbacks/44/args/1/x` | differs | 1370 | 1380 |
+| `callbacks/44/args/1/y` | differs | 1590 | 1600 |
+| `callbacks/45/args/1/x` | differs | 1370 | 1380 |
+| `callbacks/45/args/1/y` | differs | 1590 | 1600 |
 | `callbacks/46/args/0/0/position/x` | differs | -1439 | -1100 |
-| `callbacks/46/args/0/0/position/y` | differs | -1593 | -1263 |
+| `callbacks/46/args/0/0/position/y` | differs | -1603 | -1263 |
 | `callbacks/46/args/0/0/positionAbsolute/x` | differs | -1439 | -1100 |
-| `callbacks/46/args/0/0/positionAbsolute/y` | differs | -1593 | -1263 |
+| `callbacks/46/args/0/0/positionAbsolute/y` | differs | -1603 | -1263 |
 | `callbacks/47/args/1/position/x` | differs | -1439 | -1100 |
-| `callbacks/47/args/1/position/y` | differs | -1593 | -1263 |
+| `callbacks/47/args/1/position/y` | differs | -1603 | -1263 |
 | `callbacks/47/args/2/0/position/x` | differs | -1439 | -1100 |
-| `callbacks/47/args/2/0/position/y` | differs | -1593 | -1263 |
+| `callbacks/47/args/2/0/position/y` | differs | -1603 | -1263 |
 | `callbacks/52/args/0/0/position/x` | differs | -1779 | -1450 |
-| `callbacks/52/args/0/0/position/y` | differs | -1943 | -1613 |
+| `callbacks/52/args/0/0/position/y` | differs | -1953 | -1613 |
 | `callbacks/52/args/0/0/positionAbsolute/x` | differs | -1779 | -1450 |
-| `callbacks/52/args/0/0/positionAbsolute/y` | differs | -1943 | -1613 |
+| `callbacks/52/args/0/0/positionAbsolute/y` | differs | -1953 | -1613 |
 | `callbacks/53/args/1/position/x` | differs | -1779 | -1450 |
-| `callbacks/53/args/1/position/y` | differs | -1943 | -1613 |
+| `callbacks/53/args/1/position/y` | differs | -1953 | -1613 |
 | `callbacks/53/args/2/0/position/x` | differs | -1779 | -1450 |
-| `callbacks/53/args/2/0/position/y` | differs | -1943 | -1613 |
+| `callbacks/53/args/2/0/position/y` | differs | -1953 | -1613 |
 | `callbacks/55/args/0/0/position/x` | differs | -1780 | -1450 |
-| `callbacks/55/args/0/0/position/y` | differs | -1943 | -1613 |
+| `callbacks/55/args/0/0/position/y` | differs | -1953 | -1613 |
 | `callbacks/55/args/0/0/positionAbsolute/x` | differs | -1780 | -1450 |
-| `callbacks/55/args/0/0/positionAbsolute/y` | differs | -1943 | -1613 |
+| `callbacks/55/args/0/0/positionAbsolute/y` | differs | -1953 | -1613 |
 | `callbacks/55/args/0/0/dragging` | differs | true | false |
 | `callbacks/65/args/1/position/x` | differs | -2130 | -1450 |
-| `callbacks/65/args/1/position/y` | differs | -2293 | -1613 |
+| `callbacks/65/args/1/position/y` | differs | -2303 | -1613 |
 | `callbacks/65/args/2/0/position/x` | differs | -2130 | -1450 |
-| `callbacks/65/args/2/0/position/y` | differs | -2293 | -1613 |
+| `callbacks/65/args/2/0/position/y` | differs | -2303 | -1613 |
 | `api/queries/getNodes/0/position/x` | differs | -2130 | -1450 |
-| `api/queries/getNodes/0/position/y` | differs | -2293 | -1613 |
+| `api/queries/getNodes/0/position/y` | differs | -2303 | -1613 |
 | `api/queries/getNode/position/x` | differs | -2130 | -1450 |
-| `api/queries/getNode/position/y` | differs | -2293 | -1613 |
+| `api/queries/getNode/position/y` | differs | -2303 | -1613 |
 | `api/queries/getInternalNode/position/x` | differs | -2130 | -1450 |
-| `api/queries/getInternalNode/position/y` | differs | -2293 | -1613 |
+| `api/queries/getInternalNode/position/y` | differs | -2303 | -1613 |
 | `api/queries/getInternalNode/internals/positionAbsolute/x` | differs | -2130 | -1450 |
-| `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | -2293 | -1613 |
+| `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | -2303 | -1613 |
 | `api/queries/getIntersectingNodes/0/position/x` | differs | -2130 | -1450 |
-| `api/queries/getIntersectingNodes/0/position/y` | differs | -2293 | -1613 |
+| `api/queries/getIntersectingNodes/0/position/y` | differs | -2303 | -1613 |
 | `api/queries/getNodesBounds/x` | differs | -2130 | -1450 |
-| `api/queries/getNodesBounds/y` | differs | -2293 | -1613 |
+| `api/queries/getNodesBounds/y` | differs | -2303 | -1613 |
 | `api/queries/getNodesBounds/width` | differs | 2380 | 1700 |
-| `api/queries/getNodesBounds/height` | differs | 2430 | 1750 |
+| `api/queries/getNodesBounds/height` | differs | 2440 | 1750 |
 | `api/queries/toObject/nodes/0/position/x` | differs | -2130 | -1450 |
-| `api/queries/toObject/nodes/0/position/y` | differs | -2293 | -1613 |
+| `api/queries/toObject/nodes/0/position/y` | differs | -2303 | -1613 |
 | `api/queries/toObject/viewport/x` | differs | 2000 | 1380 |
 | `api/queries/toObject/viewport/y` | differs | 2000 | 1600 |
 | `api/queries/getViewport/x` | differs | 2000 | 1380 |
@@ -13779,24 +13629,24 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 262 unclaimed difference(s).
+**Failed:** 248 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (23)
+### dom (20)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/attrs/style` | differs | transform: translate(1380px, 1600px) scale(1); | transform: translate(2000px, 2000px) scale(1); |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M-1375,-1573 C-1375,-738 -25,-738 -25,97 | M-2055,-2253 C-2055,-1078 -25,-1078 -25,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M-1375,-1573 C-1375,-738 -25,-738 -25,97 | M-2055,-2253 C-2055,-1078 -25,-1078 -25,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M-1375,-1573 C-1375,-738 -25,-738 -25,97 | M-2055,-2263 C-2055,-1083 -25,-1083 -25,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M-1375,-1573 C-1375,-738 -25,-738 -25,97 | M-2055,-2263 C-2055,-1083 -25,-1083 -25,97 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | -1375 | -2055 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | -1563 | -2243 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M-1375,-1573 C-1375,-738 175,-738 175,97 | M-2055,-2253 C-2055,-1078 175,-1078 175,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M-1375,-1573 C-1375,-738 175,-738 175,97 | M-2055,-2253 C-2055,-1078 175,-1078 175,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | -1563 | -2253 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M-1375,-1573 C-1375,-738 175,-738 175,97 | M-2055,-2263 C-2055,-1083 175,-1083 175,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M-1375,-1573 C-1375,-738 175,-738 175,97 | M-2055,-2263 C-2055,-1083 175,-1083 175,97 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | -1375 | -2055 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | -1563 | -2243 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | pointer-events: all; transform: translate(-1450px, -1613px); visibility: visible; z-index: 1000; | pointer-events: all; transform: translate(-2130px, -2293px); visibility: visible; z-index: 1000; |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | -1563 | -2253 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | pointer-events: all; transform: translate(-1450px, -1613px); visibility: visible; z-index: 1000; | pointer-events: all; transform: translate(-2130px, -2303px); visibility: visible; z-index: 1000; |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/children/1-Node-1-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-1","data-handlepos":"bottom","data-id":"1-Node-1-null-source","class":"connectable connectableend connectablestart co… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/children/1-Node-1--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-2/children/1-Node-2-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-2","data-handlepos":"top","data-id":"1-Node-2-null-target","class":"connectable connectableend connectablestart conne… | — |
@@ -13807,28 +13657,25 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-3","data-handlepos":"bottom","data-id":"1-Node-3-null-source","class":"connectable connectableend connectablestart co… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
-### callbacks (155)
+### callbacks (144)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/41` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1370,"y":1580,"zoom":1}]} |
-| `callbacks/48` | right only | — | {"name":"onMoveStart","args":[null,{"x":1370,"y":1580,"zoom":1}]} |
-| `callbacks/49` | right only | — | {"name":"onViewportChange","args":[{"x":1710,"y":1930,"zoom":1}]} |
-| `callbacks/50` | right only | — | {"name":"onMove","args":[null,{"x":1710,"y":1930,"zoom":1}]} |
-| `callbacks/51` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1710,"y":1930,"zoom":1}]} |
-| `callbacks/56` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-1780,"y":-1943},"data":{"label":"Node-1"},"type":"input",… |
-| `callbacks/57` | right only | — | {"name":"onMoveStart","args":[null,{"x":1710,"y":1930,"zoom":1}]} |
+| `callbacks/45` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1370,"y":1590,"zoom":1}]} |
+| `callbacks/48` | right only | — | {"name":"onMoveStart","args":[null,{"x":1370,"y":1590,"zoom":1}]} |
+| `callbacks/49` | right only | — | {"name":"onViewportChange","args":[{"x":1710,"y":1940,"zoom":1}]} |
+| `callbacks/50` | right only | — | {"name":"onMove","args":[null,{"x":1710,"y":1940,"zoom":1}]} |
+| `callbacks/51` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1710,"y":1940,"zoom":1}]} |
+| `callbacks/56` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-1780,"y":-1953},"data":{"label":"Node-1"},"type":"input",… |
+| `callbacks/57` | right only | — | {"name":"onMoveStart","args":[null,{"x":1710,"y":1940,"zoom":1}]} |
 | `callbacks/58` | right only | — | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} |
 | `callbacks/59` | right only | — | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
 | `callbacks/60` | right only | — | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/61` | right only | — | {"name":"onNodesChange","args":[[{"type":"position","id":"Node-1","position":{"x":-2130,"y":-2293},"positionAbsolute":{"x":-2130,"y":-2293},"dragging":true}]]} |
-| `callbacks/62` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2130,"y":-2293},"data":{"label":"Node-1"},"type":"input",… |
+| `callbacks/61` | right only | — | {"name":"onNodesChange","args":[[{"type":"position","id":"Node-1","position":{"x":-2130,"y":-2303},"positionAbsolute":{"x":-2130,"y":-2303},"dragging":true}]]} |
+| `callbacks/62` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2130,"y":-2303},"data":{"label":"Node-1"},"type":"input",… |
 | `callbacks/63` | right only | — | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… |
-| `callbacks/64` | right only | — | {"name":"onNodesChange","args":[[{"type":"position","id":"Node-1","position":{"x":-2130,"y":-2293},"positionAbsolute":{"x":-2130,"y":-2293},"dragging":false}]]} |
+| `callbacks/64` | right only | — | {"name":"onNodesChange","args":[[{"type":"position","id":"Node-1","position":{"x":-2130,"y":-2303},"positionAbsolute":{"x":-2130,"y":-2303},"dragging":false}]]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… |
 | `callbacks/1/args/0/0/resizing` | right only | — | false |
 | `callbacks/1/args/0/1/resizing` | right only | — | false |
@@ -13865,8 +13712,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/21/args/0/screenX` | differs | 5 | 6 |
 | `callbacks/21/args/0/clientX` | differs | 5 | 6 |
 | `callbacks/21/args/0/pageX` | differs | 5 | 6 |
-| `callbacks/21/args/1/position/x` | differs | -409 | -749 |
-| `callbacks/21/args/1/position/y` | differs | -352 | -692 |
 | `callbacks/21/args/1/hidden` | right only | — | false |
 | `callbacks/21/args/1/expandParent` | right only | — | false |
 | `callbacks/23/args/0/0/position/x` | differs | -410 | -749 |
@@ -13882,92 +13727,83 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/24/args/2/0/expandParent` | right only | — | false |
 | `callbacks/26/args/0/x` | differs | 690 | 680 |
 | `callbacks/27/args/1/x` | differs | 690 | 680 |
-| `callbacks/28/args/0/0/position/x` | differs | -760 | -1089 |
-| `callbacks/28/args/0/0/position/y` | differs | -912 | -1032 |
-| `callbacks/28/args/0/0/positionAbsolute` | right only | — | {"x":-1089,"y":-1032} |
-| `callbacks/29/args/1/position/x` | differs | -760 | -1089 |
-| `callbacks/29/args/1/position/y` | differs | -912 | -1032 |
+| `callbacks/28/args/0/0/position/x` | differs | -760 | -750 |
+| `callbacks/28/args/0/0/positionAbsolute` | right only | — | {"x":-750,"y":-912} |
+| `callbacks/29/args/1/position/x` | differs | -760 | -750 |
 | `callbacks/29/args/1/hidden` | right only | — | false |
 | `callbacks/29/args/1/expandParent` | right only | — | false |
-| `callbacks/29/args/2/0/position/x` | differs | -760 | -1089 |
-| `callbacks/29/args/2/0/position/y` | differs | -912 | -1032 |
+| `callbacks/29/args/2/0/position/x` | differs | -760 | -750 |
 | `callbacks/29/args/2/0/hidden` | right only | — | false |
 | `callbacks/29/args/2/0/expandParent` | right only | — | false |
 | `callbacks/30/args/1/x` | differs | 690 | 340 |
 | `callbacks/30/args/1/y` | differs | 900 | 560 |
-| `callbacks/31/args/1/position/x` | differs | -760 | -1440 |
-| `callbacks/31/args/1/position/y` | differs | -912 | -1592 |
+| `callbacks/31/args/1/position/x` | differs | -760 | -1100 |
+| `callbacks/31/args/1/position/y` | differs | -912 | -1252 |
 | `callbacks/31/args/1/hidden` | right only | — | false |
 | `callbacks/31/args/1/expandParent` | right only | — | false |
-| `callbacks/33/args/0/0/position/x` | differs | -759 | -1090 |
+| `callbacks/33/args/0/0/position/x` | differs | -759 | -1100 |
 | `callbacks/33/args/0/0/position/y` | differs | -913 | -1252 |
-| `callbacks/33/args/0/0/positionAbsolute` | right only | — | {"x":-1090,"y":-1252} |
-| `callbacks/34/args/1/position/x` | differs | -759 | -1090 |
+| `callbacks/33/args/0/0/positionAbsolute` | right only | — | {"x":-1100,"y":-1252} |
+| `callbacks/34/args/1/position/x` | differs | -759 | -1100 |
 | `callbacks/34/args/1/position/y` | differs | -913 | -1252 |
 | `callbacks/34/args/1/hidden` | right only | — | false |
 | `callbacks/34/args/1/expandParent` | right only | — | false |
-| `callbacks/34/args/2/0/position/x` | differs | -759 | -1090 |
+| `callbacks/34/args/2/0/position/x` | differs | -759 | -1100 |
 | `callbacks/34/args/2/0/position/y` | differs | -913 | -1252 |
 | `callbacks/34/args/2/0/hidden` | right only | — | false |
 | `callbacks/34/args/2/0/expandParent` | right only | — | false |
 | `callbacks/35/args/1/x` | differs | 690 | 680 |
-| `callbacks/36/args/0/x` | differs | 1030 | 1020 |
 | `callbacks/36/args/0/y` | differs | 1250 | 1240 |
-| `callbacks/37/args/1/x` | differs | 1030 | 1020 |
 | `callbacks/37/args/1/y` | differs | 1250 | 1240 |
-| `callbacks/38/args/0/0/position/x` | differs | -1099 | -1440 |
-| `callbacks/38/args/0/0/position/y` | differs | -1263 | -1592 |
-| `callbacks/38/args/0/0/positionAbsolute` | right only | — | {"x":-1440,"y":-1592} |
-| `callbacks/39/args/1/position/x` | differs | -1099 | -1440 |
-| `callbacks/39/args/1/position/y` | differs | -1263 | -1592 |
+| `callbacks/38/args/0/0/position/y` | differs | -1263 | -1253 |
+| `callbacks/38/args/0/0/positionAbsolute` | right only | — | {"x":-1099,"y":-1253} |
+| `callbacks/39/args/1/position/y` | differs | -1263 | -1253 |
 | `callbacks/39/args/1/hidden` | right only | — | false |
 | `callbacks/39/args/1/expandParent` | right only | — | false |
-| `callbacks/39/args/2/0/position/x` | differs | -1099 | -1440 |
-| `callbacks/39/args/2/0/position/y` | differs | -1263 | -1592 |
+| `callbacks/39/args/2/0/position/y` | differs | -1263 | -1253 |
 | `callbacks/39/args/2/0/hidden` | right only | — | false |
 | `callbacks/39/args/2/0/expandParent` | right only | — | false |
 | `callbacks/40/args/1/x` | differs | 1030 | 680 |
 | `callbacks/40/args/1/y` | differs | 1250 | 900 |
 | `callbacks/42/args/0/0/position/x` | differs | -1100 | -1439 |
-| `callbacks/42/args/0/0/position/y` | differs | -1263 | -1593 |
-| `callbacks/42/args/0/0/positionAbsolute` | right only | — | {"x":-1439,"y":-1593} |
+| `callbacks/42/args/0/0/position/y` | differs | -1263 | -1603 |
+| `callbacks/42/args/0/0/positionAbsolute` | right only | — | {"x":-1439,"y":-1603} |
 | `callbacks/43/args/1/position/x` | differs | -1100 | -1439 |
-| `callbacks/43/args/1/position/y` | differs | -1263 | -1593 |
+| `callbacks/43/args/1/position/y` | differs | -1263 | -1603 |
 | `callbacks/43/args/1/hidden` | right only | — | false |
 | `callbacks/43/args/1/expandParent` | right only | — | false |
 | `callbacks/43/args/2/0/position/x` | differs | -1100 | -1439 |
-| `callbacks/43/args/2/0/position/y` | differs | -1263 | -1593 |
+| `callbacks/43/args/2/0/position/y` | differs | -1263 | -1603 |
 | `callbacks/43/args/2/0/hidden` | right only | — | false |
 | `callbacks/43/args/2/0/expandParent` | right only | — | false |
-| `callbacks/44/args/1/x` | differs | 1030 | 1020 |
 | `callbacks/44/args/1/y` | differs | 1250 | 1240 |
 | `callbacks/45/args/0/x` | differs | 1380 | 1370 |
-| `callbacks/45/args/0/y` | differs | 1600 | 1580 |
+| `callbacks/45/args/0/y` | differs | 1600 | 1590 |
 | `callbacks/46/args/1/x` | differs | 1380 | 1370 |
-| `callbacks/46/args/1/y` | differs | 1600 | 1580 |
+| `callbacks/46/args/1/y` | differs | 1600 | 1590 |
 | `callbacks/47/args/0/0/position/x` | differs | -1450 | -1779 |
-| `callbacks/47/args/0/0/position/y` | differs | -1613 | -1943 |
-| `callbacks/47/args/0/0/positionAbsolute` | right only | — | {"x":-1779,"y":-1943} |
+| `callbacks/47/args/0/0/position/y` | differs | -1613 | -1953 |
+| `callbacks/47/args/0/0/positionAbsolute` | right only | — | {"x":-1779,"y":-1953} |
 | `callbacks/48/args/1/position/x` | differs | -1450 | -1779 |
-| `callbacks/48/args/1/position/y` | differs | -1613 | -1943 |
+| `callbacks/48/args/1/position/y` | differs | -1613 | -1953 |
 | `callbacks/48/args/1/hidden` | right only | — | false |
 | `callbacks/48/args/1/expandParent` | right only | — | false |
 | `callbacks/48/args/2/0/position/x` | differs | -1450 | -1779 |
-| `callbacks/48/args/2/0/position/y` | differs | -1613 | -1943 |
+| `callbacks/48/args/2/0/position/y` | differs | -1613 | -1953 |
 | `callbacks/48/args/2/0/hidden` | right only | — | false |
 | `callbacks/48/args/2/0/expandParent` | right only | — | false |
-| `callbacks/49/args/1/x` | differs | 1380 | 1020 |
+| `callbacks/49/args/1/x` | differs | 1380 | 1030 |
 | `callbacks/49/args/1/y` | differs | 1600 | 1240 |
 | `callbacks/50/args/0/0/position/x` | differs | -1450 | -1780 |
-| `callbacks/50/args/0/0/position/y` | differs | -1613 | -1943 |
+| `callbacks/50/args/0/0/position/y` | differs | -1613 | -1953 |
 | `callbacks/50/args/0/0/dragging` | differs | false | true |
-| `callbacks/50/args/0/0/positionAbsolute` | right only | — | {"x":-1780,"y":-1943} |
+| `callbacks/50/args/0/0/positionAbsolute` | right only | — | {"x":-1780,"y":-1953} |
 | `callbacks/51/args/1/position/x` | differs | -1450 | -2130 |
-| `callbacks/51/args/1/position/y` | differs | -1613 | -2293 |
+| `callbacks/51/args/1/position/y` | differs | -1613 | -2303 |
 | `callbacks/51/args/1/hidden` | right only | — | false |
 | `callbacks/51/args/1/expandParent` | right only | — | false |
 | `callbacks/51/args/2/0/position/x` | differs | -1450 | -2130 |
-| `callbacks/51/args/2/0/position/y` | differs | -1613 | -2293 |
+| `callbacks/51/args/2/0/position/y` | differs | -1613 | -2303 |
 | `callbacks/51/args/2/0/hidden` | right only | — | false |
 | `callbacks/51/args/2/0/expandParent` | right only | — | false |
 
@@ -13976,7 +13812,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getNodes/0/position/x` | differs | -1450 | -2130 |
-| `api/queries/getNodes/0/position/y` | differs | -1613 | -2293 |
+| `api/queries/getNodes/0/position/y` | differs | -1613 | -2303 |
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
@@ -13988,13 +13824,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getNodes/2/dragging` | right only | — | false |
 | `api/queries/getNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNode/position/x` | differs | -1450 | -2130 |
-| `api/queries/getNode/position/y` | differs | -1613 | -2293 |
+| `api/queries/getNode/position/y` | differs | -1613 | -2303 |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/expandParent` | right only | — | false |
 | `api/queries/getInternalNode/position/x` | differs | -1450 | -2130 |
-| `api/queries/getInternalNode/position/y` | differs | -1613 | -2293 |
+| `api/queries/getInternalNode/position/y` | differs | -1613 | -2303 |
 | `api/queries/getInternalNode/internals/positionAbsolute/x` | differs | -1450 | -2130 |
-| `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | -1613 | -2293 |
+| `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | -1613 | -2303 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":-1450,"y":-1613},"type":"input","measured":{"width":150,"height":37},"selected":true,"dragging":false} | — |
@@ -14010,7 +13846,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/position/x` | differs | -1450 | -2130 |
-| `api/queries/getIntersectingNodes/0/position/y` | differs | -1613 | -2293 |
+| `api/queries/getIntersectingNodes/0/position/y` | differs | -1613 | -2303 |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
@@ -14022,9 +13858,9 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/expandParent` | right only | — | false |
 | `api/queries/getNodesBounds/x` | differs | -1450 | -2130 |
-| `api/queries/getNodesBounds/y` | differs | -1613 | -2293 |
+| `api/queries/getNodesBounds/y` | differs | -1613 | -2303 |
 | `api/queries/getNodesBounds/width` | differs | 1700 | 2380 |
-| `api/queries/getNodesBounds/height` | differs | 1750 | 2430 |
+| `api/queries/getNodesBounds/height` | differs | 1750 | 2440 |
 | `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
 | `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/getHandleConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
@@ -14034,7 +13870,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getNodeConnections/1/sourceHandle` | differs | null | {"@undefined":true} |
 | `api/queries/getNodeConnections/1/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/toObject/nodes/0/position/x` | differs | -1450 | -2130 |
-| `api/queries/toObject/nodes/0/position/y` | differs | -1613 | -2293 |
+| `api/queries/toObject/nodes/0/position/y` | differs | -1613 | -2303 |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
@@ -14064,7 +13900,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 21 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (16) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (15) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -14095,11 +13931,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 209 unclaimed difference(s).
+**Failed:** 206 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (15)
+### dom (12)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -14115,9 +13951,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectable connectableend connectablestart conne… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (120)
 
@@ -14358,7 +14191,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 11 driving divergence(s), 184 unclaimed difference(s).
+**Failed:** 11 driving divergence(s), 181 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -14385,7 +14218,7 @@ a real divergence is exactly what would be hiding down there.
 | `driving/9/dispatched/y` | differs | 457 | 600 |
 | `driving/10/dispatched/y` | differs | 457 | 600 |
 
-### dom (18) — consequence of the driving divergence
+### dom (15) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -14404,9 +14237,6 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/outside/children/1-outside-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"outside","data-handlepos":"bottom","data-id":"1-outside-null-source","class":"connectable connectableend connectablestart … | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/outside/children/1-outside--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/outside/children/1-outside--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (91) — consequence of the driving divergence
 
@@ -14619,11 +14449,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 116 unclaimed difference(s).
+**Failed:** 113 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (9)
+### dom (6)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -14633,9 +14463,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-2/children/1-Node-2-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-2","data-handlepos":"bottom","data-id":"1-Node-2-null-source","class":"connectable connectableend connectablestart co… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-2/children/1-Node-2--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-2/children/1-Node-2--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (66)
 
@@ -14789,11 +14616,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 224 unclaimed difference(s).
+**Failed:** 221 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (42)
+### dom (39)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -14836,9 +14663,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"notDeletable","data-handlepos":"bottom","data-id":"1-notDeletable-null-source","class":"connectable connectableend connect… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (29)
 
@@ -15067,11 +14891,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 264 unclaimed difference(s).
+**Failed:** 261 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (42)
+### dom (39)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -15114,9 +14938,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"notDeletable","data-handlepos":"bottom","data-id":"1-notDeletable-null-source","class":"connectable connectableend connect… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (75)
 
@@ -15385,11 +15206,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 102 unclaimed difference(s).
+**Failed:** 99 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (15)
+### dom (12)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -15405,9 +15226,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectable connectableend connectablestart conne… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[3]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[3]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[3]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (5)
 
@@ -15541,11 +15359,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 232 unclaimed difference(s).
+**Failed:** 229 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (45)
+### dom (42)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -15591,9 +15409,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"notDeletable","data-handlepos":"bottom","data-id":"1-notDeletable-null-source","class":"connectable connectableend connect… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (30)
 
@@ -15824,7 +15639,7 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | path | kind | capture 1 | capture 2 |
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… |
-| `callbacks/17/args/1/position/x` | differs | 10 | 5 |
+| `callbacks/17/args/1/position/x` | differs | 10 | 0 |
 
 **upstream did not reproduce.** The comparison below ran anyway —
 capture-everything applies to a failed run as much as to a passing one — but a difference it reports
@@ -15838,11 +15653,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 153 unclaimed difference(s).
+**Failed:** 150 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (21)
+### dom (18)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -15863,9 +15678,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectable connectableend connectablestart conne… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 | `dom/root/children/react-flow__aria-live-1/text` | left only | Moved selected node right. New position, x: 5, y: 20 | — |
 
 ### callbacks (43)
@@ -16045,11 +15857,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 101 unclaimed difference(s).
+**Failed:** 98 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (15)
+### dom (12)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -16065,9 +15877,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectable connectableend connectablestart conne… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (7)
 
@@ -16194,11 +16003,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 387 unclaimed difference(s).
+**Failed:** 384 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (54)
+### dom (51)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -16253,9 +16062,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"notDeletable","data-handlepos":"bottom","data-id":"1-notDeletable-null-source","class":"connectable connectableend connect… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (164)
 
@@ -16635,11 +16441,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 282 unclaimed difference(s).
+**Failed:** 279 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (43)
+### dom (40)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -16683,9 +16489,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"notDeletable","data-handlepos":"bottom","data-id":"1-notDeletable-null-source","class":"connectable connectableend connect… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart nodrag nopan react-flow__handle react-flow__handle-bottom source","data-nodeid":"not… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (89)
 
@@ -16971,11 +16774,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 217 unclaimed difference(s).
+**Failed:** 214 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (43)
+### dom (40)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -17019,9 +16822,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"notDeletable","data-handlepos":"bottom","data-id":"1-notDeletable-null-source","class":"connectable connectableend connect… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/notDeletable/children/1-notDeletable--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (23)
 
@@ -17247,11 +17047,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 277 unclaimed difference(s).
+**Failed:** 274 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (43)
+### dom (40)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -17295,9 +17095,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/hub/children/div[0]/attrs/data-psflow-connections` | differs | [["up-1-hub","up-1","hub","out","in"],["up-2-hub","up-2","hub","out","in"],["hub-down-1","hub","down-1","out","in"],["hub-down-2","hub","down-2","out","in"],["… | [["hub-down-1","hub","down-1","out","in"],["xy-edge__down-1out-hubin","down-1","hub","out","in"],["hub-down-2","hub","down-2","out","in"],["hub-down-3","hub","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/hub/children/div[0]/attrs/data-psflow-connections-target` | differs | [["up-1-hub","up-1","hub","out","in"],["up-2-hub","up-2","hub","out","in"],["xy-edge__down-1out-hubin","down-1","hub","out","in"]] | [["xy-edge__down-1out-hubin","down-1","hub","out","in"],["up-1-hub","up-1","hub","out","in"],["up-2-hub","up-2","hub","out","in"]] |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/down-1/children/div[0]/attrs/data-psflow-connections` | differs | [["hub-down-1","hub","down-1","out","in"],["xy-edge__down-1out-hubin","down-1","hub","out","in"]] | [["xy-edge__down-1out-hubin","down-1","hub","out","in"],["hub-down-1","hub","down-1","out","in"]] |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (96)
 
@@ -17578,11 +17375,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 117 unclaimed difference(s).
+**Failed:** 114 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (11)
+### dom (8)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -17594,9 +17391,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/2/children/1-2--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/4/children/1-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"4","data-handlepos":"top","data-id":"1-4-null-target","class":"connectable connectableend connectablestart connectionindic… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/4/children/1-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (33)
 
@@ -17743,11 +17537,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 101 unclaimed difference(s).
+**Failed:** 98 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (25)
+### dom (22)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -17773,9 +17567,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/3/children/1-3-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"3","data-handlepos":"bottom","data-id":"1-3-null-source","class":"connectable connectableend connectablestart connectionin… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/3/children/1-3--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/3/children/1-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (4)
 
@@ -17898,11 +17689,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 139 unclaimed difference(s).
+**Failed:** 136 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (15)
+### dom (12)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -17918,9 +17709,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectable connectableend connectablestart conne… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (52)
 
@@ -18091,11 +17879,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 136 unclaimed difference(s).
+**Failed:** 133 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (19)
+### dom (16)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -18115,9 +17903,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/added/children/1-added-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"added","data-handlepos":"bottom","data-id":"1-added-null-source","class":"connectable connectableend connectablestart conn… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/added/children/1-added--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/added/children/1-added--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (13)
 
@@ -18275,11 +18060,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 136 unclaimed difference(s).
+**Failed:** 133 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (15)
+### dom (12)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -18295,9 +18080,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectableend connectablestart nodrag nopan react-flow__handle react-flow__handle-bottom source","data-nodeid":"Node-3","data-h… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectableend connectablestart nodrag nopan reac… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectableend connectablestart nodrag nopan react-flow__handle react-flow__handle-top target","data-nodeid":"Node-4","data-hand… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (44)
 
@@ -18465,11 +18247,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 103 unclaimed difference(s).
+**Failed:** 100 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (16)
+### dom (13)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -18486,9 +18268,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectable connectableend connectablestart conne… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (5)
 
@@ -18616,18 +18395,15 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 51 unclaimed difference(s).
+**Failed:** 48 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (4)
+### dom (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `dom/root/children/div[1]/children/svg[0]/children/path[0]/attrs/d` | differs | M-59.09584999560087,-169.90056873735244h1300.1086999032193v1004.6294499252149h-1300.1086999032193z⏎        M98.0830000879826,55.17168754949017h1083.83399982403… | M-59.09584999560087,-169.90056873735244h1300.1086999032193v1004.6294499252149h-1300.1086999032193z M98.0830000879826,55.17168754949017h1083.833999824035v609.65… |
-| `dom/root/children/div[2]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[2]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[2]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### api (47)
 
@@ -18710,11 +18486,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 116 unclaimed difference(s).
+**Failed:** 113 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (16)
+### dom (13)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -18731,9 +18507,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectable connectableend connectablestart conne… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[1]/children/svg[0]/children/path[0]/attrs/d` | differs | M-277,-153.5h704v544h-704z⏎        M-245,-61.5h640v360h-640z | M-277,-153.5h704v544h-704z M-245,-61.5h640v360h-640z |
-| `dom/root/children/div[2]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[2]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[2]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (23)
 
@@ -18880,11 +18653,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 103 unclaimed difference(s).
+**Failed:** 100 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (15)
+### dom (12)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -18900,9 +18673,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectableend connectablestart nodrag nopan react-flow__handle react-flow__handle-bottom source","data-nodeid":"Node-3","data-h… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectableend connectablestart nodrag nopan reac… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectableend connectablestart nodrag nopan react-flow__handle react-flow__handle-top target","data-nodeid":"Node-4","data-hand… |
-| `dom/root/children/div[2]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[2]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[2]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (6)
 
@@ -19031,11 +18801,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 102 unclaimed difference(s).
+**Failed:** 99 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (15)
+### dom (12)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -19051,9 +18821,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectable connectableend connectablestart conne… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[3]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[3]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[3]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (5)
 
@@ -19181,11 +18948,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 104 unclaimed difference(s).
+**Failed:** 101 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (17)
+### dom (14)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -19203,9 +18970,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"10","y":"27","width":"48","height":"48","patternUnits":"userSpaceOnUse","patternTransform":"translate(-25,-25)"… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"10","y":"27","width":"48","height":"48","patternUnits":"userSpaceOnUse","p… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (5)
 
@@ -19339,7 +19103,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 5 driving divergence(s), 120 unclaimed difference(s).
+**Failed:** 5 driving divergence(s), 117 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -19360,7 +19124,7 @@ a real divergence is exactly what would be hiding down there.
 | `driving/2/dispatched/x` | differs | 8 | 0 |
 | `driving/2/dispatched/y` | differs | 8 | 0 |
 
-### dom (16) — consequence of the driving divergence
+### dom (13) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -19377,9 +19141,6 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectable connectableend connectablestart conne… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (22) — consequence of the driving divergence
 
@@ -19654,8 +19415,8 @@ a real divergence is exactly what would be hiding down there.
 | `console/2` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/3` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/4` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:54052/parity/driver/dist/… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:54052/parity/driver/dist/… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:56177/parity/driver/dist/… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:56177/parity/driver/dist/… |
 | `console/7` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 
 ## Normalization
@@ -19693,7 +19454,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 50 driving divergence(s), 138 unclaimed difference(s).
+**Failed:** 50 driving divergence(s), 135 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -19759,7 +19520,7 @@ a real divergence is exactly what would be hiding down there.
 | `driving/5/dispatched/points/1/x` | differs | 589.6393432617188 | 351.11474609375 |
 | `driving/5/dispatched/points/1/y` | differs | 359.9999942779541 | 360 |
 
-### dom (19) — consequence of the driving divergence
+### dom (16) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -19779,9 +19540,6 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/plain/children/1-plain-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"plain","data-handlepos":"bottom","data-id":"1-plain-null-source","class":"connectable connectableend connectablestart conn… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/plain/children/1-plain--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/plain/children/1-plain--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (52) — consequence of the driving divergence
 
@@ -19947,11 +19705,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 62 unclaimed difference(s).
+**Failed:** 59 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (14)
+### dom (11)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -19966,9 +19724,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[2]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-184h1408v1088h-1408z⏎        M0,0h1280v720h-1280z | M-64,-184h1408v1088h-1408z M0,0h1280v720h-1280z |
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","patternTransform":"translate(-11,-11)"},… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","pat… |
-| `dom/root/children/div[3]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[3]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[3]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### api (48)
 
@@ -20052,11 +19807,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 63 unclaimed difference(s).
+**Failed:** 60 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (14)
+### dom (11)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -20071,9 +19826,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[2]/children/svg[0]/children/path[0]/attrs/d` | differs | M-177,-202h704v544h-704z⏎        M-145,-110h640v360h-640z | M-177,-202h704v544h-704z M-145,-110h640v360h-640z |
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"10","y":"20","width":"40","height":"40","patternUnits":"userSpaceOnUse","patternTransform":"translate(-21,-21)"… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"10","y":"20","width":"40","height":"40","patternUnits":"userSpaceOnUse","p… |
-| `dom/root/children/div[3]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[3]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[3]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (1)
 
@@ -20163,11 +19915,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 72 unclaimed difference(s).
+**Failed:** 69 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (20)
+### dom (17)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -20188,9 +19940,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[2]/children/svg[0]/children/path[0]/attrs/d` | differs | M-56.251465064166375,-161.7229620594784h1237.53223141166v956.2749060908284h-1237.53223141166z⏎        M154.9706987166726,87.17101802812834h970.0586025666548v54… | M-56.251465064166375,-161.7229620594784h1237.53223141166v956.2749060908284h-1237.53223141166z M154.9706987166726,87.17101802812834h970.0586025666548v545.657963… |
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"-19.7539553864471","y":"-9.462215016410383","width":"26.390158215457884","height":"26.390158215457884","pattern… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"6.636202829010784","y":"16.92794319904749","width":"26.390158215457884","h… |
-| `dom/root/children/div[3]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[3]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[3]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### api (52)
 
@@ -20284,11 +20033,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 62 unclaimed difference(s).
+**Failed:** 59 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (14)
+### dom (11)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -20303,9 +20052,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[2]/children/svg[0]/children/path[0]/attrs/d` | differs | M-164,-234h1408v1088h-1408z⏎        M-100,-50h1280v720h-1280z | M-164,-234h1408v1088h-1408z M-100,-50h1280v720h-1280z |
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"10","width":"20","height":"20","patternUnits":"userSpaceOnUse","patternTransform":"translate(-11,-11)"}… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"10","width":"20","height":"20","patternUnits":"userSpaceOnUse","pa… |
-| `dom/root/children/div[3]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[3]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[3]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### api (48)
 
@@ -20371,7 +20117,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 # System parity run — drag-node-reports-changes
 
-**Failed:** unclaimed-difference.
+**Failed:** self-inconsistent, unclaimed-difference.
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -20385,7 +20131,105 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | **disagrees with itself** | 89 |
+
+### psflow disagrees with itself
+
+| path | kind | capture 1 | capture 2 |
+|---|---|---|---|
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/attrs/style` | differs | transform: translate(0px, 15px) scale(1); | transform: translate(0px, 13.125px) scale(1); |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/path[0]/attrs/d` | differs | M148,50 C197.5,50 197.5,120 247,120 | M148,51.875 C197.5,51.875 197.5,120 247,120 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/path[1]/attrs/d` | differs | M148,50 C197.5,50 197.5,120 247,120 | M148,51.875 C197.5,51.875 197.5,120 247,120 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/circle[0]/attrs/cy` | differs | 50 | 51.875 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n1/attrs/style` | differs | height: 40px; pointer-events: all; transform: translate(45px, 30px); visibility: visible; width: 100px; z-index: 1000; | height: 40px; pointer-events: all; transform: translate(45px, 31.875px); visibility: visible; width: 100px; z-index: 1000; |
+| `dom/root/children/div[2]/children/svg[0]/attrs/viewBox` | differs | -32 -167 1344 1024 | -32 -165.125 1344 1024 |
+| `dom/root/children/div[2]/children/svg[0]/children/rect[0]/attrs/y` | differs | 30 | 31.875 |
+| `dom/root/children/div[2]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-199h1408v1088h-1408z M0,-15h1280v720h-1280z | M-64,-197.125h1408v1088h-1408z M0,-13.125h1280v720h-1280z |
+| `dom/root/children/svg[0]/children/defs[0]/children/pattern-1/attrs/y` | differs | 15 | 13.125 |
+| `callbacks/31` | left only | {"name":"onMoveStart","args":[null,{"x":0,"y":13.125,"zoom":1}]} | — |
+| `callbacks/32` | left only | {"name":"onViewportChange","args":[{"x":0,"y":15,"zoom":1}]} | — |
+| `callbacks/33` | left only | {"name":"onMove","args":[null,{"x":0,"y":15,"zoom":1}]} | — |
+| `callbacks/34` | left only | {"name":"onMoveEnd","args":[null,{"x":0,"y":15,"zoom":1}]} | — |
+| `callbacks/57` | left only | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"n1","position":{"x":45,"y":30},"data":{"label":"n1"},"sourcePosition":"right","tar… | — |
+| `callbacks/58` | left only | {"name":"onNodesChange","args":[[{"type":"position","id":"n1","position":{"x":45,"y":30},"positionAbsolute":{"x":45,"y":30},"dragging":false}]]} | — |
+| `callbacks` | ordered differently | ["onSelectionChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onPaneMouseMove#2","onNodesChange#1","onNodeDragStart… | ["onSelectionChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onPaneMouseMove#2","onNodesChange#1","onNodeDragStart… |
+| `callbacks/35/args/0/0/position/x` | differs | 10 | 15 |
+| `callbacks/35/args/0/0/position/y` | differs | -5 | 1.875 |
+| `callbacks/35/args/0/0/positionAbsolute/x` | differs | 10 | 15 |
+| `callbacks/35/args/0/0/positionAbsolute/y` | differs | -5 | 1.875 |
+| `callbacks/36/args/1/position/x` | differs | 10 | 15 |
+| `callbacks/36/args/1/position/y` | differs | -5 | 1.875 |
+| `callbacks/36/args/2/0/position/x` | differs | 10 | 15 |
+| `callbacks/36/args/2/0/position/y` | differs | -5 | 1.875 |
+| `callbacks/38/args/0/0/position/x` | differs | 15 | 20 |
+| `callbacks/38/args/0/0/position/y` | differs | 0 | 6.875 |
+| `callbacks/38/args/0/0/positionAbsolute/x` | differs | 15 | 20 |
+| `callbacks/38/args/0/0/positionAbsolute/y` | differs | 0 | 6.875 |
+| `callbacks/39/args/1/position/x` | differs | 15 | 20 |
+| `callbacks/39/args/1/position/y` | differs | 0 | 6.875 |
+| `callbacks/39/args/2/0/position/x` | differs | 15 | 20 |
+| `callbacks/39/args/2/0/position/y` | differs | 0 | 6.875 |
+| `callbacks/41/args/0/0/position/x` | differs | 20 | 25 |
+| `callbacks/41/args/0/0/position/y` | differs | 5 | 11.875 |
+| `callbacks/41/args/0/0/positionAbsolute/x` | differs | 20 | 25 |
+| `callbacks/41/args/0/0/positionAbsolute/y` | differs | 5 | 11.875 |
+| `callbacks/42/args/1/position/x` | differs | 20 | 25 |
+| `callbacks/42/args/1/position/y` | differs | 5 | 11.875 |
+| `callbacks/42/args/2/0/position/x` | differs | 20 | 25 |
+| `callbacks/42/args/2/0/position/y` | differs | 5 | 11.875 |
+| `callbacks/44/args/0/0/position/x` | differs | 25 | 30 |
+| `callbacks/44/args/0/0/position/y` | differs | 10 | 16.875 |
+| `callbacks/44/args/0/0/positionAbsolute/x` | differs | 25 | 30 |
+| `callbacks/44/args/0/0/positionAbsolute/y` | differs | 10 | 16.875 |
+| `callbacks/45/args/1/position/x` | differs | 25 | 30 |
+| `callbacks/45/args/1/position/y` | differs | 10 | 16.875 |
+| `callbacks/45/args/2/0/position/x` | differs | 25 | 30 |
+| `callbacks/45/args/2/0/position/y` | differs | 10 | 16.875 |
+| `callbacks/47/args/0/0/position/x` | differs | 30 | 35 |
+| `callbacks/47/args/0/0/position/y` | differs | 15 | 21.875 |
+| `callbacks/47/args/0/0/positionAbsolute/x` | differs | 30 | 35 |
+| `callbacks/47/args/0/0/positionAbsolute/y` | differs | 15 | 21.875 |
+| `callbacks/48/args/1/position/x` | differs | 30 | 35 |
+| `callbacks/48/args/1/position/y` | differs | 15 | 21.875 |
+| `callbacks/48/args/2/0/position/x` | differs | 30 | 35 |
+| `callbacks/48/args/2/0/position/y` | differs | 15 | 21.875 |
+| `callbacks/50/args/0/0/position/x` | differs | 35 | 40 |
+| `callbacks/50/args/0/0/position/y` | differs | 20 | 26.875 |
+| `callbacks/50/args/0/0/positionAbsolute/x` | differs | 35 | 40 |
+| `callbacks/50/args/0/0/positionAbsolute/y` | differs | 20 | 26.875 |
+| `callbacks/51/args/1/position/x` | differs | 35 | 40 |
+| `callbacks/51/args/1/position/y` | differs | 20 | 26.875 |
+| `callbacks/51/args/2/0/position/x` | differs | 35 | 40 |
+| `callbacks/51/args/2/0/position/y` | differs | 20 | 26.875 |
+| `callbacks/53/args/0/0/position/x` | differs | 40 | 45 |
+| `callbacks/53/args/0/0/position/y` | differs | 25 | 31.875 |
+| `callbacks/53/args/0/0/positionAbsolute/x` | differs | 40 | 45 |
+| `callbacks/53/args/0/0/positionAbsolute/y` | differs | 25 | 31.875 |
+| `callbacks/54/args/1/position/x` | differs | 40 | 45 |
+| `callbacks/54/args/1/position/y` | differs | 25 | 31.875 |
+| `callbacks/54/args/2/0/position/x` | differs | 40 | 45 |
+| `callbacks/54/args/2/0/position/y` | differs | 25 | 31.875 |
+| `callbacks/56/args/0/0/position/y` | differs | 30 | 31.875 |
+| `callbacks/56/args/0/0/positionAbsolute/y` | differs | 30 | 31.875 |
+| `callbacks/56/args/0/0/dragging` | differs | true | false |
+| `callbacks/59/args/1/position/y` | differs | 30 | 31.875 |
+| `callbacks/59/args/2/0/position/y` | differs | 30 | 31.875 |
+| `api/queries/getNodes/0/position/y` | differs | 30 | 31.875 |
+| `api/queries/getNode/position/y` | differs | 30 | 31.875 |
+| `api/queries/getInternalNode/position/y` | differs | 30 | 31.875 |
+| `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | 30 | 31.875 |
+| `api/queries/getIntersectingNodes/0/position/y` | differs | 30 | 31.875 |
+| `api/queries/getNodesBounds/y` | differs | 30 | 31.875 |
+| `api/queries/getNodesBounds/height` | differs | 110 | 108.125 |
+| `api/queries/toObject/nodes/0/position/y` | differs | 30 | 31.875 |
+| `api/queries/toObject/viewport/y` | differs | 15 | 13.125 |
+| `api/queries/getViewport/y` | differs | 15 | 13.125 |
+| `api/queries/screenToFlowPosition/y` | differs | -15 | -13.125 |
+| `api/queries/flowToScreenPosition/y` | differs | 15 | 13.125 |
+
+**psflow did not reproduce.** The comparison below ran anyway —
+capture-everything applies to a failed run as much as to a passing one — but a difference it reports
+cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
 ---
 
@@ -20395,14 +20239,19 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 131 unclaimed difference(s).
+**Failed:** 199 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (14)
+### dom (18)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/attrs/style` | differs | transform: translate(0px, 13.125px) scale(1); | transform: translate(0px, 15px) scale(1); |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/path[0]/attrs/d` | differs | M148,51.875 C197.5,51.875 197.5,120 247,120 | M148,50 C197.5,50 197.5,120 247,120 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/path[1]/attrs/d` | differs | M148,51.875 C197.5,51.875 197.5,120 247,120 | M148,50 C197.5,50 197.5,120 247,120 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/e1-2/children/circle[0]/attrs/cy` | differs | 51.875 | 50 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n1/attrs/style` | differs | height: 40px; pointer-events: all; transform: translate(45px, 31.875px); visibility: visible; width: 100px; z-index: 1000; | height: 40px; pointer-events: all; transform: translate(45px, 30px); visibility: visible; width: 100px; z-index: 1000; |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n1/children/1-n1-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"n1","data-handlepos":"left","data-id":"1-n1-null-target","class":"connectable connectableend connectablestart connectionin… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n1/children/1-n1-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"n1","data-handlepos":"right","data-id":"1-n1-null-source","class":"connectable connectableend connectablestart connectioni… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n1/children/1-n1--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-left target",… |
@@ -20411,18 +20260,23 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n2/children/1-n2-null-source` | left only | {"tag":"div","attrs":{"data-nodeid":"n2","data-handlepos":"right","data-id":"1-n2-null-source","class":"connectable connectableend connectablestart connectioni… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n2/children/1-n2--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-left target",… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/n2/children/1-n2--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-right source"… |
-| `dom/root/children/div[2]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-197.125h1408v1088h-1408z⏎        M0,-13.125h1280v720h-1280z | M-64,-197.125h1408v1088h-1408z M0,-13.125h1280v720h-1280z |
+| `dom/root/children/div[2]/children/svg[0]/attrs/viewBox` | differs | -32 -165.125 1344 1024 | -32 -167 1344 1024 |
+| `dom/root/children/div[2]/children/svg[0]/children/rect[0]/attrs/y` | differs | 31.875 | 30 |
+| `dom/root/children/div[2]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-197.125h1408v1088h-1408z⏎        M0,-13.125h1280v720h-1280z | M-64,-199h1408v1088h-1408z M0,-15h1280v720h-1280z |
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"13.125","width":"20","height":"20","patternUnits":"userSpaceOnUse","patternTransform":"translate(-11,-1… | — |
-| `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"13.125","width":"20","height":"20","patternUnits":"userSpaceOnUse"… |
-| `dom/root/children/div[3]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[3]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[3]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
+| `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"15","width":"20","height":"20","patternUnits":"userSpaceOnUse","pa… |
 
-### callbacks (79)
+### callbacks (131)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `callbacks/28` | right only | — | {"name":"onMoveEnd","args":[null,{"x":0,"y":13.125,"zoom":1}]} |
+| `callbacks/31` | right only | — | {"name":"onMoveStart","args":[null,{"x":0,"y":13.125,"zoom":1}]} |
+| `callbacks/32` | right only | — | {"name":"onViewportChange","args":[{"x":0,"y":15,"zoom":1}]} |
+| `callbacks/33` | right only | — | {"name":"onMove","args":[null,{"x":0,"y":15,"zoom":1}]} |
+| `callbacks/34` | right only | — | {"name":"onMoveEnd","args":[null,{"x":0,"y":15,"zoom":1}]} |
+| `callbacks/57` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"n1","position":{"x":45,"y":30},"data":{"label":"n1"},"sourcePosition":"right","tar… |
+| `callbacks/58` | right only | — | {"name":"onNodesChange","args":[[{"type":"position","id":"n1","position":{"x":45,"y":30},"positionAbsolute":{"x":45,"y":30},"dragging":false}]]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onPaneMouseMove#2","onNodesChange#1","onNodeDragStart… | ["onSelectionChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onPaneMouseMove#2","onNodesChange#1","onNodeDragStart… |
 | `callbacks/2/args/1/hidden` | right only | — | false |
 | `callbacks/2/args/1/selected` | right only | — | false |
@@ -20461,59 +20315,109 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/28/args/2/0/hidden` | right only | — | false |
 | `callbacks/28/args/2/0/expandParent` | right only | — | false |
 | `callbacks/29/args/1/y` | differs | 13.125 | 11.25 |
-| `callbacks/31/args/0/0/positionAbsolute` | right only | — | {"x":15,"y":1.875} |
+| `callbacks/31/args/0/0/position/x` | differs | 15 | 10 |
+| `callbacks/31/args/0/0/position/y` | differs | 1.875 | -5 |
+| `callbacks/31/args/0/0/positionAbsolute` | right only | — | {"x":10,"y":-5} |
+| `callbacks/32/args/1/position/x` | differs | 15 | 10 |
+| `callbacks/32/args/1/position/y` | differs | 1.875 | -5 |
 | `callbacks/32/args/1/hidden` | right only | — | false |
 | `callbacks/32/args/1/expandParent` | right only | — | false |
+| `callbacks/32/args/2/0/position/x` | differs | 15 | 10 |
+| `callbacks/32/args/2/0/position/y` | differs | 1.875 | -5 |
 | `callbacks/32/args/2/0/hidden` | right only | — | false |
 | `callbacks/32/args/2/0/expandParent` | right only | — | false |
-| `callbacks/34/args/0/0/positionAbsolute` | right only | — | {"x":20,"y":6.875} |
+| `callbacks/34/args/0/0/position/x` | differs | 20 | 15 |
+| `callbacks/34/args/0/0/position/y` | differs | 6.875 | 0 |
+| `callbacks/34/args/0/0/positionAbsolute` | right only | — | {"x":15,"y":0} |
+| `callbacks/35/args/1/position/x` | differs | 20 | 15 |
+| `callbacks/35/args/1/position/y` | differs | 6.875 | 0 |
 | `callbacks/35/args/1/hidden` | right only | — | false |
 | `callbacks/35/args/1/expandParent` | right only | — | false |
+| `callbacks/35/args/2/0/position/x` | differs | 20 | 15 |
+| `callbacks/35/args/2/0/position/y` | differs | 6.875 | 0 |
 | `callbacks/35/args/2/0/hidden` | right only | — | false |
 | `callbacks/35/args/2/0/expandParent` | right only | — | false |
-| `callbacks/37/args/0/0/positionAbsolute` | right only | — | {"x":25,"y":11.875} |
+| `callbacks/37/args/0/0/position/x` | differs | 25 | 20 |
+| `callbacks/37/args/0/0/position/y` | differs | 11.875 | 5 |
+| `callbacks/37/args/0/0/positionAbsolute` | right only | — | {"x":20,"y":5} |
+| `callbacks/38/args/1/position/x` | differs | 25 | 20 |
+| `callbacks/38/args/1/position/y` | differs | 11.875 | 5 |
 | `callbacks/38/args/1/hidden` | right only | — | false |
 | `callbacks/38/args/1/expandParent` | right only | — | false |
+| `callbacks/38/args/2/0/position/x` | differs | 25 | 20 |
+| `callbacks/38/args/2/0/position/y` | differs | 11.875 | 5 |
 | `callbacks/38/args/2/0/hidden` | right only | — | false |
 | `callbacks/38/args/2/0/expandParent` | right only | — | false |
-| `callbacks/40/args/0/0/positionAbsolute` | right only | — | {"x":30,"y":16.875} |
+| `callbacks/40/args/0/0/position/x` | differs | 30 | 25 |
+| `callbacks/40/args/0/0/position/y` | differs | 16.875 | 10 |
+| `callbacks/40/args/0/0/positionAbsolute` | right only | — | {"x":25,"y":10} |
+| `callbacks/41/args/1/position/x` | differs | 30 | 25 |
+| `callbacks/41/args/1/position/y` | differs | 16.875 | 10 |
 | `callbacks/41/args/1/hidden` | right only | — | false |
 | `callbacks/41/args/1/expandParent` | right only | — | false |
+| `callbacks/41/args/2/0/position/x` | differs | 30 | 25 |
+| `callbacks/41/args/2/0/position/y` | differs | 16.875 | 10 |
 | `callbacks/41/args/2/0/hidden` | right only | — | false |
 | `callbacks/41/args/2/0/expandParent` | right only | — | false |
-| `callbacks/43/args/0/0/positionAbsolute` | right only | — | {"x":35,"y":21.875} |
+| `callbacks/43/args/0/0/position/x` | differs | 35 | 30 |
+| `callbacks/43/args/0/0/position/y` | differs | 21.875 | 15 |
+| `callbacks/43/args/0/0/positionAbsolute` | right only | — | {"x":30,"y":15} |
+| `callbacks/44/args/1/position/x` | differs | 35 | 30 |
+| `callbacks/44/args/1/position/y` | differs | 21.875 | 15 |
 | `callbacks/44/args/1/hidden` | right only | — | false |
 | `callbacks/44/args/1/expandParent` | right only | — | false |
+| `callbacks/44/args/2/0/position/x` | differs | 35 | 30 |
+| `callbacks/44/args/2/0/position/y` | differs | 21.875 | 15 |
 | `callbacks/44/args/2/0/hidden` | right only | — | false |
 | `callbacks/44/args/2/0/expandParent` | right only | — | false |
-| `callbacks/46/args/0/0/positionAbsolute` | right only | — | {"x":40,"y":26.875} |
+| `callbacks/46/args/0/0/position/x` | differs | 40 | 35 |
+| `callbacks/46/args/0/0/position/y` | differs | 26.875 | 20 |
+| `callbacks/46/args/0/0/positionAbsolute` | right only | — | {"x":35,"y":20} |
+| `callbacks/47/args/1/position/x` | differs | 40 | 35 |
+| `callbacks/47/args/1/position/y` | differs | 26.875 | 20 |
 | `callbacks/47/args/1/hidden` | right only | — | false |
 | `callbacks/47/args/1/expandParent` | right only | — | false |
+| `callbacks/47/args/2/0/position/x` | differs | 40 | 35 |
+| `callbacks/47/args/2/0/position/y` | differs | 26.875 | 20 |
 | `callbacks/47/args/2/0/hidden` | right only | — | false |
 | `callbacks/47/args/2/0/expandParent` | right only | — | false |
-| `callbacks/49/args/0/0/positionAbsolute` | right only | — | {"x":45,"y":31.875} |
+| `callbacks/49/args/0/0/position/x` | differs | 45 | 40 |
+| `callbacks/49/args/0/0/position/y` | differs | 31.875 | 25 |
+| `callbacks/49/args/0/0/positionAbsolute` | right only | — | {"x":40,"y":25} |
+| `callbacks/50/args/1/position/x` | differs | 45 | 40 |
+| `callbacks/50/args/1/position/y` | differs | 31.875 | 25 |
 | `callbacks/50/args/1/hidden` | right only | — | false |
 | `callbacks/50/args/1/expandParent` | right only | — | false |
+| `callbacks/50/args/2/0/position/x` | differs | 45 | 40 |
+| `callbacks/50/args/2/0/position/y` | differs | 31.875 | 25 |
 | `callbacks/50/args/2/0/hidden` | right only | — | false |
 | `callbacks/50/args/2/0/expandParent` | right only | — | false |
-| `callbacks/51/args/0/0/positionAbsolute` | right only | — | {"x":45,"y":31.875} |
+| `callbacks/51/args/0/0/position/y` | differs | 31.875 | 30 |
+| `callbacks/51/args/0/0/dragging` | differs | false | true |
+| `callbacks/51/args/0/0/positionAbsolute` | right only | — | {"x":45,"y":30} |
+| `callbacks/52/args/1/position/y` | differs | 31.875 | 30 |
 | `callbacks/52/args/1/hidden` | right only | — | false |
 | `callbacks/52/args/1/expandParent` | right only | — | false |
+| `callbacks/52/args/2/0/position/y` | differs | 31.875 | 30 |
 | `callbacks/52/args/2/0/hidden` | right only | — | false |
 | `callbacks/52/args/2/0/expandParent` | right only | — | false |
 
-### api (38)
+### api (50)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
+| `api/queries/getNodes/0/position/y` | differs | 31.875 | 30 |
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/0/expandParent` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
 | `api/queries/getNodes/1/dragging` | right only | — | false |
 | `api/queries/getNodes/1/expandParent` | right only | — | false |
+| `api/queries/getNode/position/y` | differs | 31.875 | 30 |
 | `api/queries/getNode/hidden` | right only | — | false |
 | `api/queries/getNode/expandParent` | right only | — | false |
+| `api/queries/getInternalNode/position/y` | differs | 31.875 | 30 |
+| `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | 31.875 | 30 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"n1","data":{"label":"n1"},"position":{"x":45,"y":31.875},"sourcePosition":"right","targetPosition":"left","width":100,"height":40,"measured":{"width":10… | — |
@@ -20525,16 +20429,20 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getEdge/animated` | right only | — | false |
 | `api/queries/getEdge/hidden` | right only | — | false |
 | `api/queries/getEdge/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/0/position/y` | differs | 31.875 | 30 |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/expandParent` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/expandParent` | right only | — | false |
+| `api/queries/getNodesBounds/y` | differs | 31.875 | 30 |
+| `api/queries/getNodesBounds/height` | differs | 108.125 | 110 |
 | `api/queries/getHandleConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
 | `api/queries/getHandleConnections/0/targetHandle` | differs | null | {"@undefined":true} |
 | `api/queries/getNodeConnections/0/sourceHandle` | differs | null | {"@undefined":true} |
 | `api/queries/getNodeConnections/0/targetHandle` | differs | null | {"@undefined":true} |
+| `api/queries/toObject/nodes/0/position/y` | differs | 31.875 | 30 |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/0/expandParent` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
@@ -20544,6 +20452,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/edges/0/animated` | right only | — | false |
 | `api/queries/toObject/edges/0/hidden` | right only | — | false |
 | `api/queries/toObject/edges/0/selected` | right only | — | false |
+| `api/queries/toObject/viewport/y` | differs | 13.125 | 15 |
+| `api/queries/getViewport/y` | differs | 13.125 | 15 |
+| `api/queries/screenToFlowPosition/y` | differs | -13.125 | -15 |
+| `api/queries/flowToScreenPosition/y` | differs | 13.125 | 15 |
 
 ## Normalization
 
@@ -20580,11 +20492,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 124 unclaimed difference(s).
+**Failed:** 121 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (14)
+### dom (11)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -20599,9 +20511,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[2]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-184h1408v1088h-1408z⏎        M0,0h1280v720h-1280z | M-64,-184h1408v1088h-1408z M0,0h1280v720h-1280z |
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","patternTransform":"translate(-11,-11)"},… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","pat… |
-| `dom/root/children/div[3]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[3]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[3]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (64)
 
@@ -20758,11 +20667,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 114 unclaimed difference(s).
+**Failed:** 111 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (14)
+### dom (11)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -20777,9 +20686,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[2]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-184h1408v1088h-1408z⏎        M0,0h1280v720h-1280z | M-64,-184h1408v1088h-1408z M0,0h1280v720h-1280z |
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","patternTransform":"translate(-11,-11)"},… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","pat… |
-| `dom/root/children/div[3]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[3]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[3]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (52)
 
@@ -20926,11 +20832,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 123 unclaimed difference(s).
+**Failed:** 120 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (14)
+### dom (11)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -20945,9 +20851,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[2]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-184h1408v1088h-1408z⏎        M0,0h1280v720h-1280z | M-64,-184h1408v1088h-1408z M0,0h1280v720h-1280z |
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","patternTransform":"translate(-11,-11)"},… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","pat… |
-| `dom/root/children/div[3]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[3]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[3]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (61)
 
@@ -21103,18 +21006,15 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 65 unclaimed difference(s).
+**Failed:** 62 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (4)
+### dom (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children` | ordered differently | ["props-parent","props-child"] | ["props-child","props-parent"] |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (31)
 
@@ -21222,11 +21122,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 103 unclaimed difference(s).
+**Failed:** 100 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (15)
+### dom (12)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -21242,9 +21142,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectableend connectablestart nodrag nopan react-flow__handle react-flow__handle-bottom source","data-nodeid":"Node-3","data-h… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectableend connectablestart nodrag nopan reac… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectableend connectablestart nodrag nopan react-flow__handle react-flow__handle-top target","data-nodeid":"Node-4","data-hand… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (5)
 
@@ -21379,11 +21276,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 101 unclaimed difference(s).
+**Failed:** 98 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (15)
+### dom (12)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -21399,9 +21296,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectable connectableend connectablestart conne… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (4)
 
@@ -21534,11 +21428,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 102 unclaimed difference(s).
+**Failed:** 99 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (15)
+### dom (12)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -21554,9 +21448,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectable connectableend connectablestart conne… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (5)
 
@@ -21690,11 +21581,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 115 unclaimed difference(s).
+**Failed:** 112 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (27)
+### dom (24)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -21722,9 +21613,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectable connectableend connectablestart conne… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (4)
 
@@ -21859,11 +21747,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 99 unclaimed difference(s).
+**Failed:** 96 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (15)
+### dom (12)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -21879,9 +21767,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-3/children/1-Node-3--source` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source… |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4-null-target` | left only | {"tag":"div","attrs":{"data-nodeid":"Node-4","data-handlepos":"top","data-id":"1-Node-4-null-target","class":"connectable connectableend connectablestart conne… | — |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-4/children/1-Node-4--target` | right only | — | {"tag":"div","attrs":{"class":"connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target","… |
-| `dom/root/children/div[1]/attrs/data-message` | left only | Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev | — |
-| `dom/root/children/div[1]/children/a[0]` | left only | {"tag":"a","attrs":{"href":"https://reactflow.dev","target":"_blank","rel":"noopener noreferrer","aria-label":"React Flow attribution"},"text":"React Flow","ch… | — |
-| `dom/root/children/div[1]/children/span[0]` | right only | — | {"tag":"span","attrs":{"data-message":"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"},"children":[{"t… |
 
 ### callbacks (10)
 
@@ -22263,8 +22148,8 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `console/3/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
 | `console/4/level` | differs | warning | pageerror |
 | `console/4/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:54052/parity/driver/dist/psflow.js:65026:… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:54052/parity/driver/dist/psflow.js:65026:… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:56177/parity/driver/dist/psflow.js:65028:… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:56177/parity/driver/dist/psflow.js:65028:… |
 
 
 ---
@@ -22439,8 +22324,8 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `console/3/level` | differs | warning | pageerror |
 | `console/3/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
 | `console/4` | right only | — | {"level":"pageerror","text":"ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScri… |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:54052/parity/driver/dist/psflow.js:65026:… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:54052/parity/driver/dist/psflow.js:65026:… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:56177/parity/driver/dist/psflow.js:65028:… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:56177/parity/driver/dist/psflow.js:65028:… |
 
 
 ---
