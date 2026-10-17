@@ -85,7 +85,7 @@ sampleEdge =
   , deletable: Nothing
   , selectable: Nothing
   , data: Nothing
-  , selected: true
+  , selected: Just true
   , markerStart: Nothing
   , markerEnd: Nothing
   , zIndex: Nothing
@@ -141,7 +141,7 @@ freshEdge =
   , deletable: Nothing
   , selectable: Nothing
   , data: Nothing
-  , selected: false
+  , selected: Nothing
   , markerStart: Nothing
   , markerEnd: Nothing
   , zIndex: Nothing
@@ -180,10 +180,10 @@ n2Internal :: InternalNodeBase Unit
 n2Internal = sampleNode { id = NodeId "n2", selected = false }
 
 e1Unsel :: EdgeBase Unit
-e1Unsel = sampleEdge { selected = false }
+e1Unsel = sampleEdge { selected = Just false }
 
 e2Unsel :: EdgeBase Unit
-e2Unsel = sampleEdge { id = "e2", selected = false }
+e2Unsel = sampleEdge { id = "e2", selected = Just false }
 
 baseState :: ReactFlowState Unit Unit
 baseState = initialState defaultInitialStateOptions
@@ -192,7 +192,7 @@ nodeSelected :: ReactFlowState Unit Unit -> String -> Boolean
 nodeSelected st nid = maybe false _.selected (Map.lookup (NodeId nid) st.nodeLookup)
 
 edgeSelected :: ReactFlowState Unit Unit -> String -> Boolean
-edgeSelected st eid = maybe false _.selected (Map.lookup eid st.edgeLookup)
+edgeSelected st eid = maybe false (\e -> e.selected == Just true) (Map.lookup eid st.edgeLookup)
 
 -- 1. ResetSelectedElements emits selection-change effects ------------
 

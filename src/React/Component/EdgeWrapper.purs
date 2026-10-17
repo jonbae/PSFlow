@@ -130,7 +130,7 @@ placeholderEdge edgeId =
   , deletable: Nothing
   , selectable: Nothing
   , data: Nothing
-  , selected: false
+  , selected: Nothing
   , markerStart: Nothing
   , markerEnd: Nothing
   , zIndex: Nothing
@@ -179,7 +179,7 @@ selectEdgePosition edgeId state =
         Just src, Just tgt ->
           let
             z = getElevatedEdgeZIndex
-              { selected: edge.selected
+              { selected: edge.selected == Just true
               , zIndex: fromMaybe 0 edge.zIndex
               , sourceNode: src
               , targetNode: tgt
@@ -385,7 +385,7 @@ edgeWrapper =
           when isSelectable do
             store.dispatch
               (PatchState (\s -> s { nodesSelectionActive = false }))
-            if edge.selected && state.multiSelectionActive then do
+            if edge.selected == Just true && state.multiSelectionActive then do
               store.dispatch
                 (UnselectNodesAndEdges { nodes: Nothing, edges: Just [ edge ] })
               blurEdge
@@ -431,7 +431,7 @@ edgeWrapper =
                 { className: buildEdgeClassName
                     { edgeType
                     , noPanClassName: props.noPanClassName
-                    , selected: edge.selected
+                    , selected: fromMaybe false edge.selected
                     , animated: fromMaybe false edge.animated
                     , selectable: isSelectable
                     , inactive: not isSelectable && isNothing props.onClick
