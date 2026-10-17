@@ -558,6 +558,19 @@
         ]
       },
       {
+        "name": "onMoveEnd",
+        "args": [
+          {
+            "sync": true
+          },
+          {
+            "x": -200,
+            "y": 80,
+            "zoom": 1.5
+          }
+        ]
+      },
+      {
         "name": "onPaneMouseEnter",
         "args": [
           {
@@ -580,7 +593,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 242.5,
+            "timeStamp": 257,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -647,7 +660,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 242.5,
+            "timeStamp": 257,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -692,19 +705,6 @@
         ]
       },
       {
-        "name": "onMoveEnd",
-        "args": [
-          {
-            "sync": true
-          },
-          {
-            "x": -200,
-            "y": 80,
-            "zoom": 1.5
-          }
-        ]
-      },
-      {
         "name": "onMoveStart",
         "args": [
           {
@@ -739,7 +739,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 254.80000001192093,
+            "timeStamp": 274.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -828,7 +828,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 267.5,
+            "timeStamp": 284.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
