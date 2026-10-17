@@ -300,7 +300,10 @@ handle = unsafePerformEffect $ memo $ reactComponent "Handle" \(props :: HandleP
       Just nid -> nid
       Nothing -> unsafeThrow (errorMessage E010)
     nodeId = NodeId nodeIdStr
-    handleId = props.id
+    -- Upstream's `const handleId = id || null`: an empty id is no id.
+    handleId = case props.id of
+      Just "" -> Nothing
+      other -> other
     handleType = props.handleType
   flags <- useStore (selectConnectingFlags nodeId handleId handleType)
   let
@@ -324,7 +327,9 @@ handle = unsafePerformEffect $ memo $ reactComponent "Handle" \(props :: HandleP
       <> "-"
       <> nodeIdStr
       <> "-"
-      <> fromMaybe "" handleId
+      -- Upstream's template literal writes a missing id as `null`, which
+      -- is what `System.XYHandle.handleSelector` looks for.
+      <> fromMaybe "null" handleId
       <> "-"
       <> handleTypeString handleType
 
