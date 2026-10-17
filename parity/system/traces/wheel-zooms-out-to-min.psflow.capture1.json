@@ -471,7 +471,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 278.19999998807907,
+            "timeStamp": 313.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -538,7 +538,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 278.19999998807907,
+            "timeStamp": 313.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -835,50 +835,34 @@
         },
         "getHandleConnections": [
           {
+            "edgeId": "first-edge",
             "source": "1",
             "target": "2",
-            "sourceHandle": {
-              "@undefined": true
-            },
-            "targetHandle": {
-              "@undefined": true
-            },
-            "edgeId": "first-edge"
+            "sourceHandle": null,
+            "targetHandle": null
           },
           {
+            "edgeId": "second-edge",
             "source": "1",
             "target": "3",
-            "sourceHandle": {
-              "@undefined": true
-            },
-            "targetHandle": {
-              "@undefined": true
-            },
-            "edgeId": "second-edge"
+            "sourceHandle": null,
+            "targetHandle": null
           }
         ],
         "getNodeConnections": [
           {
+            "edgeId": "first-edge",
             "source": "1",
             "target": "2",
-            "sourceHandle": {
-              "@undefined": true
-            },
-            "targetHandle": {
-              "@undefined": true
-            },
-            "edgeId": "first-edge"
+            "sourceHandle": null,
+            "targetHandle": null
           },
           {
+            "edgeId": "second-edge",
             "source": "1",
             "target": "3",
-            "sourceHandle": {
-              "@undefined": true
-            },
-            "targetHandle": {
-              "@undefined": true
-            },
-            "edgeId": "second-edge"
+            "sourceHandle": null,
+            "targetHandle": null
           }
         ],
         "toObject": {

@@ -32031,7 +32031,7 @@ var resolveUpdate = function(update) {
       return update;
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Instance (line 514, column 32 - line 516, column 20): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Instance (line 519, column 32 - line 521, column 20): " + [v.constructor.name]);
   };
 };
 var replaceWanted = function(options2) {
@@ -32081,11 +32081,11 @@ var interpolateIn = function(field) {
 };
 var handleConnectionOut = function(c) {
   return {
+    edgeId: c.edgeId,
     source: unwrap3(c.source),
     target: unwrap3(c.target),
-    sourceHandle: toUndefinable(c.sourceHandle),
-    targetHandle: toUndefinable(c.targetHandle),
-    edgeId: c.edgeId
+    sourceHandle: toNullable(c.sourceHandle),
+    targetHandle: toNullable(c.targetHandle)
   };
 };
 var elementUpdater = function(outward) {
@@ -32196,7 +32196,7 @@ var elementRef = function(field) {
       return badArgument(field)("elements carrying an `id`")(typeName(raw));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Instance (line 455, column 24 - line 457, column 74): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Instance (line 460, column 24 - line 462, column 74): " + [v.constructor.name]);
   };
 };
 var nodeOrIdOrRect = function(field) {
@@ -32219,10 +32219,10 @@ var nodeOrIdOrRect = function(field) {
         return badArgument(field)("a node, `{ id }` or a rect ({ x, y, width, height })")(typeName(raw));
       }
       ;
-      throw new Error("Failed pattern match at Boundary.Instance (line 433, column 17 - line 438, column 25): " + [v.constructor.name]);
+      throw new Error("Failed pattern match at Boundary.Instance (line 438, column 17 - line 443, column 25): " + [v.constructor.name]);
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Instance (line 429, column 1 - line 429, column 62): " + [field.constructor.name, raw.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Instance (line 434, column 1 - line 434, column 62): " + [field.constructor.name, raw.constructor.name]);
   };
 };
 var nodeRefForBounds = function(field) {
@@ -32247,7 +32247,7 @@ var nodeRefForBounds = function(field) {
       ;
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Instance (line 443, column 30 - line 449, column 81): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Instance (line 448, column 30 - line 454, column 81): " + [v.constructor.name]);
   };
 };
 var instanceOut = function(i) {

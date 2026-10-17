@@ -113,6 +113,7 @@ import Data.Either (Either(..))
 import Data.Int (round) as Int
 import Data.Maybe (Maybe(..), maybe)
 import Data.Newtype (unwrap, wrap)
+import Data.Nullable (Nullable, toNullable)
 import Effect (Effect)
 import Effect.Exception.Unsafe (unsafeThrow)
 import Effect.Uncurried
@@ -207,12 +208,16 @@ type JsScreenToFlowOptions =
 -- | Upstream's `HandleConnection` and `NodeConnection` are the same shape and
 -- | ps-flow's `NodeConnection` is literally a synonym for its `HandleConnection`,
 -- | so one type serves both.
+-- |
+-- | A missing handle is `null`, as `Connection` types it: upstream's
+-- | `updateConnectionLookup` reads each edge with `sourceHandle = null` and
+-- | `targetHandle = null` defaults.
 type JsHandleConnection =
-  { source :: String
+  { edgeId :: String
+  , source :: String
   , target :: String
-  , sourceHandle :: Undefinable String
-  , targetHandle :: Undefinable String
-  , edgeId :: String
+  , sourceHandle :: Nullable String
+  , targetHandle :: Nullable String
   }
 
 -- | `getHandleConnections`' argument. The rename is the one every nested type
@@ -586,11 +591,11 @@ replaceWanted options = maybe false _.replace (fromUndefinable options)
 
 handleConnectionOut :: HandleConnection -> JsHandleConnection
 handleConnectionOut c =
-  { source: unwrap c.source
+  { edgeId: c.edgeId
+  , source: unwrap c.source
   , target: unwrap c.target
-  , sourceHandle: toUndefinable c.sourceHandle
-  , targetHandle: toUndefinable c.targetHandle
-  , edgeId: c.edgeId
+  , sourceHandle: toNullable c.sourceHandle
+  , targetHandle: toNullable c.targetHandle
   }
 
 -- ────────────────────────────────────────────────────────────────────────
