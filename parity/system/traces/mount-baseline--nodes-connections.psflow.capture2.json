@@ -887,7 +887,6 @@
               "label": "hub"
             },
             "type": "connections",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -905,7 +904,6 @@
               "label": "up-1"
             },
             "type": "connections",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -923,7 +921,6 @@
               "label": "up-2"
             },
             "type": "connections",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -941,7 +938,6 @@
               "label": "down-1"
             },
             "type": "connections",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -959,7 +955,6 @@
               "label": "down-2"
             },
             "type": "connections",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -977,7 +972,6 @@
               "label": "down-3"
             },
             "type": "connections",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -996,7 +990,6 @@
             "label": "hub"
           },
           "type": "connections",
-          "hidden": false,
           "selected": false,
           "dragging": false,
           "measured": {
@@ -1014,7 +1007,6 @@
             "label": "hub"
           },
           "type": "connections",
-          "hidden": false,
           "selected": false,
           "dragging": false,
           "measured": {
@@ -1110,7 +1102,6 @@
               "label": "hub"
             },
             "type": "connections",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1128,7 +1119,6 @@
               "label": "up-1"
             },
             "type": "connections",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1146,7 +1136,6 @@
               "label": "up-2"
             },
             "type": "connections",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1164,7 +1153,6 @@
               "label": "down-1"
             },
             "type": "connections",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1182,7 +1170,6 @@
               "label": "down-2"
             },
             "type": "connections",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1200,7 +1187,6 @@
               "label": "down-3"
             },
             "type": "connections",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1288,7 +1274,6 @@
                 "label": "hub"
               },
               "type": "connections",
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -1306,7 +1291,6 @@
                 "label": "up-1"
               },
               "type": "connections",
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -1324,7 +1308,6 @@
                 "label": "up-2"
               },
               "type": "connections",
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -1342,7 +1325,6 @@
                 "label": "down-1"
               },
               "type": "connections",
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -1360,7 +1342,6 @@
                 "label": "down-2"
               },
               "type": "connections",
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -1378,7 +1359,6 @@
                 "label": "down-3"
               },
               "type": "connections",
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {

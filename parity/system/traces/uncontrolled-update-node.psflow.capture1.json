@@ -673,7 +673,6 @@
               "label": "updated"
             },
             "type": "input",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -691,7 +690,6 @@
               "label": "data updated"
             },
             "type": "output",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -708,7 +706,6 @@
             "data": {
               "label": "Node-3"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -726,7 +723,6 @@
               "label": "Node-4"
             },
             "type": "output",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -743,7 +739,6 @@
             "data": {
               "label": "added"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -762,7 +757,6 @@
             "label": "updated"
           },
           "type": "input",
-          "hidden": false,
           "selected": false,
           "dragging": false,
           "measured": {
@@ -780,7 +774,6 @@
             "label": "updated"
           },
           "type": "input",
-          "hidden": false,
           "selected": false,
           "dragging": false,
           "measured": {
@@ -851,7 +844,6 @@
               "label": "updated"
             },
             "type": "input",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -869,7 +861,6 @@
               "label": "data updated"
             },
             "type": "output",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -886,7 +877,6 @@
             "data": {
               "label": "Node-3"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -904,7 +894,6 @@
               "label": "Node-4"
             },
             "type": "output",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -921,7 +910,6 @@
             "data": {
               "label": "added"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -995,7 +983,6 @@
                 "label": "updated"
               },
               "type": "input",
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -1013,7 +1000,6 @@
                 "label": "data updated"
               },
               "type": "output",
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -1030,7 +1016,6 @@
               "data": {
                 "label": "Node-3"
               },
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -1048,7 +1033,6 @@
                 "label": "Node-4"
               },
               "type": "output",
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -1065,7 +1049,6 @@
               "data": {
                 "label": "added"
               },
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {

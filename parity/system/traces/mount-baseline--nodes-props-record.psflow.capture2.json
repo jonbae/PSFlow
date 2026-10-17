@@ -262,7 +262,6 @@
               "label": "props-parent"
             },
             "type": "propsRecord",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "width": 300,
@@ -282,7 +281,6 @@
               "label": "props-child"
             },
             "type": "propsRecord",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "draggable": false,
@@ -307,7 +305,6 @@
             "label": "props-parent"
           },
           "type": "propsRecord",
-          "hidden": false,
           "selected": false,
           "dragging": false,
           "width": 300,
@@ -327,7 +324,6 @@
             "label": "props-parent"
           },
           "type": "propsRecord",
-          "hidden": false,
           "selected": false,
           "dragging": false,
           "width": 300,
@@ -363,7 +359,6 @@
               "label": "props-parent"
             },
             "type": "propsRecord",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "width": 300,
@@ -383,7 +378,6 @@
               "label": "props-child"
             },
             "type": "propsRecord",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "draggable": false,
@@ -419,7 +413,6 @@
                 "label": "props-parent"
               },
               "type": "propsRecord",
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "width": 300,
@@ -439,7 +432,6 @@
                 "label": "props-child"
               },
               "type": "propsRecord",
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "draggable": false,
