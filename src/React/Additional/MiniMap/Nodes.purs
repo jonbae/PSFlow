@@ -51,7 +51,7 @@ renderOne props internal =
     base :: Node n
     base = internalToBase internal
   in
-    if internal.hidden then Nothing
+    if internal.hidden == Just true then Nothing
     else if not (nodeHasDimensions base) then Nothing
     else case getNodeDimensions internal of
       Nothing -> Nothing
@@ -77,7 +77,7 @@ renderOne props internal =
             , strokeColor: stroke
             , strokeWidth: props.nodeStrokeWidth
             , style: Nothing
-            , selected: internal.selected
+            , selected: internal.selected == Just true
             , onClick: props.onClick
             }
 

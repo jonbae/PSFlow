@@ -140,10 +140,10 @@ type EdgeProps e =
   -- | exactly as `NodeProps` already does. Ticket 072 realigns the data
   -- | records behind a marshalling layer.
   , type :: Maybe String
-  , animated :: Boolean
+  , animated :: Maybe Boolean
   , data :: Maybe e
   , style :: Maybe Style
-  , selected :: Boolean
+  , selected :: Maybe Boolean
   , source :: String
   , target :: String
   , selectable :: Maybe Boolean

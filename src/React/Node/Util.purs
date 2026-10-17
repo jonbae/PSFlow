@@ -81,9 +81,9 @@ handleNodeClick args = do
       -- from the internal one (which would require duplicating
       -- positionAbsolute/measured fields).
       let asNode = (unsafeCoerce node) :: Node n
-      if not asNode.selected then
+      if asNode.selected /= Just true then
         args.store.dispatch (AddSelectedNodes [ args.id ])
-      else if args.unselect || (asNode.selected && state.multiSelectionActive) then do
+      else if args.unselect || (asNode.selected == Just true && state.multiSelectionActive) then do
         args.store.dispatch
           (UnselectNodesAndEdges { nodes: Just [ asNode ], edges: Nothing })
         void $ requestAnimationFrame do
