@@ -21,7 +21,7 @@ import Prelude
 import Data.Array (mapWithIndex) as Array
 import Data.Array.NonEmpty as NEA
 import Data.Int (toNumber) as Int
-import Data.Maybe (Maybe(..))
+import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Newtype (unwrap)
 import Data.Nullable (toMaybe, toNullable)
 import Effect (Effect)
@@ -47,8 +47,8 @@ import Test.QuickCheck.Gen (Gen, chooseInt, elements, vectorOf)
 toPSNode :: OracleChangeNode -> NodeBase Unit
 toPSNode s = (mkNode s.id)
   { position = s.position
-  , selected = s.selected
-  , dragging = s.dragging
+  , selected = Just s.selected
+  , dragging = toMaybe s.dragging
   , width = toMaybe s.width
   , height = toMaybe s.height
   , measured =
@@ -61,8 +61,8 @@ psNodeShape :: NodeBase Unit -> OracleChangeNode
 psNodeShape n =
   { id: unwrap n.id
   , position: n.position
-  , selected: n.selected
-  , dragging: n.dragging
+  , selected: fromMaybe false n.selected
+  , dragging: toNullable n.dragging
   , width: toNullable n.width
   , height: toNullable n.height
   , measured:
@@ -76,7 +76,7 @@ renderNode n =
   n.id
     <> "|" <> show n.position.x <> "," <> show n.position.y
     <> "|" <> show n.selected
-    <> "|" <> show n.dragging
+    <> "|" <> show (toMaybe n.dragging)
     <> "|" <> show (toMaybe n.width) <> "x" <> show (toMaybe n.height)
     <> "|" <> show (toMaybe n.measured.width) <> "x" <> show (toMaybe n.measured.height)
 
@@ -89,10 +89,10 @@ emptyNodeChange =
   , id: ""
   , selected: false
   , position: toNullable (Nothing :: Maybe XYPosition)
-  , dragging: false
+  , dragging: toNullable (Nothing :: Maybe Boolean)
   , dimensions: toNullable (Nothing :: Maybe Dimensions)
   , setAttributes: toNullable (Nothing :: Maybe String)
-  , resizing: false
+  , resizing: toNullable (Nothing :: Maybe Boolean)
   , item: toNullable (Nothing :: Maybe OracleChangeNode)
   , index: toNullable (Nothing :: Maybe Int)
   }
@@ -108,14 +108,14 @@ toOracleNodeChange = case _ of
     { tag = "position"
     , id = unwrap c.id
     , position = toNullable c.position
-    , dragging = c.dragging
+    , dragging = toNullable c.dragging
     }
   NodeDimensionChange c -> emptyNodeChange
     { tag = "dimensions"
     , id = unwrap c.id
     , dimensions = toNullable c.dimensions
     , setAttributes = Oracle.setAttributesArg c.setAttributes
-    , resizing = c.resizing
+    , resizing = toNullable c.resizing
     }
   NodeRemoveChange c -> emptyNodeChange { tag = "remove", id = unwrap c.id }
   NodeReplaceChange c -> emptyNodeChange
@@ -133,10 +133,10 @@ toOracleNodeChange = case _ of
 -- ─── Edges ────────────────────────────────────────────────────────────────
 
 toPSEdge :: OracleChangeEdge -> EdgeBase Unit
-toPSEdge s = (mkEdge s.id "a" "b") { selected = s.selected, animated = s.animated }
+toPSEdge s = (mkEdge s.id "a" "b") { selected = Just s.selected, animated = Just s.animated }
 
 psEdgeShape :: EdgeBase Unit -> OracleChangeEdge
-psEdgeShape e = { id: e.id, selected: e.selected, animated: e.animated }
+psEdgeShape e = { id: e.id, selected: fromMaybe false e.selected, animated: fromMaybe false e.animated }
 
 renderEdge :: OracleChangeEdge -> String
 renderEdge e = e.id <> "|" <> show e.selected <> "|" <> show e.animated
@@ -180,13 +180,19 @@ genMaybeDimension = do
   present <- coin
   if present then Just <<< Int.toNumber <$> chooseInt 0 300 else pure Nothing
 
+-- | Unset as often as either value, because upstream's `applyChange` guards
+-- | `dragging` with `typeof change.dragging !== 'undefined'`, and a node
+-- | carries it only after a change that sets it.
+genMaybeBoolean :: Gen (Maybe Boolean)
+genMaybeBoolean = elements (NEA.cons' Nothing [ Just false, Just true ])
+
 genNode :: Gen OracleChangeNode
 genNode = do
   id <- idPool
   x <- genCoord
   y <- genCoord
   selected <- coin
-  dragging <- coin
+  dragging <- genMaybeBoolean
   width <- genMaybeDimension
   height <- genMaybeDimension
   measuredWidth <- genMaybeDimension
@@ -195,7 +201,7 @@ genNode = do
     { id
     , position: { x, y }
     , selected
-    , dragging
+    , dragging: toNullable dragging
     , width: toNullable width
     , height: toNullable height
     , measured:
@@ -245,7 +251,7 @@ genNodeChange nodes = do
       present <- elements (NEA.cons' true [ true, false ])
       x <- genCoord
       y <- genCoord
-      dragging <- coin
+      dragging <- genMaybeBoolean
       pure
         ( NodePositionChange
             { id: NodeId id
@@ -261,7 +267,7 @@ genNodeChange nodes = do
       width <- Int.toNumber <$> chooseInt 0 300
       height <- Int.toNumber <$> chooseInt 0 300
       setAttributes <- genSetAttributes
-      resizing <- coin
+      resizing <- genMaybeBoolean
       pure
         ( NodeDimensionChange
             { id: NodeId id
@@ -339,12 +345,12 @@ renderNodeChange c = case c.tag of
   "select" -> "select(" <> c.id <> ", " <> show c.selected <> ")"
   "position" ->
     "position(" <> c.id <> ", " <> show (map renderXY (toMaybe c.position))
-      <> ", dragging=" <> show c.dragging <> ")"
+      <> ", dragging=" <> show (toMaybe c.dragging) <> ")"
   "dimensions" ->
     "dimensions(" <> c.id <> ", "
       <> show (map (\d -> show d.width <> "x" <> show d.height) (toMaybe c.dimensions))
       <> ", setAttributes=" <> show (toMaybe c.setAttributes)
-      <> ", resizing=" <> show c.resizing <> ")"
+      <> ", resizing=" <> show (toMaybe c.resizing) <> ")"
   "remove" -> "remove(" <> c.id <> ")"
   "replace" -> "replace(" <> c.id <> ", " <> show (map renderNode (toMaybe c.item)) <> ")"
   "add" ->
@@ -497,7 +503,7 @@ plainNode id =
   { id
   , position: { x: 0.0, y: 0.0 }
   , selected: false
-  , dragging: false
+  , dragging: toNullable (Nothing :: Maybe Boolean)
   , width: toNullable (Just 50.0)
   , height: toNullable (Just 25.0)
   , measured: { width: toNullable (Just 50.0), height: toNullable (Just 25.0) }

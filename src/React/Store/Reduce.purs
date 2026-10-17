@@ -282,7 +282,7 @@ reduceUpdateNodePositions state items dragging =
               { id: item.id
               , position: Just item.position
               , positionAbsolute: Just item.internals.positionAbsolute
-              , dragging
+              , dragging: Just dragging
               }
         )
         items
@@ -425,10 +425,10 @@ reduceUnselectNodesAndEdges state params =
 
     nodeChanges = map
       (\n -> NodeSelectionChange { id: n.id, selected: false })
-      (Array.filter _.selected targetNodes)
+      (Array.filter (\n -> n.selected == Just true) targetNodes)
     edgeChanges = map
       (\e -> EdgeSelectionChange { id: e.id, selected: false })
-      (Array.filter _.selected targetEdges)
+      (Array.filter (\e -> e.selected == Just true) targetEdges)
 
     afterNodes = reduceTriggerNodeChanges state nodeChanges
     afterEdges = reduceTriggerEdgeChanges afterNodes.state edgeChanges
@@ -544,14 +544,14 @@ reduceResetSelectedElements state
 
         nodeChanges = Array.mapMaybe
           ( \(Tuple _ n) ->
-              if n.selected then
+              if n.selected == Just true then
                 Just (NodeSelectionChange { id: n.id, selected: false })
               else Nothing
           )
           nodePairs
         edgeChanges = Array.mapMaybe
           ( \(Tuple _ e) ->
-              if e.selected then
+              if e.selected == Just true then
                 Just (EdgeSelectionChange { id: e.id, selected: false })
               else Nothing
           )

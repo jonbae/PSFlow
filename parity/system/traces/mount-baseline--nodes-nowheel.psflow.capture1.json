@@ -288,8 +288,7 @@
               "dimensions": {
                 "width": 150,
                 "height": 37
-              },
-              "resizing": false
+              }
             },
             {
               "type": "dimensions",
@@ -297,8 +296,7 @@
               "dimensions": {
                 "width": 150,
                 "height": 37
-              },
-              "resizing": false
+              }
             }
           ]
         ]
@@ -360,10 +358,6 @@
             "data": {
               "label": "nowheel"
             },
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -383,10 +377,6 @@
             "data": {
               "label": "plain"
             },
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -402,10 +392,6 @@
           "data": {
             "label": "nowheel"
           },
-          "hidden": false,
-          "selected": false,
-          "dragging": false,
-          "expandParent": false,
           "measured": {
             "width": 150,
             "height": 37
@@ -425,10 +411,6 @@
           "data": {
             "label": "nowheel"
           },
-          "hidden": false,
-          "selected": false,
-          "dragging": false,
-          "expandParent": false,
           "measured": {
             "width": 150,
             "height": 37
@@ -447,9 +429,7 @@
             "handleBounds": {
               "source": [
                 {
-                  "id": {
-                    "@undefined": true
-                  },
+                  "id": null,
                   "nodeId": "nowheel",
                   "x": 70.99987638157852,
                   "y": 31.999940455378436,
@@ -461,9 +441,7 @@
               ],
               "target": [
                 {
-                  "id": {
-                    "@undefined": true
-                  },
+                  "id": null,
                   "nodeId": "nowheel",
                   "x": 70.99987638157852,
                   "y": -2.9999889201456216,
@@ -480,19 +458,13 @@
           {
             "id": "nowheel-plain",
             "source": "nowheel",
-            "target": "plain",
-            "animated": false,
-            "hidden": false,
-            "selected": false
+            "target": "plain"
           }
         ],
         "getEdge": {
           "id": "nowheel-plain",
           "source": "nowheel",
-          "target": "plain",
-          "animated": false,
-          "hidden": false,
-          "selected": false
+          "target": "plain"
         },
         "getIntersectingNodes": [
           {
@@ -504,10 +476,6 @@
             "data": {
               "label": "nowheel"
             },
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -527,10 +495,6 @@
             "data": {
               "label": "plain"
             },
-            "hidden": false,
-            "selected": false,
-            "dragging": false,
-            "expandParent": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -573,10 +537,6 @@
               "data": {
                 "label": "nowheel"
               },
-              "hidden": false,
-              "selected": false,
-              "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -596,10 +556,6 @@
               "data": {
                 "label": "plain"
               },
-              "hidden": false,
-              "selected": false,
-              "dragging": false,
-              "expandParent": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -610,10 +566,7 @@
             {
               "id": "nowheel-plain",
               "source": "nowheel",
-              "target": "plain",
-              "animated": false,
-              "hidden": false,
-              "selected": false
+              "target": "plain"
             }
           ],
           "viewport": {
