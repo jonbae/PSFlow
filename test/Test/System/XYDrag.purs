@@ -92,7 +92,7 @@ draggedNode =
   , sourcePosition: Nothing
   , targetPosition: Nothing
   , hidden: Nothing
-  , selected: true
+  , selected: Just true
   , dragging: Nothing
   , draggable: Just true
   , selectable: Nothing

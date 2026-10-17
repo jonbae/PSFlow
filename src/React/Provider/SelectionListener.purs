@@ -37,7 +37,7 @@ import React.Types.Store (ReactFlowState)
 selectIds :: forall n e. ReactFlowState n e -> { nodes :: Array String, edges :: Array String }
 selectIds s =
   { nodes: Array.mapMaybe
-      (\n -> if n.selected then Just (unwrap n.id) else Nothing)
+      (\n -> if n.selected == Just true then Just (unwrap n.id) else Nothing)
       (Array.fromFoldable (Map.values s.nodeLookup))
   , edges: Array.mapMaybe
       (\e -> if e.selected == Just true then Just e.id else Nothing)
@@ -58,7 +58,7 @@ selectionListenerInner =
         -- reducer updates both) — filtering the arrays directly avoids
         -- the userNode hop and keeps the types as `Node n` / `Edge e`.
         let
-          selectedNodes = Array.filter (\n -> n.selected) s.nodes
+          selectedNodes = Array.filter (\n -> n.selected == Just true) s.nodes
           selectedEdges = Array.filter (\e -> e.selected == Just true) s.edges
           params = { nodes: selectedNodes, edges: selectedEdges }
         case props.onSelectionChange of

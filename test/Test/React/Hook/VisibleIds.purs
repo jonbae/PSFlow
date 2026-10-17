@@ -39,7 +39,7 @@ mkNode nodeId px py w h =
   , sourcePosition: Nothing
   , targetPosition: Nothing
   , hidden: Nothing
-  , selected: false
+  , selected: Nothing
   , dragging: Nothing
   , draggable: Nothing
   , selectable: Nothing

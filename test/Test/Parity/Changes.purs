@@ -47,7 +47,7 @@ import Test.QuickCheck.Gen (Gen, chooseInt, elements, vectorOf)
 toPSNode :: OracleChangeNode -> NodeBase Unit
 toPSNode s = (mkNode s.id)
   { position = s.position
-  , selected = s.selected
+  , selected = Just s.selected
   , dragging = toMaybe s.dragging
   , width = toMaybe s.width
   , height = toMaybe s.height
@@ -61,7 +61,7 @@ psNodeShape :: NodeBase Unit -> OracleChangeNode
 psNodeShape n =
   { id: unwrap n.id
   , position: n.position
-  , selected: n.selected
+  , selected: fromMaybe false n.selected
   , dragging: toNullable n.dragging
   , width: toNullable n.width
   , height: toNullable n.height

@@ -43,7 +43,7 @@ mkNode
   :: { id :: String
      , x :: Number
      , y :: Number
-     , selected :: Boolean
+     , selected :: Maybe Boolean
      , measured :: { width :: Maybe Number, height :: Maybe Number }
      }
   -> NodeBase Unit
@@ -100,7 +100,7 @@ genNode = do
   id <- genNodeId
   x <- genNumber
   y <- genNumber
-  selected <- elements (NEA.cons' true [ false ])
+  selected <- elements (NEA.cons' (Just true) [ Just false, Nothing ])
   measured <- genMeasured
   pure (mkNode { id, x, y, selected, measured })
 
@@ -177,7 +177,7 @@ runStoreProperties = do
     ns <- genNodeArray
     let r = adoptUserNodes ns Map.empty Map.empty opts
     pure
-      ( r.hasSelectedNodes == Array.any _.selected ns
+      ( r.hasSelectedNodes == Array.any (\n -> n.selected == Just true) ns
           <?> "hasSelectedNodes disagrees with input"
       )
 

@@ -76,7 +76,7 @@ useGlobalKeyHandler opts = coerceHook React.do
         selectedNodeIds =
           Array.mapMaybe
             ( \n ->
-                if n.selected && n.deletable /= Just false then Just n.id
+                if n.selected == Just true && n.deletable /= Just false then Just n.id
                 else Nothing
             )
             st.nodes

@@ -140,7 +140,7 @@ placeholderNode nodeId =
   , sourcePosition: Nothing
   , targetPosition: Nothing
   , hidden: Just true
-  , selected: false
+  , selected: Nothing
   , dragging: Nothing
   , draggable: Nothing
   , selectable: Nothing
@@ -292,7 +292,7 @@ mkNodeProps node nodeType selectable draggable connectable dragging =
   , zIndex: node.internals.z
   , selectable
   , deletable: fromMaybe true node.deletable
-  , selected: node.selected
+  , selected: fromMaybe false node.selected
   , draggable
   , isConnectable: connectable
   , positionAbsoluteX: node.internals.positionAbsolute.x
@@ -456,7 +456,7 @@ nodeWrapper =
                 }
             else case Map.lookup k arrowKeyDiffs of
               Just delta
-                | isDraggable && node.selected -> do
+                | isDraggable && node.selected == Just true -> do
                     preventDefault (KE.toEvent ke)
                     moveSelectedNodes delta (if shift then 4.0 else 1.0)
               _ -> pure unit
@@ -503,7 +503,7 @@ nodeWrapper =
                 , isDraggable
                 , isSelectable
                 , isParent: slice.isParent
-                , selected: node.selected
+                , selected: node.selected == Just true
                 , dragging
                 }
             , ref: nodeRef

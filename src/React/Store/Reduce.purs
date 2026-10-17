@@ -425,7 +425,7 @@ reduceUnselectNodesAndEdges state params =
 
     nodeChanges = map
       (\n -> NodeSelectionChange { id: n.id, selected: false })
-      (Array.filter _.selected targetNodes)
+      (Array.filter (\n -> n.selected == Just true) targetNodes)
     edgeChanges = map
       (\e -> EdgeSelectionChange { id: e.id, selected: false })
       (Array.filter (\e -> e.selected == Just true) targetEdges)
@@ -544,7 +544,7 @@ reduceResetSelectedElements state
 
         nodeChanges = Array.mapMaybe
           ( \(Tuple _ n) ->
-              if n.selected then
+              if n.selected == Just true then
                 Just (NodeSelectionChange { id: n.id, selected: false })
               else Nothing
           )

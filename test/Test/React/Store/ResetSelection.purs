@@ -47,7 +47,7 @@ selectedNode =
   , sourcePosition: Nothing
   , targetPosition: Nothing
   , hidden: Nothing
-  , selected: true
+  , selected: Just true
   , dragging: Nothing
   , draggable: Nothing
   , selectable: Nothing
@@ -115,9 +115,9 @@ uncontrolled selectable =
 
 stillSelected :: ReactFlowState Unit Unit -> Boolean
 stillSelected s =
-  maybe false _.selected (Map.lookup (NodeId "n1") s.nodeLookup)
+  maybe false (\n -> n.selected == Just true) (Map.lookup (NodeId "n1") s.nodeLookup)
     && maybe false (\e -> e.selected == Just true) (Map.lookup "e1" s.edgeLookup)
-    && Array.all _.selected s.nodes
+    && Array.all (\n -> n.selected == Just true) s.nodes
     && Array.all (\e -> e.selected == Just true) s.edges
 
 runResetSelectionTests :: Effect Unit

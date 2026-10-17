@@ -49,7 +49,7 @@ isParentSelected node lookup = go Set.empty node.parentId
     | otherwise = case Map.lookup (parentToNode pid) lookup of
         Nothing -> false
         Just parent ->
-          if parent.selected then true
+          if parent.selected == Just true then true
           else go (Set.insert pid visited) parent.parentId
 
 -- | DOM walk: starting at `target`, climb `parentElement` until either the
@@ -93,7 +93,7 @@ getDragItems order lookup nodesDraggable mousePos mNodeId =
       Just _ -> not (isParentSelected node lookup)
 
     isTarget node =
-      node.selected || (mNodeId == Just node.id)
+      node.selected == Just true || (mNodeId == Just node.id)
 
     keep node =
       isTarget node
