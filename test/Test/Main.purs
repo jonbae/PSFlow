@@ -73,6 +73,7 @@ import Test.React.Additional.MiniMapMask (runMiniMapMaskTests)
 import Test.React.Additional.BackgroundPattern (runBackgroundPatternTests)
 import Test.System.Utils.MeasurementOrder (runMeasurementOrderTests)
 import Test.React.Hook.DeleteKey (runDeleteKeyTests)
+import Test.React.HandleNativeEvent (runHandleNativeEventTests)
 import Test.React.Additional.NodeToolbarPortal (runNodeToolbarPortalTests)
 import Test.React.Hook.NodeRenderOrder (runNodeRenderOrderTests)
 import Test.React.Component.HandleDataId (runHandleDataIdTests)
@@ -1144,6 +1145,7 @@ main = do
   runBackgroundPatternTests
   runMeasurementOrderTests
   runDeleteKeyTests
+  runHandleNativeEventTests
   runEdgeAriaLabelTests
   runNodeA11yDescriptionTests
   runMeasuredDimensionsTests
