@@ -69,6 +69,12 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
+                                      "stroke-dasharray": "6 3",
+                                      "stroke-linecap": "round",
+                                      "stroke-width": "3",
+                                      "pathLength": "100",
+                                      "data-psflow-edge": "base-edge-path",
+                                      "aria-label": "edge with path attributes",
                                       "id": "custom-1",
                                       "d": "M75 40L75 60L 75,83.5Q 75,88.5 70,88.5L -60,88.5Q -65,88.5 -65,93.5L-65 117L-65 137",
                                       "fill": "none",
@@ -137,6 +143,12 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
+                                      "stroke-dasharray": "6 3",
+                                      "stroke-linecap": "round",
+                                      "stroke-width": "3",
+                                      "pathLength": "100",
+                                      "data-psflow-edge": "base-edge-path",
+                                      "aria-label": "edge with path attributes",
                                       "id": "custom-2",
                                       "d": "M75 40L75 60L 75,83.5Q 75,88.5 80,88.5L 210,88.5Q 215,88.5 215,93.5L215 117L215 137",
                                       "fill": "none",
@@ -529,7 +541,7 @@
               "isTrusted": true
             },
             "target": {
-              "@ref": "DIV"
+              "@ref": "path"
             },
             "currentTarget": {
               "@ref": "DIV"
@@ -537,19 +549,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 1187.9000000357628,
+            "timeStamp": 144.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 0,
-            "screenY": 0,
-            "clientX": 0,
-            "clientY": 0,
-            "pageX": 0,
-            "pageY": 0,
+            "screenX": 500,
+            "screenY": 360,
+            "clientX": 500,
+            "clientY": 360,
+            "pageX": 500,
+            "pageY": 360,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -564,71 +576,6 @@
             },
             "movementX": 0,
             "movementY": 0,
-            "pointerId": 1,
-            "width": 1,
-            "height": 1,
-            "pressure": 0,
-            "tangentialPressure": 0,
-            "tiltX": 0,
-            "tiltY": 0,
-            "twist": 0,
-            "pointerType": "mouse",
-            "isPrimary": true,
-            "isDefaultPrevented": {
-              "@ref": "function"
-            },
-            "isPropagationStopped": {
-              "@ref": "function"
-            }
-          }
-        ]
-      },
-      {
-        "name": "onPaneMouseMove",
-        "args": [
-          {
-            "@class": "SyntheticBaseEvent",
-            "_reactName": "onPointerMove",
-            "_targetInst": null,
-            "type": "pointermove",
-            "nativeEvent": {
-              "@class": "PointerEvent",
-              "isTrusted": true
-            },
-            "target": {
-              "@ref": "DIV"
-            },
-            "currentTarget": {
-              "@ref": "DIV"
-            },
-            "eventPhase": 3,
-            "bubbles": true,
-            "cancelable": true,
-            "timeStamp": 1187.9000000357628,
-            "defaultPrevented": false,
-            "isTrusted": true,
-            "view": {
-              "@ref": "Window"
-            },
-            "detail": 0,
-            "screenX": 0,
-            "screenY": 0,
-            "clientX": 0,
-            "clientY": 0,
-            "pageX": 0,
-            "pageY": 0,
-            "ctrlKey": false,
-            "shiftKey": false,
-            "altKey": false,
-            "metaKey": false,
-            "getModifierState": {
-              "@ref": "function"
-            },
-            "button": -1,
-            "buttons": 0,
-            "relatedTarget": null,
-            "movementX": 1,
-            "movementY": 1,
             "pointerId": 1,
             "width": 1,
             "height": 1,
@@ -671,18 +618,18 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 1194.9000000357628,
+            "timeStamp": 144.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 780,
+            "screenX": 500,
             "screenY": 360,
-            "clientX": 780,
+            "clientX": 500,
             "clientY": 360,
-            "pageX": 780,
+            "pageX": 500,
             "pageY": 360,
             "ctrlKey": false,
             "shiftKey": false,
@@ -694,7 +641,7 @@
             "button": 0,
             "buttons": 0,
             "relatedTarget": {
-              "@ref": "DIV"
+              "@ref": "Window"
             },
             "movementX": 0,
             "movementY": 0,
@@ -706,11 +653,10 @@
             }
           },
           {
-            "id": "custom-2",
+            "id": "custom-1",
             "type": "pathAttributes",
             "source": "Node-1",
-            "target": "Node-3",
-            "label": "custom"
+            "target": "Node-2"
           }
         ]
       },
@@ -735,18 +681,18 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 1194.9000000357628,
+            "timeStamp": 144.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 780,
+            "screenX": 500,
             "screenY": 360,
-            "clientX": 780,
+            "clientX": 500,
             "clientY": 360,
-            "pageX": 780,
+            "pageX": 500,
             "pageY": 360,
             "ctrlKey": false,
             "shiftKey": false,
@@ -758,8 +704,8 @@
             "button": -1,
             "buttons": 0,
             "relatedTarget": null,
-            "movementX": 780,
-            "movementY": 360,
+            "movementX": 501,
+            "movementY": 361,
             "pointerId": 1,
             "width": 1,
             "height": 1,
@@ -800,7 +746,355 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 1194.9000000357628,
+            "timeStamp": 144.80000001192093,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 500,
+            "screenY": 360,
+            "clientX": 500,
+            "clientY": 360,
+            "pageX": 500,
+            "pageY": 360,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": null,
+            "movementX": 501,
+            "movementY": 361,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "custom-1",
+            "type": "pathAttributes",
+            "source": "Node-1",
+            "target": "Node-2"
+          }
+        ]
+      },
+      {
+        "name": "onEdgesChange",
+        "args": [
+          [
+            {
+              "type": "select",
+              "id": "custom-1",
+              "selected": true
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onEdgeClick",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onClick",
+            "_targetInst": null,
+            "type": "click",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "path"
+            },
+            "currentTarget": {
+              "@ref": "g"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 151.60000002384186,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 1,
+            "screenX": 500,
+            "screenY": 360,
+            "clientX": 500,
+            "clientY": 360,
+            "pageX": 500,
+            "pageY": 360,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": null,
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "custom-1",
+            "type": "pathAttributes",
+            "source": "Node-1",
+            "target": "Node-2"
+          }
+        ]
+      },
+      {
+        "name": "onSelectionChange",
+        "args": [
+          {
+            "nodes": [],
+            "edges": [
+              {
+                "id": "custom-1",
+                "type": "pathAttributes",
+                "source": "Node-1",
+                "target": "Node-2",
+                "selected": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "onEdgeMouseLeave",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseLeave",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseleave",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "path"
+            },
+            "currentTarget": {
+              "@ref": "g"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 167.4000000357628,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 780,
+            "screenY": 360,
+            "clientX": 780,
+            "clientY": 360,
+            "pageX": 780,
+            "pageY": 360,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": {
+              "@ref": "path"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "custom-1",
+            "type": "pathAttributes",
+            "source": "Node-1",
+            "target": "Node-2",
+            "selected": true
+          }
+        ]
+      },
+      {
+        "name": "onEdgeMouseEnter",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseEnter",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseenter",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "path"
+            },
+            "currentTarget": {
+              "@ref": "g"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 167.4000000357628,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 780,
+            "screenY": 360,
+            "clientX": 780,
+            "clientY": 360,
+            "pageX": 780,
+            "pageY": 360,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": {
+              "@ref": "path"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "custom-2",
+            "type": "pathAttributes",
+            "source": "Node-1",
+            "target": "Node-3",
+            "label": "custom"
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerMove",
+            "_targetInst": null,
+            "type": "pointermove",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "path"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 167.4000000357628,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 780,
+            "screenY": 360,
+            "clientX": 780,
+            "clientY": 360,
+            "pageX": 780,
+            "pageY": 360,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 0,
+            "relatedTarget": null,
+            "movementX": 280,
+            "movementY": 0,
+            "pointerId": 1,
+            "width": 1,
+            "height": 1,
+            "pressure": 0,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "mouse",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onEdgeMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseMove",
+            "_targetInst": null,
+            "type": "mousemove",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "path"
+            },
+            "currentTarget": {
+              "@ref": "g"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 167.4000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -823,8 +1117,8 @@
             "button": 0,
             "buttons": 0,
             "relatedTarget": null,
-            "movementX": 780,
-            "movementY": 360,
+            "movementX": 280,
+            "movementY": 0,
             "isDefaultPrevented": {
               "@ref": "function"
             },
@@ -845,6 +1139,11 @@
         "name": "onEdgesChange",
         "args": [
           [
+            {
+              "type": "select",
+              "id": "custom-1",
+              "selected": false
+            },
             {
               "type": "select",
               "id": "custom-2",
@@ -874,7 +1173,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 1200.6000000238419,
+            "timeStamp": 184,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1039,7 +1338,8 @@
             "id": "custom-1",
             "type": "pathAttributes",
             "source": "Node-1",
-            "target": "Node-2"
+            "target": "Node-2",
+            "selected": false
           },
           {
             "id": "custom-2",
@@ -1060,7 +1360,8 @@
           "id": "custom-1",
           "type": "pathAttributes",
           "source": "Node-1",
-          "target": "Node-2"
+          "target": "Node-2",
+          "selected": false
         },
         "getIntersectingNodes": [
           {
@@ -1197,7 +1498,8 @@
               "id": "custom-1",
               "type": "pathAttributes",
               "source": "Node-1",
-              "target": "Node-2"
+              "target": "Node-2",
+              "selected": false
             },
             {
               "id": "custom-2",
@@ -1265,9 +1567,18 @@
         "index": 1,
         "action": "pointerDown",
         "target": "[data-psflow-edge=\"base-edge-path\"]",
-        "resolved": false,
-        "box": null,
-        "dispatched": null
+        "resolved": true,
+        "box": {
+          "x": 356,
+          "y": 259,
+          "width": 288,
+          "height": 202
+        },
+        "dispatched": {
+          "x": 500,
+          "y": 360,
+          "button": "left"
+        }
       },
       {
         "index": 2,
@@ -1276,8 +1587,8 @@
         "resolved": true,
         "box": null,
         "dispatched": {
-          "x": 0,
-          "y": 0,
+          "x": 500,
+          "y": 360,
           "button": "left"
         }
       },

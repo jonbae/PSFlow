@@ -69,6 +69,12 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
+                                      "stroke-dasharray": "6 3",
+                                      "stroke-linecap": "round",
+                                      "stroke-width": "3",
+                                      "pathLength": "100",
+                                      "data-psflow-edge": "base-edge-path",
+                                      "aria-label": "edge with path attributes",
                                       "id": "custom-1",
                                       "d": "M75 40L75 60L 75,83.5Q 75,88.5 70,88.5L -60,88.5Q -65,88.5 -65,93.5L-65 117L-65 137",
                                       "fill": "none",
@@ -137,6 +143,12 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
+                                      "stroke-dasharray": "6 3",
+                                      "stroke-linecap": "round",
+                                      "stroke-width": "3",
+                                      "pathLength": "100",
+                                      "data-psflow-edge": "base-edge-path",
+                                      "aria-label": "edge with path attributes",
                                       "id": "custom-2",
                                       "d": "M75 40L75 60L 75,83.5Q 75,88.5 80,88.5L 210,88.5Q 215,88.5 215,93.5L215 117L215 137",
                                       "fill": "none",

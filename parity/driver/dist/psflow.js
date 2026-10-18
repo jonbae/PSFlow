@@ -4397,8 +4397,8 @@ var require_react_dom_development = __commonJS({
           });
         });
         function dangerousStyleValue(name15, value12, isCustomProperty) {
-          var isEmpty3 = value12 == null || typeof value12 === "boolean" || value12 === "";
-          if (isEmpty3) {
+          var isEmpty4 = value12 == null || typeof value12 === "boolean" || value12 === "";
+          if (isEmpty4) {
             return "";
           }
           if (!isCustomProperty && typeof value12 === "number" && value12 !== 0 && !(isUnitlessNumber.hasOwnProperty(name15) && isUnitlessNumber[name15])) {
@@ -24707,8 +24707,8 @@ var fromFoldableImpl = /* @__PURE__ */ function() {
     }
     return result;
   }
-  return function(foldr3, xs) {
-    return listToArray(foldr3(curryCons)(emptyList)(xs));
+  return function(foldr4, xs) {
+    return listToArray(foldr4(curryCons)(emptyList)(xs));
   };
 }();
 var length = function(xs) {
@@ -26568,6 +26568,7 @@ var nub = function(dictOrd) {
 var fromFoldable = function(dictFoldable) {
   return runFn2(fromFoldableImpl)(foldr(dictFoldable));
 };
+var foldr2 = /* @__PURE__ */ foldr(foldableArray);
 var foldl2 = /* @__PURE__ */ foldl(foldableArray);
 var findIndex = /* @__PURE__ */ function() {
   return runFn4(findIndexImpl)(Just.create)(Nothing.value);
@@ -29523,11 +29524,11 @@ var foldableList = {
     };
   }
 };
-var foldr2 = /* @__PURE__ */ foldr(foldableList);
+var foldr3 = /* @__PURE__ */ foldr(foldableList);
 var semigroupList = {
   append: function(xs) {
     return function(ys) {
-      return foldr2(Cons.create)(ys)(xs);
+      return foldr3(Cons.create)(ys)(xs);
     };
   }
 };
@@ -29769,6 +29770,14 @@ function poke2(k) {
     };
   };
 }
+var deleteImpl = function(k) {
+  return function(m) {
+    return function() {
+      delete m[k];
+      return m;
+    };
+  };
+};
 
 // output/Foreign.Object/index.js
 var $$void4 = /* @__PURE__ */ $$void(functorST);
@@ -29810,6 +29819,11 @@ var isSubmap = function(dictEq) {
     };
   };
 };
+var isEmpty = /* @__PURE__ */ all3(function(v) {
+  return function(v1) {
+    return false;
+  };
+});
 var insert2 = function(k) {
   return function(v) {
     return mutate(poke2(k)(v));
@@ -29857,6 +29871,9 @@ var eqObject = function(dictEq) {
       };
     }
   };
+};
+var $$delete2 = function(k) {
+  return mutate(deleteImpl(k));
 };
 
 // output/React.Basic/foreign.js
@@ -33084,6 +33101,7 @@ var pattern_ = mk("pattern");
 var polyline_ = mk("polyline");
 var symbol_ = mk("symbol");
 var title_ = mk("title");
+var spreadUnderImpl = (attributes, props) => ({ ...attributes, ...props });
 var scrollResetHandlerImpl = (cb) => (event) => {
   if (event && event.currentTarget && event.currentTarget.scrollTo) {
     event.currentTarget.scrollTo({ top: 0, left: 0, behavior: "instant" });
@@ -33096,13 +33114,26 @@ var blurElement = (element2) => () => {
 
 // output/React.FFI.DOM/index.js
 var textContent = unsafeCoerce2;
+var spreadUnder = function(v) {
+  return function(v1) {
+    if (v instanceof Nothing) {
+      return v1;
+    }
+    ;
+    if (v instanceof Just) {
+      return spreadUnderImpl(v.value0, v1);
+    }
+    ;
+    throw new Error("Failed pattern match at React.FFI.DOM (line 72, column 1 - line 72, column 72): " + [v.constructor.name, v1.constructor.name]);
+  };
+};
 var scrollResetHandler = function(cb) {
   return scrollResetHandlerImpl(function(v) {
     return cb();
   });
 };
-var opt = function($2) {
-  return toNullable($2);
+var opt = function($7) {
+  return toNullable($7);
 };
 
 // output/React.Additional.Background.Patterns/index.js
@@ -34263,7 +34294,7 @@ var toUnfoldable5 = function(dictUnfoldable) {
     return $784(toMapIter($785));
   };
 };
-var isEmpty = function(v) {
+var isEmpty2 = function(v) {
   if (v instanceof Leaf) {
     return true;
   }
@@ -34512,7 +34543,7 @@ var fromFoldable4 = function(dictOrd) {
     })(empty5);
   };
 };
-var $$delete3 = function(dictOrd) {
+var $$delete4 = function(dictOrd) {
   var compare3 = compare(dictOrd);
   return function(k) {
     var go2 = function(v) {
@@ -41360,7 +41391,7 @@ var selector3 = function(s) {
     height: s.height / s.transform.scale
   };
   var boundingRect = function() {
-    var $129 = isEmpty(s.nodeLookup);
+    var $129 = isEmpty2(s.nodeLookup);
     if ($129) {
       return viewBB;
     }
@@ -43038,9 +43069,9 @@ var baseEdge = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PU
         return "react-flow__edge-path";
       }
       ;
-      throw new Error("Failed pattern match at React.Edge.Base (line 31, column 19 - line 33, column 43): " + [v.className.constructor.name]);
+      throw new Error("Failed pattern match at React.Edge.Base (line 33, column 19 - line 35, column 43): " + [v.className.constructor.name]);
     }();
-    var mainPath = path_({
+    var mainPath = path_(spreadUnder(v.pathAttributes)({
       id: opt(v.id),
       d: v.path,
       fill: "none",
@@ -43048,7 +43079,7 @@ var baseEdge = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PU
       className: pathClass,
       markerStart: opt(v.markerStart),
       markerEnd: opt(v.markerEnd)
-    })([]);
+    }))([]);
     var label4 = function() {
       if (v.label instanceof Just && (v.labelX instanceof Just && (v.labelY instanceof Just && isJust(v.label)))) {
         return element(edgeText)({
@@ -43081,7 +43112,7 @@ var baseEdge = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PU
         return mempty4;
       }
       ;
-      throw new Error("Failed pattern match at React.Edge.Base (line 45, column 7 - line 45, column 29): ");
+      throw new Error("Failed pattern match at React.Edge.Base (line 49, column 7 - line 49, column 29): ");
     }();
     return append15(mainPath)(append15(interactionPath)(label4));
   }());
@@ -43135,7 +43166,8 @@ var mkBezierEdge = function(cfg) {
         markerEnd: v.markerEnd,
         markerStart: v.markerStart,
         interactionWidth: v.interactionWidth,
-        className: Nothing.value
+        className: Nothing.value,
+        pathAttributes: Nothing.value
       });
     }());
   })));
@@ -43187,7 +43219,8 @@ var mkSimpleBezierEdge = function(cfg) {
         markerEnd: v.markerEnd,
         markerStart: v.markerStart,
         interactionWidth: v.interactionWidth,
-        className: Nothing.value
+        className: Nothing.value,
+        pathAttributes: Nothing.value
       });
     }());
   })));
@@ -43257,7 +43290,8 @@ var mkSmoothStepEdge = function(cfg) {
         markerEnd: v.markerEnd,
         markerStart: v.markerStart,
         interactionWidth: v.interactionWidth,
-        className: Nothing.value
+        className: Nothing.value,
+        pathAttributes: Nothing.value
       });
     }());
   })));
@@ -43366,7 +43400,8 @@ var mkStraightEdge = function(cfg) {
         markerEnd: v.markerEnd,
         markerStart: v.markerStart,
         interactionWidth: v.interactionWidth,
-        className: Nothing.value
+        className: Nothing.value,
+        pathAttributes: Nothing.value
       });
     }());
   })));
@@ -43472,25 +43507,6 @@ var edgeTypesIn = function(types) {
     };
   })(types);
 };
-var convertBaseEdge = function(p) {
-  return {
-    id: fromUndefinable(p.id),
-    path: requiredProp("BaseEdge.path")(p.path),
-    labelX: fromUndefinable(p.labelX),
-    labelY: fromUndefinable(p.labelY),
-    label: fromUndefinable(p.label),
-    labelStyle: map31(asCssStyle)(fromUndefinable(p.labelStyle)),
-    labelShowBg: fromUndefinable(p.labelShowBg),
-    labelBgStyle: map31(asCssStyle)(fromUndefinable(p.labelBgStyle)),
-    labelBgPadding: map31(labelBgPaddingIn("BaseEdge.labelBgPadding"))(fromUndefinable(p.labelBgPadding)),
-    labelBgBorderRadius: fromUndefinable(p.labelBgBorderRadius),
-    style: map31(asCssStyle)(fromUndefinable(p.style)),
-    markerEnd: fromUndefinable(p.markerEnd),
-    markerStart: fromUndefinable(p.markerStart),
-    interactionWidth: fromUndefinable(p.interactionWidth),
-    className: fromUndefinable(p.className)
-  };
-};
 var connectionStatusOut = function(v) {
   if (v instanceof ConnectionValid) {
     return "valid";
@@ -43500,7 +43516,7 @@ var connectionStatusOut = function(v) {
     return "invalid";
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Edges (line 641, column 23 - line 643, column 33): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Edges (line 679, column 23 - line 681, column 33): " + [v.constructor.name]);
 };
 var connectionLinePropsOut = function(p) {
   return {
@@ -43523,6 +43539,36 @@ var connectionLinePropsOut = function(p) {
 var connectionLineComponentIn = function(userComponent) {
   return function(psProps) {
     return element(userComponent)(connectionLinePropsOut(psProps));
+  };
+};
+var baseEdgeMembers = ["id", "path", "labelX", "labelY", "label", "labelStyle", "labelShowBg", "labelBgStyle", "labelBgPadding", "labelBgBorderRadius", "style", "markerEnd", "markerStart", "interactionWidth", "className"];
+var pathAttributesIn = function(p) {
+  var rest = foldr2($$delete2)(p)(baseEdgeMembers);
+  var $33 = isEmpty(rest);
+  if ($33) {
+    return Nothing.value;
+  }
+  ;
+  return new Just(rest);
+};
+var convertBaseEdge = function(p) {
+  return {
+    id: fromUndefinable(p.id),
+    path: requiredProp("BaseEdge.path")(p.path),
+    labelX: fromUndefinable(p.labelX),
+    labelY: fromUndefinable(p.labelY),
+    label: fromUndefinable(p.label),
+    labelStyle: map31(asCssStyle)(fromUndefinable(p.labelStyle)),
+    labelShowBg: fromUndefinable(p.labelShowBg),
+    labelBgStyle: map31(asCssStyle)(fromUndefinable(p.labelBgStyle)),
+    labelBgPadding: map31(labelBgPaddingIn("BaseEdge.labelBgPadding"))(fromUndefinable(p.labelBgPadding)),
+    labelBgBorderRadius: fromUndefinable(p.labelBgBorderRadius),
+    style: map31(asCssStyle)(fromUndefinable(p.style)),
+    markerEnd: fromUndefinable(p.markerEnd),
+    markerStart: fromUndefinable(p.markerStart),
+    interactionWidth: fromUndefinable(p.interactionWidth),
+    className: fromUndefinable(p.className),
+    pathAttributes: pathAttributesIn(p)
   };
 };
 var baseEdge2 = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponent9("BaseEdge")(function(v) {
@@ -54132,7 +54178,7 @@ var mkSharedObserver = function(store) {
         };
       })(unit)(entries)();
       var updates = read(updatesRef)();
-      return when19(!isEmpty(updates))(store.dispatch(new UpdateNodeInternals(updates, {
+      return when19(!isEmpty2(updates))(store.dispatch(new UpdateNodeInternals(updates, {
         triggerFitView: false
       })))();
     };
@@ -55064,7 +55110,7 @@ var eq113 = /* @__PURE__ */ eq(eqNodeId);
 var max14 = /* @__PURE__ */ max(ordNumber);
 var foldl9 = /* @__PURE__ */ foldl(foldableList);
 var insert13 = /* @__PURE__ */ insert4(ordMiddlewareKey);
-var $$delete4 = /* @__PURE__ */ $$delete3(ordMiddlewareKey);
+var $$delete5 = /* @__PURE__ */ $$delete4(ordMiddlewareKey);
 var reduceTriggerEdgeChanges = function(state3) {
   return function(changes) {
     if ($$null(changes)) {
@@ -57684,7 +57730,7 @@ var reduce = function(state3) {
           ariaLabelConfig: state3.ariaLabelConfig,
           zIndexMode: state3.zIndexMode,
           onEdgesChangeMiddlewareMap: state3.onEdgesChangeMiddlewareMap,
-          onNodesChangeMiddlewareMap: $$delete4(v.value0)(state3.onNodesChangeMiddlewareMap)
+          onNodesChangeMiddlewareMap: $$delete5(v.value0)(state3.onNodesChangeMiddlewareMap)
         },
         effects: []
       };
@@ -57870,7 +57916,7 @@ var reduce = function(state3) {
           ariaLabelConfig: state3.ariaLabelConfig,
           zIndexMode: state3.zIndexMode,
           onNodesChangeMiddlewareMap: state3.onNodesChangeMiddlewareMap,
-          onEdgesChangeMiddlewareMap: $$delete4(v.value0)(state3.onEdgesChangeMiddlewareMap)
+          onEdgesChangeMiddlewareMap: $$delete5(v.value0)(state3.onEdgesChangeMiddlewareMap)
         },
         effects: []
       };
@@ -64924,7 +64970,7 @@ var nodeToolbar = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompo
         ;
         throw new Error("Failed pattern match at React.Additional.NodeToolbar (line 139, column 20 - line 146, column 47): " + [v.isVisible.constructor.name]);
       }();
-      var $50 = !isActive || isEmpty(v1.nodes);
+      var $50 = !isActive || isEmpty2(v1.nodes);
       if ($50) {
         return pure81(mempty20);
       }
