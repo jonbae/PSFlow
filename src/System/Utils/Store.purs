@@ -134,7 +134,7 @@ isManualZIndexMode = case _ of
 -- | without going through `toBaseLike` (which is gone — see ticket 021 #1).
 calculateZ
   :: forall r
-   . { zIndex :: Maybe Int, selected :: Boolean | r }
+   . { zIndex :: Maybe Int, selected :: Maybe Boolean | r }
   -> Int
   -> ZIndexMode
   -> Number
@@ -145,7 +145,7 @@ calculateZ node selZ zMode =
       _ -> 0.0
     bonus =
       if isManualZIndexMode zMode then 0.0
-      else if node.selected then Int.toNumber selZ
+      else if node.selected == Just true then Int.toNumber selZ
       else 0.0
   in
     zIndex + bonus
@@ -457,7 +457,7 @@ adoptUserNodes nodes prev _prevParent options =
           Nothing -> st2
       in
         st3
-          { hasSelectedNodes = st3.hasSelectedNodes || userNodeWithDefaults.selected
+          { hasSelectedNodes = st3.hasSelectedNodes || userNodeWithDefaults.selected == Just true
           }
 
     final = Foldable.foldl step initial nodes

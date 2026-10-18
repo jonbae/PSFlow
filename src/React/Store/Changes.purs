@@ -95,7 +95,7 @@ partitionEdgeChanges = foldl step { byId: Map.empty, adds: [] }
 -- | resizing-update line.
 applySingleNodeChange :: forall n. NodeChange n -> Node n -> Node n
 applySingleNodeChange c node = case c of
-  NodeSelectionChange { selected } -> node { selected = selected }
+  NodeSelectionChange { selected } -> node { selected = Just selected }
   NodePositionChange { position, dragging } ->
     let
       withPos = case position of
@@ -268,7 +268,7 @@ getNodeSelectionChanges
      }
 getNodeSelectionChanges lookup selectedIds mutate =
   let
-    r = getSelectionChangesGeneric identity identity lookup selectedIds mutate
+    r = getSelectionChangesGeneric (_ == Just true) Just lookup selectedIds mutate
     changes = map (\p -> NodeSelectionChange { id: p.id, selected: p.selected }) r.changes
   in
     { changes, items: r.items }

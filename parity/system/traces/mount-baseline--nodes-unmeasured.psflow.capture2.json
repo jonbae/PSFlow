@@ -391,7 +391,6 @@
             "data": {
               "label": "Node-2"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -504,7 +503,6 @@
             "data": {
               "label": "Node-2"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -575,7 +573,6 @@
               "data": {
                 "label": "Node-2"
               },
-              "selected": false,
               "measured": {
                 "width": 150,
                 "height": 37

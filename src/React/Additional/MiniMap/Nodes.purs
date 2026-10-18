@@ -77,7 +77,7 @@ renderOne props internal =
             , strokeColor: stroke
             , strokeWidth: props.nodeStrokeWidth
             , style: Nothing
-            , selected: internal.selected
+            , selected: internal.selected == Just true
             , onClick: props.onClick
             }
 

@@ -538,7 +538,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 164.30000001192093,
+            "timeStamp": 162.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -605,7 +605,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 164.30000001192093,
+            "timeStamp": 162.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -703,7 +703,6 @@
             },
             "sourcePosition": "right",
             "targetPosition": "left",
-            "selected": false,
             "width": 100,
             "height": 40,
             "measured": {
@@ -722,7 +721,6 @@
             },
             "sourcePosition": "right",
             "targetPosition": "left",
-            "selected": false,
             "width": 100,
             "height": 40,
             "measured": {
@@ -742,7 +740,6 @@
           },
           "sourcePosition": "right",
           "targetPosition": "left",
-          "selected": false,
           "width": 100,
           "height": 40,
           "measured": {
@@ -761,7 +758,6 @@
           },
           "sourcePosition": "right",
           "targetPosition": "left",
-          "selected": false,
           "width": 100,
           "height": 40,
           "measured": {
@@ -830,7 +826,6 @@
             },
             "sourcePosition": "right",
             "targetPosition": "left",
-            "selected": false,
             "width": 100,
             "height": 40,
             "measured": {
@@ -849,7 +844,6 @@
             },
             "sourcePosition": "right",
             "targetPosition": "left",
-            "selected": false,
             "width": 100,
             "height": 40,
             "measured": {
@@ -896,7 +890,6 @@
               },
               "sourcePosition": "right",
               "targetPosition": "left",
-              "selected": false,
               "width": 100,
               "height": 40,
               "measured": {
@@ -915,7 +908,6 @@
               },
               "sourcePosition": "right",
               "targetPosition": "left",
-              "selected": false,
               "width": 100,
               "height": 40,
               "measured": {

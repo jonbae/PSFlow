@@ -673,7 +673,6 @@
               "label": "updated"
             },
             "type": "input",
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -689,7 +688,6 @@
               "label": "data updated"
             },
             "type": "output",
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -704,7 +702,6 @@
             "data": {
               "label": "Node-3"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -720,7 +717,6 @@
               "label": "Node-4"
             },
             "type": "output",
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -735,7 +731,6 @@
             "data": {
               "label": "added"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -752,7 +747,6 @@
             "label": "updated"
           },
           "type": "input",
-          "selected": false,
           "measured": {
             "width": 150,
             "height": 37
@@ -768,7 +762,6 @@
             "label": "updated"
           },
           "type": "input",
-          "selected": false,
           "measured": {
             "width": 150,
             "height": 37
@@ -837,7 +830,6 @@
               "label": "updated"
             },
             "type": "input",
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -853,7 +845,6 @@
               "label": "data updated"
             },
             "type": "output",
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -868,7 +859,6 @@
             "data": {
               "label": "Node-3"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -884,7 +874,6 @@
               "label": "Node-4"
             },
             "type": "output",
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -899,7 +888,6 @@
             "data": {
               "label": "added"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -971,7 +959,6 @@
                 "label": "updated"
               },
               "type": "input",
-              "selected": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -987,7 +974,6 @@
                 "label": "data updated"
               },
               "type": "output",
-              "selected": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -1002,7 +988,6 @@
               "data": {
                 "label": "Node-3"
               },
-              "selected": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -1018,7 +1003,6 @@
                 "label": "Node-4"
               },
               "type": "output",
-              "selected": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -1033,7 +1017,6 @@
               "data": {
                 "label": "added"
               },
-              "selected": false,
               "measured": {
                 "width": 150,
                 "height": 37

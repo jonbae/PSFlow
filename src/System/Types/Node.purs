@@ -62,7 +62,9 @@ type NodeBaseRow nodeData =
   -- | Absent unless the consumer sets it, as upstream's optional field is.
   -- | Every reader treats absent as `false`.
   , hidden :: Maybe Boolean
-  , selected :: Boolean
+  -- | Absent until a selection change sets it, as upstream's optional field
+  -- | is. Every reader treats absent as `false`.
+  , selected :: Maybe Boolean
   -- | Absent until a position change that carries it sets it, as upstream's
   -- | optional field is. Every reader treats absent as `false`.
   , dragging :: Maybe Boolean

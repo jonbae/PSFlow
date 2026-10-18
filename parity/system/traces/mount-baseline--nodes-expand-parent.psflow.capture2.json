@@ -415,7 +415,6 @@
             "data": {
               "label": "parent"
             },
-            "selected": false,
             "width": 190,
             "height": 77,
             "measured": {
@@ -437,7 +436,6 @@
             "data": {
               "label": "child"
             },
-            "selected": false,
             "parentId": "parent",
             "expandParent": true,
             "measured": {
@@ -454,7 +452,6 @@
             "data": {
               "label": "outside"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -470,7 +467,6 @@
           "data": {
             "label": "parent"
           },
-          "selected": false,
           "width": 190,
           "height": 77,
           "measured": {
@@ -492,7 +488,6 @@
           "data": {
             "label": "parent"
           },
-          "selected": false,
           "width": 190,
           "height": 77,
           "measured": {
@@ -564,7 +559,6 @@
             "data": {
               "label": "parent"
             },
-            "selected": false,
             "width": 190,
             "height": 77,
             "measured": {
@@ -586,7 +580,6 @@
             "data": {
               "label": "child"
             },
-            "selected": false,
             "parentId": "parent",
             "expandParent": true,
             "measured": {
@@ -603,7 +596,6 @@
             "data": {
               "label": "outside"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -630,7 +622,6 @@
               "data": {
                 "label": "parent"
               },
-              "selected": false,
               "width": 190,
               "height": 77,
               "measured": {
@@ -652,7 +643,6 @@
               "data": {
                 "label": "child"
               },
-              "selected": false,
               "parentId": "parent",
               "expandParent": true,
               "measured": {
@@ -669,7 +659,6 @@
               "data": {
                 "label": "outside"
               },
-              "selected": false,
               "measured": {
                 "width": 150,
                 "height": 37

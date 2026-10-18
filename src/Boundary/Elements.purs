@@ -27,17 +27,13 @@
 -- |
 -- | ## Fields PureScript makes required and upstream leaves optional
 -- |
--- | One Boolean — a node's `selected` — plus a node's `measured` record. An
--- | edge's `animated`, `hidden`, and `selected` and a node's `expandParent`,
--- | `hidden`, and `dragging` were the other six, and are `Maybe Boolean`s
--- | that cross only when they're set. Inbound they default (`false`, and an empty
--- | measurement); outbound they are **emitted always**, so a JavaScript
--- | consumer reading a node back sees `hidden: false` where upstream would
--- | have no such key. That is a real divergence, it is recorded as a region in
--- | `parity/boundary/regions.json`, and it is deliberately not fixed here:
--- | `Maybe`-ifying two fields of the internals is churn ahead of the first
--- | green signal on the JS surface. The stale-region rule is what forces the
--- | cleanup once the net's `props` and `dom` sections are green.
+-- | A node's `measured` record. The seven Booleans that were required are
+-- | `Maybe Boolean`s that cross only when they're set: an edge's `animated`,
+-- | `hidden`, and `selected`, and a node's `hidden`, `selected`, `dragging`,
+-- | and `expandParent`. Every reader treats an unset one as `false`, as
+-- | upstream's does. `measured` defaults inbound to an empty measurement, and
+-- | `nodeOut` omits it while it's empty, because upstream's node has no
+-- | `measured` until it's measured.
 -- |
 -- | Absent optional fields are emitted as the key with the value `undefined`
 -- | rather than omitted. Omitting them would read closer to upstream for
@@ -504,7 +500,7 @@ nodeIn n =
   , sourcePosition: map (positionIn "node.sourcePosition") (fromUndefinable n.sourcePosition)
   , targetPosition: map (positionIn "node.targetPosition") (fromUndefinable n.targetPosition)
   , hidden: fromUndefinable n.hidden
-  , selected: fromMaybe false (fromUndefinable n.selected)
+  , selected: fromUndefinable n.selected
   , dragging: fromUndefinable n.dragging
   , draggable: fromUndefinable n.draggable
   , selectable: fromUndefinable n.selectable
@@ -543,7 +539,7 @@ nodeOut n = pruneUndefined
   , sourcePosition: toUndefinable (map positionOut n.sourcePosition)
   , targetPosition: toUndefinable (map positionOut n.targetPosition)
   , hidden: toUndefinable n.hidden
-  , selected: toUndefinable (Just n.selected)
+  , selected: toUndefinable n.selected
   , dragging: toUndefinable n.dragging
   , draggable: toUndefinable n.draggable
   , selectable: toUndefinable n.selectable
@@ -583,7 +579,7 @@ internalNodeOut n = pruneUndefined
   , sourcePosition: toUndefinable (map positionOut n.sourcePosition)
   , targetPosition: toUndefinable (map positionOut n.targetPosition)
   , hidden: toUndefinable n.hidden
-  , selected: toUndefinable (Just n.selected)
+  , selected: toUndefinable n.selected
   , dragging: toUndefinable n.dragging
   , draggable: toUndefinable n.draggable
   , selectable: toUndefinable n.selectable

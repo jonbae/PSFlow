@@ -235,8 +235,7 @@
               "label": "Node-1"
             },
             "type": "input",
-            "hidden": true,
-            "selected": false
+            "hidden": true
           },
           {
             "id": "Node-2",
@@ -247,8 +246,7 @@
             "data": {
               "label": "Node-2"
             },
-            "hidden": true,
-            "selected": false
+            "hidden": true
           },
           {
             "id": "Node-3",
@@ -259,8 +257,7 @@
             "data": {
               "label": "Node-3"
             },
-            "hidden": true,
-            "selected": false
+            "hidden": true
           }
         ],
         "getNode": {
@@ -273,8 +270,7 @@
             "label": "Node-1"
           },
           "type": "input",
-          "hidden": true,
-          "selected": false
+          "hidden": true
         },
         "getInternalNode": {
           "id": "Node-1",
@@ -287,7 +283,6 @@
           },
           "type": "input",
           "hidden": true,
-          "selected": false,
           "measured": {
             "width": {
               "@undefined": true
@@ -330,8 +325,7 @@
               "label": "Node-1"
             },
             "type": "input",
-            "hidden": true,
-            "selected": false
+            "hidden": true
           },
           {
             "id": "Node-2",
@@ -342,8 +336,7 @@
             "data": {
               "label": "Node-2"
             },
-            "hidden": true,
-            "selected": false
+            "hidden": true
           },
           {
             "id": "Node-3",
@@ -354,8 +347,7 @@
             "data": {
               "label": "Node-3"
             },
-            "hidden": true,
-            "selected": false
+            "hidden": true
           }
         ],
         "isNodeIntersecting": true,
@@ -395,8 +387,7 @@
                 "label": "Node-1"
               },
               "type": "input",
-              "hidden": true,
-              "selected": false
+              "hidden": true
             },
             {
               "id": "Node-2",
@@ -407,8 +398,7 @@
               "data": {
                 "label": "Node-2"
               },
-              "hidden": true,
-              "selected": false
+              "hidden": true
             },
             {
               "id": "Node-3",
@@ -419,8 +409,7 @@
               "data": {
                 "label": "Node-3"
               },
-              "hidden": true,
-              "selected": false
+              "hidden": true
             }
           ],
           "edges": [

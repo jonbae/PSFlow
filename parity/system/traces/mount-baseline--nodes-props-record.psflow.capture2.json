@@ -262,7 +262,6 @@
               "label": "props-parent"
             },
             "type": "propsRecord",
-            "selected": false,
             "width": 300,
             "height": 200,
             "measured": {
@@ -280,7 +279,6 @@
               "label": "props-child"
             },
             "type": "propsRecord",
-            "selected": false,
             "draggable": false,
             "selectable": false,
             "deletable": false,
@@ -303,7 +301,6 @@
             "label": "props-parent"
           },
           "type": "propsRecord",
-          "selected": false,
           "width": 300,
           "height": 200,
           "measured": {
@@ -321,7 +318,6 @@
             "label": "props-parent"
           },
           "type": "propsRecord",
-          "selected": false,
           "width": 300,
           "height": 200,
           "measured": {
@@ -355,7 +351,6 @@
               "label": "props-parent"
             },
             "type": "propsRecord",
-            "selected": false,
             "width": 300,
             "height": 200,
             "measured": {
@@ -373,7 +368,6 @@
               "label": "props-child"
             },
             "type": "propsRecord",
-            "selected": false,
             "draggable": false,
             "selectable": false,
             "deletable": false,
@@ -407,7 +401,6 @@
                 "label": "props-parent"
               },
               "type": "propsRecord",
-              "selected": false,
               "width": 300,
               "height": 200,
               "measured": {
@@ -425,7 +418,6 @@
                 "label": "props-child"
               },
               "type": "propsRecord",
-              "selected": false,
               "draggable": false,
               "selectable": false,
               "deletable": false,

@@ -471,7 +471,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 279.9000000357628,
+            "timeStamp": 280.7000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -538,7 +538,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 279.9000000357628,
+            "timeStamp": 280.7000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -635,7 +635,6 @@
               "label": "1"
             },
             "type": "input",
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -650,7 +649,6 @@
             "data": {
               "label": "2"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -665,7 +663,6 @@
             "data": {
               "label": "3"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -682,7 +679,6 @@
             "label": "1"
           },
           "type": "input",
-          "selected": false,
           "measured": {
             "width": 150,
             "height": 37
@@ -698,7 +694,6 @@
             "label": "1"
           },
           "type": "input",
-          "selected": false,
           "measured": {
             "width": 150,
             "height": 37
@@ -756,7 +751,6 @@
               "label": "1"
             },
             "type": "input",
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -771,7 +765,6 @@
             "data": {
               "label": "2"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -786,7 +779,6 @@
             "data": {
               "label": "3"
             },
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -844,7 +836,6 @@
                 "label": "1"
               },
               "type": "input",
-              "selected": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -859,7 +850,6 @@
               "data": {
                 "label": "2"
               },
-              "selected": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -874,7 +864,6 @@
               "data": {
                 "label": "3"
               },
-              "selected": false,
               "measured": {
                 "width": 150,
                 "height": 37
