@@ -23,7 +23,7 @@ import React.Basic (ReactComponent, element)
 import React.Basic.Hooks (memo, reactComponent)
 import React.Basic.Hooks as React
 import React.Additional.Background.Patterns (dotPattern, linePattern)
-import React.FFI.DOM (defs_, pattern_, rect_, svg_)
+import React.FFI.DOM (pattern_, rect_, svg_)
 import React.Hook.Store (useStore)
 import React.Types.Component (BackgroundProps, BackgroundVariant(..))
 import React.Types.Store (ReactFlowState)
@@ -137,18 +137,19 @@ background =
         , style: buildStyle props.style props.bgColor props.color
         , "data-testid": "rf__background"
         }
-        [ defs_ {}
-            [ pattern_
-                { id: patternIdResolved
-                , x: patternX
-                , y: patternY
-                , width: scaledGapX
-                , height: scaledGapY
-                , patternUnits: "userSpaceOnUse"
-                , patternTransform: patTransform
-                }
-                [ innerPattern ]
-            ]
+        -- The pattern sits directly in the `<svg>`, as upstream's does, with
+        -- no `<defs>` around it: a `<pattern>` is never rendered on its own
+        -- wherever it is, so upstream needs none.
+        [ pattern_
+            { id: patternIdResolved
+            , x: patternX
+            , y: patternY
+            , width: scaledGapX
+            , height: scaledGapY
+            , patternUnits: "userSpaceOnUse"
+            , patternTransform: patTransform
+            }
+            [ innerPattern ]
         , rect_
             { x: "0"
             , y: "0"
