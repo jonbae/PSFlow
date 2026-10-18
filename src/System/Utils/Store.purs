@@ -20,6 +20,7 @@ module System.Utils.Store
   , adoptUserNodes
   , handleExpandParent
   , updateNodeInternals
+  , setUpdate
   , updateConnectionLookup
   , insertHandleConnection
   , handleConnectionsInOrder
@@ -30,7 +31,7 @@ module System.Utils.Store
 
 import Prelude
 
-import Data.Array (any, foldl, fromFoldable, length, mapMaybe, reverse, snoc) as Array
+import Data.Array (any, findIndex, foldl, fromFoldable, length, mapMaybe, reverse, snoc, updateAt) as Array
 import Data.List (List(..), (:))
 import Data.Either (Either(..))
 import Data.Foldable (foldM, foldl) as Foldable
@@ -62,7 +63,7 @@ import System.Types.Geometry
   , mkNodeOrigin
   )
 import System.Types.Handle (Handle, HandleType(..), SourceHandle(..), TargetHandle(..), mkSourceHandle, mkTargetHandle)
-import System.Types.Ids (NodeId, ParentId, parentToNode, nodeToParent)
+import System.Types.Ids (ParentId, parentToNode, nodeToParent)
 import System.Types.Node
   ( InternalNodeBase
   , InternalNodeUpdate
@@ -655,9 +656,19 @@ filterMap = Array.mapMaybe
 
 -- DOM-driven node-internals update -----------------------------------------
 
+-- | `updates.set(update.id, update)` on upstream's `Map<string,
+-- | InternalNodeUpdate>`: a new id goes last, and a repeated one keeps its
+-- | place and takes the new value. `updateNodeInternals` walks the batch in
+-- | that order, so its dimension changes list the nodes as the observer
+-- | reported them, which on a first mount is the nodes' own order.
+setUpdate :: InternalNodeUpdate -> Array InternalNodeUpdate -> Array InternalNodeUpdate
+setUpdate update updates = case Array.findIndex (\u -> u.id == update.id) updates of
+  Just i -> fromMaybe updates (Array.updateAt i update updates)
+  Nothing -> Array.snoc updates update
+
 updateNodeInternals
   :: forall n
-   . Map NodeId InternalNodeUpdate
+   . Array InternalNodeUpdate
   -> NodeLookup n
   -> ParentLookup n
   -> Maybe HTMLElement
@@ -700,7 +711,7 @@ updateNodeInternals updates nodeLookup0 parentLookup0 mDom origin extent zMode =
             Foldable.foldM
               ( \acc u -> processUpdate u acc zoom origin extent zMode )
               initial
-              (Map.values updates)
+              updates
           let
             finalChanges =
               if Array.length result.parentExpandChildren > 0 then

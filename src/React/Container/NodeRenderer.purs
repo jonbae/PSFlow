@@ -29,8 +29,7 @@ module React.Container.NodeRenderer
 import Prelude
 
 import Data.Foldable (foldM)
-import Data.Map (Map)
-import Data.Map (empty, insert, isEmpty) as Map
+import Data.Array (null) as Array
 import Data.Maybe (Maybe(..))
 import Data.Newtype (class Newtype, unwrap)
 import Effect (Effect)
@@ -51,6 +50,7 @@ import React.Types.Component (NodeRendererProps)
 import React.Types.Store (ReactFlowState)
 import System.Types.Ids (NodeId(..))
 import System.Types.Node (InternalNodeUpdate, OnError)
+import System.Utils.Store (setUpdate)
 import Unsafe.Coerce (unsafeCoerce)
 import Web.DOM.Element (getAttribute)
 import Web.HTML.HTMLDivElement (fromElement)
@@ -103,7 +103,7 @@ mkSharedObserver
   -> Effect ResizeObserver
 mkSharedObserver store =
   createResizeObserver \entries -> do
-    updatesRef <- Ref.new (Map.empty :: Map NodeId InternalNodeUpdate)
+    updatesRef <- Ref.new ([] :: Array InternalNodeUpdate)
     _ <- foldM
       ( \_ entry -> do
           mDataId <- getAttribute "data-id" entry.target
@@ -111,7 +111,7 @@ mkSharedObserver store =
           case mDataId, mDivEl of
             Just nodeId, Just divEl ->
               Ref.modify_
-                ( Map.insert (NodeId nodeId)
+                ( setUpdate
                     { id: NodeId nodeId
                     , nodeElement: divEl
                     , force: true
@@ -123,7 +123,7 @@ mkSharedObserver store =
       unit
       entries
     updates <- Ref.read updatesRef
-    when (not (Map.isEmpty updates)) do
+    when (not (Array.null updates)) do
       store.dispatch
         (UpdateNodeInternals updates { triggerFitView: false })
 

@@ -20,7 +20,6 @@ module Test.React.Hook.NodeObserver
 
 import Prelude
 
-import Data.Array (fromFoldable) as Array
 import Data.Map as Map
 import Data.Maybe (Maybe(..))
 import Data.Newtype (unwrap)
@@ -129,7 +128,7 @@ mount el = do
     recordUpdate :: Action Unit Unit -> Effect Unit
     recordUpdate = case _ of
       UpdateNodeInternals updates _ ->
-        Ref.modify_ (\xs -> xs <> map (\u -> unwrap u.id <> (if u.force then " forced" else "")) (Array.fromFoldable (Map.values updates))) dispatched
+        Ref.modify_ (\xs -> xs <> map (\u -> unwrap u.id <> (if u.force then " forced" else "")) updates) dispatched
       _ -> pure unit
 
     recording :: Store Unit Unit

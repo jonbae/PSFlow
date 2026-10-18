@@ -24,7 +24,6 @@ module React.Hook.UpdateNodeInternals
 import Prelude
 
 import Data.Foldable (foldl)
-import Data.Map (empty, insert) as Map
 import Data.Maybe (Maybe(..))
 import Data.Newtype (class Newtype)
 import Data.Nullable (Nullable, toMaybe)
@@ -38,6 +37,7 @@ import React.Store.Shell (Store)
 import System.FFI.AnimationFrame (requestAnimationFrame)
 import System.Types.Ids (NodeId(..))
 import System.Types.Node (InternalNodeUpdate)
+import System.Utils.Store (setUpdate)
 import Web.HTML.HTMLDivElement (HTMLDivElement)
 
 -- | One foreign import: query the `domNode` for a node-wrapper element
@@ -72,7 +72,7 @@ mkFn store ids = do
       pairs <- traverse (queryOne hostDiv) ids
       let
         updates =
-          foldl insertUpdate (Map.empty :: _) pairs
+          foldl insertUpdate [] pairs
       _ <- requestAnimationFrame do
         store.dispatch
           ( UpdateNodeInternals updates
@@ -86,7 +86,7 @@ mkFn store ids = do
 
   insertUpdate acc (Tuple nodeId mEl) = case mEl of
     Nothing -> acc
-    Just el -> Map.insert (NodeId nodeId) (mkUpdate nodeId el) acc
+    Just el -> setUpdate (mkUpdate nodeId el) acc
 
   mkUpdate :: String -> HTMLDivElement -> InternalNodeUpdate
   mkUpdate nodeId el =
