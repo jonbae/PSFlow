@@ -363,6 +363,14 @@
           [
             {
               "type": "dimensions",
+              "id": "parent",
+              "dimensions": {
+                "width": 320,
+                "height": 220
+              }
+            },
+            {
+              "type": "dimensions",
               "id": "child",
               "dimensions": {
                 "width": 150,
@@ -375,14 +383,6 @@
               "dimensions": {
                 "width": 150,
                 "height": 37
-              }
-            },
-            {
-              "type": "dimensions",
-              "id": "parent",
-              "dimensions": {
-                "width": 320,
-                "height": 220
               }
             }
           ]

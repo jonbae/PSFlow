@@ -733,14 +733,6 @@
             },
             {
               "type": "dimensions",
-              "id": "notDeletable",
-              "dimensions": {
-                "width": 150,
-                "height": 37
-              }
-            },
-            {
-              "type": "dimensions",
               "id": "notDraggable",
               "dimensions": {
                 "width": 150,
@@ -750,6 +742,14 @@
             {
               "type": "dimensions",
               "id": "notSelectable",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "type": "dimensions",
+              "id": "notDeletable",
               "dimensions": {
                 "width": 150,
                 "height": 37
@@ -779,7 +779,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 172.9000000357628,
+            "timeStamp": 189.69999992847443,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -961,7 +961,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 199.4000000357628,
+            "timeStamp": 217.59999990463257,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

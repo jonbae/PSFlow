@@ -1132,23 +1132,7 @@
             },
             {
               "type": "dimensions",
-              "id": "node-center-bottom",
-              "dimensions": {
-                "width": 150,
-                "height": 37
-              }
-            },
-            {
-              "type": "dimensions",
-              "id": "node-center-left",
-              "dimensions": {
-                "width": 150,
-                "height": 37
-              }
-            },
-            {
-              "type": "dimensions",
-              "id": "node-center-right",
+              "id": "node-start-top",
               "dimensions": {
                 "width": 150,
                 "height": 37
@@ -1164,47 +1148,7 @@
             },
             {
               "type": "dimensions",
-              "id": "node-end-bottom",
-              "dimensions": {
-                "width": 150,
-                "height": 37
-              }
-            },
-            {
-              "type": "dimensions",
-              "id": "node-end-left",
-              "dimensions": {
-                "width": 150,
-                "height": 37
-              }
-            },
-            {
-              "type": "dimensions",
-              "id": "node-end-right",
-              "dimensions": {
-                "width": 150,
-                "height": 37
-              }
-            },
-            {
-              "type": "dimensions",
               "id": "node-end-top",
-              "dimensions": {
-                "width": 150,
-                "height": 37
-              }
-            },
-            {
-              "type": "dimensions",
-              "id": "node-start-bottom",
-              "dimensions": {
-                "width": 150,
-                "height": 37
-              }
-            },
-            {
-              "type": "dimensions",
-              "id": "node-start-left",
               "dimensions": {
                 "width": 150,
                 "height": 37
@@ -1220,7 +1164,63 @@
             },
             {
               "type": "dimensions",
-              "id": "node-start-top",
+              "id": "node-center-right",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "type": "dimensions",
+              "id": "node-end-right",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "type": "dimensions",
+              "id": "node-start-bottom",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "type": "dimensions",
+              "id": "node-center-bottom",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "type": "dimensions",
+              "id": "node-end-bottom",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "type": "dimensions",
+              "id": "node-start-left",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "type": "dimensions",
+              "id": "node-center-left",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "type": "dimensions",
+              "id": "node-end-left",
               "dimensions": {
                 "width": 150,
                 "height": 37

@@ -24732,6 +24732,12 @@ var _insertAt = function(just, nothing, i, a, l) {
   l1.splice(i, 0, a);
   return just(l1);
 };
+var _updateAt = function(just, nothing, i, a, l) {
+  if (i < 0 || i >= l.length) return nothing;
+  var l1 = l.slice();
+  l1[i] = a;
+  return just(l1);
+};
 var reverse = function(l) {
   return l.slice().reverse();
 };
@@ -26447,6 +26453,9 @@ var fromJust4 = /* @__PURE__ */ fromJust();
 var when2 = /* @__PURE__ */ when(applicativeST);
 var notEq2 = /* @__PURE__ */ notEq(eqOrdering);
 var append2 = /* @__PURE__ */ append(semigroupArray);
+var updateAt = /* @__PURE__ */ function() {
+  return runFn5(_updateAt)(Just.create)(Nothing.value);
+}();
 var unsafeIndex = function() {
   return runFn2(unsafeIndexImpl);
 };
@@ -34546,11 +34555,11 @@ var empty5 = /* @__PURE__ */ function() {
   return Leaf.value;
 }();
 var fromFoldable4 = function(dictOrd) {
-  var insert16 = insert4(dictOrd);
+  var insert14 = insert4(dictOrd);
   return function(dictFoldable) {
     return foldl(dictFoldable)(function(m) {
       return function(v) {
-        return insert16(v.value0)(v.value1)(m);
+        return insert14(v.value0)(v.value1)(m);
       };
     })(empty5);
   };
@@ -35013,10 +35022,10 @@ var member3 = function(dictOrd) {
   return coerce3(member2(dictOrd));
 };
 var insert5 = function(dictOrd) {
-  var insert16 = insert4(dictOrd);
+  var insert14 = insert4(dictOrd);
   return function(a) {
     return function(v) {
-      return insert16(a)(unit)(v);
+      return insert14(a)(unit)(v);
     };
   };
 };
@@ -35034,10 +35043,10 @@ var empty7 = empty5;
 var fromFoldable5 = function(dictFoldable) {
   var foldl22 = foldl(dictFoldable);
   return function(dictOrd) {
-    var insert16 = insert5(dictOrd);
+    var insert14 = insert5(dictOrd);
     return foldl22(function(m) {
       return function(a) {
-        return insert16(a)(m);
+        return insert14(a)(m);
       };
     })(empty7);
   };
@@ -38757,6 +38766,7 @@ var zoomEventSourceEvent = (event) => event.sourceEvent === void 0 ? null : even
 var lookup5 = /* @__PURE__ */ lookup2(ordParentId);
 var insert6 = /* @__PURE__ */ insert4(ordParentId);
 var insert1 = /* @__PURE__ */ insert4(ordNodeId);
+var eq8 = /* @__PURE__ */ eq(eqNodeId);
 var foldl4 = /* @__PURE__ */ foldl(foldableArray);
 var pure10 = /* @__PURE__ */ pure(applicativeAff);
 var bind10 = /* @__PURE__ */ bind(bindAff);
@@ -38765,7 +38775,6 @@ var member5 = /* @__PURE__ */ member2(ordString);
 var lookup1 = /* @__PURE__ */ lookup2(ordString);
 var fromFoldable7 = /* @__PURE__ */ fromFoldable(foldableList);
 var max5 = /* @__PURE__ */ max(ordNumber);
-var eq14 = /* @__PURE__ */ eq(eqNodeId);
 var append3 = /* @__PURE__ */ append(semigroupArray);
 var lookup22 = /* @__PURE__ */ lookup2(ordNodeId);
 var toUnfoldable7 = /* @__PURE__ */ toUnfoldable5(unfoldableArray);
@@ -38775,7 +38784,7 @@ var eq32 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqInt));
 var eq42 = /* @__PURE__ */ eq(eqZIndexMode);
 var pure13 = /* @__PURE__ */ pure(applicativeEffect);
 var notEq1 = /* @__PURE__ */ notEq(/* @__PURE__ */ eqMaybe(eqNumber));
-var foldM5 = /* @__PURE__ */ foldM(foldableList)(monadEffect);
+var foldM5 = /* @__PURE__ */ foldM(foldableArray)(monadEffect);
 var foldl12 = /* @__PURE__ */ foldl(foldableList);
 var notEq22 = /* @__PURE__ */ notEq(eqMaybe4);
 var unwrap8 = /* @__PURE__ */ unwrap();
@@ -38796,12 +38805,28 @@ var updateParentLookup = function(node) {
           return empty5;
         }
         ;
-        throw new Error("Failed pattern match at System.Utils.Store (line 204, column 18 - line 206, column 29): " + [v.constructor.name]);
+        throw new Error("Failed pattern match at System.Utils.Store (line 205, column 18 - line 207, column 29): " + [v.constructor.name]);
       }();
       return insert6(node.parentId.value0)(insert1(node.id)(node)(childMap))(parentLookup);
     }
     ;
-    throw new Error("Failed pattern match at System.Utils.Store (line 200, column 40 - line 208, column 69): " + [node.parentId.constructor.name]);
+    throw new Error("Failed pattern match at System.Utils.Store (line 201, column 40 - line 209, column 69): " + [node.parentId.constructor.name]);
+  };
+};
+var setUpdate = function(update) {
+  return function(updates) {
+    var v = findIndex(function(u) {
+      return eq8(u.id)(update.id);
+    })(updates);
+    if (v instanceof Just) {
+      return fromMaybe(updates)(updateAt(v.value0)(update)(updates));
+    }
+    ;
+    if (v instanceof Nothing) {
+      return snoc(updates)(update);
+    }
+    ;
+    throw new Error("Failed pattern match at System.Utils.Store (line 665, column 28 - line 667, column 39): " + [v.constructor.name]);
   };
 };
 var selectedNodeZ = 1e3;
@@ -38825,7 +38850,7 @@ var parseHandles = function(userNode) {
         return Nothing.value;
       }
       ;
-      throw new Error("Failed pattern match at System.Utils.Store (line 481, column 15 - line 483, column 27): " + [internalNode.constructor.name]);
+      throw new Error("Failed pattern match at System.Utils.Store (line 482, column 15 - line 484, column 27): " + [internalNode.constructor.name]);
     }
     ;
     if (userNode.handles instanceof Just) {
@@ -38855,7 +38880,7 @@ var parseHandles = function(userNode) {
             };
           }
           ;
-          throw new Error("Failed pattern match at System.Utils.Store (line 505, column 11 - line 507, column 83): " + [h.handleType.constructor.name]);
+          throw new Error("Failed pattern match at System.Utils.Store (line 506, column 11 - line 508, column 83): " + [h.handleType.constructor.name]);
         };
       };
       var empty8 = {
@@ -38865,7 +38890,7 @@ var parseHandles = function(userNode) {
       return new Just(foldl4(go2)(empty8)(userNode.handles.value0));
     }
     ;
-    throw new Error("Failed pattern match at System.Utils.Store (line 476, column 38 - line 509, column 45): " + [userNode.handles.constructor.name]);
+    throw new Error("Failed pattern match at System.Utils.Store (line 477, column 38 - line 510, column 45): " + [userNode.handles.constructor.name]);
   };
 };
 var panBy = function(delta) {
@@ -38879,8 +38904,8 @@ var panBy = function(delta) {
             }
             ;
             if (mPanZoom instanceof Just) {
-              var $97 = delta.x === 0 && delta.y === 0;
-              if ($97) {
+              var $100 = delta.x === 0 && delta.y === 0;
+              if ($100) {
                 return pure10(false);
               }
               ;
@@ -38903,12 +38928,12 @@ var panBy = function(delta) {
                     return zoomTransformX(next.value0) !== v.tx || (zoomTransformY(next.value0) !== v.ty || zoomTransformK(next.value0) !== v.scale);
                   }
                   ;
-                  throw new Error("Failed pattern match at System.Utils.Store (line 991, column 14 - line 996, column 46): " + [next.constructor.name]);
+                  throw new Error("Failed pattern match at System.Utils.Store (line 1002, column 14 - line 1007, column 46): " + [next.constructor.name]);
                 }());
               });
             }
             ;
-            throw new Error("Failed pattern match at System.Utils.Store (line 980, column 3 - line 996, column 46): " + [mPanZoom.constructor.name]);
+            throw new Error("Failed pattern match at System.Utils.Store (line 991, column 3 - line 1007, column 46): " + [mPanZoom.constructor.name]);
           };
         };
       };
@@ -38928,8 +38953,8 @@ var insertHandleConnection = function(key2) {
       return {
         byKey: insert22(key2)(connection)(connections.byKey),
         order: function() {
-          var $102 = member5(key2)(connections.byKey);
-          if ($102) {
+          var $105 = member5(key2)(connections.byKey);
+          if ($105) {
             return connections.order;
           }
           ;
@@ -38956,16 +38981,16 @@ var stepExpansion = function(children3) {
           })(getNodeDimensions(v.value1.parent));
           var v1 = fromMaybe(defaultOrigin)(v.value1.parent.origin);
           var yChange = function() {
-            var $109 = v.value1.expandedRect.y < v.value1.parent.internals.positionAbsolute.y;
-            if ($109) {
+            var $112 = v.value1.expandedRect.y < v.value1.parent.internals.positionAbsolute.y;
+            if ($112) {
               return round(abs(v.value1.parent.internals.positionAbsolute.y - v.value1.expandedRect.y));
             }
             ;
             return 0;
           }();
           var xChange = function() {
-            var $110 = v.value1.expandedRect.x < v.value1.parent.internals.positionAbsolute.x;
-            if ($110) {
+            var $113 = v.value1.expandedRect.x < v.value1.parent.internals.positionAbsolute.x;
+            if ($113) {
               return round(abs(v.value1.parent.internals.positionAbsolute.x - v.value1.expandedRect.x));
             }
             ;
@@ -38998,16 +39023,16 @@ var stepExpansion = function(children3) {
                 id: parentToNode(v.value0),
                 dimensions: new Just({
                   width: newWidth + function() {
-                    var $113 = xChange !== 0;
-                    if ($113) {
+                    var $116 = xChange !== 0;
+                    if ($116) {
                       return v1.ox * xChange - widthChange;
                     }
                     ;
                     return 0;
                   }(),
                   height: newHeight + function() {
-                    var $114 = yChange !== 0;
-                    if ($114) {
+                    var $117 = yChange !== 0;
+                    if ($117) {
                       return v1.oy * yChange - heightChange;
                     }
                     ;
@@ -39033,10 +39058,10 @@ var stepExpansion = function(children3) {
               ;
               if (v2 instanceof Just) {
                 return filterMap(function(kid) {
-                  var $117 = any2(function(c) {
-                    return eq14(c.id)(kid.id);
+                  var $120 = any2(function(c) {
+                    return eq8(c.id)(kid.id);
                   })(children3);
-                  if ($117) {
+                  if ($120) {
                     return Nothing.value;
                   }
                   ;
@@ -39052,7 +39077,7 @@ var stepExpansion = function(children3) {
                 })(fromFoldable7(values(v2.value0)));
               }
               ;
-              throw new Error("Failed pattern match at System.Utils.Store (line 596, column 9 - line 616, column 14): " + [v2.constructor.name]);
+              throw new Error("Failed pattern match at System.Utils.Store (line 597, column 9 - line 617, column 14): " + [v2.constructor.name]);
             }
             ;
             return [];
@@ -39085,7 +39110,7 @@ var handleExpandParent = function(children3) {
                   return nodeToRect(new Right(v.value0))(defaultOrigin);
                 }
                 ;
-                throw new Error("Failed pattern match at System.Utils.Store (line 527, column 30 - line 529, column 71): " + [v1.constructor.name]);
+                throw new Error("Failed pattern match at System.Utils.Store (line 528, column 30 - line 530, column 71): " + [v1.constructor.name]);
               }();
               var expanded = getBoundsOfRects(prevRect)(child.rect);
               return insert6(child.parentId)({
@@ -39094,7 +39119,7 @@ var handleExpandParent = function(children3) {
               })(acc);
             }
             ;
-            throw new Error("Failed pattern match at System.Utils.Store (line 523, column 13 - line 534, column 24): " + [v.constructor.name]);
+            throw new Error("Failed pattern match at System.Utils.Store (line 524, column 13 - line 535, column 24): " + [v.constructor.name]);
           };
         })(empty5)(children3);
         var pairs = toUnfoldable7(expansions);
@@ -39124,13 +39149,13 @@ var calculateZ = function(node) {
         return 0;
       }();
       var bonus = function() {
-        var $127 = isManualZIndexMode(zMode);
-        if ($127) {
+        var $130 = isManualZIndexMode(zMode);
+        if ($130) {
           return 0;
         }
         ;
-        var $128 = eq23(node.selected)(new Just(true));
-        if ($128) {
+        var $131 = eq23(node.selected)(new Just(true));
+        if ($131) {
           return toNumber(selZ);
         }
         ;
@@ -39165,7 +39190,7 @@ var calculateChildXYZ = function(child) {
                 return positionWithOrigin;
               }
               ;
-              throw new Error("Failed pattern match at System.Utils.Store (line 173, column 18 - line 178, column 36): " + [childExtent.constructor.name]);
+              throw new Error("Failed pattern match at System.Utils.Store (line 174, column 18 - line 179, column 36): " + [childExtent.constructor.name]);
             }();
             var absInitial = clampPosition({
               x: parent2.internals.positionAbsolute.x + clampedRel.x,
@@ -39185,8 +39210,8 @@ var calculateChildXYZ = function(child) {
               x: absoluteFinal.x,
               y: absoluteFinal.y,
               z: function() {
-                var $133 = parent2.internals.z >= childZ;
-                if ($133) {
+                var $136 = parent2.internals.z >= childZ;
+                if ($136) {
                   return parent2.internals.z + 1;
                 }
                 ;
@@ -39292,8 +39317,8 @@ var updateChildNodePure = function(node) {
                 };
               }();
               var selZ = function() {
-                var $145 = options2.elevateNodesOnSelect && !isManualZIndexMode(options2.zIndexMode);
-                if ($145) {
+                var $148 = options2.elevateNodesOnSelect && !isManualZIndexMode(options2.zIndexMode);
+                if ($148) {
                   return selectedNodeZ;
                 }
                 ;
@@ -39302,8 +39327,8 @@ var updateChildNodePure = function(node) {
               var xyz = calculateChildXYZ(node)(v1.parentNode2)(options2.nodeOrigin)(options2.nodeExtent)(selZ)(options2.zIndexMode);
               var positionChanged = xyz.x !== node.internals.positionAbsolute.x || xyz.y !== node.internals.positionAbsolute.y;
               var updatedNode = function() {
-                var $146 = positionChanged || xyz.z !== node.internals.z;
-                if ($146) {
+                var $149 = positionChanged || xyz.z !== node.internals.z;
+                if ($149) {
                   return {
                     ariaLabel: node.ariaLabel,
                     className: node.className,
@@ -39364,10 +39389,10 @@ var updateChildNodePure = function(node) {
               };
             }
             ;
-            throw new Error("Failed pattern match at System.Utils.Store (line 226, column 7 - line 294, column 14): " + [v.constructor.name]);
+            throw new Error("Failed pattern match at System.Utils.Store (line 227, column 7 - line 295, column 14): " + [v.constructor.name]);
           }
           ;
-          throw new Error("Failed pattern match at System.Utils.Store (line 223, column 3 - line 294, column 14): " + [node.parentId.constructor.name]);
+          throw new Error("Failed pattern match at System.Utils.Store (line 224, column 3 - line 295, column 14): " + [node.parentId.constructor.name]);
         };
       };
     };
@@ -39385,8 +39410,8 @@ var processUpdate = function(update) {
             }
             ;
             if (v instanceof Just) {
-              var $153 = eq23(v.value0.hidden)(new Just(true));
-              if ($153) {
+              var $156 = eq23(v.value0.hidden)(new Just(true));
+              if ($156) {
                 var cleared = {
                   ariaLabel: v.value0.ariaLabel,
                   className: v.value0.className,
@@ -39437,8 +39462,8 @@ var processUpdate = function(update) {
                 var dims = getDimensions(update.nodeElement)();
                 var dimensionChanged = notEq1(v.value0.measured.width)(new Just(dims.width)) || notEq1(v.value0.measured.height)(new Just(dims.height));
                 var shouldUpdate = dims.width > 0 && (dims.height > 0 && (dimensionChanged || (isNothing(v.value0.internals.handleBounds) || update.force)));
-                var $154 = !shouldUpdate;
-                if ($154) {
+                var $157 = !shouldUpdate;
+                if ($157) {
                   return acc;
                 }
                 ;
@@ -39453,7 +39478,7 @@ var processUpdate = function(update) {
                     return new Just(extent);
                   }
                   ;
-                  throw new Error("Failed pattern match at System.Utils.Store (line 770, column 25 - line 772, column 37): " + [v1.constructor.name]);
+                  throw new Error("Failed pattern match at System.Utils.Store (line 781, column 25 - line 783, column 37): " + [v1.constructor.name]);
                 }();
                 var positionAbsoluteAdjusted = function() {
                   if (v.value0.parentId instanceof Just && (v.value0.extent instanceof Just && v.value0.extent.value0 instanceof ParentExtent)) {
@@ -39466,7 +39491,7 @@ var processUpdate = function(update) {
                       return v.value0.internals.positionAbsolute;
                     }
                     ;
-                    throw new Error("Failed pattern match at System.Utils.Store (line 775, column 17 - line 779, column 61): " + [v1.constructor.name]);
+                    throw new Error("Failed pattern match at System.Utils.Store (line 786, column 17 - line 790, column 61): " + [v1.constructor.name]);
                   }
                   ;
                   if (chosenExt instanceof Just) {
@@ -39480,7 +39505,7 @@ var processUpdate = function(update) {
                     return v.value0.internals.positionAbsolute;
                   }
                   ;
-                  throw new Error("Failed pattern match at System.Utils.Store (line 780, column 23 - line 784, column 59): " + [chosenExt.constructor.name]);
+                  throw new Error("Failed pattern match at System.Utils.Store (line 791, column 23 - line 795, column 59): " + [chosenExt.constructor.name]);
                 }();
                 var sourceHandles = getHandleBounds(Source.value)(update.nodeElement)(nodeBounds)(zoom)(v.value0.id)();
                 var targetHandles = getHandleBounds(Target.value)(update.nodeElement)(nodeBounds)(zoom)(v.value0.id)();
@@ -39574,7 +39599,7 @@ var processUpdate = function(update) {
                     };
                   }
                   ;
-                  throw new Error("Failed pattern match at System.Utils.Store (line 810, column 27 - line 821, column 76): " + [v.value0.parentId.constructor.name]);
+                  throw new Error("Failed pattern match at System.Utils.Store (line 821, column 27 - line 832, column 76): " + [v.value0.parentId.constructor.name]);
                 }();
                 return {
                   nodeLookup: childResult.nodeLookup,
@@ -39586,7 +39611,7 @@ var processUpdate = function(update) {
               };
             }
             ;
-            throw new Error("Failed pattern match at System.Utils.Store (line 738, column 3 - line 854, column 14): " + [v.constructor.name]);
+            throw new Error("Failed pattern match at System.Utils.Store (line 749, column 3 - line 865, column 14): " + [v.constructor.name]);
           };
         };
       };
@@ -39633,10 +39658,10 @@ var updateNodeInternals = function(updates) {
                       return function(u) {
                         return processUpdate(u)(acc)(mZoom.value0)(origin2)(extent)(zMode);
                       };
-                    })(initial)(values(updates))();
+                    })(initial)(updates)();
                     var finalChanges = function() {
-                      var $173 = length(result.parentExpandChildren) > 0;
-                      if ($173) {
+                      var $176 = length(result.parentExpandChildren) > 0;
+                      if ($176) {
                         return append3(result.changes)(handleExpandParent(result.parentExpandChildren)(result.nodeLookup)(result.parentLookup)(origin2));
                       }
                       ;
@@ -39650,11 +39675,11 @@ var updateNodeInternals = function(updates) {
                     };
                   }
                   ;
-                  throw new Error("Failed pattern match at System.Utils.Store (line 683, column 7 - line 718, column 14): " + [mZoom.constructor.name]);
+                  throw new Error("Failed pattern match at System.Utils.Store (line 694, column 7 - line 729, column 14): " + [mZoom.constructor.name]);
                 };
               }
               ;
-              throw new Error("Failed pattern match at System.Utils.Store (line 674, column 3 - line 718, column 14): " + [mDom.constructor.name]);
+              throw new Error("Failed pattern match at System.Utils.Store (line 685, column 3 - line 729, column 14): " + [mDom.constructor.name]);
             };
           };
         };
@@ -39667,8 +39692,8 @@ var updateAbsolutePositions = function(initial) {
     return function(options2) {
       var finalState = foldl12(function(st) {
         return function(node) {
-          var $176 = isJust(node.parentId);
-          if ($176) {
+          var $179 = isJust(node.parentId);
+          if ($179) {
             var r = updateChildNodePure(node)(st.nodeLookup)(st.parentLookup)(options2)(st.rootParentIndex);
             return {
               nodeLookup: r.nodeLookup,
@@ -39688,7 +39713,7 @@ var updateAbsolutePositions = function(initial) {
               return options2.nodeExtent;
             }
             ;
-            throw new Error("Failed pattern match at System.Utils.Store (line 322, column 21 - line 324, column 46): " + [v.constructor.name]);
+            throw new Error("Failed pattern match at System.Utils.Store (line 323, column 21 - line 325, column 46): " + [v.constructor.name]);
           }();
           var dims = fromMaybe({
             width: 0,
@@ -39758,8 +39783,8 @@ var adoptUserNodes = function(nodes3) {
     return function(_prevParent) {
       return function(options2) {
         var selZ = function() {
-          var $179 = options2.elevateNodesOnSelect && !isManualZIndexMode(options2.zIndexMode);
-          if ($179) {
+          var $182 = options2.elevateNodesOnSelect && !isManualZIndexMode(options2.zIndexMode);
+          if ($182) {
             return selectedNodeZ;
           }
           ;
@@ -39776,7 +39801,7 @@ var adoptUserNodes = function(nodes3) {
                 return userNode;
               }
               ;
-              throw new Error("Failed pattern match at System.Utils.Store (line 374, column 32 - line 376, column 30): " + [options2.defaults.constructor.name]);
+              throw new Error("Failed pattern match at System.Utils.Store (line 375, column 32 - line 377, column 30): " + [options2.defaults.constructor.name]);
             }();
             var positionWithOrigin = getNodePositionWithOrigin(userNodeWithDefaults)(options2.nodeOrigin);
             var oldInternal = lookup22(userNodeWithDefaults.id)(prev);
@@ -39790,7 +39815,7 @@ var adoptUserNodes = function(nodes3) {
                 return options2.nodeExtent;
               }
               ;
-              throw new Error("Failed pattern match at System.Utils.Store (line 379, column 18 - line 381, column 40): " + [v.constructor.name]);
+              throw new Error("Failed pattern match at System.Utils.Store (line 380, column 18 - line 382, column 40): " + [v.constructor.name]);
             }();
             var dims = fromMaybe({
               width: 0,
@@ -39841,7 +39866,7 @@ var adoptUserNodes = function(nodes3) {
                     return Nothing.value;
                   }
                   ;
-                  throw new Error("Failed pattern match at System.Utils.Store (line 420, column 34 - line 422, column 37): " + [oldInternal.constructor.name]);
+                  throw new Error("Failed pattern match at System.Utils.Store (line 421, column 34 - line 423, column 37): " + [oldInternal.constructor.name]);
                 }(),
                 handleBounds: parseHandles(userNodeWithDefaults)(oldInternal),
                 bounds: function() {
@@ -39853,7 +39878,7 @@ var adoptUserNodes = function(nodes3) {
                     return Nothing.value;
                   }
                   ;
-                  throw new Error("Failed pattern match at System.Utils.Store (line 424, column 25 - line 426, column 37): " + [oldInternal.constructor.name]);
+                  throw new Error("Failed pattern match at System.Utils.Store (line 425, column 25 - line 427, column 37): " + [oldInternal.constructor.name]);
                 }()
               }
             };
@@ -39867,8 +39892,8 @@ var adoptUserNodes = function(nodes3) {
             };
             var st2 = function() {
               var measuredOk = isJust(internalNode.measured.width) && isJust(internalNode.measured.height);
-              var $188 = !measuredOk && notEq22(internalNode.hidden)(new Just(true));
-              if ($188) {
+              var $191 = !measuredOk && notEq22(internalNode.hidden)(new Just(true));
+              if ($191) {
                 return {
                   nodeLookup: st1.nodeLookup,
                   parentLookup: st1.parentLookup,
@@ -39896,7 +39921,7 @@ var adoptUserNodes = function(nodes3) {
                 return st2;
               }
               ;
-              throw new Error("Failed pattern match at System.Utils.Store (line 444, column 15 - line 457, column 25): " + [userNodeWithDefaults.parentId.constructor.name]);
+              throw new Error("Failed pattern match at System.Utils.Store (line 445, column 15 - line 458, column 25): " + [userNodeWithDefaults.parentId.constructor.name]);
             }();
             return {
               nodeLookup: st3.nodeLookup,
@@ -39946,7 +39971,7 @@ var addConnectionToLookup = function(typeStr) {
                     };
                   }
                   ;
-                  throw new Error("Failed pattern match at System.Utils.Store (line 870, column 17 - line 872, column 54): " + [v.constructor.name]);
+                  throw new Error("Failed pattern match at System.Utils.Store (line 881, column 17 - line 883, column 54): " + [v.constructor.name]);
                 }();
                 return insert22(key2)(insertHandleConnection(connectionKey)(connection)(inner))(lookup32);
               };
@@ -39961,7 +39986,7 @@ var addConnectionToLookup = function(typeStr) {
               return afterType;
             }
             ;
-            throw new Error("Failed pattern match at System.Utils.Store (line 879, column 5 - line 881, column 27): " + [mHandleId.constructor.name]);
+            throw new Error("Failed pattern match at System.Utils.Store (line 890, column 5 - line 892, column 27): " + [mHandleId.constructor.name]);
           };
         };
       };
@@ -40008,7 +40033,7 @@ var bind1 = /* @__PURE__ */ bind(bindAff);
 var liftEffect5 = /* @__PURE__ */ liftEffect(monadEffectAff);
 var discard3 = /* @__PURE__ */ discard(discardUnit);
 var discard1 = /* @__PURE__ */ discard3(bindAff);
-var eq8 = /* @__PURE__ */ eq(eqNodeId);
+var eq9 = /* @__PURE__ */ eq(eqNodeId);
 var lookup12 = /* @__PURE__ */ lookup2(ordString);
 var pure14 = /* @__PURE__ */ pure(applicativeAff);
 var append4 = /* @__PURE__ */ append(semigroupArray);
@@ -40300,11 +40325,11 @@ var fitView = function(store) {
 var excludesSelf = function(internal) {
   return function(v) {
     if (v instanceof NodeArg) {
-      return eq8(v.value0.id)(internal.id);
+      return eq9(v.value0.id)(internal.id);
     }
     ;
     if (v instanceof IdArg) {
-      return eq8(v.value0)(internal.id);
+      return eq9(v.value0)(internal.id);
     }
     ;
     if (v instanceof RectArg) {
@@ -40373,7 +40398,7 @@ var mkGeneralHelpers = function(store) {
         return function __do3() {
           var s = store.getState();
           return find2(function(n) {
-            return eq8(n.id)(id3);
+            return eq9(n.id)(id3);
           })(s.nodes);
         };
       },
@@ -40554,7 +40579,7 @@ var mkGeneralHelpers = function(store) {
           return function(_opts) {
             return pushNodeQueue(batchContext2)(new QueueUpdate(coerceNodeFn(function(nodes3) {
               return map110(function(n) {
-                var $96 = eq8(n.id)(id3);
+                var $96 = eq9(n.id)(id3);
                 if ($96) {
                   return updater(n);
                 }
@@ -40570,7 +40595,7 @@ var mkGeneralHelpers = function(store) {
           return function(_opts) {
             return pushNodeQueue(batchContext2)(new QueueUpdate(coerceNodeFn(function(nodes3) {
               return map110(function(n) {
-                var $97 = eq8(n.id)(id3);
+                var $97 = eq9(n.id)(id3);
                 if ($97) {
                   return updater(n);
                 }
@@ -41097,7 +41122,7 @@ var miniMapNode = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
 
 // output/React.Additional.MiniMap.Nodes/index.js
 var lookup7 = /* @__PURE__ */ lookup2(ordNodeId);
-var eq9 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
+var eq10 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var map26 = /* @__PURE__ */ map(functorMaybe);
 var unwrap9 = /* @__PURE__ */ unwrap();
 var bind12 = /* @__PURE__ */ bind4(ixBindRender);
@@ -41113,7 +41138,7 @@ var internalToBase = unsafeCoerce2;
 var renderOne = function(props) {
   return function(internal) {
     var base = internalToBase(internal);
-    var $16 = eq9(internal.hidden)(new Just(true));
+    var $16 = eq10(internal.hidden)(new Just(true));
     if ($16) {
       return Nothing.value;
     }
@@ -41160,7 +41185,7 @@ var renderOne = function(props) {
         strokeColor: stroke,
         strokeWidth: props.nodeStrokeWidth,
         style: Nothing.value,
-        selected: eq9(internal.selected)(new Just(true)),
+        selected: eq10(internal.selected)(new Just(true)),
         onClick: props.onClick
       }));
     }
@@ -42202,7 +42227,7 @@ var getSimpleBezierPath = function(p) {
 // output/System.Utils.Edges.SmoothStep/index.js
 var min5 = /* @__PURE__ */ min(ordNumber);
 var append14 = /* @__PURE__ */ append(semigroupArray);
-var eq15 = /* @__PURE__ */ eq(eqPosition);
+var eq14 = /* @__PURE__ */ eq(eqPosition);
 var notEq12 = /* @__PURE__ */ notEq(eqPosition);
 var max9 = /* @__PURE__ */ max(ordNumber);
 var foldl5 = /* @__PURE__ */ foldl(foldableArray);
@@ -42568,7 +42593,7 @@ var sameOrMixedBranch = function(p) {
                 throw new Error("Failed pattern match at System.Utils.Edges.SmoothStep (line 203, column 25 - line 207, column 70): " + [dirAxis.constructor.name]);
               }();
               var v = function() {
-                var $69 = eq15(p.sourcePosition)(p.targetPosition);
+                var $69 = eq14(p.sourcePosition)(p.targetPosition);
                 if ($69) {
                   var diff = abs(axisGet(dirAxis)(p.source) - axisGet(dirAxis)(p.target));
                   var $70 = diff <= p.offset;
@@ -44382,7 +44407,7 @@ var cancelAnimationFrame = function(v) {
 
 // output/System.Utils.Edges.Positions/index.js
 var map33 = /* @__PURE__ */ map(functorArray);
-var eq10 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqString));
+var eq11 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqString));
 var bind21 = /* @__PURE__ */ bind(bindMaybe);
 var pure35 = /* @__PURE__ */ pure(applicativeMaybe);
 var nodeHandleToHandle = function(h) {
@@ -44543,7 +44568,7 @@ var getHandle = function(bounds) {
     ;
     if (handleId instanceof Just) {
       return find2(function(h) {
-        return eq10(handleIdString(h.id))(new Just(handleId.value0));
+        return eq11(handleIdString(h.id))(new Just(handleId.value0));
       })(bounds);
     }
     ;
@@ -44644,7 +44669,7 @@ var append5 = /* @__PURE__ */ append(semigroupArray);
 var pure36 = /* @__PURE__ */ pure(applicativeEffect);
 var lookup9 = /* @__PURE__ */ lookup2(ordNodeId);
 var map34 = /* @__PURE__ */ map(functorArray);
-var eq11 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqString));
+var eq15 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqString));
 var eq16 = /* @__PURE__ */ eq(eqNodeId);
 var eq25 = /* @__PURE__ */ eq(eqHandleType);
 var eq34 = /* @__PURE__ */ eq(eqHandleIdField);
@@ -44778,7 +44803,7 @@ var getHandle2 = function(nodeId) {
               var match = function() {
                 if (handleId instanceof Just) {
                   return find2(function(h) {
-                    return eq11(handleIdString(h.id))(new Just(handleId.value0));
+                    return eq15(handleIdString(h.id))(new Just(handleId.value0));
                   })(handles);
                 }
                 ;
@@ -53541,7 +53566,7 @@ var useNodeObserver = function(v) {
                       return false;
                     }
                     ;
-                    throw new Error("Failed pattern match at React.Hook.NodeObserver (line 91, column 29 - line 93, column 27): " + [mObserved.constructor.name]);
+                    throw new Error("Failed pattern match at React.Hook.NodeObserver (line 90, column 29 - line 92, column 27): " + [mObserved.constructor.name]);
                   }();
                   return when17(notEq10(v.node.hidden)(new Just(true)) && (!isInitialized || !observedIsCurrent))(function __do4() {
                     for_17(mObserved)(function(observed) {
@@ -53582,11 +53607,11 @@ var useNodeObserver = function(v) {
                           writeRef(prevType)(v.nodeType)();
                           writeRef(prevSourcePosition)(v.node.sourcePosition)();
                           writeRef(prevTargetPosition)(v.node.targetPosition)();
-                          return store.dispatch(new UpdateNodeInternals(singleton7(v.node.id)({
+                          return store.dispatch(new UpdateNodeInternals([{
                             id: v.node.id,
                             nodeElement: current,
                             force: true
-                          }), {
+                          }], {
                             triggerFitView: false
                           }))();
                         })();
@@ -54224,7 +54249,6 @@ var getAttribute2 = function(attr) {
 
 // output/React.Container.NodeRenderer/index.js
 var foldM6 = /* @__PURE__ */ foldM(foldableArray)(monadEffect);
-var insert11 = /* @__PURE__ */ insert4(ordNodeId);
 var pure62 = /* @__PURE__ */ pure(applicativeEffect);
 var when19 = /* @__PURE__ */ when(applicativeEffect);
 var bind118 = /* @__PURE__ */ bind4(ixBindRender);
@@ -54267,14 +54291,14 @@ var selectFlags2 = function(s) {
 var mkSharedObserver = function(store) {
   return createResizeObserver(function(entries) {
     return function __do3() {
-      var updatesRef = $$new(empty5)();
+      var updatesRef = $$new([])();
       foldM6(function(v) {
         return function(entry) {
           return function __do4() {
             var mDataId = getAttribute2("data-id")(entry.target)();
             var mDivEl = fromElement(entry.target);
             if (mDataId instanceof Just && mDivEl instanceof Just) {
-              return modify_(insert11(mDataId.value0)({
+              return modify_(setUpdate({
                 id: mDataId.value0,
                 nodeElement: mDivEl.value0,
                 force: true
@@ -54286,7 +54310,7 @@ var mkSharedObserver = function(store) {
         };
       })(unit)(entries)();
       var updates = read(updatesRef)();
-      return when19(!isEmpty2(updates))(store.dispatch(new UpdateNodeInternals(updates, {
+      return when19(!$$null(updates))(store.dispatch(new UpdateNodeInternals(updates, {
         triggerFitView: false
       })))();
     };
@@ -55217,7 +55241,7 @@ var lookup25 = /* @__PURE__ */ lookup2(ordNodeId);
 var eq113 = /* @__PURE__ */ eq(eqNodeId);
 var max14 = /* @__PURE__ */ max(ordNumber);
 var foldl9 = /* @__PURE__ */ foldl(foldableList);
-var insert13 = /* @__PURE__ */ insert4(ordMiddlewareKey);
+var insert11 = /* @__PURE__ */ insert4(ordMiddlewareKey);
 var $$delete5 = /* @__PURE__ */ $$delete4(ordMiddlewareKey);
 var reduceTriggerEdgeChanges = function(state3) {
   return function(changes) {
@@ -57745,7 +57769,7 @@ var reduce = function(state3) {
           ariaLabelConfig: state3.ariaLabelConfig,
           zIndexMode: state3.zIndexMode,
           onEdgesChangeMiddlewareMap: state3.onEdgesChangeMiddlewareMap,
-          onNodesChangeMiddlewareMap: insert13(v.value0)(v.value1)(state3.onNodesChangeMiddlewareMap)
+          onNodesChangeMiddlewareMap: insert11(v.value0)(v.value1)(state3.onNodesChangeMiddlewareMap)
         },
         effects: []
       };
@@ -57931,7 +57955,7 @@ var reduce = function(state3) {
           ariaLabelConfig: state3.ariaLabelConfig,
           zIndexMode: state3.zIndexMode,
           onNodesChangeMiddlewareMap: state3.onNodesChangeMiddlewareMap,
-          onEdgesChangeMiddlewareMap: insert13(v.value0)(v.value1)(state3.onEdgesChangeMiddlewareMap)
+          onEdgesChangeMiddlewareMap: insert11(v.value0)(v.value1)(state3.onEdgesChangeMiddlewareMap)
         },
         effects: []
       };
@@ -65117,7 +65141,6 @@ var querySelectorNodeImpl = (host3) => (id3) => () => {
 
 // output/React.Hook.UpdateNodeInternals/index.js
 var map63 = /* @__PURE__ */ map(functorEffect);
-var insert14 = /* @__PURE__ */ insert4(ordNodeId);
 var traverse2 = /* @__PURE__ */ traverse(traversableArray)(applicativeEffect);
 var foldl11 = /* @__PURE__ */ foldl(foldableArray);
 var bind120 = /* @__PURE__ */ bind4(ixBindRender);
@@ -65167,10 +65190,10 @@ var mkFn = function(store) {
         }
         ;
         if (v.value1 instanceof Just) {
-          return insert14(v.value0)(mkUpdate(v.value0)(v.value1.value0))(acc);
+          return setUpdate(mkUpdate(v.value0)(v.value1.value0))(acc);
         }
         ;
-        throw new Error("Failed pattern match at React.Hook.UpdateNodeInternals (line 87, column 41 - line 89, column 67): " + [v.value1.constructor.name]);
+        throw new Error("Failed pattern match at React.Hook.UpdateNodeInternals (line 87, column 41 - line 89, column 50): " + [v.value1.constructor.name]);
       };
     };
     return function __do3() {
@@ -65181,7 +65204,7 @@ var mkFn = function(store) {
       ;
       if (s.domNode instanceof Just) {
         var pairs = traverse2(queryOne(s.domNode.value0))(ids)();
-        var updates = foldl11(insertUpdate)(empty5)(pairs);
+        var updates = foldl11(insertUpdate)([])(pairs);
         requestAnimationFrame(store.dispatch(new UpdateNodeInternals(updates, {
           triggerFitView: false
         })))();
@@ -65480,7 +65503,7 @@ var nodeToolbarPortal = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reac
 // output/React.Additional.NodeToolbar/index.js
 var max15 = /* @__PURE__ */ max(ordNumber);
 var lookup29 = /* @__PURE__ */ lookup2(ordNodeId);
-var insert15 = /* @__PURE__ */ insert4(ordNodeId);
+var insert13 = /* @__PURE__ */ insert4(ordNodeId);
 var eq47 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var map65 = /* @__PURE__ */ map(functorArray);
 var eq310 = /* @__PURE__ */ eq(eqUnsafeReference);
@@ -65514,7 +65537,7 @@ var lookupNodes = function(ids) {
         }
         ;
         if (v instanceof Just) {
-          return insert15(v.value0.id)(v.value0)(acc);
+          return insert13(v.value0.id)(v.value0)(acc);
         }
         ;
         throw new Error("Failed pattern match at React.Additional.NodeToolbar (line 105, column 19 - line 107, column 40): " + [v.constructor.name]);

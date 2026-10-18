@@ -817,30 +817,6 @@
           [
             {
               "type": "dimensions",
-              "id": "down-1",
-              "dimensions": {
-                "width": 49,
-                "height": 18
-              }
-            },
-            {
-              "type": "dimensions",
-              "id": "down-2",
-              "dimensions": {
-                "width": 49,
-                "height": 18
-              }
-            },
-            {
-              "type": "dimensions",
-              "id": "down-3",
-              "dimensions": {
-                "width": 49,
-                "height": 18
-              }
-            },
-            {
-              "type": "dimensions",
               "id": "hub",
               "dimensions": {
                 "width": 24,
@@ -860,6 +836,30 @@
               "id": "up-2",
               "dimensions": {
                 "width": 29,
+                "height": 18
+              }
+            },
+            {
+              "type": "dimensions",
+              "id": "down-1",
+              "dimensions": {
+                "width": 49,
+                "height": 18
+              }
+            },
+            {
+              "type": "dimensions",
+              "id": "down-2",
+              "dimensions": {
+                "width": 49,
+                "height": 18
+              }
+            },
+            {
+              "type": "dimensions",
+              "id": "down-3",
+              "dimensions": {
+                "width": 49,
                 "height": 18
               }
             }
