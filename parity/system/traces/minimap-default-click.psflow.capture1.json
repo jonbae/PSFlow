@@ -651,7 +651,6 @@
             "id": "e1-2",
             "source": "n1",
             "target": "n2",
-            "animated": false,
             "hidden": false,
             "selected": false
           }
@@ -660,7 +659,6 @@
           "id": "e1-2",
           "source": "n1",
           "target": "n2",
-          "animated": false,
           "hidden": false,
           "selected": false
         },
@@ -787,7 +785,6 @@
               "id": "e1-2",
               "source": "n1",
               "target": "n2",
-              "animated": false,
               "hidden": false,
               "selected": false
             }

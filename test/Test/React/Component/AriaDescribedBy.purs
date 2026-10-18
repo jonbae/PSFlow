@@ -95,7 +95,7 @@ edgeAB =
   , target: NodeId "b"
   , sourceHandle: Nothing
   , targetHandle: Nothing
-  , animated: false
+  , animated: Nothing
   , hidden: false
   , deletable: Nothing
   , selectable: Nothing

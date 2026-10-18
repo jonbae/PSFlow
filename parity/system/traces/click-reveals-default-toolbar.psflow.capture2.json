@@ -1293,7 +1293,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 226.20000004768372,
+            "timeStamp": 226.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1362,7 +1362,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 226.20000004768372,
+            "timeStamp": 226.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1440,7 +1440,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 226.20000004768372,
+            "timeStamp": 226.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1505,7 +1505,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 226.20000004768372,
+            "timeStamp": 226.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1593,7 +1593,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 240.60000002384186,
+            "timeStamp": 239.70000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2066,7 +2066,6 @@
             "id": "first-edge",
             "source": "default-node",
             "target": "node-start-top",
-            "animated": false,
             "hidden": false,
             "selected": false
           }
@@ -2075,7 +2074,6 @@
           "id": "first-edge",
           "source": "default-node",
           "target": "node-start-top",
-          "animated": false,
           "hidden": false,
           "selected": false
         },
@@ -2708,7 +2706,6 @@
               "id": "first-edge",
               "source": "default-node",
               "target": "node-start-top",
-              "animated": false,
               "hidden": false,
               "selected": false
             }
