@@ -7,6 +7,7 @@ module React.Additional.MiniMap
   , MMSlice(..)
   , selector
   , buildPanelStyle
+  , maskPath
   ) where
 
 import Prelude
@@ -53,6 +54,23 @@ import Web.UIEvent.MouseEvent (MouseEvent)
 
 showN :: Number -> String
 showN = NumberFormat.toString
+
+-- | The mask's `d`: the padded outer rectangle, then the viewport cut out of
+-- | it under `fillRule="evenodd"`. Upstream writes it as a template literal
+-- | that breaks across two source lines, so the two subpaths are joined by a
+-- | newline and the eight spaces of the second line's indent, and the DOM
+-- | carries both.
+maskPath :: { x :: Number, y :: Number, width :: Number, height :: Number, offset :: Number } -> Rect -> String
+maskPath { x, y, width, height, offset } viewBB =
+  "M" <> showN (x - offset) <> "," <> showN (y - offset)
+    <> "h" <> showN (width + offset * 2.0)
+    <> "v" <> showN (height + offset * 2.0)
+    <> "h" <> showN (negate (width + offset * 2.0))
+    <> "z\n        M" <> showN viewBB.x <> "," <> showN viewBB.y
+    <> "h" <> showN viewBB.width
+    <> "v" <> showN viewBB.height
+    <> "h" <> showN (negate viewBB.width)
+    <> "z"
 
 defaultWidth :: Number
 defaultWidth = 200.0
@@ -277,22 +295,10 @@ miniMap =
           , onClick: onNodeClickHandler
           }
 
-        viewBB = slice.viewBB
-        maskPath =
-          "M" <> showN (x - offset) <> "," <> showN (y - offset)
-            <> "h" <> showN (width + offset * 2.0)
-            <> "v" <> showN (height + offset * 2.0)
-            <> "h" <> showN (negate (width + offset * 2.0))
-            <> "z M" <> showN viewBB.x <> "," <> showN viewBB.y
-            <> "h" <> showN viewBB.width
-            <> "v" <> showN viewBB.height
-            <> "h" <> showN (negate viewBB.width)
-            <> "z"
-
         maskRect =
           path_
             { className: "react-flow__minimap-mask"
-            , d: maskPath
+            , d: maskPath { x, y, width, height, offset } slice.viewBB
             , fillRule: "evenodd"
             , pointerEvents: "none"
             }
