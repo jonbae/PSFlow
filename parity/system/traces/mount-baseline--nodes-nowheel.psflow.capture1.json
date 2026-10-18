@@ -477,7 +477,6 @@
             "id": "nowheel-plain",
             "source": "nowheel",
             "target": "plain",
-            "hidden": false,
             "selected": false
           }
         ],
@@ -485,7 +484,6 @@
           "id": "nowheel-plain",
           "source": "nowheel",
           "target": "plain",
-          "hidden": false,
           "selected": false
         },
         "getIntersectingNodes": [
@@ -601,7 +599,6 @@
               "id": "nowheel-plain",
               "source": "nowheel",
               "target": "plain",
-              "hidden": false,
               "selected": false
             }
           ],

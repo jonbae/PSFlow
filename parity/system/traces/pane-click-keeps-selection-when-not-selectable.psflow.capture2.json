@@ -470,7 +470,6 @@
                 "type": "default",
                 "source": "Node-1",
                 "target": "Node-2",
-                "hidden": false,
                 "selected": true,
                 "label": "edge"
               }
@@ -587,7 +586,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 163.29999995231628,
+            "timeStamp": 179.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -654,7 +653,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 163.29999995231628,
+            "timeStamp": 179.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -747,7 +746,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 169.0999999642372,
+            "timeStamp": 186.4000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -924,7 +923,6 @@
             "type": "default",
             "source": "Node-1",
             "target": "Node-2",
-            "hidden": false,
             "selected": true,
             "label": "edge"
           },
@@ -933,7 +931,6 @@
             "type": "default",
             "source": "Node-1",
             "target": "Node-3",
-            "hidden": false,
             "selected": false,
             "label": "edge"
           }
@@ -943,7 +940,6 @@
           "type": "default",
           "source": "Node-1",
           "target": "Node-2",
-          "hidden": false,
           "selected": true,
           "label": "edge"
         },
@@ -1139,7 +1135,6 @@
               "type": "default",
               "source": "Node-1",
               "target": "Node-2",
-              "hidden": false,
               "selected": true,
               "label": "edge"
             },
@@ -1148,7 +1143,6 @@
               "type": "default",
               "source": "Node-1",
               "target": "Node-3",
-              "hidden": false,
               "selected": false,
               "label": "edge"
             }

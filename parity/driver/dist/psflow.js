@@ -25101,11 +25101,11 @@ var bottomNumber = Number.NEGATIVE_INFINITY;
 
 // output/Data.Ord/foreign.js
 var unsafeCompareImpl = function(lt) {
-  return function(eq29) {
+  return function(eq30) {
     return function(gt) {
       return function(x) {
         return function(y) {
-          return x < y ? lt : x === y ? eq29 : gt;
+          return x < y ? lt : x === y ? eq30 : gt;
         };
       };
     };
@@ -25488,7 +25488,7 @@ var fromJust = function() {
   };
 };
 var eqMaybe = function(dictEq) {
-  var eq29 = eq(dictEq);
+  var eq30 = eq(dictEq);
   return {
     eq: function(x) {
       return function(y) {
@@ -25497,7 +25497,7 @@ var eqMaybe = function(dictEq) {
         }
         ;
         if (x instanceof Just && y instanceof Just) {
-          return eq29(x.value0)(y.value0);
+          return eq30(x.value0)(y.value0);
         }
         ;
         return false;
@@ -26006,13 +26006,13 @@ var fst = function(v) {
   return v.value0;
 };
 var eqTuple = function(dictEq) {
-  var eq29 = eq(dictEq);
+  var eq30 = eq(dictEq);
   return function(dictEq1) {
     var eq112 = eq(dictEq1);
     return {
       eq: function(x) {
         return function(y) {
-          return eq29(x.value0)(y.value0) && eq112(x.value1)(y.value1);
+          return eq30(x.value0)(y.value0) && eq112(x.value1)(y.value1);
         };
       }
     };
@@ -26587,10 +26587,10 @@ var find2 = function(f) {
 };
 var filter = /* @__PURE__ */ runFn2(filterImpl);
 var elemIndex = function(dictEq) {
-  var eq29 = eq(dictEq);
+  var eq210 = eq(dictEq);
   return function(x) {
     return findIndex(function(v) {
-      return eq29(v)(x);
+      return eq210(v)(x);
     });
   };
 };
@@ -29756,12 +29756,12 @@ var lookup = /* @__PURE__ */ function() {
   return runFn4(_lookup)(Nothing.value)(Just.create);
 }();
 var isSubmap = function(dictEq) {
-  var eq29 = eq(dictEq);
+  var eq30 = eq(dictEq);
   return function(m1) {
     return function(m2) {
       var f = function(k) {
         return function(v) {
-          return _lookup(false, eq29(v), k, m2);
+          return _lookup(false, eq30(v), k, m2);
         };
       };
       return all3(f)(m1);
@@ -30255,7 +30255,7 @@ var edgeOut = function(e) {
     sourceHandle: toUndefinable(e.sourceHandle),
     targetHandle: toUndefinable(e.targetHandle),
     animated: toUndefinable(e.animated),
-    hidden: toUndefinable(new Just(e.hidden)),
+    hidden: toUndefinable(e.hidden),
     deletable: toUndefinable(e.deletable),
     selectable: toUndefinable(e.selectable),
     data: toUndefinable(map7(unsafeToForeign)(e.data)),
@@ -30585,7 +30585,7 @@ var edgeIn = function(e) {
     sourceHandle: fromUndefinable(e.sourceHandle),
     targetHandle: fromUndefinable(e.targetHandle),
     animated: fromUndefinable(e.animated),
-    hidden: fromMaybe(false)(fromUndefinable(e.hidden)),
+    hidden: fromUndefinable(e.hidden),
     deletable: fromUndefinable(e.deletable),
     selectable: fromUndefinable(e.selectable),
     data: fromUndefinable(e.data),
@@ -32738,9 +32738,9 @@ function toString(num) {
 
 // output/React.Basic.Hooks/foreign.js
 var import_react2 = __toESM(require_react(), 1);
-var useEqCache = (eq29, a) => {
+var useEqCache = (eq30, a) => {
   const memoRef = import_react2.default.useRef(a);
-  if (memoRef.current !== a && !eq29(memoRef.current, a)) {
+  if (memoRef.current !== a && !eq30(memoRef.current, a)) {
     memoRef.current = a;
   }
   return memoRef.current;
@@ -32759,15 +32759,15 @@ function useState_(tuple, initialState2) {
   }
   return tuple(state3, setState.$$reactBasicHooks$$cachedSetState);
 }
-function useEffect_(eq29, deps, effect) {
-  const memoizedKey = useEqCache(eq29, deps);
+function useEffect_(eq30, deps, effect) {
+  const memoizedKey = useEqCache(eq30, deps);
   import_react2.default.useEffect(effect, [memoizedKey]);
 }
 function useEffectAlways_(effect) {
   return import_react2.default.useEffect(effect);
 }
-function useLayoutEffect_(eq29, deps, effect) {
-  const memoizedKey = useEqCache(eq29, deps);
+function useLayoutEffect_(eq30, deps, effect) {
+  const memoizedKey = useEqCache(eq30, deps);
   import_react2.default.useLayoutEffect(effect, [memoizedKey]);
 }
 var useRef_ = import_react2.default.useRef;
@@ -32778,8 +32778,8 @@ function writeRef_(ref, a) {
   ref.current = a;
 }
 var useContext_ = import_react2.default.useContext;
-function useMemo_(eq29, deps, computeA) {
-  const memoizedKey = useEqCache(eq29, deps);
+function useMemo_(eq30, deps, computeA) {
+  const memoizedKey = useEqCache(eq30, deps);
   return import_react2.default.useMemo(computeA, [memoizedKey]);
 }
 var useDebugValue_ = import_react2.default.useDebugValue;
@@ -32907,21 +32907,21 @@ var useRef = function(initialValue) {
   });
 };
 var useMemo = function(dictEq) {
-  var eq29 = eq(dictEq);
+  var eq30 = eq(dictEq);
   return function(deps) {
     return function(computeA) {
       return unsafeHook(function() {
-        return useMemo_(mkFn2(eq29), deps, computeA);
+        return useMemo_(mkFn2(eq30), deps, computeA);
       });
     };
   };
 };
 var useLayoutEffect = function(dictEq) {
-  var eq29 = eq(dictEq);
+  var eq30 = eq(dictEq);
   return function(deps) {
     return function(effect) {
       return unsafeHook(function() {
-        return useLayoutEffect_(mkFn2(eq29), deps, effect);
+        return useLayoutEffect_(mkFn2(eq30), deps, effect);
       });
     };
   };
@@ -32939,11 +32939,11 @@ var useEffectAlways = function(effect) {
   });
 };
 var useEffect = function(dictEq) {
-  var eq29 = eq(dictEq);
+  var eq30 = eq(dictEq);
   return function(deps) {
     return function(effect) {
       return unsafeHook(function() {
-        return useEffect_(mkFn2(eq29), deps, effect);
+        return useEffect_(mkFn2(eq30), deps, effect);
       });
     };
   };
@@ -33415,7 +33415,7 @@ var useStoreApi = /* @__PURE__ */ coerceHook2(/* @__PURE__ */ bind6(/* @__PURE__
   throw new Error("Failed pattern match at React.Hook.Store (line 83, column 3 - line 85, column 47): " + [mStore.constructor.name]);
 }));
 var useStore = function(dictEq) {
-  var eq29 = eq(dictEq);
+  var eq30 = eq(dictEq);
   return function(selector4) {
     return coerceHook2(bind6(useContext(storeContext))(function(mStore) {
       var store = function() {
@@ -33430,7 +33430,7 @@ var useStore = function(dictEq) {
         throw new Error("Failed pattern match at React.Hook.Store (line 106, column 13 - line 108, column 42): " + [mStore.constructor.name]);
       }();
       return unsafeHook(function() {
-        return useStoreImpl(store, selector4, eq29);
+        return useStoreImpl(store, selector4, eq30);
       });
     }));
   };
@@ -34132,7 +34132,7 @@ var stepAsc = /* @__PURE__ */ function() {
 var eqMapIter = function(dictEq) {
   var eq112 = eq(dictEq);
   return function(dictEq1) {
-    var eq29 = eq(dictEq1);
+    var eq210 = eq(dictEq1);
     return {
       eq: /* @__PURE__ */ function() {
         var go2 = function($copy_a) {
@@ -34144,7 +34144,7 @@ var eqMapIter = function(dictEq) {
               var v = stepAsc(a);
               if (v instanceof IterNext) {
                 var v2 = stepAsc(b);
-                if (v2 instanceof IterNext && (eq112(v.value0)(v2.value0) && eq29(v.value1)(v2.value1))) {
+                if (v2 instanceof IterNext && (eq112(v.value0)(v2.value0) && eq210(v.value1)(v2.value1))) {
                   $tco_var_a = v.value2;
                   $copy_b = v2.value2;
                   return;
@@ -34903,11 +34903,11 @@ var insert5 = function(dictOrd) {
   };
 };
 var eqSet = function(dictEq) {
-  var eq29 = eq(eqMap(dictEq)(eqUnit));
+  var eq30 = eq(eqMap(dictEq)(eqUnit));
   return {
     eq: function(v) {
       return function(v1) {
-        return eq29(v)(v1);
+        return eq30(v)(v1);
       };
     }
   };
@@ -45654,6 +45654,7 @@ var useStore12 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec5(/* @__PURE__ */
     return "sourcePosition";
   }
 })(eqMaybe1)));
+var eq17 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var bind111 = /* @__PURE__ */ bind(bindEffect);
 var when7 = /* @__PURE__ */ when(applicativeEffect);
 var elem4 = /* @__PURE__ */ elem2(eqString);
@@ -45736,7 +45737,7 @@ var placeholderEdge = function(edgeId) {
     sourceHandle: Nothing.value,
     targetHandle: Nothing.value,
     animated: Nothing.value,
-    hidden: true,
+    hidden: new Just(true),
     deletable: Nothing.value,
     selectable: Nothing.value,
     data: Nothing.value,
@@ -45948,7 +45949,7 @@ var applyDefaults = function(v) {
         className: v1.className,
         style: v1.style,
         animated: orElse(v1.animated)(v.value0.animated),
-        hidden: v1.hidden || fromMaybe(false)(v.value0.hidden),
+        hidden: orElse(v1.hidden)(v.value0.hidden),
         deletable: orElse(v1.deletable)(v.value0.deletable),
         selectable: orElse(v1.selectable)(v.value0.selectable),
         data: orElse(v1.data)(v.value0.data),
@@ -46024,11 +46025,11 @@ var edgeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                 ;
                 throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 351, column 27 - line 353, column 84): " + [v.onReconnect.constructor.name]);
               }();
-              var hide = edge.hidden || (isNothing(positionSlice.sourceX) || (isNothing(positionSlice.sourceY) || (isNothing(positionSlice.targetX) || isNothing(positionSlice.targetY))));
+              var hide = eq17(edge.hidden)(new Just(true)) || (isNothing(positionSlice.sourceX) || (isNothing(positionSlice.sourceY) || (isNothing(positionSlice.targetX) || isNothing(positionSlice.targetY))));
               var blurEdge = bind111(readRef(edgeRef))(function() {
-                var $162 = flip(for_9)(blurElement);
-                return function($163) {
-                  return $162(toMaybe($163));
+                var $164 = flip(for_9)(blurElement);
+                return function($165) {
+                  return $164(toMaybe($165));
                 };
               }());
               var onClickHandler = handler(syntheticEvent)(function(se) {
@@ -46124,8 +46125,8 @@ var edgeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                         nodesSelectionActive: false
                       };
                     }))();
-                    var $132 = edge.selected && state3.multiSelectionActive;
-                    if ($132) {
+                    var $134 = edge.selected && state3.multiSelectionActive;
+                    if ($134) {
                       store.dispatch(new UnselectNodesAndEdges({
                         nodes: Nothing.value,
                         edges: new Just([edge])
@@ -46141,8 +46142,8 @@ var edgeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
               var onKeyDownHandler = handler(syntheticEvent)(function(se) {
                 var k = key(se);
                 return when7(!fromMaybe(false)(v.disableKeyboardA11y) && (elem4(k)(elementSelectionKeys) && isSelectable))(function() {
-                  var $133 = k === "Escape";
-                  if ($133) {
+                  var $135 = k === "Escape";
+                  if ($135) {
                     return function __do3() {
                       blurEdge();
                       return store.dispatch(new UnselectNodesAndEdges({
@@ -46689,9 +46690,9 @@ var nodeIdProvider = function(value12) {
 var useNodeId = /* @__PURE__ */ useContext(nodeIdContext);
 
 // output/React.Handle/index.js
-var eq17 = /* @__PURE__ */ eq(eqNodeId);
+var eq18 = /* @__PURE__ */ eq(eqNodeId);
 var eqMaybe5 = /* @__PURE__ */ eqMaybe(eqString);
-var eq18 = /* @__PURE__ */ eq(eqMaybe5);
+var eq19 = /* @__PURE__ */ eq(eqMaybe5);
 var eq27 = /* @__PURE__ */ eq(eqHandleType);
 var notEq5 = /* @__PURE__ */ notEq(eqHandleType);
 var notEq14 = /* @__PURE__ */ notEq(eqNodeId);
@@ -46764,7 +46765,7 @@ var selectConnectingFlags = function(nodeId) {
         var clickConnectionInProcess = isJust(state3.connectionClickStartHandle);
         var clickConnecting = function() {
           if (state3.connectionClickStartHandle instanceof Just) {
-            return eq17(state3.connectionClickStartHandle.value0.nodeId)(nodeId) && (eq18(state3.connectionClickStartHandle.value0.id)(handleId) && eq27(state3.connectionClickStartHandle.value0.handleType)(hType));
+            return eq18(state3.connectionClickStartHandle.value0.nodeId)(nodeId) && (eq19(state3.connectionClickStartHandle.value0.id)(handleId) && eq27(state3.connectionClickStartHandle.value0.handleType)(hType));
           }
           ;
           if (state3.connectionClickStartHandle instanceof Nothing) {
@@ -46806,7 +46807,7 @@ var selectConnectingFlags = function(nodeId) {
         if (state3.connection instanceof ConnectionInProgress) {
           var toMatches = function() {
             if (state3.connection.value0.toHandle instanceof Just) {
-              return eq17(state3.connection.value0.toHandle.value0.nodeId)(nodeId) && (eq18(state3.connection.value0.toHandle.value0.id)(handleId) && eq27(state3.connection.value0.toHandle.value0.handleType)(hType));
+              return eq18(state3.connection.value0.toHandle.value0.nodeId)(nodeId) && (eq19(state3.connection.value0.toHandle.value0.id)(handleId) && eq27(state3.connection.value0.toHandle.value0.handleType)(hType));
             }
             ;
             if (state3.connection.value0.toHandle instanceof Nothing) {
@@ -46815,7 +46816,7 @@ var selectConnectingFlags = function(nodeId) {
             ;
             throw new Error("Failed pattern match at React.Handle (line 117, column 21 - line 121, column 27): " + [state3.connection.value0.toHandle.constructor.name]);
           }();
-          var fromMatches = eq17(state3.connection.value0.fromHandle.nodeId)(nodeId) && (eq18(state3.connection.value0.fromHandle.id)(handleId) && eq27(state3.connection.value0.fromHandle.handleType)(hType));
+          var fromMatches = eq18(state3.connection.value0.fromHandle.nodeId)(nodeId) && (eq19(state3.connection.value0.fromHandle.id)(handleId) && eq27(state3.connection.value0.fromHandle.handleType)(hType));
           return {
             connectingFrom: fromMatches,
             connectingTo: toMatches,
@@ -46955,9 +46956,9 @@ var connectionToEdge = function(mDefaults) {
       animated: bindFlipped4(function(v) {
         return v.animated;
       })(mDefaults),
-      hidden: fromMaybe(false)(bindFlipped4(function(v) {
+      hidden: bindFlipped4(function(v) {
         return v.hidden;
-      })(mDefaults)),
+      })(mDefaults),
       deletable: bindFlipped4(function(v) {
         return v.deletable;
       })(mDefaults),
@@ -47714,7 +47715,7 @@ var hasSelectorImpl = (target5) => (selector4) => (domNode) => () => {
 var member7 = /* @__PURE__ */ member3(ordParentId);
 var lookup15 = /* @__PURE__ */ lookup2(ordNodeId);
 var insert8 = /* @__PURE__ */ insert5(ordParentId);
-var eq19 = /* @__PURE__ */ eq(eqNodeId);
+var eq20 = /* @__PURE__ */ eq(eqNodeId);
 var eq110 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqNodeId));
 var nub4 = /* @__PURE__ */ nub(ordNodeId);
 var isParentSelected = function(node) {
@@ -47832,7 +47833,7 @@ var getEventHandlerParams = function(mNodeId) {
           ;
           if (mNodeId instanceof Just) {
             var v = find2(function(i) {
-              return eq19(i.id)(mNodeId.value0);
+              return eq20(i.id)(mNodeId.value0);
             })(dragItems);
             var v1 = lookup15(mNodeId.value0)(lookup112);
             if (v1 instanceof Just && v instanceof Just) {
@@ -57499,7 +57500,7 @@ var createStore = function(opts) {
       };
     };
     var subscribe = function(dictEq) {
-      var eq29 = eq(dictEq);
+      var eq30 = eq(dictEq);
       return function(selector4) {
         return function(cb) {
           return function __do4() {
@@ -57510,7 +57511,7 @@ var createStore = function(opts) {
               return function(next) {
                 var prevV = selector4(prev);
                 var nextV = selector4(next);
-                var $54 = eq29(prevV)(nextV);
+                var $54 = eq30(prevV)(nextV);
                 if ($54) {
                   return pure70(unit);
                 }
@@ -63180,7 +63181,7 @@ var eqRec9 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ e
     return "edgeId";
   }
 })(eqString));
-var eq20 = /* @__PURE__ */ eq(eqRec9);
+var eq21 = /* @__PURE__ */ eq(eqRec9);
 var coerceHook13 = /* @__PURE__ */ coerceHook();
 var bind54 = /* @__PURE__ */ bind4(ixBindRender);
 var alt8 = /* @__PURE__ */ alt(altMaybe);
@@ -63203,7 +63204,7 @@ var toConnection = function(c) {
 };
 var notIn = function(xs) {
   return function(x) {
-    return !any2(eq20(x))(xs);
+    return !any2(eq21(x))(xs);
   };
 };
 var handleTypeName2 = function(v) {
@@ -63351,7 +63352,7 @@ var eqRec10 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ 
     return "edgeId";
   }
 })(eqString));
-var eq21 = /* @__PURE__ */ eq(eqRec10);
+var eq28 = /* @__PURE__ */ eq(eqRec10);
 var coerceHook15 = /* @__PURE__ */ coerceHook();
 var bind56 = /* @__PURE__ */ bind4(ixBindRender);
 var alt9 = /* @__PURE__ */ alt(altMaybe);
@@ -63365,7 +63366,7 @@ var pure78 = /* @__PURE__ */ pure(applicativeEffect);
 var pure133 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var notIn2 = function(xs) {
   return function(x) {
-    return !any2(eq21(x))(xs);
+    return !any2(eq28(x))(xs);
   };
 };
 var handleTypeName3 = function(v) {
@@ -63713,7 +63714,7 @@ var eqRowCons72 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE
   reflectSymbol: function() {
     return "interactionWidth";
   }
-})(eqMaybe12))()(idIsSymbol2)(eqString))()(hiddenIsSymbol)(eqBoolean))()({
+})(eqMaybe12))()(idIsSymbol2)(eqString))()(hiddenIsSymbol)(eqMaybe42))()({
   reflectSymbol: function() {
     return "edgeType";
   }
@@ -64209,7 +64210,7 @@ var max14 = /* @__PURE__ */ max(ordNumber);
 var lookup28 = /* @__PURE__ */ lookup2(ordNodeId);
 var insert15 = /* @__PURE__ */ insert4(ordNodeId);
 var map65 = /* @__PURE__ */ map(functorArray);
-var eq28 = /* @__PURE__ */ eq(eqUnsafeReference);
+var eq29 = /* @__PURE__ */ eq(eqUnsafeReference);
 var bind59 = /* @__PURE__ */ bind4(ixBindRender);
 var fromFoldable15 = /* @__PURE__ */ fromFoldable(foldableList);
 var pure81 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
@@ -64289,7 +64290,7 @@ var idsFromProp = function(mProp) {
 var eqTbSlice = {
   eq: function(v) {
     return function(v1) {
-      return v.x === v1.x && (v.y === v1.y && (v.zoom === v1.zoom && (v.selectedNodesCount === v1.selectedNodesCount && eq28(v.nodes)(v1.nodes))));
+      return v.x === v1.x && (v.y === v1.y && (v.zoom === v1.zoom && (v.selectedNodesCount === v1.selectedNodesCount && eq29(v.nodes)(v1.nodes))));
     };
   }
 };
@@ -64467,7 +64468,7 @@ var edgeFromConnection = function(generate) {
       sourceHandle: c.sourceHandle,
       targetHandle: c.targetHandle,
       animated: Nothing.value,
-      hidden: false,
+      hidden: Nothing.value,
       deletable: Nothing.value,
       selectable: Nothing.value,
       data: Nothing.value,

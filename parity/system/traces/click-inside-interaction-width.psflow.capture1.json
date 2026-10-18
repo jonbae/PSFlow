@@ -1873,7 +1873,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 378.5,
+            "timeStamp": 379.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1942,7 +1942,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 378.5,
+            "timeStamp": 379.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1980,7 +1980,6 @@
             "id": "interaction-width",
             "source": "8",
             "target": "10",
-            "hidden": false,
             "selected": false,
             "label": "interaction-width",
             "interactionWidth": 42
@@ -2008,7 +2007,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 378.5,
+            "timeStamp": 379.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2073,7 +2072,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 378.5,
+            "timeStamp": 379.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2109,7 +2108,6 @@
             "id": "interaction-width",
             "source": "8",
             "target": "10",
-            "hidden": false,
             "selected": false,
             "label": "interaction-width",
             "interactionWidth": 42
@@ -2149,7 +2147,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 390.5999999642372,
+            "timeStamp": 392.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2185,7 +2183,6 @@
             "id": "interaction-width",
             "source": "8",
             "target": "10",
-            "hidden": false,
             "selected": false,
             "label": "interaction-width",
             "interactionWidth": 42
@@ -2202,7 +2199,6 @@
                 "id": "interaction-width",
                 "source": "8",
                 "target": "10",
-                "hidden": false,
                 "selected": true,
                 "label": "interaction-width",
                 "interactionWidth": 42
@@ -2529,7 +2525,6 @@
             "id": "edge-with-class",
             "source": "1",
             "target": "2",
-            "hidden": false,
             "selected": false,
             "className": "edge-class-test"
           },
@@ -2537,7 +2532,6 @@
             "id": "edge-with-style",
             "source": "1",
             "target": "3",
-            "hidden": false,
             "selected": false,
             "style": {
               "stroke": "red"
@@ -2556,7 +2550,6 @@
             "source": "3",
             "target": "5",
             "animated": true,
-            "hidden": false,
             "selected": false,
             "label": "animated"
           },
@@ -2564,7 +2557,6 @@
             "id": "not-selectable-edge",
             "source": "4",
             "target": "6",
-            "hidden": false,
             "selectable": false,
             "selected": false,
             "label": "not-selectable"
@@ -2573,7 +2565,6 @@
             "id": "not-deletable",
             "source": "5",
             "target": "7",
-            "hidden": false,
             "deletable": false,
             "selected": false,
             "label": "not-deletable"
@@ -2582,7 +2573,6 @@
             "id": "z-index",
             "source": "6",
             "target": "8",
-            "hidden": false,
             "selected": false,
             "zIndex": 3141592,
             "label": "z-index"
@@ -2591,7 +2581,6 @@
             "id": "aria-label",
             "source": "7",
             "target": "9",
-            "hidden": false,
             "selected": false,
             "label": "aria-label",
             "ariaLabel": "aria-label-test"
@@ -2600,7 +2589,6 @@
             "id": "interaction-width",
             "source": "8",
             "target": "10",
-            "hidden": false,
             "selected": true,
             "label": "interaction-width",
             "interactionWidth": 42
@@ -2609,7 +2597,6 @@
             "id": "markers",
             "source": "9",
             "target": "11",
-            "hidden": false,
             "selected": false,
             "markerStart": {
               "type": "arrowclosed"
@@ -2623,14 +2610,12 @@
             "id": "subflow-edge",
             "source": "11",
             "target": "12-a",
-            "hidden": false,
             "selected": false
           },
           {
             "id": "subflow-edge-2",
             "source": "12-a",
             "target": "12-b",
-            "hidden": false,
             "selected": false
           }
         ],
@@ -2638,7 +2623,6 @@
           "id": "edge-with-class",
           "source": "1",
           "target": "2",
-          "hidden": false,
           "selected": false,
           "className": "edge-class-test"
         },
@@ -3185,7 +3169,6 @@
               "id": "edge-with-class",
               "source": "1",
               "target": "2",
-              "hidden": false,
               "selected": false,
               "className": "edge-class-test"
             },
@@ -3193,7 +3176,6 @@
               "id": "edge-with-style",
               "source": "1",
               "target": "3",
-              "hidden": false,
               "selected": false,
               "style": {
                 "stroke": "red"
@@ -3212,7 +3194,6 @@
               "source": "3",
               "target": "5",
               "animated": true,
-              "hidden": false,
               "selected": false,
               "label": "animated"
             },
@@ -3220,7 +3201,6 @@
               "id": "not-selectable-edge",
               "source": "4",
               "target": "6",
-              "hidden": false,
               "selectable": false,
               "selected": false,
               "label": "not-selectable"
@@ -3229,7 +3209,6 @@
               "id": "not-deletable",
               "source": "5",
               "target": "7",
-              "hidden": false,
               "deletable": false,
               "selected": false,
               "label": "not-deletable"
@@ -3238,7 +3217,6 @@
               "id": "z-index",
               "source": "6",
               "target": "8",
-              "hidden": false,
               "selected": false,
               "zIndex": 3141592,
               "label": "z-index"
@@ -3247,7 +3225,6 @@
               "id": "aria-label",
               "source": "7",
               "target": "9",
-              "hidden": false,
               "selected": false,
               "label": "aria-label",
               "ariaLabel": "aria-label-test"
@@ -3256,7 +3233,6 @@
               "id": "interaction-width",
               "source": "8",
               "target": "10",
-              "hidden": false,
               "selected": true,
               "label": "interaction-width",
               "interactionWidth": 42
@@ -3265,7 +3241,6 @@
               "id": "markers",
               "source": "9",
               "target": "11",
-              "hidden": false,
               "selected": false,
               "markerStart": {
                 "type": "arrowclosed"
@@ -3279,14 +3254,12 @@
               "id": "subflow-edge",
               "source": "11",
               "target": "12-a",
-              "hidden": false,
               "selected": false
             },
             {
               "id": "subflow-edge-2",
               "source": "12-a",
               "target": "12-b",
-              "hidden": false,
               "selected": false
             }
           ],

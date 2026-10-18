@@ -369,7 +369,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 164.5999999642372,
+            "timeStamp": 167.9000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -438,7 +438,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 164.5999999642372,
+            "timeStamp": 167.9000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -505,7 +505,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 192.5,
+            "timeStamp": 193.4000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -570,7 +570,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 192.5,
+            "timeStamp": 193.4000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -635,7 +635,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 222.89999997615814,
+            "timeStamp": 224.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -700,7 +700,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 222.89999997615814,
+            "timeStamp": 224.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -765,7 +765,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 240.39999997615814,
+            "timeStamp": 241.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -830,7 +830,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 240.39999997615814,
+            "timeStamp": 241.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -895,7 +895,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 257.39999997615814,
+            "timeStamp": 259.4000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -960,7 +960,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 257.39999997615814,
+            "timeStamp": 259.4000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1027,7 +1027,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 266.5,
+            "timeStamp": 267,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1096,7 +1096,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 266.5,
+            "timeStamp": 267,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1273,7 +1273,6 @@
             "id": "nowheel-plain",
             "source": "nowheel",
             "target": "plain",
-            "hidden": false,
             "selected": false
           }
         ],
@@ -1281,7 +1280,6 @@
           "id": "nowheel-plain",
           "source": "nowheel",
           "target": "plain",
-          "hidden": false,
           "selected": false
         },
         "getIntersectingNodes": [
@@ -1397,7 +1395,6 @@
               "id": "nowheel-plain",
               "source": "nowheel",
               "target": "plain",
-              "hidden": false,
               "selected": false
             }
           ],

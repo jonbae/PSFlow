@@ -67,7 +67,7 @@ mkEdge eid src tgt =
   , sourceHandle: Nothing
   , targetHandle: Nothing
   , animated: Nothing
-  , hidden: false
+  , hidden: Nothing
   , deletable: Nothing
   , selectable: Nothing
   , data: Nothing

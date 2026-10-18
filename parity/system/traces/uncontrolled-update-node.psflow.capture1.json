@@ -818,7 +818,6 @@
             "type": "default",
             "source": "Node-1",
             "target": "Node-2",
-            "hidden": false,
             "selected": false,
             "label": "updated edge"
           },
@@ -827,7 +826,6 @@
             "type": "default",
             "source": "Node-1",
             "target": "Node-3",
-            "hidden": false,
             "selected": false,
             "label": "edge"
           },
@@ -835,7 +833,6 @@
             "id": "added-edge",
             "source": "Node-1",
             "target": "added",
-            "hidden": false,
             "selected": false
           }
         ],
@@ -844,7 +841,6 @@
           "type": "default",
           "source": "Node-1",
           "target": "Node-2",
-          "hidden": false,
           "selected": false,
           "label": "updated edge"
         },
@@ -1088,7 +1084,6 @@
               "type": "default",
               "source": "Node-1",
               "target": "Node-2",
-              "hidden": false,
               "selected": false,
               "label": "updated edge"
             },
@@ -1097,7 +1092,6 @@
               "type": "default",
               "source": "Node-1",
               "target": "Node-3",
-              "hidden": false,
               "selected": false,
               "label": "edge"
             },
@@ -1105,7 +1099,6 @@
               "id": "added-edge",
               "source": "Node-1",
               "target": "added",
-              "hidden": false,
               "selected": false
             }
           ],

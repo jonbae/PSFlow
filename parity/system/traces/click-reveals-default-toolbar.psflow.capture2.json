@@ -1293,7 +1293,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 227.0999999642372,
+            "timeStamp": 208,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1362,7 +1362,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 227.0999999642372,
+            "timeStamp": 208,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1439,7 +1439,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 227.0999999642372,
+            "timeStamp": 208,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1504,7 +1504,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 227.0999999642372,
+            "timeStamp": 208,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1591,7 +1591,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 239.89999997615814,
+            "timeStamp": 221.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2047,7 +2047,6 @@
             "id": "first-edge",
             "source": "default-node",
             "target": "node-start-top",
-            "hidden": false,
             "selected": false
           }
         ],
@@ -2055,7 +2054,6 @@
           "id": "first-edge",
           "source": "default-node",
           "target": "node-start-top",
-          "hidden": false,
           "selected": false
         },
         "getIntersectingNodes": [
@@ -2661,7 +2659,6 @@
               "id": "first-edge",
               "source": "default-node",
               "target": "node-start-top",
-              "hidden": false,
               "selected": false
             }
           ],

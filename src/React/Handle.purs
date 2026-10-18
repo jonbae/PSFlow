@@ -251,7 +251,7 @@ connectionToEdge mDefaults conn =
   , sourceHandle: conn.sourceHandle
   , targetHandle: conn.targetHandle
   , animated: _.animated =<< mDefaults
-  , hidden: fromMaybe false (_.hidden =<< mDefaults)
+  , hidden: _.hidden =<< mDefaults
   , deletable: _.deletable =<< mDefaults
   , selectable: _.selectable =<< mDefaults
   , data: _.data =<< mDefaults

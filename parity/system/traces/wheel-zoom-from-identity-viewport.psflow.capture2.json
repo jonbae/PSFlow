@@ -538,7 +538,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 164.5999999642372,
+            "timeStamp": 164.20000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -605,7 +605,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 164.5999999642372,
+            "timeStamp": 164.20000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -819,7 +819,6 @@
             "id": "e1-2",
             "source": "n1",
             "target": "n2",
-            "hidden": false,
             "selected": false
           }
         ],
@@ -827,7 +826,6 @@
           "id": "e1-2",
           "source": "n1",
           "target": "n2",
-          "hidden": false,
           "selected": false
         },
         "getIntersectingNodes": [
@@ -949,7 +947,6 @@
               "id": "e1-2",
               "source": "n1",
               "target": "n2",
-              "hidden": false,
               "selected": false
             }
           ],

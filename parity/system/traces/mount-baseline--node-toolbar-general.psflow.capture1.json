@@ -1614,7 +1614,6 @@
             "id": "first-edge",
             "source": "default-node",
             "target": "node-start-top",
-            "hidden": false,
             "selected": false
           }
         ],
@@ -1622,7 +1621,6 @@
           "id": "first-edge",
           "source": "default-node",
           "target": "node-start-top",
-          "hidden": false,
           "selected": false
         },
         "getIntersectingNodes": [
@@ -2228,7 +2226,6 @@
               "id": "first-edge",
               "source": "default-node",
               "target": "node-start-top",
-              "hidden": false,
               "selected": false
             }
           ],
