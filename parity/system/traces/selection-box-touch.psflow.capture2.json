@@ -412,14 +412,14 @@
                           {
                             "tag": "div",
                             "attrs": {
-                              "class": "react-flow__node react-flow__node-output nopan selectable draggable dragging",
+                              "class": "react-flow__node react-flow__node-output nopan selected selectable draggable",
                               "data-id": "notConnectable",
                               "data-testid": "rf__node-notConnectable",
                               "tabindex": "0",
                               "role": "group",
                               "aria-roledescription": "node",
                               "aria-describedby": "react-flow__node-desc-1",
-                              "style": "z-index: 0; transform: translate(0px, 300px); pointer-events: all; visibility: visible; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+                              "style": "z-index: 1000; transform: translate(213.628px, 455.366px); pointer-events: all; visibility: visible; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
                             },
                             "text": "notConnectable",
                             "children": [
@@ -549,6 +549,24 @@
                         "tag": "div",
                         "attrs": {
                           "class": "react-flow__viewport-portal"
+                        },
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "tag": "div",
+                    "attrs": {
+                      "class": "react-flow__nodesselection react-flow__container nopan",
+                      "style": "transform: translate(537.017px, 32px) scale(1.02983) translate(213.628px, 455.366px);"
+                    },
+                    "children": [
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__nodesselection-rect",
+                          "tabindex": "-1",
+                          "style": "touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
                         },
                         "children": []
                       }
@@ -858,7 +876,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 219.60000002384186,
+            "timeStamp": 202.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -903,10 +921,176 @@
         ]
       },
       {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "type": "position",
+              "id": "notConnectable",
+              "position": {
+                "x": 116.52439024390243,
+                "y": 387.3932926829268
+              },
+              "dragging": true
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodeDrag",
+        "args": [
+          {
+            "@class": "TouchEvent",
+            "isTrusted": true
+          },
+          {
+            "id": "notConnectable",
+            "position": {
+              "x": 116.52439024390243,
+              "y": 387.3932926829268
+            },
+            "data": {
+              "label": "notConnectable"
+            },
+            "type": "output",
+            "selected": true,
+            "dragging": true,
+            "connectable": false,
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          [
+            {
+              "id": "notConnectable",
+              "position": {
+                "x": 116.52439024390243,
+                "y": 387.3932926829268
+              },
+              "data": {
+                "label": "notConnectable"
+              },
+              "type": "output",
+              "selected": true,
+              "dragging": true,
+              "connectable": false,
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          ]
+        ]
+      },
+      {
         "name": "onSelectionChange",
         "args": [
           {
             "nodes": [],
+            "edges": []
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "type": "select",
+              "id": "notConnectable",
+              "selected": true
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "type": "position",
+              "id": "notConnectable",
+              "position": {
+                "x": 213.6280487804878,
+                "y": 455.36585365853654
+              },
+              "dragging": true
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodeDrag",
+        "args": [
+          {
+            "@class": "TouchEvent",
+            "isTrusted": true
+          },
+          {
+            "id": "notConnectable",
+            "position": {
+              "x": 213.6280487804878,
+              "y": 455.36585365853654
+            },
+            "data": {
+              "label": "notConnectable"
+            },
+            "type": "output",
+            "selected": false,
+            "dragging": true,
+            "connectable": false,
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          [
+            {
+              "id": "notConnectable",
+              "position": {
+                "x": 213.6280487804878,
+                "y": 455.36585365853654
+              },
+              "data": {
+                "label": "notConnectable"
+              },
+              "type": "output",
+              "selected": false,
+              "dragging": true,
+              "connectable": false,
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onSelectionChange",
+        "args": [
+          {
+            "nodes": [
+              {
+                "id": "notConnectable",
+                "position": {
+                  "x": 213.6280487804878,
+                  "y": 455.36585365853654
+                },
+                "data": {
+                  "label": "notConnectable"
+                },
+                "type": "output",
+                "selected": true,
+                "dragging": true,
+                "connectable": false,
+                "measured": {
+                  "width": 150,
+                  "height": 37
+                }
+              }
+            ],
             "edges": []
           }
         ]
@@ -932,7 +1116,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 282.3000000715256,
+            "timeStamp": 284.09999990463257,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -999,7 +1183,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 282.3000000715256,
+            "timeStamp": 284.09999990463257,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1043,6 +1227,69 @@
               "@ref": "function"
             }
           }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "type": "position",
+              "id": "notConnectable",
+              "position": {
+                "x": 213.6280487804878,
+                "y": 455.36585365853654
+              },
+              "dragging": false
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodeDragStop",
+        "args": [
+          {
+            "@class": "TouchEvent",
+            "isTrusted": true
+          },
+          {
+            "id": "notConnectable",
+            "position": {
+              "x": 213.6280487804878,
+              "y": 455.36585365853654
+            },
+            "data": {
+              "label": "notConnectable"
+            },
+            "type": "output",
+            "selected": true,
+            "dragging": false,
+            "connectable": false,
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          [
+            {
+              "id": "notConnectable",
+              "position": {
+                "x": 213.6280487804878,
+                "y": 455.36585365853654
+              },
+              "data": {
+                "label": "notConnectable"
+              },
+              "type": "output",
+              "selected": true,
+              "dragging": false,
+              "connectable": false,
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          ]
         ]
       }
     ],
@@ -1132,14 +1379,15 @@
           {
             "id": "notConnectable",
             "position": {
-              "x": 0,
-              "y": 300
+              "x": 213.6280487804878,
+              "y": 455.36585365853654
             },
             "data": {
               "label": "notConnectable"
             },
             "type": "output",
-            "selected": false,
+            "selected": true,
+            "dragging": false,
             "connectable": false,
             "measured": {
               "width": 150,
@@ -1369,14 +1617,15 @@
           {
             "id": "notConnectable",
             "position": {
-              "x": 0,
-              "y": 300
+              "x": 213.6280487804878,
+              "y": 455.36585365853654
             },
             "data": {
               "label": "notConnectable"
             },
             "type": "output",
-            "selected": false,
+            "selected": true,
+            "dragging": false,
             "connectable": false,
             "measured": {
               "width": 150,
@@ -1444,7 +1693,7 @@
         "getNodesBounds": {
           "x": -100,
           "y": 0,
-          "width": 400,
+          "width": 463.6280487804878,
           "height": 700
         },
         "getHandleConnections": [
@@ -1563,14 +1812,15 @@
             {
               "id": "notConnectable",
               "position": {
-                "x": 0,
-                "y": 300
+                "x": 213.6280487804878,
+                "y": 455.36585365853654
               },
               "data": {
                 "label": "notConnectable"
               },
               "type": "output",
-              "selected": false,
+              "selected": true,
+              "dragging": false,
               "connectable": false,
               "measured": {
                 "width": 150,

@@ -49200,11 +49200,51 @@ var pure48 = /* @__PURE__ */ pure(applicativeEffect);
 var coerceHook3 = /* @__PURE__ */ coerceHook();
 var bind113 = /* @__PURE__ */ bind4(ixBindRender);
 var discard13 = /* @__PURE__ */ discard2(ixBindRender);
-var useEffect4 = /* @__PURE__ */ useEffect(eqUnsafeReference);
+var eqMaybe7 = /* @__PURE__ */ eqMaybe(eqString);
+var useEffect4 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
+  reflectSymbol: function() {
+    return "nodeRef";
+  }
+})(eqUnsafeReference))()({
+  reflectSymbol: function() {
+    return "nodeId";
+  }
+})(/* @__PURE__ */ eqMaybe(eqNodeId)))()({
+  reflectSymbol: function() {
+    return "nodeClickDistance";
+  }
+})(eqNumber))()({
+  reflectSymbol: function() {
+    return "noDragClassName";
+  }
+})(eqMaybe7))()({
+  reflectSymbol: function() {
+    return "isSelectable";
+  }
+})(eqBoolean))()({
+  reflectSymbol: function() {
+    return "handleSelector";
+  }
+})(eqMaybe7))()({
+  reflectSymbol: function() {
+    return "disabled";
+  }
+})(eqBoolean)));
 var map43 = /* @__PURE__ */ map(functorEffect);
 var map115 = /* @__PURE__ */ map(functorMaybe);
 var for_12 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var pure119 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var dragDeps = function(opts) {
+  return {
+    noDragClassName: opts.noDragClassName,
+    handleSelector: opts.handleSelector,
+    disabled: opts.disabled,
+    isSelectable: opts.isSelectable,
+    nodeRef: opts.wrapperRef,
+    nodeId: opts.nodeId,
+    nodeClickDistance: opts.nodeClickDistance
+  };
+};
 var bindDrag = function(b) {
   if (b.domNode instanceof Just && !b.disabled) {
     return function __do3() {
@@ -49216,11 +49256,10 @@ var bindDrag = function(b) {
   ;
   return pure48(pure48(unit));
 };
-var asDeps = unsafeCoerce2;
 var useDrag = function(opts) {
   return coerceHook3(bind113(useState(false))(function(v) {
     return bind113(useRef(Nothing.value))(function(controllerRef) {
-      return discard13(useEffect4(asDeps(opts))(function __do3() {
+      return discard13(useEffect4(dragDeps(opts))(function __do3() {
         var mDiv = map43(toMaybe)(readRef(opts.wrapperRef))();
         return bindDrag({
           disabled: opts.disabled,
@@ -49248,7 +49287,7 @@ var useDrag = function(opts) {
                             return unit;
                           }
                           ;
-                          throw new Error("Failed pattern match at React.Hook.Drag (line 122, column 21 - line 124, column 43): " + [opts.onDragStart.constructor.name]);
+                          throw new Error("Failed pattern match at React.Hook.Drag (line 148, column 21 - line 150, column 43): " + [opts.onDragStart.constructor.name]);
                         };
                       };
                     };
@@ -49269,7 +49308,7 @@ var useDrag = function(opts) {
                             return unit;
                           }
                           ;
-                          throw new Error("Failed pattern match at React.Hook.Drag (line 128, column 21 - line 130, column 43): " + [opts.onDragEnd.constructor.name]);
+                          throw new Error("Failed pattern match at React.Hook.Drag (line 154, column 21 - line 156, column 43): " + [opts.onDragEnd.constructor.name]);
                         };
                       };
                     };
@@ -49282,7 +49321,7 @@ var useDrag = function(opts) {
               return c;
             }
             ;
-            throw new Error("Failed pattern match at React.Hook.Drag (line 115, column 11 - line 135, column 21): " + [mController.constructor.name]);
+            throw new Error("Failed pattern match at React.Hook.Drag (line 141, column 11 - line 161, column 21): " + [mController.constructor.name]);
           },
           release: function __do4() {
             var mFinal = readRef(controllerRef)();
@@ -53623,12 +53662,12 @@ var joinSpace3 = (xs) => xs.filter((s) => s !== "").join(" ");
 var coerceHook7 = /* @__PURE__ */ coerceHook();
 var bind40 = /* @__PURE__ */ bind4(ixBindRender);
 var discard18 = /* @__PURE__ */ discard2(ixBindRender);
-var eqMaybe7 = /* @__PURE__ */ eqMaybe(eqBoolean);
-var useEffect10 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqTuple(eqBoolean)(eqMaybe7));
+var eqMaybe8 = /* @__PURE__ */ eqMaybe(eqBoolean);
+var useEffect10 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqTuple(eqBoolean)(eqMaybe8));
 var map51 = /* @__PURE__ */ map(functorEffect);
 var for_17 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var when17 = /* @__PURE__ */ when(applicativeEffect);
-var notEq9 = /* @__PURE__ */ notEq(eqMaybe7);
+var notEq9 = /* @__PURE__ */ notEq(eqMaybe8);
 var pure60 = /* @__PURE__ */ pure(applicativeEffect);
 var eqMaybe12 = /* @__PURE__ */ eqMaybe(eqPosition);
 var useEffect12 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqTuple(eqNodeId)(/* @__PURE__ */ eqTuple(eqString)(/* @__PURE__ */ eqTuple(eqMaybe12)(eqMaybe12))));
@@ -53723,9 +53762,9 @@ var useNodeObserver = function(v) {
 // output/React.Node.Util/index.js
 var lookup21 = /* @__PURE__ */ lookup2(ordNodeId);
 var unwrap16 = /* @__PURE__ */ unwrap();
-var eqMaybe8 = /* @__PURE__ */ eqMaybe(eqBoolean);
-var notEq10 = /* @__PURE__ */ notEq(eqMaybe8);
-var eq36 = /* @__PURE__ */ eq(eqMaybe8);
+var eqMaybe9 = /* @__PURE__ */ eqMaybe(eqBoolean);
+var notEq10 = /* @__PURE__ */ notEq(eqMaybe9);
+var eq36 = /* @__PURE__ */ eq(eqMaybe9);
 var $$void10 = /* @__PURE__ */ $$void(functorEffect);
 var map52 = /* @__PURE__ */ map(functorEffect);
 var for_18 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
@@ -64543,12 +64582,12 @@ var reactFlow2 = /* @__PURE__ */ forwardNullableRef("ReactFlow")(function(v) {
 var mkTriple = (first, second, third) => [first, second, third];
 
 // output/React.Hook.HandleConnections/index.js
-var eqMaybe9 = /* @__PURE__ */ eqMaybe(eqString);
+var eqMaybe10 = /* @__PURE__ */ eqMaybe(eqString);
 var eqRec9 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
     return "targetHandle";
   }
-})(eqMaybe9))()({
+})(eqMaybe10))()({
   reflectSymbol: function() {
     return "target";
   }
@@ -64556,7 +64595,7 @@ var eqRec9 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ e
   reflectSymbol: function() {
     return "sourceHandle";
   }
-})(eqMaybe9))()({
+})(eqMaybe10))()({
   reflectSymbol: function() {
     return "source";
   }
@@ -64714,12 +64753,12 @@ var useOnNodesChangeMiddleware = function(fn) {
 };
 
 // output/React.Hook.NodeConnections/index.js
-var eqMaybe10 = /* @__PURE__ */ eqMaybe(eqString);
+var eqMaybe11 = /* @__PURE__ */ eqMaybe(eqString);
 var eqRec10 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
     return "targetHandle";
   }
-})(eqMaybe10))()({
+})(eqMaybe11))()({
   reflectSymbol: function() {
     return "target";
   }
@@ -64727,7 +64766,7 @@ var eqRec10 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ 
   reflectSymbol: function() {
     return "sourceHandle";
   }
-})(eqMaybe10))()({
+})(eqMaybe11))()({
   reflectSymbol: function() {
     return "source";
   }
@@ -64882,19 +64921,19 @@ var xIsSymbol2 = {
     return "x";
   }
 };
-var eqMaybe11 = /* @__PURE__ */ eqMaybe(eqBoolean);
-var eq45 = /* @__PURE__ */ eq(eqMaybe11);
+var eqMaybe13 = /* @__PURE__ */ eqMaybe(eqBoolean);
+var eq45 = /* @__PURE__ */ eq(eqMaybe13);
 var foldl10 = /* @__PURE__ */ foldl(foldableList);
 var useStore29 = /* @__PURE__ */ useStore(eqBoolean);
 var nub5 = /* @__PURE__ */ nub(ordNodeId);
 var lookup28 = /* @__PURE__ */ lookup2(ordNodeId);
 var append23 = /* @__PURE__ */ append(semigroupArray);
-var eqMaybe13 = /* @__PURE__ */ eqMaybe(eqInt);
+var eqMaybe14 = /* @__PURE__ */ eqMaybe(eqInt);
 var eqRowCons1 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons8({
   reflectSymbol: function() {
     return "zIndex";
   }
-})(eqMaybe13))();
+})(eqMaybe14))();
 var widthIsSymbol2 = {
   reflectSymbol: function() {
     return "width";
@@ -64939,7 +64978,7 @@ var eqRowCons32 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE
   reflectSymbol: function() {
     return "sourcePosition";
   }
-})(eqMaybe32))()(selectedIsSymbol)(eqMaybe11))()(selectableIsSymbol)(eqMaybe11))()(positionIsSymbol2)(eqRec12))()({
+})(eqMaybe32))()(selectedIsSymbol)(eqMaybe13))()(selectableIsSymbol)(eqMaybe13))()(positionIsSymbol2)(eqRec12))()({
   reflectSymbol: function() {
     return "parentId";
   }
@@ -65045,7 +65084,7 @@ var eqRowCons52 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE
   reflectSymbol: function() {
     return "rootParentIndex";
   }
-})(eqMaybe13))()({
+})(eqMaybe14))()({
   reflectSymbol: function() {
     return "positionAbsolute";
   }
@@ -65057,7 +65096,7 @@ var eqRowCons52 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE
   reflectSymbol: function() {
     return "bounds";
   }
-})(/* @__PURE__ */ eqMaybe(/* @__PURE__ */ eqRec11(/* @__PURE__ */ eqRowCons42(heightIsSymbol2)(eqMaybe22)))))))()(initialWidthIsSymbol)(eqMaybe22))()(initialHeightIsSymbol)(eqMaybe22))()(idIsSymbol2)(eqNodeId))()(hiddenIsSymbol)(eqMaybe11))()(heightIsSymbol2)(eqMaybe22))()(handlesIsSymbol)(eqMaybe62))()(extentIsSymbol)(eqMaybe72))()(expandParentIsSymbol)(eqMaybe11))()(draggingIsSymbol)(eqMaybe11))()(draggableIsSymbol)(eqMaybe11))()(dragHandleIsSymbol)(eqMaybe52))()(deletableIsSymbol)(eqMaybe11))()(dataIsSymbol);
+})(/* @__PURE__ */ eqMaybe(/* @__PURE__ */ eqRec11(/* @__PURE__ */ eqRowCons42(heightIsSymbol2)(eqMaybe22)))))))()(initialWidthIsSymbol)(eqMaybe22))()(initialHeightIsSymbol)(eqMaybe22))()(idIsSymbol2)(eqNodeId))()(hiddenIsSymbol)(eqMaybe13))()(heightIsSymbol2)(eqMaybe22))()(handlesIsSymbol)(eqMaybe62))()(extentIsSymbol)(eqMaybe72))()(expandParentIsSymbol)(eqMaybe13))()(draggingIsSymbol)(eqMaybe13))()(draggableIsSymbol)(eqMaybe13))()(dragHandleIsSymbol)(eqMaybe52))()(deletableIsSymbol)(eqMaybe13))()(dataIsSymbol);
 var connectableIsSymbol = {
   reflectSymbol: function() {
     return "connectable";
@@ -65073,7 +65112,7 @@ var ariaLabelIsSymbol = {
     return "ariaLabel";
   }
 };
-var eqRowCons62 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons32(initialWidthIsSymbol)(eqMaybe22))()(initialHeightIsSymbol)(eqMaybe22))()(idIsSymbol2)(eqNodeId))()(hiddenIsSymbol)(eqMaybe11))()(heightIsSymbol2)(eqMaybe22))()(handlesIsSymbol)(eqMaybe62))()(extentIsSymbol)(eqMaybe72))()(expandParentIsSymbol)(eqMaybe11))()(draggingIsSymbol)(eqMaybe11))()(draggableIsSymbol)(eqMaybe11))()(dragHandleIsSymbol)(eqMaybe52))()(deletableIsSymbol)(eqMaybe11))()(dataIsSymbol);
+var eqRowCons62 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons32(initialWidthIsSymbol)(eqMaybe22))()(initialHeightIsSymbol)(eqMaybe22))()(idIsSymbol2)(eqNodeId))()(hiddenIsSymbol)(eqMaybe13))()(heightIsSymbol2)(eqMaybe22))()(handlesIsSymbol)(eqMaybe62))()(extentIsSymbol)(eqMaybe72))()(expandParentIsSymbol)(eqMaybe13))()(draggingIsSymbol)(eqMaybe13))()(draggableIsSymbol)(eqMaybe13))()(dragHandleIsSymbol)(eqMaybe52))()(deletableIsSymbol)(eqMaybe13))()(dataIsSymbol);
 var eqMaybe82 = /* @__PURE__ */ eqMaybe(eqEdgeMarkerType);
 var eqRowCons72 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons1({
   reflectSymbol: function() {
@@ -65083,7 +65122,7 @@ var eqRowCons72 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE
   reflectSymbol: function() {
     return "sourceHandle";
   }
-})(eqMaybe52))()(sourceIsSymbol)(eqNodeId))()(selectedIsSymbol)(eqMaybe11))()(selectableIsSymbol)(eqMaybe11))()({
+})(eqMaybe52))()(sourceIsSymbol)(eqNodeId))()(selectedIsSymbol)(eqMaybe13))()(selectableIsSymbol)(eqMaybe13))()({
   reflectSymbol: function() {
     return "markerStart";
   }
@@ -65099,11 +65138,11 @@ var eqRowCons72 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE
   reflectSymbol: function() {
     return "interactionWidth";
   }
-})(eqMaybe22))()(idIsSymbol2)(eqString))()(hiddenIsSymbol)(eqMaybe11))()({
+})(eqMaybe22))()(idIsSymbol2)(eqString))()(hiddenIsSymbol)(eqMaybe13))()({
   reflectSymbol: function() {
     return "edgeType";
   }
-})(eqMaybe52))()(deletableIsSymbol)(eqMaybe11))()(dataIsSymbol);
+})(eqMaybe52))()(deletableIsSymbol)(eqMaybe13))()(dataIsSymbol);
 var eqMaybe92 = /* @__PURE__ */ eqMaybe(eqEdgeAriaLabel);
 var animatedIsSymbol = {
   reflectSymbol: function() {
@@ -65165,7 +65204,7 @@ var useNodesInitialized = function(opts) {
   return useStore29(selectInitialized);
 };
 var useNodesData = function(dictEq) {
-  var useStore111 = useStore(eqArray(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons52(dictEq))()(connectableIsSymbol)(eqMaybe11))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe52))));
+  var useStore111 = useStore(eqArray(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons52(dictEq))()(connectableIsSymbol)(eqMaybe13))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe52))));
   return function(ids) {
     var uniqueIds = nub5(ids);
     var selectNodesData = function(s) {
@@ -65191,10 +65230,10 @@ var useNodes = function(dictEq) {
   var selectNodes2 = function(s) {
     return s.nodes;
   };
-  return useStore(eqArray(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons62(dictEq))()(connectableIsSymbol)(eqMaybe11))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe52))))(selectNodes2);
+  return useStore(eqArray(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons62(dictEq))()(connectableIsSymbol)(eqMaybe13))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe52))))(selectNodes2);
 };
 var useInternalNode = function(dictEq) {
-  var useStore111 = useStore(eqMaybe(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons52(dictEq))()(connectableIsSymbol)(eqMaybe11))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe52))));
+  var useStore111 = useStore(eqMaybe(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons52(dictEq))()(connectableIsSymbol)(eqMaybe13))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe52))));
   return function(nodeId) {
     var selectOne = function(s) {
       return lookup28(nodeId)(s.nodeLookup);
@@ -65206,7 +65245,7 @@ var useEdges = function(dictEq) {
   var selectEdges = function(s) {
     return s.edges;
   };
-  return useStore(eqArray(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons72(eqMaybe(dictEq)))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe92))()(animatedIsSymbol)(eqMaybe11))))(selectEdges);
+  return useStore(eqArray(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons72(eqMaybe(dictEq)))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe92))()(animatedIsSymbol)(eqMaybe13))))(selectEdges);
 };
 var useConnectionWith = function(dictEq) {
   var useStore111 = useStore(dictEq);
