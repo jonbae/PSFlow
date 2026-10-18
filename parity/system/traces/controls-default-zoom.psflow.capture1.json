@@ -394,7 +394,7 @@
                     "tag": "path",
                     "attrs": {
                       "class": "react-flow__minimap-mask",
-                      "d": "M-177,-202h704v544h-704z M-145,-110h640v360h-640z",
+                      "d": "M-177,-202h704v544h-704z\n        M-145,-110h640v360h-640z",
                       "fill-rule": "evenodd",
                       "pointer-events": "none"
                     },

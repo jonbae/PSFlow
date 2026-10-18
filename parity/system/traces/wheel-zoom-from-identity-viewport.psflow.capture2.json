@@ -393,7 +393,7 @@
                     "tag": "path",
                     "attrs": {
                       "class": "react-flow__minimap-mask",
-                      "d": "M-56.251465064166375,-161.7229620594784h1237.53223141166v956.2749060908284h-1237.53223141166z M154.9706987166726,87.17101802812834h970.0586025666548v545.6579639437433h-970.0586025666548z",
+                      "d": "M-56.251465064166375,-161.7229620594784h1237.53223141166v956.2749060908284h-1237.53223141166z\n        M154.9706987166726,87.17101802812834h970.0586025666548v545.6579639437433h-970.0586025666548z",
                       "fill-rule": "evenodd",
                       "pointer-events": "none"
                     },
@@ -538,7 +538,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 163.5999999642372,
+            "timeStamp": 161.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -605,7 +605,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 163.5999999642372,
+            "timeStamp": 161.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

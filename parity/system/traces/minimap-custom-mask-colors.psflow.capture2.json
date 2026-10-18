@@ -483,7 +483,7 @@
                     "tag": "path",
                     "attrs": {
                       "class": "react-flow__minimap-mask",
-                      "d": "M-277,-153.5h704v544h-704z M-245,-61.5h640v360h-640z",
+                      "d": "M-277,-153.5h704v544h-704z\n        M-245,-61.5h640v360h-640z",
                       "fill-rule": "evenodd",
                       "pointer-events": "none"
                     },
@@ -659,7 +659,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 145.39999997615814,
+            "timeStamp": 146.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -728,7 +728,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 145.39999997615814,
+            "timeStamp": 146.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -800,7 +800,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 145.39999997615814,
+            "timeStamp": 146.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -865,7 +865,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 145.39999997615814,
+            "timeStamp": 146.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1045,7 +1045,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 169.19999998807907,
+            "timeStamp": 169.5999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1114,7 +1114,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 169.19999998807907,
+            "timeStamp": 169.5999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
