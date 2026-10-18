@@ -69,7 +69,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M102.99985314668774,19.99997666666094 C174.99992785740835,19.99997666666094 174.99992785740835,119.99998244865164 247.000002568129,119.99998244865164",
+                                      "d": "M103,20 C175,20 175,120 247,120",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -78,7 +78,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M102.99985314668774,19.99997666666094 C174.99992785740835,19.99997666666094 174.99992785740835,119.99998244865164 247.000002568129,119.99998244865164",
+                                      "d": "M103,20 C175,20 175,120 247,120",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -90,8 +90,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
-                                      "cx": "112.99985314668774",
-                                      "cy": "19.99997666666094",
+                                      "cx": "113",
+                                      "cy": "20",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -102,8 +102,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
-                                      "cx": "237.000002568129",
-                                      "cy": "119.99998244865164",
+                                      "cx": "237",
+                                      "cy": "120",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -538,7 +538,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 180.30000001192093,
+            "timeStamp": 161.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -605,7 +605,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 180.30000001192093,
+            "timeStamp": 161.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -775,8 +775,8 @@
                 {
                   "id": null,
                   "nodeId": "n1",
-                  "x": 94.99985314668774,
-                  "y": 15.999976666660944,
+                  "x": 95,
+                  "y": 16,
                   "position": "right",
                   "type": "source",
                   "width": 8,
@@ -787,8 +787,8 @@
                 {
                   "id": null,
                   "nodeId": "n1",
-                  "x": -2.9999974318710168,
-                  "y": 15.999976666660944,
+                  "x": -3,
+                  "y": 16,
                   "position": "left",
                   "type": "target",
                   "width": 8,
