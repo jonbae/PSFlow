@@ -14,7 +14,7 @@ import System.Constants (ErrorCode(..), defaultAriaLabelConfig, elementSelection
 import System.Types.Connection (ConnectionMode(..), ConnectionState(..), Padding(..), PaddingValue(..), Viewport, ZIndexMode(..), noConnection)
 import System.Types.Edge (AlignX(..), AlignY(..), ConnectionLineType(..), EdgeBase, EdgeChange(..), EdgeMarkerType(..), MarkerType(..))
 import System.Types.Geometry (CoordinateExtent(..), NodeOrigin(..), Position(..), SnapGrid(..), Transform(..), mkCoordinateExtent, mkNodeOrigin, mkSnapGrid, mkTransform, oppositePosition, XYPosition)
-import System.Types.Handle (HandleProps, HandleType(..), SourceHandle(..), TargetHandle(..), defaultHandleProps)
+import System.Types.Handle (HandleIdField(..), HandleProps, HandleType(..), SourceHandle(..), TargetHandle(..), defaultHandleProps)
 import System.Types.Ids (NodeId(..), ParentId(..))
 import System.Types.Node (Align(..), InternalNodeBase, NodeBase, NodeChange(..), NodeDragItem, NodeExtent(..), NodeLookup)
 import System.Types.PanZoom (InterpolateMode(..), PanOnDrag(..)) as PZ
@@ -52,6 +52,7 @@ import Test.Boundary.NodeDragging (runNodeDraggingTests)
 import Test.Boundary.NodeHidden (runNodeHiddenTests)
 import Test.Boundary.NodeSelected (runNodeSelectedTests)
 import Test.Boundary.DimensionResizing (runDimensionResizingTests)
+import Test.Boundary.HandleIdNull (runHandleIdNullTests)
 import Test.Boundary.NodeExpandParent (runNodeExpandParentTests)
 import Test.Boundary.PrunedKeys (runPrunedKeysTests)
 import Test.Boundary.Wrapper (runWrapperTests)
@@ -808,7 +809,7 @@ main = do
   -- absolute position when requested.
   let
     -- A node positioned at (100, 50) with one source handle at offset (5, 5).
-    handleS :: { id :: Maybe String
+    handleS :: { id :: HandleIdField
                , x :: Number
                , y :: Number
                , position :: Position
@@ -818,7 +819,7 @@ main = do
                , nodeId :: NodeId
                }
     handleS =
-      { id: Just "out"
+      { id: HandleIdSet "out"
       , x: 5.0
       , y: 5.0
       , position: PosRight
@@ -828,7 +829,7 @@ main = do
       , nodeId: NodeId "n1"
       }
     handleT = handleS
-      { id = Just "in"
+      { id = HandleIdSet "in"
       , handleType = Target
       , position = PosLeft
       , x = 0.0
@@ -852,12 +853,12 @@ main = do
     )
   assert "getHandle: returns the source handle when handleId matches"
     ( case XYHandle.getHandle (NodeId "n1") Source (Just "out") lookupHandles Strict false of
-        Just h -> h.id == Just "out" && h.handleType == Source
+        Just h -> h.id == HandleIdSet "out" && h.handleType == Source
         Nothing -> false
     )
   assert "getHandle: Loose mode mixes source+target handles"
     ( case XYHandle.getHandle (NodeId "n1") Source (Just "in") lookupHandles Loose false of
-        Just h -> h.id == Just "in" && h.handleType == Target
+        Just h -> h.id == HandleIdSet "in" && h.handleType == Target
         Nothing -> false
     )
   assert "getHandle: withAbsolutePosition shifts to canvas coords"
@@ -901,9 +902,9 @@ main = do
     -- Position the source handle at absolute (100,50). With node at (100,50)
     -- and handle offset (5,5), the absolute is (105, 55).
     far = XYHandle.getClosestHandle { x: 1000.0, y: 1000.0 } 50.0 lookupHandles
-      { nodeId: NodeId "other", id: Nothing, handleType: Target }
+      { nodeId: NodeId "other", id: HandleIdNull, handleType: Target }
     near = XYHandle.getClosestHandle { x: 105.0, y: 55.0 } 50.0 lookupHandles
-      { nodeId: NodeId "other", id: Nothing, handleType: Target }
+      { nodeId: NodeId "other", id: HandleIdNull, handleType: Target }
   assert "getClosestHandle: nothing within radius returns Nothing"
     (far == Nothing)
   assert "getClosestHandle: a handle within radius is returned"
@@ -1135,6 +1136,7 @@ main = do
   runNodeDraggingTests
   runNodeSelectedTests
   runDimensionResizingTests
+  runHandleIdNullTests
 
   -- Function parity — live differential against XYFlow (via the @psflow/oracle bundle).
   -- Requires `npm run build:oracle` to have produced oracle/index.js.

@@ -831,7 +831,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 197.9000000357628,
+            "timeStamp": 182.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -900,7 +900,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 197.9000000357628,
+            "timeStamp": 182.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -976,7 +976,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 197.9000000357628,
+            "timeStamp": 182.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1041,7 +1041,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 197.9000000357628,
+            "timeStamp": 182.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1117,7 +1117,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 223.80000001192093,
+            "timeStamp": 207.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1195,7 +1195,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 223.80000001192093,
+            "timeStamp": 207.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1259,7 +1259,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 223.80000001192093,
+            "timeStamp": 207.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1324,7 +1324,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 223.80000001192093,
+            "timeStamp": 207.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1384,7 +1384,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 215.30000001192093,
+            "timeStamp": 199.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1446,7 +1446,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 242.10000002384186,
+            "timeStamp": 227.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1512,7 +1512,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 242.10000002384186,
+            "timeStamp": 227.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1584,7 +1584,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 242.10000002384186,
+            "timeStamp": 227.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1649,7 +1649,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 242.10000002384186,
+            "timeStamp": 227.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1734,9 +1734,7 @@
               "y": 35.99991785326901
             },
             "fromHandle": {
-              "id": {
-                "@undefined": true
-              },
+              "id": null,
               "nodeId": "Node-1",
               "x": 70.99981241215175,
               "y": 31.999917853269015,
@@ -1773,9 +1771,7 @@
                 "handleBounds": {
                   "source": [
                     {
-                      "id": {
-                        "@undefined": true
-                      },
+                      "id": null,
                       "nodeId": "Node-1",
                       "x": 70.99981241215175,
                       "y": 31.999917853269015,
@@ -1794,9 +1790,7 @@
               "y": 238.9953028847669
             },
             "toHandle": {
-              "id": {
-                "@undefined": true
-              },
+              "id": null,
               "nodeId": "Node-4",
               "x": 74.99981241215175,
               "y": 201.00001209999465,
@@ -1830,9 +1824,7 @@
                   "source": [],
                   "target": [
                     {
-                      "id": {
-                        "@undefined": true
-                      },
+                      "id": null,
                       "nodeId": "Node-4",
                       "x": 70.99981241215175,
                       "y": -2.9999879000053404,
@@ -2055,9 +2047,7 @@
             "handleBounds": {
               "source": [
                 {
-                  "id": {
-                    "@undefined": true
-                  },
+                  "id": null,
                   "nodeId": "Node-1",
                   "x": 70.99981241215175,
                   "y": 31.999917853269015,
@@ -2537,9 +2527,7 @@
             "handleBounds": {
               "source": [
                 {
-                  "id": {
-                    "@undefined": true
-                  },
+                  "id": null,
                   "nodeId": "Node-1",
                   "x": 70.99981241215175,
                   "y": 31.999917853269015,
@@ -2554,9 +2542,7 @@
           }
         },
         "fromHandle": {
-          "id": {
-            "@undefined": true
-          },
+          "id": null,
           "nodeId": "Node-1",
           "x": 70.99981241215175,
           "y": 31.999917853269015,
@@ -2596,9 +2582,7 @@
               "source": [],
               "target": [
                 {
-                  "id": {
-                    "@undefined": true
-                  },
+                  "id": null,
                   "nodeId": "Node-4",
                   "x": 70.99981241215175,
                   "y": -2.9999879000053404,
@@ -2612,9 +2596,7 @@
           }
         },
         "toHandle": {
-          "id": {
-            "@undefined": true
-          },
+          "id": null,
           "nodeId": "Node-4",
           "x": 74.99981241215175,
           "y": 201.00001209999465,

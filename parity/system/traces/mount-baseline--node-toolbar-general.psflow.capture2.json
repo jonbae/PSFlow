@@ -1522,9 +1522,7 @@
             "handleBounds": {
               "source": [
                 {
-                  "id": {
-                    "@undefined": true
-                  },
+                  "id": null,
                   "nodeId": "default-node",
                   "x": 145.00018842898396,
                   "y": 14.50001333714267,
@@ -1536,9 +1534,7 @@
               ],
               "target": [
                 {
-                  "id": {
-                    "@undefined": true
-                  },
+                  "id": null,
                   "nodeId": "default-node",
                   "x": -3.0000037086770566,
                   "y": 14.50001333714267,

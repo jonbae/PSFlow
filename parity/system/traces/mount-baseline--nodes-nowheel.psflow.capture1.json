@@ -429,9 +429,7 @@
             "handleBounds": {
               "source": [
                 {
-                  "id": {
-                    "@undefined": true
-                  },
+                  "id": null,
                   "nodeId": "nowheel",
                   "x": 70.99987638157852,
                   "y": 31.999940455378436,
@@ -443,9 +441,7 @@
               ],
               "target": [
                 {
-                  "id": {
-                    "@undefined": true
-                  },
+                  "id": null,
                   "nodeId": "nowheel",
                   "x": 70.99987638157852,
                   "y": -2.9999889201456216,

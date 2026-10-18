@@ -601,9 +601,7 @@
             "handleBounds": {
               "source": [
                 {
-                  "id": {
-                    "@undefined": true
-                  },
+                  "id": null,
                   "nodeId": "n1",
                   "x": 95,
                   "y": 16,
@@ -615,9 +613,7 @@
               ],
               "target": [
                 {
-                  "id": {
-                    "@undefined": true
-                  },
+                  "id": null,
                   "nodeId": "n1",
                   "x": -3,
                   "y": 16,

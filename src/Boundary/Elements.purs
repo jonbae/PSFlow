@@ -125,7 +125,7 @@ import React.Types.Nodes (NodeProps, NodeTypesMap)
 import System.Types.Connection (Connection, KeyCode(..), Viewport)
 import System.Types.Edge (EdgeAriaLabel(..), EdgeBase, EdgeChange(..), EdgeMarker, EdgeMarkerType(..))
 import System.Types.Geometry (CoordinateExtent, NodeOrigin, SnapGrid)
-import System.Types.Handle (Handle, unSourceHandle, unTargetHandle)
+import System.Types.Handle (Handle, HandleIdField(..), unSourceHandle, unTargetHandle)
 import System.Types.Node
   ( InternalNodeBase
   , NodeBase
@@ -633,7 +633,7 @@ nodeBoundsOut b =
 
 handleOut :: Handle -> JsHandle
 handleOut h =
-  { id: toUndefinable h.id
+  { id: handleIdOut h.id
   , nodeId: unwrap h.nodeId
   , x: h.x
   , y: h.y
@@ -681,9 +681,23 @@ nodeExtentOut = case _ of
   ParentExtent -> unsafeCoerce "parent"
   CoordExtent e -> unsafeCoerce (coordinateExtentOut e)
 
+-- | A handle's `id` in its three states. Upstream copies a `node.handles`
+-- | entry's `id` as the consumer wrote it, and a measured handle's `null`
+-- | crosses as `null`.
+handleIdIn :: Undefinable String -> HandleIdField
+handleIdIn u
+  | isNull u = HandleIdNull
+  | otherwise = maybe HandleIdUnset HandleIdSet (fromUndefinable u)
+
+handleIdOut :: HandleIdField -> Undefinable String
+handleIdOut = case _ of
+  HandleIdUnset -> undefined
+  HandleIdNull -> nullUndefinable
+  HandleIdSet s -> defined s
+
 nodeHandleIn :: JsNodeHandle -> NodeHandle
 nodeHandleIn h =
-  { id: fromUndefinable h.id
+  { id: handleIdIn h.id
   , x: h.x
   , y: h.y
   , position: positionIn "node.handles[].position" h.position
@@ -694,7 +708,7 @@ nodeHandleIn h =
 
 nodeHandleOut :: NodeHandle -> JsNodeHandle
 nodeHandleOut h =
-  { id: toUndefinable h.id
+  { id: handleIdOut h.id
   , x: h.x
   , y: h.y
   , position: positionOut h.position
