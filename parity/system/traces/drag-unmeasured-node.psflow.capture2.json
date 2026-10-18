@@ -382,7 +382,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 160.19999998807907,
+            "timeStamp": 162,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -451,7 +451,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 160.19999998807907,
+            "timeStamp": 162,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -524,7 +524,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 160.19999998807907,
+            "timeStamp": 162,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -589,7 +589,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 160.19999998807907,
+            "timeStamp": 162,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -718,7 +718,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 169.89999997615814,
+            "timeStamp": 170.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -773,20 +773,12 @@
                 "x": 10,
                 "y": 6
               },
-              "positionAbsolute": {
-                "x": 10,
-                "y": 6
-              },
               "dragging": true
             },
             {
               "type": "position",
               "id": "unmeasured",
               "position": {
-                "x": 110,
-                "y": 106
-              },
-              "positionAbsolute": {
                 "x": 110,
                 "y": 106
               },
@@ -874,7 +866,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 190.89999997615814,
+            "timeStamp": 191.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -929,20 +921,12 @@
                 "x": 20,
                 "y": 12
               },
-              "positionAbsolute": {
-                "x": 20,
-                "y": 12
-              },
               "dragging": true
             },
             {
               "type": "position",
               "id": "unmeasured",
               "position": {
-                "x": 120,
-                "y": 112
-              },
-              "positionAbsolute": {
                 "x": 120,
                 "y": 112
               },
@@ -1030,7 +1014,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 207,
+            "timeStamp": 208,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1085,20 +1069,12 @@
                 "x": 30,
                 "y": 18
               },
-              "positionAbsolute": {
-                "x": 30,
-                "y": 18
-              },
               "dragging": true
             },
             {
               "type": "position",
               "id": "unmeasured",
               "position": {
-                "x": 130,
-                "y": 118
-              },
-              "positionAbsolute": {
                 "x": 130,
                 "y": 118
               },
@@ -1186,7 +1162,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 224.29999995231628,
+            "timeStamp": 223.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1241,20 +1217,12 @@
                 "x": 40,
                 "y": 24
               },
-              "positionAbsolute": {
-                "x": 40,
-                "y": 24
-              },
               "dragging": true
             },
             {
               "type": "position",
               "id": "unmeasured",
               "position": {
-                "x": 140,
-                "y": 124
-              },
-              "positionAbsolute": {
                 "x": 140,
                 "y": 124
               },
@@ -1397,20 +1365,12 @@
                 "x": 50,
                 "y": 30
               },
-              "positionAbsolute": {
-                "x": 50,
-                "y": 30
-              },
               "dragging": true
             },
             {
               "type": "position",
               "id": "unmeasured",
               "position": {
-                "x": 150,
-                "y": 130
-              },
-              "positionAbsolute": {
                 "x": 150,
                 "y": 130
               },
@@ -1488,20 +1448,12 @@
                 "x": 50,
                 "y": 30
               },
-              "positionAbsolute": {
-                "x": 50,
-                "y": 30
-              },
               "dragging": false
             },
             {
               "type": "position",
               "id": "unmeasured",
               "position": {
-                "x": 150,
-                "y": 130
-              },
-              "positionAbsolute": {
                 "x": 150,
                 "y": 130
               },

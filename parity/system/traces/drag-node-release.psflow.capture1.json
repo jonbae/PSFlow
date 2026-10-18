@@ -764,7 +764,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 299.30000001192093,
+            "timeStamp": 304.0999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -833,7 +833,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 299.30000001192093,
+            "timeStamp": 304.0999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -905,7 +905,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 299.30000001192093,
+            "timeStamp": 304.0999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -970,7 +970,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 299.30000001192093,
+            "timeStamp": 304.0999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1166,7 +1166,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 342.10000002384186,
+            "timeStamp": 341.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1239,7 +1239,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 353.30000001192093,
+            "timeStamp": 352.5999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1314,7 +1314,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 353.30000001192093,
+            "timeStamp": 352.5999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1390,7 +1390,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 353.30000001192093,
+            "timeStamp": 352.5999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1455,7 +1455,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 353.30000001192093,
+            "timeStamp": 352.5999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1644,7 +1644,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 386,
+            "timeStamp": 386.5999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1699,20 +1699,12 @@
                 "x": 23.30487804878048,
                 "y": 15.536585365853657
               },
-              "positionAbsolute": {
-                "x": 23.30487804878048,
-                "y": 15.536585365853657
-              },
               "dragging": true
             },
             {
               "type": "position",
               "id": "Node-2",
               "position": {
-                "x": -76.69512195121952,
-                "y": 115.53658536585365
-              },
-              "positionAbsolute": {
                 "x": -76.69512195121952,
                 "y": 115.53658536585365
               },
@@ -1812,7 +1804,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 420.19999998807907,
+            "timeStamp": 418.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1867,20 +1859,12 @@
                 "x": 46.60975609756096,
                 "y": 31.07317073170731
               },
-              "positionAbsolute": {
-                "x": 46.60975609756096,
-                "y": 31.07317073170731
-              },
               "dragging": true
             },
             {
               "type": "position",
               "id": "Node-2",
               "position": {
-                "x": -53.39024390243904,
-                "y": 131.0731707317073
-              },
-              "positionAbsolute": {
                 "x": -53.39024390243904,
                 "y": 131.0731707317073
               },
@@ -1980,7 +1964,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 446.89999997615814,
+            "timeStamp": 446.5999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2035,20 +2019,12 @@
                 "x": 69.91463414634146,
                 "y": 46.60975609756096
               },
-              "positionAbsolute": {
-                "x": 69.91463414634146,
-                "y": 46.60975609756096
-              },
               "dragging": true
             },
             {
               "type": "position",
               "id": "Node-2",
               "position": {
-                "x": -30.085365853658544,
-                "y": 146.60975609756096
-              },
-              "positionAbsolute": {
                 "x": -30.085365853658544,
                 "y": 146.60975609756096
               },
@@ -2148,7 +2124,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 464.30000001192093,
+            "timeStamp": 465.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2203,20 +2179,12 @@
                 "x": 93.21951219512195,
                 "y": 62.14634146341463
               },
-              "positionAbsolute": {
-                "x": 93.21951219512195,
-                "y": 62.14634146341463
-              },
               "dragging": true
             },
             {
               "type": "position",
               "id": "Node-2",
               "position": {
-                "x": -6.7804878048780495,
-                "y": 162.14634146341461
-              },
-              "positionAbsolute": {
                 "x": -6.7804878048780495,
                 "y": 162.14634146341461
               },
@@ -2316,7 +2284,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 481.60000002384186,
+            "timeStamp": 482.0999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2371,20 +2339,12 @@
                 "x": 116.52439024390242,
                 "y": 77.68292682926828
               },
-              "positionAbsolute": {
-                "x": 116.52439024390242,
-                "y": 77.68292682926828
-              },
               "dragging": true
             },
             {
               "type": "position",
               "id": "Node-2",
               "position": {
-                "x": 16.524390243902417,
-                "y": 177.6829268292683
-              },
-              "positionAbsolute": {
                 "x": 16.524390243902417,
                 "y": 177.6829268292683
               },
@@ -2474,20 +2434,12 @@
                 "x": 116.52439024390242,
                 "y": 77.68292682926828
               },
-              "positionAbsolute": {
-                "x": 116.52439024390242,
-                "y": 77.68292682926828
-              },
               "dragging": false
             },
             {
               "type": "position",
               "id": "Node-2",
               "position": {
-                "x": 16.524390243902417,
-                "y": 177.6829268292683
-              },
-              "positionAbsolute": {
                 "x": 16.524390243902417,
                 "y": 177.6829268292683
               },
@@ -2587,7 +2539,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 518.8999999761581,
+            "timeStamp": 535.5999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2652,7 +2604,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 518.8999999761581,
+            "timeStamp": 535.5999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2781,7 +2733,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 537.3999999761581,
+            "timeStamp": 553.8999999761581,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2833,10 +2785,6 @@
               "type": "position",
               "id": "Node-1",
               "position": {
-                "x": 104.87195121951217,
-                "y": 69.91463414634146
-              },
-              "positionAbsolute": {
                 "x": 104.87195121951217,
                 "y": 69.91463414634146
               },
@@ -2919,7 +2867,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 563.3000000119209,
+            "timeStamp": 578.8000000119209,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2971,10 +2919,6 @@
               "type": "position",
               "id": "Node-1",
               "position": {
-                "x": 93.21951219512195,
-                "y": 62.14634146341463
-              },
-              "positionAbsolute": {
                 "x": 93.21951219512195,
                 "y": 62.14634146341463
               },
@@ -3057,7 +3001,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 578.6999999880791,
+            "timeStamp": 595.8999999761581,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3109,10 +3053,6 @@
               "type": "position",
               "id": "Node-1",
               "position": {
-                "x": 81.5670731707317,
-                "y": 54.3780487804878
-              },
-              "positionAbsolute": {
                 "x": 81.5670731707317,
                 "y": 54.3780487804878
               },
@@ -3195,7 +3135,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 595,
+            "timeStamp": 613.5999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3247,10 +3187,6 @@
               "type": "position",
               "id": "Node-1",
               "position": {
-                "x": 69.91463414634146,
-                "y": 46.60975609756096
-              },
-              "positionAbsolute": {
                 "x": 69.91463414634146,
                 "y": 46.60975609756096
               },
@@ -3333,7 +3269,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 612.1000000238419,
+            "timeStamp": 629.3000000119209,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3385,10 +3321,6 @@
               "type": "position",
               "id": "Node-1",
               "position": {
-                "x": 58.26219512195121,
-                "y": 38.84146341463414
-              },
-              "positionAbsolute": {
                 "x": 58.26219512195121,
                 "y": 38.84146341463414
               },
@@ -3458,10 +3390,6 @@
               "type": "position",
               "id": "Node-1",
               "position": {
-                "x": 58.26219512195121,
-                "y": 38.84146341463414
-              },
-              "positionAbsolute": {
                 "x": 58.26219512195121,
                 "y": 38.84146341463414
               },
