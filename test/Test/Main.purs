@@ -60,6 +60,7 @@ import Test.Properties (runProperties)
 import Test.React.Additional.MiniMap (runMiniMapSliceTests)
 import Test.React.Component.AriaDescribedBy (runAriaDescribedByTests)
 import Test.React.Component.EdgeAriaLabel (runEdgeAriaLabelTests)
+import Test.React.Component.NodeInlineDimensions (runNodeInlineDimensionsTests)
 import Test.React.Additional.NodeToolbarPortal (runNodeToolbarPortalTests)
 import Test.React.Hook.NodeRenderOrder (runNodeRenderOrderTests)
 import Test.React.Component.HandleDataId (runHandleDataIdTests)
@@ -1118,6 +1119,7 @@ main = do
   runEmptyChangesTests
   runResetSelectionTests
   runAriaDescribedByTests
+  runNodeInlineDimensionsTests
   runEdgeAriaLabelTests
   runNodeA11yDescriptionTests
   runMeasuredDimensionsTests

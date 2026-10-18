@@ -538,7 +538,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 198.9000000357628,
+            "timeStamp": 161.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -607,7 +607,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 198.9000000357628,
+            "timeStamp": 161.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -682,7 +682,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 198.9000000357628,
+            "timeStamp": 161.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -747,7 +747,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 198.9000000357628,
+            "timeStamp": 161.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -820,7 +820,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 221.4000000357628,
+            "timeStamp": 170.4000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -955,7 +955,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 244,
+            "timeStamp": 194.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1248,7 +1248,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 262.19999998807907,
+            "timeStamp": 210.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1498,7 +1498,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 278,
+            "timeStamp": 229.4000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1634,7 +1634,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 291.9000000357628,
+            "timeStamp": 242,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1770,7 +1770,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 309.19999998807907,
+            "timeStamp": 259,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1906,7 +1906,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 327.69999998807907,
+            "timeStamp": 274,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2042,7 +2042,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 341.5,
+            "timeStamp": 289.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2178,7 +2178,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 357.30000001192093,
+            "timeStamp": 307.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2314,7 +2314,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 375.10000002384186,
+            "timeStamp": 324.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
