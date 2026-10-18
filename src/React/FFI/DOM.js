@@ -20,6 +20,10 @@ export const polyline_ = mk("polyline");
 export const symbol_ = mk("symbol");
 export const title_ = mk("title");
 
+// `{ ...attributes, ...props }`: the attributes first, so a key the caller
+// names explicitly wins, as upstream's `<path {...props} d={path} />` does.
+export const spreadUnderImpl = (attributes, props) => ({ ...attributes, ...props });
+
 export const scrollResetHandlerImpl = (cb) => (event) => {
   if (event && event.currentTarget && event.currentTarget.scrollTo) {
     event.currentTarget.scrollTo({ top: 0, left: 0, behavior: "instant" });

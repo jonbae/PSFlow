@@ -34,6 +34,8 @@ module React.Types.Edges
 import Prelude
 
 import Data.Maybe (Maybe)
+import Foreign (Foreign)
+import Foreign.Object (Object)
 import Effect (Effect)
 import React.Basic (JSX)
 import React.Types.Nodes (InternalNode)
@@ -184,6 +186,13 @@ type BaseEdgeProps =
   , markerStart :: Maybe String
   , interactionWidth :: Maybe Number
   , className :: Maybe String
+  -- | The rest of upstream's `SVGAttributes<SVGPathElement>`, which
+  -- | `<BaseEdge />` spreads onto the visible path before it sets `d`,
+  -- | `fill`, and `className` (xyflow/xyflow#4855). This record names the attributes the
+  -- | built-in edges pass; a custom edge can hand `BaseEdge` any other, such
+  -- | as `strokeDasharray`, `pathLength`, a `data-*` attribute, or
+  -- | `aria-label`, and they arrive here under their React prop names.
+  , pathAttributes :: Maybe (Object Foreign)
   }
 
 -- | What every built-in edge component is handed — the seventeen members that

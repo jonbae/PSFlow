@@ -26,6 +26,7 @@ module React.FFI.DOM
   , symbol_
   , title_
   , textContent
+  , spreadUnder
   , opt
   , scrollResetHandler
   , blurElement
@@ -33,10 +34,13 @@ module React.FFI.DOM
 
 import Prelude
 
-import Data.Maybe (Maybe)
+import Data.Function.Uncurried (Fn2, runFn2)
+import Data.Maybe (Maybe(..))
 import Data.Nullable (toNullable)
 import Effect (Effect)
 import Effect.Uncurried (EffectFn1, mkEffectFn1)
+import Foreign (Foreign)
+import Foreign.Object (Object)
 import React.Basic (JSX)
 import React.Basic.Events (EventHandler)
 import Unsafe.Coerce (unsafeCoerce)
@@ -58,6 +62,16 @@ foreign import pattern_ :: forall p. Record p -> Array JSX -> JSX
 foreign import polyline_ :: forall p. Record p -> Array JSX -> JSX
 foreign import symbol_ :: forall p. Record p -> Array JSX -> JSX
 foreign import title_ :: forall p. Record p -> Array JSX -> JSX
+
+foreign import spreadUnderImpl :: forall p. Fn2 (Object Foreign) (Record p) (Record p)
+
+-- | An element's props with attributes the caller didn't name spread
+-- | underneath, as JSX's `<path {...rest} d={path} />` does: a key in both
+-- | takes the record's value. The record's type doesn't change, because
+-- | `path_` and its siblings take any record.
+spreadUnder :: forall p. Maybe (Object Foreign) -> Record p -> Record p
+spreadUnder Nothing props = props
+spreadUnder (Just attributes) props = runFn2 spreadUnderImpl attributes props
 
 -- | A bare string rendered as a React text child. React accepts strings
 -- | directly as JSX children, so the cast is sound.

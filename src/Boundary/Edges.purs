@@ -106,14 +106,15 @@ import Boundary.Enums
   , positionOut
   )
 import Boundary.Undefined (Undefinable, fromUndefinable, requiredProp, toUndefinable)
-import Data.Maybe (Maybe, maybe)
+import Data.Array (foldr)
+import Data.Maybe (Maybe(..), maybe)
 import Boundary.Wrapper (mkComponentWrapper)
 import Effect.Exception.Unsafe (unsafeThrow)
 import Effect.Uncurried (mkEffectFn1)
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign)
 import Foreign.Object (Object)
-import Foreign.Object (mapWithKey) as Object
+import Foreign.Object (delete, isEmpty, mapWithKey) as Object
 import React.Additional.EdgeToolbar (edgeToolbar) as PS
 import React.Basic (JSX, ReactComponent, element)
 import React.Basic.Hooks (ReactChildren, memo, reactComponent, reactComponentWithChildren)
@@ -203,6 +204,10 @@ edgeText =
 -- BaseEdge
 -- ────────────────────────────────────────────────────────────────────────
 
+-- | The members `<BaseEdge />` reads. Upstream types its props as these plus
+-- | `SVGAttributes<SVGPathElement>`, and the component spreads every prop it
+-- | doesn't destructure onto the visible path. This record can't name that
+-- | rest, so `pathAttributesIn` collects it from the props object.
 type JsBaseEdgeProps =
   { id :: Undefinable String
   , path :: Undefinable String
@@ -239,7 +244,40 @@ convertBaseEdge p =
   , markerStart: fromUndefinable p.markerStart
   , interactionWidth: fromUndefinable p.interactionWidth
   , className: fromUndefinable p.className
+  , pathAttributes: pathAttributesIn p
   }
+
+-- | Every prop `JsBaseEdgeProps` doesn't name, which is what upstream's
+-- | `...props` rest holds less the members ps-flow models on the path: `id`,
+-- | `style`, `markerStart`, `markerEnd`, and `className`. Those cross through
+-- | their fields, and the rest crosses as written, so a `data-*` attribute or
+-- | `aria-label` reaches the DOM under the name the consumer gave it.
+pathAttributesIn :: JsBaseEdgeProps -> Maybe (Object Foreign)
+pathAttributesIn p =
+  let
+    rest = foldr Object.delete (unsafeCoerce p :: Object Foreign) baseEdgeMembers
+  in
+    if Object.isEmpty rest then Nothing else Just rest
+
+-- | `JsBaseEdgeProps`' fields, by name.
+baseEdgeMembers :: Array String
+baseEdgeMembers =
+  [ "id"
+  , "path"
+  , "labelX"
+  , "labelY"
+  , "label"
+  , "labelStyle"
+  , "labelShowBg"
+  , "labelBgStyle"
+  , "labelBgPadding"
+  , "labelBgBorderRadius"
+  , "style"
+  , "markerEnd"
+  , "markerStart"
+  , "interactionWidth"
+  , "className"
+  ]
 
 -- | Not memoized, because upstream's is not. ps-flow's own `<BaseEdge />` is —
 -- | it is what every built-in edge renders through, so memoizing it internally
