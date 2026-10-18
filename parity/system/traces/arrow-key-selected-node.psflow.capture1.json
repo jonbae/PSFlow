@@ -17,7 +17,7 @@
           "data-testid": "rf__wrapper",
           "class": "react-flow light",
           "role": "application",
-          "style": "width: 100%; height: 100%; overflow: hidden; position: relative; z-index: 0;"
+          "style": "height: 100%; width: 100%; overflow: hidden; position: relative; z-index: 0;"
         },
         "children": [
           {
@@ -526,7 +526,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 279.39999997615814,
+            "timeStamp": 330.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -595,7 +595,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 279.39999997615814,
+            "timeStamp": 330.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -667,7 +667,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 279.39999997615814,
+            "timeStamp": 330.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -732,7 +732,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 279.39999997615814,
+            "timeStamp": 330.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -928,7 +928,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 302.19999998807907,
+            "timeStamp": 355.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

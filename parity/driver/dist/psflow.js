@@ -26100,7 +26100,7 @@ var foldl = function(dict) {
 var intercalate = function(dictFoldable) {
   var foldl22 = foldl(dictFoldable);
   return function(dictMonoid) {
-    var append23 = append(dictMonoid.Semigroup0());
+    var append24 = append(dictMonoid.Semigroup0());
     var mempty21 = mempty(dictMonoid);
     return function(sep) {
       return function(xs) {
@@ -26115,7 +26115,7 @@ var intercalate = function(dictFoldable) {
             ;
             return {
               init: false,
-              acc: append23(v.acc)(append23(sep)(v1))
+              acc: append24(v.acc)(append24(sep)(v1))
             };
           };
         };
@@ -26178,12 +26178,12 @@ var foldableMaybe = {
 var foldMapDefaultR = function(dictFoldable) {
   var foldr22 = foldr(dictFoldable);
   return function(dictMonoid) {
-    var append23 = append(dictMonoid.Semigroup0());
+    var append24 = append(dictMonoid.Semigroup0());
     var mempty21 = mempty(dictMonoid);
     return function(f) {
       return foldr22(function(x) {
         return function(acc) {
-          return append23(f(x))(acc);
+          return append24(f(x))(acc);
         };
       })(mempty21);
     };
@@ -26446,6 +26446,7 @@ var map22 = /* @__PURE__ */ map(functorST);
 var fromJust4 = /* @__PURE__ */ fromJust();
 var when2 = /* @__PURE__ */ when(applicativeST);
 var notEq2 = /* @__PURE__ */ notEq(eqOrdering);
+var append2 = /* @__PURE__ */ append(semigroupArray);
 var unsafeIndex = function() {
   return runFn2(unsafeIndexImpl);
 };
@@ -26593,6 +26594,11 @@ var elem2 = function(dictEq) {
     return function(arr) {
       return isJust(elemIndex1(a)(arr));
     };
+  };
+};
+var cons = function(x) {
+  return function(xs) {
+    return append2([x])(xs);
   };
 };
 var concatMap = /* @__PURE__ */ flip(/* @__PURE__ */ bind(bindArray));
@@ -29512,11 +29518,11 @@ var foldableList = {
     return go2;
   },
   foldMap: function(dictMonoid) {
-    var append23 = append(dictMonoid.Semigroup0());
+    var append24 = append(dictMonoid.Semigroup0());
     var mempty21 = mempty(dictMonoid);
     return function(f) {
       return foldl(foldableList)(function(acc) {
-        var $286 = append23(acc);
+        var $286 = append24(acc);
         return function($287) {
           return $286(f($287));
         };
@@ -29780,6 +29786,7 @@ var deleteImpl = function(k) {
 };
 
 // output/Foreign.Object/index.js
+var bindFlipped2 = /* @__PURE__ */ bindFlipped(bindST);
 var $$void4 = /* @__PURE__ */ $$void(functorST);
 var toUnfoldable3 = function(dictUnfoldable) {
   var $89 = toUnfoldable(dictUnfoldable);
@@ -29789,6 +29796,11 @@ var toUnfoldable3 = function(dictUnfoldable) {
   };
 };
 var thawST = _copyST;
+var singleton6 = function(k) {
+  return function(v) {
+    return runST(bindFlipped2(poke2(k)(v))(newImpl));
+  };
+};
 var mutate = function(f) {
   return function(m) {
     return runST(function __do3() {
@@ -31908,7 +31920,7 @@ var $lazy_applyAff = /* @__PURE__ */ $runtime_lazy3("applyAff", "Effect.Aff", fu
   };
 });
 var pure2 = /* @__PURE__ */ pure(applicativeAff);
-var bindFlipped2 = /* @__PURE__ */ bindFlipped(bindAff);
+var bindFlipped3 = /* @__PURE__ */ bindFlipped(bindAff);
 var monadEffectAff = {
   liftEffect: _liftEffect,
   Monad0: function() {
@@ -31934,7 +31946,7 @@ var monadErrorAff = {
 var $$try2 = /* @__PURE__ */ $$try(monadErrorAff);
 var runAff = function(k) {
   return function(aff) {
-    return launchAff(bindFlipped2(function($83) {
+    return launchAff(bindFlipped3(function($83) {
       return liftEffect2(k($83));
     })($$try2(aff)));
   };
@@ -34012,7 +34024,7 @@ var size2 = function(v) {
   ;
   throw new Error("Failed pattern match at Data.Map.Internal (line 618, column 8 - line 620, column 24): " + [v.constructor.name]);
 };
-var singleton6 = function(k) {
+var singleton7 = function(k) {
   return function(v) {
     return new Node(1, 1, k, v, Leaf.value, Leaf.value);
   };
@@ -34046,7 +34058,7 @@ var unsafeBalancedNode = /* @__PURE__ */ function() {
   return function(k, v, l, r) {
     if (l instanceof Leaf) {
       if (r instanceof Leaf) {
-        return singleton6(k)(v);
+        return singleton7(k)(v);
       }
       ;
       if (r instanceof Node && r.value0 > 1) {
@@ -34307,7 +34319,7 @@ var insert4 = function(dictOrd) {
     return function(v) {
       var go2 = function(v1) {
         if (v1 instanceof Leaf) {
-          return singleton6(k)(v);
+          return singleton7(k)(v);
         }
         ;
         if (v1 instanceof Node) {
@@ -38754,7 +38766,7 @@ var lookup1 = /* @__PURE__ */ lookup2(ordString);
 var fromFoldable7 = /* @__PURE__ */ fromFoldable(foldableList);
 var max5 = /* @__PURE__ */ max(ordNumber);
 var eq14 = /* @__PURE__ */ eq(eqNodeId);
-var append2 = /* @__PURE__ */ append(semigroupArray);
+var append3 = /* @__PURE__ */ append(semigroupArray);
 var lookup22 = /* @__PURE__ */ lookup2(ordNodeId);
 var toUnfoldable7 = /* @__PURE__ */ toUnfoldable5(unfoldableArray);
 var eqMaybe4 = /* @__PURE__ */ eqMaybe(eqBoolean);
@@ -39045,7 +39057,7 @@ var stepExpansion = function(children3) {
             ;
             return [];
           }();
-          return append2(changes)(append2(posChange)(append2(childPosChanges)(dimChange)));
+          return append3(changes)(append3(posChange)(append3(childPosChanges)(dimChange)));
         };
       };
     };
@@ -39567,8 +39579,8 @@ var processUpdate = function(update) {
                 return {
                   nodeLookup: childResult.nodeLookup,
                   parentLookup: childResult.parentLookup,
-                  changes: append2(acc.changes)(extraChanges),
-                  parentExpandChildren: append2(acc.parentExpandChildren)(extraExpand),
+                  changes: append3(acc.changes)(extraChanges),
+                  parentExpandChildren: append3(acc.parentExpandChildren)(extraExpand),
                   updatedInternals: true
                 };
               };
@@ -39625,7 +39637,7 @@ var updateNodeInternals = function(updates) {
                     var finalChanges = function() {
                       var $173 = length(result.parentExpandChildren) > 0;
                       if ($173) {
-                        return append2(result.changes)(handleExpandParent(result.parentExpandChildren)(result.nodeLookup)(result.parentLookup)(origin2));
+                        return append3(result.changes)(handleExpandParent(result.parentExpandChildren)(result.nodeLookup)(result.parentLookup)(origin2));
                       }
                       ;
                       return result.changes;
@@ -39999,7 +40011,7 @@ var discard1 = /* @__PURE__ */ discard3(bindAff);
 var eq8 = /* @__PURE__ */ eq(eqNodeId);
 var lookup12 = /* @__PURE__ */ lookup2(ordString);
 var pure14 = /* @__PURE__ */ pure(applicativeAff);
-var append3 = /* @__PURE__ */ append(semigroupArray);
+var append4 = /* @__PURE__ */ append(semigroupArray);
 var when3 = /* @__PURE__ */ when(applicativeEffect);
 var for_3 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var map110 = /* @__PURE__ */ map(functorArray);
@@ -40354,7 +40366,7 @@ var mkGeneralHelpers = function(store) {
       },
       addNodes: function(newNodes) {
         return pushNodeQueue(batchContext2)(new QueueUpdate(coerceNodeFn(function(existing) {
-          return append3(existing)(newNodes);
+          return append4(existing)(newNodes);
         })));
       },
       getNode: function(id3) {
@@ -40380,7 +40392,7 @@ var mkGeneralHelpers = function(store) {
       },
       addEdges: function(newEdges) {
         return pushEdgeQueue(batchContext2)(new QueueUpdate(coerceEdgeFn(function(existing) {
-          return append3(existing)(newEdges);
+          return append4(existing)(newEdges);
         })));
       },
       getEdge: function(id3) {
@@ -41186,7 +41198,7 @@ var $$void7 = /* @__PURE__ */ $$void(functorAff);
 var max6 = /* @__PURE__ */ max(ordNumber);
 var pure20 = /* @__PURE__ */ pure(applicativeEffect);
 var void1 = /* @__PURE__ */ $$void(functorEffect);
-var bindFlipped3 = /* @__PURE__ */ bindFlipped(bindEffect);
+var bindFlipped4 = /* @__PURE__ */ bindFlipped(bindEffect);
 var zoomHandler = function(params) {
   return function(upd) {
     return function(event) {
@@ -41323,7 +41335,7 @@ var createXYMinimap = function(params) {
         return d3Pointer(ev)(container2);
       };
     };
-    var destroy = void1(bindFlipped3(setZoomOn("zoom")(function(v) {
+    var destroy = void1(bindFlipped4(setZoomOn("zoom")(function(v) {
       return pure20(unit);
     }))(zoomCreate));
     return {
@@ -41726,7 +41738,7 @@ var numberPairIn = function(field) {
           return unsafeThrow("ps-flow: the " + (name15 + (" entry of `" + (field + ("` must be a number, got " + (typeName(value12) + "."))))));
         }
         ;
-        throw new Error("Failed pattern match at Boundary.Chrome (line 219, column 21 - line 225, column 17): " + [v2.constructor.name]);
+        throw new Error("Failed pattern match at Boundary.Chrome (line 220, column 21 - line 226, column 17): " + [v2.constructor.name]);
       };
     };
     var v = asNumber(raw);
@@ -41743,7 +41755,7 @@ var numberPairIn = function(field) {
       return unsafeThrow("ps-flow: `" + (field + ("` must be a number or a pair of numbers, got " + (typeName(raw) + "."))));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Chrome (line 209, column 26 - line 217, column 17): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Chrome (line 210, column 26 - line 218, column 17): " + [v.constructor.name]);
   };
 };
 var nodeAttributeIn = function(field) {
@@ -41758,7 +41770,7 @@ var nodeAttributeIn = function(field) {
         return unsafeThrow("ps-flow: `" + (field + ("` returned " + (typeName(value12) + ", not a string."))));
       }
       ;
-      throw new Error("Failed pattern match at Boundary.Chrome (line 366, column 22 - line 370, column 86): " + [v2.constructor.name]);
+      throw new Error("Failed pattern match at Boundary.Chrome (line 367, column 22 - line 371, column 86): " + [v2.constructor.name]);
     };
     var v = asFunction(raw);
     if (v instanceof Just) {
@@ -41777,10 +41789,10 @@ var nodeAttributeIn = function(field) {
         return unsafeThrow("ps-flow: `" + (field + ("` must be a function of a node, got " + (typeName(raw) + "."))));
       }
       ;
-      throw new Error("Failed pattern match at Boundary.Chrome (line 354, column 14 - line 364, column 17): " + [v1.constructor.name]);
+      throw new Error("Failed pattern match at Boundary.Chrome (line 355, column 14 - line 365, column 17): " + [v1.constructor.name]);
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Chrome (line 352, column 29 - line 364, column 17): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Chrome (line 353, column 29 - line 365, column 17): " + [v.constructor.name]);
   };
 };
 var miniMapNodePropsOut = function(p) {
@@ -42837,6 +42849,41 @@ var getSmoothStepPath2 = function(p) {
   }));
 };
 
+// output/Boundary.Rest/index.js
+var rowLabelsNil = {
+  rowLabels: function(v) {
+    return [];
+  }
+};
+var rowLabels = function(dict) {
+  return dict.rowLabels;
+};
+var rowLabelsCons = function(dictIsSymbol) {
+  var reflectSymbol2 = reflectSymbol(dictIsSymbol);
+  return function(dictRowLabels) {
+    var rowLabels1 = rowLabels(dictRowLabels);
+    return {
+      rowLabels: function(v) {
+        return cons(reflectSymbol2($$Proxy.value))(rowLabels1($$Proxy.value));
+      }
+    };
+  };
+};
+var restOf = function() {
+  return function(dictRowLabels) {
+    var rowLabels1 = rowLabels(dictRowLabels);
+    return function(props) {
+      var rest = foldr2($$delete2)(props)(rowLabels1($$Proxy.value));
+      var $11 = isEmpty(rest);
+      if ($11) {
+        return Nothing.value;
+      }
+      ;
+      return new Just(rest);
+    };
+  };
+};
+
 // output/React.Portal.FFI/foreign.js
 var import_react_dom = __toESM(require_react_dom(), 1);
 var createPortal = (jsx10) => (container2) => (0, import_react_dom.createPortal)(jsx10, container2);
@@ -43447,6 +43494,67 @@ var ConnectionInvalid = /* @__PURE__ */ function() {
 var map31 = /* @__PURE__ */ map(functorMaybe);
 var reactComponent9 = /* @__PURE__ */ reactComponent()()();
 var pure113 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var restOf2 = /* @__PURE__ */ restOf()(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "className";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "id";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "interactionWidth";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "label";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "labelBgBorderRadius";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "labelBgPadding";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "labelBgStyle";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "labelShowBg";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "labelStyle";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "labelX";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "labelY";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "markerEnd";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "markerStart";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "path";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "style";
+  }
+})(rowLabelsNil))))))))))))))));
 var pathOptionsOut = unsafeCoerce2;
 var labelBgPaddingOut = function(p) {
   return [p.x, p.y];
@@ -43507,6 +43615,26 @@ var edgeTypesIn = function(types) {
     };
   })(types);
 };
+var convertBaseEdge = function(p) {
+  return {
+    id: fromUndefinable(p.id),
+    path: requiredProp("BaseEdge.path")(p.path),
+    labelX: fromUndefinable(p.labelX),
+    labelY: fromUndefinable(p.labelY),
+    label: fromUndefinable(p.label),
+    labelStyle: map31(asCssStyle)(fromUndefinable(p.labelStyle)),
+    labelShowBg: fromUndefinable(p.labelShowBg),
+    labelBgStyle: map31(asCssStyle)(fromUndefinable(p.labelBgStyle)),
+    labelBgPadding: map31(labelBgPaddingIn("BaseEdge.labelBgPadding"))(fromUndefinable(p.labelBgPadding)),
+    labelBgBorderRadius: fromUndefinable(p.labelBgBorderRadius),
+    style: map31(asCssStyle)(fromUndefinable(p.style)),
+    markerEnd: fromUndefinable(p.markerEnd),
+    markerStart: fromUndefinable(p.markerStart),
+    interactionWidth: fromUndefinable(p.interactionWidth),
+    className: fromUndefinable(p.className),
+    pathAttributes: restOf2(p)
+  };
+};
 var connectionStatusOut = function(v) {
   if (v instanceof ConnectionValid) {
     return "valid";
@@ -43516,7 +43644,7 @@ var connectionStatusOut = function(v) {
     return "invalid";
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Edges (line 679, column 23 - line 681, column 33): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Edges (line 651, column 23 - line 653, column 33): " + [v.constructor.name]);
 };
 var connectionLinePropsOut = function(p) {
   return {
@@ -43539,36 +43667,6 @@ var connectionLinePropsOut = function(p) {
 var connectionLineComponentIn = function(userComponent) {
   return function(psProps) {
     return element(userComponent)(connectionLinePropsOut(psProps));
-  };
-};
-var baseEdgeMembers = ["id", "path", "labelX", "labelY", "label", "labelStyle", "labelShowBg", "labelBgStyle", "labelBgPadding", "labelBgBorderRadius", "style", "markerEnd", "markerStart", "interactionWidth", "className"];
-var pathAttributesIn = function(p) {
-  var rest = foldr2($$delete2)(p)(baseEdgeMembers);
-  var $33 = isEmpty(rest);
-  if ($33) {
-    return Nothing.value;
-  }
-  ;
-  return new Just(rest);
-};
-var convertBaseEdge = function(p) {
-  return {
-    id: fromUndefinable(p.id),
-    path: requiredProp("BaseEdge.path")(p.path),
-    labelX: fromUndefinable(p.labelX),
-    labelY: fromUndefinable(p.labelY),
-    label: fromUndefinable(p.label),
-    labelStyle: map31(asCssStyle)(fromUndefinable(p.labelStyle)),
-    labelShowBg: fromUndefinable(p.labelShowBg),
-    labelBgStyle: map31(asCssStyle)(fromUndefinable(p.labelBgStyle)),
-    labelBgPadding: map31(labelBgPaddingIn("BaseEdge.labelBgPadding"))(fromUndefinable(p.labelBgPadding)),
-    labelBgBorderRadius: fromUndefinable(p.labelBgBorderRadius),
-    style: map31(asCssStyle)(fromUndefinable(p.style)),
-    markerEnd: fromUndefinable(p.markerEnd),
-    markerStart: fromUndefinable(p.markerStart),
-    interactionWidth: fromUndefinable(p.interactionWidth),
-    className: fromUndefinable(p.className),
-    pathAttributes: pathAttributesIn(p)
   };
 };
 var baseEdge2 = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponent9("BaseEdge")(function(v) {
@@ -44532,7 +44630,7 @@ var classListContains2 = (element2) => (cls) => () => {
 
 // output/System.XYHandle.Utils/index.js
 var fromFoldable8 = /* @__PURE__ */ fromFoldable(foldableList);
-var append4 = /* @__PURE__ */ append(semigroupArray);
+var append5 = /* @__PURE__ */ append(semigroupArray);
 var pure36 = /* @__PURE__ */ pure(applicativeEffect);
 var lookup9 = /* @__PURE__ */ lookup2(ordNodeId);
 var map34 = /* @__PURE__ */ map(functorArray);
@@ -44558,7 +44656,7 @@ var nodesWithinDistance = function(position3) {
         return function(node) {
           var $25 = getOverlappingArea(rect)(nodeToRect(new Right(node))(zeroOrigin)) > 0;
           if ($25) {
-            return append4(acc)([node]);
+            return append5(acc)([node]);
           }
           ;
           return acc;
@@ -44655,7 +44753,7 @@ var getHandle2 = function(nodeId) {
                 ;
                 if (mode instanceof Loose) {
                   if (v.value0.internals.handleBounds instanceof Just) {
-                    return append4(map34(unSourceHandle)(v.value0.internals.handleBounds.value0.source))(map34(unTargetHandle)(v.value0.internals.handleBounds.value0.target));
+                    return append5(map34(unSourceHandle)(v.value0.internals.handleBounds.value0.source))(map34(unTargetHandle)(v.value0.internals.handleBounds.value0.target));
                   }
                   ;
                   if (v.value0.internals.handleBounds instanceof Nothing) {
@@ -44759,7 +44857,7 @@ var getClosestHandle = function(position3) {
               ;
               throw new Error("Failed pattern match at System.XYHandle.Utils (line 110, column 17 - line 112, column 26): " + [node.internals.handleBounds.constructor.name]);
             }();
-            return map34(Tuple.create(node))(append4(src9)(tgt));
+            return map34(Tuple.create(node))(append5(src9)(tgt));
           };
           return concat(map34(handlesOf)(closeNodes));
         }();
@@ -44779,7 +44877,7 @@ var getClosestHandle = function(position3) {
               return acc;
             }
             ;
-            return append4(acc)([{
+            return append5(acc)([{
               handle: {
                 handleType: v2.value1.handleType,
                 height: v2.value1.height,
@@ -44803,7 +44901,7 @@ var getClosestHandle = function(position3) {
           return function(r) {
             var $56 = r.distance === minDistance;
             if ($56) {
-              return append4(acc)([r.handle]);
+              return append5(acc)([r.handle]);
             }
             ;
             return acc;
@@ -45501,7 +45599,7 @@ var eq18 = /* @__PURE__ */ eq(eqHandleType);
 var for_8 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var map112 = /* @__PURE__ */ map(functorEffect);
 var pure115 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
-var append5 = /* @__PURE__ */ append(semigroupJSX);
+var append6 = /* @__PURE__ */ append(semigroupJSX);
 var mempty7 = /* @__PURE__ */ mempty(monoidJSX);
 var syntheticToMouse = unsafeCoerce2;
 var extractFromHandle = function(v) {
@@ -45673,7 +45771,7 @@ var edgeUpdateAnchors = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reac
         });
       });
     };
-    return pure115(append5(function() {
+    return pure115(append6(function() {
       if (showSource) {
         return element(edgeAnchor)({
           position: v.sourcePosition,
@@ -46817,7 +46915,7 @@ var useStore14 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ *
 })(eqConnectionMode)));
 var map40 = /* @__PURE__ */ map(functorArray);
 var pure41 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
-var append6 = /* @__PURE__ */ append(semigroupArray);
+var append7 = /* @__PURE__ */ append(semigroupArray);
 var selectFlags = function(s) {
   return {
     edgesFocusable: s.edgesFocusable,
@@ -46855,7 +46953,7 @@ var edgeRenderer = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @
       })(edgeIds);
       return pure41(div_({
         className: "react-flow__edges"
-      })(append6([element(markerDefinitions)({
+      })(append7([element(markerDefinitions)({
         defaultColor: v.defaultMarkerColor,
         rfId: new Just(v.rfId)
       })])(edgeChildren)));
@@ -46979,7 +47077,7 @@ var eq35 = /* @__PURE__ */ eq(eqHandleIdField);
 var notEq32 = /* @__PURE__ */ notEq(eqHandleIdField);
 var eq44 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var map41 = /* @__PURE__ */ map(functorMaybe);
-var bindFlipped4 = /* @__PURE__ */ bindFlipped(bindMaybe);
+var bindFlipped5 = /* @__PURE__ */ bindFlipped(bindMaybe);
 var when8 = /* @__PURE__ */ when(applicativeEffect);
 var pure42 = /* @__PURE__ */ pure(applicativeEffect);
 var for_10 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
@@ -47234,32 +47332,32 @@ var connectionToEdge = function(mDefaults) {
       target: conn.target,
       sourceHandle: conn.sourceHandle,
       targetHandle: conn.targetHandle,
-      animated: bindFlipped4(function(v) {
+      animated: bindFlipped5(function(v) {
         return v.animated;
       })(mDefaults),
-      hidden: bindFlipped4(function(v) {
+      hidden: bindFlipped5(function(v) {
         return v.hidden;
       })(mDefaults),
-      deletable: bindFlipped4(function(v) {
+      deletable: bindFlipped5(function(v) {
         return v.deletable;
       })(mDefaults),
-      selectable: bindFlipped4(function(v) {
+      selectable: bindFlipped5(function(v) {
         return v.selectable;
       })(mDefaults),
-      data: bindFlipped4(function(v) {
+      data: bindFlipped5(function(v) {
         return v.data;
       })(mDefaults),
       selected: Nothing.value,
       markerStart: Nothing.value,
       markerEnd: Nothing.value,
-      zIndex: bindFlipped4(function(v) {
+      zIndex: bindFlipped5(function(v) {
         return v.zIndex;
       })(mDefaults),
       label: Nothing.value,
-      ariaLabel: bindFlipped4(function(v) {
+      ariaLabel: bindFlipped5(function(v) {
         return v.ariaLabel;
       })(mDefaults),
-      interactionWidth: bindFlipped4(function(v) {
+      interactionWidth: bindFlipped5(function(v) {
         return v.interactionWidth;
       })(mDefaults),
       className: Nothing.value,
@@ -47776,7 +47874,7 @@ var ix2 = /* @__PURE__ */ ix(/* @__PURE__ */ indexableForeign(monadIdentity))(/*
 var readString2 = /* @__PURE__ */ readString(monadIdentity);
 var pure43 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty10 = /* @__PURE__ */ mempty(monoidJSX);
-var append7 = /* @__PURE__ */ append(semigroupJSX);
+var append8 = /* @__PURE__ */ append(semigroupJSX);
 var readLabel = function(f) {
   return hush(runExcept(bind30(ix2(f)("label"))(readString2)));
 };
@@ -47796,7 +47894,7 @@ var defaultNode = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompo
       ;
       throw new Error("Failed pattern match at React.Node.Default (line 40, column 15 - line 42, column 26): " + [v1.constructor.name]);
     }();
-    return append7(element(handle)({
+    return append8(element(handle)({
       handleType: Target.value,
       position: targetPos,
       id: Nothing.value,
@@ -47808,7 +47906,7 @@ var defaultNode = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompo
       className: Nothing.value,
       style: Nothing.value,
       innerRef: nullImpl
-    }))(append7(label4)(element(handle)({
+    }))(append8(label4)(element(handle)({
       handleType: Source.value,
       position: sourcePos,
       id: Nothing.value,
@@ -47837,7 +47935,7 @@ var ix3 = /* @__PURE__ */ ix(/* @__PURE__ */ indexableForeign(monadIdentity))(/*
 var readString3 = /* @__PURE__ */ readString(monadIdentity);
 var pure45 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty12 = /* @__PURE__ */ mempty(monoidJSX);
-var append8 = /* @__PURE__ */ append(semigroupJSX);
+var append9 = /* @__PURE__ */ append(semigroupJSX);
 var readLabel2 = function(f) {
   return hush(runExcept(bind31(ix3(f)("label"))(readString3)));
 };
@@ -47856,7 +47954,7 @@ var inputNode = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompone
       ;
       throw new Error("Failed pattern match at React.Node.Input (line 36, column 15 - line 38, column 26): " + [v1.constructor.name]);
     }();
-    return append8(label4)(element(handle)({
+    return append9(label4)(element(handle)({
       handleType: Source.value,
       position: sourcePos,
       id: Nothing.value,
@@ -47878,7 +47976,7 @@ var ix4 = /* @__PURE__ */ ix(/* @__PURE__ */ indexableForeign(monadIdentity))(/*
 var readString4 = /* @__PURE__ */ readString(monadIdentity);
 var pure46 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty13 = /* @__PURE__ */ mempty(monoidJSX);
-var append9 = /* @__PURE__ */ append(semigroupJSX);
+var append10 = /* @__PURE__ */ append(semigroupJSX);
 var readLabel3 = function(f) {
   return hush(runExcept(bind32(ix4(f)("label"))(readString4)));
 };
@@ -47897,7 +47995,7 @@ var outputNode = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompon
       ;
       throw new Error("Failed pattern match at React.Node.Output (line 36, column 15 - line 38, column 26): " + [v1.constructor.name]);
     }();
-    return append9(element(handle)({
+    return append10(element(handle)({
       handleType: Target.value,
       position: targetPos,
       id: Nothing.value,
@@ -49618,7 +49716,7 @@ var eq31 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var map46 = /* @__PURE__ */ map(functorArray);
 var fromFoldable9 = /* @__PURE__ */ fromFoldable4(ordNodeId)(foldableArray);
 var member8 = /* @__PURE__ */ member2(ordNodeId);
-var append10 = /* @__PURE__ */ append(semigroupArray);
+var append11 = /* @__PURE__ */ append(semigroupArray);
 var fromFoldable12 = /* @__PURE__ */ fromFoldable4(ordString)(foldableArray);
 var member12 = /* @__PURE__ */ member2(ordString);
 var partitionNodeChanges = /* @__PURE__ */ function() {
@@ -49902,7 +50000,7 @@ var getNodeElementsDiffChanges = function(mItems) {
             throw new Error("Failed pattern match at React.Store.Changes (line 316, column 9 - line 320, column 74): ");
           }();
           return {
-            changes: append10(acc.changes)(change),
+            changes: append11(acc.changes)(change),
             index: acc.index + 1 | 0
           };
         };
@@ -49911,7 +50009,7 @@ var getNodeElementsDiffChanges = function(mItems) {
         changes: [],
         index: 0
       })(items);
-      return append10(forwardPass.changes)(removes);
+      return append11(forwardPass.changes)(removes);
     };
   };
 };
@@ -49987,7 +50085,7 @@ var getEdgeElementsDiffChanges = function(mItems) {
           throw new Error("Failed pattern match at React.Store.Changes (line 350, column 18 - line 354, column 71): " + [v.constructor.name]);
         }();
         return {
-          changes: append10(acc.changes)(change),
+          changes: append11(acc.changes)(change),
           index: acc.index + 1 | 0
         };
       };
@@ -49996,7 +50094,7 @@ var getEdgeElementsDiffChanges = function(mItems) {
       changes: [],
       index: 0
     })(items);
-    return append10(forwardPass.changes)(removes);
+    return append11(forwardPass.changes)(removes);
   };
 };
 var applySingleNodeChange = function(c) {
@@ -50482,7 +50580,7 @@ var notEq7 = /* @__PURE__ */ notEq(/* @__PURE__ */ eqMaybe(/* @__PURE__ */ eqRec
   }
 })(eqNumber))));
 var discard15 = /* @__PURE__ */ discard2(ixBindRender);
-var append11 = /* @__PURE__ */ append(semigroupArray);
+var append18 = /* @__PURE__ */ append(semigroupArray);
 var pure121 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var wrapMouseHandler = function(containerRef) {
   return function(h) {
@@ -51377,7 +51475,7 @@ var pane = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__
                           dragging: slice3.dragging,
                           isSelecting: v.isSelecting
                         });
-                        var allChildren = append11(userChildren)([element(userSelection)({
+                        var allChildren = append18(userChildren)([element(userSelection)({
                           ignored: Nothing.value
                         })]);
                         return pure121(div_({
@@ -53288,7 +53386,7 @@ var useStore21 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ *
   }
 })(eqBoolean)));
 var discard16 = /* @__PURE__ */ discard2(ixBindRender);
-var append18 = /* @__PURE__ */ append(semigroupArray);
+var append19 = /* @__PURE__ */ append(semigroupArray);
 var pure59 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var selectSlice7 = function(s) {
   return {
@@ -53343,7 +53441,7 @@ var flowRenderer = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @
             ;
             return [];
           }();
-          var paneChildren = append18(userChildren)(selectionOverlay);
+          var paneChildren = append19(userChildren)(selectionOverlay);
           return pure59(element(zoomPane)({
             children: reactChildrenFromArray([element(pane)({
               children: reactChildrenFromArray(paneChildren),
@@ -53474,7 +53572,7 @@ var useNodeObserver = function(v) {
                           writeRef(prevType)(v.nodeType)();
                           writeRef(prevSourcePosition)(v.node.sourcePosition)();
                           writeRef(prevTargetPosition)(v.node.targetPosition)();
-                          return store.dispatch(new UpdateNodeInternals(singleton6(v.node.id)({
+                          return store.dispatch(new UpdateNodeInternals(singleton7(v.node.id)({
                             id: v.node.id,
                             nodeElement: current,
                             force: true
@@ -55098,7 +55196,7 @@ var defaultInitialStateOptions = /* @__PURE__ */ function() {
 var ordMiddlewareKey = ordInt;
 
 // output/React.Store.Reduce/index.js
-var append19 = /* @__PURE__ */ append(semigroupArray);
+var append20 = /* @__PURE__ */ append(semigroupArray);
 var map59 = /* @__PURE__ */ map(functorArray);
 var fromFoldable11 = /* @__PURE__ */ fromFoldable5(foldableArray);
 var fromFoldable13 = /* @__PURE__ */ fromFoldable11(ordString);
@@ -56029,7 +56127,7 @@ var reduceSetDefaults = function(state3) {
               zIndexMode: res.state.zIndexMode,
               hasDefaultEdges: true
             },
-            effects: append19(afterNodes.effects)(res.effects)
+            effects: append20(afterNodes.effects)(res.effects)
           };
         }
         ;
@@ -56186,7 +56284,7 @@ var reduceAddSelectedEdges = function(state3) {
       var afterNodes = reduceTriggerNodeChanges(afterEdges.state)(nodeRes.changes);
       return {
         state: afterNodes.state,
-        effects: append19(afterEdges.effects)(afterNodes.effects)
+        effects: append20(afterEdges.effects)(afterNodes.effects)
       };
     }
     ;
@@ -56309,7 +56407,7 @@ var reduceAddSelectedNodes = function(state3) {
       var afterEdges = reduceTriggerEdgeChanges(afterNodes.state)(edgeRes.changes);
       return {
         state: afterEdges.state,
-        effects: append19(afterNodes.effects)(afterEdges.effects)
+        effects: append20(afterNodes.effects)(afterEdges.effects)
       };
     }
     ;
@@ -56535,7 +56633,7 @@ var reduceMergeNodeInternals = function(state3) {
       }();
       return {
         state: afterChanges.state,
-        effects: append19(fit)(afterChanges.effects)
+        effects: append20(fit)(afterChanges.effects)
       };
     }
     ;
@@ -56579,7 +56677,7 @@ var reduceResetSelectedElements = function(state3) {
     var afterEdges = reduceTriggerEdgeChanges(afterNodes.state)(edgeChanges);
     return {
       state: afterEdges.state,
-      effects: append19(afterNodes.effects)(afterEdges.effects)
+      effects: append20(afterNodes.effects)(afterEdges.effects)
     };
   }
   ;
@@ -56629,7 +56727,7 @@ var reduceUnselectNodesAndEdges = function(state3) {
     var afterEdges = reduceTriggerEdgeChanges(afterNodes.state)(edgeChanges);
     return {
       state: afterEdges.state,
-      effects: append19(afterNodes.effects)(afterEdges.effects)
+      effects: append20(afterNodes.effects)(afterEdges.effects)
     };
   };
 };
@@ -56705,7 +56803,7 @@ var reduceUpdateNodePositions = function(state3) {
           });
           return {
             changes: snoc(acc.changes)(change),
-            parentExpandChildren: append19(acc.parentExpandChildren)(expandChild),
+            parentExpandChildren: append20(acc.parentExpandChildren)(expandChild),
             connection
           };
         };
@@ -56727,7 +56825,7 @@ var reduceUpdateNodePositions = function(state3) {
         return function(middleware) {
           return middleware(cs);
         };
-      })(append19(stepped.changes)(expandChanges))(values(state3.onNodesChangeMiddlewareMap));
+      })(append20(stepped.changes)(expandChanges))(values(state3.onNodesChangeMiddlewareMap));
       return reduceTriggerNodeChanges({
         rfId: state3.rfId,
         width: state3.width,
@@ -57940,7 +58038,7 @@ var map60 = /* @__PURE__ */ map(functorMaybe);
 var pure128 = /* @__PURE__ */ pure(applicativeAff);
 var bind119 = /* @__PURE__ */ bind(bindAff);
 var unless7 = /* @__PURE__ */ unless(applicativeEffect);
-var append20 = /* @__PURE__ */ append(semigroupArray);
+var append21 = /* @__PURE__ */ append(semigroupArray);
 var traverse_3 = /* @__PURE__ */ traverse_(applicativeEffect)(foldableArray);
 var errorCodeName = function(v) {
   return "";
@@ -58137,7 +58235,7 @@ var createStore = function(opts) {
           };
         };
         modify_(function(xs) {
-          return append20(xs)([{
+          return append21(xs)([{
             onUpdate,
             key: key2
           }]);
@@ -58168,7 +58266,7 @@ var createStore = function(opts) {
               };
             };
             modify_(function(xs) {
-              return append20(xs)([{
+              return append21(xs)([{
                 onUpdate,
                 key: key2
               }]);
@@ -63251,7 +63349,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
 var bind53 = /* @__PURE__ */ bind4(ixBindRender);
 var alt7 = /* @__PURE__ */ alt(altMaybe);
 var pure76 = /* @__PURE__ */ pure(applicativeEffect);
-var append21 = /* @__PURE__ */ append(semigroupArray);
+var append22 = /* @__PURE__ */ append(semigroupArray);
 var pure132 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var wrapperStyle = {
   width: "100%",
@@ -63269,7 +63367,7 @@ var mergeStyle = function(v) {
     return wrapperStyle;
   }
   ;
-  throw new Error("Failed pattern match at React.Container.ReactFlow (line 109, column 14 - line 111, column 26): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at React.Container.ReactFlow (line 111, column 14 - line 113, column 26): " + [v.constructor.name]);
 };
 var isMacOsCached = /* @__PURE__ */ unsafePerformEffect(isMacOs);
 var defaultMultiSelKey = /* @__PURE__ */ function() {
@@ -63294,7 +63392,7 @@ var colorModeClass = function(v) {
     return "";
   }
   ;
-  throw new Error("Failed pattern match at React.Container.ReactFlow (line 120, column 18 - line 123, column 16): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at React.Container.ReactFlow (line 122, column 18 - line 125, column 16): " + [v.constructor.name]);
 };
 var buildOuterClass = function(cmc) {
   return function(userClass) {
@@ -63310,6 +63408,7 @@ var reactFlow = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompone
     var zoomOnDoubleClick = fromMaybe(true)(v.zoomOnDoubleClick);
     var zoomActivationKeyCode = alt7(v.zoomActivationKeyCode)(new Just(defaultMultiSelKey));
     var wrapperOnScroll = scrollResetHandler(fromMaybe(pure76(unit))(v.onScroll));
+    var wrapperAttributes = union2(fromMaybe(empty3)(v.wrapperAttributes))(singleton6("data-testid")(unsafeToForeign("rf__wrapper")));
     var storeSeeded = seededStoreProps(v);
     var selectionOnDrag = fromMaybe(false)(v.selectionOnDrag);
     var selectionMode2 = fromMaybe(Full.value)(v.selectionMode);
@@ -63384,7 +63483,7 @@ var reactFlow = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompone
     var panOnScroll = fromMaybe(false)(v.panOnScroll);
     var panOnDrag = fromMaybe(PanAlways.value)(v.panOnDrag);
     var panActivationKeyCode = alt7(v.panActivationKeyCode)(new Just(new SingleKey("Space")));
-    var outerClass = buildOuterClass(colorModeClass(colorModeCls))(Nothing.value);
+    var outerClass = buildOuterClass(colorModeClass(colorModeCls))(v.className);
     var onlyRenderVisibleElements = fromMaybe(false)(v.onlyRenderVisibleElements);
     var nodeClickDistance = fromMaybe(0)(v.nodeClickDistance);
     var noWheelClassName = fromMaybe("nowheel")(v.noWheelClassName);
@@ -63463,7 +63562,7 @@ var reactFlow = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompone
       onPaneContextMenu: v.onPaneContextMenu,
       onPaneScroll: v.onPaneScroll
     });
-    var innerChildren = append21([storeUpdaterEl, graphViewEl])(append21(reactChildrenToArray(v.children))([element(selectionListener)({
+    var innerChildren = append22([storeUpdaterEl, graphViewEl])(append22(reactChildrenToArray(v.children))([element(selectionListener)({
       onSelectionChange: v.onSelectionChange
     }), element(attribution)({
       proOptions: v.proOptions,
@@ -63488,14 +63587,13 @@ var reactFlow = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompone
       zIndexMode: v.zIndexMode,
       children: reactChildrenFromArray(innerChildren)
     });
-    return pure132(div_({
-      "data-testid": "rf__wrapper",
-      style: mergeStyle(Nothing.value),
+    return pure132(div_(spreadUnder(new Just(wrapperAttributes))({
+      style: mergeStyle(v.style),
       className: outerClass,
       role: "application",
       ref: v.innerRef,
       onScroll: wrapperOnScroll
-    })([wrapperEl]));
+    }))([wrapperEl]));
   });
 }));
 
@@ -63503,6 +63601,515 @@ var reactFlow = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompone
 var map61 = /* @__PURE__ */ map(functorArray);
 var map117 = /* @__PURE__ */ map(functorMaybe);
 var bind54 = /* @__PURE__ */ bind(bindMaybe);
+var restOf3 = /* @__PURE__ */ restOf()(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "ariaLabelConfig";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "attributionPosition";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "autoPanOnConnect";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "autoPanOnNodeDrag";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "autoPanOnNodeFocus";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "autoPanOnSelection";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "autoPanSpeed";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "children";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "className";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "colorMode";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "connectOnClick";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "connectionDragThreshold";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "connectionLineComponent";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "connectionLineContainerStyle";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "connectionLineStyle";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "connectionLineType";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "connectionMode";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "connectionRadius";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "debug";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "defaultEdgeOptions";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "defaultEdges";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "defaultMarkerColor";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "defaultNodes";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "defaultViewport";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "deleteKeyCode";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "disableKeyboardA11y";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "edgeTypes";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "edges";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "edgesFocusable";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "edgesReconnectable";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "elementsSelectable";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "elevateEdgesOnSelect";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "elevateNodesOnSelect";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "fitView";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "fitViewOptions";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "height";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "isValidConnection";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "maxZoom";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "minZoom";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "multiSelectionKeyCode";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "noDragClassName";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "noPanClassName";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "noWheelClassName";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "nodeClickDistance";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "nodeDragThreshold";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "nodeExtent";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "nodeOrigin";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "nodeTypes";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "nodes";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "nodesConnectable";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "nodesDraggable";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "nodesFocusable";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onBeforeDelete";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onClickConnectEnd";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onClickConnectStart";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onConnect";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onConnectEnd";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onConnectStart";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onDelete";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onEdgeClick";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onEdgeContextMenu";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onEdgeDoubleClick";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onEdgeMouseEnter";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onEdgeMouseLeave";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onEdgeMouseMove";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onEdgesChange";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onEdgesDelete";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onError";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onInit";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onMove";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onMoveEnd";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onMoveStart";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onNodeClick";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onNodeContextMenu";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onNodeDoubleClick";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onNodeDrag";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onNodeDragStart";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onNodeDragStop";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onNodeMouseEnter";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onNodeMouseLeave";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onNodeMouseMove";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onNodesChange";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onNodesDelete";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onPaneClick";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onPaneContextMenu";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onPaneMouseEnter";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onPaneMouseLeave";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onPaneMouseMove";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onPaneScroll";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onReconnect";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onReconnectEnd";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onReconnectStart";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onScroll";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onSelectionChange";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onSelectionContextMenu";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onSelectionDrag";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onSelectionDragStart";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onSelectionDragStop";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onSelectionEnd";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onSelectionStart";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onViewportChange";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "onlyRenderVisibleElements";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "panActivationKeyCode";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "panOnDrag";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "panOnScroll";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "panOnScrollMode";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "panOnScrollSpeed";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "paneClickDistance";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "preventScrolling";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "proOptions";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "reconnectRadius";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "ref";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "selectNodesOnDrag";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "selectionKeyCode";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "selectionMode";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "selectionOnDrag";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "snapGrid";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "snapToGrid";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "style";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "translateExtent";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "viewport";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "width";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "zIndexMode";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "zoomActivationKeyCode";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "zoomOnDoubleClick";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "zoomOnPinch";
+  }
+})(/* @__PURE__ */ rowLabelsCons({
+  reflectSymbol: function() {
+    return "zoomOnScroll";
+  }
+})(rowLabelsNil))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))));
 var unmodelledOption = function(name15) {
   return function(get7) {
     return {
@@ -63535,10 +64142,10 @@ var reconnectableIn = function(raw) {
       return unsafeThrow("ps-flow: `defaultEdgeOptions.reconnectable` must be a boolean, " + ('"source" or "target", got ' + (typeName(raw) + ".")));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Flow (line 620, column 14 - line 627, column 17): " + [v1.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Flow (line 629, column 14 - line 636, column 17): " + [v1.constructor.name]);
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Flow (line 617, column 23 - line 627, column 17): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Flow (line 626, column 23 - line 636, column 17): " + [v.constructor.name]);
 };
 var proOptionsIn = function(o) {
   return {
@@ -63557,7 +64164,7 @@ var panOnDragIn = function(raw) {
       return unsafeThrow("ps-flow: every entry of `panOnDrag` must be a mouse-button number, got " + (typeName(b) + "."));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Flow (line 653, column 18 - line 659, column 17): " + [v3.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Flow (line 662, column 18 - line 668, column 17): " + [v3.constructor.name]);
   };
   var v = asBoolean(raw);
   if (v instanceof Just && v.value0) {
@@ -63580,17 +64187,17 @@ var panOnDragIn = function(raw) {
         return NoPan.value;
       }
       ;
-      throw new Error("Failed pattern match at Boundary.Flow (line 643, column 7 - line 645, column 25): " + [v2.constructor.name]);
+      throw new Error("Failed pattern match at Boundary.Flow (line 652, column 7 - line 654, column 25): " + [v2.constructor.name]);
     }
     ;
     if (v1 instanceof Nothing) {
       return unsafeThrow("ps-flow: `panOnDrag` must be a boolean or an array of mouse-button " + ("numbers, got " + (typeName(raw) + ".")));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Flow (line 641, column 14 - line 651, column 17): " + [v1.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Flow (line 650, column 14 - line 660, column 17): " + [v1.constructor.name]);
   }
   ;
-  throw new Error("Failed pattern match at Boundary.Flow (line 638, column 19 - line 651, column 17): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.Flow (line 647, column 19 - line 660, column 17): " + [v.constructor.name]);
 };
 var droppedOption = function(name15) {
   return function(get7) {
@@ -63651,8 +64258,8 @@ var convertEdgeOptions = function(o) {
     reconnectable: bind54(fromUndefinable(o.reconnectable))(reconnectableIn)
   };
 };
-var defaultEdgeOptionsIn = function($46) {
-  return convertEdgeOptions(guardEdgeOptions($46));
+var defaultEdgeOptionsIn = function($429) {
+  return convertEdgeOptions(guardEdgeOptions($429));
 };
 var ariaLabelConfigIn = function(c) {
   return {
@@ -63717,6 +64324,8 @@ var convertProps = function(p) {
       onMove: map117(onMoveIn)(fromUndefinable(p.onMove)),
       onMoveStart: map117(onMoveIn)(fromUndefinable(p.onMoveStart)),
       onMoveEnd: map117(onMoveIn)(fromUndefinable(p.onMoveEnd)),
+      className: fromUndefinable(p.className),
+      style: map117(asCssStyle)(fromUndefinable(p.style)),
       onScroll: map117(onScrollIn)(fromUndefinable(p.onScroll)),
       onPaneScroll: map117(onPaneScrollIn)(fromUndefinable(p.onPaneScroll)),
       onPaneClick: map117(mouseEventHandlerIn)(fromUndefinable(p.onPaneClick)),
@@ -63796,7 +64405,8 @@ var convertProps = function(p) {
       connectionRadius: fromUndefinable(p.connectionRadius),
       debug: fromUndefinable(p.debug),
       zIndexMode: map117(zIndexModeIn("zIndexMode"))(fromUndefinable(p.zIndexMode)),
-      innerRef: orNullable(p.ref)(forwarded)
+      innerRef: orNullable(p.ref)(forwarded),
+      wrapperAttributes: restOf3(p)
     };
   };
 };
@@ -64155,7 +64765,7 @@ var foldl10 = /* @__PURE__ */ foldl(foldableList);
 var useStore29 = /* @__PURE__ */ useStore(eqBoolean);
 var nub5 = /* @__PURE__ */ nub(ordNodeId);
 var lookup28 = /* @__PURE__ */ lookup2(ordNodeId);
-var append22 = /* @__PURE__ */ append(semigroupArray);
+var append23 = /* @__PURE__ */ append(semigroupArray);
 var eqMaybe14 = /* @__PURE__ */ eqMaybe(eqInt);
 var eqRowCons1 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons8({
   reflectSymbol: function() {
@@ -64440,7 +65050,7 @@ var useNodesData = function(dictEq) {
         return function(i) {
           var v = lookup28(i)(s.nodeLookup);
           if (v instanceof Just) {
-            return append22(acc)([v.value0]);
+            return append23(acc)([v.value0]);
           }
           ;
           if (v instanceof Nothing) {
@@ -65029,7 +65639,7 @@ var nodeIdIn = function(raw) {
       return unsafeThrow("ps-flow: every entry of `NodeToolbar.nodeId` must be a node id, got " + (typeName(entry) + "."));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.NodeChrome (line 173, column 18 - line 179, column 17): " + [v2.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.NodeChrome (line 174, column 18 - line 180, column 17): " + [v2.constructor.name]);
   };
   var v = asString(raw);
   if (v instanceof Just) {
@@ -65046,10 +65656,10 @@ var nodeIdIn = function(raw) {
       return unsafeThrow("ps-flow: `NodeToolbar.nodeId` must be a node id or an array of them, got " + (typeName(raw) + "."));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.NodeChrome (line 165, column 14 - line 171, column 17): " + [v1.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.NodeChrome (line 166, column 14 - line 172, column 17): " + [v1.constructor.name]);
   }
   ;
-  throw new Error("Failed pattern match at Boundary.NodeChrome (line 163, column 16 - line 171, column 17): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at Boundary.NodeChrome (line 164, column 16 - line 172, column 17): " + [v.constructor.name]);
 };
 var convertNodeToolbar = function(p) {
   return {
