@@ -412,32 +412,26 @@
             },
             "children": [
               {
-                "tag": "defs",
-                "attrs": {},
+                "tag": "pattern",
+                "attrs": {
+                  "id": "pattern-1",
+                  "x": "0",
+                  "y": "0",
+                  "width": "20",
+                  "height": "20",
+                  "patternUnits": "userSpaceOnUse",
+                  "patternTransform": "translate(-11,-11)"
+                },
                 "children": [
                   {
-                    "tag": "pattern",
+                    "tag": "circle",
                     "attrs": {
-                      "id": "pattern-1",
-                      "x": "0",
-                      "y": "0",
-                      "width": "20",
-                      "height": "20",
-                      "patternUnits": "userSpaceOnUse",
-                      "patternTransform": "translate(-11,-11)"
+                      "cx": "0.5",
+                      "cy": "0.5",
+                      "r": "0.5",
+                      "class": "react-flow__background-pattern dots"
                     },
-                    "children": [
-                      {
-                        "tag": "circle",
-                        "attrs": {
-                          "cx": "0.5",
-                          "cy": "0.5",
-                          "r": "0.5",
-                          "class": "react-flow__background-pattern dots"
-                        },
-                        "children": []
-                      }
-                    ]
+                    "children": []
                   }
                 ]
               },
