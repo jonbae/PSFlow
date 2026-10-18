@@ -89,7 +89,7 @@
                                   {
                                     "tag": "g",
                                     "attrs": {
-                                      "transform": "translate(15.28076171875 63.0)",
+                                      "transform": "translate(15.28076171875 63)",
                                       "class": "react-flow__edge-textwrapper",
                                       "visibility": "visible"
                                     },
@@ -189,7 +189,7 @@
                                   {
                                     "tag": "g",
                                     "attrs": {
-                                      "transform": "translate(115.28076171875 63.0)",
+                                      "transform": "translate(115.28076171875 63)",
                                       "class": "react-flow__edge-textwrapper",
                                       "visibility": "visible"
                                     },
@@ -515,7 +515,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 303.69999998807907,
+            "timeStamp": 303.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -582,7 +582,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 303.69999998807907,
+            "timeStamp": 303.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -661,7 +661,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 322,
+            "timeStamp": 321.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -752,7 +752,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 337.80000001192093,
+            "timeStamp": 337.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

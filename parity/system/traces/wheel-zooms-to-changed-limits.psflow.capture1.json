@@ -89,7 +89,7 @@
                                   {
                                     "tag": "g",
                                     "attrs": {
-                                      "transform": "translate(15.53076171875 63.0)",
+                                      "transform": "translate(15.53076171875 63)",
                                       "class": "react-flow__edge-textwrapper",
                                       "visibility": "visible"
                                     },
@@ -189,7 +189,7 @@
                                   {
                                     "tag": "g",
                                     "attrs": {
-                                      "transform": "translate(115.53076171875 63.0)",
+                                      "transform": "translate(115.53076171875 63)",
                                       "class": "react-flow__edge-textwrapper",
                                       "visibility": "visible"
                                     },
@@ -558,7 +558,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 322.60000002384186,
+            "timeStamp": 321.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -625,7 +625,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 322.60000002384186,
+            "timeStamp": 321.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

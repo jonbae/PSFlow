@@ -14,6 +14,7 @@ module System.Constants
 import Prelude
 
 import Data.Maybe (Maybe(..), fromMaybe)
+import Data.Number.Format (toString) as NumberFormat
 import System.Types.Geometry (CoordinateExtent, mkCoordinateExtent)
 import System.Types.Handle (HandleType(..))
 
@@ -140,9 +141,9 @@ defaultAriaLabelConfig =
       \{ direction, x, y } ->
         "Moved selected node " <> direction
           <> ". New position, x: "
-          <> show x
+          <> NumberFormat.toString x
           <> ", y: "
-          <> show y
+          <> NumberFormat.toString y
   , edgeA11yDescriptionDefault:
       "Press enter or space to select an edge. You can then press delete to remove it or escape to cancel."
   , controlsAriaLabel: "Control Panel"

@@ -63,7 +63,7 @@ import React.Basic (ReactComponent, element)
 import React.Basic.Events (EventHandler, handler, handler_, syntheticEvent)
 import React.Basic.Hooks (UnsafeReference(..), memo, reactComponent, useRef)
 import React.Basic.Hooks as React
-import React.Component.NodeWrapper.Util (arrowKeyDiffs, builtinNodeTypes, getNodeInlineStyleDimensions)
+import React.Component.NodeWrapper.Util (arrowKeyDiffs, builtinNodeTypes, getNodeInlineStyleDimensions, nodeTransform)
 import React.Container.A11yDescriptions (ariaNodeDescKey)
 import React.Context.NodeId (nodeIdProvider)
 import React.FFI.DOM (div_, opt)
@@ -373,12 +373,7 @@ nodeWrapper =
         baseStyle :: Foreign
         baseStyle = toForeignStyle
           { zIndex: node.internals.z
-          , transform:
-              "translate("
-                <> show node.internals.positionAbsolute.x
-                <> "px,"
-                <> show node.internals.positionAbsolute.y
-                <> "px)"
+          , transform: nodeTransform node.internals.positionAbsolute
           , pointerEvents: if hasPointerEvents then "all" else "none"
           , visibility: if hasDims then "visible" else "hidden"
           }

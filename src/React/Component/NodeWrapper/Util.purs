@@ -16,6 +16,7 @@ module React.Component.NodeWrapper.Util
   ( arrowKeyDiffs
   , getNodeInlineStyleDimensions
   , builtinNodeTypes
+  , nodeTransform
   ) where
 
 import Prelude
@@ -24,6 +25,7 @@ import Data.Foldable (oneOf) as Foldable
 import Data.Map (Map)
 import Data.Map (fromFoldable) as Map
 import Data.Maybe (Maybe(..), fromMaybe)
+import Data.Number.Format (toString) as NumberFormat
 import Data.Nullable (toNullable)
 import Data.Tuple.Nested ((/\))
 import Foreign (Foreign, unsafeToForeign)
@@ -97,3 +99,8 @@ builtinNodeTypes = Object.fromFoldable
   , "output" /\ outputNode
   , "group" /\ groupNode
   ]
+
+-- | TS `translate(${internals.positionAbsolute.x}px,${internals.positionAbsolute.y}px)`.
+nodeTransform :: XYPosition -> String
+nodeTransform at =
+  "translate(" <> NumberFormat.toString at.x <> "px," <> NumberFormat.toString at.y <> "px)"
