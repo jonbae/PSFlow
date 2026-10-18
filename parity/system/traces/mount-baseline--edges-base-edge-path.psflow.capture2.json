@@ -11,7 +11,424 @@
         "scrollY": 0,
         "visualViewportScale": 1
       },
-      "root": null
+      "root": {
+        "tag": "div",
+        "attrs": {
+          "data-testid": "rf__wrapper",
+          "class": "react-flow light",
+          "role": "application",
+          "style": "width: 100%; height: 100%; overflow: hidden; position: relative; z-index: 0;"
+        },
+        "children": [
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "react-flow__renderer",
+              "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+            },
+            "children": [
+              {
+                "tag": "div",
+                "attrs": {
+                  "class": "react-flow__pane draggable",
+                  "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+                },
+                "children": [
+                  {
+                    "tag": "div",
+                    "attrs": {
+                      "class": "react-flow__viewport xyflow__viewport react-flow__container",
+                      "style": "transform: translate(490px, 183px) scale(2);"
+                    },
+                    "children": [
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__edges"
+                        },
+                        "children": [
+                          {
+                            "tag": "svg",
+                            "attrs": {
+                              "style": "z-index: 0;"
+                            },
+                            "children": [
+                              {
+                                "tag": "g",
+                                "attrs": {
+                                  "class": "react-flow__edge react-flow__edge-pathAttributes nopan selectable",
+                                  "tabindex": "0",
+                                  "role": "group",
+                                  "aria-roledescription": "edge",
+                                  "data-id": "custom-1",
+                                  "data-testid": "rf__edge-custom-1",
+                                  "aria-label": "Edge from Node-1 to Node-2",
+                                  "aria-describedby": "react-flow__edge-desc-1"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "id": "custom-1",
+                                      "d": "M75 40L75 60L 75,83.5Q 75,88.5 70,88.5L -60,88.5Q -65,88.5 -65,93.5L-65 117L-65 137",
+                                      "fill": "none",
+                                      "class": "react-flow__edge-path"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M75 40L75 60L 75,83.5Q 75,88.5 70,88.5L -60,88.5Q -65,88.5 -65,93.5L-65 117L-65 137",
+                                      "fill": "none",
+                                      "stroke-opacity": "0",
+                                      "stroke-width": "20",
+                                      "class": "react-flow__edge-interaction"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
+                                      "cx": "75",
+                                      "cy": "50",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
+                                      "cx": "-65",
+                                      "cy": "127",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "svg",
+                            "attrs": {
+                              "style": "z-index: 0;"
+                            },
+                            "children": [
+                              {
+                                "tag": "g",
+                                "attrs": {
+                                  "class": "react-flow__edge react-flow__edge-pathAttributes nopan selectable",
+                                  "tabindex": "0",
+                                  "role": "group",
+                                  "aria-roledescription": "edge",
+                                  "data-id": "custom-2",
+                                  "data-testid": "rf__edge-custom-2",
+                                  "aria-label": "Edge from Node-1 to Node-3",
+                                  "aria-describedby": "react-flow__edge-desc-1"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "id": "custom-2",
+                                      "d": "M75 40L75 60L 75,83.5Q 75,88.5 80,88.5L 210,88.5Q 215,88.5 215,93.5L215 117L215 137",
+                                      "fill": "none",
+                                      "class": "react-flow__edge-path"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M75 40L75 60L 75,83.5Q 75,88.5 80,88.5L 210,88.5Q 215,88.5 215,93.5L215 117L215 137",
+                                      "fill": "none",
+                                      "stroke-opacity": "0",
+                                      "stroke-width": "20",
+                                      "class": "react-flow__edge-interaction"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
+                                      "cx": "75",
+                                      "cy": "50",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
+                                      "cx": "215",
+                                      "cy": "127",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "svg",
+                            "attrs": {
+                              "style": "z-index: 0;"
+                            },
+                            "children": [
+                              {
+                                "tag": "g",
+                                "attrs": {
+                                  "class": "react-flow__edge react-flow__edge-default nopan selectable",
+                                  "tabindex": "0",
+                                  "role": "group",
+                                  "aria-roledescription": "edge",
+                                  "data-id": "default-1",
+                                  "data-testid": "rf__edge-default-1",
+                                  "aria-label": "Edge from Node-2 to Node-3",
+                                  "aria-describedby": "react-flow__edge-desc-1"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M-65,180 C-65,220.9839907768875 215,96.01600922311249 215,137",
+                                      "fill": "none",
+                                      "class": "react-flow__edge-path"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M-65,180 C-65,220.9839907768875 215,96.01600922311249 215,137",
+                                      "fill": "none",
+                                      "stroke-opacity": "0",
+                                      "stroke-width": "20",
+                                      "class": "react-flow__edge-interaction"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
+                                      "cx": "-65",
+                                      "cy": "190",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
+                                      "cx": "215",
+                                      "cy": "127",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__edgelabel-renderer"
+                        },
+                        "children": []
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__nodes",
+                          "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+                        },
+                        "children": [
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-input nopan selectable draggable",
+                              "data-id": "Node-1",
+                              "data-testid": "rf__node-Node-1",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(0px, 0px); pointer-events: all; visibility: visible;"
+                            },
+                            "text": "Node-1",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator",
+                                  "data-nodeid": "Node-1",
+                                  "data-handlepos": "bottom",
+                                  "data-id": "1-Node-1-null-source"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-default nopan selectable draggable",
+                              "data-id": "Node-2",
+                              "data-testid": "rf__node-Node-2",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(-140px, 140px); pointer-events: all; visibility: visible;"
+                            },
+                            "text": "Node-2",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator",
+                                  "data-nodeid": "Node-2",
+                                  "data-handlepos": "top",
+                                  "data-id": "1-Node-2-null-target"
+                                },
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator",
+                                  "data-nodeid": "Node-2",
+                                  "data-handlepos": "bottom",
+                                  "data-id": "1-Node-2-null-source"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-default nopan selectable draggable",
+                              "data-id": "Node-3",
+                              "data-testid": "rf__node-Node-3",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(140px, 140px); pointer-events: all; visibility: visible;"
+                            },
+                            "text": "Node-3",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator",
+                                  "data-nodeid": "Node-3",
+                                  "data-handlepos": "top",
+                                  "data-id": "1-Node-3-null-target"
+                                },
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator",
+                                  "data-nodeid": "Node-3",
+                                  "data-handlepos": "bottom",
+                                  "data-id": "1-Node-3-null-source"
+                                },
+                                "children": []
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__viewport-portal"
+                        },
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "react-flow__panel react-flow__attribution bottom right",
+              "data-message": "Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"
+            },
+            "children": [
+              {
+                "tag": "a",
+                "attrs": {
+                  "href": "https://reactflow.dev",
+                  "target": "_blank",
+                  "rel": "noopener noreferrer",
+                  "aria-label": "React Flow attribution"
+                },
+                "text": "React Flow",
+                "children": []
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__node-desc-1",
+              "style": "display: none;"
+            },
+            "text": "Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel.",
+            "children": []
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__edge-desc-1",
+              "style": "display: none;"
+            },
+            "text": "Press enter or space to select an edge. You can then press delete to remove it or escape to cancel.",
+            "children": []
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__aria-live-1",
+              "aria-live": "assertive",
+              "aria-atomic": "true",
+              "style": "position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(100%);"
+            },
+            "children": []
+          }
+        ]
+      }
     },
     "callbacks": [
       {
@@ -101,49 +518,300 @@
     "hooks": {},
     "api": {
       "queries": {
-        "getNodes": [],
+        "getNodes": [
+          {
+            "id": "Node-1",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "data": {
+              "label": "Node-1"
+            },
+            "type": "input",
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "Node-2",
+            "position": {
+              "x": -140,
+              "y": 140
+            },
+            "data": {
+              "label": "Node-2"
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "Node-3",
+            "position": {
+              "x": 140,
+              "y": 140
+            },
+            "data": {
+              "label": "Node-3"
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          }
+        ],
         "getNode": {
-          "@undefined": true
-        },
-        "getInternalNode": {
-          "@undefined": true
-        },
-        "getEdges": [],
-        "getEdge": {
-          "@undefined": true
-        },
-        "getIntersectingNodes": [],
-        "isNodeIntersecting": false,
-        "getNodesBounds": {
-          "x": 0,
-          "y": 0,
-          "width": 0,
-          "height": 0
-        },
-        "getHandleConnections": [],
-        "getNodeConnections": [],
-        "toObject": {
-          "nodes": [],
-          "edges": [],
-          "viewport": {
+          "id": "Node-1",
+          "position": {
             "x": 0,
-            "y": 0,
-            "zoom": 1
+            "y": 0
+          },
+          "data": {
+            "label": "Node-1"
+          },
+          "type": "input",
+          "measured": {
+            "width": 150,
+            "height": 37
           }
         },
-        "getZoom": 1,
-        "getViewport": {
-          "x": 0,
+        "getInternalNode": {
+          "id": "Node-1",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "data": {
+            "label": "Node-1"
+          },
+          "type": "input",
+          "measured": {
+            "width": 150,
+            "height": 37
+          },
+          "internals": {
+            "positionAbsolute": {
+              "x": 0,
+              "y": 0
+            },
+            "z": 0,
+            "handleBounds": {
+              "source": [
+                {
+                  "id": null,
+                  "nodeId": "Node-1",
+                  "x": 71,
+                  "y": 32,
+                  "position": "bottom",
+                  "type": "source",
+                  "width": 8,
+                  "height": 8
+                }
+              ],
+              "target": []
+            }
+          }
+        },
+        "getEdges": [
+          {
+            "id": "custom-1",
+            "type": "pathAttributes",
+            "source": "Node-1",
+            "target": "Node-2"
+          },
+          {
+            "id": "custom-2",
+            "type": "pathAttributes",
+            "source": "Node-1",
+            "target": "Node-3",
+            "label": "custom"
+          },
+          {
+            "id": "default-1",
+            "type": "default",
+            "source": "Node-2",
+            "target": "Node-3"
+          }
+        ],
+        "getEdge": {
+          "id": "custom-1",
+          "type": "pathAttributes",
+          "source": "Node-1",
+          "target": "Node-2"
+        },
+        "getIntersectingNodes": [
+          {
+            "id": "Node-1",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "data": {
+              "label": "Node-1"
+            },
+            "type": "input",
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "Node-2",
+            "position": {
+              "x": -140,
+              "y": 140
+            },
+            "data": {
+              "label": "Node-2"
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "Node-3",
+            "position": {
+              "x": 140,
+              "y": 140
+            },
+            "data": {
+              "label": "Node-3"
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          }
+        ],
+        "isNodeIntersecting": true,
+        "getNodesBounds": {
+          "x": -140,
           "y": 0,
-          "zoom": 1
+          "width": 430,
+          "height": 177
+        },
+        "getHandleConnections": [
+          {
+            "edgeId": "custom-1",
+            "source": "Node-1",
+            "target": "Node-2",
+            "sourceHandle": null,
+            "targetHandle": null
+          },
+          {
+            "edgeId": "custom-2",
+            "source": "Node-1",
+            "target": "Node-3",
+            "sourceHandle": null,
+            "targetHandle": null
+          }
+        ],
+        "getNodeConnections": [
+          {
+            "edgeId": "custom-1",
+            "source": "Node-1",
+            "target": "Node-2",
+            "sourceHandle": null,
+            "targetHandle": null
+          },
+          {
+            "edgeId": "custom-2",
+            "source": "Node-1",
+            "target": "Node-3",
+            "sourceHandle": null,
+            "targetHandle": null
+          }
+        ],
+        "toObject": {
+          "nodes": [
+            {
+              "id": "Node-1",
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "data": {
+                "label": "Node-1"
+              },
+              "type": "input",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "Node-2",
+              "position": {
+                "x": -140,
+                "y": 140
+              },
+              "data": {
+                "label": "Node-2"
+              },
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "Node-3",
+              "position": {
+                "x": 140,
+                "y": 140
+              },
+              "data": {
+                "label": "Node-3"
+              },
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          ],
+          "edges": [
+            {
+              "id": "custom-1",
+              "type": "pathAttributes",
+              "source": "Node-1",
+              "target": "Node-2"
+            },
+            {
+              "id": "custom-2",
+              "type": "pathAttributes",
+              "source": "Node-1",
+              "target": "Node-3",
+              "label": "custom"
+            },
+            {
+              "id": "default-1",
+              "type": "default",
+              "source": "Node-2",
+              "target": "Node-3"
+            }
+          ],
+          "viewport": {
+            "x": 490,
+            "y": 183,
+            "zoom": 2
+          }
+        },
+        "getZoom": 2,
+        "getViewport": {
+          "x": 490,
+          "y": 183,
+          "zoom": 2
         },
         "screenToFlowPosition": {
-          "x": 0,
-          "y": 0
+          "x": -245,
+          "y": -91.5
         },
         "flowToScreenPosition": {
-          "x": 0,
-          "y": 0
+          "x": 490,
+          "y": 183
         },
         "viewportInitialized": true
       },
@@ -154,34 +822,6 @@
       {
         "level": "info",
         "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
-      },
-      {
-        "level": "pageerror",
-        "text": "Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"
-      },
-      {
-        "level": "pageerror",
-        "text": "Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"
-      },
-      {
-        "level": "pageerror",
-        "text": "Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"
-      },
-      {
-        "level": "pageerror",
-        "text": "Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"
-      },
-      {
-        "level": "error",
-        "text": "The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:56822/parity/driver/dist/psflow.js:66268:7)\n    at Wrapper (http://127.0.0.1:56822/parity/driver/dist/psflow.js:29102:30)\n    at g\n    at svg\n    at http://127.0.0.1:56822/parity/driver/dist/psflow.js:33040:45\n    at div\n    at http://127.0.0.1:56822/parity/driver/dist/psflow.js:33040:61\n    at div\n    at http://127.0.0.1:56822/parity/driver/dist/psflow.js:33040:61\n    at div\n    at http://127.0.0.1:56822/parity/driver/dist/psflow.js:33040:61\n    at div\n    at http://127.0.0.1:56822/parity/driver/dist/psflow.js:33040:61\n    at http://127.0.0.1:56822/parity/driver/dist/psflow.js:33040:61\n    at http://127.0.0.1:56822/parity/driver/dist/psflow.js:33040:45\n    at http://127.0.0.1:56822/parity/driver/dist/psflow.js:33040:61\n    at http://127.0.0.1:56822/parity/driver/dist/psflow.js:33040:61\n    at http://127.0.0.1:56822/parity/driver/dist/psflow.js:33040:61\n    at div\n    at http://127.0.0.1:56822/parity/driver/dist/psflow.js:33040:45\n    at http://127.0.0.1:56822/parity/driver/dist/psflow.js:41673:64\n    at div\n    at Flow_default (http://127.0.0.1:56822/parity/driver/dist/psflow.js:65705:23)\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://reactjs.org/link/error-boundaries to learn more about error boundaries."
-      },
-      {
-        "level": "error",
-        "text": "The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:56822/parity/driver/dist/psflow.js:66268:7)\n    at Wrapper (http://127.0.0.1:56822/parity/driver/dist/psflow.js:29102:30)\n    at g\n    at svg\n    at http://127.0.0.1:56822/parity/driver/dist/psflow.js:33040:45\n    at div\n    at http://127.0.0.1:56822/parity/driver/dist/psflow.js:33040:61\n    at div\n    at http://127.0.0.1:56822/parity/driver/dist/psflow.js:33040:61\n    at div\n    at http://127.0.0.1:56822/parity/driver/dist/psflow.js:33040:61\n    at div\n    at http://127.0.0.1:56822/parity/driver/dist/psflow.js:33040:61\n    at http://127.0.0.1:56822/parity/driver/dist/psflow.js:33040:61\n    at http://127.0.0.1:56822/parity/driver/dist/psflow.js:33040:45\n    at http://127.0.0.1:56822/parity/driver/dist/psflow.js:33040:61\n    at http://127.0.0.1:56822/parity/driver/dist/psflow.js:33040:61\n    at http://127.0.0.1:56822/parity/driver/dist/psflow.js:33040:61\n    at div\n    at http://127.0.0.1:56822/parity/driver/dist/psflow.js:33040:45\n    at http://127.0.0.1:56822/parity/driver/dist/psflow.js:41673:64\n    at div\n    at Flow_default (http://127.0.0.1:56822/parity/driver/dist/psflow.js:65705:23)\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://reactjs.org/link/error-boundaries to learn more about error boundaries."
-      },
-      {
-        "level": "pageerror",
-        "text": "Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"
       }
     ],
     "driving": [
@@ -189,9 +829,16 @@
         "index": 0,
         "action": "mount",
         "target": ".react-flow",
-        "resolved": false,
-        "box": null,
-        "dispatched": null
+        "resolved": true,
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "dispatched": {
+          "route": "/tests/generic/edges/base-edge-path"
+        }
       }
     ]
   }

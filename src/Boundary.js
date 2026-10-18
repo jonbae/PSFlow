@@ -39,12 +39,11 @@ export const manifest = Object.freeze({
   // move no number here and are the largest single piece of work in the
   // staging.
   //
-  // **Stage 4 is the last one scheduled.** It empties the component half of
-  // `passthrough` and leaves the fourteen pure functions, which no stage
-  // crosses — see `src/Boundary.purs` and #62 for the decision, which is a
-  // decision and not an omission. So `stage: 4` does not mean the surface has
-  // finished crossing; it means every stage that was planned has landed, and
-  // what is left is written down as what it is.
+  // Stage 4 emptied the component half of `passthrough` and left fourteen
+  // pure functions. Stage 5 (`tickets/082-boundary-stage-5-pure-functions.md`)
+  // crosses them, and this number moves when the last of them has: its first
+  // half, the six edge-path helpers, is listed below as crossed, and the
+  // eight it leaves are still in `passthrough`.
   stage: 4,
 
   // The eight TS enums are plain data on both sides, so crossing them was the
@@ -129,6 +128,12 @@ export const manifest = Object.freeze({
     "applyNodeChanges",
     "experimental_useOnEdgesChangeMiddleware",
     "experimental_useOnNodesChangeMiddleware",
+    "getBezierEdgeCenter",
+    "getBezierPath",
+    "getEdgeCenter",
+    "getSimpleBezierPath",
+    "getSmoothStepPath",
+    "getStraightPath",
     "useConnection",
     "useEdges",
     "useEdgesState",
@@ -150,24 +155,18 @@ export const manifest = Object.freeze({
     "useViewport",
   ]),
 
-  // What is left, and after stage 4 it is one kind of thing: the fourteen
-  // pure functions no stage crosses. Every one of them resolves and returns
-  // the right answer in the wrong shape — curried, or a labelled record where
-  // upstream returns a positional array — and surface parity's
+  // What is left, and it is one kind of thing: the eight pure functions stage
+  // 5 has yet to cross. The six graph utilities resolve and return the right
+  // answer behind a curried call, and `isNode` and `isEdge` agree with
+  // upstream on every call surface parity makes. Surface parity's
   // call-and-compare measures each difference rather than assuming it, which
   // is what makes their entries in `parity/surface/allowlist.json` claims
   // instead of excuses.
   passthrough: Object.freeze([
-    "getBezierEdgeCenter",
-    "getBezierPath",
     "getConnectedEdges",
-    "getEdgeCenter",
     "getIncomers",
     "getNodesBounds",
     "getOutgoers",
-    "getSimpleBezierPath",
-    "getSmoothStepPath",
-    "getStraightPath",
     "getViewportForBounds",
     "isEdge",
     "isNode",

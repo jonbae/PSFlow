@@ -24515,12 +24515,11 @@ var manifest = Object.freeze({
   // move no number here and are the largest single piece of work in the
   // staging.
   //
-  // **Stage 4 is the last one scheduled.** It empties the component half of
-  // `passthrough` and leaves the fourteen pure functions, which no stage
-  // crosses — see `src/Boundary.purs` and #62 for the decision, which is a
-  // decision and not an omission. So `stage: 4` does not mean the surface has
-  // finished crossing; it means every stage that was planned has landed, and
-  // what is left is written down as what it is.
+  // Stage 4 emptied the component half of `passthrough` and left fourteen
+  // pure functions. Stage 5 (`tickets/082-boundary-stage-5-pure-functions.md`)
+  // crosses them, and this number moves when the last of them has: its first
+  // half, the six edge-path helpers, is listed below as crossed, and the
+  // eight it leaves are still in `passthrough`.
   stage: 4,
   // The eight TS enums are plain data on both sides, so crossing them was the
   // whole conversion: no wrapper, no arity change, no representation to
@@ -24604,6 +24603,12 @@ var manifest = Object.freeze({
     "applyNodeChanges",
     "experimental_useOnEdgesChangeMiddleware",
     "experimental_useOnNodesChangeMiddleware",
+    "getBezierEdgeCenter",
+    "getBezierPath",
+    "getEdgeCenter",
+    "getSimpleBezierPath",
+    "getSmoothStepPath",
+    "getStraightPath",
     "useConnection",
     "useEdges",
     "useEdgesState",
@@ -24624,24 +24629,18 @@ var manifest = Object.freeze({
     "useUpdateNodeInternals",
     "useViewport"
   ]),
-  // What is left, and after stage 4 it is one kind of thing: the fourteen
-  // pure functions no stage crosses. Every one of them resolves and returns
-  // the right answer in the wrong shape — curried, or a labelled record where
-  // upstream returns a positional array — and surface parity's
+  // What is left, and it is one kind of thing: the eight pure functions stage
+  // 5 has yet to cross. The six graph utilities resolve and return the right
+  // answer behind a curried call, and `isNode` and `isEdge` agree with
+  // upstream on every call surface parity makes. Surface parity's
   // call-and-compare measures each difference rather than assuming it, which
   // is what makes their entries in `parity/surface/allowlist.json` claims
   // instead of excuses.
   passthrough: Object.freeze([
-    "getBezierEdgeCenter",
-    "getBezierPath",
     "getConnectedEdges",
-    "getEdgeCenter",
     "getIncomers",
     "getNodesBounds",
     "getOutgoers",
-    "getSimpleBezierPath",
-    "getSmoothStepPath",
-    "getStraightPath",
     "getViewportForBounds",
     "isEdge",
     "isNode",
@@ -41864,289 +41863,8 @@ var background2 = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
   return pure111(element(background)(convertBackground(v)));
 })));
 
-// output/React.Portal.FFI/foreign.js
-var import_react_dom = __toESM(require_react_dom(), 1);
-var createPortal = (jsx10) => (container2) => (0, import_react_dom.createPortal)(jsx10, container2);
-
-// output/Web.DOM.ParentNode/foreign.js
-var getEffProp = function(name15) {
-  return function(node) {
-    return function() {
-      return node[name15];
-    };
-  };
-};
-var children2 = getEffProp("children");
-var _firstElementChild = getEffProp("firstElementChild");
-var _lastElementChild = getEffProp("lastElementChild");
-var childElementCount = getEffProp("childElementCount");
-function _querySelector(selector4) {
-  return function(node) {
-    return function() {
-      return node.querySelector(selector4);
-    };
-  };
-}
-
-// output/Web.DOM.ParentNode/index.js
-var map29 = /* @__PURE__ */ map(functorEffect);
-var querySelector = function(qs) {
-  var $2 = map29(toMaybe);
-  var $3 = _querySelector(qs);
-  return function($4) {
-    return $2($3($4));
-  };
-};
-
-// output/System.Utils.Toolbar/index.js
-var showN4 = toString;
-var alignToFraction = function(v) {
-  if (v instanceof AlignStart) {
-    return 0;
-  }
-  ;
-  if (v instanceof AlignCenter) {
-    return 0.5;
-  }
-  ;
-  if (v instanceof AlignEnd) {
-    return 1;
-  }
-  ;
-  throw new Error("Failed pattern match at System.Utils.Toolbar (line 31, column 19 - line 34, column 18): " + [v.constructor.name]);
-};
-var getNodeToolbarTransform = function(nodeRect) {
-  return function(viewport2) {
-    return function(position3) {
-      return function(offset) {
-        return function(align) {
-          var defaultShiftY = -100;
-          var defaultPosY = nodeRect.y * viewport2.zoom + viewport2.y - offset;
-          var alignmentOffset = alignToFraction(align);
-          var defaultPosX = (nodeRect.x + nodeRect.width * alignmentOffset) * viewport2.zoom + viewport2.x;
-          var defaultShiftX = -100 * alignmentOffset;
-          var v = function() {
-            if (position3 instanceof PosTop) {
-              return {
-                posX: defaultPosX,
-                posY: defaultPosY,
-                shiftX: defaultShiftX,
-                shiftY: defaultShiftY
-              };
-            }
-            ;
-            if (position3 instanceof PosRight) {
-              return {
-                posX: (nodeRect.x + nodeRect.width) * viewport2.zoom + viewport2.x + offset,
-                posY: (nodeRect.y + nodeRect.height * alignmentOffset) * viewport2.zoom + viewport2.y,
-                shiftX: 0,
-                shiftY: -100 * alignmentOffset
-              };
-            }
-            ;
-            if (position3 instanceof PosBottom) {
-              return {
-                posX: defaultPosX,
-                posY: (nodeRect.y + nodeRect.height) * viewport2.zoom + viewport2.y + offset,
-                shiftX: defaultShiftX,
-                shiftY: 0
-              };
-            }
-            ;
-            if (position3 instanceof PosLeft) {
-              return {
-                posX: nodeRect.x * viewport2.zoom + viewport2.x - offset,
-                posY: (nodeRect.y + nodeRect.height * alignmentOffset) * viewport2.zoom + viewport2.y,
-                shiftX: -100,
-                shiftY: -100 * alignmentOffset
-              };
-            }
-            ;
-            throw new Error("Failed pattern match at System.Utils.Toolbar (line 74, column 36 - line 104, column 8): " + [position3.constructor.name]);
-          }();
-          return "translate(" + (showN4(v.posX) + ("px, " + (showN4(v.posY) + ("px) " + ("translate(" + (showN4(v.shiftX) + ("%, " + (showN4(v.shiftY) + "%)"))))))));
-        };
-      };
-    };
-  };
-};
-
-// output/React.Edge.Text/foreign.js
-var measureText = (element2) => () => {
-  const bbox = element2.getBBox();
-  return {
-    x: bbox.x,
-    y: bbox.y,
-    width: bbox.width,
-    height: bbox.height
-  };
-};
-
-// output/React.Edge.Text/index.js
-var bind14 = /* @__PURE__ */ bind4(ixBindRender);
-var discard5 = /* @__PURE__ */ discard2(ixBindRender);
-var useEffect3 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqMaybe(eqString));
-var map30 = /* @__PURE__ */ map(functorEffect);
-var for_6 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
-var pure24 = /* @__PURE__ */ pure(applicativeEffect);
-var pure112 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
-var mempty3 = /* @__PURE__ */ mempty(monoidJSX);
-var labelTransform = function(x) {
-  return function(y) {
-    return function(width8) {
-      return function(height8) {
-        return "translate(" + (toString(x - width8 / 2) + (" " + (toString(y - height8 / 2) + ")")));
-      };
-    };
-  };
-};
-var initialBBox = {
-  x: 1,
-  y: 0,
-  width: 0,
-  height: 0
-};
-var defaultPadding = {
-  x: 2,
-  y: 4
-};
-var edgeText = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponent()()()("EdgeText")(function(v) {
-  return bind14(useState(initialBBox))(function(v1) {
-    return bind14(useRef(toNullable(Nothing.value)))(function(textRef) {
-      return discard5(useEffect3(v.label)(function __do3() {
-        var mText = map30(toMaybe)(readRef(textRef))();
-        for_6(mText)(function(text5) {
-          return function __do4() {
-            var measured = measureText(text5)();
-            return v1.value1($$const(measured))();
-          };
-        })();
-        return pure24(unit);
-      }))(function() {
-        return pure112(function() {
-          if (v.label instanceof Nothing) {
-            return mempty3;
-          }
-          ;
-          if (v.label instanceof Just) {
-            var transform2 = labelTransform(v.x)(v.y)(v1.value0.width)(v1.value0.height);
-            var showBg = fromMaybe(true)(v.labelShowBg);
-            var pad = fromMaybe(defaultPadding)(v.labelBgPadding);
-            var labelText = text_({
-              className: "react-flow__edge-text",
-              y: v1.value0.height / 2,
-              dy: "0.3em",
-              ref: textRef,
-              style: opt(v.labelStyle)
-            })([textContent(v.label.value0)]);
-            var bgRadius = fromMaybe(2)(v.labelBgBorderRadius);
-            var bg = function() {
-              if (showBg) {
-                return rect_({
-                  x: -pad.x,
-                  y: -pad.y,
-                  width: v1.value0.width + 2 * pad.x,
-                  height: v1.value0.height + 2 * pad.y,
-                  className: "react-flow__edge-textbg",
-                  style: opt(v.labelBgStyle),
-                  rx: bgRadius,
-                  ry: bgRadius
-                })([]);
-              }
-              ;
-              if (otherwise) {
-                return mempty3;
-              }
-              ;
-              throw new Error("Failed pattern match at React.Edge.Text (line 73, column 9 - line 73, column 18): ");
-            }();
-            return g_({
-              transform: transform2,
-              className: "react-flow__edge-textwrapper",
-              visibility: function() {
-                var $29 = v1.value0.width === 0;
-                if ($29) {
-                  return "hidden";
-                }
-                ;
-                return "visible";
-              }()
-            })([bg, labelText]);
-          }
-          ;
-          throw new Error("Failed pattern match at React.Edge.Text (line 65, column 8 - line 102, column 28): " + [v.label.constructor.name]);
-        }());
-      });
-    });
-  });
-}));
-
-// output/React.Edge.Base/index.js
-var pure25 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
-var mempty4 = /* @__PURE__ */ mempty(monoidJSX);
-var append14 = /* @__PURE__ */ append(semigroupJSX);
-var baseEdge = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponent()()()("BaseEdge")(function(v) {
-  return pure25(function() {
-    var pathClass = function() {
-      if (v.className instanceof Just) {
-        return "react-flow__edge-path " + v.className.value0;
-      }
-      ;
-      if (v.className instanceof Nothing) {
-        return "react-flow__edge-path";
-      }
-      ;
-      throw new Error("Failed pattern match at React.Edge.Base (line 31, column 19 - line 33, column 43): " + [v.className.constructor.name]);
-    }();
-    var mainPath = path_({
-      id: opt(v.id),
-      d: v.path,
-      fill: "none",
-      style: opt(v.style),
-      className: pathClass,
-      markerStart: opt(v.markerStart),
-      markerEnd: opt(v.markerEnd)
-    })([]);
-    var label4 = function() {
-      if (v.label instanceof Just && (v.labelX instanceof Just && (v.labelY instanceof Just && isJust(v.label)))) {
-        return element(edgeText)({
-          x: v.labelX.value0,
-          y: v.labelY.value0,
-          label: v.label,
-          labelStyle: v.labelStyle,
-          labelShowBg: v.labelShowBg,
-          labelBgStyle: v.labelBgStyle,
-          labelBgPadding: v.labelBgPadding,
-          labelBgBorderRadius: v.labelBgBorderRadius
-        });
-      }
-      ;
-      return mempty4;
-    }();
-    var interactionWidth = fromMaybe(20)(v.interactionWidth);
-    var interactionPath = function() {
-      if (interactionWidth > 0) {
-        return path_({
-          d: v.path,
-          fill: "none",
-          strokeOpacity: 0,
-          strokeWidth: interactionWidth,
-          className: "react-flow__edge-interaction"
-        })([]);
-      }
-      ;
-      if (otherwise) {
-        return mempty4;
-      }
-      ;
-      throw new Error("Failed pattern match at React.Edge.Base (line 45, column 7 - line 45, column 29): ");
-    }();
-    return append14(mainPath)(append14(interactionPath)(label4));
-  }());
-})));
-
 // output/System.Utils.Edges.Bezier/index.js
-var showN5 = toString;
+var showN4 = toString;
 var getBezierEdgeCenter = function(p) {
   var centerY = p.sourceY * 0.125 + p.sourceControlY * 0.375 + p.targetControlY * 0.375 + p.targetY * 0.125;
   var centerX = p.sourceX * 0.125 + p.sourceControlX * 0.375 + p.targetControlX * 0.375 + p.targetX * 0.125;
@@ -42214,7 +41932,7 @@ var getControlWithCurvature = function(pos) {
 var getBezierPath = function(p) {
   var tgt = getControlWithCurvature(p.targetPosition)(p.targetX)(p.targetY)(p.sourceX)(p.sourceY)(p.curvature);
   var src9 = getControlWithCurvature(p.sourcePosition)(p.sourceX)(p.sourceY)(p.targetX)(p.targetY)(p.curvature);
-  var path = "M" + (showN5(p.sourceX) + ("," + (showN5(p.sourceY) + (" C" + (showN5(src9.x) + ("," + (showN5(src9.y) + (" " + (showN5(tgt.x) + ("," + (showN5(tgt.y) + (" " + (showN5(p.targetX) + ("," + showN5(p.targetY)))))))))))))));
+  var path = "M" + (showN4(p.sourceX) + ("," + (showN4(p.sourceY) + (" C" + (showN4(src9.x) + ("," + (showN4(src9.y) + (" " + (showN4(tgt.x) + ("," + (showN4(tgt.y) + (" " + (showN4(p.targetX) + ("," + showN4(p.targetY)))))))))))))));
   var c = getBezierEdgeCenter({
     sourceX: p.sourceX,
     sourceY: p.sourceY,
@@ -42233,168 +41951,6 @@ var getBezierPath = function(p) {
     offsetY: c.offsetY
   };
 };
-
-// output/React.Edge.Bezier/index.js
-var reactComponent4 = /* @__PURE__ */ reactComponent()()();
-var pure26 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
-var bind15 = /* @__PURE__ */ bind(bindMaybe);
-var mkBezierEdge = function(cfg) {
-  var name15 = function() {
-    if (cfg.isInternal) {
-      return "BezierEdgeInternal";
-    }
-    ;
-    return "BezierEdge";
-  }();
-  return unsafePerformEffect(memo(reactComponent4(name15)(function(v) {
-    return pure26(function() {
-      var curvature = fromMaybe(0.25)(bind15(v.pathOptions)(function(v1) {
-        return v1.curvature;
-      }));
-      var result = getBezierPath({
-        sourceX: v.sourceX,
-        sourceY: v.sourceY,
-        sourcePosition: v.sourcePosition,
-        targetX: v.targetX,
-        targetY: v.targetY,
-        targetPosition: v.targetPosition,
-        curvature
-      });
-      var _id = function() {
-        if (cfg.isInternal) {
-          return Nothing.value;
-        }
-        ;
-        return v.id;
-      }();
-      return element(baseEdge)({
-        id: _id,
-        path: result.path,
-        labelX: new Just(result.labelX),
-        labelY: new Just(result.labelY),
-        label: v.label,
-        labelStyle: v.labelStyle,
-        labelShowBg: v.labelShowBg,
-        labelBgStyle: v.labelBgStyle,
-        labelBgPadding: v.labelBgPadding,
-        labelBgBorderRadius: v.labelBgBorderRadius,
-        style: v.style,
-        markerEnd: v.markerEnd,
-        markerStart: v.markerStart,
-        interactionWidth: v.interactionWidth,
-        className: Nothing.value
-      });
-    }());
-  })));
-};
-var bezierEdgeInternal = /* @__PURE__ */ mkBezierEdge({
-  isInternal: true
-});
-
-// output/System.Utils.Edges.SimpleBezier/index.js
-var showN6 = toString;
-var getControl = function(pos) {
-  return function(x1) {
-    return function(y1) {
-      return function(x2) {
-        return function(y2) {
-          if (pos instanceof PosLeft) {
-            return {
-              x: 0.5 * (x1 + x2),
-              y: y1
-            };
-          }
-          ;
-          if (pos instanceof PosRight) {
-            return {
-              x: 0.5 * (x1 + x2),
-              y: y1
-            };
-          }
-          ;
-          return {
-            x: x1,
-            y: 0.5 * (y1 + y2)
-          };
-        };
-      };
-    };
-  };
-};
-var getSimpleBezierPath = function(p) {
-  var tgt = getControl(p.targetPosition)(p.targetX)(p.targetY)(p.sourceX)(p.sourceY);
-  var src9 = getControl(p.sourcePosition)(p.sourceX)(p.sourceY)(p.targetX)(p.targetY);
-  var path = "M" + (showN6(p.sourceX) + ("," + (showN6(p.sourceY) + (" C" + (showN6(src9.x) + ("," + (showN6(src9.y) + (" " + (showN6(tgt.x) + ("," + (showN6(tgt.y) + (" " + (showN6(p.targetX) + ("," + showN6(p.targetY)))))))))))))));
-  var c = getBezierEdgeCenter({
-    sourceX: p.sourceX,
-    sourceY: p.sourceY,
-    targetX: p.targetX,
-    targetY: p.targetY,
-    sourceControlX: src9.x,
-    sourceControlY: src9.y,
-    targetControlX: tgt.x,
-    targetControlY: tgt.y
-  });
-  return {
-    path,
-    labelX: c.centerX,
-    labelY: c.centerY,
-    offsetX: c.offsetX,
-    offsetY: c.offsetY
-  };
-};
-
-// output/React.Edge.SimpleBezier/index.js
-var reactComponent5 = /* @__PURE__ */ reactComponent()()();
-var pure27 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
-var mkSimpleBezierEdge = function(cfg) {
-  var name15 = function() {
-    if (cfg.isInternal) {
-      return "SimpleBezierEdgeInternal";
-    }
-    ;
-    return "SimpleBezierEdge";
-  }();
-  return unsafePerformEffect(memo(reactComponent5(name15)(function(v) {
-    return pure27(function() {
-      var result = getSimpleBezierPath({
-        sourceX: v.sourceX,
-        sourceY: v.sourceY,
-        sourcePosition: v.sourcePosition,
-        targetX: v.targetX,
-        targetY: v.targetY,
-        targetPosition: v.targetPosition
-      });
-      var _id = function() {
-        if (cfg.isInternal) {
-          return Nothing.value;
-        }
-        ;
-        return v.id;
-      }();
-      return element(baseEdge)({
-        id: _id,
-        path: result.path,
-        labelX: new Just(result.labelX),
-        labelY: new Just(result.labelY),
-        label: v.label,
-        labelStyle: v.labelStyle,
-        labelShowBg: v.labelShowBg,
-        labelBgStyle: v.labelBgStyle,
-        labelBgPadding: v.labelBgPadding,
-        labelBgBorderRadius: v.labelBgBorderRadius,
-        style: v.style,
-        markerEnd: v.markerEnd,
-        markerStart: v.markerStart,
-        interactionWidth: v.interactionWidth,
-        className: Nothing.value
-      });
-    }());
-  })));
-};
-var simpleBezierEdgeInternal = /* @__PURE__ */ mkSimpleBezierEdge({
-  isInternal: true
-});
 
 // output/System.Utils.Edges.General/index.js
 var unwrap10 = /* @__PURE__ */ unwrap();
@@ -42537,9 +42093,62 @@ var addEdge = function(v) {
   };
 };
 
+// output/System.Utils.Edges.SimpleBezier/index.js
+var showN5 = toString;
+var getControl = function(pos) {
+  return function(x1) {
+    return function(y1) {
+      return function(x2) {
+        return function(y2) {
+          if (pos instanceof PosLeft) {
+            return {
+              x: 0.5 * (x1 + x2),
+              y: y1
+            };
+          }
+          ;
+          if (pos instanceof PosRight) {
+            return {
+              x: 0.5 * (x1 + x2),
+              y: y1
+            };
+          }
+          ;
+          return {
+            x: x1,
+            y: 0.5 * (y1 + y2)
+          };
+        };
+      };
+    };
+  };
+};
+var getSimpleBezierPath = function(p) {
+  var tgt = getControl(p.targetPosition)(p.targetX)(p.targetY)(p.sourceX)(p.sourceY);
+  var src9 = getControl(p.sourcePosition)(p.sourceX)(p.sourceY)(p.targetX)(p.targetY);
+  var path = "M" + (showN5(p.sourceX) + ("," + (showN5(p.sourceY) + (" C" + (showN5(src9.x) + ("," + (showN5(src9.y) + (" " + (showN5(tgt.x) + ("," + (showN5(tgt.y) + (" " + (showN5(p.targetX) + ("," + showN5(p.targetY)))))))))))))));
+  var c = getBezierEdgeCenter({
+    sourceX: p.sourceX,
+    sourceY: p.sourceY,
+    targetX: p.targetX,
+    targetY: p.targetY,
+    sourceControlX: src9.x,
+    sourceControlY: src9.y,
+    targetControlX: tgt.x,
+    targetControlY: tgt.y
+  });
+  return {
+    path,
+    labelX: c.centerX,
+    labelY: c.centerY,
+    offsetX: c.offsetX,
+    offsetY: c.offsetY
+  };
+};
+
 // output/System.Utils.Edges.SmoothStep/index.js
 var min5 = /* @__PURE__ */ min(ordNumber);
-var append15 = /* @__PURE__ */ append(semigroupArray);
+var append14 = /* @__PURE__ */ append(semigroupArray);
 var eq15 = /* @__PURE__ */ eq(eqPosition);
 var notEq12 = /* @__PURE__ */ notEq(eqPosition);
 var max9 = /* @__PURE__ */ max(ordNumber);
@@ -42558,7 +42167,7 @@ var AxisY = /* @__PURE__ */ function() {
   AxisY2.value = new AxisY2();
   return AxisY2;
 }();
-var showN7 = toString;
+var showN6 = toString;
 var setAxis = function(v) {
   return function(v1) {
     return function(v2) {
@@ -42667,7 +42276,7 @@ var getBend = function(a) {
         var bendSize = min5(min5(distance(a)(b) / 2)(distance(b)(c) / 2))(size6);
         var $50 = a.x === b.x && b.x === c.x || a.y === b.y && b.y === c.y;
         if ($50) {
-          return "L" + (showN7(b.x) + (" " + showN7(b.y)));
+          return "L" + (showN6(b.x) + (" " + showN6(b.y)));
         }
         ;
         var $51 = a.y === b.y;
@@ -42688,7 +42297,7 @@ var getBend = function(a) {
             ;
             return 1;
           }();
-          return "L " + (showN7(b.x + bendSize * xDir) + ("," + (showN7(b.y) + ("Q " + (showN7(b.x) + ("," + (showN7(b.y) + (" " + (showN7(b.x) + ("," + showN7(b.y + bendSize * yDir)))))))))));
+          return "L " + (showN6(b.x + bendSize * xDir) + ("," + (showN6(b.y) + ("Q " + (showN6(b.x) + ("," + (showN6(b.y) + (" " + (showN6(b.x) + ("," + showN6(b.y + bendSize * yDir)))))))))));
         }
         ;
         var yDir = function() {
@@ -42707,7 +42316,7 @@ var getBend = function(a) {
           ;
           return -1;
         }();
-        return "L " + (showN7(b.x) + ("," + (showN7(b.y + bendSize * yDir) + ("Q " + (showN7(b.x) + ("," + (showN7(b.y) + (" " + (showN7(b.x + bendSize * xDir) + ("," + showN7(b.y)))))))))));
+        return "L " + (showN6(b.x) + ("," + (showN6(b.y + bendSize * yDir) + ("Q " + (showN6(b.x) + ("," + (showN6(b.y) + (" " + (showN6(b.x + bendSize * xDir) + ("," + showN6(b.y)))))))))));
       };
     };
   };
@@ -42777,7 +42386,7 @@ var buildPathPoints = function(source) {
                 ;
                 return [];
               }();
-              return append15([source])(append15(prefix)(append15(points)(append15(suffix)([target5]))));
+              return append14([source])(append14(prefix)(append14(points)(append14(suffix)([target5]))));
             };
           };
         };
@@ -43134,7 +42743,7 @@ var getSmoothStepPath = function(p) {
       };
     })("")(range2(1)(n - 2 | 0));
   }();
-  var path = "M" + (showN7(head$prime.x) + (" " + (showN7(head$prime.y) + (bends + ("L" + (showN7(last$prime.x) + (" " + showN7(last$prime.y))))))));
+  var path = "M" + (showN6(head$prime.x) + (" " + (showN6(head$prime.y) + (bends + ("L" + (showN6(last$prime.x) + (" " + showN6(last$prime.y))))))));
   return {
     path,
     labelX: res.centerX,
@@ -43143,6 +42752,449 @@ var getSmoothStepPath = function(p) {
     offsetY: res.defaultOffsetY
   };
 };
+
+// output/System.Utils.Edges.Straight/index.js
+var showN7 = toString;
+var getStraightPath = function(p) {
+  var path = "M " + (showN7(p.sourceX) + ("," + (showN7(p.sourceY) + ("L " + (showN7(p.targetX) + ("," + showN7(p.targetY)))))));
+  var c = getEdgeCenter({
+    sourceX: p.sourceX,
+    sourceY: p.sourceY,
+    targetX: p.targetX,
+    targetY: p.targetY
+  });
+  return {
+    path,
+    labelX: c.centerX,
+    labelY: c.centerY,
+    offsetX: c.offsetX,
+    offsetY: c.offsetY
+  };
+};
+
+// output/Boundary.EdgePaths/index.js
+var positionOr = function(field) {
+  return function(fallback) {
+    var $1 = maybe(fallback)(positionIn(field));
+    return function($2) {
+      return $1(fromUndefinable($2));
+    };
+  };
+};
+var pathTuple = function(r) {
+  return [unsafeToForeign(r.path), unsafeToForeign(r.labelX), unsafeToForeign(r.labelY), unsafeToForeign(r.offsetX), unsafeToForeign(r.offsetY)];
+};
+var numberOr = function(fallback) {
+  var $3 = fromMaybe(fallback);
+  return function($4) {
+    return $3(fromUndefinable($4));
+  };
+};
+var getSmoothStepPath2 = function(p) {
+  return pathTuple(getSmoothStepPath({
+    sourceX: p.sourceX,
+    sourceY: p.sourceY,
+    sourcePosition: positionOr("sourcePosition")(PosBottom.value)(p.sourcePosition),
+    targetX: p.targetX,
+    targetY: p.targetY,
+    targetPosition: positionOr("targetPosition")(PosTop.value)(p.targetPosition),
+    borderRadius: numberOr(5)(p.borderRadius),
+    centerX: fromUndefinable(p.centerX),
+    centerY: fromUndefinable(p.centerY),
+    offset: numberOr(20)(p.offset),
+    stepPosition: numberOr(0.5)(p.stepPosition)
+  }));
+};
+
+// output/React.Portal.FFI/foreign.js
+var import_react_dom = __toESM(require_react_dom(), 1);
+var createPortal = (jsx10) => (container2) => (0, import_react_dom.createPortal)(jsx10, container2);
+
+// output/Web.DOM.ParentNode/foreign.js
+var getEffProp = function(name15) {
+  return function(node) {
+    return function() {
+      return node[name15];
+    };
+  };
+};
+var children2 = getEffProp("children");
+var _firstElementChild = getEffProp("firstElementChild");
+var _lastElementChild = getEffProp("lastElementChild");
+var childElementCount = getEffProp("childElementCount");
+function _querySelector(selector4) {
+  return function(node) {
+    return function() {
+      return node.querySelector(selector4);
+    };
+  };
+}
+
+// output/Web.DOM.ParentNode/index.js
+var map29 = /* @__PURE__ */ map(functorEffect);
+var querySelector = function(qs) {
+  var $2 = map29(toMaybe);
+  var $3 = _querySelector(qs);
+  return function($4) {
+    return $2($3($4));
+  };
+};
+
+// output/System.Utils.Toolbar/index.js
+var showN8 = toString;
+var alignToFraction = function(v) {
+  if (v instanceof AlignStart) {
+    return 0;
+  }
+  ;
+  if (v instanceof AlignCenter) {
+    return 0.5;
+  }
+  ;
+  if (v instanceof AlignEnd) {
+    return 1;
+  }
+  ;
+  throw new Error("Failed pattern match at System.Utils.Toolbar (line 31, column 19 - line 34, column 18): " + [v.constructor.name]);
+};
+var getNodeToolbarTransform = function(nodeRect) {
+  return function(viewport2) {
+    return function(position3) {
+      return function(offset) {
+        return function(align) {
+          var defaultShiftY = -100;
+          var defaultPosY = nodeRect.y * viewport2.zoom + viewport2.y - offset;
+          var alignmentOffset = alignToFraction(align);
+          var defaultPosX = (nodeRect.x + nodeRect.width * alignmentOffset) * viewport2.zoom + viewport2.x;
+          var defaultShiftX = -100 * alignmentOffset;
+          var v = function() {
+            if (position3 instanceof PosTop) {
+              return {
+                posX: defaultPosX,
+                posY: defaultPosY,
+                shiftX: defaultShiftX,
+                shiftY: defaultShiftY
+              };
+            }
+            ;
+            if (position3 instanceof PosRight) {
+              return {
+                posX: (nodeRect.x + nodeRect.width) * viewport2.zoom + viewport2.x + offset,
+                posY: (nodeRect.y + nodeRect.height * alignmentOffset) * viewport2.zoom + viewport2.y,
+                shiftX: 0,
+                shiftY: -100 * alignmentOffset
+              };
+            }
+            ;
+            if (position3 instanceof PosBottom) {
+              return {
+                posX: defaultPosX,
+                posY: (nodeRect.y + nodeRect.height) * viewport2.zoom + viewport2.y + offset,
+                shiftX: defaultShiftX,
+                shiftY: 0
+              };
+            }
+            ;
+            if (position3 instanceof PosLeft) {
+              return {
+                posX: nodeRect.x * viewport2.zoom + viewport2.x - offset,
+                posY: (nodeRect.y + nodeRect.height * alignmentOffset) * viewport2.zoom + viewport2.y,
+                shiftX: -100,
+                shiftY: -100 * alignmentOffset
+              };
+            }
+            ;
+            throw new Error("Failed pattern match at System.Utils.Toolbar (line 74, column 36 - line 104, column 8): " + [position3.constructor.name]);
+          }();
+          return "translate(" + (showN8(v.posX) + ("px, " + (showN8(v.posY) + ("px) " + ("translate(" + (showN8(v.shiftX) + ("%, " + (showN8(v.shiftY) + "%)"))))))));
+        };
+      };
+    };
+  };
+};
+
+// output/React.Edge.Text/foreign.js
+var measureText = (element2) => () => {
+  const bbox = element2.getBBox();
+  return {
+    x: bbox.x,
+    y: bbox.y,
+    width: bbox.width,
+    height: bbox.height
+  };
+};
+
+// output/React.Edge.Text/index.js
+var bind14 = /* @__PURE__ */ bind4(ixBindRender);
+var discard5 = /* @__PURE__ */ discard2(ixBindRender);
+var useEffect3 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqMaybe(eqString));
+var map30 = /* @__PURE__ */ map(functorEffect);
+var for_6 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
+var pure24 = /* @__PURE__ */ pure(applicativeEffect);
+var pure112 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var mempty3 = /* @__PURE__ */ mempty(monoidJSX);
+var labelTransform = function(x) {
+  return function(y) {
+    return function(width8) {
+      return function(height8) {
+        return "translate(" + (toString(x - width8 / 2) + (" " + (toString(y - height8 / 2) + ")")));
+      };
+    };
+  };
+};
+var initialBBox = {
+  x: 1,
+  y: 0,
+  width: 0,
+  height: 0
+};
+var defaultPadding = {
+  x: 2,
+  y: 4
+};
+var edgeText = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponent()()()("EdgeText")(function(v) {
+  return bind14(useState(initialBBox))(function(v1) {
+    return bind14(useRef(toNullable(Nothing.value)))(function(textRef) {
+      return discard5(useEffect3(v.label)(function __do3() {
+        var mText = map30(toMaybe)(readRef(textRef))();
+        for_6(mText)(function(text5) {
+          return function __do4() {
+            var measured = measureText(text5)();
+            return v1.value1($$const(measured))();
+          };
+        })();
+        return pure24(unit);
+      }))(function() {
+        return pure112(function() {
+          if (v.label instanceof Nothing) {
+            return mempty3;
+          }
+          ;
+          if (v.label instanceof Just) {
+            var transform2 = labelTransform(v.x)(v.y)(v1.value0.width)(v1.value0.height);
+            var showBg = fromMaybe(true)(v.labelShowBg);
+            var pad = fromMaybe(defaultPadding)(v.labelBgPadding);
+            var labelText = text_({
+              className: "react-flow__edge-text",
+              y: v1.value0.height / 2,
+              dy: "0.3em",
+              ref: textRef,
+              style: opt(v.labelStyle)
+            })([textContent(v.label.value0)]);
+            var bgRadius = fromMaybe(2)(v.labelBgBorderRadius);
+            var bg = function() {
+              if (showBg) {
+                return rect_({
+                  x: -pad.x,
+                  y: -pad.y,
+                  width: v1.value0.width + 2 * pad.x,
+                  height: v1.value0.height + 2 * pad.y,
+                  className: "react-flow__edge-textbg",
+                  style: opt(v.labelBgStyle),
+                  rx: bgRadius,
+                  ry: bgRadius
+                })([]);
+              }
+              ;
+              if (otherwise) {
+                return mempty3;
+              }
+              ;
+              throw new Error("Failed pattern match at React.Edge.Text (line 73, column 9 - line 73, column 18): ");
+            }();
+            return g_({
+              transform: transform2,
+              className: "react-flow__edge-textwrapper",
+              visibility: function() {
+                var $29 = v1.value0.width === 0;
+                if ($29) {
+                  return "hidden";
+                }
+                ;
+                return "visible";
+              }()
+            })([bg, labelText]);
+          }
+          ;
+          throw new Error("Failed pattern match at React.Edge.Text (line 65, column 8 - line 102, column 28): " + [v.label.constructor.name]);
+        }());
+      });
+    });
+  });
+}));
+
+// output/React.Edge.Base/index.js
+var pure25 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var mempty4 = /* @__PURE__ */ mempty(monoidJSX);
+var append15 = /* @__PURE__ */ append(semigroupJSX);
+var baseEdge = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponent()()()("BaseEdge")(function(v) {
+  return pure25(function() {
+    var pathClass = function() {
+      if (v.className instanceof Just) {
+        return "react-flow__edge-path " + v.className.value0;
+      }
+      ;
+      if (v.className instanceof Nothing) {
+        return "react-flow__edge-path";
+      }
+      ;
+      throw new Error("Failed pattern match at React.Edge.Base (line 31, column 19 - line 33, column 43): " + [v.className.constructor.name]);
+    }();
+    var mainPath = path_({
+      id: opt(v.id),
+      d: v.path,
+      fill: "none",
+      style: opt(v.style),
+      className: pathClass,
+      markerStart: opt(v.markerStart),
+      markerEnd: opt(v.markerEnd)
+    })([]);
+    var label4 = function() {
+      if (v.label instanceof Just && (v.labelX instanceof Just && (v.labelY instanceof Just && isJust(v.label)))) {
+        return element(edgeText)({
+          x: v.labelX.value0,
+          y: v.labelY.value0,
+          label: v.label,
+          labelStyle: v.labelStyle,
+          labelShowBg: v.labelShowBg,
+          labelBgStyle: v.labelBgStyle,
+          labelBgPadding: v.labelBgPadding,
+          labelBgBorderRadius: v.labelBgBorderRadius
+        });
+      }
+      ;
+      return mempty4;
+    }();
+    var interactionWidth = fromMaybe(20)(v.interactionWidth);
+    var interactionPath = function() {
+      if (interactionWidth > 0) {
+        return path_({
+          d: v.path,
+          fill: "none",
+          strokeOpacity: 0,
+          strokeWidth: interactionWidth,
+          className: "react-flow__edge-interaction"
+        })([]);
+      }
+      ;
+      if (otherwise) {
+        return mempty4;
+      }
+      ;
+      throw new Error("Failed pattern match at React.Edge.Base (line 45, column 7 - line 45, column 29): ");
+    }();
+    return append15(mainPath)(append15(interactionPath)(label4));
+  }());
+})));
+
+// output/React.Edge.Bezier/index.js
+var reactComponent4 = /* @__PURE__ */ reactComponent()()();
+var pure26 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var bind15 = /* @__PURE__ */ bind(bindMaybe);
+var mkBezierEdge = function(cfg) {
+  var name15 = function() {
+    if (cfg.isInternal) {
+      return "BezierEdgeInternal";
+    }
+    ;
+    return "BezierEdge";
+  }();
+  return unsafePerformEffect(memo(reactComponent4(name15)(function(v) {
+    return pure26(function() {
+      var curvature = fromMaybe(0.25)(bind15(v.pathOptions)(function(v1) {
+        return v1.curvature;
+      }));
+      var result = getBezierPath({
+        sourceX: v.sourceX,
+        sourceY: v.sourceY,
+        sourcePosition: v.sourcePosition,
+        targetX: v.targetX,
+        targetY: v.targetY,
+        targetPosition: v.targetPosition,
+        curvature
+      });
+      var _id = function() {
+        if (cfg.isInternal) {
+          return Nothing.value;
+        }
+        ;
+        return v.id;
+      }();
+      return element(baseEdge)({
+        id: _id,
+        path: result.path,
+        labelX: new Just(result.labelX),
+        labelY: new Just(result.labelY),
+        label: v.label,
+        labelStyle: v.labelStyle,
+        labelShowBg: v.labelShowBg,
+        labelBgStyle: v.labelBgStyle,
+        labelBgPadding: v.labelBgPadding,
+        labelBgBorderRadius: v.labelBgBorderRadius,
+        style: v.style,
+        markerEnd: v.markerEnd,
+        markerStart: v.markerStart,
+        interactionWidth: v.interactionWidth,
+        className: Nothing.value
+      });
+    }());
+  })));
+};
+var bezierEdgeInternal = /* @__PURE__ */ mkBezierEdge({
+  isInternal: true
+});
+
+// output/React.Edge.SimpleBezier/index.js
+var reactComponent5 = /* @__PURE__ */ reactComponent()()();
+var pure27 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
+var mkSimpleBezierEdge = function(cfg) {
+  var name15 = function() {
+    if (cfg.isInternal) {
+      return "SimpleBezierEdgeInternal";
+    }
+    ;
+    return "SimpleBezierEdge";
+  }();
+  return unsafePerformEffect(memo(reactComponent5(name15)(function(v) {
+    return pure27(function() {
+      var result = getSimpleBezierPath({
+        sourceX: v.sourceX,
+        sourceY: v.sourceY,
+        sourcePosition: v.sourcePosition,
+        targetX: v.targetX,
+        targetY: v.targetY,
+        targetPosition: v.targetPosition
+      });
+      var _id = function() {
+        if (cfg.isInternal) {
+          return Nothing.value;
+        }
+        ;
+        return v.id;
+      }();
+      return element(baseEdge)({
+        id: _id,
+        path: result.path,
+        labelX: new Just(result.labelX),
+        labelY: new Just(result.labelY),
+        label: v.label,
+        labelStyle: v.labelStyle,
+        labelShowBg: v.labelShowBg,
+        labelBgStyle: v.labelBgStyle,
+        labelBgPadding: v.labelBgPadding,
+        labelBgBorderRadius: v.labelBgBorderRadius,
+        style: v.style,
+        markerEnd: v.markerEnd,
+        markerStart: v.markerStart,
+        interactionWidth: v.interactionWidth,
+        className: Nothing.value
+      });
+    }());
+  })));
+};
+var simpleBezierEdgeInternal = /* @__PURE__ */ mkSimpleBezierEdge({
+  isInternal: true
+});
 
 // output/React.Edge.SmoothStep/index.js
 var reactComponent6 = /* @__PURE__ */ reactComponent()()();
@@ -43272,25 +43324,6 @@ var stepEdgeInternal = /* @__PURE__ */ mkStepEdge({
   isInternal: true,
   name: "StepEdgeInternal"
 });
-
-// output/System.Utils.Edges.Straight/index.js
-var showN8 = toString;
-var getStraightPath = function(p) {
-  var path = "M " + (showN8(p.sourceX) + ("," + (showN8(p.sourceY) + ("L " + (showN8(p.targetX) + ("," + showN8(p.targetY)))))));
-  var c = getEdgeCenter({
-    sourceX: p.sourceX,
-    sourceY: p.sourceY,
-    targetX: p.targetX,
-    targetY: p.targetY
-  });
-  return {
-    path,
-    labelX: c.centerX,
-    labelY: c.centerY,
-    offsetX: c.offsetX,
-    offsetY: c.offsetY
-  };
-};
 
 // output/React.Edge.Straight/index.js
 var reactComponent8 = /* @__PURE__ */ reactComponent()()();
@@ -66274,7 +66307,7 @@ function PathAttributeEdge({
   targetPosition,
   markerEnd
 }) {
-  const [path] = getSmoothStepPath({ sourceX, sourceY, targetX, targetY, sourcePosition, targetPosition });
+  const [path] = getSmoothStepPath2({ sourceX, sourceY, targetX, targetY, sourcePosition, targetPosition });
   return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
     baseEdge2,
     {
