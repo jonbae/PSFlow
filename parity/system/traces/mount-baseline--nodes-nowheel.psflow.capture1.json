@@ -279,29 +279,6 @@
         ]
       },
       {
-        "name": "onNodesChange",
-        "args": [
-          [
-            {
-              "type": "dimensions",
-              "id": "nowheel",
-              "dimensions": {
-                "width": 400,
-                "height": 320
-              }
-            },
-            {
-              "type": "dimensions",
-              "id": "plain",
-              "dimensions": {
-                "width": 150,
-                "height": 37
-              }
-            }
-          ]
-        ]
-      },
-      {
         "name": "onMoveStart",
         "args": [
           null,
@@ -342,6 +319,29 @@
             "y": 54.68852459016392,
             "zoom": 1.9081967213114754
           }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "type": "dimensions",
+              "id": "nowheel",
+              "dimensions": {
+                "width": 400,
+                "height": 320
+              }
+            },
+            {
+              "type": "dimensions",
+              "id": "plain",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          ]
         ]
       }
     ],

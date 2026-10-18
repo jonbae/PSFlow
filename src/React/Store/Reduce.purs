@@ -46,6 +46,7 @@ import System.Utils.Store
   ( adoptUserNodes
   , defaultUpdateNodesOptions
   , handleExpandParent
+  , updateAbsolutePositions
   , updateConnectionLookup
   )
 
@@ -247,26 +248,39 @@ reduceMergeNodeInternals
    . ReactFlowState n e
   -> NodeInternalsResult n
   -> ReduceResult n e
-reduceMergeNodeInternals state r =
-  let
-    s1 = state
-      { nodeLookup = r.nodeLookup
-      , parentLookup = r.parentLookup
-      , nodesInitialized =
-          if r.updatedInternals then true else state.nodesInitialized
-      }
-    -- Mirror the React store's `updateNodeInternals`: once internals have
-    -- been measured, if a fit was queued (e.g. the initial `fitView` flag),
-    -- resolve it now and clear the flag. `r.triggerFitView` stays an explicit
-    -- opt-in for imperative `updateNodeInternals` callers.
-    fitNow = (state.fitViewQueued && r.updatedInternals) || r.triggerFitView
-    s2 = if fitNow then s1 { fitViewQueued = false } else s1
-    afterChanges =
-      if Array.null r.changes then { state: s2, effects: [] }
-      else reduceTriggerNodeChanges s2 r.changes
-    extra = if fitNow then [ ResolveFitView true ] else []
-  in
-    afterChanges { effects = afterChanges.effects <> extra }
+reduceMergeNodeInternals state r
+  -- TS `if (!updatedInternals) return;`: nothing was measured, so nothing
+  -- is set, fitted, or reported.
+  | not r.updatedInternals = { state, effects: [] }
+  | otherwise =
+      let
+        -- TS `updateAbsolutePositions(nodeLookup, parentLookup, ...)`, now
+        -- that the measured dimensions are in the lookup. TS doesn't touch
+        -- `nodesInitialized` here; `setNodes` sets it when the measured
+        -- nodes come back.
+        positioned = updateAbsolutePositions r.nodeLookup r.parentLookup
+          ( defaultUpdateNodesOptions
+              { nodeOrigin = state.nodeOrigin
+              , nodeExtent = state.nodeExtent
+              , zIndexMode = state.zIndexMode
+              }
+          )
+        s1 = state
+          { nodeLookup = positioned.nodeLookup
+          , parentLookup = positioned.parentLookup
+          }
+        -- TS resolves a queued fit, such as the initial `fitView`, before
+        -- it triggers the node changes, so the viewport moves before
+        -- `onNodesChange` fires. `r.triggerFitView` is ps-flow's: nothing
+        -- sets it, and upstream's action takes no such parameter.
+        fitNow = state.fitViewQueued || r.triggerFitView
+        s2 = if fitNow then s1 { fitViewQueued = false } else s1
+        fit = if fitNow then [ ResolveFitView true ] else []
+        afterChanges =
+          if Array.null r.changes then { state: s2, effects: [] }
+          else reduceTriggerNodeChanges s2 r.changes
+      in
+        afterChanges { effects = fit <> afterChanges.effects }
 
 -- UpdateNodePositions ---------------------------------------------------
 
