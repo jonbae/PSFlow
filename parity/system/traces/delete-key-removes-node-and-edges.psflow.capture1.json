@@ -537,7 +537,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 313.8000000715256,
+            "timeStamp": 330.2000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -606,7 +606,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 313.8000000715256,
+            "timeStamp": 330.2000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -682,7 +682,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 313.8000000715256,
+            "timeStamp": 330.2000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -747,7 +747,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 313.8000000715256,
+            "timeStamp": 330.2000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -967,7 +967,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 338.60000002384186,
+            "timeStamp": 355.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1022,6 +1022,114 @@
         ]
       },
       {
+        "name": "onBeforeDelete",
+        "args": [
+          {
+            "nodes": [
+              {
+                "id": "Node-1",
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "data": {
+                  "label": "Node-1"
+                },
+                "type": "input",
+                "selected": true,
+                "measured": {
+                  "width": 150,
+                  "height": 37
+                },
+                "className": "playwright-test-class-123",
+                "style": {
+                  "backgroundColor": "red"
+                }
+              }
+            ],
+            "edges": [
+              {
+                "id": "1-2",
+                "type": "default",
+                "source": "Node-1",
+                "target": "Node-2",
+                "label": "edge"
+              },
+              {
+                "id": "1-3",
+                "type": "default",
+                "source": "Node-1",
+                "target": "Node-3",
+                "label": "edge"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "onEdgesDelete",
+        "args": [
+          [
+            {
+              "id": "1-2",
+              "type": "default",
+              "source": "Node-1",
+              "target": "Node-2",
+              "label": "edge"
+            },
+            {
+              "id": "1-3",
+              "type": "default",
+              "source": "Node-1",
+              "target": "Node-3",
+              "label": "edge"
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onEdgesChange",
+        "args": [
+          [
+            {
+              "type": "remove",
+              "id": "1-2"
+            },
+            {
+              "type": "remove",
+              "id": "1-3"
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodesDelete",
+        "args": [
+          [
+            {
+              "id": "Node-1",
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "data": {
+                "label": "Node-1"
+              },
+              "type": "input",
+              "selected": true,
+              "measured": {
+                "width": 150,
+                "height": 37
+              },
+              "className": "playwright-test-class-123",
+              "style": {
+                "backgroundColor": "red"
+              }
+            }
+          ]
+        ]
+      },
+      {
         "name": "onNodesChange",
         "args": [
           [
@@ -1030,6 +1138,51 @@
               "id": "Node-1"
             }
           ]
+        ]
+      },
+      {
+        "name": "onDelete",
+        "args": [
+          {
+            "nodes": [
+              {
+                "id": "Node-1",
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "data": {
+                  "label": "Node-1"
+                },
+                "type": "input",
+                "selected": true,
+                "measured": {
+                  "width": 150,
+                  "height": 37
+                },
+                "className": "playwright-test-class-123",
+                "style": {
+                  "backgroundColor": "red"
+                }
+              }
+            ],
+            "edges": [
+              {
+                "id": "1-2",
+                "type": "default",
+                "source": "Node-1",
+                "target": "Node-2",
+                "label": "edge"
+              },
+              {
+                "id": "1-3",
+                "type": "default",
+                "source": "Node-1",
+                "target": "Node-3",
+                "label": "edge"
+              }
+            ]
+          }
         ]
       },
       {
@@ -1064,7 +1217,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 364.5,
+            "timeStamp": 382.2999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1300,28 +1453,9 @@
             }
           }
         },
-        "getEdges": [
-          {
-            "id": "1-2",
-            "type": "default",
-            "source": "Node-1",
-            "target": "Node-2",
-            "label": "edge"
-          },
-          {
-            "id": "1-3",
-            "type": "default",
-            "source": "Node-1",
-            "target": "Node-3",
-            "label": "edge"
-          }
-        ],
+        "getEdges": [],
         "getEdge": {
-          "id": "1-2",
-          "type": "default",
-          "source": "Node-1",
-          "target": "Node-2",
-          "label": "edge"
+          "@undefined": true
         },
         "getIntersectingNodes": [
           {
@@ -1465,15 +1599,7 @@
           "height": 700
         },
         "getHandleConnections": [],
-        "getNodeConnections": [
-          {
-            "edgeId": "1-2",
-            "source": "Node-1",
-            "target": "Node-2",
-            "sourceHandle": null,
-            "targetHandle": null
-          }
-        ],
+        "getNodeConnections": [],
         "toObject": {
           "nodes": [
             {
@@ -1609,22 +1735,7 @@
               "hidden": true
             }
           ],
-          "edges": [
-            {
-              "id": "1-2",
-              "type": "default",
-              "source": "Node-1",
-              "target": "Node-2",
-              "label": "edge"
-            },
-            {
-              "id": "1-3",
-              "type": "default",
-              "source": "Node-1",
-              "target": "Node-3",
-              "label": "edge"
-            }
-          ],
+          "edges": [],
           "viewport": {
             "x": 537.0172684458398,
             "y": 32,
